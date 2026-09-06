@@ -43,6 +43,9 @@ export interface ActiveUser {
   workoutType?: string;
   centerName?: string;
   startedAt?: string;
+  liveExerciseName?: string | null;
+  liveSetCount?: number | null;
+  liveExerciseCount?: number | null;
   liveDemoSeed?: LiveCenterUserDemoSeed;
 }
 
@@ -142,11 +145,11 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
         </View>
         <View style={styles.pill}>
           <Text style={styles.pillEmoji}>🔥</Text>
-          <Text style={styles.pillText}>streak aktiv</Text>
+          <Text style={styles.pillText}>{t('phase2ui.streakActive')}</Text>
         </View>
       </View>
 
-      <Text style={styles.sectionTitle}>Live i centret</Text>
+      <Text style={styles.sectionTitle}>{t('phase2ui.liveInCenter')}</Text>
 
       <View style={styles.gridContainer}>
         {rowChunks.map((row, rowIdx) => (
@@ -187,16 +190,38 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
                   <Text style={styles.userName} numberOfLines={1}>
                     {user.name}
                   </Text>
-                  <Text style={styles.trainingType} numberOfLines={2}>
-                    {user.workoutEmoji ? `${user.workoutEmoji} ` : ''}
-                    {formatWorkoutTypeDisplay(
-                      user.workoutType || 'cardio',
-                      getRuntimeLanguage(),
-                    )}
-                  </Text>
-                  <Text style={styles.durationText} numberOfLines={1}>
-                    {durationLine}
-                  </Text>
+                  {user.liveExerciseName ? (
+                    <>
+                      <Text style={styles.trainingType} numberOfLines={2}>
+                        {user.liveExerciseName}
+                        {user.liveSetCount != null
+                          ? ` · ${user.liveSetCount} sæt`
+                          : ''}
+                      </Text>
+                      {user.liveExerciseCount != null && user.liveExerciseCount > 0 ? (
+                        <Text style={styles.durationText} numberOfLines={1}>
+                          {user.liveExerciseCount} øvelser logget
+                        </Text>
+                      ) : (
+                        <Text style={styles.durationText} numberOfLines={1}>
+                          {durationLine}
+                        </Text>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <Text style={styles.trainingType} numberOfLines={2}>
+                        {user.workoutEmoji ? `${user.workoutEmoji} ` : ''}
+                        {formatWorkoutTypeDisplay(
+                          user.workoutType || 'cardio',
+                          getRuntimeLanguage(),
+                        )}
+                      </Text>
+                      <Text style={styles.durationText} numberOfLines={1}>
+                        {durationLine}
+                      </Text>
+                    </>
+                  )}
                   {streak > 0 && badge ? (
                     <Text style={styles.streakMeta} numberOfLines={1}>
                       {badge} {streak}d

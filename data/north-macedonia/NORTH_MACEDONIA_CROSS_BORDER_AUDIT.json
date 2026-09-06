@@ -1,0 +1,105 @@
+{
+  "greece_ready": 0,
+  "kosovo_ready": 0,
+  "serbia_ready": 0,
+  "bulgaria_ready": 0,
+  "albania_ready": 0,
+  "greek_macedonia_false_positives_ready": 0,
+  "foreign_probes_staged": 13,
+  "foreign_probes_excluded": 13,
+  "ready_all_zero": true,
+  "probes": [
+    {
+      "name": "Thessaloniki border probe",
+      "city": "Thessaloniki",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Florina border probe",
+      "city": "Florina",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Edessa border probe",
+      "city": "Edessa",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Kilkis border probe",
+      "city": "Kilkis",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Pristina border probe",
+      "city": "Pristina",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Ferizaj border probe",
+      "city": "Ferizaj",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Gjilan border probe",
+      "city": "Gjilan",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Vranje border probe",
+      "city": "Vranje",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Preševo border probe",
+      "city": "Preševo",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Kyustendil border probe",
+      "city": "Kyustendil",
+      "territory": "Bulgaria",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Blagoevgrad border probe",
+      "city": "Blagoevgrad",
+      "territory": "Bulgaria",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Korçë border probe",
+      "city": "Korçë",
+      "territory": "Albania",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    },
+    {
+      "name": "Pogradec border probe",
+      "city": "Pogradec",
+      "territory": "Albania",
+      "import_category": "EXCLUDED",
+      "in_mk_gate": false
+    }
+  ],
+  "notes": "Phase2: all foreign probes remain EXCLUDED; cross-border READY = 0."
+}

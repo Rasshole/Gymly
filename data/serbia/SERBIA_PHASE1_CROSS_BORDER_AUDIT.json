@@ -1,0 +1,58 @@
+{
+  "hungary_ready": 0,
+  "romania_ready": 0,
+  "mk_ready": 0,
+  "ba_ready": 0,
+  "kosovo_ready": 0,
+  "foreign_probes_staged": 6,
+  "foreign_probes_excluded": 6,
+  "mitrovica_identity_gate": {
+    "sremska_mitrovica_serbia": true,
+    "kosovo_mitrovica_excluded": true,
+    "notes": "Sremska Mitrovica staged as Serbia; Kosovo Mitrovica probe EXCLUDED"
+  },
+  "probes": [
+    {
+      "name": "Szeged HU border probe",
+      "city": "Szeged",
+      "territory": "Hungary",
+      "import_category": "EXCLUDED",
+      "in_rs_gate": false
+    },
+    {
+      "name": "Skopje MK gym probe",
+      "city": "Skopje",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_rs_gate": false
+    },
+    {
+      "name": "Bijeljina BA gym probe",
+      "city": "Bijeljina",
+      "territory": "Bosnia and Herzegovina",
+      "import_category": "EXCLUDED",
+      "in_rs_gate": false
+    },
+    {
+      "name": "Timișoara RO border probe",
+      "city": "Timișoara",
+      "territory": "Romania",
+      "import_category": "EXCLUDED",
+      "in_rs_gate": false
+    },
+    {
+      "name": "Prishtina Kosovo false positive as Serbia",
+      "city": "Prishtina",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_rs_gate": false
+    },
+    {
+      "name": "Kosovo Mitrovica gym probe — NOT Sremska Mitrovica",
+      "city": "Mitrovica",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_rs_gate": false
+    }
+  ]
+}

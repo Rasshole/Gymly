@@ -1,0 +1,50 @@
+{
+  "phase": 2,
+  "ready_count": 20,
+  "same_brand": {
+    "lte_25m": [],
+    "lte_50m": [],
+    "lte_100m": [],
+    "lte_200m": [],
+    "identical": []
+  },
+  "different_brand_lte_100m": [
+    {
+      "a_id": "lu_a61ce060d4",
+      "b_id": "lu_987be28ebf",
+      "brand": "Basic-Fit",
+      "distance_m": 57,
+      "same_address": false,
+      "a_brand": "Basic-Fit",
+      "b_brand": "JIMS",
+      "a_name": "Basic-Fit Luxembourg",
+      "b_name": "JIMS Gare",
+      "classification": "A_legitimate_adjacent_premises"
+    }
+  ],
+  "foetz": {
+    "classification": "A_distinct_same_complex",
+    "production_decision": "CASE_A_TWO_LEGITIMATE_CURRENT_PHYSICAL_CLUBS",
+    "jims_status": "COMING_SOON",
+    "note": "JIMS Foetz not in READY; same-street text with Basic-Fit is CASE A"
+  },
+  "junck": {
+    "pair": "Basic-Fit Junck 12 vs JIMS Gare Junck 11",
+    "basic_fit": {
+      "id": "lu_a61ce060d4",
+      "address": "Rue Joseph Junck 12",
+      "lat": 49.6008266,
+      "lng": 6.1324294
+    },
+    "jims": {
+      "id": "lu_987be28ebf",
+      "address": "Rue Joseph Junck 11",
+      "lat": 49.6004103,
+      "lng": 6.1319654
+    },
+    "distance_m": 57.1,
+    "classification": "A_legitimate_adjacent_premises",
+    "decision": "retain_both",
+    "notes": "Distinct street numbers 11 vs 12; distinct brands; both currently open"
+  }
+}

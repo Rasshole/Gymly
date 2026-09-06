@@ -1,0 +1,40 @@
+{
+  "cities": {
+    "Tirana": "independent_present_candidate",
+    "Durrës": "independent_present_candidate",
+    "Vlorë": "independent_present_candidate",
+    "Shkodër": "independent_present_candidate",
+    "Elbasan": "independent_present_candidate",
+    "Fier": "independent_present_candidate",
+    "Korçë": "independent_present_candidate",
+    "Berat": "independent_present_candidate",
+    "Lushnjë": "independent_present_candidate",
+    "Pogradec": "independent_present_candidate",
+    "Kavajë": "independent_present_candidate",
+    "Gjirokastër": "independent_present_candidate",
+    "Sarandë": "independent_present_candidate",
+    "Lezhë": "independent_present_candidate",
+    "Kukës": "independent_present_candidate",
+    "Peshkopi": "independent_present_candidate",
+    "Kamëz": "independent_present_candidate",
+    "Krujë": "independent_present_candidate",
+    "Patos": "independent_present_candidate",
+    "Kuçovë": "independent_present_candidate",
+    "Laç": "independent_present_candidate",
+    "Burrel": "independent_present_candidate",
+    "Librazhd": "independent_present_candidate",
+    "Gramsh": "independent_present_candidate",
+    "Tepelenë": "independent_present_candidate",
+    "Golem": "A_legitimate_no_local_gym",
+    "Konispol": "A_legitimate_no_local_gym",
+    "Ksamil": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [],
+  "phase1_justified_a_gaps": [
+    "Golem",
+    "Konispol",
+    "Ksamil"
+  ]
+}

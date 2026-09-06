@@ -1,0 +1,13 @@
+{
+  "country": "Russia",
+  "phase": 1,
+  "entries": [
+    {
+      "legacy": "Alex Gym",
+      "successor": "Alex Fitness",
+      "classification": "SAME_ACTIVE_IDENTITY",
+      "notes": "Alex Gym regional branding maps to Alex Fitness operator"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

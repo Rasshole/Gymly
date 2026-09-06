@@ -1,0 +1,12 @@
+{
+  "catalog_total": 12034,
+  "centers_json_bytes": 3746747,
+  "parse_ms": 27.23,
+  "representative_search_ms": 6.19,
+  "architecture": "KEEP CLIENT-SIDE",
+  "assessment": "HEALTHY",
+  "headroom_to_12500": 466,
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "global_stress_qa_run": false
+}

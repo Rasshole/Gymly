@@ -1,0 +1,67 @@
+{
+  "country": "Czechia",
+  "prefix": "cz_",
+  "generated_at": "2026-08-22T21:07:59.225516+00:00",
+  "production_total": 10772,
+  "unique_staged": 70,
+  "status_counts": {
+    "READY_TO_IMPORT": 53,
+    "NEEDS_REVIEW": 12,
+    "NEEDS_COORDINATES": 5
+  },
+  "ready_count": 53,
+  "ready_by_brand": {
+    "Form Factory": 28,
+    "Max Fitness": 23,
+    "Oktagon Gym": 1,
+    "FITINN": 1
+  },
+  "brand_counts": {
+    "Form Factory": 44,
+    "Max Fitness": 24,
+    "Oktagon Gym": 1,
+    "FITINN": 1
+  },
+  "city_coverage": {
+    "Praha": true,
+    "Brno": true,
+    "Ostrava": true,
+    "Plzeň": true,
+    "Liberec": true,
+    "Olomouc": false,
+    "České Budějovice": true,
+    "Hradec Králové": false,
+    "Pardubice": true,
+    "Zlín": false,
+    "Ústí nad Labem": false,
+    "Jihlava": false,
+    "Karlovy Vary": false
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "production_collisions": 0,
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 10825,
+  "verdict": "CZECHIA PHASE 2 REQUIRED BEFORE MERGE",
+  "coverage_notes": {
+    "Form Factory": "Highest priority — club pages via formfactory.cz/klub",
+    "Max Fitness": "Official branches from maxfitness.cz",
+    "FITINN": "Czech studios via fitinn.at (CZ-only filter)",
+    "clever fit": "CZ listing thin — Phase 2 if materially incomplete",
+    "McFIT / John Reed": "Not confirmed present in Phase 1"
+  },
+  "geocoded_this_run": 17
+}

@@ -1,0 +1,4752 @@
+[
+  {
+    "id": "ch_d9bd0d80d2",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Aarau Bahnhof",
+    "address": "Bahnhofplatz 3h",
+    "postal_code": "5000",
+    "city": "Aarau",
+    "lat": 47.3920896,
+    "lng": 8.0537979
+  },
+  {
+    "id": "ch_53e82ae848",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Aarau Industrie",
+    "address": "Rohrerstrasse 78",
+    "postal_code": "5000",
+    "city": "Aarau",
+    "lat": 47.394948,
+    "lng": 8.0618517
+  },
+  {
+    "id": "ch_b8579b239a",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Abtwil SG Säntispark",
+    "address": "Wiesenbachstrasse 9",
+    "postal_code": "9030",
+    "city": "Abtwil SG",
+    "lat": 47.418998,
+    "lng": 9.315954
+  },
+  {
+    "id": "ch_dfec1e95d0",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Carouge Acacias",
+    "address": "Rue du Grand-Bureau 17",
+    "postal_code": "1227",
+    "city": "Carouge",
+    "lat": 46.1904906,
+    "lng": 6.1353826
+  },
+  {
+    "id": "ch_dfeb786c28",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Adliswil",
+    "address": "Zürichstrasse 52",
+    "postal_code": "8134",
+    "city": "Adliswil",
+    "lat": 47.3222529,
+    "lng": 8.529213
+  },
+  {
+    "id": "ch_5c9d26b269",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Affoltern a.A.",
+    "address": "Obstgartenstrasse 1",
+    "postal_code": "8910",
+    "city": "Affoltern am Albis",
+    "lat": 47.2740311,
+    "lng": 8.44063
+  },
+  {
+    "id": "ch_fc9c3e7448",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Aigle",
+    "address": "Allée Ferdi Kübler 2",
+    "postal_code": "1860",
+    "city": "Aigle",
+    "lat": 46.3187264,
+    "lng": 6.9351054
+  },
+  {
+    "id": "ch_f687ade100",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Allschwil",
+    "address": "Lachenstrasse 1",
+    "postal_code": "4123",
+    "city": "Allschwil",
+    "lat": 47.562228,
+    "lng": 7.555043
+  },
+  {
+    "id": "ch_f0b282872d",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Altdorf",
+    "address": "Neuland 12",
+    "postal_code": "6460",
+    "city": "Altdorf",
+    "lat": 46.8632297,
+    "lng": 8.6357176
+  },
+  {
+    "id": "ch_a117843e40",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Amriswil",
+    "address": "Kirchstrasse 9",
+    "postal_code": "8580",
+    "city": "Amriswil",
+    "lat": 47.5469211,
+    "lng": 9.2961157
+  },
+  {
+    "id": "ch_df0d0774c7",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Arbon",
+    "address": "Stickereistrasse 4",
+    "postal_code": "9320",
+    "city": "Arbon",
+    "lat": 47.5108096,
+    "lng": 9.4296596
+  },
+  {
+    "id": "ch_b96230b1cf",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Baar",
+    "address": "Langgasse 40",
+    "postal_code": "6340",
+    "city": "Baar",
+    "lat": 47.1961292,
+    "lng": 8.5362669
+  },
+  {
+    "id": "ch_fbb7c0531c",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Baden",
+    "address": "Bahnhofstrasse 31",
+    "postal_code": "5400",
+    "city": "Baden",
+    "lat": 47.477008,
+    "lng": 8.305984
+  },
+  {
+    "id": "ch_d93397efcb",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Genf Balexert",
+    "address": "Avenue Louis-Casaï 27",
+    "postal_code": "1211",
+    "city": "Genève",
+    "lat": 46.2187665,
+    "lng": 6.1109226
+  },
+  {
+    "id": "ch_4c79c6b2ae",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Basel Güterstrasse",
+    "address": "Güterstrasse 89/91",
+    "postal_code": "4053",
+    "city": "Basel",
+    "lat": 47.546493,
+    "lng": 7.585745
+  },
+  {
+    "id": "ch_2a36c3e720",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Bellinzona",
+    "address": "Viale Stazione 18",
+    "postal_code": "6500",
+    "city": "Bellinzona",
+    "lat": 46.1934455,
+    "lng": 9.0244676
+  },
+  {
+    "id": "ch_227ad6bab7",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Bern Burgernziel",
+    "address": "Thunstrasse 110",
+    "postal_code": "3006",
+    "city": "Bern",
+    "lat": 46.9413577,
+    "lng": 7.4658141
+  },
+  {
+    "id": "ch_2ad583f033",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Bern Parkterrasse",
+    "address": "Parkterrasse 14",
+    "postal_code": "3012",
+    "city": "Bern",
+    "lat": 46.9496175,
+    "lng": 7.4381069
+  },
+  {
+    "id": "ch_7bf7b71339",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Biasca",
+    "address": "Via Stefano Franscini 3",
+    "postal_code": "6710",
+    "city": "Biasca",
+    "lat": 46.351657,
+    "lng": 8.972639
+  },
+  {
+    "id": "ch_b0644bfab1",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Biel Bözingen",
+    "address": "Eckweg 8",
+    "postal_code": "2504",
+    "city": "Biel",
+    "lat": 47.149219,
+    "lng": 7.266035
+  },
+  {
+    "id": "ch_697d56f239",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Biel Elite",
+    "address": "Bahnhofstrasse 14",
+    "postal_code": "2501",
+    "city": "Biel",
+    "lat": 47.1343473,
+    "lng": 7.2442588
+  },
+  {
+    "id": "ch_8e6e70fe27",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Boudevilliers",
+    "address": "Route de Coffrane 2",
+    "postal_code": "2043",
+    "city": "Boudevilliers",
+    "lat": 47.0254541,
+    "lng": 6.8863955
+  },
+  {
+    "id": "ch_1df4af540f",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Brig",
+    "address": "Belalpstrasse 3",
+    "postal_code": "3900",
+    "city": "Brig",
+    "lat": 46.324618,
+    "lng": 7.9862064
+  },
+  {
+    "id": "ch_2331124cb1",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Buchs SG",
+    "address": "Heldaustrasse 68",
+    "postal_code": "9470",
+    "city": "Buchs SG",
+    "lat": 47.1641176,
+    "lng": 9.4763304
+  },
+  {
+    "id": "ch_b57b5eb694",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Bülach",
+    "address": "Schaffhauserstr. 55",
+    "postal_code": "8180",
+    "city": "Bülach",
+    "lat": 47.5212656,
+    "lng": 8.5393358
+  },
+  {
+    "id": "ch_de86d203e1",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Bulle",
+    "address": "Rue de l‘ Europe 20",
+    "postal_code": "1630",
+    "city": "Bulle",
+    "lat": 46.6256848,
+    "lng": 7.053843
+  },
+  {
+    "id": "ch_a1cd94dbf6",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Burgdorf",
+    "address": "Sägegasse 20",
+    "postal_code": "3400",
+    "city": "Burgdorf",
+    "lat": 47.0563347,
+    "lng": 7.6280263
+  },
+  {
+    "id": "ch_7d5f23d8f6",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Chur",
+    "address": "Wiesentalstrasse 7",
+    "postal_code": "7000",
+    "city": "Chur",
+    "lat": 46.8569823,
+    "lng": 9.5278717
+  },
+  {
+    "id": "ch_735f8c01fe",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Corcelles",
+    "address": "Place de la Gare 1b",
+    "postal_code": "2035",
+    "city": "Corcelles",
+    "lat": 46.98359,
+    "lng": 6.881109
+  },
+  {
+    "id": "ch_bfacae8293",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Delémont",
+    "address": "Place de la Poste 8",
+    "postal_code": "2800",
+    "city": "Delsberg",
+    "lat": 47.3620825,
+    "lng": 7.348411
+  },
+  {
+    "id": "ch_427508dbf5",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Dielsdorf",
+    "address": "Kronenstrasse 10",
+    "postal_code": "8157",
+    "city": "Dielsdorf",
+    "lat": 47.4834073,
+    "lng": 8.4532189
+  },
+  {
+    "id": "ch_41cb9d4ded",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Dietikon",
+    "address": "Löwenstr. 17",
+    "postal_code": "8953",
+    "city": "Dietikon",
+    "lat": 47.4054743,
+    "lng": 8.4003823
+  },
+  {
+    "id": "ch_f02d80eed2",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Dübendorf",
+    "address": "Wallisellenstr. 7a",
+    "postal_code": "8600",
+    "city": "Dübendorf",
+    "lat": 47.3980623,
+    "lng": 8.6161438
+  },
+  {
+    "id": "ch_663011ae43",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Ebikon",
+    "address": "Ebisquare-Strasse 2",
+    "postal_code": "6030",
+    "city": "Ebikon",
+    "lat": 47.0921868,
+    "lng": 8.3573208
+  },
+  {
+    "id": "ch_568f4cd886",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Emmenbrücke",
+    "address": "Oberhofstrasse 30",
+    "postal_code": "6020",
+    "city": "Emmenbrücke",
+    "lat": 47.0759401,
+    "lng": 8.2867128
+  },
+  {
+    "id": "ch_c1dc628c29",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Frauenfeld",
+    "address": "Schlossmühlestrasse 9",
+    "postal_code": "8500",
+    "city": "Frauenfeld",
+    "lat": 47.5547547,
+    "lng": 8.8953409
+  },
+  {
+    "id": "ch_c61cc7b6b4",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Frenkendorf",
+    "address": "Niederschönthalstrasse 2",
+    "postal_code": "4402",
+    "city": "Frenkendorf",
+    "lat": 47.501252,
+    "lng": 7.719646
+  },
+  {
+    "id": "ch_c32116efee",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Fribourg",
+    "address": "Rue Louis-d`Affry 6",
+    "postal_code": "1700",
+    "city": "Fribourg",
+    "lat": 46.8042696,
+    "lng": 7.1489371
+  },
+  {
+    "id": "ch_56efad1cab",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Genf Alpes",
+    "address": "Rue Thalberg 4",
+    "postal_code": "1201",
+    "city": "Genève",
+    "lat": 46.2094221,
+    "lng": 6.1453845
+  },
+  {
+    "id": "ch_d14ad67abb",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Genf Charmilles",
+    "address": "Rue de Lyon 120",
+    "postal_code": "1203",
+    "city": "Genève",
+    "lat": 46.2098953,
+    "lng": 6.1185802
+  },
+  {
+    "id": "ch_61b1fc6e79",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Genf Eaux-Vives Gare",
+    "address": "Avenue de la Gare-des-Eaux-Vives 7",
+    "postal_code": "1207",
+    "city": "Genève",
+    "lat": 46.2009614,
+    "lng": 6.164102
+  },
+  {
+    "id": "ch_b633295792",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Genf Maunoir",
+    "address": "Route de Frontenex 39B",
+    "postal_code": "1207",
+    "city": "Genève",
+    "lat": 46.2019177,
+    "lng": 6.160194
+  },
+  {
+    "id": "ch_b808098c84",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Genf Rhône",
+    "address": "Rue du Rhône 42",
+    "postal_code": "1204",
+    "city": "Genève",
+    "lat": 46.2042869,
+    "lng": 6.144541
+  },
+  {
+    "id": "ch_e82738a1cb",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Genf Vermont",
+    "address": "Rue de Vermont 8",
+    "postal_code": "1202",
+    "city": "Genève",
+    "lat": 46.215538,
+    "lng": 6.1327384
+  },
+  {
+    "id": "ch_e2e3d81f22",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Giubiasco",
+    "address": "Via Campagna 1",
+    "postal_code": "6512",
+    "city": "Giubiasco",
+    "lat": 46.1677084,
+    "lng": 9.00186
+  },
+  {
+    "id": "ch_90d76485d4",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Gossau SG",
+    "address": "Hirschenstrasse 41",
+    "postal_code": "9200",
+    "city": "Gossau SG",
+    "lat": 47.4131707,
+    "lng": 9.2526395
+  },
+  {
+    "id": "ch_6e7491118c",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Heimberg",
+    "address": "Bernstrasse 223",
+    "postal_code": "3627",
+    "city": "Heimberg",
+    "lat": 46.7824462,
+    "lng": 7.6079404
+  },
+  {
+    "id": "ch_044d37062a",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Herisau",
+    "address": "Gartenstrasse 2",
+    "postal_code": "9100",
+    "city": "Herisau",
+    "lat": 47.3861624,
+    "lng": 9.2834761
+  },
+  {
+    "id": "ch_c73305c539",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Hochdorf",
+    "address": "Industriestrasse 2b",
+    "postal_code": "6280",
+    "city": "Hochdorf",
+    "lat": 47.165213,
+    "lng": 8.283792
+  },
+  {
+    "id": "ch_838a82ca36",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Horgen",
+    "address": "Seestr. 129",
+    "postal_code": "8810",
+    "city": "Horgen",
+    "lat": 47.260972,
+    "lng": 8.5944132
+  },
+  {
+    "id": "ch_cf42a873f2",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Jona",
+    "address": "Feldlistrasse 9",
+    "postal_code": "8645",
+    "city": "Jona",
+    "lat": 47.2284446,
+    "lng": 8.8466036
+  },
+  {
+    "id": "ch_ffbd500274",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Kloten",
+    "address": "Marktgasse 5",
+    "postal_code": "8302",
+    "city": "Kloten",
+    "lat": 47.4502272,
+    "lng": 8.5807702
+  },
+  {
+    "id": "ch_374fff694b",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Köniz",
+    "address": "Sägestrasse 77",
+    "postal_code": "3098",
+    "city": "Köniz",
+    "lat": 46.9240458,
+    "lng": 7.4135388
+  },
+  {
+    "id": "ch_96f256edc6",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Kreuzlingen",
+    "address": "Hauptstrasse 63",
+    "postal_code": "8280",
+    "city": "Kreuzlingen",
+    "lat": 47.6478908,
+    "lng": 9.1732858
+  },
+  {
+    "id": "ch_61589e2e07",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Kriens",
+    "address": "Horwerstrasse 24a",
+    "postal_code": "6010",
+    "city": "Kriens",
+    "lat": 47.0300738,
+    "lng": 8.2874165
+  },
+  {
+    "id": "ch_2d35aeb0dd",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Küssnacht",
+    "address": "Fännring 2",
+    "postal_code": "6403",
+    "city": "Küssnacht",
+    "lat": 47.109262,
+    "lng": 8.4499984
+  },
+  {
+    "id": "ch_f2db41535e",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS La Chaux-de-Fonds",
+    "address": "Avenue Léopold-Robert 56",
+    "postal_code": "2300",
+    "city": "La Chaux-de-Fonds",
+    "lat": 47.1006764,
+    "lng": 6.8258518
+  },
+  {
+    "id": "ch_baf569ffb7",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Lachen",
+    "address": "Hintere Bahnhofstr.15",
+    "postal_code": "8853",
+    "city": "Lachen",
+    "lat": 47.1907735,
+    "lng": 8.84869
+  },
+  {
+    "id": "ch_61a5b2f61e",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Lancy Pont Rouge",
+    "address": "Route du Grand-Lancy",
+    "postal_code": "1212",
+    "city": "Grand-Lancy",
+    "lat": 46.187252,
+    "lng": 6.1250238
+  },
+  {
+    "id": "ch_f502066d28",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Lausanne Chauderon",
+    "address": "Place Chauderon 16",
+    "postal_code": "1003",
+    "city": "Lausanne",
+    "lat": 46.5237181,
+    "lng": 6.6233037
+  },
+  {
+    "id": "ch_a0eaea778d",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Lausanne Théâtre",
+    "address": "Avenue du Théâtre 1",
+    "postal_code": "1005",
+    "city": "Lausanne",
+    "lat": 46.5182668,
+    "lng": 6.6353433
+  },
+  {
+    "id": "ch_2ec3c55d41",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Losone",
+    "address": "Via dei Pioppi 2A",
+    "postal_code": "6616",
+    "city": "Losone",
+    "lat": 46.1664371,
+    "lng": 8.7710099
+  },
+  {
+    "id": "ch_08b3bdff86",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Lugano",
+    "address": "Via Pretorio 15",
+    "postal_code": "6900",
+    "city": "Lugano",
+    "lat": 46.0070453,
+    "lng": 8.9499205
+  },
+  {
+    "id": "ch_af3f373d3b",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Luzern Bundesplatz",
+    "address": "Bundesplatz 2a",
+    "postal_code": "6003",
+    "city": "Luzern",
+    "lat": 47.0455511,
+    "lng": 8.3093647
+  },
+  {
+    "id": "ch_031d55cda4",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Malters",
+    "address": "Mettlenmatte 10",
+    "postal_code": "6102",
+    "city": "Malters",
+    "lat": 47.03876,
+    "lng": 8.176033
+  },
+  {
+    "id": "ch_65a590c51b",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Martigny",
+    "address": "Rue des Avouillons 1",
+    "postal_code": "1920",
+    "city": "Martigny",
+    "lat": 46.1054118,
+    "lng": 7.0847861
+  },
+  {
+    "id": "ch_2e98da7a1c",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Meilen",
+    "address": "Alte Bergstrasse 2",
+    "postal_code": "8706",
+    "city": "Meilen",
+    "lat": 47.2669719,
+    "lng": 8.6479338
+  },
+  {
+    "id": "ch_83550d0ce6",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Mendrisio",
+    "address": "Via Luigi Lavizzari 2",
+    "postal_code": "6850",
+    "city": "Mendrisio",
+    "lat": 45.8704226,
+    "lng": 8.9838472
+  },
+  {
+    "id": "ch_d713a1bd22",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Monthey",
+    "address": "Rue de Venise 3",
+    "postal_code": "1870",
+    "city": "Monthey",
+    "lat": 46.2515611,
+    "lng": 6.9467183
+  },
+  {
+    "id": "ch_74a1abb19d",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Montreux",
+    "address": "Grand Rue 3",
+    "postal_code": "1820",
+    "city": "Montreux",
+    "lat": 46.4314614,
+    "lng": 6.9081956
+  },
+  {
+    "id": "ch_a86b84ae32",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Morges",
+    "address": "Rue Docteur Yersin 10",
+    "postal_code": "1110",
+    "city": "Morges",
+    "lat": 46.5128636,
+    "lng": 6.495948
+  },
+  {
+    "id": "ch_2a78872720",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Neuchâtel City-Centre",
+    "address": "Rue de l’Ecluse 30",
+    "postal_code": "2000",
+    "city": "Neuchâtel",
+    "lat": 46.9929042,
+    "lng": 6.9238126
+  },
+  {
+    "id": "ch_a1c394f8ec",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Neuchâtel Nid-Du Crô",
+    "address": "Route des Falaises 30",
+    "postal_code": "2000",
+    "city": "Neuchâtel",
+    "lat": 46.9985903,
+    "lng": 6.9548771
+  },
+  {
+    "id": "ch_3f2d06e58d",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Riehen Niederholz",
+    "address": "Gotenstrasse 84",
+    "postal_code": "4125",
+    "city": "Riehen",
+    "lat": 47.569662,
+    "lng": 7.6308593
+  },
+  {
+    "id": "ch_bd410e1922",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Nyon Morâche",
+    "address": "Rue de la Morâche 13",
+    "postal_code": "1260",
+    "city": "Nyon",
+    "lat": 46.3839647,
+    "lng": 6.2309253
+  },
+  {
+    "id": "ch_bbf9ee1fa2",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Olten",
+    "address": "Industriestrasse 78",
+    "postal_code": "4600",
+    "city": "Olten",
+    "lat": 47.3608296,
+    "lng": 7.914056
+  },
+  {
+    "id": "ch_a540d39089",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Petit-Lancy",
+    "address": "Route de Chancy 48",
+    "postal_code": "1213",
+    "city": "Petit-Lancy",
+    "lat": 46.1888491,
+    "lng": 6.1125162
+  },
+  {
+    "id": "ch_fc3f8c8d20",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Plan-les-Ouates",
+    "address": "Chemin du Champ-des-Filles 36",
+    "postal_code": "1228",
+    "city": "Plan-les-Ouates",
+    "lat": 46.165,
+    "lng": 6.104
+  },
+  {
+    "id": "ch_b3d4b54ea3",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Renens",
+    "address": "Quai Ouest, place de la Gare",
+    "postal_code": "1020",
+    "city": "Renens",
+    "lat": 46.537249,
+    "lng": 6.578257
+  },
+  {
+    "id": "ch_ea4084eebe",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Riazzino",
+    "address": "Centro Triangolo",
+    "postal_code": "6595",
+    "city": "Riazzino",
+    "lat": 46.1745211,
+    "lng": 8.8937945
+  },
+  {
+    "id": "ch_5e31d98bce",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Rothenburg",
+    "address": "Wahligenstrasse 4",
+    "postal_code": "6023",
+    "city": "Rothenburg",
+    "lat": 47.0958535,
+    "lng": 8.2445546
+  },
+  {
+    "id": "ch_fba86e0a6a",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Rotkreuz",
+    "address": "Suurstoffi 8/10 (ab Blegistrasse",
+    "postal_code": "6343",
+    "city": "Rotkreuz",
+    "lat": 47.1435144,
+    "lng": 8.4343373
+  },
+  {
+    "id": "ch_de87308c61",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Rüti",
+    "address": "Joweid Zentrum 6",
+    "postal_code": "8630",
+    "city": "Rüti ZH",
+    "lat": 47.263,
+    "lng": 8.854
+  },
+  {
+    "id": "ch_2f24a152c2",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Samedan",
+    "address": "Cho d'Punt Dadour 92",
+    "postal_code": "7503",
+    "city": "Samedan",
+    "lat": 46.531349,
+    "lng": 9.874192
+  },
+  {
+    "id": "ch_1f09e4e8ef",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Schaffhausen",
+    "address": "Mühlentalstrasse 65",
+    "postal_code": "8200",
+    "city": "Schaffhausen",
+    "lat": 47.703259,
+    "lng": 8.62889
+  },
+  {
+    "id": "ch_074fc02fe7",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Schlieren",
+    "address": "Güterstrasse 10",
+    "postal_code": "8952",
+    "city": "Schlieren",
+    "lat": 47.399,
+    "lng": 8.448
+  },
+  {
+    "id": "ch_e49a5fcf42",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Schönbühl",
+    "address": "Im Shoppyland",
+    "postal_code": "3321",
+    "city": "Urtenen-Schönbühl",
+    "lat": 47.0163721,
+    "lng": 7.4921182
+  },
+  {
+    "id": "ch_2d2af2486c",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Schwyz",
+    "address": "Strehlgasse 15",
+    "postal_code": "6430",
+    "city": "Schwyz",
+    "lat": 47.0202239,
+    "lng": 8.6555328
+  },
+  {
+    "id": "ch_eb56499a6c",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Sierre",
+    "address": "Rue de l’Industrie 19",
+    "postal_code": "3960",
+    "city": "Sierre",
+    "lat": 46.287744,
+    "lng": 7.532919
+  },
+  {
+    "id": "ch_a2c1fb77ce",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Sion Gare",
+    "address": "Rue de Pré-Fleuri 4",
+    "postal_code": "1950",
+    "city": "Sion",
+    "lat": 46.229,
+    "lng": 7.357
+  },
+  {
+    "id": "ch_65b9b77cca",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Sion Planta",
+    "address": "Avenue de la Gare 35",
+    "postal_code": "1950",
+    "city": "Sion",
+    "lat": 46.232224,
+    "lng": 7.356858
+  },
+  {
+    "id": "ch_403e583501",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Solothurn West",
+    "address": "Wengistrasse 17",
+    "postal_code": "4500",
+    "city": "Solothurn",
+    "lat": 47.207017,
+    "lng": 7.5327482
+  },
+  {
+    "id": "ch_626c462197",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Solothurn Bahnhof",
+    "address": "Dornacherstrasse 28",
+    "postal_code": "4500",
+    "city": "Solothurn",
+    "lat": 47.203933,
+    "lng": 7.540689
+  },
+  {
+    "id": "ch_d4a9844587",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS St. Gallen Silberturm",
+    "address": "Rorschacherstrasse 152",
+    "postal_code": "9006",
+    "city": "St. Gallen",
+    "lat": 47.43101,
+    "lng": 9.395605
+  },
+  {
+    "id": "ch_d6f338645c",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS St. Moritz",
+    "address": "Via Mezdi 17",
+    "postal_code": "7500",
+    "city": "St. Moritz",
+    "lat": 46.484168,
+    "lng": 9.83644
+  },
+  {
+    "id": "ch_330db29626",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Stäfa",
+    "address": "Bahnhofstrasse 28",
+    "postal_code": "8712",
+    "city": "Stäfa",
+    "lat": 47.24,
+    "lng": 8.721
+  },
+  {
+    "id": "ch_2af1b21a7f",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Stans",
+    "address": "Riedenmatt 2",
+    "postal_code": "6370",
+    "city": "Stans",
+    "lat": 46.9644266,
+    "lng": 8.3824973
+  },
+  {
+    "id": "ch_5856608cb6",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Stettbach",
+    "address": "Am Stadtrand 1",
+    "postal_code": "8600",
+    "city": "Dübendorf",
+    "lat": 47.396997,
+    "lng": 8.596962
+  },
+  {
+    "id": "ch_33fbf582dc",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Sursee",
+    "address": "Allmendstrasse 6",
+    "postal_code": "6210",
+    "city": "Sursee",
+    "lat": 47.1804536,
+    "lng": 8.1090986
+  },
+  {
+    "id": "ch_e96e9b7357",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Thal",
+    "address": "Wiesentalstrasse 4",
+    "postal_code": "9425",
+    "city": "Thal",
+    "lat": 47.479679,
+    "lng": 9.57746
+  },
+  {
+    "id": "ch_871b06557c",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Thun Bahnhof",
+    "address": "Panoramastrasse",
+    "postal_code": "3600",
+    "city": "Thun",
+    "lat": 46.7550708,
+    "lng": 7.6283968
+  },
+  {
+    "id": "ch_f61ae0b0e3",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Thun Panorama-Center",
+    "address": "Panorama Center",
+    "postal_code": "3604",
+    "city": "Thun",
+    "lat": 46.7448381,
+    "lng": 7.602354
+  },
+  {
+    "id": "ch_460faa1e5b",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS St. Gallen Unterer Graben",
+    "address": "Müller-Friedberg-Strasse 6",
+    "postal_code": "9000",
+    "city": "St. Gallen",
+    "lat": 47.427992,
+    "lng": 9.374954
+  },
+  {
+    "id": "ch_b4efc86444",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Uster",
+    "address": "Poststrasse 1",
+    "postal_code": "8610",
+    "city": "Uster",
+    "lat": 47.35,
+    "lng": 8.718
+  },
+  {
+    "id": "ch_5fca285db1",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Uzwil",
+    "address": "Lindenstrasse 5",
+    "postal_code": "9240",
+    "city": "Uzwil",
+    "lat": 47.436577,
+    "lng": 9.134892
+  },
+  {
+    "id": "ch_b532abc1af",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Vevey",
+    "address": "Rue des Entrepôts 4",
+    "postal_code": "1800",
+    "city": "Vevey",
+    "lat": 46.465,
+    "lng": 6.842
+  },
+  {
+    "id": "ch_0fd8772841",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Vezia",
+    "address": "Via San Gottardo 5",
+    "postal_code": "6943",
+    "city": "Vezia",
+    "lat": 46.021162,
+    "lng": 8.936615
+  },
+  {
+    "id": "ch_9b337e8240",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Volketswil",
+    "address": "Im Zentrum 18",
+    "postal_code": "8604",
+    "city": "Volketswil",
+    "lat": 47.388364,
+    "lng": 8.680564
+  },
+  {
+    "id": "ch_445aa6cc3f",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Wädenswil",
+    "address": "Steinacherstrasse 150",
+    "postal_code": "8820",
+    "city": "Wädenswil",
+    "lat": 47.236,
+    "lng": 8.636
+  },
+  {
+    "id": "ch_95fd01051d",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Wetzikon",
+    "address": "Bahnhofstrasse 99g",
+    "postal_code": "8620",
+    "city": "Wetzikon",
+    "lat": 47.324,
+    "lng": 8.798
+  },
+  {
+    "id": "ch_bb8d6d35b3",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Wil SG",
+    "address": "Hubstrasse 24",
+    "postal_code": "9500",
+    "city": "Wil",
+    "lat": 47.461483,
+    "lng": 9.040358
+  },
+  {
+    "id": "ch_28884794d9",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Willisau",
+    "address": "Schlossfeldstrasse 5a",
+    "postal_code": "6130",
+    "city": "Willisau",
+    "lat": 47.1161293,
+    "lng": 7.9896678
+  },
+  {
+    "id": "ch_d07e0ebe93",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Winterthur Archhöfe",
+    "address": "Archplatz 4",
+    "postal_code": "8400",
+    "city": "Winterthur",
+    "lat": 47.498444,
+    "lng": 8.724536
+  },
+  {
+    "id": "ch_f59a57446d",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Winterthur WIN4",
+    "address": "Grüzefeldstrasse 32",
+    "postal_code": "8400",
+    "city": "Winterthur",
+    "lat": 47.494681,
+    "lng": 8.749025
+  },
+  {
+    "id": "ch_1895149893",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zofingen",
+    "address": "Brühlstrasse 5",
+    "postal_code": "4800",
+    "city": "Zofingen",
+    "lat": 47.286981,
+    "lng": 7.941872
+  },
+  {
+    "id": "ch_eeb23e9ed2",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Altstetten",
+    "address": "Hohlstrasse 600",
+    "postal_code": "8048",
+    "city": "Zürich",
+    "lat": 47.3914707,
+    "lng": 8.4853414
+  },
+  {
+    "id": "ch_4af74187f0",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Bellevue",
+    "address": "Theaterstrasse 12b",
+    "postal_code": "8001",
+    "city": "Zürich",
+    "lat": 47.3666778,
+    "lng": 8.5463779
+  },
+  {
+    "id": "ch_ffd396efe2",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Central",
+    "address": "Weinbergstrasse 5",
+    "postal_code": "8001",
+    "city": "Zürich",
+    "lat": 47.378,
+    "lng": 8.544
+  },
+  {
+    "id": "ch_2c62ab2bc5",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Forum",
+    "address": "Badenerstrasse 120",
+    "postal_code": "8004",
+    "city": "Zürich",
+    "lat": 47.3744626,
+    "lng": 8.5237495
+  },
+  {
+    "id": "ch_95d97b4f11",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Kreuzplatz",
+    "address": "Kreuzplatz 20",
+    "postal_code": "8008",
+    "city": "Zürich",
+    "lat": 47.364695,
+    "lng": 8.553811
+  },
+  {
+    "id": "ch_f8225df16e",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Langstrasse",
+    "address": "Langstrasse 192",
+    "postal_code": "8005",
+    "city": "Zürich",
+    "lat": 47.382,
+    "lng": 8.53
+  },
+  {
+    "id": "ch_695d4a20c3",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Limmatplatz",
+    "address": "Limmatplatz 4/6",
+    "postal_code": "8005",
+    "city": "Zürich",
+    "lat": 47.384509,
+    "lng": 8.53111
+  },
+  {
+    "id": "ch_5cb2616ff8",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Oerlikon",
+    "address": "Thurgauerstrasse 32",
+    "postal_code": "8050",
+    "city": "Zürich",
+    "lat": 47.413,
+    "lng": 8.551
+  },
+  {
+    "id": "ch_b8a82b6fac",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Stauffacher",
+    "address": "Badenerstrasse 9",
+    "postal_code": "8004",
+    "city": "Zürich",
+    "lat": 47.373,
+    "lng": 8.531
+  },
+  {
+    "id": "ch_5f8b5f2ab4",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Tiefenbrunnen",
+    "address": "Seefeldstrasse 225",
+    "postal_code": "8008",
+    "city": "Zürich",
+    "lat": 47.352,
+    "lng": 8.561
+  },
+  {
+    "id": "ch_8a7740a777",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Wiedikon",
+    "address": "Birmensdorferstrasse 320",
+    "postal_code": "8055",
+    "city": "Zürich",
+    "lat": 47.3698928,
+    "lng": 8.505729
+  },
+  {
+    "id": "ch_757a871360",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Zürich Wipkingen",
+    "address": "Nordbrücke 4",
+    "postal_code": "8037",
+    "city": "Zürich",
+    "lat": 47.393615,
+    "lng": 8.529681
+  },
+  {
+    "id": "ch_1dfb8c1589",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Bern City",
+    "address": "Christoffelgasse 6",
+    "postal_code": "3011",
+    "city": "Bern",
+    "lat": 46.9467312,
+    "lng": 7.4414188
+  },
+  {
+    "id": "ch_c9e43bde48",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Zürich Glattpark",
+    "address": "Thurgauerstrasse 106",
+    "postal_code": "8152",
+    "city": "Glattbrugg",
+    "lat": 47.4210496,
+    "lng": 8.5579614
+  },
+  {
+    "id": "ch_fb66457b57",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Oberhofen",
+    "address": "Staatsstrasse 34",
+    "postal_code": "3653",
+    "city": "Oberhofen am Thunersee",
+    "lat": 46.7281182,
+    "lng": 7.6722362
+  },
+  {
+    "id": "ch_51e62aca40",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Basel Heuwaage",
+    "address": "Steinentorberg 8",
+    "postal_code": "4051",
+    "city": "Basel",
+    "lat": 47.5504547,
+    "lng": 7.5872529
+  },
+  {
+    "id": "ch_18c5ffa63e",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Luzern Allmend",
+    "address": "Zihlmattweg 46",
+    "postal_code": "6005",
+    "city": "Luzern",
+    "lat": 47.0313468,
+    "lng": 8.3046528
+  },
+  {
+    "id": "ch_a16ac96ae8",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Luzern National",
+    "address": "Haldenstrasse 23",
+    "postal_code": "6006",
+    "city": "Luzern",
+    "lat": 47.0554395,
+    "lng": 8.3153476
+  },
+  {
+    "id": "ch_6a5154619f",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Greifensee Milandia",
+    "address": "Im Grossriet 1",
+    "postal_code": "8606",
+    "city": "Greifensee",
+    "lat": 47.3766174,
+    "lng": 8.6722333
+  },
+  {
+    "id": "ch_0d58d5e59b",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Ostermundigen Time-Out",
+    "address": "Bernstrasse 114",
+    "postal_code": "3072",
+    "city": "Ostermundigen",
+    "lat": 46.9568291,
+    "lng": 7.4960411
+  },
+  {
+    "id": "ch_e681580d09",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Baden Trafo",
+    "address": "Brown Boveri Platz 1",
+    "postal_code": "5400",
+    "city": "Baden",
+    "lat": 47.478363,
+    "lng": 8.3052611
+  },
+  {
+    "id": "ch_f32474316a",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Winterthur",
+    "address": "Brunngasse 4",
+    "postal_code": "8400",
+    "city": "Winterthur",
+    "lat": 47.5049138,
+    "lng": 8.7255472
+  },
+  {
+    "id": "ch_f7bb5e1511",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Zürich Puls 5",
+    "address": "Giessereistrasse 18",
+    "postal_code": "8005",
+    "city": "Zürich",
+    "lat": 47.390581,
+    "lng": 8.5174657
+  },
+  {
+    "id": "ch_3f70bd3499",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Zürich Sihlcity",
+    "address": "Kalanderplatz 1",
+    "postal_code": "8045",
+    "city": "Zürich",
+    "lat": 47.3575136,
+    "lng": 8.5231137
+  },
+  {
+    "id": "ch_50d8195ea0",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Zürich Stadelhofen",
+    "address": "Hufgasse 10",
+    "postal_code": "8008",
+    "city": "Zürich",
+    "lat": 47.3650656,
+    "lng": 8.5489975
+  },
+  {
+    "id": "ch_c748d08a92",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Zürich Stockerhof",
+    "address": "Dreikönigstrasse 31A",
+    "postal_code": "8002",
+    "city": "Zürich",
+    "lat": 47.3664344,
+    "lng": 8.5350676
+  },
+  {
+    "id": "ch_14ffa2e003",
+    "brand": "Fitnesspark",
+    "name": "Fitnesspark Zug Eichstätte",
+    "address": "Baarerstrasse 53",
+    "postal_code": "6300",
+    "city": "Zug",
+    "lat": 47.1748579,
+    "lng": 8.5168962
+  },
+  {
+    "id": "ch_67d59c00be",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Pratteln aquabasilea",
+    "address": "Hardstrasse 57",
+    "postal_code": "4133",
+    "city": "Pratteln",
+    "lat": 47.5248127,
+    "lng": 7.6787443
+  },
+  {
+    "id": "ch_ce17dbd24f",
+    "brand": "PureGym",
+    "name": "PureGym Aarau",
+    "address": "Bahnhofstrasse 102",
+    "postal_code": "5000",
+    "city": "Aarau",
+    "lat": 47.39271545410156,
+    "lng": 8.054390907287598
+  },
+  {
+    "id": "ch_3fa8155ca0",
+    "brand": "PureGym",
+    "name": "PureGym Adliswil",
+    "address": "Soodring 36",
+    "postal_code": "8134",
+    "city": "Adliswil",
+    "lat": 47.31623840332031,
+    "lng": 8.520904541015625
+  },
+  {
+    "id": "ch_f7bd965987",
+    "brand": "PureGym",
+    "name": "PureGym Altdorf",
+    "address": "Bahnhofplatz 4",
+    "postal_code": "6460",
+    "city": "Altdorf UR",
+    "lat": 46.87705993652344,
+    "lng": 8.631987571716309
+  },
+  {
+    "id": "ch_588fcfcf3e",
+    "brand": "PureGym",
+    "name": "PureGym Baar",
+    "address": "Sihlbruggstrasse 3",
+    "postal_code": "6340",
+    "city": "Baar",
+    "lat": 47.19540786743164,
+    "lng": 8.527533531188965
+  },
+  {
+    "id": "ch_7ce9c8b192",
+    "brand": "PureGym",
+    "name": "PureGym Bachenbülach",
+    "address": "Grabenstrasse 2",
+    "postal_code": "8184",
+    "city": "Bachenbülach",
+    "lat": 47.50628662109375,
+    "lng": 8.541082382202148
+  },
+  {
+    "id": "ch_14492524f5",
+    "brand": "PureGym",
+    "name": "PureGym Basel Clara Huus",
+    "address": "Teichgässlein 9",
+    "postal_code": "4058",
+    "city": "Basel",
+    "lat": 47.56206130981445,
+    "lng": 7.592280864715576
+  },
+  {
+    "id": "ch_41b07cbcb4",
+    "brand": "PureGym",
+    "name": "PureGym Basel Dreispitz",
+    "address": "Leimgrubenweg 9",
+    "postal_code": "4053",
+    "city": "Basel",
+    "lat": 47.536773681640625,
+    "lng": 7.60788106918335
+  },
+  {
+    "id": "ch_48bd0dd431",
+    "brand": "PureGym",
+    "name": "PureGym Basel Markthalle",
+    "address": "Steinentorberg 20",
+    "postal_code": "4051",
+    "city": "Basel",
+    "lat": 47.549503326416016,
+    "lng": 7.587060928344727
+  },
+  {
+    "id": "ch_8b095a3743",
+    "brand": "PureGym",
+    "name": "PureGym Basel St. Johann",
+    "address": "Vogesenstrasse 87",
+    "postal_code": "4056",
+    "city": "Basel",
+    "lat": 47.5676155090332,
+    "lng": 7.576436996459961
+  },
+  {
+    "id": "ch_49c39df837",
+    "brand": "PureGym",
+    "name": "PureGym Bellinzona",
+    "address": "Ground Floor, Via Alla Moderna 2",
+    "postal_code": "6500",
+    "city": "Bellinzona",
+    "lat": 46.19872283935547,
+    "lng": 9.028817176818848
+  },
+  {
+    "id": "ch_ca2789777d",
+    "brand": "PureGym",
+    "name": "PureGym Bern Bümpliz",
+    "address": "Freiburgstrasse 251",
+    "postal_code": "3018",
+    "city": "Bern",
+    "lat": 46.93849182128906,
+    "lng": 7.3982157707214355
+  },
+  {
+    "id": "ch_2f0a9930d5",
+    "brand": "PureGym",
+    "name": "PureGym Bern Lorraine",
+    "address": "Dammweg 25a",
+    "postal_code": "3013",
+    "city": "Bern",
+    "lat": 46.95718765258789,
+    "lng": 7.446791172027588
+  },
+  {
+    "id": "ch_c7825d401c",
+    "brand": "PureGym",
+    "name": "PureGym Biel / Bienne",
+    "address": "Nidaugasse 35",
+    "postal_code": "2502",
+    "city": "Biel/Bienne",
+    "lat": 47.138851165771484,
+    "lng": 7.247057914733887
+  },
+  {
+    "id": "ch_5d17bfd143",
+    "brand": "PureGym",
+    "name": "PureGym Brugg",
+    "address": "Neumarktplatz 4",
+    "postal_code": "5200",
+    "city": "Brugg AG",
+    "lat": 47.482967376708984,
+    "lng": 8.207815170288086
+  },
+  {
+    "id": "ch_d3fd0883b7",
+    "brand": "PureGym",
+    "name": "PureGym Cham",
+    "address": "Hinterbergstrasse 19",
+    "postal_code": "6330",
+    "city": "Cham",
+    "lat": 47.18809509277344,
+    "lng": 8.47757625579834
+  },
+  {
+    "id": "ch_deaf5cc16b",
+    "brand": "PureGym",
+    "name": "PureGym Chur",
+    "address": "Rheinfelsstrasse 39",
+    "postal_code": "7000",
+    "city": "Chur",
+    "lat": 46.850341796875,
+    "lng": 9.510781288146973
+  },
+  {
+    "id": "ch_e46c4fc399",
+    "brand": "PureGym",
+    "name": "PureGym Dietikon",
+    "address": "Badenerstrasse 21",
+    "postal_code": "8953",
+    "city": "Dietikon",
+    "lat": 47.4058952331543,
+    "lng": 8.397405624389648
+  },
+  {
+    "id": "ch_29b232eec0",
+    "brand": "PureGym",
+    "name": "PureGym Dübendorf",
+    "address": "Zürichstrasse 127",
+    "postal_code": "8600",
+    "city": "Dübendorf",
+    "lat": 47.39596939086914,
+    "lng": 8.600133895874023
+  },
+  {
+    "id": "ch_6e5c86e750",
+    "brand": "PureGym",
+    "name": "PureGym Fribourg",
+    "address": "Rue de la Carriere 2A",
+    "postal_code": "1700",
+    "city": "Fribourg",
+    "lat": 46.80247116088867,
+    "lng": 7.146152019500732
+  },
+  {
+    "id": "ch_e00fc78601",
+    "brand": "PureGym",
+    "name": "PureGym Genf Le Bouchet",
+    "address": "Avenue du Bouchet 2bis",
+    "postal_code": "1209",
+    "city": "Genève",
+    "lat": 46.21621322631836,
+    "lng": 6.120171070098877
+  },
+  {
+    "id": "ch_98a5f4b377",
+    "brand": "PureGym",
+    "name": "PureGym Gossau",
+    "address": "Stadtbühlstrasse 4",
+    "postal_code": "9200",
+    "city": "Gossau SG",
+    "lat": 47.41219711303711,
+    "lng": 9.252182960510254
+  },
+  {
+    "id": "ch_7e81b3b3df",
+    "brand": "PureGym",
+    "name": "PureGym Horgen",
+    "address": "Seestrasse 83/93",
+    "postal_code": "8810",
+    "city": "Horgen",
+    "lat": 47.262367248535156,
+    "lng": 8.593042373657227
+  },
+  {
+    "id": "ch_d7a012c634",
+    "brand": "PureGym",
+    "name": "PureGym Jona",
+    "address": "Eichwiesstrasse 20",
+    "postal_code": "8645",
+    "city": "Jona",
+    "lat": 47.22473907470703,
+    "lng": 8.837474822998047
+  },
+  {
+    "id": "ch_c53c624e2d",
+    "brand": "PureGym",
+    "name": "PureGym Kriens",
+    "address": "Ringstrasse 25",
+    "postal_code": "6010",
+    "city": "Kriens",
+    "lat": 47.034061431884766,
+    "lng": 8.27788257598877
+  },
+  {
+    "id": "ch_37c19a5a07",
+    "brand": "PureGym",
+    "name": "PureGym La Chaux-de-Fonds",
+    "address": "Avenue Léopold-Robert 12",
+    "postal_code": "2300",
+    "city": "La Chaux-de-Fonds",
+    "lat": 47.102970123291016,
+    "lng": 6.82739782333374
+  },
+  {
+    "id": "ch_2297e6ec6e",
+    "brand": "PureGym",
+    "name": "PureGym Lenzburg",
+    "address": "Bahnhofstrasse 38",
+    "postal_code": "5600",
+    "city": "Lenzburg",
+    "lat": 47.39043045043945,
+    "lng": 8.172900199890137
+  },
+  {
+    "id": "ch_eb5312e81e",
+    "brand": "PureGym",
+    "name": "PureGym Lyss",
+    "address": "Hirschenplatz 1A",
+    "postal_code": "3250",
+    "city": "Lyss",
+    "lat": 47.07474136352539,
+    "lng": 7.307002067565918
+  },
+  {
+    "id": "ch_2df85a5343",
+    "brand": "PureGym",
+    "name": "PureGym Martigny",
+    "address": "Avenue de Fully 63",
+    "postal_code": "1920",
+    "city": "Martigny",
+    "lat": 46.1124382019043,
+    "lng": 7.076630115509033
+  },
+  {
+    "id": "ch_0dbba44b7f",
+    "brand": "PureGym",
+    "name": "PureGym Oftringen",
+    "address": "Nordstrasse 16",
+    "postal_code": "4665",
+    "city": "Oftringen",
+    "lat": 47.305389404296875,
+    "lng": 7.929378986358643
+  },
+  {
+    "id": "ch_be51912044",
+    "brand": "PureGym",
+    "name": "PureGym Olten",
+    "address": "Solothurnerstrasse 223",
+    "postal_code": "4600",
+    "city": "Olten",
+    "lat": 47.347938537597656,
+    "lng": 7.889423847198486
+  },
+  {
+    "id": "ch_14371d272e",
+    "brand": "PureGym",
+    "name": "PureGym Pfäffikon",
+    "address": "Eichenstrasse 4a",
+    "postal_code": "8808",
+    "city": "Pfäffikon SZ",
+    "lat": 47.197669982910156,
+    "lng": 8.76557731628418
+  },
+  {
+    "id": "ch_47454234ea",
+    "brand": "PureGym",
+    "name": "PureGym Lausanne Prilly",
+    "address": "Route de Cossonay 28",
+    "postal_code": "1008",
+    "city": "Prilly",
+    "lat": 46.534759521484375,
+    "lng": 6.606088161468506
+  },
+  {
+    "id": "ch_7ffffbf944",
+    "brand": "PureGym",
+    "name": "PureGym Rorschach",
+    "address": "Pestalozzistrasse 11",
+    "postal_code": "9400",
+    "city": "Rorschach",
+    "lat": 47.47366714477539,
+    "lng": 9.488404273986816
+  },
+  {
+    "id": "ch_5e3072d8d6",
+    "brand": "PureGym",
+    "name": "PureGym Schaffhausen",
+    "address": "Bleicheplatz 2",
+    "postal_code": "8200",
+    "city": "Schaffhausen",
+    "lat": 47.69939422607422,
+    "lng": 8.63149356842041
+  },
+  {
+    "id": "ch_babc528af9",
+    "brand": "PureGym",
+    "name": "PureGym Schlieren",
+    "address": "Am Rietpark Brandstrasse 39-43",
+    "postal_code": "8952",
+    "city": "Schlieren",
+    "lat": 47.40093994140625,
+    "lng": 8.441548347473145
+  },
+  {
+    "id": "ch_e66499b33b",
+    "brand": "PureGym",
+    "name": "PureGym Spreitenbach",
+    "address": "Bahnhofstrasse 134",
+    "postal_code": "8957",
+    "city": "Spreitenbach",
+    "lat": 47.42985916137695,
+    "lng": 8.358230590820312
+  },
+  {
+    "id": "ch_d6f3f407a6",
+    "brand": "PureGym",
+    "name": "PureGym Uster",
+    "address": "Pfäffikerstrasse 30",
+    "postal_code": "8610",
+    "city": "Uster",
+    "lat": 47.35703659057617,
+    "lng": 8.728002548217773
+  },
+  {
+    "id": "ch_83e68384cb",
+    "brand": "PureGym",
+    "name": "PureGym Vevey",
+    "address": "Av. du Général-Guisan 36B",
+    "postal_code": "1800",
+    "city": "Vevey",
+    "lat": 46.46577072143555,
+    "lng": 6.83896017074585
+  },
+  {
+    "id": "ch_d39c9dc95e",
+    "brand": "PureGym",
+    "name": "PureGym Volketswil",
+    "address": "Grabenwisstrasse 5",
+    "postal_code": "8604",
+    "city": "Volketswil",
+    "lat": 47.38299560546875,
+    "lng": 8.669207572937012
+  },
+  {
+    "id": "ch_6cb45c972b",
+    "brand": "PureGym",
+    "name": "PureGym Wettingen",
+    "address": "Schwimmbadstrasse 41",
+    "postal_code": "5430",
+    "city": "Wettingen",
+    "lat": 47.46077346801758,
+    "lng": 8.312849044799805
+  },
+  {
+    "id": "ch_05f113fe49",
+    "brand": "PureGym",
+    "name": "PureGym Wetzikon",
+    "address": "Buchgrindelstrasse 9",
+    "postal_code": "8620",
+    "city": "Wetzikon ZH",
+    "lat": 47.330528259277344,
+    "lng": 8.79013729095459
+  },
+  {
+    "id": "ch_2a58a700b3",
+    "brand": "PureGym",
+    "name": "PureGym Wil",
+    "address": "Obere Bahnhofstrasse 39",
+    "postal_code": "9600",
+    "city": "Wil",
+    "lat": 47.46476745605469,
+    "lng": 9.045393943786621
+  },
+  {
+    "id": "ch_2616c0f03e",
+    "brand": "PureGym",
+    "name": "PureGym Winterthur Grüze",
+    "address": "Industriestrasse 8",
+    "postal_code": "8400",
+    "city": "Winterthur",
+    "lat": 47.496490478515625,
+    "lng": 8.749016761779785
+  },
+  {
+    "id": "ch_8c83715ef3",
+    "brand": "PureGym",
+    "name": "PureGym Winterthur Töss",
+    "address": "Zürcherstrasse 51",
+    "postal_code": "8406",
+    "city": "Winterthur",
+    "lat": 47.49523162841797,
+    "lng": 8.712750434875488
+  },
+  {
+    "id": "ch_645a78b108",
+    "brand": "PureGym",
+    "name": "PureGym Wohlen",
+    "address": "Villmergerstrasse 38",
+    "postal_code": "5610",
+    "city": "Wohlen AG",
+    "lat": 47.34864044189453,
+    "lng": 8.259857177734375
+  },
+  {
+    "id": "ch_61c4832f78",
+    "brand": "PureGym",
+    "name": "PureGym Zürich Altstetten",
+    "address": "Badenerstrasse 569",
+    "postal_code": "8048",
+    "city": "Zürich",
+    "lat": 47.383583068847656,
+    "lng": 8.495558738708496
+  },
+  {
+    "id": "ch_b6f10e5812",
+    "brand": "PureGym",
+    "name": "PureGym Zürich Lochergut",
+    "address": "Pflanzschulstrasse 7",
+    "postal_code": "8004",
+    "city": "Zürich",
+    "lat": 47.375553131103516,
+    "lng": 8.519397735595703
+  },
+  {
+    "id": "ch_b1ba942c7d",
+    "brand": "PureGym",
+    "name": "PureGym Zürich Oerlikon",
+    "address": "Neunbrunnenstrasse 52",
+    "postal_code": "8050",
+    "city": "Zürich",
+    "lat": 47.417213439941406,
+    "lng": 8.539088249206543
+  },
+  {
+    "id": "ch_bc6116fac7",
+    "brand": "PureGym",
+    "name": "PureGym Zürich West",
+    "address": "Förrlibuckstrasse 150",
+    "postal_code": "8005",
+    "city": "Zürich",
+    "lat": 47.392364501953125,
+    "lng": 8.511515617370605
+  },
+  {
+    "id": "ch_561b929b88",
+    "brand": "clever fit",
+    "name": "clever fit Aarau",
+    "address": "Neumattstrasse 13-17",
+    "postal_code": "5000",
+    "city": "Aarau",
+    "lat": 47.3999817,
+    "lng": 8.0653844
+  },
+  {
+    "id": "ch_271ce21818",
+    "brand": "clever fit",
+    "name": "clever fit Bachenbülach",
+    "address": "Grabenstrasse 2",
+    "postal_code": "8184",
+    "city": "Bachenbülach",
+    "lat": 47.5060453,
+    "lng": 8.541134999999999
+  },
+  {
+    "id": "ch_da567076f2",
+    "brand": "clever fit",
+    "name": "clever fit Basel",
+    "address": "Erlenstrasse 81",
+    "postal_code": "4058",
+    "city": "Basel",
+    "lat": 47.5696924,
+    "lng": 7.603710800000001
+  },
+  {
+    "id": "ch_de45735ef6",
+    "brand": "clever fit",
+    "name": "clever fit Bern-Muri",
+    "address": "Feldstrasse 32b",
+    "postal_code": "3074",
+    "city": "Muri bei Bern",
+    "lat": 46.9272403,
+    "lng": 7.5029046
+  },
+  {
+    "id": "ch_eb26654687",
+    "brand": "clever fit",
+    "name": "clever fit Chur",
+    "address": "Kalchbühlstrasse 16",
+    "postal_code": "7000",
+    "city": "Chur",
+    "lat": 46.8466247,
+    "lng": 9.510314
+  },
+  {
+    "id": "ch_7f31b8651b",
+    "brand": "clever fit",
+    "name": "clever fit Dietlikon",
+    "address": "Industriestrasse 31",
+    "postal_code": "8305",
+    "city": "Dietlikon",
+    "lat": 47.4121821,
+    "lng": 8.619197699999999
+  },
+  {
+    "id": "ch_c0a7e9f8ba",
+    "brand": "clever fit",
+    "name": "clever fit Emmenbrücke",
+    "address": "Seetalplatz 1",
+    "postal_code": "6020",
+    "city": "Emmenbrücke",
+    "lat": 47.0690567,
+    "lng": 8.280217799999999
+  },
+  {
+    "id": "ch_3489ea29af",
+    "brand": "clever fit",
+    "name": "clever fit Frauenfeld",
+    "address": "Maurerstrasse 4",
+    "postal_code": "8500",
+    "city": "Frauenfeld",
+    "lat": 47.5672789,
+    "lng": 8.9079578
+  },
+  {
+    "id": "ch_dd6fe765fe",
+    "brand": "clever fit",
+    "name": "clever fit Fribourg",
+    "address": "Rue de la Carriere 2",
+    "postal_code": "1700",
+    "city": "Fribourg",
+    "lat": 46.8026669,
+    "lng": 7.1457656
+  },
+  {
+    "id": "ch_8e207c1add",
+    "brand": "clever fit",
+    "name": "clever fit Goldach",
+    "address": "Rietlistrasse 5",
+    "postal_code": "9403",
+    "city": "Goldach",
+    "lat": 47.48392579999999,
+    "lng": 9.474288999999999
+  },
+  {
+    "id": "ch_678cc818d1",
+    "brand": "clever fit",
+    "name": "clever fit Kreuzlingen",
+    "address": "Bleichestrasse 15",
+    "postal_code": "8280",
+    "city": "Kreuzlingen",
+    "lat": 47.6420238,
+    "lng": 9.1957231
+  },
+  {
+    "id": "ch_9e1e361a20",
+    "brand": "clever fit",
+    "name": "clever fit Opfikon",
+    "address": "Thurgauerstrasse 132",
+    "postal_code": "8152",
+    "city": "Opfikon",
+    "lat": 47.42408409999999,
+    "lng": 8.5602403
+  },
+  {
+    "id": "ch_d82f0507f4",
+    "brand": "clever fit",
+    "name": "clever fit Ostermundigen",
+    "address": "Poststrasse 1",
+    "postal_code": "3072",
+    "city": "Ostermundigen",
+    "lat": 46.95631059999999,
+    "lng": 7.4825558
+  },
+  {
+    "id": "ch_79ed8ed321",
+    "brand": "clever fit",
+    "name": "clever fit Pfäffikon",
+    "address": "Summelenweg 93",
+    "postal_code": "8808",
+    "city": "Pfäffikon",
+    "lat": 47.1955308,
+    "lng": 8.762480799999999
+  },
+  {
+    "id": "ch_47efe8cb16",
+    "brand": "clever fit",
+    "name": "clever fit Regensdorf",
+    "address": "Adlikerstrasse 295",
+    "postal_code": "8105",
+    "city": "Regensdorf",
+    "lat": 47.4443098,
+    "lng": 8.465036399999999
+  },
+  {
+    "id": "ch_8aafbb6b57",
+    "brand": "clever fit",
+    "name": "clever fit Rümlang",
+    "address": "Oberglatterstrasse 35",
+    "postal_code": "8153",
+    "city": "Rümlang",
+    "lat": 47.4632596,
+    "lng": 8.5255447
+  },
+  {
+    "id": "ch_23366124c1",
+    "brand": "clever fit",
+    "name": "clever fit Schaffhausen",
+    "address": "Industriestrasse 2",
+    "postal_code": "8207",
+    "city": "Schaffhausen",
+    "lat": 47.71707,
+    "lng": 8.6664805
+  },
+  {
+    "id": "ch_262a9b38c6",
+    "brand": "clever fit",
+    "name": "clever fit Schlieren",
+    "address": "Zürcherstrasse 133",
+    "postal_code": "8952",
+    "city": "Schlieren",
+    "lat": 47.3971598,
+    "lng": 8.464499499999999
+  },
+  {
+    "id": "ch_c277e4de62",
+    "brand": "clever fit",
+    "name": "clever fit St. Gallen",
+    "address": "Herisauerstrasse 5",
+    "postal_code": "9015",
+    "city": "St. Gallen",
+    "lat": 47.4066036,
+    "lng": 9.305755
+  },
+  {
+    "id": "ch_f2d35c6be2",
+    "brand": "clever fit",
+    "name": "clever fit Steinhausen",
+    "address": "Industriestrasse 51",
+    "postal_code": "6312",
+    "city": "Steinhausen",
+    "lat": 47.1912189,
+    "lng": 8.4830673
+  },
+  {
+    "id": "ch_30afaf0b4f",
+    "brand": "clever fit",
+    "name": "clever fit Volketswil",
+    "address": "Industriestrasse 15",
+    "postal_code": "8604",
+    "city": "Volketswil",
+    "lat": 47.381453,
+    "lng": 8.6737734
+  },
+  {
+    "id": "ch_1c5926a886",
+    "brand": "clever fit",
+    "name": "clever fit Winterthur",
+    "address": "Scheideggstrasse 27-35",
+    "postal_code": "8404",
+    "city": "Winterthur",
+    "lat": 47.4950105,
+    "lng": 8.7505273
+  },
+  {
+    "id": "ch_bd60e2aa2a",
+    "brand": "clever fit",
+    "name": "clever fit Zuchwil",
+    "address": "Dorfackerstrasse 45",
+    "postal_code": "4528",
+    "city": "Zuchwil",
+    "lat": 47.201432,
+    "lng": 7.569433199999999
+  },
+  {
+    "id": "ch_3b959d510a",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Chaux-de-Fonds (POD)",
+    "address": "Av. Léopold-Robert 79",
+    "postal_code": "2300",
+    "city": "La Chaux-de-Fonds",
+    "lat": 47.098113,
+    "lng": 6.822165
+  },
+  {
+    "id": "ch_20b267a129",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Saxon",
+    "address": "Route d'Ecône 119",
+    "postal_code": "1907",
+    "city": "Saxon",
+    "lat": 46.1603489,
+    "lng": 7.1988201
+  },
+  {
+    "id": "ch_dfdad56ad1",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Sion (Grand-Champsec)",
+    "address": "Av. du Grand-Champsec 12",
+    "postal_code": "1950",
+    "city": "Sion",
+    "lat": 46.230466,
+    "lng": 7.384899
+  },
+  {
+    "id": "ch_cb6a2c23e2",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Le Locle",
+    "address": "Rue Henry-Grandjean 1",
+    "postal_code": "2400",
+    "city": "Le Locle",
+    "lat": 47.056787,
+    "lng": 6.746474
+  },
+  {
+    "id": "ch_23a13b1afd",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Neuchâtel (Terreaux)",
+    "address": "Rue des Terreaux 2",
+    "postal_code": "2000",
+    "city": "Neuchâtel",
+    "lat": 46.99221,
+    "lng": 6.9287255
+  },
+  {
+    "id": "ch_29476c8a60",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Cernier",
+    "address": "Rue Comble Emine 1",
+    "postal_code": "2053",
+    "city": "Cernier",
+    "lat": 47.0578433,
+    "lng": 6.9010882
+  },
+  {
+    "id": "ch_5383738fa5",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Nyon",
+    "address": "Ch. des Saules 2a",
+    "postal_code": "1260",
+    "city": "Nyon",
+    "lat": 46.384235,
+    "lng": 6.22449
+  },
+  {
+    "id": "ch_457d404696",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Rolle",
+    "address": "Rte. de la Vallée 9b",
+    "postal_code": "1180",
+    "city": "Rolle",
+    "lat": 46.4624712,
+    "lng": 6.3342883
+  },
+  {
+    "id": "ch_a32c8b7d0c",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Ecublens",
+    "address": "Ch. du Croset 9",
+    "postal_code": "1024",
+    "city": "Ecublens",
+    "lat": 46.5348422,
+    "lng": 6.5636433
+  },
+  {
+    "id": "ch_fcb420ddc9",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Yverdon (Remparts)",
+    "address": "Rue des Remparts 10",
+    "postal_code": "1400",
+    "city": "Yverdon-les-Bains",
+    "lat": 46.7795584,
+    "lng": 6.640902
+  },
+  {
+    "id": "ch_0b2e0df6de",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Crissier",
+    "address": "Rue de Morges 17",
+    "postal_code": "1023",
+    "city": "Crissier",
+    "lat": 46.5483204,
+    "lng": 6.5675749
+  },
+  {
+    "id": "ch_88356a7a0f",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness La Croix-sur-Lutry",
+    "address": "Rte. des Monts-de-Lavaux 324",
+    "postal_code": "1090",
+    "city": "La Croix-sur-Lutry",
+    "lat": 46.5173406,
+    "lng": 6.7029896
+  },
+  {
+    "id": "ch_e7c5c7da2a",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Murten",
+    "address": "Löwenberg 54",
+    "postal_code": "3280",
+    "city": "Morat",
+    "lat": 46.9372316,
+    "lng": 7.1423369
+  },
+  {
+    "id": "ch_7997cb2de9",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lausanne (St-François)",
+    "address": "Pl. St-François 1",
+    "postal_code": "1003",
+    "city": "Lausanne",
+    "lat": 46.5199012,
+    "lng": 6.6300001
+  },
+  {
+    "id": "ch_2bf2d2d9ca",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Cortaillod",
+    "address": "Rte. de l'Areuse 8",
+    "postal_code": "2016",
+    "city": "Cortaillod",
+    "lat": 46.9493165,
+    "lng": 6.8530954
+  },
+  {
+    "id": "ch_2b674f8729",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Bulle (Verdel)",
+    "address": "Rte. du Verdel 22",
+    "postal_code": "1630",
+    "city": "Bulle",
+    "lat": 46.6260679,
+    "lng": 7.0665505
+  },
+  {
+    "id": "ch_3f34511ca0",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Martigny",
+    "address": "Rue Simplon 148",
+    "postal_code": "1920",
+    "city": "Martigny",
+    "lat": 46.1079846,
+    "lng": 7.0898551
+  },
+  {
+    "id": "ch_a5e8f3b0e5",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Epalinges",
+    "address": "Ch. des Croisettes 9-11",
+    "postal_code": "1066",
+    "city": "Epalinges",
+    "lat": 46.5442502,
+    "lng": 6.6599799
+  },
+  {
+    "id": "ch_88de4c290f",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lausen",
+    "address": "Ergolzstrasse 52",
+    "postal_code": "4415",
+    "city": "Lausen",
+    "lat": 47.4747694,
+    "lng": 7.7560449
+  },
+  {
+    "id": "ch_dfd1419b99",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Etoy",
+    "address": "Rte. Suisse 8",
+    "postal_code": "1163",
+    "city": "Etoy",
+    "lat": 46.474074,
+    "lng": 6.4183879
+  },
+  {
+    "id": "ch_7d0a0f97d5",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Le Mont-sur-Lausanne",
+    "address": "En Budron D",
+    "postal_code": "1052",
+    "city": "Le Mont-sur-Lausanne",
+    "lat": 46.5730287,
+    "lng": 6.632454
+  },
+  {
+    "id": "ch_fd0ffa6bc1",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Genève (Champel)",
+    "address": "Avenue De Miremont 11",
+    "postal_code": "1206",
+    "city": "Genève",
+    "lat": 46.1906996,
+    "lng": 6.1549705
+  },
+  {
+    "id": "ch_d7b4f587a0",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Bienne (Gurzelen)",
+    "address": "Rue de la Gurzelen 31",
+    "postal_code": "2502",
+    "city": "Biel/Bienne",
+    "lat": 47.1445623,
+    "lng": 7.2566038
+  },
+  {
+    "id": "ch_62629518cd",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Bulle (Trois-trèfles)",
+    "address": "Rue des Trois Trèfles 3",
+    "postal_code": "1630",
+    "city": "Bulle",
+    "lat": 46.6148822,
+    "lng": 7.0526863
+  },
+  {
+    "id": "ch_732ab11de5",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Plan-les-Ouates",
+    "address": "Route de la Galaise 32",
+    "postal_code": "1228",
+    "city": "Plan-les-Ouates",
+    "lat": 46.16832403289992,
+    "lng": 6.102887762035412
+  },
+  {
+    "id": "ch_83dcc4747f",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lausanne (Borde)",
+    "address": "Rue de la Borde 30bis",
+    "postal_code": "1018",
+    "city": "Lausanne",
+    "lat": 46.530972,
+    "lng": 6.6317816
+  },
+  {
+    "id": "ch_1b5a31baf6",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Bern (Lady)",
+    "address": "Schwarztorstrasse 87",
+    "postal_code": "3007",
+    "city": "Berne",
+    "lat": 46.9445156,
+    "lng": 7.4268246
+  },
+  {
+    "id": "ch_fb1e389f74",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Dübendorf",
+    "address": "Ringstrasse 14",
+    "postal_code": "8600",
+    "city": "Dübendorf",
+    "lat": 47.399623,
+    "lng": 8.604951
+  },
+  {
+    "id": "ch_7807ff324a",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Payerne",
+    "address": "Z.I. La Palaz 3A",
+    "postal_code": "1530",
+    "city": "Payerne",
+    "lat": 46.825449,
+    "lng": 6.9258
+  },
+  {
+    "id": "ch_c937f66b39",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lutry",
+    "address": "Rte. de Lavaux 109",
+    "postal_code": "1095",
+    "city": "Lutry",
+    "lat": 46.5044357,
+    "lng": 6.6826033
+  },
+  {
+    "id": "ch_6b203a24ca",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Villeneuve",
+    "address": "Ch. de la Confrérie",
+    "postal_code": "1844",
+    "city": "Villeneuve",
+    "lat": 46.387022,
+    "lng": 6.9289854
+  },
+  {
+    "id": "ch_5ff141b13b",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lausanne (Falaises)",
+    "address": "Chemin des Falaises 2",
+    "postal_code": "1005",
+    "city": "Lausanne",
+    "lat": 46.5270478,
+    "lng": 6.6411712
+  },
+  {
+    "id": "ch_87207e0597",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lausanne (Flon)",
+    "address": "Voie du Chariot 4/6",
+    "postal_code": "1003",
+    "city": "Lausanne",
+    "lat": 46.5211098,
+    "lng": 6.6282882
+  },
+  {
+    "id": "ch_d591ee97d9",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Genève (Etang Vernier)",
+    "address": "Avenue de l'Etang 67",
+    "postal_code": "1219",
+    "city": "Châtelaine",
+    "lat": 46.22020373318974,
+    "lng": 6.102802186608167
+  },
+  {
+    "id": "ch_d53c38d15a",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Echallens",
+    "address": "Rue des Champs 5",
+    "postal_code": "1040",
+    "city": "Echallens",
+    "lat": 46.639011,
+    "lng": 6.636234
+  },
+  {
+    "id": "ch_740976997d",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Bern (City)",
+    "address": "Effingerstrasse 12",
+    "postal_code": "3011",
+    "city": "Berne",
+    "lat": 46.9459623,
+    "lng": 7.435626
+  },
+  {
+    "id": "ch_11e0b59bec",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Neuchâtel (Maladière)",
+    "address": "Rue de la Pierre-à-Mazel 10",
+    "postal_code": "2000",
+    "city": "Neuchâtel",
+    "lat": 46.995349,
+    "lng": 6.944358
+  },
+  {
+    "id": "ch_00f56e0565",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Oftringen",
+    "address": "Campingweg 13",
+    "postal_code": "4665",
+    "city": "Oftringen",
+    "lat": 47.30565,
+    "lng": 7.93141
+  },
+  {
+    "id": "ch_9727f60c47",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Meyrin",
+    "address": "Rte. de Meyrin 214",
+    "postal_code": "1217",
+    "city": "Meyrin",
+    "lat": 46.2255388,
+    "lng": 6.0832323
+  },
+  {
+    "id": "ch_ec236da20e",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Bienne (Tissot Arena)",
+    "address": "Blvd. des Sports 20",
+    "postal_code": "2504",
+    "city": "Biel/Bienne",
+    "lat": 47.1556991,
+    "lng": 7.281253
+  },
+  {
+    "id": "ch_c74a9f039f",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lyssach",
+    "address": "Kernenriedstrasse 1",
+    "postal_code": "3421",
+    "city": "Lyssach",
+    "lat": 47.0696494,
+    "lng": 7.5658786
+  },
+  {
+    "id": "ch_10cfae2459",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Bern (Wankdorf)",
+    "address": "Papiermühlestrasse 83",
+    "postal_code": "3014",
+    "city": "Berne",
+    "lat": 46.9637452,
+    "lng": 7.4648581
+  },
+  {
+    "id": "ch_f55170a6a9",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Romont",
+    "address": "Av. de Massonnens 3",
+    "postal_code": "1680",
+    "city": "Romont",
+    "lat": 46.7037234,
+    "lng": 6.9359733
+  },
+  {
+    "id": "ch_8853f2e1a1",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Granges-Paccot",
+    "address": "Rte d’Englisberg 15C",
+    "postal_code": "1763",
+    "city": "Granges-Paccot",
+    "lat": 46.82897,
+    "lng": 7.146785
+  },
+  {
+    "id": "ch_5a023b5605",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Morges",
+    "address": "Promenade de Castellane 6",
+    "postal_code": "1110",
+    "city": "Morges",
+    "lat": 46.51184382075861,
+    "lng": 6.495006687562161
+  },
+  {
+    "id": "ch_e9cbd8eaf8",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Conthey",
+    "address": "Route Cantonale 6",
+    "postal_code": "1964",
+    "city": "Conthey",
+    "lat": 46.224689,
+    "lng": 7.296955
+  },
+  {
+    "id": "ch_9c835149d2",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Genève (Eaux-Vives)",
+    "address": "Rue des Eaux-Vives 15",
+    "postal_code": "1207",
+    "city": "Genève",
+    "lat": 46.204571,
+    "lng": 6.157316
+  },
+  {
+    "id": "ch_96d334659d",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Préverenges",
+    "address": "Ch. du Vuasset 2",
+    "postal_code": "1028",
+    "city": "Préverenges",
+    "lat": 46.518916,
+    "lng": 6.516188
+  },
+  {
+    "id": "ch_df591d9c09",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Versoix",
+    "address": "Ch. Jean-Baptiste Vandelle 8A",
+    "postal_code": "1290",
+    "city": "Versoix",
+    "lat": 46.280616,
+    "lng": 6.165772
+  },
+  {
+    "id": "ch_c0204399b5",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Collombey",
+    "address": "Ch. des Fossaux 9",
+    "postal_code": "1868",
+    "city": "Collombey",
+    "lat": 46.2680479,
+    "lng": 6.9517388
+  },
+  {
+    "id": "ch_c94bbfe337",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Yverdon (Pêcheurs)",
+    "address": "Rue des Pêcheurs 8b",
+    "postal_code": "1400",
+    "city": "Yverdon-les-Bains",
+    "lat": 46.7810384,
+    "lng": 6.644971
+  },
+  {
+    "id": "ch_fbf249dd40",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Genève (Nations)",
+    "address": "Chemin de la Voie-Creuse 16",
+    "postal_code": "1202",
+    "city": "Genève",
+    "lat": 46.220845,
+    "lng": 6.143454
+  },
+  {
+    "id": "ch_9c4030ce5f",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Gelterkinden",
+    "address": "Sissacherstrasse 20",
+    "postal_code": "4460",
+    "city": "Gelterkinden",
+    "lat": 47.4651422,
+    "lng": 7.8471501
+  },
+  {
+    "id": "ch_adf28b2c9a",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Montreux",
+    "address": "Grand-Rue 42",
+    "postal_code": "1820",
+    "city": "Montreux",
+    "lat": 46.4338672,
+    "lng": 6.910078
+  },
+  {
+    "id": "ch_56320e851a",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Basel (Freie Strasse)",
+    "address": "Freie Strasse 36",
+    "postal_code": "4001",
+    "city": "Basel/Bâle",
+    "lat": 47.556331,
+    "lng": 7.58961
+  },
+  {
+    "id": "ch_7213551d67",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Chaux-de-Fonds (Eplatures)",
+    "address": "Blvd. des Eplatures 19",
+    "postal_code": "2300",
+    "city": "La Chaux-de-Fonds",
+    "lat": 47.087748,
+    "lng": 6.8046044
+  },
+  {
+    "id": "ch_ffecbab7fe",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Zürich (Limmattalstrasse)",
+    "address": "Limmattalstrasse 400",
+    "postal_code": "8049",
+    "city": "Zurich",
+    "lat": 47.4055576,
+    "lng": 8.4800884
+  },
+  {
+    "id": "ch_6e5343b2de",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Kaiseraugst",
+    "address": "Junkholzweg 1",
+    "postal_code": "4303",
+    "city": "Kaiseraugst",
+    "lat": 47.5377699,
+    "lng": 7.7302011
+  },
+  {
+    "id": "ch_d92630e5a7",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Uster",
+    "address": "Schulweg 9",
+    "postal_code": "8610",
+    "city": "Uster",
+    "lat": 47.3468586,
+    "lng": 8.7162611
+  },
+  {
+    "id": "ch_743a4992b0",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Sion (Industrie)",
+    "address": "Rue de l'Industrie 16",
+    "postal_code": "1950",
+    "city": "Sion",
+    "lat": 46.226049,
+    "lng": 7.3609821
+  },
+  {
+    "id": "ch_be9cfc597a",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Porrentruy",
+    "address": "Faubourg St-Germain 2",
+    "postal_code": "2900",
+    "city": "Porrentruy",
+    "lat": 47.416587,
+    "lng": 7.07714
+  },
+  {
+    "id": "ch_13f330cbe9",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Villars-sur-Glâne",
+    "address": "Rue du Centre 4-6",
+    "postal_code": "1752",
+    "city": "Villars-sur-Glâne",
+    "lat": 46.7938617,
+    "lng": 7.1312533
+  },
+  {
+    "id": "ch_ba85c0c5af",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Gland",
+    "address": "Z.I. En Fontenailles",
+    "postal_code": "1196",
+    "city": "Gland",
+    "lat": 46.414316,
+    "lng": 6.2721308
+  },
+  {
+    "id": "ch_fb5fda7d16",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Prilly-Malley",
+    "address": "Chemin du Viaduc 1",
+    "postal_code": "1008",
+    "city": "Prilly",
+    "lat": 46.5273609,
+    "lng": 6.6022197
+  },
+  {
+    "id": "ch_f4e58d842d",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Lausanne (Grancy)",
+    "address": "Blvd. de Grancy 14",
+    "postal_code": "1006",
+    "city": "Lausanne",
+    "lat": 46.5154924,
+    "lng": 6.6297705
+  },
+  {
+    "id": "ch_825fdca033",
+    "brand": "Let's Go Fitness",
+    "name": "Let's Go Fitness Genève (Les Cygnes)",
+    "address": "Rue de Lausanne, 20 bis",
+    "postal_code": "1201",
+    "city": "Genève",
+    "lat": 46.21153259277344,
+    "lng": 6.144551753997803
+  },
+  {
+    "id": "ch_e8ee152442",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Serfontana",
+    "address": "c/o Shopping Center Serfontana",
+    "postal_code": "6834",
+    "city": "Morbio Inferiore",
+    "lat": 45.8450487,
+    "lng": 9.0143036
+  },
+  {
+    "id": "ch_4c013f2598",
+    "brand": "ACTIV FITNESS",
+    "name": "ACTIV FITNESS Uznach",
+    "address": "Wiesenthalstrasse 4",
+    "postal_code": "8730",
+    "city": "Uznach",
+    "lat": 47.2283062,
+    "lng": 8.9625794
+  },
+  {
+    "id": "ch_79481fe859",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Servette",
+    "address": "Rue du Grand-Pré 58",
+    "postal_code": "1201",
+    "city": "Genève",
+    "lat": 46.2153986,
+    "lng": 6.1330054
+  },
+  {
+    "id": "ch_dd1d3cfa79",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Jonction",
+    "address": "Rue des Deux-Ponts 14",
+    "postal_code": "1203",
+    "city": "Genève",
+    "lat": 46.2016497,
+    "lng": 6.1302499
+  },
+  {
+    "id": "ch_93f0ada29a",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Lancy",
+    "address": "Route de Chancy 59",
+    "postal_code": "1212",
+    "city": "Petit-Lancy",
+    "lat": 46.1877509,
+    "lng": 6.1129671
+  },
+  {
+    "id": "ch_9e3bab72e5",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Lausanne Gare",
+    "address": "Avenue d'Ouchy 3",
+    "postal_code": "1006",
+    "city": "Lausanne",
+    "lat": 46.5164762,
+    "lng": 6.6336209
+  },
+  {
+    "id": "ch_74a34e306c",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Blandonnet",
+    "address": "Chemin des Papillons 4",
+    "postal_code": "1216",
+    "city": "Cointrin",
+    "lat": 46.2232639,
+    "lng": 6.0973801
+  },
+  {
+    "id": "ch_4ad787bcf5",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Carouge",
+    "address": "Avenue Cardinal-Mermillod 36",
+    "postal_code": "1227",
+    "city": "Carouge",
+    "lat": 46.1855632,
+    "lng": 6.143435
+  },
+  {
+    "id": "ch_aa07cd5043",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Oerlikon",
+    "address": "Elias-Canetti-Strasse 2",
+    "postal_code": "8050",
+    "city": "Zürich",
+    "lat": 47.4122786,
+    "lng": 8.541679
+  },
+  {
+    "id": "ch_f62d4d3324",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Eaux-Vives",
+    "address": "Rue de Jargonnant 2",
+    "postal_code": "1207",
+    "city": "Genève",
+    "lat": 46.2010637,
+    "lng": 6.1598019
+  },
+  {
+    "id": "ch_292a0ebc17",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Fribourg",
+    "address": "Boulevard de Pérolles 7",
+    "postal_code": "1700",
+    "city": "Fribourg",
+    "lat": 46.8012026,
+    "lng": 7.1517479
+  },
+  {
+    "id": "ch_c6649125cc",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Viadukt",
+    "address": "Viaduktstrasse 20",
+    "postal_code": "8005",
+    "city": "Zürich",
+    "lat": 47.3874752,
+    "lng": 8.5247262
+  },
+  {
+    "id": "ch_10fe929dc0",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Malley",
+    "address": "Avenue du Chablais 3B",
+    "postal_code": "1007",
+    "city": "Lausanne",
+    "lat": 46.5266255,
+    "lng": 6.6038169
+  },
+  {
+    "id": "ch_49b51cc26c",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Bienne",
+    "address": "Bahnhofplatz 2",
+    "postal_code": "2502",
+    "city": "Biel/Bienne",
+    "lat": 47.1338818,
+    "lng": 7.2423095
+  },
+  {
+    "id": "ch_41aaf34d49",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Champel",
+    "address": "Rue Le Corbusier 22",
+    "postal_code": "1208",
+    "city": "Genève",
+    "lat": 46.1934917,
+    "lng": 6.165859
+  },
+  {
+    "id": "ch_563cb3d3c2",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Nyon",
+    "address": "Allée de la Petite Prairie 10",
+    "postal_code": "1260",
+    "city": "Nyon",
+    "lat": 46.3908535,
+    "lng": 6.2224876
+  },
+  {
+    "id": "ch_7c1f43988e",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Stauffacher",
+    "address": "Kanzleistrasse 18",
+    "postal_code": "8004",
+    "city": "Zürich",
+    "lat": 47.3740332,
+    "lng": 8.527588
+  },
+  {
+    "id": "ch_1916deddee",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Paquis",
+    "address": "Rue de Lausanne 80",
+    "postal_code": "1202",
+    "city": "Genève",
+    "lat": 46.2167065,
+    "lng": 6.1480928
+  },
+  {
+    "id": "ch_43ff90af34",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Chêne-Bourg",
+    "address": "Chemin de la Gravière 3",
+    "postal_code": "1225",
+    "city": "Chêne-Bourg",
+    "lat": 46.196222,
+    "lng": 6.1994487
+  },
+  {
+    "id": "ch_11195c47fe",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Cornavin",
+    "address": "Passage de Montbrillant",
+    "postal_code": "1201",
+    "city": "Genève",
+    "lat": 46.2098179,
+    "lng": 6.1413895
+  },
+  {
+    "id": "ch_f25950181a",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Tunnel",
+    "address": "Rue de la Borde 3b",
+    "postal_code": "1018",
+    "city": "Lausanne",
+    "lat": 46.5271839,
+    "lng": 6.6330349
+  },
+  {
+    "id": "ch_6718d1d57c",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Kesselhaus",
+    "address": "Zürcherstrasse 1",
+    "postal_code": "8400",
+    "city": "Winterthur",
+    "lat": 47.4981166,
+    "lng": 8.7212023
+  },
+  {
+    "id": "ch_7200854b6d",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Ecublens",
+    "address": "Route du Bois",
+    "postal_code": "1024",
+    "city": "Ecublens",
+    "lat": 46.5312138,
+    "lng": 6.5658455
+  },
+  {
+    "id": "ch_e7df68fd8a",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym St. Gallen",
+    "address": "Kornhausstrasse 25",
+    "postal_code": "9000",
+    "city": "St. Gallen",
+    "lat": 47.4220329,
+    "lng": 9.3722484
+  },
+  {
+    "id": "ch_5ab20722e0",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Flon",
+    "address": "Rue de Genève 8",
+    "postal_code": "1003",
+    "city": "Lausanne",
+    "lat": 46.5218792,
+    "lng": 6.6287833
+  },
+  {
+    "id": "ch_0904bf2556",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Westfeld",
+    "address": "Westfeld 2",
+    "postal_code": "4055",
+    "city": "Basel",
+    "lat": 47.5652132,
+    "lng": 7.5666882
+  },
+  {
+    "id": "ch_1bf6b44f21",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Aigle",
+    "address": "Avenue des Ormonts 18",
+    "postal_code": "1860",
+    "city": "Aigle",
+    "lat": 46.3174281,
+    "lng": 6.9736477
+  },
+  {
+    "id": "ch_fcbae60adf",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Bioggio",
+    "address": "Via della Posta 23",
+    "postal_code": "6934",
+    "city": "Bioggio",
+    "lat": 46.0164993,
+    "lng": 8.9124108
+  },
+  {
+    "id": "ch_ed05ac00d7",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Mendrisio",
+    "address": "Via Penate 7",
+    "postal_code": "6850",
+    "city": "Mendrisio",
+    "lat": 45.8771549,
+    "lng": 8.9801381
+  },
+  {
+    "id": "ch_96ee9c37d3",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Martigny",
+    "address": "Rte du Grand-Saint-Bernard 21",
+    "postal_code": "1921",
+    "city": "Martigny-Combe",
+    "lat": 46.0832204,
+    "lng": 7.0534721
+  },
+  {
+    "id": "ch_6b06402252",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Conthey",
+    "address": "Rte des Rottes 8",
+    "postal_code": "1964",
+    "city": "Conthey",
+    "lat": 46.221822,
+    "lng": 7.2980549
+  },
+  {
+    "id": "ch_715309f162",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Uvrier",
+    "address": "Rte d Italie 156",
+    "postal_code": "1958",
+    "city": "Uvrier",
+    "lat": 46.2526492,
+    "lng": 7.4151919
+  },
+  {
+    "id": "ch_dfd7b02436",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Bale Clara",
+    "address": "Clarastrasse 12",
+    "postal_code": "4058",
+    "city": "Basel",
+    "lat": 47.5622964,
+    "lng": 7.5961253
+  },
+  {
+    "id": "ch_1da8aeda92",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Bussigny",
+    "address": "Chemin de Mochettaz 2",
+    "postal_code": "1030",
+    "city": "Bussigny",
+    "lat": 46.5477873,
+    "lng": 6.5502101
+  },
+  {
+    "id": "ch_83bc078d7d",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Lugano",
+    "address": "Via Ferruccio Pelli 2",
+    "postal_code": "6900",
+    "city": "Lugano",
+    "lat": 46.0072887,
+    "lng": 8.951194
+  },
+  {
+    "id": "ch_9b03eac155",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Etang",
+    "address": "Avenue de L'étang 55",
+    "postal_code": "1219",
+    "city": "Vernier",
+    "lat": 46.2164255,
+    "lng": 6.1043396
+  },
+  {
+    "id": "ch_9046054dca",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Zug",
+    "address": "Bahnhofstrasse 21",
+    "postal_code": "6300",
+    "city": "Zug",
+    "lat": 47.1697455,
+    "lng": 8.5156924
+  },
+  {
+    "id": "ch_03b9b1e113",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Yverdon",
+    "address": "Chaussée de Treycovagnes 3c",
+    "postal_code": "1400",
+    "city": "Yverdon-les-Bains",
+    "lat": 46.7783704,
+    "lng": 6.6255646
+  },
+  {
+    "id": "ch_7c9d0db5fc",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Brig",
+    "address": "Bielstrasse 8",
+    "postal_code": "3902",
+    "city": "Glis",
+    "lat": 46.3095648,
+    "lng": 7.9629501
+  },
+  {
+    "id": "ch_0fe4393edb",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Grenchen",
+    "address": "Bettlachstrasse 20",
+    "postal_code": "2540",
+    "city": "Grenchen",
+    "lat": 47.192858,
+    "lng": 7.3978114
+  },
+  {
+    "id": "ch_5373e07ab5",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Bellinzona",
+    "address": "Via S. Gottardo 112",
+    "postal_code": "6500",
+    "city": "Bellinzona",
+    "lat": 46.2078676,
+    "lng": 9.0385449
+  },
+  {
+    "id": "ch_268ee898e8",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Versoix",
+    "address": "Rte des Fayards 280",
+    "postal_code": "1290",
+    "city": "Versoix",
+    "lat": 46.272621,
+    "lng": 6.1417648
+  },
+  {
+    "id": "ch_2b0636098f",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Sierre",
+    "address": "Av. de Rossfeld 9",
+    "postal_code": "3960",
+    "city": "Sierre",
+    "lat": 46.2860369,
+    "lng": 7.52024
+  },
+  {
+    "id": "ch_8f512d41f2",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Horgen",
+    "address": "Dammstrasse 26",
+    "postal_code": "8810",
+    "city": "Horgen",
+    "lat": 47.2596555,
+    "lng": 8.5880099
+  },
+  {
+    "id": "ch_79299fec8a",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Olten",
+    "address": "Riggenbachstrasse 6",
+    "postal_code": "4600",
+    "city": "Olten",
+    "lat": 47.3468218,
+    "lng": 7.9085065
+  },
+  {
+    "id": "ch_4a3d367fb7",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Frauenfeld",
+    "address": "Zürcherstrasse 297",
+    "postal_code": "8500",
+    "city": "Frauenfeld",
+    "lat": 47.5638012,
+    "lng": 8.9081891
+  },
+  {
+    "id": "ch_0cedfc7509",
+    "brand": "NonStop Gym",
+    "name": "NonStop Gym Amriswil",
+    "address": "Kirchstrasse 11",
+    "postal_code": "8580",
+    "city": "Amriswil",
+    "lat": 47.5476537,
+    "lng": 9.2974904
+  },
+  {
+    "id": "ch_20a8181a5e",
+    "brand": "Kieser",
+    "name": "Kieser Baden",
+    "address": "Gstühlplatz 1",
+    "postal_code": "5400",
+    "city": "Baden",
+    "lat": 47.475307,
+    "lng": 8.305516
+  },
+  {
+    "id": "ch_e95b61df34",
+    "brand": "Kieser",
+    "name": "Kieser Basel Steinenvorstadt",
+    "address": "Steinenvorstadt 67",
+    "postal_code": "4051",
+    "city": "Basel",
+    "lat": 47.552069,
+    "lng": 7.588304
+  },
+  {
+    "id": "ch_7bea913444",
+    "brand": "Kieser",
+    "name": "Kieser Bern Monbijou",
+    "address": "Monbijoustrasse 10",
+    "postal_code": "3011",
+    "city": "Bern",
+    "lat": 46.9450242,
+    "lng": 7.4364725
+  },
+  {
+    "id": "ch_2935c74fa6",
+    "brand": "Kieser",
+    "name": "Kieser Biel",
+    "address": "Bahnhofstrasse 15",
+    "postal_code": "2502",
+    "city": "Biel",
+    "lat": 47.135105,
+    "lng": 7.244234
+  },
+  {
+    "id": "ch_4f1b4f7928",
+    "brand": "Kieser",
+    "name": "Kieser Fribourg",
+    "address": "Rue Saint-Pierre 5",
+    "postal_code": "1700",
+    "city": "Fribourg",
+    "lat": 46.803961,
+    "lng": 7.155324
+  },
+  {
+    "id": "ch_6b6b57c661",
+    "brand": "Kieser",
+    "name": "Kieser Horgen",
+    "address": "Lindenstrasse 4",
+    "postal_code": "8810",
+    "city": "Horgen",
+    "lat": 47.259571,
+    "lng": 8.600412
+  },
+  {
+    "id": "ch_0c02087365",
+    "brand": "Kieser",
+    "name": "Kieser Kreuzlingen",
+    "address": "Nationalstrasse 6",
+    "postal_code": "8280",
+    "city": "Kreuzlingen",
+    "lat": 47.6517477,
+    "lng": 9.1688785
+  },
+  {
+    "id": "ch_48bae53c1f",
+    "brand": "Kieser",
+    "name": "Kieser Luzern",
+    "address": "Inseliquai 6",
+    "postal_code": "6005",
+    "city": "Luzern",
+    "lat": 47.049598,
+    "lng": 8.313294
+  },
+  {
+    "id": "ch_6ad4f89d1a",
+    "brand": "Kieser",
+    "name": "Kieser Frenkendorf",
+    "address": "Güterstrasse 8",
+    "postal_code": "4402",
+    "city": "Frenkendorf",
+    "lat": 47.5004936,
+    "lng": 7.7197363
+  },
+  {
+    "id": "ch_d74e81b6f6",
+    "brand": "Kieser",
+    "name": "Kieser Schaffhausen",
+    "address": "Breitenaustrasse 117",
+    "postal_code": "8200",
+    "city": "Schaffhausen",
+    "lat": 47.704979,
+    "lng": 8.62317
+  },
+  {
+    "id": "ch_836826f568",
+    "brand": "Kieser",
+    "name": "Kieser Schlieren",
+    "address": "Wagistrasse 2/Wagi-Areal",
+    "postal_code": "8952",
+    "city": "Schlieren",
+    "lat": 47.398784,
+    "lng": 8.455511
+  },
+  {
+    "id": "ch_d322378080",
+    "brand": "Kieser",
+    "name": "Kieser Solothurn",
+    "address": "Berthastrasse 7",
+    "postal_code": "4500",
+    "city": "Solothurn",
+    "lat": 47.204485,
+    "lng": 7.540646
+  },
+  {
+    "id": "ch_cecd71ed6d",
+    "brand": "Kieser",
+    "name": "Kieser St. Gallen",
+    "address": "Rorschacherstrasse 1",
+    "postal_code": "9000",
+    "city": "St. Gallen",
+    "lat": 47.426446,
+    "lng": 9.378234
+  },
+  {
+    "id": "ch_4cfa90ceea",
+    "brand": "Kieser",
+    "name": "Kieser Thun",
+    "address": "Malerweg 2",
+    "postal_code": "3600",
+    "city": "Thun",
+    "lat": 46.756684,
+    "lng": 7.627816
+  },
+  {
+    "id": "ch_477cd41b50",
+    "brand": "Kieser",
+    "name": "Kieser Winterthur",
+    "address": "Stadthausstrasse 12",
+    "postal_code": "8400",
+    "city": "Winterthur",
+    "lat": 47.500149,
+    "lng": 8.72675
+  },
+  {
+    "id": "ch_a3a4543b56",
+    "brand": "Kieser",
+    "name": "Kieser Zug",
+    "address": "Bundesplatz 7/9",
+    "postal_code": "6300",
+    "city": "Zug",
+    "lat": 47.17113,
+    "lng": 8.51434
+  },
+  {
+    "id": "ch_d45ec10564",
+    "brand": "Kieser",
+    "name": "Kieser Zürich-Enge",
+    "address": "Lessingstrasse 5",
+    "postal_code": "8002",
+    "city": "Zürich",
+    "lat": 47.359498,
+    "lng": 8.524051
+  },
+  {
+    "id": "ch_20c13813f9",
+    "brand": "Kieser",
+    "name": "Kieser Zürich-Oerlikon",
+    "address": "Hofwiesenstrasse 349 (Franklinturm)",
+    "postal_code": "8050",
+    "city": "Zürich",
+    "lat": 47.41193287951699,
+    "lng": 8.542791634099792
+  },
+  {
+    "id": "ch_07f32cb43e",
+    "brand": "Kieser",
+    "name": "Kieser Zürich-Prime Tower",
+    "address": "Hardstrasse 223",
+    "postal_code": "8005",
+    "city": "Zürich",
+    "lat": 47.386,
+    "lng": 8.517044
+  },
+  {
+    "id": "ch_12ca822b76",
+    "brand": "Kieser",
+    "name": "Kieser Zürich-Steinwies",
+    "address": "Hottingerstrasse 21/Steinwiesplatz",
+    "postal_code": "8032",
+    "city": "Zürich",
+    "lat": 47.370186,
+    "lng": 8.551468
+  },
+  {
+    "id": "ch_9fa1b19210",
+    "brand": "Kieser",
+    "name": "Kieser Zürich-Flughafen",
+    "address": "The Circle 69 – Flughafen ZH",
+    "postal_code": "8058",
+    "city": "Zürich",
+    "lat": 47.44895,
+    "lng": 8.56739
+  },
+  {
+    "id": "ch_b9bc787d31",
+    "brand": "Harmony",
+    "name": "Harmony Eaux-Vives",
+    "address": "Rue du Nant 10",
+    "postal_code": "1207",
+    "city": "Genève",
+    "lat": 46.2021602,
+    "lng": 6.1604444
+  },
+  {
+    "id": "ch_db12ba2bcf",
+    "brand": "Harmony",
+    "name": "Harmony La Praille",
+    "address": "Rte des Jeunes 10",
+    "postal_code": "1212",
+    "city": "Grand-Lancy",
+    "lat": 46.1796749,
+    "lng": 6.1276498
+  },
+  {
+    "id": "ch_cf582015e2",
+    "brand": "Harmony",
+    "name": "Harmony Veyrier",
+    "address": "Avenue du Grand-Salève 4",
+    "postal_code": "1255",
+    "city": "Veyrier",
+    "lat": 46.1674148,
+    "lng": 6.1828789
+  },
+  {
+    "id": "ch_93b9e5f0be",
+    "brand": "Harmony",
+    "name": "Harmony Blandonnet",
+    "address": "Rte de Pré-Bois 6",
+    "postal_code": "1214",
+    "city": "Vernier",
+    "lat": 46.2213052,
+    "lng": 6.0973026
+  },
+  {
+    "id": "ch_3f2fca7aa4",
+    "brand": "Harmony",
+    "name": "Harmony Meyrin",
+    "address": "Rue de la Bergère 3A",
+    "postal_code": "1217",
+    "city": "Meyrin",
+    "lat": 46.221926,
+    "lng": 6.0637879
+  },
+  {
+    "id": "ch_62e02835c3",
+    "brand": "Harmony",
+    "name": "Harmony Pâquis MAA",
+    "address": "Rue Jean-Charles Amat 12",
+    "postal_code": "1202",
+    "city": "Genève",
+    "lat": 46.2144206,
+    "lng": 6.1484122
+  },
+  {
+    "id": "ch_afe745a8ff",
+    "brand": "Harmony",
+    "name": "Harmony Pâquis Gym",
+    "address": "20 rue de Lausanne",
+    "postal_code": "1202",
+    "city": "Genève",
+    "lat": 46.2114679,
+    "lng": 6.1446076
+  },
+  {
+    "id": "ch_a8071bd586",
+    "brand": "Harmony",
+    "name": "Harmony Versoix",
+    "address": "Ch. de la Scie 2",
+    "postal_code": "1290",
+    "city": "Versoix",
+    "lat": 46.2750655,
+    "lng": 6.1673318
+  },
+  {
+    "id": "ch_7d5ef2cb86",
+    "brand": "Harmony",
+    "name": "Harmony Denges",
+    "address": "La Crosette 4",
+    "postal_code": "1026",
+    "city": "Denges",
+    "lat": 46.5271691,
+    "lng": 6.5428605
+  },
+  {
+    "id": "ch_545f344bfa",
+    "brand": "Harmony",
+    "name": "Harmony Gland",
+    "address": "Route Suisse 35",
+    "postal_code": "1196",
+    "city": "Gland",
+    "lat": 46.4159388,
+    "lng": 6.279201
+  },
+  {
+    "id": "ch_c5075f4d69",
+    "brand": "Harmony",
+    "name": "Harmony Signy",
+    "address": "Rue des Fléchères 7A",
+    "postal_code": "1274",
+    "city": "Signy",
+    "lat": 46.3972228,
+    "lng": 6.2052429
+  },
+  {
+    "id": "ch_8fd6be3631",
+    "brand": "well come FIT",
+    "name": "well come FIT Arbon",
+    "address": "Textilstrasse 5",
+    "postal_code": "9320",
+    "city": "Arbon",
+    "lat": 47.5069558,
+    "lng": 9.4300935
+  },
+  {
+    "id": "ch_c0337b6345",
+    "brand": "well come FIT",
+    "name": "well come FIT Basel",
+    "address": "Dornacherstrasse 210",
+    "postal_code": "4053",
+    "city": "Basel",
+    "lat": 47.5412855,
+    "lng": 7.5944857
+  },
+  {
+    "id": "ch_28ed4ab0db",
+    "brand": "well come FIT",
+    "name": "well come FIT Berg",
+    "address": "Ziegeleistrasse",
+    "postal_code": "8572",
+    "city": "Berg",
+    "lat": 47.5838274,
+    "lng": 9.1697299
+  },
+  {
+    "id": "ch_52b2c17d76",
+    "brand": "well come FIT",
+    "name": "well come FIT Bülach",
+    "address": "Feldstrasse 72",
+    "postal_code": "8180",
+    "city": "Bülach",
+    "lat": 47.5096527,
+    "lng": 8.5376458
+  },
+  {
+    "id": "ch_c588c7e1a0",
+    "brand": "well come FIT",
+    "name": "well come FIT Dietlikon",
+    "address": "Riedwiesenstrasse 3",
+    "postal_code": "8305",
+    "city": "Dietlikon",
+    "lat": 47.4121709,
+    "lng": 8.6242544
+  },
+  {
+    "id": "ch_b8dbcfcc7a",
+    "brand": "well come FIT",
+    "name": "well come FIT Frauenfeld West",
+    "address": "Gewerbestrasse 1",
+    "postal_code": "8500",
+    "city": "Frauenfeld",
+    "lat": 47.5565699,
+    "lng": 8.8790972
+  },
+  {
+    "id": "ch_8a811cbb18",
+    "brand": "well come FIT",
+    "name": "well come FIT Frauenfeld Zentral",
+    "address": "Walzmühlestrasse 50",
+    "postal_code": "8500",
+    "city": "Frauenfeld",
+    "lat": 47.5480224,
+    "lng": 8.8926146
+  },
+  {
+    "id": "ch_7c21f2c3f8",
+    "brand": "well come FIT",
+    "name": "well come FIT Herisau",
+    "address": "Industriestrasse 28",
+    "postal_code": "9100",
+    "city": "Herisau",
+    "lat": 47.3829858,
+    "lng": 9.2751129
+  },
+  {
+    "id": "ch_acac10f6a7",
+    "brand": "well come FIT",
+    "name": "well come FIT Kreuzlingen",
+    "address": "Romanshornerstrasse 1",
+    "postal_code": "8280",
+    "city": "Kreuzlingen",
+    "lat": 47.6431202,
+    "lng": 9.1842033
+  },
+  {
+    "id": "ch_3e8440a5ff",
+    "brand": "well come FIT",
+    "name": "well come FIT Muri",
+    "address": "Luzernerstrasse 93",
+    "postal_code": "5630",
+    "city": "Muri",
+    "lat": 47.2661225,
+    "lng": 8.3490092
+  },
+  {
+    "id": "ch_77fe1e8609",
+    "brand": "well come FIT",
+    "name": "well come FIT Netstal",
+    "address": "CENTRO 6",
+    "postal_code": "8754",
+    "city": "Netstal",
+    "lat": 47.0690231,
+    "lng": 9.0562878
+  },
+  {
+    "id": "ch_5f5e669207",
+    "brand": "well come FIT",
+    "name": "well come FIT Niederurnen",
+    "address": "Fabrikstrasse 2",
+    "postal_code": "8867",
+    "city": "Niederurnen",
+    "lat": 47.1269387,
+    "lng": 9.0602804
+  },
+  {
+    "id": "ch_3cba34b2c2",
+    "brand": "well come FIT",
+    "name": "well come FIT Obfelden",
+    "address": "Ottenbacherstrasse 23",
+    "postal_code": "8912",
+    "city": "Obfelden",
+    "lat": 47.2668529,
+    "lng": 8.4241738
+  },
+  {
+    "id": "ch_930a4d0c63",
+    "brand": "well come FIT",
+    "name": "well come FIT Oerlikon",
+    "address": "Thurgauerstrasse 40",
+    "postal_code": "8050",
+    "city": "Zürich",
+    "lat": 47.4147603,
+    "lng": 8.5522462
+  },
+  {
+    "id": "ch_48fef4863a",
+    "brand": "well come FIT",
+    "name": "well come FIT Pfungen",
+    "address": "Riedackerstrasse 5",
+    "postal_code": "8422",
+    "city": "Pfungen",
+    "lat": 47.516198,
+    "lng": 8.6482948
+  },
+  {
+    "id": "ch_8d444cfaaf",
+    "brand": "well come FIT",
+    "name": "well come FIT Rikon",
+    "address": "Tösstalstrasse 102",
+    "postal_code": "8486",
+    "city": "Rikon im Tösstal",
+    "lat": 47.4417405,
+    "lng": 8.8026603
+  },
+  {
+    "id": "ch_ee04565e9d",
+    "brand": "well come FIT",
+    "name": "well come FIT Schwanden",
+    "address": "Hauptstrasse 2",
+    "postal_code": "8762",
+    "city": "Schwanden",
+    "lat": 47.0004819,
+    "lng": 9.0766681
+  },
+  {
+    "id": "ch_d03ab5d87b",
+    "brand": "well come FIT",
+    "name": "well come FIT Sennwald",
+    "address": "Walchistrasse 3",
+    "postal_code": "9466",
+    "city": "Sennwald",
+    "lat": 47.2606361,
+    "lng": 9.5079753
+  },
+  {
+    "id": "ch_68703e413b",
+    "brand": "well come FIT",
+    "name": "well come FIT Sirnach",
+    "address": "Wilerstrasse 96",
+    "postal_code": "8370",
+    "city": "Sirnach",
+    "lat": 47.4629708,
+    "lng": 9.0202985
+  },
+  {
+    "id": "ch_d34aafe6a5",
+    "brand": "well come FIT",
+    "name": "well come FIT St. Gallen Einstein",
+    "address": "Kapellenstrasse 1",
+    "postal_code": "9000",
+    "city": "St. Gallen",
+    "lat": 47.4211643,
+    "lng": 9.3746283
+  },
+  {
+    "id": "ch_b7fa800710",
+    "brand": "well come FIT",
+    "name": "well come FIT St. Gallen Ost",
+    "address": "Spinnereistrasse 8",
+    "postal_code": "9008",
+    "city": "St. Gallen",
+    "lat": 47.4363353,
+    "lng": 9.3948888
+  },
+  {
+    "id": "ch_58132fe38e",
+    "brand": "well come FIT",
+    "name": "well come FIT St. Gallen West",
+    "address": "Rittmeyerstrasse 15",
+    "postal_code": "9014",
+    "city": "St. Gallen",
+    "lat": 47.4098286,
+    "lng": 9.3356724
+  },
+  {
+    "id": "ch_d1afb4cb3a",
+    "brand": "well come FIT",
+    "name": "well come FIT Steckborn",
+    "address": "im Feldbach 1c",
+    "postal_code": "8266",
+    "city": "Steckborn",
+    "lat": 47.663578,
+    "lng": 8.976966
+  },
+  {
+    "id": "ch_8e84e62e06",
+    "brand": "well come FIT",
+    "name": "well come FIT Wallisellen",
+    "address": "Hammerweg 1",
+    "postal_code": "8304",
+    "city": "Wallisellen",
+    "lat": 47.4126106,
+    "lng": 8.5893312
+  },
+  {
+    "id": "ch_c077c98fc3",
+    "brand": "well come FIT",
+    "name": "well come FIT Wetzikon Nord",
+    "address": "Breitistrasse 21",
+    "postal_code": "8623",
+    "city": "Wetzikon",
+    "lat": 47.3383093,
+    "lng": 8.8115953
+  },
+  {
+    "id": "ch_f2b53de99f",
+    "brand": "well come FIT",
+    "name": "well come FIT Wetzikon Süd",
+    "address": "Hofstrasse 106",
+    "postal_code": "8620",
+    "city": "Wetzikon",
+    "lat": 47.310527,
+    "lng": 8.7948567
+  },
+  {
+    "id": "ch_76b8fca32b",
+    "brand": "well come FIT",
+    "name": "well come FIT Winterthur",
+    "address": "Im Hölderli 10",
+    "postal_code": "8405",
+    "city": "Winterthur",
+    "lat": 47.4926116,
+    "lng": 8.762046
+  },
+  {
+    "id": "ch_3ba0f71885",
+    "brand": "update Fitness",
+    "name": "update Fitness Aadorf",
+    "address": "Wittenwilerstrasse 12",
+    "postal_code": "8355",
+    "city": "Aadorf",
+    "lat": 47.4940542,
+    "lng": 8.8997973
+  },
+  {
+    "id": "ch_6a21236b92",
+    "brand": "update Fitness",
+    "name": "update Fitness Aarau",
+    "address": "Gysulastrasse 21",
+    "postal_code": "5000",
+    "city": "Aarau",
+    "lat": 47.3985327,
+    "lng": 8.0428567
+  },
+  {
+    "id": "ch_68fc4b1348",
+    "brand": "update Fitness",
+    "name": "update Fitness Adelboden",
+    "address": "Landstrasse 3",
+    "postal_code": "3715",
+    "city": "Adelboden",
+    "lat": 46.4933776,
+    "lng": 7.5607977
+  },
+  {
+    "id": "ch_95e86a364b",
+    "brand": "update Fitness",
+    "name": "update Fitness Aesch Bl",
+    "address": "Nordring 2",
+    "postal_code": "4147",
+    "city": "Aesch",
+    "lat": 47.4793749,
+    "lng": 7.5905404
+  },
+  {
+    "id": "ch_0377ed9206",
+    "brand": "update Fitness",
+    "name": "update Fitness Allschwil",
+    "address": "Paradiesrain 14",
+    "postal_code": "4123",
+    "city": "Allschwil",
+    "lat": 47.5459957,
+    "lng": 7.5525068
+  },
+  {
+    "id": "ch_34f2d94f0c",
+    "brand": "update Fitness",
+    "name": "update Fitness Altdorf",
+    "address": "Höfligasse 11",
+    "postal_code": "6460",
+    "city": "Altdorf",
+    "lat": 46.879061,
+    "lng": 8.6467912
+  },
+  {
+    "id": "ch_d6dcf188a6",
+    "brand": "update Fitness",
+    "name": "update Fitness Altstaetten",
+    "address": "Trogenerstrasse 34",
+    "postal_code": "9450",
+    "city": "Altstätten",
+    "lat": 47.378768,
+    "lng": 9.5388793
+  },
+  {
+    "id": "ch_aaff81e676",
+    "brand": "update Fitness",
+    "name": "update Fitness Amriswil",
+    "address": "Weinfelderstrasse 74",
+    "postal_code": "8580",
+    "city": "Amriswil",
+    "lat": 47.5449765,
+    "lng": 9.285262
+  },
+  {
+    "id": "ch_f7d9597ff1",
+    "brand": "update Fitness",
+    "name": "update Fitness Appenzell",
+    "address": "Rütistrasse 20",
+    "postal_code": "9050",
+    "city": "Appenzell",
+    "lat": 47.3332723,
+    "lng": 9.3992193
+  },
+  {
+    "id": "ch_975adb1799",
+    "brand": "update Fitness",
+    "name": "update Fitness Arbon",
+    "address": "Landquartstrasse 101",
+    "postal_code": "9320",
+    "city": "Arbon",
+    "lat": 47.5019733,
+    "lng": 9.4256532
+  },
+  {
+    "id": "ch_73e4384092",
+    "brand": "update Fitness",
+    "name": "update Fitness Baden",
+    "address": "Kurplatz 2",
+    "postal_code": "5400",
+    "city": "Baden",
+    "lat": 47.4808631,
+    "lng": 8.3139198
+  },
+  {
+    "id": "ch_e36bd906ac",
+    "brand": "update Fitness",
+    "name": "update Fitness Balsthal",
+    "address": "Herrengasse 17",
+    "postal_code": "4710",
+    "city": "Balsthal",
+    "lat": 47.3161657,
+    "lng": 7.6968443
+  },
+  {
+    "id": "ch_09ad32fabb",
+    "brand": "update Fitness",
+    "name": "update Fitness Basel Breite",
+    "address": "Farnsburgerstrasse 37",
+    "postal_code": "4052",
+    "city": "Basel",
+    "lat": 47.55521,
+    "lng": 7.6138463
+  },
+  {
+    "id": "ch_88cdf0090a",
+    "brand": "update Fitness",
+    "name": "update Fitness Basel Dreispitz",
+    "address": "Leimgrubenweg 4",
+    "postal_code": "4053",
+    "city": "Basel",
+    "lat": 47.5369652,
+    "lng": 7.6073862
+  },
+  {
+    "id": "ch_f8bdde2f2c",
+    "brand": "update Fitness",
+    "name": "update Fitness Basel Rebgasse",
+    "address": "Rebgasse 20",
+    "postal_code": "4058",
+    "city": "Basel",
+    "lat": 47.5605996,
+    "lng": 7.5942134
+  },
+  {
+    "id": "ch_f7fc02fc21",
+    "brand": "update Fitness",
+    "name": "update Fitness Basel Sbb",
+    "address": "Elisabethenanlage 11",
+    "postal_code": "4051",
+    "city": "Basel",
+    "lat": 47.5485517,
+    "lng": 7.5889376
+  },
+  {
+    "id": "ch_f1cce77981",
+    "brand": "update Fitness",
+    "name": "update Fitness Bellach",
+    "address": "Gurzelenstrasse 14a",
+    "postal_code": "4512",
+    "city": "Bellach",
+    "lat": 47.2095732,
+    "lng": 7.4967724
+  },
+  {
+    "id": "ch_1581cbc67a",
+    "brand": "update Fitness",
+    "name": "update Fitness Bern Buempliz",
+    "address": "Brünnenstrasse 118",
+    "postal_code": "3018",
+    "city": "Bern",
+    "lat": 46.9411819,
+    "lng": 7.3909914
+  },
+  {
+    "id": "ch_f9a0349eea",
+    "brand": "update Fitness",
+    "name": "update Fitness Bern Marktgasse",
+    "address": "Marktgasse 24",
+    "postal_code": "3011",
+    "city": "Bern",
+    "lat": 46.948009,
+    "lng": 7.4460023
+  },
+  {
+    "id": "ch_028b32df62",
+    "brand": "update Fitness",
+    "name": "update Fitness Bern Marzili",
+    "address": "Sulgeneckstrasse 66",
+    "postal_code": "3007",
+    "city": "Bern",
+    "lat": 46.9401559,
+    "lng": 7.4404217
+  },
+  {
+    "id": "ch_ee4a3c92e4",
+    "brand": "update Fitness",
+    "name": "update Fitness Bern Ostermundigen",
+    "address": "Ostermundigenstrasse 95",
+    "postal_code": "3006",
+    "city": "Bern",
+    "lat": 46.9550235,
+    "lng": 7.4745764
+  },
+  {
+    "id": "ch_235b3d57cb",
+    "brand": "update Fitness",
+    "name": "update Fitness Bern Schoenburg",
+    "address": "Viktoriastrasse 21",
+    "postal_code": "3013",
+    "city": "Bern",
+    "lat": 46.953323,
+    "lng": 7.4576207
+  },
+  {
+    "id": "ch_c7f452448e",
+    "brand": "update Fitness",
+    "name": "update Fitness Binningen",
+    "address": "Hauptstrasse 11",
+    "postal_code": "4102",
+    "city": "Binningen",
+    "lat": 47.543007,
+    "lng": 7.5753903
+  },
+  {
+    "id": "ch_db87f61830",
+    "brand": "update Fitness",
+    "name": "update Fitness Bischofszell",
+    "address": "Poststrasse 16",
+    "postal_code": "9220",
+    "city": "Bischofszell",
+    "lat": 47.4922979,
+    "lng": 9.2407477
+  },
+  {
+    "id": "ch_480fc086ae",
+    "brand": "update Fitness",
+    "name": "update Fitness Buchs",
+    "address": "Churerstrasse 35",
+    "postal_code": "9470",
+    "city": "Buchs",
+    "lat": 47.1597905,
+    "lng": 9.477104
+  },
+  {
+    "id": "ch_55eb52f4c5",
+    "brand": "update Fitness",
+    "name": "update Fitness Chur",
+    "address": "Ringstrasse 31",
+    "postal_code": "7000",
+    "city": "Chur",
+    "lat": 46.8542095,
+    "lng": 9.5137686
+  },
+  {
+    "id": "ch_fa7a4da0bd",
+    "brand": "update Fitness",
+    "name": "update Fitness Feldmeilen",
+    "address": "General-Wille-Strasse 59",
+    "postal_code": "8706",
+    "city": "Feldmeilen",
+    "lat": 47.2802064,
+    "lng": 8.6147919
+  },
+  {
+    "id": "ch_0ac04d9679",
+    "brand": "update Fitness",
+    "name": "update Fitness Feuerthalen",
+    "address": "Schützenstrasse 29",
+    "postal_code": "8245",
+    "city": "Feuerthalen",
+    "lat": 47.6911102,
+    "lng": 8.6476024
+  },
+  {
+    "id": "ch_6a784740a6",
+    "brand": "update Fitness",
+    "name": "update Fitness Frauenfeld",
+    "address": "Juchstrasse 16",
+    "postal_code": "8500",
+    "city": "Frauenfeld",
+    "lat": 47.5670274,
+    "lng": 8.9063028
+  },
+  {
+    "id": "ch_33cb35f0b0",
+    "brand": "update Fitness",
+    "name": "update Fitness Fribourg Givisiez",
+    "address": "Rte du Château-d'Affry 6",
+    "postal_code": "1762",
+    "city": "Givisiez",
+    "lat": 46.8118644,
+    "lng": 7.1348925
+  },
+  {
+    "id": "ch_76a0151ec3",
+    "brand": "update Fitness",
+    "name": "update Fitness Frick",
+    "address": "Schulstrasse 53",
+    "postal_code": "5070",
+    "city": "Frick",
+    "lat": 47.5030288,
+    "lng": 8.0112543
+  },
+  {
+    "id": "ch_f1a9dbe952",
+    "brand": "update Fitness",
+    "name": "update Fitness Glattzentrum",
+    "address": "Neue Winterthurerstrasse 99",
+    "postal_code": "8304",
+    "city": "Wallisellen",
+    "lat": 47.4082686,
+    "lng": 8.5958851
+  },
+  {
+    "id": "ch_8fd7ecf16f",
+    "brand": "update Fitness",
+    "name": "update Fitness Gordola",
+    "address": "Via Santa Maria 68b",
+    "postal_code": "6596",
+    "city": "Gordola TI",
+    "lat": 46.170033,
+    "lng": 8.865338
+  },
+  {
+    "id": "ch_6f30f5f30d",
+    "brand": "update Fitness",
+    "name": "update Fitness Gossau",
+    "address": "Stadtbühlstrasse 12",
+    "postal_code": "9200",
+    "city": "Gossau SG",
+    "lat": 47.4121286,
+    "lng": 9.2504137
+  },
+  {
+    "id": "ch_afe8ce9d83",
+    "brand": "update Fitness",
+    "name": "update Fitness Grenchen",
+    "address": "Bettlachstrasse 8",
+    "postal_code": "2540",
+    "city": "Grenchen",
+    "lat": 47.1927845,
+    "lng": 7.396888
+  },
+  {
+    "id": "ch_f034f53405",
+    "brand": "update Fitness",
+    "name": "update Fitness Grosshoechstetten",
+    "address": "Bernstrasse 1",
+    "postal_code": "3506",
+    "city": "Grosshöchstetten",
+    "lat": 46.9069538,
+    "lng": 7.637423
+  },
+  {
+    "id": "ch_af6c1edd36",
+    "brand": "update Fitness",
+    "name": "update Fitness Heerbrugg",
+    "address": "Marktstrasse 4",
+    "postal_code": "9435",
+    "city": "Heerbrugg",
+    "lat": 47.4110065,
+    "lng": 9.6261646
+  },
+  {
+    "id": "ch_c5cc64d049",
+    "brand": "update Fitness",
+    "name": "update Fitness Herisau",
+    "address": "Oberdorfstrasse 62",
+    "postal_code": "9100",
+    "city": "Herisau",
+    "lat": 47.3856554,
+    "lng": 9.2837411
+  },
+  {
+    "id": "ch_7813ebb972",
+    "brand": "update Fitness",
+    "name": "update Fitness Huenenberg",
+    "address": "Bösch 106",
+    "postal_code": "6331",
+    "city": "Hünenberg",
+    "lat": 47.1613839,
+    "lng": 8.4338248
+  },
+  {
+    "id": "ch_ab8f67cdbb",
+    "brand": "update Fitness",
+    "name": "update Fitness Hunzenschwil Ag",
+    "address": "Fabrikweg 1",
+    "postal_code": "5502",
+    "city": "Hunzenschwil AG",
+    "lat": 47.3888194,
+    "lng": 8.1249539
+  },
+  {
+    "id": "ch_7a529d9cc1",
+    "brand": "update Fitness",
+    "name": "update Fitness Kehrsatz",
+    "address": "Bernstrasse 99",
+    "postal_code": "3122",
+    "city": "Kehrsatz",
+    "lat": 46.9159063,
+    "lng": 7.4673822
+  },
+  {
+    "id": "ch_70ca27568e",
+    "brand": "update Fitness",
+    "name": "update Fitness Kreuzlingen",
+    "address": "Sonnenstrasse 16",
+    "postal_code": "8280",
+    "city": "Kreuzlingen",
+    "lat": 47.6505401,
+    "lng": 9.1726548
+  },
+  {
+    "id": "ch_4cb34330ff",
+    "brand": "update Fitness",
+    "name": "update Fitness Kriens",
+    "address": "Industriestrasse 10",
+    "postal_code": "6010",
+    "city": "Kriens",
+    "lat": 47.0244192,
+    "lng": 8.2991135
+  },
+  {
+    "id": "ch_4f122d553d",
+    "brand": "update Fitness",
+    "name": "update Fitness Landquart",
+    "address": "Rossriedstrasse 2",
+    "postal_code": "7205",
+    "city": "Zizers",
+    "lat": 46.9534084,
+    "lng": 9.5576928
+  },
+  {
+    "id": "ch_7c210c676f",
+    "brand": "update Fitness",
+    "name": "update Fitness Laufen Bl",
+    "address": "Weststrasse 75",
+    "postal_code": "4242",
+    "city": "Laufen",
+    "lat": 47.4189588,
+    "lng": 7.4956604
+  },
+  {
+    "id": "ch_9725bbc766",
+    "brand": "update Fitness",
+    "name": "update Fitness Lausanne Chauderon",
+    "address": "Rue du Maupas 18",
+    "postal_code": "1004",
+    "city": "Lausanne",
+    "lat": 46.5248977,
+    "lng": 6.6261683
+  },
+  {
+    "id": "ch_c48198e669",
+    "brand": "update Fitness",
+    "name": "update Fitness Lausanne Grancy",
+    "address": "Boulevard de Grancy 37",
+    "postal_code": "1006",
+    "city": "Lausanne",
+    "lat": 46.5158276,
+    "lng": 6.626488
+  },
+  {
+    "id": "ch_405565b346",
+    "brand": "update Fitness",
+    "name": "update Fitness Lausanne Sevelin",
+    "address": "Rue de Genève 46",
+    "postal_code": "1004",
+    "city": "Lausanne",
+    "lat": 46.5235393,
+    "lng": 6.6208283
+  },
+  {
+    "id": "ch_876e7d37ca",
+    "brand": "update Fitness",
+    "name": "update Fitness Liestal",
+    "address": "Rathausstrasse 45",
+    "postal_code": "4410",
+    "city": "Liestal",
+    "lat": 47.483995,
+    "lng": 7.7352403
+  },
+  {
+    "id": "ch_d1e49a5c7f",
+    "brand": "update Fitness",
+    "name": "update Fitness Luzern Bahnhof",
+    "address": "Seidenhofstrasse 9",
+    "postal_code": "6003",
+    "city": "Luzern",
+    "lat": 47.0499252,
+    "lng": 8.3077636
+  },
+  {
+    "id": "ch_094cdf3653",
+    "brand": "update Fitness",
+    "name": "update Fitness Mariastein",
+    "address": "Metzerlenstrasse 1",
+    "postal_code": "4115",
+    "city": "Metzerlen-Mariastein",
+    "lat": 47.4746473,
+    "lng": 7.4885543
+  },
+  {
+    "id": "ch_9f4297fb44",
+    "brand": "update Fitness",
+    "name": "update Fitness Moehlin",
+    "address": "Weidenpark 1",
+    "postal_code": "4313",
+    "city": "Möhlin",
+    "lat": 47.5605053,
+    "lng": 7.8405945
+  },
+  {
+    "id": "ch_425983d794",
+    "brand": "update Fitness",
+    "name": "update Fitness Muenchenstein",
+    "address": "Jurastrasse 4",
+    "postal_code": "4142",
+    "city": "Münchenstein",
+    "lat": 47.5223538,
+    "lng": 7.6063112
+  },
+  {
+    "id": "ch_6d1e833540",
+    "brand": "update Fitness",
+    "name": "update Fitness Muenchwilen",
+    "address": "Murgtalstrasse 20",
+    "postal_code": "9542",
+    "city": "Münchwilen",
+    "lat": 47.4832346,
+    "lng": 8.9959358
+  },
+  {
+    "id": "ch_ca19d70073",
+    "brand": "update Fitness",
+    "name": "update Fitness Murten",
+    "address": "Bernstrasse 15",
+    "postal_code": "3280",
+    "city": "Murten",
+    "lat": 46.9307388,
+    "lng": 7.1225957
+  },
+  {
+    "id": "ch_30fbd41929",
+    "brand": "update Fitness",
+    "name": "update Fitness Muttenz",
+    "address": "Hofackerstrasse 40",
+    "postal_code": "4132",
+    "city": "Muttenz",
+    "lat": 47.5353129,
+    "lng": 7.6402693
+  },
+  {
+    "id": "ch_22dd543016",
+    "brand": "update Fitness",
+    "name": "update Fitness Netstal",
+    "address": "Molliserstrasse 41",
+    "postal_code": "8754",
+    "city": "Netstal",
+    "lat": 47.0668293,
+    "lng": 9.0584135
+  },
+  {
+    "id": "ch_8205e9db72",
+    "brand": "update Fitness",
+    "name": "update Fitness Neuhausen",
+    "address": "Industrieplatz",
+    "postal_code": "8212",
+    "city": "Neuhausen am Rheinfall",
+    "lat": 47.6795315,
+    "lng": 8.6182199
+  },
+  {
+    "id": "ch_454c556d33",
+    "brand": "update Fitness",
+    "name": "update Fitness Oberwil",
+    "address": "Mühlemattstrasse 48",
+    "postal_code": "4104",
+    "city": "Oberwil",
+    "lat": 47.5064446,
+    "lng": 7.5536405
+  },
+  {
+    "id": "ch_8795a378a8",
+    "brand": "update Fitness",
+    "name": "update Fitness Reinach Ag",
+    "address": "Obere Stumpenbachstrasse 10",
+    "postal_code": "5734",
+    "city": "Reinach",
+    "lat": 47.2514046,
+    "lng": 8.182247
+  },
+  {
+    "id": "ch_61a828966d",
+    "brand": "update Fitness",
+    "name": "update Fitness Root",
+    "address": "Platz 3",
+    "postal_code": "6039",
+    "city": "Root D4",
+    "lat": 47.1033957,
+    "lng": 8.3750046
+  },
+  {
+    "id": "ch_d700600b5d",
+    "brand": "update Fitness",
+    "name": "update Fitness Rorschach",
+    "address": "Adolf-Gaudy-Weg 4a",
+    "postal_code": "9400",
+    "city": "Rorschach",
+    "lat": 47.4745869,
+    "lng": 9.4842768
+  },
+  {
+    "id": "ch_53ee6a15f4",
+    "brand": "update Fitness",
+    "name": "update Fitness Rueti Zh",
+    "address": "Werkstrasse 43",
+    "postal_code": "8630",
+    "city": "Rüti",
+    "lat": 47.2538893,
+    "lng": 8.852986
+  },
+  {
+    "id": "ch_2fd46b5837",
+    "brand": "update Fitness",
+    "name": "update Fitness Spiez",
+    "address": "Thunstrasse 8+10",
+    "postal_code": "3700",
+    "city": "Spiez",
+    "lat": 46.6918318,
+    "lng": 7.6671213
+  },
+  {
+    "id": "ch_0ef4540c29",
+    "brand": "update Fitness",
+    "name": "update Fitness Spreitenbach",
+    "address": "Güterstrasse 7",
+    "postal_code": "8957",
+    "city": "Spreitenbach",
+    "lat": 47.4282427,
+    "lng": 8.3600671
+  },
+  {
+    "id": "ch_c61cea1f63",
+    "brand": "update Fitness",
+    "name": "update Fitness St Gallen Bahnhof",
+    "address": "Merkurstrasse 2",
+    "postal_code": "9000",
+    "city": "St.Gallen",
+    "lat": 47.4236334,
+    "lng": 9.3716621
+  },
+  {
+    "id": "ch_0f87f7bf6a",
+    "brand": "update Fitness",
+    "name": "update Fitness St Gallen Espenmoos",
+    "address": "Heiligkreuzstrasse 28",
+    "postal_code": "9008",
+    "city": "St. Gallen",
+    "lat": 47.4386939,
+    "lng": 9.3955458
+  },
+  {
+    "id": "ch_29f010c825",
+    "brand": "update Fitness",
+    "name": "update Fitness St Gallen Gallusmarkt",
+    "address": "Favrestrasse 3",
+    "postal_code": "9016",
+    "city": "St. Gallen",
+    "lat": 47.4372031,
+    "lng": 9.4142891
+  },
+  {
+    "id": "ch_970007b77b",
+    "brand": "update Fitness",
+    "name": "update Fitness St Gallen Stadtpark",
+    "address": "Sternackerstrasse 3",
+    "postal_code": "9000",
+    "city": "St. Gallen",
+    "lat": 47.4264073,
+    "lng": 9.3832958
+  },
+  {
+    "id": "ch_8029b9f296",
+    "brand": "update Fitness",
+    "name": "update Fitness St Gallen West",
+    "address": "Fürstenlandstrasse 17",
+    "postal_code": "9000",
+    "city": "St. Gallen",
+    "lat": 47.4149884,
+    "lng": 9.3536334
+  },
+  {
+    "id": "ch_950814349b",
+    "brand": "update Fitness",
+    "name": "update Fitness St Moritz Dorf",
+    "address": "Via Serlas 23",
+    "postal_code": "7500",
+    "city": "St. Moritz",
+    "lat": 46.4975401,
+    "lng": 9.8420729
+  },
+  {
+    "id": "ch_95558d1e21",
+    "brand": "update Fitness",
+    "name": "update Fitness Sursee",
+    "address": "Surentalstrasse 10",
+    "postal_code": "6210",
+    "city": "Sursee",
+    "lat": 47.1780339,
+    "lng": 8.1104832
+  },
+  {
+    "id": "ch_18db9572c9",
+    "brand": "update Fitness",
+    "name": "update Fitness Teufen",
+    "address": "Landhaus 1",
+    "postal_code": "9053",
+    "city": "Teufen",
+    "lat": 47.3893305,
+    "lng": 9.3918439
+  },
+  {
+    "id": "ch_8dd2247070",
+    "brand": "update Fitness",
+    "name": "update Fitness Thun",
+    "address": "Gewerbestrasse 6",
+    "postal_code": "3600",
+    "city": "Thun",
+    "lat": 46.7593906,
+    "lng": 7.6246987
+  },
+  {
+    "id": "ch_758e7a7d9d",
+    "brand": "update Fitness",
+    "name": "update Fitness Uzwil",
+    "address": "Bahnhofstrasse 82",
+    "postal_code": "9240",
+    "city": "Uzwil",
+    "lat": 47.4369331,
+    "lng": 9.1332079
+  },
+  {
+    "id": "ch_79baed6e59",
+    "brand": "update Fitness",
+    "name": "update Fitness Wattwil",
+    "address": "Industriestrasse 2",
+    "postal_code": "9630",
+    "city": "Wattwil",
+    "lat": 47.2950089,
+    "lng": 9.0935051
+  },
+  {
+    "id": "ch_9aadb292bb",
+    "brand": "update Fitness",
+    "name": "update Fitness Weinfelden Central",
+    "address": "Rathausstrasse 17",
+    "postal_code": "8570",
+    "city": "Weinfelden",
+    "lat": 47.5666508,
+    "lng": 9.1087339
+  },
+  {
+    "id": "ch_f1a98488ac",
+    "brand": "update Fitness",
+    "name": "update Fitness Weinfelden Ost",
+    "address": "Amriswilerstrasse 57",
+    "postal_code": "8570",
+    "city": "Weinfelden",
+    "lat": 47.5032116,
+    "lng": 9.2463172
+  },
+  {
+    "id": "ch_1047e978d0",
+    "brand": "update Fitness",
+    "name": "update Fitness Wettingen",
+    "address": "Jurastrasse 42",
+    "postal_code": "5430",
+    "city": "Wettingen",
+    "lat": 47.4586342,
+    "lng": 8.329732
+  },
+  {
+    "id": "ch_b54094ca02",
+    "brand": "update Fitness",
+    "name": "update Fitness Wil Glaswerk",
+    "address": "Speerstrasse 11",
+    "postal_code": "9500",
+    "city": "Wil",
+    "lat": 47.4613618,
+    "lng": 9.0464764
+  },
+  {
+    "id": "ch_64de4c1cf6",
+    "brand": "update Fitness",
+    "name": "update Fitness Wil Kraftwerk",
+    "address": "Glärnischstrasse 1",
+    "postal_code": "9500",
+    "city": "Wil",
+    "lat": 47.4610518,
+    "lng": 9.0439628
+  },
+  {
+    "id": "ch_b15e113b17",
+    "brand": "update Fitness",
+    "name": "update Fitness Winterthur",
+    "address": "Archstrasse 8",
+    "postal_code": "8400",
+    "city": "Winterthur",
+    "lat": 47.498059,
+    "lng": 8.7235509
+  },
+  {
+    "id": "ch_fbc53dc806",
+    "brand": "update Fitness",
+    "name": "update Fitness Wittenbach",
+    "address": "Erlackerstrasse 14",
+    "postal_code": "9300",
+    "city": "Wittenbach",
+    "lat": 47.4596547,
+    "lng": 9.3854281
+  },
+  {
+    "id": "ch_feeb1ad4d8",
+    "brand": "update Fitness",
+    "name": "update Fitness Worb",
+    "address": "Neufeldstrasse 4",
+    "postal_code": "3076",
+    "city": "Worb",
+    "lat": 46.9335578,
+    "lng": 7.5605042
+  },
+  {
+    "id": "ch_6a499354ca",
+    "brand": "update Fitness",
+    "name": "update Fitness Zofingen",
+    "address": "Aarburgerstrasse 4",
+    "postal_code": "4800",
+    "city": "Zofingen",
+    "lat": 47.2922031,
+    "lng": 7.942613
+  },
+  {
+    "id": "ch_3da3953555",
+    "brand": "update Fitness",
+    "name": "update Fitness Zuerich Central",
+    "address": "Neumühlequai 32",
+    "postal_code": "8006",
+    "city": "Zürich",
+    "lat": 47.3806352,
+    "lng": 8.5415998
+  },
+  {
+    "id": "ch_2e5cbd5328",
+    "brand": "update Fitness",
+    "name": "update Fitness Zunzgen Sissach",
+    "address": "Hauptstrasse 15",
+    "postal_code": "4455",
+    "city": "Zunzgen",
+    "lat": 47.455955,
+    "lng": 7.8073748
+  },
+  {
+    "id": "ch_fce0b5ee73",
+    "brand": "update Fitness",
+    "name": "update Fitness Zuzwil",
+    "address": "St. Gallerstrasse 21",
+    "postal_code": "9524",
+    "city": "Zuzwil",
+    "lat": 47.4700193,
+    "lng": 9.1046498
+  }
+]

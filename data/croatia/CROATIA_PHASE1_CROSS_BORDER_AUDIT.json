@@ -1,0 +1,113 @@
+{
+  "slovenia_ready": 0,
+  "bosnia_ready": 0,
+  "serbia_ready": 0,
+  "montenegro_ready": 0,
+  "hungary_ready": 0,
+  "italy_ready": 0,
+  "neum_croatia_collisions": 0,
+  "brod_identity_collisions": 0,
+  "foreign_probes_staged": 14,
+  "foreign_probes_excluded": 14,
+  "foreign_probe_ids_in_ready": [],
+  "probes": [
+    {
+      "name": "Slovenia probe Ljubljana",
+      "city": "Ljubljana",
+      "territory": "Slovenia",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": false
+    },
+    {
+      "name": "Slovenia probe Koper",
+      "city": "Koper",
+      "territory": "Slovenia",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Slovenia probe Maribor",
+      "city": "Maribor",
+      "territory": "Slovenia",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": false
+    },
+    {
+      "name": "Bosnia probe Mostar",
+      "city": "Mostar",
+      "territory": "Bosnia and Herzegovina",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Bosnia probe Neum",
+      "city": "Neum",
+      "territory": "Bosnia and Herzegovina",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Bosnia probe Banja Luka",
+      "city": "Banja Luka",
+      "territory": "Bosnia and Herzegovina",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Bosnia probe Bosanski Brod",
+      "city": "Bosanski Brod",
+      "territory": "Bosnia and Herzegovina",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Bosnia probe Trebinje",
+      "city": "Trebinje",
+      "territory": "Bosnia and Herzegovina",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Serbia probe Novi Sad",
+      "city": "Novi Sad",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": false
+    },
+    {
+      "name": "Serbia probe Sombor",
+      "city": "Sombor",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Montenegro probe Herceg Novi",
+      "city": "Herceg Novi",
+      "territory": "Montenegro",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Montenegro probe Igalo",
+      "city": "Igalo",
+      "territory": "Montenegro",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Hungary probe southern border",
+      "city": "Barcs",
+      "territory": "Hungary",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    },
+    {
+      "name": "Italy probe Trieste",
+      "city": "Trieste",
+      "territory": "Italy",
+      "import_category": "EXCLUDED",
+      "in_croatia_gate": true
+    }
+  ]
+}

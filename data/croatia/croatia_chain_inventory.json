@@ -1,0 +1,292 @@
+[
+  {
+    "brand": "Anytime Fitness",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Basic Gym One",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Blue Gym",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Border probe",
+    "discovered": 14,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 14,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Core Gym",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "FITINN",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Fitness Centar Joker",
+    "discovered": 4,
+    "ready": 4,
+    "coming_soon": 0,
+    "excluded": 0,
+    "unresolved": 0,
+    "cities": [
+      "Omiš",
+      "Solin",
+      "Split"
+    ]
+  },
+  {
+    "brand": "Fitness First",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Fitness Studio Energy",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Fitness centar Forma",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Gibi Gib",
+    "discovered": 4,
+    "ready": 4,
+    "coming_soon": 0,
+    "excluded": 0,
+    "unresolved": 0,
+    "cities": [
+      "Varaždin",
+      "Zagreb"
+    ]
+  },
+  {
+    "brand": "Gold's Gym",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Gyms4you",
+    "discovered": 54,
+    "ready": 48,
+    "coming_soon": 4,
+    "excluded": 0,
+    "unresolved": 2,
+    "cities": [
+      "Dubrovnik",
+      "Karlovac",
+      "Osijek",
+      "Rijeka",
+      "Slavonski Brod",
+      "Split",
+      "Varaždin",
+      "Velika Gorica",
+      "Zadar",
+      "Zagreb",
+      "Zaprešić",
+      "Šibenik"
+    ]
+  },
+  {
+    "brand": "Invictus Fitness",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "JOHN REED",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Jump Fitness",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "McFIT",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "MoFit",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "MultiSport",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Multihealth",
+    "discovered": 3,
+    "ready": 3,
+    "coming_soon": 0,
+    "excluded": 0,
+    "unresolved": 0,
+    "cities": [
+      "Karlovac",
+      "Samobor",
+      "Zagreb"
+    ]
+  },
+  {
+    "brand": "Olympic Fitness",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "OrlandoFit",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "PassSport",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Play Fitness",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "Sparta Gym",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "THE Fitness",
+    "discovered": 23,
+    "ready": 21,
+    "coming_soon": 2,
+    "excluded": 0,
+    "unresolved": 0,
+    "cities": [
+      "Dugo Selo",
+      "Samobor",
+      "Velika Gorica",
+      "Zagreb"
+    ]
+  },
+  {
+    "brand": "World Class",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "XXL Fitness",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  },
+  {
+    "brand": "clever fit",
+    "discovered": 1,
+    "ready": 0,
+    "coming_soon": 0,
+    "excluded": 1,
+    "unresolved": 0,
+    "cities": []
+  }
+]

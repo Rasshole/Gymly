@@ -1,0 +1,127 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:58:18Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1290453079,
+      "lat": 51.7721966,
+      "lon": 36.178126,
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1542088598,
+      "lat": 51.6737144,
+      "lon": 36.1450927,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Памир",
+        "official_name": "Фитнесс клуб \"Памир\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 1912458597,
+      "lat": 51.7279629,
+      "lon": 36.1812542,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Сокол"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5648926271,
+      "lat": 51.673875,
+      "lon": 36.1453977,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "Витязь",
+        "official_name": "Фитнесс клуб \"Витязь\"",
+        "website": "http://fitnes-vityaz46.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6761514939,
+      "lat": 51.741308,
+      "lon": 36.1492447,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Санта Моника"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6765019532,
+      "lat": 51.7343183,
+      "lon": 36.1401826,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Wild Sport"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11782599134,
+      "lat": 51.742225,
+      "lon": 36.1920531,
+      "tags": {
+        "contact:phone": "+7 920 7276367",
+        "contact:website": "https://kursk.ladystretch.ru/",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13274524488,
+      "lat": 51.710101,
+      "lon": 36.1481906,
+      "tags": {
+        "contact:telegram": "https://t.me/pharaongym",
+        "contact:vk": "https://vk.com/club232495551",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Фараон",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13601916217,
+      "lat": 51.7245892,
+      "lon": 36.1887047,
+      "tags": {
+        "contact:phone": "+7 901 8797563",
+        "contact:website": "https://ladystretch.com/kursk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1005839235,
+      "center": {
+        "lat": 51.7121024,
+        "lon": 36.0787677
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Альтаир арена"
+      }
+    }
+  ]
+}

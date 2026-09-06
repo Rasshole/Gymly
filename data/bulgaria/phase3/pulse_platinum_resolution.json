@@ -1,0 +1,12 @@
+{
+  "classification": "A_current_Pulse",
+  "evidence": [
+    "Official pulsefit.bg page /en/klubove/pulse-platinum/ exists and is live",
+    "Official aria-label address: София, ул. \"Резбарска\" 47",
+    "Consumer-facing brand on page is Pulse Platinum (Pulse Fitness)",
+    "Distinct from Hammer Gym Platinum at 4 George Washington str.",
+    "Geocoded READY at Rezbarska 47; ~1246m from Next Level Hadzhi Dimitar (Rezbarska 5) — A_legitimate"
+  ],
+  "production_identity_decision": "Stage as Pulse Fitness / Pulse Platinum only. Do not stage separate Platinum Health Club identity.",
+  "hammer_gym_platinum": "DISTINCT_OPERATOR at 4 George Washington str."
+}

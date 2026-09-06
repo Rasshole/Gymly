@@ -1,0 +1,14 @@
+{
+  "search_query_count": 36,
+  "search_runs_total": 36,
+  "slowest_search_query": "Санкт-Петербург",
+  "slowest_search_ms": 967,
+  "max_search_result_count": 50,
+  "query_with_max_results": "Russia",
+  "runs": 36,
+  "min_ms": 24,
+  "median_ms": 182,
+  "p95_ms": 767,
+  "max_ms": 967,
+  "mean_ms": 245.08333333333334
+}

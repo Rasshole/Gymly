@@ -1,0 +1,148 @@
+{
+  "phase1_total": 1159,
+  "phase2_total": 1287,
+  "categories": {
+    "READY_TO_IMPORT": 1245,
+    "CLOSED": 6,
+    "COMING_SOON": 15,
+    "NEEDS_COORDINATES": 16,
+    "NEEDS_REVIEW": 5
+  },
+  "brands": {
+    "McFIT": 181,
+    "JOHN REED": 34,
+    "all inclusive Fitness": 183,
+    "PRIME TIME fitness": 22,
+    "EASYFITNESS": 201,
+    "clever fit": 382,
+    "FitX": 112,
+    "INJOY": 70,
+    "Gold's Gym": 5,
+    "Fitness First": 90,
+    "ELBGYM": 7
+  },
+  "chain_coverage": [
+    {
+      "brand": "clever fit",
+      "official": 400,
+      "discovered": 382,
+      "READY": 378,
+      "unresolved": 0,
+      "pct": 95.5,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "McFIT",
+      "official": 200,
+      "discovered": 181,
+      "READY": 177,
+      "unresolved": 0,
+      "pct": 90.5,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "FitX",
+      "official": 112,
+      "discovered": 112,
+      "READY": 112,
+      "unresolved": 0,
+      "pct": 100.0,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "EASYFITNESS",
+      "official": 205,
+      "discovered": 201,
+      "READY": 188,
+      "unresolved": 13,
+      "pct": 98.0,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "Fitness First",
+      "official": 90,
+      "discovered": 90,
+      "READY": 83,
+      "unresolved": 7,
+      "pct": 100.0,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "JOHN REED",
+      "official": 40,
+      "discovered": 34,
+      "READY": 32,
+      "unresolved": 0,
+      "pct": 85.0,
+      "status": "DISCOVERY_INCOMPLETE"
+    },
+    {
+      "brand": "Gold's Gym",
+      "official": 5,
+      "discovered": 5,
+      "READY": 5,
+      "unresolved": 0,
+      "pct": 100.0,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "all inclusive Fitness",
+      "official": 183,
+      "discovered": 183,
+      "READY": 172,
+      "unresolved": 0,
+      "pct": 100.0,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "INJOY",
+      "official": 70,
+      "discovered": 70,
+      "READY": 69,
+      "unresolved": 1,
+      "pct": 100.0,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "ELBGYM",
+      "official": 7,
+      "discovered": 7,
+      "READY": 7,
+      "unresolved": 0,
+      "pct": 100.0,
+      "status": "COMPLETE_OR_NEAR"
+    },
+    {
+      "brand": "PRIME TIME fitness",
+      "official": 25,
+      "discovered": 22,
+      "READY": 22,
+      "unresolved": 0,
+      "pct": 88.0,
+      "status": "DISCOVERY_INCOMPLETE"
+    },
+    {
+      "brand": "jumpers fitness",
+      "official": 0,
+      "discovered": 0,
+      "READY": 0,
+      "unresolved": 0,
+      "pct": 0,
+      "status": "ABSORBED_INTO_ALL_INCLUSIVE"
+    }
+  ],
+  "proposed_first_merge": 1245,
+  "expected_catalog_after_merge": 2773,
+  "centers_sha256": "df0ceb6b4ed23585d9607014b658c3fe5ad1bb783e2ac17928193da55d7e82fe",
+  "same_address_diff_brand_count": 5,
+  "border_hits": [],
+  "elbgym": [
+    "ELBGYM Hamburg Alsterufer",
+    "ELBGYM Hamburg Eppendorf Straßenbahnring",
+    "ELBGYM Hamburg Innenstadt Dammtorpark",
+    "ELBGYM Hamburg Stadthöfe",
+    "ELBGYM Hamburg Winterhude",
+    "ELBGYM München DER Bogen",
+    "ELBGYM München Hofstatt"
+  ]
+}

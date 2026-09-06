@@ -1,0 +1,132 @@
+{
+  "country": "Bosnia and Herzegovina",
+  "phase": 1,
+  "production_total": 11800,
+  "production_sha256": "6df5a27d1671a5b5721b63e04b2f4e891ed3c5058fa24ede7d370eaaeb1f5112",
+  "bosnia_herzegovina_live": 0,
+  "ba_prefix_live": 0,
+  "staging_total": 75,
+  "status_counts": {
+    "EXCLUDED": 34,
+    "NEEDS_REVIEW": 27,
+    "NEEDS_COORDINATES": 14
+  },
+  "ready_to_import": 0,
+  "needs_review": 27,
+  "needs_coordinates": 14,
+  "excluded": 34,
+  "closed": 0,
+  "qualifying_class_a_chains": 0,
+  "potential_class_a_operators": 2,
+  "class_a_locations": 0,
+  "class_a_estates_complete": true,
+  "plausible_independents": 39,
+  "municipal_candidates": 2,
+  "city_coverage": {
+    "Sarajevo": "independent_present_candidate",
+    "Banja Luka": "independent_present_candidate",
+    "Tuzla": "independent_present_candidate",
+    "Mostar": "independent_present_candidate",
+    "Zenica": "independent_present_candidate",
+    "Bijeljina": "independent_present_candidate",
+    "Bihać": "independent_present_candidate",
+    "Brčko": "independent_present_candidate",
+    "Prijedor": "independent_present_candidate",
+    "Doboj": "independent_present_candidate",
+    "Trebinje": "independent_present_candidate",
+    "Cazin": "independent_present_candidate",
+    "Travnik": "independent_present_candidate",
+    "Gradačac": "B_discovery_gap",
+    "Gračanica": "independent_present_candidate",
+    "Živinice": "independent_present_candidate",
+    "Lukavac": "A_legitimate_no_local_gym",
+    "Visoko": "A_legitimate_no_local_gym",
+    "Goražde": "independent_present_candidate",
+    "Konjic": "A_legitimate_no_local_gym",
+    "Bugojno": "A_legitimate_no_local_gym",
+    "Jajce": "A_legitimate_no_local_gym",
+    "Livno": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [
+    "Gradačac"
+  ],
+  "phase1_justified_a_gaps": [
+    "Lukavac",
+    "Visoko",
+    "Konjic",
+    "Bugojno",
+    "Jajce",
+    "Livno"
+  ],
+  "federation_rs_brcko_unified": true,
+  "separate_entity_prefix": false,
+  "data_quality": {
+    "invalid_postcodes_ready_review": [],
+    "mojibake": [],
+    "foreign_ready": [],
+    "fallback_ready": [],
+    "hotel_spa_leakage_ready": 0,
+    "hard_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts_for_merge": 0,
+    "phase2_rebrand_holds": 2
+  },
+  "cross_border": {
+    "croatia_ready": 0,
+    "serbia_ready": 0,
+    "montenegro_ready": 0,
+    "foreign_probes_staged": 5,
+    "foreign_probes_excluded": 5,
+    "probes": [
+      {
+        "name": "Dubrovnik HR border probe",
+        "city": "Dubrovnik",
+        "territory": "Croatia",
+        "import_category": "EXCLUDED",
+        "in_ba_gate": true
+      },
+      {
+        "name": "Slavonski Brod HR border probe",
+        "city": "Slavonski Brod",
+        "territory": "Croatia",
+        "import_category": "EXCLUDED",
+        "in_ba_gate": false
+      },
+      {
+        "name": "Šabac RS border probe",
+        "city": "Šabac",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_ba_gate": false
+      },
+      {
+        "name": "Herceg Novi ME gym probe",
+        "city": "Herceg Novi",
+        "territory": "Montenegro",
+        "import_category": "EXCLUDED",
+        "in_ba_gate": false
+      },
+      {
+        "name": "Zagreb directory noise probe",
+        "city": "Zagreb",
+        "territory": "Croatia",
+        "import_category": "EXCLUDED",
+        "in_ba_gate": false
+      }
+    ]
+  },
+  "hotel_spa_audit": {
+    "performed": true,
+    "hotel_spa_excluded": true,
+    "hotel_spa_leakage_ready": 0,
+    "notes": "Marriott / Holiday Inn Sarajevo and Neum resort amenities staged EXCLUDED."
+  },
+  "small_market_assessment": "MIXED_CHAIN_INDEPENDENT",
+  "phase2_required": true,
+  "merge_ready": false,
+  "projected_catalog": 11800,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "verdict": "BOSNIA & HERZEGOVINA PHASE 2 REQUIRED BEFORE MERGE"
+}

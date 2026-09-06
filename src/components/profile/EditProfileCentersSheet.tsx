@@ -21,14 +21,18 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {getActiveDanishGyms, type DanishGym} from '@/data/danishGyms';
+import {getActiveGyms, type DanishGym} from '@/data/gymCatalog';
+import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
+import {pickBrowseGyms} from '@/utils/pickBrowseGyms';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
+import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 import colors from '@/theme/colors';
 import {radius, spacing, typography, shadows} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 const SCREEN_H = Dimensions.get('window').height;
-const ALL_GYMS = getActiveDanishGyms();
+const ALL_GYMS = getActiveGyms();
 const MAX_CENTERS = 3;
 
 const springOpen = {
@@ -47,12 +51,6 @@ const springClose = {
 
 const DISMISS_DRAG_THRESHOLD = 72;
 const DISMISS_VELOCITY = 0.65;
-
-function gymHaystack(gym: DanishGym): string {
-  return `${gym.name} ${gym.brand ?? ''} ${gym.city ?? ''} ${gym.address ?? ''} ${gym.postalCode ?? ''}`
-    .toLowerCase()
-    .replace(/,/g, ' ');
-}
 
 function idsEqual(a: string[], b: string[]): boolean {
   if (a.length !== b.length) {
@@ -76,6 +74,8 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
   onSave,
   onLimitReached,
 }) => {
+  const {t, intlLocale} = useTranslation();
+  const userCoords = useOptionalUserCoords();
   const insets = useSafeAreaInsets();
   const sheetY = useRef(new Animated.Value(SCREEN_H)).current;
   const baselineIdsRef = useRef<string[]>([]);
@@ -204,11 +204,15 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
   );
 
   const filteredGyms = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    const tokens = q.split(/\s+/).filter(Boolean);
-    let list = ALL_GYMS;
-    if (tokens.length > 0) {
-      list = ALL_GYMS.filter(g => tokens.every(t => gymHaystack(g).includes(t)));
+    const q = query.trim();
+    let list: DanishGym[];
+    if (q.length > 0) {
+      list = searchGyms(q, {gyms: ALL_GYMS, limit: 80}).map(h => h.gym);
+    } else {
+      list = pickBrowseGyms({
+        gyms: ALL_GYMS,
+        userLocation: userCoords,
+      });
     }
     const selectedSet = new Set(selectedIds);
     return [...list].sort((a, b) => {
@@ -217,9 +221,12 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
       if (aSel !== bSel) {
         return aSel - bSel;
       }
-      return formatGymDisplayName(a).localeCompare(formatGymDisplayName(b), 'da');
+      return formatGymDisplayName(a).localeCompare(
+        formatGymDisplayName(b),
+        intlLocale,
+      );
     });
-  }, [query, selectedIds]);
+  }, [query, selectedIds, intlLocale, userCoords]);
 
   const toggleGym = useCallback(
     (gymId: string) => {
@@ -274,7 +281,9 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
       return (
         <View style={styles.emptyPickCard}>
           <Icon name="location-outline" size={18} color={colors.primary} />
-          <Text style={styles.emptyPickText}>Vælg op til 3 centre</Text>
+          <Text style={styles.emptyPickText}>
+            {t('phase2ui.chooseUpTo3Centers')}
+          </Text>
         </View>
       );
     }
@@ -288,7 +297,9 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
           <View key={gym.id} style={styles.chip}>
             {index === 0 ? (
               <View style={styles.chipPrimaryBadge}>
-                <Text style={styles.chipPrimaryText}>Primært</Text>
+                <Text style={styles.chipPrimaryText}>
+                  {t('phase2ui.primaryCenter')}
+                </Text>
               </View>
             ) : null}
             <View style={styles.chipTopRow}>
@@ -362,7 +373,9 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
             </Text>
             {isPrimary ? (
               <View style={styles.listPrimaryBadge}>
-                <Text style={styles.listPrimaryText}>Primært</Text>
+                <Text style={styles.listPrimaryText}>
+                  {t('phase2ui.primaryCenter')}
+                </Text>
               </View>
             ) : null}
           </View>
@@ -394,7 +407,7 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
           <Pressable
             style={StyleSheet.absoluteFill}
             onPress={() => dismissSheet(true)}
-            accessibilityLabel="Luk"
+            accessibilityLabel={t('a11y.close')}
           />
         </Animated.View>
 
@@ -414,12 +427,17 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
 
           <View style={styles.headerBlock}>
             <View style={styles.headerTextCol}>
-              <Text style={styles.title}>Rediger dine centre</Text>
-              <Text style={styles.subtitle}>Vælg de centre du træner mest i</Text>
+              <Text style={styles.title}>{t('phase2ui.editCentersTitle')}</Text>
+              <Text style={styles.subtitle}>
+                {t('phase2ui.editCentersSubtitle')}
+              </Text>
             </View>
             <View style={styles.countPill}>
               <Text style={styles.countPillText}>
-                {selectedIds.length}/{MAX_CENTERS} valgt
+                {t('phase2ui.selectedCount', {
+                  count: selectedIds.length,
+                  max: MAX_CENTERS,
+                })}
               </Text>
             </View>
           </View>
@@ -430,7 +448,7 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
               style={styles.searchInput}
               value={query}
               onChangeText={setQuery}
-              placeholder="Søg efter center…"
+              placeholder={t('searchCenters.placeholder')}
               placeholderTextColor={colors.textMuted}
               autoCorrect={false}
               autoCapitalize="none"
@@ -438,10 +456,12 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
             />
           </View>
 
-          <Text style={styles.sectionLabel}>Dine valg</Text>
+          <Text style={styles.sectionLabel}>{t('phase2ui.yourChoices')}</Text>
           <View style={styles.selectedSection}>{renderSelectedSection()}</View>
 
-          <Text style={[styles.sectionLabel, styles.sectionLabelList]}>Alle centre</Text>
+          <Text style={[styles.sectionLabel, styles.sectionLabelList]}>
+            {t('checkIn.allCenters')}
+          </Text>
           <FlatList
             data={filteredGyms}
             keyExtractor={g => g.id}
@@ -461,10 +481,10 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
             {saving ? (
               <View style={styles.saveBtnInner}>
                 <ActivityIndicator color={colors.white} size="small" />
-                <Text style={styles.saveBtnText}>Gemmer…</Text>
+                <Text style={styles.saveBtnText}>{t('groups.saving')}</Text>
               </View>
             ) : (
-              <Text style={styles.saveBtnText}>Gem centre</Text>
+              <Text style={styles.saveBtnText}>{t('phase2ui.saveCenters')}</Text>
             )}
           </TouchableOpacity>
         </Animated.View>

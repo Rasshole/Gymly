@@ -1,0 +1,83 @@
+{
+  "checked": [
+    {
+      "brand": "Reval-Sport",
+      "class": "E",
+      "notes": "Single-site / specialty — EXCLUDED"
+    },
+    {
+      "brand": "Sparta",
+      "class": "E",
+      "notes": "Single-site — EXCLUDED"
+    },
+    {
+      "brand": "FitLife",
+      "class": "E",
+      "notes": "Single-site — EXCLUDED"
+    },
+    {
+      "brand": "HC Gym",
+      "class": "E",
+      "notes": "Single-site — EXCLUDED"
+    },
+    {
+      "brand": "Audentes Fitness",
+      "class": "E",
+      "notes": "Sports-complex / academy adjacency — not ≥3 conventional chain"
+    },
+    {
+      "brand": "Ring Sport",
+      "class": "E",
+      "notes": "No ≥3 conventional public estate"
+    },
+    {
+      "brand": "Status Club",
+      "class": "E",
+      "notes": "No ≥3 conventional public estate"
+    },
+    {
+      "brand": "Terra Sport",
+      "class": "E",
+      "notes": "No ≥3 conventional public estate"
+    },
+    {
+      "brand": "Aktiiv",
+      "class": "E",
+      "notes": "No ≥3 conventional public estate"
+    },
+    {
+      "brand": "Corsagym",
+      "class": "E",
+      "notes": "No ≥3 conventional public estate"
+    },
+    {
+      "brand": "Idakeskus Sport",
+      "class": "E",
+      "notes": "Sports complex — not Class A chain"
+    },
+    {
+      "brand": "Lemon Gym",
+      "class": "E",
+      "notes": "Official lemongym.ee still 2 locations (Mustakivi + Tartu) — below ≥3"
+    },
+    {
+      "brand": "People Fitness / Gym+ / Impuls",
+      "class": "F",
+      "notes": "Absent EE Class A; Gym+ is Lithuania-only"
+    },
+    {
+      "brand": "Basic-Fit / McFIT / Anytime / FITINN / clever fit / JOHN REED / Gold's / Fitness First / World Class",
+      "class": "F",
+      "notes": "Absent in Estonia"
+    }
+  ],
+  "searched_et": [
+    "jõusaal kett",
+    "spordiklubi kett Eesti",
+    "fitnessklubi Tallinn Tartu"
+  ],
+  "new_class_a_found": false,
+  "lemon_gym_sites": 2,
+  "lemon_escalated": false,
+  "conclusion": "No additional ≥3-location conventional Estonian chain beyond MyFitness, 24-7 Fitness, Gym!, Golden Club"
+}

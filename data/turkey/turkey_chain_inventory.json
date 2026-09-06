@@ -1,0 +1,207 @@
+{
+  "country": "Turkey",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "601e7848e80478002da147bf34287b701e2fd95ff2a21e493e0d70aed002b740",
+  "production_bytes_before": 3761727,
+  "production_total": 12080,
+  "turkey_live": 0,
+  "tr_prefix_live": 0,
+  "turkey_country_live": 0,
+  "existing_turkey_production": false,
+  "baseline_belarus": 46,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNN (5 digits)",
+  "fetch_summary": {
+    "gymfit_api": 22,
+    "osm_brands": 0,
+    "osm_city_fitness": 0,
+    "photon_chains": 113,
+    "total_candidates": 135
+  },
+  "chains": [
+    {
+      "chain": "B-Fit",
+      "classification": "A",
+      "staged": 67,
+      "official_current_active_estimated": 120,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Fit in Time",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "GymFit",
+      "classification": "A",
+      "staged": 22,
+      "official_current_active_estimated": 22,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "MACFit",
+      "classification": "A",
+      "staged": 34,
+      "official_current_active_estimated": 320,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Mars Athletic Club",
+      "classification": "A",
+      "staged": 2,
+      "official_current_active_estimated": 45,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Sports International",
+      "classification": "A",
+      "staged": 6,
+      "official_current_active_estimated": 28,
+      "class_a": true,
+      "source": "phase1_discovery"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "MACFit",
+      "action": "CLASS_A_INCOMPLETE",
+      "evidence": "CF-blocked official site; OSM+Photon partial estate"
+    },
+    {
+      "chain": "Mars Athletic Club",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "OSM+Photon partial; macfit.com CF-blocked sibling"
+    },
+    {
+      "chain": "Sports International",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "Site reachable; club list API not exposed"
+    },
+    {
+      "chain": "GymFit",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "22/22 official API"
+    },
+    {
+      "chain": "LifeClub",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "OSM+Photon partial estate"
+    },
+    {
+      "chain": "B-Fit",
+      "action": "CLASS_A_INCOMPLETE",
+      "evidence": "Large network; official list not machine-readable"
+    },
+    {
+      "chain": "Anytime Fitness",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate in discovery"
+    },
+    {
+      "chain": "Gold's Gym",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "World Class",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "Fitness First",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "Snap Fitness",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "UFC Gym",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "F45",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "Basic-Fit",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "McFIT",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "FITINN",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "Fitness24Seven",
+      "action": "ABSENT",
+      "evidence": "No verified Turkey estate"
+    },
+    {
+      "chain": "Fit in Time",
+      "action": "BELOW_CLASS_A",
+      "evidence": "Boutique chain — partial Photon hits"
+    },
+    {
+      "chain": "Hillside City Club",
+      "action": "BELOW_CLASS_A",
+      "evidence": "Premium clubs — limited OSM"
+    },
+    {
+      "chain": "Ocean Club",
+      "action": "BELOW_CLASS_A",
+      "evidence": "Regional — limited OSM"
+    }
+  ],
+  "official_estate": {
+    "MACFit": {
+      "open_active_estimated": 320,
+      "class_a": true
+    },
+    "Mars Athletic Club": {
+      "open_active_estimated": 45,
+      "class_a": true
+    },
+    "Sports International": {
+      "open_active_estimated": 28,
+      "class_a": true
+    },
+    "GymFit": {
+      "open_active_estimated": 22,
+      "class_a": true
+    },
+    "LifeClub": {
+      "open_active_estimated": 18,
+      "class_a": true
+    },
+    "B-Fit": {
+      "open_active_estimated": 120,
+      "class_a": true
+    }
+  },
+  "final_missed_chain_sweep": {
+    "complete": false,
+    "new_class_a_found": false,
+    "notes": "MACFit/B-Fit official estates CF-blocked or not machine-readable — Phase 2 terminal resolution required"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "first_run": {
+    "insertions": 198,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12080,
+    "total_after": 12278,
+    "turkey_before": 0,
+    "turkey_after": 198
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12278,
+    "total_after": 12278,
+    "turkey_before": 198,
+    "turkey_after": 198,
+    "tr_prefix_before": 198,
+    "tr_prefix_after": 198
+  },
+  "idempotent": true
+}

@@ -1,0 +1,23 @@
+{
+  "first_run": {
+    "insertions": 46,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12034,
+    "total_after": 12080,
+    "belarus_before": 0,
+    "belarus_after": 46
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12080,
+    "total_after": 12080,
+    "belarus_before": 46,
+    "belarus_after": 46,
+    "by_prefix_before": 46,
+    "by_prefix_after": 46
+  },
+  "idempotent": true
+}

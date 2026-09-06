@@ -1,0 +1,234 @@
+{
+  "si|dunajska cesta 20, 1000, ljubljana, slovenia": {
+    "lat": 46.0622994,
+    "lng": 14.5087967,
+    "display_name": "Hofer, 20, Dunajska cesta, Zupančičeva jama, Četrtna skupnost Bežigrad, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|tržaška cesta 65, 2000, maribor, slovenia": {
+    "lat": 46.5233802,
+    "lng": 15.6497774,
+    "display_name": "65, Tržaška cesta, Ledina, Maribor, 2000, Slovenija",
+    "importance": 6.929503318832712e-05,
+    "postcode": "2000",
+    "country_code": "si"
+  },
+  "si|na poljanah 20, 2000, maribor, slovenia": {
+    "lat": 46.5526981,
+    "lng": 15.626316,
+    "display_name": "Športni center Studenci, 20, Na Poljanah, Poljane, Maribor, 2000, Slovenija",
+    "importance": 6.929503318832712e-05,
+    "postcode": "2000",
+    "country_code": "si"
+  },
+  "si|ulica kneza koclja 22, 2000, maribor, slovenia": {
+    "lat": 46.556983,
+    "lng": 15.6505351,
+    "display_name": "Hotel City, 22, Ulica kneza Koclja, Lent, Center, Maribor, 2000, Slovenija",
+    "importance": 6.929503318832712e-05,
+    "postcode": "2000",
+    "country_code": "si"
+  },
+  "si|mariborska cesta 119, 3000, celje, slovenia": {
+    "lat": 46.2474674,
+    "lng": 15.2794946,
+    "display_name": "Mariborska cesta, Hudinja, Celje, 3000, Slovenija",
+    "importance": 0.05339856488899058,
+    "postcode": "3000",
+    "country_code": "si"
+  },
+  "si|usnjarska cesta 8, 1241, kamnik, slovenia": {
+    "lat": 46.2240064,
+    "lng": 14.6126016,
+    "display_name": "Spar, 8, Usnjarska cesta, Novi trg, Spodnje Perovo, Kamnik, Upravna Enota Kamnik, 1241, Slovenija",
+    "importance": 5.968795300216705e-05,
+    "postcode": "1241",
+    "country_code": "si"
+  },
+  "si|slovenska cesta 85, 1234, mengeš, slovenia": {
+    "lat": 46.1567833,
+    "lng": 14.5696076,
+    "display_name": "Tuš, 85, Slovenska cesta, Mengeš, Upravna Enota Domžale, 1234, Slovenija",
+    "importance": 5.952773327225174e-05,
+    "postcode": "1234",
+    "country_code": "si"
+  },
+  "si|nemčavci 1-z, 9000, murska sobota, slovenia": {
+    "lat": 46.6695878,
+    "lng": 16.1772139,
+    "display_name": "Gostilna in Pizzeria KRATOCHWILL Murska Sobota, 1Z, Nemčavci, Murska Sobota, 9000, Slovenija",
+    "importance": 5.753643091473285e-05,
+    "postcode": "9000",
+    "country_code": "si"
+  },
+  "si|vilharjeva cesta 36, 1000, ljubljana, slovenia": {
+    "lat": 46.0596624,
+    "lng": 14.518406,
+    "display_name": "36, Vilharjeva cesta, Zupančičeva jama, Četrtna skupnost Bežigrad, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|bravničarjeva ulica 18, 1000, ljubljana, slovenia": {
+    "lat": 46.0838187,
+    "lng": 14.4809938,
+    "display_name": "clever fit Ljubljana Šiška, 18, Bravničarjeva ulica, Kamna Gorica, Četrtna skupnost Dravlje, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|premrlova ulica 14, 1000, ljubljana, slovenia": {
+    "lat": 46.0185002,
+    "lng": 14.5303647,
+    "display_name": "Decathlon, 14, Premrlova ulica, Industrijska cona Rudnik, Četrtna skupnost Rudnik, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|letališka cesta 1, 1000, ljubljana, slovenia": {
+    "lat": 46.0614018,
+    "lng": 14.5406456,
+    "display_name": "1, Letališka cesta, Atrium, Četrtna skupnost Jarše, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|na poljanah 18, 2000, maribor, slovenia": {
+    "lat": 46.5524633,
+    "lng": 15.628327,
+    "display_name": "Planet Tuš, 18, Na Poljanah, Poljane, Maribor, 2000, Slovenija",
+    "importance": 6.929503318832712e-05,
+    "postcode": "2000",
+    "country_code": "si"
+  },
+  "si|ljubljanska cesta 32, 8000, novo mesto, slovenia": {
+    "lat": 45.8175477,
+    "lng": 15.1555452,
+    "display_name": "Carglas, 32, Ljubljanska cesta, Hedera, Bršljin, Kandija, Mala Bučna vas, Novo mesto, 8000, Slovenija",
+    "importance": 6.306172274352662e-05,
+    "postcode": "8000",
+    "country_code": "si"
+  },
+  "si|ankaranska cesta 2, 6000, koper, slovenia": {
+    "lat": 45.5393761,
+    "lng": 13.7353778,
+    "display_name": "A1, 2, Ankaranska cesta / Via Ancarano, Olmo, Koper / Capodistria (naselje), Koper / Capodistria, Upravna enota Koper / Unità amministrativa Capodistria, 6000, Slovenija",
+    "importance": 6.496452277404467e-05,
+    "postcode": "6000",
+    "country_code": "si"
+  },
+  "si|vodnikova cesta 155, 1000, ljubljana, slovenia": {
+    "lat": 46.0712004,
+    "lng": 14.4777132,
+    "display_name": "Športna hiša Ilirija, 155, Vodnikova cesta, Zgornja Šiška, Četrtna skupnost Šiška, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|stegne 11, 1000, ljubljana, slovenia": {
+    "lat": 46.0841509,
+    "lng": 14.4850044,
+    "display_name": "4P Fitnessclub Stegne, 11, Stegne, Industrijska cona Stegne, Četrtna skupnost Dravlje, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|foersterjeva ulica 10, 8000, novo mesto, slovenia": {
+    "lat": 45.8118892,
+    "lng": 15.1519076,
+    "display_name": "4P Fitnessclub Novo mesto, 10, Foersterjeva ulica, Novoteks, Bršljin, Irča vas, Novo mesto, 8000, Slovenija",
+    "importance": 6.306172274352662e-05,
+    "postcode": "8000",
+    "country_code": "si"
+  },
+  "si|cesta jaka platiše 18, 4000, kranj, slovenia": {
+    "lat": 46.2365982,
+    "lng": 14.3732832,
+    "display_name": "Planet Kranj, 18, Cesta Jaka Platiše, Čirče, Kranj, 4000, Slovenija",
+    "importance": 5.729228656438571e-05,
+    "postcode": "4000",
+    "country_code": "si"
+  },
+  "si|celovška cesta 522, 1000, ljubljana, slovenia": {
+    "lat": 46.1068966,
+    "lng": 14.4524596,
+    "display_name": "522, Celovška cesta, Gunclje, Četrtna skupnost Šentvid, Dvor, Ljubljana, Upravna Enota Ljubljana, 1210, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1210",
+    "country_code": "si"
+  },
+  "si|lendavska ulica 29d, 9000, murska sobota, slovenia": {
+    "lat": 46.6667057,
+    "lng": 16.1685418,
+    "display_name": "29D, Lendavska ulica, Murska Sobota, 9000, Slovenija",
+    "importance": 5.753643091473285e-05,
+    "postcode": "9000",
+    "country_code": "si"
+  },
+  "si|breznikova ulica 17, 1230, domžale, slovenia": {
+    "lat": 46.1464931,
+    "lng": 14.5971529,
+    "display_name": "Fitnes center Otelo, 17, Breznikova ulica, Zgornje Domžale, Groblje, Rodica, Domžale, Upravna Enota Domžale, 1230, Slovenija",
+    "importance": 5.9614709697062906e-05,
+    "postcode": "1230",
+    "country_code": "si"
+  },
+  "si|industrijska cesta 1g, 1290, grosuplje, slovenia": {
+    "lat": 45.953542,
+    "lng": 14.653672,
+    "display_name": "Industrijska cesta, Sončni dvori, Grosuplje, Upravna Enota Grosuplje, 1290, Slovenija",
+    "importance": 0.053389020370794196,
+    "postcode": "1290",
+    "country_code": "si"
+  },
+  "si|dunajska cesta 123, 1000, ljubljana, slovenia": {
+    "lat": 46.0758118,
+    "lng": 14.5104061,
+    "display_name": "123, Dunajska cesta, BS6, Brinje, Četrtna skupnost Bežigrad, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 7.541695277328172e-05,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|istrska cesta 67, 6000, koper, slovenia": {
+    "lat": 45.5456769,
+    "lng": 13.7103849,
+    "display_name": "Snack Bar 1964, 67, Istrska cesta / Strada dell'Istria, Markovec / Monte Marco, Olmo, Koper / Capodistria (naselje), Koper / Capodistria, Upravna enota Koper / Unità amministrativa Capodistria, 6000, Slovenija",
+    "importance": 6.496452277404467e-05,
+    "postcode": "6000",
+    "country_code": "si"
+  },
+  "si|mariborska cesta 128, 3000, celje, slovenia": {
+    "lat": 46.2433845,
+    "lng": 15.2789135,
+    "display_name": "Planet TUŠ, 128, Mariborska cesta, Gaberje, Celje, 3000, Slovenija",
+    "importance": 6.523155565723686e-05,
+    "postcode": "3000",
+    "country_code": "si"
+  },
+  "si|belokranjska cesta 5, 8000, novo mesto, slovenia": {
+    "lat": 45.7964266,
+    "lng": 15.1817198,
+    "display_name": "5, Belokranjska cesta, Žabja vas, Novo mesto, 8000, Slovenija",
+    "importance": 6.306172274352662e-05,
+    "postcode": "8000",
+    "country_code": "si"
+  },
+  "si|dalmatinova ulica 2a, 1000, ljubljana, slovenia": {
+    "lat": 46.0540246,
+    "lng": 14.5059549,
+    "display_name": "Dalmatinova ulica, Ledina, Grajski grič, Četrtna skupnost Center, Ljubljana, Upravna Enota Ljubljana, 1000, Slovenija",
+    "importance": 0.20813244289121335,
+    "postcode": "1000",
+    "country_code": "si"
+  },
+  "si|fužinska cesta 8, 4270, jesenice, slovenia": {
+    "lat": 46.4326952,
+    "lng": 14.0588079,
+    "display_name": "Spar, 8, Fužinska cesta, Podmežakla, Jesenice, 4270, Slovenija",
+    "importance": 5.8969253070832645e-05,
+    "postcode": "4270",
+    "country_code": "si"
+  }
+}

@@ -4,7 +4,9 @@ import {
   refreshWorkoutFeedFromServer,
 } from '@/services/supabase/workoutPostService';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
-import {getRuntimeLanguage} from '@/i18n';
+import {getRuntimeLanguage, rt} from '@/i18n';
+import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
+import {pickSharedWorkoutHeadline} from '@/utils/personalRecordCopy';
 
 const MOOD_TO_RATING: Record<string, number> = {
   angry: 1,
@@ -24,6 +26,8 @@ export type WorkoutSummaryShareInput = {
   caption: string;
   mood: string;
   shareToFeed: boolean;
+  checkInId?: string | null;
+  workoutSnapshot?: SharedWorkoutSnapshot | null;
   t: (key: string, params?: Record<string, string | number>) => string;
 };
 
@@ -40,6 +44,8 @@ export async function applyWorkoutSummaryShare(
     caption,
     mood,
     shareToFeed,
+    checkInId,
+    workoutSnapshot,
     t,
   } = input;
 
@@ -48,11 +54,20 @@ export async function applyWorkoutSummaryShare(
   }
 
   try {
+    const lang = getRuntimeLanguage();
+    const firstName = authorDisplayName.trim().split(/\s+/)[0] || authorDisplayName;
+    const autoHeadline = pickSharedWorkoutHeadline({
+      authorFirstName: firstName,
+      prs: workoutSnapshot?.prs ?? [],
+      lang,
+    });
+    const finalCaption = caption.trim() || autoHeadline;
+
     await createWorkoutPost({
       userId,
-      authorDisplayName: authorDisplayName.trim() || 'Bruger',
+      authorDisplayName: authorDisplayName.trim() || rt('prCopy.someone'),
       mediaUri,
-      caption: caption.trim(),
+      caption: finalCaption,
       durationMinutes,
       centerName: gymName,
       workoutTypeLabel: formatWorkoutTypeDisplay(
@@ -60,6 +75,8 @@ export async function applyWorkoutSummaryShare(
         getRuntimeLanguage(),
       ),
       moodRating: MOOD_TO_RATING[mood] ?? null,
+      checkInId,
+      workoutSnapshot,
     });
     await refreshWorkoutFeedFromServer();
   } catch {

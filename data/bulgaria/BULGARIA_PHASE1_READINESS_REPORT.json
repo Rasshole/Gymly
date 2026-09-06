@@ -1,0 +1,28 @@
+{
+  "production_sha": "91ffadd49497614f96eaf11f9d01edbdb127df2a6d8ce87bb7d7ad4443717840",
+  "production_total": 11254,
+  "bulgaria_live": 0,
+  "staged_unique": 105,
+  "status_counts": {
+    "NEEDS_COORDINATES": 21,
+    "READY_TO_IMPORT": 11,
+    "NEEDS_REVIEW": 53,
+    "EXCLUDED": 20
+  },
+  "ready_by_brand": {
+    "Pulse Fitness": 2,
+    "Next Level Fitness": 6,
+    "Athletic Fitness": 3
+  },
+  "brand_totals_non_excluded": {
+    "Pulse Fitness": 21,
+    "Next Level Fitness": 29,
+    "Athletic Fitness": 10,
+    "Hammer Gym": 5,
+    "Flais Fitness": 14,
+    "Titanium Fitness": 6
+  },
+  "projected_catalog_if_merged_alone": 11265,
+  "verdict": "BULGARIA PHASE 2 REQUIRED BEFORE MERGE",
+  "ready_count": 11
+}

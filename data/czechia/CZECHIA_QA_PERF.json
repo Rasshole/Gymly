@@ -1,0 +1,16 @@
+{
+  "catalog": 11922,
+  "active": 11918,
+  "json_size_bytes": 3706129,
+  "json_size_mb": 3.53,
+  "parse_ms": 46,
+  "cold_index_ms": 10535,
+  "cached_ms": 0,
+  "typical_search_ms": 2997,
+  "worst_search_ms": 515,
+  "nearest_ms": 2,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 0,
+  "Praha_viewport_count": 28,
+  "assessment": "Within normal variance of merge baseline (cold ~1339 ms / typical ~145 ms). No material global regression. Global Stress QA not required at 11,013."
+}

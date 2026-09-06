@@ -1,0 +1,86 @@
+{
+  "MyFitness Volta": {
+    "query": "Mootori tänav 2, 10416, Tallinn, Estonia",
+    "hit": null
+  },
+  "MyFitness Volta alt": {
+    "query": "Mootori 2, Tallinn, Estonia",
+    "lat": 59.4490105,
+    "lng": 24.7222538,
+    "postcode": "10416",
+    "display": "7/2, Mootori, Kalamaja, Põhja-Tallinna linnaosa, Tallinn, Harju maakond, 10416, Eesti",
+    "in_estonia": true
+  },
+  "MyFitness Narva Fama": {
+    "query": "Fama tänav 10, 20303, Narva, Estonia",
+    "hit": null
+  },
+  "MyFitness Narva Fama alt": {
+    "query": "Fama 10, Narva, Estonia",
+    "lat": 59.3796099,
+    "lng": 28.1871406,
+    "postcode": "20303",
+    "display": "Hesburger, 10, Fama, Kalevi, Narva linn, Ida-Viru maakond, 20303, Eesti",
+    "in_estonia": true
+  },
+  "Golden Club Tondi": {
+    "query": "Sõjakooli tn 10, 11316, Tallinn, Estonia",
+    "hit": null
+  },
+  "Golden Club Tondi alt": {
+    "query": "Sõjakooli 10, Tallinn, Estonia",
+    "lat": 59.4038676,
+    "lng": 24.7205392,
+    "postcode": "11316",
+    "display": "Forus spordikeskus, 10, Sõjakooli, Tondi, Kristiine linnaosa, Tallinn, Harju maakond, 11316, Eesti",
+    "in_estonia": true
+  },
+  "24-7 Tabasalu": {
+    "query": "Kallaste tn 7, Tabasalu, Estonia",
+    "hit": null
+  },
+  "24-7 Keila Keskus": {
+    "query": "Harju tn 2, Keila, Estonia",
+    "hit": null
+  },
+  "24-7 Sepa": {
+    "query": "Sepa tn 4, Tartu, Estonia",
+    "hit": null
+  },
+  "24-7 Viljandi Kaalu": {
+    "query": "Kaalu tn 2, Viljandi, Estonia",
+    "hit": null
+  },
+  "24-7 Rakvere": {
+    "query": "F. G. Adoffi 11, Rakvere, Estonia",
+    "hit": null
+  },
+  "24-7 Rakvere alt": {
+    "query": "Adoffi 11, Rakvere, Estonia",
+    "lat": 59.3492497,
+    "lng": 26.3643903,
+    "postcode": "44310",
+    "display": "Kroonikeskus, 11, Ferdinand Gustav Adoffi, Südalinn, Rakvere linn, Lääne-Viru maakond, 44310, Eesti",
+    "in_estonia": true
+  },
+  "24-7 Narva": {
+    "query": "4. Roheline tn 8, Narva, Estonia",
+    "hit": null
+  },
+  "24-7 Narva alt": {
+    "query": "Roheline 8, Narva, Estonia",
+    "lat": 59.3814964,
+    "lng": 28.172754,
+    "postcode": "20605",
+    "display": "Narva Centrum, 47;47b;8, 4. Roheline, Pähklimäe, Narva linn, Ida-Viru maakond, 20605, Eesti",
+    "in_estonia": true
+  },
+  "24-7 Võru": {
+    "query": "Vilja tänav 6, Võru, Estonia",
+    "hit": null
+  },
+  "24-7 Jõgeva": {
+    "query": "Kesk tn 4, Jõgeva, Estonia",
+    "hit": null
+  }
+}

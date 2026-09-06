@@ -6,6 +6,7 @@ import {
   runStaleActiveSessionCleanup,
   type ActiveCheckInSyncRow,
 } from '@/services/supabase/activeSessionsSync';
+import {getIntlLocale, getRuntimeLanguage} from '@/i18n';
 
 export type ActiveNowFriendRow = {
   userId: string;
@@ -14,6 +15,9 @@ export type ActiveNowFriendRow = {
   workoutType: string | null;
   startedAt: string;
   avatarUrl: string | null;
+  liveExerciseName?: string | null;
+  liveSetCount?: number | null;
+  liveExerciseCount?: number | null;
 };
 
 type CheckInRow = ActiveCheckInSyncRow & {
@@ -22,6 +26,9 @@ type CheckInRow = ActiveCheckInSyncRow & {
   workout_type: string | null;
   started_at: string;
   user_display_name: string;
+  live_exercise_name?: string | null;
+  live_set_count?: number | null;
+  live_exercise_count?: number | null;
 };
 
 /**
@@ -55,6 +62,9 @@ function rowToFriendRow(
     workoutType: r.workout_type,
     startedAt: r.started_at,
     avatarUrl: p?.avatarUrl ?? null,
+    liveExerciseName: r.live_exercise_name ?? null,
+    liveSetCount: r.live_set_count ?? null,
+    liveExerciseCount: r.live_exercise_count ?? null,
   };
 }
 
@@ -75,7 +85,7 @@ export async function loadGymlyActiveNowData(currentUserId: string): Promise<{
     supabase
       .from('check_ins')
       .select(
-        'id, user_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name',
+        'id, user_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name, live_exercise_name, live_set_count, live_exercise_count',
       )
       .eq('is_active', true)
       .is('ended_at', null),
@@ -98,7 +108,10 @@ export async function loadGymlyActiveNowData(currentUserId: string): Promise<{
   friendRows.sort(
     (a, b) =>
       new Date(a.started_at).getTime() - new Date(b.started_at).getTime() ||
-      (a.user_display_name || '').localeCompare(b.user_display_name || '', 'da'),
+      (a.user_display_name || '').localeCompare(
+        b.user_display_name || '',
+        getIntlLocale(getRuntimeLanguage()),
+      ),
   );
 
   const profileIds = [

@@ -1,0 +1,10 @@
+{
+  "id": "li_740e149c77",
+  "classification": "A_CONVENTIONAL_PUBLIC_GYM",
+  "verdict": "READY",
+  "rationale": "Light memberships grant 24/7 gym access without physio requirement; material gym floor with Egym/Matrix/Freihantel on ~360 m²",
+  "rejected": [
+    "B_PUBLIC_BUT_MEDICAL_REHAB_LED",
+    "C_PRIVATE_PATIENT_ONLY"
+  ]
+}

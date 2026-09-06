@@ -1,0 +1,6124 @@
+[
+  {
+    "id": "no_b16ff67ece",
+    "name": "Fitness24Seven Drammen Sentrum",
+    "brand": "Fitness24Seven",
+    "address": "Torgeir Vraas plass 6",
+    "postal_code": "3044",
+    "city": "Drammen",
+    "country": "Norway",
+    "lat": 59.739112,
+    "lng": 10.200515,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/drammen-sentrum/",
+    "legacy_brand": null,
+    "center_name": "drammen-sentrum",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.739153,
+        "lng": 10.2007824,
+        "display": "Torgeir Vraas plass, Marienlyst, Strømsø, Drammen, Buskerud, 3017, Norge"
+      },
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.7385484,
+        "lng": 10.2006302,
+        "display": "Torgeir Vraas plass, Marienlyst, Strømsø, Drammen, Buskerud, 3017, Norge"
+      }
+    ],
+    "phase3_address_fix": "normalized nr -> plass (Drammen naming)",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Torgeir Vraas plass, Marienlyst, Strømsø, Drammen, Buskerud, 3044, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000066516365301,
+        "lat": 59.739112,
+        "lng": 10.200515,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Torgeir Vraas plass, Marienlyst, Strømsø, Drammen, Buskerud, 3044, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_4d2c9e8d95",
+    "name": "Fitness24Seven Oslo Bjerke",
+    "brand": "Fitness24Seven",
+    "address": "Trondheimsveien 275",
+    "postal_code": "0589",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.942625,
+    "lng": 10.812061,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-bjerke/",
+    "legacy_brand": null,
+    "center_name": "oslo-bjerke",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": false,
+    "coord_source": "official_google_maps_query",
+    "geocode_status": "ok_official_maps",
+    "geocode_reasons": [
+      "official_google_maps_query_on_chain_page"
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_c606d96a49",
+    "name": "Fitness24Seven Oslo Carl Berners Plass",
+    "brand": "Fitness24Seven",
+    "address": "Hammerfestgata 2",
+    "postal_code": "0565",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.92493,
+    "lng": 10.773814,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-carl-berners-plass/",
+    "legacy_brand": null,
+    "center_name": "oslo-carl-berners-plass",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match"
+    ],
+    "geocode_display": "2B, Hammerfestgata, Carl Berner, Grünerløkka, Oslo, 0565, Norge",
+    "geocode_candidates": 6,
+    "geocode_top": [
+      {
+        "score": 9.000081374074922,
+        "lat": 59.92493,
+        "lng": 10.773814,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match"
+        ],
+        "display": "2B, Hammerfestgata, Carl Berner, Grünerløkka, Oslo, 0565, Norge",
+        "query": "address_postal_city"
+      },
+      {
+        "score": 9.000081374074922,
+        "lat": 59.924561,
+        "lng": 10.774048,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match"
+        ],
+        "display": "2F, Hammerfestgata, Carl Berner, Grünerløkka, Oslo, 0565, Norge",
+        "query": "address_postal_city"
+      },
+      {
+        "score": 9.000081374074922,
+        "lat": 59.924843,
+        "lng": 10.774036,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match"
+        ],
+        "display": "2A, Hammerfestgata, Carl Berner, Grünerløkka, Oslo, 0565, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_67fdc29098",
+    "name": "Fitness24Seven Oslo Gruenerlokka",
+    "brand": "Fitness24Seven",
+    "address": "Markveien 35",
+    "postal_code": "0554",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.9217167,
+    "lng": 10.756934,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-gruenerlokka/",
+    "legacy_brand": null,
+    "center_name": "oslo-gruenerlokka",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": false,
+    "coord_source": "official_google_maps_query",
+    "geocode_status": "ok_official_maps",
+    "geocode_reasons": [
+      "official_google_maps_query_on_chain_page"
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_a1f48eb478",
+    "name": "Fitness24Seven Oslo Haugenstua",
+    "brand": "Fitness24Seven",
+    "address": "Garver Ytteborgs vei 98",
+    "postal_code": "0977",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.9532485,
+    "lng": 10.9082831000001,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-haugenstua/",
+    "legacy_brand": null,
+    "center_name": "oslo-haugenstua",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": false,
+    "coord_source": "official_google_maps_query",
+    "geocode_status": "ok_official_maps",
+    "geocode_reasons": [
+      "official_google_maps_query_on_chain_page"
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_e3616dfba4",
+    "name": "Fitness24Seven Oslo Mortensrud Torg",
+    "brand": "Fitness24Seven",
+    "address": "Helga Vaneks vei 1-3",
+    "postal_code": "1282",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.849631,
+    "lng": 10.830275,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-mortensrud-torg/",
+    "legacy_brand": null,
+    "center_name": "oslo-mortensrud-torg",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": false,
+    "coord_source": "official_google_maps_query",
+    "geocode_status": "ok_official_maps",
+    "geocode_reasons": [
+      "official_google_maps_query_on_chain_page"
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_30128fc6b4",
+    "name": "Fitness24Seven Oslo Storo",
+    "brand": "Fitness24Seven",
+    "address": "Grefsenveien 49",
+    "postal_code": "0485",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.944445,
+    "lng": 10.776972,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-storo/",
+    "legacy_brand": null,
+    "center_name": "oslo-storo",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": false,
+    "coord_source": "official_google_maps_query",
+    "geocode_status": "ok_official_maps",
+    "geocode_reasons": [
+      "official_google_maps_query_on_chain_page"
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_85514428be",
+    "name": "Fitness24Seven Oslo Stortorvet",
+    "brand": "Fitness24Seven",
+    "address": "Grubbegata 6",
+    "postal_code": "0179",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.91383,
+    "lng": 10.745557,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-stortorvet/",
+    "legacy_brand": null,
+    "center_name": "oslo-stortorvet",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": false,
+    "coord_source": "official_google_maps_query",
+    "geocode_status": "ok_official_maps",
+    "geocode_reasons": [
+      "official_google_maps_query_on_chain_page"
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_6c30cdf583",
+    "name": "Fitness24Seven Oslo Veitvet",
+    "brand": "Fitness24Seven",
+    "address": "Veitvetveien 8",
+    "postal_code": "0596",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.946059,
+    "lng": 10.8509127,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-veitvet/",
+    "legacy_brand": null,
+    "center_name": "oslo-veitvet",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": false,
+    "coord_source": "official_google_maps_query",
+    "geocode_status": "ok_official_maps",
+    "geocode_reasons": [
+      "official_google_maps_query_on_chain_page"
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_d06f4a6448",
+    "name": "Impulse Treningssenter Lade",
+    "brand": "Impulse Treningssenter",
+    "address": "Østmarkveien 4",
+    "postal_code": "7040",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.44728,
+    "lng": 10.443447,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/lade/",
+    "legacy_brand": null,
+    "center_name": "lade",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "4, Østmarkveien, Østmarka, Lade, Østbyen, Trondheim, Trøndelag, 7040, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.44728,
+        "lng": 10.443447,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "4, Østmarkveien, Østmarka, Lade, Østbyen, Trondheim, Trøndelag, 7040, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_f4c2cadced",
+    "name": "Impulse Treningssenter Lerkendal",
+    "brand": "Impulse Treningssenter",
+    "address": "Klæbuveien 12",
+    "postal_code": "7034",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.413682,
+    "lng": 10.399615,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/lerkendal/",
+    "legacy_brand": null,
+    "center_name": "lerkendal",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match"
+    ],
+    "geocode_display": "Klæbuveien, Dalsenget, Elgeseter, Midtbyen, Trondheim, Trøndelag, 7034, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 9.053406360723278,
+        "lat": 63.413682,
+        "lng": 10.3996152,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match"
+        ],
+        "display": "Klæbuveien, Dalsenget, Elgeseter, Midtbyen, Trondheim, Trøndelag, 7034, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_345ff67dd4",
+    "name": "Impulse Treningssenter Nardobakken",
+    "brand": "Impulse Treningssenter",
+    "address": "Nardobakken 2",
+    "postal_code": "7032",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.409791,
+    "lng": 10.418069,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/nardobakken/",
+    "legacy_brand": null,
+    "center_name": "nardobakken",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Nardobakken, Nardoskrenten, Steindal, Nardo, Lerkendal, Trondheim, Trøndelag, 7032, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.4097907,
+        "lng": 10.4180686,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Nardobakken, Nardoskrenten, Steindal, Nardo, Lerkendal, Trondheim, Trøndelag, 7032, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_6d99a7479c",
+    "name": "Impulse Treningssenter Pirbadet",
+    "brand": "Impulse Treningssenter",
+    "address": "Havnegata 12",
+    "postal_code": "7010",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.440401,
+    "lng": 10.400701,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/pirbadet/",
+    "legacy_brand": null,
+    "center_name": "pirbadet",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "12, Havnegata, Brattøra, Singsaker, Midtbyen, Trondheim, Trøndelag, 7010, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.440401,
+        "lng": 10.400701,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "12, Havnegata, Brattøra, Singsaker, Midtbyen, Trondheim, Trøndelag, 7010, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_1e31c8607b",
+    "name": "Impulse Treningssenter Solsiden",
+    "brand": "Impulse Treningssenter",
+    "address": "Innherredsveien 7",
+    "postal_code": "7014",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.433957,
+    "lng": 10.413739,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/solsiden/",
+    "legacy_brand": null,
+    "center_name": "solsiden",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "7, Innherredsveien, Kirkesletta, Reina, Nedre Elvehavn, Østbyen, Trondheim, Trøndelag, 7014, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.4339571,
+        "lng": 10.4137391,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "7, Innherredsveien, Kirkesletta, Reina, Nedre Elvehavn, Østbyen, Trondheim, Trøndelag, 7014, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_91331bb47e",
+    "name": "Sporty Porsgrunn",
+    "brand": "Sporty",
+    "address": "Kulltangveien 70",
+    "postal_code": "3921",
+    "city": "Porsgrunn",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club-porsgrunn",
+    "legacy_brand": "Family Sports Club",
+    "center_name": "family-sports-club-porsgrunn",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 59.137946,
+        "lng": 9.640879,
+        "display": "70, Kulltangvegen, Frednes, Sundjordet, Porsgrunn, Telemark, 3921, Norge"
+      }
+    ],
+    "phase3_address_fix": "expanded Kulltangv abbreviation"
+  },
+  {
+    "id": "no_252211f305",
+    "name": "Sporty Alesund Blindheim",
+    "brand": "Sporty",
+    "address": "Blindheimsveien 10",
+    "postal_code": "6012",
+    "city": "Ålesund",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-blindheim",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-blindheim",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 62.443077,
+        "lng": 6.37055,
+        "display": "10, Blindheimsvegen, Myrland, Blindheim, Ålesund, Møre og Romsdal, 6012, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_42356ae9cf",
+    "name": "Sporty Alesund Breivika",
+    "brand": "Sporty",
+    "address": "Lerstadvegen 545",
+    "postal_code": "6018",
+    "city": "Ålesund",
+    "country": "Norway",
+    "lat": 62.471726,
+    "lng": 6.363353,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-breivika",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-breivika",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "545, Lerstadvegen, Breivika, Olsvika, Moa, Ålesund, Møre og Romsdal, 6018, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.471726,
+        "lng": 6.363353,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "545, Lerstadvegen, Breivika, Olsvika, Moa, Ålesund, Møre og Romsdal, 6018, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_aa19f7ae04",
+    "name": "Sporty Alesund Digernes",
+    "brand": "Sporty",
+    "address": "Digernes Næringsområdet 9",
+    "postal_code": "6260",
+    "city": "Skodje",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-digernes",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-digernes",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_66559f210f",
+    "name": "Sporty Alesund Moa",
+    "brand": "Sporty",
+    "address": "Langelandsvegen 17",
+    "postal_code": "6010",
+    "city": "Ålesund",
+    "country": "Norway",
+    "lat": 62.46429,
+    "lng": 6.348683,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-moa",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-moa",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "17, Langelandsvegen, Furmyra, Moa, Ålesund, Møre og Romsdal, 6010, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.4642898,
+        "lng": 6.348683,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17, Langelandsvegen, Furmyra, Moa, Ålesund, Møre og Romsdal, 6010, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_0e2d10c6dc",
+    "name": "Sporty Alesund Norve",
+    "brand": "Sporty",
+    "address": "Vågaveien 27",
+    "postal_code": "6008",
+    "city": "Ålesund",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-norve",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-norve",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 62.471749,
+        "lng": 6.227211,
+        "display": "27, Vågavegen, Nørvasundet, Ålesund, Møre og Romsdal, 6008, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_b11f1b6576",
+    "name": "Sporty Alesund Ratvika",
+    "brand": "Sporty",
+    "address": "Ruudvegen 53",
+    "postal_code": "6014",
+    "city": "Ålesund",
+    "country": "Norway",
+    "lat": 62.463374,
+    "lng": 6.269556,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-ratvika",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-ratvika",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "53, Ruudvegen, Ytre Hatlane, Hatlane, Ålesund, Møre og Romsdal, 6015, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000050001525902,
+        "lat": 62.463374,
+        "lng": 6.269556,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "53, Ruudvegen, Ytre Hatlane, Hatlane, Ålesund, Møre og Romsdal, 6015, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_3902ecd781",
+    "name": "Sporty Alesund Skansegata",
+    "brand": "Sporty",
+    "address": "Kongens gate 25",
+    "postal_code": "6002",
+    "city": "Ålesund",
+    "country": "Norway",
+    "lat": 62.474956,
+    "lng": 6.156366,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-skansegata",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-skansegata",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "25, Kongens gate, Slinningen, Ålesund, Møre og Romsdal, 6002, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.4749561,
+        "lng": 6.1563663,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "25, Kongens gate, Slinningen, Ålesund, Møre og Romsdal, 6002, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_c67a0f32f2",
+    "name": "Sporty Alesund Skodje",
+    "brand": "Sporty",
+    "address": "Skodjevegen 397",
+    "postal_code": "6260",
+    "city": "Skodje",
+    "country": "Norway",
+    "lat": 62.504987,
+    "lng": 6.692728,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-skodje",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-skodje",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "397, Skodjevegen, Lundbøen, Skodjevåg, Skodjereitane, Skodje, Ålesund, Møre og Romsdal, 6260, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.504987,
+        "lng": 6.6927281,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "397, Skodjevegen, Lundbøen, Skodjevåg, Skodjereitane, Skodje, Ålesund, Møre og Romsdal, 6260, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_bd84245ec1",
+    "name": "Sporty Alesund Sundgata",
+    "brand": "Sporty",
+    "address": "Sundgata 12",
+    "postal_code": "6003",
+    "city": "Ålesund",
+    "country": "Norway",
+    "lat": 62.471021,
+    "lng": 6.16793,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-sundgata",
+    "legacy_brand": null,
+    "center_name": "sporty-alesund-sundgata",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "12, Sundgata, Slinningen, Ålesund, Møre og Romsdal, 6003, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.4710208,
+        "lng": 6.1679297,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "12, Sundgata, Slinningen, Ålesund, Møre og Romsdal, 6003, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_9ce3550547",
+    "name": "Sporty Arendal",
+    "brand": "Sporty",
+    "address": "Stoaveien 41C",
+    "postal_code": "4848",
+    "city": "Arendal",
+    "country": "Norway",
+    "lat": 58.463607,
+    "lng": 8.715242,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-arendal",
+    "legacy_brand": null,
+    "center_name": "sporty-arendal",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "41C, Stoaveien, Stoa, Arendal, Agder, 4848, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000062945754177,
+        "lat": 58.463607,
+        "lng": 8.715242,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "41C, Stoaveien, Stoa, Arendal, Agder, 4848, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_4221617cfc",
+    "name": "Sporty Arnes",
+    "brand": "Sporty",
+    "address": "Nedre Hagaveg 17b",
+    "postal_code": "2150",
+    "city": "Årnes",
+    "country": "Norway",
+    "lat": 60.119381,
+    "lng": 11.462659,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-arnes",
+    "legacy_brand": null,
+    "center_name": "sporty-arnes",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "17B, Nedre Hagaveg, Nedre Grue, Årnes, Nes, Akershus, 2150, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053871213854,
+        "lat": 60.1193805,
+        "lng": 11.4626589,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17B, Nedre Hagaveg, Nedre Grue, Årnes, Nes, Akershus, 2150, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_4e5bfc5557",
+    "name": "Sporty Askim",
+    "brand": "Sporty",
+    "address": "Henstad allé 1 A",
+    "postal_code": "1809",
+    "city": "Askim",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-askim",
+    "legacy_brand": null,
+    "center_name": "sporty-askim",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.584159,
+        "lng": 11.166246,
+        "display": "1A, Henstad alle, Askim, Indre Østfold, Østfold, 1830, Norge"
+      }
+    ],
+    "phase3_address_fix": "normalized alle -> allé"
+  },
+  {
+    "id": "no_8cb4f52389",
+    "name": "Sporty Averoy Karvag",
+    "brand": "Sporty",
+    "address": "Kårvågveien 108",
+    "postal_code": "6532",
+    "city": "Averøy",
+    "country": "Norway",
+    "lat": 63.014859,
+    "lng": 7.448106,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-averoy-karvag",
+    "legacy_brand": null,
+    "center_name": "sporty-averoy-karvag",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "108, Kårvågveien, Utheim, Kårvåg, Averøy, Møre og Romsdal, 6532, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053273060196,
+        "lat": 63.0148594,
+        "lng": 7.4481058,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "108, Kårvågveien, Utheim, Kårvåg, Averøy, Møre og Romsdal, 6532, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_d61af83daf",
+    "name": "Sporty Bergen Arna",
+    "brand": "Sporty",
+    "address": "Storaneset 24",
+    "postal_code": "5260",
+    "city": "Indre Arna",
+    "country": "Norway",
+    "lat": 60.433584,
+    "lng": 5.462945,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-arna",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-arna",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "24, Storaneset, Arna, Indre Arna, Bergen, Vestland, 5260, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.433584,
+        "lng": 5.462945,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "24, Storaneset, Arna, Indre Arna, Bergen, Vestland, 5260, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_1300ae6350",
+    "name": "Sporty Bergen Asane",
+    "brand": "Sporty",
+    "address": "Litleåsveien 47",
+    "postal_code": "5132",
+    "city": "Nyborg",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-asane",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-asane",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 60.4676003,
+        "lng": 5.3365458,
+        "display": "47, Litleåsvegen, Nyborg, Åsane, Bergen, Vestland, 5132, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_e49f86033e",
+    "name": "Sporty Bergen Bones",
+    "brand": "Sporty",
+    "address": "Fjellsdalen 9",
+    "postal_code": "5155",
+    "city": "Bønes",
+    "country": "Norway",
+    "lat": 60.334011,
+    "lng": 5.296087,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-bones",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-bones",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "9, Fjellsdalen, Bønesberget, Bønes, Fyllingsdalen, Bergen, Vestland, 5155, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.3340113,
+        "lng": 5.2960872,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "9, Fjellsdalen, Bønesberget, Bønes, Fyllingsdalen, Bergen, Vestland, 5155, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_d8f8e4ae63",
+    "name": "Sporty Bergen Danmarksplass",
+    "brand": "Sporty",
+    "address": "Garvergaten 15",
+    "postal_code": "5054",
+    "city": "Bergen",
+    "country": "Norway",
+    "lat": 60.375707,
+    "lng": 5.337188,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-danmarksplass",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-danmarksplass",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "15, Garvergaten, Solheim Borettslag, Solheim, Årstad, Bergen, Vestland, 5054, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.3757069,
+        "lng": 5.3371881,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "15, Garvergaten, Solheim Borettslag, Solheim, Årstad, Bergen, Vestland, 5054, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_0bfe23fad1",
+    "name": "Sporty Bergen Krakenes",
+    "brand": "Sporty",
+    "address": "Øvre Kråkenes 49",
+    "postal_code": "5152",
+    "city": "Bønes",
+    "country": "Norway",
+    "lat": 60.338987,
+    "lng": 5.320237,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-krakenes",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-krakenes",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "49, Øvre Kråkenes, Bønes, Fyllingsdalen, Bergen, Vestland, 5152, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.3389874,
+        "lng": 5.3202366,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "49, Øvre Kråkenes, Bønes, Fyllingsdalen, Bergen, Vestland, 5152, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_76f5afdb98",
+    "name": "Sporty Bergen Landas",
+    "brand": "Sporty",
+    "address": "Erleveien 18",
+    "postal_code": "5096",
+    "city": "Bergen",
+    "country": "Norway",
+    "lat": 60.361688,
+    "lng": 5.368466,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-landas",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-landas",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "18, Erleveien, Landåstorget, Landås, Årstad, Bergen, Vestland, 5096, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.3616884,
+        "lng": 5.3684655,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "18, Erleveien, Landåstorget, Landås, Årstad, Bergen, Vestland, 5096, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_99a72dbb2d",
+    "name": "Sporty Bergen Nyborg",
+    "brand": "Sporty",
+    "address": "Langarinden 5",
+    "postal_code": "5132",
+    "city": "Nyborg",
+    "country": "Norway",
+    "lat": 60.473354,
+    "lng": 5.343887,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-nyborg",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-nyborg",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_mismatch_soft_postal_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "5, Langarinden, Flaktveit, Åsane, Bergen, Vestland, 5132, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 10.000072125581749,
+        "lat": 60.473354,
+        "lng": 5.343887,
+        "reasons": [
+          "postal_exact",
+          "city_mismatch_soft_postal_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "5, Langarinden, Flaktveit, Åsane, Bergen, Vestland, 5132, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_f1e6bbf5f1",
+    "name": "Sporty Bergen Paradis",
+    "brand": "Sporty",
+    "address": "Tjernvegen 30",
+    "postal_code": "5232",
+    "city": "Paradis",
+    "country": "Norway",
+    "lat": 60.332141,
+    "lng": 5.348982,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-paradis",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-paradis",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "30, Tjernvegen, Paradis, Nesttun, Fana, Bergen, Vestland, 5232, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.332141,
+        "lng": 5.348982,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "30, Tjernvegen, Paradis, Nesttun, Fana, Bergen, Vestland, 5232, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_9b16d3390c",
+    "name": "Sporty Bergen Sandsli",
+    "brand": "Sporty",
+    "address": "Sandslihaugen 10",
+    "postal_code": "5254",
+    "city": "Sandsli",
+    "country": "Norway",
+    "lat": 60.292648,
+    "lng": 5.283299,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-sandsli",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-sandsli",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "10, Sandslihaugen, Sandsli, Ytrebygda, Bergen, Vestland, 5254, Norge",
+    "geocode_candidates": 2,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.2926483,
+        "lng": 5.2832988,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "10, Sandslihaugen, Sandsli, Ytrebygda, Bergen, Vestland, 5254, Norge",
+        "query": "structured"
+      },
+      {
+        "score": 11.000072125581749,
+        "lat": 60.2921722,
+        "lng": 5.283781,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "full_address_in_display"
+        ],
+        "display": "Sandslihaugen 10, Sandslihaugen, Sandsli, Ytrebygda, Bergen, Vestland, 5254, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_267df4ee66",
+    "name": "Sporty Bergen Solheimsgaten",
+    "brand": "Sporty",
+    "address": "Solheimsgaten 56 A",
+    "postal_code": "5054",
+    "city": "Bergen",
+    "country": "Norway",
+    "lat": 60.376188,
+    "lng": 5.338058,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-solheimsgaten",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-solheimsgaten",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match"
+    ],
+    "geocode_display": "56A, Solheimsgaten, Solheim, Årstad, Bergen, Vestland, 5054, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 9.000072125581749,
+        "lat": 60.3761876,
+        "lng": 5.3380583,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match"
+        ],
+        "display": "56A, Solheimsgaten, Solheim, Årstad, Bergen, Vestland, 5054, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_d510970dea",
+    "name": "Sporty Bergen Soreide",
+    "brand": "Sporty",
+    "address": "Steinsvikvegen 29",
+    "postal_code": "5251",
+    "city": "Søreidgrend",
+    "country": "Norway",
+    "lat": 60.31473,
+    "lng": 5.282852,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-soreide",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-soreide",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "29, Steinsvikvegen, Søreidgrenda, Ytrebygda, Bergen, Vestland, 5251, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.3147296,
+        "lng": 5.2828521,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "29, Steinsvikvegen, Søreidgrenda, Ytrebygda, Bergen, Vestland, 5251, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_9985bea7c2",
+    "name": "Sporty Bergen Strandgaten",
+    "brand": "Sporty",
+    "address": "Strandgaten 64",
+    "postal_code": "5004",
+    "city": "Bergen",
+    "country": "Norway",
+    "lat": 60.395113,
+    "lng": 5.318384,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-strandgaten",
+    "legacy_brand": null,
+    "center_name": "sporty-bergen-strandgaten",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "64, Strandgaten, Strandsiden, Skuteviken, Bergenhus, Bergen, Vestland, 5004, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000072125581749,
+        "lat": 60.3951131,
+        "lng": 5.3183839,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "64, Strandgaten, Strandsiden, Skuteviken, Bergenhus, Bergen, Vestland, 5004, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_d30f298242",
+    "name": "Sporty Bergsoy",
+    "brand": "Sporty",
+    "address": "Lisjebøvegen 10B",
+    "postal_code": "6091",
+    "city": "Fosnavåg",
+    "country": "Norway",
+    "lat": 62.333451,
+    "lng": 5.642407,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergsoy",
+    "legacy_brand": null,
+    "center_name": "sporty-bergsoy",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "10B, Lisjebøvegen, Hjelmeset, Berge, Flusund, Fosnavåg, Herøy, Møre og Romsdal, 6091, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053584344244,
+        "lat": 62.3334513,
+        "lng": 5.6424066,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "10B, Lisjebøvegen, Hjelmeset, Berge, Flusund, Fosnavåg, Herøy, Møre og Romsdal, 6091, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_e6e86b813f",
+    "name": "Sporty Bo Bosenteret",
+    "brand": "Sporty",
+    "address": "Stasjonsvegen 28",
+    "postal_code": "3800",
+    "city": "Bø i Telemark",
+    "country": "Norway",
+    "lat": 59.411317,
+    "lng": 9.070835,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bo-bosenteret",
+    "legacy_brand": null,
+    "center_name": "sporty-bo-bosenteret",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "28, Stasjonsvegen, Bø, Midt-Telemark, Telemark, 3800, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00004000076295,
+        "lat": 59.4113166,
+        "lng": 9.0708348,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "28, Stasjonsvegen, Bø, Midt-Telemark, Telemark, 3800, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_37c04a834f",
+    "name": "Sporty Bo Holtangarden",
+    "brand": "Sporty",
+    "address": "Folkestadvegen 12",
+    "postal_code": "3802",
+    "city": "Bø i Telemark",
+    "country": "Norway",
+    "lat": 59.414605,
+    "lng": 9.068956,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bo-holtangarden",
+    "legacy_brand": null,
+    "center_name": "sporty-bo-holtangarden",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "12, Folkestadvegen, Sisjord, Bø, Midt-Telemark, Telemark, 3802, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00004000076295,
+        "lat": 59.4146046,
+        "lng": 9.0689563,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "12, Folkestadvegen, Sisjord, Bø, Midt-Telemark, Telemark, 3802, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_01478d26ec",
+    "name": "Sporty Bodo Jensvoll",
+    "brand": "Sporty",
+    "address": "Sneveien 17",
+    "postal_code": "8072",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": 67.278701,
+    "lng": 14.483555,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bodo-jensvoll",
+    "legacy_brand": null,
+    "center_name": "sporty-bodo-jensvoll",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "17, Sneveien, Jensvoll, Bodø, Nordland, 8072, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00006446097505,
+        "lat": 67.278701,
+        "lng": 14.4835549,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17, Sneveien, Jensvoll, Bodø, Nordland, 8072, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_93b3326fb6",
+    "name": "Sporty Dale",
+    "brand": "Sporty",
+    "address": "Skulegata 2",
+    "postal_code": "5722",
+    "city": "Dalekvam",
+    "country": "Norway",
+    "lat": 60.590229,
+    "lng": 5.820909,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-dale",
+    "legacy_brand": null,
+    "center_name": "sporty-dale",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Skulegata, Dale, Vaksdal, Vestland, 5722, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005259250782,
+        "lat": 60.5902293,
+        "lng": 5.8209087,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Skulegata, Dale, Vaksdal, Vestland, 5722, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_faf08586db",
+    "name": "Sporty Drammen Gulskogen",
+    "brand": "Sporty",
+    "address": "Guldlisten 20",
+    "postal_code": "3042",
+    "city": "Drammen",
+    "country": "Norway",
+    "lat": 59.743117,
+    "lng": 10.160608,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-drammen-gulskogen",
+    "legacy_brand": null,
+    "center_name": "sporty-drammen-gulskogen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "20, Guldlisten, Gulskogen, Drammen, Buskerud, 3048, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000066516365301,
+        "lat": 59.743117,
+        "lng": 10.1606079,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "20, Guldlisten, Gulskogen, Drammen, Buskerud, 3048, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_6d2fd73620",
+    "name": "Sporty Drobak",
+    "brand": "Sporty",
+    "address": "Holterveien 4G",
+    "postal_code": "1448",
+    "city": "Drøbak",
+    "country": "Norway",
+    "lat": 59.675317,
+    "lng": 10.659588,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-drobak",
+    "legacy_brand": null,
+    "center_name": "sporty-drobak",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "4G, Holterveien, Kringerudfeltet, Dyrløkke, Drøbak, Frogn, Akershus, 1448, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000054605172808,
+        "lat": 59.675317,
+        "lng": 10.659588,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "4G, Holterveien, Kringerudfeltet, Dyrløkke, Drøbak, Frogn, Akershus, 1448, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_bbb53de3ee",
+    "name": "Sporty Eid",
+    "brand": "Sporty",
+    "address": "Eidsgata 53",
+    "postal_code": "6770",
+    "city": "Eid",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-eid",
+    "legacy_brand": null,
+    "center_name": "sporty-eid",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_f23c14f534",
+    "name": "Sporty Eide",
+    "brand": "Sporty",
+    "address": "Eidetorget 17",
+    "postal_code": "6490",
+    "city": "Eide",
+    "country": "Norway",
+    "lat": 62.916164,
+    "lng": 7.445968,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-eide",
+    "legacy_brand": null,
+    "center_name": "sporty-eide",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "17, Eidetorget, Skjelvika, Eide, Hustadvika, Møre og Romsdal, 6490, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.916164,
+        "lng": 7.4459676,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17, Eidetorget, Skjelvika, Eide, Hustadvika, Møre og Romsdal, 6490, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_79197c25a7",
+    "name": "Sporty Elnesvagen",
+    "brand": "Sporty",
+    "address": "Torget 15",
+    "postal_code": "6440",
+    "city": "Elnesvågen",
+    "country": "Norway",
+    "lat": 62.854361,
+    "lng": 7.16482,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-elnesvagen",
+    "legacy_brand": null,
+    "center_name": "sporty-elnesvagen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "15, Torget, Hauglia, Dale, Elnesvågen, Hustadvika, Møre og Romsdal, 6440, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.854361,
+        "lng": 7.16482,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "15, Torget, Hauglia, Dale, Elnesvågen, Hustadvika, Møre og Romsdal, 6440, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_6c8e2f2094",
+    "name": "Sporty Finnsnes",
+    "brand": "Sporty",
+    "address": "Strandveien 68",
+    "postal_code": "9300",
+    "city": "Finnsnes",
+    "country": "Norway",
+    "lat": 69.237224,
+    "lng": 17.977531,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-finnsnes",
+    "legacy_brand": null,
+    "center_name": "sporty-finnsnes",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "68, Strandveien, Lia, Finnsnes, Senja, Troms, 9300, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00004798580911,
+        "lat": 69.237224,
+        "lng": 17.9775312,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "68, Strandveien, Lia, Finnsnes, Senja, Troms, 9300, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_bff66c3970",
+    "name": "Sporty Fredrikstad",
+    "brand": "Sporty",
+    "address": "Rolvsøyveien 205",
+    "postal_code": "1617",
+    "city": "Fredrikstad",
+    "country": "Norway",
+    "lat": 59.240364,
+    "lng": 10.974353,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fredrikstad",
+    "legacy_brand": null,
+    "center_name": "sporty-fredrikstad",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "205, Rolvsøyveien, Råbekken, Glemmen, Fredrikstad, Østfold, 1617, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000063725490197,
+        "lat": 59.2403638,
+        "lng": 10.9743531,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "205, Rolvsøyveien, Råbekken, Glemmen, Fredrikstad, Østfold, 1617, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_60a5460dfd",
+    "name": "Sporty Grimstad",
+    "brand": "Sporty",
+    "address": "Storgata 90",
+    "postal_code": "4877",
+    "city": "Grimstad",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-grimstad",
+    "legacy_brand": null,
+    "center_name": "sporty-grimstad",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": [],
+    "phase3_address_fix": "expanded Storgt. abbreviation"
+  },
+  {
+    "id": "no_1fc8ea4736",
+    "name": "Sporty Hareid",
+    "brand": "Sporty",
+    "address": "Myravegen 9",
+    "postal_code": "6060",
+    "city": "Hareid",
+    "country": "Norway",
+    "lat": 62.368966,
+    "lng": 6.016284,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-hareid",
+    "legacy_brand": null,
+    "center_name": "sporty-hareid",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "9, Myravegen, Flotene, Gjerdet, Hareid, Møre og Romsdal, 6060, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000052561989776,
+        "lat": 62.3689661,
+        "lng": 6.0162843,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "9, Myravegen, Flotene, Gjerdet, Hareid, Møre og Romsdal, 6060, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_fa3b7b94e4",
+    "name": "Sporty Harstad",
+    "brand": "Sporty",
+    "address": "Seljestadveien 11",
+    "postal_code": "9406",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": 68.792572,
+    "lng": 16.530943,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-harstad",
+    "legacy_brand": null,
+    "center_name": "sporty-harstad",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "11, Seljestadveien, Seljestad, Harstad, Troms, 9406, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000060658426793,
+        "lat": 68.7925715,
+        "lng": 16.5309428,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "11, Seljestadveien, Seljestad, Harstad, Troms, 9406, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_a0be86548c",
+    "name": "Sporty Holmestrand Greaker",
+    "brand": "Sporty",
+    "address": "Hvittingfossveien 153",
+    "postal_code": "3086",
+    "city": "Holmestrand",
+    "country": "Norway",
+    "lat": 59.496704,
+    "lng": 10.282273,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-holmestrand-greaker",
+    "legacy_brand": null,
+    "center_name": "sporty-holmestrand-greaker",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "153, Hvittingfossveien, Ramberg, Kleiverud, Holmestrand, Vestfold, 3086, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005432745861,
+        "lat": 59.496704,
+        "lng": 10.282273,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "153, Hvittingfossveien, Ramberg, Kleiverud, Holmestrand, Vestfold, 3086, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_4d3fcafabd",
+    "name": "Sporty Holmestrand Kleivbrottet",
+    "brand": "Sporty",
+    "address": "Ringveien 12",
+    "postal_code": "3084",
+    "city": "Holmestrand",
+    "country": "Norway",
+    "lat": 59.585737,
+    "lng": 10.228171,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-holmestrand-kleivbrottet",
+    "legacy_brand": null,
+    "center_name": "sporty-holmestrand-kleivbrottet",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "12, Ringveien, Dunihagen, Sande, Holmestrand, Vestfold, 3072, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.00005432745861,
+        "lat": 59.585737,
+        "lng": 10.228171,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "12, Ringveien, Dunihagen, Sande, Holmestrand, Vestfold, 3072, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_f53b3cd166",
+    "name": "Sporty Honefoss Eikli",
+    "brand": "Sporty",
+    "address": "Dronning Åstads gate 2",
+    "postal_code": "3511",
+    "city": "Hønefoss",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-honefoss-eikli",
+    "legacy_brand": null,
+    "center_name": "sporty-honefoss-eikli",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_c68be5c8c9",
+    "name": "Sporty Honefoss Honengata",
+    "brand": "Sporty",
+    "address": "Industrigata 1",
+    "postal_code": "3510",
+    "city": "Hønefoss",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-honefoss-honengata",
+    "legacy_brand": null,
+    "center_name": "sporty-honefoss-honengata",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.1774568,
+        "lng": 10.2711797,
+        "display": "Industrigata, Hønefoss, Ringerike, Buskerud, 3513, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_9426c7489c",
+    "name": "Sporty Horten",
+    "brand": "Sporty",
+    "address": "Falkenstensveien 31",
+    "postal_code": "3189",
+    "city": "Horten",
+    "country": "Norway",
+    "lat": 59.426678,
+    "lng": 10.455084,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-horten",
+    "legacy_brand": null,
+    "center_name": "sporty-horten",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "31, Falkenstensveien, Keisermarka, Apenes, Horten, Vestfold, 3189, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005919203479,
+        "lat": 59.4266778,
+        "lng": 10.4550836,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "31, Falkenstensveien, Keisermarka, Apenes, Horten, Vestfold, 3189, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_cc0c093645",
+    "name": "Sporty Hustad",
+    "brand": "Sporty",
+    "address": "Hustadvegen 417",
+    "postal_code": "6433",
+    "city": "Hustad",
+    "country": "Norway",
+    "lat": 62.953877,
+    "lng": 7.095574,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-hustad",
+    "legacy_brand": null,
+    "center_name": "sporty-hustad",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "417, Hustadvegen, Nerland, Hustad, Hustadvika, Møre og Romsdal, 6433, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.9538766,
+        "lng": 7.0955741,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "417, Hustadvegen, Nerland, Hustad, Hustadvika, Møre og Romsdal, 6433, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_4f9ff1dce0",
+    "name": "Sporty Jevnaker",
+    "brand": "Sporty",
+    "address": "Storgata 6",
+    "postal_code": "3520",
+    "city": "Jevnaker",
+    "country": "Norway",
+    "lat": 60.239969,
+    "lng": 10.389711,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-jevnaker",
+    "legacy_brand": null,
+    "center_name": "sporty-jevnaker",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Storgata, Randsborg, Nesbakken, Nøkleby, Jevnaker, Akershus, 3520, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053123521782,
+        "lat": 60.239969,
+        "lng": 10.389711,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Storgata, Randsborg, Nesbakken, Nøkleby, Jevnaker, Akershus, 3520, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_96863e9cd7",
+    "name": "Sporty Kleppesto",
+    "brand": "Sporty",
+    "address": "Holmedalen 6B",
+    "postal_code": "5300",
+    "city": "Kleppestø",
+    "country": "Norway",
+    "lat": 60.406002,
+    "lng": 5.219774,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kleppesto",
+    "legacy_brand": null,
+    "center_name": "sporty-kleppesto",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6B, Holmedalen, Holmedal, Kleppestø, Askøy, Vestland, 5300, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000057428091859,
+        "lat": 60.4060015,
+        "lng": 5.2197735,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6B, Holmedalen, Holmedal, Kleppestø, Askøy, Vestland, 5300, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_cde81e0535",
+    "name": "Sporty Kongsberg",
+    "brand": "Sporty",
+    "address": "Idrettsveien 4",
+    "postal_code": "3617",
+    "city": "Kongsberg",
+    "country": "Norway",
+    "lat": 59.680491,
+    "lng": 9.629132,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kongsberg",
+    "legacy_brand": null,
+    "center_name": "sporty-kongsberg",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "4, Idrettsveien, Kongsberg, Buskerud, 3617, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000060934615092,
+        "lat": 59.680491,
+        "lng": 9.629132,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "4, Idrettsveien, Kongsberg, Buskerud, 3617, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_6b81d879bc",
+    "name": "Sporty Konnerud",
+    "brand": "Sporty",
+    "address": "Bernåsbakken 2",
+    "postal_code": "3032",
+    "city": "Drammen",
+    "country": "Norway",
+    "lat": 59.71924,
+    "lng": 10.145965,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-konnerud",
+    "legacy_brand": null,
+    "center_name": "sporty-konnerud",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Bernåsbakken, Ekholt, Konnerud, Drammen, Buskerud, 3032, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000066516365301,
+        "lat": 59.7192403,
+        "lng": 10.1459649,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Bernåsbakken, Ekholt, Konnerud, Drammen, Buskerud, 3032, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_347ebeb0ca",
+    "name": "Sporty Kristiansand Hanes",
+    "brand": "Sporty",
+    "address": "Hånesveien 126",
+    "postal_code": "4635",
+    "city": "Kristiansand",
+    "country": "Norway",
+    "lat": 58.181666,
+    "lng": 8.094756,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kristiansand-hanes",
+    "legacy_brand": null,
+    "center_name": "sporty-kristiansand-hanes",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "126, Hånesveien, Grovika, Hånes, Kristiansand, Agder, 4635, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000067598229954,
+        "lat": 58.181666,
+        "lng": 8.094756,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "126, Hånesveien, Grovika, Hånes, Kristiansand, Agder, 4635, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_abc5059594",
+    "name": "Sporty Kristiansund Lokkemyra",
+    "brand": "Sporty",
+    "address": "Nordmørsveien 54",
+    "postal_code": "6517",
+    "city": "Kristiansund",
+    "country": "Norway",
+    "lat": 63.109668,
+    "lng": 7.773086,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kristiansund-lokkemyra",
+    "legacy_brand": null,
+    "center_name": "sporty-kristiansund-lokkemyra",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "54, Nordmørsveien, Røssern, Dale, Kristiansund, Møre og Romsdal, 6517, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000061178759442,
+        "lat": 63.109668,
+        "lng": 7.773086,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "54, Nordmørsveien, Røssern, Dale, Kristiansund, Møre og Romsdal, 6517, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_8b010df4ad",
+    "name": "Sporty Kristiansund Stortua",
+    "brand": "Sporty",
+    "address": "Wilhelm Dalls vei 40",
+    "postal_code": "6511",
+    "city": "Kristiansund N",
+    "country": "Norway",
+    "lat": 63.122704,
+    "lng": 7.735957,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kristiansund-stortua",
+    "legacy_brand": null,
+    "center_name": "sporty-kristiansund-stortua",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "40, Wilhelm Dalls vei, Stortua, Gomalandet, Kristiansund, Møre og Romsdal, 6511, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000061178759442,
+        "lat": 63.1227038,
+        "lng": 7.7359574,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "40, Wilhelm Dalls vei, Stortua, Gomalandet, Kristiansund, Møre og Romsdal, 6511, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_6c4c5d6a5d",
+    "name": "Sporty Langevag",
+    "brand": "Sporty",
+    "address": "Djupdalen 6",
+    "postal_code": "6030",
+    "city": "Langevåg",
+    "country": "Norway",
+    "lat": 62.440581,
+    "lng": 6.192368,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-langevag",
+    "legacy_brand": null,
+    "center_name": "sporty-langevag",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Djupdalen, Nymarkbakken, Molvær, Langevåg, Sula, Møre og Romsdal, 6030, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000052101167315,
+        "lat": 62.4405805,
+        "lng": 6.1923684,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Djupdalen, Nymarkbakken, Molvær, Langevåg, Sula, Møre og Romsdal, 6030, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_3776fc33e4",
+    "name": "Sporty Larvik",
+    "brand": "Sporty",
+    "address": "Elveveien 135",
+    "postal_code": "3271",
+    "city": "Larvik",
+    "country": "Norway",
+    "lat": 59.078416,
+    "lng": 10.061164,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-larvik",
+    "legacy_brand": null,
+    "center_name": "sporty-larvik",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "135, Elveveien, Nordby industriområde, Hagalia, Bommestad, Larvik, Vestfold, 3271, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.078416,
+        "lng": 10.0611639,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "135, Elveveien, Nordby industriområde, Hagalia, Bommestad, Larvik, Vestfold, 3271, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_6c861a6e8c",
+    "name": "Sporty Larvik Nanset",
+    "brand": "Sporty",
+    "address": "Nansetgata 91",
+    "postal_code": "3256",
+    "city": "Larvik",
+    "country": "Norway",
+    "lat": 59.064793,
+    "lng": 10.039938,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-larvik-nanset",
+    "legacy_brand": null,
+    "center_name": "sporty-larvik-nanset",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "91, Nansetgata, Nordby industriområde, Nanset, Larvik, Vestfold, 3269, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000050001525902,
+        "lat": 59.0647932,
+        "lng": 10.0399377,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "91, Nansetgata, Nordby industriområde, Nanset, Larvik, Vestfold, 3269, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_aa5a9c22fd",
+    "name": "Sporty Larvik Sentrum",
+    "brand": "Sporty",
+    "address": "Olavs gate 30",
+    "postal_code": "3257",
+    "city": "Larvik",
+    "country": "Norway",
+    "lat": 59.053717,
+    "lng": 10.032469,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-larvik-sentrum",
+    "legacy_brand": null,
+    "center_name": "sporty-larvik-sentrum",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "30, Olavs gate, Sanden, Larvik, Vestfold, 3257, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.0537171,
+        "lng": 10.0324692,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "30, Olavs gate, Sanden, Larvik, Vestfold, 3257, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_5963534437",
+    "name": "Sporty Mandal",
+    "brand": "Sporty",
+    "address": "Skarvøyveien 55",
+    "postal_code": "4517",
+    "city": "Mandal",
+    "country": "Norway",
+    "lat": 58.029041,
+    "lng": 7.460841,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mandal",
+    "legacy_brand": null,
+    "center_name": "sporty-mandal",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "55, Skarvøyveien, Øvrebyen, Mandal, Lindesnes, Agder, 4517, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 58.029041,
+        "lng": 7.460841,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "55, Skarvøyveien, Øvrebyen, Mandal, Lindesnes, Agder, 4517, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_a994ae581b",
+    "name": "Sporty Mandal Sanden",
+    "brand": "Sporty",
+    "address": "Kastellgata 14",
+    "postal_code": "4514",
+    "city": "Mandal",
+    "country": "Norway",
+    "lat": 58.022657,
+    "lng": 7.451601,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mandal-sanden",
+    "legacy_brand": null,
+    "center_name": "sporty-mandal-sanden",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "14, Kastellgata, Sanden, Mandal, Lindesnes, Agder, 4514, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 58.0226566,
+        "lng": 7.4516009,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "14, Kastellgata, Sanden, Mandal, Lindesnes, Agder, 4514, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_dcfb2a79d1",
+    "name": "Sporty Mjondalen Mjondalshallen",
+    "brand": "Sporty",
+    "address": "Hagatjernveien 19",
+    "postal_code": "3050",
+    "city": "Mjøndalen",
+    "country": "Norway",
+    "lat": 59.745422,
+    "lng": 10.016845,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mjondalen-mjondalshallen",
+    "legacy_brand": null,
+    "center_name": "sporty-mjondalen-mjondalshallen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "19, Hagatjernveien, Åsen, Mjøndalen, Drammen, 3050, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000066516365301,
+        "lat": 59.7454219,
+        "lng": 10.016845,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "19, Hagatjernveien, Åsen, Mjøndalen, Drammen, 3050, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_c8439e183b",
+    "name": "Sporty Mjondalen Strandveien",
+    "brand": "Sporty",
+    "address": "Strandveien 33",
+    "postal_code": "3050",
+    "city": "Mjøndalen",
+    "country": "Norway",
+    "lat": 59.751521,
+    "lng": 10.021285,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mjondalen-strandveien",
+    "legacy_brand": null,
+    "center_name": "sporty-mjondalen-strandveien",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "33, Strandveien, Åsen, Mjøndalen, Drammen, Buskerud, 3050, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000066516365301,
+        "lat": 59.751521,
+        "lng": 10.0212849,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "33, Strandveien, Åsen, Mjøndalen, Drammen, Buskerud, 3050, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_702b2cc128",
+    "name": "Sporty Mo I Rana",
+    "brand": "Sporty",
+    "address": "Midtre gate 17a",
+    "postal_code": "8624",
+    "city": "Mo i Rana",
+    "country": "Norway",
+    "lat": 66.31598,
+    "lng": 14.126768,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mo-i-rana",
+    "legacy_brand": null,
+    "center_name": "sporty-mo-i-rana",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "17A, Midtre gate, Langneset, Mo i Rana, Rana, Nordland, 8624, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000058607614251,
+        "lat": 66.3159804,
+        "lng": 14.1267679,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17A, Midtre gate, Langneset, Mo i Rana, Rana, Nordland, 8624, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_94b7c349ee",
+    "name": "Sporty Molde Moldehallen",
+    "brand": "Sporty",
+    "address": "Verftsgata 10",
+    "postal_code": "6416",
+    "city": "Molde ( Inngang C )",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-molde-moldehallen",
+    "legacy_brand": null,
+    "center_name": "sporty-molde-moldehallen",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_8308d2e177",
+    "name": "Sporty Molde Reknes",
+    "brand": "Sporty",
+    "address": "Julsundvegen 49",
+    "postal_code": "6412",
+    "city": "Molde",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-molde-reknes",
+    "legacy_brand": null,
+    "center_name": "sporty-molde-reknes",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 261,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 62.7348489,
+        "lng": 7.1362029,
+        "score": 9.053397440299076,
+        "display": "Julsundvegen, Bekkevoll, Røysan, Molde, Møre og Romsdal, 6412, Norge"
+      },
+      "second": {
+        "lat": 62.7344968,
+        "lng": 7.1412664,
+        "score": 9.000064106965745,
+        "display": "49A, Julsundvegen, Bekkevoll, Røysan, Molde, Møre og Romsdal, 6412, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_26ca6e0499",
+    "name": "Sporty Molde Sjofronten",
+    "brand": "Sporty",
+    "address": "Hamnegata 47",
+    "postal_code": "6413",
+    "city": "Molde",
+    "country": "Norway",
+    "lat": 62.736821,
+    "lng": 7.162375,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-molde-sjofronten",
+    "legacy_brand": null,
+    "center_name": "sporty-molde-sjofronten",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "47, Hamnegata, Granlia, Røysan, Molde, Møre og Romsdal, 6413, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000064106965745,
+        "lat": 62.7368213,
+        "lng": 7.1623747,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "47, Hamnegata, Granlia, Røysan, Molde, Møre og Romsdal, 6413, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_95d75f9fcb",
+    "name": "Sporty Moss",
+    "brand": "Sporty",
+    "address": "Midtveien 5",
+    "postal_code": "1526",
+    "city": "Moss",
+    "country": "Norway",
+    "lat": 59.415359,
+    "lng": 10.676154,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-moss",
+    "legacy_brand": null,
+    "center_name": "sporty-moss",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "5, Midtveien, Dyre, Høyden, Moss, Østfold, 1526, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.415359,
+        "lng": 10.6761536,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "5, Midtveien, Dyre, Høyden, Moss, Østfold, 1526, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_1ea1f96802",
+    "name": "Sporty Notteroy",
+    "brand": "Sporty",
+    "address": "Stalsbergveien 7",
+    "postal_code": "3128",
+    "city": "Nøtterøy",
+    "country": "Norway",
+    "lat": 59.264462,
+    "lng": 10.390934,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-notteroy",
+    "legacy_brand": null,
+    "center_name": "sporty-notteroy",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_mismatch_soft_postal_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "7, Stalsbergveien, Valhalla, Vestskogen, Færder, Vestfold, 3128, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 10.000050001525903,
+        "lat": 59.264462,
+        "lng": 10.390934,
+        "reasons": [
+          "postal_exact",
+          "city_mismatch_soft_postal_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "7, Stalsbergveien, Valhalla, Vestskogen, Færder, Vestfold, 3128, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_ed3a78056b",
+    "name": "Sporty Orje",
+    "brand": "Sporty",
+    "address": "Skolegata 3",
+    "postal_code": "1870",
+    "city": "Ørje",
+    "country": "Norway",
+    "lat": 59.480053,
+    "lng": 11.65704,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-orje",
+    "legacy_brand": null,
+    "center_name": "sporty-orje",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "3, Skolegata, Krokstad, Ørje, Marker, Østfold, 1870, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000049607843138,
+        "lat": 59.4800526,
+        "lng": 11.65704,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "3, Skolegata, Krokstad, Ørje, Marker, Østfold, 1870, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_c343ddfb87",
+    "name": "Sporty Orsta",
+    "brand": "Sporty",
+    "address": "Ivar Aasen Gate 10",
+    "postal_code": "6150",
+    "city": "Ørsta",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-orsta",
+    "legacy_brand": null,
+    "center_name": "sporty-orsta",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_655f19fc2a",
+    "name": "Sporty Osoyro",
+    "brand": "Sporty",
+    "address": "Brugata 32",
+    "postal_code": "5200",
+    "city": "Os",
+    "country": "Norway",
+    "lat": 60.185447,
+    "lng": 5.4714,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-osoyro",
+    "legacy_brand": null,
+    "center_name": "sporty-osoyro",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "32, Brugata, Sentrum, Solstrand, Osøyro, Bjørnafjorden, Vestland, 5200, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000044436560616,
+        "lat": 60.1854466,
+        "lng": 5.4713999,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "32, Brugata, Sentrum, Solstrand, Osøyro, Bjørnafjorden, Vestland, 5200, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_86e14a8701",
+    "name": "Sporty Samnanger",
+    "brand": "Sporty",
+    "address": "Bjørkheim 26",
+    "postal_code": "5652",
+    "city": "Samnanger",
+    "country": "Norway",
+    "lat": 60.40125,
+    "lng": 5.731473,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-samnanger",
+    "legacy_brand": null,
+    "center_name": "sporty-samnanger",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "26, Bjørkheim, Samnanger, Ådland, Bjørkheim, Samnanger, Vestland, 5652, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000051515220875,
+        "lat": 60.4012501,
+        "lng": 5.7314732,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "26, Bjørkheim, Samnanger, Ådland, Bjørkheim, Samnanger, Vestland, 5652, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_1c64ee8482",
+    "name": "Sporty Sande",
+    "brand": "Sporty",
+    "address": "Revåveien 37",
+    "postal_code": "3070",
+    "city": "Sande i Vestfold",
+    "country": "Norway",
+    "lat": 59.583638,
+    "lng": 10.210322,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sande",
+    "legacy_brand": null,
+    "center_name": "sporty-sande",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "37, Revåveien, Dunihagen, Leppestad, Sande, Holmestrand, Vestfold, 3070, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005432745861,
+        "lat": 59.5836379,
+        "lng": 10.2103223,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "37, Revåveien, Dunihagen, Leppestad, Sande, Holmestrand, Vestfold, 3070, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_aa5433400e",
+    "name": "Sporty Sandefjord Moveien",
+    "brand": "Sporty",
+    "address": "Moveien 53",
+    "postal_code": "3215",
+    "city": "Sandefjord",
+    "country": "Norway",
+    "lat": 59.143093,
+    "lng": 10.199981,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sandefjord-moveien",
+    "legacy_brand": null,
+    "center_name": "sporty-sandefjord-moveien",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "53, Moveien, Bugården, Sandefjord, Vestfold, 3215, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00006149156939,
+        "lat": 59.143093,
+        "lng": 10.199981,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "53, Moveien, Bugården, Sandefjord, Vestfold, 3215, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_210b6fc427",
+    "name": "Sporty Sarpsborg Iseveien",
+    "brand": "Sporty",
+    "address": "Snekkerstubakken 26",
+    "postal_code": "1738",
+    "city": "Borgenhaugen",
+    "country": "Norway",
+    "lat": 59.269107,
+    "lng": 11.159264,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sarpsborg-iseveien",
+    "legacy_brand": null,
+    "center_name": "sporty-sarpsborg-iseveien",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "26, Snekkerstubakken, Borgen, Sarpsborg, Østfold, 1738, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.2691073,
+        "lng": 11.1592635,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "26, Snekkerstubakken, Borgen, Sarpsborg, Østfold, 1738, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_03f4709a5e",
+    "name": "Sporty Sem",
+    "brand": "Sporty",
+    "address": "Semsbyveien 74",
+    "postal_code": "3170",
+    "city": "Sem",
+    "country": "Norway",
+    "lat": 59.281602,
+    "lng": 10.32878,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sem",
+    "legacy_brand": null,
+    "center_name": "sporty-sem",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "74, Semsbyveien, Aulerød, Langerød, Hesby, Sem, Tønsberg, Vestfold, 3170, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.2816018,
+        "lng": 10.32878,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "74, Semsbyveien, Aulerød, Langerød, Hesby, Sem, Tønsberg, Vestfold, 3170, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_fe93127a26",
+    "name": "Sporty Ski Storsenter",
+    "brand": "Sporty",
+    "address": "Jernbanesvingen 6",
+    "postal_code": "1400",
+    "city": "Ski",
+    "country": "Norway",
+    "lat": 59.716364,
+    "lng": 10.835714,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ski-storsenter",
+    "legacy_brand": null,
+    "center_name": "sporty-ski-storsenter",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Jernbanesvingen, Finstad, Ski, Nordre Follo, Akershus, 1400, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000044248874648,
+        "lat": 59.716364,
+        "lng": 10.835714,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Jernbanesvingen, Finstad, Ski, Nordre Follo, Akershus, 1400, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_e2b5508480",
+    "name": "Sporty Sogne",
+    "brand": "Sporty",
+    "address": "Sentrumsveien 33",
+    "postal_code": "4640",
+    "city": "Tangvall",
+    "country": "Norway",
+    "lat": 58.097139,
+    "lng": 7.811981,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sogne",
+    "legacy_brand": null,
+    "center_name": "sporty-sogne",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "33, Sentrumsveien, Klepland, Tangvall, Kristiansand, Agder, 4640, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000067598229954,
+        "lat": 58.097139,
+        "lng": 7.811981,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "33, Sentrumsveien, Klepland, Tangvall, Kristiansand, Agder, 4640, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_840be66482",
+    "name": "Sporty Stokke",
+    "brand": "Sporty",
+    "address": "Kornmagasingata 2",
+    "postal_code": "3160",
+    "city": "Stokke",
+    "country": "Norway",
+    "lat": 59.221861,
+    "lng": 10.30447,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-stokke",
+    "legacy_brand": null,
+    "center_name": "sporty-stokke",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Kornmagasingata, Frydenberg, Hvål, Stokke, Sandefjord, Vestfold, 3160, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00006149156939,
+        "lat": 59.2218605,
+        "lng": 10.3044695,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Kornmagasingata, Frydenberg, Hvål, Stokke, Sandefjord, Vestfold, 3160, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_50ed05e4bd",
+    "name": "Sporty Stokke Sundland",
+    "brand": "Sporty",
+    "address": "Sundlandveien 6",
+    "postal_code": "3160",
+    "city": "Stokke",
+    "country": "Norway",
+    "lat": 59.228907,
+    "lng": 10.288148,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-stokke-sundland",
+    "legacy_brand": null,
+    "center_name": "sporty-stokke-sundland",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Sundlandveien, Sundland, Frydenberg, Stokke, Sandefjord, Vestfold, 3160, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00006149156939,
+        "lat": 59.228907,
+        "lng": 10.288148,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Sundlandveien, Sundland, Frydenberg, Stokke, Sandefjord, Vestfold, 3160, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_27dc2be1cc",
+    "name": "Sporty Straume",
+    "brand": "Sporty",
+    "address": "Skjenet 7",
+    "postal_code": "5353",
+    "city": "Straume",
+    "country": "Norway",
+    "lat": 60.364436,
+    "lng": 5.122302,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-straume",
+    "legacy_brand": null,
+    "center_name": "sporty-straume",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "7, Skjenet, Straume, Øygarden, Vestland, 5354, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000040000762951,
+        "lat": 60.3644356,
+        "lng": 5.122302,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "7, Skjenet, Straume, Øygarden, Vestland, 5354, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_35de227136",
+    "name": "Sporty Tonsberg Farmand",
+    "brand": "Sporty",
+    "address": "Slagenveien 16",
+    "postal_code": "3110",
+    "city": "Tønsberg",
+    "country": "Norway",
+    "lat": 59.268906,
+    "lng": 10.413678,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-tonsberg-farmand",
+    "legacy_brand": null,
+    "center_name": "sporty-tonsberg-farmand",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "16, Slagenveien, Teie, Træleborg, Tønsberg, Vestfold, 3110, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.268906,
+        "lng": 10.413678,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "16, Slagenveien, Teie, Træleborg, Tønsberg, Vestfold, 3110, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_2014739db9",
+    "name": "Sporty Tonsberg Gressbanen",
+    "brand": "Sporty",
+    "address": "Trudvangveien 73",
+    "postal_code": "3117",
+    "city": "Tønsberg",
+    "country": "Norway",
+    "lat": 59.282998,
+    "lng": 10.415298,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-tonsberg-gressbanen",
+    "legacy_brand": null,
+    "center_name": "sporty-tonsberg-gressbanen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "73, Trudvangveien, Korten, Eik, Tønsberg, Vestfold, 3117, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.282998,
+        "lng": 10.415298,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "73, Trudvangveien, Korten, Eik, Tønsberg, Vestfold, 3117, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_f61a0c9c58",
+    "name": "Sporty Tonsberg Kilen",
+    "brand": "Sporty",
+    "address": "Kilengaten 25",
+    "postal_code": "3117",
+    "city": "Tønsberg",
+    "country": "Norway",
+    "lat": 59.277124,
+    "lng": 10.432515,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-tonsberg-kilen",
+    "legacy_brand": null,
+    "center_name": "sporty-tonsberg-kilen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "25, Kilengaten, Træleborg, Tønsberg, Vestfold, 3117, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 59.2771242,
+        "lng": 10.4325152,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "25, Kilengaten, Træleborg, Tønsberg, Vestfold, 3117, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_752ab1af98",
+    "name": "Sporty Ulstein Ulsteinvik",
+    "brand": "Sporty",
+    "address": "Kyrkjegata 22",
+    "postal_code": "6065",
+    "city": "Ulsteinvik",
+    "country": "Norway",
+    "lat": 62.34479,
+    "lng": 5.843179,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ulstein-ulsteinvik",
+    "legacy_brand": null,
+    "center_name": "sporty-ulstein-ulsteinvik",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "22, Kyrkjegata, Reiten, Osnes, Ulsteinvik, Ulstein, Møre og Romsdal, 6065, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005278019379,
+        "lat": 62.3447897,
+        "lng": 5.8431786,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "22, Kyrkjegata, Reiten, Osnes, Ulsteinvik, Ulstein, Møre og Romsdal, 6065, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_739aee697f",
+    "name": "Sporty Ulstein Varleite",
+    "brand": "Sporty",
+    "address": "Varleitevegen 9",
+    "postal_code": "6065",
+    "city": "Ulsteinvik",
+    "country": "Norway",
+    "lat": 62.342067,
+    "lng": 5.89151,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ulstein-varleite",
+    "legacy_brand": null,
+    "center_name": "sporty-ulstein-varleite",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "coord_source": null,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "9, Varleitevegen, Ulsteinvik, Ulstein, Møre og Romsdal, 6065, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005278019379,
+        "lat": 62.3420667,
+        "lng": 5.8915101,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "9, Varleitevegen, Ulsteinvik, Ulstein, Møre og Romsdal, 6065, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_e6a0ecb3bd",
+    "name": "Impulse Treningssenter Leuthenhave",
+    "brand": "Impulse Treningssenter",
+    "address": "Kongens gate 49",
+    "postal_code": "1606",
+    "city": "Fredrikstad",
+    "country": "Norway",
+    "lat": 59.208429,
+    "lng": 10.944997,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/leuthenhave/",
+    "center_name": "leuthenhave",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match"
+    ],
+    "geocode_display": "Kongens gate, Riverside, Cicignon, Fredrikstad, Østfold, 1606, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 9.05339705882353,
+        "lat": 59.2084292,
+        "lng": 10.9449973,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match"
+        ],
+        "display": "Kongens gate, Riverside, Cicignon, Fredrikstad, Østfold, 1606, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_8b84e08b97",
+    "name": "Impulse Treningssenter Hommelvik",
+    "brand": "Impulse Treningssenter",
+    "address": "Havneveien 28",
+    "postal_code": "7550",
+    "city": "Hommelvik",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/hommelvik/",
+    "center_name": "hommelvik",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 63.414561,
+        "lng": 10.80515,
+        "display": "28B, Havnevegen, Karlslyst, Hommelvik, Malvik, Trøndelag, 7550, Norge"
+      },
+      {
+        "reject": "address_no_overlap",
+        "lat": 63.414565,
+        "lng": 10.805335,
+        "display": "28A, Havnevegen, Karlslyst, Hommelvik, Malvik, Trøndelag, 7550, Norge"
+      },
+      {
+        "reject": "address_no_overlap",
+        "lat": 63.414488,
+        "lng": 10.805276,
+        "display": "28C, Havnevegen, Karlslyst, Hommelvik, Malvik, Trøndelag, 7550, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_0143ba939b",
+    "name": "Impulse Treningssenter Stjordal",
+    "brand": "Impulse Treningssenter",
+    "address": "Ole Vigs gate 1",
+    "postal_code": "7500",
+    "city": "Stjørdal",
+    "country": "Norway",
+    "lat": 63.470545,
+    "lng": 10.915256,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/stjordal/",
+    "center_name": "stjordal",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "1, Ole Vigs gate, Sandskogan, Stjørdalshalsen, Stjørdal, Trøndelag, 7500, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000057934691387,
+        "lat": 63.470545,
+        "lng": 10.915256,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1, Ole Vigs gate, Sandskogan, Stjørdalshalsen, Stjørdal, Trøndelag, 7500, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_79b619418b",
+    "name": "Impulse Treningssenter Rosten",
+    "brand": "Impulse Treningssenter",
+    "address": "Vestre Rosten 81",
+    "postal_code": "7075",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.364686,
+    "lng": 10.373839,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/rosten/",
+    "center_name": "rosten",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "81, Vestre Rosten, Tonstadmyra, Rosten, Tiller, Heimdal, Trondheim, Trøndelag, 7075, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.3646863,
+        "lng": 10.3738385,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "81, Vestre Rosten, Tonstadmyra, Rosten, Tiller, Heimdal, Trondheim, Trøndelag, 7075, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_705c8285ad",
+    "name": "Impulse Treningssenter Melhus",
+    "brand": "Impulse Treningssenter",
+    "address": "Melhusveien 505",
+    "postal_code": "7224",
+    "city": "Melhus",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/melhus/",
+    "center_name": "melhus",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 63.283712,
+        "lng": 10.280216,
+        "display": "505, Melhusvegen, Potten, Egga, Melhus, Trøndelag, 7224, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_a271cb6d74",
+    "name": "Impulse Treningssenter Leangen",
+    "brand": "Impulse Treningssenter",
+    "address": "Haakon VIIs gate 27",
+    "postal_code": "7041",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.438774,
+    "lng": 10.463933,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/leangen/",
+    "center_name": "leangen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "27, Haakon VIIs gate, Leangen, Devle, Østbyen, Trondheim, Trøndelag, 7041, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.438774,
+        "lng": 10.463933,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "27, Haakon VIIs gate, Leangen, Devle, Østbyen, Trondheim, Trøndelag, 7041, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_55f383227b",
+    "name": "Impulse Treningssenter Granasen",
+    "brand": "Impulse Treningssenter",
+    "address": "Smistadvegen 9",
+    "postal_code": "7026",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.376603,
+    "lng": 10.31303,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/granasen/",
+    "center_name": "granasen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "9, Smistadvegen, Kolsås, Smistadgrenda, Lerkendal, Trondheim, Trøndelag, 7026, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.3766026,
+        "lng": 10.3130297,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "9, Smistadvegen, Kolsås, Smistadgrenda, Lerkendal, Trondheim, Trøndelag, 7026, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_c210130ebf",
+    "name": "Impulse Treningssenter Grilstad Marina",
+    "brand": "Impulse Treningssenter",
+    "address": "Skonnertvegen 8",
+    "postal_code": "7053",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.434034,
+    "lng": 10.50387,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://impulse.no/senter/grilstad-marina/",
+    "center_name": "grilstad-marina",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "8, Skonnertvegen, Grillstad, Charlottenlund, Østbyen, Trondheim, Trøndelag, 7053, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000073027389945,
+        "lat": 63.434034,
+        "lng": 10.50387,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "8, Skonnertvegen, Grillstad, Charlottenlund, Østbyen, Trondheim, Trøndelag, 7053, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_0a89b4c5f6",
+    "name": "Fitnesspoint Askim",
+    "brand": "Fitnesspoint",
+    "address": "Dr. Randers gate 11",
+    "postal_code": "1830",
+    "city": "Askim",
+    "country": "Norway",
+    "lat": 59.583369,
+    "lng": 11.16134,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Askim",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "11, Dr. Randers gate, Askim, Indre Østfold, Østfold, 1830, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000054402227818,
+        "lat": 59.583369,
+        "lng": 11.16134,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "11, Dr. Randers gate, Askim, Indre Østfold, Østfold, 1830, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_715a386140",
+    "name": "Fitnesspoint Aspøya Tingvoll",
+    "brand": "Fitnesspoint",
+    "address": "Aspøya Fjordsenter, Arnvika 70",
+    "postal_code": "6670",
+    "city": "Øydegard",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Aspøya Tingvoll",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_2b65c488fa",
+    "name": "Fitnesspoint Bjugn",
+    "brand": "Fitnesspoint",
+    "address": "Strandveien 3",
+    "postal_code": "7160",
+    "city": "Bjugn",
+    "country": "Norway",
+    "lat": 63.765888,
+    "lng": 9.807497,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Bjugn",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_mismatch_soft_postal_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "3, Strandveien, Tjuvskardmyra boligfelt, Sæter, Botngård, Ørland, Trøndelag, 7160, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 10.000054898146029,
+        "lat": 63.765888,
+        "lng": 9.807497,
+        "reasons": [
+          "postal_exact",
+          "city_mismatch_soft_postal_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "3, Strandveien, Tjuvskardmyra boligfelt, Sæter, Botngård, Ørland, Trøndelag, 7160, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_3dfccf5012",
+    "name": "Fitnesspoint Brenneriroa Løten",
+    "brand": "Fitnesspoint",
+    "address": "Budorvegen 2",
+    "postal_code": "2340",
+    "city": "Løten",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Brenneriroa Løten",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 2373,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 60.8633782,
+        "lng": 11.3024113,
+        "score": 9.053385790035858,
+        "display": "Budorvegen, Ringnes, Løten, Innlandet, 2340, Norge"
+      },
+      "second": {
+        "lat": 60.8428105,
+        "lng": 11.2906978,
+        "score": 9.053385790035858,
+        "display": "Budorvegen, Brenneriroa, Løten, Innlandet, 2340, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_f43b6e3cec",
+    "name": "Fitnesspoint Bud",
+    "brand": "Fitnesspoint",
+    "address": "Kippersundvegen 2",
+    "postal_code": "6430",
+    "city": "Bud",
+    "country": "Norway",
+    "lat": 62.905502,
+    "lng": 6.919807,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Bud",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Kippersundvegen, Kalsvika, Bud, Hustadvika, Møre og Romsdal, 6430, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000050001525903,
+        "lat": 62.9055024,
+        "lng": 6.9198068,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Kippersundvegen, Kalsvika, Bud, Hustadvika, Møre og Romsdal, 6430, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_8461400b6f",
+    "name": "Fitnesspoint Børsa",
+    "brand": "Fitnesspoint",
+    "address": "Lensmannsekra 1",
+    "postal_code": "7353",
+    "city": "Børsa",
+    "country": "Norway",
+    "lat": 63.323886,
+    "lng": 10.065762,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Børsa",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "1, Lensmannsekra, Rossvoll, Ofstad, Børsa, Skaun, Trøndelag, 7353, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053111314564,
+        "lat": 63.323886,
+        "lng": 10.065762,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1, Lensmannsekra, Rossvoll, Ofstad, Børsa, Skaun, Trøndelag, 7353, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_64abb1b836",
+    "name": "Fitnesspoint Dokka",
+    "brand": "Fitnesspoint",
+    "address": "Bondlidtorget, Storgata 46",
+    "postal_code": "2870",
+    "city": "Dokka",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Dokka",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_3d8250b7b1",
+    "name": "Fitnesspoint Dyrøy (Brøstadbotn)",
+    "brand": "Fitnesspoint",
+    "address": "Tverrveien 16",
+    "postal_code": "9311",
+    "city": "Brøstadbotn",
+    "country": "Norway",
+    "lat": 69.091092,
+    "lng": 17.698235,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Dyrøy (Brøstadbotn)",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "16, Tverrveien, Finnlandsmoan, Brøstadbotn, Dyrøy, Troms, 9311, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005074464027,
+        "lat": 69.091092,
+        "lng": 17.698235,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "16, Tverrveien, Finnlandsmoan, Brøstadbotn, Dyrøy, Troms, 9311, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_f9b631e324",
+    "name": "Fitnesspoint Eidsvoll",
+    "brand": "Fitnesspoint",
+    "address": "Sundgata 13",
+    "postal_code": "2800",
+    "city": "Eidsvoll",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Eidsvoll",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.330063,
+        "lng": 11.258446,
+        "display": "13A, Sundgata, Vilberg, Tunneltoppen, Eidsvoll, Akershus, 2080, Norge"
+      },
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.33013,
+        "lng": 11.258402,
+        "display": "13B, Sundgata, Vilberg, Tunneltoppen, Eidsvoll, Akershus, 2080, Norge"
+      },
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.330148,
+        "lng": 11.258386,
+        "display": "13D, Sundgata, Vilberg, Tunneltoppen, Eidsvoll, Akershus, 2080, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_5a052ce6cd",
+    "name": "Fitnesspoint Elverum - Paulsbyen Gym",
+    "brand": "Fitnesspoint",
+    "address": "Torggata 6",
+    "postal_code": "2409",
+    "city": "Elverum",
+    "country": "Norway",
+    "lat": 60.88483,
+    "lng": 11.560656,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Elverum - Paulsbyen Gym",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Torggata, Leiret, Gårderløkka, Elverum, Innlandet, 2408, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000057727168688,
+        "lat": 60.8848301,
+        "lng": 11.5606555,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Torggata, Leiret, Gårderløkka, Elverum, Innlandet, 2408, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_15e924db05",
+    "name": "Fitnesspoint Engerdal",
+    "brand": "Fitnesspoint",
+    "address": "Åveien 7",
+    "postal_code": "2440",
+    "city": "Engerdal",
+    "country": "Norway",
+    "lat": 61.756193,
+    "lng": 11.962224,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Engerdal",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "7, Åveien, Engerdal, Innlandet, 2440, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000051507591364,
+        "lat": 61.7561928,
+        "lng": 11.9622235,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "7, Åveien, Engerdal, Innlandet, 2440, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_40f8eba8d9",
+    "name": "Fitnesspoint Hommelvik",
+    "brand": "Fitnesspoint",
+    "address": "Øyavegen 17",
+    "postal_code": "7550",
+    "city": "Hommelvik",
+    "country": "Norway",
+    "lat": 63.412137,
+    "lng": 10.802635,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Hommelvik",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "17, Øyavegen, Karlslyst, Hommelvik, Malvik, Trøndelag, 7550, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053779659723,
+        "lat": 63.4121374,
+        "lng": 10.8026349,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17, Øyavegen, Karlslyst, Hommelvik, Malvik, Trøndelag, 7550, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_bcb52d7f78",
+    "name": "Fitnesspoint Jarlsø",
+    "brand": "Fitnesspoint",
+    "address": "Jarlsøveien 50",
+    "postal_code": "3124",
+    "city": "Jarlsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Jarlsø",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_03b0ce655b",
+    "name": "Fitnesspoint Jørpeland",
+    "brand": "Fitnesspoint",
+    "address": "Ryfylkeveien 783",
+    "postal_code": "4100",
+    "city": "Jørpeland",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Jørpeland",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 59.014473,
+        "lng": 6.050344,
+        "display": "783, Ryfylkevegen, Svenskebyen, Jørpeland, Strand, Rogaland, 4100, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_acaf682e97",
+    "name": "Fitnesspoint Kløfta",
+    "brand": "Fitnesspoint",
+    "address": "Trondheimsvegen - Kløfta 86",
+    "postal_code": "2040",
+    "city": "Kløfta",
+    "country": "Norway",
+    "lat": 60.076127,
+    "lng": 11.136117,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Kløfta",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "86, Trondheimsvegen - Kløfta, Fredly søndre, Olstad, Kløfta, Ullensaker, Akershus, 2040, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000054309147783,
+        "lat": 60.076127,
+        "lng": 11.136117,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "86, Trondheimsvegen - Kløfta, Fredly søndre, Olstad, Kløfta, Ullensaker, Akershus, 2040, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_9e1a24623f",
+    "name": "Fitnesspoint Knarvik",
+    "brand": "Fitnesspoint",
+    "address": "Kvernhushaugane 10",
+    "postal_code": "5914",
+    "city": "Isdalstø",
+    "country": "Norway",
+    "lat": 60.548057,
+    "lng": 5.287637,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Knarvik",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "10, Kvernhushaugane, Gjerdviki, Isdalstø, Alver, Vestland, 5914, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000044319066149,
+        "lat": 60.548057,
+        "lng": 5.287637,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "10, Kvernhushaugane, Gjerdviki, Isdalstø, Alver, Vestland, 5914, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_0653d4d7d4",
+    "name": "Fitnesspoint Kristiansund",
+    "brand": "Fitnesspoint",
+    "address": "Arnulf Øverlands gate 12",
+    "postal_code": "6509",
+    "city": "Kristiansund",
+    "country": "Norway",
+    "lat": 63.108902,
+    "lng": 7.731346,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Kristiansund",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "12, Arnulf Øverlands gate, Allanenga, Innlandet, Kristiansund, Møre og Romsdal, 6509, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000061178759442,
+        "lat": 63.1089021,
+        "lng": 7.7313458,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "12, Arnulf Øverlands gate, Allanenga, Innlandet, Kristiansund, Møre og Romsdal, 6509, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_cb2da77fba",
+    "name": "Fitnesspoint Kyrksæterøra",
+    "brand": "Fitnesspoint",
+    "address": "Industriveien 5",
+    "postal_code": "7200",
+    "city": "Kyrksæterøra",
+    "country": "Norway",
+    "lat": 63.293795,
+    "lng": 9.086724,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Kyrksæterøra",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "5, Industriveien, Vesse, Haugen, Skograndan, Kyrksæterøra, Heim, Trøndelag, 7200, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000040588235294,
+        "lat": 63.293795,
+        "lng": 9.086724,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "5, Industriveien, Vesse, Haugen, Skograndan, Kyrksæterøra, Heim, Trøndelag, 7200, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_946710dfeb",
+    "name": "Fitnesspoint Lillehammer",
+    "brand": "Fitnesspoint",
+    "address": "Kirkegata 79",
+    "postal_code": "2609",
+    "city": "Lillehammer",
+    "country": "Norway",
+    "lat": 61.116673,
+    "lng": 10.462692,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Lillehammer",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "79, Kirkegata, Busmoen, Vingnes, Lillehammer, Innlandet, 2609, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053537041275,
+        "lat": 61.1166734,
+        "lng": 10.4626915,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "79, Kirkegata, Busmoen, Vingnes, Lillehammer, Innlandet, 2609, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_530b6d3461",
+    "name": "Fitnesspoint Lillesand",
+    "brand": "Fitnesspoint",
+    "address": "Lillesand Senter, Senterveien 30",
+    "postal_code": "4790",
+    "city": "Lillesand",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Lillesand",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_8ac58e8a68",
+    "name": "Fitnesspoint Malvik (Sveberg)",
+    "brand": "Fitnesspoint",
+    "address": "Sveberg Handelspark, Svebergveien 3",
+    "postal_code": "7550",
+    "city": "Hommelvik",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Malvik (Sveberg)",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_f100a680e5",
+    "name": "Fitnesspoint Malvik (Vikhammer)",
+    "brand": "Fitnesspoint",
+    "address": "Vikhovlia 1300",
+    "postal_code": "7560",
+    "city": "Vikhammer",
+    "country": "Norway",
+    "lat": 63.439528,
+    "lng": 10.640325,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Malvik (Vikhammer)",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "1300, Vikhovlia, Vikhammer, Malvik, Trøndelag, 7560, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053779659723,
+        "lat": 63.4395279,
+        "lng": 10.640325,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1300, Vikhovlia, Vikhammer, Malvik, Trøndelag, 7560, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_4c9b62d3bb",
+    "name": "Fitnesspoint Maura",
+    "brand": "Fitnesspoint",
+    "address": "Nannestadvegen 522",
+    "postal_code": "2032",
+    "city": "Maura",
+    "country": "Norway",
+    "lat": 60.256033,
+    "lng": 11.027762,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Maura",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "522, Nannestadvegen, Solheimfeltet, Maura, Nannestad, Akershus, 2032, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053048752575,
+        "lat": 60.256033,
+        "lng": 11.027762,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "522, Nannestadvegen, Solheimfeltet, Maura, Nannestad, Akershus, 2032, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_bfbbf65654",
+    "name": "Fitnesspoint Nydalen",
+    "brand": "Fitnesspoint",
+    "address": "Nydalsveien 15",
+    "postal_code": "0484",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.947464,
+    "lng": 10.76434,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Nydalen",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "15, Nydalsveien, Bakke, Nydalen, Nordre Aker, Oslo, 0484, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000081374074922,
+        "lat": 59.947464,
+        "lng": 10.76434,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "15, Nydalsveien, Bakke, Nydalen, Nordre Aker, Oslo, 0484, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_3008a09677",
+    "name": "Fitnesspoint Orkanger",
+    "brand": "Fitnesspoint",
+    "address": "Orkdalsveien 100",
+    "postal_code": "7300",
+    "city": "Orkanger",
+    "country": "Norway",
+    "lat": 63.298357,
+    "lng": 9.847851,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Orkanger",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "100, Orkdalsveien, Rosenvik, Bårdshaug, Råbygda, Orkanger, Orkland, Trøndelag, 7300, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000047529564355,
+        "lat": 63.298357,
+        "lng": 9.847851,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "100, Orkdalsveien, Rosenvik, Bårdshaug, Råbygda, Orkanger, Orkland, Trøndelag, 7300, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_2a4b00095c",
+    "name": "Fitnesspoint Rena (Paulsbyen Gym)",
+    "brand": "Fitnesspoint",
+    "address": "Telthusvegen 7",
+    "postal_code": "2450",
+    "city": "Rena",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Rena (Paulsbyen Gym)",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 61.1351409,
+        "lng": 11.3737937,
+        "display": "7C, Telthusveien, Ilsåslia, Ilsås, Rena, Åmot, Innlandet, 2450, Norge"
+      },
+      {
+        "reject": "address_no_overlap",
+        "lat": 61.1351947,
+        "lng": 11.3737875,
+        "display": "7B, Telthusveien, Ilsåslia, Ilsås, Rena, Åmot, Innlandet, 2450, Norge"
+      },
+      {
+        "reject": "address_no_overlap",
+        "lat": 61.135123,
+        "lng": 11.3734611,
+        "display": "7A, Telthusveien, Ilsåslia, Ilsås, Rena, Åmot, Innlandet, 2450, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_9f5a6cc9c6",
+    "name": "Fitnesspoint Rjukan",
+    "brand": "Fitnesspoint",
+    "address": "Storgata 22A",
+    "postal_code": "3660",
+    "city": "Rjukan",
+    "country": "Norway",
+    "lat": 59.879144,
+    "lng": 8.592521,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Rjukan",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "22A, Storgata, Melandstangen, Bøen, Rjukan, Tinn, Telemark, 3660, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000053256275272,
+        "lat": 59.8791435,
+        "lng": 8.592521,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "22A, Storgata, Melandstangen, Bøen, Rjukan, Tinn, Telemark, 3660, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_931f5ac9fc",
+    "name": "Fitnesspoint Rubbestadneset",
+    "brand": "Fitnesspoint",
+    "address": "Brubakken 41",
+    "postal_code": "5420",
+    "city": "Rubbestadnestet",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Rubbestadneset",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_109c0d16fd",
+    "name": "Fitnesspoint Råholt",
+    "brand": "Fitnesspoint",
+    "address": "Gladbakkvegen 2",
+    "postal_code": "2070",
+    "city": "Råholt",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Råholt",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 263,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 60.2819872,
+        "lng": 11.1724176,
+        "score": 9.053391403830014,
+        "display": "Gladbakkvegen, Haugen, Sagmoen, Teiet, Råholt, Eidsvoll, Akershus, 2070, Norge"
+      },
+      "second": {
+        "lat": 60.2802349,
+        "lng": 11.1756279,
+        "score": 9.000058070496681,
+        "display": "2B, Gladbakkvegen, Haugen, Teiet, Råholt, Eidsvoll, Akershus, 2070, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_731a40fbf3",
+    "name": "Fitnesspoint Rødberg",
+    "brand": "Fitnesspoint",
+    "address": "Rudisvingen 6",
+    "postal_code": "3630",
+    "city": "Rødberg",
+    "country": "Norway",
+    "lat": 60.267754,
+    "lng": 8.941801,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Rødberg",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Rudisvingen, Rågrendi, Rødberg, Nore og Uvdal, Buskerud, 3630, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000051673914701,
+        "lat": 60.267754,
+        "lng": 8.941801,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Rudisvingen, Rågrendi, Rødberg, Nore og Uvdal, Buskerud, 3630, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_435cd6699d",
+    "name": "Fitnesspoint Sand Jessheim",
+    "brand": "Fitnesspoint",
+    "address": "Gamle Gardermovei 1A",
+    "postal_code": "2067",
+    "city": "Jessheim",
+    "country": "Norway",
+    "lat": 60.152728,
+    "lng": 11.130676,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Sand Jessheim",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "token_hits_1"
+    ],
+    "geocode_display": "1A, Gamle Gardermoveg, Haug, Jessheim, Ullensaker, Akershus, 2067, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 8.000054309147783,
+        "lat": 60.152728,
+        "lng": 11.130676,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "token_hits_1"
+        ],
+        "display": "1A, Gamle Gardermoveg, Haug, Jessheim, Ullensaker, Akershus, 2067, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_9ebd0d0f37",
+    "name": "Fitnesspoint Selbu (Mebonden)",
+    "brand": "Fitnesspoint",
+    "address": "Gjelbakken 1",
+    "postal_code": "7580",
+    "city": "Selbu",
+    "country": "Norway",
+    "lat": 63.219183,
+    "lng": 11.040663,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Selbu (Mebonden)",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "1, Gjelbakken, Nesta, Håstad, Mebonden, Selbu, Trøndelag, 7580, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.00005409094377,
+        "lat": 63.219183,
+        "lng": 11.040663,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1, Gjelbakken, Nesta, Håstad, Mebonden, Selbu, Trøndelag, 7580, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_ad82f981d2",
+    "name": "Fitnesspoint Skibotn",
+    "brand": "Fitnesspoint",
+    "address": "Skibotsveien 384",
+    "postal_code": "9143",
+    "city": "Skibotn",
+    "country": "Norway",
+    "lat": 69.397226,
+    "lng": 20.268712,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Skibotn",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "384, Skibotsveien, Storsanden, Skibotn - Ivgobahta - Yykeänperä, Storfjord, Troms, 9143, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000051800564584,
+        "lat": 69.397226,
+        "lng": 20.268712,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "384, Skibotsveien, Storsanden, Skibotn - Ivgobahta - Yykeänperä, Storfjord, Troms, 9143, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_f3de5aa210",
+    "name": "Fitnesspoint Skogn",
+    "brand": "Fitnesspoint",
+    "address": "Åsvegen 16",
+    "postal_code": "7620",
+    "city": "Skogn",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Skogn",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 722,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 63.6996414,
+        "lng": 11.1848806,
+        "score": 9.053383334859236,
+        "display": "Åsvegen, Småland, Hove, Skogn, Levanger, Trøndelag, 7620, Norge"
+      },
+      "second": {
+        "lat": 63.7053444,
+        "lng": 11.1918863,
+        "score": 9.053383334859236,
+        "display": "Åsvegen, Holan, Re, Skogn, Levanger, Trøndelag, 7620, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_bb86479c96",
+    "name": "Fitnesspoint Stjørdal",
+    "brand": "Fitnesspoint",
+    "address": "Kjøpmannsgata 21",
+    "postal_code": "7500",
+    "city": "Stjørdal",
+    "country": "Norway",
+    "lat": 63.468348,
+    "lng": 10.922391,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Stjørdal",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "21, Kjøpmannsgata, Stjørdalshalsen, Stjørdal, Trøndelag, 7500, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000057934691387,
+        "lat": 63.4683477,
+        "lng": 10.9223913,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "21, Kjøpmannsgata, Stjørdalshalsen, Stjørdal, Trøndelag, 7500, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_908b0803cc",
+    "name": "Fitnesspoint Stord (Heiane)",
+    "brand": "Fitnesspoint",
+    "address": "Rundehaugen 19",
+    "postal_code": "5412",
+    "city": "Stord",
+    "country": "Norway",
+    "lat": 59.763508,
+    "lng": 5.457682,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Stord (Heiane)",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "19, Rundehaugen, Kåravika, Horneland, Leirvik, Stord, Vestland, 5412, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000056352330816,
+        "lat": 59.763508,
+        "lng": 5.4576817,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "19, Rundehaugen, Kåravika, Horneland, Leirvik, Stord, Vestland, 5412, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  },
+  {
+    "id": "no_1d3c58420f",
+    "name": "Fitnesspoint Sunndalsøra",
+    "brand": "Fitnesspoint",
+    "address": "Sunndalsvegen 16",
+    "postal_code": "6600",
+    "city": "Sunndalsøra",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Sunndalsøra",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 1001,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 62.6653287,
+        "lng": 8.5896348,
+        "score": 9.05338758144503,
+        "display": "Sunndalsvegen, Presthagan, Sande, Hov, Sunndalsøra, Sunndal, Møre og Romsdal, 6600, Norge"
+      },
+      "second": {
+        "lat": 62.6706954,
+        "lng": 8.5738934,
+        "score": 9.05338758144503,
+        "display": "Sunndalsvegen, Fagerhaugan, Holten, Hov, Sunndalsøra, Sunndal, Møre og Romsdal, 6600, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_40da2cd375",
+    "name": "Fitnesspoint Sørumsand",
+    "brand": "Fitnesspoint",
+    "address": "Sørumsand senter, Sentrumsgården, Fru Natvigsvei 2, 1920 Sørumsand.",
+    "postal_code": "1920",
+    "city": "Sørumsand",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Sørumsand",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "no_candidates",
+    "geocode_rejected": []
+  },
+  {
+    "id": "no_c914b48fe3",
+    "name": "Fitnesspoint Teveltunet",
+    "brand": "Fitnesspoint",
+    "address": "Markromvegen 90",
+    "postal_code": "7530",
+    "city": "Meråker",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Teveltunet",
+    "import_category": "NEEDS_COORDINATES",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "failed",
+    "geocode_reason": "address_no_overlap",
+    "geocode_rejected": [
+      {
+        "reject": "address_no_overlap",
+        "lat": 63.335042,
+        "lng": 12.03671,
+        "display": "90, Markromveien, Teveldalen, Meråker, Trøndelag, 7530, Norge"
+      }
+    ]
+  },
+  {
+    "id": "no_6cfa92af61",
+    "name": "Fitnesspoint Åfjord",
+    "brand": "Fitnesspoint",
+    "address": "Joakim Brevolds Allé 28",
+    "postal_code": "7170",
+    "city": "Åfjord",
+    "country": "Norway",
+    "lat": 63.960763,
+    "lng": 10.22453,
+    "is_active": true,
+    "verification_status": "verified_official",
+    "source_url": "https://fitnesspoint.no/vare-senter/",
+    "center_name": "Åfjord",
+    "import_category": "MERGED_INTO_CATALOG",
+    "phase": "phase3",
+    "phase3_ready_for_geocode": true,
+    "geocode_status": "ok",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match"
+    ],
+    "geocode_display": "Joakim Brevolds allé, Solbakkan boligfelt, Årnes, Melan, Åfjord, Trøndelag, 7170, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 9.053387042801557,
+        "lat": 63.9607632,
+        "lng": 10.2245298,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match"
+        ],
+        "display": "Joakim Brevolds allé, Solbakkan boligfelt, Årnes, Melan, Åfjord, Trøndelag, 7170, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "phase3_merge": "approved_ready",
+    "phase3_merge_source": "phase3_new_centers_staging"
+  }
+]

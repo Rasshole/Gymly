@@ -1,0 +1,11 @@
+{
+  "catalog_initialization_path": [
+    "Module import: centerRegistry.ts statically imports centers.json",
+    "ALL_GYM_CENTERS assigned at import time",
+    "findCenterById Map built lazily on first lookup",
+    "getActiveGyms cached on first call",
+    "getGymSearchIndex built lazily on first search"
+  ],
+  "startup_blocking_catalog_work_ms": null,
+  "note": "Synchronous JSON parse occurs at first centerRegistry import; measured in parse benchmark"
+}

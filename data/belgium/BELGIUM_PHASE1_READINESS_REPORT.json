@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-21T12:45:45.872530+00:00",
+  "live_catalog_total": 8693,
+  "discovered": 372,
+  "ready_to_import": 363,
+  "needs_coordinates": 3,
+  "needs_review": 5,
+  "coming_soon": 0,
+  "closed": 0,
+  "duplicate": 1,
+  "projected_after_merge": 9056,
+  "exceeds_10k": false,
+  "verdict": "READY FOR BELGIUM MERGE",
+  "centers_json_modified": false
+}

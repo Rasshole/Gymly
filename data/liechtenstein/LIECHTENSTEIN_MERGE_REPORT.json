@@ -1,0 +1,209 @@
+{
+  "country": "Liechtenstein",
+  "verdict": "LIECHTENSTEIN MERGE COMPLETE \u2014 WAITING FOR QA",
+  "dry_run": false,
+  "idempotency_check": false,
+  "inserted": 7,
+  "withheld": 0,
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "bad_postal_format": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "foreign_coords": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "bad_eligibility": 0
+  },
+  "before": {
+    "total": 11692,
+    "liechtenstein": 0,
+    "iceland": 27
+  },
+  "after": {
+    "total": 11699,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "pre_merge_sha256": "ff19dfaae9f99984ae5c6a73765b3e585263b61050d8c927fc45a38037dfa3dc",
+  "post_merge_sha256": "b4f155e2501d10af07eded1ca1342f06784f5f122f4e51bb081ebf943cdb0bbc",
+  "eligibility_breakdown": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 7,
+    "TOTAL": 7
+  },
+  "brand_breakdown": {
+    "flexigym": 1,
+    "In Motion": 1,
+    "KOKON Fitness": 1,
+    "LieFit": 1,
+    "Lorez": 1,
+    "purfitness": 1,
+    "update Fitness": 1
+  },
+  "live_inventory": [
+    {
+      "id": "li_f02192ce76",
+      "brand": "flexigym",
+      "name": "flexigym Balzers",
+      "address": "Landstrasse 25",
+      "city": "Balzers",
+      "postal_code": "9496",
+      "lat": 47.0767349,
+      "lng": 9.5121186
+    },
+    {
+      "id": "li_688dc73ac2",
+      "brand": "Lorez",
+      "name": "Lorez Power Center Bendern",
+      "address": "Industriestrasse 16",
+      "city": "Bendern",
+      "postal_code": "9487",
+      "lat": 47.2056244,
+      "lng": 9.5035504
+    },
+    {
+      "id": "li_740e149c77",
+      "brand": "In Motion",
+      "name": "In Motion Eschen",
+      "address": "Wirtschaftspark 25",
+      "city": "Eschen",
+      "postal_code": "9492",
+      "lat": 47.2077115,
+      "lng": 9.5340621
+    },
+    {
+      "id": "li_9b66d0aa5e",
+      "brand": "KOKON Fitness",
+      "name": "KOKON Fitness & Spa Ruggell",
+      "address": "Industriering 3",
+      "city": "Ruggell",
+      "postal_code": "9491",
+      "lat": 47.2494755,
+      "lng": 9.5269321
+    },
+    {
+      "id": "li_35eed72b39",
+      "brand": "purfitness",
+      "name": "purfitness Schaan",
+      "address": "Im alten Riet 22",
+      "city": "Schaan",
+      "postal_code": "9494",
+      "lat": 47.1747102,
+      "lng": 9.5121756
+    },
+    {
+      "id": "li_9514fe2df2",
+      "brand": "LieFit",
+      "name": "LieFit Vaduz",
+      "address": "Wuhrstrasse 7",
+      "city": "Vaduz",
+      "postal_code": "9490",
+      "lat": 47.1354865,
+      "lng": 9.5141048
+    },
+    {
+      "id": "li_9fdb1d933f",
+      "brand": "update Fitness",
+      "name": "update Fitness Vaduz",
+      "address": "Landstrasse 117",
+      "city": "Vaduz",
+      "postal_code": "9490",
+      "lat": 47.1546705,
+      "lng": 9.5099197
+    }
+  ],
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 7,
+    "EXCLUDED": 43,
+    "CLOSED": 2,
+    "unique_staged": 52,
+    "reconciliation": "7 == 7 == 7 == 7",
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "metadata_drift": "NONE",
+    "drift_details": [],
+    "phase2_ready_eq_approved": true,
+    "approved_eq_production": true,
+    "production_eq_merged": true
+  },
+  "excluded_leakage": {
+    "forbidden_ids_in_production": [],
+    "result": "CLEAN"
+  },
+  "territorial_safety": {
+    "liechtenstein_premises": 7,
+    "foreign_outliers": [],
+    "swiss_contamination": 0,
+    "austrian_contamination": 0,
+    "result": "CLEAN"
+  },
+  "country_regression": {
+    "iceland": 27,
+    "malta": 18,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32,
+    "cyprus": 17,
+    "liechtenstein": 7
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous_production": 11692,
+    "new_production": 11699,
+    "crossed_12500": false,
+    "global_stress_qa_required": false
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "unexplained_hard_duplicates": 0,
+  "performance": {
+    "catalog": 11699,
+    "active": 11695,
+    "json_size_bytes": 3635622,
+    "json_size_mb": 3.47,
+    "json_parse_ms": 34.58,
+    "iceland_qa_baseline": {
+      "catalog": 11692,
+      "json_size_mb": 3.47
+    },
+    "architecture": "KEEP CLIENT-SIDE"
+  }
+}

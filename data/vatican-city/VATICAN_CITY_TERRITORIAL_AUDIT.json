@@ -1,0 +1,77 @@
+{
+  "model": "INWARD_BIASED_POINT_IN_POLYGON",
+  "description": "Simplified Leonine Walls + St Peter's Square polygon with coarse envelope and east/south Italian fringe hard rejects. Not a cadastral survey.",
+  "limitations": [
+    "Polygon is intentionally inward-biased vs OSM cadastral detail",
+    "Holy See extraterritorial properties are excluded by design",
+    "Postcode 00120 alone must never prove territory"
+  ],
+  "envelope": {
+    "lat_min": 41.9001,
+    "lat_max": 41.90755,
+    "lng_min": 12.4456,
+    "lng_max": 12.45845
+  },
+  "postcode_policy": {
+    "vatican_city_state": "00120",
+    "regex": "^00120$",
+    "alone_sufficient": false,
+    "note": "00120 is the Vatican City State postal identity; Italian Rome 001xx (e.g. 00193 Borgo/Prati) must never classify a gym as Vatican."
+  },
+  "probes": {
+    "inside_expected": [
+      {
+        "name": "St Peter's Basilica",
+        "lat": 41.9022,
+        "lng": 12.4539
+      },
+      {
+        "name": "Vatican Museums",
+        "lat": 41.9065,
+        "lng": 12.4536
+      },
+      {
+        "name": "Vatican Gardens",
+        "lat": 41.904,
+        "lng": 12.45
+      }
+    ],
+    "outside_expected": [
+      {
+        "name": "Omega Fitness Club",
+        "lat": 41.903,
+        "lng": 12.4608
+      },
+      {
+        "name": "Piazza Pio XII",
+        "lat": 41.9019,
+        "lng": 12.4595
+      },
+      {
+        "name": "Via della Conciliazione",
+        "lat": 41.9024,
+        "lng": 12.4615
+      },
+      {
+        "name": "Campo Pio XI",
+        "lat": 41.8969,
+        "lng": 12.4464
+      },
+      {
+        "name": "San Calisto (extraterritorial)",
+        "lat": 41.8892,
+        "lng": 12.4705
+      }
+    ]
+  },
+  "gate_results": {
+    "St Peter's Basilica": true,
+    "Vatican Museums": true,
+    "Vatican Gardens": true,
+    "Omega Fitness Club": false,
+    "Piazza Pio XII": false,
+    "Via della Conciliazione": false,
+    "Campo Pio XI": false,
+    "San Calisto (extraterritorial)": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "first_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "lithuania_before": 61,
+    "lithuania_after": 61,
+    "lt_prefix_before": 61,
+    "lt_prefix_after": 61
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "lithuania_before": 61,
+    "lithuania_after": 61,
+    "lt_prefix_before": 61,
+    "lt_prefix_after": 61
+  },
+  "idempotent": true
+}

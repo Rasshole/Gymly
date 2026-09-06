@@ -48,12 +48,16 @@ import {useFriends} from '@/hooks/useFriends';
 import {useBadgeStore} from '@/store/badgeStore';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {fetchProfilePersonalRecords} from '@/services/supabase/personalRecordService';
+import type {ProfilePersonalRecord} from '@/types/personalRecord.types';
+import {formatPrLiftLine} from '@/utils/personalRecordCopy';
 import {
   loadUserHomeGymCentersForProfile,
   resolveHomeGymCenterRows,
   syncUserHomeGymsAfterSave,
 } from '@/services/supabase/homeGymsService';
 import {subscribeUserCenters} from '@/services/supabase/userCentersService';
+import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
 import {EditProfileCentersSheet} from '@/components/profile/EditProfileCentersSheet';
 import {GymlyToast} from '@/components/ui/GymlyToast';
@@ -61,7 +65,7 @@ import {useGymStore} from '@/store/gymStore';
 import {useSessionStore} from '@/store/sessionStore';
 import colors from '@/theme/colors';
 import {spacing, typography, radius, shadows} from '@/theme/designTokens';
-import {useTranslation} from '@/i18n';
+import {useTranslation, getExerciseDisplayName} from '@/i18n';
 import {useAppFormat} from '@/i18n/useAppFormat';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
 import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
@@ -70,21 +74,27 @@ import {fetchPostBicepsUsers, type PostBicepsUser} from '@/services/supabase/wor
 import {usePostEngagement} from '@/hooks/usePostEngagement';
 
 const isPrItem = (i: FeedItem): boolean =>
-  i.type === 'pr' || ((i.prInfo?.trim()?.length ?? 0) > 0);
+  i.type === 'pr' ||
+  ((i.prInfo?.trim()?.length ?? 0) > 0) ||
+  Boolean(i.workoutSnapshot?.prs?.length);
 
 type ProfileTab = 'feed' | 'data';
 
 const ProfileScreen = () => {
   const navigation = useNavigation<any>();
-  const {t} = useTranslation();
+  const {t, language} = useTranslation();
   const {dayWord, formatTrainingDuration} = useAppFormat();
   const isAuthenticated = useAppStore(s => s.isAuthenticated);
-  const {user, setUser} = useAppStore();
-  const {feedItems} = useFeedStore();
+  const user = useAppStore(s => s.user);
+  const setUser = useAppStore(s => s.setUser);
+  const feedItems = useFeedStore(s => s.feedItems);
   const [tab, setTab] = useState<ProfileTab>('feed');
   const [dataWorkoutPeriod, setDataWorkoutPeriod] =
     useState<WorkoutPeriod>('week');
   const trainingStats = useUserTrainingStats(user?.id);
+  const [personalRecords, setPersonalRecords] = useState<ProfilePersonalRecord[]>(
+    [],
+  );
   const activeSession = useSessionStore(s => s.activeSession);
   const getActiveUsersCount = useGymStore(s => s.getActiveUsersCount);
   const [centerRows, setCenterRows] = useState<ProfileCenterRow[]>([]);
@@ -174,24 +184,31 @@ const ProfileScreen = () => {
 
   useFocusEffect(
     useCallback(() => {
+      if (!user?.id) {
+        return;
+      }
+      const profileKey = `profile:data:${user.id}`;
+      if (!isFocusRefreshStale(profileKey, 45_000)) {
+        return;
+      }
       refreshWorkoutFeedFromServer().catch(() => {});
       refreshProfileStats();
       void trainingStats.refresh();
-      if (user?.id) {
-        void loadFriendStore(user.id);
-        void refreshProfileCenters();
-        void fetchFeaturedBadgeIdsForUser(user.id).then(ids => {
-          const cur = useAppStore.getState().user;
-          if (!cur || cur.id !== user.id) {
-            return;
-          }
-          const a = (cur.featuredBadgeIds ?? []).join(',');
-          const b = ids.join(',');
-          if (a !== b) {
-            setUser({...cur, featuredBadgeIds: ids});
-          }
-        });
-      }
+      void loadFriendStore(user.id);
+      void refreshProfileCenters();
+      void fetchProfilePersonalRecords(user.id).then(setPersonalRecords);
+      void fetchFeaturedBadgeIdsForUser(user.id).then(ids => {
+        const cur = useAppStore.getState().user;
+        if (!cur || cur.id !== user.id) {
+          return;
+        }
+        const a = (cur.featuredBadgeIds ?? []).join(',');
+        const b = ids.join(',');
+        if (a !== b) {
+          setUser({...cur, featuredBadgeIds: ids});
+        }
+      });
+      markFocusRefreshed(profileKey);
     }, [
       refreshProfileStats,
       user?.id,
@@ -201,10 +218,6 @@ const ProfileScreen = () => {
       refreshProfileCenters,
     ]),
   );
-
-  useEffect(() => {
-    void refreshProfileCenters();
-  }, [refreshProfileCenters]);
 
   useEffect(() => {
     if (!user?.id) {
@@ -365,6 +378,7 @@ const ProfileScreen = () => {
         emoji: '🏅',
         label: t('tabs.badges'),
         value: badgeCount,
+        onPress: () => navigation.navigate('Badges'),
       },
     ];
     return rows;
@@ -556,7 +570,7 @@ const ProfileScreen = () => {
               <Text style={styles.blockTitle}>{t('profile.yourWorkouts')}</Text>
               {profilePreviewSessions.length > 0 ? (
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('AllTrainings')}
+                  onPress={() => navigation.navigate('WorkoutHistory')}
                   hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
                   activeOpacity={0.7}>
                   <Text style={styles.seeAll}>{t('profile.seeAll')}</Text>
@@ -575,6 +589,11 @@ const ProfileScreen = () => {
                     key={s.id}
                     session={s}
                     isLast={i === profilePreviewSessions.length - 1}
+                    onPress={() =>
+                      navigation.navigate('WorkoutHistoryDetail', {
+                        sessionId: s.id,
+                      })
+                    }
                   />
                 ))
               ) : (
@@ -611,6 +630,24 @@ const ProfileScreen = () => {
                       reactions={{bicep: reaction.likes, fire: 0, eyes: 0}}
                       bicepActive={reaction.liked}
                       hasPR={isPrItem(post)}
+                      workoutSnapshot={post.workoutSnapshot}
+                      onWorkoutSnapshotPress={
+                        post.workoutSnapshot
+                          ? () => {
+                              if (post.checkInId) {
+                                navigation.navigate('WorkoutHistoryDetail', {
+                                  sessionId: post.checkInId,
+                                });
+                              } else {
+                                navigation.navigate('SharedWorkoutDetail', {
+                                  authorName: post.user,
+                                  gymName: parsedInfo.gymName,
+                                  snapshot: post.workoutSnapshot!,
+                                });
+                              }
+                            }
+                          : undefined
+                      }
                       onReaction={type => {
                         if (type === 'bicep') {
                           void toggleLike(post.id);
@@ -620,6 +657,14 @@ const ProfileScreen = () => {
                       commentCount={commentCount}
                       onBicepsCountPress={() => void openBicepsList(post.id)}
                       onMenuPress={() => openPostActionMenu(post)}
+                      onSharePress={
+                        post.checkInId
+                          ? () =>
+                              navigation.navigate('ShareWorkout', {
+                                sessionId: post.checkInId!,
+                              })
+                          : undefined
+                      }
                     />
                   );
                 })
@@ -653,20 +698,70 @@ const ProfileScreen = () => {
               <StreakHighlight
                 currentStreak={trainingStats.currentStreakDays}
                 longestStreak={trainingStats.longestStreakDays}
+                recentSessions={trainingStats.recentSessions}
                 onPress={() => navigation.navigate('CheckIn')}
               />
-              <Text style={styles.streakMicro}>{t('profile.onYourWay')}</Text>
-              <Text style={styles.streakMotivation}>
-                {trainingStats.currentStreakDays > 3
-                  ? t('profile.onFire')
-                  : trainingStats.currentStreakDays === 0
-                  ? t('profile.startStreakToday')
-                  : t('profile.keepMomentum')}
-              </Text>
             </View>
             <Card variant="outlined" padding="lg" style={styles.statsCard}>
               <ProfileStatGrid stats={stats} />
             </Card>
+
+            <Text style={[styles.sectionTitle, styles.prSectionTitle]}>
+              {t('personalRecords.title')}
+            </Text>
+            <Text style={styles.dataPeriodHint}>{t('personalRecords.subtitle')}</Text>
+            <Card variant="outlined" padding="md" style={styles.recentWorkoutsCard}>
+              {personalRecords.length === 0 ? (
+                <View style={styles.emptyInline}>
+                  <Icon name="trophy-outline" size={28} color={colors.textMuted} />
+                  <Text style={styles.emptyTitle}>{t('personalRecords.empty')}</Text>
+                </View>
+              ) : (
+                personalRecords.slice(0, 12).map((pr, i) => (
+                  <TouchableOpacity
+                    key={pr.exerciseKey}
+                    style={[
+                      styles.prRow,
+                      i === Math.min(personalRecords.length, 12) - 1 && styles.prRowLast,
+                    ]}
+                    onPress={() =>
+                      navigation.navigate('ExercisePrDetail', {
+                        exerciseName: pr.exerciseName,
+                        exerciseId: pr.exerciseId,
+                      })
+                    }
+                    activeOpacity={0.8}>
+                    <View style={styles.prRowBody}>
+                      <Text style={styles.prExercise} numberOfLines={1}>
+                        {getExerciseDisplayName({
+                          exerciseId: pr.exerciseId ?? null,
+                          fallbackName: pr.exerciseName,
+                          language,
+                        })}
+                      </Text>
+                      <Text style={styles.prLift}>
+                        {formatPrLiftLine(pr.weightKg, pr.reps)}
+                      </Text>
+                      <Text style={styles.prType}>
+                        🏆 {t('personalRecords.weightPr')}
+                      </Text>
+                    </View>
+                    <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+                  </TouchableOpacity>
+                ))
+              )}
+            </Card>
+
+            <TouchableOpacity
+              style={styles.badgesNavRow}
+              onPress={() => navigation.navigate('Badges')}
+              activeOpacity={0.85}>
+              <Text style={styles.badgesNavLabel}>{t('profile.myBadges')}</Text>
+              <View style={styles.badgesNavRight}>
+                <Text style={styles.badgesNavCount}>{badgeCount}</Text>
+                <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+              </View>
+            </TouchableOpacity>
 
             <Text style={styles.recentWorkoutsHeading}>{t('profile.recentWorkouts')}</Text>
             <Text style={styles.recentWorkoutsSub}>
@@ -714,7 +809,7 @@ const ProfileScreen = () => {
               <View style={styles.bottomSheet}>
                 <SheetHandle />
                 <View style={styles.bottomSheetHeader}>
-                  <Text style={styles.modalTitle}>Biceps</Text>
+                  <Text style={styles.modalTitle}>{t('friendProfile.biceps')}</Text>
                   <TouchableOpacity
                     onPress={closeBicepsList}
                     style={styles.commentCloseButton}>
@@ -725,9 +820,11 @@ const ProfileScreen = () => {
                   style={styles.commentList}
                   contentContainerStyle={styles.commentListContent}>
                   {bicepsListLoading ? (
-                    <Text style={styles.commentEmpty}>Henter biceps...</Text>
+                    <Text style={styles.commentEmpty}>{t('friendProfile.loadingBiceps')}</Text>
                   ) : bicepsListUsers.length === 0 ? (
-                    <Text style={styles.commentEmpty}>Ingen biceps endnu</Text>
+                    <Text style={styles.commentEmpty}>
+                      {t('friendProfile.noBicepsYet')}
+                    </Text>
                   ) : (
                     bicepsListUsers.map(row => (
                       <TouchableOpacity
@@ -758,7 +855,7 @@ const ProfileScreen = () => {
               <View style={styles.bottomSheet}>
                 <SheetHandle />
                 <View style={styles.bottomSheetHeader}>
-                  <Text style={styles.modalTitle}>Kommentarer</Text>
+                  <Text style={styles.modalTitle}>{t('friendProfile.comments')}</Text>
                   <TouchableOpacity
                     onPress={closeComments}
                     style={styles.commentCloseButton}>
@@ -769,7 +866,9 @@ const ProfileScreen = () => {
                   style={styles.commentList}
                   contentContainerStyle={styles.commentListContent}>
                   {activeComments.length === 0 ? (
-                    <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
+                    <Text style={styles.commentEmpty}>
+                      {t('friendProfile.noCommentsYet')}
+                    </Text>
                   ) : (
                     activeComments.map(comment => (
                       <View key={comment.id} style={styles.commentRow}>
@@ -783,7 +882,7 @@ const ProfileScreen = () => {
                   <TextInput
                     value={commentInput}
                     onChangeText={setCommentInput}
-                    placeholder="Skriv en kommentar..."
+                    placeholder={t('profileComment.placeholder')}
                     placeholderTextColor={colors.textMuted}
                     style={styles.commentInput}
                   />
@@ -791,7 +890,7 @@ const ProfileScreen = () => {
                     style={styles.commentSend}
                     onPress={addComment}
                     activeOpacity={0.85}>
-                    <Text style={styles.commentSendText}>Send</Text>
+                    <Text style={styles.commentSendText}>{t('friendProfile.send')}</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -814,6 +913,9 @@ const ProfileScreen = () => {
         currentUserId={user?.id}
         variant="workoutPost"
         onPostDeleted={handlePostDeletedSideEffects}
+        onShareWorkoutCard={sessionId =>
+          navigation.navigate('ShareWorkout', {sessionId})
+        }
       />
     </View>
   );
@@ -906,6 +1008,67 @@ const styles = StyleSheet.create({
   statsCard: {
     marginTop: 0,
     marginBottom: spacing.sm,
+  },
+  prSectionTitle: {
+    marginTop: spacing.lg,
+  },
+  prRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+  },
+  prRowLast: {
+    borderBottomWidth: 0,
+  },
+  prRowBody: {
+    flex: 1,
+    minWidth: 0,
+    paddingRight: spacing.sm,
+  },
+  prExercise: {
+    ...typography.body,
+    color: colors.text,
+    fontWeight: '700',
+  },
+  prLift: {
+    ...typography.caption,
+    color: colors.text,
+    fontWeight: '600',
+    marginTop: 2,
+  },
+  prType: {
+    ...typography.small,
+    color: colors.primaryDark,
+    fontWeight: '700',
+    marginTop: 2,
+  },
+  badgesNavRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    marginBottom: spacing.md,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.backgroundCard,
+  },
+  badgesNavLabel: {
+    ...typography.bodyBold,
+    color: colors.text,
+  },
+  badgesNavRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
+  badgesNavCount: {
+    ...typography.body,
+    color: colors.textSecondary,
+    fontWeight: '700',
   },
   profileFeedList: {
     gap: spacing.md,

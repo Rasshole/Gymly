@@ -1,0 +1,336 @@
+{
+  "upgrades": 0,
+  "audit_count": 33,
+  "rows": [
+    {
+      "id": "lv_482c69e16b",
+      "name": "MyFitness Aleja",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.8963564,
+      "lng": 24.0788844,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_00100556b1",
+      "name": "MyFitness Alfa",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9826538,
+      "lng": 24.2035652,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_553900baf2",
+      "name": "MyFitness Dzelzava",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9543543,
+      "lng": 24.2002215,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_c4985e5c94",
+      "name": "MyFitness Domina",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9665603,
+      "lng": 24.1659438,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_9944f27897",
+      "name": "MyFitness Galerija Centrs",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.948155,
+      "lng": 24.1122966,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_933fcf75a1",
+      "name": "MyFitness Galleria Rīga",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9546607,
+      "lng": 24.1208409,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_b3e5e39619",
+      "name": "MyFitness Imanta",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.960432,
+      "lng": 24.012464,
+      "in_latvia": true,
+      "phase2_action": "RETAINED — Anniņmuižas bulvāris 40A premises geocode",
+      "upgraded": false
+    },
+    {
+      "id": "lv_f7b3a90fa8",
+      "name": "MyFitness Matīss",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9571483,
+      "lng": 24.1342394,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3d7a57f038",
+      "name": "MyFitness Pļavnieki",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9347758,
+      "lng": 24.2036309,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_a0e6fa5985",
+      "name": "MyFitness Riga Plaza",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9266608,
+      "lng": 24.1030713,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_1a0f184657",
+      "name": "MyFitness Sāga",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9560286,
+      "lng": 24.2563579,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_5c8cffee8f",
+      "name": "MyFitness Sky & More",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9868527,
+      "lng": 24.1321034,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_8d289fb8a1",
+      "name": "MyFitness Spice",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9312515,
+      "lng": 24.0392871,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_d0c8689014",
+      "name": "MyFitness Teika Plaza",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9743172,
+      "lng": 24.161518,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_de8c7df71e",
+      "name": "MyFitness Upītis",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.950172,
+      "lng": 24.1294902,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3a2f2a4625",
+      "name": "Lemon Gym Imanta",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9602273,
+      "lng": 24.0338859,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_0e3eba9f8c",
+      "name": "Lemon Gym Ķengarags",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9082626,
+      "lng": 24.1825721,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_f9bb5b6450",
+      "name": "Lemon Gym Jugla",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9894098,
+      "lng": 24.2451218,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_a7854a3b19",
+      "name": "Lemon Gym Purvciems",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9556834,
+      "lng": 24.1906435,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_e97e5cd222",
+      "name": "Lemon Gym Teika",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9714791,
+      "lng": 24.1656432,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_c3befe3f7f",
+      "name": "Lemon Gym Akropole",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9239706,
+      "lng": 24.1751577,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_2c843b109c",
+      "name": "Lemon Gym Pļavnieki",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.94537,
+      "lng": 24.2088959,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_814dd2ac94",
+      "name": "Lemon Gym Skanste",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9645568,
+      "lng": 24.1196595,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_86cad25aff",
+      "name": "Gym! Origo",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.947293,
+      "lng": 24.120073,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_63f56e7170",
+      "name": "Gym! Imanta",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.956297,
+      "lng": 24.0367722,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_e644a6cbdf",
+      "name": "Gym! Olimpia",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9497668,
+      "lng": 24.0823861,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3b6472323b",
+      "name": "Gym! Barons",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9540919,
+      "lng": 24.1276816,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_e2b2c34717",
+      "name": "Gym! Daugava",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9547093,
+      "lng": 24.1560588,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_111c1440e3",
+      "name": "Gym! Zolitūde",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9433858,
+      "lng": 24.018377,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_378dc8d996",
+      "name": "Gym! Dreiliņi",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.948507,
+      "lng": 24.2199938,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_0ab2d9fa6b",
+      "name": "Gym! Daugavpils",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 55.8728263,
+      "lng": 26.5260287,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_19f5ee52f2",
+      "name": "Gym! Purvciems",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9625308,
+      "lng": 24.176676,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3bb2c336e8",
+      "name": "Gym! Imanta X",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 56.9540911,
+      "lng": 24.004589,
+      "in_latvia": true,
+      "phase2_action": "RETAINED_STRICT_ADDRESS_GEOCODE — exact street+housenumber Nominatim in LV bbox",
+      "upgraded": false
+    }
+  ]
+}

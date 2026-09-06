@@ -1,0 +1,2514 @@
+[
+  {
+    "id": "es_47976b6ab0",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08820",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_47976b6ab0",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08820",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_a0d6cb422e",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "05003",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_a0d6cb422e",
+    "field": "city",
+    "old_value": "71",
+    "new_value": "Ávila",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_a0d6cb422e",
+    "field": "address",
+    "old_value": "Av. de los Derechos Humanos",
+    "new_value": "Av. de los Derechos Humanos, 71",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_a0d6cb422e",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "05003",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_a0d6cb422e",
+    "field": "city",
+    "old_value": "71",
+    "new_value": "Ávila",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_a0d6cb422e",
+    "field": "address",
+    "old_value": "Av. de los Derechos Humanos",
+    "new_value": "Av. de los Derechos Humanos, 71",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_4b800b824a",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "33013",
+    "source": "nominatim_geocode_cache_building",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_4b800b824a",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "33013",
+    "source": "nominatim_geocode_cache_building",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_96bfb693ec",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "50014",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_96bfb693ec",
+    "field": "city",
+    "old_value": "1",
+    "new_value": "Zaragoza",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_96bfb693ec",
+    "field": "address",
+    "old_value": "Calle Esther Martínez Moreno",
+    "new_value": "Calle Esther Martínez Moreno, 1",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_96bfb693ec",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "50014",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_96bfb693ec",
+    "field": "city",
+    "old_value": "1",
+    "new_value": "Zaragoza",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_96bfb693ec",
+    "field": "address",
+    "old_value": "Calle Esther Martínez Moreno",
+    "new_value": "Calle Esther Martínez Moreno, 1",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_a966bbb288",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08243",
+    "source": "nominatim_geocode_cache_building",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_a966bbb288",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08243",
+    "source": "nominatim_geocode_cache_building",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_da9cfb32b0",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "09007",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_da9cfb32b0",
+    "field": "city",
+    "old_value": "39",
+    "new_value": "Burgos",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_da9cfb32b0",
+    "field": "address",
+    "old_value": "C. Esteban Sáez Alvarado",
+    "new_value": "C. Esteban Sáez Alvarado, 39",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_da9cfb32b0",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "09007",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_da9cfb32b0",
+    "field": "city",
+    "old_value": "39",
+    "new_value": "Burgos",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_da9cfb32b0",
+    "field": "address",
+    "old_value": "C. Esteban Sáez Alvarado",
+    "new_value": "C. Esteban Sáez Alvarado, 39",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "missing_postal_and_numeric_city_house_number"
+  },
+  {
+    "id": "es_bcc4a65197",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "46760",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_bcc4a65197",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "46760",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_fe40356396",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08110",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_fe40356396",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08110",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_efc47bd1ef",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "11370",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_efc47bd1ef",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "11370",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_507bef9850",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "50010",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_507bef9850",
+    "field": "city",
+    "old_value": "Delicias",
+    "new_value": "Zaragoza",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_507bef9850",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "50010",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_507bef9850",
+    "field": "city",
+    "old_value": "Delicias",
+    "new_value": "Zaragoza",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_c0a424e33d",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08720",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_c0a424e33d",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08720",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_b295217084",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28945",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_b295217084",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28945",
+    "source": "nominatim_geocode_cache_road",
+    "reason": "missing_postal_from_address_geocode"
+  },
+  {
+    "id": "es_fdeb917afe",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28031",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_fdeb917afe",
+    "field": "city",
+    "old_value": "Vallecas",
+    "new_value": "Madrid",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_fdeb917afe",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28031",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_fdeb917afe",
+    "field": "city",
+    "old_value": "Vallecas",
+    "new_value": "Madrid",
+    "source": "nominatim_geocode_cache_house",
+    "reason": "missing_postal_city_district_normalized"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "city",
+    "old_value": "33",
+    "new_value": "Girona",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "address",
+    "old_value": "Carrer Bonastruc de Porta",
+    "new_value": "Carrer Bonastruc de Porta, 33",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "lat",
+    "old_value": 41.983438,
+    "new_value": 41.9834383,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "lng",
+    "old_value": 2.818632,
+    "new_value": 2.8186324,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "city",
+    "old_value": "33",
+    "new_value": "Girona",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "address",
+    "old_value": "Carrer Bonastruc de Porta",
+    "new_value": "Carrer Bonastruc de Porta, 33",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "lat",
+    "old_value": 41.983438,
+    "new_value": 41.9834383,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_916bb2831e",
+    "field": "lng",
+    "old_value": 2.818632,
+    "new_value": 2.8186324,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "city",
+    "old_value": "11",
+    "new_value": "Lleida",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "address",
+    "old_value": "Carrer de la Dra. Castells",
+    "new_value": "Carrer de la Dra. Castells, 11",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "postal_code",
+    "old_value": "11100",
+    "new_value": "25001",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "lat",
+    "old_value": 36.450372,
+    "new_value": 41.6109306,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "lng",
+    "old_value": -6.213709,
+    "new_value": 0.6305269,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "city",
+    "old_value": "11",
+    "new_value": "Lleida",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "address",
+    "old_value": "Carrer de la Dra. Castells",
+    "new_value": "Carrer de la Dra. Castells, 11",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "postal_code",
+    "old_value": "11100",
+    "new_value": "25001",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "lat",
+    "old_value": 36.450372,
+    "new_value": 41.6109306,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_6cbe6a312d",
+    "field": "lng",
+    "old_value": -6.213709,
+    "new_value": 0.6305269,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_59cc38007e",
+    "field": "city",
+    "old_value": "82",
+    "new_value": "Lleida",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_59cc38007e",
+    "field": "address",
+    "old_value": "Av. Prat de la Riba",
+    "new_value": "Av. Prat de la Riba, 82",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_59cc38007e",
+    "field": "lat",
+    "old_value": 41.622433,
+    "new_value": 41.6224332,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_59cc38007e",
+    "field": "city",
+    "old_value": "82",
+    "new_value": "Lleida",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_59cc38007e",
+    "field": "address",
+    "old_value": "Av. Prat de la Riba",
+    "new_value": "Av. Prat de la Riba, 82",
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_59cc38007e",
+    "field": "lat",
+    "old_value": 41.622433,
+    "new_value": 41.6224332,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "city",
+    "old_value": "2",
+    "new_value": "Girona",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "address",
+    "old_value": "Carrer de la Creu",
+    "new_value": "Carrer de la Creu, 2",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "postal_code",
+    "old_value": "08172",
+    "new_value": "17002",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "lat",
+    "old_value": 41.473539,
+    "new_value": 41.975363,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "lng",
+    "old_value": 2.086827,
+    "new_value": 2.8233617,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "city",
+    "old_value": "2",
+    "new_value": "Girona",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "address",
+    "old_value": "Carrer de la Creu",
+    "new_value": "Carrer de la Creu, 2",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "postal_code",
+    "old_value": "08172",
+    "new_value": "17002",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "lat",
+    "old_value": 41.473539,
+    "new_value": 41.975363,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_03118ef834",
+    "field": "lng",
+    "old_value": 2.086827,
+    "new_value": 2.8233617,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "city",
+    "old_value": "28",
+    "new_value": "Soria",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "address",
+    "old_value": "Av. Europa",
+    "new_value": "Av. Europa, 28",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "lat",
+    "old_value": 41.7573,
+    "new_value": 41.7572998,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "lng",
+    "old_value": -2.48103,
+    "new_value": -2.4810298,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "city",
+    "old_value": "28",
+    "new_value": "Soria",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "address",
+    "old_value": "Av. Europa",
+    "new_value": "Av. Europa, 28",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "lat",
+    "old_value": 41.7573,
+    "new_value": 41.7572998,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_5feefca6fa",
+    "field": "lng",
+    "old_value": -2.48103,
+    "new_value": -2.4810298,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_field"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "city",
+    "old_value": "31",
+    "new_value": "Palencia",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "address",
+    "old_value": "Av. Castilla",
+    "new_value": "Av. Castilla, 31",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "postal_code",
+    "old_value": "28850",
+    "new_value": "34001",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "lat",
+    "old_value": 40.45487,
+    "new_value": 42.0066496,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "lng",
+    "old_value": -3.495422,
+    "new_value": -4.5341779,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "city",
+    "old_value": "31",
+    "new_value": "Palencia",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "address",
+    "old_value": "Av. Castilla",
+    "new_value": "Av. Castilla, 31",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "postal_code",
+    "old_value": "28850",
+    "new_value": "34001",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "lat",
+    "old_value": 40.45487,
+    "new_value": 42.0066496,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_23c09d4d76",
+    "field": "lng",
+    "old_value": -3.495422,
+    "new_value": -4.5341779,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "city",
+    "old_value": "10",
+    "new_value": "Girona",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "address",
+    "old_value": "Carrer Sant Isidre",
+    "new_value": "Carrer Sant Isidre, 10",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "postal_code",
+    "old_value": "03510",
+    "new_value": "17003",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "lat",
+    "old_value": 38.647865,
+    "new_value": 41.9695363,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "lng",
+    "old_value": -0.120818,
+    "new_value": 2.8152146,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "city",
+    "old_value": "10",
+    "new_value": "Girona",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "address",
+    "old_value": "Carrer Sant Isidre",
+    "new_value": "Carrer Sant Isidre, 10",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "postal_code",
+    "old_value": "03510",
+    "new_value": "17003",
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "lat",
+    "old_value": 38.647865,
+    "new_value": 41.9695363,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_aa4a00be4a",
+    "field": "lng",
+    "old_value": -0.120818,
+    "new_value": 2.8152146,
+    "source": "official_name+nominatim_house",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "name",
+    "old_value": "Synergym Murcia",
+    "new_value": "Synergym Murcia Ronda Sur",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "city",
+    "old_value": "29",
+    "new_value": "Murcia",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "address",
+    "old_value": "Ronda SurP.º de Florencia",
+    "new_value": "P.º de Florencia, 29",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "postal_code",
+    "old_value": "29651",
+    "new_value": "30010",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "lat",
+    "old_value": 36.545904,
+    "new_value": 37.9688261,
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "lng",
+    "old_value": -4.631556,
+    "new_value": -1.1315542,
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "name",
+    "old_value": "Synergym Murcia",
+    "new_value": "Synergym Murcia Ronda Sur",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "city",
+    "old_value": "29",
+    "new_value": "Murcia",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "address",
+    "old_value": "Ronda SurP.º de Florencia",
+    "new_value": "P.º de Florencia, 29",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "postal_code",
+    "old_value": "29651",
+    "new_value": "30010",
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "lat",
+    "old_value": 36.545904,
+    "new_value": 37.9688261,
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_065a2e1250",
+    "field": "lng",
+    "old_value": -4.631556,
+    "new_value": -1.1315542,
+    "source": "official_homepage_parse+nominatim_house",
+    "reason": "house_number_leaked_into_city_glued_address_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "city",
+    "old_value": "5",
+    "new_value": "Sevilla",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "address",
+    "old_value": "Av. Vía Apia",
+    "new_value": "Av. Vía Apia, 5",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "postal_code",
+    "old_value": "02005",
+    "new_value": "41016",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "lat",
+    "old_value": 39.002627,
+    "new_value": 37.3850749,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "lng",
+    "old_value": -1.86598,
+    "new_value": -5.9190487,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "city",
+    "old_value": "5",
+    "new_value": "Sevilla",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "address",
+    "old_value": "Av. Vía Apia",
+    "new_value": "Av. Vía Apia, 5",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "postal_code",
+    "old_value": "02005",
+    "new_value": "41016",
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "lat",
+    "old_value": 39.002627,
+    "new_value": 37.3850749,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_8d9594ccb2",
+    "field": "lng",
+    "old_value": -1.86598,
+    "new_value": -5.9190487,
+    "source": "official_name+nominatim_street_city",
+    "reason": "house_number_leaked_into_city_and_wrong_geocode"
+  },
+  {
+    "id": "es_88b9ccd91d",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08800",
+    "source": "nominatim_reverse+club_page_address",
+    "reason": "missing_postal_bad_city_label"
+  },
+  {
+    "id": "es_88b9ccd91d",
+    "field": "city",
+    "old_value": "Gimnasio Vilanova i la Geltrú",
+    "new_value": "Vilanova i la Geltrú",
+    "source": "nominatim_reverse+club_page_address",
+    "reason": "missing_postal_bad_city_label"
+  },
+  {
+    "id": "es_88b9ccd91d",
+    "field": "address",
+    "old_value": "Menéndez i Pelayo 13",
+    "new_value": "Menéndez i Pelayo, 13",
+    "source": "nominatim_reverse+club_page_address",
+    "reason": "missing_postal_bad_city_label"
+  },
+  {
+    "id": "es_88b9ccd91d",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08800",
+    "source": "nominatim_reverse+club_page_address",
+    "reason": "missing_postal_bad_city_label"
+  },
+  {
+    "id": "es_88b9ccd91d",
+    "field": "city",
+    "old_value": "Gimnasio Vilanova i la Geltrú",
+    "new_value": "Vilanova i la Geltrú",
+    "source": "nominatim_reverse+club_page_address",
+    "reason": "missing_postal_bad_city_label"
+  },
+  {
+    "id": "es_88b9ccd91d",
+    "field": "address",
+    "old_value": "Menéndez i Pelayo 13",
+    "new_value": "Menéndez i Pelayo, 13",
+    "source": "nominatim_reverse+club_page_address",
+    "reason": "missing_postal_bad_city_label"
+  },
+  {
+    "id": "es_171a849c74",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "24004",
+    "source": "nominatim_street_search_fernando_becker",
+    "reason": "missing_postal_city_accent"
+  },
+  {
+    "id": "es_171a849c74",
+    "field": "city",
+    "old_value": "Leon",
+    "new_value": "León",
+    "source": "nominatim_street_search_fernando_becker",
+    "reason": "missing_postal_city_accent"
+  },
+  {
+    "id": "es_171a849c74",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "24004",
+    "source": "nominatim_street_search_fernando_becker",
+    "reason": "missing_postal_city_accent"
+  },
+  {
+    "id": "es_171a849c74",
+    "field": "city",
+    "old_value": "Leon",
+    "new_value": "León",
+    "source": "nominatim_street_search_fernando_becker",
+    "reason": "missing_postal_city_accent"
+  },
+  {
+    "id": "es_fc5545eabc",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "39592",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_fc5545eabc",
+    "field": "city",
+    "old_value": "Cabezon",
+    "new_value": "Cabezón de la Sal",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_fc5545eabc",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "39592",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_fc5545eabc",
+    "field": "city",
+    "old_value": "Cabezon",
+    "new_value": "Cabezón de la Sal",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_8204faf1cc",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "39627",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_8204faf1cc",
+    "field": "city",
+    "old_value": "Cayon",
+    "new_value": "Santa María de Cayón",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_8204faf1cc",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "39627",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_8204faf1cc",
+    "field": "city",
+    "old_value": "Cayon",
+    "new_value": "Santa María de Cayón",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_ae6e4df12c",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "18014",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_ae6e4df12c",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "18014",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_b98002f25d",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15401",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_b98002f25d",
+    "field": "city",
+    "old_value": "A Malata",
+    "new_value": "Ferrol",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_b98002f25d",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15401",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_b98002f25d",
+    "field": "city",
+    "old_value": "A Malata",
+    "new_value": "Ferrol",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_460dc30921",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15220",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_460dc30921",
+    "field": "city",
+    "old_value": "A Telleira",
+    "new_value": "Ames",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_460dc30921",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15220",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_460dc30921",
+    "field": "city",
+    "old_value": "A Telleira",
+    "new_value": "Ames",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_d5b39a3ce1",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15142",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_d5b39a3ce1",
+    "field": "city",
+    "old_value": "Arteixo 2",
+    "new_value": "Arteixo",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_d5b39a3ce1",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15142",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_d5b39a3ce1",
+    "field": "city",
+    "old_value": "Arteixo 2",
+    "new_value": "Arteixo",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_ae050866ce",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15865",
+    "source": "nominatim_reverse_municipal_gym",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_ae050866ce",
+    "field": "city",
+    "old_value": "Brion",
+    "new_value": "Brión",
+    "source": "nominatim_reverse_municipal_gym",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_ae050866ce",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15865",
+    "source": "nominatim_reverse_municipal_gym",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_ae050866ce",
+    "field": "city",
+    "old_value": "Brion",
+    "new_value": "Brión",
+    "source": "nominatim_reverse_municipal_gym",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_f16f792acc",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15920",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_f16f792acc",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15920",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_a8199d5936",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15886",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_a8199d5936",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "15886",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_6dead42fbb",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "27002",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_6dead42fbb",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "27002",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_093a44cc07",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "27700",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_093a44cc07",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "27700",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_132b4fd163",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28660",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_132b4fd163",
+    "field": "city",
+    "old_value": "Boadilla",
+    "new_value": "Boadilla del Monte",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_132b4fd163",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28660",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_132b4fd163",
+    "field": "city",
+    "old_value": "Boadilla",
+    "new_value": "Boadilla del Monte",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_77803d2991",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28903",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_77803d2991",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28903",
+    "source": "nominatim_reverse_named_beone_poi",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_eadd857f70",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28913",
+    "source": "nominatim_reverse_sports_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_eadd857f70",
+    "field": "city",
+    "old_value": "Leganes",
+    "new_value": "Leganés",
+    "source": "nominatim_reverse_sports_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_eadd857f70",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28913",
+    "source": "nominatim_reverse_sports_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_eadd857f70",
+    "field": "city",
+    "old_value": "Leganes",
+    "new_value": "Leganés",
+    "source": "nominatim_reverse_sports_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_36d41c08d1",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28330",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_36d41c08d1",
+    "field": "city",
+    "old_value": "San Martin De La Vega",
+    "new_value": "San Martín de la Vega",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_36d41c08d1",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28330",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_36d41c08d1",
+    "field": "city",
+    "old_value": "San Martin De La Vega",
+    "new_value": "San Martín de la Vega",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_5c457d4258",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28770",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_5c457d4258",
+    "field": "city",
+    "old_value": "Santa Teresa",
+    "new_value": "Colmenar Viejo",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_5c457d4258",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "28770",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_5c457d4258",
+    "field": "city",
+    "old_value": "Santa Teresa",
+    "new_value": "Colmenar Viejo",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_4339630efa",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "29730",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_4339630efa",
+    "field": "city",
+    "old_value": "Rincon De La Victoria",
+    "new_value": "Rincón de la Victoria",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_4339630efa",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "29730",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_4339630efa",
+    "field": "city",
+    "old_value": "Rincon De La Victoria",
+    "new_value": "Rincón de la Victoria",
+    "source": "nominatim_reverse_house",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_fd82b3c111",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "32001",
+    "source": "nominatim_reverse_campus_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_fd82b3c111",
+    "field": "city",
+    "old_value": "As Lagoas",
+    "new_value": "Ourense",
+    "source": "nominatim_reverse_campus_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_fd82b3c111",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "32001",
+    "source": "nominatim_reverse_campus_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_fd82b3c111",
+    "field": "city",
+    "old_value": "As Lagoas",
+    "new_value": "Ourense",
+    "source": "nominatim_reverse_campus_pool",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_6c4a84308f",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "32003",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_6c4a84308f",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "32003",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_7b2885bb59",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "36634",
+    "source": "nominatim_reverse_sports_pavilion",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_7b2885bb59",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "36634",
+    "source": "nominatim_reverse_sports_pavilion",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_06714eec15",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "36001",
+    "source": "nominatim_reverse_municipal_pools",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_06714eec15",
+    "field": "city",
+    "old_value": "Campolongo",
+    "new_value": "Pontevedra",
+    "source": "nominatim_reverse_municipal_pools",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_06714eec15",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "36001",
+    "source": "nominatim_reverse_municipal_pools",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_06714eec15",
+    "field": "city",
+    "old_value": "Campolongo",
+    "new_value": "Pontevedra",
+    "source": "nominatim_reverse_municipal_pools",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_5d697070ba",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "36300",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_5d697070ba",
+    "field": "city",
+    "old_value": "Monterreal",
+    "new_value": "Baiona",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_5d697070ba",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "36300",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_5d697070ba",
+    "field": "city",
+    "old_value": "Monterreal",
+    "new_value": "Baiona",
+    "source": "nominatim_reverse_facility",
+    "reason": "beone_facility_postcode_city_normalized"
+  },
+  {
+    "id": "es_8c03568e06",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "40410",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_8c03568e06",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "40410",
+    "source": "nominatim_reverse_municipal_pool",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_9a547eff6a",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "46094",
+    "source": "nominatim_reverse_street",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_9a547eff6a",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "46094",
+    "source": "nominatim_reverse_street",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_b313117d7a",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "46160",
+    "source": "nominatim_reverse_street",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_b313117d7a",
+    "field": "city",
+    "old_value": "Lliria",
+    "new_value": "Llíria",
+    "source": "nominatim_reverse_street",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_b313117d7a",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "46160",
+    "source": "nominatim_reverse_street",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_b313117d7a",
+    "field": "city",
+    "old_value": "Lliria",
+    "new_value": "Llíria",
+    "source": "nominatim_reverse_street",
+    "reason": "beone_facility_postcode"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08038",
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "address",
+    "old_value": "Avinguda de l",
+    "new_value": "Avinguda de l'Estadi, 30-38 (Piscines Bernat Picornell)",
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "lat",
+    "old_value": 41.366222,
+    "new_value": 41.3658173,
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "lng",
+    "old_value": 2.1509664,
+    "new_value": 2.1507243,
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "postal_code",
+    "old_value": null,
+    "new_value": "08038",
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "address",
+    "old_value": "Avinguda de l",
+    "new_value": "Avinguda de l'Estadi, 30-38 (Piscines Bernat Picornell)",
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "lat",
+    "old_value": 41.366222,
+    "new_value": 41.3658173,
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_175f25cfd8",
+    "field": "lng",
+    "old_value": 2.1509664,
+    "new_value": 2.1507243,
+    "source": "nominatim_named_poi_piscines_bernat_picornell",
+    "reason": "missing_postal_truncated_address"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "postal_code",
+    "old_value": "09007",
+    "new_value": "30002",
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "address",
+    "old_value": "Avenida Rio Segura 8",
+    "new_value": "Avenida Río Segura, 8",
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "lat",
+    "old_value": 42.351471,
+    "new_value": 37.9816318,
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "lng",
+    "old_value": -3.67055,
+    "new_value": -1.1284647,
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "postal_code",
+    "old_value": "09007",
+    "new_value": "30002",
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "address",
+    "old_value": "Avenida Rio Segura 8",
+    "new_value": "Avenida Río Segura, 8",
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "lat",
+    "old_value": 42.351471,
+    "new_value": 37.9816318,
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_e8f9e6e586",
+    "field": "lng",
+    "old_value": -3.67055,
+    "new_value": -1.1284647,
+    "source": "wellhub_official_postal+nominatim_street_segment",
+    "reason": "proximity_clear_inconsistency_wrong_burgos_geocode"
+  },
+  {
+    "id": "es_32f3b204b3",
+    "field": "postal_code",
+    "old_value": "46950",
+    "new_value": "30800",
+    "source": "wellhub_degimnasios_postal_30800+nominatim_lorca_street",
+    "reason": "proximity_clear_inconsistency_wrong_xirivella_geocode"
+  },
+  {
+    "id": "es_32f3b204b3",
+    "field": "lat",
+    "old_value": 39.464035,
+    "new_value": 37.6764447,
+    "source": "wellhub_degimnasios_postal_30800+nominatim_lorca_street",
+    "reason": "proximity_clear_inconsistency_wrong_xirivella_geocode"
+  },
+  {
+    "id": "es_32f3b204b3",
+    "field": "lng",
+    "old_value": -0.432332,
+    "new_value": -1.6947269,
+    "source": "wellhub_degimnasios_postal_30800+nominatim_lorca_street",
+    "reason": "proximity_clear_inconsistency_wrong_xirivella_geocode"
+  },
+  {
+    "id": "es_32f3b204b3",
+    "field": "postal_code",
+    "old_value": "46950",
+    "new_value": "30800",
+    "source": "wellhub_degimnasios_postal_30800+nominatim_lorca_street",
+    "reason": "proximity_clear_inconsistency_wrong_xirivella_geocode"
+  },
+  {
+    "id": "es_32f3b204b3",
+    "field": "lat",
+    "old_value": 39.464035,
+    "new_value": 37.6764447,
+    "source": "wellhub_degimnasios_postal_30800+nominatim_lorca_street",
+    "reason": "proximity_clear_inconsistency_wrong_xirivella_geocode"
+  },
+  {
+    "id": "es_32f3b204b3",
+    "field": "lng",
+    "old_value": -0.432332,
+    "new_value": -1.6947269,
+    "source": "wellhub_degimnasios_postal_30800+nominatim_lorca_street",
+    "reason": "proximity_clear_inconsistency_wrong_xirivella_geocode"
+  },
+  {
+    "id": "es_ffba6bd99d",
+    "field": "postal_code",
+    "old_value": "15701",
+    "new_value": "02002",
+    "source": "official_address+nominatim_street_city",
+    "reason": "proximity_clear_inconsistency_wrong_santiago_geocode"
+  },
+  {
+    "id": "es_ffba6bd99d",
+    "field": "lat",
+    "old_value": 42.871633,
+    "new_value": 38.9837564,
+    "source": "official_address+nominatim_street_city",
+    "reason": "proximity_clear_inconsistency_wrong_santiago_geocode"
+  },
+  {
+    "id": "es_ffba6bd99d",
+    "field": "lng",
+    "old_value": -8.548884,
+    "new_value": -1.8506871,
+    "source": "official_address+nominatim_street_city",
+    "reason": "proximity_clear_inconsistency_wrong_santiago_geocode"
+  },
+  {
+    "id": "es_ffba6bd99d",
+    "field": "postal_code",
+    "old_value": "15701",
+    "new_value": "02002",
+    "source": "official_address+nominatim_street_city",
+    "reason": "proximity_clear_inconsistency_wrong_santiago_geocode"
+  },
+  {
+    "id": "es_ffba6bd99d",
+    "field": "lat",
+    "old_value": 42.871633,
+    "new_value": 38.9837564,
+    "source": "official_address+nominatim_street_city",
+    "reason": "proximity_clear_inconsistency_wrong_santiago_geocode"
+  },
+  {
+    "id": "es_ffba6bd99d",
+    "field": "lng",
+    "old_value": -8.548884,
+    "new_value": -1.8506871,
+    "source": "official_address+nominatim_street_city",
+    "reason": "proximity_clear_inconsistency_wrong_santiago_geocode"
+  },
+  {
+    "id": "es_3a032e0de9",
+    "field": "lat",
+    "old_value": 42.351619,
+    "new_value": 42.3514708,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_burgos_gamonal"
+  },
+  {
+    "id": "es_3a032e0de9",
+    "field": "lng",
+    "old_value": -3.670659,
+    "new_value": -3.6705503,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_burgos_gamonal"
+  },
+  {
+    "id": "es_3a032e0de9",
+    "field": "lat",
+    "old_value": 42.351619,
+    "new_value": 42.3514708,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_burgos_gamonal"
+  },
+  {
+    "id": "es_3a032e0de9",
+    "field": "lng",
+    "old_value": -3.670659,
+    "new_value": -3.6705503,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_burgos_gamonal"
+  },
+  {
+    "id": "es_9dd04fac6d",
+    "field": "lat",
+    "old_value": 39.463923,
+    "new_value": 39.4640347,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_xirivella"
+  },
+  {
+    "id": "es_9dd04fac6d",
+    "field": "lng",
+    "old_value": -0.432333,
+    "new_value": -0.4323323,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_xirivella"
+  },
+  {
+    "id": "es_9dd04fac6d",
+    "field": "lat",
+    "old_value": 39.463923,
+    "new_value": 39.4640347,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_xirivella"
+  },
+  {
+    "id": "es_9dd04fac6d",
+    "field": "lng",
+    "old_value": -0.432333,
+    "new_value": -0.4323323,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_xirivella"
+  },
+  {
+    "id": "es_733bd33bcc",
+    "field": "lat",
+    "old_value": 42.871621,
+    "new_value": 42.8716331,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_santiago"
+  },
+  {
+    "id": "es_733bd33bcc",
+    "field": "lng",
+    "old_value": -8.548921,
+    "new_value": -8.5488837,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_santiago"
+  },
+  {
+    "id": "es_733bd33bcc",
+    "field": "lat",
+    "old_value": 42.871621,
+    "new_value": 42.8716331,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_santiago"
+  },
+  {
+    "id": "es_733bd33bcc",
+    "field": "lng",
+    "old_value": -8.548921,
+    "new_value": -8.5488837,
+    "source": "nominatim_named_synergym_poi",
+    "reason": "proximity_confirm_correct_santiago"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "name",
+    "old_value": "Synergym LSiete Palmas",
+    "new_value": "Synergym Siete Palmas",
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "city",
+    "old_value": "35019 Las Palmas de Gran Canaria",
+    "new_value": "Las Palmas de Gran Canaria",
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "postal_code",
+    "old_value": "35013",
+    "new_value": "35019",
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "lat",
+    "old_value": 28.098518,
+    "new_value": 28.0985179,
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "lng",
+    "old_value": -15.449356,
+    "new_value": -15.4493564,
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "name",
+    "old_value": "Synergym LSiete Palmas",
+    "new_value": "Synergym Siete Palmas",
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "city",
+    "old_value": "35019 Las Palmas de Gran Canaria",
+    "new_value": "Las Palmas de Gran Canaria",
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "postal_code",
+    "old_value": "35013",
+    "new_value": "35019",
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "lat",
+    "old_value": 28.098518,
+    "new_value": 28.0985179,
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_3420f2dbe6",
+    "field": "lng",
+    "old_value": -15.449356,
+    "new_value": -15.4493564,
+    "source": "official_homepage_postal_35019+nominatim_named_poi",
+    "reason": "proximity_fix_city_postal_keep_facility"
+  },
+  {
+    "id": "es_2a735fbb94",
+    "field": "address",
+    "old_value": "Espacio metierraneo",
+    "new_value": "Centro Comercial Espacio Mediterráneo",
+    "source": "official_club_page_30353+nominatim_mall",
+    "reason": "proximity_separate_clubs_wrong_geocode_on_espacio"
+  },
+  {
+    "id": "es_2a735fbb94",
+    "field": "lat",
+    "old_value": 37.604235,
+    "new_value": 37.6264101,
+    "source": "official_club_page_30353+nominatim_mall",
+    "reason": "proximity_separate_clubs_wrong_geocode_on_espacio"
+  },
+  {
+    "id": "es_2a735fbb94",
+    "field": "lng",
+    "old_value": -0.987448,
+    "new_value": -0.950565,
+    "source": "official_club_page_30353+nominatim_mall",
+    "reason": "proximity_separate_clubs_wrong_geocode_on_espacio"
+  },
+  {
+    "id": "es_2a735fbb94",
+    "field": "address",
+    "old_value": "Espacio metierraneo",
+    "new_value": "Centro Comercial Espacio Mediterráneo",
+    "source": "official_club_page_30353+nominatim_mall",
+    "reason": "proximity_separate_clubs_wrong_geocode_on_espacio"
+  },
+  {
+    "id": "es_2a735fbb94",
+    "field": "lat",
+    "old_value": 37.604235,
+    "new_value": 37.6264101,
+    "source": "official_club_page_30353+nominatim_mall",
+    "reason": "proximity_separate_clubs_wrong_geocode_on_espacio"
+  },
+  {
+    "id": "es_2a735fbb94",
+    "field": "lng",
+    "old_value": -0.987448,
+    "new_value": -0.950565,
+    "source": "official_club_page_30353+nominatim_mall",
+    "reason": "proximity_separate_clubs_wrong_geocode_on_espacio"
+  },
+  {
+    "id": "es_2eb363e64d",
+    "field": "address",
+    "old_value": "2, Pl. Juan XXIII",
+    "new_value": "Plaza Juan XXIII, 2",
+    "source": "nominatim_named_fitness_park_poi",
+    "reason": "proximity_confirm_plaza_juan_xxiii"
+  },
+  {
+    "id": "es_2eb363e64d",
+    "field": "lat",
+    "old_value": 37.60476,
+    "new_value": 37.6042346,
+    "source": "nominatim_named_fitness_park_poi",
+    "reason": "proximity_confirm_plaza_juan_xxiii"
+  },
+  {
+    "id": "es_2eb363e64d",
+    "field": "lng",
+    "old_value": -0.987601,
+    "new_value": -0.9874484,
+    "source": "nominatim_named_fitness_park_poi",
+    "reason": "proximity_confirm_plaza_juan_xxiii"
+  },
+  {
+    "id": "es_2eb363e64d",
+    "field": "address",
+    "old_value": "2, Pl. Juan XXIII",
+    "new_value": "Plaza Juan XXIII, 2",
+    "source": "nominatim_named_fitness_park_poi",
+    "reason": "proximity_confirm_plaza_juan_xxiii"
+  },
+  {
+    "id": "es_2eb363e64d",
+    "field": "lat",
+    "old_value": 37.60476,
+    "new_value": 37.6042346,
+    "source": "nominatim_named_fitness_park_poi",
+    "reason": "proximity_confirm_plaza_juan_xxiii"
+  },
+  {
+    "id": "es_2eb363e64d",
+    "field": "lng",
+    "old_value": -0.987601,
+    "new_value": -0.9874484,
+    "source": "nominatim_named_fitness_park_poi",
+    "reason": "proximity_confirm_plaza_juan_xxiii"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "import_category",
+    "old_value": "READY_TO_IMPORT",
+    "new_value": "COMING_SOON",
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "verification_status",
+    "old_value": "VERIFIED_CURRENT",
+    "new_value": "COMING_SOON",
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "is_coming_soon",
+    "old_value": null,
+    "new_value": true,
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "is_active",
+    "old_value": true,
+    "new_value": false,
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "postal_code",
+    "old_value": "35013",
+    "new_value": "35010",
+    "source": "codigopostalde_juan_millares_carlo",
+    "reason": "coming_soon_correct_street_postal"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "lat",
+    "old_value": 28.098518,
+    "new_value": null,
+    "source": "clear_copied_siete_palmas_coords",
+    "reason": "coming_soon_coords_unverified"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "lng",
+    "old_value": -15.449356,
+    "new_value": null,
+    "source": "clear_copied_siete_palmas_coords",
+    "reason": "coming_soon_coords_unverified"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "import_category",
+    "old_value": "READY_TO_IMPORT",
+    "new_value": "COMING_SOON",
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "verification_status",
+    "old_value": "VERIFIED_CURRENT",
+    "new_value": "COMING_SOON",
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "is_coming_soon",
+    "old_value": null,
+    "new_value": true,
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "is_active",
+    "old_value": true,
+    "new_value": false,
+    "source": "official_synergym_preapertura_page",
+    "reason": "apertura_proximamente_not_ready"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "postal_code",
+    "old_value": "35013",
+    "new_value": "35010",
+    "source": "codigopostalde_juan_millares_carlo",
+    "reason": "coming_soon_correct_street_postal"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "lat",
+    "old_value": 28.098518,
+    "new_value": null,
+    "source": "clear_copied_siete_palmas_coords",
+    "reason": "coming_soon_coords_unverified"
+  },
+  {
+    "id": "es_e13a21a4c1",
+    "field": "lng",
+    "old_value": -15.449356,
+    "new_value": null,
+    "source": "clear_copied_siete_palmas_coords",
+    "reason": "coming_soon_coords_unverified"
+  },
+  {
+    "id": "es_42caeb0614",
+    "field": "import_category",
+    "old_value": "READY_TO_IMPORT",
+    "new_value": "NEEDS_REVIEW",
+    "source": "address_city_portugal_coords",
+    "reason": "foreign_portugal_not_spain"
+  },
+  {
+    "id": "es_42caeb0614",
+    "field": "country",
+    "old_value": "Spain",
+    "new_value": "Portugal",
+    "source": "address_explicit_portugal",
+    "reason": "foreign_portugal_not_spain"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "address",
+    "old_value": "Parque EuropaCalle Mirasierra, 13",
+    "new_value": "Calle Mirasierra, 13 (Parque Europa)",
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "postal_code",
+    "old_value": "25001",
+    "new_value": "28941",
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "lat",
+    "old_value": 41.610931,
+    "new_value": 40.2884227,
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "lng",
+    "old_value": 0.630527,
+    "new_value": -3.8012502,
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "address",
+    "old_value": "Parque EuropaCalle Mirasierra, 13",
+    "new_value": "Calle Mirasierra, 13 (Parque Europa)",
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "postal_code",
+    "old_value": "25001",
+    "new_value": "28941",
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "lat",
+    "old_value": 41.610931,
+    "new_value": 40.2884227,
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_648449b05a",
+    "field": "lng",
+    "old_value": 0.630527,
+    "new_value": -3.8012502,
+    "source": "degimnasios_28941+nominatim_named_synergym_poi",
+    "reason": "clear_inconsistency_lleida_coords_copied"
+  },
+  {
+    "id": "es_938d487dfa",
+    "field": "postal_code",
+    "old_value": "09007",
+    "new_value": "29680",
+    "source": "degimnasios_29680+nominatim_street_estepona",
+    "reason": "clear_inconsistency_burgos_coords_copied"
+  },
+  {
+    "id": "es_938d487dfa",
+    "field": "lat",
+    "old_value": 42.360522,
+    "new_value": 36.4303603,
+    "source": "degimnasios_29680+nominatim_street_estepona",
+    "reason": "clear_inconsistency_burgos_coords_copied"
+  },
+  {
+    "id": "es_938d487dfa",
+    "field": "lng",
+    "old_value": -3.667594,
+    "new_value": -5.146912,
+    "source": "degimnasios_29680+nominatim_street_estepona",
+    "reason": "clear_inconsistency_burgos_coords_copied"
+  },
+  {
+    "id": "es_938d487dfa",
+    "field": "postal_code",
+    "old_value": "09007",
+    "new_value": "29680",
+    "source": "degimnasios_29680+nominatim_street_estepona",
+    "reason": "clear_inconsistency_burgos_coords_copied"
+  },
+  {
+    "id": "es_938d487dfa",
+    "field": "lat",
+    "old_value": 42.360522,
+    "new_value": 36.4303603,
+    "source": "degimnasios_29680+nominatim_street_estepona",
+    "reason": "clear_inconsistency_burgos_coords_copied"
+  },
+  {
+    "id": "es_938d487dfa",
+    "field": "lng",
+    "old_value": -3.667594,
+    "new_value": -5.146912,
+    "source": "degimnasios_29680+nominatim_street_estepona",
+    "reason": "clear_inconsistency_burgos_coords_copied"
+  },
+  {
+    "id": "es_43527e56db",
+    "field": "postal_code",
+    "old_value": "33006",
+    "new_value": "11100",
+    "source": "ayuntamiento_san_fernando_11100+nominatim_pery_junquera",
+    "reason": "clear_inconsistency_oviedo_coords_copied"
+  },
+  {
+    "id": "es_43527e56db",
+    "field": "lat",
+    "old_value": 43.359715,
+    "new_value": 36.4626789,
+    "source": "ayuntamiento_san_fernando_11100+nominatim_pery_junquera",
+    "reason": "clear_inconsistency_oviedo_coords_copied"
+  },
+  {
+    "id": "es_43527e56db",
+    "field": "lng",
+    "old_value": -5.866595,
+    "new_value": -6.209325,
+    "source": "ayuntamiento_san_fernando_11100+nominatim_pery_junquera",
+    "reason": "clear_inconsistency_oviedo_coords_copied"
+  },
+  {
+    "id": "es_43527e56db",
+    "field": "postal_code",
+    "old_value": "33006",
+    "new_value": "11100",
+    "source": "ayuntamiento_san_fernando_11100+nominatim_pery_junquera",
+    "reason": "clear_inconsistency_oviedo_coords_copied"
+  },
+  {
+    "id": "es_43527e56db",
+    "field": "lat",
+    "old_value": 43.359715,
+    "new_value": 36.4626789,
+    "source": "ayuntamiento_san_fernando_11100+nominatim_pery_junquera",
+    "reason": "clear_inconsistency_oviedo_coords_copied"
+  },
+  {
+    "id": "es_43527e56db",
+    "field": "lng",
+    "old_value": -5.866595,
+    "new_value": -6.209325,
+    "source": "ayuntamiento_san_fernando_11100+nominatim_pery_junquera",
+    "reason": "clear_inconsistency_oviedo_coords_copied"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-08-28T21:09:17.360135+00:00",
+  "production_total": 11921,
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "phase1_rows_recovered": 125,
+  "keep_existing": 80,
+  "new_ready_to_import": 0,
+  "existing_review_required": 0,
+  "status_counts": {
+    "KEEP_EXISTING": 80,
+    "COMING_SOON": 8,
+    "EXCLUDED": 37
+  },
+  "reconciliation": {
+    "exact_id_match": 80,
+    "metadata_drift": 0
+  }
+}

@@ -1,0 +1,1484 @@
+{
+  "EKZ west, 6020, Innsbruck, Austria": {
+    "lat": 47.2648375,
+    "lng": 11.3725259,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "EKZ West, Höttinger Au, Heilig-Jahr-Siedlung, Höttinger Au, Hötting, Innsbruck, Tirol, 6020, Österreich"
+  },
+  "Greif Center, 6020, Innsbruck, Austria": {
+    "lat": 47.2648682,
+    "lng": 11.4274285,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Greif Center, Andechsstraße, Amras, Innsbruck, Tirol, 6020, Österreich"
+  },
+  "Hunoldstraße, 6020, Innsbruck, Austria": {
+    "lat": 47.261315,
+    "lng": 11.4057031,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hunoldstraße, Tivoli, Pradl, Innsbruck, Tirol, 6020, Österreich"
+  },
+  "Bulgariplatz 11, 4020, Linz, Austria": {
+    "lat": 48.2846868,
+    "lng": 14.3027964,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "11, Bulgariplatz, Niedernhart, Bulgariplatz, Linz, Oberösterreich, 4020, Österreich"
+  },
+  "Infra Center, 4020, Linz, Austria": {
+    "lat": 48.2537766,
+    "lng": 14.2801349,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Infra Center, 3, Wegscheider Straße, Bindermichl, Bindermichl-Keferfeld, Linz, Oberösterreich, 4020, Österreich"
+  },
+  "Rainerstraße 6-8, 4020, Linz, Austria": {
+    "lat": 48.2975985,
+    "lng": 14.2903108,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "CT MRT Schillerpark - Scheurecker - Kramer, 6-8, Rainerstraße, Volksgartenviertel, Innere Stadt, Linz, Oberösterreich, 4020, Österreich"
+  },
+  "Hauptbahnhof, 5020, Salzburg, Austria": {
+    "lat": 47.8128272,
+    "lng": 13.044136,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hauptbahnhof, Südtiroler Platz, Elisabeth-Vorstadt, Salzburg, 5020, Österreich"
+  },
+  "V-Center, 9500, Villach, Austria": {
+    "lat": 46.6037088,
+    "lng": 13.8637389,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "V-Center, Bruno-Kreisky-Straße, Seebach-Wasenboden, Prossowitsch, Villach, Kärnten, 9500, Österreich"
+  },
+  "Rathausplatz, 1010, Wien, Austria": {
+    "lat": 48.2088692,
+    "lng": 16.3586105,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rathausplatz, Regierungsviertel, Katastralgemeinde Innere Stadt, Innere Stadt, Wien, 1010, Österreich"
+  },
+  "Schwedenplatz, 1010, Wien, Austria": {
+    "lat": 48.2117112,
+    "lng": 16.3786747,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Schwedenplatz, Schwedenbrücke, Stubenviertel, Katastralgemeinde Innere Stadt, Innere Stadt, Wien, 1010, Österreich"
+  },
+  "Hansson-Zentrum, 1100, Wien, Austria": {
+    "lat": 48.1525836,
+    "lng": 16.3840672,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Musikschule Hansson-Zentrum, Alaudagasse, Per-Albin-Hansson-Siedlung, Katastralgemeinde Oberlaa Stadt, Favoriten, Wien, 1100, Österreich"
+  },
+  "Favoritenstraße, 1100, Wien, Austria": {
+    "lat": 48.173024,
+    "lng": 16.3787041,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Favoritenstraße, Katastralgemeinde Favoriten, Favoriten, Wien, 1100, Österreich"
+  },
+  "Keplerplatz, 1100, Wien, Austria": {
+    "lat": 48.1793508,
+    "lng": 16.3761206,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Keplerplatz, Favoritenstraße, Katastralgemeinde Favoriten, Favoriten, Wien, 1100, Österreich"
+  },
+  "Gasometer, 1110, Wien, Austria": {
+    "lat": 48.1848943,
+    "lng": 16.4172645,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Gasometer, Döblerhofstraße, Katastralgemeinde Simmering, Simmering, Wien, 1110, Österreich"
+  },
+  "Edelsinnstraße, 1120, Wien, Austria": {
+    "lat": 48.172798,
+    "lng": 16.3234426,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Edelsinnstraße, Gatterhölzl, Katastralgemeinde Meidling, Meidling, Wien, 1120, Österreich"
+  },
+  "Sagedergasse, 1120, Wien, Austria": {
+    "lat": 48.1623009,
+    "lng": 16.3149866,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Sagedergasse, Katastralgemeinde Altmannsdorf, Meidling, Wien, 1120, Österreich"
+  },
+  "U4 Center Meidling, 1120, Wien, Austria": {
+    "lat": 48.1835558,
+    "lng": 16.3288617,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "U4 Center, 218, Schönbrunner Straße, Meidlinger Hauptstraße, Katastralgemeinde Meidling, Meidling, Wien, 1120, Österreich"
+  },
+  "Hütteldorf, 1140, Wien, Austria": {
+    "lat": 48.1969699,
+    "lng": 16.260844,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hütteldorf, Hackinger Steg, Katastralgemeinde Hacking, Penzing, Wien, 1140, Österreich"
+  },
+  "Johnstraße, 1150, Wien, Austria": {
+    "lat": 48.197629,
+    "lng": 16.3202537,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Johnstraße, Leopold-Mistinger-Platz, Neu-Penzing, Katastralgemeinde Rudolfsheim, Rudolfsheim-Fünfhaus, Wien, 1150, Österreich"
+  },
+  "Kendlerstraße-Ottakring, 1160, Wien, Austria": {
+    "lat": 48.2045699,
+    "lng": 16.3091407,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Kendlerstraße, Katastralgemeinde Ottakring, Ottakring, Wien, 1160, Österreich"
+  },
+  "Ottakringer Str.-Hernals, 1170, Wien, Austria": {
+    "lat": 48.2146768,
+    "lng": 16.3353884,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Ottakringer Straße, Katastralgemeinde Hernals, Hernals, Wien, 1170, Österreich"
+  },
+  "Kreilplatz 1/4, 1190, Wien, Austria": {
+    "lat": 48.2545485,
+    "lng": 16.3672901,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Kreilplatz, Katastralgemeinde Heiligenstadt, Döbling, Wien, 1190, Österreich"
+  },
+  "Stadion Center, 1020, Wien, Austria": {
+    "lat": 48.2095189,
+    "lng": 16.4229849,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Stadion Center, 2, Olympiaplatz, Katastralgemeinde Leopoldstadt, Leopoldstadt, Wien, 1020, Österreich"
+  },
+  "Wehlistrasse 65, 1200, Wien, Austria": {
+    "lat": 48.2389793,
+    "lng": 16.3877882,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "65, Wehlistraße, Zwischenbrücken, Brigittenau, Katastralgemeinde Brigittenau, Brigittenau, Wien, 1200, Österreich"
+  },
+  "Floridsdorf, 1210, Wien, Austria": {
+    "lat": 48.279815,
+    "lng": 16.4121346,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Floridsdorf, Wien, 1210, Österreich"
+  },
+  "Donau Zentrum, 1220, Wien, Austria": {
+    "lat": 48.2421944,
+    "lng": 16.4376847,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Westfield Donau Zentrum, 94, Wagramer Straße, Katastralgemeinde Kagran, Donaustadt, Wien, 1220, Österreich"
+  },
+  "Gewerbepark Stadlau, 1220, Wien, Austria": {
+    "lat": 48.2462739,
+    "lng": 16.4633471,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Gewerbepark Stadlau, Marietta-Blau-Gasse, Katastralgemeinde Kagran, Donaustadt, Wien, 1220, Österreich"
+  },
+  "K1 Kagraner Platz, 1220, Wien, Austria": {
+    "lat": 48.250221,
+    "lng": 16.4440706,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "K1, 1, Kagraner Platz, Katastralgemeinde Kagran, Donaustadt, Wien, 1220, Österreich"
+  },
+  "Alterlaa, 1230, Wien, Austria": {
+    "lat": 48.1505196,
+    "lng": 16.3168475,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Alterlaa, Elisabeth-Bergner-Weg, In der Wiesen Ost-Süd, Katastralgemeinde Inzersdorf, Liesing, Wien, 1230, Österreich"
+  },
+  "Dietrichgasse 25, 1030, Wien, Austria": {
+    "lat": 48.2001394,
+    "lng": 16.4023823,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "25, Dietrichgasse, Erdberg, Katastralgemeinde Landstraße, Landstraße, Wien, 1030, Österreich"
+  },
+  "Wien-Mitte, 1030, Wien, Austria": {
+    "lat": 48.2056315,
+    "lng": 16.3842468,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wien Mitte, 2a, Landstraßer Hauptstraße, Landstraße, Katastralgemeinde Landstraße, Landstraße, Wien, 1030, Österreich"
+  },
+  "Hartmanngasse, 1050, Wien, Austria": {
+    "lat": 48.1888505,
+    "lng": 16.3626988,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hartmanngasse, Nikolsdorf, Margareten, Katastralgemeinde Margarethen, Margareten, Wien, 1050, Österreich"
+  },
+  "Hofmühlgasse, 1060, Wien, Austria": {
+    "lat": 48.1941563,
+    "lng": 16.3513456,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hofmühlgasse, Magdalenengrund, Gumpendorf, Katastralgemeinde Mariahilf, Mariahilf, Wien, 1060, Österreich"
+  },
+  "Mariahilferstrasse, 1070, Wien, Austria": {
+    "lat": 48.2027122,
+    "lng": 16.3612175,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Museumsquartier, Museumsplatz, Spittelberg, Katastralgemeinde Neubau, Neubau, Wien, 1070, Österreich"
+  },
+  "Alser Strasse, 1090, Wien, Austria": {
+    "lat": 48.2168044,
+    "lng": 16.341835,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Alser Straße, 88, Stadtbahnbogen, Michelbeuern, Katastralgemeinde Alsergrund, Alsergrund, Wien, 1090, Österreich"
+  },
+  "Friedensbrücke, 1090, Wien, Austria": {
+    "lat": 48.2278374,
+    "lng": 16.3639754,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Friedensbrücke, Karoline-Tintner-Promenade, Servitenviertel, Althangrund, Katastralgemeinde Alsergrund, Alsergrund, Wien, 1090, Österreich"
+  },
+  "Lastenstr. 12, 9560, Feldkirchen, Austria": {
+    "lat": 46.7173873,
+    "lng": 14.1015511,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "12, Lastenstraße, Lindl, Laboisen, Feldkirchen in Kärnten, Bezirk Feldkirchen, Kärnten, 9560, Österreich"
+  },
+  "Waagplatz 7, 9020, Klagenfurt, Austria": {
+    "lat": 46.6262878,
+    "lng": 14.3120207,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Waagplatz, Innere Stadt, Klagenfurt am Wörthersee, Kärnten, 9020, Österreich"
+  },
+  "Tiroler Straße 19, 9500, Villach, Austria": {
+    "lat": 46.612912,
+    "lng": 13.8354382,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "19, Tiroler Straße, Völkendorf, Villach, Kärnten, 9500, Österreich"
+  },
+  "Ossiacher Straße 4, 9300, St. Veit, Austria": {
+    "lat": 46.7662581,
+    "lng": 14.3592971,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "McDonald's, 4, Ossiacher Straße, St. Veit an der Glan, Bezirk St. Veit an der Glan, Kärnten, 9300, Österreich"
+  },
+  "St. Magdalenerstr. 29, 9500, Villach, Austria": {
+    "lat": 46.615744,
+    "lng": 13.8666393,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitness Injoy, 29, St.Magdalener Straße, St. Agathen, Neue Heimat, Seebach-Wasenboden, Prossowitsch, Villach, Kärnten, 9500, Österreich"
+  },
+  "Hauptplatz 6, 3300, Amstetten, Austria": {
+    "lat": 48.1229091,
+    "lng": 14.8736854,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "6, Hauptplatz, Greimpersdorf, Katastralgemeinde Amstetten, Allersdorf, Amstetten, Bezirk Amstetten, Niederösterreich, 3300, Österreich"
+  },
+  "Kirchengasse 19, 3950, Gmünd, Austria": {
+    "lat": 48.7740507,
+    "lng": 14.9844427,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "19, Kirchengasse, Gmünd 1, Katastralgemeinde Gmünd, Großeibenstein, Gmünd, Bezirk Gmünd, Niederösterreich, 3950, Österreich"
+  },
+  "Wiener Straße 86, 3500, Krems, Austria": {
+    "lat": 48.4156803,
+    "lng": 15.6194389,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "W86 Bussinespark, 86, Wiener Straße, Mitterau, Katastralgemeinde Krems, Krems an der Donau, Niederösterreich, 3500, Österreich"
+  },
+  "Himberger Straße 11, 2320, Schwechat, Austria": {
+    "lat": 48.1376735,
+    "lng": 16.4756511,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Penny, 11, Himberger Straße, Altkettenhof, Katastralgemeinde Schwechat, Rannersdorf, Schwechat, Bezirk Bruck an der Leitha, Niederösterreich, 2320, Österreich"
+  },
+  "Porschestraße 9, 3100, St. Pölten, Austria": {
+    "lat": 48.1832319,
+    "lng": 15.6179678,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Intersport, 9, Porschestraße, Spratzern, Katastralgemeinde Spratzern, St. Pölten, Niederösterreich, 3100, Österreich"
+  },
+  "Bahnhofstrasse 16, 3430, Tulln, Austria": {
+    "lat": 48.3289298,
+    "lng": 16.0546041,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "16-18, Bahnhofstraße, Katastralgemeinde Tulln, Tulln an der Donau, Bezirk Tulln, Niederösterreich, 3430, Österreich"
+  },
+  "Franz-Forstreiter Straße 20, 3910, Zwettl, Austria": {
+    "lat": 48.6033807,
+    "lng": 15.186587,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "INJOY, 20, Franz Forstreiter-Straße, Gewerbepark Nord, Katastralgemeinde Oberhof, Koblhof, Zwettl-Niederösterreich, Bezirk Zwettl, Niederösterreich, 3910, Österreich"
+  },
+  "Im Bahnbogen 2, 4070, Eferding, Austria": {
+    "lat": 48.3022236,
+    "lng": 14.0194445,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Im Bahnbogen, Eferding, Bezirk Eferding, Oberösterreich, 4070, Österreich"
+  },
+  "Brunnenweg 11, 4560, Kirchdorf, Austria": {
+    "lat": 47.9016036,
+    "lng": 14.1198167,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "11, Brunnenweg, Kirchdorf an der Krems, Bezirk Kirchdorf, Oberösterreich, 4560, Österreich"
+  },
+  "Further Str. 10, 4040, Linz, Austria": {
+    "lat": 48.3254795,
+    "lng": 14.3222169,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Sportzentrum F10, 10, Further Straße, Dornach, Dornach-Auhof, Linz, Oberösterreich, 4040, Österreich"
+  },
+  "Machlandstr. 47, 4320, Perg, Austria": {
+    "lat": 48.24037,
+    "lng": 14.6409207,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "47, Machlandstraße, Kickenau, Zeitling, Perg, Bezirk Perg, Oberösterreich, 4320, Österreich"
+  },
+  "Hannesgrub Nord 24, 4911, Tumeltsham/Ried, Austria": {
+    "lat": 48.2181142,
+    "lng": 13.5000315,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "24, Hannesgrub Nord, Tumeltsham, Bezirk Ried, Oberösterreich, 4911, Österreich"
+  },
+  "Schönauerstr. 7, 4400, Steyr, Austria": {
+    "lat": 48.0402443,
+    "lng": 14.4284967,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Schönauerstraße, Steyrwerke, Ennsdorf, Steyr, Oberösterreich, 4400, Österreich"
+  },
+  "Sportpark 1, 4111, Walding, Austria": {
+    "lat": 48.3460798,
+    "lng": 14.1589729,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Sportpark, Bach, Walding, Bezirk Urfahr-Umgebung, Oberösterreich, 4111, Österreich"
+  },
+  "Wiener Bundesstraße 61A, 5300, Hallwang, Austria": {
+    "lat": 47.8498859,
+    "lng": 13.1055901,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "61a, Wiener Bundesstraße, Reicherting, Oberesch, Hallwang, Bezirk Salzburg-Umgebung, Salzburg, 5300, Österreich"
+  },
+  "Parkstraße 7a, 5710, Kaprun, Austria": {
+    "lat": 47.2715111,
+    "lng": 12.7599279,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7a, Parkstraße, Lechnerdörfl, Moossiedlung, Kaprun, Bezirk Zell am See, Salzburg, 5710, Österreich"
+  },
+  "Ritzenseestraße 37, 5760, Saalfelden, Austria": {
+    "lat": 47.4202035,
+    "lng": 12.847623,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "37, Ritzenseestraße, Schmalenbergham, Thor, Saalfelden am Steinernen Meer, Bezirk Zell am See, Salzburg, 5760, Österreich"
+  },
+  "Wiener Straße 343, 8051, Graz Nord, Austria": {
+    "lat": 47.1036693,
+    "lng": 15.4013184,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "343, Wiener Straße, Shopping Nord, Katastralgemeinde Gösting, Gösting, Graz, Steiermark, 8051, Österreich"
+  },
+  "Rettenbacherstr. 4b, 8044, Graz Ost, Austria": null,
+  "Austriastr. 10, 8720, Knittelfeld, Austria": {
+    "lat": 47.2133968,
+    "lng": 14.831575,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Austriastraße, Katastralgemeinde Knittelfeld, Landschach, Knittelfeld, Bezirk Murtal, Steiermark, 8720, Österreich"
+  },
+  "Perschlerstr. 2, 8580, Köflach, Austria": {
+    "lat": 47.0640397,
+    "lng": 15.0801835,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "INJOY, 2, Perschlerstraße, Katastralgemeinde Köflach, Pichling bei Köflach, Köflach, Bezirk Voitsberg, Steiermark, 8580, Österreich"
+  },
+  "Reichsstraße 64, 8430, Leibnitz, Austria": {
+    "lat": 46.796971,
+    "lng": 15.5602992,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Design-Outlet-Store, 64, Reichsstraße, Katastralgemeinde Leibnitz, Leibnitz, Bezirk Leibnitz, Steiermark, 8430, Österreich"
+  },
+  "Triesterstr. 391, 8055, Graz Süd, Austria": null,
+  "Gesäusestraße 12, 8940, Liezen, Austria": {
+    "lat": 47.5598182,
+    "lng": 14.2513303,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Cafe-Lounge White, 12, Gesäusestraße, Katastralgemeinde Reithtal, Liezen, Bezirk Liezen, Steiermark, 8940, Österreich"
+  },
+  "Statz 49, 6143, Mühlbachl, Austria": {
+    "lat": 47.1207015,
+    "lng": 11.4525581,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "49, Statz, Obfeldes, Mühlbachl, Statz, Matrei am Brenner, Bezirk Innsbruck-Land, Tirol, 6143, Österreich"
+  },
+  "Schmalzgasse 9, 6361, Hopfgarten, Austria": {
+    "lat": 47.4483734,
+    "lng": 12.1590129,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9, Schmalzgasse, Boden, Hopfgarten im Brixental, Bezirk Kitzbühel, Tirol, 6361, Österreich"
+  },
+  "Mariahilfstr. 29, 6900, Bregenz, Austria": {
+    "lat": 47.4954856,
+    "lng": 9.7296488,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Kosmos, 29, Mariahilfstraße, Bregenz, Bezirk Bregenz, Vorarlberg, 6900, Österreich"
+  },
+  "Schnirchgasse 12, 1030, Wien, Austria": {
+    "lat": 48.1945183,
+    "lng": 16.4107769,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "INJOY, 12, Schnirchgasse, TownTown, Erdberg, Katastralgemeinde Landstraße, Landstraße, Wien, 1030, Österreich"
+  },
+  "St. Ruprechterstraße 90, 9020, Klagenfurt, Austria": {
+    "lat": 46.6068844,
+    "lng": 14.3094943,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Modepark Röther, 90, St. Ruprechter Straße, St. Ruprecht, Klagenfurt am Wörthersee, Kärnten, 9020, Österreich"
+  },
+  "Zellerstraße 31a, 5760, Saalfelden, Austria": {
+    "lat": 47.4234852,
+    "lng": 12.8319451,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "XPRESS Saalfelden, 31a, Zellerstraße, Biberg, Dorfheim, Saalfelden am Steinernen Meer, Bezirk Zell am See, Salzburg, 5760, Österreich"
+  },
+  "Mozartstraße 22, 3300, Amstetten, Austria": {
+    "lat": 48.1241404,
+    "lng": 14.8816922,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "22, Mozartstraße, Greimpersdorf, Katastralgemeinde Amstetten, Eisenreichdornach, Amstetten, Bezirk Amstetten, Niederösterreich, 3300, Österreich"
+  },
+  "Bergengasse 3/4/L1, 1220, Wien, Austria": null,
+  "Vöslauerstr. 9, 2500, Baden, Austria": {
+    "lat": 48.0038268,
+    "lng": 16.2320798,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9, Vöslauer Straße, Katastralgemeinde Rauhenstein, Baden, Bezirk Baden, Niederösterreich, 2500, Österreich"
+  },
+  "Hauptplatz 10-11, Top 8, 2460, Bruck an der Leitha, Austria": null,
+  "Josef Reichl-Gasse 7, 7000, Eisenstadt, Austria": {
+    "lat": 47.8436462,
+    "lng": 16.5239472,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Josef-Reichl-Gasse, Katastralgemeinde Eisenstadt, Kleinhöflein, Eisenstadt, Burgenland, 7000, Österreich"
+  },
+  "Eichbergstrasse 1, 4470, Enns, Austria": {
+    "lat": 48.2137616,
+    "lng": 14.4741508,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Eichbergstraße, Lorch, Enns, Bezirk Linz-Land, Oberösterreich, 4470, Österreich"
+  },
+  "Kalsdorfer Straße 6, 8072, Fernitz-Mellach, Austria": {
+    "lat": 46.9719054,
+    "lng": 15.4949204,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "PDi-Digital GmbH, 6, Kalsdorfer Straße, Katastralgemeinde Fernitz, Fernitz, Fernitz-Mellach, Bezirk Graz-Umgebung, Steiermark, 8072, Österreich"
+  },
+  "Bahnstrasse 52, 2230, Gänserndorf, Austria": {
+    "lat": 48.3400991,
+    "lng": 16.7255708,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mrs.Sporty Gänserndorf, 52, Bahnstraße, Katastralgemeinde Gänserndorf, Gänserndorf, Bezirk Gänserndorf, Niederösterreich, 2230, Österreich"
+  },
+  "Stadtplatz 46, 3950, Gmünd, Austria": {
+    "lat": 48.7728412,
+    "lng": 14.9877463,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "46, Stadtplatz, Gmünd 1, Katastralgemeinde Gmünd, Großeibenstein, Gmünd, Bezirk Gmünd, Niederösterreich, 3950, Österreich"
+  },
+  "Koliskoplatz 2 Top 1, 2020, Hollabrunn, Austria": null,
+  "Wienerstraße 49, 3580, Horn, Austria": {
+    "lat": 48.5965296,
+    "lng": 15.6643662,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wienerstraße, Katastralgemeinde Gars am Kamp, Gars am Kamp, Bezirk Horn, Niederösterreich, 3571, Österreich"
+  },
+  "Bürgerstraße 11, 6020, Innsbruck, Austria": {
+    "lat": 47.2648681,
+    "lng": 11.3905583,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "11, Bürgerstraße, Innenstadt, Innsbruck, Tirol, 6020, Österreich"
+  },
+  "Stadtplatz 15, 3400, Klosterneuburg, Austria": {
+    "lat": 48.3096818,
+    "lng": 16.3238436,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "15, Stadtplatz, Katastralgemeinde Klosterneuburg, Weidling, Klosterneuburg, Bezirk Tulln, Niederösterreich, 3400, Österreich"
+  },
+  "Wiener Ring 15, 2100, Korneuburg, Austria": {
+    "lat": 48.3422731,
+    "lng": 16.3356308,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mrs. Sporty, 15, Wiener Ring, Katastralgemeinde Korneuburg, Korneuburg, Bezirk Korneuburg, Niederösterreich, 2100, Österreich"
+  },
+  "Hauptplatz 1A Top B2 – ziwa Park, 2542, Kottingbrunn, Austria": null,
+  "Schwedengasse 1c, 3500, Krems an der Donau, Austria": {
+    "lat": 48.4093155,
+    "lng": 15.5974931,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1c, Schwedengasse, Innenstadt, Katastralgemeinde Krems, Krems an der Donau, Niederösterreich, 3500, Österreich"
+  },
+  "Wiener Straße 5, 2103, Langenzersdorf, Austria": {
+    "lat": 48.3090581,
+    "lng": 16.3583013,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5, Wiener Straße, Katastralgemeinde Langenzersdorf, Langenzersdorf, Bezirk Korneuburg, Niederösterreich, 2103, Österreich"
+  },
+  "Hauptplatz 4, 1. Stock, 4020, Linz, Austria": null,
+  "Linzer Str.9 (Gesundheitszentrum), 4614, Marchtrenk, Austria": null,
+  "Bahnstrasse 9, 2130, Mistelbach, Austria": {
+    "lat": 48.567026,
+    "lng": 16.571509,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mrs. Sporty, 9, Bahnstraße, Katastralgemeinde Mistelbach, Lanzendorf, Mistelbach, Bezirk Mistelbach, Niederösterreich, 2130, Österreich"
+  },
+  "Wiener Straße 2/1/2, 2340, Mödling, Austria": {
+    "lat": 48.0864825,
+    "lng": 16.2948083,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wiener Straße, Schöffelstadt, Katastralgemeinde Mödling, Mödling, Bezirk Mödling, Niederösterreich, 2340, Österreich"
+  },
+  "Rathausplatz 9, 3040, Neulengbach, Austria": {
+    "lat": 48.1972631,
+    "lng": 15.9081857,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9, Rathausplatz, Katastralgemeinde Neulengbach, Haag bei Neulengbach, Neulengbach, Bezirk St. Pölten, Niederösterreich, 3040, Österreich"
+  },
+  "Brunnergasse 2 Top 3, 2380, Perchtoldsdorf, Austria": null,
+  "Hauptplatz 4, 3002, Purkersdorf, Austria": {
+    "lat": 48.2071847,
+    "lng": 16.1764391,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Volksbank, 4, Hauptplatz, Süßfeld, Katastralgemeinde Purkersdorf, Purkersdorf, Bezirk St. Pölten, Niederösterreich, 3002, Österreich"
+  },
+  "Hauptstraße 81, 5600, St. Johann i. Pg., Austria": null,
+  "Josefstraße 110, 3100, St.Pölten, Austria": {
+    "lat": 48.1858816,
+    "lng": 15.6217894,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "110, Josefstraße, Spratzern, Katastralgemeinde Spratzern, St. Pölten, Niederösterreich, 3100, Österreich"
+  },
+  "Hauptstr. 41, 2000, Stockerau, Austria": {
+    "lat": 48.3861718,
+    "lng": 16.2145624,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "41, Hauptstraße, Rennergrätzl, Grafendorf, Katastralgemeinde Stockerau, Stockerau, Bezirk Korneuburg, Niederösterreich, 2000, Österreich"
+  },
+  "Hauptplatz 17 Top 5, 2514, Traiskirchen, Austria": null,
+  "Bahnhofstraße 21, 4050, Traun, Austria": {
+    "lat": 48.2211377,
+    "lng": 14.2423451,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "21, Bahnhofstraße, St. Dionysen, Traun, Bezirk Linz-Land, Oberösterreich, 4050, Österreich"
+  },
+  "Wilhelmstraße 4-6, 3430, Tulln, Austria": {
+    "lat": 48.3293177,
+    "lng": 16.0548728,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4-6, Wilhelmstraße, Katastralgemeinde Tulln, Tulln an der Donau, Bezirk Tulln, Niederösterreich, 3430, Österreich"
+  },
+  "Gmundner Strasse 47-49, 4840, Vöcklabruck, Austria": {
+    "lat": 48.0047829,
+    "lng": 13.6588061,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "47-49, Gmundner Straße, Buchleiten, Vöcklabruck, Bezirk Vöcklabruck, Oberösterreich, 4840, Österreich"
+  },
+  "Böhmgasse 31, 3830, Waidhofen/Thaya, Austria": {
+    "lat": 48.815629,
+    "lng": 15.2834474,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mrs. Sporty, 31, Böhmgasse, Katastralgemeinde Waidhofen an der Thaya, Altwaidhofen, Waidhofen an der Thaya, Bezirk Waidhofen an der Thaya, Niederösterreich, 3830, Österreich"
+  },
+  "Kaiser-Josef-Platz 41, 4600, Wels, Austria": {
+    "lat": 48.1593841,
+    "lng": 14.0223804,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Post Filiale 4601, 41, Kaiser-Josef-Platz, Innere Stadt, Wels, Oberösterreich, 4601, Österreich"
+  },
+  "Porzellangasse 33a, 1090, Wien, Austria": {
+    "lat": 48.2218287,
+    "lng": 16.3605827,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "33a, Porzellangasse, Servitenviertel, Alsergrund, Katastralgemeinde Alsergrund, Alsergrund, Wien, 1090, Österreich"
+  },
+  "Anton Baumgartner Straße 125/2/1, 1230, Wien, Austria": null,
+  "Wallensteinplatz 7, 1200, Wien, Austria": {
+    "lat": 48.2294624,
+    "lng": 16.3709653,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Wallensteinplatz, Brigittenau, Katastralgemeinde Brigittenau, Brigittenau, Wien, 1200, Österreich"
+  },
+  "Obkirchergasse 36/1, 1190, Wien, Austria": {
+    "lat": 48.2430631,
+    "lng": 16.3418217,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Obkirchergasse, Katastralgemeinde Oberdöbling, Döbling, Wien, 1190, Österreich"
+  },
+  "Ostmarkgasse 2, 1210, Wien, Austria": {
+    "lat": 48.2581402,
+    "lng": 16.4071676,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mrs. Sporty, 2, Ostmarkgasse, Katastralgemeinde Donaufeld, Floridsdorf, Wien, 1210, Österreich"
+  },
+  "Knöllgasse 33, 1100, Wien, Austria": {
+    "lat": 48.1733355,
+    "lng": 16.3544951,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "33, Knöllgasse, Triesterviertel, Katastralgemeinde Inzersdorf Stadt, Favoriten, Wien, 1100, Österreich"
+  },
+  "Hormayrgasse 19, 1170, Wien, Austria": {
+    "lat": 48.2206999,
+    "lng": 16.3312702,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "19, Hormayrgasse, Katastralgemeinde Hernals, Hernals, Wien, 1170, Österreich"
+  },
+  "Auhofstraße 51-55/L1, 1130, Wien, Austria": null,
+  "Löwengasse 34, 1030, Wien, Austria": {
+    "lat": 48.207092,
+    "lng": 16.3937088,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "34, Löwengasse, Weißgerber, Katastralgemeinde Landstraße, Landstraße, Wien, 1030, Österreich"
+  },
+  "Untere Augartenstraße 26/2, 1020, Wien, Austria": {
+    "lat": 48.2226423,
+    "lng": 16.3755925,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Untere Augartenstraße, Rembrandtviertel, Leopoldstadt, Katastralgemeinde Leopoldstadt, Leopoldstadt, Wien, 1020, Österreich"
+  },
+  "Schönbrunnerstrasse 16, 1050, Wien, Austria": {
+    "lat": 48.1940336,
+    "lng": 16.3592748,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "16, Schönbrunner Straße, Reinprechtsdorf, Margareten, Katastralgemeinde Margarethen, Margareten, Wien, 1050, Österreich"
+  },
+  "Längenfeldgasse 29, 1120, Wien, Austria": {
+    "lat": 48.1789528,
+    "lng": 16.3405418,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "29, Längenfeldgasse, Fuchsenfeld, Katastralgemeinde Meidling, Meidling, Wien, 1120, Österreich"
+  },
+  "Matznergasse 28, 1140, Wien, Austria": {
+    "lat": 48.1964318,
+    "lng": 16.3039411,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "28, Matznergasse, Katastralgemeinde Penzing, Penzing, Wien, 1140, Österreich"
+  },
+  "Mariahilferstraße 192, 1150, Wien, Austria": {
+    "lat": 48.1915776,
+    "lng": 16.3267717,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "192, Mariahilfer Straße, Rustendorf, Katastralgemeinde Rudolfsheim, Rudolfsheim-Fünfhaus, Wien, 1150, Österreich"
+  },
+  "Braunhubergasse 23 Top1A, 1110, Wien, Austria": null,
+  "Zehnergürtel 12/24, 2700, Wiener Neustadt, Austria": {
+    "lat": 47.8191305,
+    "lng": 16.2169972,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fischapark, 12-24, Zehnergürtel, Katastralgemeinde Wiener Neustadt, Wiener Neustadt, Niederösterreich, 2700, Österreich"
+  },
+  "Hofgartenstrasse 28, 2120, Wolkersdorf, Austria": {
+    "lat": 48.3823552,
+    "lng": 16.5166735,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "28, Hofgartenstraße, Katastralgemeinde Wolkersdorf, Obersdorf, Wolkersdorf im Weinviertel, Bezirk Mistelbach, Niederösterreich, 2120, Österreich"
+  },
+  "Hamerlingstraße 1, 3910, Zwettl, Austria": {
+    "lat": 48.6051095,
+    "lng": 15.1672274,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Hamerlingstraße, Katastralgemeinde Zwettl Stadt, Zwettl, Zwettl-Niederösterreich, Bezirk Zwettl, Niederösterreich, 3910, Österreich"
+  },
+  "Waagstra\\xdfe 2, 5671, Bruck/Glstr., Austria": null,
+  "Wiener Stra\\xdfe 2-4, 5301, Eugendorf, Austria": null,
+  "Hauptstra\\xdfe 26, 9620, Hermagor, Austria": null,
+  "Gewerbering 11, 2020, Hollabrunn, Austria": {
+    "lat": 48.5762546,
+    "lng": 16.0737171,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "11, Gewerbering, Katastralgemeinde Hollabrunn, Suttenbrunn, Hollabrunn, Bezirk Hollabrunn, Niederösterreich, 2020, Österreich"
+  },
+  "Langgasse 19, 6460, Imst, Austria": {
+    "lat": 47.2320871,
+    "lng": 10.7423672,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Falkner und Riml GmbH & Co.KG, 19, Langgasse, Imst, Bezirk Imst, Tirol, 6460, Österreich"
+  },
+  "Alban-Bichler-Stra\\xdfe 3, 9971, Matrei, Austria": null,
+  "Bahnhofviertel 14, 8850, Murau, Austria": {
+    "lat": 47.1084292,
+    "lng": 14.1819886,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "14, Bahnhofviertel, Katastralgemeinde Murau, Stolzalpe, Murau, Bezirk Murau, Steiermark, 8850, Österreich"
+  },
+  "Ringstra\\xdfe 37, 5562, Obertauern, Austria": null,
+  "Jakobistra\\xdfe 13, 5162, Obertrum, Austria": null,
+  "Wohlmayrgasse 4, 4910, Ried im Innkreis, Austria": {
+    "lat": 48.2076803,
+    "lng": 13.4879593,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4, Wohlmayrgasse, Ried im Innkreis, Bezirk Ried, Oberösterreich, 4910, Österreich"
+  },
+  "Leopold-Luger-Stra\\xdfe 1, 5760, Saalfelden, Austria": null,
+  "Itzlinger Hauptstra\\xdfe 93a, 5020, Salzburg, Austria": null,
+  "Josef-Lindner-Stra\\xdfe 8a, 5071, Wals bei Salzburg, Austria": null,
+  "F\\xfcrbergstra\\xdfe 18-20, 5020, Salzburg, Austria": null,
+  "Bahnhofstra\\xdfe 7, 9800, Spittal an der Drau, Austria": null,
+  "Bundesstra\\xdfe 31, 5600, St. Johann, Austria": null,
+  "Kaltbachstra\\xdfe 668/3, 5582, St. Michael, Austria": null,
+  "W\\xf6ltingerstra\\xdfe 9, 5580, Tamsweg, Austria": null,
+  "Niederland 164, 5091, Unken, Austria": {
+    "lat": 47.6462328,
+    "lng": 12.7331704,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "164, Niederland, Unken, Bezirk Zell am See, Salzburg, 5091, Österreich"
+  },
+  "Solarstra\\xdfe 6, 4653, Eberstalzell, Austria": null,
+  "Amlacher Stra\\xdfe 12, 9900, Lienz, Austria": null,
+  "Prielhofstra\\xdfe 4, 5310, Mondsee, Austria": null,
+  "Alpenstra\\xdfe 95-97, 5020, Salzburg, Austria": null,
+  "Franz Br\\xf6tzner Stra\\xdfe 9, 5071, Wals, Austria": null,
+  "K\\xf6stendorferstra\\xdfe 31, 5204, Stra\\xdfwalchen, Austria": null,
+  "Waagstraße 2, 5671, Bruck/Glstr., Austria": null,
+  "Wiener Straße 2-4, 5301, Eugendorf, Austria": {
+    "lat": 47.864363,
+    "lng": 13.1293176,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wiener Straße, Straß, Eugendorf, Bezirk Salzburg-Umgebung, Salzburg, 5301, Österreich"
+  },
+  "Hauptstraße 26, 9620, Hermagor, Austria": {
+    "lat": 46.627685,
+    "lng": 13.367051,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "26, Hauptstraße, Neuprießnegg, Hermagor, Hermagor-Pressegger See, Bezirk Hermagor, Kärnten, 9620, Österreich"
+  },
+  "Alban-Bichler-Straße 3, 9971, Matrei, Austria": {
+    "lat": 46.9985351,
+    "lng": 12.5325055,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Alban-Bichler-Straße, Bruggen, Matrei in Osttirol, Bezirk Lienz, Tirol, 9971, Österreich"
+  },
+  "Ringstraße 37, 5562, Obertauern, Austria": {
+    "lat": 47.2507875,
+    "lng": 13.5604469,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Sportzentrum, 37, Ringstraße, Obertauern, Tweng, Bezirk Tamsweg, Salzburg, 5562, Österreich"
+  },
+  "Jakobistraße 13, 5162, Obertrum, Austria": {
+    "lat": 47.9337485,
+    "lng": 13.079995,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "13, Jakobistraße, Kopfsberg, Obertrum am See, Bezirk Salzburg-Umgebung, Salzburg, 5162, Österreich"
+  },
+  "Leopold-Luger-Straße 1, 5760, Saalfelden, Austria": {
+    "lat": 47.4202636,
+    "lng": 12.832934,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Leopold-Luger-Straße, Biberg, Thor, Saalfelden am Steinernen Meer, Bezirk Zell am See, Salzburg, 5760, Österreich"
+  },
+  "Itzlinger Hauptstraße 93a, 5020, Salzburg, Austria": {
+    "lat": 47.8279887,
+    "lng": 13.0366412,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "dm, 93A, Itzlinger Hauptstraße, Itzling, Salzburg, 5020, Österreich"
+  },
+  "Josef-Lindner-Straße 8a, 5071, Wals bei Salzburg, Austria": null,
+  "Fürbergstraße 18-20, 5020, Salzburg, Austria": {
+    "lat": 47.8085531,
+    "lng": 13.065862,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fürbergstraße, Schallmoos, Salzburg, 5020, Österreich"
+  },
+  "Bahnhofstraße 7, 9800, Spittal an der Drau, Austria": {
+    "lat": 46.7968457,
+    "lng": 13.4908575,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Bahnhofstraße, Oberdorf, Spittal an der Drau, Bezirk Spittal an der Drau, Kärnten, 9800, Österreich"
+  },
+  "Bundesstraße 31, 5600, St. Johann, Austria": {
+    "lat": 47.0021277,
+    "lng": 15.2754621,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Alte Bundesstraße, Katastralgemeinde Kleinsöding, Pichling bei Mooskirchen, Söding-St. Johann, Bezirk Voitsberg, Steiermark, 8561, Österreich"
+  },
+  "Kaltbachstraße 668/3, 5582, St. Michael, Austria": {
+    "lat": 47.0980704,
+    "lng": 13.6338426,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Kaltbachstraße, Wieden, Sankt Michael im Lungau, Bezirk Tamsweg, Salzburg, 5582, Österreich"
+  },
+  "Wöltingerstraße 9, 5580, Tamsweg, Austria": {
+    "lat": 47.1348414,
+    "lng": 13.8079611,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "MyGym, 9, Wöltinger Straße, Mehlhartlau, Vordertullnberg, Wölting, Tamsweg, Bezirk Tamsweg, Salzburg, 5580, Österreich"
+  },
+  "Lazarettgürtel 55, 8020, Graz, Austria": {
+    "lat": 47.0604395,
+    "lng": 15.4269071,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Citypark, 55, Lazarettgürtel, Murvorstadt, Katastralgemeinde Gries, Gries, Graz, Steiermark, 8020, Österreich"
+  },
+  "Durchlaßstraße 10, 9020, Klagenfurt am Wörthersee, Austria": {
+    "lat": 46.63536,
+    "lng": 14.3154598,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "dm, 10, Durchlaßstraße, Annabichl, St.Georgen am Sandhof, Klagenfurt am Wörthersee, Kärnten, 9020, Österreich"
+  },
+  "Stadtpl. 10-11, 3400, Klosterneuburg, Austria": {
+    "lat": 48.3094025,
+    "lng": 16.3234614,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10-11, Stadtplatz, Katastralgemeinde Klosterneuburg, Weidling, Klosterneuburg, Bezirk Tulln, Niederösterreich, 3400, Österreich"
+  },
+  "Industriestraße 1, 2100, Korneuburg, Austria": {
+    "lat": 48.3580646,
+    "lng": 16.3171178,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Ueberreuter Print, 1, Industriestraße, Katastralgemeinde Korneuburg, Korneuburg, Bezirk Korneuburg, Niederösterreich, 2100, Österreich"
+  },
+  "Hauptpl. 17, 8700, Leoben, Austria": {
+    "lat": 47.3813946,
+    "lng": 15.0941423,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Speedfit, 17, Hauptplatz, Leoben, Katastralgemeinde Leoben, Leoben, Bezirk Leoben, Steiermark, 8700, Österreich"
+  },
+  "Lindengasse 16, 4040, Linz, Austria": {
+    "lat": 48.3228661,
+    "lng": 14.2888301,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "PRO, 16, Lindengasse, Harbach, Urfahr, Linz, Oberösterreich, 4040, Österreich"
+  },
+  "Semmeringstraße 6, 2620, Neunkirchen, Austria": {
+    "lat": 47.7251377,
+    "lng": 16.0707533,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Speedfit Neunkirchen, 6, Semmeringstraße, Katastralgemeinde Neunkirchen, Neunkirchen, Bezirk Neunkirchen, Niederösterreich, 2620, Österreich"
+  },
+  "Hauptpl. 20, 2320, Schwechat, Austria": {
+    "lat": 48.1401931,
+    "lng": 16.4766164,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "20, Hauptplatz, Groß-Schwechat, Katastralgemeinde Schwechat, Rannersdorf, Schwechat, Bezirk Bruck an der Leitha, Niederösterreich, 2320, Österreich"
+  },
+  "Dr.-Doch-Gasse 3, 3107, St, Austria": {
+    "lat": 48.2194013,
+    "lng": 15.6442896,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Clever fit, 3, Dr.Doch-Gasse, Viehofen, Katastralgemeinde Viehofen, Weitern, St. Pölten, Niederösterreich, 3107, Österreich"
+  },
+  "Wienersdorfer Str. 22/24, 2514, Traiskirchen, Austria": {
+    "lat": 48.0136977,
+    "lng": 16.2917788,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wienersdorfer Straße, Katastralgemeinde Traiskirchen, Wienersdorf, Traiskirchen, Bezirk Baden, Niederösterreich, 2514, Österreich"
+  },
+  "Kärntner Str. 7, 9500, Villach, Austria": {
+    "lat": 46.599867,
+    "lng": 13.8410501,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fressnapf, 7, Kärntner Straße, Auen, Villach, Kärnten, 9500, Österreich"
+  },
+  "Holzhausenpl. 1, 1140, Wien, Austria": {
+    "lat": 48.205279,
+    "lng": 16.2241723,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Holzhausenplatz, Mariabrunn, Katastralgemeinde Auhof, Penzing, Wien, 1140, Österreich"
+  },
+  "Boschstraße 10, 1190, Wien, Austria": {
+    "lat": 48.2468319,
+    "lng": 16.3636254,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Boschstraße, Katastralgemeinde Heiligenstadt, Döbling, Wien, 1190, Österreich"
+  },
+  "Wagramer Str. 195, 1210, Wien, Austria": {
+    "lat": 48.2630794,
+    "lng": 16.4522564,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "195, Wagramer Straße, Katastralgemeinde Kagran, Donaustadt, Wien, 1210, Österreich"
+  },
+  "Bernoullistraße 9, 1220, Wien, Austria": {
+    "lat": 48.2406113,
+    "lng": 16.4388082,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Bernoullistraße, Katastralgemeinde Kagran, Donaustadt, Wien, 1220, Österreich"
+  },
+  "Perchtoldsdorfer Str. 25, 1230, Wien, Austria": {
+    "lat": 48.1318456,
+    "lng": 16.2813262,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mann City Mall, 25, Perchtoldsdorfer Straße, Perchtoldsdorf, Katastralgemeinde Liesing, Liesing, Wien, Bezirk Mödling, Niederösterreich, 1230, Österreich"
+  },
+  "Stadionstraße 42, 2700, Wiener Neustadt, Austria": {
+    "lat": 47.829726,
+    "lng": 16.2464132,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Speedfit, 42, Stadionstraße, Katastralgemeinde Wiener Neustadt, Wiener Neustadt, Niederösterreich, 2700, Österreich"
+  },
+  "Bahnhofstraße 42, 6300, Wörgl, Austria": {
+    "lat": 47.4892772,
+    "lng": 12.0612148,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "City Center, 42, Bahnhofstraße, Wörgl, Bezirk Kufstein, Tirol, 6300, Österreich"
+  },
+  "fcrtel 55, 8020, Graz, Austria": null,
+  "dfe 10, 9020, Klagenfurt am W, Austria": null,
+  "E Stadtpl. 10-11, 3400, Klosterneuburg, Austria": null,
+  "dfe 1, 2100, Korneuburg, Austria": null,
+  "E Hauptpl. 17, 8700, Leoben, Austria": null,
+  "E Lindengasse 16, 4040, Linz, Austria": null,
+  "dfe 6, 2620, Neunkirchen, Austria": null,
+  "E Dr.-Doch-Gasse 3, 3107, St, Austria": null,
+  "E Hauptpl. 20, 2320, Schwechat, Austria": null,
+  "rntner Str. 7, 9500, Villach, Austria": null,
+  "dfe 10, 1190, Wien, Austria": null,
+  "dfe 42, 2700, Wiener Neustadt, Austria": null,
+  "dfe 42, 6300, W, Austria": null,
+  "menu-item-1, 1848, a, Austria": null,
+  "Nibelungengasse 5, 1010, Wien, Austria": {
+    "lat": 48.2019276,
+    "lng": 16.3642203,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "John Harris Fitness, 5, Nibelungengasse, Kärntner Viertel, Katastralgemeinde Innere Stadt, Innere Stadt, Wien, 1010, Österreich"
+  },
+  "Strobachgasse 7-9, 1050, Wien, Austria": {
+    "lat": 48.1924779,
+    "lng": 16.3581669,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7-9, Strobachgasse, Reinprechtsdorf, Margareten, Katastralgemeinde Margarethen, Margareten, Wien, 1050, Österreich"
+  },
+  "Donau-City-Straße 7, 1220, Wien, Austria": {
+    "lat": 48.2319659,
+    "lng": 16.4136998,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Donau-City-Straße, Donau City, Katastralgemeinde Kaisermühlen, Donaustadt, Wien, 1220, Österreich"
+  },
+  "Wiedner Gürtel 9, 1100, Wien, Austria": {
+    "lat": 48.1863726,
+    "lng": 16.3770555,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Nestle Österreich, 9, Wiedner Gürtel, Wieden, Wien, 1100, Österreich"
+  },
+  "Marxergasse 17, 1030, Wien, Austria": {
+    "lat": 48.2066595,
+    "lng": 16.3913752,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Paradisia, 17, Marxergasse, Katastralgemeinde Landstraße, Landstraße, Wien, 1030, Österreich"
+  },
+  "Untere Donaustraße 21, 1020, Wien, Austria": {
+    "lat": 48.212811,
+    "lng": 16.3833745,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "John Harris Fitness, 21, Untere Donaustraße, Czerninviertel, Leopoldstadt, Katastralgemeinde Leopoldstadt, Leopoldstadt, Wien, 1020, Österreich"
+  },
+  "Opernring 13-15, 1010, Wien, Austria": {
+    "lat": 48.2027047,
+    "lng": 16.3663233,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "John Harris Fitness Executive Club, 13-15, Opernring, Kärntner Viertel, Katastralgemeinde Innere Stadt, Innere Stadt, Wien, 1010, Österreich"
+  },
+  "Getreidemarkt 8, 1010, Wien, Austria": {
+    "lat": 48.2014455,
+    "lng": 16.3638477,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Univ.Prof. Dr. Gerald Seinost, 8, Getreidemarkt, Untere Windmühle, Katastralgemeinde Innere Stadt, Innere Stadt, Mariahilf, Wien, 1010, Österreich"
+  },
+  "Untere Donaulände 21-25, 4020, Linz, Austria": {
+    "lat": 48.3141913,
+    "lng": 14.2990421,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Medicent Linz, 21-25, Untere Donaulände, Lustenau, Kaplanhof, Linz, Oberösterreich, 4020, Österreich"
+  },
+  "Mozartstraße 7-11, 4020, Linz, Austria": {
+    "lat": 48.3026606,
+    "lng": 14.2977131,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mozartstraße, Neustadtviertel, Innere Stadt, Linz, Oberösterreich, 4020, Österreich"
+  },
+  "Girardigasse 1c, 8010, Graz, Austria": {
+    "lat": 47.0684903,
+    "lng": 15.4448079,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "John Harris Fitness \"Thalia Graz\", 1c, Girardigasse, Katastralgemeinde Innere Stadt, Innere Stadt, Graz, Steiermark, 8010, Österreich"
+  },
+  "Innsbrucker Bundesstraße 35, 5020, Salzburg, Austria": {
+    "lat": 47.804295,
+    "lng": 13.0193907,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Dr. med. dent. Meissner, 35, Innsbrucker Bundesstraße, Burgfried, Maxglan, Salzburg, 5020, Österreich"
+  },
+  "Bahnhof, 8020, Graz, Austria": {
+    "lat": 46.9687501,
+    "lng": 15.3456149,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Bahnhof Lieboch, 20, Bahnhofstraße, Katastralgemeinde Lieboch, Lieboch, Bezirk Graz-Umgebung, Steiermark, 8501, Österreich"
+  },
+  "Liebenau, 8041, Graz, Austria": {
+    "lat": 47.0401686,
+    "lng": 15.4492647,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Liebenau, Graz, Steiermark, 8041, Österreich"
+  },
+  "Jakominiplatz, 8010, Graz, Austria": {
+    "lat": 47.0673765,
+    "lng": 15.4435194,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Jakominiplatz, Katastralgemeinde Innere Stadt, Innere Stadt, Graz, Steiermark, 8010, Österreich"
+  },
+  "Südring, 9020, Klagenfurt, Austria": {
+    "lat": 46.6071327,
+    "lng": 14.3005207,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Südring, St. Ruprecht, Klagenfurt am Wörthersee, Kärnten, 9020, Österreich"
+  },
+  "Pasching, 4061, PlusCity, Austria": null,
+  "Neustadt, 2700, Wiener, Austria": {
+    "lat": 47.8110703,
+    "lng": 16.2336549,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wiener Neustadt Hauptbahnhof, Bahnhofplatz, Katastralgemeinde Wiener Neustadt, Wiener Neustadt, Niederösterreich, 2700, Österreich"
+  },
+  "Maculangasse 1,, 1220, Wien, Austria": {
+    "lat": 48.2630556,
+    "lng": 16.455,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mein Holter Bad Schauraum, 1, Maculangasse, Katastralgemeinde Kagran, Donaustadt, Wien, 1220, Österreich"
+  },
+  "Billrothstraße 2,, 1190, Wien, Austria": {
+    "lat": 48.2338189,
+    "lng": 16.3525212,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Eurospar, 2, Billrothstraße, Katastralgemeinde Oberdöbling, Döbling, Wien, 1190, Österreich"
+  },
+  "Office Park 3, Objekt 682, 3.OG,, 1300, Wien-Flughafen, Austria": null,
+  "Brünner Straße 241-243, GHI-Park Seyring, 2201, Gerasdorf/Seyring, Austria": null,
+  "Wehlistraße 35-43,, 1200, Wien, Austria": {
+    "lat": 48.2435754,
+    "lng": 16.3830771,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "35-43, Wehlistraße, Brigittenau, Katastralgemeinde Brigittenau, Brigittenau, Wien, 1200, Österreich"
+  },
+  "Bergmillergasse 5/Stiege 2/1. Stock, 1140, Wien, Austria": null,
+  "Vorgartenstraße 204,, 1020, Wien, Austria": {
+    "lat": 48.2164899,
+    "lng": 16.4112729,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Linked Living, 204, Vorgartenstraße, Leopoldstadt, Katastralgemeinde Leopoldstadt, Leopoldstadt, Wien, 1020, Österreich"
+  },
+  "Gewerbestraße 9 (neben Cineplexx), 7111, Parndorf, Austria": null,
+  "Baumfeldstraße 4,, 2170, Wetzelsdorf, Austria": {
+    "lat": 48.65523,
+    "lng": 16.6317956,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4, Baumfeldstraße, Eco Plus Poysdorf, Katastralgemeinde Wetzelsdorf, Wetzelsdorf, Poysdorf, Bezirk Mistelbach, Niederösterreich, 2170, Österreich"
+  },
+  "EKZ Interspar Daniel-Gran-Straße 13/1. Stock, 3100, St, Austria": null,
+  "Gewerbeparkstraße 3,, 1220, Wien, Austria": {
+    "lat": 48.2466872,
+    "lng": 16.4654008,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Gewerbeparkstraße, Katastralgemeinde Kagran, Donaustadt, Wien, 1220, Österreich"
+  },
+  "Franz-Samwald-Straße 65,, 2630, Ternitz, Austria": {
+    "lat": 47.704184,
+    "lng": 16.0170775,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fit Fabrik Plus, 65, Franz-Samwald-Straße, Katastralgemeinde Pottschach, Pottschach, Ternitz, Bezirk Neunkirchen, Niederösterreich, 2630, Österreich"
+  },
+  "Wipplingerstraße 30, 1010, Wien, Austria": {
+    "lat": 48.2134888,
+    "lng": 16.3675931,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Shinoi, 30, Wipplingerstraße, Schottenviertel, Katastralgemeinde Innere Stadt, Innere Stadt, Wien, 1010, Österreich"
+  },
+  "Hütteldorfer Straße 130a, 1140, Wien, Austria": {
+    "lat": 48.1978573,
+    "lng": 16.2997293,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "130A, Hütteldorfer Straße, Katastralgemeinde Breitensee, Penzing, Wien, 1140, Österreich"
+  },
+  "Wehlistraße 66, 1200, Wien, Austria": {
+    "lat": 48.2403452,
+    "lng": 16.3859373,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Millennium City, 66, Wehlistraße, Brigittenau, Katastralgemeinde Brigittenau, Brigittenau, Wien, 1200, Österreich"
+  },
+  "Schnirchgasse 13, 1030, Wien, Austria": {
+    "lat": 48.1942876,
+    "lng": 16.4118092,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Chernomorka, 13, Schnirchgasse, TownTown, Erdberg, Katastralgemeinde Landstraße, Landstraße, Wien, 1030, Österreich"
+  },
+  "Bürs, 2026, Bürs, Austria": {
+    "lat": 47.1430268,
+    "lng": 9.8109244,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Umspannwerk Bürs, Bürs, Bezirk Bludenz, Vorarlberg, Österreich"
+  },
+  "Dornbirn, 2026, Dornbirn, Austria": {
+    "lat": 47.4367291,
+    "lng": 9.7499189,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Betriebsgebiet Dornbirn-Nord, Haselstauden, Dornbirn, Bezirk Dornbirn, Vorarlberg, Österreich"
+  },
+  "Feldkirch, 2026, Feldkirch, Austria": {
+    "lat": 47.2375671,
+    "lng": 9.5981724,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Feldkirch, Bezirk Feldkirch, Vorarlberg, 6800, Österreich"
+  },
+  "Klagenfurt, 9020, Klagenfurt, Austria": {
+    "lat": 46.6164026,
+    "lng": 14.2646809,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Universität Klagenfurt, Nautilusweg, Waidmannsdorf, St. Martin, Klagenfurt am Wörthersee, Kärnten, 9020, Österreich"
+  },
+  "Urfahr, 4020, Linz, Austria": {
+    "lat": 48.3138122,
+    "lng": 14.2804026,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Urfahr, Linz, Oberösterreich, Österreich"
+  },
+  "Seiersberg, 8055, Graz, Austria": {
+    "lat": 47.0270486,
+    "lng": 15.397512,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Telekom Austria AG Leitungstechnik, 24, Katastralgemeinde Webling, Straßgang, Seiersberg, Graz, Steiermark, 8054, Österreich"
+  },
+  "Mariazellerstrasse 75, 2026, St. Pölten, Austria": {
+    "lat": 48.1909874,
+    "lng": 15.6192807,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "75, Mariazeller Straße, Katastralgemeinde St. Pölten, Nadelbach, St. Pölten, Niederösterreich, 3100, Österreich"
+  },
+  "Traisencenter, 2026, St. Pölten, Austria": {
+    "lat": 48.2211792,
+    "lng": 15.6383456,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Traisencenter, Viehofen, Katastralgemeinde Viehofen, Weitern, St. Pölten, Niederösterreich, Österreich"
+  },
+  "SCS-Shoppping City Süd, 2026, SCS-Shoppping City Süd, Austria": null,
+  "FITINN SCS-Shoppping City Süd, 2026, SCS-Shoppping City Süd, Austria": null,
+  "2026, SCS-Shoppping City Süd, Austria": null,
+  "Mrs.Sporty Bergengasse 3/4/L1, 1220, Wien, Austria": null,
+  "1220, Wien, Austria": {
+    "lat": 48.2188854,
+    "lng": 16.4949074,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1220, Katastralgemeinde Aspern, Donaustadt, Wien, Österreich"
+  },
+  "Mrs.Sporty Hauptplatz 10-11, Top 8, 2460, Bruck an der Leitha, Austria": null,
+  "2460, Bruck an der Leitha, Austria": {
+    "lat": 48.0255094,
+    "lng": 16.7790041,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Bruck an der Leitha, Bezirk Bruck an der Leitha, Niederösterreich, 2462, Österreich"
+  },
+  "Mrs.Sporty Koliskoplatz 2 Top 1, 2020, Hollabrunn, Austria": null,
+  "2020, Hollabrunn, Austria": {
+    "lat": 48.5744143,
+    "lng": 16.0620043,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2020, Katastralgemeinde Hollabrunn, Raschala, Hollabrunn, Bezirk Hollabrunn, Niederösterreich, Österreich"
+  },
+  "Austria": {
+    "lat": 47.59397,
+    "lng": 14.12456,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Österreich"
+  },
+  "Mrs.Sporty Hauptplatz 1A Top B2 – ziwa Park, 2542, Kottingbrunn, Austria": null,
+  "2542, Kottingbrunn, Austria": {
+    "lat": 47.9536048,
+    "lng": 16.240048,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2542, Katastralgemeinde Kottingbrunn, Kottingbrunn, Bezirk Baden, Niederösterreich, Österreich"
+  },
+  "Mrs.Sporty Hauptplatz 4, 1. Stock, 4020, Linz, Austria": null,
+  "4020, Linz, Austria": {
+    "lat": 48.2873301,
+    "lng": 14.3074202,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4020, Bulgariplatz, Linz, Oberösterreich, Österreich"
+  },
+  "Mrs.Sporty Linzer Str.9 (Gesundheitszentrum), 4614, Marchtrenk, Austria": null,
+  "4614, Marchtrenk, Austria": {
+    "lat": 48.1938708,
+    "lng": 14.1138383,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4614, Marchtrenk, Bezirk Wels-Land, Oberösterreich, Österreich"
+  },
+  "Mrs.Sporty Brunnergasse 2 Top 3, 2380, Perchtoldsdorf, Austria": null,
+  "2380, Perchtoldsdorf, Austria": {
+    "lat": 48.1187717,
+    "lng": 16.2561459,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2380, Perchtoldsdorf, Bezirk Mödling, Niederösterreich, Österreich"
+  },
+  "Mrs.Sporty Hauptstraße 81, 5600, St. Johann i. Pg., Austria": null,
+  "5600, St. Johann i. Pg., Austria": null,
+  "Mrs.Sporty Hauptplatz 17 Top 5, 2514, Traiskirchen, Austria": null,
+  "2514, Traiskirchen, Austria": {
+    "lat": 48.0177319,
+    "lng": 16.3083731,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2514, Katastralgemeinde Traiskirchen, Möllersdorf, Traiskirchen, Bezirk Baden, Niederösterreich, Österreich"
+  },
+  "Mrs.Sporty Anton Baumgartner Straße 125/2/1, 1230, Wien, Austria": null,
+  "1230, Wien, Austria": {
+    "lat": 48.1432804,
+    "lng": 16.2932278,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1230, Katastralgemeinde Atzgersdorf, Liesing, Wien, Österreich"
+  },
+  "Mrs.Sporty Auhofstraße 51-55/L1, 1130, Wien, Austria": null,
+  "1130, Wien, Austria": {
+    "lat": 48.1773373,
+    "lng": 16.2456065,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1130, Katastralgemeinde Auhof, Hietzing, Wien, Österreich"
+  },
+  "Mrs.Sporty Braunhubergasse 23 Top1A, 1110, Wien, Austria": null,
+  "1110, Wien, Austria": {
+    "lat": 48.1639952,
+    "lng": 16.4463043,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1110, Katastralgemeinde Kaiserebersdorf, Simmering, Wien, Österreich"
+  },
+  "Fit Fabrik Office Park 3, Objekt 682, 3.OG,, 1300, Wien-Flughafen, Austria": null,
+  "1300, Wien-Flughafen, Austria": {
+    "lat": 48.1219823,
+    "lng": 16.562438,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Postpartner 1300, Post Partner Flughafen, Einfahrtsstraße, Katastralgemeinde Mannswörth, Schwechat, Bezirk Bruck an der Leitha, Niederösterreich, 1300, Österreich"
+  },
+  "Fit Fabrik Brünner Straße 241-243, GHI-Park Seyring, 2201, Gerasdorf/Seyring, Austria": null,
+  "2201, Gerasdorf/Seyring, Austria": {
+    "lat": 48.330077,
+    "lng": 16.4909223,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Halliburton Company Austria, 2, Helmaweg, Katastralgemeinde Seyring, Seyring, Gerasdorf bei Wien, Bezirk Korneuburg, Niederösterreich, 2201, Österreich"
+  },
+  "Fit Fabrik Bergmillergasse 5/Stiege 2/1. Stock, 1140, Wien, Austria": null,
+  "1140, Wien, Austria": {
+    "lat": 48.2209671,
+    "lng": 16.2413317,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1140, Katastralgemeinde Hadersdorf, Penzing, Wien, Österreich"
+  },
+  "Fit Fabrik Gewerbestraße 9 (neben Cineplexx), 7111, Parndorf, Austria": null,
+  "7111, Parndorf, Austria": {
+    "lat": 47.9954805,
+    "lng": 16.8602166,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7111, Parndorf/Pandrof, Bezirk Neusiedl am See, Burgenland, Österreich"
+  },
+  "Fit Fabrik EKZ Interspar Daniel-Gran-Straße 13/1. Stock, 3100, St, Austria": null,
+  "3100, St, Austria": {
+    "lat": 48.1980459,
+    "lng": 15.6267932,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3100, Katastralgemeinde St. Pölten, Waitzendorf, St. Pölten, Niederösterreich, Österreich"
+  },
+  "MYGYM Solarstra\\xdfe 6, 4653, Eberstalzell, Austria": null,
+  "4653, Eberstalzell, Austria": {
+    "lat": 48.0397456,
+    "lng": 13.9866836,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4653, Eberstalzell, Bezirk Wels-Land, Oberösterreich, Österreich"
+  },
+  "MYGYM F\\xfcrbergstra\\xdfe 18-20, 5020, Salzburg, Austria": null,
+  "5020, Salzburg, Austria": {
+    "lat": 47.7975882,
+    "lng": 13.0368902,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5020, Riedenburg, Salzburg, Österreich"
+  },
+  "Speedfit E Hauptpl. 20, 2320, Schwechat, Austria": null,
+  "2320, Schwechat, Austria": {
+    "lat": 48.1179841,
+    "lng": 16.508454,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2320, Katastralgemeinde Schwechat, Rannersdorf, Schwechat, Bezirk Bruck an der Leitha, Niederösterreich, Österreich"
+  },
+  "MYGYM Amlacher Stra\\xdfe 12, 9900, Lienz, Austria": null,
+  "9900, Lienz, Austria": {
+    "lat": 46.8281235,
+    "lng": 12.750561,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9900, Lienz, Bezirk Lienz, Tirol, Österreich"
+  },
+  "MYGYM Waagstraße 2, 5671, Bruck/Glstr., Austria": null,
+  "5671, Bruck/Glstr., Austria": null,
+  "MYGYM Alpenstra\\xdfe 95-97, 5020, Salzburg, Austria": null,
+  "Speedfit dfe 1, 2100, Korneuburg, Austria": null,
+  "2100, Korneuburg, Austria": {
+    "lat": 48.3621111,
+    "lng": 16.3379577,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2100, Katastralgemeinde Korneuburg, Korneuburg, Bezirk Korneuburg, Niederösterreich, Österreich"
+  },
+  "Speedfit dfe 10, 1190, Wien, Austria": null,
+  "1190, Wien, Austria": {
+    "lat": 48.2590341,
+    "lng": 16.3336867,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1190, Katastralgemeinde Grinzing, Döbling, Wien, Österreich"
+  },
+  "INJOY Triesterstr. 391, 8055, Graz Süd, Austria": null,
+  "8055, Graz Süd, Austria": {
+    "lat": 47.0496281,
+    "lng": 15.4408246,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Umspannwerk Graz Süd, Katastralgemeinde Jakomini, Jakomini, Graz, Steiermark, Österreich"
+  },
+  "Speedfit E Stadtpl. 10-11, 3400, Klosterneuburg, Austria": null,
+  "3400, Klosterneuburg, Austria": {
+    "lat": 48.2889584,
+    "lng": 16.2757998,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3400, Katastralgemeinde Weidling, Weidling, Klosterneuburg, Bezirk Tulln, Niederösterreich, Österreich"
+  },
+  "MYGYM Kaltbachstra\\xdfe 668/3, 5582, St. Michael, Austria": null,
+  "5582, St. Michael, Austria": {
+    "lat": 47.1064479,
+    "lng": 13.612879,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5582, Sankt Michael im Lungau, Bezirk Tamsweg, Salzburg, Österreich"
+  },
+  "MYGYM K\\xf6stendorferstra\\xdfe 31, 5204, Stra\\xdfwalchen, Austria": null,
+  "5204, Stra\\xdfwalchen, Austria": null,
+  "MYGYM Josef-Lindner-Stra\\xdfe 8a, 5071, Wals bei Salzburg, Austria": null,
+  "5071, Wals bei Salzburg, Austria": null,
+  "FITINN Pasching, 4061, PlusCity, Austria": null,
+  "4061, PlusCity, Austria": null,
+  "MYGYM Bahnhofstra\\xdfe 7, 9800, Spittal an der Drau, Austria": null,
+  "9800, Spittal an der Drau, Austria": {
+    "lat": 46.7801839,
+    "lng": 13.5145817,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9800, Spittal an der Drau, Bezirk Spittal an der Drau, Kärnten, Österreich"
+  },
+  "MYGYM Prielhofstra\\xdfe 4, 5310, Mondsee, Austria": null,
+  "5310, Mondsee, Austria": {
+    "lat": 47.8560014,
+    "lng": 13.3500658,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mondsee, Bezirk Vöcklabruck, Oberösterreich, Österreich"
+  },
+  "Speedfit E Hauptpl. 17, 8700, Leoben, Austria": null,
+  "8700, Leoben, Austria": {
+    "lat": 47.3465837,
+    "lng": 15.1243258,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8700, Katastralgemeinde Göß, Leoben, Bezirk Leoben, Steiermark, Österreich"
+  },
+  "MYGYM Jakobistra\\xdfe 13, 5162, Obertrum, Austria": null,
+  "5162, Obertrum, Austria": {
+    "lat": 47.929981,
+    "lng": 13.048598,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5162, Obertrum am See, Bezirk Salzburg-Umgebung, Salzburg, Österreich"
+  },
+  "MYGYM Waagstra\\xdfe 2, 5671, Bruck/Glstr., Austria": null,
+  "MYGYM Josef-Lindner-Straße 8a, 5071, Wals bei Salzburg, Austria": null,
+  "Speedfit dfe 6, 2620, Neunkirchen, Austria": null,
+  "2620, Neunkirchen, Austria": {
+    "lat": 47.7189225,
+    "lng": 16.0754093,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2620, Katastralgemeinde Neunkirchen, Neunkirchen, Bezirk Neunkirchen, Niederösterreich, Österreich"
+  },
+  "Speedfit E Dr.-Doch-Gasse 3, 3107, St, Austria": null,
+  "3107, St, Austria": {
+    "lat": 48.2326533,
+    "lng": 15.6376893,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3107, Katastralgemeinde Ragelsdorf, Ragelsdorf, St. Pölten, Niederösterreich, Österreich"
+  },
+  "MYGYM Hauptstra\\xdfe 26, 9620, Hermagor, Austria": null,
+  "9620, Hermagor, Austria": {
+    "lat": 46.6236945,
+    "lng": 13.3324581,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9620, Hermagor-Pressegger See, Bezirk Hermagor, Kärnten, Österreich"
+  },
+  "Speedfit dfe 10, 9020, Klagenfurt am W, Austria": null,
+  "9020, Klagenfurt am W, Austria": null,
+  "Speedfit fcrtel 55, 8020, Graz, Austria": null,
+  "8020, Graz, Austria": {
+    "lat": 47.0687569,
+    "lng": 15.4110141,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8020, Gries, Graz, Steiermark, Österreich"
+  },
+  "MYGYM Ringstra\\xdfe 37, 5562, Obertauern, Austria": null,
+  "5562, Obertauern, Austria": {
+    "lat": 47.2484898,
+    "lng": 13.5596491,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5562 Obertauern, 80, Pionierstraße, Obertauern, Tweng, Bezirk Tamsweg, Salzburg, 5562, Österreich"
+  },
+  "MYGYM Franz Br\\xf6tzner Stra\\xdfe 9, 5071, Wals, Austria": null,
+  "5071, Wals, Austria": {
+    "lat": 47.7822954,
+    "lng": 12.975081,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5071, Wals-Siezenheim, Bezirk Salzburg-Umgebung, Salzburg, Österreich"
+  },
+  "MYGYM Leopold-Luger-Stra\\xdfe 1, 5760, Saalfelden, Austria": null,
+  "5760, Saalfelden, Austria": {
+    "lat": 47.4428138,
+    "lng": 12.8465493,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5760, Saalfelden am Steinernen Meer, Bezirk Zell am See, Salzburg, Österreich"
+  },
+  "MYGYM W\\xf6ltingerstra\\xdfe 9, 5580, Tamsweg, Austria": null,
+  "5580, Tamsweg, Austria": {
+    "lat": 47.1417258,
+    "lng": 13.8670953,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5580, Tamsweg, Bezirk Tamsweg, Salzburg, Österreich"
+  },
+  "MYGYM Alban-Bichler-Stra\\xdfe 3, 9971, Matrei, Austria": null,
+  "9971, Matrei, Austria": {
+    "lat": 47.0586193,
+    "lng": 12.5058422,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9971, Matrei in Osttirol, Bezirk Lienz, Tirol, Österreich"
+  },
+  "MYGYM Itzlinger Hauptstra\\xdfe 93a, 5020, Salzburg, Austria": null,
+  "MYGYM Wiener Stra\\xdfe 2-4, 5301, Eugendorf, Austria": null,
+  "5301, Eugendorf, Austria": {
+    "lat": 47.8577868,
+    "lng": 13.1504075,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5301, Eugendorf, Bezirk Salzburg-Umgebung, Salzburg, Österreich"
+  },
+  "Speedfit E Lindengasse 16, 4040, Linz, Austria": null,
+  "4040, Linz, Austria": {
+    "lat": 48.3340714,
+    "lng": 14.296742,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4040, St. Magdalena, Linz, Oberösterreich, Österreich"
+  },
+  "MYGYM Bundesstra\\xdfe 31, 5600, St. Johann, Austria": null,
+  "5600, St. Johann, Austria": {
+    "lat": 46.9735247,
+    "lng": 14.3508406,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Sankt Johann, Sankt Salvator, Friesach, Bezirk St. Veit an der Glan, Kärnten, 9360, Österreich"
+  },
+  "Speedfit dfe 42, 6300, W, Austria": null,
+  "6300, W, Austria": {
+    "lat": 47.7890329,
+    "lng": 13.248975,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wald, Ramsau, Faistenau, Bezirk Salzburg-Umgebung, Salzburg, 5324, Österreich"
+  },
+  "Speedfit dfe 42, 2700, Wiener Neustadt, Austria": null,
+  "2700, Wiener Neustadt, Austria": {
+    "lat": 47.8013645,
+    "lng": 16.2227075,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2700, Wiener Neustadt, Niederösterreich, Österreich"
+  },
+  "Speedfit rntner Str. 7, 9500, Villach, Austria": null,
+  "9500, Villach, Austria": {
+    "lat": 46.6163574,
+    "lng": 13.8130053,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9500, Villach, Kärnten, Österreich"
+  },
+  "INJOY Rettenbacherstr. 4b, 8044, Graz Ost, Austria": null,
+  "8044, Graz Ost, Austria": {
+    "lat": 47.0291696,
+    "lng": 15.4812063,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Autobahnzubringer Graz Ost, Katastralgemeinde Neudorf, Liebenau, Graz, Steiermark, 8041, Österreich"
+  },
+  "SCW, 4600, Wels, Austria": {
+    "lat": 48.1446967,
+    "lng": 13.9753233,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "SCW Shoppingcity Wels, 223, Salzburger Straße, Berg, Waidhausen, Wels, Oberösterreich, 4600, Österreich"
+  },
+  "SCN, 1210, Wien, Austria": {
+    "lat": 48.2684212,
+    "lng": 16.398483,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hollywood Megaplex SCN, 1, Ignaz-Köck-Straße, Neujedlersdorf, Katastralgemeinde Großjedlersdorf II, Floridsdorf, Wien, 1210, Österreich"
+  }
+}

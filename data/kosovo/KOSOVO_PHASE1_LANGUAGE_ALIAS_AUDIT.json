@@ -1,0 +1,42 @@
+{
+  "performed": true,
+  "languages": [
+    "Albanian",
+    "Serbian"
+  ],
+  "albanian_terms_used": [
+    "fitnes",
+    "fitness",
+    "palestra",
+    "teretana",
+    "fitnes qendër",
+    "palestër"
+  ],
+  "serbian_terms_used": [
+    "teretana",
+    "fitnes centar",
+    "sportska sala",
+    "фитнес",
+    "teretana",
+    "gym"
+  ],
+  "cities_audited_albanian": [
+    "Prishtina",
+    "Prizren",
+    "Pejë",
+    "Gjakovë",
+    "Ferizaj",
+    "Gjilan",
+    "Mitrovicë"
+  ],
+  "cities_audited_serbian": [
+    "North Mitrovica",
+    "Zvečan",
+    "Leposaviq",
+    "Zubin Potok"
+  ],
+  "albanian_audit_candidates": 1,
+  "serbian_audit_candidates": 4,
+  "additional_legitimate_candidates": true,
+  "notes": "Albanian-language discovery covers Prishtina and regional cities; Serbian-language pass covers North Mitrovica and North Kosovo municipalities."
+}

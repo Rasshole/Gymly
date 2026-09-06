@@ -1,0 +1,48 @@
+{
+  "identical_coordinates": [],
+  "hard_duplicate_conflicts": 0,
+  "pairs_le_200m": [
+    {
+      "a_id": "mk_41ca038c25",
+      "b_id": "mk_86cad1be86",
+      "distance_m": 73.6,
+      "same_brand": false,
+      "verdict": "B_distinct_current_clubs"
+    },
+    {
+      "a_id": "mk_cdaccb1c5c",
+      "b_id": "mk_f52f8d30cf",
+      "distance_m": 92.3,
+      "same_brand": false,
+      "verdict": "B_distinct_current_clubs"
+    }
+  ],
+  "same_brand": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0
+  },
+  "different_brand": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0
+  },
+  "pair_classifications": [
+    {
+      "a_id": "mk_41ca038c25",
+      "b_id": "mk_86cad1be86",
+      "distance_m": 73.6,
+      "same_brand": false,
+      "verdict": "B_distinct_current_clubs"
+    },
+    {
+      "a_id": "mk_cdaccb1c5c",
+      "b_id": "mk_f52f8d30cf",
+      "distance_m": 92.3,
+      "same_brand": false,
+      "verdict": "B_distinct_current_clubs"
+    }
+  ]
+}

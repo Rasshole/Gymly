@@ -1,0 +1,45 @@
+{
+  "cities": {
+    "Ljubljana": "A",
+    "Maribor": "A",
+    "Celje": "A",
+    "Kranj": "A",
+    "Koper": "A",
+    "Novo mesto": "A",
+    "Velenje": "B",
+    "Nova Gorica": "B",
+    "Ptuj": "B",
+    "Murska Sobota": "A",
+    "Slovenj Gradec": "B",
+    "Domžale": "A",
+    "Kamnik": "A",
+    "Jesenice": "A",
+    "Brežice": "B",
+    "Krško": "B",
+    "Postojna": "B",
+    "Bled": "B",
+    "Grosuplje": "A",
+    "Mengeš": "A"
+  },
+  "ready_by_city_existing": {
+    "Celje": 3,
+    "Kamnik": 1,
+    "Ljubljana": 10,
+    "Maribor": 6,
+    "Mengeš": 1,
+    "Murska Sobota": 2,
+    "Kranj": 2,
+    "Domžale": 1,
+    "Grosuplje": 1,
+    "Jesenice": 1,
+    "Koper": 2,
+    "Novo mesto": 2
+  },
+  "ready_by_city_new": {
+    "Ljubljana": 1
+  },
+  "material_city_gaps": 0,
+  "secondary_municipality_gaps": 0,
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0
+}

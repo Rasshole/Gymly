@@ -1,0 +1,76 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:55:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 6264313416,
+      "lat": 53.7831839,
+      "lon": 87.2171293,
+      "tags": {
+        "addr:city": "Новокузнецк",
+        "addr:housenumber": "99/1",
+        "addr:street": "улица Ленина",
+        "leisure": "fitness_centre",
+        "name": "Спорт-Лайф",
+        "sport": "swimming;table_tennis;tennis;fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10281340540,
+      "lat": 53.7599355,
+      "lon": 87.1491497,
+      "tags": {
+        "contact:phone": "+7 964 0958000",
+        "contact:website": "https://braunfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Braunfitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10759212786,
+      "lat": 53.765294,
+      "lon": 87.139843,
+      "tags": {
+        "contact:phone": "+7 384 3993866;+7 923 4773866",
+        "leisure": "fitness_centre",
+        "name": "Здоровье нации",
+        "opening_hours": "Mo-Su 07:00-22:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10759212924,
+      "lat": 53.766693,
+      "lon": 87.104056,
+      "tags": {
+        "contact:email": "cityfit.n@mail.ru",
+        "contact:phone": "+7 384 3348389",
+        "contact:website": "https://www.cityfit-nk.ru/",
+        "leisure": "fitness_centre",
+        "name": "CityFitness",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754243,
+      "lat": 53.7590015,
+      "lon": 87.1384264,
+      "tags": {
+        "contact:phone": "+7 384 3348137",
+        "contact:website": "https://novokuznetsk.metrofitness.ru/",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    }
+  ]
+}

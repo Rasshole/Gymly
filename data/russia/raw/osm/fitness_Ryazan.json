@@ -1,0 +1,224 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:55:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 981964283,
+      "lat": 54.6331539,
+      "lon": 39.7618564,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Olimpus"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5640977535,
+      "lat": 54.6201837,
+      "lon": 39.7272754,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "FitElit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-10:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5685741231,
+      "lat": 54.6202358,
+      "lon": 39.7273575,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "FitElit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6343062218,
+      "lat": 54.6051295,
+      "lon": 39.7579438,
+      "tags": {
+        "contact:phone": "+7 491 2511516",
+        "contact:vk": "https://vk.com/district11rzn",
+        "leisure": "fitness_centre",
+        "name": "Дистрикт 11",
+        "opening_hours": "Mo-Fr 08:00-23:00; Sa,Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6484248187,
+      "lat": 54.6077558,
+      "lon": 39.7911743,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Богатырь"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7351710897,
+      "lat": 54.6292239,
+      "lon": 39.7810766,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "МиксФит"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7355084586,
+      "lat": 54.6192668,
+      "lon": 39.7959839,
+      "tags": {
+        "email": "profi@fit-elit.ru",
+        "leisure": "fitness_centre",
+        "name": "Фит Профи",
+        "name:en": "Fit Profi",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "phone": "+7(4912)50-40-00;+7(4912)50-33-33",
+        "website": "https://fit-elit.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8048263165,
+      "lat": 54.6240198,
+      "lon": 39.7516328,
+      "tags": {
+        "addr:floor": "5",
+        "contact:instagram": "https://www.instagram.com/fitnes_centr_atron/",
+        "contact:phone": "+7 4912 99-59-59",
+        "contact:vk": "https://vk.com/club19335189",
+        "contact:website": "https://www.atron-fitness.com/",
+        "leisure": "fitness_centre",
+        "name": "Атрон",
+        "opening_hours": "Mo-Fr 07:00-23:00, Sa-Su 09:00-21:00",
+        "website": "https://www.atron-fitness.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8063327628,
+      "lat": 54.6234951,
+      "lon": 39.757836,
+      "tags": {
+        "addr:city": "Рязань",
+        "addr:housenumber": "64/32",
+        "addr:street": "улица Есенина",
+        "leisure": "fitness_centre",
+        "name": "Пик-Фитнес",
+        "opening_hours": "Mo-Fr 09:00-21:00, Sa-Su 09:00-18:00",
+        "phone": "+7  4912 700-808",
+        "website": "https://pik-hotel.ru/fitness/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8103916262,
+      "lat": 54.6327429,
+      "lon": 39.7020553,
+      "tags": {
+        "contact:instagram": "https://instagram.com/f5.fitness.club/",
+        "contact:vk": "https://vk.com/f5.fitness",
+        "leisure": "fitness_centre",
+        "name": "F5 fit",
+        "operator": "ИП Яковлев Д.О.",
+        "operator:ref:inn": "622900873949",
+        "operator:ref:ogrn": "315622900001295",
+        "phone": "+7 4912 776-001",
+        "website": "https://f5.fitness/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377399,
+      "lat": 54.626032,
+      "lon": 39.701723,
+      "tags": {
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 491 2466168;+7 800 5050606",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-ryazan.html/",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 08:00-22:00",
+        "operator": "ИП Шкуратова С.А."
+      }
+    },
+    {
+      "type": "node",
+      "id": 12350792393,
+      "lat": 54.6328447,
+      "lon": 39.7030677,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Crossfit Ryazan CF62",
+        "opening_hours": "Mo-Fr 16:00-20:00; Sa 12:00-14:00",
+        "phone": "+7 900 6044433",
+        "website": "https://vk.com/crossfit_cf62"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754233,
+      "lat": 54.6243245,
+      "lon": 39.7347246,
+      "tags": {
+        "contact:phone": "+7 491 2434388;+7 910 5748731",
+        "contact:website": "https://ryazan.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754234,
+      "lat": 54.6031835,
+      "lon": 39.825308,
+      "tags": {
+        "contact:phone": "+7 491 2434388;+7 951 1055465",
+        "contact:website": "https://ryazan.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13395831310,
+      "lat": 54.6636661,
+      "lon": 39.657728,
+      "tags": {
+        "check_date": "2025-12-22",
+        "leisure": "fitness_centre",
+        "name": "Арта фитнес"
+      }
+    },
+    {
+      "type": "way",
+      "id": 730445020,
+      "center": {
+        "lat": 54.6397733,
+        "lon": 39.7672371
+      },
+      "tags": {
+        "addr:city": "Рязань",
+        "addr:housenumber": "1Г",
+        "addr:street": "Окское шоссе",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Центр уличного спорта «Под мостом»",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "sport": "basketball;athletics;fitness;table_tennis",
+        "website": "https://LESOPARK62.RU"
+      }
+    }
+  ]
+}

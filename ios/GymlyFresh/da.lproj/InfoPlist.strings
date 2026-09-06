@@ -1,0 +1,7 @@
+/* Danish — system permission usage descriptions */
+"NSCameraUsageDescription" = "Gymly har brug for adgang til kameraet for at tage billeder og videoer af dine træninger og personlige rekorder.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Gymly bruger din placering under aktiv træning, så du automatisk tjekkes ud når du forlader centret — også når appen kører i baggrunden.";
+"NSLocationWhenInUseUsageDescription" = "Gymly har brug for adgang til din placering for at tjekke ind på fitnesscentre, når du er inden for 50 meter.";
+"NSMicrophoneUsageDescription" = "Gymly har brug for adgang til mikrofonen for at optage video med lyd til dine træninger og personlige rekorder.";
+"NSPhotoLibraryAddUsageDescription" = "Gymly har brug for tilladelse til at gemme billeder og videoer i dit fotobibliotek.";
+"NSPhotoLibraryUsageDescription" = "Gymly har brug for adgang til dit fotobibliotek for at vælge billeder og videoer at dele med dine træninger.";

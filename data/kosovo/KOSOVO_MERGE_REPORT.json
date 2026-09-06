@@ -1,0 +1,122 @@
+{
+  "country": "Kosovo",
+  "dry_run": false,
+  "baseline_match": true,
+  "pre_merge_sha256": "a1aba09e9ea375e8aa3c82c719556182ad07d8251c31ec142e307670e340aca0",
+  "post_merge_sha256": "f32fd0af4b1efe26d3da5676264b9a08bdc47ed6bd0a472b8b3278578896f5c5",
+  "before": {
+    "total": 11840,
+    "kosovo": 0,
+    "xk_prefix": 0,
+    "albania": 9,
+    "bosnia_herzegovina": 31,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "phase2_ready": 18,
+  "approved": 18,
+  "validated": 18,
+  "inserted": 18,
+  "withheld": 0,
+  "after": {
+    "total": 11858,
+    "kosovo": 18,
+    "xk_prefix": 18,
+    "albania": 9,
+    "bosnia_herzegovina": 31,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "eligibility": {
+    "CHAIN_CLASS_A": 12,
+    "SMALL_MARKET_INDEPENDENT": 6
+  },
+  "five_star_fitness": {
+    "count": 7,
+    "grand_hotel": "xk_4d98941de0",
+    "wellness_additive": true
+  },
+  "lets_go_gym": {
+    "count": 5
+  },
+  "smi": {
+    "count": 6,
+    "ids": [
+      "xk_500cfd9387",
+      "xk_ae58d8d928",
+      "xk_b3ba8d5cb9",
+      "xk_b434775de1",
+      "xk_bda33fc345",
+      "xk_d2868682b1"
+    ]
+  },
+  "city_breakdown": {
+    "Prishtina": 13,
+    "Fushë Kosovë": 1,
+    "Prizren": 2,
+    "Gjilan": 1,
+    "Ferizaj": 1
+  },
+  "brands": {
+    "Fitness Gym Prishtina": 1,
+    "Five Star Fitness": 7,
+    "Lets Go Gym": 5,
+    "Flex Gym": 1,
+    "PowerGym": 1,
+    "Fitness Feimi": 1,
+    "Fit In Gym": 1,
+    "Fitness Zone": 1
+  },
+  "reconciliation": {
+    "phase2_ready": 18,
+    "approved": 18,
+    "production_kosovo": 18,
+    "merged_staging": 18,
+    "invariant": "18 == 18 == 18 == 18",
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "exclusions": {
+    "municipal_leakage": 0,
+    "hotel_spa_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0,
+    "planet_fitness_kosovo": 0,
+    "fitness_zone_excluded_sites": 2,
+    "forbidden_excluded_ids_in_production": 0
+  },
+  "cross_border": {
+    "albania": 0,
+    "montenegro": 0,
+    "north_macedonia": 0,
+    "serbia": 0
+  },
+  "duplicates": {
+    "unexplained_hard_duplicates": 0
+  },
+  "rebrand_unresolved": 0,
+  "performance": {
+    "catalog": 11858,
+    "json_bytes": 3687108,
+    "parse_ms": 14
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200,
+  "verdict": "KOSOVO MERGE COMPLETE — WAITING FOR QA"
+}

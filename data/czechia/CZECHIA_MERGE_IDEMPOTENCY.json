@@ -1,0 +1,7 @@
+{
+  "second_run_insertions": 0,
+  "final_catalog": 11013,
+  "czechia": 70,
+  "pass": true,
+  "note": "Idempotency check must not overwrite CZECHIA_MERGE_REPORT.*"
+}

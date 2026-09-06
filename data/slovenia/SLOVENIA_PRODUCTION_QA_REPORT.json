@@ -1,0 +1,228 @@
+{
+  "country": "Slovenia",
+  "qa_type": "PRODUCTION_QA_FINAL",
+  "generated_at": "2026-08-29T11:31:32.169Z",
+  "read_only": true,
+  "production_modified": false,
+  "qa_insertions": 0,
+  "qa_updates": 0,
+  "qa_removals": 0,
+  "qa_sha_before": "18c7ed69ad1bdebcfbd77bd8b746bd48159c4963c0bb9a9c071bf5ee3e2d2bab",
+  "catalog_total": 11922,
+  "slovenia_live": 33,
+  "si_prefix_live": 33,
+  "inventory": {
+    "keep_existing": 32,
+    "new_ready": 1,
+    "existing_review_required": 0,
+    "approved_for_production": 33,
+    "production": 33,
+    "missing_approved_ids": [],
+    "unexpected_production_ids": [],
+    "original_existing_expected": 32,
+    "original_existing_present": 32,
+    "original_existing_missing": [],
+    "original_existing_changed": [],
+    "material_metadata_drift": []
+  },
+  "alfa_gym": {
+    "production_count": 1,
+    "address_match": true,
+    "coordinate_match": true,
+    "country_match": true,
+    "active": true,
+    "not_coming_soon": true,
+    "phase2_classification": "SMALL_MARKET_INDEPENDENT",
+    "eligibility": "CONVENTIONAL_PUBLIC_GYM"
+  },
+  "reconciliation_confirmation": {
+    "insertions": 1,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11921,
+    "total_after": 11922,
+    "slovenia_before": 32,
+    "slovenia_after": 33,
+    "si_prefix_before": 32,
+    "si_prefix_after": 33
+  },
+  "idempotency": {
+    "first_run": {
+      "insertions": 1,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11921,
+      "total_after": 11922,
+      "slovenia_before": 32,
+      "slovenia_after": 33,
+      "si_prefix_before": 32,
+      "si_prefix_after": 33
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11922,
+      "total_after": 11922,
+      "slovenia_before": 33,
+      "slovenia_after": 33,
+      "si_prefix_before": 33,
+      "si_prefix_after": 33
+    },
+    "idempotent": true
+  },
+  "brand_inventory": {
+    "BODIFIT": 8,
+    "FITINN": 6,
+    "Shape House": 18,
+    "Alfa Gym": 1
+  },
+  "class_a": {
+    "chains": [
+      "Shape House",
+      "BODIFIT",
+      "FITINN"
+    ],
+    "production_locations": 32,
+    "small_market_independent": 1,
+    "other": 0
+  },
+  "eligibility": {
+    "chain_class_a": 32,
+    "small_market_independent": 1,
+    "total": 33
+  },
+  "excluded": {
+    "staging_total": 5,
+    "production_leakage": []
+  },
+  "coming_soon": {
+    "staging_total": 0,
+    "production_leakage": []
+  },
+  "closed": {
+    "staging_total": 0,
+    "production_leakage": []
+  },
+  "wellness": {
+    "additive_count": 0,
+    "invalid_wellness_additive": 0
+  },
+  "safety": {
+    "hotel_resort_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0
+  },
+  "cross_border": {
+    "italy_outliers": 0,
+    "austria_outliers": 0,
+    "hungary_outliers": 0,
+    "croatia_outliers": 0,
+    "gorica_gorizia_identity_collisions": 0,
+    "italy_contamination": 0
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "slovenia_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0,
+    "legacy_duplicate_conflicts": 0
+  },
+  "data_quality": {
+    "invalid_si_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "prior_country_verification": {
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "prior_country_regressions": [],
+  "historical_test_debt": {
+    "HISTORICAL_SUITES_FAILED": 4,
+    "HISTORICAL_TESTS_FAILED": 20,
+    "STALE_GLOBAL_TOTAL_EXPECTATION": 2,
+    "STALE_COUNTRY_COUNT_EXPECTATION": 8,
+    "STALE_HISTORICAL_SHA_EXPECTATION": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 10,
+    "STALE_TOTAL_FAILURES": 10,
+    "REAL_COUNTRY_REGRESSIONS": 0
+  },
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "authoritative_tests": {
+    "passed": 26,
+    "total": 26,
+    "suites_passed": 2,
+    "suites_total": 2
+  },
+  "performance": {
+    "catalog_total": 11922,
+    "centers_json_bytes": 3706129,
+    "parse_ms": 23,
+    "architecture": "KEEP CLIENT-SIDE",
+    "assessment": "HEALTHY",
+    "headroom_to_12500": 578,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false
+  },
+  "gates": {
+    "production_modified": false,
+    "catalog_total": true,
+    "slovenia_live": true,
+    "si_prefix": true,
+    "sha_frozen": true,
+    "keep_new_review": true,
+    "approved_production_33": true,
+    "id_equality": true,
+    "original_32_present": true,
+    "original_32_unchanged": true,
+    "alfa_exact": true,
+    "brand_inventory_match": true,
+    "excluded_leakage": true,
+    "coming_soon_leakage": true,
+    "closed_leakage": true,
+    "hotel_resort_leakage": true,
+    "specialist_leakage": true,
+    "institutional_leakage": true,
+    "cross_border_clean": true,
+    "global_duplicate_ids": true,
+    "hard_duplicate_conflicts": true,
+    "rebrand_conflicts": true,
+    "data_quality_clean": true,
+    "reconciliation_delta": true,
+    "idempotent": true,
+    "prior_country_counts_unchanged": true,
+    "real_country_regressions": true,
+    "crosses_12500": false,
+    "authoritative_tests_pass": true
+  },
+  "bugs_found": [],
+  "bugs_fixed": [],
+  "remaining_risks": [
+    "Historical GymQa/MergeSafety/staging suites contain stale pre-reconciliation assertions (non-blocking)"
+  ],
+  "verdict": "SLOVENIA STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "qa_sha_after": "18c7ed69ad1bdebcfbd77bd8b746bd48159c4963c0bb9a9c071bf5ee3e2d2bab"
+}

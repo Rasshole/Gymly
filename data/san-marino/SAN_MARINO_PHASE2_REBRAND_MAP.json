@@ -1,0 +1,45 @@
+{
+  "entries": [
+    {
+      "legacy": "Piletas Fitness Center",
+      "current": "FitLife San Marino Domagnano",
+      "relationship": "A_current_successor",
+      "production_eligibility": "READY — FitLife only"
+    },
+    {
+      "legacy": "Directory Palestra Odon (Montecchio)",
+      "current": "MOVE Sala Pesi",
+      "relationship": "C_name_confusion",
+      "note": "Odon SM today is dental polyclinic Domagnano; MOVE is current gym",
+      "production_eligibility": "READY — MOVE only"
+    },
+    {
+      "legacy": null,
+      "current": "FSBB Galazzano",
+      "relationship": "B_distinct_current_clubs",
+      "note": "Distinct from Multieventi Sport Domus / CONS",
+      "production_eligibility": "READY — A_PUBLIC_CONVENTIONAL_GYM"
+    },
+    {
+      "legacy": "Games Fit Dogana",
+      "current": null,
+      "relationship": "CLOSED_LEGACY",
+      "production_eligibility": "CLOSED / EXCLUDED"
+    },
+    {
+      "legacy": null,
+      "current": "MOVE ≠ MoveUP Rimini",
+      "relationship": "C_name_confusion",
+      "note": "Italian MoveUP remains EXCLUDED_FOREIGN",
+      "production_eligibility": "READY MOVE only inside SM"
+    },
+    {
+      "legacy": null,
+      "current": "Energia spa tiers",
+      "relationship": "wellness_additive",
+      "note": "Basic sala-fitness tier exists; spa only on higher tiers",
+      "production_eligibility": "READY"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

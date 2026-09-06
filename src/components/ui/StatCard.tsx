@@ -54,7 +54,11 @@ export const StatCard: React.FC<StatCardProps> = ({
         )}
       </View>
       <View style={styles.textWrapper}>
-        <Text style={[styles.value, compact && styles.valueCompact, accent && styles.valueAccent]}>
+        <Text
+          style={[styles.value, compact && styles.valueCompact, accent && styles.valueAccent]}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          minimumFontScale={0.7}>
           {value}
         </Text>
         <Text style={[styles.label, compact && styles.labelCompact]}>{label}</Text>

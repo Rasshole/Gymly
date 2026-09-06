@@ -1,0 +1,53 @@
+{
+  "ready_by_city": {
+    "Reykjavík": 11,
+    "Seltjarnarnes": 1,
+    "Kópavogur": 5,
+    "Hafnarfjörður": 3,
+    "Mosfellsbær": 1,
+    "Akureyri": 2,
+    "Selfoss": 1,
+    "Hella": 1,
+    "Vestmannaeyjar": 1,
+    "Akranes": 1
+  },
+  "locality_audit": {
+    "Reykjavík": "chain_present",
+    "Kópavogur": "chain_present",
+    "Hafnarfjörður": "chain_present",
+    "Garðabær": "A_legitimate_no_chain_presence",
+    "Mosfellsbær": "chain_present",
+    "Seltjarnarnes": "chain_present",
+    "Reykjanesbær": "A_legitimate_no_chain_presence",
+    "Akureyri": "chain_present",
+    "Selfoss": "chain_present",
+    "Akranes": "chain_present",
+    "Borgarnes": "A_legitimate_no_chain_presence",
+    "Ísafjörður": "A_legitimate_no_chain_presence",
+    "Egilsstaðir": "A_legitimate_no_chain_presence",
+    "Vestmannaeyjar": "chain_present",
+    "Hveragerði": "A_legitimate_no_chain_presence"
+  },
+  "audited_localities": [
+    "Reykjavík",
+    "Kópavogur",
+    "Hafnarfjörður",
+    "Garðabær",
+    "Mosfellsbær",
+    "Seltjarnarnes",
+    "Reykjanesbær",
+    "Akureyri",
+    "Selfoss",
+    "Akranes",
+    "Borgarnes",
+    "Ísafjörður",
+    "Egilsstaðir",
+    "Vestmannaeyjar",
+    "Hveragerði"
+  ],
+  "notes": [
+    "Capital region dominates Class A READY inventory",
+    "Egilsstaðir / Ísafjörður / Borgarnes / Hveragerði have no Class A chain — legitimate gap",
+    "Reykjanesbær served via Keflavík/Njarðvík metro proximity to capital chains + Sporthúsið (excluded Class E)"
+  ]
+}

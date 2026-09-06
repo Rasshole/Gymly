@@ -1,0 +1,94 @@
+{
+  "generated": "2026-08-17T22:15:51.608328+00:00",
+  "phase": "uk_phase2_coord_recovery",
+  "staging_collapses": [],
+  "vs_live": {
+    "existing_uk_in_catalog": 0,
+    "live_catalog_total": 2952,
+    "id_collisions": [],
+    "same_brand_address_matches": [],
+    "proximity_same_brand": [],
+    "same_address_different_brand": [],
+    "gb_prefix_already_used": []
+  },
+  "staging_counts": {
+    "READY_TO_IMPORT": 1474,
+    "COMING_SOON": 71,
+    "NEEDS_COORDINATES": 166,
+    "NEEDS_REVIEW": 5,
+    "CLOSED": 1
+  },
+  "extra": {
+    "same_id": [],
+    "same_brand_address_postcode": [],
+    "same_coords_same_brand": [],
+    "same_address_different_brand": [
+      {
+        "address": "stirling road",
+        "postal_code": "YO30 4TU",
+        "brands": [
+          "Everlast Gyms",
+          "PureGym"
+        ],
+        "names": [
+          "Everlast Gyms York",
+          "PureGym York Gym"
+        ]
+      },
+      {
+        "address": "greenbridge retail park",
+        "postal_code": "SN3 3SQ",
+        "brands": [
+          "Nuffield Health",
+          "The Gym Group"
+        ],
+        "names": [
+          "Nuffield Health Swindon Fitness & Wellbeing Gym",
+          "The Gym Group Swindon"
+        ]
+      }
+    ],
+    "legacy_rebrand_pairs": [
+      {
+        "names": [
+          "Everlast Gyms York",
+          "PureGym York Gym"
+        ],
+        "brands": [
+          "Everlast Gyms",
+          "PureGym"
+        ]
+      }
+    ]
+  },
+  "demoted_wrong_geocodes": [
+    "Anytime Fitness Basingstoke RG21 7SY -> SS6 7HQ",
+    "Anytime Fitness Birmingham (Hagley Road) B68 0LH -> WS3 2EY",
+    "Anytime Fitness Hemel Hempstead HP1 1BT -> HD9 3AZ",
+    "Anytime Fitness London EC4 6DE -> WA7 3FT",
+    "Bannatyne Ashford Health Club TN25 4BN -> TN24 8XH",
+    "JD Gyms Aintree L30 6TQ -> L25 2XE",
+    "JD Gyms Halifax HX3 5HZ -> S6 1JY",
+    "JD Gyms London Charlton SE7 8LU -> IP1 2EJ",
+    "JD Gyms Sheffield North S6 1NN -> B69 2BD",
+    "Snap Fitness Blackwood NP12 1AU -> OX11 7LQ",
+    "Snap Fitness Leeds (Oakwood POI)",
+    "Snap Fitness Retford DN22 6DS -> NR6 5DH",
+    "The Gym Group Norwich Sweet Briar NR6 5DH -> NR3 2AT",
+    "Third Space The Whiteley W2 4YN -> PO15 7LB",
+    "Fitness4Less New Malden KT3 4AH -> SE13 7HL",
+    "Bannatyne Belfast Health Club BT18 9QY -> BT8 7BP"
+  ],
+  "restored_false_collapses": [
+    "JD Gyms Liverpool Edge Lane",
+    "JD Gyms Oldbury READY",
+    "Gymbox Holborn",
+    "Snap Fitness Leeds Oakwood READY"
+  ],
+  "official_pins_applied": [
+    "Nuffield Health Letchworth Garden City",
+    "Nuffield Health Surbiton",
+    "Nuffield Health Tunbridge Wells",
+    "Third Space The Whiteley"
+  ]
+}

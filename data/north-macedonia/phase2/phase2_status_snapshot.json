@@ -1,0 +1,12 @@
+{
+  "status_counts": {
+    "EXCLUDED": 59,
+    "READY_TO_IMPORT": 25
+  },
+  "ready": 25,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "projected_catalog": 11800,
+  "verdict": "READY FOR NORTH MACEDONIA MERGE",
+  "sha": "2eaa8b9f0ea10fce0a3ab0336f9312e6dc7ff77f463ee1669737f880ae6f0698"
+}

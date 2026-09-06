@@ -1,0 +1,22 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "json_size_bytes": 3705822,
+  "json_size_mb": 3.53,
+  "parse_ms": 103,
+  "cold_index_ms": 18436,
+  "cached_ms": 0,
+  "typical_search_ms": 3492,
+  "worst_search_ms": 547,
+  "nearest_ms": 1,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 2,
+  "budapest_viewport_count": 25,
+  "merge_baseline": {
+    "cold_index_ms": 1429,
+    "typical_search_ms": 1143,
+    "worst_search_ms": 248,
+    "nearest_ms": 1
+  },
+  "assessment": "Within normal variance of Hungary merge baseline (~11k). No material global regression. Global Stress QA not required at 11,063."
+}

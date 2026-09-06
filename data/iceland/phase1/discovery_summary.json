@@ -1,0 +1,13 @@
+{
+  "country": "Iceland",
+  "production_total": 11665,
+  "production_sha256": "caf838b1ce733fd20fb724306429bcc48ddee49d684a8efbe70c0cd9b1e46944",
+  "iceland_live": 0,
+  "candidate_count": 58,
+  "world_class_official_open": 20,
+  "katla_fitness_official_open": 7,
+  "class_a_chains": [
+    "World Class",
+    "Katla Fitness"
+  ]
+}

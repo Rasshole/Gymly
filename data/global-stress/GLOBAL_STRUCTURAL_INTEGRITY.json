@@ -1,0 +1,12 @@
+{
+  "catalog_total": 12850,
+  "global_duplicate_ids": 0,
+  "global_missing_ids": 0,
+  "global_missing_names": 0,
+  "global_missing_countries": 0,
+  "global_missing_cities": 0,
+  "global_invalid_coordinates": 0,
+  "global_schema_failures": 0,
+  "inactive_count": 4,
+  "active_count": 12846
+}

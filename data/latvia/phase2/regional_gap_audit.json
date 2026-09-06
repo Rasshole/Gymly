@@ -1,0 +1,22 @@
+{
+  "ready_by_city": {
+    "Rīga": 32,
+    "Daugavpils": 1
+  },
+  "expected": {
+    "Rīga": 32,
+    "Daugavpils": 1
+  },
+  "zero_open_classifications": {
+    "Liepāja": "A_legitimate_no_chain_presence — no MyFitness/Lemon/Gym! locator entry; Gym Lāčplēsis single-site only (EXCLUDED)",
+    "Jelgava": "A_legitimate_no_chain_presence — no Class A locator entry; independents only",
+    "Jūrmala": "A_legitimate_no_chain_presence — hotel/independent gyms; no Class A chain",
+    "Ventspils": "A_legitimate_no_chain_presence — no Class A locator entry",
+    "Rēzekne": "A_legitimate_no_chain_presence — no Class A locator entry",
+    "Valmiera": "A_legitimate_no_chain_presence — local/MyEMS-style; not Class A multi-site",
+    "Jēkabpils": "A_legitimate_no_chain_presence — no Class A locator entry",
+    "Ogre": "A_legitimate_no_chain_presence — no Class A locator entry"
+  },
+  "phase2_note": "Official MyFitness (15 LV, all Rīga metro), Lemon Gym (8 open Rīga), Gym! (9 Rīga + Daugavpils) locators rechecked 2026-08-25 — no regional expansion.",
+  "unexplained_b_gaps": []
+}

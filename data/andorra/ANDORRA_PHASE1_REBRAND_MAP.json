@@ -1,0 +1,26 @@
+{
+  "country": "Andorra",
+  "cases": [
+    {
+      "id": "urban_anyospark_group",
+      "classification": "B_distinct_current_clubs",
+      "operator": "Urban Gym / AnyósPark",
+      "locations": [
+        "AnyósPark Club La Massana",
+        "Urban Gym Andorra la Vella",
+        "Urban Gym Canillo",
+        "Urban Gym Arinsal (seasonal)"
+      ],
+      "status": "RESOLVED",
+      "notes": "Same operator group; distinct physical centres; Arinsal seasonal Dec–Apr"
+    },
+    {
+      "id": "caldea_club_vs_thermal",
+      "classification": "C_name_confusion",
+      "identity": "Club Caldea",
+      "status": "RESOLVED",
+      "notes": "Thermal spa club with gym amenity — EXCLUDED Class C; not a conventional Gymly import unit"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

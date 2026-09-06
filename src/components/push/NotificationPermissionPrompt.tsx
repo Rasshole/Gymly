@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import colors from '@/theme/colors';
 import {spacing, typography} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 type Props = {
   visible: boolean;
@@ -23,19 +24,20 @@ const NotificationPermissionPrompt: React.FC<Props> = ({
   onAllow,
   onLater,
 }) => {
+  const {t} = useTranslation();
   return (
     <Modal visible={visible} transparent animationType="fade">
       <View style={styles.backdrop}>
         <View style={styles.card}>
-          <Text style={styles.title}>Slå notifikationer til</Text>
+          <Text style={styles.title}>{t('phase2ui.enableNotifications')}</Text>
           <Text style={styles.body}>
-            Få besked når venner skriver, inviterer dig til træning eller tjekker ind.
+            {t('phase2ui.notificationsBody')}
           </Text>
           <TouchableOpacity style={styles.primary} onPress={onAllow} activeOpacity={0.85}>
-            <Text style={styles.primaryText}>Tillad notifikationer</Text>
+            <Text style={styles.primaryText}>{t('phase2ui.allowNotifications')}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.secondary} onPress={onLater} activeOpacity={0.7}>
-            <Text style={styles.secondaryText}>Ikke nu</Text>
+            <Text style={styles.secondaryText}>{t('pushSettings.notNow')}</Text>
           </TouchableOpacity>
         </View>
       </View>

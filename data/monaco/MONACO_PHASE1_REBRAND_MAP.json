@@ -1,0 +1,37 @@
+{
+  "country": "Monaco",
+  "phase": 1,
+  "cases": [
+    {
+      "id": "monte_carlo_gym_eclub",
+      "classification": "A_current_successor",
+      "predecessor": "Monte-Carlo GYM",
+      "successor": "Eclub Monte-Carlo Gym",
+      "status": "RESOLVED",
+      "notes": "Same Boulevard des Moulins premises; consumer brand now E.Club / Eclub"
+    },
+    {
+      "id": "world_class_monaco_branding",
+      "classification": "C_name_confusion",
+      "identity": "World Class Cap-d'Ail",
+      "status": "RESOLVED",
+      "notes": "Marketed to Monaco but physical address 6 Av. Marquet 06320 Cap-d'Ail FRANCE — FOREIGN_NEAR_BORDER"
+    },
+    {
+      "id": "larvotto_gym_center_fit_factory",
+      "classification": "A_current_successor",
+      "predecessor": "Larvotto Gym Center (closed 2019 remodel)",
+      "successor": "Fit Factory Larvotto",
+      "status": "RESOLVED",
+      "notes": "Fit Factory opened in new Larvotto complex replacing prior Gym Center"
+    },
+    {
+      "id": "stars_n_bars_fitness",
+      "classification": "E_legacy_closed",
+      "identity": "Stars'N'Bars Fitness",
+      "status": "RESOLVED",
+      "notes": "Restaurant/bar institution closed; not a current conventional gym product"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

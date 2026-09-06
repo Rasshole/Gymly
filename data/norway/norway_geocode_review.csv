@@ -1,0 +1,246 @@
+name,brand,address,postal_code,city,latitude,longitude,geocode_status,import_category
+SATS Adamstuen,SATS,Kirkeveien 159,0451,Oslo,59.936078,10.733519,ok,MERGED_INTO_CATALOG
+SATS Akersgata,SATS,Akersgata 51,0180,Oslo,59.914755,10.74325,ok,MERGED_INTO_CATALOG
+SATS Aquarama,SATS,Tangen 8,4608,Kristiansand S,58.147185,8.006505,ok,MERGED_INTO_CATALOG
+SATS Asker,SATS,Erteløkka 1,1384,Asker,59.834375,10.438255,ok,MERGED_INTO_CATALOG
+SATS Bekkestua,SATS,Gamle Ringeriksvei 34c,1357,Bekkestua,,,ambiguous,NEEDS_REVIEW
+SATS Bekkestua stasjon,SATS,Bærumsveien 206,1357,Bekkestua,59.917283,10.588554,ok,MERGED_INTO_CATALOG
+SATS Bergen LHG,SATS,Lars Hillesgate 29,5008,Bergen,,,failed,NEEDS_COORDINATES
+SATS Billingstad,SATS,Billingstadsletta 11,1396,Billingstad,59.877017,10.500693,ok,MERGED_INTO_CATALOG
+SATS Bislett,SATS,Bislettgata 6,0170,Oslo,59.924464,10.732327,ok,MERGED_INTO_CATALOG
+SATS Bjørvika,SATS,Dronning Eufemias Gate 18,0191,Oslo,59.907832,10.75894,ok,MERGED_INTO_CATALOG
+SATS Bryne,SATS,Trallfaveien 1,4340,Bryne,,,failed,NEEDS_COORDINATES
+SATS Carl Berner,SATS,Trondheimsveien 135,0570,Oslo,59.928767,10.778181,ok,READY_TO_IMPORT
+SATS CC Vest,SATS,Lilleakerveien 14,0283,Oslo,59.916018,10.635408,ok,MERGED_INTO_CATALOG
+SATS Colosseum,SATS,Middelthunsgate 19,0368,Oslo,,,failed,NEEDS_COORDINATES
+SATS Damsgård,SATS,Damsgårdsveien 135,5160,Laksevåg,60.384611,5.309891,ok,MERGED_INTO_CATALOG
+SATS Danmarksplass,SATS,Solheimsgaten 58,5054,Bergen,60.375901,5.338398,ok,MERGED_INTO_CATALOG
+SATS Drammen,SATS,Brandtenborggata 1,3002,Drammen,59.740973,10.221753,suspicious,READY_TO_IMPORT
+SATS Fagerborg,SATS,Pilestredet 75 C,0354,Oslo,59.926947,10.728609,ok,MERGED_INTO_CATALOG
+SATS Fornebu,SATS,Forneburingen 209,1364,Fornebu,59.893834,10.618665,ok,MERGED_INTO_CATALOG
+SATS Forus,SATS,Svanholmen 2,4033,Stavanger,58.893786,5.707489,ok,MERGED_INTO_CATALOG
+SATS Fredrikstad,SATS,Kråkerøyveien 4,1671,Kråkerøy,59.20552,10.938176,ok,MERGED_INTO_CATALOG
+SATS Hasle,SATS,Grenseveien 50,0579,Oslo,59.923566,10.792788,ok,MERGED_INTO_CATALOG
+SATS Hellerud,SATS,Tvetenveien 168-170,0671,Oslo,,,ambiguous,NEEDS_REVIEW
+SATS Herbarium,SATS,Lars Hertervigs Gate 6,4005,Stavanger,58.969866,5.728301,ok,MERGED_INTO_CATALOG
+SATS Hillevåg,SATS,Hillevågsveien 25,4016,Stavanger,58.950003,5.742168,ok,MERGED_INTO_CATALOG
+SATS Hoff,SATS,Hoffsveien 10,0278,Oslo,,,failed,NEEDS_COORDINATES
+SATS Ila,SATS,Waldemar Thranes Gate 86,0175,Oslo,59.928304,10.753731,ok,MERGED_INTO_CATALOG
+SATS Jessheim,SATS,Industrivegen 21,2069,Jessheim,60.15164,11.1846,ok,READY_TO_IMPORT
+SATS Kalbakken,SATS,Kalbakkveien 6,0953,Oslo,59.952686,10.868443,ok,MERGED_INTO_CATALOG
+SATS Kampen,SATS,Østerdalsgata 1,0658,Oslo,59.910326,10.789708,ok,MERGED_INTO_CATALOG
+SATS Karlsrud,SATS,Cecilie Thoresensvei 3,1153,Oslo,59.878407,10.808163,suspicious,MERGED_INTO_CATALOG
+SATS Klosterøya,SATS,Unionsgata 5,3732,Skien,,,failed,NEEDS_COORDINATES
+SATS Kokstad,SATS,Kokstadvegen 25B,5257,Kokstad,60.29645,5.266201,ok,MERGED_INTO_CATALOG
+SATS Kolbotn,SATS,Kolbotnveien 12,1410,Kolbotn,59.81082,10.801974,ok,MERGED_INTO_CATALOG
+SATS Lagunen,SATS,Laguneveien 1,5239,Rådal,60.296865,5.331155,ok,MERGED_INTO_CATALOG
+SATS Lambertseter,SATS,Langbølgen 5,1153,Oslo,59.873072,10.811845,suspicious,READY_TO_IMPORT
+SATS Langnes,SATS,Huldervegen 8,9016,Tromsø,69.671489,18.919893,ok,MERGED_INTO_CATALOG
+SATS Lillestrøm,SATS,Dampsagveien 12,2000,Lillestrøm,59.952426,11.044605,suspicious,READY_TO_IMPORT
+SATS Linderud,SATS,Erich Mogensøns Vei 38,0517,Oslo,59.943242,10.835473,suspicious,READY_TO_IMPORT
+SATS Madla,SATS,Madlakrossen 9,4042,Hafrsfjord,58.952237,5.679535,ok,MERGED_INTO_CATALOG
+SATS Metro,SATS,Kulturhusgata 2,1473,Lørenskog,59.927419,10.961879,ok,MERGED_INTO_CATALOG
+SATS Nationalteateret,SATS,Ruseløkkveien 6,0251,Oslo,59.91469,10.731137,ok,MERGED_INTO_CATALOG
+SATS Nesttun,SATS,Apeltunvegen 2,5223,Nesttun,60.311556,5.35447,suspicious,READY_TO_IMPORT
+SATS Njård,SATS,Sørkedalsveien 106,0378,Oslo,59.941488,10.671457,ok,MERGED_INTO_CATALOG
+SATS Nydalen,SATS,Sandakerveien 109-111,0484,Oslo,,,ambiguous,NEEDS_REVIEW
+SATS Oasen,SATS,Folke Bernadottes Vei 52,5881,Bergen,60.348956,5.291796,suspicious,READY_TO_IMPORT
+SATS Porselensfabrikken,SATS,Porselensvegen 8,3920,Porsgrunn,59.140789,9.639713,ok,MERGED_INTO_CATALOG
+SATS Porsgrunn,SATS,Jernbanegata 3,3916,Porsgrunn,59.139458,9.654835,ok,MERGED_INTO_CATALOG
+SATS Ringnes Park,SATS,Sannergata 6b,0557,Oslo,59.928583,10.759722,ok,MERGED_INTO_CATALOG
+SATS Ryen,SATS,Ryensvingen 5,0680,Oslo,59.892383,10.805036,ok,MERGED_INTO_CATALOG
+SATS Røa,SATS,Tore Hals Mejdells Vei 18,0751,Oslo,59.946148,10.645639,ok,MERGED_INTO_CATALOG
+SATS Sagene,SATS,Pontoppidans Gate 7,0462,Oslo,59.936445,10.754143,ok,MERGED_INTO_CATALOG
+SATS Sandnes,SATS,Vågsgata 16,4306,Sandnes,,,ambiguous,NEEDS_REVIEW
+SATS Sandvika Panorama,SATS,Sandviksveien 176,1338,Sandvika,59.886853,10.521136,suspicious,READY_TO_IMPORT
+SATS Sandviken,SATS,Måseskjæret 3,5035,Bergen,60.412826,5.320735,ok,MERGED_INTO_CATALOG
+SATS Sarpsborg,SATS,Roald Amundsens Gate 36,1723,Sarpsborg,59.283326,11.107507,ok,MERGED_INTO_CATALOG
+SATS Schous plass,SATS,Trondheimsveien 2 D,0560,Oslo,59.918858,10.760316,ok,MERGED_INTO_CATALOG
+SATS Sjølyst,SATS,Karenlyst allé 7,0278,Oslo,,,failed,NEEDS_COORDINATES
+SATS Skedsmokorset,SATS,Furuholtet 1,2020,Skedsmokorset,,,failed,NEEDS_COORDINATES
+SATS Slemmestad,SATS,Kirkeallen 1,3470,Slemmestad,,,failed,NEEDS_COORDINATES
+SATS Solli,SATS,Henrik Ibsens gate 100,0254,Oslo,59.914391,10.718977,suspicious,READY_TO_IMPORT
+SATS Stadionparken,SATS,Jåttåvågveien 7,4020,Stavanger,58.914907,5.729386,ok,MERGED_INTO_CATALOG
+SATS Storhaug,SATS,Kvitsøygata 19b,4014,Stavanger,58.968997,5.756897,ok,MERGED_INTO_CATALOG
+SATS Storo,SATS,Vitaminveien 7-9,0485,Oslo,59.946536,10.774187,ok,MERGED_INTO_CATALOG
+SATS Strømsø,SATS,C.O. Lunds gate 25,3043,Drammen,59.731504,10.21335,ok,READY_TO_IMPORT
+SATS Tasta,SATS,Tastatunet 1-3,4027,Stavanger,58.984123,5.689769,ok,MERGED_INTO_CATALOG
+SATS Triaden,SATS,Gamleveien 88,1461,Lørenskog,59.918615,10.953523,ok,MERGED_INTO_CATALOG
+SATS Trim Towers,SATS,Larsamyrå 18,4313,Sandnes,58.869743,5.717288,ok,MERGED_INTO_CATALOG
+SATS Tromsø,SATS,Fredrik Langesgate 12,9008,Tromsø,,,failed,NEEDS_COORDINATES
+SATS Ullevaal,SATS,Sognsveien 75,0855,Oslo,59.949629,10.732958,ok,READY_TO_IMPORT
+SATS Vestkanten,SATS,Loddefjordveien 2,5881,Bergen,60.36322,5.233628,suspicious,READY_TO_IMPORT
+SATS Vinderen,SATS,Slemdalsveien 70,0373,Oslo,,,ambiguous,NEEDS_REVIEW
+SATS Vågsbygd,SATS,Fiskåveien 4,4621,Kristiansand S,58.126542,7.963411,ok,MERGED_INTO_CATALOG
+SATS Wergeland,SATS,Storetveitvegen 6,5067,Bergen,60.36134,5.351505,ok,MERGED_INTO_CATALOG
+SATS Yoga Aker Brygge,SATS,Bryggetorget 5,0520,Oslo,59.910096,10.724639,suspicious,READY_TO_IMPORT
+SATS Yoga Majorstuen,SATS,Schultz' Gate 1,0368,Oslo,59.9273,10.720182,suspicious,READY_TO_IMPORT
+SATS Åsane,SATS,Myrdalsvegen 2,5132,Nyborg,,,failed,NEEDS_COORDINATES
+SATS Åssiden,SATS,Ingvald Ludvigsens Gt. 21,3027,Drammen,59.752877,10.123662,suspicious,MERGED_INTO_CATALOG
+Fresh Fitness Trondheim Sentrum,Fresh Fitness,Kjøpmannsgata 65,7011,Trondheim,63.432712,10.404054,ok,MERGED_INTO_CATALOG
+Fresh Fitness Valentinlyst,Fresh Fitness,Anders Estenstads Veg 6,7046,Trondheim,63.424205,10.443342,ok,MERGED_INTO_CATALOG
+Fresh Fitness Blindern,Fresh Fitness,Vestgrensa 2,0851,Oslo,59.94079,10.729133,ok,MERGED_INTO_CATALOG
+Fresh Fitness Carl Berner,Fresh Fitness,Dælenenggata 4,0567,Oslo,59.925504,10.774338,ok,MERGED_INTO_CATALOG
+Fresh Fitness Ensjø,Fresh Fitness,Gladengveien 1,0661,Oslo,59.914558,10.78817,ok,MERGED_INTO_CATALOG
+Fresh Fitness Grønland,Fresh Fitness,Grønlandsleiret 25,0190,Oslo,59.911829,10.766096,ok,MERGED_INTO_CATALOG
+Fresh Fitness Haugerud,Fresh Fitness,Haugerud Senter 1-7,0673,Oslo,,,failed,NEEDS_COORDINATES
+Fresh Fitness Hauketo,Fresh Fitness,Hauketoveien 8,1266,Oslo,59.847142,10.804518,ok,MERGED_INTO_CATALOG
+Fresh Fitness Kalbakken,Fresh Fitness,Trondheimsveien 391,0953,Oslo,59.952359,10.867368,ok,MERGED_INTO_CATALOG
+Fresh Fitness Lindeberg,Fresh Fitness,Jerikoveien 28,1067,Oslo,59.935626,10.886957,ok,MERGED_INTO_CATALOG
+Fresh Fitness Majorstuen,Fresh Fitness,Bogstadveien 9,0355,Oslo,59.925263,10.72305,ok,MERGED_INTO_CATALOG
+Fresh Fitness Manglerud,Fresh Fitness,Plogveien 6,0612,Oslo,59.89729,10.81286,suspicious,READY_TO_IMPORT
+Fresh Fitness Romsås,Fresh Fitness,Romsås Senter 1,0970,Oslo,59.963161,10.892858,ok,MERGED_INTO_CATALOG
+Fresh Fitness Sandaker,Fresh Fitness,Sandakerveien 59,0477,Oslo,59.938436,10.768478,ok,MERGED_INTO_CATALOG
+Fresh Fitness Sinsen,Fresh Fitness,Trondheimsveien 137,0570,Oslo,59.929188,10.778257,ok,MERGED_INTO_CATALOG
+Fresh Fitness St. Hanshaugen,Fresh Fitness,Waldemar Thranes Gate 25,0171,Oslo,59.925943,10.745483,ok,MERGED_INTO_CATALOG
+Fresh Fitness Storo,Fresh Fitness,Sandakerveien 78,0484,Oslo,59.943702,10.770942,ok,MERGED_INTO_CATALOG
+Fresh Fitness Ulven,Fresh Fitness,Ulvenveien 82,0581,Oslo,59.926128,10.811724,ok,MERGED_INTO_CATALOG
+Fresh Fitness Ås,Fresh Fitness,Moerveien 8,1430,Ås,,,ambiguous,NEEDS_REVIEW
+Fresh Fitness Asker,Fresh Fitness,"Trekanten Senter, Knud Askers Vei 26",1383,Asker,,,failed,NEEDS_COORDINATES
+Fresh Fitness Jessheim,Fresh Fitness,Trondheimsvegen 85,2050,Jessheim,,,ambiguous,NEEDS_REVIEW
+Fresh Fitness Larvik,Fresh Fitness,Frankendalsveien 101,3274,Larvik,59.065608,10.053719,ok,MERGED_INTO_CATALOG
+Fresh Fitness Lier,Fresh Fitness,"Hegsbroveien 60, Bakerikvartalet",3400,Lier,,,failed,NEEDS_COORDINATES
+Fresh Fitness Lillestrøm,Fresh Fitness,Stillverksveien 3,2004,Lillestrøm,59.95345,11.049791,ok,MERGED_INTO_CATALOG
+Fresh Fitness Østerås,Fresh Fitness,Otto Ruges Vei 80,1361,Østerås,59.94373,10.60709,ok,MERGED_INTO_CATALOG
+Fresh Fitness Sandefjord,Fresh Fitness,Hegnasletta 1,3217,Sandefjord,59.129258,10.243245,ok,MERGED_INTO_CATALOG
+Fresh Fitness Sandvika,Fresh Fitness,Industriveien 33,1337,Sandvika,59.891846,10.510211,ok,MERGED_INTO_CATALOG
+Fresh Fitness Skårer,Fresh Fitness,Skårersletta 60,1473,Lørenskog,59.920566,10.955309,ok,MERGED_INTO_CATALOG
+Fresh Fitness Skedsmokorset,Fresh Fitness,Industriveien 11b,2020,Skedsmokorset,60.008559,11.042635,ok,MERGED_INTO_CATALOG
+Fresh Fitness Ski,Fresh Fitness,Kjeppestadveien 2,1400,Ski,59.715158,10.83956,ok,MERGED_INTO_CATALOG
+Fresh Fitness Strømmen,Fresh Fitness,Strømsveien 43-45,2010,Strømmen,59.954575,11.01334,ok,READY_TO_IMPORT
+Fresh Fitness Tønsberg,Fresh Fitness,Stensarmen 4,3112,Tønsberg,59.262067,10.41892,ok,MERGED_INTO_CATALOG
+Fresh Fitness Grimstad,Fresh Fitness,Jon Lilletunsvei 1,4879,Grimstad,58.336502,8.576251,suspicious,MERGED_INTO_CATALOG
+Fresh Fitness Kristiansand sentrum,Fresh Fitness,Henrik Wergelands gate 27,4666,Kristiansand S,58.147562,7.99225,suspicious,READY_TO_IMPORT
+Fresh Fitness Lillesand,Fresh Fitness,Tingsakerbakken 17,4790,Lillesand,58.260985,8.391842,ok,MERGED_INTO_CATALOG
+Fresh Fitness Lund,Fresh Fitness,Industrigata 6,4632,Kristiansand S,58.151406,8.025736,ok,READY_TO_IMPORT
+Fresh Fitness Lyngdal,Fresh Fitness,Fiboveien 1,4580,Lyngdal,58.156359,7.101673,ok,MERGED_INTO_CATALOG
+Fresh Fitness Rona,Fresh Fitness,Gamle Strømmevei 1,4638,Kristiansand S,58.160941,8.081617,ok,MERGED_INTO_CATALOG
+Fresh Fitness Søgne,Fresh Fitness,Rådhusveien 47,4640,Søgne,58.095925,7.811213,ok,MERGED_INTO_CATALOG
+Fresh Fitness Vågsbygd Kjos,Fresh Fitness,Vågsbygd Ringvei 5A,4620,Kristiansand S,58.117609,7.959585,ok,MERGED_INTO_CATALOG
+Fresh Fitness Vågsbygd Lumber,Fresh Fitness,Lumberveien 5-7,4621,Kristiansand S,,,ambiguous,NEEDS_REVIEW
+EVO Fitness Asker,EVO Fitness,Fusdal Terrasse 3,1387,Asker,59.833276,10.442668,ok,MERGED_INTO_CATALOG
+EVO Fitness Asker Sentrum,EVO Fitness,Bankveien 10,1383,Asker,59.834399,10.432725,ok,MERGED_INTO_CATALOG
+EVO Fitness Drøbak,EVO Fitness,Holterveien 2a,1448,Drøbak,59.674023,10.65621,ok,MERGED_INTO_CATALOG
+EVO Fitness Jessheim,EVO Fitness,Nordre Dølibekken 12,2050,Jessheim,60.134942,11.160701,ok,MERGED_INTO_CATALOG
+EVO Fitness Lillestrøm,EVO Fitness,Sørumsgata 14,2000,Lillestrøm,59.955738,11.053404,ok,MERGED_INTO_CATALOG
+EVO Fitness Nannestad,EVO Fitness,Teiealleen 5,2030,Nannestad,60.219953,11.016002,ok,MERGED_INTO_CATALOG
+EVO Fitness Østerås,EVO Fitness,Grini Næringspark 1,1361,Østerås,59.945796,10.597539,ok,MERGED_INTO_CATALOG
+EVO Fitness Sandvika,EVO Fitness,Leif Tronstads plass 7,1337,Sandvika,59.893202,10.524303,ok,READY_TO_IMPORT
+EVO Fitness SNØ Lørenskog,EVO Fitness,Snøfonna 1,1470,Lørenskog,59.946273,10.950711,ok,MERGED_INTO_CATALOG
+EVO Fitness Stabekk,EVO Fitness,Gamle Drammensvei 46a,1369,Stabekk,59.908048,10.601794,ok,MERGED_INTO_CATALOG
+EVO Fitness CC Drammen,EVO Fitness,Tomtegata 36,3012,Drammen,59.741233,10.222777,ok,MERGED_INTO_CATALOG
+EVO Fitness Drammen,EVO Fitness,Nedre Torggate 17,3015,Drammen,59.743525,10.209,ok,MERGED_INTO_CATALOG
+EVO Fitness Hønefoss,EVO Fitness,Kong Rings gate 1,3510,Hønefoss,60.164751,10.254656,ok,READY_TO_IMPORT
+EVO Fitness Kongsberg,EVO Fitness,Herman Foss gate 12,3611,Kongsberg,59.6721,9.648942,ok,MERGED_INTO_CATALOG
+EVO Fitness Konnerud,EVO Fitness,Pettersvollen 3,3032,Drammen,59.717538,10.149622,ok,MERGED_INTO_CATALOG
+EVO Fitness Strømsø,EVO Fitness,Bjørnstjerne Bjørnsons gate 60,3044,Drammen,59.734475,10.206699,ok,READY_TO_IMPORT
+EVO Fitness Kirkenes-Hesseng,EVO Fitness,E. K. Andersons vei 44,9912,Hesseng,,,failed,NEEDS_COORDINATES
+EVO Fitness Gjøvik,EVO Fitness,Tordenskjolds gate 3,2821,Gjøvik,60.797475,10.691591,ok,READY_TO_IMPORT
+EVO Fitness Gran,EVO Fitness,Storgata 10,2750,Gran,60.356311,10.572258,ok,MERGED_INTO_CATALOG
+EVO Fitness Hamar,EVO Fitness,Skogvegen 16a,2321,Hamar,60.795278,11.093252,ok,MERGED_INTO_CATALOG
+EVO Fitness Bryn,EVO Fitness,Østensjøveien 79,0667,Oslo,59.903192,10.822458,ok,MERGED_INTO_CATALOG
+EVO Fitness Frysja,EVO Fitness,Frysjaveien 42,0884,Oslo,59.965825,10.772016,ok,READY_TO_IMPORT
+EVO Fitness Grorud,EVO Fitness,Rosenbergveien 15,0963,Oslo,59.960486,10.879239,ok,MERGED_INTO_CATALOG
+EVO Fitness Grünerløkka,EVO Fitness,Thorvald Meyers gate 72,0552,Oslo,59.919838,10.759545,ok,MERGED_INTO_CATALOG
+EVO Fitness Holmlia,EVO Fitness,Holmlia Senter vei 18,1255,Oslo,59.834673,10.794288,ok,READY_TO_IMPORT
+EVO Fitness Ila,EVO Fitness,Vøyensvingen 7,0458,Oslo,59.93014,10.752772,ok,MERGED_INTO_CATALOG
+EVO Fitness Lambertseter,EVO Fitness,Cecilie Thoresens vei 17,1153,Oslo,59.874914,10.810462,ok,MERGED_INTO_CATALOG
+EVO Fitness Løren,EVO Fitness,Lørenveien 37,0585,Oslo,59.931123,10.789939,ok,MERGED_INTO_CATALOG
+EVO Fitness Majorstua,EVO Fitness,Sørkedalsveien 9,0369,Oslo,59.931436,10.71016,ok,MERGED_INTO_CATALOG
+EVO Fitness Nordberg,EVO Fitness,Langmyrgrenda 1,0861,Oslo,59.964122,10.746309,ok,MERGED_INTO_CATALOG
+EVO Fitness Nordstrand,EVO Fitness,Ekebergveien 233,1162,Oslo,59.86141,10.799674,ok,MERGED_INTO_CATALOG
+EVO Fitness Nydalen,EVO Fitness,Nydalsveien 36,0484,Oslo,59.949419,10.766435,ok,MERGED_INTO_CATALOG
+EVO Fitness Oscarsgate,EVO Fitness,Oscars gate 20,0352,Oslo,59.922443,10.728144,ok,MERGED_INTO_CATALOG
+EVO Fitness Røa,EVO Fitness,Vækerøveien 207,0751,Oslo,59.948322,10.643835,ok,MERGED_INTO_CATALOG
+EVO Fitness Ryen,EVO Fitness,Ryensvingen 3,0680,Oslo,59.893627,10.805415,ok,MERGED_INTO_CATALOG
+EVO Fitness Sjølyst,EVO Fitness,Karenslyst Allé 12-14,0278,Oslo,59.91949,10.686062,ok,MERGED_INTO_CATALOG
+EVO Fitness Teisen,EVO Fitness,Ole Deviks vei 6,0666,Oslo,,,ambiguous,NEEDS_REVIEW
+EVO Fitness Vålerenga,EVO Fitness,Østerdalsgata 7,0658,Oslo,59.910166,10.789694,ok,MERGED_INTO_CATALOG
+EVO Fitness Vika,EVO Fitness,"Munkedamsveien 20, Sentrum",0250,Oslo,59.912904,10.728868,ok,MERGED_INTO_CATALOG
+EVO Fitness Vollebekk,EVO Fitness,Brobekkveien 53,0598,Oslo,59.935157,10.826225,ok,READY_TO_IMPORT
+EVO Fitness Fredrikstad,EVO Fitness,Storgata 32,1607,Fredrikstad,59.21441,10.933279,ok,MERGED_INTO_CATALOG
+EVO Fitness Greåker,EVO Fitness,Tamburveien 9,1718,Greåker,59.267889,11.032063,ok,MERGED_INTO_CATALOG
+EVO Fitness Gressvik,EVO Fitness,Storveien 81,1621,Gressvik,,,ambiguous,NEEDS_REVIEW
+EVO Fitness Moss,EVO Fitness,Dronningens gate 1,1530,Moss,59.436464,10.666425,ok,MERGED_INTO_CATALOG
+EVO Fitness Østfoldhallen,EVO Fitness,Dikeveien 28,1661,Rolvsøy,59.251569,10.993056,ok,MERGED_INTO_CATALOG
+EVO Fitness Ålgård,EVO Fitness,Ålgårdsheia 6,4330,Ålgård,58.770374,5.856035,suspicious,READY_TO_IMPORT
+EVO Fitness Åsen,EVO Fitness,Auglendsmyrå 8,4016,Stavanger,58.942555,5.727394,ok,MERGED_INTO_CATALOG
+EVO Fitness Bjergsted,EVO Fitness,Kaptein Mejlænders gate 23,4026,Stavanger,58.979844,5.714267,ok,MERGED_INTO_CATALOG
+EVO Fitness Bryne,EVO Fitness,Arne Garborgs veg 17,4340,Bryne,58.734944,5.653032,suspicious,READY_TO_IMPORT
+EVO Fitness Bryne Torg,EVO Fitness,Meierigata 3,4340,Bryne,58.734697,5.647679,ok,READY_TO_IMPORT
+EVO Fitness Egersund,EVO Fitness,Elganeveien 1,4373,Egersund,58.462139,6.006195,ok,READY_TO_IMPORT
+EVO Fitness Forus,EVO Fitness,Lagerveien 1,4033,Stavanger,58.895353,5.703678,ok,MERGED_INTO_CATALOG
+EVO Fitness Haugesund,EVO Fitness,Karmsundgata 72,5529,Haugesund,59.405628,5.285791,ok,MERGED_INTO_CATALOG
+EVO Fitness Kannik,EVO Fitness,Engelsminnegata 16,4008,Stavanger,58.965908,5.728248,ok,MERGED_INTO_CATALOG
+EVO Fitness Paradis,EVO Fitness,Lagårdsveien 78,4010,Stavanger,58.957984,5.740388,ok,MERGED_INTO_CATALOG
+EVO Fitness Sandnes,EVO Fitness,Erling Skjalgssons gate 2a,,Sandnes,,,missing_postal,SKIP_INCOMPLETE
+EVO Fitness Sola,EVO Fitness,Vingvegen 3,4050,Sola,58.882937,5.647307,ok,MERGED_INTO_CATALOG
+EVO Fitness Storhaug,EVO Fitness,Støperigata 38,4014,Stavanger,58.9692,5.755179,ok,MERGED_INTO_CATALOG
+EVO Fitness Tollnes,EVO Fitness,Porsgrunnsvegen 261,3736,Skien,59.162835,9.635306,ok,MERGED_INTO_CATALOG
+EVO Fitness Tromsø Nord,EVO Fitness,Stakkevollvegen 63,9010,Tromsø,69.673064,18.976206,ok,MERGED_INTO_CATALOG
+EVO Fitness Tromsø sentrum,EVO Fitness,Skippergata 16,9008,Tromsø,69.653571,18.962678,ok,MERGED_INTO_CATALOG
+EVO Fitness Tromsø Sør,EVO Fitness,Strandvegen 140,9006,Tromsø,69.631335,18.922911,ok,MERGED_INTO_CATALOG
+EVO Fitness Heimdal,EVO Fitness,Industriveien 13,7080,Heimdal,63.349952,10.359564,suspicious,READY_TO_IMPORT
+EVO Fitness Levanger,EVO Fitness,Jernbanegata 11,7600,Levanger,63.744689,11.298201,ok,MERGED_INTO_CATALOG
+EVO Fitness Sorgenfri,EVO Fitness,Sorgenfriveien 28,7031,Sorgenfri,63.405234,10.400168,ok,MERGED_INTO_CATALOG
+EVO Fitness Tiller,EVO Fitness,Ivar Lykkes veg 9,7075,Tiller,63.354639,10.372904,ok,MERGED_INTO_CATALOG
+EVO Fitness Horten,EVO Fitness,Strandparken 3-5,3187,Horten,,,ambiguous,NEEDS_REVIEW
+EVO Fitness Larvik,EVO Fitness,Frankendalsveien 97,3274,Larvik,59.064959,10.052779,ok,MERGED_INTO_CATALOG
+EVO Fitness Nøtterøy,EVO Fitness,Kjernåsveien 13A,3142,Vestskogen,59.240291,10.396926,ok,MERGED_INTO_CATALOG
+EVO Fitness Sandefjord Øst,EVO Fitness,Uranienborgveien 4,3217,Sandefjord,59.130997,10.24637,ok,MERGED_INTO_CATALOG
+EVO Fitness Sandefjord Vest,EVO Fitness,Skiringssalveien 20,3208,Sandefjord,59.135105,10.212466,ok,MERGED_INTO_CATALOG
+EVO Fitness Tønsberg,EVO Fitness,Heimdalsvingen 1,3117,Tønsberg,,,failed,NEEDS_COORDINATES
+EVO Fitness Damsgårdssundet,EVO Fitness,Damsgårdsveien 82,5058,Bergen,60.380962,5.320527,ok,MERGED_INTO_CATALOG
+EVO Fitness Fyllingsdalen,EVO Fitness,Hjalmar Brantings vei 2a,5143,Fyllingsdalen,60.348973,5.283312,ok,READY_TO_IMPORT
+EVO Fitness Godvik,EVO Fitness,Godviksvingene 127,5179,Godvik,60.375606,5.208352,ok,MERGED_INTO_CATALOG
+EVO Fitness Minde,EVO Fitness,Minde allé 10,5063,Bergen,60.361318,5.348727,ok,READY_TO_IMPORT
+EVO Fitness Nesttun,EVO Fitness,Østre Nesttunvegen 10,5221,Nesttun,60.317985,5.354207,ok,MERGED_INTO_CATALOG
+EVO Fitness Nordås,EVO Fitness,Søråshøgda 9,5235,Rådal,60.30626,5.322781,ok,MERGED_INTO_CATALOG
+EVO Fitness Nordnes,EVO Fitness,C. Sundts gate 53,5004,Bergen,60.397939,5.312378,ok,MERGED_INTO_CATALOG
+EVO Fitness Os,EVO Fitness,Industrivegen 2,5200,Os,60.20463,5.449656,suspicious,READY_TO_IMPORT
+EVO Fitness Sandsli,EVO Fitness,Sandsliåsen 40,5254,Sandsli,60.294916,5.292595,ok,READY_TO_IMPORT
+EVO Fitness Toppe,EVO Fitness,Toppemyr 7,5136,Mjølkeråen,60.483273,5.271975,ok,MERGED_INTO_CATALOG
+MUDO Gym Åsane,MUDO Gym,Storbotn 108,5106,Øvre Ervik,60.453732,5.323515,ok,MERGED_INTO_CATALOG
+MUDO Gym Carl Berner,MUDO Gym,Hasleveien 15B,0571,Oslo,59.928498,10.780833,ok,MERGED_INTO_CATALOG
+MUDO Gym Etterstad,MUDO Gym,Biskop Jens Nilssøns gate 5,0659,Oslo,59.906661,10.795614,ok,MERGED_INTO_CATALOG
+MUDO Gym Gjøvik,MUDO Gym,Storgata 10,2815,Gjøvik,60.794816,10.690219,ok,READY_TO_IMPORT
+MUDO Gym Kilden,MUDO Gym,Gartnerveien 15,4016,Stavanger,58.948154,5.740812,ok,MERGED_INTO_CATALOG
+MUDO Gym Lørenskog,MUDO Gym,Gamleveien 88,1461,Lørenskog,59.918615,10.953523,ok,MERGED_INTO_CATALOG
+MUDO Gym Moelv,MUDO Gym,Storgata 105,2390,Moelv,60.930025,10.700585,ok,MERGED_INTO_CATALOG
+MUDO Gym Moss,MUDO Gym,Th. Petersons gate 5,1530,Moss,59.436422,10.66353,ok,READY_TO_IMPORT
+MUDO Gym Nordstrand,MUDO Gym,Raschs vei 38,1153,Oslo,59.879664,10.80402,ok,MERGED_INTO_CATALOG
+MUDO Gym Prinsdal,MUDO Gym,Nedre Prinsdals vei 79,1263,Oslo,59.833151,10.807035,ok,MERGED_INTO_CATALOG
+MUDO Gym Sofiemyr,MUDO Gym,Sønsterudveien 32,1412,Sofiemyr,59.8015,10.817802,ok,MERGED_INTO_CATALOG
+MUDO Gym Tveita,MUDO Gym,Tvetenveien 162,0671,Oslo,59.915181,10.846551,ok,MERGED_INTO_CATALOG
+MUDO Gym Tynset,MUDO Gym,Meierigata 1,2500,Tynset,62.277307,10.7787,ok,MERGED_INTO_CATALOG
+3T-Treningssenter Leangen,3T-Treningssenter,Leangenveien 10,7044,Trondheim,,,failed,NEEDS_COORDINATES
+3T-Treningssenter Ranheim,3T-Treningssenter,Ranheimsvegen 174,7055,Ranheim,63.428481,10.525558,ok,MERGED_INTO_CATALOG
+Feel24 Harstad Sentrum,Feel24,Hans Egedes gate 6,9405,Harstad,68.79941,16.541526,ok,MERGED_INTO_CATALOG
+Feel24 Harstad Seljestad,Feel24,Tunneset 8,9407,Harstad,68.782674,16.537246,ok,MERGED_INTO_CATALOG
+Feel24 Tromsø Treningssenter,Feel24,Dramsveien 206,9010,Tromsø,,,failed,NEEDS_COORDINATES
+Feel24 Eidkjosen,Feel24,Fjordvegen 12,9107,Kvaløya,,,failed,NEEDS_COORDINATES
+Feel24 Tromsø Fagereng,Feel24,Kvaløyvegen 103,9013,Tromsø,69.639835,18.901681,ok,MERGED_INTO_CATALOG
+Feel24 Tromsø Fløylia,Feel24,,,Tromsø,,,missing_address,NEEDS_REVIEW
+Feel24 Tromsø Håpet,Feel24,Ørnevegen 110,9015,Tromsø,69.680298,18.926228,ok,MERGED_INTO_CATALOG
+Feel24 Tromsø Isrenna,Feel24,Stakkevollvegen 333,9019,Tromsø,69.685567,19.004796,ok,MERGED_INTO_CATALOG
+Feel24 Tromsø Skippergata,Feel24,Skippergata 7A,9008,Tromsø,69.653571,18.962678,ok,MERGED_INTO_CATALOG
+Feel24 Tromsø Sportssenter,Feel24,Stakkevollvegen 65B,9010,Tromsø,,,ambiguous,NEEDS_REVIEW
+Feel24 Tromsø Strandgata,Feel24,Strandgata 5/7,9008,Tromsø,69.646258,18.9532,ok,MERGED_INTO_CATALOG
+Feel24 Tromsø The Box,Feel24,Stakkevollvegen 11,9010,Tromsø,,,ambiguous,NEEDS_REVIEW
+Feel24 Tromsø Tomasjord,Feel24,Evjenvegen 144,9024,Tomasjord,69.667159,19.025942,ok,MERGED_INTO_CATALOG
+Feel24 Tromsø Tromsdalen,Feel24,Solstrandvegen 25,9020,Tromsdalen,69.641922,18.975976,ok,MERGED_INTO_CATALOG
+Feel24 Alstad,Feel24,Notveien 17,8013,Bodø,67.275696,14.458937,ok,MERGED_INTO_CATALOG
+Feel24 Balanse,Feel24,Sjøgata 6,8006,Bodø,67.283804,14.376929,ok,MERGED_INTO_CATALOG
+Feel24 Bodø Mørkved,Feel24,Kongsdatterveien 26/28,8028,Bodø,67.289589,14.58415,ok,MERGED_INTO_CATALOG
+Feel24 Bodø Olav V,Feel24,Olav V gate 102,8004,Bodø,,,ambiguous,NEEDS_REVIEW
+Feel24 Bodø Performance,Feel24,Nordstrandveien 41,8012,Bodø,67.295672,14.408137,ok,MERGED_INTO_CATALOG
+Feel24 Bodø Sentrum,Feel24,Dronningens gate 56,8006,Bodø,67.284226,14.387433,ok,MERGED_INTO_CATALOG
+Feel24 Bodø Tverlandet,Feel24,Kvilut 24,8050,Tverlandet,,,failed,NEEDS_COORDINATES
+Feel24 Bodø Vestbyen,Feel24,General Fleischers gate 11,8003,Bodø,67.277284,14.374964,ok,MERGED_INTO_CATALOG
+Feel24 Misvær,Feel24,Kulturveien 3576,8100,Misvær,67.116802,15.000576,ok,MERGED_INTO_CATALOG
+Feel24 Rønvika,Feel24,Dreyfushammarn 17,8012,Bodø,67.296884,14.400737,ok,MERGED_INTO_CATALOG
+Feel24 Stormyra Panorama,Feel24,,,Bodø,,,missing_address,NEEDS_REVIEW
+Feel24 Harstad Grottebadet,Feel24,Håkons gate 7,9405,Harstad,68.800515,16.540338,ok,MERGED_INTO_CATALOG
+Feel24 Harstad Medkila,Feel24,Mølnholtet 8,9414,Harstad,68.761962,16.555661,ok,MERGED_INTO_CATALOG
+Feel24 Harstad Sama,Feel24,Flåtenveien 2,9404,Harstad,68.805726,16.534501,ok,MERGED_INTO_CATALOG
+Feel24 Feelgood Harstad,Feel24,Hans Egedes gate 6,9405,Harstad,68.79941,16.541526,ok,DUPLICATE_EXISTING

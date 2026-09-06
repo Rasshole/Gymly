@@ -1,0 +1,639 @@
+{
+  "staging_rows": 245,
+  "ready_before": 37,
+  "needs_coords_before": 19,
+  "geocode": {
+    "ok": 0,
+    "suspicious_accepted": 0,
+    "failed": 19,
+    "ambiguous": 14,
+    "skipped": 3,
+    "attempted": 33,
+    "by_skip_reason": {
+      "missing_postal": 1,
+      "missing_address": 2
+    }
+  },
+  "geocode_phase2_new": {
+    "ok": 0,
+    "suspicious_accepted": 0,
+    "failed": 33,
+    "ambiguous": 15,
+    "skipped": 0,
+    "attempted": 48,
+    "by_skip_reason": {}
+  },
+  "geocode_phase3_new": {
+    "ok": 30,
+    "suspicious_accepted": 2,
+    "failed": 25,
+    "ambiguous": 5,
+    "skipped": 0,
+    "attempted": 62,
+    "by_skip_reason": {}
+  },
+  "merge": null,
+  "note": "No production write unless --merge. Gyms live in centers.json, not Supabase.",
+  "post": {
+    "total_staged": 245,
+    "successfully_geocoded": 209,
+    "failed_geocoding": 19,
+    "ambiguous_geocoding": 14,
+    "remaining_without_coordinates": 36,
+    "by_chain": {
+      "SATS": {
+        "total": 78,
+        "geocoded": 63,
+        "missing": 15
+      },
+      "Fresh Fitness": {
+        "total": 41,
+        "geocoded": 35,
+        "missing": 6
+      },
+      "EVO Fitness": {
+        "total": 82,
+        "geocoded": 76,
+        "missing": 6
+      },
+      "MUDO Gym": {
+        "total": 13,
+        "geocoded": 13,
+        "missing": 0
+      },
+      "3T-Treningssenter": {
+        "total": 2,
+        "geocoded": 1,
+        "missing": 1
+      },
+      "Feel24": {
+        "total": 29,
+        "geocoded": 21,
+        "missing": 8
+      }
+    },
+    "by_category": {
+      "MERGED_INTO_CATALOG": 171,
+      "NEEDS_REVIEW": 16,
+      "NEEDS_COORDINATES": 19,
+      "READY_TO_IMPORT": 37,
+      "SKIP_INCOMPLETE": 1,
+      "DUPLICATE_EXISTING": 1
+    },
+    "by_geocode_status": {
+      "ok": 189,
+      "ambiguous": 14,
+      "failed": 19,
+      "suspicious": 20,
+      "missing_postal": 1,
+      "missing_address": 2
+    },
+    "ready_to_import": 37,
+    "needs_manual_review": 16,
+    "needs_coordinates": 19,
+    "skip_incomplete": 1,
+    "suspicious_coords": [
+      {
+        "name": "SATS Drammen",
+        "address": "Brandtenborggata 1",
+        "lat": 59.740973,
+        "lng": 10.221753,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1, Brandtenborggata, Brandtenborg, Brakerøya, Bragernes, Drammen, Buskerud, 3012, Norge"
+      },
+      {
+        "name": "SATS Karlsrud",
+        "address": "Cecilie Thoresensvei 3",
+        "lat": 59.878407,
+        "lng": 10.808163,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "token_hits_1"
+        ],
+        "display": "Cecilie Thoresens vei 3, Cecilie Thoresens vei, Karlsrud, Nordstrand, Oslo, 1153, Norge"
+      },
+      {
+        "name": "SATS Lambertseter",
+        "address": "Langbølgen 5",
+        "lat": 59.873072,
+        "lng": 10.811845,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "5, Langbølgen, Lambertseter, Nordstrand, Oslo, 1150, Norge"
+      },
+      {
+        "name": "SATS Lillestrøm",
+        "address": "Dampsagveien 12",
+        "lat": 59.952426,
+        "lng": 11.044605,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "12, Dampsagveien, Dampsagtomta, Volla, Lillestrøm, Akershus, 2004, Norge"
+      },
+      {
+        "name": "SATS Linderud",
+        "address": "Erich Mogensøns Vei 38",
+        "lat": 59.943242,
+        "lng": 10.835473,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "38, Erich Mogensøns vei, Øvre Vollebekk, Linderud, Bjerke, Oslo, 0594, Norge"
+      },
+      {
+        "name": "SATS Nesttun",
+        "address": "Apeltunvegen 2",
+        "lat": 60.311556,
+        "lng": 5.35447,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Apeltunvegen, Skjold, Nesttun, Fana, Bergen, Vestland, 5222, Norge"
+      },
+      {
+        "name": "SATS Oasen",
+        "address": "Folke Bernadottes Vei 52",
+        "lat": 60.348956,
+        "lng": 5.291796,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "52, Folke Bernadottes vei, Sælemyra, Fyllingsdalen, Bergen, Vestland, 5147, Norge"
+      },
+      {
+        "name": "SATS Sandvika Panorama",
+        "address": "Sandviksveien 176",
+        "lat": 59.886853,
+        "lng": 10.521136,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "176, Sandviksveien, Jongskollen, Bakåsen, Jong, Sandvika, Bærum, Akershus, 1337, Norge"
+      },
+      {
+        "name": "SATS Solli",
+        "address": "Henrik Ibsens gate 100",
+        "lat": 59.914391,
+        "lng": 10.718977,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "100, Henrik Ibsens gate, Ruseløkka, Filipstad, Frogner, Oslo, 0255, Norge"
+      },
+      {
+        "name": "SATS Vestkanten",
+        "address": "Loddefjordveien 2",
+        "lat": 60.36322,
+        "lng": 5.233628,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Loddefjordveien, Loddefjorddalen, Loddefjord, Vadmyra, Laksevåg, Bergen, Vestland, 5171, Norge"
+      },
+      {
+        "name": "SATS Yoga Aker Brygge",
+        "address": "Bryggetorget 5",
+        "lat": 59.910096,
+        "lng": 10.724639,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "5, Bryggetorget, Ruseløkka, Aker brygge, Frogner, Oslo, 0250, Norge"
+      },
+      {
+        "name": "SATS Yoga Majorstuen",
+        "address": "Schultz' Gate 1",
+        "lat": 59.9273,
+        "lng": 10.720182,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1, Schultz’ gate, Hegdehaugen, Majorstuen, Frogner, Oslo, 0365, Norge"
+      },
+      {
+        "name": "SATS Åssiden",
+        "address": "Ingvald Ludvigsens Gt. 21",
+        "lat": 59.752877,
+        "lng": 10.123662,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "token_hits_2"
+        ],
+        "display": "21B, Ingvald Ludvigsens gate, Liejordet, Aronsløkka, Berskog, Åssiden, Drammen, Buskerud, 3027, Norge"
+      },
+      {
+        "name": "Fresh Fitness Manglerud",
+        "address": "Plogveien 6",
+        "lat": 59.89729,
+        "lng": 10.81286,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Plogveien, Nordre Manglerud, Manglerud, Østensjø, Oslo, 0679, Norge"
+      },
+      {
+        "name": "Fresh Fitness Grimstad",
+        "address": "Jon Lilletunsvei 1",
+        "lat": 58.336502,
+        "lng": 8.576251,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "token_hits_1"
+        ],
+        "display": "1, Jon Lilletuns vei, Holviga, Grimstad, Agder, 4879, Norge"
+      },
+      {
+        "name": "Fresh Fitness Kristiansand sentrum",
+        "address": "Henrik Wergelands gate 27",
+        "lat": 58.147562,
+        "lng": 7.99225,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "27, Henrik Wergelands gate, Tangen, Kvadraturen, Kristiansand, Agder, 4612, Norge"
+      },
+      {
+        "name": "EVO Fitness Ålgård",
+        "address": "Ålgårdsheia 6",
+        "lat": 58.770374,
+        "lng": 5.856035,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Ålgårdsheiå, Husafjellet, Fiskebekk, Ålgård, Gjesdal, Rogaland, 4331, Norge"
+      },
+      {
+        "name": "EVO Fitness Bryne",
+        "address": "Arne Garborgs veg 17",
+        "lat": 58.734944,
+        "lng": 5.653032,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17, Arne Garborgs veg, Loen, Vardheia, Bryne, Time, Rogaland, 4344, Norge"
+      },
+      {
+        "name": "EVO Fitness Heimdal",
+        "address": "Industriveien 13",
+        "lat": 63.349952,
+        "lng": 10.359564,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "13, Industriveien, Heimdal, Trondheim, Trøndelag, 7072, Norge"
+      },
+      {
+        "name": "EVO Fitness Os",
+        "address": "Industrivegen 2",
+        "lat": 60.20463,
+        "lng": 5.449656,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Industrivegen, Gudridflaten, Skogen, Osøyro, Bjørnafjorden, Vestland, 5210, Norge"
+      }
+    ],
+    "ambiguous_rows": [
+      {
+        "name": "SATS Bekkestua",
+        "address": "Gamle Ringeriksvei 34c",
+        "detail": {
+          "best": {
+            "lat": 59.9158616,
+            "lng": 10.5889836,
+            "score": 9.05339751964599,
+            "display": "Gamle Ringeriksvei, Ringstabekk, Stabekk, Bekkestua, Bærum, Akershus, 1357, Norge"
+          },
+          "second": {
+            "lat": 59.9148654,
+            "lng": 10.5927114,
+            "score": 9.05339751964599,
+            "display": "Gamle Ringeriksvei, Ringstabekk, Stabekk, Bekkestua, Bærum, Akershus, 1357, Norge"
+          }
+        }
+      },
+      {
+        "name": "SATS Hellerud",
+        "address": "Tvetenveien 168-170",
+        "detail": {
+          "best": {
+            "lat": 59.9150958,
+            "lng": 10.8471248,
+            "score": 9.053414707408255,
+            "display": "Tvetenveien, Nedre Hellerud, Hellerud, Alna, Oslo, 0671, Norge"
+          },
+          "second": {
+            "lat": 59.9140396,
+            "lng": 10.844959,
+            "score": 9.053414707408255,
+            "display": "Tvetenveien, Nedre Hellerud, Tveita, Alna, Oslo, 0671, Norge"
+          }
+        }
+      },
+      {
+        "name": "SATS Nydalen",
+        "address": "Sandakerveien 109-111",
+        "detail": {
+          "best": {
+            "lat": 59.9499736,
+            "lng": 10.7687845,
+            "score": 9.282754602720402,
+            "display": "Sandakerveien, Gullhaug, Nydalen, Nordre Aker, Oslo, 0484, Norge"
+          },
+          "second": {
+            "lat": 59.9476837,
+            "lng": 10.7704082,
+            "score": 9.282754602720402,
+            "display": "Sandakerveien, Lillo, Sandaker, Sagene, Oslo, 0484, Norge"
+          }
+        }
+      },
+      {
+        "name": "SATS Sandnes",
+        "address": "Vågsgata 16",
+        "detail": {
+          "best": {
+            "lat": 58.8499095,
+            "lng": 5.7357013,
+            "score": 9.053393779659725,
+            "display": "Vågsgata, Gravaren, Brualand, Trones, Sandnes, Rogaland, 4306, Norge"
+          },
+          "second": {
+            "lat": 58.8525613,
+            "lng": 5.738909,
+            "score": 9.04006044632639,
+            "display": "Vågsgata, Gravaren, Brualand, Trones, Sandnes, Rogaland, 4306, Norge"
+          }
+        }
+      },
+      {
+        "name": "SATS Vinderen",
+        "address": "Slemdalsveien 70",
+        "detail": {
+          "best": {
+            "lat": 59.9442008,
+            "lng": 10.707001,
+            "score": 9.239928609078355,
+            "display": "Slemdalsveien, Lille Borgen, Vinderen, Vestre Aker, Oslo, 0373, Norge"
+          },
+          "second": {
+            "lat": 59.9457046,
+            "lng": 10.7102527,
+            "score": 9.239928609078355,
+            "display": "Slemdalsveien, Vinderen, Vestre Aker, Oslo, 0373, Norge"
+          }
+        }
+      },
+      {
+        "name": "Fresh Fitness Ås",
+        "address": "Moerveien 8",
+        "detail": {
+          "best": {
+            "lat": 59.660346,
+            "lng": 10.7931002,
+            "score": 9.053386726939802,
+            "display": "Moerveien, Moer, Ås, Akershus, 1430, Norge"
+          },
+          "second": {
+            "lat": 59.6636931,
+            "lng": 10.7923158,
+            "score": 9.053386726939802,
+            "display": "Moerveien, Kaia, Landås, Moer, Ås, Akershus, 1430, Norge"
+          }
+        }
+      },
+      {
+        "name": "Fresh Fitness Jessheim",
+        "address": "Trondheimsvegen 85",
+        "detail": {
+          "best": {
+            "lat": 60.1308067,
+            "lng": 11.1602717,
+            "score": 9.053387642481116,
+            "display": "Trondheimsvegen, Døli, Jessheim, Ullensaker, Akershus, 2050, Norge"
+          },
+          "second": {
+            "lat": 60.145683,
+            "lng": 11.16996,
+            "score": 8.000054309147783,
+            "display": "85, Trondheimsvegen - Jessheim, Nordby, Jessheim, Ullensaker, Akershus, 2050, Norge"
+          }
+        }
+      },
+      {
+        "name": "Fresh Fitness Vågsbygd Lumber",
+        "address": "Lumberveien 5-7",
+        "detail": {
+          "best": {
+            "lat": 58.1241035,
+            "lng": 7.9650856,
+            "score": 9.053400931563287,
+            "display": "Lumberveien, Elkem Solar, Vågsbygd, Kristiansand, Agder, 4621, Norge"
+          },
+          "second": {
+            "lat": 58.1229527,
+            "lng": 7.9687629,
+            "score": 9.053400931563287,
+            "display": "Lumberveien, Elkem Solar, Voiebyen, Kristiansand, Agder, 4621, Norge"
+          }
+        }
+      },
+      {
+        "name": "EVO Fitness Teisen",
+        "address": "Ole Deviks vei 6",
+        "detail": {
+          "best": {
+            "lat": 59.9175911,
+            "lng": 10.8279499,
+            "score": 9.053414707408255,
+            "display": "Ole Deviks vei, Einsvold, Teisen, Alna, Oslo, 0666, Norge"
+          },
+          "second": {
+            "lat": 59.913296,
+            "lng": 10.8233093,
+            "score": 9.053414707408255,
+            "display": "Ole Deviks vei, Teisen, Alna, Oslo, 0666, Norge"
+          }
+        }
+      },
+      {
+        "name": "EVO Fitness Gressvik",
+        "address": "Storveien 81",
+        "detail": {
+          "best": {
+            "lat": 59.2122991,
+            "lng": 10.9000202,
+            "score": 9.05339705882353,
+            "display": "Storveien, Ålestranda, Gressvik, Fredrikstad, Østfold, 1621, Norge"
+          },
+          "second": {
+            "lat": 59.216475,
+            "lng": 10.906132,
+            "score": 9.000063725490197,
+            "display": "81A, Storveien, Ålestranda, Gressvik, Fredrikstad, Østfold, 1621, Norge"
+          }
+        }
+      },
+      {
+        "name": "EVO Fitness Horten",
+        "address": "Strandparken 3-5",
+        "detail": {
+          "best": {
+            "lat": 59.4037889,
+            "lng": 10.4834266,
+            "score": 9.053392525368125,
+            "display": "Strandparken, Tveiten, Horten, Vestfold, 3187, Norge"
+          },
+          "second": {
+            "lat": 59.405204,
+            "lng": 10.4837717,
+            "score": 9.053392525368125,
+            "display": "Strandparken, Tveiten, Horten, Vestfold, 3187, Norge"
+          }
+        }
+      },
+      {
+        "name": "Feel24 Tromsø Sportssenter",
+        "address": "Stakkevollvegen 65B",
+        "detail": {
+          "best": {
+            "lat": 69.6716135,
+            "lng": 18.9737619,
+            "score": 9.053400322728313,
+            "display": "Stakkevollvegen, Nordheim, Breivika, Tromsø, Troms, 9010, Norge"
+          },
+          "second": {
+            "lat": 69.6645932,
+            "lng": 18.9673928,
+            "score": 9.053400322728313,
+            "display": "Stakkevollvegen, Kvamstykket, Guleng, Tromsø, Troms, 9010, Norge"
+          }
+        }
+      },
+      {
+        "name": "Feel24 Tromsø The Box",
+        "address": "Stakkevollvegen 11",
+        "detail": {
+          "best": {
+            "lat": 69.6716135,
+            "lng": 18.9737619,
+            "score": 9.053400322728313,
+            "display": "Stakkevollvegen, Nordheim, Breivika, Tromsø, Troms, 9010, Norge"
+          },
+          "second": {
+            "lat": 69.6645932,
+            "lng": 18.9673928,
+            "score": 9.053400322728313,
+            "display": "Stakkevollvegen, Kvamstykket, Guleng, Tromsø, Troms, 9010, Norge"
+          }
+        }
+      },
+      {
+        "name": "Feel24 Bodø Olav V",
+        "address": "Olav V gate 102",
+        "detail": {
+          "best": {
+            "lat": 67.2740601,
+            "lng": 14.389314,
+            "score": 9.053397794308385,
+            "display": "Olav V gate, Vestbyen, Hernes - Hierggenjárgga - Härrgenjárrga, Bodø, Nordland, 8004, Norge"
+          },
+          "second": {
+            "lat": 67.274886,
+            "lng": 14.40442,
+            "score": 9.00006446097505,
+            "display": "102C, Olav V gate, Prærien, Østbyen, Bodø, Nordland, 8004, Norge"
+          }
+        }
+      }
+    ],
+    "sats_triaden_mudo": {
+      "sats_triaden": {
+        "name": "SATS Triaden",
+        "address": "Gamleveien 88",
+        "postal_code": "1461",
+        "city": "Lørenskog",
+        "lat": 59.918615,
+        "lng": 10.953523,
+        "category": "MERGED_INTO_CATALOG",
+        "geocode_status": "ok"
+      },
+      "mudo_lorenskog": {
+        "name": "MUDO Gym Lørenskog",
+        "address": "Gamleveien 88",
+        "postal_code": "1461",
+        "city": "Lørenskog",
+        "lat": 59.918615,
+        "lng": 10.953523,
+        "category": "MERGED_INTO_CATALOG",
+        "geocode_status": "ok"
+      },
+      "same_coords": true,
+      "note": "Both kept staged; co-located brands at shared address are allowed."
+    },
+    "centers_json_untouched": true,
+    "merge_ran": false
+  },
+  "review_files": {
+    "json": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/data/norway/norway_geocode_review.json",
+    "csv": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/data/norway/norway_geocode_review.csv"
+  }
+}

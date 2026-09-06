@@ -1,8 +1,8 @@
 {
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "gymly-YOUR_PROJECT",
-    "storage_bucket": "gymly-YOUR_PROJECT.appspot.com"
+    "project_number": "REPLACE_WITH_FIREBASE_PROJECT_NUMBER",
+    "project_id": "REPLACE_WITH_FIREBASE_PROJECT_ID",
+    "storage_bucket": "REPLACE_WITH_FIREBASE_PROJECT_ID.appspot.com"
   },
   "client": [
     {
@@ -12,9 +12,10 @@
           "package_name": "com.gymly"
         }
       },
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "YOUR_API_KEY"
+          "current_key": "REPLACE_WITH_FIREBASE_ANDROID_API_KEY"
         }
       ],
       "services": {
@@ -23,5 +24,6 @@
         }
       }
     }
-  ]
+  ],
+  "configuration_version": "1"
 }

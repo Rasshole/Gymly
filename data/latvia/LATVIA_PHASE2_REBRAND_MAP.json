@@ -1,0 +1,43 @@
+{
+  "country": "Latvia",
+  "phase": 2,
+  "maps": [
+    {
+      "legacy_brand": "People Fitness",
+      "current_brand": null,
+      "classification": "F_legacy_or_absent",
+      "evidence": "SIA fit People liquidated Dec 2023"
+    },
+    {
+      "legacy_brand": "City Fitness",
+      "current_brand": "MyFitness",
+      "classification": "C_name_confusion",
+      "evidence": "Historical name linked to MyFitness LV estate"
+    },
+    {
+      "legacy_brand": "MyFitness AS (EE parent)",
+      "current_brand": "MyFitness",
+      "classification": "B_distinct_national_estate",
+      "evidence": "Separate lv_* estate from EE; consumer brand is MyFitness in LV"
+    },
+    {
+      "legacy_brand": "Lemon Gym LV",
+      "current_brand": "Lemon Gym LT",
+      "classification": "B_distinct_current_clubs",
+      "evidence": "Same brand family; separate national estates"
+    },
+    {
+      "legacy_brand": "Gym!",
+      "current_brand": "Gym+",
+      "classification": "B_distinct_national_estate",
+      "evidence": "Gym Latvija SIA (LV) — NOT Gym+ Lithuania"
+    },
+    {
+      "legacy_brand": "Valga",
+      "current_brand": "Valka",
+      "classification": "B_border_twin_towns",
+      "evidence": "Valga=Estonia; Valka=Latvia — never merge"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

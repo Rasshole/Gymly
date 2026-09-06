@@ -1,0 +1,39 @@
+{
+  "exit_code": 1,
+  "suites_failed": 3,
+  "tests_failed": 2,
+  "failures": [
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/belarusPhase2Staging.test.ts",
+      "test": "Belarus Deep Phase 2 staging (merge readiness, no production writes) production frozen at 12034 / Belarus 0 / Ukraine 105 / Malta 24 / SHA unchanged",
+      "file": "__tests__/belarusPhase2Staging.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 12034\nReceived: 12080\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/belarusPhase2Staging.test.ts:92:36)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge baseline 12034 vs post-merge live 12080"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/belarusPhase1Staging.test.ts",
+      "test": "Belarus Deep Phase 1 staging (no production merge) production frozen at 12034 / Ukraine 105 / Malta 24 / SHA / bytes unchanged",
+      "file": "__tests__/belarusPhase1Staging.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 12034\nReceived: 12080\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/belarusPhase1Staging.test.ts:118:36)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge baseline 12034 vs post-merge live 12080"
+    }
+  ],
+  "summary": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 0,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 2
+  },
+  "prior_country_verification": {
+    "regressions": []
+  },
+  "note": "Phase 1/2 frozen-baseline failures after authorized +46 merge are STALE_HISTORICAL_BASELINE and non-blocking when REAL_COUNTRY_REGRESSION=0."
+}

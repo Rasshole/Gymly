@@ -1,0 +1,39 @@
+{
+  "country": "Azerbaijan",
+  "search_normalization": "normalize_azerbaijani_search() — Latin/Cyrillic to Latin for dedup only",
+  "aliases": [
+    {
+      "canonical": "Baku",
+      "variants": [
+        "baku",
+        "bakı",
+        "baki"
+      ]
+    },
+    {
+      "canonical": "Ganja",
+      "variants": [
+        "ganja",
+        "gəncə",
+        "gence"
+      ]
+    },
+    {
+      "canonical": "Nakhchivan",
+      "variants": [
+        "nakhchivan",
+        "naxçıvan",
+        "naxcivan"
+      ]
+    },
+    {
+      "canonical": "Azerbaijan",
+      "variants": [
+        "Azərbaycan",
+        "AZ",
+        "Azerbaycan"
+      ]
+    }
+  ],
+  "notes": "Canonical Latin/Azerbaijani local names preserved in storage; transliteration for search only"
+}

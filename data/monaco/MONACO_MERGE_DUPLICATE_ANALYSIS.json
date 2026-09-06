@@ -1,0 +1,63 @@
+{
+  "duplicate_ids": [],
+  "unexplained_hard_duplicates": 0,
+  "pre_merge_proximity": {
+    "same_brand_lt25": [],
+    "same_brand_lt50": [],
+    "same_brand_lt100": [],
+    "same_brand_lt200": [],
+    "different_brand_lt25": [],
+    "different_brand_lt50": [],
+    "different_brand_lt100": [],
+    "different_brand_lt200": [],
+    "identical": [],
+    "sameAddr": []
+  },
+  "post_merge_proximity": {
+    "same_brand_lt25": [],
+    "same_brand_lt50": [],
+    "same_brand_lt100": [],
+    "same_brand_lt200": [],
+    "different_brand_lt25": [],
+    "different_brand_lt50": [],
+    "different_brand_lt100": [],
+    "different_brand_lt200": [],
+    "identical": [],
+    "sameAddr": []
+  },
+  "known_legitimate_proximity": [
+    {
+      "pair": "Hercule Fitness Club ↔ Stade Louis II",
+      "classification": "A_DISTINCT_PUBLIC_GYMS",
+      "distance_m": 961,
+      "note": "Separate municipal public gyms — Port Hercule/Condamine vs Fontvieille"
+    }
+  ],
+  "included": [
+    {
+      "id": "mc_cb57fc40d1",
+      "name": "Hercule Fitness Club Port Hercule",
+      "brand": "Hercule Fitness Club",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_2771a49489",
+      "name": "Salle de Musculation Stade Louis II",
+      "brand": "Stade Louis II",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_4d51f17fbd",
+      "name": "Fit Factory Larvotto",
+      "brand": "Fit Factory",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_acfff20d6b",
+      "name": "Eclub Monte-Carlo Gym",
+      "brand": "Eclub",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "skipped_existing_id": []
+}

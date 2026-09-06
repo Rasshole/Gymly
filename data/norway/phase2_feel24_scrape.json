@@ -1,0 +1,1390 @@
+[
+  {
+    "brand": "Feel24",
+    "center_name": "skjetten",
+    "name": "Feel24 Skjetten",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-Lillestrom/skjetten",
+    "region_slug": "treningssenter-Lillestrom",
+    "parsed": {
+      "address": "Nordens vei 15",
+      "postal_code": "2013",
+      "city": "Skjetten."
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "strommen",
+    "name": "Feel24 Strommen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-Lillestrom/strommen",
+    "region_slug": "treningssenter-Lillestrom",
+    "parsed": {
+      "address": "Strømsveien 65",
+      "postal_code": "2010",
+      "city": "Strømmen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "alta-parksenteret",
+    "name": "Feel24 Alta Parksenteret",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-alta/alta-parksenteret",
+    "region_slug": "treningssenter-alta",
+    "parsed": {
+      "address": "Sentrumsparken 4",
+      "postal_code": "9510",
+      "city": "Alta"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "bossekop",
+    "name": "Feel24 Bossekop",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-alta/bossekop",
+    "region_slug": "treningssenter-alta",
+    "parsed": {
+      "address": "Altaveien 73",
+      "postal_code": "9513",
+      "city": "Alta."
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "kronstad",
+    "name": "Feel24 Kronstad",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-alta/kronstad",
+    "region_slug": "treningssenter-alta",
+    "parsed": {
+      "address": "Storengveien 21",
+      "postal_code": "9515",
+      "city": "Alta"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "nordlysbadet",
+    "name": "Feel24 Nordlysbadet",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-alta/nordlysbadet",
+    "region_slug": "treningssenter-alta",
+    "parsed": {
+      "address": "Markedsgata 27",
+      "postal_code": "9510",
+      "city": "Alta"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "billingstad",
+    "name": "Feel24 Billingstad",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-asker/billingstad",
+    "region_slug": "treningssenter-asker",
+    "parsed": {
+      "address": "Olav Brunborgsvei 4",
+      "postal_code": "1396",
+      "city": "Billingstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "heggedal",
+    "name": "Feel24 Heggedal",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-asker/heggedal",
+    "region_slug": "treningssenter-asker",
+    "parsed": {
+      "address": "Heggedalsbakken 6",
+      "postal_code": "1389",
+      "city": "Heggedal"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "langenga",
+    "name": "Feel24 Langenga",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-asker/langenga",
+    "region_slug": "treningssenter-asker",
+    "parsed": {
+      "address": "Langenga 62",
+      "postal_code": "1386",
+      "city": "Asker"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "slemmestad",
+    "name": "Feel24 Slemmestad",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-asker/slemmestad",
+    "region_slug": "treningssenter-asker",
+    "parsed": {
+      "address": "Skolebakken 14",
+      "postal_code": "3470",
+      "city": "Slemmestad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "vollen",
+    "name": "Feel24 Vollen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-asker/vollen",
+    "region_slug": "treningssenter-asker",
+    "parsed": {
+      "address": "Vollen Marina 34",
+      "postal_code": "1390",
+      "city": "Vollen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "fornebu",
+    "name": "Feel24 Fornebu",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-baerum/fornebu",
+    "region_slug": "treningssenter-baerum",
+    "parsed": {
+      "address": "Rolfsbuktveien 4A",
+      "postal_code": "1364",
+      "city": "Fornebu"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "hovik",
+    "name": "Feel24 Hovik",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-baerum/hovik",
+    "region_slug": "treningssenter-baerum",
+    "parsed": {
+      "address": "Ramstadsletta 17",
+      "postal_code": "1363",
+      "city": "Høvik"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "lommedalen",
+    "name": "Feel24 Lommedalen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-baerum/lommedalen",
+    "region_slug": "treningssenter-baerum",
+    "parsed": {
+      "address": "Lommedalsveien 299",
+      "postal_code": "1350",
+      "city": "Lommedalen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "voyenenga",
+    "name": "Feel24 Voyenenga",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-baerum/voyenenga",
+    "region_slug": "treningssenter-baerum",
+    "parsed": {
+      "address": "Vøyenengtunet 14",
+      "postal_code": "1339",
+      "city": "Vøyenenga"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "bardu",
+    "name": "Feel24 Bardu",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bardu/bardu",
+    "region_slug": "treningssenter-bardu",
+    "parsed": {
+      "address": "Fogd Holmboes gate 59",
+      "postal_code": "9360",
+      "city": "Bardu"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "bardufoss",
+    "name": "Feel24 Bardufoss",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bardufoss/bardufoss",
+    "region_slug": "treningssenter-bardufoss",
+    "parsed": {
+      "address": "Nerveien 23",
+      "postal_code": "9325",
+      "city": "Bardufoss"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "beitostolen",
+    "name": "Feel24 Beitostolen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-beitostolen/beitostolen",
+    "region_slug": "treningssenter-beitostolen",
+    "parsed": {
+      "address": "Bygdinvegen 3764",
+      "postal_code": "2953",
+      "city": "Beitostølen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "feel24-lien",
+    "name": "Feel24 Feel24 Lien",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bergen/feel24-lien",
+    "region_slug": "treningssenter-bergen",
+    "parsed": {
+      "address": "Lien 79",
+      "postal_code": "5057",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "bjerkvik",
+    "name": "Feel24 Bjerkvik",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bjerkvik/bjerkvik",
+    "region_slug": "treningssenter-bjerkvik",
+    "parsed": {
+      "address": "Trollvikveien 32",
+      "postal_code": "8530",
+      "city": "Bjerkvik"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "alstad",
+    "name": "Feel24 Alstad",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/alstad",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Notveien 17",
+      "postal_code": "8013",
+      "city": "Bodø, Alstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "balanse",
+    "name": "Feel24 Treningssenter Feel24 Balanse",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/balanse",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Sjøgata 6",
+      "postal_code": "8006",
+      "city": "Bodø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "bodo-performance",
+    "name": "Feel24 Bodo Performance",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/bodo-performance",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Nordstrandveien 41",
+      "postal_code": "8012",
+      "city": "Bodø, Rønvika"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "bodo-sentrum",
+    "name": "Feel24 Bodo Sentrum",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/bodo-sentrum",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Dronningens gate 56",
+      "postal_code": "8006",
+      "city": "Bodø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "bodo-tverlandet",
+    "name": "Feel24 Bodo Tverlandet",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/bodo-tverlandet",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Kvilut 24",
+      "postal_code": "8050",
+      "city": "Tverlandet"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "misvaer",
+    "name": "Feel24 Misvaer",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/misvaer",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Kulturveien 3576",
+      "postal_code": "8100",
+      "city": "Misvær"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "morkved",
+    "name": "Feel24 Morkved",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/morkved",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Kongsdatterveien 26/28",
+      "postal_code": "8028",
+      "city": "Bodø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "olav-v",
+    "name": "Feel24 Olav V",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/olav-v",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Olav V gate 102",
+      "postal_code": "8004",
+      "city": "Bodø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "ronvika",
+    "name": "Feel24 Ronvika",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/ronvika",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "Dreyfushammarn 17",
+      "postal_code": "8012",
+      "city": "Bodø, Rønvika"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "stormyra-panorama",
+    "name": "Feel24 Treningssenter Feel24 Stormyra Panorama",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/stormyra-panorama",
+    "region_slug": "treningssenter-bodo",
+    "parsed": null
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "vestbyen",
+    "name": "Feel24 Vestbyen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/vestbyen",
+    "region_slug": "treningssenter-bodo",
+    "parsed": {
+      "address": "General Fleischers gate 11",
+      "postal_code": "8003",
+      "city": "Bodø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "brygga",
+    "name": "Feel24 Brygga",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bronnoysund/brygga",
+    "region_slug": "treningssenter-bronnoysund",
+    "parsed": {
+      "address": "Strandveien 30",
+      "postal_code": "8904",
+      "city": "Brønnøysund"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "salhus",
+    "name": "Feel24 Salhus",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bronnoysund/salhus",
+    "region_slug": "treningssenter-bronnoysund",
+    "parsed": {
+      "address": "Industribakken 8",
+      "postal_code": "8907",
+      "city": "Brønnøysund"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "brumunddal",
+    "name": "Feel24 Brumunddal",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-brumunddal/brumunddal",
+    "region_slug": "treningssenter-brumunddal",
+    "parsed": {
+      "address": "Nygata 22",
+      "postal_code": "2380",
+      "city": "Brumunddal"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "krokstadelva",
+    "name": "Feel24 Treningssenter Feel24 Krokstadelva",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-drammen/krokstadelva",
+    "region_slug": "treningssenter-drammen",
+    "parsed": null
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "oren",
+    "name": "Feel24 Oren",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-drammen/oren",
+    "region_slug": "treningssenter-drammen",
+    "parsed": {
+      "address": "Rosenkrantzgata 75",
+      "postal_code": "3018",
+      "city": "Drammen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tangen",
+    "name": "Feel24 Tangen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-drammen/tangen",
+    "region_slug": "treningssenter-drammen",
+    "parsed": {
+      "address": "Havnegata 59",
+      "postal_code": "3040",
+      "city": "Drammen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "elverum",
+    "name": "Feel24 Elverum",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-elverum/elverum",
+    "region_slug": "treningssenter-elverum",
+    "parsed": null
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "fauske",
+    "name": "Feel24 Fauske",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-fauske/fauske",
+    "region_slug": "treningssenter-fauske",
+    "parsed": {
+      "address": "Sjøgata 78",
+      "postal_code": "8200",
+      "city": "Fauske, Norge"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "finnsnes",
+    "name": "Feel24 Finnsnes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-finnsnes/finnsnes",
+    "region_slug": "treningssenter-finnsnes",
+    "parsed": {
+      "address": "Smørhusbakken 1",
+      "postal_code": "9300",
+      "city": "Finnsnes"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "hammerfest",
+    "name": "Feel24 Hammerfest",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-hammerfest/hammerfest",
+    "region_slug": "treningssenter-hammerfest",
+    "parsed": {
+      "address": "Fuglenesveien 20",
+      "postal_code": "9600",
+      "city": "Hammerfest"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "feelgood-harstad",
+    "name": "Feel24 Feelgood Harstad",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/feelgood-harstad",
+    "region_slug": "treningssenter-harstad",
+    "parsed": {
+      "address": "Hans Egedes gate 6",
+      "postal_code": "9405",
+      "city": "Harstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "harstad-grottebadet",
+    "name": "Feel24 Harstad Grottebadet",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-grottebadet",
+    "region_slug": "treningssenter-harstad",
+    "parsed": {
+      "address": "Håkons gate 7",
+      "postal_code": "9405",
+      "city": "Harstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "harstad-medkila",
+    "name": "Feel24 Harstad Medkila",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-medkila",
+    "region_slug": "treningssenter-harstad",
+    "parsed": {
+      "address": "Mølnholtet 8",
+      "postal_code": "9414",
+      "city": "Harstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "harstad-sama",
+    "name": "Feel24 Harstad Sama",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-sama",
+    "region_slug": "treningssenter-harstad",
+    "parsed": {
+      "address": "Flåtenveien 2",
+      "postal_code": "9404",
+      "city": "Harstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "harstad-seljestad",
+    "name": "Feel24 Harstad Seljestad",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-seljestad",
+    "region_slug": "treningssenter-harstad",
+    "parsed": {
+      "address": "Tunneset 8",
+      "postal_code": "9407",
+      "city": "Harstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "harstad-sentrum",
+    "name": "Feel24 Harstad Sentrum",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-sentrum",
+    "region_slug": "treningssenter-harstad",
+    "parsed": {
+      "address": "Hans Egedes gate 6",
+      "postal_code": "9405",
+      "city": "Harstad"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "Haugesund-sentrum",
+    "name": "Feel24 Treningssenter Feel24 Haugesund",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-haugesund/Haugesund-sentrum",
+    "region_slug": "treningssenter-haugesund",
+    "parsed": {
+      "address": "Karmsundgata 178",
+      "postal_code": "5527",
+      "city": "Haugesund"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "gard-senter",
+    "name": "Feel24 Treningssenter Feel24 Haugesund",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-haugesund/gard-senter",
+    "region_slug": "treningssenter-haugesund",
+    "parsed": {
+      "address": "Nygårdsvegen 6",
+      "postal_code": "5515",
+      "city": "Haugesund"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "hokksund",
+    "name": "Feel24 Treningssenter Feel24 Hokksund",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-hokksund/hokksund",
+    "region_slug": "treningssenter-hokksund",
+    "parsed": {
+      "address": "Stasjonsgata 61",
+      "postal_code": "3300",
+      "city": "Hokksund"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "kirkenes",
+    "name": "Feel24 Kirkenes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-kirkenes/kirkenes",
+    "region_slug": "treningssenter-kirkenes",
+    "parsed": {
+      "address": "Sjøgata 1",
+      "postal_code": "9900",
+      "city": "Kirkenes"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "borkenes",
+    "name": "Feel24 Borkenes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-kvaefjord/borkenes",
+    "region_slug": "treningssenter-kvaefjord",
+    "parsed": {
+      "address": "Bygdevegen 39",
+      "postal_code": "9475",
+      "city": "Borkenes"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tranby",
+    "name": "Feel24 Tranby",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lier/tranby",
+    "region_slug": "treningssenter-lier",
+    "parsed": {
+      "address": "Dølasletta 7",
+      "postal_code": "3408",
+      "city": "Tranby"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "feelgood-leknes",
+    "name": "Feel24 Feelgood Leknes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lofoten/feelgood-leknes",
+    "region_slug": "treningssenter-lofoten",
+    "parsed": {
+      "address": "Lufthavnveien 3",
+      "postal_code": "8370",
+      "city": "Leknes"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "leknes",
+    "name": "Feel24 Leknes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lofoten/leknes",
+    "region_slug": "treningssenter-lofoten",
+    "parsed": null
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "stamsund",
+    "name": "Feel24 Stamsund",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lofoten/stamsund",
+    "region_slug": "treningssenter-lofoten",
+    "parsed": null
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "svolvaer",
+    "name": "Feel24 Svolvaer",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lofoten/svolvaer",
+    "region_slug": "treningssenter-lofoten",
+    "parsed": {
+      "address": "Sivert Nilsens gate 35",
+      "postal_code": "8300",
+      "city": "Svolvær"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "svolvaer-sentrum",
+    "name": "Feel24 Svolvaer Sentrum",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lofoten/svolvaer-sentrum",
+    "region_slug": "treningssenter-lofoten",
+    "parsed": {
+      "address": "Sivert Nilsens gt. 51",
+      "postal_code": "8300",
+      "city": "Svolvær"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "lyngen",
+    "name": "Feel24 Lyngen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lyngen/lyngen",
+    "region_slug": "treningssenter-lyngen",
+    "parsed": {
+      "address": "Strandveien 10",
+      "postal_code": "9060",
+      "city": "Lyngseidet"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "mo-amfi",
+    "name": "Feel24 Treningssenter Feel24 Mo Amfi",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-mo-i-rana/mo-amfi",
+    "region_slug": "treningssenter-mo-i-rana",
+    "parsed": null
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "mo-gruben",
+    "name": "Feel24 Mo Gruben",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-mo-i-rana/mo-gruben",
+    "region_slug": "treningssenter-mo-i-rana",
+    "parsed": {
+      "address": "Storgata 22",
+      "postal_code": "8610",
+      "city": "Mo I Rana"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "mo-ytteren",
+    "name": "Feel24 Treningssenter Feel24 Mo Ytteren",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-mo-i-rana/mo-ytteren",
+    "region_slug": "treningssenter-mo-i-rana",
+    "parsed": {
+      "address": "Langdalen 100",
+      "postal_code": "8614",
+      "city": "Mo i Rana"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "molde",
+    "name": "Feel24 Molde",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-molde/molde",
+    "region_slug": "treningssenter-molde",
+    "parsed": {
+      "address": "AMFI Roseby, Lingedalsvegen 6",
+      "postal_code": "6415",
+      "city": "Molde"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "skala",
+    "name": "Feel24 Skala",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-molde/skala",
+    "region_slug": "treningssenter-molde",
+    "parsed": {
+      "address": "Saksebakken 2",
+      "postal_code": "6456",
+      "city": "Skåla"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "mosjoen",
+    "name": "Feel24 Mosjoen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-mosjoen/mosjoen",
+    "region_slug": "treningssenter-mosjoen",
+    "parsed": {
+      "address": "Vefsnvegen 11",
+      "postal_code": "8656",
+      "city": "Mosjøen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "myrvoll",
+    "name": "Feel24 Myrvoll",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-myrvoll/myrvoll",
+    "region_slug": "treningssenter-myrvoll",
+    "parsed": {
+      "address": "Skiveien 123",
+      "postal_code": "1415",
+      "city": "Oppegård"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "ankenes",
+    "name": "Feel24 Ankenes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-narvik/ankenes",
+    "region_slug": "treningssenter-narvik",
+    "parsed": {
+      "address": "Ankenesveien 179",
+      "postal_code": "8520",
+      "city": "Ankenesstrand"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "narvik-sentrum",
+    "name": "Feel24 Narvik Sentrum",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-narvik/narvik-sentrum",
+    "region_slug": "treningssenter-narvik",
+    "parsed": {
+      "address": "Kongens gate 52/54",
+      "postal_code": "8514",
+      "city": "Narvik"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "hagan",
+    "name": "Feel24 Hagan",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-nittedal/hagan",
+    "region_slug": "treningssenter-nittedal",
+    "parsed": {
+      "address": "Tyriveien 7",
+      "postal_code": "1481",
+      "city": "Hagan"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "rotnes",
+    "name": "Feel24 Treningssenter Feel24 Rotnes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-nittedal/rotnes",
+    "region_slug": "treningssenter-nittedal",
+    "parsed": {
+      "address": "Gamleveien 2",
+      "postal_code": "1482",
+      "city": "Nittedal"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "skytta",
+    "name": "Feel24 TreningssenterFeel24 Skytta Gjelleråsen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-nittedal/skytta",
+    "region_slug": "treningssenter-nittedal",
+    "parsed": {
+      "address": "Brennaveien 4",
+      "postal_code": "1481",
+      "city": "Hagan"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "nordkjosbotn",
+    "name": "Feel24 Nordkjosbotn",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-nordkjosbotn/nordkjosbotn",
+    "region_slug": "treningssenter-nordkjosbotn",
+    "parsed": {
+      "address": "Torgveien 4",
+      "postal_code": "9040",
+      "city": "Nordkjosbotn"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "oppegaard",
+    "name": "Feel24 Oppegaard",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oppegaard/oppegaard",
+    "region_slug": "treningssenter-oppegaard",
+    "parsed": {
+      "address": "Sætreskogveien 4",
+      "postal_code": "1415",
+      "city": "Oppegård"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "brobekk-vollebekk",
+    "name": "Feel24 Brobekk Vollebekk",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oslo/brobekk-vollebekk",
+    "region_slug": "treningssenter-oslo",
+    "parsed": {
+      "address": "Brobekkveien 31",
+      "postal_code": "0598",
+      "city": "Oslo"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "gamlebyen-panorama",
+    "name": "Feel24 Treningssenter Feel24 Gamlebyen Panorama",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oslo/gamlebyen-panorama",
+    "region_slug": "treningssenter-oslo",
+    "parsed": {
+      "address": "Konows gate 67B",
+      "postal_code": "0196",
+      "city": "Oslo"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "grorud-senter",
+    "name": "Feel24 Grorud Senter",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oslo/grorud-senter",
+    "region_slug": "treningssenter-oslo",
+    "parsed": {
+      "address": "Bergensveien 2",
+      "postal_code": "0963",
+      "city": "Oslo"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "okern-brobekk",
+    "name": "Feel24 Okern Brobekk",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oslo/okern-brobekk",
+    "region_slug": "treningssenter-oslo",
+    "parsed": {
+      "address": "Lundliveien 11",
+      "postal_code": "0584",
+      "city": "Oslo"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "oppsal",
+    "name": "Feel24 Oppsal",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oslo/oppsal",
+    "region_slug": "treningssenter-oslo",
+    "parsed": {
+      "address": "Mekanikerveien 32",
+      "postal_code": "0683",
+      "city": "Oslo"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "raelingen",
+    "name": "Feel24 Raelingen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-raelingen/raelingen",
+    "region_slug": "treningssenter-raelingen",
+    "parsed": {
+      "address": "Øvre Rælingsveg 176",
+      "postal_code": "2008",
+      "city": "Fjerdingby"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "rognan",
+    "name": "Feel24 Rognan",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-rognan/rognan",
+    "region_slug": "treningssenter-rognan",
+    "parsed": {
+      "address": "Jernbanegata 19",
+      "postal_code": "8250",
+      "city": "Rognan"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "sandnessjoen",
+    "name": "Feel24 Sandnessjoen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-sandnessjoen/sandnessjoen",
+    "region_slug": "treningssenter-sandnessjoen",
+    "parsed": {
+      "address": "Havnegata 23",
+      "postal_code": "8800",
+      "city": "Sandnessjøen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "sandnessjoen-lyngasen",
+    "name": "Feel24 Sandnessjoen Lyngasen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-sandnessjoen/sandnessjoen-lyngasen",
+    "region_slug": "treningssenter-sandnessjoen",
+    "parsed": {
+      "address": "Novikveien 109",
+      "postal_code": "8800",
+      "city": "Sandnessjøen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "skjervoy",
+    "name": "Feel24 Skjervoy",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-skjervoy/skjervoy",
+    "region_slug": "treningssenter-skjervoy",
+    "parsed": {
+      "address": "Strandvegen 88A",
+      "postal_code": "9180",
+      "city": "Skjervøy"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "sorreisa",
+    "name": "Feel24 Sorreisa",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-sorreisa/sorreisa",
+    "region_slug": "treningssenter-sorreisa",
+    "parsed": {
+      "address": "Nordsiveien 1",
+      "postal_code": "9310",
+      "city": "Sørreisa"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "sulitjelma",
+    "name": "Feel24 Sulitjelma",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-sulitjelma/sulitjelma",
+    "region_slug": "treningssenter-sulitjelma",
+    "parsed": {
+      "address": "Charlotta 54",
+      "postal_code": "8230",
+      "city": "Sulitjelma, Norge"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "feel24-eidkjosen",
+    "name": "Feel24 Feel24 Eidkjosen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/feel24-eidkjosen",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Fjordvegen 12",
+      "postal_code": "9107",
+      "city": "Kvaløya"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "floylia",
+    "name": "Feel24 Floylia",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/floylia",
+    "region_slug": "treningssenter-tromso",
+    "parsed": null
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-fagereng",
+    "name": "Feel24 Tromso Fagereng",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-fagereng",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Kvaløyvegen 103",
+      "postal_code": "9013",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-hapet",
+    "name": "Feel24 Tromso Hapet",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-hapet",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Ørnevegen 110",
+      "postal_code": "9015",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-isrenna",
+    "name": "Feel24 Tromso Isrenna",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-isrenna",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Stakkevollvegen 333",
+      "postal_code": "9019",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-skippergata",
+    "name": "Feel24 Tromso Skippergata",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-skippergata",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Skippergata 7A",
+      "postal_code": "9008",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-sportssenter",
+    "name": "Feel24 Tromso Sportssenter",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-sportssenter",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Stakkevollvegen 65B",
+      "postal_code": "9010",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-strandgata",
+    "name": "Feel24 Tromso Strandgata",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-strandgata",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Strandgata 5/7",
+      "postal_code": "9008",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-the-box",
+    "name": "Feel24 Tromso The Box",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-the-box",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Stakkevollvegen 11",
+      "postal_code": "9010",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-tomasjord",
+    "name": "Feel24 Tromso Tomasjord",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-tomasjord",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Evjenvegen 144",
+      "postal_code": "9024",
+      "city": "Tomasjord"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-treningssenter",
+    "name": "Feel24 Tromso Treningssenter",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-treningssenter",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Dramsveien 206",
+      "postal_code": "9010",
+      "city": "Tromsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tromso-tromsdalen",
+    "name": "Feel24 Tromso Tromsdalen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-tromsdalen",
+    "region_slug": "treningssenter-tromso",
+    "parsed": {
+      "address": "Solstrandvegen 25",
+      "postal_code": "9020",
+      "city": "Tromsdalen"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "levanger",
+    "name": "Feel24 Levanger",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondelag/levanger",
+    "region_slug": "treningssenter-trondelag",
+    "parsed": {
+      "address": "Halsanvegen 1",
+      "postal_code": "7600",
+      "city": "Levanger"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "steinkjer",
+    "name": "Feel24 Steinkjer",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondelag/steinkjer",
+    "region_slug": "treningssenter-trondelag",
+    "parsed": {
+      "address": "Sjøfartsgata 2",
+      "postal_code": "7714",
+      "city": "Steinkjer"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "stjordal",
+    "name": "Feel24 Stjordal",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondelag/stjordal",
+    "region_slug": "treningssenter-trondelag",
+    "parsed": {
+      "address": "Stokmovegen 1",
+      "postal_code": "7501",
+      "city": "Stjørdal"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "verdal",
+    "name": "Feel24 Verdal",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondelag/verdal",
+    "region_slug": "treningssenter-trondelag",
+    "parsed": {
+      "address": "Jernbanegata 7m",
+      "postal_code": "7650",
+      "city": "Verdalsøra"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "buran",
+    "name": "Feel24 Buran",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/buran",
+    "region_slug": "treningssenter-trondheim",
+    "parsed": {
+      "address": "Gamle Kirkevei 22",
+      "postal_code": "7043",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "byasen",
+    "name": "Feel24 Byasen",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/byasen",
+    "region_slug": "treningssenter-trondheim",
+    "parsed": {
+      "address": "Selsbakkvegen 37",
+      "postal_code": "7027",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "dalgard",
+    "name": "Feel24 Treningssenter Feel24 Dalgård",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/dalgard",
+    "region_slug": "treningssenter-trondheim",
+    "parsed": {
+      "address": "Anders Wigens veg 2",
+      "postal_code": "7024",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "heimdal",
+    "name": "Feel24 Heimdal",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/heimdal",
+    "region_slug": "treningssenter-trondheim",
+    "parsed": {
+      "address": "Ringvålveien 7",
+      "postal_code": "7080",
+      "city": "Heimdal (over Rema1000)"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "ilsvika",
+    "name": "Feel24 Ilsvika",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/ilsvika",
+    "region_slug": "treningssenter-trondheim",
+    "parsed": {
+      "address": "Mellomlia 88",
+      "postal_code": "7013",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "risvollan",
+    "name": "Feel24 Risvollan",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/risvollan",
+    "region_slug": "treningssenter-trondheim",
+    "parsed": {
+      "address": "Hoeggvegen 66",
+      "postal_code": "7036",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tyholt",
+    "name": "Feel24 Tyholt",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/tyholt",
+    "region_slug": "treningssenter-trondheim",
+    "parsed": {
+      "address": "Otto Nielsens veg 4",
+      "postal_code": "7052",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "tolvsrod",
+    "name": "Feel24 Treningssenter Feel24 Tønsberg",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tronsberg/tolvsrod",
+    "region_slug": "treningssenter-tronsberg",
+    "parsed": {
+      "address": "Valløveien 80",
+      "postal_code": "3154",
+      "city": "Tolvsrød"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "vadso",
+    "name": "Feel24 Vadso",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vadso/vadso",
+    "region_slug": "treningssenter-vadso",
+    "parsed": {
+      "address": "Sør-varangerveien 2",
+      "postal_code": "9800",
+      "city": "Vadsø"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "valnesfjorden",
+    "name": "Feel24 Valnesfjorden",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-valnesfjorden/valnesfjorden",
+    "region_slug": "treningssenter-valnesfjorden",
+    "parsed": {
+      "address": "Trivselsveien 270",
+      "postal_code": "8215",
+      "city": "Valnesfjord"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "andenes",
+    "name": "Feel24 Andenes",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vesteralen/andenes",
+    "region_slug": "treningssenter-vesteralen",
+    "parsed": {
+      "address": "Fr. Nansens Gate 116",
+      "postal_code": "8480",
+      "city": "Andenes"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "melbu",
+    "name": "Feel24 Melbu",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vesteralen/melbu",
+    "region_slug": "treningssenter-vesteralen",
+    "parsed": {
+      "address": "Chr. Fredriksens gt. 3",
+      "postal_code": "8445",
+      "city": "Melbu"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "myre",
+    "name": "Feel24 Myre",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vesteralen/myre",
+    "region_slug": "treningssenter-vesteralen",
+    "parsed": {
+      "address": "Storgata 8",
+      "postal_code": "8430",
+      "city": "Myre"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "sortland-kjopmannsgata",
+    "name": "Feel24 Sortland Kjopmannsgata",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vesteralen/sortland-kjopmannsgata",
+    "region_slug": "treningssenter-vesteralen",
+    "parsed": {
+      "address": "Kjøpmannsgata 10",
+      "postal_code": "8400",
+      "city": "Sortland"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "sortland-radhusgata",
+    "name": "Feel24 Sortland Radhusgata",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vesteralen/sortland-radhusgata",
+    "region_slug": "treningssenter-vesteralen",
+    "parsed": {
+      "address": "Rådhusgata 9",
+      "postal_code": "8400",
+      "city": "Sortland"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "stokmarknes-sentrum",
+    "name": "Feel24 Stokmarknes Sentrum",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vesteralen/stokmarknes-sentrum",
+    "region_slug": "treningssenter-vesteralen",
+    "parsed": {
+      "address": "Markedsgata 17",
+      "postal_code": "8450",
+      "city": "Stokmarknes"
+    }
+  },
+  {
+    "brand": "Feel24",
+    "center_name": "stokmarknes-sondre",
+    "name": "Feel24 Stokmarknes Sondre",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vesteralen/stokmarknes-sondre",
+    "region_slug": "treningssenter-vesteralen",
+    "parsed": {
+      "address": "Søndregate 32",
+      "postal_code": "8450",
+      "city": "Stokmarknes"
+    }
+  }
+]

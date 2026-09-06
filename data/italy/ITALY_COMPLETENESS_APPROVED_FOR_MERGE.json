@@ -1,0 +1,10 @@
+{
+  "approved": true,
+  "expected_insert_historical": 38,
+  "final_completeness_in_production": 38,
+  "fitinn_repair_inserted": 2,
+  "source": "data/italy/ITALY_COMPLETENESS_READY_TO_IMPORT.json",
+  "generated": "2026-08-21T15:03:34.944580+00:00",
+  "final_total": 9094,
+  "final_italy": 588
+}

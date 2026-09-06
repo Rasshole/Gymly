@@ -1,0 +1,13 @@
+{
+  "country": "Turkey",
+  "format": "NNNNN (5 digits)",
+  "regex": "^\\d{5}$",
+  "examples": [
+    "34055",
+    "06100",
+    "35220"
+  ],
+  "validation_function": "format_tr_postal() in batch1_phase1_common.py",
+  "source": "PTT Posta Kodu Sistemi; ISO 19160; aligned with TURKEY_POSTAL_RE",
+  "verified_independently": true
+}

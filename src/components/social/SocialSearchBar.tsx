@@ -21,6 +21,7 @@ import {
   SOCIAL_INPUT_PADDING_H,
   SOCIAL_ICON_SLOT,
 } from './socialUiTokens';
+import {useTranslation} from '@/i18n';
 
 export type SocialSearchBarProps = {
   value: string;
@@ -30,7 +31,10 @@ export type SocialSearchBarProps = {
   style?: StyleProp<ViewStyle>;
   /** Search field variant */
   variant?: 'inline' | 'floating' | 'map';
-} & Pick<TextInputProps, 'autoCorrect' | 'autoCapitalize' | 'keyboardType'>;
+} & Pick<
+  TextInputProps,
+  'autoCorrect' | 'autoCapitalize' | 'keyboardType' | 'onSubmitEditing' | 'returnKeyType'
+>;
 
 const SocialSearchBar: React.FC<SocialSearchBarProps> = ({
   value,
@@ -41,7 +45,10 @@ const SocialSearchBar: React.FC<SocialSearchBarProps> = ({
   autoCorrect = true,
   autoCapitalize = 'sentences',
   keyboardType = 'default',
+  onSubmitEditing,
+  returnKeyType,
 }) => {
+  const {t} = useTranslation();
   const [focused, setFocused] = useState(false);
   const floating = variant === 'floating' || variant === 'map';
   const isMap = variant === 'map';
@@ -102,6 +109,8 @@ const SocialSearchBar: React.FC<SocialSearchBarProps> = ({
         autoCorrect={autoCorrect}
         autoCapitalize={autoCapitalize}
         keyboardType={keyboardType}
+        onSubmitEditing={onSubmitEditing}
+        returnKeyType={returnKeyType}
         selectionColor={colors.primary}
       />
       {value.length > 0 ? (
@@ -109,7 +118,7 @@ const SocialSearchBar: React.FC<SocialSearchBarProps> = ({
           onPress={() => onChangeText('')}
           style={styles.clear}
           hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
-          accessibilityLabel="Ryd søgning">
+          accessibilityLabel={t('a11y.clearSearch')}>
           <Icon name="close-circle" size={20} color={colors.textMuted} />
         </TouchableOpacity>
       ) : null}

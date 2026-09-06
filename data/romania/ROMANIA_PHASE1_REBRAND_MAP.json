@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-08-23T17:05:36Z",
+  "mappings": [
+    {
+      "from": "World Class legacy club brands",
+      "to": "World Class",
+      "status": "acquired_integrated",
+      "action": "import_current_wc_identity_only"
+    },
+    {
+      "from": "ESX partner gyms",
+      "to": "N/A",
+      "status": "aggregator",
+      "action": "exclude_entire_esx_network"
+    }
+  ]
+}

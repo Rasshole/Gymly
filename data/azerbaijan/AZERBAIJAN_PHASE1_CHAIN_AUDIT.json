@@ -1,0 +1,21 @@
+{
+  "country": "Azerbaijan",
+  "phase": 1,
+  "market_model": "CHAIN_LED_SMALL_MARKET",
+  "chains": [
+    {
+      "operator": "FS Club Network",
+      "active_verified": 3,
+      "staged_total": 3,
+      "official_estimated": 3,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    }
+  ],
+  "summary": {
+    "class_a_chain_count": 1,
+    "final_class_a_ready_count": 3,
+    "chain_estate_gaps": 0
+  }
+}

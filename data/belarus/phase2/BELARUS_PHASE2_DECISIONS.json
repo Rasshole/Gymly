@@ -1,0 +1,582 @@
+[
+  {
+    "id": "by_750f35b18a",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Petra Mstislavtsa",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_79989cf6f9",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Bogdanovicha",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_51cdad174c",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Tolbukhina",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_15272cccf8",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Zheleznodorozhnaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_880f898965",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Kuprevicha",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_45199a18da",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Kalvariyskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_32bd3de5a2",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Kabushkina",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_6cd39b46bb",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Mayakovskogo",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_9b30bb4164",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Olesheva",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_9d160d7f04",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Nemanskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_3633cd3ae9",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Borovlyany Beryozovaya Roscha",
+    "city": "Borovlyany",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 adrenalin.by — Borovlyany Beryozovaya Roscha active branch",
+    "in_production": false
+  },
+  {
+    "id": "by_0b2060fce0",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Bobruyskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_40c8cf404e",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Pobediteley",
+    "city": "Minsk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 adrenalin.by — Pobediteley 129 Minsk active branch",
+    "in_production": false
+  },
+  {
+    "id": "by_391eb2e674",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Nezavisimosti",
+    "city": "Minsk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 adrenalin.by — Nezavisimosti Minsk active branch",
+    "in_production": false
+  },
+  {
+    "id": "by_b8d78f7e5f",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Lopatina",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_eea6376668",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Surganova",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_8e81d7c66d",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Goshkevicha",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_619fa837be",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Belinskogo",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_91c4d352a6",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Bratskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_b0b94c0ff4",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Very Khoruzhey",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_de5fae95bf",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Dzerzhinskogo",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_d3603c65b0",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Minsk Nalibokskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_846dbc58e6",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Gomel Gagarina",
+    "city": "Gomel",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_0abd3f74c4",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Gomel Rechitsky",
+    "city": "Gomel",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_f7ee40e6b4",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Pinsk Brestskaya",
+    "city": "Pinsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_798ff81350",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Pinsk Gaydaenko",
+    "city": "Pinsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_fe116c2222",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Luninets Zapadnaya",
+    "city": "Luninets",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_9e5c072155",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Orsha Flerova",
+    "city": "Orsha",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_d2f1b76671",
+    "brand": "Adrenalin",
+    "name": "Adrenalin Pruzhany Oktyabrskaya",
+    "city": "Pruzhany",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_bc96694c1b",
+    "brand": "Lifestyle",
+    "name": "Lifestyle Minsk Masherova",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_d36ea41d9f",
+    "brand": "Lifestyle",
+    "name": "Lifestyle Minsk Logoysky Trakt",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_ad1e7bbaed",
+    "brand": "Lifestyle",
+    "name": "Lifestyle Minsk Partizansky",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_8e1b6f96d5",
+    "brand": "Fox Club",
+    "name": "Fox Club Minsk Grushevskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_5484dfe0a0",
+    "brand": "Fox Club",
+    "name": "Fox Club Minsk Dolgobrodskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_193e1d6914",
+    "brand": "Fox Club",
+    "name": "Fox Club Minsk Kazintsa",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_e374a381ab",
+    "brand": "Fox Club",
+    "name": "Fox Club Mogilev Shmidta",
+    "city": "Mogilev",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_badef82a8a",
+    "brand": "Fox Club",
+    "name": "Fox Club Grodno Kupaly",
+    "city": "Grodno",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 foxclub.by — Grodno Kupaly 22 active branch",
+    "in_production": false
+  },
+  {
+    "id": "by_fa0eb7ca10",
+    "brand": "Olympic",
+    "name": "Olympic Minsk Nemanskaya",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_4288439861",
+    "brand": "Olympic",
+    "name": "Olympic Minsk Petra Glebki",
+    "city": "Minsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_f8a48b1e14",
+    "brand": "Olympic",
+    "name": "Olympic Minsk Pobediteley",
+    "city": "Minsk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 olympic.by — Pobediteley 11 Minsk active branch",
+    "in_production": false
+  },
+  {
+    "id": "by_35c11d2126",
+    "brand": "Olympic",
+    "name": "Olympic Grodno Sovetskaya",
+    "city": "Grodno",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 olympic.by — Grodno Sovetskaya active branch",
+    "in_production": false
+  },
+  {
+    "id": "by_aed96cf298",
+    "brand": "Olympic",
+    "name": "Olympic Loshitsa (coming soon)",
+    "city": "Minsk",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "phase1_coming_soon_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_cc9170f013",
+    "brand": "World Class",
+    "name": "World Class Minsk Dzerzhinskogo",
+    "city": "Minsk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 World Class Dzerzhinskogo — independent conventional public gym",
+    "in_production": false
+  },
+  {
+    "id": "by_9f1ed8d6b8",
+    "brand": "Gym Express 24h",
+    "name": "Gym Express 24h Brest",
+    "city": "Brest",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 Gym Express 24h Brest — independent conventional public gym",
+    "in_production": false
+  },
+  {
+    "id": "by_2092ad55f8",
+    "brand": "Grafit",
+    "name": "Grafit Brest",
+    "city": "Brest",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_3f5719e0cd",
+    "brand": "Delta",
+    "name": "Delta Brest",
+    "city": "Brest",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_086ee5b139",
+    "brand": "FitWorld",
+    "name": "FitWorld Grodno Pushkina",
+    "city": "Grodno",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "by_de53fc35f8",
+    "brand": "Independent (Vitebsk)",
+    "name": "Vitebsk conventional gym audit",
+    "city": "Vitebsk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 Vitebsk municipal audit — no qualifying conventional public gym",
+    "in_production": false
+  },
+  {
+    "id": "by_9642ecd9fc",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym Belarus probe",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_1f50c02345",
+    "brand": "Anytime Fitness",
+    "name": "Anytime Fitness Belarus probe",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_1ed300efb4",
+    "brand": "McFIT",
+    "name": "McFIT Belarus probe",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_144113bbad",
+    "brand": "Basic-Fit",
+    "name": "Basic-Fit Belarus probe",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_e352b78a28",
+    "brand": "Hotel gym",
+    "name": "Hotel guest fitness Minsk probe",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_9e927f3165",
+    "brand": "Resort spa",
+    "name": "Resort spa fitness amenity probe",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_bfce3776c1",
+    "brand": "CrossFit box",
+    "name": "CrossFit-only Minsk sample",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_054b7628c2",
+    "brand": "Boxing club",
+    "name": "Boxing-only Minsk sample",
+    "city": "Minsk",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_fde752a945",
+    "brand": "Border probe",
+    "name": "Border probe Białystok",
+    "city": "Białystok",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "by_c30bd07172",
+    "brand": "Border probe",
+    "name": "Border probe Terespol",
+    "city": "Terespol",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  }
+]

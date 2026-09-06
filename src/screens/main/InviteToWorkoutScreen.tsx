@@ -27,7 +27,7 @@ import {
   loadWorkoutPlanEntriesForUser,
 } from '@/services/supabase/plannedWorkoutService';
 import {formatGymDisplayName, findGymByIdRelaxed} from '@/utils/gymDisplay';
-import {getActiveDanishGyms, type DanishGym} from '@/data/danishGyms';
+import {type DanishGym} from '@/data/danishGyms';
 import TimePickerSheet from '@/components/ui/TimePickerSheet';
 import {useTranslation} from '@/i18n';
 import PlannedWorkoutInviteForm, {
@@ -35,10 +35,9 @@ import PlannedWorkoutInviteForm, {
   INVITE_FORM_SCREEN_TINT,
 } from '@/components/planned/PlannedWorkoutInviteForm';
 
-const FALLBACK_GYMS = getActiveDanishGyms();
-
 const InviteToWorkoutScreen = () => {
-  const {t} = useTranslation();
+  const {t, intlLocale} = useTranslation();
+  const pickerLocale = intlLocale.replace('-', '_');
   const navigation = useNavigation();
   const route = useRoute();
   const insets = useSafeAreaInsets();
@@ -46,7 +45,7 @@ const InviteToWorkoutScreen = () => {
   const {user} = useAppStore();
   const mergePlannedFromServer = useWorkoutPlanStore(s => s.mergePlannedFromServer);
 
-  const displayName = (friendName || 'din ven').trim() || 'din ven';
+  const displayName = (friendName || t('plannedSessions.yourFriend')).trim() || t('plannedSessions.yourFriend');
   const colorScheme = useColorScheme();
   const datePickerIsDark = colorScheme === 'dark';
 
@@ -54,7 +53,7 @@ const InviteToWorkoutScreen = () => {
   const [selectedTime, setSelectedTime] = useState(() => defaultScheduleParts().time);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
-  const [planMuscle, setPlanMuscle] = useState<MuscleGroup>('bryst');
+  const [planMuscles, setPlanMuscles] = useState<MuscleGroup[]>(['bryst']);
   const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
   const [saving, setSaving] = useState(false);
   const gymInitRef = useRef(false);
@@ -66,7 +65,7 @@ const InviteToWorkoutScreen = () => {
     gymInitRef.current = true;
     const primaryId = user.favoriteGyms?.[0];
     const fromProfile = primaryId ? findGymByIdRelaxed(primaryId) : null;
-    setPlanSelectedGym(fromProfile ?? FALLBACK_GYMS[0] ?? null);
+    setPlanSelectedGym(fromProfile ?? null);
   }, [user]);
 
   const combineDateTime = useCallback(() => {
@@ -120,7 +119,7 @@ const InviteToWorkoutScreen = () => {
         centerId: planSelectedGym.id,
         centerName: formatGymDisplayName(planSelectedGym),
         scheduledAt: scheduledDateTime,
-        trainingTypes: [String(planMuscle)],
+        trainingTypes: planMuscles.map(m => String(m)),
         note: null,
         inviteeIds: [friendId],
         threadId: null,
@@ -169,10 +168,10 @@ const InviteToWorkoutScreen = () => {
         scheduledPreview={scheduledPreview}
         planSelectedGym={planSelectedGym}
         onGymChange={setPlanSelectedGym}
-        planMuscle={planMuscle}
-        onMuscleChange={setPlanMuscle}
+        planMuscles={planMuscles}
+        onMusclesChange={setPlanMuscles}
         onSubmit={handleSendInvitation}
-        submitLabel="Send invitation"
+        submitLabel={t('inviteWorkout.sendInvite')}
         saving={saving}
         submitDisabled={sendDisabled}
       />
@@ -183,11 +182,11 @@ const InviteToWorkoutScreen = () => {
           <View style={styles.pickerModalContent}>
             <View style={styles.pickerModalHeader}>
               <Pressable onPress={() => setShowDatePicker(false)} style={styles.pickerHeaderBtn}>
-                <Text style={styles.pickerCancel}>Annuller</Text>
+                <Text style={styles.pickerCancel}>{t('inviteWorkout.cancel')}</Text>
               </Pressable>
-              <Text style={styles.pickerTitle}>Dato</Text>
+              <Text style={styles.pickerTitle}>{t('inviteWorkout.date')}</Text>
               <Pressable onPress={() => setShowDatePicker(false)} style={styles.pickerHeaderBtn}>
-                <Text style={styles.pickerOk}>OK</Text>
+                <Text style={styles.pickerOk}>{t('inviteWorkout.ok')}</Text>
               </Pressable>
             </View>
             <DateTimePicker
@@ -196,7 +195,7 @@ const InviteToWorkoutScreen = () => {
               display="spinner"
               onChange={handleDateChange}
               minimumDate={new Date()}
-              locale="da_DK"
+              locale={pickerLocale}
               themeVariant={datePickerIsDark ? 'dark' : 'light'}
               textColor={datePickerIsDark ? '#F9FAFB' : '#111827'}
               style={styles.picker}

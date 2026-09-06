@@ -6,13 +6,16 @@ import {supabase} from '@/services/supabase/supabaseClient';
 import type {Workout} from '@/types/workout.types';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {detectGymChain} from '@/services/gymLogoService';
+import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
+import {getIntlLocale, getRuntimeLanguage} from '@/i18n';
+import {sessionDurationMinutes} from '@/utils/trainingStatsFromCheckIns';
 
 export type ProfileCompletedSession = {
   id: string;
   gymName: string;
   startedAt: Date;
   endedAt: Date;
-  durationMinutes: number;
+  durationMinutes: number | null;
   workoutType: string | null;
   /** Sættes når session er koblet til planlagt træning med en anden deltager */
   partnerDisplayName: string | null;
@@ -23,27 +26,21 @@ const DEFAULT_LIMIT = 80;
 /** Dato uden klokkeslæt + varighed, fx "23. apr. 2026 · 1t 24m" */
 export function formatSessionDateAndDurationDa(
   startedAt: Date,
-  durationMinutes: number,
+  durationMinutes: number | null,
 ): string {
-  const dateStr = startedAt.toLocaleDateString('da-DK', {
+  const dateStr = startedAt.toLocaleDateString(getIntlLocale(getRuntimeLanguage()), {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
   });
+  if (durationMinutes == null || durationMinutes <= 0) {
+    return dateStr;
+  }
   return `${dateStr} · ${formatDurationShortDa(durationMinutes)}`;
 }
 
 export function formatDurationShortDa(totalMinutes: number): string {
-  const m = Math.max(1, Math.round(totalMinutes));
-  if (m < 60) {
-    return `${m} min`;
-  }
-  const h = Math.floor(m / 60);
-  const rest = m % 60;
-  if (rest === 0) {
-    return `${h}t`;
-  }
-  return `${h}t ${rest}m`;
+  return formatWorkoutDuration(totalMinutes);
 }
 
 function mapRowToSession(
@@ -219,7 +216,9 @@ export function completedSessionsToWorkouts(
     gymName: s.gymName,
     startTime: s.startedAt,
     endTime: s.endedAt,
-    duration: s.durationMinutes,
+    duration:
+      s.durationMinutes ??
+      sessionDurationMinutes(s.startedAt, s.endedAt),
     workoutType: s.workoutType ?? undefined,
   }));
 }

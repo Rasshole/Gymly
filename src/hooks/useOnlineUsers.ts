@@ -11,13 +11,15 @@ import {useFriendStore} from '@/store/friendStore';
 
 export interface UseOnlineUsersOptions {
   filter?: 'alle' | 'venner';
+  enabled?: boolean;
 }
 
 export function useOnlineUsers(
   userId: string | undefined,
-  options: UseOnlineUsersOptions = {}
+  options: UseOnlineUsersOptions = {},
 ) {
   const filter = options.filter ?? 'venner';
+  const enabled = options.enabled ?? true;
   const [users, setUsers] = useState<OnlineUser[]>([]);
   const [loading, setLoading] = useState(true);
   const friendVersion = useFriendStore(s => s.version);
@@ -35,27 +37,30 @@ export function useOnlineUsers(
   }, [userId, filter]);
 
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
     void refresh();
-  }, [refresh, friendVersion]);
+  }, [refresh, friendVersion, enabled]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!enabled || !userId) {
       return;
     }
     return subscribeCheckInsPresence(() => {
       void refresh();
     });
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!enabled || !userId) {
       return;
     }
     const id = setInterval(() => {
       void refresh();
     }, 60000);
     return () => clearInterval(id);
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   return {users, loading, refresh};
 }

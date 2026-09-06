@@ -31,13 +31,30 @@ export function isSuppressedRankingNotificationRow(dbType: string | null | undef
 export const SURFACE_ONLINE_SUBTAB_IN_FRIENDS = false;
 
 /**
- * Grupper (Venner-fane, opret/find, feed-filtre, ny besked til gruppe) — skjult ved launch.
- * Stack-ruter, Supabase og `GroupsScreen` bevares modulært til genaktivering.
+ * Grupper (Venner-fane, opret/find, feed-filtre, ny besked til gruppe).
+ * Stack-ruter, Supabase og `GroupsScreen` er wired under Venner → Grupper.
  */
-export const SURFACE_GROUPS_IN_APP = false;
+export const SURFACE_GROUPS_IN_APP = true;
 
 /**
  * Demo-indhold toggle i Indstillinger (optagelse / fiktiv aktivitet).
  * Sæt til `true` når du skal optage demo-video igen.
  */
 export const SURFACE_DEMO_MODE_IN_SETTINGS = false;
+
+/**
+ * Gymly Shop as a top-level bottom tab (replaces Messages in the tab bar).
+ * Messages remain reachable via the shared header action + stack route.
+ *
+ * Toggle for Patrick / local QA:
+ * - `true`  → tabs: Home | Friends | Check in | Shop | Profile
+ * - `false` → tabs: Home | Friends | Check in | Messages | Profile (safe fallback)
+ *
+ * Catalogue source is separate (`SHOP_CATALOG_SOURCE` in `.env`):
+ * - production → `shopify` (required; never silent mock fallback)
+ * - tests → local mocks
+ * - development → `local` only when explicitly set
+ *
+ * Keep `true` for Shop Phase 1B local QA once Shopify token is configured.
+ */
+export const SURFACE_SHOP_IN_TABS = true;

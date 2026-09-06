@@ -1,0 +1,279 @@
+{
+  "generated": "2026-08-22T19:54:45.619Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "pre_merge_sha256": "e7e3848d4ac3efd10f2482bcb7b50363cd82d4e0d0b32506ccd12878717c10c0",
+  "baseline": {
+    "total": 10525,
+    "portugal": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475
+  },
+  "approved_candidates": 247,
+  "validated_safe": 247,
+  "inserted": 247,
+  "withheld": 0,
+  "withheld_details": [],
+  "after": {
+    "total": 10772,
+    "portugal": 247,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475
+  },
+  "duplicate_ids": [],
+  "rejected": {
+    "missing_id_prefix": 0,
+    "legacy_brand": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "foreign_coords": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "positive_longitude": 0
+  },
+  "brand_breakdown_canonical": {
+    "VivaGym": 46,
+    "Holmes Place": 12,
+    "Solinca Light": 16,
+    "Solinca": 19,
+    "Be-Fit": 10,
+    "Fitness UP": 51,
+    "Element": 46,
+    "Fitness Factory": 44,
+    "Lemonfit": 1,
+    "Balance": 2
+  },
+  "brand_breakdown_production": {
+    "VivaGym": 46,
+    "Holmes Place": 12,
+    "Solinca Light": 16,
+    "Solinca": 19,
+    "Be-Fit": 10,
+    "Fitness UP": 51,
+    "Element": 46,
+    "Fitness Factory": 44,
+    "Lemonfit": 1,
+    "Balance": 2
+  },
+  "pre_merge_validation": {
+    "candidate_count": 247,
+    "pt_prefix": true,
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "rebrand_conflicts": 0,
+    "staging_exclusions": 0,
+    "result": "PASS_ALL"
+  },
+  "islands": {
+    "madeira": 5,
+    "azores": 2,
+    "madeira_ids": [
+      "pt_d1573ba977",
+      "pt_0ed3aa6000",
+      "pt_8e9361add0",
+      "pt_2c594cd30b",
+      "pt_532415ebbc"
+    ],
+    "azores_ids": [
+      "pt_34bec26868",
+      "pt_7d40ef811b"
+    ],
+    "invalid_island_rows": 0
+  },
+  "post_merge": {
+    "portugal_rows": 247,
+    "pt_prefix": true,
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 1,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 2
+  },
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    }
+  },
+  "staging": {
+    "MERGED_INTO_CATALOG": 247,
+    "NEEDS_COORDINATES": 36,
+    "NEEDS_REVIEW": 26,
+    "COMING_SOON": 0,
+    "CLOSED": 2,
+    "DUPLICATE": 5
+  },
+  "rebrand_map": {
+    "Fitness Hut": {
+      "successor": "VivaGym",
+      "action": "stage_as_vivagym_only",
+      "status": "resolved"
+    },
+    "Pump Fitness Spirit": {
+      "successor": "Solinca Light",
+      "action": "stage_as_solinca_light_only",
+      "status": "resolved"
+    },
+    "Virgin Active Portugal": {
+      "successor": "Holmes Place",
+      "action": "stage_as_holmes_place_only",
+      "status": "resolved"
+    },
+    "Kalorias": {
+      "successor": null,
+      "action": "exclude_while_site_404",
+      "status": "deferred"
+    }
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "verdict": "PORTUGAL MERGE COMPLETE — WAITING FOR QA",
+  "post_merge_sha256": "96b4a15090dfa314c74f0224bd056be9525a1836d352eefa7f83f47953143973",
+  "staging_reconciliation": {
+    "production_pt_ids": 247,
+    "staging_merged_ids": 247,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "performance": {
+    "catalog": 10772,
+    "active": 10767,
+    "json_size_bytes": 3326758,
+    "json_size_mb": 3.17,
+    "parse_ms": 44.61,
+    "cold_index_ms": 46.14,
+    "cached_index_ms": 0.0768,
+    "typical_search_ms": 5.72,
+    "worst_search_ms": 6.54,
+    "nearest_ms": 16.29,
+    "map_build_ms": 4.56,
+    "viewport_filter_ms": 4.02,
+    "nearest_hit": {
+      "id": "pt_0a00562df7",
+      "name": "VivaGym Almirante Reis",
+      "country": "Portugal"
+    },
+    "viewport_hits": 106
+  },
+  "global_scale": {
+    "previous_qa_baseline": 10525,
+    "switzerland_qa_baseline": 10525,
+    "new_catalog": 10772,
+    "new_scale_regression": false,
+    "global_stress_rerun_required_now": false,
+    "note": "No material regression vs 10,525 envelope; 10,772 remains client-side"
+  }
+}

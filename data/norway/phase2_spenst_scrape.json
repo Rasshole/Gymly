@@ -1,0 +1,238 @@
+{
+  "centers": [
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Alta",
+      "name": "Spenst Alta",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Bossekopveien 117",
+        "postal_code": "9511",
+        "city": "Alta"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Fetsund",
+      "name": "Spenst Fetsund",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Gamle Fetvei 7",
+        "postal_code": "1900",
+        "city": "Fetsund"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Florø",
+      "name": "Spenst Florø",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Hestenesgata 4",
+        "postal_code": "6900",
+        "city": "Florø"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Kråkerøy",
+      "name": "Spenst Kråkerøy",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Selma Nygrensvei",
+        "postal_code": "1671",
+        "city": "Kråkerøy"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Åpningstider Spenst Fredrikstad åpner januar 2027!",
+      "name": "Spenst Åpningstider Spenst Fredrikstad åpner januar 2027!",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Hafstadvegen 36",
+        "postal_code": "6800",
+        "city": "Sunnfjord"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Sandane",
+      "name": "Spenst Sandane",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Krånavegen 5",
+        "postal_code": "6823",
+        "city": "Sandane"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Halden",
+      "name": "Spenst Halden",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Walkers gate 10",
+        "postal_code": "1771",
+        "city": "Halden"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Høyanger",
+      "name": "Spenst Høyanger",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Hjetland 2",
+        "postal_code": "6993",
+        "city": "Høyanger"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Jessheim",
+      "name": "Spenst Jessheim",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Dampsaga Allé 20",
+        "postal_code": "2053",
+        "city": "Jessheim"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Kongsberg",
+      "name": "Spenst Kongsberg",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Reins gate 2",
+        "postal_code": "3611",
+        "city": "Kongsberg"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Leikanger",
+      "name": "Spenst Leikanger",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Riverdalen 5",
+        "postal_code": "6863",
+        "city": "Leikanger"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Moss",
+      "name": "Spenst Moss",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Ryggeveien 96",
+        "postal_code": "1528",
+        "city": "Moss"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Nesttun",
+      "name": "Spenst Nesttun",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Hardangervegen 21",
+        "postal_code": "5224",
+        "city": "Nesttun"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Otta",
+      "name": "Spenst Otta",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Storgata 15",
+        "postal_code": "2670",
+        "city": "Otta"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Sarpsborg",
+      "name": "Spenst Sarpsborg",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Sandesundsveien 3b",
+        "postal_code": "1706",
+        "city": "Sarpsborg"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Borgenhaugen",
+      "name": "Spenst Borgenhaugen",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Rådhusveien 23",
+        "postal_code": "1739",
+        "city": "Borgenhaugen"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Skjold",
+      "name": "Spenst Skjold",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Skjoldavikvegen 59",
+        "postal_code": "5574",
+        "city": "Skjold"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Sogndal",
+      "name": "Spenst Sogndal",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Trolladalen 30",
+        "postal_code": "6856",
+        "city": "Sogndal"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Sørumsand",
+      "name": "Spenst Sørumsand",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Sørumsandvegen 69",
+        "postal_code": "1920",
+        "city": "Sørumsand"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Trysil",
+      "name": "Spenst Trysil",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Liavegen 11",
+        "postal_code": "2420",
+        "city": "Trysil"
+      }
+    },
+    {
+      "brand": "Spenst",
+      "center_name": "Spenst Sarpsborg",
+      "name": "Spenst Sarpsborg",
+      "source_url": "https://spenst.no/finn-treningssenter/",
+      "parsed": {
+        "address": "Lilletuneveien 6A",
+        "postal_code": "1711",
+        "city": "Sarpsborg"
+      }
+    }
+  ],
+  "coming_notes": [
+    "Åpningstider Spenst Fredrikstad åpner januar 2027!"
+  ]
+}

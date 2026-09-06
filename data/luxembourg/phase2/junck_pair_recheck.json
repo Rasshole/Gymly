@@ -1,0 +1,19 @@
+{
+  "pair": "Basic-Fit Junck 12 vs JIMS Gare Junck 11",
+  "basic_fit": {
+    "id": "lu_a61ce060d4",
+    "address": "Rue Joseph Junck 12",
+    "lat": 49.6008266,
+    "lng": 6.1324294
+  },
+  "jims": {
+    "id": "lu_987be28ebf",
+    "address": "Rue Joseph Junck 11",
+    "lat": 49.6004103,
+    "lng": 6.1319654
+  },
+  "distance_m": 57.1,
+  "classification": "A_legitimate_adjacent_premises",
+  "decision": "retain_both",
+  "notes": "Distinct street numbers 11 vs 12; distinct brands; both currently open"
+}

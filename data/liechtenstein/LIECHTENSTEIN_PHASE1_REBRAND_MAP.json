@@ -1,0 +1,33 @@
+{
+  "country": "Liechtenstein",
+  "cases": [
+    {
+      "id": "salutaris_lorez_schaan",
+      "classification": "A_current_successor",
+      "predecessor": "Salutaris Training Schaan",
+      "successor": "Lorez Gesundheitscenter Schaan",
+      "address": "Landstrasse 168, 9494 Schaan",
+      "status": "RESOLVED",
+      "notes": "Same premises; Salutaris CLOSED, Lorez current"
+    },
+    {
+      "id": "blugym_purfitness_schaan",
+      "classification": "A_current_successor",
+      "predecessor": "fitnesshaus by blugym Schaan",
+      "successor": "purfitness Schaan",
+      "address": "Im alten Riet 22, 9494 Schaan",
+      "status": "RESOLVED",
+      "notes": "March 2026 regional rebrand documented on purfitness.at"
+    },
+    {
+      "id": "lorez_bendern_colocation",
+      "classification": "B_co_located_not_separate_club",
+      "predecessor": "Lorez Health Training Bendern",
+      "successor": "Lorez Power Center Bendern",
+      "address": "Industriestrasse 16, 9487 Bendern",
+      "status": "RESOLVED",
+      "notes": "Same building; Power Center is 24h public import unit"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

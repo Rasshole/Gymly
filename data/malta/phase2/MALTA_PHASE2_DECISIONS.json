@@ -1,0 +1,1012 @@
+[
+  {
+    "id": "mt_e88a8cf7e9",
+    "brand": "24/7 Fitness Club",
+    "name": "24/7 Fitness Club Mellieħa",
+    "city": "Mellieħa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_d0c227df18",
+    "brand": "24/7 Fitness Club",
+    "name": "24/7 Fitness Club San Ġwann",
+    "city": "San Ġwann",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_8d626df0f2",
+    "brand": "24/7 Fitness Club",
+    "name": "24/7 Fitness Club Ta' Qali",
+    "city": "Attard",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_7e23dc11d2",
+    "brand": "24/7 Fitness Club",
+    "name": "24/7 Fitness Club Żebbuġ",
+    "city": "Żebbuġ",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_e4b83e61b9",
+    "brand": "Best Gyms Malta",
+    "name": "Best Gyms Sliema",
+    "city": "Sliema",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_963f710969",
+    "brand": "Best Gyms Malta",
+    "name": "BGM Birżebbuġa Fitness",
+    "city": "Birżebbuġa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_af9179a385",
+    "brand": "Best Gyms Malta",
+    "name": "BGM Marsa Fitness Centre",
+    "city": "Marsa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_ce1047cd1d",
+    "brand": "Best Gyms Malta",
+    "name": "Birkirkara Fitness Centre",
+    "city": "Birkirkara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_b45a78a4f0",
+    "brand": "Best Gyms Malta",
+    "name": "Build Fitness Centre",
+    "city": "St Paul's Bay",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_b8747c67db",
+    "brand": "Best Gyms Malta",
+    "name": "Kirkop Fitness Centre",
+    "city": "Kirkop",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_f0f72dec5a",
+    "brand": "Best Gyms Malta",
+    "name": "Mosta Fitness Centre",
+    "city": "Mosta",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_9e7f8497b0",
+    "brand": "Best Gyms Malta",
+    "name": "Neptunes Fitness Centre",
+    "city": "St Julian's",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_aadaefb25f",
+    "brand": "Best Gyms Malta",
+    "name": "Pembroke Fitness Centre",
+    "city": "Pembroke",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_134787b308",
+    "brand": "Best Gyms Malta",
+    "name": "Tal-Qroqq Fitness Centre",
+    "city": "Gżira",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_cd0c2182e4",
+    "brand": "Challenger Fitness",
+    "name": "Challenger Elite Fitness Marsaskala",
+    "city": "Marsaskala",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_26579c8193",
+    "brand": "Challenger Fitness",
+    "name": "Challenger Fitness Centre Cottonera",
+    "city": "Bormla",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_6175c7910d",
+    "brand": "Challenger Fitness",
+    "name": "Challenger Fitness Centre Qormi",
+    "city": "Qormi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_26d7f37a30",
+    "brand": "Challenger Fitness",
+    "name": "Challenger Fitness Centre Valletta",
+    "city": "Valletta",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_18_of_18",
+    "in_production": true
+  },
+  {
+    "id": "mt_75a13770ff",
+    "brand": "Best Gyms Malta",
+    "name": "BGM Birgu Fitness Centre",
+    "city": "Birgu",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "bestgymsmalta.com/gyms/bgm-birgu-fitness-centre/ Aug 2026 — official page still Coming Soon; Birgu/Vittoriosa site under development; not operating at Phase 2 audit",
+    "in_production": false
+  },
+  {
+    "id": "mt_ef4499b52c",
+    "brand": "Challenger Fitness",
+    "name": "Challenger Fitness Centre Paceville (legacy)",
+    "city": "St Julian's",
+    "phase1_category": "CLOSED",
+    "phase2_disposition": "CLOSED",
+    "decision_reason": "phase1_closed_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_686ff2dbdf",
+    "brand": "24/7 Fitness Club",
+    "name": "24/7 Fitness Club Santa Luċija (legacy listing)",
+    "city": "Santa Luċija",
+    "phase1_category": "CLOSED",
+    "phase2_disposition": "CLOSED",
+    "decision_reason": "phase1_closed_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_bcfcf5f864",
+    "brand": "24/7 Fitness Club",
+    "name": "24/7 Fitness Club St Paul's Bay (legacy listing)",
+    "city": "St Paul's Bay",
+    "phase1_category": "CLOSED",
+    "phase2_disposition": "CLOSED",
+    "decision_reason": "phase1_closed_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_2f5b8d74db",
+    "brand": "Fort Fitness",
+    "name": "Fort Fitness Sliema",
+    "city": "Sliema",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 revalidation: fortfitness.com.mt — active conventional gym, public memberships/day passes, Fort Cambridge Sliema; 2-site operator (no third site found); qualifies as independent",
+    "in_production": false
+  },
+  {
+    "id": "mt_e99920262f",
+    "brand": "Fort Fitness",
+    "name": "Fort Fitness Mrieħel",
+    "city": "Mrieħel",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 revalidation: fortfitness.live — active Mrieħel club, public access, conventional equipment; second Fort Fitness site; no third location discovered",
+    "in_production": false
+  },
+  {
+    "id": "mt_69e8de5961",
+    "brand": "Kinetika Gozo",
+    "name": "Kinetika Victoria (K1)",
+    "city": "Victoria",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 revalidation: kinetikagozo.com K1 Victoria — active Gozo conventional gym, public memberships",
+    "in_production": false
+  },
+  {
+    "id": "mt_decf1d09bc",
+    "brand": "Kinetika Gozo",
+    "name": "Kinetika Xewkija (K2)",
+    "city": "Xewkija",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 revalidation: kinetikagozo.com K2 Xewkija — second Gozo club; 2-site Gozo operator, no third site found; qualifies as independent",
+    "in_production": false
+  },
+  {
+    "id": "mt_56d27e8f31",
+    "brand": "Cynergi",
+    "name": "Cynergi Health & Fitness Club",
+    "city": "St Julian's",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 revalidation: cynergi.com.mt — large active health & fitness club, independent paid membership, conventional strength/cardio floor, St George's Bay; not hotel-guest-only",
+    "in_production": false
+  },
+  {
+    "id": "mt_77de3a4365",
+    "brand": "ActiveZone",
+    "name": "ActiveZone Fitness Club",
+    "city": "Santa Venera",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 revalidation: activezonefitnessclub.com — single-site conventional public gym, Santa Venera; memberships and day access",
+    "in_production": false
+  },
+  {
+    "id": "mt_8104c1feb2",
+    "brand": "Marion Mizzi Wellbeing",
+    "name": "Marion Mizzi Wellbeing Fgura",
+    "city": "Fgura",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_3fc7b5cb4f",
+    "brand": "Marion Mizzi Wellbeing",
+    "name": "Marion Mizzi Wellbeing Sliema",
+    "city": "Sliema",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_612cfe3afd",
+    "brand": "Marion Mizzi Wellbeing",
+    "name": "Marion Mizzi Wellbeing Mellieħa",
+    "city": "Mellieħa",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_a09508b8cb",
+    "brand": "Warehouse Fitness",
+    "name": "Warehouse Fitness Studio Gżira",
+    "city": "Gżira",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_35c26083f6",
+    "brand": "LivingWell",
+    "name": "LivingWell Malta probe",
+    "city": "Sliema",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_dbfbdfea66",
+    "brand": "Tal-Qroqq Fitness Centre",
+    "name": "Tal-Qroqq (independent era legacy)",
+    "city": "Gżira",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_7e8d971cdd",
+    "brand": "Elite Gym",
+    "name": "Elite Fitness Birżebbuġa (legacy)",
+    "city": "Birżebbuġa",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_df1b96241a",
+    "brand": "Build Gym",
+    "name": "Build Gym Sirens (legacy name)",
+    "city": "St Paul's Bay",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_a317c3ceaf",
+    "brand": "Anytime Fitness",
+    "name": "Anytime Fitness Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_c458c1e35e",
+    "brand": "Snap Fitness",
+    "name": "Snap Fitness Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_9d6088a0c7",
+    "brand": "Fitness24Seven",
+    "name": "Fitness24Seven Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_88ebfed608",
+    "brand": "Basic-Fit",
+    "name": "Basic-Fit Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_d0fed78934",
+    "brand": "PureGym",
+    "name": "PureGym Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_3bb6d2625f",
+    "brand": "McFIT",
+    "name": "McFIT Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_87ef07ddc3",
+    "brand": "FITINN",
+    "name": "FITINN Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_97fb14aec2",
+    "brand": "clever fit",
+    "name": "clever fit Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_b4317faf79",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_b8de5209dd",
+    "brand": "World Class",
+    "name": "World Class Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_94882f6087",
+    "brand": "Virgin Active",
+    "name": "Virgin Active Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_6220a68de7",
+    "brand": "JOHN REED",
+    "name": "JOHN REED Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_aabce2cd5b",
+    "brand": "Fitness First",
+    "name": "Fitness First Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_6c3725dc05",
+    "brand": "JIMS",
+    "name": "JIMS Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_1860f95228",
+    "brand": "Keep Cool",
+    "name": "Keep Cool Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_890f7b8de6",
+    "brand": "Fitness Park",
+    "name": "Fitness Park Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_01bd49d4d4",
+    "brand": "L'Orange Bleue",
+    "name": "L'Orange Bleue Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_7596300f71",
+    "brand": "MyFitness",
+    "name": "MyFitness Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_9243fa6500",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_ff2087be44",
+    "brand": "Gym!",
+    "name": "Gym! Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_ce31de93ee",
+    "brand": "Impuls",
+    "name": "Impuls Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_775838aa8e",
+    "brand": "Fitness Factory",
+    "name": "Fitness Factory Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_481f59aaf1",
+    "brand": "Street Elements",
+    "name": "Street Elements Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_38e31093a6",
+    "brand": "The Gym",
+    "name": "The Gym Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_08b9a5a2a8",
+    "brand": "Fitness Point",
+    "name": "Fitness Point Malta (absent)",
+    "city": "Malta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "mt_ba5266dbb1",
+    "brand": "Best Gyms Malta",
+    "name": "Fitness Café San Pawl (secondary listing)",
+    "city": "St Paul's Bay",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 rebrand resolution: Fitness Café San Pawl is a historical/secondary listing name for the Sirens ASC / Buġibba gym cluster now operated as Build Fitness Centre (Best Gyms Malta, production id mt_b45a78a4f0). Same premises cluster; not a separate active gym. Classification: A — historical identity of current Build Fitness/BGM location.",
+    "in_production": false
+  },
+  {
+    "id": "mt_100315683e",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Msida",
+    "city": "Msida",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Msida: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_e5b3da9ab1",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Floriana",
+    "city": "Floriana",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Floriana: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_dc56cd0776",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Pietà",
+    "city": "Pietà",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Pietà: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_b23eae9d46",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Ta' Xbiex",
+    "city": "Ta' Xbiex",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Ta' Xbiex: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_73ce733663",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Swatar",
+    "city": "Swatar",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Swatar: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_2fa15d017f",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Swieqi",
+    "city": "Swieqi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Swieqi: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_a61698ed4b",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Iklin",
+    "city": "Iklin",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Iklin: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_3cc4493877",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Lija",
+    "city": "Lija",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Lija: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_1ee2d00d45",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Balzan",
+    "city": "Balzan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Balzan: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_bc10e40f88",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Naxxar",
+    "city": "Naxxar",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Naxxar: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_9b8449df8c",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Għargħur",
+    "city": "Għargħur",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Għargħur: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_f8bae9add0",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Mdina",
+    "city": "Mdina",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Mdina: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_a538c84050",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Rabat",
+    "city": "Rabat",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Rabat: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_185c99c371",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Ħamrun",
+    "city": "Ħamrun",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Ħamrun: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_ea5977eb5c",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Paola",
+    "city": "Paola",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Paola: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_c8891e4dd7",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Tarxien",
+    "city": "Tarxien",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Tarxien: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_bcf9c3b60c",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Fgura",
+    "city": "Fgura",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Fgura: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_5aee829346",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Żabbar",
+    "city": "Żabbar",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Żabbar: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_898e05253e",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Żejtun",
+    "city": "Żejtun",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Żejtun: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_550a22915f",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Marsaxlokk",
+    "city": "Marsaxlokk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Marsaxlokk: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_5bd90fd2ba",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Senglea",
+    "city": "Senglea",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Senglea: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_2493500ffa",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Kalkara",
+    "city": "Kalkara",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Kalkara: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_ba8d7f1827",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Luqa",
+    "city": "Luqa",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Luqa: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_b49a2d04d4",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Gudja",
+    "city": "Gudja",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Gudja: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_ab334ddf64",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Żurrieq",
+    "city": "Żurrieq",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Żurrieq: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_d2beae0f6d",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Safi",
+    "city": "Safi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Safi: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_dac820afb7",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Mqabba",
+    "city": "Mqabba",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Mqabba: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_3b5f133b6e",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Siġġiewi",
+    "city": "Siġġiewi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Siġġiewi: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_1f6f6a5e65",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Santa Venera",
+    "city": "Santa Venera",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Santa Venera: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_801456b576",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Victoria",
+    "city": "Victoria",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Victoria: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_6367181f77",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Xewkija",
+    "city": "Xewkija",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Xewkija: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_d6f99a586d",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Għajnsielem",
+    "city": "Għajnsielem",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Għajnsielem: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_635419d8a1",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Nadur",
+    "city": "Nadur",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Nadur: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_7c4d33fa6e",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Qala",
+    "city": "Qala",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Qala: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_42691ee017",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Marsalforn",
+    "city": "Marsalforn",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Marsalforn: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_c88a3c33c4",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Xagħra",
+    "city": "Xagħra",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Xagħra: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_aa9869d13a",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Xlendi",
+    "city": "Xlendi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Xlendi: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_c16a2d524b",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Sannat",
+    "city": "Sannat",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Sannat: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  },
+  {
+    "id": "mt_87fbf114a3",
+    "brand": "Municipal audit",
+    "name": "Malta Phase 1 municipal audit — Comino",
+    "city": "Comino",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal municipal audit — Comino: locality adequately audited; no qualifying conventional public gym beyond documented Class A / independent coverage",
+    "in_production": false
+  }
+]

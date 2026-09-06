@@ -1,0 +1,16 @@
+{
+  "phase1_recovered": 135,
+  "transitions": 219,
+  "new_ready": 198,
+  "coming_soon": 2,
+  "excluded": 19,
+  "closed": 0,
+  "phase2_new_macfit": 0,
+  "phase2_new_bfit": 0,
+  "phase2_new_si": 1,
+  "phase2_new_mars": 0,
+  "phase2_new_material_d": 57,
+  "phase2_new_istanbul": 37,
+  "phase2_lifeclub_excluded": 18,
+  "production_sha_unchanged": true
+}

@@ -1,0 +1,66 @@
+{
+  "country": "Ireland",
+  "prefix": "ie_",
+  "generated_at": "2026-08-22T21:09:00.467345+00:00",
+  "production_total": 10772,
+  "unique_staged": 27,
+  "status_counts": {
+    "READY_TO_IMPORT": 17,
+    "NEEDS_REVIEW": 8,
+    "NEEDS_COORDINATES": 2
+  },
+  "ready_count": 17,
+  "ready_by_brand": {
+    "FLYEfit": 15,
+    "Ben Dunne Gyms": 2
+  },
+  "brand_counts": {
+    "FLYEfit": 22,
+    "Ben Dunne Gyms": 5
+  },
+  "city_coverage": {
+    "Dublin": true,
+    "Cork": true,
+    "Limerick": false,
+    "Galway": true,
+    "Waterford": false,
+    "Drogheda": false,
+    "Dundalk": false,
+    "Kilkenny": false,
+    "Sligo": false,
+    "Athlone": false,
+    "Letterkenny": false,
+    "Wexford": false,
+    "Tralee": false,
+    "Killarney": false
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "production_collisions": 0,
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 10789,
+  "verdict": "IRELAND PHASE 2 REQUIRED BEFORE MERGE",
+  "coverage_notes": {
+    "FLYEfit": "Primary national operator — Phase 1 near-complete from flyefit.ie/gyms",
+    "Ben Dunne Gyms": "Official estate extracted from bdgyms.com",
+    "West Wood Club": "Partial from westwood.ie",
+    "Anytime Fitness Ireland": "Locator partial/JS — Phase 2 if estate incomplete",
+    "Energie Fitness Ireland": "Must not reuse gb_* — Phase 2 ROI confirmation",
+    "Aura / leisure operators": "Inclusion only for conventional gym product — Phase 2 policy application",
+    "Northern Ireland": "Explicitly excluded (remains United Kingdom / gb_*)"
+  },
+  "geocoded_this_run": 15
+}

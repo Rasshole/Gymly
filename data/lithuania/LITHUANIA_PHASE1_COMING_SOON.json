@@ -1,0 +1,80 @@
+[
+  {
+    "id": "lt_bc21f9653f",
+    "name": "Gym+ Vilnius Viršuliškių",
+    "brand": "Gym+",
+    "chain_key": "gymplus",
+    "address": "Viršuliškių g. 40",
+    "postal_code": "",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "lat": null,
+    "lng": null,
+    "website": "https://gymplius.lt/en/clubs/virsuliskiu-g-40-2/",
+    "source_url": "https://gymplius.lt/en/clubs/virsuliskiu-g-40-2/",
+    "coord_source": null,
+    "notes": "gymplius.lt official — under construction / COMING_SOON at Phase 1 audit",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://gymplius.lt/en/clubs/virsuliskiu-g-40-2/"
+    }
+  },
+  {
+    "id": "lt_4decf7f80b",
+    "name": "Lemon Gym Riešė",
+    "brand": "Lemon Gym",
+    "chain_key": "lemon_gym",
+    "address": "Molėtų g. 13",
+    "postal_code": "",
+    "city": "Didžioji Riešė",
+    "country": "Lithuania",
+    "lat": null,
+    "lng": null,
+    "website": "https://www.lemongym.lt/en/",
+    "source_url": "https://www.lemongym.lt/en/",
+    "coord_source": null,
+    "notes": "lemongym.lt official — coming soon at Phase 1 audit",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://www.lemongym.lt/en/"
+    }
+  },
+  {
+    "id": "lt_c3d4f6ba00",
+    "name": "Lemon Gym Jonava (announced)",
+    "brand": "Lemon Gym",
+    "chain_key": "lemon_gym",
+    "address": "Jonava (street TBD)",
+    "postal_code": "",
+    "city": "Jonava",
+    "country": "Lithuania",
+    "lat": null,
+    "lng": null,
+    "website": "https://www.lemongym.lt/en/",
+    "source_url": "https://www.lemongym.lt/en/",
+    "coord_source": null,
+    "notes": "lemongym.lt homepage announces Jonava — no street address yet; COMING_SOON",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://www.lemongym.lt/en/"
+    }
+  }
+]

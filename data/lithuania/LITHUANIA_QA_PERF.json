@@ -1,0 +1,28 @@
+{
+  "catalog": 11923,
+  "active": 11919,
+  "lithuania": 61,
+  "json_size_mb": 3.53,
+  "parse_ms": 15,
+  "cold_index_ms": 2793,
+  "cached_index_ms": 0,
+  "typical_search_ms": 118,
+  "worst_search_ms": 11,
+  "nearest_ms": 0,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 0,
+  "map_markers_built": 61,
+  "architecture": "KEEP CLIENT-SIDE",
+  "slovenia_qa_baseline": {
+    "catalog": 11448,
+    "json_size_mb": 3.39
+  },
+  "lithuania_merge_benchmark": {
+    "catalog": 11648,
+    "json_size_mb": 3.41
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false
+}

@@ -1,0 +1,232 @@
+[
+  {
+    "name": "München DER Bogen (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/muenchen-bogen",
+    "source": "ff3c_muenchen#shop-club-selector.html"
+  },
+  {
+    "name": "München Hofstatt (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/muenchen-hofstatt",
+    "source": "ff3c_muenchen#shop-club-selector.html"
+  },
+  {
+    "name": "München DER Bogen (ELBGYM)",
+    "url": "",
+    "source": "ff3c_paderborn#shop-club-selector.html"
+  },
+  {
+    "name": "München Hofstatt (ELBGYM)",
+    "url": "",
+    "source": "ff3c_paderborn#shop-club-selector.html"
+  },
+  {
+    "name": "Hamburg Alsterufer (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/hamburg-alsterufer",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Eppendorf Straßenbahnring (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/hamburg-eppendorf-strassenbahnring",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Innenstadt Dammtorpark (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/hamburg-innenstadt-dammtorpark",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Stadthöfe (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/hamburg-stadthoefe",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Winterhude (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/hamburg-winterhude",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Alsterufer (ELBGYM)",
+    "url": "",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Eppendorf Straßenbahnring (ELBGYM)",
+    "url": "",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Innenstadt Dammtorpark (ELBGYM)",
+    "url": "",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Stadthöfe (ELBGYM)",
+    "url": "",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg Winterhude (ELBGYM)",
+    "url": "",
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg - Altona",
+    "url": "",
+    "address": "Stresemannstra\\u00dfe 300",
+    "postal": "",
+    "city": "",
+    "lat": 53.559723637296,
+    "lng": 9.994386227313,
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg - Harburg Hafen",
+    "url": "",
+    "address": "Theodor-Yorck-Stra\\u00dfe 4",
+    "postal": "",
+    "city": "",
+    "lat": 53.581457970842,
+    "lng": 9.9766863091532,
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg - Jungfernstieg",
+    "url": "",
+    "address": "Ballindamm 39",
+    "postal": "",
+    "city": "",
+    "lat": 53.558021490792,
+    "lng": 9.9852734,
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg - Stephansplatz",
+    "url": "",
+    "address": "Gorch-Fock-Wall 1a",
+    "postal": "",
+    "city": "",
+    "lat": 53.552451946897,
+    "lng": 9.9878499767121,
+    "source": "ff3_hamburg.html"
+  },
+  {
+    "name": "Hamburg - Alsterufer",
+    "url": "",
+    "address": "Warburgstra\\u00dfe 1-2",
+    "postal": "",
+    "city": "",
+    "lat": 52.464918720826,
+    "lng": 13.327887909075,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "Hamburg - Eppendorf Stra\\u00dfenbahnring",
+    "url": "",
+    "address": "Stra\\u00dfenbahnring 8",
+    "postal": "",
+    "city": "",
+    "lat": 53.559723637296,
+    "lng": 9.994386227313,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "Hamburg - Innenstadt Dammtorpark",
+    "url": "",
+    "address": "Dammtorwall 8",
+    "postal": "",
+    "city": "",
+    "lat": 53.581457970842,
+    "lng": 9.9766863091532,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "Hamburg - Stadth\\u00f6fe",
+    "url": "",
+    "address": "Bleichenbr\\u00fccke 9",
+    "postal": "",
+    "city": "",
+    "lat": 53.558021490792,
+    "lng": 9.9852734,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "Hamburg - Winterhude",
+    "url": "",
+    "address": "Humboldtstra\\u00dfe 58",
+    "postal": "",
+    "city": "",
+    "lat": 53.552451946897,
+    "lng": 9.9878499767121,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "M\\u00fcnchen - Hofstatt",
+    "url": "",
+    "address": "Sendlinger Stra\\u00dfe 10",
+    "postal": "",
+    "city": "",
+    "lat": 53.574958763854,
+    "lng": 10.024991697509,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "M\\u00fcnchen - DER Bogen",
+    "url": "",
+    "address": "Prinzregentenstra\\u00dfe 159",
+    "postal": "",
+    "city": "",
+    "lat": 48.135349273682,
+    "lng": 11.570495605469,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "Augsburg",
+    "url": "",
+    "address": "Bahnhofstra\\u00dfe 26-30",
+    "postal": "",
+    "city": "",
+    "lat": 48.139126217886,
+    "lng": 11.622478440634,
+    "source": "ff_elbgym.html"
+  },
+  {
+    "name": "M\\u00fcnchen - Haidhausen",
+    "url": "",
+    "address": "Einsteinstr. 130",
+    "postal": "",
+    "city": "",
+    "lat": 48.139126217886,
+    "lng": 11.622478440634,
+    "source": "ff3c_muenchen#shop-club-selector.html"
+  },
+  {
+    "name": "M\\u00fcnchen - Laim",
+    "url": "",
+    "address": "Landsberger Str. 374",
+    "postal": "",
+    "city": "",
+    "lat": 48.135349273682,
+    "lng": 11.570495605469,
+    "source": "ff3c_muenchen#shop-club-selector.html"
+  },
+  {
+    "name": "Berlin Steglitz SSC (ELBGYM)",
+    "url": "https://www.fitnessfirst.de/clubs/berlin-elbgym-steglitz-ssc",
+    "source": "ff3_berlin.html"
+  },
+  {
+    "name": "Berlin Steglitz SSC (ELBGYM)",
+    "url": "",
+    "source": "ff3_berlin.html"
+  },
+  {
+    "name": "Berlin - Wedding",
+    "url": "",
+    "address": "M\\u00fcllerstra\\u00dfe 35",
+    "postal": "",
+    "city": "",
+    "lat": 52.464918720826,
+    "lng": 13.327887909075,
+    "source": "ff3_berlin.html"
+  }
+]

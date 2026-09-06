@@ -1,0 +1,226 @@
+exercise_id,name,muscleGroup,filename
+ex-bench-press,Bench Press,chest,bench_press.webp
+ex-incline-bench,Incline Bench Press,chest,incline_bench_press.webp
+ex-chest-press,Chest Press,chest,chest_press.webp
+ex-cable-fly,Cable Fly,chest,cable_fly.webp
+ex-push-up,Push-Up,chest,push_up.webp
+ex-lat-pulldown,Lat Pulldown,back,lat_pulldown.webp
+ex-pull-up,Pull-Up,back,pull_up.webp
+ex-barbell-row,Barbell Row,back,barbell_row.webp
+ex-seated-row,Seated Cable Row,back,seated_cable_row.webp
+ex-db-row,Dumbbell Row,back,dumbbell_row.webp
+ex-squat,Squat,quads,squat.webp
+ex-leg-press,Leg Press,quads,leg_press.webp
+ex-rdl,Romanian Deadlift,hamstrings,romanian_deadlift.webp
+ex-leg-ext,Leg Extension,quads,leg_extension.webp
+ex-leg-curl,Leg Curl,hamstrings,leg_curl.webp
+ex-calf,Calf Raise,calves,calf_raise.webp
+ex-shoulder-press,Shoulder Press,shoulders,shoulder_press.webp
+ex-lateral-raise,Lateral Raise,shoulders,lateral_raise.webp
+ex-rear-delt,Rear Delt Fly,shoulders,rear_delt_fly.webp
+ex-biceps-curl,Biceps Curl,biceps,biceps_curl.webp
+ex-hammer-curl,Hammer Curl,biceps,hammer_curl.webp
+ex-triceps-pushdown,Triceps Pushdown,triceps,triceps_pushdown.webp
+ex-skull-crusher,Skull Crusher,triceps,skull_crusher.webp
+ex-hip-thrust,Hip Thrust,glutes,hip_thrust.webp
+ex-bulgarian,Bulgarian Split Squat,glutes,bulgarian_split_squat.webp
+ex-hip-abd,Hip Abduction,glutes,hip_abduction.webp
+ex-plank,Plank,core,plank.webp
+ex-cable-crunch,Cable Crunch,core,cable_crunch.webp
+ex-leg-raise,Leg Raise,core,leg_raise.webp
+ex-running,Running,cardio,running.webp
+ex-cycling,Cycling,cardio,cycling.webp
+ex-stairmaster,Stairmaster,cardio,stairmaster.webp
+ex-rowing,Rowing,cardio,rowing.webp
+ex-decline-barbell-bench-press,Decline Barbell Bench Press,chest,decline_barbell_bench_press.webp
+ex-close-grip-bench-press,Close Grip Bench Press,chest,close_grip_bench_press.webp
+ex-dumbbell-bench-press,Dumbbell Bench Press,chest,dumbbell_bench_press.webp
+ex-incline-dumbbell-bench-press,Incline Dumbbell Bench Press,chest,incline_dumbbell_bench_press.webp
+ex-decline-dumbbell-bench-press,Decline Dumbbell Bench Press,chest,decline_dumbbell_bench_press.webp
+ex-dumbbell-fly,Dumbbell Fly,chest,dumbbell_fly.webp
+ex-incline-dumbbell-fly,Incline Dumbbell Fly,chest,incline_dumbbell_fly.webp
+ex-incline-chest-press-machine,Incline Chest Press Machine,chest,incline_chest_press_machine.webp
+ex-decline-chest-press-machine,Decline Chest Press Machine,chest,decline_chest_press_machine.webp
+ex-plate-loaded-chest-press,Plate Loaded Chest Press,chest,plate_loaded_chest_press.webp
+ex-smith-machine-bench-press,Smith Machine Bench Press,chest,smith_machine_bench_press.webp
+ex-smith-machine-incline-bench-press,Smith Machine Incline Bench Press,chest,smith_machine_incline_bench_press.webp
+ex-low-to-high-cable-fly,Low to High Cable Fly,chest,low_to_high_cable_fly.webp
+ex-high-to-low-cable-fly,High to Low Cable Fly,chest,high_to_low_cable_fly.webp
+ex-pec-deck,Pec Deck,chest,pec_deck.webp
+ex-weighted-push-up,Weighted Push-Up,chest,weighted_push_up.webp
+ex-chest-dip,Chest Dip,chest,chest_dip.webp
+ex-chin-up,Chin-Up,back,chin_up.webp
+ex-neutral-grip-pull-up,Neutral Grip Pull-Up,back,neutral_grip_pull_up.webp
+ex-assisted-pull-up,Assisted Pull-Up,back,assisted_pull_up.webp
+ex-weighted-pull-up,Weighted Pull-Up,back,weighted_pull_up.webp
+ex-wide-grip-lat-pulldown,Wide Grip Lat Pulldown,back,wide_grip_lat_pulldown.webp
+ex-close-grip-lat-pulldown,Close Grip Lat Pulldown,back,close_grip_lat_pulldown.webp
+ex-neutral-grip-lat-pulldown,Neutral Grip Lat Pulldown,back,neutral_grip_lat_pulldown.webp
+ex-single-arm-lat-pulldown,Single Arm Lat Pulldown,back,single_arm_lat_pulldown.webp
+ex-straight-arm-pulldown,Straight Arm Pulldown,back,straight_arm_pulldown.webp
+ex-wide-grip-seated-cable-row,Wide Grip Seated Cable Row,back,wide_grip_seated_cable_row.webp
+ex-close-grip-seated-cable-row,Close Grip Seated Cable Row,back,close_grip_seated_cable_row.webp
+ex-single-arm-cable-row,Single Arm Cable Row,back,single_arm_cable_row.webp
+ex-pendlay-row,Pendlay Row,back,pendlay_row.webp
+ex-t-bar-row,T-Bar Row,back,t_bar_row.webp
+ex-chest-supported-t-bar-row,Chest Supported T-Bar Row,back,chest_supported_t_bar_row.webp
+ex-single-arm-dumbbell-row,Single Arm Dumbbell Row,back,single_arm_dumbbell_row.webp
+ex-chest-supported-dumbbell-row,Chest Supported Dumbbell Row,back,chest_supported_dumbbell_row.webp
+ex-machine-row,Machine Row,back,machine_row.webp
+ex-plate-loaded-row,Plate Loaded Row,back,plate_loaded_row.webp
+ex-high-row-machine,High Row Machine,back,high_row_machine.webp
+ex-low-row-machine,Low Row Machine,back,low_row_machine.webp
+ex-iso-lateral-row,Iso-Lateral Row,back,iso_lateral_row.webp
+ex-meadows-row,Meadows Row,back,meadows_row.webp
+ex-rack-pull,Rack Pull,back,rack_pull.webp
+ex-conventional-deadlift,Conventional Deadlift,back,conventional_deadlift.webp
+ex-back-extension,Back Extension,back,back_extension.webp
+ex-machine-back-extension,Machine Back Extension,back,machine_back_extension.webp
+ex-dumbbell-pullover,Dumbbell Pullover,back,dumbbell_pullover.webp
+ex-machine-pullover,Machine Pullover,back,machine_pullover.webp
+ex-barbell-overhead-press,Barbell Overhead Press,shoulders,barbell_overhead_press.webp
+ex-seated-barbell-shoulder-press,Seated Barbell Shoulder Press,shoulders,seated_barbell_shoulder_press.webp
+ex-dumbbell-shoulder-press,Dumbbell Shoulder Press,shoulders,dumbbell_shoulder_press.webp
+ex-seated-dumbbell-shoulder-press,Seated Dumbbell Shoulder Press,shoulders,seated_dumbbell_shoulder_press.webp
+ex-arnold-press,Arnold Press,shoulders,arnold_press.webp
+ex-machine-shoulder-press,Machine Shoulder Press,shoulders,machine_shoulder_press.webp
+ex-smith-machine-shoulder-press,Smith Machine Shoulder Press,shoulders,smith_machine_shoulder_press.webp
+ex-cable-lateral-raise,Cable Lateral Raise,shoulders,cable_lateral_raise.webp
+ex-single-arm-cable-lateral-raise,Single Arm Cable Lateral Raise,shoulders,single_arm_cable_lateral_raise.webp
+ex-machine-lateral-raise,Machine Lateral Raise,shoulders,machine_lateral_raise.webp
+ex-dumbbell-front-raise,Dumbbell Front Raise,shoulders,dumbbell_front_raise.webp
+ex-cable-front-raise,Cable Front Raise,shoulders,cable_front_raise.webp
+ex-plate-front-raise,Plate Front Raise,shoulders,plate_front_raise.webp
+ex-reverse-pec-deck,Reverse Pec Deck,shoulders,reverse_pec_deck.webp
+ex-cable-rear-delt-fly,Cable Rear Delt Fly,shoulders,cable_rear_delt_fly.webp
+ex-face-pull,Face Pull,shoulders,face_pull.webp
+ex-upright-row,Upright Row,shoulders,upright_row.webp
+ex-dumbbell-upright-row,Dumbbell Upright Row,shoulders,dumbbell_upright_row.webp
+ex-barbell-curl,Barbell Curl,biceps,barbell_curl.webp
+ex-ez-bar-curl,EZ Bar Curl,biceps,ez_bar_curl.webp
+ex-dumbbell-curl,Dumbbell Curl,biceps,dumbbell_curl.webp
+ex-alternating-dumbbell-curl,Alternating Dumbbell Curl,biceps,alternating_dumbbell_curl.webp
+ex-cross-body-hammer-curl,Cross Body Hammer Curl,biceps,cross_body_hammer_curl.webp
+ex-incline-dumbbell-curl,Incline Dumbbell Curl,biceps,incline_dumbbell_curl.webp
+ex-preacher-curl,Preacher Curl,biceps,preacher_curl.webp
+ex-ez-bar-preacher-curl,EZ Bar Preacher Curl,biceps,ez_bar_preacher_curl.webp
+ex-dumbbell-preacher-curl,Dumbbell Preacher Curl,biceps,dumbbell_preacher_curl.webp
+ex-machine-preacher-curl,Machine Preacher Curl,biceps,machine_preacher_curl.webp
+ex-cable-curl,Cable Curl,biceps,cable_curl.webp
+ex-straight-bar-cable-curl,Straight Bar Cable Curl,biceps,straight_bar_cable_curl.webp
+ex-rope-hammer-curl,Rope Hammer Curl,biceps,rope_hammer_curl.webp
+ex-bayesian-cable-curl,Bayesian Cable Curl,biceps,bayesian_cable_curl.webp
+ex-concentration-curl,Concentration Curl,biceps,concentration_curl.webp
+ex-spider-curl,Spider Curl,biceps,spider_curl.webp
+ex-reverse-curl,Reverse Curl,biceps,reverse_curl.webp
+ex-rope-tricep-pushdown,Rope Tricep Pushdown,triceps,rope_tricep_pushdown.webp
+ex-straight-bar-tricep-pushdown,Straight Bar Tricep Pushdown,triceps,straight_bar_tricep_pushdown.webp
+ex-v-bar-tricep-pushdown,V-Bar Tricep Pushdown,triceps,v_bar_tricep_pushdown.webp
+ex-single-arm-tricep-pushdown,Single Arm Tricep Pushdown,triceps,single_arm_tricep_pushdown.webp
+ex-reverse-grip-tricep-pushdown,Reverse Grip Tricep Pushdown,triceps,reverse_grip_tricep_pushdown.webp
+ex-overhead-cable-tricep-extension,Overhead Cable Tricep Extension,triceps,overhead_cable_tricep_extension.webp
+ex-rope-overhead-tricep-extension,Rope Overhead Tricep Extension,triceps,rope_overhead_tricep_extension.webp
+ex-dumbbell-overhead-tricep-extension,Dumbbell Overhead Tricep Extension,triceps,dumbbell_overhead_tricep_extension.webp
+ex-single-arm-dumbbell-tricep-extension,Single Arm Dumbbell Tricep Extension,triceps,single_arm_dumbbell_tricep_extension.webp
+ex-ez-bar-skull-crusher,EZ Bar Skull Crusher,triceps,ez_bar_skull_crusher.webp
+ex-dumbbell-skull-crusher,Dumbbell Skull Crusher,triceps,dumbbell_skull_crusher.webp
+ex-lying-tricep-extension,Lying Tricep Extension,triceps,lying_tricep_extension.webp
+ex-tricep-dip,Tricep Dip,triceps,tricep_dip.webp
+ex-bench-dip,Bench Dip,triceps,bench_dip.webp
+ex-tricep-extension-machine,Tricep Extension Machine,triceps,tricep_extension_machine.webp
+ex-barbell-front-squat,Barbell Front Squat,quads,barbell_front_squat.webp
+ex-high-bar-squat,High Bar Squat,quads,high_bar_squat.webp
+ex-low-bar-squat,Low Bar Squat,quads,low_bar_squat.webp
+ex-smith-machine-squat,Smith Machine Squat,quads,smith_machine_squat.webp
+ex-hack-squat,Hack Squat,quads,hack_squat.webp
+ex-pendulum-squat,Pendulum Squat,quads,pendulum_squat.webp
+ex-belt-squat,Belt Squat,quads,belt_squat.webp
+ex-goblet-squat,Goblet Squat,quads,goblet_squat.webp
+ex-45-degree-leg-press,45 Degree Leg Press,quads,45_degree_leg_press.webp
+ex-horizontal-leg-press,Horizontal Leg Press,quads,horizontal_leg_press.webp
+ex-single-leg-press,Single Leg Press,quads,single_leg_press.webp
+ex-single-leg-extension,Single Leg Extension,quads,single_leg_extension.webp
+ex-dumbbell-bulgarian-split-squat,Dumbbell Bulgarian Split Squat,quads,dumbbell_bulgarian_split_squat.webp
+ex-smith-machine-bulgarian-split-squat,Smith Machine Bulgarian Split Squat,quads,smith_machine_bulgarian_split_squat.webp
+ex-walking-lunge,Walking Lunge,quads,walking_lunge.webp
+ex-dumbbell-walking-lunge,Dumbbell Walking Lunge,quads,dumbbell_walking_lunge.webp
+ex-reverse-lunge,Reverse Lunge,quads,reverse_lunge.webp
+ex-forward-lunge,Forward Lunge,quads,forward_lunge.webp
+ex-smith-machine-lunge,Smith Machine Lunge,quads,smith_machine_lunge.webp
+ex-step-up,Step-Up,quads,step_up.webp
+ex-dumbbell-step-up,Dumbbell Step-Up,quads,dumbbell_step_up.webp
+ex-sissy-squat,Sissy Squat,quads,sissy_squat.webp
+ex-barbell-romanian-deadlift,Barbell Romanian Deadlift,hamstrings,barbell_romanian_deadlift.webp
+ex-dumbbell-romanian-deadlift,Dumbbell Romanian Deadlift,hamstrings,dumbbell_romanian_deadlift.webp
+ex-smith-machine-romanian-deadlift,Smith Machine Romanian Deadlift,hamstrings,smith_machine_romanian_deadlift.webp
+ex-stiff-leg-deadlift,Stiff Leg Deadlift,hamstrings,stiff_leg_deadlift.webp
+ex-seated-leg-curl,Seated Leg Curl,hamstrings,seated_leg_curl.webp
+ex-lying-leg-curl,Lying Leg Curl,hamstrings,lying_leg_curl.webp
+ex-standing-leg-curl,Standing Leg Curl,hamstrings,standing_leg_curl.webp
+ex-single-leg-curl,Single Leg Curl,hamstrings,single_leg_curl.webp
+ex-nordic-hamstring-curl,Nordic Hamstring Curl,hamstrings,nordic_hamstring_curl.webp
+ex-good-morning,Good Morning,hamstrings,good_morning.webp
+ex-barbell-good-morning,Barbell Good Morning,hamstrings,barbell_good_morning.webp
+ex-cable-pull-through,Cable Pull Through,hamstrings,cable_pull_through.webp
+ex-glute-ham-raise,Glute Ham Raise,hamstrings,glute_ham_raise.webp
+ex-single-leg-romanian-deadlift,Single Leg Romanian Deadlift,hamstrings,single_leg_romanian_deadlift.webp
+ex-dumbbell-single-leg-romanian-deadlift,Dumbbell Single Leg Romanian Deadlift,hamstrings,dumbbell_single_leg_romanian_deadlift.webp
+ex-smith-machine-hip-thrust,Smith Machine Hip Thrust,glutes,smith_machine_hip_thrust.webp
+ex-machine-hip-thrust,Machine Hip Thrust,glutes,machine_hip_thrust.webp
+ex-dumbbell-hip-thrust,Dumbbell Hip Thrust,glutes,dumbbell_hip_thrust.webp
+ex-glute-bridge,Glute Bridge,glutes,glute_bridge.webp
+ex-barbell-glute-bridge,Barbell Glute Bridge,glutes,barbell_glute_bridge.webp
+ex-cable-kickback,Cable Kickback,glutes,cable_kickback.webp
+ex-machine-glute-kickback,Machine Glute Kickback,glutes,machine_glute_kickback.webp
+ex-cable-hip-abduction,Cable Hip Abduction,glutes,cable_hip_abduction.webp
+ex-standing-hip-abduction,Standing Hip Abduction,glutes,standing_hip_abduction.webp
+ex-frog-pump,Frog Pump,glutes,frog_pump.webp
+ex-sumo-squat,Sumo Squat,glutes,sumo_squat.webp
+ex-sumo-deadlift,Sumo Deadlift,glutes,sumo_deadlift.webp
+ex-standing-calf-raise,Standing Calf Raise,calves,standing_calf_raise.webp
+ex-seated-calf-raise,Seated Calf Raise,calves,seated_calf_raise.webp
+ex-machine-standing-calf-raise,Machine Standing Calf Raise,calves,machine_standing_calf_raise.webp
+ex-machine-seated-calf-raise,Machine Seated Calf Raise,calves,machine_seated_calf_raise.webp
+ex-leg-press-calf-raise,Leg Press Calf Raise,calves,leg_press_calf_raise.webp
+ex-smith-machine-calf-raise,Smith Machine Calf Raise,calves,smith_machine_calf_raise.webp
+ex-single-leg-calf-raise,Single Leg Calf Raise,calves,single_leg_calf_raise.webp
+ex-donkey-calf-raise,Donkey Calf Raise,calves,donkey_calf_raise.webp
+ex-machine-crunch,Machine Crunch,core,machine_crunch.webp
+ex-ab-crunch,Ab Crunch,core,ab_crunch.webp
+ex-weighted-crunch,Weighted Crunch,core,weighted_crunch.webp
+ex-sit-up,Sit-Up,core,sit_up.webp
+ex-weighted-sit-up,Weighted Sit-Up,core,weighted_sit_up.webp
+ex-decline-sit-up,Decline Sit-Up,core,decline_sit_up.webp
+ex-hanging-leg-raise,Hanging Leg Raise,core,hanging_leg_raise.webp
+ex-hanging-knee-raise,Hanging Knee Raise,core,hanging_knee_raise.webp
+ex-captain-s-chair-leg-raise,Captain's Chair Leg Raise,core,captains_chair_leg_raise.webp
+ex-reverse-crunch,Reverse Crunch,core,reverse_crunch.webp
+ex-ab-wheel-rollout,Ab Wheel Rollout,core,ab_wheel_rollout.webp
+ex-weighted-plank,Weighted Plank,core,weighted_plank.webp
+ex-side-plank,Side Plank,core,side_plank.webp
+ex-russian-twist,Russian Twist,core,russian_twist.webp
+ex-cable-woodchop,Cable Woodchop,core,cable_woodchop.webp
+ex-pallof-press,Pallof Press,core,pallof_press.webp
+ex-bicycle-crunch,Bicycle Crunch,core,bicycle_crunch.webp
+ex-dead-bug,Dead Bug,core,dead_bug.webp
+ex-v-up,V-Up,core,v_up.webp
+ex-toe-touch,Toe Touch,core,toe_touch.webp
+ex-clean,Clean,full_body,clean.webp
+ex-power-clean,Power Clean,full_body,power_clean.webp
+ex-clean-and-jerk,Clean and Jerk,full_body,clean_and_jerk.webp
+ex-snatch,Snatch,full_body,snatch.webp
+ex-dumbbell-thruster,Dumbbell Thruster,full_body,dumbbell_thruster.webp
+ex-barbell-thruster,Barbell Thruster,full_body,barbell_thruster.webp
+ex-kettlebell-swing,Kettlebell Swing,full_body,kettlebell_swing.webp
+ex-farmer-s-walk,Farmer's Walk,full_body,farmers_walk.webp
+ex-dumbbell-farmer-s-walk,Dumbbell Farmer's Walk,full_body,dumbbell_farmers_walk.webp
+ex-kettlebell-farmer-s-walk,Kettlebell Farmer's Walk,full_body,kettlebell_farmers_walk.webp
+ex-burpee,Burpee,full_body,burpee.webp
+ex-treadmill-walking,Treadmill Walking,cardio,treadmill_walking.webp
+ex-outdoor-walking,Outdoor Walking,cardio,outdoor_walking.webp
+ex-assault-bike,Assault Bike,cardio,assault_bike.webp
+ex-spinning-bike,Spinning Bike,cardio,spinning_bike.webp
+ex-elliptical,Elliptical,cardio,elliptical.webp
+ex-skierg,SkiErg,cardio,skierg.webp
+ex-swimming,Swimming,cardio,swimming.webp
+ex-jump-rope,Jump Rope,cardio,jump_rope.webp

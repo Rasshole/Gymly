@@ -1,0 +1,17 @@
+{
+  "ready_count": 20,
+  "foreign_outliers": [],
+  "foreign_count": 0,
+  "border_hotspots_checked": [
+    "Esch/Belval",
+    "Differdange",
+    "Pétange",
+    "Dudelange",
+    "Schengen/Remich",
+    "Grevenmacher",
+    "Wasserbillig",
+    "Vianden",
+    "Foetz"
+  ],
+  "verdict": "CLEAN"
+}

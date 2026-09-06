@@ -1,0 +1,303 @@
+{
+  "upgrades": [],
+  "audit_count": 33,
+  "rows": [
+    {
+      "id": "lv_482c69e16b",
+      "name": "MyFitness Aleja",
+      "brand": "MyFitness",
+      "postal_before": "1058",
+      "postal_after": "1058",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_00100556b1",
+      "name": "MyFitness Alfa",
+      "brand": "MyFitness",
+      "postal_before": "1006",
+      "postal_after": "1006",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_553900baf2",
+      "name": "MyFitness Dzelzava",
+      "brand": "MyFitness",
+      "postal_before": "1082",
+      "postal_after": "1082",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_c4985e5c94",
+      "name": "MyFitness Domina",
+      "brand": "MyFitness",
+      "postal_before": "1084",
+      "postal_after": "1084",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_9944f27897",
+      "name": "MyFitness Galerija Centrs",
+      "brand": "MyFitness",
+      "postal_before": "1050",
+      "postal_after": "1050",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_933fcf75a1",
+      "name": "MyFitness Galleria Rīga",
+      "brand": "MyFitness",
+      "postal_before": "1011",
+      "postal_after": "1011",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_b3e5e39619",
+      "name": "MyFitness Imanta",
+      "brand": "MyFitness",
+      "postal_before": "1067",
+      "postal_after": "1067",
+      "provenance": "OFFICIAL_TRUNCATED_LV-106 + SECONDARY_CORROBORATED LV-1067",
+      "upgraded": false
+    },
+    {
+      "id": "lv_f7b3a90fa8",
+      "name": "MyFitness Matīss",
+      "brand": "MyFitness",
+      "postal_before": "1001",
+      "postal_after": "1001",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3d7a57f038",
+      "name": "MyFitness Pļavnieki",
+      "brand": "MyFitness",
+      "postal_before": "1021",
+      "postal_after": "1021",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_a0e6fa5985",
+      "name": "MyFitness Riga Plaza",
+      "brand": "MyFitness",
+      "postal_before": "1004",
+      "postal_after": "1004",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_1a0f184657",
+      "name": "MyFitness Sāga",
+      "brand": "MyFitness",
+      "postal_before": "2130",
+      "postal_after": "2130",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_5c8cffee8f",
+      "name": "MyFitness Sky & More",
+      "brand": "MyFitness",
+      "postal_before": "1005",
+      "postal_after": "1005",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_8d289fb8a1",
+      "name": "MyFitness Spice",
+      "brand": "MyFitness",
+      "postal_before": "1046",
+      "postal_after": "1046",
+      "provenance": "SECONDARY_DIRECTORY_CORROBORATED (Spice Home LV-1046)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_d0c8689014",
+      "name": "MyFitness Teika Plaza",
+      "brand": "MyFitness",
+      "postal_before": "1039",
+      "postal_after": "1039",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_de8c7df71e",
+      "name": "MyFitness Upītis",
+      "brand": "MyFitness",
+      "postal_before": "1011",
+      "postal_after": "1011",
+      "provenance": "OFFICIAL_CLUB_DIRECTORY_LV_NNNN",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3a2f2a4625",
+      "name": "Lemon Gym Imanta",
+      "brand": "Lemon Gym",
+      "postal_before": "1067",
+      "postal_after": "1067",
+      "provenance": "NOMINATIM_CONSENSUS + viss.lv + Phase1 Nominatim consensus",
+      "upgraded": false
+    },
+    {
+      "id": "lv_0e3eba9f8c",
+      "name": "Lemon Gym Ķengarags",
+      "brand": "Lemon Gym",
+      "postal_before": "1063",
+      "postal_after": "1063",
+      "provenance": "NOMINATIM_CONSENSUS + secondary directory + Nominatim",
+      "upgraded": false
+    },
+    {
+      "id": "lv_f9bb5b6450",
+      "name": "Lemon Gym Jugla",
+      "brand": "Lemon Gym",
+      "postal_before": "1024",
+      "postal_after": "1024",
+      "provenance": "NOMINATIM_CONSENSUS + secondary directory + Nominatim",
+      "upgraded": false
+    },
+    {
+      "id": "lv_a7854a3b19",
+      "name": "Lemon Gym Purvciems",
+      "brand": "Lemon Gym",
+      "postal_before": "1082",
+      "postal_after": "1082",
+      "provenance": "NOMINATIM_CONSENSUS + secondary directory + Nominatim",
+      "upgraded": false
+    },
+    {
+      "id": "lv_e97e5cd222",
+      "name": "Lemon Gym Teika",
+      "brand": "Lemon Gym",
+      "postal_before": "1039",
+      "postal_after": "1039",
+      "provenance": "NOMINATIM_CONSENSUS + Nominatim exact-address (Gustava Zemgala gatve 71)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_c3befe3f7f",
+      "name": "Lemon Gym Akropole",
+      "brand": "Lemon Gym",
+      "postal_before": "1019",
+      "postal_after": "1019",
+      "provenance": "NOMINATIM_CONSENSUS + Nominatim exact-address Latgales 257 / Akropole",
+      "upgraded": false
+    },
+    {
+      "id": "lv_2c843b109c",
+      "name": "Lemon Gym Pļavnieki",
+      "brand": "Lemon Gym",
+      "postal_before": "1021",
+      "postal_after": "1021",
+      "provenance": "NOMINATIM_CONSENSUS + Nominatim exact-address Andreja Saharova 30",
+      "upgraded": false
+    },
+    {
+      "id": "lv_814dd2ac94",
+      "name": "Lemon Gym Skanste",
+      "brand": "Lemon Gym",
+      "postal_before": "1013",
+      "postal_after": "1013",
+      "provenance": "NOMINATIM_CONSENSUS + viss.lv Lemon Gym Skanste LV-1013",
+      "upgraded": false
+    },
+    {
+      "id": "lv_86cad25aff",
+      "name": "Gym! Origo",
+      "brand": "Gym!",
+      "postal_before": "1050",
+      "postal_after": "1050",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_63f56e7170",
+      "name": "Gym! Imanta",
+      "brand": "Gym!",
+      "postal_before": "1067",
+      "postal_after": "1067",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_e644a6cbdf",
+      "name": "Gym! Olimpia",
+      "brand": "Gym!",
+      "postal_before": "1048",
+      "postal_after": "1048",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3b6472323b",
+      "name": "Gym! Barons",
+      "brand": "Gym!",
+      "postal_before": "1011",
+      "postal_after": "1011",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_e2b2c34717",
+      "name": "Gym! Daugava",
+      "brand": "Gym!",
+      "postal_before": "1009",
+      "postal_after": "1009",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_111c1440e3",
+      "name": "Gym! Zolitūde",
+      "brand": "Gym!",
+      "postal_before": "1029",
+      "postal_after": "1029",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_378dc8d996",
+      "name": "Gym! Dreiliņi",
+      "brand": "Gym!",
+      "postal_before": "1021",
+      "postal_after": "1021",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_0ab2d9fa6b",
+      "name": "Gym! Daugavpils",
+      "brand": "Gym!",
+      "postal_before": "5401",
+      "postal_after": "5401",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_19f5ee52f2",
+      "name": "Gym! Purvciems",
+      "brand": "Gym!",
+      "postal_before": "1084",
+      "postal_after": "1084",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    },
+    {
+      "id": "lv_3bb2c336e8",
+      "name": "Gym! Imanta X",
+      "brand": "Gym!",
+      "postal_before": "1069",
+      "postal_after": "1069",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM (Phase1+Phase2 retained)",
+      "upgraded": false
+    }
+  ]
+}

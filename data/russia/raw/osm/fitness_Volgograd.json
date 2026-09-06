@@ -1,0 +1,297 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:48:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1630291225,
+      "lat": 48.6157591,
+      "lon": 44.4238722,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Дебют"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4227034201,
+      "lat": 48.7600815,
+      "lon": 44.6477718,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Стадион"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4345962589,
+      "lat": 48.7801927,
+      "lon": 44.5766768,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Enjoy",
+        "opening_hours": "08:00-22:00",
+        "phone": "+7-937-7017713"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4445814293,
+      "lat": 48.7449648,
+      "lon": 44.4872459,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6525160665,
+      "lat": 48.7481345,
+      "lon": 44.4950672,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Спортклуб 365"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6912623113,
+      "lat": 48.7519739,
+      "lon": 44.5059156,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "МетроFitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7147005293,
+      "lat": 48.782326,
+      "lon": 44.566691,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7247432317,
+      "lat": 48.7106437,
+      "lon": 44.518989,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Арт-Фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7945394983,
+      "lat": 48.7575859,
+      "lon": 44.477764,
+      "tags": {
+        "addr:city": "Волгоград",
+        "addr:housenumber": "1A/2",
+        "addr:street": "Аптечный проезд",
+        "leisure": "fitness_centre",
+        "name": "Спарта",
+        "opening_hours": "Mo-Fr 08:00-23:00, St-Su 09:00-21:00",
+        "phone": "+7(8442)31-85-85",
+        "website": "https://www.sparta-vlg.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7966470332,
+      "lat": 48.7297615,
+      "lon": 44.5245053,
+      "tags": {
+        "addr:city": "Волгоград",
+        "addr:housenumber": "62",
+        "addr:street": "улица Рокоссовского",
+        "contact:phone": "+7 844 2204971",
+        "contact:website": "https://volgograd.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9038228517,
+      "lat": 48.7445749,
+      "lon": 44.5196166,
+      "tags": {
+        "addr:housenumber": "110Б",
+        "addr:street": "улица Землячки",
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "name:en": "Alex fitness",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 09:00-22:00",
+        "phone": "+7-8442-987838",
+        "website": "https://volgograd.alexfitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9285468997,
+      "lat": 48.6734694,
+      "lon": 44.4359392,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Спортзал ВолГАУ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9753897820,
+      "lat": 48.7474524,
+      "lon": 44.4992476,
+      "tags": {
+        "addr:city": "Волгоград",
+        "addr:housenumber": "21Ж",
+        "addr:postcode": "400137",
+        "addr:street": "бульвар 30-летия Победы",
+        "description": "I'm крепыш, школа физической подготовки детей",
+        "fee": "yes",
+        "image": "https://avatars.mds.yandex.net/get-altay/4439632/2a0000017a7c09d75b7934057c2f3d406933/XXXL",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "I'm крепыш",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+7 (937) 088-70-70",
+        "sport": "gymnastics;fitness",
+        "website": "https://iamkrepysh.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12336747180,
+      "lat": 48.6897227,
+      "lon": 44.4955596,
+      "tags": {
+        "contact:vk": "https://vk.com/yoga_voroshilovsky",
+        "leisure": "fitness_centre",
+        "name": "Садхана",
+        "phone": "+7 927 5371718",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12581548553,
+      "lat": 48.757824,
+      "lon": 44.5019664,
+      "tags": {
+        "contact:phone": "+7 987 0720555",
+        "contact:website": "https://ladystretch.com/volgograd",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12740157706,
+      "lat": 48.727092,
+      "lon": 44.5338589,
+      "tags": {
+        "contact:email": "info@popofyoga.ru",
+        "contact:phone": "+7 993 3234039",
+        "contact:vk": "https://vk.com/volgaom",
+        "contact:website": "https://omyoga-volgograd.ru/",
+        "leisure": "fitness_centre",
+        "name": "ОМ",
+        "opening_hours": "Mo,We 18:00-20:00; Tu,Th 07:00-08:30,19:00-21:00; Fr 18:00-21:00; Sa,Su 09:30-11:30",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12810671501,
+      "lat": 48.7082737,
+      "lon": 44.5615527,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Prime"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267724357,
+      "lat": 48.7173422,
+      "lon": 44.5098101,
+      "tags": {
+        "contact:phone": "+7 844 2599595",
+        "contact:website": "https://volgograd.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "way",
+      "id": 113853916,
+      "center": {
+        "lat": 48.7813077,
+        "lon": 44.5579134
+      },
+      "tags": {
+        "addr:city": "Волгоград",
+        "addr:housenumber": "9",
+        "addr:postcode": "400123",
+        "addr:street": "посёлок 40 Домиков",
+        "building": "yes",
+        "building:levels": "2",
+        "fire_rank": "1bis",
+        "leisure": "fitness_centre",
+        "name": "ООО «НВМ-сервис» Дом физкультуры",
+        "operator": "RU-VGG-1-2",
+        "roof:shape": "hipped"
+      }
+    },
+    {
+      "type": "way",
+      "id": 152905851,
+      "center": {
+        "lat": 48.739743,
+        "lon": 44.5519528
+      },
+      "tags": {
+        "addr:city": "Волгоград",
+        "addr:housenumber": "75",
+        "addr:street": "улица Чуйкова",
+        "building": "yes",
+        "building:levels": "3",
+        "fee": "yes",
+        "fire_operator": "RU-VGG-1-3",
+        "fire_rank": "2",
+        "leisure": "fitness_centre",
+        "name": "Манеж ВГАФК",
+        "opening_hours": "08:00-21:00",
+        "sport": "athletics;running"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1006110302,
+      "center": {
+        "lat": 48.7663175,
+        "lon": 44.4763935
+      },
+      "tags": {
+        "addr:housenumber": "6",
+        "addr:street": "улица 51-й Гвардейской дивизии",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "СК Олимпия"
+      }
+    }
+  ]
+}

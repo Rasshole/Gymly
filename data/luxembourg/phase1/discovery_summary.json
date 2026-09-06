@@ -1,0 +1,42 @@
+{
+  "country": "Luxembourg",
+  "phase": 1,
+  "production_total": 11610,
+  "production_sha256": "54848a8c0176789248d1483c764e8c53d010bc9b6a08409a851fc00d4bd570bb",
+  "luxembourg_live": 0,
+  "candidate_count": 39,
+  "by_brand": {
+    "Anytime Fitness": 1,
+    "Athletic Center": 1,
+    "Basic-Fit": 10,
+    "CK Fitness": 4,
+    "CK Sportcenter": 1,
+    "Coque": 1,
+    "FITINN": 1,
+    "Factory 4": 1,
+    "Fitness First": 1,
+    "Fitness Park": 1,
+    "Fitness Zone": 1,
+    "Gold's Gym": 1,
+    "JIMS": 7,
+    "JOHN REED": 1,
+    "Keep Cool": 1,
+    "L'Orange Bleue": 1,
+    "McFIT": 1,
+    "Painworld": 1,
+    "Vitaly-Fit": 1,
+    "World Class": 1,
+    "clever fit": 1
+  },
+  "class_a": {
+    "Basic-Fit": 10,
+    "JIMS": 7,
+    "CK Fitness": 4
+  },
+  "notes": [
+    "Basic-Fit primary evidence: club-finder JSON-LD (10)",
+    "JIMS Foetz renovating — COMING_SOON",
+    "Painworld → JIMS Gasperich rebrand",
+    "Border contamination risk HIGH (BE/FR/DE)"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "country": "Romania",
+  "phase": 2,
+  "generated_at": "2026-08-23T17:41:33.863774+00:00",
+  "production_total": 11063,
+  "sha_before": "365a1bd25c1fad250172099a0430d9475899859c11a8e07e2ae05ea471dba75a",
+  "phase1_staged": 182,
+  "phase1_ready": 63,
+  "phase1_ready_ids_in_p2_ready": 46,
+  "unique_staged": 163,
+  "status_counts": {
+    "READY_TO_IMPORT": 154,
+    "COMING_SOON": 5,
+    "NEEDS_REVIEW": 4
+  },
+  "ready_count": 154,
+  "ready_by_brand": {
+    "World Class": 45,
+    "18GYM": 42,
+    "Stay Fit Gym": 67
+  },
+  "chain_completeness": {
+    "World Class": {
+      "official_current": 45,
+      "discovered": 45,
+      "ready": 45,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "Stay Fit Gym": {
+      "official_current": 74,
+      "discovered": 71,
+      "ready": 67,
+      "unresolved": 4,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 90.5,
+      "verdict": "NEAR-COMPLETE"
+    },
+    "18GYM": {
+      "official_current": 47,
+      "discovered": 47,
+      "ready": 42,
+      "unresolved": 0,
+      "coming_soon": 5,
+      "closed": 0,
+      "coverage_pct": 89.4,
+      "verdict": "COMPLETE",
+      "open_coverage_pct": 100.0
+    }
+  },
+  "city_coverage_ready": {
+    "București": 54,
+    "Cluj-Napoca": 20,
+    "Timișoara": 7,
+    "Iași": 10,
+    "Constanța": 4,
+    "Brașov": 6,
+    "Craiova": 2,
+    "Galați": 2,
+    "Ploiești": 4,
+    "Oradea": 0,
+    "Sibiu": 4,
+    "Arad": 3,
+    "Pitești": 3,
+    "Râmnicu Vâlcea": 1
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "moldova": 0
+  },
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 1,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 11217,
+  "crosses_12500": false,
+  "verdict": "READY FOR ROMANIA MERGE"
+}

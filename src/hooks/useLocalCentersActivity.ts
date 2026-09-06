@@ -20,7 +20,11 @@ function sameCenterIds(a: string[], b: string[]): boolean {
   return a.every((id, i) => id === b[i]);
 }
 
-export function useLocalCentersActivity(userId: string | undefined) {
+export function useLocalCentersActivity(
+  userId: string | undefined,
+  options?: {enabled?: boolean},
+) {
+  const enabled = options?.enabled ?? true;
   const favoriteGyms = useAppStore(s => s.user?.favoriteGyms);
   const [resolvedCenterIds, setResolvedCenterIds] = useState<string[]>([]);
   const [localCenters, setLocalCenters] = useState<LocalCenterActivity[]>([]);
@@ -39,6 +43,11 @@ export function useLocalCentersActivity(userId: string | undefined) {
       setError(null);
       setLoading(false);
       return;
+    }
+
+    const storeHasFavorites = (favoriteGyms ?? []).filter(Boolean).length > 0;
+    if (!storeHasFavorites) {
+      setLoading(true);
     }
 
     let ids = [...new Set((favoriteGyms ?? []).filter(Boolean))].slice(0, 3);
@@ -109,38 +118,41 @@ export function useLocalCentersActivity(userId: string | undefined) {
   }, [userId, favoriteGyms]);
 
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
     refresh().catch(() => {});
-  }, [refresh, demoEnabled, userId, demoHydrated]);
+  }, [refresh, demoEnabled, userId, demoHydrated, enabled]);
 
   useEffect(() => {
-    if (!userId || isDemoContentMode()) {
+    if (!enabled || !userId || isDemoContentMode()) {
       return;
     }
     return subscribeProfileCenters(userId, () => {
       refresh().catch(() => {});
     });
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   useEffect(() => {
-    if (!userId || isDemoContentMode()) {
+    if (!enabled || !userId || isDemoContentMode()) {
       return;
     }
     return subscribeUserCenters(userId, () => {
       refresh().catch(() => {});
     });
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   useEffect(() => {
-    if (!userId || isDemoContentMode()) {
+    if (!enabled || !userId || isDemoContentMode()) {
       return;
     }
     return subscribeCheckInsPresence(() => {
       refresh().catch(() => {});
     });
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!enabled || !userId) {
       return;
     }
     const sub = AppState.addEventListener('change', next => {
@@ -149,10 +161,11 @@ export function useLocalCentersActivity(userId: string | undefined) {
       }
     });
     return () => sub.remove();
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   return {
     localCenters,
+    resolvedCenterIds,
     hasLocalCenters: resolvedCenterIds.length > 0,
     loading,
     error,

@@ -1,0 +1,408 @@
+{
+  "phase": "2",
+  "production_total": 11254,
+  "bulgaria_live": 0,
+  "production_sha": "91ffadd49497614f96eaf11f9d01edbdb127df2a6d8ce87bb7d7ad4443717840",
+  "production_modified": false,
+  "phase1_staged": 105,
+  "phase1_ready": 11,
+  "phase1_ready_preserved": 11,
+  "phase1_ready_demoted": [],
+  "unique_staged": 105,
+  "status_counts": {
+    "READY_TO_IMPORT": 67,
+    "NEEDS_REVIEW": 13,
+    "NEEDS_COORDINATES": 5,
+    "EXCLUDED": 20
+  },
+  "ready_count": 67,
+  "ready_by_brand": {
+    "Next Level Fitness": 29,
+    "Pulse Fitness": 13,
+    "Athletic Fitness": 9,
+    "Flais Fitness": 10,
+    "Titanium Fitness": 4,
+    "Hammer Gym": 2
+  },
+  "ready_by_city": {
+    "Sofia": 53,
+    "Burgas": 3,
+    "Varna": 2,
+    "Pernik": 1,
+    "Plovdiv": 6,
+    "Sveti Vlas": 1,
+    "Stara Zagora": 1
+  },
+  "chains": {
+    "Next Level Fitness": {
+      "official_current_estimate": 29,
+      "discovered": 29,
+      "READY": 29,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "coverage": "29/29",
+      "verdict": "COMPLETE"
+    },
+    "Pulse Fitness": {
+      "official_current_estimate": 21,
+      "discovered": 26,
+      "READY": 13,
+      "unresolved": 8,
+      "EXCLUDED": 5,
+      "NEEDS_COORDINATES": 2,
+      "NEEDS_REVIEW": 6,
+      "coverage": "13/21",
+      "verdict": "INCOMPLETE",
+      "excluded_detail": 5,
+      "eligible_discovered": 21
+    },
+    "Athletic Fitness": {
+      "official_current_estimate": 10,
+      "discovered": 10,
+      "READY": 9,
+      "unresolved": 1,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 1,
+      "coverage": "9/10",
+      "verdict": "NEAR_COMPLETE"
+    },
+    "Flais Fitness": {
+      "official_current_estimate": 14,
+      "discovered": 14,
+      "READY": 10,
+      "unresolved": 4,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 3,
+      "NEEDS_REVIEW": 1,
+      "coverage": "10/14",
+      "verdict": "INCOMPLETE"
+    },
+    "Titanium Fitness": {
+      "official_current_estimate": 6,
+      "discovered": 6,
+      "READY": 4,
+      "unresolved": 2,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 2,
+      "coverage": "4/6",
+      "verdict": "INCOMPLETE"
+    },
+    "Hammer Gym": {
+      "official_current_estimate": 5,
+      "discovered": 5,
+      "READY": 2,
+      "unresolved": 3,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 3,
+      "coverage": "2/5",
+      "verdict": "INCOMPLETE"
+    }
+  },
+  "new_regional_chains": [
+    {
+      "brand": "Anytime Fitness",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Energy Sport",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "FITINN",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Fit City",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Fitness 1",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Fitness First",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Gold's Gym",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "JOHN REED",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Max Fitness",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "McFIT",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Orange Fitness",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "Platinum Health Club",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "West Gym",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "World Class",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    },
+    {
+      "brand": "clever fit",
+      "official_current_estimate": null,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "classification": "E_single_or_too_small",
+      "verdict": "reviewed"
+    }
+  ],
+  "regional_coverage": {
+    "Sofia": {
+      "ready": 53,
+      "staged_non_excluded": 68,
+      "gap_classification": "covered"
+    },
+    "Plovdiv": {
+      "ready": 6,
+      "staged_non_excluded": 6,
+      "gap_classification": "covered"
+    },
+    "Varna": {
+      "ready": 2,
+      "staged_non_excluded": 2,
+      "gap_classification": "covered"
+    },
+    "Burgas": {
+      "ready": 3,
+      "staged_non_excluded": 4,
+      "gap_classification": "covered"
+    },
+    "Ruse": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Stara Zagora": {
+      "ready": 1,
+      "staged_non_excluded": 2,
+      "gap_classification": "covered"
+    },
+    "Pleven": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Sliven": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Dobrich": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Shumen": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Pernik": {
+      "ready": 1,
+      "staged_non_excluded": 1,
+      "gap_classification": "covered"
+    },
+    "Haskovo": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Yambol": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Veliko Tarnovo": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Blagoevgrad": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    }
+  },
+  "international_recheck": {
+    "Fitness First": "no_verified_BG_estate",
+    "Anytime Fitness": "no_verified_BG_estate",
+    "clever fit": "no_verified_BG_estate",
+    "FITINN": "no_verified_BG_estate",
+    "McFIT": "no_verified_BG_estate",
+    "JOHN REED": "no_verified_BG_estate",
+    "Gold's Gym": "no_verified_BG_estate",
+    "World Class": "no_verified_BG_estate"
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "invalid_postcodes": 0,
+    "missing_ready_addresses": 0,
+    "missing_ready_cities": 0,
+    "invalid_ready_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 1
+  },
+  "material_blockers": [
+    "Pulse materially incomplete 13/~21 eligible",
+    "Flais still substantially unresolved 10/14",
+    "Titanium incomplete 4/6",
+    "Hammer incomplete 2/5"
+  ],
+  "non_blocking_gaps": [
+    "Remaining Flais thin-address clubs (Alera, Central Park, Veslec, Mladost Business Park)",
+    "Titanium Studentski Grad / remaining 2 clubs thin official address",
+    "Hammer Ovcha Kupel thin address; Platinum/Beli Brezi geocode miss",
+    "Pulse Downtown/Kim Center/Stara Zagora/Platinum/Lyulin/Ovcha Kupel/Drujba/Kardzhali unresolved",
+    "Regional cities without multi-site operators (Ruse, Pleven, Sliven, Dobrich, Shumen, Haskovo, Yambol, Veliko Tarnovo, Blagoevgrad) classified A_legitimate_no_chain_presence after Phase 2 sweep"
+  ],
+  "projected_catalog_if_merged_alone": 11321,
+  "threshold_12500_crossed_projected": false,
+  "global_qa_required_now": false,
+  "verdict": "BULGARIA PHASE 3 REQUIRED BEFORE MERGE"
+}

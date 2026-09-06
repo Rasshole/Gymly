@@ -1,0 +1,337 @@
+[
+  {
+    "id": "no_89980ad534",
+    "name": "SATS Lillestrøm",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "12, Dampsagveien, Dampsagtomta, Volla, Lillestrøm, Akershus, 2004, Norge",
+    "staged_postal": "2000"
+  },
+  {
+    "id": "no_a134428847",
+    "name": "SATS Linderud",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "38, Erich Mogensøns vei, Øvre Vollebekk, Linderud, Bjerke, Oslo, 0594, Norge",
+    "staged_postal": "0517"
+  },
+  {
+    "id": "no_b785822f13",
+    "name": "SATS Nesttun",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "2, Apeltunvegen, Skjold, Nesttun, Fana, Bergen, Vestland, 5222, Norge",
+    "staged_postal": "5223"
+  },
+  {
+    "id": "no_9727941eec",
+    "name": "SATS Oasen",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "52, Folke Bernadottes vei, Sælemyra, Fyllingsdalen, Bergen, Vestland, 5147, Norge",
+    "staged_postal": "5881"
+  },
+  {
+    "id": "no_0da06a0f50",
+    "name": "SATS Sandvika Panorama",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "176, Sandviksveien, Jongskollen, Bakåsen, Jong, Sandvika, Bærum, Akershus, 1337, Norge",
+    "staged_postal": "1338"
+  },
+  {
+    "id": "no_c6985b40b2",
+    "name": "SATS Vestkanten",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "2, Loddefjordveien, Loddefjorddalen, Loddefjord, Vadmyra, Laksevåg, Bergen, Vestland, 5171, Norge",
+    "staged_postal": "5881"
+  },
+  {
+    "id": "no_6185a15658",
+    "name": "SATS Yoga Aker Brygge",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "5, Bryggetorget, Ruseløkka, Aker brygge, Frogner, Oslo, 0250, Norge",
+    "staged_postal": "0520"
+  },
+  {
+    "id": "no_056002d0e7",
+    "name": "SATS Yoga Majorstuen",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "1, Schultz’ gate, Hegdehaugen, Majorstuen, Frogner, Oslo, 0365, Norge",
+    "staged_postal": "0368"
+  },
+  {
+    "id": "no_2274c9720c",
+    "name": "Fresh Fitness Manglerud",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "6, Plogveien, Nordre Manglerud, Manglerud, Østensjø, Oslo, 0679, Norge",
+    "staged_postal": "0612"
+  },
+  {
+    "id": "no_8103a7fc38",
+    "name": "EVO Fitness Ålgård",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "6, Ålgårdsheiå, Husafjellet, Fiskebekk, Ålgård, Gjesdal, Rogaland, 4331, Norge",
+    "staged_postal": "4330"
+  },
+  {
+    "id": "no_73c5b9fba0",
+    "name": "EVO Fitness Bryne",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "17, Arne Garborgs veg, Loen, Vardheia, Bryne, Time, Rogaland, 4344, Norge",
+    "staged_postal": "4340"
+  },
+  {
+    "id": "no_e8ef59cb62",
+    "name": "EVO Fitness Heimdal",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "13, Industriveien, Heimdal, Trondheim, Trøndelag, 7072, Norge",
+    "staged_postal": "7080"
+  },
+  {
+    "id": "no_632f94833e",
+    "name": "EVO Fitness Os",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "2, Industrivegen, Gudridflaten, Skogen, Osøyro, Bjørnafjorden, Vestland, 5210, Norge",
+    "staged_postal": "5200"
+  },
+  {
+    "id": "no_7f16f3df9e",
+    "name": "Feel24 Svolvaer Sentrum",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_exact",
+      "city_ok",
+      "token_hits_2"
+    ],
+    "display": "51, Sivert Nilsens gate, Solheim, Svolvær, Vågan, Nordland, 8300, Norge",
+    "staged_postal": "8300"
+  },
+  {
+    "id": "no_9674abb772",
+    "name": "Feel24 Sandnessjoen Lyngasen",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "109, Novikveien, Øren, Stamnesmarka, Sandnessjøen, Alstahaug, Nordland, 8802, Norge",
+    "staged_postal": "8800"
+  },
+  {
+    "id": "no_5498242b28",
+    "name": "Feel24 Skjervoy",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_exact",
+      "city_ok",
+      "token_hits_1"
+    ],
+    "display": "88A, Strandveien, Vågen, Skjervøy, Troms, 9180, Norge",
+    "staged_postal": "9180"
+  },
+  {
+    "id": "no_907fd70dd6",
+    "name": "Feel24 Stjordal",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "1, Stokmovegen, Sandskogan, Stjørdalshalsen, Stjørdal, Trøndelag, 7500, Norge",
+    "staged_postal": "7501"
+  },
+  {
+    "id": "no_85e7a89f76",
+    "name": "Feel24 Buran",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "22, Gamle kirkevei, Buran, Reina, Lademoen, Østbyen, Trondheim, Trøndelag, 7068, Norge",
+    "staged_postal": "7043"
+  },
+  {
+    "id": "no_eb069ea386",
+    "name": "Feel24 Vadso",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "2, Sør-Varangerveien, Vadsø, Finnmark, 9801, Norge",
+    "staged_postal": "9800"
+  },
+  {
+    "id": "no_78f9f6283e",
+    "name": "3T-Treningssenter Moholt",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "16, Vegamot, Lohove, Åsvang, Strinda, Lerkendal, Trondheim, Trøndelag, 7049, Norge",
+    "staged_postal": "7048"
+  },
+  {
+    "id": "no_dfc6a8b93c",
+    "name": "MOVA Bergen Kronstad",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_exact",
+      "city_ok",
+      "token_hits_1"
+    ],
+    "display": "3A, Edvard Griegs vei, Kronstad, Årstad, Bergen, Vestland, 5059, Norge",
+    "staged_postal": "5059"
+  },
+  {
+    "id": "no_9f831866d8",
+    "name": "MOVA Horten Hovedsenter",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "41B, Trimveien, Tveiten, Horten, Vestfold, 3188, Norge",
+    "staged_postal": "3186"
+  },
+  {
+    "id": "no_10b59f3e09",
+    "name": "MOVA Kleppe",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "25, Solavegen, Haugabakka, Kleppe, Klepp, Rogaland, 4351, Norge",
+    "staged_postal": "4352"
+  },
+  {
+    "id": "no_53f1e7151f",
+    "name": "SKY Fitness Lisleby",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "191, Lislebyveien, Narnte, Lisleby, Fredrikstad, Østfold, 1619, Norge",
+    "staged_postal": "1604"
+  },
+  {
+    "id": "no_92af241728",
+    "name": "SKY Fitness Moss Jeloy",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "11, Helgerødgata, Fiske, Moss, Østfold, 1515, Norge",
+    "staged_postal": "1511"
+  },
+  {
+    "id": "no_3c1dd36ce0",
+    "name": "SKY Fitness Randaberg",
+    "decision": "READY_TO_IMPORT",
+    "reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "display": "26, Torvmyrveien, Goadalen, Rygg, Randaberg, Rogaland, 4070, Norge",
+    "staged_postal": "4096"
+  }
+]

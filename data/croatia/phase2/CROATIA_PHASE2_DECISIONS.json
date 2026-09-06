@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "hr_531f4f1847",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Zadar – Voštarnica",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_f3f2371e7f",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Split Visoka",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_65f37e31a4",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Tower centar Rijeka",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d45eb0c6b5",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Zaprešić",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_7ceff61556",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Vrbani",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_23e290626d",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Split Kampus",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_4e90ae8d35",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Špansko",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_8d98ff97a2",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Split Lovret",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_58fcbe3db0",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Stenjevec",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_da20a6af84",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Velika Gorica",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_6eade4805d",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Maksimir 2",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_1156235f67",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Dubec",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_828baca7aa",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Matrix",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_6683a9bafc",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Siget",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_8e6426a328",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Blato",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_4de6622372",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Črnomerec",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_027ef1cdb6",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Dubrava Risnjačka",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_7c9fb9de75",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Voltino",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_b9d7bed9cd",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Kvaternik Plaza",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_6c27f9083b",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Sloboština",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_658ceb32d7",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Park Kneževa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_184f08ae2b",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Remiza",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_312869cdd8",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Maksimir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_b7e6171fe4",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Heinzelova",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_16f20a0868",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Nova Galerija",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_99d5434c36",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Dubrava",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_7e7415dbe5",
+    "brand": "Gyms4you",
+    "name": "Gyms4you VMD",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_e458262bee",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Bundek",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_b66788cf76",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Karlovac Vladimira Nazora",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_0ca0078481",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Velimira Škorpika",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_84e357681f",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Put Murvice",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_858cb170a0",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Split – Gripe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_f3652fa11f",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Velika Gorica Centar",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d7d57e7e6b",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Spinut",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_fae56a35ca",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Karlovac Grabrik",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_f43e3aa015",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Slavonski Brod",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_1fac95ad76",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Zagreb – Ravnice",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_1bb0b2df35",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Dubrovnik",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_905f19b579",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Nova cesta",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_c6281ff5fd",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Osijek Trg slobode",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d772ccd49a",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Varaždin Đurek",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_97270042fd",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Varaždin Istok",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_01f97443ea",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Osijek Donji Grad",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_26f74acfdc",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Dubrava Čulinečka",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_c422cb89ff",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Ozaljska",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d4025dd0f1",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Rijeka",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_1b43ef6a03",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Jaruščica",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_2db3d9d79f",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Ilica",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_e220acc0f2",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Prisavlje",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_ee18805422",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Split Trstenik",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_38813ae297",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Knežija",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_096e0c854b",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Split 3",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_eff3e7d13c",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Jurišićeva",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_ce961ae600",
+    "brand": "Gyms4you",
+    "name": "Gyms4you Heinzelova x Vukovarska",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_04d608aabd",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Dugo Selo",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_3c82eb55d7",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Samobor STOP SHOP",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_e8feaadf2a",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Samobor Centar",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_4803390d6f",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Velika Gorica",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_31f66c7a1f",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Zavrtnica",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_735c904be3",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Hala",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d77a2aec10",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Borongaj",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_f764385842",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Borovje",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_ca7a172b54",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Branimir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_765f4e908a",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Črnomerec",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_6c2849e74b",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Donje Svetice",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "in_production": false
+  },
+  {
+    "id": "hr_e86685f75d",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Dubrava",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d963ed9417",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Dvorana Vrbani III",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_036861a783",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Green Gold",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_c9eb6ff3b3",
+    "brand": "THE Fitness",
+    "name": "THE Fitness HoB",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_e99d3d2a6c",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Hotel Novi Zagreb",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_130c7050f0",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Jelkovec",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_96bab24e46",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Kaptol",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_af1a9eecc8",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Lučko",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_3d1efcbd8c",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Mamutica",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_933ff33727",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Stenjevec",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_8aa56a987c",
+    "brand": "THE Fitness",
+    "name": "THE Fitness ZCentar",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_a0ec1a2c32",
+    "brand": "THE Fitness",
+    "name": "THE Fitness Zonar",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_b0b6f04fa5",
+    "brand": "Gibi Gib",
+    "name": "Gibi Gib Zagreb Voltino",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_eb89f1acde",
+    "brand": "Gibi Gib",
+    "name": "Gibi Gib Zagreb Rudeš",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_51e7c33064",
+    "brand": "Gibi Gib",
+    "name": "Gibi Gib Varaždin Istok",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_9d4a1f57fa",
+    "brand": "Gibi Gib",
+    "name": "Gibi Gib Varaždin Centar",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_2dd927c58a",
+    "brand": "Fitness Centar Joker",
+    "name": "Fitness Centar Joker Split Brodarice",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d38c920e25",
+    "brand": "Fitness Centar Joker",
+    "name": "Fitness Centar Joker Split Mejaši",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_d225dc7c62",
+    "brand": "Fitness Centar Joker",
+    "name": "Fitness Centar Joker Omiš",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_05840eab80",
+    "brand": "Fitness Centar Joker",
+    "name": "Fitness Centar Joker Solin",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_f253f40958",
+    "brand": "Multihealth",
+    "name": "Multihealth Samobor",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_35051fecb9",
+    "brand": "Multihealth",
+    "name": "Multihealth Karlovac",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_73c4f54110",
+    "brand": "Multihealth",
+    "name": "Multihealth Zagreb Rudeš",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "hr_b75e732fcd",
+    "brand": "OrlandoFit",
+    "name": "OrlandoFit (legacy)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_932607a989",
+    "brand": "Play Fitness",
+    "name": "Play Fitness Zagreb (legacy)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_7f3f13ea28",
+    "brand": "XXL Fitness",
+    "name": "XXL Fitness (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_930241fc7b",
+    "brand": "Sparta Gym",
+    "name": "Sparta Gym (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_2d8d241d05",
+    "brand": "Fitness centar Forma",
+    "name": "Fitness centar Forma (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_2a63bdb0d9",
+    "brand": "MoFit",
+    "name": "MoFit (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_9f0269952d",
+    "brand": "Jump Fitness",
+    "name": "Jump Fitness (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_539189d889",
+    "brand": "Core Gym",
+    "name": "Core Gym (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_58a16a343b",
+    "brand": "Basic Gym One",
+    "name": "Basic Gym One (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_f463fc8203",
+    "brand": "Invictus Fitness",
+    "name": "Invictus Fitness (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_0964f6e5d5",
+    "brand": "Blue Gym",
+    "name": "Blue Gym (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_b05553a68c",
+    "brand": "Olympic Fitness",
+    "name": "Olympic Fitness (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_3fe191b40a",
+    "brand": "Fitness Studio Energy",
+    "name": "Fitness Studio Energy (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_bce6a832d6",
+    "brand": "Anytime Fitness",
+    "name": "Anytime Fitness (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_987fa87b10",
+    "brand": "clever fit",
+    "name": "clever fit Zagreb Miramarska (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_e8570d5807",
+    "brand": "FITINN",
+    "name": "FITINN (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_ab1ae77d12",
+    "brand": "McFIT",
+    "name": "McFIT (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_2b833f4743",
+    "brand": "JOHN REED",
+    "name": "JOHN REED (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_514b4fa31f",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_be7edc9754",
+    "brand": "World Class",
+    "name": "World Class Croatia (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_cb7d142aa7",
+    "brand": "Fitness First",
+    "name": "Fitness First (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_123ebe8479",
+    "brand": "MultiSport",
+    "name": "MultiSport (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_76e07fdd58",
+    "brand": "PassSport",
+    "name": "PassSport (market audit)",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_cff72b6bbe",
+    "brand": "Border probe",
+    "name": "Slovenia probe Ljubljana",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_f9f7454560",
+    "brand": "Border probe",
+    "name": "Slovenia probe Koper",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_c9e1a49a99",
+    "brand": "Border probe",
+    "name": "Slovenia probe Maribor",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_17b16a077d",
+    "brand": "Border probe",
+    "name": "Bosnia probe Mostar",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_114dc34394",
+    "brand": "Border probe",
+    "name": "Bosnia probe Neum",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_83004a5459",
+    "brand": "Border probe",
+    "name": "Bosnia probe Banja Luka",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_febf8585f8",
+    "brand": "Border probe",
+    "name": "Bosnia probe Bosanski Brod",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_62d3554e9c",
+    "brand": "Border probe",
+    "name": "Bosnia probe Trebinje",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_2e6cf2abe3",
+    "brand": "Border probe",
+    "name": "Serbia probe Novi Sad",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_d040375312",
+    "brand": "Border probe",
+    "name": "Serbia probe Sombor",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_4a88b985c3",
+    "brand": "Border probe",
+    "name": "Montenegro probe Herceg Novi",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_341dfd3afd",
+    "brand": "Border probe",
+    "name": "Montenegro probe Igalo",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_72c9740066",
+    "brand": "Border probe",
+    "name": "Hungary probe southern border",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "hr_b78514d8f7",
+    "brand": "Border probe",
+    "name": "Italy probe Trieste",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  }
+]

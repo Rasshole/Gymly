@@ -1,5 +1,5 @@
 /**
- * Global: genopret aktiv session, auto-checkout (kun afstand), recovery-dialog.
+ * Global: genopret aktiv session, auto-checkout (afstand, også baggrund), recovery-dialog.
  */
 import {useAutoCheckoutController} from '@/hooks/useAutoCheckoutController';
 import {useRestoreActiveCheckInSession} from '@/hooks/useRestoreActiveCheckInSession';

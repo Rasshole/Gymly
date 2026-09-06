@@ -20,6 +20,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, RepRecord} from '@/types/pr.types';
 import colors from '@/theme/colors';
+import {useTranslation, getExerciseDisplayName} from '@/i18n';
 
 type AddRepRouteParams = {
   exercise: ExerciseType;
@@ -33,13 +34,20 @@ const AddRepScreen = () => {
   const route = useRoute<RouteProp<{params: AddRepRouteParams}, 'params'>>();
   const {exercise, existingRep} = route.params || {};
   const {addRepRecord, updateRepRecord} = usePRStore();
+  const {t, language} = useTranslation();
 
   const [weight, setWeight] = useState(existingRep?.weight.toString() || '');
   const [notes, setNotes] = useState(existingRep?.notes || '');
 
+  const exerciseDisplayName = getExerciseDisplayName({
+    exerciseId: null,
+    fallbackName: String(exercise ?? ''),
+    language,
+  });
+
   const handleSave = () => {
     if (!weight || isNaN(Number(weight)) || Number(weight) <= 0) {
-      Alert.alert('Ugyldig vægt', 'Indtast venligst en gyldig vægt i kg');
+      Alert.alert(t('addRep.invalidWeightTitle'), t('addRep.invalidWeightBody'));
       return;
     }
 
@@ -48,8 +56,8 @@ const AddRepScreen = () => {
         weight: Number(weight),
         notes: notes.trim() || undefined,
       });
-      Alert.alert('Reps opdateret', 'Dine reps er blevet opdateret', [
-        {text: 'OK', onPress: () => navigation.goBack()},
+      Alert.alert(t('addRep.updatedTitle'), t('addRep.updatedBody'), [
+        {text: t('common.ok'), onPress: () => navigation.goBack()},
       ]);
     } else {
       addRepRecord({
@@ -58,8 +66,8 @@ const AddRepScreen = () => {
         weight: Number(weight),
         notes: notes.trim() || undefined,
       });
-      Alert.alert('Reps tilføjet', 'Dine reps er blevet tilføjet', [
-        {text: 'OK', onPress: () => navigation.goBack()},
+      Alert.alert(t('addRep.addedTitle'), t('addRep.addedBody'), [
+        {text: t('common.ok'), onPress: () => navigation.goBack()},
       ]);
     }
   };
@@ -75,7 +83,7 @@ const AddRepScreen = () => {
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
-          {existingRep ? 'Rediger Reps' : 'Tilføj Reps'}
+          {existingRep ? t('addRep.titleEdit') : t('addRep.titleAdd')}
         </Text>
         <View style={styles.headerSpacer} />
       </View>
@@ -83,21 +91,18 @@ const AddRepScreen = () => {
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Exercise Name */}
         <View style={styles.section}>
-          <Text style={styles.exerciseName}>{exercise}</Text>
-          <Text style={styles.exerciseSubtitle}>Vægt for 10 reps</Text>
+          <Text style={styles.exerciseName}>{exerciseDisplayName}</Text>
+          <Text style={styles.exerciseSubtitle}>{t('addRep.weightFor10')}</Text>
         </View>
 
         {/* Weight Input */}
         <View style={styles.section}>
-          <Text style={styles.inputLabel}>Vægt (kg)</Text>
-          <Text style={styles.inputHint}>
-            Hvor mange kilo kan du løfte for 10 reps?
-          </Text>
+          <Text style={styles.inputLabel}>{t('addRep.weightFor10')}</Text>
           <TextInput
             style={styles.input}
             value={weight}
             onChangeText={setWeight}
-            placeholder="F.eks. 80"
+            placeholder={t('addRep.weightPlaceholder')}
             keyboardType="numeric"
             placeholderTextColor="#8E8E93"
           />
@@ -105,12 +110,12 @@ const AddRepScreen = () => {
 
         {/* Notes (Optional) */}
         <View style={styles.section}>
-          <Text style={styles.inputLabel}>Noter (valgfrit)</Text>
+          <Text style={styles.inputLabel}>{t('addRep.notesOptional')}</Text>
           <TextInput
             style={[styles.input, styles.textArea]}
             value={notes}
             onChangeText={setNotes}
-            placeholder="Tilføj noter..."
+            placeholder={t('addRep.notesPlaceholder')}
             placeholderTextColor="#8E8E93"
             multiline
             numberOfLines={4}
@@ -124,7 +129,7 @@ const AddRepScreen = () => {
           onPress={handleSave}
           activeOpacity={0.8}>
           <Text style={styles.saveButtonText}>
-            {existingRep ? 'Opdater Reps' : 'Gem Reps'}
+            {existingRep ? t('addRep.update') : t('addRep.save')}
           </Text>
         </TouchableOpacity>
       </ScrollView>
@@ -185,11 +190,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: 8,
   },
-  inputHint: {
-    fontSize: 14,
-    color: colors.textMuted,
-    marginBottom: 12,
-  },
   input: {
     backgroundColor: colors.backgroundCard,
     borderRadius: 12,
@@ -223,6 +223,3 @@ const styles = StyleSheet.create({
 });
 
 export default AddRepScreen;
-
-
-

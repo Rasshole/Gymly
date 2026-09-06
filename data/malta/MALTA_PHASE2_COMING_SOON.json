@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mt_75a13770ff",
+    "name": "BGM Birgu Fitness Centre",
+    "brand": "Best Gyms Malta",
+    "chain_key": "best_gyms_malta",
+    "address": "Birgu / Vittoriosa (site under development)",
+    "postal_code": "BRG 1810",
+    "city": "Birgu",
+    "country": "Malta",
+    "lat": 35.885171,
+    "lng": 14.521196,
+    "website": "https://bestgymsmalta.com/gyms/bgm-birgu-fitness-centre/",
+    "source_url": "https://bestgymsmalta.com/gyms/bgm-birgu-fitness-centre/",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "notes": "Official page: Coming Soon; not yet in production; phase2_revalidated: bestgymsmalta.com/gyms/bgm-birgu-fitness-centre/ Aug 2026 — official page still Coming Soon; Birgu/Vittoriosa site under development; not operating at Phase 2 audit",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://bestgymsmalta.com/gyms/bgm-birgu-fitness-centre/"
+    },
+    "access_class": "A_public_conventional",
+    "operator_class": "A",
+    "island": "Malta",
+    "phase2_disposition": "COMING_SOON"
+  }
+]

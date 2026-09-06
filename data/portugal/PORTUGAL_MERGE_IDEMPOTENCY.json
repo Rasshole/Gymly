@@ -1,0 +1,7 @@
+{
+  "second_run_insertions": 0,
+  "final_catalog": 10772,
+  "portugal": 247,
+  "pass": true,
+  "note": "Idempotency check must not overwrite PORTUGAL_MERGE_REPORT.*"
+}

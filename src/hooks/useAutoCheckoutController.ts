@@ -9,14 +9,15 @@ import {
 import {useSessionStore} from '@/store/sessionStore';
 import {updateCheckInLastSeenAt} from '@/services/supabase/checkInService';
 import {
+  configureGeolocationForActiveWorkoutTracking,
   configureGeolocationForPermissionSafety,
   getLocationPermissionStatus,
   isLocationAuthorized,
+  requestBackgroundLocationForActiveWorkout,
 } from '@/services/location/locationPermission';
 
 /**
- * Auto-checkout mens aktiv session + app i forgrunden.
- * Bruger høj-præcisions GPS-watch under aktiv træning.
+ * Auto-checkout under aktiv session — også i baggrunden (GPS + server-backup).
  */
 export function useAutoCheckoutController(): void {
   const userId = useAppStore(s => s.user?.id);
@@ -31,8 +32,12 @@ export function useAutoCheckoutController(): void {
   useEffect(() => {
     if (!userId || !activeCheckInId) {
       setCoords(null);
+      configureGeolocationForActiveWorkoutTracking(false);
       return;
     }
+
+    configureGeolocationForActiveWorkoutTracking(true);
+    void requestBackgroundLocationForActiveWorkout();
 
     let watchId: number | null = null;
     let mounted = true;
@@ -88,11 +93,12 @@ export function useAutoCheckoutController(): void {
       if (watchId != null) {
         Geolocation.clearWatch(watchId);
       }
+      configureGeolocationForActiveWorkoutTracking(false);
     };
   }, [userId, activeCheckInId]);
 
   const evaluate = () => {
-    if (!userId || appStateRef.current !== 'active') {
+    if (!userId) {
       return;
     }
     void runAutoCheckoutEvaluation({
@@ -118,9 +124,7 @@ export function useAutoCheckoutController(): void {
           void updateCheckInLastSeenAt(session.checkInId, userId).catch(() => {});
         }
       }
-      if (next === 'active') {
-        evaluate();
-      }
+      evaluate();
     });
     return () => sub.remove();
   }, [userId]);

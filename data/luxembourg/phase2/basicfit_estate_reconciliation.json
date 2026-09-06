@@ -1,0 +1,110 @@
+{
+  "brand": "Basic-Fit",
+  "official_current": 10,
+  "official_source": "https://www.basic-fit.com/en-lu/club-finder",
+  "official_confirmed_open": 10,
+  "discovered": 10,
+  "READY": 10,
+  "COMING_SOON": 0,
+  "CLOSED": 0,
+  "NEEDS_COORDINATES": 0,
+  "NEEDS_REVIEW": 0,
+  "unresolved": 0,
+  "foetz_status": "OPEN",
+  "border_contamination": 0,
+  "coverage_pct": 100.0,
+  "verdict": "COMPLETE",
+  "clubs": [
+    {
+      "id": "lu_adba0aa1be",
+      "name": "Basic-Fit Belvaux",
+      "address": "Avenue du Swing 1",
+      "postal_code": "4367",
+      "city": "Belvaux",
+      "lat": 49.5015375,
+      "lng": 5.9430399
+    },
+    {
+      "id": "lu_ea7a20aa6a",
+      "name": "Basic-Fit Bereldange",
+      "address": "Route de Luxembourg 111",
+      "postal_code": "7241",
+      "city": "Bereldange",
+      "lat": 49.6510591,
+      "lng": 6.1278068
+    },
+    {
+      "id": "lu_4ab388c2c6",
+      "name": "Basic-Fit Bettembourg",
+      "address": "Route de Luxembourg 235",
+      "postal_code": "3254",
+      "city": "Bettembourg",
+      "lat": 49.5309334,
+      "lng": 6.1010456
+    },
+    {
+      "id": "lu_b09bad2f57",
+      "name": "Basic-Fit Ettelbruck",
+      "address": "ZA et Commerciale 1",
+      "postal_code": "9085",
+      "city": "Ettelbruck",
+      "lat": 49.838854,
+      "lng": 6.0968671
+    },
+    {
+      "id": "lu_dc1931d263",
+      "name": "Basic-Fit Foetz",
+      "address": "Rue du Brill 11",
+      "postal_code": "3898",
+      "city": "Foetz",
+      "lat": 49.5239,
+      "lng": 6.00483
+    },
+    {
+      "id": "lu_0584d1ee62",
+      "name": "Basic-Fit Gasperich",
+      "address": "Rue du Père Raphaël 18",
+      "postal_code": "1349",
+      "city": "Luxembourg",
+      "lat": 49.5885401,
+      "lng": 6.1228695
+    },
+    {
+      "id": "lu_a61ce060d4",
+      "name": "Basic-Fit Luxembourg",
+      "address": "Rue Joseph Junck 12",
+      "postal_code": "1839",
+      "city": "Luxembourg",
+      "lat": 49.6008266,
+      "lng": 6.1324294
+    },
+    {
+      "id": "lu_6fa32b9ed7",
+      "name": "Basic-Fit Sandweiler",
+      "address": "Rue de Luxembourg 11",
+      "postal_code": "5230",
+      "city": "Sandweiler",
+      "lat": 49.6145243,
+      "lng": 6.20773
+    },
+    {
+      "id": "lu_9fe4ea92b9",
+      "name": "Basic-Fit Strassen",
+      "address": "Rue du Cimetière 150-152",
+      "postal_code": "8069",
+      "city": "Strassen",
+      "lat": 49.6145192,
+      "lng": 6.0725353
+    },
+    {
+      "id": "lu_c297264cb5",
+      "name": "Basic-Fit Windhof",
+      "address": "Route d’Arlon 5",
+      "postal_code": "8399",
+      "city": "Windhof",
+      "lat": 49.6469913,
+      "lng": 5.9601903
+    }
+  ],
+  "notes": "Phase2 revalidation: en-lu club-finder JSON-LD still lists exactly 10 LU clubs"
+}

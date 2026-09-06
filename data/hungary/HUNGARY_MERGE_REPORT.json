@@ -1,0 +1,300 @@
+{
+  "generated": "2026-08-23T16:25:12.626Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "pre_merge_sha256": "df5068aa041383bdd4e6a239ef4153b0c3483b167051a615966b6b86f56f6516",
+  "baseline": {
+    "total": 11013,
+    "hungary": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70
+  },
+  "approved_candidates": 50,
+  "validated_safe": 50,
+  "inserted": 50,
+  "withheld": 0,
+  "withheld_details": [],
+  "after": {
+    "total": 11063,
+    "hungary": 50,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70
+  },
+  "duplicate_ids": [],
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "gilda": 0
+  },
+  "brand_breakdown_canonical": {
+    "4% Fitness": 7,
+    "Chili Fitness": 5,
+    "Cutler Gym": 7,
+    "Fitness5": 16,
+    "Life1 Fitness": 6,
+    "Nr1 Fitness": 3,
+    "Oxygen Wellness": 1,
+    "Prestige Fitness": 1,
+    "Thor Gym": 4
+  },
+  "brand_breakdown_production": {
+    "4% Fitness": 7,
+    "Chili Fitness": 5,
+    "Cutler Gym": 7,
+    "Fitness5": 16,
+    "Life1 Fitness": 6,
+    "Nr1 Fitness": 3,
+    "Oxygen Wellness": 1,
+    "Prestige Fitness": 1,
+    "Thor Gym": 4
+  },
+  "rebrand_validation": {
+    "gilda_max_live": 0,
+    "prestige_fay_id": "hu_cb9223a0d5",
+    "prestige_fay_brand": "Prestige Fitness",
+    "prestige_fay_address": "Fáy utca 45",
+    "polus_as_fitness5": true,
+    "polus_name": "Fitness5 Pólus Center",
+    "result": "PASS"
+  },
+  "pre_merge_validation": {
+    "candidate_count": 50,
+    "hu_prefix": true,
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "rebrand_conflicts": 0,
+    "staging_exclusions": 0,
+    "result": "PASS_ALL"
+  },
+  "post_merge": {
+    "hungary_rows": 50,
+    "hu_prefix": true,
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 1,
+    "same_brand_lte_25m_disallowed": 0,
+    "same_brand_lte_50m": 1,
+    "same_brand_lte_100m": 4,
+    "same_brand_lte_200m": 4,
+    "identical_coordinate_clusters": 2,
+    "different_brand_colocations": 1
+  },
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    }
+  },
+  "staging": {
+    "MERGED_INTO_CATALOG": 50,
+    "NEEDS_COORDINATES": 1,
+    "NEEDS_REVIEW": 8,
+    "COMING_SOON": 3,
+    "CLOSED": 0,
+    "EXCLUDED": 0,
+    "DUPLICATE_LEGACY": 1
+  },
+  "rebrand_map": {
+    "generated_at": "2026-08-23T16:11:35.070045+00:00",
+    "mappings": [
+      {
+        "from": "Gilda Max",
+        "to": "Life1 Fitness",
+        "status": "acquired_2017_legacy",
+        "action": "do_not_import_gilda_max",
+        "evidence": "Life1 acquisition reporting; no current Gilda Max consumer sites found"
+      },
+      {
+        "from": "Oxygen Wellness Fáy / Life1 Fáy",
+        "to": "Prestige Fitness",
+        "status": "rebranded",
+        "action": "import_as_prestige_preserve_phase1_id",
+        "phase1_id": "hu_cb9223a0d5",
+        "evidence": "prestigefitness.hu + life1.hu map data-link=/prestige"
+      },
+      {
+        "from": "Pólus Fitness",
+        "to": "Fitness5 Pólus Center",
+        "status": "rebranded_on_site",
+        "action": "import_as_fitness5",
+        "evidence": "fitness5.hu/gym/polus-center copy"
+      }
+    ]
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous_production": 11013,
+    "new_production": 11063,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "HUNGARY MERGE COMPLETE — WAITING FOR QA",
+  "performance": {
+    "catalog": 11063,
+    "active": 11059,
+    "json_size_mb": 3.27,
+    "parse_ms": 16,
+    "cold_index_ms": 1429,
+    "cached_index_ms": 0,
+    "typical_search_ms": 1143,
+    "worst_search_ms": 248,
+    "nearest_ms": 1,
+    "map_build_ms": 0,
+    "viewport_filter_ms": 0,
+    "scale_note": "~11k live catalog; within variance of Czechia ~11k merge/QA (cold ~1339–1709 ms). No material regression. No architecture change."
+  },
+  "post_merge_sha256": "365a1bd25c1fad250172099a0430d9475899859c11a8e07e2ae05ea471dba75a",
+  "staging_reconciliation": {
+    "production_hu_ids": 50,
+    "staging_merged_ids": 50,
+    "approved_ids": 50,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE"
+  }
+}

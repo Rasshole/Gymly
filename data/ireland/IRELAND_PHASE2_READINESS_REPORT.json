@@ -1,0 +1,223 @@
+{
+  "generated": "2026-08-23T07:20:06.569581+00:00",
+  "production_total": 10878,
+  "production_ireland": 0,
+  "production_sha256_expected": "93283ab74cfb19bb197f6f09b7f833f3dfb56f1ff98a35c5aefa4c15ddb45b92",
+  "phase1_staged": 27,
+  "phase1_ready": 17,
+  "phase1_ready_preserved": 17,
+  "phase1_ready_dropped": 0,
+  "unique_staged": 82,
+  "ready_count": 46,
+  "status_counts": {
+    "READY_TO_IMPORT": 46,
+    "NEEDS_REVIEW": 31,
+    "NEEDS_COORDINATES": 5
+  },
+  "ready_by_brand": {
+    "Anytime Fitness": 4,
+    "Ben Dunne Gyms": 2,
+    "Energie Fitness": 13,
+    "FLYEfit": 17,
+    "Gym Plus": 7,
+    "Iconic Health Clubs": 1,
+    "West Wood Club": 2
+  },
+  "chain_completeness": [
+    {
+      "brand": "FLYEfit",
+      "official_current_estimate": 22,
+      "discovered": 22,
+      "ready": 17,
+      "unresolved": 5,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 77.3,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "Ben Dunne Gyms",
+      "official_current_estimate": 5,
+      "discovered": 5,
+      "ready": 2,
+      "unresolved": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 40.0,
+      "verdict": "PARTIAL"
+    },
+    {
+      "brand": "Anytime Fitness",
+      "official_current_estimate": 7,
+      "discovered": 6,
+      "ready": 4,
+      "unresolved": 2,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 57.1,
+      "verdict": "PARTIAL"
+    },
+    {
+      "brand": "Energie Fitness",
+      "official_current_estimate": 16,
+      "discovered": 16,
+      "ready": 13,
+      "unresolved": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 81.2,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "West Wood Club",
+      "official_current_estimate": 6,
+      "discovered": 6,
+      "ready": 2,
+      "unresolved": 4,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 33.3,
+      "verdict": "PARTIAL"
+    },
+    {
+      "brand": "Aura Leisure",
+      "official_current_estimate": 11,
+      "discovered": 11,
+      "ready": 0,
+      "unresolved": 11,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 0.0,
+      "verdict": "PARTIAL"
+    },
+    {
+      "brand": "Gym Plus",
+      "official_current_estimate": 7,
+      "discovered": 7,
+      "ready": 7,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Iconic Health Clubs",
+      "official_current_estimate": 4,
+      "discovered": 4,
+      "ready": 1,
+      "unresolved": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 25.0,
+      "verdict": "PARTIAL"
+    },
+    {
+      "brand": "Shoreline Leisure",
+      "official_current_estimate": 2,
+      "discovered": 2,
+      "ready": 0,
+      "unresolved": 2,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 0.0,
+      "verdict": "PARTIAL"
+    },
+    {
+      "brand": "Swan Leisure",
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "ready": 0,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 0.0,
+      "verdict": "EXCLUDED"
+    },
+    {
+      "brand": "SportsCo",
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "ready": 0,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 0.0,
+      "verdict": "EXCLUDED"
+    },
+    {
+      "brand": "Perpetua Fitness",
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "ready": 0,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 0.0,
+      "verdict": "EXCLUDED"
+    }
+  ],
+  "regional_coverage": {
+    "Dublin": true,
+    "Cork": true,
+    "Galway": true,
+    "Limerick": false,
+    "Waterford": false,
+    "Kilkenny": false,
+    "Drogheda": true,
+    "Dundalk": true,
+    "Sligo": false,
+    "Athlone": false,
+    "Wexford": false,
+    "Letterkenny": false,
+    "Tralee": false,
+    "Killarney": false,
+    "Ennis": false,
+    "Navan": false,
+    "Naas": true,
+    "Bray": false,
+    "Carlow": true,
+    "Tullamore": false,
+    "Swords": true,
+    "Maynooth": true,
+    "Mullingar": true,
+    "Midleton": true,
+    "Balbriggan": true,
+    "Ashbourne": true
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "northern_ireland": 0,
+    "mojibake": 0
+  },
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "material_gaps": [
+    "Aura Leisure: 11 centres discovered with public gyms but Eircode recovery blocked READY promotion",
+    "Ben Dunne Gyms: only 2/5 READY (Northwood/Portlaoise/Cherrywood unresolved)",
+    "West Wood Club: 6 clubs discovered; most lack trustworthy Eircodes",
+    "Anytime Fitness: 4/7 READY (Dublin district postcodes incomplete on several pages)",
+    "Iconic Health Clubs: addresses too coarse for READY on most clubs"
+  ],
+  "nonblocking_gaps": [
+    "Shoreline Leisure Bray/Greystones staged but Eircode-incomplete",
+    "SportsCo / Perpetua specialty or single-site below chain threshold",
+    "Kingfisher / Raw Gyms official sites unreachable",
+    "One Escape \u2192 Iconic Smithfield rebrand documented",
+    "FLYEfit ~5 clubs still missing Eircode despite coords"
+  ],
+  "projected_catalog": 10924,
+  "crossed_12500": false,
+  "phase3_required": true,
+  "verdict": "IRELAND PHASE 3 REQUIRED BEFORE MERGE"
+}

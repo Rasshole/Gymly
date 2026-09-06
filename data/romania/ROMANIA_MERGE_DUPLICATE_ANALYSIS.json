@@ -1,0 +1,864 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "ro_841c3d6ffe",
+        "a_name": "Stay Fit Gym grand arena",
+        "a_address": "Bulevardul Metalurgiei 12-18, București 041833/",
+        "a_postal": "041833",
+        "b_id": "ro_4c5fd28082",
+        "b_name": "Stay Fit Gym metalurgiei",
+        "b_address": "Stay Fit Gym Metalurgiei",
+        "b_postal": "041833",
+        "brand": "Stay Fit Gym",
+        "distance_m": 137,
+        "same_address": false
+      }
+    ],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "ro_bb293cb601",
+        "a_brand": "18GYM",
+        "a_name": "18GYM București Pantelimon",
+        "b_id": "ro_45bb2216f0",
+        "b_brand": "Stay Fit Gym",
+        "b_name": "Stay Fit Gym pantelimon",
+        "distance_m": 12,
+        "classification": "A_legitimate_different_brand_colocation"
+      }
+    ]
+  },
+  "proximity_classifications": [
+    {
+      "a_id": "ro_841c3d6ffe",
+      "a_name": "Stay Fit Gym grand arena",
+      "a_address": "Bulevardul Metalurgiei 12-18, București 041833/",
+      "a_postal": "041833",
+      "b_id": "ro_4c5fd28082",
+      "b_name": "Stay Fit Gym metalurgiei",
+      "b_address": "Stay Fit Gym Metalurgiei",
+      "b_postal": "041833",
+      "brand": "Stay Fit Gym",
+      "distance_m": 137,
+      "same_address": false,
+      "classification": "A_legitimate",
+      "action": "retain_both",
+      "evidence": "Different addresses — dense urban / Phase 2 known SF ~137 m pair"
+    }
+  ],
+  "known_legitimate": {
+    "stay_fit_137m": "A_legitimate — Phase 2 same-brand ~137 m distinct addresses"
+  },
+  "cross_production_same_brand_lte_25m": [],
+  "skipped_existing_id": [],
+  "withheld": [],
+  "included": [
+    {
+      "id": "ro_d12362a594",
+      "name": "World Class Cosmopolis",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_f4c1c67352",
+      "name": "World Class Caro București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_266166118e",
+      "name": "World Class AFI Cotroceni București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_0daa7f9694",
+      "name": "World Class Atlantis",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_1779c63d64",
+      "name": "World Class Planet",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_688d783a7c",
+      "name": "World Class One Cotroceni",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_4c2a5615cd",
+      "name": "World Class Mall Moldova",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_2617050fd5",
+      "name": "World Class Shopping City",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_a530088a38",
+      "name": "World Class Buziașului",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_dfaff2b596",
+      "name": "World Class ISHO Timisoara",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_491b99c5d4",
+      "name": "World Class Campus 6",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_1989cc8417",
+      "name": "World Class Dumbrăvița",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_93795d8608",
+      "name": "World Class Jiului",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_a95ce67da1",
+      "name": "World Class AFI Brașov",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_e059548976",
+      "name": "World Class Sema Park București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_a48d746612",
+      "name": "World Class Oregon Park București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_067fcca90f",
+      "name": "World Class Expo Business Park București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_dca039cdf4",
+      "name": "World Class AFI Tech București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_2dc1f5a198",
+      "name": "World Class Veranda Mall București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_3b9a8a4920",
+      "name": "World Class București Mall",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_702c4acd67",
+      "name": "World Class America House București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_35c0ad5d6d",
+      "name": "World Class Lujerului București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_729eb3137e",
+      "name": "World Class Promenada București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_46a49fd84e",
+      "name": "World Class Jolie Ville",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_234ee24035",
+      "name": "World Class Sudului București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_a3d17a665f",
+      "name": "World Class Plaza București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_2a0a4bb25f",
+      "name": "World Class Titan Park București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_9619584e31",
+      "name": "World Class Asmita București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_63d8da8998",
+      "name": "World Class Mega Mall București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_72a1c8e74f",
+      "name": "World Class Otopeni",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_aa22469bd5",
+      "name": "World Class Militari București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_e7faf6375e",
+      "name": "World Class ParkLake București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_321aca6033",
+      "name": "World Class InCity București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_e89f164578",
+      "name": "World Class Upground București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_a4b7139a42",
+      "name": "World Class At The Grand București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_1ce34a05e6",
+      "name": "World Class Downtown Bucuresti",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_6e68495a1a",
+      "name": "World Class Charles de Gaulle București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_7a73553618",
+      "name": "World Class Record Cluj",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_6bf48addef",
+      "name": "World Class Iulius Cluj",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_6c2de3db17",
+      "name": "World Class Ploiești",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_03e0e2b82a",
+      "name": "World Class Iași",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_77cd0e6ff4",
+      "name": "World Class Belvedere Cluj",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_1016ab341c",
+      "name": "World Class Iulius Town",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_8862d37d24",
+      "name": "World Class City Park Constanța",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_17653f741c",
+      "name": "World Class Titan București",
+      "brand": "World Class"
+    },
+    {
+      "id": "ro_d96b9f3d8b",
+      "name": "18GYM Alba Iulia",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_dd985c435b",
+      "name": "18GYM Arad",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_16c1eb0f64",
+      "name": "18GYM Bacău",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_7f4795f1f8",
+      "name": "18GYM Baia Mare",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_2da49abf68",
+      "name": "18GYM Bistrița",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_10f0656450",
+      "name": "18GYM Brașov Astra",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_d0adf299fb",
+      "name": "18GYM Brașov Unirea Mall",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_947234691e",
+      "name": "18GYM București Chiajna",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_046cb86136",
+      "name": "18GYM București Green Gate",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_c981b8da8e",
+      "name": "18GYM București Mihai Bravu",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_a35b5e37b6",
+      "name": "18GYM București Monaco Towers",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_bb293cb601",
+      "name": "18GYM București Pantelimon",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_874b32c898",
+      "name": "18GYM București Pipera Voluntari",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_5c076da1ca",
+      "name": "18GYM Câmpia Turzii",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_8a1b20424a",
+      "name": "18GYM Cluj Aurel Vlaicu",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_119cf7fa9c",
+      "name": "18GYM Cluj Bună Ziua",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_91f5842b3a",
+      "name": "18GYM Cluj Calea Dorobanților",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_85acdaeff5",
+      "name": "18GYM Cluj Calea Turzii",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_f72fa1d77e",
+      "name": "18GYM Cluj Fabrica de Sport",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_fb25ec6ac8",
+      "name": "18GYM Cluj Florești",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_b0cf70c512",
+      "name": "18GYM Cluj Gheorgheni Interservisan",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_eabbc15f99",
+      "name": "18GYM Cluj Gheorgheni Mercur",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_f8863a162c",
+      "name": "18GYM Cluj Grigorescu",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_035bd36311",
+      "name": "18GYM Cluj Iris",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_3f7218a572",
+      "name": "18GYM Cluj Mănăștur",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_ebab5c8188",
+      "name": "18GYM Cluj Mărăști 21 Decembrie",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_8f15041304",
+      "name": "18GYM Cluj Mărăști Fabricii",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_73f5e89dca",
+      "name": "18GYM Cluj Park Lake",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_d8b8256423",
+      "name": "18GYM Cluj Zorilor",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_1c8c51acf7",
+      "name": "18GYM Constanța",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_3ca36c0566",
+      "name": "18GYM Iași Hala Centrală",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_fe7e47234f",
+      "name": "18GYM Iernut",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_48384b61b0",
+      "name": "18GYM Luduș",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_95877ddcc5",
+      "name": "18GYM Mediaș",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_ff936ccccd",
+      "name": "18GYM Mureș Mall",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_bd275bf06c",
+      "name": "18GYM Piatra Neamț",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_f6ff99b79e",
+      "name": "18GYM Satu Mare",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_7dc254ae52",
+      "name": "18GYM Sibiu Dumbrava",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_980dfc0cfe",
+      "name": "18GYM Târgu Mureș Aleea Carpați",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_93b9454fa9",
+      "name": "18GYM Târgu Mureș Tudor Auchan",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_24adde7789",
+      "name": "18GYM Târgu Mureș Tudor Pandurilor",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_f960abba5a",
+      "name": "18GYM Turda",
+      "brand": "18GYM"
+    },
+    {
+      "id": "ro_841c3d6ffe",
+      "name": "Stay Fit Gym grand arena",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_3ce3498aef",
+      "name": "Stay Fit Gym titulescu",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_b623fabafd",
+      "name": "Stay Fit Gym teiul doamnei",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_45bb2216f0",
+      "name": "Stay Fit Gym pantelimon",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_55bd722858",
+      "name": "Stay Fit Gym vitan",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_0c616f9cc1",
+      "name": "Stay Fit Gym cocor",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_280edb4668",
+      "name": "Stay Fit Gym pipera",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_0481434748",
+      "name": "Stay Fit Gym colosseum",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_a29eb1e100",
+      "name": "Stay Fit Gym domenii",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_b7ccc846ba",
+      "name": "Stay Fit Gym fizicienilor",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_599bb2b6d2",
+      "name": "Stay Fit Gym lemon park",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_4ff6bcec1f",
+      "name": "Stay Fit Gym prosper",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_31496f69cd",
+      "name": "Stay Fit Gym jiului",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_885213c867",
+      "name": "Stay Fit Gym dorobanti",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_db85184958",
+      "name": "Stay Fit Gym balotesti",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_551db71230",
+      "name": "Stay Fit Gym nord",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_3dbc62d75b",
+      "name": "Stay Fit Gym central",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_d55e1eb9ab",
+      "name": "Stay Fit Gym central",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_dba7888e33",
+      "name": "Stay Fit Gym shopping city",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_c3024d7703",
+      "name": "Stay Fit Gym malului",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_bee192c1d0",
+      "name": "Stay Fit Gym promenada",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_616d1342b7",
+      "name": "Stay Fit Gym central",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_1edcac5d24",
+      "name": "Stay Fit Gym central",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_9e4b0ce021",
+      "name": "Stay Fit Gym palas campus",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_228ca2ea81",
+      "name": "Stay Fit Gym central",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_99e11f216f",
+      "name": "Stay Fit Gym carolina",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_e5414543ed",
+      "name": "Stay Fit Gym promenada",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_30dd927112",
+      "name": "Stay Fit Gym mercur",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_0368ec1249",
+      "name": "Stay Fit Gym mosnita",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_be8d6e3c8a",
+      "name": "Stay Fit Gym central",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_3362c5e31e",
+      "name": "Stay Fit Gym central 33",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_c8fdc75ba6",
+      "name": "Stay Fit Gym arges mall",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_c0abbd3cd7",
+      "name": "Stay Fit Gym shopping city",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_3144f560d2",
+      "name": "Stay Fit Gym funshop",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_5dc4798f66",
+      "name": "Stay Fit Gym miroslava",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_658aecb194",
+      "name": "Stay Fit Gym giroc",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_a78f952b63",
+      "name": "Stay Fit Gym afi",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_e1dfcd3f04",
+      "name": "Stay Fit Gym iulius mall",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_d4cf754566",
+      "name": "Stay Fit Gym floresti",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_e8b9f6373b",
+      "name": "Stay Fit Gym sfg42",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_60e764e6bf",
+      "name": "Stay Fit Gym sfg43",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_b231107c24",
+      "name": "Stay Fit Gym supernova constanta",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_eeff700623",
+      "name": "Stay Fit Gym crevedia",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_eb6d18ca26",
+      "name": "Stay Fit Gym sfg45",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_030c521466",
+      "name": "Stay Fit Gym stefanesti",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_29a5929c4c",
+      "name": "Stay Fit Gym supernova alexandriei",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_6e6b0baa88",
+      "name": "Stay Fit Gym popesti",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_74cdcd0395",
+      "name": "Stay Fit Gym ghencea",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_7ed22d6acf",
+      "name": "Stay Fit Gym vladimirescu",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_f3f833d4bb",
+      "name": "Stay Fit Gym nord",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_6105e41177",
+      "name": "Stay Fit Gym voluntari",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_9c4c4c9bb9",
+      "name": "Stay Fit Gym pacurari",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_4358af12b1",
+      "name": "Stay Fit Gym tractorul",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_c249cceeb3",
+      "name": "Stay Fit Gym palas mall",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_dc8b921b4b",
+      "name": "Stay Fit Gym esplanada",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_0263a57b35",
+      "name": "Stay Fit Gym silk",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_4ba969e6bc",
+      "name": "Stay Fit Gym lake view",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_33be84fb75",
+      "name": "Stay Fit Gym central timisoara",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_886e1069af",
+      "name": "Stay Fit Gym crangasi",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_35b23de135",
+      "name": "Stay Fit Gym petre ispirescu",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_7fd1731b33",
+      "name": "Stay Fit Gym valea adanca",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_dee95be922",
+      "name": "Stay Fit Gym valea lupului",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_82d4c81089",
+      "name": "Stay Fit Gym urbano",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_1b34c031f6",
+      "name": "Stay Fit Gym bartolomeu",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_635dbefff4",
+      "name": "Stay Fit Gym vest",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_5b470e3992",
+      "name": "Stay Fit Gym craiter",
+      "brand": "Stay Fit Gym"
+    },
+    {
+      "id": "ro_4c5fd28082",
+      "name": "Stay Fit Gym metalurgiei",
+      "brand": "Stay Fit Gym"
+    }
+  ],
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "ro_841c3d6ffe",
+        "a_name": "Stay Fit Gym grand arena",
+        "a_address": "Bulevardul Metalurgiei 12-18, București 041833/",
+        "a_postal": "041833",
+        "b_id": "ro_4c5fd28082",
+        "b_name": "Stay Fit Gym metalurgiei",
+        "b_address": "Stay Fit Gym Metalurgiei",
+        "b_postal": "041833",
+        "brand": "Stay Fit Gym",
+        "distance_m": 137,
+        "same_address": false
+      }
+    ],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "ro_bb293cb601",
+        "a_brand": "18GYM",
+        "a_name": "18GYM București Pantelimon",
+        "b_id": "ro_45bb2216f0",
+        "b_brand": "Stay Fit Gym",
+        "b_name": "Stay Fit Gym pantelimon",
+        "distance_m": 12,
+        "classification": "A_legitimate_different_brand_colocation"
+      }
+    ]
+  }
+}

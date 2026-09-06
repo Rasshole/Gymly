@@ -1,0 +1,299 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4563665992,
+      "lat": 55.9897872,
+      "lon": 92.8526793,
+      "tags": {
+        "fixme": "возможно уже замапплен зданием в котором находится точка",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4702785589,
+      "lat": 55.9962604,
+      "lon": 92.7634533,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Альпин",
+        "name:ru": "Альпин"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4741392368,
+      "lat": 56.0150101,
+      "lon": 92.865391,
+      "tags": {
+        "check_date": "2024-08-27",
+        "leisure": "fitness_centre",
+        "name": "Бассейн \"Спартак\"",
+        "name:ru": "Бассейн \"Спартак\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 4741392369,
+      "lat": 56.0147773,
+      "lon": 92.8641124,
+      "tags": {
+        "addr:street": "улица Марковского",
+        "leisure": "fitness_centre",
+        "name": "Школа высшего спортивного мастерства им. Д.Г. Миндиашвили",
+        "short_name": "Академия борьбы имени Д.Г. Миндиашвили",
+        "source:short_name": "https://akwrest.ru/",
+        "sport": "wrestling",
+        "website": "https://akwrest.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4741473711,
+      "lat": 56.0333618,
+      "lon": 92.8703913,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4787599035,
+      "lat": 55.9909538,
+      "lon": 92.9087611,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4787601925,
+      "lat": 55.9936088,
+      "lon": 92.909705,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4822498421,
+      "lat": 56.0385,
+      "lon": 92.8772583,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Гинезис",
+        "name:ru": "Гинезис"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4956831621,
+      "lat": 56.0576481,
+      "lon": 92.9175811,
+      "tags": {
+        "addr:postcode": "660098",
+        "contact:email": "info@sparta.best",
+        "contact:phone": "+7 391 2061122",
+        "contact:website": "https://sparta.best",
+        "leisure": "fitness_centre",
+        "name": "Sparta",
+        "name:en": "Sparta",
+        "name:ru": "Спарта",
+        "opening_hours": "06:00-01:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9498201917,
+      "lat": 56.035894,
+      "lon": 92.8977853,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "mail@wclass-krsk.ru",
+        "contact:phone": "+7 391 2737373;+7 391 9867728",
+        "contact:website": "https://wclass-krsk.ru",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-00:00, Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242268,
+      "lat": 56.0651408,
+      "lon": 92.9456556,
+      "tags": {
+        "contact:phone": "+7 391 2775959",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242269,
+      "lat": 56.025242,
+      "lon": 92.814933,
+      "tags": {
+        "contact:phone": "+7 391 2770003",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242270,
+      "lat": 56.0450827,
+      "lon": 92.8988941,
+      "tags": {
+        "contact:phone": "+7 391 2540010",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 06:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9678233117,
+      "lat": 56.0459986,
+      "lon": 92.9403679,
+      "tags": {
+        "addr:postcode": "660005",
+        "leisure": "fitness_centre",
+        "name": "MetroFitness",
+        "opening_hours": "24/7",
+        "phone": "+73912549299",
+        "website": "https://metrofitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9798072438,
+      "lat": 56.0164512,
+      "lon": 92.7883396,
+      "tags": {
+        "addr:city": "Красноярск",
+        "addr:housenumber": "1А",
+        "addr:postcode": "660041",
+        "addr:street": "улица Курчатова",
+        "leisure": "fitness_centre",
+        "name": "Pilates Center Krasnoyarsk by MD",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "phone": "+7 (391) 271‒75‒67",
+        "sport": "fitness",
+        "website": "https://pilateskrasnoyarsk.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458185,
+      "lat": 56.0372281,
+      "lon": 92.92177,
+      "tags": {
+        "contact:phone": "+7 908 2223773",
+        "contact:website": "https://lady-stretch.online/krasnoyarsk2",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458186,
+      "lat": 55.9985164,
+      "lon": 92.9039501,
+      "tags": {
+        "contact:phone": "+7 967 6064747",
+        "contact:website": "https://ladystretch.com/krasnoyarsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12512068024,
+      "lat": 56.0158087,
+      "lon": 92.8450833,
+      "tags": {
+        "addr:floor": "1",
+        "addr:housenumber": "47",
+        "addr:street": "улица Республики",
+        "check_date": "2025-01-18",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Level Up",
+        "opening_hours": "06:00-24:00",
+        "ref:vatin": "246313929201",
+        "sport": "fitness",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12809443697,
+      "lat": 56.0060121,
+      "lon": 92.7616569,
+      "tags": {
+        "email": "dso@sfu-kras.ru",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "U-Gym",
+        "phone": "+7 391 206-25-61",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754253,
+      "lat": 56.014313,
+      "lon": 92.8559062,
+      "tags": {
+        "contact:phone": "+7 391 9889924",
+        "contact:website": "https://krasnoyarsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14076055101,
+      "lat": 56.0109377,
+      "lon": 92.9631513,
+      "tags": {
+        "addr:housenumber": "74Д",
+        "addr:street": "проспект имени газеты Красноярский Рабочий",
+        "leisure": "fitness_centre",
+        "name": "DDX",
+        "opening_hours": "Mo-Su 06:00-00:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 937990516,
+      "center": {
+        "lat": 55.994374,
+        "lon": 92.7584438
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Спорткомплекс \"Академ\""
+      }
+    }
+  ]
+}

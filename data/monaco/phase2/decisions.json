@@ -1,0 +1,39 @@
+{
+  "municipal_identity": {
+    "hercule_id": "mc_cb57fc40d1",
+    "stade_louis_ii_id": "mc_2771a49489",
+    "classification": "A_DISTINCT_PUBLIC_GYMS",
+    "evidence": [
+      "Hercule: Quai Albert 1er / Stade Nautique Rainier III / Port Hercule / La Condamine / Mairie",
+      "Stade Louis II: 3 Avenue des Castelans / Fontvieille / Direction du Stade Louis II",
+      "Separate operators, pricing, premises (~1 km apart)",
+      "Public sources warn not to confuse Port Hercule with Fontvieille stadium"
+    ]
+  },
+  "rows": {
+    "mc_4d51f17fbd": {
+      "verdict": "READY",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "classification": "A_CONVENTIONAL_PUBLIC_GYM"
+    },
+    "mc_acfff20d6b": {
+      "verdict": "READY",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "classification": "A_CONVENTIONAL_PUBLIC_GYM"
+    },
+    "mc_cb57fc40d1": {
+      "verdict": "READY",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "classification": "A_PUBLIC_CONVENTIONAL_GYM"
+    },
+    "mc_2771a49489": {
+      "verdict": "READY",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "classification": "A_PUBLIC_CONVENTIONAL_GYM"
+    }
+  },
+  "missed_gym_sweep": {
+    "new_legitimate_conventional_gyms": 0,
+    "notes": "2025 Monaco Tribune / Petrini guides reconfirm Fit Factory, Eclub, Hercule; Stade Louis II weight room remains separate public offering; Yumé boutique classes / Thermes Marins spa / 39 private / Fairmont hotel remain excluded; no additional conventional public gym discovered inside Principality"
+  }
+}

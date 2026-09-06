@@ -160,7 +160,7 @@ const AddFriendScreen = () => {
           onPress={() => openProfile(item)}
           activeOpacity={0.7}
           accessibilityRole="button"
-          accessibilityLabel={`Se profil for ${item.displayName}`}>
+          accessibilityLabel={t('a11y.viewProfileFor', {name: item.displayName})}>
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>
               {item.displayName.charAt(0).toUpperCase()}

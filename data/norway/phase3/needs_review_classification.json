@@ -1,0 +1,167 @@
+[
+  {
+    "name": "SATS Bekkestua",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "SATS Hellerud",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "SATS Nydalen",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "SATS Sandnes",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "SATS Vinderen",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Fresh Fitness Ås",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Fresh Fitness Jessheim",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Fresh Fitness Strømmen",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Fresh Fitness Vågsbygd Lumber",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "EVO Fitness Teisen",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "EVO Fitness Gressvik",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "EVO Fitness Horten",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 Tromsø Fløylia",
+    "class": "NEEDS_REVIEW",
+    "why": "incomplete"
+  },
+  {
+    "name": "Feel24 Tromsø Sportssenter",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 Tromsø The Box",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 Bodø Olav V",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 Stormyra Panorama",
+    "class": "NEEDS_REVIEW",
+    "why": "incomplete"
+  },
+  {
+    "name": "Feel24 Feelgood Harstad",
+    "class": "DUPLICATE_EXISTING",
+    "why": "same address as live feel24 harstad sentrum (hans egedes gate 6) — likely same gym / rebrand listing"
+  },
+  {
+    "name": "Feel24 Bjerkvik",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 Narvik Sentrum",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 TreningssenterFeel24 Skytta Gjelleråsen",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 Brobekk Vollebekk",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Feel24 Okern Brobekk",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "3T-Treningssenter Solsiden",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "MOVA Agotnes Torg",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "MOVA Moss Sentrum",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "MOVA Raufoss Sentrum",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "MOVA Sorumsand Park",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "SKY Fitness Greaker",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "SKY Fitness Sarpsborg Borgenhaugen",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "SKY Fitness Torp",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Spenst Halden",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  },
+  {
+    "name": "Spenst Kongsberg",
+    "class": "NEEDS_COORDINATES",
+    "why": "ambiguous_retry"
+  }
+]

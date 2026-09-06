@@ -1,0 +1,246 @@
+{
+  "country": "Slovakia",
+  "generated_at": "2026-08-24T17:16:15.172Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11217,
+    "slovakia": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154
+  },
+  "after": {
+    "total": 11254,
+    "slovakia": 37,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154
+  },
+  "inserted": 37,
+  "withheld": 0,
+  "pre_merge_sha256": "f31734acfd849b54f7cfeeb8d8f896980ed90fd975a87ae85f2aa1c6d1356854",
+  "post_merge_sha256": "7364a4e60d54c0141c969ce1209b80092a07b851b7d8e1072b928f34e44a998a",
+  "brand_breakdown": {
+    "365 Fit&Co": 8,
+    "FITINN": 3,
+    "Form Factory": 15,
+    "Golem Club": 11
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "czech_postal_collision": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0
+  },
+  "withheld_details": [],
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    }
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 37,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 0,
+    "COMING_SOON": 3,
+    "CLOSED": 1,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  },
+  "exclusions": {
+    "coming_soon_absent": true,
+    "digital_park_absent": true,
+    "fitinn_stale_absent": true,
+    "fitcamp_legacy_brand_absent": true,
+    "form_factory_fitcamp_present": true,
+    "excluded_operators_absent": true
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous": 11217,
+    "new": 11254,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "SLOVAKIA MERGE COMPLETE — WAITING FOR QA",
+  "performance": {
+    "catalog": 11254,
+    "active": 11250,
+    "json_size_mb": 3.33,
+    "parse_ms": 48.51,
+    "cold_index_ms": 16.49,
+    "cached_index_ms": 0.0005,
+    "typical_search_ms": 1.97,
+    "worst_search_ms": 0.01,
+    "nearest_slovakia_ms": 0.54,
+    "map_build_ms": 0.05,
+    "viewport_filter_ms": 0.02,
+    "viewport_bratislava_count": 21,
+    "architecture": "KEEP CLIENT-SIDE",
+    "baseline_compare": "Romania QA ~11217 catalog / 3.32 MB; Slovakia merge +37 → 11254"
+  },
+  "qa_repair_note": "Production repaired during Slovakia QA; see SLOVAKIA_QA_REPAIR.json",
+  "post_qa_sha256": "91ffadd49497614f96eaf11f9d01edbdb127df2a6d8ce87bb7d7ad4443717840"
+}

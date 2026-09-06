@@ -1,0 +1,28 @@
+{
+  "cities": {
+    "Ganja": 8,
+    "Sumqayit": 12,
+    "Baku": 21,
+    "Masazır": 1,
+    "Lankaran": 2,
+    "Mingachevir": 2
+  },
+  "approved_cities": {
+    "Baku": 21,
+    "Ganja": 8,
+    "Sumqayit": 12,
+    "Masazır": 1,
+    "Lankaran": 2,
+    "Mingachevir": 2
+  },
+  "expected_cities": {
+    "Baku": 21,
+    "Sumqayit": 12,
+    "Ganja": 8,
+    "Mingachevir": 2,
+    "Lankaran": 2,
+    "Masazır": 1
+  },
+  "city_drift": 0,
+  "region_drift": 0
+}

@@ -1,0 +1,9 @@
+{
+  "second_run_insertions": 0,
+  "final_catalog": 11921,
+  "albania": 9,
+  "al_prefix": 9,
+  "expected_catalog": 11921,
+  "expected_albania": 9,
+  "result": "PASS"
+}

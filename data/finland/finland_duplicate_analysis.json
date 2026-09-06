@@ -1,0 +1,1085 @@
+{
+  "live": {
+    "existing_finland_in_catalog": 0,
+    "live_catalog_total": 4426,
+    "live_f24s_other_countries": [
+      {
+        "id": "se_ea9905d316",
+        "name": "Fitness24Seven Stockholm Sveavägen",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_774efd3880",
+        "name": "Fitness24Seven Stockholm St Göransgatan",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_f69af10ca9",
+        "name": "Fitness24Seven Stockholm Gävlegatan",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_66d2bbcabb",
+        "name": "Fitness24Seven Stockholm Blekingegatan",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_59b6866d03",
+        "name": "Fitness24Seven Stockholm Sergelarkaden",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_8fc4fe2f7a",
+        "name": "Fitness24Seven Stockholm Hornsgatan",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_dfe6bb31d2",
+        "name": "Fitness24Seven Stockholm Fleminggatan",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_477228ecc3",
+        "name": "Fitness24Seven Stockholm Lidingövägen",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_c3a3921542",
+        "name": "Fitness24Seven Stockholm Hammarby Sjöstad",
+        "country": "Sweden",
+        "city": "Stockholm"
+      },
+      {
+        "id": "se_01e526b278",
+        "name": "Fitness24Seven Stockholm Skärholmen",
+        "country": "Sweden",
+        "city": "Skärholmen"
+      },
+      {
+        "id": "se_861aa0f714",
+        "name": "Fitness24Seven Solna",
+        "country": "Sweden",
+        "city": "Solna"
+      },
+      {
+        "id": "se_8d11cb3bba",
+        "name": "Fitness24Seven Sundbyberg",
+        "country": "Sweden",
+        "city": "Sundbyberg"
+      },
+      {
+        "id": "se_53c0f9d1ec",
+        "name": "Fitness24Seven Sollentuna",
+        "country": "Sweden",
+        "city": "Sollentuna"
+      },
+      {
+        "id": "se_e1ffe02469",
+        "name": "Fitness24Seven Täby",
+        "country": "Sweden",
+        "city": "Täby"
+      },
+      {
+        "id": "se_06be01daf4",
+        "name": "Fitness24Seven Nacka",
+        "country": "Sweden",
+        "city": "Nacka"
+      },
+      {
+        "id": "se_8186f8fb2a",
+        "name": "Fitness24Seven Göteborg Nordstan",
+        "country": "Sweden",
+        "city": "Göteborg"
+      },
+      {
+        "id": "se_4739e5ac29",
+        "name": "Fitness24Seven Göteborg Hisingen",
+        "country": "Sweden",
+        "city": "Hisings Backa"
+      },
+      {
+        "id": "se_2629f3f7f3",
+        "name": "Fitness24Seven Göteborg Mölndal",
+        "country": "Sweden",
+        "city": "Mölndal"
+      },
+      {
+        "id": "se_a141022a09",
+        "name": "Fitness24Seven Göteborg Frölunda",
+        "country": "Sweden",
+        "city": "Västra Frölunda"
+      },
+      {
+        "id": "se_da9687ac54",
+        "name": "Fitness24Seven Göteborg Kungsbacka",
+        "country": "Sweden",
+        "city": "Kungsbacka"
+      },
+      {
+        "id": "se_6975aee620",
+        "name": "Fitness24Seven Göteborg Partille",
+        "country": "Sweden",
+        "city": "Partille"
+      },
+      {
+        "id": "se_5a0f40f493",
+        "name": "Fitness24Seven Malmö Triangeln",
+        "country": "Sweden",
+        "city": "Malmö"
+      },
+      {
+        "id": "se_1c272f5874",
+        "name": "Fitness24Seven Malmö Hyllie",
+        "country": "Sweden",
+        "city": "Malmö"
+      },
+      {
+        "id": "se_6706dd4119",
+        "name": "Fitness24Seven Malmö Husie",
+        "country": "Sweden",
+        "city": "Malmö"
+      },
+      {
+        "id": "se_2c74ff0536",
+        "name": "Fitness24Seven Helsingborg",
+        "country": "Sweden",
+        "city": "Helsingborg"
+      },
+      {
+        "id": "se_5b6913edb6",
+        "name": "Fitness24Seven Lund",
+        "country": "Sweden",
+        "city": "Lund"
+      },
+      {
+        "id": "se_eaa892f30b",
+        "name": "Fitness24Seven Kristianstad",
+        "country": "Sweden",
+        "city": "Kristianstad"
+      },
+      {
+        "id": "se_0f3ba0803c",
+        "name": "Fitness24Seven Uppsala Torggatan",
+        "country": "Sweden",
+        "city": "Uppsala"
+      },
+      {
+        "id": "se_265c9c98f6",
+        "name": "Fitness24Seven Uppsala Fålhagen",
+        "country": "Sweden",
+        "city": "Uppsala"
+      },
+      {
+        "id": "se_6b995a040e",
+        "name": "Fitness24Seven Västerås",
+        "country": "Sweden",
+        "city": "Västerås"
+      },
+      {
+        "id": "se_d5318cda57",
+        "name": "Fitness24Seven Örebro",
+        "country": "Sweden",
+        "city": "Örebro"
+      },
+      {
+        "id": "se_f2eedae1ce",
+        "name": "Fitness24Seven Linköping",
+        "country": "Sweden",
+        "city": "Linköping"
+      },
+      {
+        "id": "se_c802bf2cc4",
+        "name": "Fitness24Seven Norrköping",
+        "country": "Sweden",
+        "city": "Norrköping"
+      },
+      {
+        "id": "se_8bd17f3d1b",
+        "name": "Fitness24Seven Jönköping",
+        "country": "Sweden",
+        "city": "Jönköping"
+      },
+      {
+        "id": "se_606d23f77c",
+        "name": "Fitness24Seven Karlstad",
+        "country": "Sweden",
+        "city": "Karlstad"
+      },
+      {
+        "id": "se_cae4499274",
+        "name": "Fitness24Seven Umeå",
+        "country": "Sweden",
+        "city": "Umeå"
+      },
+      {
+        "id": "se_7b11f17e41",
+        "name": "Fitness24Seven Sundsvall",
+        "country": "Sweden",
+        "city": "Sundsvall"
+      },
+      {
+        "id": "se_1fd7632525",
+        "name": "Fitness24Seven Gävle",
+        "country": "Sweden",
+        "city": "Gävle"
+      },
+      {
+        "id": "se_7e56a14767",
+        "name": "Fitness24Seven Borås",
+        "country": "Sweden",
+        "city": "Borås"
+      },
+      {
+        "id": "se_7578f6fe9d",
+        "name": "Fitness24Seven Eskilstuna",
+        "country": "Sweden",
+        "city": "Eskilstuna"
+      },
+      {
+        "id": "no_b16ff67ece",
+        "name": "Fitness24Seven Drammen Sentrum",
+        "country": "Norway",
+        "city": "Drammen"
+      },
+      {
+        "id": "no_4d2c9e8d95",
+        "name": "Fitness24Seven Oslo Bjerke",
+        "country": "Norway",
+        "city": "Oslo"
+      },
+      {
+        "id": "no_c606d96a49",
+        "name": "Fitness24Seven Oslo Carl Berners Plass",
+        "country": "Norway",
+        "city": "Oslo"
+      },
+      {
+        "id": "no_67fdc29098",
+        "name": "Fitness24Seven Oslo Gruenerlokka",
+        "country": "Norway",
+        "city": "Oslo"
+      },
+      {
+        "id": "no_a1f48eb478",
+        "name": "Fitness24Seven Oslo Haugenstua",
+        "country": "Norway",
+        "city": "Oslo"
+      },
+      {
+        "id": "no_e3616dfba4",
+        "name": "Fitness24Seven Oslo Mortensrud Torg",
+        "country": "Norway",
+        "city": "Oslo"
+      },
+      {
+        "id": "no_30128fc6b4",
+        "name": "Fitness24Seven Oslo Storo",
+        "country": "Norway",
+        "city": "Oslo"
+      },
+      {
+        "id": "no_85514428be",
+        "name": "Fitness24Seven Oslo Stortorvet",
+        "country": "Norway",
+        "city": "Oslo"
+      },
+      {
+        "id": "no_6c30cdf583",
+        "name": "Fitness24Seven Oslo Veitvet",
+        "country": "Norway",
+        "city": "Oslo"
+      }
+    ],
+    "id_collisions": [],
+    "same_brand_address_matches": [],
+    "proximity_same_brand": [],
+    "same_address_different_brand": [],
+    "fi_prefix_already_used": [],
+    "sats_elixia_live": [
+      {
+        "id": "sats-1304-koebenhavn-k-adelgade-5-7",
+        "name": "SATS — Adelgade",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2300-koebenhavn-s-amager-strandvej-108",
+        "name": "SATS — Amager Strand",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-3460-birkeroed-bistrupvej-1",
+        "name": "SATS — Birkerød",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-1219-koebenhavn-k-christians-brygge-25",
+        "name": "SATS — Blox",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2300-koebenhavn-s-arne-jacobsens-all-12-butik-430",
+        "name": "SATS — Field's",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-1560-koebenhavn-v-fisketorvet-shopping-center",
+        "name": "SATS — Fisketorvet",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-1820-frederiksberg-c-frederiksberg-all-98",
+        "name": "SATS — FRB - ABC",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2000-frederiksberg-falkoner-plads-1",
+        "name": "SATS — FRB - Falkoner",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-3600-frederikssund-sillebroen-nygade-1",
+        "name": "SATS — Frederikssund",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2820-gentofte-gentoftegade-35-1-sal",
+        "name": "SATS — Gentofte",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-3000-helsingoer-roennebaer-all-110",
+        "name": "SATS — Helsingør",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2730-herlev-herlev-torv-28",
+        "name": "SATS — Herlev",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2970-hoersholm-kammerraadensvej-2",
+        "name": "SATS — Hørsholm",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-4600-koege-galoche-all-11",
+        "name": "SATS — Køge - Den hvide by",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-4600-koege-straedet-raadhusstraede-7g",
+        "name": "SATS — Køge - Strædet",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2800-kongens-lyngby-kanalvej-1",
+        "name": "SATS — Lyngby Kanalvej",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2100-koebenhavn-oe-nygaardsvej-5",
+        "name": "SATS — Nygårdsvej",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2850-naerum-rundforbivej-186-188",
+        "name": "SATS — Nærum",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2400-koebenhavn-nv-frederikssundsvej-5",
+        "name": "SATS — Nørrebro",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2100-koebenhavn-oe-oester-alle-42",
+        "name": "SATS — Parken",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-4000-roskilde-ro-s-torv-1-1-46",
+        "name": "SATS — Roskilde",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2450-koebenhavn-sv-sluseholmen-15-d",
+        "name": "SATS — Sluseholmen",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2450-koebenhavn-sv-scandiagade-15",
+        "name": "SATS — Sydhavn",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2860-soeborg-tobaksvejen-4-bygning-e",
+        "name": "SATS — Søborg",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2630-taastrup-cityringen-24-doernr-451-city-2",
+        "name": "SATS — Taastrup",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2500-valby-torvegade-17",
+        "name": "SATS — Valby",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-2665-vallensbaek-strand-stationstorvet-76-1-sal",
+        "name": "SATS — Vallensbæk",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "sats-1612-koebenhavn-v-ved-vesterport-1",
+        "name": "SATS — Vesterport",
+        "brand": "SATS",
+        "country": "Denmark"
+      },
+      {
+        "id": "se_e2a10b87ce",
+        "name": "SATS Stockholm Odenplan",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_48203384d1",
+        "name": "SATS Stockholm Vasastan",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_fed7aa34b1",
+        "name": "SATS Stockholm Kungsholmen",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_59ac7dd6b7",
+        "name": "SATS Stockholm City",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_c9e90485e8",
+        "name": "SATS Stockholm Södermalm",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_4628bfa672",
+        "name": "SATS Stockholm Liljeholmen",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_9677b3ec07",
+        "name": "SATS Stockholm Nacka Forum",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_54b7904f8e",
+        "name": "SATS Stockholm Barkarby",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_2520802dd1",
+        "name": "SATS Stockholm Globen",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_a11e79a2d0",
+        "name": "SATS Stockholm Jakobsberg",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_e662d9006a",
+        "name": "SATS Stockholm Sickla",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_5b60a779af",
+        "name": "SATS Stockholm Täby",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_359d00aa67",
+        "name": "SATS Stockholm Solna",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_55fcd0f54d",
+        "name": "SATS Göteborg Avenyn",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_b3ea1fa9b6",
+        "name": "SATS Göteborg Backaplan",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_6001ca98a8",
+        "name": "SATS Göteborg Frölunda Torg",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_ba9f385bbb",
+        "name": "SATS Göteborg Kviberg",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_882cad3665",
+        "name": "SATS Göteborg Mölndal",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_2bcd2481d1",
+        "name": "SATS Malmö Emporia",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_3acbaab3f2",
+        "name": "SATS Malmö Triangeln",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_201c39a6ef",
+        "name": "SATS Uppsala",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_5f7f6c1ba3",
+        "name": "SATS Västerås",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_1d303fee3f",
+        "name": "SATS Örebro",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "se_c635bf6ef3",
+        "name": "SATS Linköping",
+        "brand": "SATS",
+        "country": "Sweden"
+      },
+      {
+        "id": "no_fbb25d673f",
+        "name": "SATS Adamstuen",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_511b13fd6d",
+        "name": "SATS Akersgata",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_d215832a50",
+        "name": "SATS Aquarama",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_3b60ab5803",
+        "name": "SATS Asker",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_542dbb68fb",
+        "name": "SATS Bekkestua stasjon",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_8403b12c3d",
+        "name": "SATS Billingstad",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_4e981626b4",
+        "name": "SATS Bislett",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_42a04bc325",
+        "name": "SATS Bjørvika",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_d7244ef0db",
+        "name": "SATS CC Vest",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_c2b4c820bc",
+        "name": "SATS Damsgård",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_b78e2e8011",
+        "name": "SATS Danmarksplass",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_37cbe475fc",
+        "name": "SATS Fagerborg",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_66dd8f174e",
+        "name": "SATS Fornebu",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_1c5860edb9",
+        "name": "SATS Forus",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_0ccd1bca2c",
+        "name": "SATS Fredrikstad",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_d55f7f86fe",
+        "name": "SATS Hasle",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_a4e4026219",
+        "name": "SATS Herbarium",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_f8872999c1",
+        "name": "SATS Hillevåg",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_899b62f7d9",
+        "name": "SATS Ila",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_68e9951c98",
+        "name": "SATS Kalbakken",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_7b751b2abe",
+        "name": "SATS Kampen",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_ca6bf88579",
+        "name": "SATS Karlsrud",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_1eaddceda4",
+        "name": "SATS Kokstad",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_b2d1320bc1",
+        "name": "SATS Kolbotn",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_f7a3eb95a6",
+        "name": "SATS Langnes",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_75263d074f",
+        "name": "SATS Metro",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_f8ff6091c7",
+        "name": "SATS Nationalteateret",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_6ae2fda08e",
+        "name": "SATS Njård",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_2e33d7ec76",
+        "name": "SATS Porselensfabrikken",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_b94f474ea9",
+        "name": "SATS Porsgrunn",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_7e354bf642",
+        "name": "SATS Ringnes Park",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_059ed281b0",
+        "name": "SATS Ryen",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_f7963c4946",
+        "name": "SATS Røa",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_723d9cfbb0",
+        "name": "SATS Sagene",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_592b404cfc",
+        "name": "SATS Sandviken",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_8aeef0f6d2",
+        "name": "SATS Sarpsborg",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_a0a5f5ce53",
+        "name": "SATS Schous plass",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_a6ddb18846",
+        "name": "SATS Stadionparken",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_0472637887",
+        "name": "SATS Storhaug",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_59fa018fdf",
+        "name": "SATS Storo",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_a8242c42cb",
+        "name": "SATS Tasta",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_57dfa10c2e",
+        "name": "SATS Triaden",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_1424322418",
+        "name": "SATS Trim Towers",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_469d55fae3",
+        "name": "SATS Vågsbygd",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_b9dddf6467",
+        "name": "SATS Wergeland",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_f756ba8a60",
+        "name": "SATS Åssiden",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_aa7d0510b2",
+        "name": "SATS Lagunen",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_e663968ce8",
+        "name": "SATS Madla",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_a8ddc8abc4",
+        "name": "SATS Carl Berner",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_d1f534e36e",
+        "name": "SATS Drammen",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_292145caaf",
+        "name": "SATS Jessheim",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_454d46d456",
+        "name": "SATS Lambertseter",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_89980ad534",
+        "name": "SATS Lillestrøm",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_a134428847",
+        "name": "SATS Linderud",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_b785822f13",
+        "name": "SATS Nesttun",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_9727941eec",
+        "name": "SATS Oasen",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_0da06a0f50",
+        "name": "SATS Sandvika Panorama",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_bb326e73fc",
+        "name": "SATS Solli",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_d54096f9dc",
+        "name": "SATS Strømsø",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_2a2e6a9903",
+        "name": "SATS Ullevaal",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_c6985b40b2",
+        "name": "SATS Vestkanten",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_6185a15658",
+        "name": "SATS Yoga Aker Brygge",
+        "brand": "SATS",
+        "country": "Norway"
+      },
+      {
+        "id": "no_056002d0e7",
+        "name": "SATS Yoga Majorstuen",
+        "brand": "SATS",
+        "country": "Norway"
+      }
+    ]
+  },
+  "staging": {
+    "duplicate_ids": [],
+    "same_brand_address": [],
+    "proximity_same_brand_50m": [
+      {
+        "a": "Fitness24Seven Helsinki Pitäjänmäki",
+        "b": "Fitness24Seven Helsinki Pitäjänmäki Group",
+        "brand_a": "Fitness24Seven",
+        "brand_b": "Fitness24Seven",
+        "distance_m": 73,
+        "city": "Helsinki"
+      }
+    ],
+    "legitimate_different_brand_colocations": [
+      {
+        "a": "EasyFit Kouvola",
+        "b": "LadyLine Kouvola",
+        "brand_a": "EasyFit",
+        "brand_b": "LadyLine",
+        "distance_m": 0,
+        "city": "Kouvola"
+      },
+      {
+        "a": "EasyFit Porvoo",
+        "b": "LadyLine Porvoo",
+        "brand_a": "EasyFit",
+        "brand_b": "LadyLine",
+        "distance_m": 64,
+        "city": "Porvoo"
+      },
+      {
+        "a": "ELIXIA Hertsi",
+        "b": "Fitness24Seven Helsinki Hertsi",
+        "brand_a": "ELIXIA",
+        "brand_b": "Fitness24Seven",
+        "distance_m": 40,
+        "city": "Helsinki"
+      },
+      {
+        "a": "ELIXIA Hertsi",
+        "b": "Fressi 24h Herttoniemi",
+        "brand_a": "ELIXIA",
+        "brand_b": "Fressi",
+        "distance_m": 73,
+        "city": "Helsinki"
+      },
+      {
+        "a": "ELIXIA Tapiola",
+        "b": "Fitness24Seven Espoo Tapiola Group",
+        "brand_a": "ELIXIA",
+        "brand_b": "Fitness24Seven",
+        "distance_m": 60,
+        "city": "Espoo"
+      },
+      {
+        "a": "Fitness24Seven Oulu Limingantulli",
+        "b": "Liikku Oulu Limingantulli",
+        "brand_a": "Fitness24Seven",
+        "brand_b": "Liikku",
+        "distance_m": 68,
+        "city": "Oulu"
+      },
+      {
+        "a": "Forever Espoon Omena",
+        "b": "Liikku Espoo Iso Omena",
+        "brand_a": "Forever",
+        "brand_b": "Liikku",
+        "distance_m": 49,
+        "city": "Espoo"
+      },
+      {
+        "a": "LadyLine Oulu",
+        "b": "PTVGYM Oulu",
+        "brand_a": "LadyLine",
+        "brand_b": "PTVGYM",
+        "distance_m": 49,
+        "city": "Oulu"
+      }
+    ],
+    "sats_elixia_relationships": {
+      "elixia_rows": 32,
+      "sats_brand_rows": 0,
+      "note": "Current Finnish consumer brand is ELIXIA. Operator is SATS Finland Oy. No SATS-branded Finnish club rows were created. legacy_brand=SATS on ELIXIA rows.",
+      "sats_named": []
+    }
+  }
+}

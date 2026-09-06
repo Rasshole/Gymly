@@ -1,0 +1,568 @@
+{
+  "country": "Armenia",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+  "production_bytes_before": 3832712,
+  "production_total": 12303,
+  "armenia_live": 0,
+  "am_prefix_live": 0,
+  "armenia_country_live": 0,
+  "existing_armenia_production": false,
+  "baseline_georgia": 25,
+  "baseline_turkey": 198,
+  "baseline_belarus": 46,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "market_model": "CHAIN_LED_SMALL_MARKET",
+  "postcode_model": "NNNN (4 digits)",
+  "fetch_summary": {
+    "curated_class_a": 18,
+    "osm_armenia": 65,
+    "photon_grid": 279,
+    "total_candidates": 312
+  },
+  "official_estate": {
+    "Orange Fitness": {
+      "open_active_estimated": 6,
+      "class_a": true
+    },
+    "Gold's Gym": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "Panorama Fitness": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "World Gym Armenia": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "Energy Fitness": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "Grand Sport Club": {
+      "open_active_estimated": 1,
+      "class_a": true
+    }
+  },
+  "conflict_regions_tracked": [
+    "Artsakh"
+  ],
+  "discover_default_category": "NEEDS_REVIEW",
+  "chains": [
+    {
+      "chain": "19",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Alex Club",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Allegro",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Araksya",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Arev Yoga & Pilates Center",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Arev Yoga and Pilates Center",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "AtletX",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Cataleya",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Conflict region probe",
+      "classification": "B",
+      "staged": 3,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "DDD",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Davis' gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Delta",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Dilijan Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Dilitown Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Dreambody",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Eleven Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Elite Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Energy Fitness",
+      "classification": "A",
+      "staged": 12,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "Fitness Zone",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Flex",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "FlexFit",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gofit",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gold's Gym",
+      "classification": "A",
+      "staged": 6,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "Grand Sport",
+      "classification": "B",
+      "staged": 28,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Grand Sport Club",
+      "classification": "A",
+      "staged": 1,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "Grig fitness club",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gym Unity",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "InShape",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent",
+      "classification": "B",
+      "staged": 157,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Abovyan)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Armavir)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Goris)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Gyumri)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Hrazdan)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Kapan)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Vanadzor)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Ketrin",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Lady Zone",
+      "classification": "B",
+      "staged": 2,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Lady fitness gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "MASGym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Mandala",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "My club",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "NEO GYM",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Olympia",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Orange Fitness",
+      "classification": "A",
+      "staged": 8,
+      "official_current_active_estimated": 6,
+      "class_a": true
+    },
+    {
+      "chain": "Oxylife",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Panorama Fitness",
+      "classification": "A",
+      "staged": 4,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "ProfiGym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Progress ֆիզիկական զարգացման կենտրոն",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Qualajyan Sport",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Reebok Sports Club Armenia",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Reform Pilates",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Royal Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Sparta",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Star Gym",
+      "classification": "B",
+      "staged": 2,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "The One Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Tonus",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "V.N.S.",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Vlad fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "World Gym",
+      "classification": "B",
+      "staged": 19,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "World Gym Armenia",
+      "classification": "A",
+      "staged": 1,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "X-body gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "full gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "jamm fit",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Թի-էյջ",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Լեդի Ֆիթնես Պլյուս",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Մուլտի ուելնես կենտրոն",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ՌՏՍ",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Ռիթմ Յոգա",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Սթար Ֆիթնես",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Սպորտդահլիճ",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Տոնուս",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    }
+  ]
+}

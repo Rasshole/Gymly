@@ -1,0 +1,15 @@
+{
+  "<=25m": [],
+  "<=50m": [],
+  "<=100m": [],
+  "<=200m": [],
+  "identical": [],
+  "energie_tallaght_citywest": {
+    "distance_m": 3643.3,
+    "classification": "A_legitimate",
+    "tallaght": "ie_6930f99872",
+    "citywest": "ie_2574437176",
+    "tallaght_category": "READY_TO_IMPORT",
+    "citywest_category": "READY_TO_IMPORT"
+  }
+}

@@ -215,21 +215,21 @@ const OnlineScreen = () => {
             onPress={() => handleSeProfil(item)}
             activeOpacity={0.8}>
             <Icon name="person-outline" size={18} color={colors.primary} />
-            <Text style={styles.actionText}>Profil</Text>
+            <Text style={styles.actionText}>{t('online.actionProfile')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.actionBtn}
             onPress={() => handleSendBesked(item)}
             activeOpacity={0.8}>
             <Icon name="chatbubble-outline" size={18} color={colors.primary} />
-            <Text style={styles.actionText}>Besked</Text>
+            <Text style={styles.actionText}>{t('online.actionMessage')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.actionBtn}
             onPress={() => handleInviterTilGruppe(item)}
             activeOpacity={0.8}>
             <Icon name="people-outline" size={18} color={colors.primary} />
-            <Text style={styles.actionText}>Gruppe</Text>
+            <Text style={styles.actionText}>{t('online.actionGroup')}</Text>
           </TouchableOpacity>
           {item.gymId && (
             <TouchableOpacity
@@ -237,7 +237,7 @@ const OnlineScreen = () => {
               onPress={() => handleSeGym(item)}
               activeOpacity={0.8}>
               <Icon name="location-outline" size={18} color={colors.primary} />
-              <Text style={styles.actionText}>Gym</Text>
+              <Text style={styles.actionText}>{t('online.actionGym')}</Text>
             </TouchableOpacity>
           )}
         </View>
@@ -257,9 +257,9 @@ const OnlineScreen = () => {
     usersFromSource.length === 0 ? (
       <EmptyState
         icon="people-outline"
-        title="Ingen er online lige nu"
-        message="Tjek ind selv for at vise dig til andre, eller inviter venner til Gymly for at se deres aktivitet."
-        actionLabel="Tjek ind"
+        title={t('online.noneOnlineTitle')}
+        message={t('online.noneOnlineBody')}
+        actionLabel={t('online.checkInCta')}
         onAction={() => navigation.navigate('CheckIn')}
       />
     ) : (

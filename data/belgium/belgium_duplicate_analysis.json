@@ -1,0 +1,48 @@
+{
+  "vs_live": {
+    "existing_belgium_in_catalog": 0,
+    "live_catalog_total": 8693,
+    "id_collisions": [],
+    "same_brand_address_matches": [],
+    "proximity_same_brand": [],
+    "be_prefix_already_used": [],
+    "cross_border_basicfit_proximity_notes": []
+  },
+  "staging": {
+    "duplicate_ids": [],
+    "same_brand_address": [],
+    "proximity_same_brand_50m": [
+      {
+        "a": "Basic-Fit Gym Basic-Fit Brussels Avenue Louise 24/7",
+        "b": "Basic-Fit Gym Basic-Fit Brussels Avenue Louise Ladies",
+        "distance_m": 0,
+        "city": "Ixelles"
+      },
+      {
+        "a": "Basic-Fit Gym Basic-Fit Brussels Forest Ch. de Neerstalle",
+        "b": "Basic-Fit Gym Basic-Fit Brussels Forest Ch. de Neerstalle Ladies",
+        "distance_m": 0,
+        "city": "Forest"
+      },
+      {
+        "a": "Basic-Fit Gym Basic-Fit Gent Ledeberg Hoveniersstraat 24/7",
+        "b": "Basic-Fit Gym Basic-Fit Ladies Gent Ledeberg",
+        "distance_m": 37,
+        "city": "Gent"
+      }
+    ],
+    "multilingual_city_pairs": []
+  },
+  "collapsed": [
+    {
+      "kept": "Basic-Fit Gym Basic-Fit Schaerbeek Chaussée de Louvain 24/7",
+      "dropped": "Basic-Fit Schaerbeek Chaussée de Louvain Ladies",
+      "id": "be_e78b233afd"
+    },
+    {
+      "kept": "Basic-Fit Gym Basic-Fit Brussels Forest Ch. de Neerstalle",
+      "dropped": "Basic-Fit Gym Basic-Fit Brussels Forest Ch. de Neerstalle Ladies",
+      "reason": "same_brand_address_multilingual"
+    }
+  ]
+}

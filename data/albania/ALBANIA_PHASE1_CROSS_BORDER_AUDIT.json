@@ -1,0 +1,108 @@
+{
+  "montenegro_ready": 0,
+  "kosovo_ready": 0,
+  "mk_ready": 0,
+  "greece_ready": 0,
+  "foreign_probes_staged": 14,
+  "foreign_probes_excluded": 14,
+  "probes": [
+    {
+      "name": "Ulcinj ME border probe",
+      "city": "Ulcinj",
+      "territory": "Montenegro",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Podgorica ME gym probe",
+      "city": "Podgorica",
+      "territory": "Montenegro",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Prizren Kosovo gym probe",
+      "city": "Prizren",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Gjakovë Kosovo gym probe",
+      "city": "Gjakovë",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Pejë Kosovo gym probe",
+      "city": "Pejë",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Prishtina Kosovo gym probe",
+      "city": "Prishtina",
+      "territory": "Kosovo",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Debar MK border probe",
+      "city": "Debar",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Ohrid MK gym probe",
+      "city": "Ohrid",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Struga MK gym probe",
+      "city": "Struga",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Ioannina GR border probe",
+      "city": "Ioannina",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Kastoria GR gym probe",
+      "city": "Kastoria",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Florina GR gym probe",
+      "city": "Florina",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Corfu GR gym probe",
+      "city": "Corfu",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    },
+    {
+      "name": "Igoumenitsa GR border probe",
+      "city": "Igoumenitsa",
+      "territory": "Greece",
+      "import_category": "EXCLUDED",
+      "in_al_gate": false
+    }
+  ]
+}

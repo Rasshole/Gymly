@@ -1,0 +1,12 @@
+{
+  "country": "Azerbaijan",
+  "phase": 2,
+  "generated_at": "2026-08-29T20:22:56.027688+00:00",
+  "phase2_new_candidates": 0,
+  "phase2_new_ready": 0,
+  "phase2_new_excluded": 0,
+  "phase2_new_coming_soon": 0,
+  "phase2_new_closed": 0,
+  "candidates": [],
+  "note": "All 434 identities trace to Phase 1 inventory; no net-new identities appended."
+}

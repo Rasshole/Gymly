@@ -1,0 +1,258 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:49:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4316214089,
+      "lat": 53.4874446,
+      "lon": 49.4872051,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "спорт таун"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4567032753,
+      "lat": 53.5467877,
+      "lon": 49.3127064,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4985454422,
+      "lat": 53.5302831,
+      "lon": 49.3009868,
+      "tags": {
+        "addr:city": "Тольятти",
+        "addr:housenumber": "19А с2",
+        "addr:street": "проспект Степана Разина",
+        "leisure": "fitness_centre",
+        "name": "Фит Лайн Премиум"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5475796162,
+      "lat": 53.5149403,
+      "lon": 49.425206,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Шейп"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5561554654,
+      "lat": 53.4722671,
+      "lon": 49.4790545,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Массе"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5562505207,
+      "lat": 53.4767509,
+      "lon": 49.4852436,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Ka4alka"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5566546925,
+      "lat": 53.508959,
+      "lon": 49.3062187,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6606343114,
+      "lat": 53.5462692,
+      "lon": 49.3336309,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7998167793,
+      "lat": 53.5363045,
+      "lon": 49.3508212,
+      "tags": {
+        "addr:postcode": "445000",
+        "email": "info@yoparamita.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Йога-студия «Парамита»",
+        "name:en": "Yoga “Paramita”",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "phone": "+7 848 2289928",
+        "website": "https://vk.com/yogaparamita"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8042040285,
+      "lat": 53.5464944,
+      "lon": 49.3277961,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Extreme"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8301446987,
+      "lat": 53.5034399,
+      "lon": 49.4048518,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Фитнес-студия \"Эндорфин\"",
+        "sport": "fitness",
+        "website": "https://vk.com/endorphin_tlt"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377398,
+      "lat": 53.518217,
+      "lon": 49.2725,
+      "tags": {
+        "brand": "Fitness House",
+        "brand:wikidata": "Q104213893",
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 848 2651060",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-tolyatti-na-revolyucionnoj.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "ИП Григорьев С.А."
+      }
+    },
+    {
+      "type": "node",
+      "id": 10243466317,
+      "lat": 53.5033404,
+      "lon": 49.4272183,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "СК Акробат"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10697406228,
+      "lat": 53.5013179,
+      "lon": 49.259643,
+      "tags": {
+        "contact:email": "atc-2002@mail.ru",
+        "contact:phone": "+7 848 2557713;+7 848 2559000",
+        "contact:website": "https://club-davis.ru",
+        "leisure": "fitness_centre",
+        "name": "Davis",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443639,
+      "lat": 53.5193007,
+      "lon": 49.4161729,
+      "tags": {
+        "contact:phone": "+7 960 8371886",
+        "contact:website": "https://ladystretch.com/toljatti",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11545703054,
+      "lat": 53.5407916,
+      "lon": 49.3611399,
+      "tags": {
+        "contact:phone": "+7 903 3305600",
+        "contact:website": "https://ladystretch.com/toljatti",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873386277,
+      "lat": 53.5495174,
+      "lon": 49.5263223,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ФОК"
+      }
+    },
+    {
+      "type": "way",
+      "id": 31054652,
+      "center": {
+        "lat": 53.5067437,
+        "lon": 49.2602348
+      },
+      "tags": {
+        "addr:city": "Тольятти",
+        "addr:country": "RU",
+        "addr:housenumber": "49",
+        "addr:street": "Приморский бульвар",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "УСК \"Олимп\""
+      }
+    },
+    {
+      "type": "way",
+      "id": 126177611,
+      "center": {
+        "lat": 53.5254726,
+        "lon": 49.2772179
+      },
+      "tags": {
+        "addr:housenumber": "13",
+        "addr:street": "Революционная улица",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Ботек Wellnes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 488046680,
+      "center": {
+        "lat": 53.5148166,
+        "lon": 49.4074762
+      },
+      "tags": {
+        "addr:city": "Тольятти",
+        "addr:country": "RU",
+        "addr:housenumber": "37",
+        "addr:street": "улица Карла Маркса",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Труд",
+        "roof:shape": "flat"
+      }
+    }
+  ]
+}

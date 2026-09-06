@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-08-29T14:11:46.148247+00:00",
+  "production_total": 11923,
+  "production_sha256": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "phase1_rows_recovered": 101,
+  "phase1_status_counts": {
+    "READY_TO_IMPORT": 18,
+    "COMING_SOON": 1,
+    "CLOSED": 3,
+    "EXCLUDED": 39,
+    "NEEDS_REVIEW": 40
+  },
+  "keep_existing": 18,
+  "new_ready_to_import": 6,
+  "existing_review_required": 0,
+  "coming_soon": 1,
+  "excluded": 73,
+  "closed": 3,
+  "final_approved_malta": 24,
+  "actual_new_delta": 6,
+  "status_counts": {
+    "KEEP_EXISTING": 18,
+    "COMING_SOON": 1,
+    "CLOSED": 3,
+    "NEW_READY_TO_IMPORT": 6,
+    "EXCLUDED": 73
+  },
+  "reconciliation": {
+    "exact_id_match": 18,
+    "material_metadata_drift": 0
+  },
+  "nr_resolved": 40
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "va_aa1b5d066e",
+    "name": "Casa Vaticana dello Sport (Palazzo San Calisto)",
+    "brand": "Athletica Vaticana",
+    "city": "Rome",
+    "postal_code": "00153",
+    "lat": 41.8892,
+    "lng": 12.4705,
+    "inside_vatican_gate": false,
+    "reason": "Operational headquarters of Athletica Vaticana in Holy See extraterritorial property at Trastevere. Physical sovereign territory for Gymly = Italy. Not a consumer gym; not Vatican City State territory.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_67ef1d1e2c",
+    "name": "Omega Fitness Club San Pietro",
+    "brand": "Omega Fitness Club",
+    "city": "Rome",
+    "postal_code": "00193",
+    "lat": 41.903,
+    "lng": 12.4608,
+    "inside_vatican_gate": false,
+    "reason": "Commercial gym in Borgo/San Pietro Rome (00193). Frequently marketed near Vatican; Pope Leo XIV trained here as cardinal. Coordinates outside Vatican gate.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_57a26c995f",
+    "name": "Campo Pio XI / Petriana sports complex",
+    "brand": "Campo Pio XI",
+    "city": "Rome",
+    "postal_code": "00165",
+    "lat": 41.8969,
+    "lng": 12.4464,
+    "inside_vatican_gate": false,
+    "reason": "Knights of Columbus sports complex ~400 m from Vatican walls used for Vatican football activities — physically in Italy, not a consumer gym membership unit.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_9cce34d4e4",
+    "name": "Virgin Active Roma Prati (border probe)",
+    "brand": "Virgin Active",
+    "city": "Rome",
+    "postal_code": "00192",
+    "lat": 41.9105,
+    "lng": 12.462,
+    "inside_vatican_gate": false,
+    "reason": "Prati Rome commercial operator probe — Italy, not Vatican City.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_bb9c40133d",
+    "name": "Anytime Fitness Rome Prati/Borgo probe",
+    "brand": "Anytime Fitness",
+    "city": "Rome",
+    "postal_code": "00193",
+    "lat": 41.9088,
+    "lng": 12.4655,
+    "inside_vatican_gate": false,
+    "reason": "No Vatican City location found; nearest Prati/Borgo listings are Italy.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_b7d7f783ef",
+    "name": "FitActive Rome Vaticano-area probe",
+    "brand": "FitActive",
+    "city": "Rome",
+    "postal_code": "00165",
+    "lat": 41.8985,
+    "lng": 12.4405,
+    "inside_vatican_gate": false,
+    "reason": "Italian FitActive estate — zero locations inside Vatican City State.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_d811b1aa02",
+    "name": "Basic-Fit Rome border probe",
+    "brand": "Basic-Fit",
+    "city": "Rome",
+    "postal_code": "00100",
+    "lat": 41.91,
+    "lng": 12.48,
+    "inside_vatican_gate": false,
+    "reason": "No Basic-Fit inside Vatican City; Italian network only.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_ef777729ca",
+    "name": "McFIT Rome border probe",
+    "brand": "McFIT",
+    "city": "Rome",
+    "postal_code": "00100",
+    "lat": 41.912,
+    "lng": 12.49,
+    "inside_vatican_gate": false,
+    "reason": "No McFIT / JOHN REED location inside Vatican City.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  },
+  {
+    "id": "va_41a44687a0",
+    "name": "Generic 'Palestra Vaticano' SEO / map neighborhood label",
+    "brand": "Directory false positive",
+    "city": "Rome",
+    "postal_code": "00193",
+    "lat": 41.9025,
+    "lng": 12.461,
+    "inside_vatican_gate": false,
+    "reason": "Composite audit of Google/Maps/travel-site results labeling Rome gyms as 'Vatican City' based on neighborhood snippets — not sovereign territory.",
+    "import_category": "EXCLUDED_FOREIGN_ITALY"
+  }
+]

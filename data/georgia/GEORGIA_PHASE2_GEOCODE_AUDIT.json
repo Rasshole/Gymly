@@ -1,0 +1,8 @@
+{
+  "ready_invalid_coordinates": 0,
+  "ready_missing_coordinates": 0,
+  "ready_fallback_coordinates": 0,
+  "ready_centroid_coordinates": 0,
+  "conflict_region_ready": 0,
+  "usa_probe_ready": 0
+}

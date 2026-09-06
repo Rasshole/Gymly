@@ -4,13 +4,16 @@
  * Plads til senere: venne-avatars, center-vibes, events (kun struktur/kommentarer her).
  */
 
-import React, {useState, useMemo, useEffect, useCallback} from 'react';
+import React, {useState, useMemo, useEffect, useCallback, useRef} from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
+  FlatList,
   TouchableOpacity,
+  Platform,
+  ActivityIndicator,
+  InteractionManager,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import {
@@ -21,19 +24,29 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import danishGyms, {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
 import {useGymStore} from '@/store/gymStore';
-import {useNavigation, useFocusEffect} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import GymLogoView from '@/components/ui/GymLogoView';
-import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
+import {
+  findGymByIdRelaxed,
+  formatGymDisplayName,
+  normalizeGymBrand,
+} from '@/utils/gymDisplay';
+import {useLocalCentersActivity} from '@/hooks/useLocalCentersActivity';
 import {StackNavigationProp} from '@react-navigation/stack';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {useActiveCentersRealtime} from '@/hooks/useActiveCentersRealtime';
 import type {ActiveCenter} from '@/types/activeCenter.types';
-import {centerSocialRankScore} from '@/utils/centerSocialRank';
 import {useTranslation} from '@/i18n';
 import {useGymSearch} from '@/hooks/useGymSearch';
 import {GymSearchResultsPanel} from '@/components/gym/GymSearchResultsPanel';
+import {rankNearbyCentres} from '@/utils/nearbyCentersRanking';
+
+type CentresScreenProps = {
+  /** True when the Gyms sub-tab is selected (not merely Friends bottom tab). */
+  isActive?: boolean;
+};
 
 type LiveStats = {total: number; friends: number};
 
@@ -191,27 +204,86 @@ const FavoriteGymCard = ({
   );
 };
 
-const CentresScreen = () => {
+type NearbyGymRowProps = {
+  gym: DanishGym;
+  isFavorite: boolean;
+  isOpen: boolean;
+  distanceText: string;
+  live: LiveStats;
+  onPress: () => void;
+};
+
+const NearbyGymRow = React.memo(function NearbyGymRow({
+  gym,
+  isFavorite,
+  isOpen,
+  distanceText,
+  live,
+  onPress,
+}: NearbyGymRowProps) {
+  return (
+    <TouchableOpacity style={styles.gymCard} activeOpacity={0.72} onPress={onPress}>
+      <View style={styles.gymCardInner}>
+        {isFavorite ? (
+          <View style={[styles.gymIcon, styles.gymIconFavorite]}>
+            <Icon name="star" size={22} color={colors.primaryLight} />
+          </View>
+        ) : (
+          <GymLogoView
+            gymName={formatGymDisplayName(gym)}
+            brand={gym.brand}
+            size={44}
+            style={styles.gymLogoSlot}
+          />
+        )}
+        <View style={styles.gymCardBody}>
+          <Text style={styles.cardTitle} numberOfLines={2}>
+            {gym.name}
+          </Text>
+          <View style={styles.primaryMetaRow}>
+            <OpenClosedChip isOpen={isOpen} />
+            <LiveActivityLine live={live} />
+          </View>
+          <Text style={styles.cityDistanceLine} numberOfLines={1}>
+            {[gym.brand ? normalizeGymBrand(gym.brand) : null, gym.city, distanceText]
+              .filter(Boolean)
+              .join(' · ')}
+          </Text>
+          {gym.address ? (
+            <Text style={styles.addressTertiary} numberOfLines={1}>
+              {gym.address}
+            </Text>
+          ) : null}
+        </View>
+        <Icon name="chevron-forward" size={20} color={colors.textMuted} style={styles.rowChevron} />
+      </View>
+    </TouchableOpacity>
+  );
+});
+
+const CentresScreen = ({isActive = true}: CentresScreenProps) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {t} = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
-  const {user} = useAppStore();
-  const {getActiveUsersCount, getGymStatus} = useGymStore();
-  const {activeCenters, refresh: refreshActiveCenters} = useActiveCentersRealtime();
+  const user = useAppStore(s => s.user);
+  const getActiveUsersCount = useGymStore(s => s.getActiveUsersCount);
+  const getGymStatus = useGymStore(s => s.getGymStatus);
+  const {activeCenters} = useActiveCentersRealtime({enabled: isActive});
+  const {
+    resolvedCenterIds,
+    hasLocalCenters,
+    loading: localCentersLoading,
+  } = useLocalCentersActivity(user?.id, {enabled: isActive});
   const [userLocation, setUserLocation] = useState<{
     latitude: number;
     longitude: number;
   } | null>(null);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
-  const scrollViewRef = React.useRef<ScrollView>(null);
+  const [nearbyGyms, setNearbyGyms] = useState<DanishGym[]>([]);
+  const [nearbyRanking, setNearbyRanking] = useState(false);
+  const listRef = useRef<FlatList<DanishGym>>(null);
 
   const liveByGymId = useMemo(() => buildLiveByGymId(activeCenters), [activeCenters]);
-
-  useFocusEffect(
-    useCallback(() => {
-      void refreshActiveCenters();
-    }, [refreshActiveCenters]),
-  );
 
   useEffect(() => {
     void getLocationPermissionStatus().then(status => {
@@ -229,11 +301,23 @@ const CentresScreen = () => {
     });
   }, []);
 
-  const favoriteGymIds = user?.favoriteGyms || [];
+  const favoriteGymIds = useMemo(() => {
+    const fromDb = resolvedCenterIds.filter(Boolean);
+    if (fromDb.length > 0) {
+      return fromDb;
+    }
+    return (user?.favoriteGyms ?? []).filter(Boolean);
+  }, [resolvedCenterIds, user?.favoriteGyms]);
+
+  const favoriteGymIdSet = useMemo(
+    () => new Set(favoriteGymIds),
+    [favoriteGymIds],
+  );
+
   const favoriteGyms = useMemo(() => {
     return favoriteGymIds
-      .map(id => danishGyms.find(gym => gym.id === id))
-      .filter((gym): gym is DanishGym => gym !== undefined);
+      .map(id => findGymByIdRelaxed(id))
+      .filter((gym): gym is DanishGym => gym !== null);
   }, [favoriteGymIds]);
 
   const allCentres = useMemo(
@@ -250,56 +334,51 @@ const CentresScreen = () => {
       gyms: allCentres,
     });
 
-  const sortedGyms = useMemo(() => {
-    if (isSearchActive) {
-      return searchHits.map(h => h.gym);
+  const searchListGyms = useMemo(
+    () =>
+      isSearchActive
+        ? searchHits.map(h => h.gym).filter(gym => !favoriteGymIdSet.has(gym.id))
+        : [],
+    [isSearchActive, searchHits, favoriteGymIdSet],
+  );
+
+  useEffect(() => {
+    if (!isActive || isSearchActive) {
+      return;
     }
-
-    const otherGyms = allCentres.filter(gym => !favoriteGymIds.includes(gym.id));
-    const allGyms = [...favoriteGyms, ...otherGyms];
-
-    return allGyms
-      .map(gym => {
-        const status = getGymStatus(gym.id);
-        let distance = Infinity;
-        if (userLocation) {
-          distance = calculateDistance(
-            userLocation.latitude,
-            userLocation.longitude,
-            gym.latitude,
-            gym.longitude,
-          );
-        }
-        const live = liveStatsForGym(gym.id, liveByGymId, getActiveUsersCount);
-        const score = centerSocialRankScore(live, distance);
-        return {gym, isOpen: status.isOpen, distance, score};
-      })
-      .sort((a, b) => {
-        if (a.isOpen && !b.isOpen) {
-          return -1;
-        }
-        if (!a.isOpen && b.isOpen) {
-          return 1;
-        }
-        if (b.score !== a.score) {
-          return b.score - a.score;
-        }
-        return a.distance - b.distance;
-      })
-      .map(item => item.gym);
+    let cancelled = false;
+    setNearbyRanking(true);
+    const task = InteractionManager.runAfterInteractions(() => {
+      const ranked = rankNearbyCentres({
+        gyms: allCentres,
+        excludeIds: favoriteGymIdSet,
+        userLocation,
+        getGymStatus,
+        liveByGymId,
+        getActiveUsersCount,
+        calculateDistanceMeters: calculateDistance,
+      });
+      if (!cancelled) {
+        setNearbyGyms(ranked);
+        setNearbyRanking(false);
+      }
+    });
+    return () => {
+      cancelled = true;
+      task.cancel();
+    };
   }, [
+    isActive,
     isSearchActive,
-    searchHits,
-    favoriteGyms,
     allCentres,
-    favoriteGymIds,
+    favoriteGymIdSet,
     userLocation,
     getGymStatus,
     liveByGymId,
     getActiveUsersCount,
   ]);
 
-  const isFavorite = (gymId: string) => favoriteGymIds.includes(gymId);
+  const otherGymsSorted = isSearchActive ? searchListGyms : nearbyGyms;
 
   const distanceForGym = useCallback(
     (gym: DanishGym): string => {
@@ -317,78 +396,92 @@ const CentresScreen = () => {
     [userLocation],
   );
 
-  const GymIcon = ({gym, favorite}: {gym: DanishGym; favorite: boolean}) => {
-    if (favorite) {
-      return (
-        <View style={[styles.gymIcon, styles.gymIconFavorite]}>
-          <Icon name="star" size={22} color={colors.primaryLight} />
+  const favoriteGymsSorted = favoriteGyms;
+
+  const hasSavedLocalCenters = hasLocalCenters || favoriteGymIds.length > 0;
+
+  const showEmptyLocalOnboarding =
+    Boolean(user?.id) &&
+    !hasSavedLocalCenters &&
+    !localCentersLoading &&
+    searchQuery.length === 0;
+
+  const listHeader = useMemo(
+    () => (
+      <>
+        {showEmptyLocalOnboarding ? (
+          <View style={styles.emptyLocalWrap}>
+            <Text style={styles.emptyLocalTitle}>
+              {t('phase2ui.noSavedCentersTitle')}
+            </Text>
+            <Text style={styles.emptyLocalBody}>
+              {t('phase2ui.noSavedCentersBody')}
+            </Text>
+          </View>
+        ) : null}
+
+        {hasSavedLocalCenters && favoriteGymsSorted.length > 0 ? (
+          <View style={styles.favoriteSection}>
+            <Text style={styles.sectionTitle}>{t('centres.myLocalCentres')}</Text>
+            <View style={styles.favoriteStack}>
+              {favoriteGymsSorted.map((gym, index) => (
+                <FavoriteGymCard
+                  key={gym.id}
+                  gym={gym}
+                  index={index}
+                  distanceText={distanceForGym(gym)}
+                  live={liveStatsForGym(gym.id, liveByGymId, getActiveUsersCount)}
+                  gymStatus={getGymStatus(gym.id)}
+                />
+              ))}
+            </View>
+          </View>
+        ) : null}
+
+        <View style={styles.nearbyHeader}>
+          <Text style={styles.nearbyHeaderText}>{t('centres.nearbyCentres')}</Text>
         </View>
-      );
-    }
-    return (
-      <GymLogoView
-        gymName={formatGymDisplayName(gym)}
-        brand={gym.brand}
-        size={44}
-        style={styles.gymLogoSlot}
-      />
-    );
-  };
+      </>
+    ),
+    [
+      showEmptyLocalOnboarding,
+      hasSavedLocalCenters,
+      favoriteGymsSorted,
+      t,
+      distanceForGym,
+      liveByGymId,
+      getActiveUsersCount,
+      getGymStatus,
+    ],
+  );
 
-  const renderGymItem = (item: DanishGym) => {
-    const favorite = isFavorite(item.id);
-    const gymStatus = getGymStatus(item.id);
-    const distanceText = distanceForGym(item);
-    const live = liveStatsForGym(item.id, liveByGymId, getActiveUsersCount);
-
-    return (
-      <TouchableOpacity
-        key={item.id}
-        style={styles.gymCard}
-        activeOpacity={0.72}
-        onPress={() => {
+  const renderNearbyItem = useCallback(
+    ({item}: {item: DanishGym}) => (
+      <NearbyGymRow
+        gym={item}
+        isFavorite={favoriteGymIds.includes(item.id)}
+        isOpen={getGymStatus(item.id).isOpen}
+        distanceText={distanceForGym(item)}
+        live={liveStatsForGym(item.id, liveByGymId, getActiveUsersCount)}
+        onPress={() =>
           navigation.navigate('GymDetail', {
             gymId: item.id,
             gym: item,
-          });
-        }}>
-        <View style={styles.gymCardInner}>
-          <GymIcon gym={item} favorite={favorite} />
-          <View style={styles.gymCardBody}>
-            <Text style={styles.cardTitle} numberOfLines={2}>
-              {item.name}
-            </Text>
-            <View style={styles.primaryMetaRow}>
-              <OpenClosedChip isOpen={gymStatus.isOpen} />
-              <LiveActivityLine live={live} />
-            </View>
-            <Text style={styles.cityDistanceLine} numberOfLines={1}>
-              {[
-                item.brand ? normalizeGymBrand(item.brand) : null,
-                item.city,
-                distanceText,
-              ]
-                .filter(Boolean)
-                .join(' · ')}
-            </Text>
-            {item.address ? (
-              <Text style={styles.addressTertiary} numberOfLines={1}>
-                {item.address}
-              </Text>
-            ) : null}
-          </View>
-          <Icon name="chevron-forward" size={20} color={colors.textMuted} style={styles.rowChevron} />
-        </View>
-      </TouchableOpacity>
-    );
-  };
+          })
+        }
+      />
+    ),
+    [
+      favoriteGymIds,
+      getGymStatus,
+      distanceForGym,
+      liveByGymId,
+      getActiveUsersCount,
+      navigation,
+    ],
+  );
 
-  const favoriteGymsSorted = sortedGyms.filter(gym => favoriteGymIds.includes(gym.id));
-  const otherGymsSorted = sortedGyms.filter(gym => !favoriteGymIds.includes(gym.id));
-
-  const showEmptyLocalOnboarding =
-    Boolean(user?.id) && favoriteGymIds.length === 0 && searchQuery.length === 0;
-
+  const keyExtractor = useCallback((item: DanishGym) => item.id, []);
   return (
     <View style={styles.container}>
       <SocialSearchBar
@@ -413,62 +506,45 @@ const CentresScreen = () => {
       ) : null}
 
       {!isSearchActive ? (
-      <ScrollView
-        ref={scrollViewRef}
+      <FlatList
+        ref={listRef}
+        data={otherGymsSorted}
+        keyExtractor={keyExtractor}
+        renderItem={renderNearbyItem}
+        ListHeaderComponent={listHeader}
+        ListFooterComponent={
+          nearbyRanking && !isSearchActive ? (
+            <View style={styles.nearbyLoadingFooter}>
+              <ActivityIndicator color={colors.primary} />
+            </View>
+          ) : null
+        }
+        ListEmptyComponent={
+          !nearbyRanking && !isSearchActive ? (
+            <View style={styles.nearbyEmptyWrap}>
+              <Text style={styles.nearbyEmptyText}>{t('centres.searchPlaceholder')}</Text>
+            </View>
+          ) : null
+        }
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
+        initialNumToRender={14}
+        maxToRenderPerBatch={10}
+        windowSize={7}
+        removeClippedSubviews={Platform.OS === 'android'}
         onScroll={event => {
           setShowScrollToTop(event.nativeEvent.contentOffset.y > 500);
         }}
-        scrollEventThrottle={16}>
-        {showEmptyLocalOnboarding && !isSearchActive ? (
-          <View style={styles.emptyLocalWrap}>
-            <Text style={styles.emptyLocalTitle}>Ingen gemte centre endnu</Text>
-            <Text style={styles.emptyLocalBody}>
-              Find centre og se hvem der træner lige nu 👀 Søg ovenfor eller tjek ind på et center — det
-              gemmes som dit lokale spot.
-            </Text>
-          </View>
-        ) : null}
-
-        {favoriteGymsSorted.length > 0 && !isSearchActive && (
-          <View style={styles.favoriteSection}>
-            <Text style={styles.sectionTitle}>{t('centres.myLocalCentres')}</Text>
-            <View style={styles.favoriteStack}>
-              {favoriteGymsSorted.map((gym, index) => (
-                <FavoriteGymCard
-                  key={gym.id}
-                  gym={gym}
-                  index={index}
-                  distanceText={distanceForGym(gym)}
-                  live={liveStatsForGym(gym.id, liveByGymId, getActiveUsersCount)}
-                  gymStatus={getGymStatus(gym.id)}
-                />
-              ))}
-            </View>
-          </View>
-        )}
-
-        <View style={styles.nearbyHeader}>
-          <Text style={styles.nearbyHeaderText}>{t('centres.nearbyCentres')}</Text>
-        </View>
-
-        <View style={styles.list}>
-          {otherGymsSorted.map(gym => (
-            <View key={gym.id} style={styles.listRowGap}>
-              {renderGymItem(gym)}
-            </View>
-          ))}
-        </View>
-      </ScrollView>
+        scrollEventThrottle={16}
+      />
       ) : null}
 
       {showScrollToTop && !isSearchActive && (
         <TouchableOpacity
           style={styles.scrollToTopButton}
-          onPress={() => scrollViewRef.current?.scrollTo({y: 0, animated: true})}
+          onPress={() => listRef.current?.scrollToOffset({offset: 0, animated: true})}
           activeOpacity={0.9}>
           <Icon name="arrow-up" size={28} color="#fff" />
         </TouchableOpacity>
@@ -498,6 +574,20 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.lg,
     marginTop: 10,
     marginBottom: 10,
+  },
+  nearbyLoadingFooter: {
+    paddingVertical: spacing.lg,
+    alignItems: 'center',
+  },
+  nearbyEmptyWrap: {
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.lg,
+    alignItems: 'center',
+  },
+  nearbyEmptyText: {
+    ...typography.body,
+    color: colors.textMuted,
+    textAlign: 'center',
   },
   rowChevron: {alignSelf: 'center', marginLeft: spacing.sm},
   emptyLocalWrap: {
@@ -566,6 +656,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.04,
     shadowRadius: 8,
     elevation: 1,
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.md,
   },
   gymCardInner: {
     flexDirection: 'row',
@@ -577,12 +669,6 @@ const styles = StyleSheet.create({
   gymCardBody: {
     flex: 1,
     minWidth: 0,
-  },
-  list: {
-    paddingHorizontal: spacing.lg,
-  },
-  listRowGap: {
-    marginBottom: spacing.md,
   },
   nearbyHeader: {
     paddingHorizontal: spacing.lg,

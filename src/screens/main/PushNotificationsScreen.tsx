@@ -131,9 +131,7 @@ const PushNotificationsScreen = () => {
           <Icon name="notifications-outline" size={48} color={colors.primary} />
           <Text style={styles.headerTitle}>{t('pushSettings.title')}</Text>
           <Text style={styles.headerDescription}>{t('pushSettings.description')}</Text>
-          <Text style={styles.linkHint} onPress={() => Linking.openSettings()}>
-            {t('pushSettings.openSettings')}
-          </Text>
+          <Text style={styles.linkHint} onPress={() => Linking.openSettings()}>{t('pushSettings.openSettings')}</Text>
         </View>
 
         <View style={styles.section}>

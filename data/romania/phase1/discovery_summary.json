@@ -1,0 +1,29 @@
+{
+  "world_class": {
+    "chain": "World Class",
+    "official_estimate": 45,
+    "discovered": 45,
+    "with_coords": 45,
+    "source": "https://www.worldclass.ro/wp-json/clubs/v1/club",
+    "verdict": "NEAR-COMPLETE"
+  },
+  "18gym": {
+    "chain": "18GYM",
+    "official_estimate": 47,
+    "discovered": 47,
+    "coming_soon": 5,
+    "source": "https://18gym.ro/wp-admin/admin-ajax.php?action=asl_load_stores&nonce=0",
+    "verdict": "NEAR-COMPLETE"
+  },
+  "stay_fit": {
+    "chain": "Stay Fit Gym",
+    "official_estimate": 72,
+    "discovered": 167,
+    "coming_soon": 0,
+    "cities_scraped": 45,
+    "source": "https://stayfit.ro/cluburi/",
+    "verdict": "NEAR-COMPLETE"
+  },
+  "total_candidates": 259,
+  "pre_merge_sha256": "365a1bd25c1fad250172099a0430d9475899859c11a8e07e2ae05ea471dba75a"
+}

@@ -1,0 +1,60 @@
+{
+  "country": "Liechtenstein",
+  "phase": 1,
+  "verdict": "LIECHTENSTEIN PHASE 2 REQUIRED BEFORE MERGE",
+  "small_market_model": "INDEPENDENT_PHASE_RECOMMENDED",
+  "production_total": 11692,
+  "production_sha256": "ff19dfaae9f99984ae5c6a73765b3e585263b61050d8c927fc45a38037dfa3dc",
+  "liechtenstein_live": 0,
+  "iceland_live": 27,
+  "production_modified": false,
+  "status_counts": {
+    "NEEDS_REVIEW": 8,
+    "CLOSED": 2,
+    "EXCLUDED": 39
+  },
+  "ready_count": 0,
+  "ready_by_brand": {},
+  "independent_candidate_count": 8,
+  "class_a_chains": 0,
+  "class_a_locations": 0,
+  "phase2_required": true,
+  "phase2_reasons": [
+    "Zero qualifying Class A chains with ≥3 conventional public locations in Liechtenstein",
+    "update Fitness (1 LI site), LieFit (2), Lorez (2 premises), purfitness (1) all under Class A threshold in LI",
+    "~8 conventional public independent candidates staged for Phase 2 eligibility review",
+    "In Motion Eschen borderline physio+finess hybrid requires Phase 2 scope decision",
+    "Small market (~40k pop) → INDEPENDENT_PHASE_RECOMMENDED"
+  ],
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_territorial_outliers": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0
+  },
+  "territorial_safety": "CLEAN_FOR_READY",
+  "ready_foreign_outliers": 0,
+  "projected_catalog_if_merged": 11692,
+  "crossed_12500_if_merged": false,
+  "global_stress_qa_required_now": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "municipality_coverage": {
+    "Vaduz": "chain_present",
+    "Schaan": "chain_present",
+    "Eschen": "chain_present",
+    "Balzers": "chain_present",
+    "Bendern": "chain_present",
+    "Nendeln": "independent_present_candidate",
+    "Triesen": "A_legitimate_no_chain_presence",
+    "Mauren": "A_legitimate_no_chain_presence",
+    "Triesenberg": "A_legitimate_no_chain_presence",
+    "Ruggell": "A_legitimate_no_chain_presence",
+    "Gamprin": "chain_present",
+    "Schellenberg": "A_legitimate_no_chain_presence",
+    "Planken": "A_legitimate_no_chain_presence"
+  }
+}

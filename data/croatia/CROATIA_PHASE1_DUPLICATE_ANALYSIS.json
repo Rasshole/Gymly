@@ -1,0 +1,553 @@
+{
+  "proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "hr_31f66c7a1f",
+        "b_id": "hr_ca7a172b54",
+        "brand": "THE Fitness",
+        "distance_m": 122,
+        "same_address": false
+      }
+    ],
+    "identical": []
+  },
+  "production_collisions": [
+    {
+      "candidate_id": "hr_531f4f1847",
+      "production_id": "hr_531f4f1847",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_65f37e31a4",
+      "production_id": "hr_65f37e31a4",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_d45eb0c6b5",
+      "production_id": "hr_d45eb0c6b5",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_7ceff61556",
+      "production_id": "hr_7ceff61556",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_23e290626d",
+      "production_id": "hr_23e290626d",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_4e90ae8d35",
+      "production_id": "hr_4e90ae8d35",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_8d98ff97a2",
+      "production_id": "hr_8d98ff97a2",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_58fcbe3db0",
+      "production_id": "hr_58fcbe3db0",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_da20a6af84",
+      "production_id": "hr_da20a6af84",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_6eade4805d",
+      "production_id": "hr_6eade4805d",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_1156235f67",
+      "production_id": "hr_1156235f67",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_828baca7aa",
+      "production_id": "hr_828baca7aa",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_6683a9bafc",
+      "production_id": "hr_6683a9bafc",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_8e6426a328",
+      "production_id": "hr_8e6426a328",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_4de6622372",
+      "production_id": "hr_4de6622372",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_027ef1cdb6",
+      "production_id": "hr_027ef1cdb6",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_7c9fb9de75",
+      "production_id": "hr_7c9fb9de75",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_b9d7bed9cd",
+      "production_id": "hr_b9d7bed9cd",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_6c27f9083b",
+      "production_id": "hr_6c27f9083b",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_658ceb32d7",
+      "production_id": "hr_658ceb32d7",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_184f08ae2b",
+      "production_id": "hr_184f08ae2b",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_312869cdd8",
+      "production_id": "hr_312869cdd8",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_b7e6171fe4",
+      "production_id": "hr_b7e6171fe4",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_16f20a0868",
+      "production_id": "hr_16f20a0868",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_99d5434c36",
+      "production_id": "hr_99d5434c36",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_7e7415dbe5",
+      "production_id": "hr_7e7415dbe5",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_e458262bee",
+      "production_id": "hr_e458262bee",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_b66788cf76",
+      "production_id": "hr_b66788cf76",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_0ca0078481",
+      "production_id": "hr_0ca0078481",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_84e357681f",
+      "production_id": "hr_84e357681f",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_858cb170a0",
+      "production_id": "hr_858cb170a0",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_f3652fa11f",
+      "production_id": "hr_f3652fa11f",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_fae56a35ca",
+      "production_id": "hr_fae56a35ca",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_f43e3aa015",
+      "production_id": "hr_f43e3aa015",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_1fac95ad76",
+      "production_id": "hr_1fac95ad76",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_1bb0b2df35",
+      "production_id": "hr_1bb0b2df35",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_905f19b579",
+      "production_id": "hr_905f19b579",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_c6281ff5fd",
+      "production_id": "hr_c6281ff5fd",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_d772ccd49a",
+      "production_id": "hr_d772ccd49a",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_97270042fd",
+      "production_id": "hr_97270042fd",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_01f97443ea",
+      "production_id": "hr_01f97443ea",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_26f74acfdc",
+      "production_id": "hr_26f74acfdc",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_c422cb89ff",
+      "production_id": "hr_c422cb89ff",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_d4025dd0f1",
+      "production_id": "hr_d4025dd0f1",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_1b43ef6a03",
+      "production_id": "hr_1b43ef6a03",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_2db3d9d79f",
+      "production_id": "hr_2db3d9d79f",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_e220acc0f2",
+      "production_id": "hr_e220acc0f2",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_38813ae297",
+      "production_id": "hr_38813ae297",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_04d608aabd",
+      "production_id": "hr_04d608aabd",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_e8feaadf2a",
+      "production_id": "hr_e8feaadf2a",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_4803390d6f",
+      "production_id": "hr_4803390d6f",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_31f66c7a1f",
+      "production_id": "hr_31f66c7a1f",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_735c904be3",
+      "production_id": "hr_735c904be3",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_d77a2aec10",
+      "production_id": "hr_d77a2aec10",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_f764385842",
+      "production_id": "hr_f764385842",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_ca7a172b54",
+      "production_id": "hr_ca7a172b54",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_765f4e908a",
+      "production_id": "hr_765f4e908a",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_e86685f75d",
+      "production_id": "hr_1156235f67",
+      "production_country": "Croatia",
+      "distance_m": 49
+    },
+    {
+      "candidate_id": "hr_d963ed9417",
+      "production_id": "hr_d963ed9417",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_036861a783",
+      "production_id": "hr_036861a783",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_c9eb6ff3b3",
+      "production_id": "hr_c9eb6ff3b3",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_e99d3d2a6c",
+      "production_id": "hr_e99d3d2a6c",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_130c7050f0",
+      "production_id": "hr_130c7050f0",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_96bab24e46",
+      "production_id": "hr_96bab24e46",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_af1a9eecc8",
+      "production_id": "hr_af1a9eecc8",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_3d1efcbd8c",
+      "production_id": "hr_3d1efcbd8c",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_933ff33727",
+      "production_id": "hr_933ff33727",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_8aa56a987c",
+      "production_id": "hr_8aa56a987c",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_a0ec1a2c32",
+      "production_id": "hr_a0ec1a2c32",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_b0b6f04fa5",
+      "production_id": "hr_b0b6f04fa5",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_eb89f1acde",
+      "production_id": "hr_eb89f1acde",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_51e7c33064",
+      "production_id": "hr_51e7c33064",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_9d4a1f57fa",
+      "production_id": "hr_9d4a1f57fa",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_2dd927c58a",
+      "production_id": "hr_2dd927c58a",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_d38c920e25",
+      "production_id": "hr_d38c920e25",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_d225dc7c62",
+      "production_id": "hr_d225dc7c62",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_05840eab80",
+      "production_id": "hr_05840eab80",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_f253f40958",
+      "production_id": "hr_f253f40958",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_35051fecb9",
+      "production_id": "hr_35051fecb9",
+      "production_country": "Croatia",
+      "distance_m": 0
+    },
+    {
+      "candidate_id": "hr_73c4f54110",
+      "production_id": "hr_73c4f54110",
+      "production_country": "Croatia",
+      "distance_m": 0
+    }
+  ],
+  "dq": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "dq_detail": {
+    "duplicate_ids": [],
+    "invalid_ready_postcodes": [],
+    "missing_ready_fields": [],
+    "invalid_ready_coords": [],
+    "fallback_coords": [],
+    "foreign_outliers": [],
+    "mojibake": []
+  },
+  "phase1_same_brand_buckets": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "hr_31f66c7a1f",
+        "b_id": "hr_ca7a172b54",
+        "brand": "THE Fitness",
+        "distance_m": 122,
+        "same_address": false
+      }
+    ],
+    "identical": []
+  },
+  "different_brand_le_100m": [
+    {
+      "a_id": "hr_1156235f67",
+      "b_id": "hr_e86685f75d",
+      "a_brand": "Gyms4you",
+      "b_brand": "THE Fitness",
+      "a_name": "Gyms4you Dubec",
+      "b_name": "THE Fitness Dubrava",
+      "distance_m": 49,
+      "classification": "A_legitimate",
+      "reason": "Dense metro co-location of distinct brands"
+    }
+  ],
+  "phase1_counts": {
+    "same_brand_le_25m": 0,
+    "same_brand_le_50m": 0,
+    "same_brand_le_100m": 0,
+    "same_brand_le_200m": 1,
+    "identical_coords": 0,
+    "different_brand_le_100m": 1
+  }
+}

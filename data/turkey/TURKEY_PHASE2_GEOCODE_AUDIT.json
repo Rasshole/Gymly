@@ -1,0 +1,8 @@
+{
+  "ready_invalid_coordinates": 0,
+  "ready_missing_coordinates": 0,
+  "ready_fallback_coordinates": 0,
+  "ready_centroid_coordinates": 0,
+  "ready_suspect_geocodes": 0,
+  "geocode_fixes_applied": 4
+}

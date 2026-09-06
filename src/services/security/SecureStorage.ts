@@ -8,6 +8,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AuthTokens} from '@/types/auth.types';
 import {User} from '@/types/user.types';
 
+/**
+ * Note: react-native-keychain@10 removed Facebook Conceal (libconceal.so).
+ * Existing tokens stored with Conceal may become unreadable; callers treat
+ * null as logged-out / re-auth via Supabase session.
+ */
+
 class SecureStorageService {
   private safeParseJson<T>(raw: string | null | undefined): T | null {
     if (!raw) {

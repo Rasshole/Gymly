@@ -1,0 +1,189 @@
+[
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-byasen",
+    "name": "3T-Treningssenter Byasen",
+    "source_url": "https://www.3t.no/treningssenter/3t-byasen",
+    "parsed": {
+      "address": "Selsbakkveien 34",
+      "postal_code": "7027",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-fossegrenda",
+    "name": "3T-Treningssenter Fossegrenda",
+    "source_url": "https://www.3t.no/treningssenter/3t-fossegrenda",
+    "parsed": {
+      "address": "Hornebergvegen 7B",
+      "postal_code": "7038",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-ilsvika",
+    "name": "3T-Treningssenter Ilsvika",
+    "source_url": "https://www.3t.no/treningssenter/3t-ilsvika",
+    "parsed": {
+      "address": "Ilsvikvegen 18",
+      "postal_code": "7018",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-lade",
+    "name": "3T-Treningssenter Lade",
+    "source_url": "https://www.3t.no/treningssenter/3t-lade",
+    "parsed": {
+      "address": "Haakon VIIs gate 11",
+      "postal_code": "7041",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-leangen",
+    "name": "3T-Treningssenter Leangen",
+    "source_url": "https://www.3t.no/treningssenter/3t-leangen",
+    "parsed": {
+      "address": "Leangenveien 10",
+      "postal_code": "7044",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-levanger",
+    "name": "3T-Treningssenter Levanger",
+    "source_url": "https://www.3t.no/treningssenter/3t-levanger",
+    "parsed": {
+      "address": "Høgskolevegen 5",
+      "postal_code": "7600",
+      "city": "Levanger"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-melhus",
+    "name": "3T-Treningssenter Melhus",
+    "source_url": "https://www.3t.no/treningssenter/3t-melhus",
+    "parsed": {
+      "address": "Melhusvegen 475",
+      "postal_code": "7224",
+      "city": "Melhus"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-midtbyen",
+    "name": "3T-Treningssenter Midtbyen",
+    "source_url": "https://www.3t.no/treningssenter/3t-midtbyen",
+    "parsed": {
+      "address": "Dronningens gate 1a",
+      "postal_code": "7011",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-moholt",
+    "name": "3T-Treningssenter Moholt",
+    "source_url": "https://www.3t.no/treningssenter/3t-moholt",
+    "parsed": {
+      "address": "Vegamot 16",
+      "postal_code": "7048",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-orkanger",
+    "name": "3T-Treningssenter Orkanger",
+    "source_url": "https://www.3t.no/treningssenter/3t-orkanger",
+    "parsed": {
+      "address": "Grønørveien 20",
+      "postal_code": "7300",
+      "city": "Orkanger"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-ranheim",
+    "name": "3T-Treningssenter Ranheim",
+    "source_url": "https://www.3t.no/treningssenter/3t-ranheim",
+    "parsed": {
+      "address": "Ranheimsvegen 174",
+      "postal_code": "7055",
+      "city": "Ranheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-rosten",
+    "name": "3T-Treningssenter Rosten",
+    "source_url": "https://www.3t.no/treningssenter/3t-rosten",
+    "parsed": {
+      "address": "Vestre Rosten 80",
+      "postal_code": "7075",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-sluppen",
+    "name": "3T-Treningssenter Sluppen",
+    "source_url": "https://www.3t.no/treningssenter/3t-sluppen",
+    "parsed": {
+      "address": "Sluppenveien 12 H",
+      "postal_code": "7037",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-solsiden",
+    "name": "3T-Treningssenter Solsiden",
+    "source_url": "https://www.3t.no/treningssenter/3t-solsiden",
+    "parsed": {
+      "address": "Dyre Halses gate 1",
+      "postal_code": "7042",
+      "city": "Trondheim"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-steinkjer",
+    "name": "3T-Treningssenter Steinkjer",
+    "source_url": "https://www.3t.no/treningssenter/3t-steinkjer",
+    "parsed": {
+      "address": "Kongens Gate 43B",
+      "postal_code": "7713",
+      "city": "Steinkjer"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-stjordal",
+    "name": "3T-Treningssenter Stjordal",
+    "source_url": "https://www.3t.no/treningssenter/3t-stjordal",
+    "parsed": {
+      "address": "Ole Rises gate 2",
+      "postal_code": "7500",
+      "city": "Stjørdal"
+    }
+  },
+  {
+    "brand": "3T-Treningssenter",
+    "center_name": "3t-teknostallen",
+    "name": "3T-Treningssenter Teknostallen",
+    "source_url": "https://www.3t.no/treningssenter/3t-teknostallen",
+    "parsed": {
+      "address": "Professor Brochs gate 16",
+      "postal_code": "7030",
+      "city": "Trondheim"
+    }
+  }
+]

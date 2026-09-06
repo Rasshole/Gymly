@@ -1,0 +1,650 @@
+<!doctype html> <!--[if lt IE 7 ]><html class="ie ie6 no-js" dir="ltr" lang="de"> <![endif]--> <!--[if IE 7 ]><html class="ie ie7 no-js" dir="ltr" lang="de> <![endif]--> <!--[if IE 8 ]><html class="ie ie8 no-js" dir="ltr" lang="de"> <![endif]--> <!--[if IE 9 ]><html class="ie ie9 no-js" dir="ltr" lang="de"> <![endif]--> <!--[if gt IE 9]><!--><html class="no-js" dir="ltr" lang="de"><!--<![endif]--><head profile="http://gmpg.org/xfn/11"><meta charset="UTF-8" /><link media="all" href="https://fitinn.at/wp-content/cache/autoptimize/css/autoptimize_9648b247ad989d79f08da637fc4d4764.css" rel="stylesheet"><title>Fitnessstudios in Wien | Fitnesscenter in der Nähe - FITINN</title><meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /><link rel="alternate" hreflang="de-at" href="https://fitinn.at/fitnessstudios-in-wien-2/" /><link rel="alternate" hreflang="x-default" href="https://fitinn.at/fitnessstudios-in-wien-2/" /><meta name="description" content="FITINN in ganz Wien: 22 Fitnessstudios, Öffnungszeiten täglich von 6-24 Uhr, top-moderne Geräte, Functional Training, Frauenfitness, U-Bahn Anbindung, gratis WLAN Jetzt Fitnesscenter in deinem Bezirk finden!" /><link rel="canonical" href="https://fitinn.at/fitnessstudios-in-wien-2/" /><meta property="og:locale" content="de_DE" /><meta property="og:type" content="article" /><meta property="og:title" content="Fitnessstudios in Wien | Fitnesscenter in der Nähe - FITINN" /><meta property="og:description" content="FITINN in ganz Wien: 22 Fitnessstudios, Öffnungszeiten täglich von 6-24 Uhr, top-moderne Geräte, Functional Training, Frauenfitness, U-Bahn Anbindung, gratis WLAN Jetzt Fitnesscenter in deinem Bezirk finden!" /><meta property="og:url" content="https://fitinn.at/fitnessstudios-in-wien-2/" /><meta property="og:site_name" content="FITINN" /><meta property="article:modified_time" content="2026-07-29T12:01:04+00:00" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:label1" content="Est. reading time" /><meta name="twitter:data1" content="12 Minuten" /> <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/fitinn.at\/fitnessstudios-in-wien-2\/","url":"https:\/\/fitinn.at\/fitnessstudios-in-wien-2\/","name":"Fitnessstudios in Wien | Fitnesscenter in der Nähe - FITINN","isPartOf":{"@id":"https:\/\/fitinn.at\/#website"},"datePublished":"2018-09-07T13:00:16+00:00","dateModified":"2026-07-29T12:01:04+00:00","description":"FITINN in ganz Wien: 22 Fitnessstudios, Öffnungszeiten täglich von 6-24 Uhr, top-moderne Geräte, Functional Training, Frauenfitness, U-Bahn Anbindung, gratis WLAN Jetzt Fitnesscenter in deinem Bezirk finden!","breadcrumb":{"@id":"https:\/\/fitinn.at\/fitnessstudios-in-wien-2\/#breadcrumb"},"inLanguage":"de","potentialAction":[{"@type":"ReadAction","target":["https:\/\/fitinn.at\/fitnessstudios-in-wien-2\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/fitinn.at\/fitnessstudios-in-wien-2\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/fitinn.at\/"},{"@type":"ListItem","position":2,"name":"Fitnessstudios in Wien"}]},{"@type":"WebSite","@id":"https:\/\/fitinn.at\/#website","url":"https:\/\/fitinn.at\/","name":"FITINN","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/fitinn.at\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"de"}]}</script> <link rel='dns-prefetch' href='//use.fontawesome.com' /><link rel="alternate" type="application/rss+xml" title="FITINN &raquo; Feed" href="https://fitinn.at/feed/" /><link rel="alternate" type="application/rss+xml" title="FITINN &raquo; Kommentar-Feed" href="https://fitinn.at/comments/feed/" /><link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://fitinn.at/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffitinn.at%2Ffitnessstudios-in-wien-2%2F" /><link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://fitinn.at/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffitinn.at%2Ffitnessstudios-in-wien-2%2F&#038;format=xml" /><link rel='stylesheet' id='bfa-font-awesome-css' href='https://use.fontawesome.com/releases/v5.15.4/css/all.css' media='all' /><link rel='stylesheet' id='bfa-font-awesome-v4-shim-css' href='https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css' media='all' /> <script id="jquery-js" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> <script id="3d-flip-book-client-locale-loader-js-extra">var FB3D_CLIENT_LOCALE = {"ajaxurl":"https://fitinn.at/wp-admin/admin-ajax.php","dictionary":{"Table of contents":"Table of contents","Close":"Close","Bookmarks":"Bookmarks","Thumbnails":"Thumbnails","Search":"Search","Share":"Share","Facebook":"Facebook","Twitter":"Twitter","Email":"Email","Play":"Play","Previous page":"Previous page","Next page":"Next page","Zoom in":"Zoom in","Zoom out":"Zoom out","Fit view":"Fit view","Auto play":"Auto play","Full screen":"Full screen","More":"More","Smart pan":"Smart pan","Single page":"Single page","Sounds":"Sounds","Stats":"Stats","Print":"Print","Download":"Download","Goto first page":"Goto first page","Goto last page":"Goto last page"},"images":"https://fitinn.at/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/images/","jsData":{"urls":[],"posts":{"ids_mis":[],"ids":[]},"pages":[],"firstPages":[],"bookCtrlProps":[],"bookTemplates":[]},"key":"3d-flip-book","pdfJS":{"pdfJsLib":"https://fitinn.at/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/pdf.min.js?ver=4.3.136","pdfJsWorker":"https://fitinn.at/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/pdf.worker.js?ver=4.3.136","stablePdfJsLib":"https://fitinn.at/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/stable/pdf.min.js?ver=2.5.207","stablePdfJsWorker":"https://fitinn.at/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/js/stable/pdf.worker.js?ver=2.5.207","pdfJsCMapUrl":"https://fitinn.at/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/cmaps/"},"cacheurl":"https://fitinn.at/wp-content/uploads/3d-flip-book/cache/","pluginsurl":"https://fitinn.at/wp-content/plugins/","pluginurl":"https://fitinn.at/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/","thumbnailSize":{"width":"150","height":"150"},"version":"1.16.19"};
+//# sourceURL=3d-flip-book-client-locale-loader-js-extra</script> <link rel="https://api.w.org/" href="https://fitinn.at/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://fitinn.at/wp-json/wp/v2/pages/3717" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://fitinn.at/xmlrpc.php?rsd" /><link rel='shortlink' href='https://fitinn.at/?p=3717' /><meta name="generator" content="WPML ver:4.9.5 stt:3;" /> <script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function d(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="W63G2L5",a="https://stag.fitinn.at",i="https://load.stag.fitinn.at",c="jzpjgvui",E="localStorage",I="stape_user_id",v="",g=!1;try{var g=!!E&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),A="stapeUserId"===E,f=g&&!A?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:d},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(E,I,v):void 0;g=g&&(!!f||A)}catch(e){console.error(e)}var m=e,E=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),I="dataLayer"===n?"":"&l="+n,v=f?"&bi="+encodeURIComponent(f):"",A=t.createElement(r),e=g?"kp"+c:c,n=!g&&i?i:a;A.async=!0,A.src=n+"/"+e+".js?st="+o+I+v,null!=(f=E.parentNode)&&f.insertBefore(A,E)}();</script><script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0e2db013-d70a-4d36-8de6-2a0f9ee0bf7b"></script><link rel="icon" href="https://fitinn.at/wp-content/uploads/2017/12/favicon.png" sizes="32x32" /><link rel="icon" href="https://fitinn.at/wp-content/uploads/2017/12/favicon.png" sizes="192x192" /><link rel="apple-touch-icon" href="https://fitinn.at/wp-content/uploads/2017/12/favicon.png" /><meta name="msapplication-TileImage" content="https://fitinn.at/wp-content/uploads/2017/12/favicon.png" /></head><body class="wp-singular page-template-default page page-id-3717 wp-theme-genesis wp-child-theme-bootstrap-genesis-082 header-full-width full-width-content page-fitnessstudios-in-wien-2 lang-de" data-environment="PRODUCTION" itemscope itemtype="https://schema.org/WebPage"><a class="skip-to-main-content btn btn-large btn-danger" href="#main-content-container" tabindex="1">skip to main content</a><noscript><iframe src="https://load.stag.fitinn.at/ns.html?id=GTM-W63G2L5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div class="site-container"><header class="site-header container" itemscope itemtype="https://schema.org/WPHeader"><div class="title-area"></div></header><nav class="nav-primary " itemscope itemtype="https://schema.org/SiteNavigationElement"><ul id="menu-primary-navigation" class="menu genesis-nav-menu menu-primary container d-flex"><li id="menu-item-175" class="icon-studios menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a href="https://fitinn.at/mitgliedschaft/" itemprop="url"><span itemprop="name">Mitgliedschaft</span></a></li><li id="menu-item-176" class="icon-marker menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a href="https://fitinn.at/studios/" itemprop="url"><span itemprop="name">Fitness Studios</span></a></li><li id="menu-item-172" class="menu-item-logo menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-172"><a href="https://fitinn.at/" itemprop="url"><span itemprop="name">Startseite</span></a></li><li id="menu-item-14750" class="icon-blog menu-item menu-item-type-custom menu-item-object-custom menu-item-14750"><a href="https://karriere.fitinn.at" itemprop="url"><span itemprop="name">Karriere</span></a></li><li id="menu-item-14982" class="icon-fitinn_f menu-item menu-item-type-custom menu-item-object-custom menu-item-14982"><a href="https://my.fitinn.at/verwaltung/mein-studio" itemprop="url"><span itemprop="name">myFITINN</span></a></li><li id="menu-item-15283" class="btn menu-item menu-item-type-custom menu-item-object-custom menu-item-15283"><a href="https://registration-online.fitinn.at/" itemprop="url"><span itemprop="name">Jetzt Online Anmelden</span></a></li><li class="mobile-menu" id="toggle"><span class="top"></span><span class="middle"></span><span class="bottom"></span></li></ul></nav><div class="overlay-menu d-flex"><ul id="menu-primary-navigation-1" class="container d-flex container d-flex"><li class="icon-studios menu-item menu-item-type-post_type menu-item-object-page menu-item-175"><a href="https://fitinn.at/mitgliedschaft/" itemprop="url">Mitgliedschaft</a></li><li class="icon-marker menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a href="https://fitinn.at/studios/" itemprop="url">Fitness Studios</a></li><li class="menu-item-logo menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-172"><a href="https://fitinn.at/" itemprop="url">Startseite</a></li><li class="icon-blog menu-item menu-item-type-custom menu-item-object-custom menu-item-14750"><a href="https://karriere.fitinn.at" itemprop="url">Karriere</a></li><li class="icon-fitinn_f menu-item menu-item-type-custom menu-item-object-custom menu-item-14982"><a href="https://my.fitinn.at/verwaltung/mein-studio" itemprop="url">myFITINN</a></li><li class="btn menu-item menu-item-type-custom menu-item-object-custom menu-item-15283"><a href="https://registration-online.fitinn.at/" itemprop="url">Jetzt Online Anmelden</a></li><li class="mobile-menu" id="toggle"><span class="top"></span><span class="middle"></span><span class="bottom"></span></li></ul></div><div class="site-inner "><div class="content-sidebar-wrap "><main class="content " id="main-content-container"><article class="post-3717 page type-page status-publish entry" itemscope itemtype="https://schema.org/CreativeWork"><header ><section class="title-slider title-slider--niedrig title-slider--schraeg title-slider--negative-margin"><div class="swiper-container swiper-container-title"><div class="swiper-wrapper"><div class="lazyload swiper-slide swiper-slide-video" data-bg="https://fitinn.at/wp-content/uploads/2017/11/171122_image-hintergruende_3840x21605-1920x1080.jpg" style="background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20500%20300%22%3E%3C/svg%3E);"><div class="swiper-content"><div class="container"><div class="breadcrumbs"> <a href="https://fitinn.at/">Startseite</a> <span class="separator">/</span> <a href="https://fitinn.at/fitnessstudios-in-wien-2/" class="current">Fitnessstudios in Wien</a></div><h1> Für richtiges Training<br /> gibt es viele Adressen.</h1><h2>FITINN 30 Mal in Wien.</h2></div></div><div class="swiper-video"><video src="https://player.vimeo.com/external/289230805.hd.mp4?s=ac930ef926e0b2759c4f526ba8fea16c0dfb14c3&profile_id=175" muted autoplay playsinline preload loop></video></div></div></div></div> <script type="text/javascript">$(document).ready(function () {
+            // Youtube iFrame Api
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            var player;
+
+            var mySwiper = new Swiper ('.swiper-container-title', {
+                                loop: false,
+                                                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                                spaceBetween: 0,
+                speed: 700,
+                                effect: 'fade',
+                                                autoplay: {
+                                        delay: 8000,
+                                    },
+                            });
+            function startCurrentVideo() {
+                $(mySwiper.slides).find('video').each(function() {
+                    this.pause();
+                });
+                $(mySwiper.slides[mySwiper.activeIndex]).find('video').each(function() {
+                    this.play();
+                });
+            }
+            startCurrentVideo();
+            mySwiper.on('transitionEnd', startCurrentVideo);
+            // youtube in modal
+            $('.swiper-slide').find('a.btn-youtube').on('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var target = $(this).data('target');
+                $(target).appendTo("body");
+
+                $(target).modal('show');
+            });
+
+            $('.modal').each(function () {
+
+                $(this).on('shown.bs.modal', function () {
+
+                    var $iframe = $(this).find('iframe');
+                    var sFrameId = $iframe.parents('.modal').attr('id') + '_vid';
+
+
+                    if(!(typeof player != 'undefined' && typeof player.getIframe == "function" && $iframe.attr('id') == $(player.getIframe()).attr('id'))) {
+
+                        if($iframe.attr('src') === 'about:blank') {
+                            $iframe.attr('src', $iframe.attr('data-src'));
+                        }
+
+                        $iframe.attr('id', sFrameId);
+                        player = new YT.Player(sFrameId, {
+                            events: {
+                                'onReady': function (event) {
+                                    event.target.playVideo();
+                                }
+                            }
+                        });
+                    }
+                                        mySwiper.autoplay.stop();
+                    
+                });
+
+                $(this).on('hide.bs.modal', function () {
+
+                    if (typeof player != 'undefined' && typeof player.pauseVideo == 'function') {
+                        player.stopVideo();
+                    }
+                                        mySwiper.autoplay.start();
+                                    });
+            });
+        });</script> </section></header><div class="entry-content clearfix" itemprop="text"><section class="intro_text_und_links shadow"><div class="container"><div class="row"><div class="col-sm-8 intro_text_und_links__text"><div class="intro_text_und_links__text__inner"><h2>Die Hauptstadt für hartes Training.</h2><h3>In Wien ist ein FITINN Fitnessstudio immer in der Nähe.</h3><p class="middle-text">So viele Studios hat sonst niemand. Unsere 30 Fitnesscenter in ganz Wien sind perfekt gelegen, schnell zu erreichen und bieten dir beste Ausstattung für hartes und erfolgsversprechendes Fitnesstraining.</p><p class="middle-text">Erfahre auf diese Seite mehr über deine Workout-Möglichkeiten, Öffnungszeiten, Standorte und Preise von FITINN in der österreichischen Fitness-Hauptstadt.</p></div></div><div class="col-sm-4 intro_text_und_links__links"><ul><li> <a class="smooth" href="https://fitinn.at/fitnessstudios-in-wien-2/#wien"> Finde dein Studio </a></li><li> <a class="smooth" href="https://fitinn.at/fitnessstudios-in-wien-2/#vorteile"> Wiens stärkste Fitnessstudios </a></li><li> <a class="smooth" href="https://fitinn.at/fitnessstudios-in-wien-2/#ubahn"> Erreichbar mit der U-Bahn </a></li><li> <a class="smooth" href="https://fitinn.at/mitgliedschaft/"> Jetzt online anmelden </a></li></ul></div></div></div></section><section class="section-freitext"><div class="container"><div class="row"><div class="col-xs-12 section-freitext__inner"><h2 style="text-align: center;"><a id="wien"></a>Alle Wiener Studios im Überblick.</h2></div></div></div></section><section class="studio-map"><div class="studio-map__container container"><form id="searchForm"><div class="studio-map__search"><div class="studio-map__search__wrapper__location"> <input class="studio-map__search__location" type="text" placeholder="GIB DEINEN STANDORT EIN ..." /></div> <a class="btn studio-map__search__mylocation"></a> <input type="submit" class="studio-map__search__button" value="Studio finden" /></div></form><div class="studio-map__map-holder" id="gm-studio-overview"><div class="studio-map__map-holder__loader"> <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> <span class="sr-only">Loading...</span></div></div><div class="studio-map__bottom-nav"><div class="link-block link-block--opening-hours"> <span class="link-block__upper-text">Unsere Öffnungszeiten</span> <span class="link-block__main-text">täglich von 6 - 24 Uhr</span></div><div class="link-block link-block--white link-block--high"> <a href="https://fitinn.at/ueber-fitinn/"> <span class="link-block__upper-text">Training bei FITINN</span> <span class="link-block__main-text">4 starke Gründe</span> </a></div><div class="link-block link-block--white"> <a href="https://fitinn.at/?page_id=433"> <span class="link-block__upper-text">Gleich Mitglied werden</span> <span class="link-block__main-text">Online anmelden</span> </a></div></div></div> <script type="text/javascript">$(document).ready(function () {
+            var studios = [];
+                                        studios.push({
+                    title: "Villach, V-Center",
+                    link: "https://fitinn.at/fitnessstudios/villach-v-center/",
+                    linkLabel: "zum Studio",
+                    zip: "9500",
+                    position: {
+                        lat: parseFloat("46.603732"),
+                        lng: parseFloat("13.863108")
+                    }
+                });
+                                                    studios.push({
+                    title: "Klagenfurt, Schleppe Platz",
+                    link: "https://fitinn.at/fitnessstudios/klagenfurt-schleppe-platz/",
+                    linkLabel: "zum Studio",
+                    zip: "9020",
+                    position: {
+                        lat: parseFloat("46.641448"),
+                        lng: parseFloat("14.288111")
+                    }
+                });
+                                                    studios.push({
+                    title: "Klagenfurt, Südring",
+                    link: "https://fitinn.at/fitnessstudios/klagenfurt-suedring/",
+                    linkLabel: "zum Studio",
+                    zip: "9020",
+                    position: {
+                        lat: parseFloat("46.60759735107422"),
+                        lng: parseFloat("14.279128074645996")
+                    }
+                });
+                                                    studios.push({
+                    title: "ShoppingCity Seiersberg",
+                    link: "https://fitinn.at/fitnessstudios/shoppingcity-seiersberg/",
+                    linkLabel: "zum Studio",
+                    zip: "8055",
+                    position: {
+                        lat: parseFloat("47.011951"),
+                        lng: parseFloat("15.408908")
+                    }
+                });
+                                                    studios.push({
+                    title: "Graz, Hauptbahnhof",
+                    link: "https://fitinn.at/fitnessstudios/graz-hauptbahnhof/",
+                    linkLabel: "zum Studio",
+                    zip: "8020",
+                    position: {
+                        lat: parseFloat("47.072810"),
+                        lng: parseFloat("15.417260")
+                    }
+                });
+                                                    studios.push({
+                    title: "Graz, Liebenau",
+                    link: "https://fitinn.at/fitnessstudios/graz-liebenau/",
+                    linkLabel: "zum Studio",
+                    zip: "8041",
+                    position: {
+                        lat: parseFloat("47.045856"),
+                        lng: parseFloat("15.455684")
+                    }
+                });
+                                                    studios.push({
+                    title: "Graz, Steirerhof-Jakominiplatz",
+                    link: "https://fitinn.at/fitnessstudios/graz-steirerhof-jakominiplatz/",
+                    linkLabel: "zum Studio",
+                    zip: "8010",
+                    position: {
+                        lat: parseFloat("47.067448"),
+                        lng: parseFloat("15.443893")
+                    }
+                });
+                                                    studios.push({
+                    title: "Feldkirch",
+                    link: "https://fitinn.at/fitnessstudios/feldkirch/",
+                    linkLabel: "zum Studio",
+                    zip: "6800",
+                    position: {
+                        lat: parseFloat("47.267280"),
+                        lng: parseFloat("9.614760")
+                    }
+                });
+                                                    studios.push({
+                    title: "Bludenz-Bürs",
+                    link: "https://fitinn.at/fitnessstudios/bludenz-buers/",
+                    linkLabel: "zum Studio",
+                    zip: "6706",
+                    position: {
+                        lat: parseFloat("47.152120"),
+                        lng: parseFloat("9.808910")
+                    }
+                });
+                                                    studios.push({
+                    title: "Dornbirn",
+                    link: "https://fitinn.at/fitnessstudios/dornbirn/",
+                    linkLabel: "zum Studio",
+                    zip: "6850",
+                    position: {
+                        lat: parseFloat("47.429100"),
+                        lng: parseFloat("9.739360")
+                    }
+                });
+                                                    studios.push({
+                    title: "Innsbruck, Einkaufszentrum west",
+                    link: "https://fitinn.at/fitnessstudios/innsbruck-ekz-west/",
+                    linkLabel: "zum Studio",
+                    zip: "6020",
+                    position: {
+                        lat: parseFloat("47.264561"),
+                        lng: parseFloat("11.374347")
+                    }
+                });
+                                                    studios.push({
+                    title: "Innsbruck, Hunoldstraße",
+                    link: "https://fitinn.at/fitnessstudios/innsbruck-hunoldstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "6020",
+                    position: {
+                        lat: parseFloat("47.263252"),
+                        lng: parseFloat("11.405984")
+                    }
+                });
+                                                    studios.push({
+                    title: "Innsbruck, Greif Center",
+                    link: "https://fitinn.at/fitnessstudios/innsbruck-greif-center/",
+                    linkLabel: "zum Studio",
+                    zip: "6020",
+                    position: {
+                        lat: parseFloat("47.265037969019836"),
+                        lng: parseFloat("11.427427426139486")
+                    }
+                });
+                                                    studios.push({
+                    title: "Salzburg, Hauptbahnhof",
+                    link: "https://fitinn.at/fitnessstudios/salzburg-hauptbahnhof/",
+                    linkLabel: "zum Studio",
+                    zip: "5020",
+                    position: {
+                        lat: parseFloat("47.811743"),
+                        lng: parseFloat("13.043998")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wels, Shoppingcity Wels/SCW",
+                    link: "https://fitinn.at/fitnessstudios/wels-shoppingcity-welsscw/",
+                    linkLabel: "zum Studio",
+                    zip: "4600",
+                    position: {
+                        lat: parseFloat("48.143863"),
+                        lng: parseFloat("13.973205")
+                    }
+                });
+                                                    studios.push({
+                    title: "Pasching, PlusCity",
+                    link: "https://fitinn.at/fitnessstudios/pasching-pluscity/",
+                    linkLabel: "zum Studio",
+                    zip: "4061",
+                    position: {
+                        lat: parseFloat("48.242972"),
+                        lng: parseFloat("14.235539")
+                    }
+                });
+                                                    studios.push({
+                    title: "Linz, Bulgariplatz",
+                    link: "https://fitinn.at/fitnessstudios/linz-bulgariplatz/",
+                    linkLabel: "zum Studio",
+                    zip: "4020",
+                    position: {
+                        lat: parseFloat("48.28474"),
+                        lng: parseFloat("14.30235")
+                    }
+                });
+                                                    studios.push({
+                    title: "Linz, Urfahr",
+                    link: "https://fitinn.at/fitnessstudios/linz-urfahr/",
+                    linkLabel: "zum Studio",
+                    zip: "4040",
+                    position: {
+                        lat: parseFloat("48.310661"),
+                        lng: parseFloat("14.283516")
+                    }
+                });
+                                                    studios.push({
+                    title: "Linz, Infra Center",
+                    link: "https://fitinn.at/fitnessstudios/linz-infra-center/",
+                    linkLabel: "zum Studio",
+                    zip: "4020",
+                    position: {
+                        lat: parseFloat("48.253961"),
+                        lng: parseFloat("14.279822")
+                    }
+                });
+                                                    studios.push({
+                    title: "Linz, Rainerstraße",
+                    link: "https://fitinn.at/fitnessstudios/linz-rainerstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "4020",
+                    position: {
+                        lat: parseFloat("48.29784"),
+                        lng: parseFloat("14.29030")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wiener Neustadt, FMZ Nord",
+                    link: "https://fitinn.at/fitnessstudios/wiener-neustadt-fmz-nord/",
+                    linkLabel: "zum Studio",
+                    zip: "2700",
+                    position: {
+                        lat: parseFloat("47.844811"),
+                        lng: parseFloat("16.245239")
+                    }
+                });
+                                                    studios.push({
+                    title: "St. Pölten, Traisencenter",
+                    link: "https://fitinn.at/fitnessstudios/st-poelten-traisencenter/",
+                    linkLabel: "zum Studio",
+                    zip: "3107",
+                    position: {
+                        lat: parseFloat("48.221130"),
+                        lng: parseFloat("15.639050")
+                    }
+                });
+                                                    studios.push({
+                    title: "St. Pölten, Mariazellerstrasse",
+                    link: "https://fitinn.at/fitnessstudios/st-poelten-mariazellerstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "3100",
+                    position: {
+                        lat: parseFloat("48.19098"),
+                        lng: parseFloat("15.61952")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wiener Neudorf, SCS",
+                    link: "https://fitinn.at/fitnessstudios/wiener-neudorf-scs/",
+                    linkLabel: "zum Studio",
+                    zip: "2351",
+                    position: {
+                        lat: parseFloat("48.104679"),
+                        lng: parseFloat("16.317585")
+                    }
+                });
+                                                    studios.push({
+                    title: "Schwechat, Einkaufszentrum",
+                    link: "https://fitinn.at/fitnessstudios/schwechat-einkaufszentrum/",
+                    linkLabel: "zum Studio",
+                    zip: "2320",
+                    position: {
+                        lat: parseFloat("48.143286"),
+                        lng: parseFloat("16.475273")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 23, Alterlaa",
+                    link: "https://fitinn.at/fitnessstudios/wien-23-alterlaa/",
+                    linkLabel: "zum Studio",
+                    zip: "1230",
+                    position: {
+                        lat: parseFloat("48.153241"),
+                        lng: parseFloat("16.318272")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 22, Gewerbepark Stadlau",
+                    link: "https://fitinn.at/fitnessstudios/wien-22-gewerbepark-stadlau/",
+                    linkLabel: "zum Studio",
+                    zip: "1220",
+                    position: {
+                        lat: parseFloat("48.250112"),
+                        lng: parseFloat("16.469039")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 22, K1 Kagraner Platz",
+                    link: "https://fitinn.at/fitnessstudios/wien-22-k1-kagraner-platz/",
+                    linkLabel: "zum Studio",
+                    zip: "1220",
+                    position: {
+                        lat: parseFloat("48.250142"),
+                        lng: parseFloat("16.443843")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 22, Donau Zentrum",
+                    link: "https://fitinn.at/fitnessstudios/wien-22-donau-zentrum/",
+                    linkLabel: "zum Studio",
+                    zip: "1220",
+                    position: {
+                        lat: parseFloat("48.243337"),
+                        lng: parseFloat("16.434631")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 21, SCN",
+                    link: "https://fitinn.at/fitnessstudios/wien-21-scn/",
+                    linkLabel: "zum Studio",
+                    zip: "1210",
+                    position: {
+                        lat: parseFloat("48.268464"),
+                        lng: parseFloat("16.398481")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 21, Floridsdorf",
+                    link: "https://fitinn.at/fitnessstudios/wien-21-floridsdorf/",
+                    linkLabel: "zum Studio",
+                    zip: "1210",
+                    position: {
+                        lat: parseFloat("48.256555"),
+                        lng: parseFloat("16.398464")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 20, Handelskai",
+                    link: "https://fitinn.at/fitnessstudios/wien-20-handelskai/",
+                    linkLabel: "zum Studio",
+                    zip: "1200",
+                    position: {
+                        lat: parseFloat("48.23894177882374"),
+                        lng: parseFloat("16.38774837279805")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 19, Q19",
+                    link: "https://fitinn.at/fitnessstudios/wien-19-q19/",
+                    linkLabel: "zum Studio",
+                    zip: "1190",
+                    position: {
+                        lat: parseFloat("48.25344"),
+                        lng: parseFloat("16.36770")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 17, Ottakringer Straße",
+                    link: "https://fitinn.at/fitnessstudios/wien-17-ottakringer-strasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1170",
+                    position: {
+                        lat: parseFloat("48.214183"),
+                        lng: parseFloat("16.330494")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 16, Kendlerstrasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-16-kendlerstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1160",
+                    position: {
+                        lat: parseFloat("48.205746"),
+                        lng: parseFloat("16.309420")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 15, Meiselmarkt",
+                    link: "https://fitinn.at/fitnessstudios/wien-15-meiselmarkt/",
+                    linkLabel: "zum Studio",
+                    zip: "1150",
+                    position: {
+                        lat: parseFloat("48.19901"),
+                        lng: parseFloat("16.31970")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 15, Johnstraße",
+                    link: "https://fitinn.at/fitnessstudios/wien-15-johnstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1150",
+                    position: {
+                        lat: parseFloat("48.198706"),
+                        lng: parseFloat("16.318699")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 14, Hütteldorf",
+                    link: "https://fitinn.at/fitnessstudios/wien-14-huetteldorf/",
+                    linkLabel: "zum Studio",
+                    zip: "1140",
+                    position: {
+                        lat: parseFloat("48.195801"),
+                        lng: parseFloat("16.265427")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 12, U4 Center",
+                    link: "https://fitinn.at/fitnessstudios/wien-12-u4-center/",
+                    linkLabel: "zum Studio",
+                    zip: "1120",
+                    position: {
+                        lat: parseFloat("48.183310"),
+                        lng: parseFloat("16.327647")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 12, Sagedergasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-12-sagedergasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1120",
+                    position: {
+                        lat: parseFloat("48.162076"),
+                        lng: parseFloat("16.319417")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 12, Edelsinnstraße",
+                    link: "https://fitinn.at/fitnessstudios/wien-12-edelsinnstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1120",
+                    position: {
+                        lat: parseFloat("48.174240"),
+                        lng: parseFloat("16.328966")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 11, Gasometer",
+                    link: "https://fitinn.at/fitnessstudios/wien-11-gasometer/",
+                    linkLabel: "zum Studio",
+                    zip: "1110",
+                    position: {
+                        lat: parseFloat("48.184640"),
+                        lng: parseFloat("16.421536")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 10, Favoritenstraße",
+                    link: "https://fitinn.at/fitnessstudios/wien-10-favoritenstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1100",
+                    position: {
+                        lat: parseFloat("48.181560"),
+                        lng: parseFloat("16.374980")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 10, Keplerplatz",
+                    link: "https://fitinn.at/fitnessstudios/wien-10-keplerplatz/",
+                    linkLabel: "zum Studio",
+                    zip: "1100",
+                    position: {
+                        lat: parseFloat("48.178454"),
+                        lng: parseFloat("16.376706")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 10, Ada-Christen-Gasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-10-ada-christen-gasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1100",
+                    position: {
+                        lat: parseFloat("48.147907"),
+                        lng: parseFloat("16.383351")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 9, Alser Strasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-9-alser-strasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1090",
+                    position: {
+                        lat: parseFloat("48.21569"),
+                        lng: parseFloat("16.34692")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 9, Friedensbrücke",
+                    link: "https://fitinn.at/fitnessstudios/wien-9-friedensbruecke/",
+                    linkLabel: "zum Studio",
+                    zip: "1090",
+                    position: {
+                        lat: parseFloat("48.226674"),
+                        lng: parseFloat("16.364783")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 7, Gerngross",
+                    link: "https://fitinn.at/fitnessstudios/wien-7-gerngross/",
+                    linkLabel: "zum Studio",
+                    zip: "1070",
+                    position: {
+                        lat: parseFloat("48.199707"),
+                        lng: parseFloat("16.353374")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 7, Mariahilfer Strasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-7-mariahilferstrasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1070",
+                    position: {
+                        lat: parseFloat("48.19645"),
+                        lng: parseFloat("16.34131")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 6, Hofmühlgasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-6-hofmuehlgasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1060",
+                    position: {
+                        lat: parseFloat("48.193055"),
+                        lng: parseFloat("16.353062")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 5, Hartmanngasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-5-hartmanngasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1050",
+                    position: {
+                        lat: parseFloat("48.187506"),
+                        lng: parseFloat("16.363516")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 3, Wien-Mitte",
+                    link: "https://fitinn.at/fitnessstudios/wien-3-wien-mitte/",
+                    linkLabel: "zum Studio",
+                    zip: "1030",
+                    position: {
+                        lat: parseFloat("48.206436"),
+                        lng: parseFloat("16.385823")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 3, Dietrichgasse",
+                    link: "https://fitinn.at/fitnessstudios/wien-3-dietrichgasse/",
+                    linkLabel: "zum Studio",
+                    zip: "1030",
+                    position: {
+                        lat: parseFloat("48.200179"),
+                        lng: parseFloat("16.402591")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 2, Stadion Center",
+                    link: "https://fitinn.at/fitnessstudios/wien-2-stadion-center/",
+                    linkLabel: "zum Studio",
+                    zip: "1020",
+                    position: {
+                        lat: parseFloat("48.209261"),
+                        lng: parseFloat("16.423734")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 1, Rathausplatz",
+                    link: "https://fitinn.at/fitnessstudios/wien-1-rathausplatz/",
+                    linkLabel: "zum Studio",
+                    zip: "1010",
+                    position: {
+                        lat: parseFloat("48.211752"),
+                        lng: parseFloat("16.358344")
+                    }
+                });
+                                                    studios.push({
+                    title: "Wien 1, Schwedenplatz",
+                    link: "https://fitinn.at/fitnessstudios/wien-1-schwedenplatz/",
+                    linkLabel: "zum Studio",
+                    zip: "1010",
+                    position: {
+                        lat: parseFloat("48.21104147955093"),
+                        lng: parseFloat("16.378466426691325")
+                    }
+                });
+                        
+            var studioMap = new StudioMap({
+                studios: studios,
+                extraZipCluster: ['1010','1100','1110','1120','1150','1160','1170','1190','1020','1210','1220','1030','1050','1060','1090'],
+                themeLink: 'https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2',
+
+                                center: {lat: 48.214852, lng: 16.368844},
+                zoom: 12,
+                            });
+        });</script> <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9DtbsU7QoSU6ksN8osFU8D1oDfggJaNQ&libraries=geometry,places"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js"></script> <script src="https://cdn.jsdelivr.net/gh/googlemaps/v3-utility-library@infobox/1.1.13/src/infobox_packed.js"></script> </section><section class="section-freitext"><div class="container"><div class="row"><div class="col-xs-12 section-freitext__inner"><h2 class="h1" style="text-align: center;"><a id="vorteile"></a>Wiens stärkste Fitnessstudios &#8211; überall in der Stadt.</h2></div></div></div></section><section class="section-text_und_bild"><div class="container"><div class="row"><div class="col-md-5 col-md-push-7 section-text_und_bild__bild"><noscript><img src="https://fitinn.at/wp-content/uploads/2017/12/stadioncenter-5.jpg" alt=""></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' class="lazyload" data-src="https://fitinn.at/wp-content/uploads/2017/12/stadioncenter-5.jpg" alt=""></div><div class="col-md-7 col-md-pull-5"><h3>Training an Top-Locations und bei extra langen Öffnungszeiten.</h3><p>Unsere Studios liegen an den besten Plätzen Wiens. Vom Rathausplatz bis Wien-Mitte, alle Fitness Center sind extrem einfach zu erreichen. Viele Wiener Filialen haben <a href="#ubahn">eine U-Bahn-Station direkt vor der Nase</a>. Die meisten liegen an gut frequentierten Orten, die du auch mit dem Auto problemlos erreichen kannst.</p><p>Training am Abend, am Morgen oder am Wochenende &#8211; kein Problem bei FITINN. Die extra langen Öffnungszeiten gelten von Montag bis Sonntag, auch an Feiertagen. Wir haben immer von 6 bis 24 Uhr geöffnet. Selbst ein Probetraining ist im Fitnessstudios in Wien immer möglich.</p></div></div></div></section><section class="section-text_und_bild"><div class="container"><div class="row"><div class="col-md-5 section-text_und_bild__bild"><noscript><img src="https://fitinn.at/wp-content/uploads/2018/02/fitinn_studio_dietrichgasse_wien3_6-445x297.jpg" alt=""></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' class="lazyload" data-src="https://fitinn.at/wp-content/uploads/2018/02/fitinn_studio_dietrichgasse_wien3_6-445x297.jpg" alt=""></div><div class="col-md-7"><h3>Nur das Beste für die Besten.</h3><p>Die Ausstattung unserer Studios spielt alle Stückerl: Wir vertrauen bei der Planung, Gestaltung und Einrichtung nur den Besten. Die Cardiogeräte kommen vom weltweit bekannten Produzenten Precor und die Kraftgeräte werden in Deutschland bei gym80 hergestellt, einem Unternehmen das seit vielen Jahr die absolute Nummer 1 in Europa ist.</p><p>Doch mit unserem Angebot bleiben wir nicht stehen. Laufend investieren wir in neue und bestehende Studios in der ganzen Stadt. Weitere Eröffnungen in allen Wiener Bezirken sind geplant und auch schon eröffnete Fitnesscenter bekommen ständig Upgrades, zusätzliche und neue Geräte bzw. werden großzügig umgebaut. Bei Neueröffnungen und Umbauten setzen wir klarerweise auf die <a href="https://fitinn.at/next-generation/">neue Studio-Generation von FITINN</a>.</p></div></div></div></section><section class="section-text_und_bild"><div class="container"><div class="row"><div class="col-md-5 col-md-push-7 section-text_und_bild__bild"><noscript><img src="https://fitinn.at/wp-content/uploads/2017/11/scn-16-1-445x297.jpg" alt=""></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' class="lazyload" data-src="https://fitinn.at/wp-content/uploads/2017/11/scn-16-1-445x297.jpg" alt=""></div><div class="col-md-7 col-md-pull-5"><h3>Functional Training &amp; eigener Damenbereich in allen Clubs.</h3><p>Funktionelles Training sollte in jeden Trainingsplan gehören. Denn bei diesen Übungen trainierst du niemals eine Muskelgruppe isoliert, sondern mehrere Muskel gleichzeitig. Das macht Functional Training so beliebt und auch erfolgsversprechend. Du findest in immer mehr der Wiener FITINN Studios riesige Bereiche dafür.</p><p>Der <a href="https://fitinn.at/frauen-bei-fitinn/">eigene Damenbereich</a> gehört bei FITINN von Anfang an einfach dazu. In allen unseren Fitnesscentern gibt es den separaten Bereichen nur für Ladies, mit Geräten die ganz gezielt auf eure Bedürfnisse abgestimmt sind. Das macht ganz Wien einfach stärker!</p></div></div></div></section><section class="section-text_und_bild"><div class="container"><div class="row"><div class="col-md-5 section-text_und_bild__bild"><noscript><img src="https://fitinn.at/wp-content/uploads/2018/03/fitinn_damenbereich_trainer-445x223.jpg" alt=""></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' class="lazyload" data-src="https://fitinn.at/wp-content/uploads/2018/03/fitinn_damenbereich_trainer-445x223.jpg" alt=""></div><div class="col-md-7"><h3>Personal Trainer, Trinkbar, Solarium &#8211; mehr Angebote!</h3><p>Unsere Philosophie lautet, dass Training für jede und jeden leistbar sein muss. Fitnessstudio in Wien zum kleinen Preis: Ab € 29,90 monatlich ist die Mitgliedschaft besonders günstig. Mit diesem Standard-Preis bekommst du alles, was du brauchst.</p><p>Brauchst du mehr Unterstützung oder zusätzliche Leistungen bekommst du diese zum besten Preis-Leistungs-Verhältnis. An der Trinkbar kannst du dich mit der Flatrate besonders günstig erfrischen und Sonnenliegen stehen in unseren Solarienbereichen ebenfalls zur Verfügung.</p></div></div></div></section><section class="section-text_und_bild"><div class="container"><div class="row"><div class="col-md-5 col-md-push-7 section-text_und_bild__bild"><noscript><img src="https://fitinn.at/wp-content/uploads/2017/12/hartmanngasse-16.jpg" alt=""></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' class="lazyload" data-src="https://fitinn.at/wp-content/uploads/2017/12/hartmanngasse-16.jpg" alt=""></div><div class="col-md-7 col-md-pull-5"><h3>FITINN unverbindlich ausprobieren.</h3><p>Bist du auf der Suche nach einem Gutschein, einem Probetraining oder speziellen Angeboten &#8211; schau einfach hier vorbei, vielleicht läuft gerade eine passende Aktion in einem unserer Wiener Fitnessstudios:</p><p><span class="btn-wrapper"><a href="https://fitinn.at/mitgliedschaft/">zu den Aktionen</a></span></p><p>&nbsp;</p><p>Mit der Tageskarte kannst du einen Tag lang während der gesamten Öffnungszeiten alle FITINN Studios in Wien und darüber hinaus ausprobieren &#8211; du kaufst sie direkt an der Rezeption bei unserem Team. Entscheidest du dich innerhalb einer Woche für ein Fitnessabo, bekommst du den Kaufpreis gutgeschrieben.</p></div></div></div></section><section id="anchor_9" class="lazyload section-bildbox small-padding" data-bg="https://fitinn.at/wp-content/uploads/2018/04/hintergrund_gelb_yellow-1920x1080.jpg" style="background-image: url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20500%20300%22%3E%3C/svg%3E)"><div class="container"><div class="row d-flex row-safari-fix"><div class="highlight-item__text col-sm-8"><h2 style="color: #000000;">Training bei FITINN in den Wiener Bezirken</h2><p><span style="color: #000000;"><strong>1. BEZIRK</strong> (Innere Stadt): Einmaliges Ambiente an der Top-Location <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-1-rathausplatz/">Rathausplatz 2</a>, mit Blick auf das Büro des Wiener Bürgermeisters (<a style="color: #000000; text-decoration: underline;" href="#3dtour">jetzt virtuellen Rundgang starten</a>).</span></p><p><span style="color: #000000;"><strong>2. BEZIRK</strong> (Leopoldstadt): Shoppen und Trainieren im <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-2-stadion-center/">Stadion Center</a> gleich beim Ernst-Happel-Stadion.</span></p><p><span style="color: #000000;"><strong>3. BEZIRK</strong> (Landstraße): Von den Öffis wie S-Bahn und U-Bahn direkt umsteigen zum Workout in <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-3-wien-mitte/">WIEN-MITTE</a> (dem großen Einkaufszentrum beim Bahnhof Wien-Landstraße) oder ganz neu in der <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-3-dietrichgasse/">Dietrichgasse 25</a>, nur 5 Minuten vom Kardinal-Nagl-Platz entfernt mit kostenlosen Parkplätzen (erreichbar über die Erdberger Lände).</span></p><p><span style="color: #000000;"><strong>5. BEZIRK</strong> (Margareten): Super-zentral gelegen in der <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-5-hartmanngasse/">Hartmanngasse 1</a> für alle Wienerinnen und Wiener aus dem vierten und fünften Bezirk.</span></p><p><span style="color: #000000;"><strong>6. BEZIRK</strong> (Mariahilf): Nur 2 Minuten von der U4-Station Pilgramgasse entfernt ist das Studio <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-6-hofmuehlgasse/">Hofmühlgasse 3-5</a> mit fast 1.800 Quadratmetern das größte unserer Studios.</span></p><p><span style="color: #000000;"><strong>9. BEZIRK</strong> (Alsergrund): Direkt am Donaukanal in der Roßauer Lände 47-49 liegt das Fitness Center <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-9-friedensbruecke/">Friedensbrücke</a> (gegenüber von der gleichnamigen U4-Station).</span></p><p><span style="color: #000000;"><strong>10. BEZIRK</strong> (Favoriten): Ausdauersport und Krafttraining immer in deiner Nähe, entweder am <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-10-keplerplatz/">Keplerplatz 14</a> (in der Fußgängerzone Favoritenstraße) oder ab sofort auch in der <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-10-ada-christen-gasse/">Ada-Christen-Gasse 12</a> (Nähe Hansson-Zentrum bzw. wenige Minuten von der U1-Station &#8222;Neulaa&#8220; entfernt) &#8211; dort wo früher bereits eines unserer Fitnesscenter zu finden war, ist ein neuer Fitnesstempel entstanden.</span></p><p><span style="color: #000000;"><strong>11. BEZIRK</strong> (Simmering): Der Gasometer ist nicht nur Kino-, Shopping-, Konzert- und Wohntempel sondern mit dem eigenen FITINN Studio auch Fitnesstempel (unser Studio findest du im <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-11-gasometer/">Gasometer D</a>).</span></p><p><span style="color: #000000;"><strong>12. BEZIRK</strong> (Meidling): Keiner der 23 Wiener Bezirke ist stärker als der Zwölfte mit gleich 3 Studios &#8211; <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-12-edelsinnstrasse/">Edelsinnstraße 4</a> bei der Philadelphiabrücke und dem Bahnhof Meidling (jetzt mehr Trainingsgeräte als je zuvor), <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-12-u4-center/">U4 Center</a> bei der U4-Station Meidling Hauptstraße sowie in der <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-12-sagedergasse/">Sagedergasse 18-22</a> (für alle Pendler direkt an der Altmannsdorfer Straße gelegen).</span></p><p><span style="color: #000000;"><strong>14. BEZIRK</strong> (Penzing): Beim Park&amp;Ride <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-14-huetteldorf/">Hütteldorf</a> findest du das mit Abstand größte FITINN Fitness Studio mit vielen starken Neuerungen und bisher noch unbekannten Trainingsmöglichkeiten. Geöffnet seit 15. Jänner 2019!</span></p><p><span style="color: #000000;"><strong>15. BEZIRK</strong> (Rudolfsheim-Fünfhaus): Das FITINN <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-15-johnstrasse/">Johnstraße</a> beim Meiselmarkt ist nicht zu übersehen und sorgt seit vielen Jahren für ein fittes Wien &#8211; es ist auch unser allererstes Studio in Wien.</span></p><p><span style="color: #000000;"><strong>16. BEZIRK</strong> (Ottakring): Von der U3-Station sind es nur 39 Stufen bis direkt vor die Tür des Studios in der <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-16-kendlerstrasse/">Kendlerstraße.</a></span></p><p><span style="color: #000000;"><strong>17. BEZIRK</strong> (Hernals): Ziemlich genau in der Mitte der <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-17-ottakringer-strasse/">Ottakringer Straße</a> liegt dieses Studio, im Erdgeschoß eines großen Wohnhauses.</span></p><p><span style="color: #000000;"><strong>19. BEZIRK</strong> (Döbling): 5 Minuten vom Bahnhof <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/?post_type=fitnessstudios&#038;p=255">Heiligenstadt</a> (S-Bahn, U4) entfernt &#8211; mit großer Performance Zone, eigenem Damenbereich und hellem, offenen Cardiobereich.</span></p><p><span style="color: #000000;"><strong>21. BEZIRK</strong> (Floridsdorf): Ein Autofahrer-Studio im <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-21-scn/">Shopping Center Nord</a> (dem SCN) an der A22 und ein zweites Studio für alle Öffi-Fahrer am <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-21-floridsdorf/">Franz-Jonas-Platz</a> (S-Bahn, U-Bahn, Busse, Straßenbahnen &#8211; Station &#8222;Floridsdorf&#8220;)</span></p><p><span style="color: #000000;"><strong>22. BEZIRK</strong> (Donaustadt): Im größten Wiener Gemeindebezirk findest du ab sofort drei Filialen &#8211; und zwar im <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-22-k1-kagraner-platz/">K1-Einkaufszentrum am Kagraner Platz</a> (mit direkter U1-Anbindung), im <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-22-gewerbepark-stadlau/">Gewerbepark Stadlau</a> an der S4 (gratis Parkplätze!) und endlich auch im <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-22-donau-zentrum/">Donau Zentrum</a> (gleich bei der U1 Kagran mit vielen starken Shopping-Möglichkeiten im Einkaufszentrum).</span></p><p><span style="color: #000000;"><strong>23. BEZIRK</strong> (Liesing): Der neueste Wiener Bezirk musste etwas warten, doch das Warten hat sich gelohnt. Du trainierst ab sofort bei FITINN im Center <a style="color: #000000; text-decoration: underline;" href="https://fitinn.at/fitnessstudios/wien-23-alterlaa/">Alterlaa</a>, direkt bei der gleichnamigen U6 Station &#8211; natürlich ein Fitness Center der neuesten Studio-Generation.</span></p></div></div></div></section><section id="anchor_10" class="lazyload section-bildbox " data-bg="https://fitinn.at/wp-content/uploads/2018/09/rathausplatz_aussen_black-1800x1080.jpg" style="background-image: url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20500%20300%22%3E%3C/svg%3E)"><div class="container"><div class="row d-flex row-safari-fix"><div class="highlight-item col-md-offset-2 col-md-8 col-lg-6 col-lg-offset-0"><div class="highlight-item__inner d-flex highlight-item__inner-yellow"><div class="highlight-item__content-left "><h3>Fitnessstudio Wien</h3><div class="amount"> <span class="amount-euro">30</span><div class="amount-icon"> <span class="icon-multiply"></span></div></div></div><div class="highlight-item__content-right"><div class="highlight-item__content-right-inner"><p class="highlight-item__teasertext">Mitglied bei Wiens Nummer 1 werden</p> <a href="https://fitinn.at/?page_id=433" class="btn" title="Fitnessstudio Wien">Jetzt online anmelden</a></div></div></div></div></div></div></section><section id="anchor_11" class="lazyload section-bildbox small-padding" data-bg="https://fitinn.at/wp-content/uploads/2017/11/171122_image-hintergruende_3840x21604-1920x1080.jpg" style="background-image: url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20500%20300%22%3E%3C/svg%3E)"><div class="container"><div class="row d-flex row-safari-fix"><div class="highlight-item__text col-sm-8"><h2 style="text-align: left;">Unsere Stärken als Nummer 1 Fitnessstudio in Wien:</h2><ul><li><strong>modernste Geräte</strong> für Ausdauertraining und Kraft &#8211; Workout auf Maschinen von Precor &amp; gym80</li><li><strong>Frauenfitness im Fitnessstudio</strong> &#8211; zusätzlicher, eigener Damenbereich in allen Fitnesscenters</li><li><strong>Performance Zone</strong> &#8211; funktionelles Training mit dem eigenen Körpergewicht, jetzt in immer mehr Studios im Angebot</li><li><strong>Interaktive Trainings-Unterstützung</strong> &#8211; Workout-Videos und interaktiver Studioguide auf großen Touchscreens und über QR-Codes direkt auf deinem Handy (gratis WLAN in allen Studios)</li><li><strong>30 Studios in ganz Wien</strong> &#8211; gut erreichbar und täglich von 6 bis 24 Uhr geöffnet, auch am Wochenende</li></ul><p>&nbsp;</p><p><span class="btn-wrapper"><a href="https://fitinn.at/?page_id=433">Jetzt online anmelden</a></span></p></div></div></div></section></div></article></main></div></div><div class="social-widget-area"><div class="social-widget-area-inner container clearfix"><section id="nav_menu-7" class="widget widget_nav_menu"><div class="widget-wrap"><div class="menu-footer-socialmedia-container"><ul id="menu-footer-socialmedia" class="menu"><li id="menu-item-108" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-108"><a target="_blank" href="http://www.facebook.com/fitinn.at" itemprop="url">Facebook</a></li><li id="menu-item-12252" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12252"><a href="https://www.tiktok.com/@fitinn.com" itemprop="url">TIKTOK</a></li><li id="menu-item-109" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-109"><a target="_blank" href="http://www.instagram.com/fitinn.at" itemprop="url">Instagram</a></li><li id="menu-item-110" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110"><a target="_blank" href="http://www.youtube.com/fitinntv" itemprop="url">Youtube</a></li><li id="menu-item-911" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-911"><a target="_blank" href="https://open.spotify.com/user/fitinn_at" itemprop="url">Spotify</a></li></ul></div></div></section></div></div><div class="footer-widget-area"><div class="footer-widget-area-inner container clearfix"><div class="row"><div class="col-sm-3 col-md-5"><noscript><img src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/logo.svg" alt="Fitinn Logo" class="hidden-xs"></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/logo.svg" alt="Fitinn Logo" class="lazyload hidden-xs"><div class="footer-promotion desktop"><noscript><img src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_pl.svg" alt="Branchen Champion 1. Platz Preis-Leistungs Verhältnis" class="footer-promotion"></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_pl.svg" alt="Branchen Champion 1. Platz Preis-Leistungs Verhältnis" class="lazyload footer-promotion"><noscript><img src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_kuz.svg" alt="Branchen Champion 1. Platz Kundenzufriedenheit" class="footer-promotion"></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_kuz.svg" alt="Branchen Champion 1. Platz Kundenzufriedenheit" class="lazyload footer-promotion"><noscript><img src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_markttest_sieger.png" alt="Markttest Testsieger Gesamtwertung 2026" class="footer-promotion"></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_markttest_sieger.png" alt="Markttest Testsieger Gesamtwertung 2026" class="lazyload footer-promotion"></div></div><div class="footer-widget-area-1 widget-area col-sm-3 col-md-3"><section id="nav_menu-2" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">Allgemein</h4><div class="menu-footer-allgemein-container"><ul id="menu-footer-allgemein" class="menu"><li id="menu-item-3251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3251"><a href="https://fitinn.at/ueber-fitinn/" itemprop="url">ÜBER UNS</a></li><li id="menu-item-3277" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3277"><a href="https://fitinn.at/frauen-bei-fitinn/" itemprop="url">Frauen bei FITINN</a></li><li id="menu-item-13282" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13282"><a href="https://fitinn.at/personal-training-bei-fitinn/" itemprop="url">Personal Training</a></li><li id="menu-item-13911" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13911"><a href="https://karriere.fitinn.at" itemprop="url">Karriere bei FITINN</a></li><li id="menu-item-15400" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15400"><a href="https://help.fitinn.com/hc/de-at/requests/new" itemprop="url">Kontakt</a></li><li id="menu-item-15405" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15405"><a href="https://help.fitinn.com/hc/de-at" itemprop="url">FAQ</a></li></ul></div></div></section></div><div class="footer-widget-area-2 widget-area clearfix col-sm-3 col-md-2"><section id="nav_menu-3" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">Rechtliches</h4><div class="menu-footer-rechtliches-container"><ul id="menu-footer-rechtliches" class="menu"><li id="menu-item-129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-129"><a href="https://fitinn.at/impressum/" itemprop="url">Impressum</a></li><li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-128"><a href="https://fitinn.at/datenschutz/" itemprop="url">Datenschutz</a></li><li id="menu-item-127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-127"><a href="https://fitinn.at/agb/" itemprop="url">AGB</a></li></ul></div></div></section></div><div class="footer-widget-area-3 widget-area clearfix col-sm-3 col-md-2"><section id="nav_menu-4" class="widget widget_nav_menu"><div class="widget-wrap"><h4 class="widget-title widgettitle">Social Media</h4><div class="menu-footer-socialmedia-container"><ul id="menu-footer-socialmedia-1" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-108"><a target="_blank" href="http://www.facebook.com/fitinn.at" itemprop="url">Facebook</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12252"><a href="https://www.tiktok.com/@fitinn.com" itemprop="url">TIKTOK</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-109"><a target="_blank" href="http://www.instagram.com/fitinn.at" itemprop="url">Instagram</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110"><a target="_blank" href="http://www.youtube.com/fitinntv" itemprop="url">Youtube</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-911"><a target="_blank" href="https://open.spotify.com/user/fitinn_at" itemprop="url">Spotify</a></li></ul></div></div></section></div></div></div></div><footer class="site-footer container" itemscope itemtype="https://schema.org/WPFooter"><p></p></footer><div class="section-languages"><div class="languages-widget-area-inner container d-flex"><div class="footer-promotion mobile"><noscript><img src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_pl.svg" alt="Branchen Champion 1. Platz Preis-Leistungs Verhältnis" class="footer-promotion"></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_pl.svg" alt="Branchen Champion 1. Platz Preis-Leistungs Verhältnis" class="lazyload footer-promotion"><noscript><img src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_kuz.svg" alt="Branchen Champion 1. Platz Kundenzufriedenheit" class="footer-promotion"></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_branchenchampion_badge_kuz.svg" alt="Branchen Champion 1. Platz Kundenzufriedenheit" class="lazyload footer-promotion"><noscript><img src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_markttest_sieger.png" alt="Markttest Testsieger Gesamtwertung 2026" class="footer-promotion"></noscript><img src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/img/2026_markttest_sieger.png" alt="Markttest Testsieger Gesamtwertung 2026" class="lazyload footer-promotion"></div><section id="icl_lang_sel_widget-2" class="widget widget_icl_lang_sel_widget"><div class="widget-wrap"><div role="navigation" aria-label="Language Switcher" class="wpml-ls-sidebars-language-widget-area wpml-ls wpml-ls-legacy-list-horizontal"><ul><li class="wpml-ls-slot-language-widget-area wpml-ls-item wpml-ls-item-de wpml-ls-current-language wpml-ls-first-item wpml-ls-last-item wpml-ls-item-legacy-list-horizontal"> <a href="https://fitinn.at/fitnessstudios-in-wien-2/" hreflang="de" lang="de" class="wpml-ls-link" aria-current="page" aria-label="Switch to Deutsch" title="Switch to Deutsch"> <span class="wpml-ls-native">Deutsch</span></a></li></ul></div></div></section><section id="nav_menu-6" class="widget widget_nav_menu"><div class="widget-wrap"><div class="menu-languages-container"><ul id="menu-languages" class="menu"><li id="menu-item-405" class="flag-icon flag-icon--aut menu-item menu-item-type-custom menu-item-object-custom menu-item-405"><a href="http://www.fitinn.at" itemprop="url">Österreich</a></li><li id="menu-item-402" class="flag-icon flag-icon--cze menu-item menu-item-type-custom menu-item-object-custom menu-item-402"><a href="http://www.fitinn.cz/" itemprop="url">Tschechien</a></li><li id="menu-item-404" class="flag-icon flag-icon--svk menu-item menu-item-type-custom menu-item-object-custom menu-item-404"><a href="http://www.fitinn.sk/" itemprop="url">Slowakei</a></li><li id="menu-item-403" class="flag-icon flag-icon--svn menu-item menu-item-type-custom menu-item-object-custom menu-item-403"><a href="http://www.fitinn.si/" itemprop="url">Slowenien</a></li><li id="menu-item-10680" class="flag-icon flag-icon--ita menu-item menu-item-type-custom menu-item-object-custom menu-item-10680"><a href="https://www.fitinn.it/" itemprop="url">Italien</a></li></ul></div></div></section></div></div></div><script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/bootstrap-genesis-0.8.2/*","/wp-content/themes/genesis/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}</script> <noscript><style>.lazyload{display:none;}</style></noscript><script data-noptimize="1">window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1;</script><script async data-noptimize="1" src='https://fitinn.at/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js'></script> <script id="swiper-js" src="https://fitinn.at/wp-content/themes/bootstrap-genesis-0.8.2/js/vendor/swiper.jquery.min.js"></script> <script defer src="https://fitinn.at/wp-content/cache/autoptimize/js/autoptimize_8913525e068b00f74b6157333e4b11de.js"></script></body></html>

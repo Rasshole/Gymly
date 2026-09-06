@@ -48,8 +48,8 @@ import {useAppStore} from '@/store/appStore';
 import TrainingCenterPicker from '@/components/planned/TrainingCenterPicker';
 import PlanSessionCenterPickerSheet from '@/components/planned/PlanSessionCenterPickerSheet';
 import TrainingTypeMuscleGrid from '@/components/planned/TrainingTypeMuscleGrid';
-import TimePickerSheet from '@/components/ui/TimePickerSheet';
 import {useTranslation, useAppFormat} from '@/i18n';
+import TimePickerSheet from '@/components/ui/TimePickerSheet';
 
 const formatDateKey = (date: Date) => {
   const copy = new Date(date);
@@ -101,8 +101,8 @@ const WorkoutScheduleScreen = () => {
   const [planCenterSheetOpen, setPlanCenterSheetOpen] = useState(false);
   const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
   const [planCenterQuery, setPlanCenterQuery] = useState('');
-  /** Én træningstype pr. session — enkelt og socialt (array bevares for bagudkompatibilitet). */
-  const [planMuscle, setPlanMuscle] = useState<MuscleGroup>('bryst');
+  /** Træningstyper pr. session — flere valg muligt (som tjek ind). */
+  const [planMuscles, setPlanMuscles] = useState<MuscleGroup[]>(['bryst']);
   const [planDateTime, setPlanDateTime] = useState(new Date());
   const [planTimePickerVisible, setPlanTimePickerVisible] = useState(false);
   const [planCalendarMonth, setPlanCalendarMonth] = useState(() => {
@@ -588,8 +588,6 @@ const WorkoutScheduleScreen = () => {
     setPlanModalVisible(true);
   };
 
-  const planMuscles = useMemo(() => [planMuscle], [planMuscle]);
-
   const applyPlanQuickDate = (addDays: number) => {
     const base = new Date();
     base.setHours(0, 0, 0, 0);
@@ -631,7 +629,7 @@ const WorkoutScheduleScreen = () => {
       setPlanModalVisible(false);
       setPlanSelectedGym(null);
       setPlanCenterQuery('');
-      setPlanMuscle('bryst');
+      setPlanMuscles(['bryst']);
       setPlanInvitedFriends([]);
       setPlanInviteSectionVisible(false);
       setPlanInviteSearchQuery('');
@@ -834,8 +832,8 @@ const WorkoutScheduleScreen = () => {
     setPlanCenterQuery(formatGymDisplayName(gym));
   };
 
-  const selectPlanMuscle = (group: MuscleGroup) => {
-    setPlanMuscle(group);
+  const selectPlanMuscle = (groups: MuscleGroup[]) => {
+    setPlanMuscles(groups);
   };
 
   const handleCalendarNav = (direction: -1 | 1) => {
@@ -950,13 +948,13 @@ const WorkoutScheduleScreen = () => {
                           style={styles.inviteBtnDecline}
                           onPress={() => handleInviteDecline(plan.id)}
                           activeOpacity={0.75}>
-                          <Text style={styles.inviteBtnDeclineText}>Afvis</Text>
+                          <Text style={styles.inviteBtnDeclineText}>{t('groups.decline')}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                           style={styles.inviteBtnAccept}
                           onPress={() => handleInviteAccept(plan.id)}
                           activeOpacity={0.75}>
-                          <Text style={styles.inviteBtnAcceptText}>Deltag</Text>
+                          <Text style={styles.inviteBtnAcceptText}>{t('phase2ui.join')}</Text>
                         </TouchableOpacity>
                       </>
                     )}
@@ -1190,7 +1188,7 @@ const WorkoutScheduleScreen = () => {
                                 }
                                 activeOpacity={0.75}>
                                 <Text style={styles.modalPendingBtnDeclineText}>
-                                  Afvis
+                                  {t('groups.decline')}
                                 </Text>
                               </TouchableOpacity>
                               <TouchableOpacity
@@ -1200,7 +1198,7 @@ const WorkoutScheduleScreen = () => {
                                 }
                                 activeOpacity={0.75}>
                                 <Text style={styles.modalPendingBtnAcceptText}>
-                                  Deltag
+                                  {t('phase2ui.join')}
                                 </Text>
                               </TouchableOpacity>
                             </>
@@ -1222,7 +1220,7 @@ const WorkoutScheduleScreen = () => {
 
                   {/* Muscle Groups */}
                   <View style={styles.modalSection}>
-                    <Text style={styles.modalSectionTitle}>Muskelgrupper</Text>
+                    <Text style={styles.modalSectionTitle}>{t('workoutLog.muscleGroups')}</Text>
                     <View style={styles.modalMuscles}>
                       {selectedWorkout.data.muscles.map(muscle => (
                         <View
@@ -1380,7 +1378,8 @@ const WorkoutScheduleScreen = () => {
               <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop20]}>
                 {t('plannedSessions.trainingType')}
               </Text>
-              <TrainingTypeMuscleGrid value={planMuscle} onChange={selectPlanMuscle} />
+              <Text style={styles.sectionSubBelow}>{t('checkIn.selectOneOrMore')}</Text>
+              <TrainingTypeMuscleGrid value={planMuscles} onChange={selectPlanMuscle} />
 
               {/* Inviter venner knap */}
               <TouchableOpacity
@@ -1514,7 +1513,7 @@ const WorkoutScheduleScreen = () => {
                   setPlanInvitedFriends([]);
                   setPlanInviteSectionVisible(false);
                   setPlanInviteSearchQuery('');
-                  setPlanMuscle('bryst');
+                  setPlanMuscles(['bryst']);
                 }}>
                 <Text style={styles.modalCloseText}>{t('plannedSessions.close')}</Text>
               </TouchableOpacity>
@@ -1599,7 +1598,7 @@ const WorkoutScheduleScreen = () => {
                       {/* Friends List */}
                       {filteredPlanInviteFriends.length > 0 && (
                         <View style={styles.planInviteSection}>
-                          <Text style={styles.planInviteSectionTitle}>Venner</Text>
+                          <Text style={styles.planInviteSectionTitle}>{t('tabs.friends')}</Text>
                           {filteredPlanInviteFriends.map(friend => {
                             const hasBeenInvited = planInvitedFriends.includes(friend.id);
                             const lineName = friend.displayName || friend.username || 'Ukendt bruger';
@@ -2485,6 +2484,12 @@ const styles = StyleSheet.create({
   },
   sectionLabelSpacingTop20: {
     marginTop: 20,
+  },
+  sectionSubBelow: {
+    fontSize: 13,
+    fontWeight: '400',
+    color: colors.textMuted,
+    marginBottom: 8,
   },
   planModalScroll: {
     width: '100%',

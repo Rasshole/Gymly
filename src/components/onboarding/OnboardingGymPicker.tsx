@@ -17,7 +17,8 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import type {DanishGym} from '@/data/danishGyms';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
-import {gymSearchMatchesTokens} from '@/utils/gymSearch';
+import {gymPickerLocationLine} from '@/utils/gymCountryLabel';
+import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {ONBOARDING} from './onboardingTokens';
@@ -72,14 +73,7 @@ export function OnboardingGymPicker({
   const searchResults = useMemo(() => {
     const q = query.trim();
     if (q.length === 0) return [];
-    return allGyms
-      .filter(g => {
-        const haystack = [g.name, g.city ?? '', g.region, g.address ?? '', g.brand ?? ''].join(
-          ' ',
-        );
-        return gymSearchMatchesTokens(haystack, q);
-      })
-      .slice(0, 12);
+    return searchGyms(q, {gyms: allGyms, limit: 12}).map(h => h.gym);
   }, [allGyms, query]);
 
   const listGyms = query.trim().length > 0 ? searchResults : popularGyms;
@@ -183,7 +177,7 @@ export function OnboardingGymPicker({
                   {formatGymDisplayName(gym)}
                 </Text>
                 <Text style={styles.gymCardSub} numberOfLines={1}>
-                  {[gym.city, gym.region].filter(Boolean).join(' · ')}
+                  {gymPickerLocationLine(gym, t)}
                 </Text>
               </View>
               {picked ? (

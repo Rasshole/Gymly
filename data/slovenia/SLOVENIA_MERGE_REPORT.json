@@ -1,0 +1,271 @@
+{
+  "country": "Slovenia",
+  "generated_at": "2026-08-25T10:17:43.915Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11416,
+    "slovenia": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80
+  },
+  "after": {
+    "total": 11448,
+    "slovenia": 32,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80
+  },
+  "inserted": 32,
+  "withheld": 0,
+  "pre_merge_sha256": "19f288efaebbcb3e133ecfbc5ec52e1b36925d750649dd7f922f3c6f47b864c9",
+  "post_merge_sha256": "a1e097699ab64dfbda37826dccbaa4ebe219c2f0dc47cfd2f96b4c38f47b5a37",
+  "brand_breakdown": {
+    "BODIFIT": 8,
+    "FITINN": 6,
+    "Shape House": 18
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "bad_postal_format": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "excluded_brand": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0
+  },
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    },
+    "slovakia": {
+      "before": 37,
+      "after": 37,
+      "intact": true
+    },
+    "bulgaria": {
+      "before": 82,
+      "after": 82,
+      "intact": true
+    },
+    "croatia": {
+      "before": 80,
+      "after": 80,
+      "intact": true
+    }
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 32,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 0,
+    "COMING_SOON": 0,
+    "CLOSED": 0,
+    "EXCLUDED": 3,
+    "DUPLICATE_LEGACY": 0,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE",
+    "reconciliation": "32 == 32 == 32"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  },
+  "shape_house": {
+    "live": 18,
+    "clever_fit_live": 0,
+    "tiskarna": true,
+    "loberia_522": true,
+    "koper_pair": true
+  },
+  "bodifit": {
+    "live": 8
+  },
+  "fitinn": {
+    "live": 6
+  },
+  "exclusions": {
+    "clever_fit_absent": true,
+    "sus_absent": true,
+    "excluded_brands_absent": true
+  },
+  "border_safety": {
+    "foreign_coords": 0,
+    "italy_text": 0,
+    "austria_text": 0,
+    "hungary_text": 0,
+    "croatia_text": 0
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous": 11416,
+    "new": 11448,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "SLOVENIA MERGE COMPLETE — WAITING FOR QA",
+  "performance": {
+    "catalog": 11448,
+    "active": 11444,
+    "json_size_mb": 3.39,
+    "parse_ms": 18
+  }
+}

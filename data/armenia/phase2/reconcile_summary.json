@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-08-29T19:43:53.099071+00:00",
+  "phase1_recovered": 312,
+  "transitions": 312,
+  "new_ready": 36,
+  "coming_soon": 0,
+  "excluded": 276,
+  "closed": 0,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 36,
+    "EXCLUDED": 276
+  },
+  "class_a_brand_counts": {
+    "Orange Fitness": 6
+  },
+  "curated_operator_counts": {
+    "Gold's Gym": 1,
+    "Panorama Fitness": 1,
+    "World Gym Armenia": 1,
+    "Energy Fitness": 1,
+    "Grand Sport Club": 1
+  },
+  "production_sha_unchanged": true
+}

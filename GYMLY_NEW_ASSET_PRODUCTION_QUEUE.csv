@@ -1,0 +1,3083 @@
+production_order,exercise_id,exercise_name,primary_muscle,equipment,recommended_asset_filename,generation_prompt
+1,ex-assisted-pull-up,Assisted Pull-Up,back,machine,pull_up_assisted.webp,"Create one single Gymly exercise illustration for: Assisted Pull-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Assisted Pull-Up
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+2,ex-chest-supported-dumbbell-row,Chest Supported Dumbbell Row,back,dumbbell,dumbbell_row_chest_supported.webp,"Create one single Gymly exercise illustration for: Chest Supported Dumbbell Row.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Chest Supported Dumbbell Row
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+3,ex-chest-supported-t-bar-row,Chest Supported T-Bar Row,back,machine,t_bar_row_chest_supported.webp,"Create one single Gymly exercise illustration for: Chest Supported T-Bar Row.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Chest Supported T-Bar Row
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+4,ex-chin-up,Chin-Up,back,bodyweight,chin_up.webp,"Create one single Gymly exercise illustration for: Chin-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Chin-Up
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+5,ex-conventional-deadlift,Conventional Deadlift,back,barbell,deadlift_conventional.webp,"Create one single Gymly exercise illustration for: Conventional Deadlift.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Conventional Deadlift
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+6,ex-high-row-machine,High Row Machine,back,machine,machine_row_high.webp,"Create one single Gymly exercise illustration for: High Row Machine.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: High Row Machine
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+7,ex-machine-back-extension,Machine Back Extension,back,machine,back_extension_machine.webp,"Create one single Gymly exercise illustration for: Machine Back Extension.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Machine Back Extension
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+8,ex-meadows-row,Meadows Row,back,barbell,meadows_row.webp,"Create one single Gymly exercise illustration for: Meadows Row.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Meadows Row
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+9,ex-alternating-dumbbell-curl,Alternating Dumbbell Curl,biceps,dumbbell,curl_dumbbell_alternating.webp,"Create one single Gymly exercise illustration for: Alternating Dumbbell Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Alternating Dumbbell Curl
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: biceps
+Show only the equipment essential to understand the movement."
+10,ex-dumbbell-curl,Dumbbell Curl,biceps,dumbbell,curl_dumbbell_standard.webp,"Create one single Gymly exercise illustration for: Dumbbell Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Curl
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: biceps
+Show only the equipment essential to understand the movement."
+11,ex-dumbbell-preacher-curl,Dumbbell Preacher Curl,biceps,dumbbell,curl_preacher_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Preacher Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Preacher Curl
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: biceps
+Show only the equipment essential to understand the movement."
+12,ex-ez-bar-curl,EZ Bar Curl,biceps,barbell,curl_ez_bar.webp,"Create one single Gymly exercise illustration for: EZ Bar Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: EZ Bar Curl
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: biceps
+Show only the equipment essential to understand the movement."
+13,ex-machine-preacher-curl,Machine Preacher Curl,biceps,machine,curl_preacher_machine.webp,"Create one single Gymly exercise illustration for: Machine Preacher Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Machine Preacher Curl
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: biceps
+Show only the equipment essential to understand the movement."
+14,ex-rope-hammer-curl,Rope Hammer Curl,biceps,cable,curl_hammer_rope.webp,"Create one single Gymly exercise illustration for: Rope Hammer Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Rope Hammer Curl
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: biceps
+Show only the equipment essential to understand the movement."
+15,ex-straight-bar-cable-curl,Straight Bar Cable Curl,biceps,cable,curl_cable_straight_bar.webp,"Create one single Gymly exercise illustration for: Straight Bar Cable Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Straight Bar Cable Curl
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: biceps
+Show only the equipment essential to understand the movement."
+16,ex-leg-press-calf-raise,Leg Press Calf Raise,calves,machine,calf_raise_leg_press.webp,"Create one single Gymly exercise illustration for: Leg Press Calf Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Leg Press Calf Raise
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: calves
+Show only the equipment essential to understand the movement."
+17,ex-machine-standing-calf-raise,Machine Standing Calf Raise,calves,machine,calf_raise_standing_machine.webp,"Create one single Gymly exercise illustration for: Machine Standing Calf Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Machine Standing Calf Raise
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: calves
+Show only the equipment essential to understand the movement."
+18,ex-smith-machine-calf-raise,Smith Machine Calf Raise,calves,smith,calf_raise_smith.webp,"Create one single Gymly exercise illustration for: Smith Machine Calf Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Smith Machine Calf Raise
+EQUIPMENT: smith
+PRIMARY MUSCLE GROUP: calves
+Show only the equipment essential to understand the movement."
+19,ex-outdoor-walking,Outdoor Walking,cardio,other,walking_outdoor.webp,"Create one single Gymly exercise illustration for: Outdoor Walking.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Outdoor Walking
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+20,ex-treadmill-walking,Treadmill Walking,cardio,cardio_machine,walking_treadmill.webp,"Create one single Gymly exercise illustration for: Treadmill Walking.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Treadmill Walking
+EQUIPMENT: cardio_machine
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+21,ex-decline-chest-press-machine,Decline Chest Press Machine,chest,machine,chest_press_machine_decline.webp,"Create one single Gymly exercise illustration for: Decline Chest Press Machine.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Decline Chest Press Machine
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+22,ex-incline-chest-press-machine,Incline Chest Press Machine,chest,machine,chest_press_machine_incline.webp,"Create one single Gymly exercise illustration for: Incline Chest Press Machine.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Incline Chest Press Machine
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+23,ex-push-up,Push-Up,chest,bodyweight,push_up.webp,"Create one single Gymly exercise illustration for: Push-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Push-Up
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+24,ex-smith-machine-incline-bench-press,Smith Machine Incline Bench Press,chest,smith,bench_press_smith_incline.webp,"Create one single Gymly exercise illustration for: Smith Machine Incline Bench Press.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Smith Machine Incline Bench Press
+EQUIPMENT: smith
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+25,ex-weighted-push-up,Weighted Push-Up,chest,bodyweight,push_up_weighted.webp,"Create one single Gymly exercise illustration for: Weighted Push-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Weighted Push-Up
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+26,ex-ab-crunch,Ab Crunch,core,bodyweight,crunch.webp,"Create one single Gymly exercise illustration for: Ab Crunch.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Ab Crunch
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+27,ex-bicycle-crunch,Bicycle Crunch,core,bodyweight,crunch_bicycle.webp,"Create one single Gymly exercise illustration for: Bicycle Crunch.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Bicycle Crunch
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+28,ex-pallof-press,Pallof Press,core,cable,pallof_press.webp,"Create one single Gymly exercise illustration for: Pallof Press.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Pallof Press
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+29,ex-reverse-crunch,Reverse Crunch,core,bodyweight,crunch_reverse.webp,"Create one single Gymly exercise illustration for: Reverse Crunch.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Reverse Crunch
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+30,ex-side-plank,Side Plank,core,bodyweight,plank_side.webp,"Create one single Gymly exercise illustration for: Side Plank.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Side Plank
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+31,ex-weighted-crunch,Weighted Crunch,core,other,crunch_weighted.webp,"Create one single Gymly exercise illustration for: Weighted Crunch.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Weighted Crunch
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+32,ex-weighted-plank,Weighted Plank,core,other,plank_weighted.webp,"Create one single Gymly exercise illustration for: Weighted Plank.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Weighted Plank
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+33,ex-barbell-thruster,Barbell Thruster,full_body,barbell,thruster_barbell.webp,"Create one single Gymly exercise illustration for: Barbell Thruster.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Barbell Thruster
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+34,ex-burpee,Burpee,full_body,bodyweight,burpee.webp,"Create one single Gymly exercise illustration for: Burpee.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Burpee
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+35,ex-clean,Clean,full_body,barbell,olympic_clean.webp,"Create one single Gymly exercise illustration for: Clean.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Clean
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+36,ex-clean-and-jerk,Clean and Jerk,full_body,barbell,olympic_clean_and_jerk.webp,"Create one single Gymly exercise illustration for: Clean and Jerk.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Clean and Jerk
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+37,ex-dumbbell-farmer-s-walk,Dumbbell Farmer's Walk,full_body,dumbbell,farmers_walk_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Farmer's Walk.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Farmer's Walk
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+38,ex-dumbbell-thruster,Dumbbell Thruster,full_body,dumbbell,thruster_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Thruster.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Thruster
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+39,ex-farmer-s-walk,Farmer's Walk,full_body,other,farmers_walk.webp,"Create one single Gymly exercise illustration for: Farmer's Walk.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Farmer's Walk
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+40,ex-kettlebell-farmer-s-walk,Kettlebell Farmer's Walk,full_body,kettlebell,farmers_walk_kettlebell.webp,"Create one single Gymly exercise illustration for: Kettlebell Farmer's Walk.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Kettlebell Farmer's Walk
+EQUIPMENT: kettlebell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+41,ex-kettlebell-swing,Kettlebell Swing,full_body,kettlebell,kettlebell_swing.webp,"Create one single Gymly exercise illustration for: Kettlebell Swing.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Kettlebell Swing
+EQUIPMENT: kettlebell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+42,ex-power-clean,Power Clean,full_body,barbell,olympic_power_clean.webp,"Create one single Gymly exercise illustration for: Power Clean.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Power Clean
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+43,ex-snatch,Snatch,full_body,barbell,olympic_snatch.webp,"Create one single Gymly exercise illustration for: Snatch.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Snatch
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: full_body
+Show only the equipment essential to understand the movement."
+44,ex-dumbbell-hip-thrust,Dumbbell Hip Thrust,glutes,dumbbell,hip_thrust_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Hip Thrust.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Hip Thrust
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+45,ex-machine-glute-kickback,Machine Glute Kickback,glutes,machine,glute_kickback_machine.webp,"Create one single Gymly exercise illustration for: Machine Glute Kickback.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Machine Glute Kickback
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+46,ex-machine-hip-thrust,Machine Hip Thrust,glutes,machine,hip_thrust_machine.webp,"Create one single Gymly exercise illustration for: Machine Hip Thrust.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Machine Hip Thrust
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+47,ex-smith-machine-hip-thrust,Smith Machine Hip Thrust,glutes,smith,hip_thrust_smith.webp,"Create one single Gymly exercise illustration for: Smith Machine Hip Thrust.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Smith Machine Hip Thrust
+EQUIPMENT: smith
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+48,ex-sumo-deadlift,Sumo Deadlift,glutes,barbell,deadlift_sumo.webp,"Create one single Gymly exercise illustration for: Sumo Deadlift.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Sumo Deadlift
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+49,ex-sumo-squat,Sumo Squat,glutes,dumbbell,squat_sumo.webp,"Create one single Gymly exercise illustration for: Sumo Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Sumo Squat
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+50,ex-dumbbell-romanian-deadlift,Dumbbell Romanian Deadlift,hamstrings,dumbbell,rdl_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Romanian Deadlift.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Romanian Deadlift
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+51,ex-dumbbell-single-leg-romanian-deadlift,Dumbbell Single Leg Romanian Deadlift,hamstrings,dumbbell,rdl_single_leg.webp,"Create one single Gymly exercise illustration for: Dumbbell Single Leg Romanian Deadlift.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Single Leg Romanian Deadlift
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+52,ex-nordic-hamstring-curl,Nordic Hamstring Curl,hamstrings,bodyweight,nordic_curl.webp,"Create one single Gymly exercise illustration for: Nordic Hamstring Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Nordic Hamstring Curl
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+53,ex-single-leg-curl,Single Leg Curl,hamstrings,machine,leg_curl_single_leg.webp,"Create one single Gymly exercise illustration for: Single Leg Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Leg Curl
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+54,ex-single-leg-romanian-deadlift,Single Leg Romanian Deadlift,hamstrings,dumbbell,rdl_single_leg.webp,"Create one single Gymly exercise illustration for: Single Leg Romanian Deadlift.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Leg Romanian Deadlift
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+55,ex-smith-machine-romanian-deadlift,Smith Machine Romanian Deadlift,hamstrings,smith,rdl_smith.webp,"Create one single Gymly exercise illustration for: Smith Machine Romanian Deadlift.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Smith Machine Romanian Deadlift
+EQUIPMENT: smith
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+56,ex-standing-leg-curl,Standing Leg Curl,hamstrings,machine,leg_curl_standing.webp,"Create one single Gymly exercise illustration for: Standing Leg Curl.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Standing Leg Curl
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+57,ex-barbell-front-squat,Barbell Front Squat,quads,barbell,squat_front_barbell.webp,"Create one single Gymly exercise illustration for: Barbell Front Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Barbell Front Squat
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+58,ex-belt-squat,Belt Squat,quads,machine,squat_belt.webp,"Create one single Gymly exercise illustration for: Belt Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Belt Squat
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+59,ex-dumbbell-walking-lunge,Dumbbell Walking Lunge,quads,dumbbell,lunge_walking_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Walking Lunge.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Walking Lunge
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+60,ex-forward-lunge,Forward Lunge,quads,dumbbell,lunge_forward.webp,"Create one single Gymly exercise illustration for: Forward Lunge.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Forward Lunge
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+61,ex-goblet-squat,Goblet Squat,quads,dumbbell,squat_goblet.webp,"Create one single Gymly exercise illustration for: Goblet Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Goblet Squat
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+62,ex-hack-squat,Hack Squat,quads,machine,squat_hack.webp,"Create one single Gymly exercise illustration for: Hack Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Hack Squat
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+63,ex-high-bar-squat,High Bar Squat,quads,barbell,squat_high_bar.webp,"Create one single Gymly exercise illustration for: High Bar Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: High Bar Squat
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+64,ex-horizontal-leg-press,Horizontal Leg Press,quads,machine,leg_press_horizontal.webp,"Create one single Gymly exercise illustration for: Horizontal Leg Press.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Horizontal Leg Press
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+65,ex-low-bar-squat,Low Bar Squat,quads,barbell,squat_low_bar.webp,"Create one single Gymly exercise illustration for: Low Bar Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Low Bar Squat
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+66,ex-pendulum-squat,Pendulum Squat,quads,machine,squat_pendulum.webp,"Create one single Gymly exercise illustration for: Pendulum Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Pendulum Squat
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+67,ex-reverse-lunge,Reverse Lunge,quads,dumbbell,lunge_reverse.webp,"Create one single Gymly exercise illustration for: Reverse Lunge.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Reverse Lunge
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+68,ex-single-leg-extension,Single Leg Extension,quads,machine,leg_extension_single_leg.webp,"Create one single Gymly exercise illustration for: Single Leg Extension.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Leg Extension
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+69,ex-single-leg-press,Single Leg Press,quads,machine,leg_press_single_leg.webp,"Create one single Gymly exercise illustration for: Single Leg Press.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Leg Press
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+70,ex-sissy-squat,Sissy Squat,quads,bodyweight,squat_sissy.webp,"Create one single Gymly exercise illustration for: Sissy Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Sissy Squat
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+71,ex-smith-machine-bulgarian-split-squat,Smith Machine Bulgarian Split Squat,quads,smith,bulgarian_split_squat_smith.webp,"Create one single Gymly exercise illustration for: Smith Machine Bulgarian Split Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Smith Machine Bulgarian Split Squat
+EQUIPMENT: smith
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+72,ex-smith-machine-lunge,Smith Machine Lunge,quads,smith,lunge_smith.webp,"Create one single Gymly exercise illustration for: Smith Machine Lunge.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Smith Machine Lunge
+EQUIPMENT: smith
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+73,ex-smith-machine-squat,Smith Machine Squat,quads,smith,squat_smith.webp,"Create one single Gymly exercise illustration for: Smith Machine Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Smith Machine Squat
+EQUIPMENT: smith
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+74,ex-squat,Squat,quads,barbell,squat_back_barbell.webp,"Create one single Gymly exercise illustration for: Squat.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Squat
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+75,ex-walking-lunge,Walking Lunge,quads,dumbbell,lunge_walking.webp,"Create one single Gymly exercise illustration for: Walking Lunge.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Walking Lunge
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+76,ex-arnold-press,Arnold Press,shoulders,dumbbell,arnold_press.webp,"Create one single Gymly exercise illustration for: Arnold Press.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Arnold Press
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+77,ex-cable-lateral-raise,Cable Lateral Raise,shoulders,cable,lateral_raise_cable.webp,"Create one single Gymly exercise illustration for: Cable Lateral Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Cable Lateral Raise
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+78,ex-dumbbell-upright-row,Dumbbell Upright Row,shoulders,dumbbell,upright_row_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Upright Row.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Upright Row
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+79,ex-lateral-raise,Lateral Raise,shoulders,dumbbell,lateral_raise_dumbbell.webp,"Create one single Gymly exercise illustration for: Lateral Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Lateral Raise
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+80,ex-seated-barbell-shoulder-press,Seated Barbell Shoulder Press,shoulders,barbell,shoulder_press_barbell_seated.webp,"Create one single Gymly exercise illustration for: Seated Barbell Shoulder Press.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Seated Barbell Shoulder Press
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+81,ex-seated-dumbbell-shoulder-press,Seated Dumbbell Shoulder Press,shoulders,dumbbell,shoulder_press_dumbbell_seated.webp,"Create one single Gymly exercise illustration for: Seated Dumbbell Shoulder Press.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Seated Dumbbell Shoulder Press
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+82,ex-single-arm-cable-lateral-raise,Single Arm Cable Lateral Raise,shoulders,cable,lateral_raise_cable_single_arm.webp,"Create one single Gymly exercise illustration for: Single Arm Cable Lateral Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Arm Cable Lateral Raise
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+83,ex-reverse-grip-tricep-pushdown,Reverse Grip Tricep Pushdown,triceps,cable,tricep_pushdown_reverse_grip.webp,"Create one single Gymly exercise illustration for: Reverse Grip Tricep Pushdown.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Reverse Grip Tricep Pushdown
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+84,ex-rope-tricep-pushdown,Rope Tricep Pushdown,triceps,cable,tricep_pushdown_rope.webp,"Create one single Gymly exercise illustration for: Rope Tricep Pushdown.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Rope Tricep Pushdown
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+85,ex-single-arm-tricep-pushdown,Single Arm Tricep Pushdown,triceps,cable,tricep_pushdown_single_arm.webp,"Create one single Gymly exercise illustration for: Single Arm Tricep Pushdown.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Arm Tricep Pushdown
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+86,ex-straight-bar-tricep-pushdown,Straight Bar Tricep Pushdown,triceps,cable,tricep_pushdown_straight_bar.webp,"Create one single Gymly exercise illustration for: Straight Bar Tricep Pushdown.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Straight Bar Tricep Pushdown
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+87,ex-tricep-extension-machine,Tricep Extension Machine,triceps,machine,tricep_extension_machine.webp,"Create one single Gymly exercise illustration for: Tricep Extension Machine.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Tricep Extension Machine
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+88,ex-v-bar-tricep-pushdown,V-Bar Tricep Pushdown,triceps,cable,tricep_pushdown_vbar.webp,"Create one single Gymly exercise illustration for: V-Bar Tricep Pushdown.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: V-Bar Tricep Pushdown
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+89,ex-back-extension,Back Extension,back,machine,back_extension.webp,"Create one single Gymly exercise illustration for: Back Extension.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Back Extension
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+90,ex-dumbbell-pullover,Dumbbell Pullover,back,dumbbell,pullover_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Pullover.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Pullover
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+91,ex-single-arm-lat-pulldown,Single Arm Lat Pulldown,back,cable,lat_pulldown_single_arm.webp,"Create one single Gymly exercise illustration for: Single Arm Lat Pulldown.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Arm Lat Pulldown
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+92,ex-single-leg-calf-raise,Single Leg Calf Raise,calves,bodyweight,calf_raise_single_leg.webp,"Create one single Gymly exercise illustration for: Single Leg Calf Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Leg Calf Raise
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: calves
+Show only the equipment essential to understand the movement."
+93,ex-standing-calf-raise,Standing Calf Raise,calves,machine,calf_raise_standing_loaded.webp,"Create one single Gymly exercise illustration for: Standing Calf Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Standing Calf Raise
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: calves
+Show only the equipment essential to understand the movement."
+94,ex-jump-rope,Jump Rope,cardio,other,jump_rope.webp,"Create one single Gymly exercise illustration for: Jump Rope.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Jump Rope
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+95,ex-swimming,Swimming,cardio,other,swimming.webp,"Create one single Gymly exercise illustration for: Swimming.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Swimming
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+96,ex-chest-dip,Chest Dip,chest,bodyweight,dip_chest.webp,"Create one single Gymly exercise illustration for: Chest Dip.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Chest Dip
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+97,ex-high-to-low-cable-fly,High to Low Cable Fly,chest,cable,chest_fly_cable_high_to_low.webp,"Create one single Gymly exercise illustration for: High to Low Cable Fly.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: High to Low Cable Fly
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+98,ex-low-to-high-cable-fly,Low to High Cable Fly,chest,cable,chest_fly_cable_low_to_high.webp,"Create one single Gymly exercise illustration for: Low to High Cable Fly.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Low to High Cable Fly
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+99,ex-pec-deck,Pec Deck,chest,machine,pec_deck.webp,"Create one single Gymly exercise illustration for: Pec Deck.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Pec Deck
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: chest
+Show only the equipment essential to understand the movement."
+100,ex-decline-sit-up,Decline Sit-Up,core,bodyweight,sit_up_decline.webp,"Create one single Gymly exercise illustration for: Decline Sit-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Decline Sit-Up
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+101,ex-hanging-knee-raise,Hanging Knee Raise,core,bodyweight,leg_raise_hanging_knee.webp,"Create one single Gymly exercise illustration for: Hanging Knee Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Hanging Knee Raise
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+102,ex-hanging-leg-raise,Hanging Leg Raise,core,bodyweight,leg_raise_hanging.webp,"Create one single Gymly exercise illustration for: Hanging Leg Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Hanging Leg Raise
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+103,ex-russian-twist,Russian Twist,core,bodyweight,russian_twist.webp,"Create one single Gymly exercise illustration for: Russian Twist.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Russian Twist
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+104,ex-sit-up,Sit-Up,core,bodyweight,sit_up.webp,"Create one single Gymly exercise illustration for: Sit-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Sit-Up
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+105,ex-weighted-sit-up,Weighted Sit-Up,core,other,sit_up_weighted.webp,"Create one single Gymly exercise illustration for: Weighted Sit-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Weighted Sit-Up
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+106,ex-barbell-glute-bridge,Barbell Glute Bridge,glutes,barbell,glute_bridge_barbell.webp,"Create one single Gymly exercise illustration for: Barbell Glute Bridge.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Barbell Glute Bridge
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+107,ex-cable-hip-abduction,Cable Hip Abduction,glutes,cable,hip_abduction_cable.webp,"Create one single Gymly exercise illustration for: Cable Hip Abduction.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Cable Hip Abduction
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+108,ex-standing-hip-abduction,Standing Hip Abduction,glutes,cable,hip_abduction_cable_standing.webp,"Create one single Gymly exercise illustration for: Standing Hip Abduction.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Standing Hip Abduction
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+109,ex-barbell-good-morning,Barbell Good Morning,hamstrings,barbell,good_morning_barbell.webp,"Create one single Gymly exercise illustration for: Barbell Good Morning.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Barbell Good Morning
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+110,ex-cable-pull-through,Cable Pull Through,hamstrings,cable,cable_pull_through.webp,"Create one single Gymly exercise illustration for: Cable Pull Through.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Cable Pull Through
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+111,ex-glute-ham-raise,Glute Ham Raise,hamstrings,machine,glute_ham_raise.webp,"Create one single Gymly exercise illustration for: Glute Ham Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Glute Ham Raise
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+112,ex-good-morning,Good Morning,hamstrings,barbell,good_morning.webp,"Create one single Gymly exercise illustration for: Good Morning.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Good Morning
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: hamstrings
+Show only the equipment essential to understand the movement."
+113,ex-dumbbell-step-up,Dumbbell Step-Up,quads,dumbbell,step_up_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Step-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Step-Up
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+114,ex-step-up,Step-Up,quads,dumbbell,step_up.webp,"Create one single Gymly exercise illustration for: Step-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Step-Up
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: quads
+Show only the equipment essential to understand the movement."
+115,ex-cable-front-raise,Cable Front Raise,shoulders,cable,front_raise_cable.webp,"Create one single Gymly exercise illustration for: Cable Front Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Cable Front Raise
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+116,ex-dumbbell-front-raise,Dumbbell Front Raise,shoulders,dumbbell,front_raise_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Front Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Front Raise
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+117,ex-face-pull,Face Pull,shoulders,cable,face_pull.webp,"Create one single Gymly exercise illustration for: Face Pull.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Face Pull
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."
+118,ex-dumbbell-skull-crusher,Dumbbell Skull Crusher,triceps,dumbbell,skull_crusher_dumbbell.webp,"Create one single Gymly exercise illustration for: Dumbbell Skull Crusher.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dumbbell Skull Crusher
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+119,ex-lying-tricep-extension,Lying Tricep Extension,triceps,barbell,tricep_extension_lying.webp,"Create one single Gymly exercise illustration for: Lying Tricep Extension.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Lying Tricep Extension
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+120,ex-rope-overhead-tricep-extension,Rope Overhead Tricep Extension,triceps,cable,tricep_overhead_cable_rope.webp,"Create one single Gymly exercise illustration for: Rope Overhead Tricep Extension.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Rope Overhead Tricep Extension
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+121,ex-single-arm-dumbbell-tricep-extension,Single Arm Dumbbell Tricep Extension,triceps,dumbbell,tricep_overhead_dumbbell_single_arm.webp,"Create one single Gymly exercise illustration for: Single Arm Dumbbell Tricep Extension.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Single Arm Dumbbell Tricep Extension
+EQUIPMENT: dumbbell
+PRIMARY MUSCLE GROUP: triceps
+Show only the equipment essential to understand the movement."
+122,ex-rack-pull,Rack Pull,back,barbell,deadlift_rack_pull.webp,"Create one single Gymly exercise illustration for: Rack Pull.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Rack Pull
+EQUIPMENT: barbell
+PRIMARY MUSCLE GROUP: back
+Show only the equipment essential to understand the movement."
+123,ex-donkey-calf-raise,Donkey Calf Raise,calves,machine,calf_raise_donkey.webp,"Create one single Gymly exercise illustration for: Donkey Calf Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Donkey Calf Raise
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: calves
+Show only the equipment essential to understand the movement."
+124,ex-assault-bike,Assault Bike,cardio,cardio_machine,bike_assault.webp,"Create one single Gymly exercise illustration for: Assault Bike.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Assault Bike
+EQUIPMENT: cardio_machine
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+125,ex-elliptical,Elliptical,cardio,cardio_machine,elliptical.webp,"Create one single Gymly exercise illustration for: Elliptical.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Elliptical
+EQUIPMENT: cardio_machine
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+126,ex-skierg,SkiErg,cardio,cardio_machine,skierg.webp,"Create one single Gymly exercise illustration for: SkiErg.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: SkiErg
+EQUIPMENT: cardio_machine
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+127,ex-spinning-bike,Spinning Bike,cardio,cardio_machine,bike_spinning.webp,"Create one single Gymly exercise illustration for: Spinning Bike.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Spinning Bike
+EQUIPMENT: cardio_machine
+PRIMARY MUSCLE GROUP: cardio
+Show only the equipment essential to understand the movement."
+128,ex-cable-woodchop,Cable Woodchop,core,cable,woodchop_cable.webp,"Create one single Gymly exercise illustration for: Cable Woodchop.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Cable Woodchop
+EQUIPMENT: cable
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+129,ex-captain-s-chair-leg-raise,Captain's Chair Leg Raise,core,machine,leg_raise_captains_chair.webp,"Create one single Gymly exercise illustration for: Captain's Chair Leg Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Captain's Chair Leg Raise
+EQUIPMENT: machine
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+130,ex-dead-bug,Dead Bug,core,bodyweight,dead_bug.webp,"Create one single Gymly exercise illustration for: Dead Bug.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Dead Bug
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+131,ex-toe-touch,Toe Touch,core,bodyweight,toe_touch.webp,"Create one single Gymly exercise illustration for: Toe Touch.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Toe Touch
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+132,ex-v-up,V-Up,core,bodyweight,v_up.webp,"Create one single Gymly exercise illustration for: V-Up.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: V-Up
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: core
+Show only the equipment essential to understand the movement."
+133,ex-frog-pump,Frog Pump,glutes,bodyweight,frog_pump.webp,"Create one single Gymly exercise illustration for: Frog Pump.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Frog Pump
+EQUIPMENT: bodyweight
+PRIMARY MUSCLE GROUP: glutes
+Show only the equipment essential to understand the movement."
+134,ex-plate-front-raise,Plate Front Raise,shoulders,other,front_raise_plate.webp,"Create one single Gymly exercise illustration for: Plate Front Raise.
+
+Locked Gymly style:
+- premium clean 3D fitness/anatomy illustration
+- same consistent athletic male mannequin
+- light gray / white anatomical body
+- black shorts
+- dark/black equipment
+- Gymly purple highlight ONLY on primary working muscles
+- technically correct movement
+- technically correct equipment
+- correct grip/attachment
+- correct unilateral/bilateral setup
+- transparent background
+- centered square composition
+- readable as mobile thumbnail
+- no text, no labels, no arrows, no logos, no watermark
+- final target 512x512 transparent WebP
+
+EXERCISE: Plate Front Raise
+EQUIPMENT: other
+PRIMARY MUSCLE GROUP: shoulders
+Show only the equipment essential to understand the movement."

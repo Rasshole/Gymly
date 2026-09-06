@@ -1,0 +1,1029 @@
+{
+  "country": "Belarus",
+  "phase": 1,
+  "deep_phase": true,
+  "generated_at": "2026-08-29T15:46:19.218854+00:00",
+  "production_total": 12034,
+  "production_sha256": "bec3945dd35bb8bf9cc57046110736a5fa267a673445cf4a26dba6ed92d64e05",
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "belarus_live": 0,
+  "by_prefix_live": 0,
+  "existing_belarus_production": false,
+  "unique_staged": 58,
+  "status_counts": {
+    "READY_TO_IMPORT": 38,
+    "NEEDS_REVIEW": 9,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 1,
+    "EXCLUDED": 10,
+    "CLOSED": 0
+  },
+  "ready_count": 38,
+  "genuinely_new_ready": 38,
+  "ready_by_brand": {
+    "Adrenalin": 26,
+    "Delta": 1,
+    "FitWorld": 1,
+    "Fox Club": 4,
+    "Grafit": 1,
+    "Lifestyle": 3,
+    "Olympic": 2
+  },
+  "brand_counts": {
+    "Adrenalin": 29,
+    "Anytime Fitness": 1,
+    "Basic-Fit": 1,
+    "Border probe": 2,
+    "Boxing club": 1,
+    "CrossFit box": 1,
+    "Delta": 1,
+    "FitWorld": 1,
+    "Fox Club": 5,
+    "Gold's Gym": 1,
+    "Grafit": 1,
+    "Gym Express 24h": 1,
+    "Hotel gym": 1,
+    "Independent (Vitebsk)": 1,
+    "Lifestyle": 3,
+    "McFIT": 1,
+    "Olympic": 5,
+    "Resort spa": 1,
+    "World Class": 1
+  },
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNNN (6 digits)",
+  "class_a_chain_count": 4,
+  "class_a_chain_names": [
+    "Adrenalin",
+    "Lifestyle",
+    "Fox Club",
+    "Olympic"
+  ],
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "city_coverage": {
+    "cities": {
+      "Minsk": "A",
+      "Brest": "A",
+      "Grodno": "A",
+      "Gomel": "A",
+      "Mogilev": "A",
+      "Vitebsk": "B",
+      "Pinsk": "A",
+      "Orsha": "A",
+      "Luninets": "A",
+      "Pruzhany": "A",
+      "Borovlyany": "D"
+    },
+    "ready_by_city": {
+      "Minsk": 27,
+      "Gomel": 2,
+      "Pinsk": 2,
+      "Luninets": 1,
+      "Orsha": 1,
+      "Pruzhany": 1,
+      "Mogilev": 1,
+      "Brest": 2,
+      "Grodno": 1
+    },
+    "material_d_gaps": [
+      "Borovlyany"
+    ],
+    "material_d_gaps_count": 1,
+    "vitebsk_audit_grade": "B"
+  },
+  "chain_audit": {
+    "country": "Belarus",
+    "phase": 1,
+    "market_model": "CHAIN_LED",
+    "chains": [
+      {
+        "brand": "Adrenalin",
+        "official_open_active": 29,
+        "qualifying_active": 26,
+        "ready": 26,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 3,
+        "unresolved": 3,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "by_846dbc58e6",
+            "name": "Adrenalin Gomel Gagarina",
+            "address": "ул. Гагарина 65",
+            "city": "Gomel",
+            "postal_code": "240050",
+            "lat": 52.42415,
+            "lng": 30.9962256,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_0abd3f74c4",
+            "name": "Adrenalin Gomel Rechitsky",
+            "address": "ул. Речицкий 80",
+            "city": "Gomel",
+            "postal_code": "247500",
+            "lat": 52.3713046,
+            "lng": 30.3719446,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_fe116c2222",
+            "name": "Adrenalin Luninets Zapadnaya",
+            "address": "ул. Западная 9",
+            "city": "Luninets",
+            "postal_code": "225644",
+            "lat": 52.2558102,
+            "lng": 26.7903638,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_619fa837be",
+            "name": "Adrenalin Minsk Belinskogo",
+            "address": "ул. Белинского 23",
+            "city": "Minsk",
+            "postal_code": "220113",
+            "lat": 53.9372385,
+            "lng": 27.5944736,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_0b2060fce0",
+            "name": "Adrenalin Minsk Bobruyskaya",
+            "address": "ул. Бобруйская 6",
+            "city": "Minsk",
+            "postal_code": "220006",
+            "lat": 53.8899671,
+            "lng": 27.5561674,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_79989cf6f9",
+            "name": "Adrenalin Minsk Bogdanovicha",
+            "address": "ул. Богдановича 66",
+            "city": "Minsk",
+            "postal_code": "222024",
+            "lat": 54.5220466,
+            "lng": 28.9494205,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_91c4d352a6",
+            "name": "Adrenalin Minsk Bratskaya",
+            "address": "ул. Братская 14",
+            "city": "Minsk",
+            "postal_code": "220065",
+            "lat": 53.8683773,
+            "lng": 27.551138,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_de5fae95bf",
+            "name": "Adrenalin Minsk Dzerzhinskogo",
+            "address": "ул. Дзержинского 30",
+            "city": "Minsk",
+            "postal_code": "222417",
+            "lat": 54.4913444,
+            "lng": 26.9129843,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_8e81d7c66d",
+            "name": "Adrenalin Minsk Goshkevicha",
+            "address": "ул. Гошкевича 3",
+            "city": "Minsk",
+            "postal_code": "220112",
+            "lat": 53.8400066,
+            "lng": 27.5687211,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_32bd3de5a2",
+            "name": "Adrenalin Minsk Kabushkina",
+            "address": "ул. Кабушкина 86а",
+            "city": "Minsk",
+            "postal_code": "220118",
+            "lat": 53.8562962,
+            "lng": 27.6392758,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_45199a18da",
+            "name": "Adrenalin Minsk Kalvariyskaya",
+            "address": "ул. Кальварийская 33",
+            "city": "Minsk",
+            "postal_code": "220079",
+            "lat": 53.906307,
+            "lng": 27.5156925,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_880f898965",
+            "name": "Adrenalin Minsk Kuprevicha",
+            "address": "ул. Купревича 18",
+            "city": "Minsk",
+            "postal_code": "220503",
+            "lat": 53.9315411,
+            "lng": 27.6954899,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_b8d78f7e5f",
+            "name": "Adrenalin Minsk Lopatina",
+            "address": "ул. Лопатина 7а",
+            "city": "Minsk",
+            "postal_code": "220125",
+            "lat": 53.9532462,
+            "lng": 27.6781909,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_6cd39b46bb",
+            "name": "Adrenalin Minsk Mayakovskogo",
+            "address": "ул. Маяковского 115",
+            "city": "Minsk",
+            "postal_code": "220028",
+            "lat": 53.8633957,
+            "lng": 27.5726527,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_d3603c65b0",
+            "name": "Adrenalin Minsk Nalibokskaya",
+            "address": "ул. Налибокская 2",
+            "city": "Minsk",
+            "postal_code": "220055",
+            "lat": 53.928396,
+            "lng": 27.42846,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_9d160d7f04",
+            "name": "Adrenalin Minsk Nemanskaya",
+            "address": "ул. Неманская 67",
+            "city": "Minsk",
+            "postal_code": "220063",
+            "lat": 53.9240751,
+            "lng": 27.428889,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_9b30bb4164",
+            "name": "Adrenalin Minsk Olesheva",
+            "address": "ул. Олешева 1",
+            "city": "Minsk",
+            "postal_code": "202200",
+            "lat": 53.9441682,
+            "lng": 27.6093864,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_750f35b18a",
+            "name": "Adrenalin Minsk Petra Mstislavtsa",
+            "address": "ул. Петра Мстиславца 9",
+            "city": "Minsk",
+            "postal_code": "220114",
+            "lat": 53.9326819,
+            "lng": 27.650006,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_eea6376668",
+            "name": "Adrenalin Minsk Surganova",
+            "address": "ул. Сурганова 57б",
+            "city": "Minsk",
+            "postal_code": "220100",
+            "lat": 53.928463,
+            "lng": 27.5834446,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_51cdad174c",
+            "name": "Adrenalin Minsk Tolbukhina",
+            "address": "ул. Толбухина 4",
+            "city": "Minsk",
+            "postal_code": "220043",
+            "lat": 53.9267207,
+            "lng": 27.6141813,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_b0b94c0ff4",
+            "name": "Adrenalin Minsk Very Khoruzhey",
+            "address": "ул. Веры Хоружей 25",
+            "city": "Minsk",
+            "postal_code": "220123",
+            "lat": 53.9215631,
+            "lng": 27.5648041,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_15272cccf8",
+            "name": "Adrenalin Minsk Zheleznodorozhnaya",
+            "address": "ул. Железнодорожная 138",
+            "city": "Minsk",
+            "postal_code": "220089",
+            "lat": 53.8734827,
+            "lng": 27.4984741,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_9e5c072155",
+            "name": "Adrenalin Orsha Flerova",
+            "address": "ул. Флерова 11а",
+            "city": "Orsha",
+            "postal_code": "211389",
+            "lat": 54.4933161,
+            "lng": 30.4254733,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_f7ee40e6b4",
+            "name": "Adrenalin Pinsk Brestskaya",
+            "address": "ул. Брестская 72В",
+            "city": "Pinsk",
+            "postal_code": "225701",
+            "lat": 52.1140017,
+            "lng": 26.0804534,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_798ff81350",
+            "name": "Adrenalin Pinsk Gaydaenko",
+            "address": "ул. Гайдаенко 7-2",
+            "city": "Pinsk",
+            "postal_code": "225704",
+            "lat": 52.125535,
+            "lng": 26.0988855,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_d2f1b76671",
+            "name": "Adrenalin Pruzhany Oktyabrskaya",
+            "address": "ул. Октябрьская 104",
+            "city": "Pruzhany",
+            "postal_code": "225131",
+            "lat": 52.5662129,
+            "lng": 24.4641304,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Lifestyle",
+        "official_open_active": 3,
+        "qualifying_active": 3,
+        "ready": 3,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "by_d36ea41d9f",
+            "name": "Lifestyle Minsk Logoysky Trakt",
+            "address": "Логойский тракт 37",
+            "city": "Minsk",
+            "postal_code": "220090",
+            "lat": 53.9555244,
+            "lng": 27.6201853,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_bc96694c1b",
+            "name": "Lifestyle Minsk Masherova",
+            "address": "ул. Машерова 76А",
+            "city": "Minsk",
+            "postal_code": "222304",
+            "lat": 54.2958307,
+            "lng": 26.8241442,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_ad1e7bbaed",
+            "name": "Lifestyle Minsk Partizansky",
+            "address": "ул. Партизанский 79",
+            "city": "Minsk",
+            "postal_code": "222431",
+            "lat": 54.3714142,
+            "lng": 27.3414999,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Fox Club",
+        "official_open_active": 5,
+        "qualifying_active": 4,
+        "ready": 4,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 1,
+        "unresolved": 1,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "by_5484dfe0a0",
+            "name": "Fox Club Minsk Dolgobrodskaya",
+            "address": "ул. Долгобродская 43",
+            "city": "Minsk",
+            "postal_code": "220070",
+            "lat": 53.8860118,
+            "lng": 27.6209109,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_8e1b6f96d5",
+            "name": "Fox Club Minsk Grushevskaya",
+            "address": "ул. Грушевская 83",
+            "city": "Minsk",
+            "postal_code": "220089",
+            "lat": 53.882673,
+            "lng": 27.5175052,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_193e1d6914",
+            "name": "Fox Club Minsk Kazintsa",
+            "address": "ул. Казинца 11а",
+            "city": "Minsk",
+            "postal_code": "220099",
+            "lat": 53.8651013,
+            "lng": 27.5240959,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_e374a381ab",
+            "name": "Fox Club Mogilev Shmidta",
+            "address": "ул. Шмидта 46",
+            "city": "Mogilev",
+            "postal_code": "213320",
+            "lat": 53.4970055,
+            "lng": 30.2565715,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Olympic",
+        "official_open_active": 4,
+        "qualifying_active": 2,
+        "ready": 2,
+        "coming_soon": 1,
+        "closed": 0,
+        "needs_review": 2,
+        "unresolved": 1,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "by_fa0eb7ca10",
+            "name": "Olympic Minsk Nemanskaya",
+            "address": "ул. Неманская 22",
+            "city": "Minsk",
+            "postal_code": "220063",
+            "lat": 53.9104439,
+            "lng": 27.4309717,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_4288439861",
+            "name": "Olympic Minsk Petra Glebki",
+            "address": "ул. Петра Глебки 2",
+            "city": "Minsk",
+            "postal_code": "220121",
+            "lat": 53.9086571,
+            "lng": 27.473889,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "probes_investigated": [
+      {
+        "chain": "Adrenalin",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "29/29 official clubs on adrenalin.by/clubs/"
+      },
+      {
+        "chain": "Lifestyle",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "3/3 Minsk clubs on fitness-club.by"
+      },
+      {
+        "chain": "Fox Club",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "5/5 on fox-club.by"
+      },
+      {
+        "chain": "Olympic",
+        "action": "CLASS_A_GAP_COMING_SOON",
+        "evidence": "4 active + Loshitsa COMING_SOON"
+      },
+      {
+        "chain": "World Class",
+        "action": "BELOW_CLASS_A_THRESHOLD",
+        "evidence": "1 BY site — small market review"
+      },
+      {
+        "chain": "Gold's Gym",
+        "action": "ABSENT",
+        "evidence": "No verified Belarus estate"
+      },
+      {
+        "chain": "Anytime Fitness",
+        "action": "ABSENT",
+        "evidence": "No verified Belarus estate"
+      },
+      {
+        "chain": "McFIT",
+        "action": "ABSENT",
+        "evidence": "No verified Belarus estate"
+      },
+      {
+        "chain": "Basic-Fit",
+        "action": "ABSENT",
+        "evidence": "No verified Belarus estate"
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 4,
+      "final_class_a_ready_count": 35,
+      "chain_estate_gaps": 5
+    },
+    "international_absent": [
+      "Gold's Gym",
+      "Anytime Fitness",
+      "McFIT",
+      "Basic-Fit"
+    ]
+  },
+  "chain_estate_audit": {
+    "chains": [
+      {
+        "brand": "Adrenalin",
+        "official_open_active": 29,
+        "qualifying_active": 26,
+        "ready": 26,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 3,
+        "unresolved": 3,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "by_846dbc58e6",
+            "name": "Adrenalin Gomel Gagarina",
+            "address": "ул. Гагарина 65",
+            "city": "Gomel",
+            "postal_code": "240050",
+            "lat": 52.42415,
+            "lng": 30.9962256,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_0abd3f74c4",
+            "name": "Adrenalin Gomel Rechitsky",
+            "address": "ул. Речицкий 80",
+            "city": "Gomel",
+            "postal_code": "247500",
+            "lat": 52.3713046,
+            "lng": 30.3719446,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_fe116c2222",
+            "name": "Adrenalin Luninets Zapadnaya",
+            "address": "ул. Западная 9",
+            "city": "Luninets",
+            "postal_code": "225644",
+            "lat": 52.2558102,
+            "lng": 26.7903638,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_619fa837be",
+            "name": "Adrenalin Minsk Belinskogo",
+            "address": "ул. Белинского 23",
+            "city": "Minsk",
+            "postal_code": "220113",
+            "lat": 53.9372385,
+            "lng": 27.5944736,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_0b2060fce0",
+            "name": "Adrenalin Minsk Bobruyskaya",
+            "address": "ул. Бобруйская 6",
+            "city": "Minsk",
+            "postal_code": "220006",
+            "lat": 53.8899671,
+            "lng": 27.5561674,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_79989cf6f9",
+            "name": "Adrenalin Minsk Bogdanovicha",
+            "address": "ул. Богдановича 66",
+            "city": "Minsk",
+            "postal_code": "222024",
+            "lat": 54.5220466,
+            "lng": 28.9494205,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_91c4d352a6",
+            "name": "Adrenalin Minsk Bratskaya",
+            "address": "ул. Братская 14",
+            "city": "Minsk",
+            "postal_code": "220065",
+            "lat": 53.8683773,
+            "lng": 27.551138,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_de5fae95bf",
+            "name": "Adrenalin Minsk Dzerzhinskogo",
+            "address": "ул. Дзержинского 30",
+            "city": "Minsk",
+            "postal_code": "222417",
+            "lat": 54.4913444,
+            "lng": 26.9129843,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_8e81d7c66d",
+            "name": "Adrenalin Minsk Goshkevicha",
+            "address": "ул. Гошкевича 3",
+            "city": "Minsk",
+            "postal_code": "220112",
+            "lat": 53.8400066,
+            "lng": 27.5687211,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_32bd3de5a2",
+            "name": "Adrenalin Minsk Kabushkina",
+            "address": "ул. Кабушкина 86а",
+            "city": "Minsk",
+            "postal_code": "220118",
+            "lat": 53.8562962,
+            "lng": 27.6392758,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_45199a18da",
+            "name": "Adrenalin Minsk Kalvariyskaya",
+            "address": "ул. Кальварийская 33",
+            "city": "Minsk",
+            "postal_code": "220079",
+            "lat": 53.906307,
+            "lng": 27.5156925,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_880f898965",
+            "name": "Adrenalin Minsk Kuprevicha",
+            "address": "ул. Купревича 18",
+            "city": "Minsk",
+            "postal_code": "220503",
+            "lat": 53.9315411,
+            "lng": 27.6954899,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_b8d78f7e5f",
+            "name": "Adrenalin Minsk Lopatina",
+            "address": "ул. Лопатина 7а",
+            "city": "Minsk",
+            "postal_code": "220125",
+            "lat": 53.9532462,
+            "lng": 27.6781909,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_6cd39b46bb",
+            "name": "Adrenalin Minsk Mayakovskogo",
+            "address": "ул. Маяковского 115",
+            "city": "Minsk",
+            "postal_code": "220028",
+            "lat": 53.8633957,
+            "lng": 27.5726527,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_d3603c65b0",
+            "name": "Adrenalin Minsk Nalibokskaya",
+            "address": "ул. Налибокская 2",
+            "city": "Minsk",
+            "postal_code": "220055",
+            "lat": 53.928396,
+            "lng": 27.42846,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_9d160d7f04",
+            "name": "Adrenalin Minsk Nemanskaya",
+            "address": "ул. Неманская 67",
+            "city": "Minsk",
+            "postal_code": "220063",
+            "lat": 53.9240751,
+            "lng": 27.428889,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_9b30bb4164",
+            "name": "Adrenalin Minsk Olesheva",
+            "address": "ул. Олешева 1",
+            "city": "Minsk",
+            "postal_code": "202200",
+            "lat": 53.9441682,
+            "lng": 27.6093864,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_750f35b18a",
+            "name": "Adrenalin Minsk Petra Mstislavtsa",
+            "address": "ул. Петра Мстиславца 9",
+            "city": "Minsk",
+            "postal_code": "220114",
+            "lat": 53.9326819,
+            "lng": 27.650006,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_eea6376668",
+            "name": "Adrenalin Minsk Surganova",
+            "address": "ул. Сурганова 57б",
+            "city": "Minsk",
+            "postal_code": "220100",
+            "lat": 53.928463,
+            "lng": 27.5834446,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_51cdad174c",
+            "name": "Adrenalin Minsk Tolbukhina",
+            "address": "ул. Толбухина 4",
+            "city": "Minsk",
+            "postal_code": "220043",
+            "lat": 53.9267207,
+            "lng": 27.6141813,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_b0b94c0ff4",
+            "name": "Adrenalin Minsk Very Khoruzhey",
+            "address": "ул. Веры Хоружей 25",
+            "city": "Minsk",
+            "postal_code": "220123",
+            "lat": 53.9215631,
+            "lng": 27.5648041,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_15272cccf8",
+            "name": "Adrenalin Minsk Zheleznodorozhnaya",
+            "address": "ул. Железнодорожная 138",
+            "city": "Minsk",
+            "postal_code": "220089",
+            "lat": 53.8734827,
+            "lng": 27.4984741,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_9e5c072155",
+            "name": "Adrenalin Orsha Flerova",
+            "address": "ул. Флерова 11а",
+            "city": "Orsha",
+            "postal_code": "211389",
+            "lat": 54.4933161,
+            "lng": 30.4254733,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_f7ee40e6b4",
+            "name": "Adrenalin Pinsk Brestskaya",
+            "address": "ул. Брестская 72В",
+            "city": "Pinsk",
+            "postal_code": "225701",
+            "lat": 52.1140017,
+            "lng": 26.0804534,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_798ff81350",
+            "name": "Adrenalin Pinsk Gaydaenko",
+            "address": "ул. Гайдаенко 7-2",
+            "city": "Pinsk",
+            "postal_code": "225704",
+            "lat": 52.125535,
+            "lng": 26.0988855,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_d2f1b76671",
+            "name": "Adrenalin Pruzhany Oktyabrskaya",
+            "address": "ул. Октябрьская 104",
+            "city": "Pruzhany",
+            "postal_code": "225131",
+            "lat": 52.5662129,
+            "lng": 24.4641304,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Lifestyle",
+        "official_open_active": 3,
+        "qualifying_active": 3,
+        "ready": 3,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "by_d36ea41d9f",
+            "name": "Lifestyle Minsk Logoysky Trakt",
+            "address": "Логойский тракт 37",
+            "city": "Minsk",
+            "postal_code": "220090",
+            "lat": 53.9555244,
+            "lng": 27.6201853,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_bc96694c1b",
+            "name": "Lifestyle Minsk Masherova",
+            "address": "ул. Машерова 76А",
+            "city": "Minsk",
+            "postal_code": "222304",
+            "lat": 54.2958307,
+            "lng": 26.8241442,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_ad1e7bbaed",
+            "name": "Lifestyle Minsk Partizansky",
+            "address": "ул. Партизанский 79",
+            "city": "Minsk",
+            "postal_code": "222431",
+            "lat": 54.3714142,
+            "lng": 27.3414999,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Fox Club",
+        "official_open_active": 5,
+        "qualifying_active": 4,
+        "ready": 4,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 1,
+        "unresolved": 1,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "by_5484dfe0a0",
+            "name": "Fox Club Minsk Dolgobrodskaya",
+            "address": "ул. Долгобродская 43",
+            "city": "Minsk",
+            "postal_code": "220070",
+            "lat": 53.8860118,
+            "lng": 27.6209109,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_8e1b6f96d5",
+            "name": "Fox Club Minsk Grushevskaya",
+            "address": "ул. Грушевская 83",
+            "city": "Minsk",
+            "postal_code": "220089",
+            "lat": 53.882673,
+            "lng": 27.5175052,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_193e1d6914",
+            "name": "Fox Club Minsk Kazintsa",
+            "address": "ул. Казинца 11а",
+            "city": "Minsk",
+            "postal_code": "220099",
+            "lat": 53.8651013,
+            "lng": 27.5240959,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_e374a381ab",
+            "name": "Fox Club Mogilev Shmidta",
+            "address": "ул. Шмидта 46",
+            "city": "Mogilev",
+            "postal_code": "213320",
+            "lat": 53.4970055,
+            "lng": 30.2565715,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Olympic",
+        "official_open_active": 4,
+        "qualifying_active": 2,
+        "ready": 2,
+        "coming_soon": 1,
+        "closed": 0,
+        "needs_review": 2,
+        "unresolved": 1,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "by_fa0eb7ca10",
+            "name": "Olympic Minsk Nemanskaya",
+            "address": "ул. Неманская 22",
+            "city": "Minsk",
+            "postal_code": "220063",
+            "lat": 53.9104439,
+            "lng": 27.4309717,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "by_4288439861",
+            "name": "Olympic Minsk Petra Glebki",
+            "address": "ул. Петра Глебки 2",
+            "city": "Minsk",
+            "postal_code": "220121",
+            "lat": 53.9086571,
+            "lng": 27.473889,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 4,
+      "final_class_a_ready_count": 35,
+      "chain_estate_gaps": 5
+    }
+  },
+  "cross_border": {
+    "belarus_ready_outliers": 0,
+    "poland_ready_outliers": 0,
+    "ukraine_ready_outliers": 0,
+    "lithuania_ready_outliers": 0,
+    "latvia_ready_outliers": 0,
+    "russia_ready_outliers": 0,
+    "other_foreign_ready_outliers": 0
+  },
+  "geocode_audit": {
+    "geocoded_coords": 38,
+    "fallback_coords": 0,
+    "missing_coords": 0,
+    "geocoded_this_run": 47,
+    "postal_filled_this_run": 9
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 0,
+      "identical": 0
+    }
+  },
+  "specialist_ready_leakage": 0,
+  "hotel_resort_ready_leakage": 0,
+  "projected_catalog_after_future_merge": 12072,
+  "catalog_headroom_to_12500": 466,
+  "projected_crosses_12500": false,
+  "crosses_12500_if_ready_exceeds_headroom": false,
+  "global_stress_qa_will_be_required_after_future_merge": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "phase2_required": true,
+  "unresolved_rebrand_conflicts": 0,
+  "verdict": "BELARUS PHASE 2 REQUIRED — UNRESOLVED DISCOVERY / RECONCILIATION"
+}

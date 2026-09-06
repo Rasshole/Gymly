@@ -1,0 +1,22 @@
+{
+  "regions": {
+    "Yerevan": "A",
+    "Aragatsotn": "D",
+    "Ararat": "D",
+    "Armavir": "B",
+    "Gegharkunik": "D",
+    "Kotayk": "B",
+    "Lori": "B",
+    "Shirak": "B",
+    "Syunik": "B",
+    "Tavush": "D",
+    "Vayots Dzor": "D",
+    "Artsakh": "B",
+    "Other": "B"
+  },
+  "ready_by_region": {
+    "Yerevan": 11
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0
+}

@@ -1,0 +1,32 @@
+{
+  "regions": {
+    "Yerevan": "A",
+    "Aragatsotn": "B",
+    "Ararat": "A",
+    "Armavir": "A",
+    "Gegharkunik": "D",
+    "Kotayk": "A",
+    "Lori": "A",
+    "Shirak": "A",
+    "Syunik": "A",
+    "Tavush": "B",
+    "Vayots Dzor": "D",
+    "Artsakh": "B",
+    "Other": "B"
+  },
+  "ready_by_region": {
+    "Yerevan": 27,
+    "Kotayk": 2,
+    "Armavir": 1,
+    "Lori": 2,
+    "Shirak": 1,
+    "Ararat": 1,
+    "Syunik": 2
+  },
+  "grade_a_count": 7,
+  "grade_b_count": 4,
+  "grade_c_count": 0,
+  "grade_d_count": 2,
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0
+}

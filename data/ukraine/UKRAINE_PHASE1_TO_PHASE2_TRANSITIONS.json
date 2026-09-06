@@ -1,0 +1,1332 @@
+[
+  {
+    "id": "ua_a5400d6d03",
+    "brand": "Sport Life",
+    "name": "Sport Life Арсенальна",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_23d66f73cd",
+    "brand": "Sport Life",
+    "name": "Sport Life Борщагівка",
+    "city": "Sofiivska Borshchahivka",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_eb4170dbc3",
+    "brand": "Sport Life",
+    "name": "Sport Life Ретровіль",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_1b3bc4a8bb",
+    "brand": "Sport Life",
+    "name": "Sport Life Вишневе Вітянська",
+    "city": "Vyshneve",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_c022e00841",
+    "brand": "Sport Life",
+    "name": "Sport Life Вишневе Чері Мол",
+    "city": "Vyshneve",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_1a4b056c49",
+    "brand": "Sport Life",
+    "name": "Sport Life Гатне",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_0ba2e8f931",
+    "brand": "Sport Life",
+    "name": "Sport Life Комфорт Таун",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_c96608636c",
+    "brand": "Sport Life",
+    "name": "Sport Life Дніпровська Набережна",
+    "city": "Kyiv",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "phase1_coming_soon_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_039fe5f53e",
+    "brand": "Sport Life",
+    "name": "Sport Life Дрім",
+    "city": "Kyiv",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "phase1_coming_soon_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_2f13a900bc",
+    "brand": "Sport Life",
+    "name": "Sport Life Мармелад",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_235fcd3d4d",
+    "brand": "Sport Life",
+    "name": "Sport Life Караваєві Дачі",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_d70e261140",
+    "brand": "Sport Life",
+    "name": "Sport Life Куренівка",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_4b45af914a",
+    "brand": "Sport Life",
+    "name": "Sport Life Лук’янівська",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_bdd1a00f72",
+    "brand": "Sport Life",
+    "name": "Sport Life Блокбастер",
+    "city": "Kyiv",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "phase1_coming_soon_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_eb31c07c31",
+    "brand": "Sport Life",
+    "name": "Sport Life Осокорки",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_c3ab82360e",
+    "brand": "Sport Life",
+    "name": "Sport Life Поділ",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_075699fcc7",
+    "brand": "Sport Life",
+    "name": "Sport Life Позняки",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_32e504a27b",
+    "brand": "Sport Life",
+    "name": "Sport Life Почайна",
+    "city": "Kyiv",
+    "phase1_category": "CLOSED",
+    "phase2_disposition": "CLOSED",
+    "decision_reason": "phase1_closed_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_8e2b8d9ea0",
+    "brand": "Sport Life",
+    "name": "Sport Life Смарт Плаза Політех",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_37e9896dcc",
+    "brand": "Sport Life",
+    "name": "Sport Life Протасів Яр",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_a503660ece",
+    "brand": "Sport Life",
+    "name": "Sport Life Теремки",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_91ca128bfe",
+    "brand": "Sport Life",
+    "name": "Sport Life Троєщина",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_deaa0ac28c",
+    "brand": "Sport Life",
+    "name": "Sport Life Чернігівська",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_f94b1faa87",
+    "brand": "Sport Life",
+    "name": "Sport Life Героїв УПА",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_f57ff11db1",
+    "brand": "Sport Life",
+    "name": "Sport Life Мазепи",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_a8d1ccb825",
+    "brand": "Sport Life",
+    "name": "Sport Life Сихів",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_3291a2b4f2",
+    "brand": "Sport Life",
+    "name": "Sport Life Котовського",
+    "city": "Odesa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_24c456dc9d",
+    "brand": "Sport Life",
+    "name": "Sport Life Таїрова",
+    "city": "Odesa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_71abefe151",
+    "brand": "Sport Life",
+    "name": "Sport Life Вечірній",
+    "city": "Kryvyi Rih",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_d28fd60e66",
+    "brand": "Sport Life",
+    "name": "Sport Life Панорама",
+    "city": "Dnipro",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_24b745a754",
+    "brand": "Sport Life",
+    "name": "Sport Life Нікольський",
+    "city": "Kharkiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_c5a86b7122",
+    "brand": "Sport Life",
+    "name": "Sport Life Митниця",
+    "city": "Cherkasy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_ca1711a911",
+    "brand": "Sport Life",
+    "name": "Sport Life Південний",
+    "city": "Cherkasy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_d6218220ca",
+    "brand": "Sport Life",
+    "name": "Sport Life Кам’янець-Подільський",
+    "city": "Kamianets-Podilskyi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_3d6f2df12c",
+    "brand": "Sport Life",
+    "name": "Sport Life Кременчук",
+    "city": "Kremenchuk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_029f83f67d",
+    "brand": "Sport Life",
+    "name": "Sport Life Житомир",
+    "city": "Zhytomyr",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_f4c35b3c7a",
+    "brand": "Sport Life",
+    "name": "Sport Life Героїв Майдану",
+    "city": "Chernivtsi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_9d1bb57dba",
+    "brand": "Sport Life",
+    "name": "Sport Life Полтава",
+    "city": "Poltava",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_59d45929f4",
+    "brand": "Sport Life",
+    "name": "Sport Life Луцьк",
+    "city": "Lutsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_65b94cc623",
+    "brand": "Sport Life",
+    "name": "Sport Life Динамо",
+    "city": "Kyiv",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "phase1_coming_soon_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_39c5885bd0",
+    "brand": "Sport Life",
+    "name": "Sport Life Рівне",
+    "city": "Rivne",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_8a5255824f",
+    "brand": "Sport Life",
+    "name": "Sport Life Парус",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_806bf2c35b",
+    "brand": "Sport Life",
+    "name": "Sport Life Республіка",
+    "city": "Kyiv",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "phase1_coming_soon_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_c4830b8d8c",
+    "brand": "Sport Life",
+    "name": "Sport Life Буча",
+    "city": "Bucha",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_74e7ec34b8",
+    "brand": "Sport Life",
+    "name": "Sport Life Деміївська",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_f2452b7d63",
+    "brand": "Sport Life",
+    "name": "Sport Life IQ Business-Center",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_7c3a4ce1de",
+    "brand": "Sport Life",
+    "name": "Sport Life Печерськ",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_f3e525fb8e",
+    "brand": "Sport Life",
+    "name": "Sport Life Академмістечко",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_efd768323e",
+    "brand": "Sport Life",
+    "name": "Sport Life Антоновича",
+    "city": "Lviv",
+    "phase1_category": "CLOSED",
+    "phase2_disposition": "CLOSED",
+    "decision_reason": "phase1_closed_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_b3e80e8a23",
+    "brand": "Smartass",
+    "name": "Smartass Kyiv — Zhylianska St, 41А",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_0db0275a23",
+    "brand": "Smartass",
+    "name": "Smartass Kyiv — Obolonskyi Ave, 19",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_1530de3558",
+    "brand": "Smartass",
+    "name": "Smartass Kyiv — Verkhohliada St, 14A",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_8dff0c1e5e",
+    "brand": "Smartass",
+    "name": "Smartass Kyiv — Korolenkivska St, 4",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_d592c1fdcf",
+    "brand": "Smartass",
+    "name": "Smartass Kyiv — Mykoly Bazhana Ave, 10А",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_6c014a9921",
+    "brand": "Smartass",
+    "name": "Smartass Kyiv — Mezhyhirska St, 82",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_ee0fe78037",
+    "brand": "Smartass",
+    "name": "Smartass Lviv — Shevchenka St, 120",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_6882f81ca4",
+    "brand": "Smartass",
+    "name": "Smartass Lviv — Panasa Myrnoho St, 24",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_56f811ff5c",
+    "brand": "Smartass",
+    "name": "Smartass Lviv — Akademika Pidstryhacha St, 1V",
+    "city": "Lviv",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 smartass.club re-fetch — Akademika Pidstryhacha 1V active UA branch; geocoded via nominatim",
+    "in_production": false
+  },
+  {
+    "id": "ua_776079d90b",
+    "brand": "Smartass",
+    "name": "Smartass Kharkiv — Universytetska St, 16",
+    "city": "Kharkiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_3a88cf6a35",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 019 (ТРЦ DREAM)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_bb2684f412",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 020 (ТРЦ «ХарьОК»)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_04452ccd8e",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 021 (ARENA City)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_2d7d0d8004",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 022 (ТРЦ «Аладдін»)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_1a8d96058a",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 023 (ТРЦ «Cosmo Multimall»)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_0f2b7da5ca",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 024 (ТРЦ Victoria Gardens)",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_d92a8c5ed0",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 025 (ТРЦ Ocean Plaza)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_3c991cd281",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 026 (ТРЦ «Фестивальний», Троєщина)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_00d5002637",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 027 (ЦУМ «Київський Шлях»)",
+    "city": "Boryspil",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_4e5c9633ff",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 028 (ТЦ «Уніцентр»)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_9c00aafd54",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 029 (ТЦ «Ультрамарин»)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_f2f5faf4f8",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 030 (ТЦ «Магелан»)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_6914b0cff8",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 031 (ТЦ «Сільпо, Борщагівка»)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_1706e531c1",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 032 (ТЦ «Сільпо», Теремки)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_02b5114801",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 033 (ТЦ «Магігранд»)",
+    "city": "Vinnytsia",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_87c187d472",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 034 (БЦ «Таурус»)",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_fc1cc0498e",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 035 (ТРЦ «Гермес»)",
+    "city": "Bila Tserkva",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_243f6a2d31",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 036 (ТЦ «Сім’я», Котовського)",
+    "city": "Odesa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_8941c70c36",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 037 (ТРЦ «Острів»)",
+    "city": "Odesa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_6c1adb270c",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 038 (ТЦ DOMA Center, Метро “Дарниця”)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_520598bbb2",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 039 (WINETIME)",
+    "city": "Ivano-Frankivsk",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_8bbebdf962",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 144",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_1265ae1a08",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 040 (ТЦ ЕКО МАРКЕТ)",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_d108951244",
+    "brand": "Apollo Next",
+    "name": "APOLLO NEXT 041 (ЯРМАРОК)",
+    "city": "Zhytomyr",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_31b3182322",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Глибочицька, 44, ТЦ HLYBOCHYTSKY",
+    "city": "Kyiv",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "Phase 2 totalfitness.com.ua — HLYBOCHYTSKY autumn opening; presale/not yet operating at audit",
+    "in_production": false
+  },
+  {
+    "id": "ua_2613c425fa",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Київський шлях, 4",
+    "city": "Boryspil",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_ed4980d2dc",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Чорних Запорожців, 76",
+    "city": "Brovary",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_e039f31e1d",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Героїв України, 21-B",
+    "city": "Brovary",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_7f1ccd82c4",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Бориса Лятошинського, 4",
+    "city": "Zhytomyr",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_cef6a19b35",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — просп. Голосіївський, 30А, БЦ Амаркорд",
+    "city": "Kyiv",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 Total Fitness official clubs page — active; geocoded",
+    "in_production": false
+  },
+  {
+    "id": "ua_70d717e7c6",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Ревуцького, 12/1",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_ef9ba5767c",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Олександра Мишуги, 3-А",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_4dca3f9043",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kyiv — вул. Степана Бандери, 23, ТЦ Gorodok Gal",
+    "city": "Kyiv",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 Total Fitness official clubs page — active; geocoded",
+    "in_production": false
+  },
+  {
+    "id": "ua_f462572161",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Lviv — вул. Вовчинецька, 225а, ТРЦ Veles Mall",
+    "city": "Lviv",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 Total Fitness official clubs page — active; geocoded",
+    "in_production": false
+  },
+  {
+    "id": "ua_93f4f1560b",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Odesa — вул. Семена Палія, 93А",
+    "city": "Odesa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_9fd5152b92",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Dnipro — вул. Сімферопольська, 2м",
+    "city": "Dnipro",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_132d051865",
+    "brand": "Energy Fitness",
+    "name": "Energy Fitness Kyiv",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — fabricated Energy Fitness seeds; official estate unverified",
+    "in_production": false
+  },
+  {
+    "id": "ua_409bce6189",
+    "brand": "Energy Fitness",
+    "name": "Energy Fitness Kyiv",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — fabricated Energy Fitness seeds; official estate unverified",
+    "in_production": false
+  },
+  {
+    "id": "ua_f90843c66c",
+    "brand": "Energy Fitness",
+    "name": "Energy Fitness Kyiv",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — fabricated Energy Fitness seeds; official estate unverified",
+    "in_production": false
+  },
+  {
+    "id": "ua_9755d8f9d5",
+    "brand": "Energy Fitness",
+    "name": "Energy Fitness Lviv",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — fabricated Energy Fitness seeds; official estate unverified",
+    "in_production": false
+  },
+  {
+    "id": "ua_00f985d8d2",
+    "brand": "Energy Fitness",
+    "name": "Energy Fitness Odesa",
+    "city": "Odesa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — fabricated Energy Fitness seeds; official estate unverified",
+    "in_production": false
+  },
+  {
+    "id": "ua_a3e50b05f8",
+    "brand": "Grafit",
+    "name": "Grafit Kyiv",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — wrong-address Grafit Phase 1 seed; replaced by official grafitgym.ua",
+    "in_production": false
+  },
+  {
+    "id": "ua_690a1bfad3",
+    "brand": "Grafit",
+    "name": "Grafit Kyiv",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — wrong-address Grafit Phase 1 seed; replaced by official grafitgym.ua",
+    "in_production": false
+  },
+  {
+    "id": "ua_fe0d72295e",
+    "brand": "Grafit",
+    "name": "Grafit Kyiv",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — wrong-address Grafit Phase 1 seed; replaced by official grafitgym.ua",
+    "in_production": false
+  },
+  {
+    "id": "ua_2a7690ae4c",
+    "brand": "Grafit",
+    "name": "Grafit Lviv",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — wrong-address Grafit Phase 1 seed; replaced by official grafitgym.ua",
+    "in_production": false
+  },
+  {
+    "id": "ua_130b470d75",
+    "brand": "Sport Life",
+    "name": "Sport Life Donetsk (unverified)",
+    "city": "Donetsk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+    "in_production": false
+  },
+  {
+    "id": "ua_34ab8f6d94",
+    "brand": "Sport Life",
+    "name": "Sport Life Mariupol (unverified)",
+    "city": "Mariupol",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+    "in_production": false
+  },
+  {
+    "id": "ua_f5dbc50cac",
+    "brand": "Apollo Next",
+    "name": "Apollo Next Zaporizhzhia probe",
+    "city": "Zaporizhzhia",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+    "in_production": false
+  },
+  {
+    "id": "ua_87b06b2368",
+    "brand": "Total Fitness",
+    "name": "Total Fitness Kherson probe",
+    "city": "Kherson",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+    "in_production": false
+  },
+  {
+    "id": "ua_6a9cf02eb2",
+    "brand": "Energy Fitness",
+    "name": "Energy Fitness Luhansk probe",
+    "city": "Luhansk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+    "in_production": false
+  },
+  {
+    "id": "ua_146ddd858f",
+    "brand": "Grafit",
+    "name": "Grafit Sevastopol probe",
+    "city": "Sevastopol",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+    "in_production": false
+  },
+  {
+    "id": "ua_7cd17f0cfc",
+    "brand": "Independent",
+    "name": "Crimea Yalta municipal gym probe",
+    "city": "Crimea",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+    "in_production": false
+  },
+  {
+    "id": "ua_b12870743e",
+    "brand": "Atlas Fitness",
+    "name": "Atlas Fitness Kyiv",
+    "city": "Kyiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_6979ccd880",
+    "brand": "Grand Prix",
+    "name": "Grand Prix Lviv",
+    "city": "Lviv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_e7bdecef3a",
+    "brand": "Olymp",
+    "name": "Olymp Odesa",
+    "city": "Odesa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_10e02e217c",
+    "brand": "Fitness Formula",
+    "name": "Fitness Formula Dnipro",
+    "city": "Dnipro",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_cf0b8f9ad6",
+    "brand": "ProFitness",
+    "name": "ProFitness Kharkiv",
+    "city": "Kharkiv",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_7055f7e4fe",
+    "brand": "FitCurves",
+    "name": "FitCurves Vinnytsia",
+    "city": "Vinnytsia",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_9b9b5e74e5",
+    "brand": "SportZal",
+    "name": "SportZal Zhytomyr",
+    "city": "Zhytomyr",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase1_ready_revalidated_phase2",
+    "in_production": false
+  },
+  {
+    "id": "ua_2064413696",
+    "brand": "CrossFit Kyiv",
+    "name": "CrossFit Kyiv Box",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_9d8ec72916",
+    "brand": "Hotel Ukraine",
+    "name": "Hotel Ukraine gym probe",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_d0add9cd0d",
+    "brand": "InterContinental",
+    "name": "InterContinental Kyiv spa gym",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_50d46e5e4f",
+    "brand": "Smartass",
+    "name": "Smartass Warsaw",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_14f7c8ce2e",
+    "brand": "Anytime Fitness",
+    "name": "Anytime Fitness Ukraine (absent)",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_eaa20e48fd",
+    "brand": "PureGym",
+    "name": "PureGym Ukraine (absent)",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_dd269d024a",
+    "brand": "McFIT",
+    "name": "McFIT Ukraine (absent)",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_33185ae9a3",
+    "brand": "Basic-Fit",
+    "name": "Basic-Fit Ukraine (absent)",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_8a76ae4cbb",
+    "brand": "World Class",
+    "name": "World Class Ukraine (absent)",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_18892a4414",
+    "brand": "University",
+    "name": "KPI student gym probe",
+    "city": "Kyiv",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ua_9dee3bb38e",
+    "brand": "Municipal audit",
+    "name": "Ukraine Phase 1 municipal audit — Uzhhorod",
+    "city": "Uzhhorod",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 city audit — Uzhhorod: Grade B — municipal audit; no qualifying conventional public gym; not a gym identity",
+    "in_production": false
+  },
+  {
+    "id": "ua_54d8c1ef34",
+    "brand": "Municipal audit",
+    "name": "Ukraine Phase 1 municipal audit — Kamianets-Podilskyi",
+    "city": "Kamianets-Podilskyi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 city audit — Kamianets-Podilskyi: Grade A via Sport Life; audit marker retired; not a gym identity",
+    "in_production": false
+  },
+  {
+    "id": "ua_eec96fb226",
+    "brand": "Municipal audit",
+    "name": "Ukraine Phase 1 municipal audit — Boryspil",
+    "city": "Boryspil",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 city audit — Boryspil: Grade A via Apollo/Total Fitness; audit marker retired; not a gym identity",
+    "in_production": false
+  },
+  {
+    "id": "ua_7c458d094f",
+    "brand": "Municipal audit",
+    "name": "Ukraine Phase 1 municipal audit — Bila Tserkva",
+    "city": "Bila Tserkva",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 city audit — Bila Tserkva: Grade A via Apollo Next Hermes; audit marker retired; not a gym identity",
+    "in_production": false
+  },
+  {
+    "id": "ua_5f337c0fdb",
+    "brand": "Municipal audit",
+    "name": "Ukraine Phase 1 municipal audit — Ivano-Frankivsk",
+    "city": "Ivano-Frankivsk",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 city audit — Ivano-Frankivsk: Grade A via Apollo WINETIME + Total Fitness; audit marker retired; not a gym identity",
+    "in_production": false
+  }
+]

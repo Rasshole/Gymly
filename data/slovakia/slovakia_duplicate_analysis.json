@@ -1,0 +1,12 @@
+{
+  "ready_count": 37,
+  "duplicate_ids": 0,
+  "identical_coordinates": [],
+  "same_brand": {
+    "le_25m": [],
+    "le_50m": [],
+    "le_100m": [],
+    "le_200m": []
+  },
+  "different_brand_le_100m": []
+}

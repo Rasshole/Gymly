@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ee_91d7bd69f0",
+    "name": "FitLife Tartu Eeden",
+    "brand": "FitLife",
+    "chain_key": "fitlife",
+    "address": "Kalda tee 1c",
+    "postal_code": "50703",
+    "city": "Tartu",
+    "country": "Estonia",
+    "lat": 58.3731282,
+    "lng": 26.751225,
+    "website": "https://fitlife.ee/",
+    "source_url": "https://fitlife.ee/",
+    "coord_source": "OSM_FITNESS_CENTRE_PREMISES",
+    "notes": "single-site independent; conventional access Phase 2 verify; phase2: fitlife.ee — conventional 24/7 public gym Eeden centre; memberships €25–45/mo; day pass €10 at turnstile; OSM leisure=fitness_centre FitLife Kalda tee 1c",
+    "import_category": "NEW_READY_TO_IMPORT",
+    "discovered_at": "2026-08-29",
+    "is_active": true,
+    "is_coming_soon": false,
+    "is_closed": false,
+    "discovery_class": "independent_probe",
+    "verification_status": "NEEDS_REVIEW",
+    "evidence": {
+      "source_url": "https://fitlife.ee/"
+    },
+    "eligibility": "SMALL_MARKET_INDEPENDENT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+    "classification": "A_CONVENTIONAL_PUBLIC_GYM"
+  }
+]

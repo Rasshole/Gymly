@@ -1,0 +1,8 @@
+{
+  "phase2_performed": true,
+  "latin_cyrillic_aliases_checked": true,
+  "mitrovica_gate": "Sremska Mitrovica=Serbia; Kosovo Mitrovicë=xk_* only",
+  "presevo_bujanovac_country_errors": 0,
+  "multilingual_duplicate_conflicts": 0,
+  "notes": "Phase2 Latin/Cyrillic discovery; Albanian terms in Preševo/Bujanovac sweep; no Kosovo Mitrovica contamination."
+}

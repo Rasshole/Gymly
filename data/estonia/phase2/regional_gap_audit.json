@@ -1,0 +1,55 @@
+{
+  "ready_by_city": {
+    "Tallinn": 33,
+    "Viimsi": 2,
+    "Tartu": 9,
+    "Narva": 4,
+    "Viljandi": 3,
+    "Peetri": 1,
+    "Tabasalu": 1,
+    "Järveküla": 1,
+    "Luige": 1,
+    "Kiili": 1,
+    "Keila": 2,
+    "Saue": 1,
+    "Pärnu": 2,
+    "Rakvere": 1,
+    "Kuressaare": 1,
+    "Jõhvi": 2,
+    "Võru": 1,
+    "Jõgeva": 1,
+    "Ülenurme": 1
+  },
+  "audited_cities": [
+    "Tallinn",
+    "Tartu",
+    "Narva",
+    "Pärnu",
+    "Kohtla-Järve",
+    "Viljandi",
+    "Rakvere",
+    "Maardu",
+    "Kuressaare",
+    "Sillamäe",
+    "Võru",
+    "Valga",
+    "Jõhvi",
+    "Haapsalu",
+    "Paide"
+  ],
+  "zero_open_classifications": {
+    "Kohtla-Järve": "A_legitimate_no_chain_presence — no Class A open locator entry",
+    "Maardu": "A_legitimate_no_chain_presence — no Class A open locator entry",
+    "Sillamäe": "A_legitimate_no_chain_presence — no Class A open locator entry",
+    "Valga": "A_legitimate_no_chain_presence — no Class A open locator entry",
+    "Haapsalu": "A_legitimate_no_chain_presence — no Class A open locator entry",
+    "Paide": "A_legitimate_no_chain_presence — no Class A open locator entry"
+  },
+  "resolved_former_b_gaps": {
+    "Rakvere": "OPEN_CLASS_A_PRESENT — 24-7 Fitness READY (1); Gym! Rakvere remains COMING_SOON (end 2026) — not a discovery gap",
+    "Võru": "OPEN_CLASS_A_PRESENT — 24-7 Fitness READY (1) — Phase1 B gap closed"
+  },
+  "unexplained_b_gaps": [],
+  "phase2_note": "Phase2 recovered 24-7 Rakvere + Võru to READY; remaining audited zeros are legitimate no Class A presence. Gym! Rakvere/Viimsi stay COMING_SOON (future).",
+  "cs_in_rakvere": true
+}

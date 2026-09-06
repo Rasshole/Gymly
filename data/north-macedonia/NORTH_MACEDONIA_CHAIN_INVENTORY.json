@@ -1,0 +1,121 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside North Macedonia",
+  "qualifying_class_a_chains": 0,
+  "class_a_locations": 0,
+  "CLASS_A": false,
+  "operators": {
+    "Fit One": {
+      "discovered_units": 3,
+      "conventional_public_floors_verified": 1,
+      "ready_sites": 1,
+      "excluded_institutional": 2,
+      "verdict": "SMI_SINGLE_SITE",
+      "class_a": false,
+      "notes": "Dame Gruev 18 Centar READY; school sites EXCLUDED B_INSTITUTIONAL_ONLY"
+    },
+    "Athletic Fitness": {
+      "discovered_conventional_sites": 1,
+      "ready_sites": 1,
+      "verdict": "SMI",
+      "class_a": false,
+      "notes": "Diamond Mall Jordan Mijalkov 31 — single site below Class A"
+    },
+    "Arena Fitness": {
+      "ready_sites": 2,
+      "sites": [
+        "Tetovo",
+        "Strumica"
+      ],
+      "verdict": "SMI",
+      "class_a": false,
+      "notes": "2-site estate; below Class A threshold"
+    },
+    "Slim Line Club": {
+      "SLIM_GYM_ACTIVE_SITES": 0,
+      "class_a": false,
+      "CLASS_A": false,
+      "estate": "ABSENT_AS_CHAIN",
+      "notes": "Weight-loss product/wellness company — not conventional multi-site gym chain"
+    },
+    "Top Forma / Forma Fitness": {
+      "FORMA_ACTIVE_SITES": 0,
+      "class_a": false,
+      "CLASS_A": false,
+      "verdict": "EXCLUDED_SPECIALIST",
+      "notes": "Aerobics/pilates specialist; no Forma Fitness Class A"
+    },
+    "Basic-Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "PureGym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "McFIT": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "JOHN REED": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Anytime Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Gold's Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "World Class": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitness Park": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FitActive": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Stay Fit Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "18GYM": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Ahilej": {
+      "verdict": "ABSENT",
+      "class_a": false,
+      "notes": "Serbia-only"
+    },
+    "XBody": {
+      "verdict": "ABSENT",
+      "class_a": false
+    }
+  },
+  "albanian_language_audit": {
+    "cities": [
+      "Tetovo",
+      "Gostivar",
+      "Kičevo",
+      "Debar",
+      "Čair",
+      "Saraj"
+    ],
+    "ready_from_albanian_pass": [
+      "Arena Fitness Tetovo",
+      "Starfit Tetovo",
+      "Fajar Bodi Tetovo",
+      "Fitness Club Flex Kičevo",
+      "Urban Gym Gostivar"
+    ],
+    "debar_result": "A_legitimate_no_local_gym",
+    "notes": "Albanian-language deep pass closed Tetovo/Gostivar/Kičevo; Debar remains legitimate gap."
+  },
+  "international_recheck": "ABSENT — Anytime/Basic-Fit/McFIT/PureGym/World Class/Ahilej/JOHN REED/Gold's Gym"
+}

@@ -1,0 +1,25 @@
+{
+  "first_run": {
+    "insertions": 1,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11922,
+    "total_after": 11923,
+    "estonia_before": 68,
+    "estonia_after": 69,
+    "ee_prefix_before": 68,
+    "ee_prefix_after": 69
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "estonia_before": 69,
+    "estonia_after": 69,
+    "ee_prefix_before": 69,
+    "ee_prefix_after": 69
+  },
+  "idempotent": true
+}

@@ -1,0 +1,15 @@
+{
+  "invalid_ua_ids": 0,
+  "non_ua_ukraine_ids": 0,
+  "invalid_countries": 0,
+  "invalid_postcodes": 0,
+  "non_canonical_postcodes": 0,
+  "invalid_coordinates": 0,
+  "missing_coordinates": 0,
+  "fallback_coordinates": 0,
+  "centroid_coordinates": 0,
+  "suspect_geocodes": 0,
+  "missing_required_fields": 0,
+  "mojibake": 0,
+  "raw_id_display_names": 0
+}

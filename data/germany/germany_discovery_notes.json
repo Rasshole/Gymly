@@ -1,0 +1,234 @@
+{
+  "notes": {
+    "rsg": {
+      "discovered": 220
+    },
+    "easyfitness": {
+      "error": "'map' object is not subscriptable"
+    },
+    "fitx": {
+      "discovered": 43
+    },
+    "fitness_first": {
+      "discovered": 28
+    },
+    "ai_fitness": {
+      "discovered": 183
+    },
+    "injoy": {
+      "discovered": 0
+    },
+    "clever_fit": {
+      "discovered": 0
+    },
+    "primetime": {
+      "discovered": 52
+    },
+    "elbgym": {
+      "discovered": 0
+    },
+    "jumpers": {
+      "discovered": 0
+    }
+  },
+  "total_raw": 526,
+  "total_deduped": 496,
+  "by_brand": {
+    "McFIT": 181,
+    "JOHN REED": 34,
+    "Gold's Gym": 5,
+    "FitX": 43,
+    "Fitness First": 28,
+    "all inclusive Fitness": 183,
+    "PRIME TIME fitness": 22
+  },
+  "by_category": {
+    "READY_TO_IMPORT": 450,
+    "CLOSED": 6,
+    "NEEDS_COORDINATES": 27,
+    "NEEDS_REVIEW": 2,
+    "COMING_SOON": 11
+  },
+  "internal_dupes": [
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios Hamburg",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios München",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios Schwarzwald",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios Wiesbaden",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Bockenheim frankfurt",
+      "b": "PRIME TIME fitness Bockenheim frankfurt",
+      "id": "de_934fa07c28"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Bornheim frankfurt",
+      "b": "PRIME TIME fitness Bornheim frankfurt",
+      "id": "de_f2d3ec9761"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Schweizer Platz frankfurt",
+      "b": "PRIME TIME fitness Schweizer Platz frankfurt",
+      "id": "de_e88fb0da57"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Main Tower frankfurt",
+      "b": "PRIME TIME fitness Main Tower frankfurt",
+      "id": "de_dac90db3ba"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Romeo & Julia frankfurt",
+      "b": "PRIME TIME fitness Romeo & Julia frankfurt",
+      "id": "de_d4aab6894c"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Colosseo frankfurt",
+      "b": "PRIME TIME fitness Colosseo frankfurt",
+      "id": "de_cb72d10211"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Four frankfurt",
+      "b": "PRIME TIME fitness Four frankfurt",
+      "id": "de_aa46f6623f"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Westend frankfurt",
+      "b": "PRIME TIME fitness Westend frankfurt",
+      "id": "de_b3e542d4e8"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios Hamburg",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness HafenCity hamburg",
+      "b": "PRIME TIME fitness HafenCity hamburg",
+      "id": "de_8faa2b8064"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Eppendorf hamburg",
+      "b": "PRIME TIME fitness Eppendorf hamburg",
+      "id": "de_46ec60001b"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness ESN Gym by PRIME TIME fitness hamburg",
+      "b": "PRIME TIME fitness ESN Gym by PRIME TIME fitness hamburg",
+      "id": "de_7a091069f5"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Hoheluft hamburg",
+      "b": "PRIME TIME fitness Hoheluft hamburg",
+      "id": "de_6ab4ad00be"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Kampnagel hamburg",
+      "b": "PRIME TIME fitness Kampnagel hamburg",
+      "id": "de_bee27b8178"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Winterhude hamburg",
+      "b": "PRIME TIME fitness Winterhude hamburg",
+      "id": "de_2965d206dc"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios München",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Laim muenchen",
+      "b": "PRIME TIME fitness Laim muenchen",
+      "id": "de_9bb5031a22"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Leopoldstraße muenchen",
+      "b": "PRIME TIME fitness Leopoldstraße muenchen",
+      "id": "de_b8795e640c"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Maximilianstraße muenchen",
+      "b": "PRIME TIME fitness Maximilianstraße muenchen",
+      "id": "de_626419a740"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Viktualienmarkt muenchen",
+      "b": "PRIME TIME fitness Viktualienmarkt muenchen",
+      "id": "de_2ccb30ba14"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Werksviertel muenchen",
+      "b": "PRIME TIME fitness Werksviertel muenchen",
+      "id": "de_bb6879af94"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios Schwarzwald",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Hüfingen schwarzwald",
+      "b": "PRIME TIME fitness Hüfingen schwarzwald",
+      "id": "de_b69af643ef"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt",
+      "b": "PRIME TIME fitness Fitnessstudios Fitnessstudios Wiesbaden",
+      "id": "de_6b79418955"
+    },
+    {
+      "reason": "same_id",
+      "a": "PRIME TIME fitness Mainz-Kastel wiesbaden",
+      "b": "PRIME TIME fitness Mainz-Kastel wiesbaden",
+      "id": "de_44169f1d2a"
+    }
+  ]
+}

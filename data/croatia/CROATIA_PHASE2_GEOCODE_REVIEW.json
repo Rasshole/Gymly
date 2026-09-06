@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "hr_531f4f1847",
+    "name": "Gyms4you Zadar – Voštarnica",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 44.1158079,
+    "lng": 15.2327634,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_f3f2371e7f",
+    "name": "Gyms4you Split Visoka",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_65f37e31a4",
+    "name": "Gyms4you Tower centar Rijeka",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.3176021,
+    "lng": 14.4674745,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d45eb0c6b5",
+    "name": "Gyms4you Zaprešić",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8586416,
+    "lng": 15.7982838,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_7ceff61556",
+    "name": "Gyms4you Vrbani",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7904611,
+    "lng": 15.9105033,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_23e290626d",
+    "name": "Gyms4you Split Kampus",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5111883,
+    "lng": 16.4651834,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_4e90ae8d35",
+    "name": "Gyms4you Špansko",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.803779,
+    "lng": 15.8832778,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_8d98ff97a2",
+    "name": "Gyms4you Split Lovret",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5173032,
+    "lng": 16.4460293,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_58fcbe3db0",
+    "name": "Gyms4you Stenjevec",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8124577,
+    "lng": 15.8835488,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_da20a6af84",
+    "name": "Gyms4you Velika Gorica",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7158385,
+    "lng": 16.0643898,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_6eade4805d",
+    "name": "Gyms4you Maksimir 2",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8168391,
+    "lng": 16.0038715,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_1156235f67",
+    "name": "Gyms4you Dubec",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8295896,
+    "lng": 16.0556661,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_828baca7aa",
+    "name": "Gyms4you Matrix",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7972079,
+    "lng": 16.0125926,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_6683a9bafc",
+    "name": "Gyms4you Siget",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7761975,
+    "lng": 15.9743204,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_8e6426a328",
+    "name": "Gyms4you Blato",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7650422,
+    "lng": 15.9276326,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_4de6622372",
+    "name": "Gyms4you Črnomerec",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 45.8111435,
+    "lng": 15.9506153,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_027ef1cdb6",
+    "name": "Gyms4you Dubrava Risnjačka",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 45.8420819,
+    "lng": 16.0527289,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_7c9fb9de75",
+    "name": "Gyms4you Voltino",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 45.8072089,
+    "lng": 15.9309389,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_b9d7bed9cd",
+    "name": "Gyms4you Kvaternik Plaza",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8153142,
+    "lng": 15.9985843,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_6c27f9083b",
+    "name": "Gyms4you Sloboština",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7623155,
+    "lng": 15.9900415,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_658ceb32d7",
+    "name": "Gyms4you Park Kneževa",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8058389,
+    "lng": 15.9872518,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_184f08ae2b",
+    "name": "Gyms4you Remiza",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 45.7961716,
+    "lng": 15.938063,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_312869cdd8",
+    "name": "Gyms4you Maksimir",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8196355,
+    "lng": 16.0108087,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_b7e6171fe4",
+    "name": "Gyms4you Heinzelova",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8107717,
+    "lng": 16.0019706,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_16f20a0868",
+    "name": "Gyms4you Nova Galerija",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7975515,
+    "lng": 15.8962053,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_99d5434c36",
+    "name": "Gyms4you Dubrava",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8263694,
+    "lng": 16.0436747,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_7e7415dbe5",
+    "name": "Gyms4you VMD",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8035175,
+    "lng": 15.9895036,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_e458262bee",
+    "name": "Gyms4you Bundek",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7825005,
+    "lng": 15.9814996,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_b66788cf76",
+    "name": "Gyms4you Karlovac Vladimira Nazora",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 45.4903303,
+    "lng": 15.5451808,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_0ca0078481",
+    "name": "Gyms4you Velimira Škorpika",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 43.7126187,
+    "lng": 15.9096833,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_84e357681f",
+    "name": "Gyms4you Put Murvice",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 44.1103356,
+    "lng": 15.2365352,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_858cb170a0",
+    "name": "Gyms4you Split – Gripe",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.508398,
+    "lng": 16.4516802,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_f3652fa11f",
+    "name": "Gyms4you Velika Gorica Centar",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.71102,
+    "lng": 16.0805495,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d7d57e7e6b",
+    "name": "Gyms4you Spinut",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_fae56a35ca",
+    "name": "Gyms4you Karlovac Grabrik",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.4807252,
+    "lng": 15.5486221,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_f43e3aa015",
+    "name": "Gyms4you Slavonski Brod",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.1532395,
+    "lng": 18.024078,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_1fac95ad76",
+    "name": "Gyms4you Zagreb – Ravnice",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8220768,
+    "lng": 16.0325696,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_1bb0b2df35",
+    "name": "Gyms4you Dubrovnik",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 42.6586863,
+    "lng": 18.0870492,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_905f19b579",
+    "name": "Gyms4you Nova cesta",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.807592,
+    "lng": 15.9544924,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_c6281ff5fd",
+    "name": "Gyms4you Osijek Trg slobode",
+    "coord_source": "GOOGLE_PLACE_PIN",
+    "lat": 45.5600622,
+    "lng": 18.6759977,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d772ccd49a",
+    "name": "Gyms4you Varaždin Đurek",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.3003147,
+    "lng": 16.3354251,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_97270042fd",
+    "name": "Gyms4you Varaždin Istok",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.3010125,
+    "lng": 16.3461427,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_01f97443ea",
+    "name": "Gyms4you Osijek Donji Grad",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.5529292,
+    "lng": 18.7151641,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_26f74acfdc",
+    "name": "Gyms4you Dubrava Čulinečka",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8275482,
+    "lng": 16.0774123,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_c422cb89ff",
+    "name": "Gyms4you Ozaljska",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.799869,
+    "lng": 15.9535234,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d4025dd0f1",
+    "name": "Gyms4you Rijeka",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.3481935,
+    "lng": 14.3687624,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_1b43ef6a03",
+    "name": "Gyms4you Jaruščica",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7665541,
+    "lng": 15.9407302,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_2db3d9d79f",
+    "name": "Gyms4you Ilica",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.812569,
+    "lng": 15.9617783,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_e220acc0f2",
+    "name": "Gyms4you Prisavlje",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7917279,
+    "lng": 15.9576468,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_ee18805422",
+    "name": "Gyms4you Split Trstenik",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_38813ae297",
+    "name": "Gyms4you Knežija",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7880855,
+    "lng": 15.9493041,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_096e0c854b",
+    "name": "Gyms4you Split 3",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_eff3e7d13c",
+    "name": "Gyms4you Jurišićeva",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_ce961ae600",
+    "name": "Gyms4you Heinzelova x Vukovarska",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_04d608aabd",
+    "name": "THE Fitness Dugo Selo",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8063314,
+    "lng": 16.2326194,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_3c82eb55d7",
+    "name": "THE Fitness Samobor STOP SHOP",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_e8feaadf2a",
+    "name": "THE Fitness Samobor Centar",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.802352,
+    "lng": 15.7089588,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_4803390d6f",
+    "name": "THE Fitness Velika Gorica",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7097659,
+    "lng": 16.0533603,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_31f66c7a1f",
+    "name": "THE Fitness Zavrtnica",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8076169,
+    "lng": 15.9998805,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_735c904be3",
+    "name": "THE Fitness Hala",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7981541,
+    "lng": 16.014285,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d77a2aec10",
+    "name": "THE Fitness Borongaj",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8019112,
+    "lng": 16.0320054,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_f764385842",
+    "name": "THE Fitness Borovje",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7852075,
+    "lng": 16.007248,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_ca7a172b54",
+    "name": "THE Fitness Branimir",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8085285,
+    "lng": 16.000767,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_765f4e908a",
+    "name": "THE Fitness Črnomerec",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8103522,
+    "lng": 15.9384043,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_6c2849e74b",
+    "name": "THE Fitness Donje Svetice",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "COMING_SOON"
+  },
+  {
+    "id": "hr_e86685f75d",
+    "name": "THE Fitness Dubrava",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8300016,
+    "lng": 16.0558791,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d963ed9417",
+    "name": "THE Fitness Dvorana Vrbani III",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7935609,
+    "lng": 15.9151415,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_036861a783",
+    "name": "THE Fitness Green Gold",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8019729,
+    "lng": 16.0020235,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_c9eb6ff3b3",
+    "name": "THE Fitness HoB",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.793309,
+    "lng": 15.970246,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_e99d3d2a6c",
+    "name": "THE Fitness Hotel Novi Zagreb",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7720345,
+    "lng": 15.947409,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_130c7050f0",
+    "name": "THE Fitness Jelkovec",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.813479,
+    "lng": 16.1036797,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_96bab24e46",
+    "name": "THE Fitness Kaptol",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8202866,
+    "lng": 15.9772689,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_af1a9eecc8",
+    "name": "THE Fitness Lučko",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7559418,
+    "lng": 15.8899435,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_3d1efcbd8c",
+    "name": "THE Fitness Mamutica",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.771833,
+    "lng": 15.9951811,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_933ff33727",
+    "name": "THE Fitness Stenjevec",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8100961,
+    "lng": 15.8869636,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_8aa56a987c",
+    "name": "THE Fitness ZCentar",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7987365,
+    "lng": 15.8885915,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_a0ec1a2c32",
+    "name": "THE Fitness Zonar",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8057009,
+    "lng": 15.9521003,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_b0b6f04fa5",
+    "name": "Gibi Gib Zagreb Voltino",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7949348,
+    "lng": 15.9319705,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_eb89f1acde",
+    "name": "Gibi Gib Zagreb Rudeš",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8054869,
+    "lng": 15.9239053,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_51e7c33064",
+    "name": "Gibi Gib Varaždin Istok",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.3070846,
+    "lng": 16.3603415,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_9d4a1f57fa",
+    "name": "Gibi Gib Varaždin Centar",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.2966545,
+    "lng": 16.3300173,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_2dd927c58a",
+    "name": "Fitness Centar Joker Split Brodarice",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5201505,
+    "lng": 16.4466599,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d38c920e25",
+    "name": "Fitness Centar Joker Split Mejaši",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5122125,
+    "lng": 16.489957,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_d225dc7c62",
+    "name": "Fitness Centar Joker Omiš",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.442268,
+    "lng": 16.6838411,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_05840eab80",
+    "name": "Fitness Centar Joker Solin",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5291978,
+    "lng": 16.4971697,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_f253f40958",
+    "name": "Multihealth Samobor",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8116182,
+    "lng": 15.711653,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_35051fecb9",
+    "name": "Multihealth Karlovac",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.4903013,
+    "lng": 15.5404241,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_73c4f54110",
+    "name": "Multihealth Zagreb Rudeš",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7964685,
+    "lng": 15.9101771,
+    "disposition": "KEEP_EXISTING"
+  },
+  {
+    "id": "hr_b75e732fcd",
+    "name": "OrlandoFit (legacy)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_932607a989",
+    "name": "Play Fitness Zagreb (legacy)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_7f3f13ea28",
+    "name": "XXL Fitness (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_930241fc7b",
+    "name": "Sparta Gym (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_2d8d241d05",
+    "name": "Fitness centar Forma (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_2a63bdb0d9",
+    "name": "MoFit (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_9f0269952d",
+    "name": "Jump Fitness (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_539189d889",
+    "name": "Core Gym (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_58a16a343b",
+    "name": "Basic Gym One (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_f463fc8203",
+    "name": "Invictus Fitness (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_0964f6e5d5",
+    "name": "Blue Gym (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_b05553a68c",
+    "name": "Olympic Fitness (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_3fe191b40a",
+    "name": "Fitness Studio Energy (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_bce6a832d6",
+    "name": "Anytime Fitness (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_987fa87b10",
+    "name": "clever fit Zagreb Miramarska (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_e8570d5807",
+    "name": "FITINN (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_ab1ae77d12",
+    "name": "McFIT (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_2b833f4743",
+    "name": "JOHN REED (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_514b4fa31f",
+    "name": "Gold's Gym (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_be7edc9754",
+    "name": "World Class Croatia (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_cb7d142aa7",
+    "name": "Fitness First (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_123ebe8479",
+    "name": "MultiSport (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_76e07fdd58",
+    "name": "PassSport (market audit)",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_cff72b6bbe",
+    "name": "Slovenia probe Ljubljana",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 46.0569,
+    "lng": 14.5058,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_f9f7454560",
+    "name": "Slovenia probe Koper",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.5481,
+    "lng": 13.7302,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_c9e1a49a99",
+    "name": "Slovenia probe Maribor",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 46.5547,
+    "lng": 15.6467,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_17b16a077d",
+    "name": "Bosnia probe Mostar",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 43.3438,
+    "lng": 17.8078,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_114dc34394",
+    "name": "Bosnia probe Neum",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.9236,
+    "lng": 17.6156,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_83004a5459",
+    "name": "Bosnia probe Banja Luka",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 44.7722,
+    "lng": 17.191,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_febf8585f8",
+    "name": "Bosnia probe Bosanski Brod",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.1553,
+    "lng": 17.9936,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_62d3554e9c",
+    "name": "Bosnia probe Trebinje",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.712,
+    "lng": 18.3444,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_2e6cf2abe3",
+    "name": "Serbia probe Novi Sad",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.2671,
+    "lng": 19.8335,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_d040375312",
+    "name": "Serbia probe Sombor",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.7742,
+    "lng": 19.1122,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_4a88b985c3",
+    "name": "Montenegro probe Herceg Novi",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.4531,
+    "lng": 18.5375,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_341dfd3afd",
+    "name": "Montenegro probe Igalo",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.4572,
+    "lng": 18.5044,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_72c9740066",
+    "name": "Hungary probe southern border",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.9614,
+    "lng": 17.4636,
+    "disposition": "EXCLUDED"
+  },
+  {
+    "id": "hr_b78514d8f7",
+    "name": "Italy probe Trieste",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.6495,
+    "lng": 13.7768,
+    "disposition": "EXCLUDED"
+  }
+]

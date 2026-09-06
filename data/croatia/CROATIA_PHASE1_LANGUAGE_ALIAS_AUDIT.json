@@ -1,0 +1,49 @@
+{
+  "performed": true,
+  "languages": [
+    "Croatian",
+    "Latin",
+    "English"
+  ],
+  "diacritic_pairs": [
+    [
+      "Čakovec",
+      "Cakovec"
+    ],
+    [
+      "Šibenik",
+      "Sibenik"
+    ],
+    [
+      "Požega",
+      "Pozega"
+    ],
+    [
+      "Đakovo",
+      "Dakovo",
+      "Djákovo"
+    ],
+    [
+      "Varaždin",
+      "Varazdin"
+    ],
+    [
+      "Prečko",
+      "Precko"
+    ],
+    [
+      "Zaprešić",
+      "Zapresic"
+    ]
+  ],
+  "croatian_terms_used": [
+    "teretana",
+    "fitness centar",
+    "fitnes centar",
+    "lokacije",
+    "naše lokacije",
+    "gradska teretana"
+  ],
+  "diacritic_duplicate_conflicts": 0,
+  "notes": "Search normalization folds č/ć/š/ž/đ; display preserves official Croatian diacritics."
+}

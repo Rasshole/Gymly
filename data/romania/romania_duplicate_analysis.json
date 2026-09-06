@@ -1,0 +1,29 @@
+{
+  "proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "ro_841c3d6ffe",
+        "b_id": "ro_4c5fd28082",
+        "brand": "Stay Fit Gym",
+        "distance_m": 137,
+        "same_address": false
+      }
+    ],
+    "identical": []
+  },
+  "dq": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "moldova": 0
+  },
+  "dq_detail": {},
+  "phase1_ready_preserved": 46
+}

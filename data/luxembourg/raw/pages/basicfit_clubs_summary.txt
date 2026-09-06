@@ -1,0 +1,12 @@
+Gym Avenue du Swing 24/7 Belvaux|Avenue du Swing 1|4367|Belvaux
+Gym 24/7 Bereldange|Route de Luxembourg 111|7241|Bereldange
+Gym Route de Luxembourg Bettembourg|Route de Luxembourg 235|3254|Bettembourg
+Gym Ettelbruck 24/7 Ettelbruck|ZA et Commerciale 1|9085|Ettelbruck
+Gym Rue du Brill 24/7 Foetz|Route de Brill 11|3898|Foetz
+Gym Rue Pere Raphael 24/7 Gasperich|Rue du Père Raphaël 18|1349|Gasperich
+Gym Ville Rue Joseph Junck Luxembourg|Rue Joseph Junck 12|1839|Luxembourg
+Gym Sandweiler 24/7 Sandweiler|Rue de Luxembourg 11|5230|Sandweiler
+Gym Rue du Cimetière 24/7 Strassen|Rue du Cimetière 150-152|8069|Strassen
+Gym WINDHOF 24/7 Windhof|Route d’Arlon 5|8399|Windhof
+SOURCE https://www.basic-fit.com/en-lu/club-finder
+COUNT 10

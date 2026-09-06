@@ -36,6 +36,9 @@ export function humanizeCenterId(centerId: string): string {
   if (g) {
     return formatGymDisplayName(g);
   }
+  if (/^(gb|de|no|se)_[a-z0-9]+$/i.test(trimmed)) {
+    return 'Unknown gym';
+  }
   const slug = trimmed.replace(/-/g, ' ');
   const words = slug.split(/\s+/).filter(Boolean);
   if (words.length === 0) {

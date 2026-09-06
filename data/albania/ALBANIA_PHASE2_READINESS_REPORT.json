@@ -1,0 +1,118 @@
+{
+  "country": "Albania",
+  "phase": 2,
+  "market": "INDEPENDENT_PHASE_EXECUTED",
+  "production_total": 11831,
+  "production_sha256": "5ad0b727989bf00f9d72757a4a4d06eb29298a8951f4630e4a7eb5cc81c4dd4e",
+  "albania_live": 0,
+  "al_prefix_live": 0,
+  "phase1_recovered": true,
+  "phase1_staging_total": 90,
+  "phase1_unresolved_recovered": 47,
+  "phase1_promoted_to_ready": 9,
+  "phase1_excluded": 38,
+  "phase1_closed": 0,
+  "new_legitimate_gyms_discovered": 0,
+  "status_counts": {
+    "EXCLUDED": 81,
+    "READY_TO_IMPORT": 9
+  },
+  "ready_to_import": 9,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "qualifying_class_a_chains": 0,
+  "class_a_locations": 0,
+  "CLASS_A": false,
+  "chain_class_a_ready": 0,
+  "small_market_independent_ready": 9,
+  "ready_by_brand": {
+    "Repeat": 2,
+    "Flex Gym": 1,
+    "Fitness Zone": 1,
+    "Cheops Gym": 1,
+    "Illyrian Fitness": 1,
+    "Nandos Gym": 1,
+    "Nirvana Fitness Club": 1,
+    "Fitness Center XXL": 1
+  },
+  "city_coverage": {
+    "Tirana": "READY_present",
+    "Durrës": "READY_present",
+    "Vlorë": "READY_present",
+    "Shkodër": "READY_present",
+    "Elbasan": "A_legitimate_no_local_gym",
+    "Fier": "A_legitimate_no_local_gym",
+    "Korçë": "A_legitimate_no_local_gym",
+    "Berat": "A_legitimate_no_local_gym",
+    "Lushnjë": "A_legitimate_no_local_gym",
+    "Pogradec": "A_legitimate_no_local_gym",
+    "Kavajë": "A_legitimate_no_local_gym",
+    "Gjirokastër": "A_legitimate_no_local_gym",
+    "Sarandë": "A_legitimate_no_local_gym",
+    "Lezhë": "A_legitimate_no_local_gym",
+    "Kukës": "A_legitimate_no_local_gym",
+    "Peshkopi": "A_legitimate_no_local_gym",
+    "Kamëz": "A_legitimate_no_local_gym",
+    "Krujë": "A_legitimate_no_local_gym",
+    "Patos": "A_legitimate_no_local_gym",
+    "Kuçovë": "A_legitimate_no_local_gym",
+    "Laç": "A_legitimate_no_local_gym",
+    "Burrel": "A_legitimate_no_local_gym",
+    "Librazhd": "A_legitimate_no_local_gym",
+    "Gramsh": "A_legitimate_no_local_gym",
+    "Tepelenë": "A_legitimate_no_local_gym",
+    "Golem": "A_legitimate_no_local_gym",
+    "Konispol": "A_legitimate_no_local_gym",
+    "Ksamil": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "cross_border": {
+    "montenegro_ready": 0,
+    "kosovo_ready": 0,
+    "mk_ready": 0,
+    "greece_ready": 0
+  },
+  "data_quality": {
+    "fallback_ready_coords": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "mojibake": 0,
+    "hard_duplicates": 0,
+    "unresolved_rebrands": 0
+  },
+  "repeat_audit": {
+    "REPEAT_CONVENTIONAL_PUBLIC_SITES": 2,
+    "REPEAT_CLASS_A": false,
+    "ready_sites": [
+      "Wilson",
+      "TEG"
+    ],
+    "excluded_sites": [
+      "Nobis"
+    ],
+    "notes": "Only 2 conventional public sites; Class A threshold not met."
+  },
+  "flex_audit": {
+    "FLEX_CONVENTIONAL_SITES": 1,
+    "FLEX_CLASS_A": false,
+    "ready_sites": [
+      "Flex Gym Tirana"
+    ],
+    "website": "https://flexgym.al/"
+  },
+  "planet_fitness_audit": {
+    "PLANET_FITNESS_AL_ACTIVE_SITES": 0,
+    "verdict": "EXCLUDED_UNVERIFIED_LOCAL_BRAND",
+    "notes": "Tirana + Korçë app hits lack defended conventional premises."
+  },
+  "hotel_spa_leakage_ready": 0,
+  "phase3_required": false,
+  "merge_ready": true,
+  "projected_catalog": 11840,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "verdict": "READY FOR ALBANIA MERGE",
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200
+}

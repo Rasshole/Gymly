@@ -1,0 +1,34 @@
+{
+  "country": "Andorra",
+  "phase": 2,
+  "cases": [
+    {
+      "id": "urban_anyospark_group",
+      "classification": "B_distinct_current_clubs",
+      "status": "RESOLVED",
+      "notes": "Same operator group; consumer brands AnyósPark vs Urban Gym kept distinct; Class A not met"
+    },
+    {
+      "id": "urban_canillo_palau_de_gel",
+      "classification": "A_current_successor",
+      "predecessor": "Urban Gym Canillo (historical branding at Palau de Gel)",
+      "successor": "Gimnàs Palau de Gel Canillo",
+      "status": "RESOLVED",
+      "notes": "Current abonaments/remodel messaging are Palau de Gel; temporary Perecaus premises"
+    },
+    {
+      "id": "arinsal_seasonal",
+      "classification": "E_legacy_closed",
+      "identity": "Urban Gym Arinsal",
+      "status": "RESOLVED",
+      "notes": "Seasonal Dec–Apr/May; EXCLUDED_SEASONAL while out of season / no seasonal catalog flag"
+    },
+    {
+      "id": "caldea_spa",
+      "classification": "C_name_confusion",
+      "status": "RESOLVED",
+      "notes": "Club Caldea remains EXCLUDED spa/thermal-primary"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

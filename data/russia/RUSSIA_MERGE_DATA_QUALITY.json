@@ -1,0 +1,16 @@
+{
+  "invalid_ids": 0,
+  "invalid_countries": 0,
+  "invalid_postcodes": 0,
+  "missing_postcodes": 0,
+  "invalid_coordinates": 0,
+  "fallback_coordinates": 0,
+  "centroid_coordinates": 0,
+  "suspect_geocodes": 0,
+  "missing_fields": 0,
+  "mojibake": 0,
+  "cross_border": 0,
+  "operation_unverified_ready": 0,
+  "stale_only_ready": 0,
+  "disputed_territory": 0
+}

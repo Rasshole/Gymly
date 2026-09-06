@@ -1,0 +1,47 @@
+{
+  "country": "Russia",
+  "search_normalization": "normalize_russian_search() — Cyrillic/Latin transliteration",
+  "aliases": [
+    {
+      "canonical": "Moscow",
+      "variants": [
+        "Moskva",
+        "moscow",
+        "Москва"
+      ]
+    },
+    {
+      "canonical": "Saint Petersburg",
+      "variants": [
+        "SPb",
+        "Sankt-Peterburg",
+        "Санкт-Петербург",
+        "St Petersburg"
+      ]
+    },
+    {
+      "canonical": "Russia",
+      "variants": [
+        "Rossiya",
+        "Россия",
+        "RU",
+        "Russian Federation"
+      ]
+    },
+    {
+      "canonical": "Yekaterinburg",
+      "variants": [
+        "Ekaterinburg",
+        "Екатеринбург"
+      ]
+    },
+    {
+      "canonical": "Nizhny Novgorod",
+      "variants": [
+        "Nizhniy Novgorod",
+        "Нижний Новгород"
+      ]
+    }
+  ],
+  "notes": "Canonical Russian local names preserved in storage; transliteration for search only"
+}

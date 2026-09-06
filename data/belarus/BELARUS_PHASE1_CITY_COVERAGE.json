@@ -1,0 +1,31 @@
+{
+  "cities": {
+    "Minsk": "A",
+    "Brest": "A",
+    "Grodno": "A",
+    "Gomel": "A",
+    "Mogilev": "A",
+    "Vitebsk": "B",
+    "Pinsk": "A",
+    "Orsha": "A",
+    "Luninets": "A",
+    "Pruzhany": "A",
+    "Borovlyany": "D"
+  },
+  "ready_by_city": {
+    "Minsk": 27,
+    "Gomel": 2,
+    "Pinsk": 2,
+    "Luninets": 1,
+    "Orsha": 1,
+    "Pruzhany": 1,
+    "Mogilev": 1,
+    "Brest": 2,
+    "Grodno": 1
+  },
+  "material_d_gaps": [
+    "Borovlyany"
+  ],
+  "material_d_gaps_count": 1,
+  "vitebsk_audit_grade": "B"
+}

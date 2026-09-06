@@ -1,0 +1,12 @@
+{
+  "country": "Belarus",
+  "format": "NNNNNN (6 digits)",
+  "regex": "^\\d{6}$",
+  "examples": [
+    "220030",
+    "246000",
+    "224000"
+  ],
+  "validation_function": "format_by_postal() in batch1_phase1_common.py",
+  "source": "Belposhta addressing; aligned with BELARUS_POSTAL_RE"
+}

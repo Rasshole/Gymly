@@ -1,0 +1,66 @@
+{
+  "Sport Life": {
+    "new_ready": 42,
+    "coming_soon": 5,
+    "closed": 2,
+    "excluded": 2,
+    "official_current_active": 49,
+    "final_active_approved": 42,
+    "final_estate_accounted": 49,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "Apollo Next": {
+    "new_ready": 24,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 1,
+    "official_current_active": 24,
+    "final_active_approved": 24,
+    "final_estate_accounted": 24,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "Smartass": {
+    "new_ready": 10,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 1,
+    "official_current_active": 10,
+    "final_active_approved": 10,
+    "final_estate_accounted": 10,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "Total Fitness": {
+    "new_ready": 18,
+    "coming_soon": 1,
+    "closed": 0,
+    "excluded": 1,
+    "official_current_active": 18,
+    "final_active_approved": 18,
+    "final_estate_accounted": 19,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "independents": {
+    "count": 0
+  },
+  "summary": {
+    "final_class_a_chain_count": 4,
+    "final_class_a_chain_names": [
+      "Sport Life",
+      "Apollo Next",
+      "Smartass",
+      "Total Fitness"
+    ],
+    "final_class_a_new_ready_count": 94,
+    "chain_estate_gaps": 0,
+    "independent_new_ready_count": 0,
+    "missed_class_a_chains_found": 0
+  }
+}

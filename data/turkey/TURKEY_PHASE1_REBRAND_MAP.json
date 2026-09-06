@@ -1,0 +1,19 @@
+{
+  "country": "Turkey",
+  "phase": 1,
+  "entries": [
+    {
+      "legacy": "Jatomi",
+      "successor": "MACFit",
+      "classification": "PREDECESSOR_SUCCESSOR",
+      "notes": "Jatomi rebranded to MACFit/Mars group — do not import legacy Jatomi IDs"
+    },
+    {
+      "legacy": "MAC",
+      "successor": "Mars Athletic Club",
+      "classification": "SAME_ACTIVE_IDENTITY",
+      "notes": "MAC premium clubs operate under Mars Athletic Club brand"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

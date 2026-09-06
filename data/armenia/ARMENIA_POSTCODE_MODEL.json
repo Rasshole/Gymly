@@ -1,0 +1,14 @@
+{
+  "country": "Armenia",
+  "format": "NNNN (4 digits)",
+  "regex": "^\\d{4}$",
+  "examples": [
+    "0010",
+    "0014",
+    "0051",
+    "3101"
+  ],
+  "validation_function": "format_am_postal() in batch1_phase1_common.py",
+  "source": "Haypost; aligned with AM_POSTAL_RE",
+  "verified_independently": true
+}

@@ -1,0 +1,142 @@
+{
+  "fitx": {
+    "count": 112
+  },
+  "injoy": {
+    "count": 70
+  },
+  "elbgym": {
+    "count": 0
+  },
+  "golds": {
+    "count": 5
+  },
+  "fitness_first_audit": {
+    "staged_count": 107,
+    "official_club_hrefs": 107,
+    "categories": {
+      "NEEDS_COORDINATES": 94,
+      "READY_TO_IMPORT": 9,
+      "NEEDS_REVIEW": 4
+    },
+    "coming_soon": 0,
+    "closed": 0,
+    "issues": [
+      {
+        "type": "coords_outside_de",
+        "name": "Fitness First Vösendorf",
+        "lat": 48.1175,
+        "lng": 16.3198
+      }
+    ],
+    "verdict": "INVESTIGATE"
+  },
+  "jumpers_audit": {
+    "probes": [
+      {
+        "url": "https://www.jumpers-fitness.de/",
+        "final": "https://www.ai-fitness.de/",
+        "len": 80872,
+        "jumpers_mentions": 17,
+        "redirects_to_ai": true
+      },
+      {
+        "url": "https://jumpers-fitness.de/",
+        "final": "https://www.ai-fitness.de/",
+        "len": 80872,
+        "jumpers_mentions": 17,
+        "redirects_to_ai": true
+      },
+      {
+        "url": "https://www.jumpers.de/",
+        "final": "https://www.jumpers.de/",
+        "len": 199562,
+        "jumpers_mentions": 453,
+        "redirects_to_ai": false
+      },
+      {
+        "url": "https://www.ai-fitness.de/",
+        "final": "https://www.ai-fitness.de/",
+        "len": 80872,
+        "jumpers_mentions": 17,
+        "redirects_to_ai": true
+      },
+      {
+        "url": "https://www.ai-fitness.de/studios",
+        "final": "https://www.ai-fitness.de/studios",
+        "len": 65630,
+        "jumpers_mentions": 15,
+        "redirects_to_ai": true
+      }
+    ],
+    "conclusion": "jumpers-fitness domain redirects to / is absorbed by all inclusive Fitness (ai-fitness). No separate jumpers brand rows should be staged. Use brand=all inclusive Fitness for current physical locations. Do not create dual brand entries for the same gym.",
+    "all_inclusive_staged": 183,
+    "jumpers_branded_in_staging": 0
+  },
+  "additional_chains": {
+    "conventional_candidates": [
+      {
+        "brand": "Kieser Training",
+        "url": "https://www.kieser-training.de/studios/",
+        "kind": "conventional",
+        "final": "https://www.kieser.com/de-de/studios/",
+        "bytes": 115933,
+        "locationish_hrefs": 9
+      },
+      {
+        "brand": "Pfitzenmeier",
+        "url": "https://www.pfitzenmeier.de/clubs/",
+        "kind": "conventional",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "brand": "FitnessLOFT",
+        "url": "https://www.fitnessloft.de/standorte/",
+        "kind": "conventional",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)>"
+      },
+      {
+        "brand": "Feelgood",
+        "url": "https://www.feelgood-club.de/",
+        "kind": "conventional",
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+      },
+      {
+        "brand": "ELEMENTS",
+        "url": "https://www.elements.com/de/clubs",
+        "kind": "conventional",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "brand": "HealthCity",
+        "url": "https://www.healthcity.de/",
+        "kind": "conventional",
+        "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+      }
+    ],
+    "ems_only_not_for_catalog": [
+      {
+        "brand": "Bodystreet",
+        "url": "https://www.bodystreet.com/de/studios/",
+        "kind": "ems_only",
+        "final": "https://www.bodystreet.com/de/studios/",
+        "bytes": 13517,
+        "locationish_hrefs": 0
+      },
+      {
+        "brand": "Körperformen",
+        "url": "https://www.koerperformen.com/",
+        "kind": "ems_only",
+        "final": "https://www.koerperformen.com/",
+        "bytes": 114,
+        "locationish_hrefs": 0
+      }
+    ],
+    "notes": [
+      "EMS-only (Bodystreet, Körperformen) reported separately — do not add to normal Gymly catalog without approval.",
+      "No automatic staging of new conventional chains in Phase 2 without deeper discovery + approval."
+    ]
+  },
+  "started": "2026-08-16T21:23:39.351183+00:00",
+  "finished": "2026-08-16T21:30:47.095438+00:00"
+}

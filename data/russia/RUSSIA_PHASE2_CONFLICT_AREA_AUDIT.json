@@ -1,0 +1,199 @@
+{
+  "disputed_territory_candidates": 27,
+  "disputed_territory_ready": 0,
+  "disputed_territory_excluded": 27,
+  "disputed_territory_unresolved": 0,
+  "disputed_territory_ready_leakage": 0,
+  "policy": "Internationally disputed Ukrainian territories held/excluded from Russia READY",
+  "identities": [
+    {
+      "id": "ru_3321f01217",
+      "name": "Alex Fitness",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_a08fdd2c3f",
+      "name": "Я это я",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_ce6f26bb26",
+      "name": "Турник+Брусья",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_0ae9caa21c",
+      "name": "Саванна",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_85bbe31728",
+      "name": "Областной Дом Физической Культуры",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_075659562a",
+      "name": "WorldClassFitness",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_f467b4b88b",
+      "name": "Физкульт",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_72e54a09a2",
+      "name": "БК \"ПРИНЦИП\" бойцовский клуб",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_c2ed0a17c3",
+      "name": "Тренажёрный зал",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_adcfc0e2a3",
+      "name": "Олимп-Северный",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_edac05975a",
+      "name": "Рим-атлетик",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_e4fb7b45bf",
+      "name": "BandaFit",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_116af9ff8c",
+      "name": "Brooklyn boxing club",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_7464eaa570",
+      "name": "West Dojo",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_ba8c40a180",
+      "name": "Добро",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_df07d8da33",
+      "name": "X-Fit",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_cb62316e41",
+      "name": "Muscule Fit",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_1ee9668fb4",
+      "name": "DDX",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_ee83f256a6",
+      "name": "Дон пауер",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_a64d0252e5",
+      "name": "Lady Stretch",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_6dec627ae5",
+      "name": "jet gym",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_9994978df9",
+      "name": "МетроFitness",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_97a097d0d0",
+      "name": "Fitron",
+      "city": "Rostov-on-Don",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_6e924f6e14",
+      "name": "Simferopol World Class probe",
+      "city": "Simferopol",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_e57cdcae0d",
+      "name": "Sevastopol fitness probe",
+      "city": "Sevastopol",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_6187066e64",
+      "name": "Donetsk gym probe",
+      "city": "Donetsk",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "ru_a1226b4cc3",
+      "name": "Luhansk gym probe",
+      "city": "Luhansk",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    }
+  ]
+}

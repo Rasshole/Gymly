@@ -1,0 +1,636 @@
+{
+  "FS Club Network": {
+    "active_approved": 3,
+    "excluded": 0,
+    "total_accounted": 3,
+    "official_current": 3,
+    "class_a": true,
+    "curated_single_site": false,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_8253b1289d",
+        "name": "FS Club Megacity",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "az_4571004e69",
+        "name": "FS Club Port Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "az_691bc37c21",
+        "name": "FS Club Ganjlik",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "World Class Azerbaijan": {
+    "active_approved": 1,
+    "excluded": 0,
+    "total_accounted": 1,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_d164c1f55e",
+        "name": "World Class Azerbaijan Park Hyatt Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "1st Fitness": {
+    "active_approved": 1,
+    "excluded": 0,
+    "total_accounted": 1,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_74b25de0ef",
+        "name": "1st Fitness Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "FitClub": {
+    "active_approved": 1,
+    "excluded": 0,
+    "total_accounted": 1,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_b13671a73e",
+        "name": "FitClub Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "Fit Way": {
+    "active_approved": 1,
+    "excluded": 43,
+    "total_accounted": 44,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_5de1f9f62e",
+        "name": "Fit Way Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "az_f51c15e9b2",
+        "name": "NeWay Academy Ağ Şəhər Filialı",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_8a1dd72532",
+        "name": "NeWay Academy 28 May Filialı",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_a2afe4ebf6",
+        "name": "Baku Medical Plaza Medilux filial",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_24d914492a",
+        "name": "Port Baku Walk",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_b7cda35188",
+        "name": "Port Baku Walk",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_9f950d1d91",
+        "name": "\"Bank of Baku\" Ecemi filiali",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_9ab3e5b6e7",
+        "name": "TostWay",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_b6690f0d69",
+        "name": "İ.M.Seçenov adına Birinci Moskva Dövlət Tibb Universiteti (Bakı filialı)",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_f9c76f8610",
+        "name": "Bank of Baku «Bakıxanov» filialı",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_a425fb9f6c",
+        "name": "Bank of Baku (Əhmədli filialı)",
+        "city": "Xətai rayonu",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_7cc6264508",
+        "name": "Bank of Baku - Həzi Aslanov filialı",
+        "city": "Xətai rayonu",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_fd142316f3",
+        "name": "Baku Elektronics \\ Xırdalan Filialı",
+        "city": "Masazır",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_4c775e5f9a",
+        "name": "Bank Of Baku Filial",
+        "city": "Xırdalan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_aacb47d32d",
+        "name": "Fit Way Baku",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_c3150d9baf",
+        "name": "Moskva Dövlət Universitetinin Bakı filialı",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_18b39d3498",
+        "name": "MKİS 36 Bakı",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_36c94eac7f",
+        "name": "Naxçıvan Bank - Bakı filialı",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_9ac33f388b",
+        "name": "Caspian Fish Nərimanov / Kaspian Fiş",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_d05a5ae40e",
+        "name": "Bank of Baku Şirvan Filialı",
+        "city": "Şirvan ş.",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_97f13a91fc",
+        "name": "Demir Cargo Sumqayıt filialı",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_9e87bc8097",
+        "name": "Sumqayıt Poçt Filialının 5 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_329f6513ba",
+        "name": "Sumqayıt Poçt Filailının 4 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_d2b40de36e",
+        "name": "Yeni Poçt 18 (Sumqayıt filialı)",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_00ee0b6efe",
+        "name": "Sumqayıt Poçt Filailının 2 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_986cc3f6c4",
+        "name": "ABB Beynəlxalq Bank Sumqayıt Filialı",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_70ba1c6a5e",
+        "name": "Sumqayıt Poçt Filialının 7 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_3c91a512da",
+        "name": "Yanğınsöndürmә İdarəsi / Sumqayıt",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_4f25688915",
+        "name": "Sumqayıt Poçt Filialının 6 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_f7536b2665",
+        "name": "Sumqayıt Poçt Filalının 3 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_bf3953dca0",
+        "name": "Sumqayıt Poçt Filialının 11 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_27a0be1893",
+        "name": "Sumqayıt Poçt Filialının 8 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_1a5eec8d0c",
+        "name": "Sumqayıt Poçt Filialının 1 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_ccaffe1b83",
+        "name": "Sumqayıt Poçt Filialının 9 saylı poçt şöbəsi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_19e894ada6",
+        "name": "Sumqayıt Poçt Filialının Corat poçt şöbəsi",
+        "city": "Corat",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_3c0ddab8c0",
+        "name": "Sumqayıt Poçt Filialının Zeynalabdin poçt şöbəsi",
+        "city": "Zeynalabdin Tağıyev qəsəbəsi",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_ca49f90449",
+        "name": "Fin Plast",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_93b39a36e3",
+        "name": "My Way Boulevard Hotel Ganja",
+        "city": "Ganja",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_ccc4bc06c1",
+        "name": "Fit Way Ganja",
+        "city": "Ganja",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_219e8eb207",
+        "name": "Fikrət Əmirov adına Gəncə Dövlət Filarmoniyası",
+        "city": "Ganja",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_50476e402e",
+        "name": "KATV 1 kabel televiziyası (Mingəçevir filialı)",
+        "city": "Mingachevir",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_f3896ad656",
+        "name": "Ata bank (Mingəçevir filialı)",
+        "city": "Mingachevir",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_0e0a7af98c",
+        "name": "Fit Way Nakhchivan",
+        "city": "Naxçıvan Muxtar Respublikası",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_457f4a1891",
+        "name": "İpək yolu",
+        "city": "Lankaran",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "Pulse": {
+    "active_approved": 1,
+    "excluded": 0,
+    "total_accounted": 1,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_a4cd84ee2a",
+        "name": "Pulse Fitness Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "Gold's Gym": {
+    "active_approved": 1,
+    "excluded": 14,
+    "total_accounted": 15,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_a79d8cbc40",
+        "name": "Gold's Gym Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "az_6579f2d6a0",
+        "name": "Gold Baku Şadlıq Sarayı",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_26e3ccb0f7",
+        "name": "Gold's Gym Baku",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_4e4c3e71e0",
+        "name": "Gold's Gym Baku",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_e884ea826d",
+        "name": "Gold City",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_1d6ba5a13b",
+        "name": "Gold Residence",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_7d1dc16569",
+        "name": "Hollywood Gold",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_adb9e79cfa",
+        "name": "AzerGold",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_efb4ae2c8c",
+        "name": "Gold Saray Şadlıq Evi",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_0ddf16b925",
+        "name": "Gold Palace Şadlıq Sarayı",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_5ef0963865",
+        "name": "Qold Electroniks",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_1b2d8a5549",
+        "name": "Gold's Gym Sumqayit",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_f0ea4a2704",
+        "name": "Gold Hospital",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_905fe9483e",
+        "name": "Gold Qayalı Supermarket",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_1b003cab23",
+        "name": "Gold Şirvan 101",
+        "city": "Şirvan ş.",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "Sport Life": {
+    "active_approved": 1,
+    "excluded": 12,
+    "total_accounted": 13,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_8335114bac",
+        "name": "Sport Life Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "az_58fed23dd3",
+        "name": "Life-Sport",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_bb2fce0ebf",
+        "name": "Sport Life Shirvan",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_d9fd174f33",
+        "name": "İdman Məktəbi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_f16d11fcd9",
+        "name": "İdman Kompleksi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_e1de204de5",
+        "name": "İdman Kompleksi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_f8e22b21c9",
+        "name": "Paralimpiya İdman Kompleksi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_a0f8efd535",
+        "name": "Sport Life Sumqayit",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_f6b6b38de2",
+        "name": "Sea Life",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_d73faa4d38",
+        "name": "Spartak İdman Kompleksi",
+        "city": "Sumqayit",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_40165bdb8e",
+        "name": "Spartak Stadionu",
+        "city": "Ganja",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_856810fc30",
+        "name": "Şüşə Lifi Zavodu",
+        "city": "Mingachevir",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_77d70ec0dd",
+        "name": "Şüşə Lifi Zavodu",
+        "city": "Mingachevir",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "Dream Body": {
+    "active_approved": 1,
+    "excluded": 2,
+    "total_accounted": 3,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "az_96901c65b0",
+        "name": "Dream Body Fitness Baku",
+        "city": "Baku",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "az_1459c9527c",
+        "name": "Dream Tower / Drim Tauer",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "az_531632f905",
+        "name": "Body & Soul",
+        "city": "Baku",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "summary": {
+    "curated_operator_count": 8,
+    "curated_operator_names": [
+      "1st Fitness",
+      "Dream Body",
+      "Fit Way",
+      "FitClub",
+      "Gold's Gym",
+      "Pulse",
+      "Sport Life",
+      "World Class Azerbaijan"
+    ],
+    "final_class_a_chain_count": 1,
+    "final_class_a_chain_names": [
+      "FS Club Network"
+    ],
+    "final_class_a_new_ready_count": 3,
+    "final_curated_new_ready_count": 8,
+    "chain_estate_gaps": 0,
+    "class_a_estate_gaps": 0,
+    "curated_operator_estate_gaps": 0,
+    "fs_club_network_estate_gaps": 0,
+    "world_class_azerbaijan_estate_gaps": 0,
+    "first_fitness_estate_gaps": 0,
+    "fitclub_estate_gaps": 0,
+    "fit_way_estate_gaps": 0,
+    "pulse_estate_gaps": 0,
+    "golds_gym_estate_gaps": 0,
+    "sport_life_estate_gaps": 0,
+    "dream_body_estate_gaps": 0,
+    "missed_class_a_chains_found": 0,
+    "missed_class_a_estate_gaps": 0,
+    "class_a_semantics_correct": "YES"
+  }
+}

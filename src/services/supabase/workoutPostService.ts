@@ -7,6 +7,7 @@ import {
 import {useFeedStore} from '@/store/feedStore';
 import type {FeedItem} from '@/store/feedStore';
 import type {WorkoutPostRow} from '@/types/post.types';
+import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import {getRuntimeLanguage} from '@/i18n/runtimeLanguage';
 import {withAvatarCacheBust} from '../../utils/avatar';
@@ -39,20 +40,33 @@ export function mapPostRowToFeedItem(row: WorkoutPostRow): FeedItem {
     ? formatGymNameWithBrand(centerRaw, centerBrand)
     : 'Center';
   const workoutInfo = `${centerLabel} · ${row.workout_duration} min · ${row.workout_type}`;
+  const snapshot = row.workout_snapshot ?? undefined;
+  const hasPrs = Boolean(snapshot?.prs?.length);
+  const hasImage = Boolean(row.image_url && String(row.image_url).trim());
+  // Media and PRs are composable — never let PR wipe photo type exclusivity in the UI.
+  // Prefer 'photo' when media exists so legacy photo paths keep working; PR lives on snapshot.
   return {
     id: row.id,
-    type: row.image_url ? 'photo' : 'summary',
+    type: hasImage ? 'photo' : hasPrs ? 'pr' : 'summary',
     userId: row.user_id,
     user: row.author_display_name?.trim() || 'Bruger',
     userAvatarUrl: row.author_avatar_url || undefined,
     description: row.caption || '',
     timestamp: formatRelativeTime(new Date(row.created_at), getRuntimeLanguage()),
-    photoUri: row.image_url || undefined,
+    photoUri: hasImage ? row.image_url || undefined : undefined,
     workoutInfo,
     rating:
       row.mood_rating != null && row.mood_rating >= 1 && row.mood_rating <= 5
         ? row.mood_rating
         : undefined,
+    workoutSnapshot: snapshot,
+    checkInId: row.check_in_id ?? undefined,
+    prInfo: hasPrs
+      ? snapshot!.prs
+          .slice(0, 3)
+          .map(p => `${p.exerciseName} ${p.weightKg}×${p.reps}`)
+          .join(' · ')
+      : undefined,
   };
 }
 
@@ -120,7 +134,7 @@ async function fetchBlockedUserIds(currentUserId: string): Promise<Set<string>> 
     if (error || !data) {
       continue;
     }
-    for (const row of data as Array<Record<string, unknown>>) {
+    for (const row of data as unknown as Array<Record<string, unknown>>) {
       const fromId = row[candidate.from];
       const toId = row[candidate.to];
       if (fromId === currentUserId && typeof toId === 'string' && toId) {
@@ -221,6 +235,8 @@ export type CreateWorkoutPostParams = {
   centerName: string;
   workoutTypeLabel: string;
   moodRating: number | null;
+  checkInId?: string | null;
+  workoutSnapshot?: SharedWorkoutSnapshot | null;
 };
 
 /**
@@ -238,6 +254,8 @@ export async function createWorkoutPost(
     centerName,
     workoutTypeLabel,
     moodRating,
+    checkInId,
+    workoutSnapshot,
   } = params;
 
   let imageUrl = '';
@@ -257,26 +275,48 @@ export async function createWorkoutPost(
     imageUrl = pub.publicUrl;
   }
 
-  const {data: inserted, error: insertError} = await supabase
-    .from('posts')
-    .insert({
-      user_id: userId,
-      image_url: imageUrl,
-      caption,
-      workout_duration: durationMinutes,
-      center_name: centerName,
-      workout_type: workoutTypeLabel,
-      mood_rating: moodRating,
-      author_display_name: authorDisplayName,
-    })
-    .select()
-    .single();
-
-  if (insertError) {
-    throw insertError;
+  const baseRow: Record<string, unknown> = {
+    user_id: userId,
+    image_url: imageUrl,
+    caption,
+    workout_duration: durationMinutes,
+    center_name: centerName,
+    workout_type: workoutTypeLabel,
+    mood_rating: moodRating,
+    author_display_name: authorDisplayName,
+  };
+  if (checkInId) {
+    baseRow.check_in_id = checkInId;
+  }
+  if (workoutSnapshot) {
+    baseRow.workout_snapshot = workoutSnapshot;
   }
 
-  return mapPostRowToFeedItem(inserted as WorkoutPostRow);
+  let inserted: WorkoutPostRow | null = null;
+  let insertError: {message: string} | null = null;
+
+  {
+    const res = await supabase.from('posts').insert(baseRow).select().single();
+    inserted = res.data as WorkoutPostRow | null;
+    insertError = res.error;
+  }
+
+  // Migration not applied yet — retry without snapshot columns
+  if (
+    insertError &&
+    /check_in_id|workout_snapshot|schema cache|column/i.test(insertError.message)
+  ) {
+    const {check_in_id: _c, workout_snapshot: _s, ...legacy} = baseRow;
+    const res = await supabase.from('posts').insert(legacy).select().single();
+    inserted = res.data as WorkoutPostRow | null;
+    insertError = res.error;
+  }
+
+  if (insertError || !inserted) {
+    throw insertError ?? new Error('Could not create post');
+  }
+
+  return mapPostRowToFeedItem(inserted);
 }
 
 /**

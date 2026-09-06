@@ -1,0 +1,14 @@
+{
+  "estonia_hard_duplicate_conflicts": 0,
+  "global_id_conflicts": 0,
+  "diacritic_duplicate_conflicts": 0,
+  "multilingual_duplicate_conflicts": 0,
+  "unresolved_rebrand_conflicts": 0,
+  "proximity": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 4,
+    "identical": 0
+  }
+}

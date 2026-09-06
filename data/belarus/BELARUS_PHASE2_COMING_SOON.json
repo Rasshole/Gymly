@@ -1,0 +1,33 @@
+[
+  {
+    "id": "by_aed96cf298",
+    "name": "Olympic Loshitsa (coming soon)",
+    "brand": "Olympic",
+    "chain_key": "olympic",
+    "address": "микрорайон Лошица (opening soon)",
+    "postal_code": "",
+    "city": "Minsk",
+    "country": "Belarus",
+    "lat": null,
+    "lng": null,
+    "website": "https://olympic-minsk.by/loshitsa/",
+    "source_url": "https://olympic-minsk.by/loshitsa/",
+    "coord_source": null,
+    "notes": "Official olympic-minsk.by Loshitsa coming-soon page",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "COMING_SOON",
+    "evidence": {
+      "source_url": "https://olympic-minsk.by/loshitsa/"
+    },
+    "source_type": "official_website",
+    "source_confidence": "HIGH",
+    "operator_class": "A",
+    "eligibility_candidate": "CHAIN_CLASS_A",
+    "phase2_disposition": "COMING_SOON"
+  }
+]

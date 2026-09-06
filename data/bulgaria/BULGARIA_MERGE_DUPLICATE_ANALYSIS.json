@@ -1,0 +1,455 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "bg_3b2837619b",
+        "a_brand": "Next Level Fitness",
+        "a_name": "Next Level Bulgaria Mall",
+        "b_id": "bg_b6ab1909ed",
+        "b_brand": "Flais Fitness",
+        "b_name": "Flais Manastirski Livadi",
+        "distance_m": 74,
+        "classification": "A_legitimate_different_brand_colocation"
+      },
+      {
+        "a_id": "bg_14fc047239",
+        "a_brand": "Next Level Fitness",
+        "a_name": "Next Level Plovdiv Plaza",
+        "b_id": "bg_32094057e9",
+        "b_brand": "Athletic Fitness",
+        "b_name": "Athletic Plovdiv Plaza",
+        "distance_m": 79,
+        "classification": "A_legitimate_different_brand_colocation"
+      },
+      {
+        "a_id": "bg_126696d4df",
+        "a_brand": "Pulse Fitness",
+        "a_name": "Pulse Vitosha",
+        "b_id": "bg_900362e749",
+        "b_brand": "Titanium Fitness",
+        "b_name": "Titanium Studentski Grad",
+        "distance_m": 58,
+        "classification": "A_legitimate_different_brand_colocation"
+      }
+    ]
+  },
+  "skipped_existing_id": [],
+  "withheld": [],
+  "included": [
+    {
+      "id": "bg_3b2837619b",
+      "name": "Next Level Bulgaria Mall",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_e14a3a1ab4",
+      "name": "Next Level Druzhba",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_0474485c62",
+      "name": "Next Level Fohar",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_635a0e365b",
+      "name": "Next Level Galaxy",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_9bd587ceaf",
+      "name": "Next Level Grand Plaza Burgas",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_6c7565e724",
+      "name": "Next Level Hadzhi Dimitar",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_bd036ddd4e",
+      "name": "Next Level Iztok",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_b830d74826",
+      "name": "Next Level Knyazhevo",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_53f070f35c",
+      "name": "Next Level Krasna Polyana",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_6b84334ac6",
+      "name": "Next Level Lozenets",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_cfb3ce3f12",
+      "name": "Next Level Lyulin",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_b8f05b86e8",
+      "name": "Next Level Lyulin 5",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_cc6b3f5e46",
+      "name": "Next Level Maxi",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_a3ab794bf3",
+      "name": "Next Level Mladost",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_628259c4b8",
+      "name": "Next Level Mladost 1",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_07ba32cfe8",
+      "name": "Next Level Nadezhda",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_b134eee5d9",
+      "name": "Next Level NDK",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_abcb56afe1",
+      "name": "Next Level New Wave",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_a1bccd747f",
+      "name": "Next Level Okolovrasten pat",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_776a638de1",
+      "name": "Next Level Ovcha Kupel",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_319d9811d4",
+      "name": "Next Level Park Center",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_75ec7775ce",
+      "name": "Next Level Pernik",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_14fc047239",
+      "name": "Next Level Plovdiv Plaza",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_cac0035145",
+      "name": "Next Level Retail Park Varna",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_ac1324ebc8",
+      "name": "Next Level Ruski pametnik",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_f2e88ab2b1",
+      "name": "Next Level Smirnenski",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_d5a647ddc8",
+      "name": "Next Level Sport Box",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_a116b6e807",
+      "name": "Next Level The Mall",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_07b70f564c",
+      "name": "Next Level Zaimov",
+      "brand": "Next Level Fitness"
+    },
+    {
+      "id": "bg_efbf36132a",
+      "name": "Pulse Bulgaria",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_08cc12ef7b",
+      "name": "Pulse Mladost",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_5ff29203ad",
+      "name": "Pulse Platinum",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_5d141dacf5",
+      "name": "Pulse West Park",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_ef7c667891",
+      "name": "Pulse Arena",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_126696d4df",
+      "name": "Pulse Vitosha",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_900e366812",
+      "name": "Pulse Serdika Center",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_24abf2e465",
+      "name": "Pulse Energy",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_7f689ce1f4",
+      "name": "Pulse Mall of Sofia",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_bcfa812f4e",
+      "name": "Pulse Downtown",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_b05cd8d08e",
+      "name": "Pulse Lyulin",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_7a626bfa8a",
+      "name": "Pulse Grand Plovdiv",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_fae2ff57f2",
+      "name": "Pulse Plovdiv",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_082732d5b3",
+      "name": "Pulse Galleria Burgas",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_c8b76e84ec",
+      "name": "Pulse Kim Center Burgas",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_3ca8c1f554",
+      "name": "Pulse Vital Burgas",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_a3caffaf56",
+      "name": "Pulse Stara Zagora",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_f788456d07",
+      "name": "Pulse Sveti Vlas",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_6502b58e83",
+      "name": "Pulse Kardzhali",
+      "brand": "Pulse Fitness"
+    },
+    {
+      "id": "bg_d05f15760f",
+      "name": "Athletic Yanko Sakazov",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_354c3c6d17",
+      "name": "Athletic Slivnitsa",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_c7b241961d",
+      "name": "Athletic Sopharma Towers",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_253498876f",
+      "name": "Athletic Cherni Vrah",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_9fd7b55678",
+      "name": "Athletic Mega Mall",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_4c1f2b3d94",
+      "name": "Athletic Yordan Yosifov",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_32094057e9",
+      "name": "Athletic Plovdiv Plaza",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_e075d5b569",
+      "name": "Athletic Markovo Tepe",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_38790367c0",
+      "name": "Athletic Galleria Stara Zagora",
+      "brand": "Athletic Fitness"
+    },
+    {
+      "id": "bg_07e4ec34c7",
+      "name": "Flais Hadzhi Dimitar",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_1eb791b2fd",
+      "name": "Flais Alera",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_2fe399a8c4",
+      "name": "Flais Central Park",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_a78530e2bf",
+      "name": "Flais Nadezhda",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_bc5456e6c2",
+      "name": "Flais Sky City",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_a5af084b53",
+      "name": "Flais Mladost 1",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_84ffbbbc27",
+      "name": "Flais Amaya",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_017f0ef482",
+      "name": "Flais Millennium",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_463d58ecdc",
+      "name": "Flais Krasna Polyana",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_1d4b8086db",
+      "name": "Flais Veslec",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_ce2916770a",
+      "name": "Flais Strelbishte",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_b6ab1909ed",
+      "name": "Flais Manastirski Livadi",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_ebfd8d53d1",
+      "name": "Flais Knyazhevo",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_163e7c5e53",
+      "name": "Flais Mladost",
+      "brand": "Flais Fitness"
+    },
+    {
+      "id": "bg_78adcf3f7c",
+      "name": "Titanium Mladost 1",
+      "brand": "Titanium Fitness"
+    },
+    {
+      "id": "bg_900362e749",
+      "name": "Titanium Studentski Grad",
+      "brand": "Titanium Fitness"
+    },
+    {
+      "id": "bg_e12dea33fb",
+      "name": "Titanium Ivan Vazov",
+      "brand": "Titanium Fitness"
+    },
+    {
+      "id": "bg_116a6dbe83",
+      "name": "Titanium Slatina",
+      "brand": "Titanium Fitness"
+    },
+    {
+      "id": "bg_4d5460e107",
+      "name": "Titanium Lyulin",
+      "brand": "Titanium Fitness"
+    },
+    {
+      "id": "bg_5448ddd9dd",
+      "name": "Titanium Mladost 3",
+      "brand": "Titanium Fitness"
+    },
+    {
+      "id": "bg_3ee4262945",
+      "name": "Hammer Gym Platinum",
+      "brand": "Hammer Gym"
+    },
+    {
+      "id": "bg_9af258abe7",
+      "name": "Hammer Gym Manastirski Livadi",
+      "brand": "Hammer Gym"
+    },
+    {
+      "id": "bg_fe05b50ec9",
+      "name": "Hammer Gym Beli Brezi",
+      "brand": "Hammer Gym"
+    },
+    {
+      "id": "bg_e38cb0747e",
+      "name": "Hammer Gym Krasno Selo",
+      "brand": "Hammer Gym"
+    },
+    {
+      "id": "bg_8badbd1c73",
+      "name": "Hammer Gym Ovcha Kupel",
+      "brand": "Hammer Gym"
+    }
+  ]
+}

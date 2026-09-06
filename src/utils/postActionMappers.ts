@@ -9,5 +9,6 @@ export function feedItemToPostActionSheet(item: FeedItem): PostActionSheetPost {
     caption: item.description,
     photoUri: item.photoUri ?? item.videoThumbnailUri ?? item.videoUri,
     workoutInfo: item.workoutInfo,
+    checkInId: item.checkInId ?? null,
   };
 }

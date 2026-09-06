@@ -1,0 +1,67 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "kosovo": 18,
+  "xk_prefix": 18,
+  "json_size_bytes": 3705822,
+  "json_size_mb": 3.534,
+  "parse_ms": 81,
+  "cold_index_ms": 15420,
+  "cached_index_ms": 0,
+  "typical_search_ms": 4,
+  "worst_search_ms": 25,
+  "nearest_ms": 0,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 0,
+  "wall_ms": 15568,
+  "architecture": "KEEP CLIENT-SIDE",
+  "assessment": "HEALTHY",
+  "global_stress_qa_required": false,
+  "crossed_12500": false,
+  "country_expansion": "UNLOCKED",
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "sha_before_qa": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "sha_after_qa": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "production_modified": false,
+  "reconciliation": "18 == 18 == 18 == 18",
+  "eligibility": {
+    "CHAIN_CLASS_A": 12,
+    "SMALL_MARKET_INDEPENDENT": 6
+  },
+  "classifications": {
+    "WELLNESS_ADDITIVE": 1,
+    "A_CONVENTIONAL_PUBLIC_GYM": 17
+  },
+  "brands": {
+    "Fitness Gym Prishtina": 1,
+    "Five Star Fitness": 7,
+    "Lets Go Gym": 5,
+    "Flex Gym": 1,
+    "PowerGym": 1,
+    "Fitness Feimi": 1,
+    "Fit In Gym": 1,
+    "Fitness Zone": 1
+  },
+  "cities": {
+    "Prishtina": 13,
+    "Fushë Kosovë": 1,
+    "Prizren": 2,
+    "Gjilan": 1,
+    "Ferizaj": 1
+  },
+  "hard_duplicates": 0,
+  "excluded_leakage": 0,
+  "hotel_resort_leakage": 0,
+  "specialist_leakage": 0,
+  "institutional_leakage": 0,
+  "foreign_contamination": {
+    "al": 0,
+    "me": 0,
+    "mk": 0,
+    "rs": 0
+  },
+  "rebrand_conflicts": 0,
+  "bugs_found": "NONE",
+  "bugs_fixed": "NONE",
+  "verdict": "KOSOVO STATUS: READY"
+}

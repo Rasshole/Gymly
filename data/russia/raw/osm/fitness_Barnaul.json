@@ -1,0 +1,401 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:50:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 5621767423,
+      "lat": 53.4122194,
+      "lon": 83.9402461,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Pit Bull Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5624437154,
+      "lat": 53.4256499,
+      "lon": 83.9256522,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Спорткомплекс \"Олимп\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 7131095785,
+      "lat": 53.4126206,
+      "lon": 83.9413197,
+      "tags": {
+        "addr:housenumber": "11",
+        "addr:street": "улица Анатолия",
+        "leisure": "fitness_centre",
+        "name": "Аркуда Додзё",
+        "opening_hours": "Mo-Sa 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10788196125,
+      "lat": 53.3279929,
+      "lon": 83.6599821,
+      "tags": {
+        "contact:email": "info@adriatica-fitness.ru",
+        "contact:phone": "+7 385 2501381",
+        "contact:website": "https://adriatica-fitness.ru/",
+        "leisure": "fitness_centre",
+        "name": "Адриатика",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11007711676,
+      "lat": 53.3397732,
+      "lon": 83.7735549,
+      "tags": {
+        "contact:phone": "+7 963 5290293",
+        "contact:website": "https://ladystretch.com/barnaul",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11271703884,
+      "lat": 53.3304213,
+      "lon": 83.6741173,
+      "tags": {
+        "contact:email": "body.club22@yandex.ru",
+        "contact:phone": "+7 913 2253554",
+        "contact:website": "https://taplink.cc/body_club22",
+        "leisure": "fitness_centre",
+        "name": "Body club",
+        "opening_hours": "Mo-Fr 08:00-21:00; Sa 09:00-18:00; Su 09:00-16:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458213,
+      "lat": 53.3504889,
+      "lon": 83.6636782,
+      "tags": {
+        "contact:phone": "+7 962 8208597",
+        "contact:website": "https://ladystretch.com/barnaul",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458215,
+      "lat": 53.3358421,
+      "lon": 83.6818335,
+      "tags": {
+        "contact:phone": "+7 964 0804561",
+        "contact:website": "https://ladystretch.com/barnaul",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458216,
+      "lat": 53.3681654,
+      "lon": 83.6940175,
+      "tags": {
+        "contact:phone": "+7 961 9985650",
+        "contact:website": "https://ladystretch.com/barnaul",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11668682030,
+      "lat": 53.3599517,
+      "lon": 83.7794852,
+      "tags": {
+        "contact:email": "gravity22@inbox.ru",
+        "contact:phone": "+7 385 2544872;+7 983 5530707",
+        "contact:website": "https://gravityfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "GravityFit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11782584671,
+      "lat": 53.3406332,
+      "lon": 83.6716175,
+      "tags": {
+        "contact:email": "esffir7@mail.ru",
+        "contact:phone": "+7 385 2533828;+7 964 6033828",
+        "leisure": "fitness_centre",
+        "name": "ФитКурс",
+        "opening_hours": "Mo-Fr 08:00-12:00,16:00-20:00; Sa 10:00-13:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11792630656,
+      "lat": 53.3399793,
+      "lon": 83.6630511,
+      "tags": {
+        "contact:email": "relef22@mail.ru",
+        "contact:phone": "+73852991040",
+        "contact:website": "https://relef22.ru/",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo,We,Fr 07:00-22:00; Sa 09:00-21:00; Su 09:00-19:00; Tu,Th 09:00-22:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12032949932,
+      "lat": 53.3400151,
+      "lon": 83.7733644,
+      "tags": {
+        "contact:email": "Relef22@mail.ru",
+        "contact:phone": "+7 385 2991040",
+        "contact:website": "https://relef22.ru",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo,We,Fr 07:30-23:00; Sa-Su 09:00-21:00; Tu,Th 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12032949934,
+      "lat": 53.3509802,
+      "lon": 83.6784291,
+      "tags": {
+        "contact:phone": "+7 385 2991040",
+        "contact:website": "https://relef22.ru",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo,We,Fr 07:00-23:00; Sa-Su 09:00-21:00; Tu,Th 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12032949935,
+      "lat": 53.3293096,
+      "lon": 83.6790687,
+      "tags": {
+        "contact:email": "Relef22@mail.ru",
+        "contact:phone": "+7 385 2991040",
+        "contact:website": "https://relef22.ru",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12032949937,
+      "lat": 53.3619365,
+      "lon": 83.7632445,
+      "tags": {
+        "contact:email": "Relef22@mail.ru",
+        "contact:phone": "+7 385 2991040",
+        "contact:website": "https://relef22.ru",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa 09:00-22:00; Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12032949938,
+      "lat": 53.3684666,
+      "lon": 83.6753298,
+      "tags": {
+        "contact:email": "Relef22@mail.ru",
+        "contact:phone": "+7 385 2991040",
+        "contact:website": "https://relef22.ru",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo,We,Fr 07:30-22:00; Sa 09:00-21:00; Su 09:00-19:00; Tu,Th 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12032949940,
+      "lat": 53.3700669,
+      "lon": 83.6965795,
+      "tags": {
+        "check_date:opening_hours": "2026-07-02",
+        "contact:email": "Relef22@mail.ru",
+        "contact:phone": "+7 385 2991040",
+        "contact:website": "https://relef22.ru",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo,We,Fr 07:00-22:00; Sa 09:00-21:00; Tu,Th 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12032949941,
+      "lat": 53.409431,
+      "lon": 83.928631,
+      "tags": {
+        "contact:phone": "+7 385 2991040;+7 903 9476230",
+        "contact:website": "https://relef22.ru",
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo,We,Fr 07:00-22:00; Sa 09:00-21:00; Su 09:00-14:00; Tu,Th 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12666511401,
+      "lat": 53.3578753,
+      "lon": 83.6930141,
+      "tags": {
+        "contact:instagram": "alis_studio",
+        "contact:vk": "alis_dance",
+        "leisure": "fitness_centre",
+        "name": "Alis"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12690675301,
+      "lat": 53.3586462,
+      "lon": 83.6953857,
+      "tags": {
+        "addr:housenumber": "221Г/3",
+        "addr:street": "улица Антона Петрова",
+        "leisure": "fitness_centre",
+        "name": "Olympia",
+        "opening_hours": "Mo-Sa 10:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12702206001,
+      "lat": 53.3577744,
+      "lon": 83.6974791,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Рельеф",
+        "opening_hours": "Mo, We, Fr 08:00-22:00; Tu, Th 09:00-22:00; Sa 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754254,
+      "lat": 53.3359568,
+      "lon": 83.676754,
+      "tags": {
+        "contact:phone": "+7 385 2591258;+7 996 5008560",
+        "contact:website": "https://barnaul.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754255,
+      "lat": 53.3341517,
+      "lon": 83.7788897,
+      "tags": {
+        "contact:phone": "+7 385 2591258",
+        "contact:website": "https://barnaul.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "way",
+      "id": 38977777,
+      "center": {
+        "lat": 53.353381,
+        "lon": 83.765494
+      },
+      "tags": {
+        "addr:city": "Барнаул",
+        "addr:country": "RU",
+        "addr:housenumber": "8А",
+        "addr:region": "Алтайский край",
+        "addr:street": "проспект Строителей",
+        "building": "yes",
+        "building:levels": "3",
+        "contact:email": "avrora.fitness@mail.ru",
+        "contact:phone": "+7 385 2501301;+7 385 2501302;+7 385 2501305",
+        "contact:website": "https://avrora-fitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Аврора",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "sport": "swimming"
+      }
+    },
+    {
+      "type": "way",
+      "id": 89237460,
+      "center": {
+        "lat": 53.3795726,
+        "lon": 83.7468602
+      },
+      "tags": {
+        "addr:housenumber": "6",
+        "addr:street": "улица Чеглецова",
+        "building": "sports_centre",
+        "contact:email": "sadko@avrora-fitness.ru",
+        "contact:phone": "+7 385 2500400;+7 385 2500626",
+        "contact:website": "https://avrora-fitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Аврора",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 95194044,
+      "center": {
+        "lat": 53.3376621,
+        "lon": 83.6840474
+      },
+      "tags": {
+        "addr:city": "Барнаул",
+        "addr:country": "RU",
+        "addr:housenumber": "25",
+        "addr:street": "Взлётная улица",
+        "building": "sports_centre",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Магис-Спорт",
+        "phone": "+7 3852 226006",
+        "sport": "swimming;fitness",
+        "swimming_pool": "yes",
+        "website": "https://www.magis-sport.ru/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1413014772,
+      "center": {
+        "lat": 53.336751,
+        "lon": 83.7618884
+      },
+      "tags": {
+        "layer": "1",
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

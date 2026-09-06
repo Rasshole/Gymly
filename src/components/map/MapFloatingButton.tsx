@@ -1,20 +1,21 @@
 /**
  * Premium glass-style floating map control (layers, locate, etc.).
  */
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useMemo, useRef} from 'react';
 import {
   Animated,
   Pressable,
   StyleSheet,
-  View,
   Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Svg, {Circle, Defs, LinearGradient, Stop} from 'react-native-svg';
 import colors from '@/theme/colors';
 
-const BTN_SIZE = 58;
-const ICON_SIZE = 25;
+/** Compact circular control — matches compass stack rhythm. */
+export const MAP_FAB_SIZE = 44;
+export const MAP_FAB_ICON_SIZE = 22;
+/** Vertical gap between map FABs (and below compass). */
+export const MAP_FAB_GAP = 10;
 
 type Props = {
   icon: string;
@@ -32,7 +33,7 @@ export function MapFloatingButton({
 }: Props) {
   const scale = useRef(new Animated.Value(1)).current;
   const entrance = useRef(new Animated.Value(0)).current;
-  const gradId = useRef(`mapFab_${Math.random().toString(36).slice(2, 9)}`).current;
+  const styles = useMemo(() => createStyles(MAP_FAB_SIZE), []);
 
   useEffect(() => {
     Animated.spring(entrance, {
@@ -45,7 +46,7 @@ export function MapFloatingButton({
 
   const pressIn = () => {
     Animated.spring(scale, {
-      toValue: 0.9,
+      toValue: 0.92,
       friction: 8,
       tension: 240,
       useNativeDriver: true,
@@ -62,123 +63,66 @@ export function MapFloatingButton({
   };
 
   return (
-    <Animated.View style={[styles.outer, {transform: [{scale}]}]}>
-      <View
-        style={[styles.glowRing, active && styles.glowRingActive]}
-        pointerEvents="none"
-      />
+    <Animated.View
+      style={[
+        styles.outer,
+        {
+          opacity: entrance,
+          transform: [
+            {scale},
+            {
+              translateY: entrance.interpolate({
+                inputRange: [0, 1],
+                outputRange: [6, 0],
+              }),
+            },
+          ],
+        },
+      ]}>
       <Pressable
         onPress={onPress}
         onPressIn={pressIn}
         onPressOut={pressOut}
         accessibilityRole="button"
+        accessibilityState={active ? {selected: true} : {}}
         accessibilityLabel={accessibilityLabel}
+        hitSlop={6}
         style={[styles.hit, active && styles.hitActive]}>
-        <View style={styles.fallbackFill} />
-        <View style={styles.shadowLayer} />
-        <Svg width={BTN_SIZE} height={BTN_SIZE} style={StyleSheet.absoluteFill}>
-          <Defs>
-            <LinearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
-              <Stop offset="0" stopColor={colors.primaryLight} />
-              <Stop offset="0.5" stopColor={colors.primary} />
-              <Stop offset="1" stopColor={colors.primaryDark} />
-            </LinearGradient>
-          </Defs>
-          <Circle
-            cx={BTN_SIZE / 2}
-            cy={BTN_SIZE / 2}
-            r={BTN_SIZE / 2 - 1}
-            fill={`url(#${gradId})`}
-          />
-        </Svg>
-        <View style={styles.glassHighlight} pointerEvents="none" />
-        <View style={styles.glassRim} pointerEvents="none" />
-        <View style={styles.iconWrap}>
-          <Icon name={icon} size={ICON_SIZE} color={colors.white} />
-        </View>
+        <Icon name={icon} size={MAP_FAB_ICON_SIZE} color={colors.primary} />
       </Pressable>
     </Animated.View>
   );
 }
 
-const styles = StyleSheet.create({
-  outer: {
-    width: BTN_SIZE,
-    height: BTN_SIZE,
-  },
-  glowRing: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: BTN_SIZE / 2,
-    backgroundColor: colors.primary,
-    opacity: 0.2,
-    transform: [{scale: 1.16}],
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.45,
-        shadowRadius: 14,
-      },
-      android: {elevation: 8},
-    }),
-  },
-  glowRingActive: {
-    opacity: 0.32,
-    transform: [{scale: 1.22}],
-  },
-  hit: {
-    width: BTN_SIZE,
-    height: BTN_SIZE,
-    borderRadius: BTN_SIZE / 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    backgroundColor: colors.primary,
-  },
-  fallbackFill: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: colors.primary,
-    borderRadius: BTN_SIZE / 2,
-  },
-  iconWrap: {
-    zIndex: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  hitActive: {
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.45)',
-  },
-  shadowLayer: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: BTN_SIZE / 2,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#4C1D95',
-        shadowOffset: {width: 0, height: 8},
-        shadowOpacity: 0.35,
-        shadowRadius: 12,
-      },
-      android: {elevation: 10},
-    }),
-  },
-  glassHighlight: {
-    position: 'absolute',
-    top: 5,
-    left: 9,
-    right: 9,
-    height: 16,
-    borderRadius: 10,
-    backgroundColor: 'rgba(255,255,255,0.3)',
-  },
-  glassRim: {
-    position: 'absolute',
-    top: 1,
-    left: 1,
-    right: 1,
-    bottom: 1,
-    borderRadius: BTN_SIZE / 2,
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.18)',
-  },
-});
+function createStyles(size: number) {
+  return StyleSheet.create({
+    outer: {
+      width: size,
+      height: size,
+    },
+    hit: {
+      width: size,
+      height: size,
+      borderRadius: size / 2,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#FFFFFF',
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: 'rgba(15, 23, 42, 0.12)',
+      ...Platform.select({
+        ios: {
+          shadowColor: '#0F172A',
+          shadowOffset: {width: 0, height: 2},
+          shadowOpacity: 0.12,
+          shadowRadius: 4,
+        },
+        android: {elevation: 3},
+      }),
+    },
+    hitActive: {
+      borderColor: colors.primary,
+      borderWidth: 1.5,
+      backgroundColor: '#F8FAFC',
+    },
+  });
+}

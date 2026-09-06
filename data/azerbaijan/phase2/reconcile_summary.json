@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-29T20:21:45.420378+00:00",
+  "phase1_recovered": 434,
+  "transitions": 434,
+  "new_ready": 46,
+  "coming_soon": 0,
+  "excluded": 388,
+  "closed": 0,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 46,
+    "EXCLUDED": 388
+  },
+  "class_a_brand_counts": {
+    "FS Club Network": 3
+  },
+  "curated_operator_counts": {
+    "World Class Azerbaijan": 1,
+    "1st Fitness": 1,
+    "FitClub": 1,
+    "Fit Way": 1,
+    "Pulse": 1,
+    "Gold's Gym": 1,
+    "Sport Life": 1,
+    "Dream Body": 1
+  },
+  "production_sha_unchanged": true
+}

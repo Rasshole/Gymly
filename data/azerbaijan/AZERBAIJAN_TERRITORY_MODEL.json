@@ -1,0 +1,51 @@
+{
+  "country": "Azerbaijan",
+  "sovereign_territory": "Azerbaijan (AZ)",
+  "administrative_units": "14 economic regions",
+  "economic_regions": [
+    "Baku",
+    "Nakhchivan",
+    "Absheron",
+    "Ganja-Qazakh",
+    "Shaki-Zagatala",
+    "Lankaran",
+    "Guba-Khachmaz",
+    "Aran",
+    "Upper Karabakh",
+    "Kalbajar-Lachin",
+    "Mountainous Shirvan",
+    "Central Aran",
+    "East Zangezur",
+    "Shirvan"
+  ],
+  "admin_unit_count": 14,
+  "conflict_regions": {
+    "Karabakh": {
+      "policy": "GEOGRAPHIC_HOLD",
+      "ready_without_strong_evidence": false,
+      "bbox_hint": "39.15<=lat<=40.35, 46.5<=lng<=47.55",
+      "aliases": [
+        "Upper Karabakh",
+        "Khankendi",
+        "Shusha",
+        "Agdam",
+        "East Zangezur"
+      ]
+    }
+  },
+  "exclaves": {
+    "Nakhchivan": {
+      "policy": "INCLUDED",
+      "bbox_hint": "38.78<=lat<=39.62, 44.72<=lng<=46.25"
+    }
+  },
+  "cross_border_rejects": [
+    "GE",
+    "AM",
+    "IR",
+    "TR",
+    "RU"
+  ],
+  "foreign_contamination": "EXCLUDED — cross-border/foreign probes",
+  "in_country_function": "in_azerbaijan() in batch1_phase1_common.py"
+}

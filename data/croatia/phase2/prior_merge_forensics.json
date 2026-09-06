@@ -1,0 +1,13 @@
+{
+  "prior_croatia_merge_found": true,
+  "prior_croatia_merge_count": 80,
+  "prior_croatia_approved_count": 80,
+  "prior_croatia_qa_found": true,
+  "prior_croatia_final_status": "MERGED (80 inserted at catalog 11336→11416)",
+  "artifacts": [
+    "CROATIA_MERGE_REPORT.json",
+    "CROATIA_APPROVED_FOR_MERGE.json",
+    "CROATIA_QA_REPORT.md",
+    "import-croatia-merge.mjs"
+  ]
+}

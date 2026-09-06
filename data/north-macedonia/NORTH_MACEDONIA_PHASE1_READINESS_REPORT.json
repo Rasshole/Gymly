@@ -1,0 +1,224 @@
+{
+  "country": "North Macedonia",
+  "phase": 1,
+  "production_total": 11775,
+  "production_sha256": "2eaa8b9f0ea10fce0a3ab0336f9312e6dc7ff77f463ee1669737f880ae6f0698",
+  "north_macedonia_live": 0,
+  "mk_prefix_live": 0,
+  "staging_total": 77,
+  "status_counts": {
+    "EXCLUDED": 54,
+    "NEEDS_COORDINATES": 20,
+    "NEEDS_REVIEW": 3
+  },
+  "ready_to_import": 0,
+  "needs_review": 3,
+  "needs_coordinates": 20,
+  "excluded": 54,
+  "closed": 0,
+  "qualifying_class_a_chains": 0,
+  "class_a_locations": 0,
+  "class_a_estates_complete": true,
+  "plausible_independents": 23,
+  "municipal_candidates": 0,
+  "city_coverage": {
+    "Skopje": "independent_present_candidate",
+    "Bitola": "independent_present_candidate",
+    "Kumanovo": "independent_present_candidate",
+    "Prilep": "independent_present_candidate",
+    "Tetovo": "independent_present_candidate",
+    "Ohrid": "independent_present_candidate",
+    "Veles": "B_discovery_gap",
+    "Štip": "B_discovery_gap",
+    "Gostivar": "B_discovery_gap",
+    "Strumica": "B_discovery_gap",
+    "Kavadarci": "B_discovery_gap",
+    "Kočani": "B_discovery_gap",
+    "Kičevo": "independent_present_candidate",
+    "Gevgelija": "B_discovery_gap",
+    "Debar": "B_discovery_gap",
+    "Radoviš": "B_discovery_gap"
+  },
+  "skopje_municipalities": {
+    "Centar": "independent_present_candidate",
+    "Karpoš": "independent_present_candidate",
+    "Aerodrom": "independent_present_candidate",
+    "Kisela Voda": "independent_present_candidate",
+    "Gazi Baba": "independent_present_candidate",
+    "Čair": "independent_present_candidate",
+    "Butel": "independent_present_candidate",
+    "Saraj": "B_discovery_gap",
+    "Šuto Orizari": "B_discovery_gap",
+    "Gjorče Petrov": "independent_present_candidate"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [
+    "Veles",
+    "Štip",
+    "Gostivar",
+    "Strumica",
+    "Kavadarci",
+    "Kočani",
+    "Gevgelija",
+    "Debar",
+    "Radoviš"
+  ],
+  "data_quality": {
+    "invalid_postcodes_ready_review": [],
+    "mojibake": [],
+    "foreign_ready": [],
+    "fallback_ready": [],
+    "hard_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts_for_merge": 0,
+    "phase2_rebrand_holds": 1
+  },
+  "cross_border": {
+    "greece_ready": 0,
+    "kosovo_ready": 0,
+    "serbia_ready": 0,
+    "bulgaria_ready": 0,
+    "albania_ready": 0,
+    "greek_macedonia_false_positives_ready": 0,
+    "foreign_probes_staged": 13,
+    "foreign_probes_excluded": 13,
+    "probes": [
+      {
+        "name": "Thessaloniki border probe",
+        "city": "Thessaloniki",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Florina border probe",
+        "city": "Florina",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Edessa border probe",
+        "city": "Edessa",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Kilkis border probe",
+        "city": "Kilkis",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Pristina border probe",
+        "city": "Pristina",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Ferizaj border probe",
+        "city": "Ferizaj",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Gjilan border probe",
+        "city": "Gjilan",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Vranje border probe",
+        "city": "Vranje",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Preševo border probe",
+        "city": "Preševo",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Kyustendil border probe",
+        "city": "Kyustendil",
+        "territory": "Bulgaria",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Blagoevgrad border probe",
+        "city": "Blagoevgrad",
+        "territory": "Bulgaria",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Korçë border probe",
+        "city": "Korçë",
+        "territory": "Albania",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      },
+      {
+        "name": "Pogradec border probe",
+        "city": "Pogradec",
+        "territory": "Albania",
+        "import_category": "EXCLUDED",
+        "in_mk_gate": false
+      }
+    ]
+  },
+  "albanian_language_audit": {
+    "performed": true,
+    "cities_audited": [
+      "Tetovo",
+      "Gostivar",
+      "Kičevo",
+      "Debar",
+      "Čair",
+      "Saraj"
+    ],
+    "terms_used": [
+      "palestra",
+      "fitness",
+      "teretana",
+      "fitnes",
+      "fitnes qendër",
+      "gym"
+    ],
+    "additional_legitimate_candidates": true,
+    "candidates_from_albanian_pass": [
+      "Arena Fitness Tetovo",
+      "Starfit Tetovo",
+      "Foxy Fitness Tetovo",
+      "Fajar Bodi Tetovo",
+      "Fitness Club Flex Kičevo"
+    ],
+    "notes": "Albanian-language discovery added Tetovo + Kičevo conventional candidates beyond Macedonian-only search."
+  },
+  "ohrid_tourism_audit": {
+    "performed": true,
+    "conventional_candidates": [
+      "IB Fitness Ohrid",
+      "Fitness Factori Ohrid"
+    ],
+    "hotel_spa_excluded": true,
+    "hotel_spa_ready_leakage": 0,
+    "notes": "Hotel/resort amenities staged EXCLUDED; year-round independents held NEEDS_COORDINATES for Phase 2."
+  },
+  "small_market_assessment": "INDEPENDENT_PHASE_RECOMMENDED",
+  "phase2_required": true,
+  "merge_ready": false,
+  "projected_catalog": 11775,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "verdict": "NORTH MACEDONIA PHASE 2 REQUIRED BEFORE MERGE"
+}

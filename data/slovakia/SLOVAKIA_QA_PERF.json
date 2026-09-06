@@ -1,0 +1,27 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "json_size_mb": 3.53,
+  "parse_ms": 33,
+  "cold_index_ms": 0,
+  "cached_index_ms": 0,
+  "typical_search_ms": 461,
+  "worst_search_ms": 26,
+  "nearest_ms": 1,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 0,
+  "map_markers_built": 37,
+  "merge_benchmark": {
+    "catalog": 11254,
+    "json_size_mb": 3.33,
+    "parse_ms": 48.51,
+    "cold_index_ms": 16.49,
+    "typical_search_ms": 1.97,
+    "worst_search_ms": 0.01,
+    "nearest_ms": 0.54
+  },
+  "romania_qa_baseline": {
+    "catalog": 11217,
+    "json_size_mb": 3.32
+  }
+}

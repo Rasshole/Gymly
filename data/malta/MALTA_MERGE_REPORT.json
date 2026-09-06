@@ -1,0 +1,328 @@
+{
+  "country": "Malta",
+  "generated_at": "2026-08-26T15:27:42.777Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11630,
+    "malta": 0,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "after": {
+    "total": 11648,
+    "malta": 18,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "inserted": 18,
+  "withheld": 0,
+  "pre_merge_sha256": "45999725147f8ab12d85eccf19b8d755709d4c3234456665c2ab7eec0c133e78",
+  "post_merge_sha256": "e039707d7c419d727b5297acf26b17bc1f885217ca997d3b75f21ff54f60a7f4",
+  "brand_breakdown": {
+    "24/7 Fitness Club": 4,
+    "Best Gyms Malta": 10,
+    "Challenger Fitness": 4
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "bad_postal_format": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0
+  },
+  "country_regression": {
+    "luxembourg": {
+      "before": 20,
+      "after": 20,
+      "intact": true
+    },
+    "estonia": {
+      "before": 68,
+      "after": 68,
+      "intact": true
+    },
+    "latvia": {
+      "before": 33,
+      "after": 33,
+      "intact": true
+    },
+    "lithuania": {
+      "before": 61,
+      "after": 61,
+      "intact": true
+    },
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    },
+    "slovakia": {
+      "before": 37,
+      "after": 37,
+      "intact": true
+    },
+    "bulgaria": {
+      "before": 82,
+      "after": 82,
+      "intact": true
+    },
+    "croatia": {
+      "before": 80,
+      "after": 80,
+      "intact": true
+    },
+    "slovenia": {
+      "before": 32,
+      "after": 32,
+      "intact": true
+    }
+  },
+  "best_gyms": {
+    "count": 10,
+    "kirkop": true,
+    "marsa": true,
+    "birzebbuga": true,
+    "birgu_withheld": true,
+    "elite_predecessor_live": 0,
+    "result": "PASS"
+  },
+  "fitness247": {
+    "count": 4,
+    "result": "PASS"
+  },
+  "challenger": {
+    "count": 4,
+    "cottonera": true,
+    "paceville_live": 0,
+    "result": "PASS"
+  },
+  "birgu": {
+    "staging_id": "mt_75a13770ff",
+    "staging_status": "COMING_SOON",
+    "production_presence": 0,
+    "result": "PASS"
+  },
+  "rebrand_legacy": {
+    "fitness_cafe_live": 0,
+    "elite_live": 0,
+    "paceville_live": 0,
+    "result": "PASS"
+  },
+  "coming_soon_exclusion": {
+    "birgu_withheld": true,
+    "coming_soon_staging": 1,
+    "closed_staging": 3,
+    "excluded_staging": 31,
+    "result": "PASS"
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 18,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 0,
+    "COMING_SOON": 1,
+    "CLOSED": 3,
+    "EXCLUDED": 31,
+    "DUPLICATE_LEGACY": 0,
+    "unique_staged": 53,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "approved_ids_match": true,
+    "phase2_ready_ids_match": true,
+    "metadata_drift": "NONE",
+    "reconciliation": "18 == 18 == 18 == 18"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0,
+    "different_brand_details": []
+  },
+  "border_safety": {
+    "foreign_coords": 0,
+    "italy_sicily": 0,
+    "offshore_invalid": 0,
+    "result": "CLEAN"
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "performance": {
+    "catalog": 11648,
+    "active": 11644,
+    "json_size_bytes": 3619609,
+    "json_size_mb": 3.45
+  },
+  "global_scale": {
+    "previous_production": 11630,
+    "new_production": 11648,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "MALTA MERGE COMPLETE — WAITING FOR QA"
+}

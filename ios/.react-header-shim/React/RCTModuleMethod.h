@@ -1,0 +1,1 @@
+/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native/React/Base/RCTModuleMethod.h

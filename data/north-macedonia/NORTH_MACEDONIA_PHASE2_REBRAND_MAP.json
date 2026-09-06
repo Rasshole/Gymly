@@ -1,0 +1,70 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "IB Fitness Ohrid",
+        "Fitness Factori Ohrid"
+      ],
+      "notes": "Both at 15-ti Korpus area; distinct defended units/coords."
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Fit One Centar Dame Gruev 18",
+        "Fit One school sites"
+      ],
+      "notes": "Centar consumer gym READY; school sites remain B_INSTITUTIONAL_ONLY EXCLUDED."
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Arena Fitness Tetovo",
+        "Arena Fitness Strumica"
+      ],
+      "notes": "Two-site SMI estate; not Class A (≥3 not met)."
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Pulse Fitness Strumica",
+        "Arena Fitness Strumica"
+      ],
+      "notes": "Distinct Strumica conventional floors."
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Athletic Fitness (MK)",
+        "Athletic Fitness (BG)"
+      ],
+      "notes": "Diamond Mall Jordan Mijalkov 31 is MK-only; do not import BG estate."
+    },
+    {
+      "type": "E_ABSENT_AS_CHAIN",
+      "entities": [
+        "Slim Line Club"
+      ],
+      "notes": "Weight-loss product/wellness — SLIM_GYM_ACTIVE_SITES=0 Class A."
+    },
+    {
+      "type": "E_SPECIALIST_EXCLUDED",
+      "entities": [
+        "Top Forma"
+      ],
+      "notes": "Aerobics/pilates specialist; FORMA_ACTIVE_SITES=0 Class A."
+    }
+  ],
+  "slim_gym_audit": {
+    "SLIM_GYM_ACTIVE_SITES": 0,
+    "CLASS_A": false,
+    "estate": "ABSENT_AS_CHAIN"
+  },
+  "forma_audit": {
+    "FORMA_ACTIVE_SITES": 0,
+    "CLASS_A": false,
+    "verdict": "EXCLUDED_SPECIALIST"
+  },
+  "note": "Phase2 merge gate: 0 unresolved rebrand conflicts."
+}

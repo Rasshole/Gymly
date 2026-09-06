@@ -1,0 +1,65 @@
+{
+  "same_brand_lt50": [],
+  "different_brand_lt50": [
+    {
+      "a_id": "me_54169ac803",
+      "b_id": "me_c220315889",
+      "a_brand": "The Capital Fitness Center",
+      "b_brand": "Benex Fitness",
+      "distance_m": 14,
+      "classification": "COLOCATED_DISTINCT_CAPITAL_PLAZA"
+    }
+  ],
+  "identical": [],
+  "classifications": [
+    {
+      "a_id": "me_54169ac803",
+      "b_id": "me_c220315889",
+      "a_brand": "The Capital Fitness Center",
+      "b_brand": "Benex Fitness",
+      "distance_m": 14,
+      "classification": "COLOCATED_DISTINCT_CAPITAL_PLAZA"
+    },
+    {
+      "a_id": "me_54169ac803",
+      "b_id": "me_9eeaa4aa02",
+      "a_brand": "The Capital Fitness Center",
+      "b_brand": "Urban Gym",
+      "distance_m": 132,
+      "classification": "DISTINCT_PREMISES"
+    },
+    {
+      "a_id": "me_c220315889",
+      "b_id": "me_9eeaa4aa02",
+      "a_brand": "Benex Fitness",
+      "b_brand": "Urban Gym",
+      "distance_m": 143,
+      "classification": "DISTINCT_PREMISES"
+    },
+    {
+      "a_id": "me_9eeaa4aa02",
+      "b_id": "me_4b2e8c0669",
+      "a_brand": "Urban Gym",
+      "b_brand": "GO GYM",
+      "distance_m": 95,
+      "classification": "DISTINCT_PREMISES"
+    },
+    {
+      "a_id": "me_0ca0ffcb7a",
+      "b_id": "me_1064e5ae96",
+      "a_brand": "Ethno Gym",
+      "b_brand": "Fitness Original",
+      "distance_m": 195,
+      "classification": "DISTINCT_PREMISES"
+    },
+    {
+      "a_id": "me_65ecc20366",
+      "b_id": "me_a36e3e5b34",
+      "a_brand": "Terzo",
+      "b_brand": "Čeličana",
+      "distance_m": 106,
+      "classification": "DISTINCT_PREMISES"
+    }
+  ],
+  "unexplained_hard_duplicates": 0
+}

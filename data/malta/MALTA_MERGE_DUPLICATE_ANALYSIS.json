@@ -1,0 +1,113 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "skipped_existing_id": [],
+  "included": [
+    {
+      "id": "mt_e4b83e61b9",
+      "name": "Best Gyms Sliema",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_9e7f8497b0",
+      "name": "Neptunes Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_134787b308",
+      "name": "Tal-Qroqq Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_aadaefb25f",
+      "name": "Pembroke Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_ce1047cd1d",
+      "name": "Birkirkara Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_f0f72dec5a",
+      "name": "Mosta Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_b45a78a4f0",
+      "name": "Build Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_b8747c67db",
+      "name": "Kirkop Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_af9179a385",
+      "name": "BGM Marsa Fitness Centre",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_963f710969",
+      "name": "BGM Birżebbuġa Fitness",
+      "brand": "Best Gyms Malta"
+    },
+    {
+      "id": "mt_e88a8cf7e9",
+      "name": "24/7 Fitness Club Mellieħa",
+      "brand": "24/7 Fitness Club"
+    },
+    {
+      "id": "mt_d0c227df18",
+      "name": "24/7 Fitness Club San Ġwann",
+      "brand": "24/7 Fitness Club"
+    },
+    {
+      "id": "mt_8d626df0f2",
+      "name": "24/7 Fitness Club Ta' Qali",
+      "brand": "24/7 Fitness Club"
+    },
+    {
+      "id": "mt_7e23dc11d2",
+      "name": "24/7 Fitness Club Żebbuġ",
+      "brand": "24/7 Fitness Club"
+    },
+    {
+      "id": "mt_6175c7910d",
+      "name": "Challenger Fitness Centre Qormi",
+      "brand": "Challenger Fitness"
+    },
+    {
+      "id": "mt_26d7f37a30",
+      "name": "Challenger Fitness Centre Valletta",
+      "brand": "Challenger Fitness"
+    },
+    {
+      "id": "mt_26579c8193",
+      "name": "Challenger Fitness Centre Cottonera",
+      "brand": "Challenger Fitness"
+    },
+    {
+      "id": "mt_cd0c2182e4",
+      "name": "Challenger Elite Fitness Marsaskala",
+      "brand": "Challenger Fitness"
+    }
+  ],
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "duplicate_ids": [],
+  "unexplained_hard_duplicates": 0
+}

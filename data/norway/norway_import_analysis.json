@@ -1,0 +1,43 @@
+{
+  "source": "gymly_norway_gym_locations.xlsx",
+  "generated": "phase-pre-import-analysis",
+  "total_rows": 245,
+  "unique_ids": 245,
+  "by_chain": {
+    "SATS": 78,
+    "Fresh Fitness": 41,
+    "EVO Fitness": 82,
+    "MUDO Gym": 13,
+    "3T-Treningssenter": 2,
+    "Feel24": 29
+  },
+  "by_category": {
+    "READY_TO_IMPORT": 0,
+    "NEEDS_COORDINATES": 203,
+    "NEEDS_REVIEW": 26,
+    "POSSIBLE_DUPLICATE": 2,
+    "SKIP_INCOMPLETE": 14
+  },
+  "by_verification": {
+    "verified_official": 219,
+    "location_known_address_pending": 26
+  },
+  "with_opening_hours": 128,
+  "existing_norway_in_centers_json": 0,
+  "architecture_note": "Gym catalog is src/data/centers.json (not a Supabase gyms table).",
+  "field_mapping": {
+    "chain": "brand",
+    "center_name": "name (combined as \"{chain} {center_name}\")",
+    "address": "address",
+    "postal_code": "postal_code",
+    "city": "city",
+    "country": "\"Norway\" (matches Denmark/Sweden English full names)",
+    "latitude": "lat",
+    "longitude": "lng",
+    "opening_hours": "NOT on GymCenter — optional later via gymHours.json",
+    "source_url": "not stored in centers.json schema (kept in staging only)",
+    "legacy_brand": "not in schema (empty in sheet; rebrands documented in Chain Coverage)",
+    "verification_status": "staging only; is_active requires coords",
+    "id": "no_<md5-10> (same pattern as se_*)"
+  }
+}

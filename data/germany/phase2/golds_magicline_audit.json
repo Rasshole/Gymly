@@ -1,0 +1,109 @@
+{
+  "all_golds_worldwide_in_api": [
+    {
+      "name": "Gold's Gym Milano Monterosa",
+      "city": "Milano",
+      "country": "IT",
+      "closingDate": null,
+      "tags": [
+        "GG Branded App",
+        "GG PK3",
+        "Gold's Gym",
+        "IT"
+      ]
+    },
+    {
+      "name": "Gold's Gym Wien",
+      "city": "Wien",
+      "country": "AT",
+      "closingDate": null,
+      "tags": [
+        "AT",
+        "Communication",
+        "GG Branded App",
+        "GG PK2",
+        "Gold's Gym",
+        "aktiv"
+      ]
+    },
+    {
+      "name": "Gold's Gym Herne",
+      "city": "Herne",
+      "country": "DE",
+      "closingDate": null,
+      "tags": [
+        "DE",
+        "GG Branded App",
+        "GG PK1",
+        "Gold's Gym",
+        "aktiv"
+      ]
+    },
+    {
+      "name": "Gold's Gym Jena",
+      "city": "Jena",
+      "country": "DE",
+      "closingDate": null,
+      "tags": [
+        "DE",
+        "GG Branded App",
+        "GG PK1",
+        "Gold's Gym",
+        "aktiv"
+      ]
+    },
+    {
+      "name": "Gold's Gym Milano Palmanova",
+      "city": "Milano",
+      "country": "IT",
+      "closingDate": null,
+      "tags": [
+        "GG Branded App",
+        "GG PK3",
+        "Gold's Gym",
+        "IT"
+      ]
+    },
+    {
+      "name": "Gold's Gym Krefeld",
+      "city": "Krefeld",
+      "country": "DE",
+      "closingDate": null,
+      "tags": [
+        "DE",
+        "GG Branded App",
+        "GG PK1",
+        "Gold's Gym",
+        "aktiv"
+      ]
+    },
+    {
+      "name": "Gold's Gym München",
+      "city": "München",
+      "country": "DE",
+      "closingDate": null,
+      "tags": [
+        "DE",
+        "GG Branded App",
+        "GG PK3",
+        "Gold's Gym",
+        "aktiv"
+      ]
+    },
+    {
+      "name": "Gold's Gym Berlin",
+      "city": "Berlin",
+      "country": "DE",
+      "closingDate": null,
+      "tags": [
+        "Communication",
+        "DE",
+        "GG Branded App",
+        "GG PK3",
+        "Gold's Gym",
+        "aktiv"
+      ]
+    }
+  ],
+  "germany_rows": 5
+}

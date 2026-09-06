@@ -1,0 +1,38 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "F_unresolved",
+      "entities": [
+        "Fitness Zone Kosovo Prishtina estate (City Mall, Dardania)"
+      ],
+      "notes": "Confirm 2 Prishtina floors are conventional public — Phase 2 Class A audit (<3 verified)",
+      "phase2": true
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Planet Fitness Prishtina (local)",
+        "International Planet Fitness probe"
+      ],
+      "notes": "Local Planet Fitness branding — verify distinct from US chain Phase 2"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Gym Plus Prishtina",
+        "Iron Gym Prishtina"
+      ],
+      "notes": "Distinct Prishtina independents pending Phase 2 premises proof"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Fitnes Centar Fushë Kosovë",
+        "Power Gym Fushë Kosovë"
+      ],
+      "notes": "Fushë Kosovë independents distinct from Prishtina capital cluster"
+    }
+  ],
+  "note": "Phase 1 allows Phase 2 holds; merge gate requires 0 unresolved before merge."
+}

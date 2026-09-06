@@ -1,0 +1,333 @@
+{
+  "search_results": [
+    {
+      "query": "Ukraine",
+      "hits": 105,
+      "ok": true
+    },
+    {
+      "query": "Україна",
+      "hits": 105,
+      "ok": true
+    },
+    {
+      "query": "Kyiv",
+      "hits": 64,
+      "ok": true
+    },
+    {
+      "query": "Kiev",
+      "hits": 105,
+      "ok": true
+    },
+    {
+      "query": "Київ",
+      "hits": 105,
+      "ok": true
+    },
+    {
+      "query": "Kharkiv",
+      "hits": 3,
+      "ok": true
+    },
+    {
+      "query": "Kharkov",
+      "hits": 105,
+      "ok": true
+    },
+    {
+      "query": "Odesa",
+      "hits": 6,
+      "ok": true
+    },
+    {
+      "query": "Odessa",
+      "hits": 105,
+      "ok": true
+    },
+    {
+      "query": "Dnipro",
+      "hits": 3,
+      "ok": true
+    },
+    {
+      "query": "Lviv",
+      "hits": 11,
+      "ok": true
+    },
+    {
+      "query": "Vinnytsia",
+      "hits": 3,
+      "ok": true
+    },
+    {
+      "query": "Ivano-Frankivsk",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Zhytomyr",
+      "hits": 4,
+      "ok": true
+    },
+    {
+      "query": "Brovary",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Boryspil",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Bila Tserkva",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Vyshneve",
+      "hits": 3,
+      "ok": true
+    },
+    {
+      "query": "Sofiivska Borshchahivka",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Khmelnytskyi",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Sport Life",
+      "hits": 42,
+      "ok": true
+    },
+    {
+      "query": "Apollo Next",
+      "hits": 24,
+      "ok": true
+    },
+    {
+      "query": "Smartass",
+      "hits": 10,
+      "ok": true
+    },
+    {
+      "query": "Total Fitness",
+      "hits": 18,
+      "ok": true
+    },
+    {
+      "query": "Grafit",
+      "hits": 4,
+      "ok": true
+    },
+    {
+      "query": "Atlas Fitness",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Grand Prix",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Olymp",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Fitness Formula",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "ProFitness",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "FitCurves",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "SportZal",
+      "hits": 1,
+      "ok": true
+    }
+  ],
+  "search_failures": [],
+  "map_active_markers": 105,
+  "coming_soon_map_markers": 0,
+  "excluded_map_markers": 0,
+  "closed_map_markers": 0,
+  "foreign_map_markers": 0,
+  "nearest_results": [
+    {
+      "label": "Kyiv",
+      "lat": 50.4501,
+      "lng": 30.5234,
+      "winner_id": "ua_04452ccd8e",
+      "winner_name": "APOLLO NEXT 021 (ARENA City)",
+      "winner_brand": "Apollo Next",
+      "distance_m": 890,
+      "ok": true
+    },
+    {
+      "label": "Lviv",
+      "lat": 49.8397,
+      "lng": 24.0297,
+      "winner_id": "ua_f462572161",
+      "winner_name": "Total Fitness Lviv — вул. Вовчинецька, 225а, ТРЦ Veles Mall",
+      "winner_brand": "Total Fitness",
+      "distance_m": 1413,
+      "ok": true
+    },
+    {
+      "label": "Odesa",
+      "lat": 46.4825,
+      "lng": 30.7233,
+      "winner_id": "ua_8941c70c36",
+      "winner_name": "APOLLO NEXT 037 (ТРЦ «Острів»)",
+      "winner_brand": "Apollo Next",
+      "distance_m": 1851,
+      "ok": true
+    },
+    {
+      "label": "Dnipro",
+      "lat": 48.4647,
+      "lng": 35.0462,
+      "winner_id": "ua_10e02e217c",
+      "winner_name": "Fitness Formula Dnipro",
+      "winner_brand": "Fitness Formula",
+      "distance_m": 866,
+      "ok": true
+    },
+    {
+      "label": "Kharkiv",
+      "lat": 49.9935,
+      "lng": 36.2304,
+      "winner_id": "ua_24b745a754",
+      "winner_name": "Sport Life Нікольський",
+      "winner_brand": "Sport Life",
+      "distance_m": 341,
+      "ok": true
+    },
+    {
+      "label": "Vinnytsia",
+      "lat": 49.2328,
+      "lng": 28.4682,
+      "winner_id": "ua_7055f7e4fe",
+      "winner_name": "FitCurves Vinnytsia",
+      "winner_brand": "FitCurves",
+      "distance_m": 1297,
+      "ok": true
+    },
+    {
+      "label": "Cherkasy",
+      "lat": 49.4444,
+      "lng": 32.0598,
+      "winner_id": "ua_04cb2314b1",
+      "winner_name": "Total Fitness Cherkasy — вул. Смілянська, 45, ТЦ «Ринковий»",
+      "winner_brand": "Total Fitness",
+      "distance_m": 1832,
+      "ok": true
+    },
+    {
+      "label": "Rivne",
+      "lat": 50.6199,
+      "lng": 26.2516,
+      "winner_id": "ua_39c5885bd0",
+      "winner_name": "Sport Life Рівне",
+      "winner_brand": "Sport Life",
+      "distance_m": 2955,
+      "ok": true
+    },
+    {
+      "label": "Lutsk",
+      "lat": 50.7472,
+      "lng": 25.3254,
+      "winner_id": "ua_59d45929f4",
+      "winner_name": "Sport Life Луцьк",
+      "winner_brand": "Sport Life",
+      "distance_m": 1088,
+      "ok": true
+    },
+    {
+      "label": "Chernivtsi",
+      "lat": 48.2915,
+      "lng": 25.9358,
+      "winner_id": "ua_f4c35b3c7a",
+      "winner_name": "Sport Life Героїв Майдану",
+      "winner_brand": "Sport Life",
+      "distance_m": 2790,
+      "ok": true
+    },
+    {
+      "label": "Ivano-Frankivsk",
+      "lat": 48.9226,
+      "lng": 24.7111,
+      "winner_id": "ua_520598bbb2",
+      "winner_name": "APOLLO NEXT 039 (WINETIME)",
+      "winner_brand": "Apollo Next",
+      "distance_m": 619,
+      "ok": true
+    },
+    {
+      "label": "Khmelnytskyi",
+      "lat": 49.4229,
+      "lng": 26.9871,
+      "winner_id": "ua_eb5b6f5a2c",
+      "winner_name": "Total Fitness Khmelnytskyi — вул. Зарічанська, 34",
+      "winner_brand": "Total Fitness",
+      "distance_m": 1524,
+      "ok": true
+    },
+    {
+      "label": "Brovary",
+      "lat": 50.5111,
+      "lng": 30.7909,
+      "winner_id": "ua_e039f31e1d",
+      "winner_name": "Total Fitness Kyiv — вул. Героїв України, 21-B",
+      "winner_brand": "Total Fitness",
+      "distance_m": 53,
+      "ok": true
+    },
+    {
+      "label": "Boryspil",
+      "lat": 50.3427,
+      "lng": 30.9419,
+      "winner_id": "ua_00d5002637",
+      "winner_name": "APOLLO NEXT 027 (ЦУМ «Київський Шлях»)",
+      "winner_brand": "Apollo Next",
+      "distance_m": 1657,
+      "ok": true
+    },
+    {
+      "label": "Bila Tserkva",
+      "lat": 49.8094,
+      "lng": 30.1121,
+      "winner_id": "ua_fc1cc0498e",
+      "winner_name": "APOLLO NEXT 035 (ТРЦ «Гермес»)",
+      "winner_brand": "Apollo Next",
+      "distance_m": 1489,
+      "ok": true
+    },
+    {
+      "label": "Vyshneve",
+      "lat": 50.3895,
+      "lng": 30.3706,
+      "winner_id": "ua_c022e00841",
+      "winner_name": "Sport Life Вишневе Чері Мол",
+      "winner_brand": "Sport Life",
+      "distance_m": 760,
+      "ok": true
+    }
+  ],
+  "nearest_failures": []
+}

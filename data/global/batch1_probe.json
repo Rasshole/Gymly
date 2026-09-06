@@ -1,0 +1,220 @@
+{
+  "ie_flye_gyms": {
+    "url": "https://www.flyefit.ie/gyms/",
+    "final": "https://www.flyefit.ie/gyms/",
+    "status": 200,
+    "bytes": 103237,
+    "err": false,
+    "has_jsonld": true,
+    "has_lat": true,
+    "eircode_samples": [
+      "D08K188"
+    ],
+    "psc_samples": [
+      "35372",
+      "35372",
+      "35372"
+    ],
+    "snippet": "<!DOCTYPE HTML>\r<html lang=\"en\">\r<head>\r    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\r    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r    <meta name=\"theme-color\" content=\"\">\r    <meta name=\"msapplication-TileColor\" content=\"#6435cf\">\r    <meta n"
+  },
+  "ie_flye_baggot": {
+    "url": "https://www.flyefit.ie/gyms/baggot-street/",
+    "final": "https://www.flyefit.ie/gyms/baggot-street/",
+    "status": 200,
+    "bytes": 743467,
+    "err": false,
+    "has_jsonld": true,
+    "has_lat": true,
+    "eircode_samples": [
+      "D02 AV91",
+      "D02 AV91",
+      "D08K188"
+    ],
+    "psc_samples": [
+      "35372",
+      "35372",
+      "35372"
+    ],
+    "snippet": "<!DOCTYPE HTML>\r<html lang=\"en\">\r<head>\r    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\r    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r    <meta name=\"theme-color\" content=\"\">\r    <meta name=\"msapplication-TileColor\" content=\"#6435cf\">\r    <meta n"
+  },
+  "ie_bendunne": {
+    "url": "https://www.bendunnegyms.ie/",
+    "final": "https://bdgyms.com/",
+    "status": 200,
+    "bytes": 315495,
+    "err": false,
+    "has_jsonld": true,
+    "has_lat": false,
+    "eircode_samples": [
+      "a77ccfc",
+      "a77ccfc",
+      "c47adcd"
+    ],
+    "psc_samples": [
+      "37034",
+      "91147",
+      "87980"
+    ],
+    "snippet": "<!doctype html> <html lang=\"en-US\"> <head> <meta name=\"MobileOptimized\" content=\"width\" /> <meta name=\"HandheldFriendly\" content=\"true\" /> <meta name=\"generator\" content=\"Drupal 11 (https://www.drupal.org)\" />  \t<meta charset=\"UTF-8\"> \t<meta name=\"viewport\" content=\"width=device-width, initial-scale"
+  },
+  "ie_anytime": {
+    "url": "https://www.anytimefitness.ie/find-gym/",
+    "final": "https://www.anytimefitness.com/en-ie/locations",
+    "status": 200,
+    "bytes": 88542,
+    "err": false,
+    "has_jsonld": true,
+    "has_lat": true,
+    "eircode_samples": [],
+    "psc_samples": [
+      "60000",
+      "51472",
+      "51472"
+    ],
+    "snippet": "<!DOCTYPE html><!-- Last Published: Fri Aug 21 2026 22:12:36 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain=\"prod.anytimefitness.com\" data-wf-page=\"6776a22c209c937c3c4d512a\" data-wf-site=\"66aa8fe9dc4db68f448a978f\" data-wf-intellimize-customer-id=\"117554163\" lang=\"en-IE\"><head><meta ch"
+  },
+  "cz_ff_klub": {
+    "url": "https://www.formfactory.cz/klub/",
+    "final": "https://www.formfactory.cz/klub/",
+    "status": null,
+    "bytes": 0,
+    "err": true,
+    "has_jsonld": false,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [],
+    "snippet": "ERR:URLError:<urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)>"
+  },
+  "cz_ff_andel": {
+    "url": "https://www.formfactory.cz/klub/andel/",
+    "final": "https://www.formfactory.cz/klub/andel/",
+    "status": null,
+    "bytes": 0,
+    "err": true,
+    "has_jsonld": false,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [],
+    "snippet": "ERR:URLError:<urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)>"
+  },
+  "cz_clever": {
+    "url": "https://www.clever-fit.com/cz/cs/studios/",
+    "final": "https://www.clever-fit.com/cz/studia/",
+    "status": 200,
+    "bytes": 142110,
+    "err": false,
+    "has_jsonld": false,
+    "has_lat": false,
+    "eircode_samples": [
+      "e0883ca",
+      "e0883ca",
+      "f5985ea"
+    ],
+    "psc_samples": [
+      "75657",
+      "75657",
+      "56814"
+    ],
+    "snippet": "<!doctype html> <html lang=\"cs\"> <head> \t<meta charset=\"UTF-8\"> \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> \t<link rel=\"profile\" href=\"https://gmpg.org/xfn/11\"> \t  <script>     (function(){       // ---- Config ----       var BLOCK_RE = /(^|\\/\\/|\\.)(analytics\\.tiktok\\.com)\\"
+  },
+  "cz_fitinn": {
+    "url": "https://www.fitinn.at/cz/studios/",
+    "final": "https://fitinn.at/studios/",
+    "status": 200,
+    "bytes": 216759,
+    "err": false,
+    "has_jsonld": true,
+    "has_lat": true,
+    "eircode_samples": [],
+    "psc_samples": [
+      "14750",
+      "14750",
+      "14982"
+    ],
+    "snippet": "<!doctype html> <!--[if lt IE 7 ]><html class=\"ie ie6 no-js\" dir=\"ltr\" lang=\"de\"> <![endif]--> <!--[if IE 7 ]><html class=\"ie ie7 no-js\" dir=\"ltr\" lang=\"de> <![endif]--> <!--[if IE 8 ]><html class=\"ie ie8 no-js\" dir=\"ltr\" lang=\"de\"> <![endif]--> <!--[if IE 9 ]><html class=\"ie ie9 no-js\" dir=\"ltr\" la"
+  },
+  "hu_life1": {
+    "url": "https://life1.hu/en/club-picker/",
+    "final": "https://life1.hu/en/club-picker/",
+    "status": 200,
+    "bytes": 46444,
+    "err": false,
+    "has_jsonld": true,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [
+      "34234",
+      "48016",
+      "34234"
+    ],
+    "snippet": "<!DOCTYPE html> <html lang=\"en-US\"> <head>     <meta charset=\"UTF-8\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">     <meta name=\"author\" content=\"Nethon Studio Kft - nethon.hu\">     <link rel=\"profile\" href=\"http"
+  },
+  "hu_life1_allee": {
+    "url": "https://life1.hu/en/club-allee/",
+    "final": "https://life1.hu/en/club-allee/",
+    "status": 200,
+    "bytes": 90797,
+    "err": false,
+    "has_jsonld": true,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [
+      "34234",
+      "48016",
+      "34234"
+    ],
+    "snippet": "<!DOCTYPE html> <html lang=\"en-US\"> <head>     <meta charset=\"UTF-8\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">     <meta name=\"author\" content=\"Nethon Studio Kft - nethon.hu\">     <link rel=\"profile\" href=\"http"
+  },
+  "hu_cutler": {
+    "url": "https://cutlergym.hu/",
+    "final": "https://cutlergym.hu/",
+    "status": 200,
+    "bytes": 0,
+    "err": false,
+    "has_jsonld": false,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [],
+    "snippet": ""
+  },
+  "gr_yava": {
+    "url": "https://yava.gr/en/gyms/",
+    "final": "https://yava.gr/en/gyms/",
+    "status": null,
+    "bytes": 0,
+    "err": true,
+    "has_jsonld": false,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [],
+    "snippet": "ERR:HTTPError:HTTP Error 404: Not Found"
+  },
+  "gr_alterlife": {
+    "url": "https://alterlife.gr/en/gyms/",
+    "final": "https://alterlife.gr/en/gyms/",
+    "status": null,
+    "bytes": 0,
+    "err": true,
+    "has_jsonld": false,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [],
+    "snippet": "ERR:HTTPError:HTTP Error 404: Not Found"
+  },
+  "gr_holmes": {
+    "url": "https://www.holmesplace.gr/en/clubs",
+    "final": "https://www.holmesplace.gr/en/clubs",
+    "status": 200,
+    "bytes": 56617,
+    "err": false,
+    "has_jsonld": false,
+    "has_lat": false,
+    "eircode_samples": [],
+    "psc_samples": [
+      "10564",
+      "15124",
+      "16675"
+    ],
+    "snippet": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\">   <head>     <meta charset=\"utf-8\" /> <meta name=\"description\" content=\"Find the Holmes Place club that best fits your needs and kick-start your workouts with renewed energy!\" /> <meta name=\"abstract\" content=\"Discover Holmes Place: premium health clubs off"
+  }
+}

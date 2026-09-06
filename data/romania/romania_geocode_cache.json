@@ -1,0 +1,934 @@
+{
+  "ro|splaiul protopop meletie drăghici nr. 3, timișoara, timișoara, romania": {
+    "lat": 45.7597948,
+    "lng": 21.2453979,
+    "display_name": "Splaiul Protopop Meleție Drăghici, Bastion, Timișoara, Timiș, 300093, România",
+    "importance": 0.05340352254520482,
+    "postcode": "300093",
+    "country_code": "ro"
+  },
+  "ro|bd 15 noiembrie, nr 78,e2 2,afi brasov,jud brasov, brașov, romania": null,
+  "ro|afi tech park, bulevardul tudor vladimirescu 29, sector 5, bucuresti, bucurești, romania": {
+    "lat": 44.418486,
+    "lng": 26.0765833,
+    "display_name": "AFI Tech Park 2, 29, Bulevardul Tudor Vladimirescu, Trafic greu, Rahova, Sector 5, București, 050881, România",
+    "importance": 8.015335317001629e-05,
+    "postcode": "050881",
+    "country_code": "ro"
+  },
+  "ro|str. ziduri mosi nr. 23, sector 2, bucuresti, în incinta veranda mall, bucurești, romania": null,
+  "ro|calea vitan, nr. 55-59, sector 3, bucuresti, bucurești, romania": null,
+  "ro|șoseaua nicolae titulescu, nr. 4-8, sector 1, bucureşti, în clădirea america house, bucurești, romania": null,
+  "ro|centrul comercial promenada, calea floreasca nr. 246 b, et. 2, sector 1, bucuresti, bucurești, romania": null,
+  "ro|clădirea mega image, şos. olteniţei nr. 208, sector 4, bucuresti, bucurești, romania": null,
+  "ro|splaiul unirii nr. 168, sector 4, bucurești, bucurești, romania": {
+    "lat": 44.4126129,
+    "lng": 26.1179733,
+    "display_name": "Splaiul Unirii, Tineretului, Sector 4, București, 040041, România",
+    "importance": 0.05341348668650336,
+    "postcode": "040041",
+    "country_code": "ro"
+  },
+  "ro|pierre de coubertin nr. 3-5, sector 2, bucurești, în incinta mega mall, bucurești, romania": null,
+  "ro|str. fabrica de glucoza nr. 9 - 11, sector 2, bucuresti, bucurești, romania": null,
+  "ro|str. alexandrina, nr. 20-22, sector 1, bucuresti, bucurești, romania": null,
+  "ro|strada scortariilor nr 10,in spatele centrului de birouri the office, cluj, romania": null,
+  "ro|str. alex. vaida voievod nr. 53-55, cluj-napoca, cluj, romania": null,
+  "ro|str. anastasie panu, nr. 31, iasi, jud. iasi, iași, romania": null,
+  "ro|bd. alexandru lapusneanu, nr 116c, city park mall constanta, constanța, romania": null,
+  "ro|str tudor vladimirescu nr 50a, alba iulia, romania": null,
+  "ro|calea aurel vlaicu 267, centrul comercial agora, arad, romania": null,
+  "ro|central plaza bacău, str. erou ciprian pintea, nr. 29, bacău, romania": {
+    "lat": 46.5556799,
+    "lng": 26.9169267,
+    "display_name": "Central Plaza, 29, Strada Erou Ciprian Pintea, Bacău, 600112, România",
+    "importance": 6.39726863507594e-05,
+    "postcode": "600112",
+    "country_code": "ro"
+  },
+  "ro|bulevardul unirii nr 10, baia mare, romania": {
+    "lat": 47.6469979,
+    "lng": 23.5718145,
+    "display_name": "Bulevardul Unirii, Progresul, Baia Mare, Maramureș, 430232, România",
+    "importance": 0.05339737163347826,
+    "postcode": "430232",
+    "country_code": "ro"
+  },
+  "ro|ok shopping center, drumul sigmirului, bistrița, romania": null,
+  "ro|str. ferecz szemler nr.12-14, cartier astra, brașov, romania": null,
+  "ro|b-dul gării nr.3a, brașov, romania": null,
+  "ro|sat dudu, comuna chiajna, strada serg. ilie petre, nr. 87, ie68422, centrul comercial rotar, judet ilfov, bucurești, romania": null,
+  "ro|bd. tudor vladimirescu, nr.22, etaj 1, sector 5 (13 septembrie), bucurești, romania": null,
+  "ro|str. răcari nr. 5 (în spatele kaufland), bucurești, romania": null,
+  "ro|șoseaua berceni nr 96, clădire monaco towers, etaj 1, sector 1, bucurești, romania": null,
+  "ro|bulevardul chisinau numarul 1, etajul 1, complex delfinului, sector 2, bucurești, romania": null,
+  "ro|bulevardul pipera 2-xi, bucurești, romania": {
+    "lat": 44.4822752,
+    "lng": 26.1203237,
+    "display_name": "Bulevardul Dimitrie Pompeiu, Pipera, Sector 2, București, 020337, România",
+    "importance": 0.05341348668650336,
+    "postcode": "020337",
+    "country_code": "ro"
+  },
+  "ro|str.dr. ioan ratiu nr.14, câmpia turzii, romania": null,
+  "ro|str. aurel vlaicu, nr. 25, cluj-napoca, romania": {
+    "lat": 46.7814458,
+    "lng": 23.6340286,
+    "display_name": "Strada Aurel Vlaicu, Între Lacuri, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400599, România",
+    "importance": 0.05341115205615317,
+    "postcode": "400599",
+    "country_code": "ro"
+  },
+  "ro|str. erkel ferenc nr.2-4, cartierul buna ziua, cluj-napoca, romania": null,
+  "ro|str. dorobanți nr 105 , incinta parking mărăști, cluj-napoca, romania": null,
+  "ro|str. calea turzii nr.178k, clădirea hexagon office, cluj-napoca, romania": null,
+  "ro|tudor vladimirescu nr 22, cluj-napoca, romania": {
+    "lat": 46.7822958,
+    "lng": 23.5606138,
+    "display_name": "Strada Tudor Vladimirescu, Remarul 16 Februarie, Dâmbul Rotund, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400232, România",
+    "importance": 0.05341115205615317,
+    "postcode": "400232",
+    "country_code": "ro"
+  },
+  "ro|str. eroilor nr. 17, clădirea roka, cluj-napoca, romania": null,
+  "ro|str nicolae pascaly nr. 2a cluj napoca, cluj-napoca, romania": {
+    "lat": 46.7712213,
+    "lng": 23.6183267,
+    "display_name": "Strada Nicolae Pascaly, Micro 1, Gheorgheni, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400430, România",
+    "importance": 0.05341115205615317,
+    "postcode": "400430",
+    "country_code": "ro"
+  },
+  "ro|str. aleea detunata nr. 1, complex mercur, cluj-napoca, romania": null,
+  "ro|str. miraslău, nr. 4, cluj-napoca, romania": {
+    "lat": 46.7661319,
+    "lng": 23.5503821,
+    "display_name": "Strada Mirăslău, Grigorescu, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400320, România",
+    "importance": 0.05341115205615317,
+    "postcode": "400320",
+    "country_code": "ro"
+  },
+  "ro|bulevardul muncii, numărul 1-15, în incinta aushopping iris, cluj-napoca, romania": null,
+  "ro|strada taberei nr 4, cluj-napoca, romania": {
+    "lat": 46.7613343,
+    "lng": 23.5529598,
+    "display_name": "Strada Taberei, Mănăștur, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400512, România",
+    "importance": 0.05341115205615317,
+    "postcode": "400512",
+    "country_code": "ro"
+  },
+  "ro|bd. 21 decembrie 1989 nr.95-97, cluj-napoca, romania": null,
+  "ro|fabricii, numărul 13, cluj-napoca, romania": null,
+  "ro|str. galați, nr. 6, cluj-napoca, romania": {
+    "lat": 46.7750104,
+    "lng": 23.6286454,
+    "display_name": "Strada Galați, Între Lacuri, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400600, România",
+    "importance": 0.05341115205615317,
+    "postcode": "400600",
+    "country_code": "ro"
+  },
+  "ro|strada observatorului 109 , cluj-napoca, cluj-napoca, romania": {
+    "lat": 46.7539305,
+    "lng": 23.5849059,
+    "display_name": "O3, 109, Strada Observatorului, Zorilor, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400363, România",
+    "importance": 7.781872281982173e-05,
+    "postcode": "400363",
+    "country_code": "ro"
+  },
+  "ro|str. ștefan cel mare, nr.36-40, tomis mall, constanța, romania": null,
+  "ro|str. a.panu, nr. 46, hala centrală, iași, romania": null,
+  "ro|str. iuliu maniu numarul 4, iernut, romania": null,
+  "ro|str viitorului nr 10, luduș, romania": {
+    "lat": 46.4786461,
+    "lng": 24.0922635,
+    "display_name": "Strada Viitorului, Arizona, Cioarga, Luduș, Mureș, 545202, România",
+    "importance": 0.053391290913252426,
+    "postcode": "545202",
+    "country_code": "ro"
+  },
+  "ro|mihai eminescu nr 4, mediaș, romania": {
+    "lat": 46.1632129,
+    "lng": 24.3478232,
+    "display_name": "Strada Mihai Eminescu, Centrul Vechi, Mediaș, Sibiu, 551003, România",
+    "importance": 0.05339250858319978,
+    "postcode": "551003",
+    "country_code": "ro"
+  },
+  "ro|piața victoriei, nr. 14, etaj 2, mureș mall, târgu mureș, romania": null,
+  "ro|blv nicolae dăscălescu, nr. 260, piatra neamț, romania": null,
+  "ro|str. corneliu coposu nr. 6, satu mare, romania": {
+    "lat": 47.7905486,
+    "lng": 22.8733699,
+    "display_name": "Strada Corneliu Coposu, Centrul Nou, Satu Mare, 440014, România",
+    "importance": 0.053397331960021326,
+    "postcode": "440014",
+    "country_code": "ro"
+  },
+  "ro|piața unirii nr. 10, magazin dumbrava, sibiu, romania": null,
+  "ro|aleea carpati, nr. 57, târgu mureș, romania": {
+    "lat": 46.5538638,
+    "lng": 24.5585753,
+    "display_name": "Aleea Carpați, Târgu Mureș, Zona Metropolitană Târgu Mureș, Mureș, România",
+    "importance": 0.14673367742427706,
+    "postcode": "",
+    "country_code": "ro"
+  },
+  "ro|b-dul 1 decembrie 1918, nr. 291, centrul comercial auchan, târgu mureș, romania": null,
+  "ro|bulevardul pandurilor, nr. 98, etaj i, ii, iii, târgu mureș, romania": null,
+  "ro|calea victoriei 100, turda, turda, romania": {
+    "lat": 46.5607068,
+    "lng": 23.7955291,
+    "display_name": "Calea Victoriei, Poștarât, Turda, Cluj, 401100, România",
+    "importance": 0.05339450904097044,
+    "postcode": "401100",
+    "country_code": "ro"
+  },
+  "ro|strada valea cascadelor, nr. 11b, sector 6, bucurești, bucurești, romania": null,
+  "ro|sos. fundeni, nr. 159, sector 2, bucurești, bucurești, romania": {
+    "lat": 44.4681185,
+    "lng": 26.1445128,
+    "display_name": "Șoseaua Fundeni, Colentina, Sector 2, București, 021191, România",
+    "importance": 0.05341348668650336,
+    "postcode": "021191",
+    "country_code": "ro"
+  },
+  "ro|strada odăii nr. 42, otopeni, ilfov (în incinta oto street mall), otopeni, romania": null,
+  "ro|sos. vergului 20, sector 2 , bucurești (în fostul cora pantelimon), bucurești, romania": null,
+  "ro|bulevardul ghencea, nr. 79, sector 6, bucurești, bucurești, romania": {
+    "lat": 44.4168806,
+    "lng": 26.0538973,
+    "display_name": "Bulevardul Ghencea, Ghencea, Sector 6, București, 061646, România",
+    "importance": 0.05341348668650336,
+    "postcode": "061646",
+    "country_code": "ro"
+  },
+  "ro|strada popesti vest nr 37, popești leordeni, ilfov, ilfov, romania": {
+    "lat": 44.3653049,
+    "lng": 26.1472895,
+    "display_name": "Strada Popești Vest, Popești, Popești-Leordeni, Ilfov, 042320, România",
+    "importance": 0.05341348668650336,
+    "postcode": "042320",
+    "country_code": "ro"
+  },
+  "ro|sos. nicolae titulescu 171, sector 1, bucurești, bucurești, romania": {
+    "lat": 44.4522117,
+    "lng": 26.0772047,
+    "display_name": "Șoseaua Nicolae Titulescu, Grivița, Sector 1, București, 011134, România",
+    "importance": 0.05341348668650336,
+    "postcode": "011134",
+    "country_code": "ro"
+  },
+  "ro|str. teiul doamnei 35a, sector 2, bucurești, bucurești, romania": {
+    "lat": 44.4619225,
+    "lng": 26.1261146,
+    "display_name": "Stay Fit Gym, 35A, Strada Teiul Doamnei, Teiul Doamnei, Tei, Sector 2, București, 023709, România",
+    "importance": 8.015335317001629e-05,
+    "postcode": "023709",
+    "country_code": "ro"
+  },
+  "ro|strada răcari nr. 57, sector 3, bucurești, bucurești, romania": {
+    "lat": 44.4134403,
+    "lng": 26.1374481,
+    "display_name": "Strada Răcari, Dudeşti, Sector 3, București, 031824, România",
+    "importance": 0.05341348668650336,
+    "postcode": "031824",
+    "country_code": "ro"
+  },
+  "ro|bulevardul dimitrie pompei, nr. 9-9a, iride business park, bucurești, romania": null,
+  "ro|sos. chitilei nr 284, etajul 1, sector 1, bucurești, bucurești, romania": null,
+  "ro|bulevardul ion mihalache 128-130, et. 2, sector 1, bucurești, bucurești, romania": null,
+  "ro|str. fizicienilor 1, sector 3, bucurești, bucurești, romania": {
+    "lat": 44.4126741,
+    "lng": 26.1503426,
+    "display_name": "Bl. A, 1, Strada Fizicienilor, Titan - Balta Albă, Sector 3, București, 032111, România",
+    "importance": 8.015335317001629e-05,
+    "postcode": "032111",
+    "country_code": "ro"
+  },
+  "ro|bulevardul metalurgiei 12-18, bucurești, bucurești, romania": {
+    "lat": 44.3738714,
+    "lng": 26.1198883,
+    "display_name": "Grand Arena, 12-18, Bulevardul Metalurgiei, Apărătorii Patriei, Sector 4, București, 041833, România",
+    "importance": 0.19283288150311992,
+    "postcode": "041833",
+    "country_code": "ro"
+  },
+  "ro|calea 13 septembrie 221-225, prosper plaza bucurești, bucurești, romania": null,
+  "ro|strada nicolae bălcescu nr. 24, galați, galati, romania": {
+    "lat": 45.4443324,
+    "lng": 28.0513021,
+    "display_name": "Strada Nicolae Bălcescu, Cartier Ignat Rizea, Galați, 800217, România",
+    "importance": 0.053400634012359775,
+    "postcode": "800217",
+    "country_code": "ro"
+  },
+  "ro|bulevardul george coșbuc 251, galați, galati, romania": {
+    "lat": 45.4523192,
+    "lng": 28.0312384,
+    "display_name": "Shopping City Galați, 251, Bulevardul George Coșbuc, Micro 39 B, Galați, 800506, România",
+    "importance": 6.73006790264289e-05,
+    "postcode": "800506",
+    "country_code": "ro"
+  },
+  "ro|strada domnească 24, galați, galati, romania": {
+    "lat": 45.4361068,
+    "lng": 28.056442,
+    "display_name": "Winmarkt, 24, Strada Domnească, Mazepa 1, Galați, 800379, România",
+    "importance": 6.73006790264289e-05,
+    "postcode": "800379",
+    "country_code": "ro"
+  },
+  "ro|strada palas, nr. 7a, cladirea a1, etaj 1, iași, iași, romania": null,
+  "ro|strada luca arbore, nr. 2, parter, iași, iași, romania": null,
+  "ro|strada iancu bacalu, nr 24, palas campus iași, iași, romania": null,
+  "ro|bulevardul tudor vladimirescu, iași 700305, iași, romania": {
+    "lat": 47.1644277,
+    "lng": 27.5962398,
+    "display_name": "Bulevardul Tudor Vladimirescu, Tătărași Nord, Iași, Zona Metropolitană Iași, Iași, 700305, România",
+    "importance": 0.05340282215609976,
+    "postcode": "700305",
+    "country_code": "ro"
+  },
+  "ro|bulevardul decebal 15, piatra neamț, piatra neamț, romania": {
+    "lat": 46.9307438,
+    "lng": 26.3627822,
+    "display_name": "Winmarkt Petrodava, 15, Bulevardul Decebal, Piatra-Neamț, Neamț, 610033, România",
+    "importance": 6.118791485461231e-05,
+    "postcode": "610033",
+    "country_code": "ro"
+  },
+  "ro|strada locotenent stancu ion 17, retea nationala, romania": null,
+  "ro|strada târgoviștei, nr. 4, ploiesti, retea nationala, romania": null,
+  "ro|strada găgeni 98, ploiești 100137, retea nationala, romania": null,
+  "ro|strada cumpenei 2, constanța, retea nationala, romania": null,
+  "ro|strada termocentralei nr.10, targu jiu, retea nationala, romania": null,
+  "ro|str. fundătura harmanului, nr. 2, jud. brașov, retea nationala, romania": null,
+  "ro|str. institutului, nr. 8b, brașov (în incinta bartolomeu retail park), retea nationala, romania": null,
+  "ro|strada ioan popasu, nr. 52, parter + etaj, brașov, retea nationala, romania": null,
+  "ro|str narciselor 14bis (în incinta aurora retail park), retea nationala, romania": null,
+  "ro|bd. metalurgiei, nr. 132, sector 4, bucurești, bucurești, romania": {
+    "lat": 44.3689385,
+    "lng": 26.1372749,
+    "display_name": "Bulevardul Metalurgiei, Apărătorii Patriei, Sector 4, București, 042185, România",
+    "importance": 0.05341348668650336,
+    "postcode": "042185",
+    "country_code": "ro"
+  },
+  "ro|str. petre ispirescu, nr. 86, coral center, bucurești, bucurești, romania": null,
+  "ro|strada odăii nr. 42, otopeni, ilfov, otopeni, romania": {
+    "lat": 44.5369277,
+    "lng": 26.0608874,
+    "display_name": "Z-Box - Strada Odaii 42, Drumul Odăii, Odăile, Otopeni, Ilfov, 075101, România",
+    "importance": 8.015335317001629e-05,
+    "postcode": "075101",
+    "country_code": "ro"
+  },
+  "ro|bd. voluntari, nr. 72, voluntari, gheata gallery, voluntari, romania": null,
+  "ro|sos. vergului 20, sector 2 , bucurești (în fostul cora pantelimon), retea nationala, romania": null,
+  "ro|calea dorobanţi, nr. 5-7, mezanin, corp e (în incinta hotelului sheraton bucurești), retea nationala, romania": null,
+  "ro|sos. nicolae titulescu 171, sector 1, retea nationala, romania": null,
+  "ro|str. teiul doamnei 35a, sector 2, retea nationala, romania": null,
+  "ro|strada răcari nr. 57, sector 3, retea nationala, romania": null,
+  "ro|bulevardul dimitrie pompei, nr. 9-9a, iride business park, retea nationala, romania": null,
+  "ro|sos. chitilei nr 284, etajul 1, sector 1, retea nationala, romania": null,
+  "ro|bulevardul ion mihalache 128-130, et. 2, sector 1, retea nationala, romania": null,
+  "ro|str. fizicienilor 1, sector 3, retea nationala, romania": null,
+  "ro|strada popasului, voluntari, voluntari, romania": {
+    "lat": 44.4893794,
+    "lng": 26.1570721,
+    "display_name": "Strada Popasului, Voluntari, Ilfov, 077190, România",
+    "importance": 0.05338576409552144,
+    "postcode": "077190",
+    "country_code": "ro"
+  },
+  "ro|bulevardul metalurgiei 12-18, retea nationala, romania": null,
+  "ro|calea 13 septembrie 221-225, prosper plaza bucurești, retea nationala, romania": null,
+  "ro|strada locotenent aviator radu beller 5-7, retea nationala, romania": null,
+  "ro|calea bucurești 2bis, retea nationala, romania": null,
+  "ro|soseaua alexandriei 152 , sector 5, retea nationala, romania": null,
+  "ro|calea severinului, nr. 61 (promenada mall), retea nationala, romania": null,
+  "ro|calea unirii, nr. 14 (mercur center), retea nationala, romania": null,
+  "ro|calea aradului, nr. 56a, retea nationala, romania": null,
+  "ro|str. carol telbisz, nr. 3 (în bega center), retea nationala, romania": null,
+  "ro|calea lui traian 127, winmarkt, rm. vâlcea, retea nationala, romania": null,
+  "ro|strada sfântul ilie, numărul 21, vișan, retea nationala, romania": null,
+  "ro|str. principala nr. 7-9, loc. valea adanca, com. miroslava, jud. iași (în incinta expo mobila), retea nationala, romania": null,
+  "ro|calea chișinăului, nr. 22, retea nationala, romania": null,
+  "ro|strada palas, nr. 7a, cladirea a1, etaj 1, iași, retea nationala, romania": null,
+  "ro|strada luca arbore, nr. 2, parter (colț cu strada rampei), iași, retea nationala, romania": null,
+  "ro|strada iancu bacalu, nr 24, palas campus iași, retea nationala, romania": null,
+  "ro|strada constantin langa, 91 b, miroslava, retea nationala, romania": null,
+  "ro|bulevardul tudor vladimirescu, iași 700305, retea nationala, romania": null,
+  "ro|bulevardul decebal 15, piatra neamț, retea nationala, romania": null,
+  "ro|strada alexandru ioan cuza, nr. 2 (carolina mall), retea nationala, romania": null,
+  "ro|str. avram iancu 454, florești, florești, romania": {
+    "lat": 46.7514007,
+    "lng": 23.5221073,
+    "display_name": "Optimus Nova Center, 454, Strada Avram Iancu, Florești, Zona Metropolitană Cluj, Cluj, 407280, România",
+    "importance": 7.781872281982173e-05,
+    "postcode": "407280",
+    "country_code": "ro"
+  },
+  "ro|strada mihai eminescu 90, brăila (ex. elytegym), retea nationala, romania": null,
+  "ro|strada malului, nr. 8, sibiu, retea nationala, romania": null,
+  "ro|strada lector, nr. 1-3a, sibiu, retea nationala, romania": null,
+  "ro|strada sibiului 5, șelimbăr, zona food court, etaj 1, retea nationala, romania": null,
+  "ro|strada nicolae bălcescu nr. 24, ex. one gym, retea nationala, romania": null,
+  "ro|bulevardul george coșbuc 251, retea nationala, romania": null,
+  "ro|strada domnească 24, galați (ex. elytegym), retea nationala, romania": null,
+  "ro|strada decebal 204, vaslui, retea nationala, romania": null,
+  "ro|str. cetate orod, vladimirescu 317405 arad, retea nationala, romania": null,
+  "rev|45.649861|25.610082": {
+    "lat": 45.6499132,
+    "lng": 25.6101175,
+    "postcode": "500097",
+    "display_name": "IQOS, 78, Bulevardul 15 Noiembrie, Centrul Nou, Brașov, Zona Metropolitană Brașov, Brașov, 500097, România",
+    "road": "Bulevardul 15 Noiembrie",
+    "city": "Brașov",
+    "country_code": "ro"
+  },
+  "rev|44.452200|26.130573": {
+    "lat": 44.4522538,
+    "lng": 26.1305456,
+    "postcode": "023498",
+    "display_name": "Colin's, 23, Strada Ziduri Moși, Piața Obor, Obor, Sector 2, București, 023498, România",
+    "road": "Strada Ziduri Moși",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.420276|26.126832": {
+    "lat": 44.4203053,
+    "lng": 26.1268478,
+    "postcode": "031281",
+    "display_name": "Opticris, 55-59, Calea Vitan, Centrul Civic, Sector 3, București, 031281, România",
+    "road": "Calea Vitan",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.452435|26.082571": {
+    "lat": 44.4523996,
+    "lng": 26.0825282,
+    "postcode": "011131",
+    "display_name": "inmedio, 4.8, Șoseaua Nicolae Titulescu, Buzești, Cișmigiu, Sector 1, București, 011131, România",
+    "road": "Șoseaua Nicolae Titulescu",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.478216|26.103345": {
+    "lat": 44.4783212,
+    "lng": 26.103509,
+    "postcode": "014476",
+    "display_name": "KFC, 246B, Calea Floreasca, Floreasca, Sector 1, București, 014476, România",
+    "road": "Calea Floreasca",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.393724|26.119959": {
+    "lat": 44.3936598,
+    "lng": 26.1198993,
+    "postcode": "041325",
+    "display_name": "Mega Image, 208, Șoseaua Olteniței, Piața Sudului, Berceni, Sector 4, București, 041325, România",
+    "road": "Șoseaua Olteniței",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.442399|26.152588": {
+    "lat": 44.4424777,
+    "lng": 26.1524699,
+    "postcode": "021313",
+    "display_name": "Media Galaxy, 3-5, Bulevardul Pierre de Coubertin, Zefir, Vatra Luminoasă, Sector 2, București, 021313, România",
+    "road": "Bulevardul Pierre de Coubertin",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.477818|26.115130": {
+    "lat": 44.4778377,
+    "lng": 26.1150894,
+    "postcode": "020339",
+    "display_name": "Vista Bank, 9B, Șoseaua Fabrica de Glucoză, Tei - Toboc, Pipera, Sector 2, București, 020339, România",
+    "road": "Șoseaua Fabrica de Glucoză",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.464589|26.083323": {
+    "lat": 44.4645981,
+    "lng": 26.0833371,
+    "postcode": "011441",
+    "display_name": "World Class, 20-22, Strada Alexandrina, Aviatorilor, Sector 1, București, 011441, România",
+    "road": "Strada Alexandrina",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|46.778683|23.603687": {
+    "lat": 46.7792822,
+    "lng": 23.6037997,
+    "postcode": "400186",
+    "display_name": "D8, Strada Scorțarilor, Mărăști, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400186, România",
+    "road": "Strada Scorțarilor",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|46.772503|23.626867": {
+    "lat": 46.7724976,
+    "lng": 23.6269661,
+    "postcode": "400436",
+    "display_name": "Univers T, Strada Alexandru Vaida Voevod, Micro 1, Gheorgheni, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400436, România",
+    "road": "Strada Alexandru Vaida Voevod",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|47.159196|27.588573": {
+    "lat": 47.1590231,
+    "lng": 27.5889167,
+    "postcode": "700023",
+    "display_name": "Ramada, Strada Grigore Ureche, Centru, Iași, Zona Metropolitană Iași, Iași, 700023, România",
+    "road": "Strada Grigore Ureche",
+    "city": "Iași",
+    "country_code": "ro"
+  },
+  "rev|44.204518|28.630594": {
+    "lat": 44.2043995,
+    "lng": 28.6306136,
+    "postcode": "900457",
+    "display_name": "World Class, 116C, Bulevardul Alexandru Lăpușneanu, Tic-Tac, Tomis 3, Constanța, Zona Metropolitană Constanța, Constanța, 900457, România",
+    "road": "Bulevardul Alexandru Lăpușneanu",
+    "city": "Constanța",
+    "country_code": "ro"
+  },
+  "rev|46.079853|23.584801": {
+    "lat": 46.0803582,
+    "lng": 23.5851266,
+    "postcode": "510178",
+    "display_name": "Mașinuțele Sofiei, 50A, Strada Tudor Vladimirescu, Ampoi III, Alba Iulia, Alba, 510178, România",
+    "road": "Strada Tudor Vladimirescu",
+    "city": "Alba Iulia",
+    "country_code": "ro"
+  },
+  "rev|46.200813|21.281011": {
+    "lat": 46.2008012,
+    "lng": 21.2807607,
+    "postcode": "310451",
+    "display_name": "Hotel Phoenix, 267, Calea Aurel Vlaicu, Bujac, Arad, 310451, România",
+    "road": "Calea Aurel Vlaicu",
+    "city": "Arad",
+    "country_code": "ro"
+  },
+  "rev|47.127782|24.469290": {
+    "lat": 47.1276487,
+    "lng": 24.4692186,
+    "postcode": "420155",
+    "display_name": "Strada Sigmirului, Independenței, Bistrița, Bistrița-Năsăud, 420155, România",
+    "road": "Strada Sigmirului",
+    "city": "Bistrița",
+    "country_code": "ro"
+  },
+  "rev|45.646216|25.628309": {
+    "lat": 45.6461443,
+    "lng": 25.6285575,
+    "postcode": "500331",
+    "display_name": "Energym Fitness Club, 14, Strada Ferenc Szemlér, Astra, Brașov, Zona Metropolitană Brașov, Brașov, 500331, România",
+    "road": "Strada Ferenc Szemlér",
+    "city": "Brașov",
+    "country_code": "ro"
+  },
+  "rev|45.661310|25.610546": {
+    "lat": 45.661118,
+    "lng": 25.6107823,
+    "postcode": "500203",
+    "display_name": "Unirea, Bulevardul Gării, Centrul Nou, Brașov, Zona Metropolitană Brașov, Brașov, 500203, România",
+    "road": "Bulevardul Gării",
+    "city": "Brașov",
+    "country_code": "ro"
+  },
+  "rev|44.442323|25.977424": {
+    "lat": 44.4421116,
+    "lng": 25.9776688,
+    "postcode": "077041",
+    "display_name": "87, Strada Sergent Ilie Petre, Militari Residence, Dudu, Chiajna, Ilfov, 077041, România",
+    "road": "Strada Sergent Ilie Petre",
+    "city": "Dudu",
+    "country_code": "ro"
+  },
+  "rev|44.419411|26.079818": {
+    "lat": 44.4193954,
+    "lng": 26.0795206,
+    "postcode": "050883",
+    "display_name": "Green Gate, 22, Bulevardul Tudor Vladimirescu, Trafic greu, Centrul Civic, Sector 5, București, 050883, România",
+    "road": "Bulevardul Tudor Vladimirescu",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.415699|26.136561": {
+    "lat": 44.4155646,
+    "lng": 26.1366982,
+    "postcode": "031824",
+    "display_name": "2Chefs Hub, 5, Strada Răcari, Dudeşti, Sector 3, București, 031824, România",
+    "road": "Strada Răcari",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.371268|26.140328": {
+    "lat": 44.3716298,
+    "lng": 26.1404519,
+    "postcode": "041918",
+    "display_name": "96, Strada Măceșului, Apărătorii Patriei, Sector 4, București, 041918, România",
+    "road": "Strada Măceșului",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.445163|26.157917": {
+    "lat": 44.4447251,
+    "lng": 26.1581677,
+    "postcode": "021651",
+    "display_name": "1, Bulevardul Chișinău, Delfinului, Pantelimon, Sector 2, București, 021651, România",
+    "road": "Bulevardul Chișinău",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|46.568145|23.782008": {
+    "lat": 46.56814,
+    "lng": 23.7819108,
+    "postcode": "401100",
+    "display_name": "Club copiilor Turda, 23, Strada Doctor Ioan Rațiu, Centrul Istoric, Turda, Cluj, 401100, România",
+    "road": "Strada Doctor Ioan Rațiu",
+    "city": "Turda",
+    "country_code": "ro"
+  },
+  "rev|46.748852|23.598416": {
+    "lat": 46.7487381,
+    "lng": 23.5982189,
+    "postcode": "400494",
+    "display_name": "3, Strada Erkel Ferenc, Bună Ziua, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400494, România",
+    "road": "Strada Erkel Ferenc",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|46.775144|23.609862": {
+    "lat": 46.7751045,
+    "lng": 23.6098146,
+    "postcode": "400689",
+    "display_name": "Strada Anghel Saligny, Mărăști, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400689, România",
+    "road": "Strada Anghel Saligny",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|46.745458|23.591939": {
+    "lat": 46.7454264,
+    "lng": 23.5917643,
+    "postcode": "400194",
+    "display_name": "KÉSZ, 178K, Calea Turzii, Europa, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400194, România",
+    "road": "Calea Turzii",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|46.738501|23.484150": {
+    "lat": 46.7384128,
+    "lng": 23.4843761,
+    "postcode": "470280",
+    "display_name": "Strada Eroilor, Cetatea Fetei, Colonia de Sub Deal, Florești, Zona Metropolitană Cluj, Cluj, 470280, România",
+    "road": "Strada Eroilor",
+    "city": "Zona Metropolitană Cluj",
+    "country_code": "ro"
+  },
+  "rev|46.767194|23.624956": {
+    "lat": 46.7672514,
+    "lng": 23.6250058,
+    "postcode": "400434",
+    "display_name": "Profi, 1, Aleea Detunata, Micro 2, Gheorgheni, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400434, România",
+    "road": "Aleea Detunata",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|46.799669|23.611309": {
+    "lat": 46.7995355,
+    "lng": 23.611281,
+    "postcode": "400641",
+    "display_name": "Altex, 1-15, Bulevardul Muncii, Iris, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400641, România",
+    "road": "Bulevardul Muncii",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|46.778325|23.607647": {
+    "lat": 46.7780691,
+    "lng": 23.6077432,
+    "postcode": "400606",
+    "display_name": "Avella, 95-97, Bulevardul 21 Decembrie 1989, Mărăști, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400606, România",
+    "road": "Bulevardul 21 Decembrie 1989",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|46.783852|23.612533": {
+    "lat": 46.7841293,
+    "lng": 23.6120807,
+    "postcode": "400620",
+    "display_name": "15/RO24, Strada Călan, Mărăști, Cluj-Napoca, Zona Metropolitană Cluj, Cluj, 400620, România",
+    "road": "Strada Călan",
+    "city": "Cluj-Napoca",
+    "country_code": "ro"
+  },
+  "rev|44.178408|28.646687": {
+    "lat": 44.178591,
+    "lng": 28.6472242,
+    "postcode": "900726",
+    "display_name": "Mega Image, 36-40, Strada Ștefan cel Mare, Zona Centrală, Constanța, Zona Metropolitană Constanța, Constanța, 900726, România",
+    "road": "Strada Ștefan cel Mare",
+    "city": "Constanța",
+    "country_code": "ro"
+  },
+  "rev|47.161460|27.590436": {
+    "lat": 47.1614492,
+    "lng": 27.590361,
+    "postcode": "700025",
+    "display_name": "Carrefour Market, 46, Strada Anastasie Panu, Centru, Iași, Zona Metropolitană Iași, Iași, 700025, România",
+    "road": "Strada Anastasie Panu",
+    "city": "Iași",
+    "country_code": "ro"
+  },
+  "rev|46.447766|24.228837": {
+    "lat": 46.4477685,
+    "lng": 24.2288631,
+    "postcode": "545100",
+    "display_name": "Strada Iuliu Maniu, Iernut, Mureș, 545100, România",
+    "road": "Strada Iuliu Maniu",
+    "city": "Iernut",
+    "country_code": "ro"
+  },
+  "rev|46.540002|24.557768": {
+    "lat": 46.539833,
+    "lng": 24.55775,
+    "postcode": "540029",
+    "display_name": "2513, 14, Piața Victoriei, Târgu Mureș, Zona Metropolitană Târgu Mureș, Mureș, 540029, România",
+    "road": "Piața Victoriei",
+    "city": "Târgu Mureș",
+    "country_code": "ro"
+  },
+  "rev|46.916785|26.390801": {
+    "lat": 46.9169322,
+    "lng": 26.390912,
+    "postcode": "610003",
+    "display_name": "10, Bulevardul General Nicolae Dăscălescu, Văleni, Piatra-Neamț, Neamț, 610003, România",
+    "road": "Bulevardul General Nicolae Dăscălescu",
+    "city": "Piatra-Neamț",
+    "country_code": "ro"
+  },
+  "rev|45.790811|24.149467": {
+    "lat": 45.7905253,
+    "lng": 24.1495066,
+    "postcode": "550003",
+    "display_name": "2, Piața Unirii, Centrul Civic, Sibiu, 550003, România",
+    "road": "Piața Unirii",
+    "city": "Sibiu",
+    "country_code": "ro"
+  },
+  "rev|46.556632|24.562699": {
+    "lat": 46.5566059,
+    "lng": 24.5627981,
+    "postcode": "540650",
+    "display_name": "18 Gym, 50, Aleea Carpați, Târgu Mureș, Zona Metropolitană Târgu Mureș, Mureș, 540650, România",
+    "road": "Aleea Carpați",
+    "city": "Târgu Mureș",
+    "country_code": "ro"
+  },
+  "rev|46.533129|24.593238": {
+    "lat": 46.5329386,
+    "lng": 24.5932097,
+    "postcode": "540510",
+    "display_name": "Agora Car Wash, 4, Strada Regele Ferdinand, Tudor Vladimirescu, Târgu Mureș, Zona Metropolitană Târgu Mureș, Mureș, 540510, România",
+    "road": "Strada Regele Ferdinand",
+    "city": "Târgu Mureș",
+    "country_code": "ro"
+  },
+  "rev|46.532924|24.581452": {
+    "lat": 46.5329732,
+    "lng": 24.5817571,
+    "postcode": "540519",
+    "display_name": "98, Bulevardul Pandurilor, Tudor Vladimirescu, Târgu Mureș, Zona Metropolitană Târgu Mureș, Mureș, 540519, România",
+    "road": "Bulevardul Pandurilor",
+    "city": "Târgu Mureș",
+    "country_code": "ro"
+  },
+  "rev|44.461943|26.126085": {
+    "lat": 44.4619225,
+    "lng": 26.1261146,
+    "postcode": "023709",
+    "display_name": "Stay Fit Gym, 35A, Strada Teiul Doamnei, Teiul Doamnei, Tei - Toboc, Tei, Sector 2, București, 023709, România",
+    "road": "Strada Teiul Doamnei",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.445057|26.157872": {
+    "lat": 44.4447251,
+    "lng": 26.1581677,
+    "postcode": "021651",
+    "display_name": "1, Bulevardul Chișinău, Delfinului, Pantelimon, Sector 2, București, 021651, România",
+    "road": "Bulevardul Chișinău",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.492787|26.017745": {
+    "lat": 44.492783,
+    "lng": 26.0176835,
+    "postcode": "012407",
+    "display_name": "Magic Casino, 284, Șoseaua Chitilei, Chitila, Chitila - Triaj, Sector 1, București, 012407, România",
+    "road": "Șoseaua Chitilei",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.465163|26.068877": {
+    "lat": 44.4652238,
+    "lng": 26.0689357,
+    "postcode": "011203",
+    "display_name": "1, Aleea Locotenent Aviator Gheorghe Stâlpeanu, Domenii, Sector 1, București, 011203, România",
+    "road": "Aleea Locotenent Aviator Gheorghe Stâlpeanu",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|45.271853|27.967130": {
+    "lat": 45.2717228,
+    "lng": 27.9671303,
+    "postcode": "810002",
+    "display_name": "dm, 90, Strada Mihai Eminescu, Unirii, Brăila, 810002, România",
+    "road": "Strada Mihai Eminescu",
+    "city": "Brăila",
+    "country_code": "ro"
+  },
+  "rev|46.638145|27.737004": {
+    "lat": 46.6381045,
+    "lng": 27.7373336,
+    "postcode": "730178",
+    "display_name": "Sinsay, DN24, Vaslui, 730178, România",
+    "road": "DN24",
+    "city": "Vaslui",
+    "country_code": "ro"
+  },
+  "rev|46.190440|21.318803": {
+    "lat": 46.1907681,
+    "lng": 21.3187369,
+    "postcode": "310414",
+    "display_name": "HalfPrice, 14, Calea Aurel Vlaicu, Parc Industrial UTA 1, Funcționarilor, Arad, 310414, România",
+    "road": "Calea Aurel Vlaicu",
+    "city": "Arad",
+    "country_code": "ro"
+  },
+  "rev|45.024425|23.265029": {
+    "lat": 45.0244886,
+    "lng": 23.2650024,
+    "postcode": "210006",
+    "display_name": "ATM Bitcoin Romania, 10, Strada Termocentralei, Românești, Târgu Jiu, Gorj, 210006, România",
+    "road": "Strada Termocentralei",
+    "city": "Târgu Jiu",
+    "country_code": "ro"
+  },
+  "rev|44.413586|26.036211": {
+    "lat": 44.413734,
+    "lng": 26.0361627,
+    "postcode": "061692",
+    "display_name": "StayFit Ghencea, 79, Bulevardul Ghencea, Ghencea, Sector 6, București, 061692, România",
+    "road": "Bulevardul Ghencea",
+    "city": "București",
+    "country_code": "ro"
+  },
+  "rev|44.960630|26.010661": {
+    "lat": 44.9603552,
+    "lng": 26.0106287,
+    "postcode": "107072",
+    "display_name": "Rimini Pizza, Strada Găgeni, Ploiești, Eden, Țânțăreni, Ploiești, Prahova, 107072, România",
+    "road": "Strada Găgeni",
+    "city": "Ploiești",
+    "country_code": "ro"
+  },
+  "rev|47.172035|27.550028": {
+    "lat": 47.1725885,
+    "lng": 27.5494967,
+    "postcode": "700534",
+    "display_name": "Bloc 458, 3, Stradela Canta, Canta, Iași, Zona Metropolitană Iași, Iași, 700534, România",
+    "road": "Stradela Canta",
+    "city": "Iași",
+    "country_code": "ro"
+  },
+  "ro|hotelului sheraton bucurești, bucurești, romania": null,
+  "ro|stay fit gym auchan timișoara nord, timișoara, romania": null,
+  "ro|stay fit petre ispirescu, bucurești, romania": null,
+  "ro|stay fit gym valea adanca iași, iași, romania": null,
+  "ro|stay fit gym bacău aurora, bacău, romania": null,
+  "ro|@46.7507647,23.4283653, cluj-napoca, romania": null,
+  "ro|stay fit gym brasov bartolomeu, brașov, romania": {
+    "lat": 45.6664107,
+    "lng": 25.5528121,
+    "display_name": "Stay Fit Gym, Strada Institutului, Bartolomeu Nord, Brașov, Zona Metropolitană Brașov, Brașov, 500461, România",
+    "importance": 7.02258335240256e-05,
+    "postcode": "500461",
+    "country_code": "ro"
+  },
+  "ro|strada târgoviștei, nr. 4, ploiesti, ploiești, romania": {
+    "lat": 44.9419691,
+    "lng": 25.9840057,
+    "display_name": "Strada Târgoviștei, Zona de industrie și depozite Crâng (Xenia), Vest I, Ploiești, Prahova, 100299, România",
+    "importance": 0.05339838635843439,
+    "postcode": "100299",
+    "country_code": "ro"
+  },
+  "ro|stay fit gym iași vișan, iași, romania": null,
+  "ro|stay fit gym brasov craiter, brașov, romania": null,
+  "ro|stay fit gym metalurgiei, bucurești, romania": {
+    "lat": 44.3745529,
+    "lng": 26.1177485,
+    "display_name": "Stay Fit Gym, 12-18, Bulevardul Metalurgiei, Metalurgiei, Sector 4, București, 041833, România",
+    "importance": 8.015335317001629e-05,
+    "postcode": "041833",
+    "country_code": "ro"
+  },
+  "ro|strada avram iancu 454, florești 407280, 407280 florești, romania": null,
+  "ro|strada avram iancu 454, florești 407280, florești, romania": {
+    "lat": 46.7514007,
+    "lng": 23.5221073,
+    "display_name": "Optimus Nova Center, 454, Strada Avram Iancu, Florești, Zona Metropolitană Cluj, Cluj, 407280, România",
+    "importance": 7.781872281982173e-05,
+    "postcode": "407280",
+    "country_code": "ro"
+  },
+  "ro|șoseaua vergului 20, sector 2, bucurești, romania": {
+    "lat": 44.4373897,
+    "lng": 26.1865884,
+    "display_name": "Supernova Pantelimon, 20, Șoseaua Vergului, Granit, Mărcuța, Pantelimon, Sector 2, București, 022448, România",
+    "importance": 8.015335317001629e-05,
+    "postcode": "022448",
+    "country_code": "ro"
+  },
+  "ro|strada petre ispirescu 86, coral center, bucurești, romania": null,
+  "ro|strada narciselor 14bis, aurora retail park, bacău, romania": null,
+  "ro|strada fundătura hărmanului 2, brașov, romania": null,
+  "ro|strada principală 7-9, valea adâncă, miroslava, romania": {
+    "lat": 47.1167604,
+    "lng": 27.5626277,
+    "display_name": "Strada Principală, Valea Adâncă, Miroslava, Zona Metropolitană Iași, Iași, 707317, România",
+    "importance": 0.05340282215609976,
+    "postcode": "707317",
+    "country_code": "ro"
+  },
+  "rev|46.750765|23.428365": {
+    "postcode": "407281",
+    "road": "DN1",
+    "city": "Luna de Sus",
+    "display": "DN1, Luna de Sus, Florești, Zona Metropolitană Cluj, Cluj, 407281, România",
+    "country_code": "ro"
+  },
+  "ro|petre ispirescu 86 bucurești, romania": {
+    "lat": 44.4151522,
+    "lng": 26.0617081,
+    "display_name": "Party Starters, 86, Strada Petre Ispirescu, 13 Septembrie, Sector 5, București, 051734, România",
+    "importance": 8.015335317001629e-05,
+    "postcode": "051734",
+    "country_code": "ro"
+  },
+  "ro|aurora retail park bacău narciselor, romania": null,
+  "ro|fundătura hărmanului brașov, romania": {
+    "lat": 45.667023,
+    "lng": 25.6368272,
+    "display_name": "Fundătura Hărmanului, Triaj-Hărman, Brașov, Zona Metropolitană Brașov, Brașov, 500240, România",
+    "importance": 0.05340355916685737,
+    "postcode": "500240",
+    "country_code": "ro"
+  },
+  "ro|stay fit gym vișan iași, romania": null
+}

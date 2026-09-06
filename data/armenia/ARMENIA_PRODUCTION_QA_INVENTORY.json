@@ -1,0 +1,23 @@
+{
+  "phase2_approved": 36,
+  "frozen_approved": 36,
+  "live_production": 36,
+  "sets_equal": true,
+  "approved_missing_from_production": 0,
+  "production_not_approved": 0,
+  "unauthorized_armenia": 0,
+  "authorized_material_drift": 0,
+  "phase1_recovered": 312,
+  "phase1_ready": 11,
+  "phase1_nr": 293,
+  "phase1_nr_resolved": 293,
+  "phase2_buckets": {
+    "NEW_READY_TO_IMPORT": 36,
+    "NEEDS_REVIEW": 0,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 0,
+    "EXCLUDED": 276,
+    "CLOSED": 0,
+    "TOTAL_FINAL_STAGING": 312
+  }
+}

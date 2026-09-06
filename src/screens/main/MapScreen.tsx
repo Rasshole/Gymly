@@ -12,7 +12,6 @@ import {
   Modal,
   ScrollView,
   PanResponder,
-  TouchableWithoutFeedback,
   Text,
   Keyboard,
   LayoutAnimation,
@@ -34,22 +33,28 @@ import {
 } from '@/services/location/locationPermission';
 import MapView, {Marker, Region, AnimatedRegion} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation, useFocusEffect} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+import {DanishGym} from '@/data/danishGyms';
+import {getMapRuntime} from '@/data/mapRuntime';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useTranslation} from '@/i18n';
 import {useGymSearch} from '@/hooks/useGymSearch';
 import {GymSearchResultsPanel} from '@/components/gym/GymSearchResultsPanel';
-import {selectMapCarouselGyms} from '@/utils/mapCarouselGyms';
-
-const MAP_GYMS = getActiveDanishGyms();
+import {pickBrowseGyms} from '@/utils/pickBrowseGyms';
+import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
+import {useMapViewportMarkers} from '@/hooks/useMapViewportMarkers';
+import type {MapDisplayMarker} from '@/utils/mapMarkerClustering';
+import {
+  normalizeMapRegion,
+  regionsApproxEqual,
+} from '@/utils/normalizeMapRegion';
 import {useAppStore} from '@/store/appStore';
 import {useOnlineUsers} from '@/hooks/useOnlineUsers';
 import {getMapCenterActivity} from '@/data/mapCenterActivity';
-import {getMapCenters, type MapCenter} from '@/data/mapCentersData';
+import {applyMapCenterBadges, type MapCenter} from '@/data/mapCentersData';
 import colors from '@/theme/colors';
 import {spacing} from '@/theme/designTokens';
 import {
@@ -58,86 +63,26 @@ import {
   MapFloatingButton,
   MapTypePickerMenu,
 } from '@/components/map';
+import MapGymLogoMarker from '@/components/map/MapGymLogoMarker';
+import {
+  MAP_FAB_GAP,
+  MAP_FAB_SIZE,
+} from '@/components/map/MapFloatingButton';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {loadMapGymBadges} from '@/services/supabase/presenceService';
 import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
+
+type MapScreenProps = {
+  /** True when the Map sub-tab is selected. */
+  isActive?: boolean;
+};
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-// INLINE MARKER STYLES - White circle, barbell fallback, NO purple/heart
-const MAP_CONTROL_GAP = 12;
-const MAP_CONTROL_SIZE = 58;
-
-const markerStyles = StyleSheet.create({
-  wrapper: {alignItems: 'center', justifyContent: 'center'},
-  circle: {
-    backgroundColor: '#FFFFFF',
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.95)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#0F172A',
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.16,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  circleSelected: {
-    borderColor: colors.primary,
-    borderWidth: 3,
-    shadowColor: colors.primary,
-    shadowOpacity: 0.45,
-    shadowRadius: 12,
-    elevation: 12,
-  },
-  circleWithFriends: {
-    borderColor: colors.secondary + 'CC',
-    shadowColor: colors.secondary,
-    shadowOpacity: 0.35,
-  },
-  fallback: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#F0F0F0',
-    borderRadius: 999,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  badgeTop: {
-    position: 'absolute',
-    top: -2,
-    right: -4,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 5,
-    paddingVertical: 2,
-    borderRadius: 8,
-    borderWidth: 1.5,
-    borderColor: '#fff',
-    minWidth: 24,
-    justifyContent: 'center',
-  },
-  badgeBottom: {
-    position: 'absolute',
-    bottom: -6,
-    left: '50%',
-    marginLeft: -18,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 8,
-    borderWidth: 1.5,
-    borderColor: '#fff',
-    minWidth: 28,
-    justifyContent: 'center',
-  },
-  badgeFriends: {backgroundColor: colors.primary},
-  badgeTotal: {backgroundColor: colors.secondary},
-  badgeText: {color: '#fff', fontSize: 11, fontWeight: '800', marginLeft: 3},
-});
+const MAP_CONTROL_GAP = MAP_FAB_GAP;
+const MAP_CONTROL_SIZE = MAP_FAB_SIZE;
 
 const calculateDistance = (
   lat1: number,
@@ -158,14 +103,18 @@ const calculateDistance = (
   return R * c;
 };
 
-const MapScreen = () => {
+const MapScreen = ({isActive = true}: MapScreenProps) => {
+  const mapRuntime = useMemo(() => getMapRuntime(), []);
+  const {gyms: mapGyms, gymById: mapGymById, baseCenters: baseMapCenters, centerIndex: mapCenterIndex} =
+    mapRuntime;
+
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {t} = useTranslation();
   const {user} = useAppStore();
   const currentUserId = user?.id || '';
   const {users: onlineFriends, refresh: refreshOnlineFriends} = useOnlineUsers(
     currentUserId || undefined,
-    {filter: 'venner'},
+    {filter: 'venner', enabled: isActive},
   );
 
   const [mapFriendsByGymId, setMapFriendsByGymId] = useState<Map<string, number>>(
@@ -192,37 +141,39 @@ const MapScreen = () => {
   }, [user?.id]);
 
   useEffect(() => {
+    if (!isActive) {
+      return;
+    }
+    const mapKey = user?.id ? `map:badges:${user.id}` : 'map:badges:anon';
+    if (!isFocusRefreshStale(mapKey, 30_000)) {
+      return;
+    }
     void refreshMapBadges();
-  }, [refreshMapBadges]);
-
-  useFocusEffect(
-    useCallback(() => {
-      void refreshMapBadges();
-      void refreshOnlineFriends();
-    }, [refreshMapBadges, refreshOnlineFriends]),
-  );
+    void refreshOnlineFriends();
+    markFocusRefreshed(mapKey);
+  }, [isActive, refreshMapBadges, refreshOnlineFriends, user?.id]);
 
   useEffect(() => {
-    if (!user?.id) {
+    if (!isActive || !user?.id) {
       return;
     }
     return subscribeCheckInsPresence(() => {
       void refreshMapBadges();
       void refreshOnlineFriends();
     });
-  }, [user?.id, refreshMapBadges, refreshOnlineFriends]);
+  }, [isActive, user?.id, refreshMapBadges, refreshOnlineFriends]);
 
   /** Udebliver Realtime: sjælden synk (rollup + venner) */
   useEffect(() => {
-    if (!user?.id) {
+    if (!isActive || !user?.id) {
       return;
     }
-    const t = setInterval(() => {
+    const timer = setInterval(() => {
       void refreshMapBadges();
       void refreshOnlineFriends();
     }, 3 * 60_000);
-    return () => clearInterval(t);
-  }, [user?.id, refreshMapBadges, refreshOnlineFriends]);
+    return () => clearInterval(timer);
+  }, [isActive, user?.id, refreshMapBadges, refreshOnlineFriends]);
 
   const friends = useMemo(
     () =>
@@ -250,7 +201,14 @@ const MapScreen = () => {
   const markerPulse = useRef(new Animated.Value(0.35)).current;
   const lastLocationUpdateMsRef = useRef(0);
   const watchIdRef = useRef<number | null>(null);
+  const hasCenteredMapOnUserRef = useRef(false);
+  const userBrowsingRef = useRef(false);
+  const pendingProgrammaticRegionRef = useRef<Region | null>(null);
+  const seedMapRegionRef = useRef<
+    ((region: Region, opts?: {immediate?: boolean}) => void) | null
+  >(null);
   const [followUserMode, setFollowUserMode] = useState(false);
+  const [browsingAway, setBrowsingAway] = useState(false);
   const [locationPermissionStatus, setLocationPermissionStatus] = useState<
     'idle' | 'granted' | 'denied' | 'unavailable'
   >('idle');
@@ -259,20 +217,31 @@ const MapScreen = () => {
   const [mapType, setMapType] = useState<'standard' | 'satellite' | 'hybrid' | 'terrain'>('standard');
   const [showMapTypePicker, setShowMapTypePicker] = useState(false);
   const tabBarHeight = useBottomTabBarHeight();
-  /** Lige over “Tæt på dig”-karrusel — samme placering som før redesign. */
-  const mapControlsBottom = tabBarHeight + 128;
+  /** Over nearby carousel with breathing room — lower = closer to cards. */
+  const mapControlsBottom = tabBarHeight + 96;
   const mapControlsEntrance = useRef(new Animated.Value(0)).current;
 
-  useFocusEffect(
-    useCallback(() => {
-      mapControlsEntrance.setValue(0);
-      Animated.timing(mapControlsEntrance, {
-        toValue: 1,
-        duration: 380,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }).start();
-    }, [mapControlsEntrance]),
+  useEffect(() => {
+    if (!isActive) {
+      return;
+    }
+    mapControlsEntrance.setValue(0);
+    Animated.timing(mapControlsEntrance, {
+      toValue: 1,
+      duration: 380,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    }).start();
+  }, [isActive, mapControlsEntrance]);
+
+  const homeRegion = useMemo<Region>(
+    () => ({
+      latitude: userLocation.latitude,
+      longitude: userLocation.longitude,
+      latitudeDelta: 0.1,
+      longitudeDelta: 0.1,
+    }),
+    [userLocation.latitude, userLocation.longitude],
   );
 
   const initialRegion = useMemo<Region>(
@@ -286,12 +255,9 @@ const MapScreen = () => {
   );
 
   useEffect(() => {
-    setTimeout(() => {
-      mapRef.current?.animateToRegion(initialRegion, 1000);
-    }, 200);
-  }, [initialRegion]);
-
-  useEffect(() => {
+    if (!isActive) {
+      return;
+    }
     const loop = Animated.loop(
       Animated.sequence([
         Animated.timing(markerPulse, {
@@ -310,7 +276,7 @@ const MapScreen = () => {
     return () => {
       loop.stop();
     };
-  }, [markerPulse]);
+  }, [isActive, markerPulse]);
 
   const applyLocationUpdate = useCallback(
     (position: GeolocationResponse) => {
@@ -346,6 +312,18 @@ const MapScreen = () => {
           },
           {duration: 700},
         );
+      } else if (!hasCenteredMapOnUserRef.current) {
+        hasCenteredMapOnUserRef.current = true;
+        const region: Region = {
+          latitude,
+          longitude,
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
+        };
+        // Seed discovery markers once from GPS — later pans must not be overwritten by GPS.
+        pendingProgrammaticRegionRef.current = region;
+        seedMapRegionRef.current?.(region, {immediate: true});
+        mapRef.current?.animateToRegion(region, 900);
       }
     },
     [followUserMode],
@@ -407,20 +385,26 @@ const MapScreen = () => {
     return true;
   }, [startLocationWatchIfAuthorized]);
 
-  useFocusEffect(
-    useCallback(() => {
-      void startLocationWatchIfAuthorized().catch(() => {
-        setLocationPermissionStatus('unavailable');
-      });
-      return () => {
-        if (watchIdRef.current != null) {
-          Geolocation.clearWatch(watchIdRef.current);
-          watchIdRef.current = null;
-        }
-        setFollowUserMode(false);
-      };
-    }, [startLocationWatchIfAuthorized]),
-  );
+  useEffect(() => {
+    if (!isActive) {
+      if (watchIdRef.current != null) {
+        Geolocation.clearWatch(watchIdRef.current);
+        watchIdRef.current = null;
+      }
+      setFollowUserMode(false);
+      return;
+    }
+    void startLocationWatchIfAuthorized().catch(() => {
+      setLocationPermissionStatus('unavailable');
+    });
+    return () => {
+      if (watchIdRef.current != null) {
+        Geolocation.clearWatch(watchIdRef.current);
+        watchIdRef.current = null;
+      }
+      setFollowUserMode(false);
+    };
+  }, [isActive, startLocationWatchIfAuthorized]);
 
   const getDistanceText = useCallback(
     (gym: DanishGym): string => {
@@ -443,30 +427,81 @@ const MapScreen = () => {
       userLng: userLocation.longitude,
       favoriteIds: favoriteGymIds,
       limit: 20,
-      gyms: MAP_GYMS,
+      gyms: [...mapGyms],
     });
 
-  const filteredAndSortedGyms = useMemo(
-    () => (isSearchActive ? searchHits.map(h => h.gym) : MAP_GYMS),
-    [isSearchActive, searchHits],
-  );
-
   const searchMatchIds = useMemo(
-    () => new Set(filteredAndSortedGyms.map(g => g.id)),
-    [filteredAndSortedGyms],
+    () => new Set(searchHits.map(h => h.gym.id)),
+    [searchHits],
   );
 
-  /** Alle aktive centre — markører (søgning skjuler ikke pins) */
   const allMapCenters = useMemo(
-    () => getMapCenters(MAP_GYMS, mapFriendsByGymId, mapTotalByGymId),
-    [mapFriendsByGymId, mapTotalByGymId],
+    () => applyMapCenterBadges(baseMapCenters, mapFriendsByGymId, mapTotalByGymId),
+    [baseMapCenters, mapFriendsByGymId, mapTotalByGymId],
   );
+
+  const mapCenterById = useMemo(
+    () => new Map(allMapCenters.map(center => [center.id, center])),
+    [allMapCenters],
+  );
+
+  /**
+   * Discovery-map markers — geography from settled MapView region only.
+   * `onRegionChange` must be registered or iOS Apple Maps never emits complete.
+   */
+  const {
+    mapDisplayMarkers: viewportLogoMarkers,
+    settledMapRegion,
+    markerVisibilityEpoch,
+    onRegionChange,
+    onRegionChangeComplete,
+    seedMapRegion,
+  } = useMapViewportMarkers({
+    index: mapCenterIndex,
+    initialRegion,
+    isActive,
+    selectedId: selectedGym?.id,
+    centerById: mapCenterById,
+  });
+  seedMapRegionRef.current = seedMapRegion;
+
+  /** Search overrides browse markers; carousel / GPS never do. */
+  const mapDisplayMarkers: MapDisplayMarker[] = useMemo(() => {
+    if (!isActive) {
+      return [];
+    }
+    if (!isSearchActive) {
+      return viewportLogoMarkers;
+    }
+    const matched: MapCenter[] = [];
+    for (const id of searchMatchIds) {
+      const c = mapCenterById.get(id);
+      if (c) {
+        matched.push(c);
+      }
+    }
+    const selectedId = selectedGym?.id;
+    if (selectedId && !matched.some(c => c.id === selectedId)) {
+      const sel = mapCenterById.get(selectedId);
+      if (sel) {
+        matched.push(sel);
+      }
+    }
+    return matched.map(center => ({kind: 'single' as const, center}));
+  }, [
+    isActive,
+    isSearchActive,
+    viewportLogoMarkers,
+    searchMatchIds,
+    mapCenterById,
+    selectedGym?.id,
+  ]);
 
   useEffect(() => {
     if (!__DEV__) {
       return;
     }
-    const total = MAP_GYMS.length;
+    const total = mapGyms.length;
     const explicit = allMapCenters.filter(c => c.hasExplicitGeocode).length;
     const approx = total - explicit;
     console.warn(
@@ -477,52 +512,96 @@ const MapScreen = () => {
         '[Map] Kør: node scripts/geocode-centers.mjs for at skrive rigtige koordinater til centers.json',
       );
     }
-  }, [allMapCenters]);
+  }, [allMapCenters, mapGyms.length]);
 
   const hasActiveGymsOnMap = useMemo(
     () => allMapCenters.some(c => c.totalActiveCount > 0),
     [allMapCenters],
   );
 
+  /** Carousel follows browsed viewport markers — not GPS nearby. */
   const nearestCentersForCarousel = useMemo(() => {
-    const carouselGyms = selectMapCarouselGyms(
-      MAP_GYMS.map(gym => ({
-        gym,
-        activeUsersCount:
-          allMapCenters.find(x => x.id === gym.id)?.totalActiveCount ?? 0,
-        distanceKm: calculateDistance(
-          userLocation.latitude,
-          userLocation.longitude,
-          gym.latitude,
-          gym.longitude,
-        ),
-      })),
-    );
-    return carouselGyms.map(gym => {
-      const c = allMapCenters.find(x => x.id === gym.id);
+    if (!isActive) {
+      return [];
+    }
+    const viewportGyms: DanishGym[] = [];
+    for (const marker of mapDisplayMarkers) {
+      if (marker.kind !== 'single') {
+        continue;
+      }
+      const gym = mapGymById.get(marker.center.id);
+      if (gym) {
+        viewportGyms.push(gym);
+      }
+    }
+    if (viewportGyms.length === 0) {
+      return [];
+    }
+    const mapLat = settledMapRegion.latitude;
+    const mapLng = settledMapRegion.longitude;
+    const ranked = [...viewportGyms].sort((a, b) => {
+      const da = calculateDistance(mapLat, mapLng, a.latitude, a.longitude);
+      const db = calculateDistance(mapLat, mapLng, b.latitude, b.longitude);
+      return da - db;
+    });
+    return ranked.slice(0, 40).map(gym => {
+      const c = mapCenterById.get(gym.id);
+      const distanceKm = calculateDistance(
+        userLocation.latitude,
+        userLocation.longitude,
+        gym.latitude,
+        gym.longitude,
+      );
       return {
         gym,
-        distanceText: getDistanceText(gym),
+        distanceText:
+          distanceKm < 1
+            ? `${Math.round(distanceKm * 1000)} m`
+            : `${distanceKm.toFixed(1)} km`,
         totalActiveCount: c?.totalActiveCount ?? 0,
         friendsActiveCount: c?.friendsActiveCount ?? 0,
       };
     });
-  }, [allMapCenters, getDistanceText, userLocation]);
+  }, [
+    isActive,
+    mapDisplayMarkers,
+    mapGymById,
+    mapCenterById,
+    settledMapRegion.latitude,
+    settledMapRegion.longitude,
+    userLocation.latitude,
+    userLocation.longitude,
+  ]);
 
   const categorizedGyms = useMemo(() => {
-    const withDist = MAP_GYMS.map(g => ({
-      gym: g,
-      distance: calculateDistance(
+    if (!isActive || !showCentersSheet) {
+      return {within5km: [] as DanishGym[], beyond5km: [] as DanishGym[]};
+    }
+    const pool = pickBrowseGyms({
+      gyms: [...mapGyms],
+      userLocation,
+      cap: 80,
+    });
+    const within5km: DanishGym[] = [];
+    const beyond5km: DanishGym[] = [];
+    for (const gym of pool) {
+      const d = calculateDistance(
         userLocation.latitude,
         userLocation.longitude,
-        g.latitude,
-        g.longitude,
-      ),
-    }));
-    const within5km = withDist.filter(w => w.distance <= 5).sort((a, b) => a.distance - b.distance).map(w => w.gym);
-    const beyond5km = withDist.filter(w => w.distance > 5).sort((a, b) => a.distance - b.distance).map(w => w.gym);
-    return {within5km, beyond5km};
-  }, [userLocation]);
+        gym.latitude,
+        gym.longitude,
+      );
+      if (d <= 5) {
+        within5km.push(gym);
+      } else {
+        beyond5km.push(gym);
+      }
+    }
+    return {
+      within5km: within5km.slice(0, 30),
+      beyond5km: beyond5km.slice(0, 40),
+    };
+  }, [isActive, showCentersSheet, userLocation, mapGyms]);
 
   const handleSelectGym = useCallback(
     (gym: DanishGym) => {
@@ -553,9 +632,9 @@ const MapScreen = () => {
     setSelectedGym(null);
     setShowCentersSheet(false);
     setTimeout(() => {
-      mapRef.current?.animateToRegion(initialRegion, 500);
+      mapRef.current?.animateToRegion(homeRegion, 500);
     }, 100);
-  }, [initialRegion]);
+  }, [homeRegion]);
 
   const handleOpenCentersSheet = useCallback(() => setShowCentersSheet(true), []);
   const handleCloseCentersSheet = useCallback(() => setShowCentersSheet(false), []);
@@ -574,52 +653,30 @@ const MapScreen = () => {
     [handleOpenCentersSheet],
   );
 
-  // INLINE MARKER - Old purple heart markers REMOVED. This is the ONLY marker render path.
-  const renderGymMarker = (center: MapCenter) => {
-    const gym = MAP_GYMS.find(g => g.id === center.id);
-    if (!gym) {
-      return null;
-    }
-    const isSelected = selectedGym?.id === center.id;
-    const size = isSelected ? 50 : 44;
-    return (
-      <Marker
-        key={center.id}
-        coordinate={{latitude: center.mapLatitude, longitude: center.mapLongitude}}
-        onPress={() => handleSelectGym(gym)}
-        zIndex={isSelected ? 999 : center.friendsActiveCount > 0 ? 50 : 1}
-        tracksViewChanges={isSelected}>
-        <View style={markerStyles.wrapper}>
-          <View
-            style={[
-              markerStyles.circle,
-              {width: size, height: size, borderRadius: size / 2},
-              isSelected && markerStyles.circleSelected,
-              center.friendsActiveCount > 0 && !isSelected && markerStyles.circleWithFriends,
-            ]}>
-            <GymLogoView
-              gymName={center.name}
-              brand={center.brand}
-              variant="plain"
-              size={size - 8}
-            />
-          </View>
-          {center.friendsActiveCount > 0 ? (
-            <View style={[markerStyles.badgeTop, markerStyles.badgeFriends]}>
-              <Icon name="person" size={10} color="#fff" />
-              <Text style={markerStyles.badgeText}>{center.friendsActiveCount}</Text>
-            </View>
-          ) : null}
-          {center.totalActiveCount > 0 ? (
-            <View style={[markerStyles.badgeBottom, markerStyles.badgeTotal]}>
-              <Icon name="people" size={10} color="#fff" />
-              <Text style={markerStyles.badgeText}>{center.totalActiveCount}</Text>
-            </View>
-          ) : null}
-        </View>
-      </Marker>
-    );
-  };
+  const renderMapDisplayMarker = useCallback(
+    (item: MapDisplayMarker) => {
+      if (item.kind !== 'single') {
+        return null;
+      }
+      const center = item.center;
+      const gym = mapGymById.get(center.id);
+      if (!gym) {
+        return null;
+      }
+      const isSelected = selectedGym?.id === center.id;
+      return (
+        <MapGymLogoMarker
+          key={`${center.id}:${markerVisibilityEpoch}`}
+          center={center}
+          gym={gym}
+          selected={isSelected}
+          visibilityEpoch={markerVisibilityEpoch}
+          onPress={handleSelectGym}
+        />
+      );
+    },
+    [handleSelectGym, mapGymById, markerVisibilityEpoch, selectedGym?.id],
+  );
 
   const selectedActivity = useMemo(() => {
     if (!selectedGym) {
@@ -657,22 +714,53 @@ const MapScreen = () => {
         initialRegion={initialRegion}
         showsUserLocation={false}
         showsMyLocationButton={false}
+        // Native compass sits top-right and cannot join the FAB stack reliably
+        // (compassOffset is not applied on Apple Maps). Custom compass is below.
+        showsCompass={false}
         mapType={mapType}
         scrollEnabled
         zoomEnabled
         pitchEnabled
         rotateEnabled
         onPanDrag={() => {
+          userBrowsingRef.current = true;
+          setBrowsingAway(true);
           if (followUserMode) {
             setFollowUserMode(false);
           }
         }}
-        onRegionChangeComplete={(_, gesture) => {
+        // iOS Apple Maps: onRegionChange MUST be set or complete events are never emitted.
+        onRegionChange={region => {
+          const normalized = normalizeMapRegion(region);
+          if (!normalized) {
+            return;
+          }
+          onRegionChange(normalized);
+        }}
+        onRegionChangeComplete={(region, gesture) => {
+          const normalized = normalizeMapRegion(region);
+          if (!normalized) {
+            return;
+          }
+          const pending = pendingProgrammaticRegionRef.current;
+          if (pending && regionsApproxEqual(normalized, pending)) {
+            pendingProgrammaticRegionRef.current = null;
+            // Stale initial GPS animate finished after the user already browsed away.
+            if (userBrowsingRef.current && !followUserMode) {
+              return;
+            }
+          }
+          onRegionChangeComplete(normalized);
           if (followUserMode && gesture?.isGesture) {
             setFollowUserMode(false);
           }
         }}
-        onMapReady={() => mapRef.current?.animateToRegion(initialRegion, 1000)}>
+        onMapReady={() => {
+          if (!hasCenteredMapOnUserRef.current) {
+            pendingProgrammaticRegionRef.current = initialRegion;
+            mapRef.current?.animateToRegion(initialRegion, 1000);
+          }
+        }}>
         <Marker.Animated
           coordinate={userAnimatedCoordinateRef.current as unknown as {latitude: number; longitude: number}}
           title={t('map.yourLocation')}>
@@ -701,9 +789,7 @@ const MapScreen = () => {
             </View>
           </View>
         </Marker.Animated>
-        {allMapCenters
-          .filter(c => !isSearchActive || searchMatchIds.has(c.id))
-          .map(renderGymMarker)}
+        {mapDisplayMarkers.map(renderMapDisplayMarker)}
       </MapView>
 
       <SocialSearchBar
@@ -735,8 +821,8 @@ const MapScreen = () => {
       <MapTypePickerMenu
         visible={showMapTypePicker}
         value={mapType}
-        onSelect={t => {
-          setMapType(t);
+        onSelect={nextType => {
+          setMapType(nextType);
           setShowMapTypePicker(false);
         }}
         onClose={() => setShowMapTypePicker(false)}
@@ -783,6 +869,7 @@ const MapScreen = () => {
             selectedGymId={selectedGym?.id ?? null}
             onSelectCenter={handleSelectGym}
             hasActiveGyms={hasActiveGymsOnMap}
+            browsingAway={browsingAway}
           />
         </View>
       ) : null}
@@ -806,8 +893,16 @@ const MapScreen = () => {
           },
         ]}>
         <MapFloatingButton
+          icon="compass-outline"
+          accessibilityLabel={t('map.resetNorth')}
+          onPress={() => {
+            mapRef.current?.animateCamera({heading: 0, pitch: 0}, {duration: 350});
+          }}
+        />
+        <View style={styles.mapControlSpacer} />
+        <MapFloatingButton
           icon="layers-outline"
-          accessibilityLabel="Korttype"
+          accessibilityLabel={t('a11y.mapType')}
           active={showMapTypePicker}
           onPress={() => setShowMapTypePicker(v => !v)}
         />
@@ -820,11 +915,22 @@ const MapScreen = () => {
               if (!ok) {
                 return;
               }
+              userBrowsingRef.current = false;
+              setBrowsingAway(false);
               setFollowUserMode(true);
+              const region: Region = {
+                latitude: userLocation.latitude,
+                longitude: userLocation.longitude,
+                latitudeDelta: 0.05,
+                longitudeDelta: 0.05,
+              };
+              pendingProgrammaticRegionRef.current = region;
+              seedMapRegion(region, {immediate: true});
               mapRef.current?.animateCamera(
                 {
                   center: userLocation,
                   zoom: 16.2,
+                  heading: 0,
                 },
                 {duration: 600},
               );

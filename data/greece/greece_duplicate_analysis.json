@@ -1,0 +1,34 @@
+{
+  "proximity": {
+    "lt25": 1,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "proximity_detail": {
+    "lt25": [
+      {
+        "a_id": "gr_f92effe0b0",
+        "b_id": "gr_0fc7dfed4c",
+        "brand": "Alterlife",
+        "distance_m": 14,
+        "same_address": false
+      }
+    ],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": []
+  },
+  "dq": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "cyprus": 0,
+    "mojibake": 0
+  }
+}

@@ -1,0 +1,471 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:48:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1680093730,
+      "lat": 51.6514667,
+      "lon": 39.1308838,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "СТК \"Адреналин\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 2172185357,
+      "lat": 51.7037825,
+      "lon": 39.1738367,
+      "tags": {
+        "addr:city": "Воронеж",
+        "addr:housenumber": "35Б",
+        "addr:street": "улица Генерала Лизюкова",
+        "leisure": "fitness_centre",
+        "name": "X-Fit Платинум",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 08:00-23:00",
+        "phone": "74732124169;78003335252",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3298604626,
+      "lat": 51.6690502,
+      "lon": 39.1986695,
+      "tags": {
+        "addr:city": "Воронеж",
+        "addr:housenumber": "67/1",
+        "addr:street": "улица Карла Маркса",
+        "contact:email": "olm-manager@xfit.ru",
+        "contact:phone": "+7 473 2017008",
+        "contact:website": "https://olimp.xfit.ru",
+        "leisure": "fitness_centre",
+        "name": "XFit",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4208710606,
+      "lat": 51.656567,
+      "lon": 39.1908603,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Skala"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4975283651,
+      "lat": 51.6840973,
+      "lon": 39.1168951,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Шёлковый путь"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5401910851,
+      "lat": 51.5687782,
+      "lon": 39.1297551,
+      "tags": {
+        "addr:housenumber": "162",
+        "addr:street": "Острогожская улица",
+        "leisure": "fitness_centre",
+        "name": "Спортзал \"Подкова\"",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+7 903 850-08-00",
+        "sport": "multi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5573214612,
+      "lat": 51.6880564,
+      "lon": 39.2666586,
+      "tags": {
+        "addr:city": "Воронеж",
+        "addr:housenumber": "158/2",
+        "addr:postcode": "394063",
+        "addr:street": "Ленинский проспект",
+        "leisure": "fitness_centre",
+        "name": "Атлетика",
+        "sport": "fitness;athletics;exercise"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5695357222,
+      "lat": 51.7173798,
+      "lon": 39.1594255,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Корона"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6161149887,
+      "lat": 51.6733552,
+      "lon": 39.2031508,
+      "tags": {
+        "addr:postcode": "394036",
+        "leisure": "fitness_centre",
+        "name": "Фаворит",
+        "name:en": "Favorit",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "phone": "+74732598061",
+        "website": "https://favoritvrn.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6321708787,
+      "lat": 51.6661603,
+      "lon": 39.1730368,
+      "tags": {
+        "email": "crossfit394@gmail.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "КроссФит 394",
+        "name:en": "CrossFit 394",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+74732324275",
+        "website": "http://crossfit394.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7865859453,
+      "lat": 51.7141569,
+      "lon": 39.1910663,
+      "tags": {
+        "addr:city": "Воронеж",
+        "addr:housenumber": "1",
+        "addr:postcode": "394053",
+        "addr:street": "улица Загоровского",
+        "leisure": "fitness_centre",
+        "name": "Publica Fitness",
+        "opening_hours": "Mo-Fr 07:00-00:00, Sa-Su 09:00-22:00",
+        "phone": "+7 473 2333666",
+        "sport": "fitness;exercise;yoga;swimming;boxing",
+        "website": "https://publicafitness.club"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7951194842,
+      "lat": 51.6672955,
+      "lon": 39.2196938,
+      "tags": {
+        "addr:city": "Воронеж",
+        "addr:housenumber": "5",
+        "addr:street": "улица Короленко",
+        "contact:email": "che-manager@xfit.ru",
+        "contact:phone": "+7 473 2115209",
+        "contact:website": "https://chernavski.xfitclubs.ru",
+        "leisure": "fitness_centre",
+        "name": "XFit",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8767483500,
+      "lat": 51.6883352,
+      "lon": 39.1308506,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9082416017,
+      "lat": 51.686027,
+      "lon": 39.1912069,
+      "tags": {
+        "addr:postcode": "394049",
+        "leisure": "fitness_centre",
+        "name": "Шинкиокушин",
+        "opening_hours": "Mo-Sa 10:00-21:00",
+        "phone": "+79507610416",
+        "website": "https://vk.com/karateshinru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9668110448,
+      "lat": 51.708664,
+      "lon": 39.1575979,
+      "tags": {
+        "check_date": "2022-04-15",
+        "description": "Переделать в зал единоборств: По предварительной записи",
+        "internet_access": "no",
+        "leisure": "fitness_centre",
+        "name": "Буй-Тур",
+        "opening_hours": "08:00-22:00",
+        "payment:cards": "no",
+        "payment:credit_cards": "no",
+        "payment:debit_cards": "no",
+        "phone": "+7 900 945-32-77",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11414647480,
+      "lat": 51.6681569,
+      "lon": 39.2059619,
+      "tags": {
+        "contact:phone": "+7 495 2555000",
+        "contact:website": "https://www.ddxfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "DDX",
+        "opening_hours": "Mo-Su 06:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11622396284,
+      "lat": 51.6552894,
+      "lon": 39.1801579,
+      "tags": {
+        "contact:phone": "+7 961 6168844",
+        "contact:website": "https://ladystretch.com/voronezh",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11622396285,
+      "lat": 51.6932141,
+      "lon": 39.2698435,
+      "tags": {
+        "contact:phone": "+7 909 2151516",
+        "contact:website": "https://ladystretch.com/voronezh",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11622396286,
+      "lat": 51.7057702,
+      "lon": 39.1468953,
+      "tags": {
+        "contact:phone": "+7 920 4418111",
+        "contact:website": "https://ladystretch.com/voronezh",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11916123917,
+      "lat": 51.6627974,
+      "lon": 39.1933297,
+      "tags": {
+        "addr:housenumber": "11",
+        "addr:street": "улица Куколкина",
+        "check_date": "2024-05-18",
+        "leisure": "fitness_centre",
+        "name": "Forma фитнесс-студия",
+        "phone": "+7 920 222-09-98"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11937886978,
+      "lat": 51.666039,
+      "lon": 39.2527997,
+      "tags": {
+        "check_date": "2024-05-27",
+        "leisure": "fitness_centre",
+        "name": "Volna",
+        "name:ru": "Волна"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11937886982,
+      "lat": 51.6670641,
+      "lon": 39.2533473,
+      "tags": {
+        "check_date": "2024-05-27",
+        "leisure": "fitness_centre",
+        "name": "Levita",
+        "name:ru": "Левита"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11998239369,
+      "lat": 51.7052499,
+      "lon": 39.1618771,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Forma"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12012115355,
+      "lat": 51.7147928,
+      "lon": 39.1916077,
+      "tags": {
+        "contact:phone": "+7 903 4205544",
+        "contact:website": "https://ladystretch.com/voronezh",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12698804817,
+      "lat": 51.7358646,
+      "lon": 39.2928581,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Ассоциация Витязей"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13239711736,
+      "lat": 51.7611932,
+      "lon": 39.1814022,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fitclub",
+        "opening_hours": "Mo-Fr 09:00-23:00; Sa,Su 10:00-22:00",
+        "phone": "+7 993 3578266",
+        "website": "https://vk.com/fitness_voroneg"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267724354,
+      "lat": 51.7123641,
+      "lon": 39.1496166,
+      "tags": {
+        "contact:phone": "+7 473 2110080",
+        "contact:website": "https://voronezh.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267724355,
+      "lat": 51.6885707,
+      "lon": 39.2669606,
+      "tags": {
+        "contact:phone": "+7 473 2110080",
+        "contact:website": "https://voronezh.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13687916059,
+      "lat": 51.592782,
+      "lon": 39.2433789,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Purple Fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 105551744,
+      "center": {
+        "lat": 51.7038173,
+        "lon": 39.1737205
+      },
+      "tags": {
+        "addr:housenumber": "35Б",
+        "addr:street": "улица Генерала Лизюкова",
+        "building": "yes",
+        "building:levels": "3",
+        "contact:email": "platmanager@xfit.ru",
+        "contact:phone": "+7 473 2113364",
+        "contact:website": "https://platinum.xfit.ru",
+        "leisure": "fitness_centre",
+        "name": "XFit",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 162184370,
+      "center": {
+        "lat": 51.6889862,
+        "lon": 39.2531181
+      },
+      "tags": {
+        "addr:housenumber": "1Д",
+        "addr:street": "улица Остужева",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Elefant",
+        "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 246103788,
+      "center": {
+        "lat": 51.6913076,
+        "lon": 39.2657279
+      },
+      "tags": {
+        "addr:housenumber": "163/1",
+        "addr:street": "Ленинский проспект",
+        "building": "yes",
+        "building:levels": "1",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 693372114,
+      "center": {
+        "lat": 51.7035686,
+        "lon": 39.3372911
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1201693384,
+      "center": {
+        "lat": 51.6626257,
+        "lon": 39.1666625
+      },
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

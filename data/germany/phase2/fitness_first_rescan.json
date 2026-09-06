@@ -1,0 +1,28 @@
+{
+  "top_level": 28,
+  "hubs": 28,
+  "candidate_singles": 106,
+  "fitness_first": 97,
+  "elbgym": 0,
+  "foreign": [
+    {
+      "url": "https://www.fitnessfirst.de/clubs/wien-floridsdorf",
+      "name": "Wien Floridsdorf"
+    },
+    {
+      "url": "https://www.fitnessfirst.de/clubs/wien-landstrasse",
+      "name": "Wien Landstraße"
+    },
+    {
+      "url": "https://www.fitnessfirst.de/clubs/wien-liesing",
+      "name": "Wien Liesing"
+    }
+  ],
+  "ff_categories": {
+    "NEEDS_COORDINATES": 60,
+    "NEEDS_REVIEW": 5,
+    "READY_TO_IMPORT": 32
+  },
+  "elbgym_categories": {},
+  "elbgym_names": []
+}

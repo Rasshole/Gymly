@@ -1,0 +1,102 @@
+{
+  "as_of": "2026-08-25",
+  "operators_rechecked": [
+    {
+      "name": "Factory 4",
+      "class": "E",
+      "reason": "single-site / <3"
+    },
+    {
+      "name": "Vitaly-Fit",
+      "class": "E",
+      "reason": "single-site / <3"
+    },
+    {
+      "name": "Athletic Center",
+      "class": "E",
+      "reason": "single-site / <3"
+    },
+    {
+      "name": "Fitness Zone",
+      "class": "E",
+      "reason": "single-site / <3"
+    },
+    {
+      "name": "Painworld",
+      "class": "F",
+      "reason": "legacy → JIMS Gasperich"
+    },
+    {
+      "name": "CK Sportcenter",
+      "class": "C",
+      "reason": "sports complex"
+    },
+    {
+      "name": "Coque",
+      "class": "C",
+      "reason": "national sports complex"
+    },
+    {
+      "name": "Keep Cool",
+      "class": "F/E",
+      "reason": "no LU multi-club estate"
+    },
+    {
+      "name": "Fitness Park",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "Anytime Fitness",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "McFIT",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "JOHN REED",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "clever fit",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "FITINN",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "Gold's Gym",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "Fitness First",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "World Class",
+      "class": "F",
+      "reason": "absent LU"
+    },
+    {
+      "name": "L'Orange Bleue",
+      "class": "F",
+      "reason": "absent LU"
+    }
+  ],
+  "new_class_a_found": false,
+  "class_a_confirmed": [
+    "Basic-Fit",
+    "JIMS",
+    "CK Fitness"
+  ],
+  "verdict": "NO_MISSED_CLASS_A"
+}

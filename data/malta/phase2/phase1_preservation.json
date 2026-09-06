@@ -1,0 +1,17 @@
+{
+  "phase1_ready_count": 14,
+  "preserved": 14,
+  "promoted": [
+    "mt_b8747c67db",
+    "mt_af9179a385",
+    "mt_963f710969",
+    "mt_26579c8193"
+  ],
+  "demoted": [],
+  "metadata_upgraded": [
+    "mt_b8747c67db",
+    "mt_af9179a385",
+    "mt_963f710969",
+    "mt_26579c8193"
+  ]
+}

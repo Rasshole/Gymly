@@ -1,0 +1,1887 @@
+{
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [],
+  "skipped_batch_dup": [],
+  "different_brand_colocations_kept": [
+    {
+      "a_id": "be_c63a9718b6",
+      "a_name": "Basic-Fit Gym Brussels Anderlecht Rue Birmingham 24/7 Anderlecht",
+      "a_brand": "Basic-Fit",
+      "b_id": "be_ed44ed44bc",
+      "b_name": "Jims Anderlecht",
+      "b_brand": "JIMS",
+      "distance_m": 0,
+      "note": "different_brand_kept"
+    },
+    {
+      "a_id": "be_e42575b027",
+      "a_name": "Basic-Fit Gym Basic-Fit Brussels Saint-Gilles Barriere",
+      "a_brand": "Basic-Fit",
+      "b_id": "be_ad10ad34fb",
+      "b_name": "i-fitness Sint-Gillis / Saint-Gilles",
+      "b_brand": "i-fitness",
+      "distance_m": 48,
+      "note": "different_brand_kept"
+    },
+    {
+      "a_id": "be_2d449eb120",
+      "a_name": "Basic-Fit Gym Basic-Fit La Louviere Avenue de Wallonie 24/7",
+      "a_brand": "Basic-Fit",
+      "b_id": "be_5a69e6219e",
+      "b_name": "Jims La Louvi\\u00e8re",
+      "b_brand": "JIMS",
+      "distance_m": 0,
+      "note": "different_brand_kept"
+    },
+    {
+      "a_id": "be_e78b233afd",
+      "a_name": "Basic-Fit Gym Basic-Fit Schaerbeek Chaussée de Louvain 24/7",
+      "a_brand": "Basic-Fit",
+      "b_id": "be_6c3737c9ba",
+      "b_name": "Jims Meiser",
+      "b_brand": "JIMS",
+      "distance_m": 12,
+      "note": "different_brand_kept"
+    }
+  ],
+  "ladies_standard_colocations_kept": [
+    {
+      "a_id": "be_3c27f0601a",
+      "a_name": "Basic-Fit Gym Basic-Fit Brussels Avenue Louise 24/7",
+      "b_id": "be_606881804a",
+      "b_name": "Basic-Fit Gym Basic-Fit Brussels Avenue Louise Ladies",
+      "brand": "Basic-Fit",
+      "distance_m": 0,
+      "note": "ladies_vs_standard_kept"
+    },
+    {
+      "a_id": "be_cea2f4b84e",
+      "a_name": "Basic-Fit Gym Basic-Fit Gent Ledeberg Hoveniersstraat 24/7",
+      "b_id": "be_b8d06f31a8",
+      "b_name": "Basic-Fit Gym Basic-Fit Ladies Gent Ledeberg",
+      "brand": "Basic-Fit",
+      "distance_m": 37,
+      "note": "ladies_vs_standard_kept"
+    }
+  ],
+  "foreign_basicfit_near_be_kept": [],
+  "withheld_questionable": [],
+  "included": [
+    {
+      "id": "be_71e07f2119",
+      "name": "Anytime Fitness Neerpelt",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_68d9acc27b",
+      "name": "Anytime Fitness Lommel",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_8eb445b530",
+      "name": "Anytime Fitness Stekene",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_f3a6252d13",
+      "name": "Anytime Fitness Sint Gillis Waas",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_729faba5e9",
+      "name": "Anytime Fitness Leopoldsburg",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_99b2d99cba",
+      "name": "Anytime Fitness Genk",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_def35032ba",
+      "name": "Anytime Fitness Staden",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_db61966352",
+      "name": "Anytime Fitness Oudsbergen",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_94258b6ce8",
+      "name": "Anytime Fitness Wuustwezel",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "be_02a1c403d7",
+      "name": "Aspria Royal La Rasante",
+      "brand": "Aspria"
+    },
+    {
+      "id": "be_9529038b0c",
+      "name": "Aspria Arts-Loi",
+      "brand": "Aspria"
+    },
+    {
+      "id": "be_2f6610ef62",
+      "name": "Basic-Fit Gym Brusselsesteenweg 24/7 Aalst",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6b966d1657",
+      "name": "Basic-Fit Gym Kapiteintjesstraat 24/7 Aalst",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4563ab64a0",
+      "name": "Basic-Fit Gym Witte Molen 24/7 Aarschot",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_489cd4b51a",
+      "name": "Basic-Fit Gym Boulevard Sylvain Dupuis 24/7 Anderlecht",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_eabb4cf923",
+      "name": "Basic-Fit Gym Brussels Anderlecht Av. Van Kalken 24/7 Anderlecht",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c63a9718b6",
+      "name": "Basic-Fit Gym Brussels Anderlecht Rue Birmingham 24/7 Anderlecht",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_90057be7ca",
+      "name": "Basic-Fit Gym Chaussee de Charleroi 24/7 Anderlues",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3c0d19d0cd",
+      "name": "Basic-Fit Gym Chaussee du Roi Albert 24/7 Ans",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_582305d47f",
+      "name": "Basic-Fit Gym De Keyserlei Antwerpen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_fb5ff6f501",
+      "name": "Basic-Fit Gym Eiermarkt Antwerpen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_31022afd9a",
+      "name": "Basic-Fit Gym Kempischdok-Westkaai Antwerpen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_7e434ff9c0",
+      "name": "Basic-Fit Gym Middelheim 24/7 Antwerpen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_451bd76fd5",
+      "name": "Basic-Fit Gym Riemstraat Antwerpen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_86308bf598",
+      "name": "Basic-Fit Gym Sportpaleis 24/7 Antwerpen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_64fe5dfe8a",
+      "name": "Basic-Fit Gym Basic-Fit Antwerpen Borgerhout Bouwensstraat",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_90df78de7a",
+      "name": "Basic-Fit Gym Basic-Fit Antwerpen Borgerhout Turnhoutsebaan Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_dc6b711fea",
+      "name": "Basic-Fit Gym Basic-Fit Antwerpen Ekeren Kapelsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f29faac41a",
+      "name": "Basic-Fit Gym Basic-Fit Antwerpen Ekeren Slijkweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ba0be95f64",
+      "name": "Basic-Fit Gym Basic-Fit Antwerpen Hoboken Weerstandlaan Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_2bb51961a2",
+      "name": "Basic-Fit Gym Basic-Fit Antwerpen Hoboken Zeelandstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_96cb18f3ad",
+      "name": "Basic-Fit Gym Basic-Fit Antwerpen Merksem Bredabaan",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a7190b6b41",
+      "name": "Basic-Fit Gym Basic-Fit Avelgem Oudenaardesteenweg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_85bd2d169f",
+      "name": "Basic-Fit Gym Basic-Fit Balen Schoor 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b1017bab7e",
+      "name": "Basic-Fit Gym Basic-Fit Bastogne Rue de Marche 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_63fdcddcf2",
+      "name": "Basic-Fit Gym Basic-Fit Beringen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_448433b6fc",
+      "name": "Basic-Fit Gym Basic-Fit Beveren Gentseweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_0a5acb4050",
+      "name": "Basic-Fit Gym Basic-Fit Beyne-Heusay Grand Route 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_1b713dd354",
+      "name": "Basic-Fit Gym Basic-Fit Bilzen Vrankrijk 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c233838a2c",
+      "name": "Basic-Fit Gym Basic-Fit Boncelles Route du Condroz 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_2558164df8",
+      "name": "Basic-Fit Gym Basic-Fit Bornem Tijpel 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a2469abd04",
+      "name": "Basic-Fit Gym Basic-Fit Borsbeek Frans Beirenslaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_5e8a09485b",
+      "name": "Basic-Fit Gym Basic-Fit Boussu Rue de Valenciennes 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e6379cc74f",
+      "name": "Basic-Fit Gym Basic-Fit Braine l’Alleud Victor Hugo 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_206b7c4881",
+      "name": "Basic-Fit Gym Basic-Fit Bredene Kapelstraat",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f2cdf12547",
+      "name": "Basic-Fit Gym Basic-Fit Bree Peerderbaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ea951a7528",
+      "name": "Basic-Fit Gym Basic-Fit Brugge Maalsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_24002fdc56",
+      "name": "Basic-Fit Gym Basic-Fit Brugge Station 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_00c3487fe8",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Arts-Loi 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ab37910bde",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Auderghem Chaussee de Wavre 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9502e186e7",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Auderghem Hankar",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3c27f0601a",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Avenue Louise 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_606881804a",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Avenue Louise Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_be48d8eea4",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Berchem-Ste-Agathe Ch. de Gand",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_419951af31",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Berlaymont",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_70907aa487",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Etterbeek Place Jourdan",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_1c377e9d93",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Etterbeek Saint-Pierre",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_28bea9fc14",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Evere Ch. de Louvain",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_05f4dc98e1",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Forest Avenue van Volxem 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_15ef2410b5",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Forest Ch. de Neerstalle",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_d0145f237e",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Gare Centrale 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_73a0f08100",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Haren Chaussee de Haecht 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_edf24881bc",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Ixelles VUB 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c3015d7484",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Jette Henri Werrie",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_666c0c599d",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Jette VUB 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b1c72af791",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Laeken Emile Bockstael",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c7809215c3",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Madou 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_2470ca4595",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Molenbeek Ch. de Ninove Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_cd4f95b810",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Molenbeek Vanderstichelen Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_922895379a",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Rue Antoine Dansaert Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_88219a376b",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Rue Neuve 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e42575b027",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Saint-Gilles Barriere",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_18fe71cae9",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Saint-Gilles Hotel des Monnaies 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9aa19c8e3a",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Saint-Gilles Rue Moris",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6d3f2d5f7f",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Saint-Josse Rogier 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_15e5765491",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Schaerbeek Liedts Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_0bc564317e",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Schuman 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9e2a957d7f",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Simonis Blvd Leopold II",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6d2dc57975",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Uccle Bascule 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_87bf4df869",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Uccle Ch. d’Alsemberg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_08e1dc74db",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Uccle Stalle 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_06eb0360fa",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Woluwe-Saint-Lambert Marcel Thiry",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a9e842ec85",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Woluwe-St-Lambert Av. George Henri",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_690c1d1d24",
+      "name": "Basic-Fit Gym Basic-Fit Brussels Yser 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_8d5491ddee",
+      "name": "Basic-Fit Gym Basic-Fit Charleroi Couillet Route Philippeville 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6fc6d1795b",
+      "name": "Basic-Fit Gym Basic-Fit Charleroi Gilly Chaussee Imperiale 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c5e4e31dfd",
+      "name": "Basic-Fit Gym Basic-Fit Charleroi Jumet Chaussee de Bruxelles 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b40b73efaa",
+      "name": "Basic-Fit Gym Basic-Fit Charleroi Mont-Sur-Marchienne Av. Paul Pastur 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_abd419f80b",
+      "name": "Basic-Fit Gym Basic-Fit Charleroi Rue de Montigny 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_eb81f50427",
+      "name": "Basic-Fit Gym Basic-Fit Chatelet Rue d’Acoz 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6a47838054",
+      "name": "Basic-Fit Gym Basic-Fit Comines 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_08dbbf34b8",
+      "name": "Basic-Fit Gym Basic-Fit Courcelles Rue du General de Gaulle 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c00390a3a0",
+      "name": "Basic-Fit Gym Basic-Fit Deerlijk 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f391af97ca",
+      "name": "Basic-Fit Gym Basic-Fit Deinze Tolpoortstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_dac5531c0f",
+      "name": "Basic-Fit Gym Basic-Fit Denderleeuw Spoorweglaan",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_5137d35cec",
+      "name": "Basic-Fit Gym Basic-Fit Dendermonde Mechelsesteenweg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_511a311bf7",
+      "name": "Basic-Fit Gym Basic-Fit Diepenbeek Universiteit 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_0c7d5dde97",
+      "name": "Basic-Fit Gym Basic-Fit Diest Leuvensesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_cd9bc0f252",
+      "name": "Basic-Fit Gym Basic-Fit Diksmuide Ijzerlaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3a6c14f782",
+      "name": "Basic-Fit Gym Basic-Fit Dilbeek Ninoofsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_5148093aac",
+      "name": "Basic-Fit Gym Basic-Fit Dinant Tienne de l’Europe 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4cf2088236",
+      "name": "Basic-Fit Gym Basic-Fit Eeklo Stationstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3627991cee",
+      "name": "Basic-Fit Gym Basic-Fit Estaimpuis Jules Vantieghem 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_19de4bb01a",
+      "name": "Basic-Fit Gym Basic-Fit Eupen Gewerbestrasse 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_5847ca9957",
+      "name": "Basic-Fit Gym Basic-Fit Fleurus Chaussée de Charleroi 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_67bd14c331",
+      "name": "Basic-Fit Gym Basic-Fit Florennes Rue de Mettet 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9415c52409",
+      "name": "Basic-Fit Gym Basic-Fit Frameries Rue de l’Industrie",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_da37910484",
+      "name": "Basic-Fit Gym Basic-Fit Geel Antwerpseweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a53558e94a",
+      "name": "Basic-Fit Gym Basic-Fit Gembloux Chaussée de Tirlemont 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_347b78e6fc",
+      "name": "Basic-Fit Gym Basic-Fit Genk Hasseltweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_69781622dc",
+      "name": "Basic-Fit Gym Basic-Fit Genk Weg naar As",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_bcd44266d5",
+      "name": "Basic-Fit Gym Basic-Fit Gent Korenmarkt 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_cea2f4b84e",
+      "name": "Basic-Fit Gym Basic-Fit Gent Ledeberg Hoveniersstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_444bb87302",
+      "name": "Basic-Fit Gym Basic-Fit Gent Normaalschoolstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_d8eb7c7bd1",
+      "name": "Basic-Fit Gym Basic-Fit Gent Sint-Amandsberg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a9979003bd",
+      "name": "Basic-Fit Gym Basic-Fit Gent Sint-Denijs-Westrem 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4e6b6eafd4",
+      "name": "Basic-Fit Gym Basic-Fit Gent Sint-Pietersnieuwstraat",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b1224c5ab6",
+      "name": "Basic-Fit Gym Basic-Fit Gent Watersportbaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_bc390d421b",
+      "name": "Basic-Fit Gym Basic-Fit Geraardsbergen 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_d178cb45c6",
+      "name": "Basic-Fit Gym Basic-Fit Grez-Doiceau Chaussee de Wavre 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4761d0dc6c",
+      "name": "Basic-Fit Gym Basic-Fit Halle Rene Deboecklaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_17633a886d",
+      "name": "Basic-Fit Gym Basic-Fit Hannut Rue de Landen 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4aeabb85fc",
+      "name": "Basic-Fit Gym Basic-Fit Hasselt Badderijstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a5cdce533c",
+      "name": "Basic-Fit Gym Basic-Fit Hasselt Luikersteenweg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_022d74c82e",
+      "name": "Basic-Fit Gym Basic-Fit Herentals Belgielaan",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a2742dbc8e",
+      "name": "Basic-Fit Gym Basic-Fit Herstal Rue Hayeneux 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_1307c596d9",
+      "name": "Basic-Fit Gym Basic-Fit Heusden-Zolder Koolmijnlaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_8b1b430bc7",
+      "name": "Basic-Fit Gym Basic-Fit Huy Rue Rioul",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_5b1a127d1a",
+      "name": "Basic-Fit Gym Basic-Fit Ieper Patersstraat",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b2a6aa39c9",
+      "name": "Basic-Fit Gym Basic-Fit Ingelmunster Oostrozebekestraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9597368a07",
+      "name": "Basic-Fit Gym Basic-Fit Ixelles Chaussée d’ixelles 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_45e6aba5bf",
+      "name": "Basic-Fit Gym Basic-Fit Jemeppe-sur-Meuse Rue de la Station",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b9d3c866ad",
+      "name": "Basic-Fit Gym Basic-Fit Jodoigne Rue Piétrain 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_31de35cc52",
+      "name": "Basic-Fit Gym Basic-Fit Kalmthout Kapellensteenweg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ad40ab37d5",
+      "name": "Basic-Fit Gym Basic-Fit Kampenhout Mechelsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_849899c22f",
+      "name": "Basic-Fit Gym Basic-Fit Knokke-Heist Duinenwater",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_dd2e8f3f99",
+      "name": "Basic-Fit Gym Basic-Fit Kontich Koningin Astridlaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4dffc5f6c6",
+      "name": "Basic-Fit Gym Basic-Fit Kortrijk Engelse Wandeling 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_bcac083cf2",
+      "name": "Basic-Fit Gym Basic-Fit Kortrijk Meensestraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_124da0d826",
+      "name": "Basic-Fit Gym Basic-Fit La Calamine 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_2d449eb120",
+      "name": "Basic-Fit Gym Basic-Fit La Louviere Avenue de Wallonie 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_798757ce2c",
+      "name": "Basic-Fit Gym Basic-Fit La Louviere Houdeng-Goegnies Ch. P. Houtart 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_53c4ad5c36",
+      "name": "Basic-Fit Gym Basic-Fit Ladies Antwerpen Merksem van Heybeeckstraat",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b8d06f31a8",
+      "name": "Basic-Fit Gym Basic-Fit Ladies Gent Ledeberg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f38294b1f6",
+      "name": "Basic-Fit Gym Basic-Fit Ladies Montignies-Sur-Sambre",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e08c41dc34",
+      "name": "Basic-Fit Gym Basic-Fit Lanaken Steenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b0c50d131b",
+      "name": "Basic-Fit Gym Basic-Fit Landen Hannuitsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a5ec8865db",
+      "name": "Basic-Fit Gym Basic-Fit Leuven Bondgenotenlaan",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6bf86337e2",
+      "name": "Basic-Fit Gym Basic-Fit Leuven Vital Decosterstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_5f467dc486",
+      "name": "Basic-Fit Gym Basic-Fit Libramont 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_af7af93cc8",
+      "name": "Basic-Fit Gym Basic-Fit Liège Blvd Poincare 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_d364146d3b",
+      "name": "Basic-Fit Gym Basic-Fit Liège Espace Saint Michel",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_0ef17df287",
+      "name": "Basic-Fit Gym Basic-Fit Liège Roi Albert 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_7d0dec0b2b",
+      "name": "Basic-Fit Gym Basic-Fit Liège Rue de l’Universite 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3d7f492c2a",
+      "name": "Basic-Fit Gym Basic-Fit Liège Rue du Plan Incline Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6741de7f2d",
+      "name": "Basic-Fit Gym Basic-Fit Liège Rue Saint Nicolas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ba02366b85",
+      "name": "Basic-Fit Gym Basic-Fit Lier Liersesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9a46e0e465",
+      "name": "Basic-Fit Gym Basic-Fit Lievegem Grote Baan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a5788047f6",
+      "name": "Basic-Fit Gym Basic-Fit Lochristi Antwerpsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c9032953f8",
+      "name": "Basic-Fit Gym Basic-Fit Lokeren Kleine Dam",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b43f249e15",
+      "name": "Basic-Fit Gym Basic-Fit Lommel Buitensingel 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_bdadabf2dd",
+      "name": "Basic-Fit Gym Basic-Fit Louvain La Neuve Centre commercial L’esplanade",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6772a42ef1",
+      "name": "Basic-Fit Gym Basic-Fit Maaseik Sportlaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_97613badd2",
+      "name": "Basic-Fit Gym Basic-Fit Maasmechelen Wipstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4bb77db9ce",
+      "name": "Basic-Fit Gym Basic-Fit Maldegem Koning Leopoldlaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_55daa83194",
+      "name": "Basic-Fit Gym Basic-Fit Malmedy Avenue Monbijou 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a7a20d9903",
+      "name": "Basic-Fit Gym Basic-Fit Marche-en-Famenne 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4480696fe1",
+      "name": "Basic-Fit Gym Basic-Fit Mechelen Bruul",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ae8627a8af",
+      "name": "Basic-Fit Gym Basic-Fit Mechelen Schalienhoevedreef 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4549b6ded4",
+      "name": "Basic-Fit Gym Basic-Fit Mechelen Zwartzustersvest Ladies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3fc25285eb",
+      "name": "Basic-Fit Gym Basic-Fit Menen Kortrijkstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f0fe8e14f7",
+      "name": "Basic-Fit Gym Basic-Fit Merelbeke Hundelgemsesteenweg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_8898c0c96a",
+      "name": "Basic-Fit Gym Basic-Fit Messancy Route des Ardennes 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ae1ee27096",
+      "name": "Basic-Fit Gym Basic-Fit Mol Rozenberg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4c12a54602",
+      "name": "Basic-Fit Gym Basic-Fit Mons Ghlin Avenue du Regent 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b3ed850aee",
+      "name": "Basic-Fit Gym Basic-Fit Mons Jemappes Avenue Wilson 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f74c54b8b4",
+      "name": "Basic-Fit Gym Basic-Fit Mons Place des Allies",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b9fa6d0a94",
+      "name": "Basic-Fit Gym Basic-Fit Mons Rue de la Chaussee 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_89e4426392",
+      "name": "Basic-Fit Gym Basic-Fit Montignies-Sur-Sambre Perseverance 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_775fcd39ba",
+      "name": "Basic-Fit Gym Basic-Fit Mortsel Antwerpsestraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_33101fba11",
+      "name": "Basic-Fit Gym Basic-Fit Mouscron Avenue du Parc 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6a27830a92",
+      "name": "Basic-Fit Gym Basic-Fit Namur Boulevard D'Herbatte 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c2dbac1316",
+      "name": "Basic-Fit Gym Basic-Fit Namur Chaussee de Waterloo 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e02d1ffdab",
+      "name": "Basic-Fit Gym Basic-Fit Namur Naninne Rue Pieds d’Alouette 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_910da88416",
+      "name": "Basic-Fit Gym Basic-Fit Nieuwpoort Albert I laan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_1322027e92",
+      "name": "Basic-Fit Gym Basic-Fit Nijlen Grote Steenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ce8e2ae43f",
+      "name": "Basic-Fit Gym Basic-Fit Ninove Ring-West 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e2f9b1ee3b",
+      "name": "Basic-Fit Gym Basic-Fit Nivelles Ch. De Namur 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_367ba69b8f",
+      "name": "Basic-Fit Gym Basic-Fit Oostende Searena 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_4eec664421",
+      "name": "Basic-Fit Gym Basic-Fit Oostende Torhoutsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_653c370014",
+      "name": "Basic-Fit Gym Basic-Fit Opwijk 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f2c323052b",
+      "name": "Basic-Fit Gym Basic-Fit Oudenaarde Gobelinstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f93e028f40",
+      "name": "Basic-Fit Gym Basic-Fit Overijse Brusselsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_d3121295d3",
+      "name": "Basic-Fit Gym Basic-Fit Overpelt Sellekaertsstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_40ee987e20",
+      "name": "Basic-Fit Gym Basic-Fit Peer Wijchmaal",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b98febc570",
+      "name": "Basic-Fit Gym Basic-Fit Péruwelz Boulevard Léopold III 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_33a230ad44",
+      "name": "Basic-Fit Gym Basic-Fit Poperinge Europalaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_2ddb0334ae",
+      "name": "Basic-Fit Gym Basic-Fit Rijkevorsel Merksplassesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_92f3a4154c",
+      "name": "Basic-Fit Gym Basic-Fit Rixensart",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_d360b60284",
+      "name": "Basic-Fit Gym Basic-Fit Roeselare Brugsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6cb26da02e",
+      "name": "Basic-Fit Gym Basic-Fit Roeselare Ooststraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_08f657e8a3",
+      "name": "Basic-Fit Gym Basic-Fit Ronse Cesar Snoecklaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_16f9300b4d",
+      "name": "Basic-Fit Gym Basic-Fit Sambreville Rue de l’Essor 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6054c553a4",
+      "name": "Basic-Fit Gym Basic-Fit Schaerbeek Chaussée de Helmet 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e78b233afd",
+      "name": "Basic-Fit Gym Basic-Fit Schaerbeek Chaussée de Louvain 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_22ddf4ca89",
+      "name": "Basic-Fit Gym Basic-Fit Schaerbeek Jacques Georgin",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9920a25b2e",
+      "name": "Basic-Fit Gym Basic-Fit Schelle Boomsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e503cc39a0",
+      "name": "Basic-Fit Gym Basic-Fit Schoten Bredabaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_0d775fca39",
+      "name": "Basic-Fit Gym Basic-Fit Seraing Rue du Bois de l’Abbaye 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_2a0f06171d",
+      "name": "Basic-Fit Gym Basic-Fit Sint-Katelijne-Waver 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a43765e74d",
+      "name": "Basic-Fit Gym Basic-Fit Sint-Niklaas August de Boeckstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_659f63694a",
+      "name": "Basic-Fit Gym Basic-Fit Sint-Niklaas Prins Boudewijnlaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_7d93476daa",
+      "name": "Basic-Fit Gym Basic-Fit Sint-Pieters-Leeuw Bergensesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ce99971336",
+      "name": "Basic-Fit Gym Basic-Fit Sint Truiden Luikersteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_1a18669991",
+      "name": "Basic-Fit Gym Basic-Fit Soignies Chaussée du Roeulx 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3280b5021b",
+      "name": "Basic-Fit Gym Basic-Fit Soumagne Bois de Micheroux 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_60f6c37a0e",
+      "name": "Basic-Fit Gym Basic-Fit Tessenderlo Diesterstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_7e7020e6d9",
+      "name": "Basic-Fit Gym Basic-Fit Tielt Tramstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_ffbd29b0eb",
+      "name": "Basic-Fit Gym Basic-Fit Tienen 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_909dcec78d",
+      "name": "Basic-Fit Gym Basic-Fit Tongeren Bilzersteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c05fd43c32",
+      "name": "Basic-Fit Gym Basic-Fit Torhout Vredelaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_cb016b5245",
+      "name": "Basic-Fit Gym Basic-Fit Tournai Froyennes 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_100f35d721",
+      "name": "Basic-Fit Gym Basic-Fit Tournai Shopping Les Bastions",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_dac2b0b4fe",
+      "name": "Basic-Fit Gym Basic-Fit Tubize Rue de la Soie",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c22149df5f",
+      "name": "Basic-Fit Gym Basic-Fit Turnhout Otterstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_cdff16a093",
+      "name": "Basic-Fit Gym Basic-Fit Turnhout Steenweg op Gierle 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_bcb093f503",
+      "name": "Basic-Fit Gym Basic-Fit Verviers-Ensival Rue de la Tinne 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_a96db707d8",
+      "name": "Basic-Fit Gym Basic-Fit Verviers Rue de Limbourg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b905c31386",
+      "name": "Basic-Fit Gym Basic-Fit Veurne Ieperse Steenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_1fe1ef8493",
+      "name": "Basic-Fit Gym Basic-Fit Vilvoorde Leuvensesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_e90d853427",
+      "name": "Basic-Fit Gym Basic-Fit Vilvoorde Schaarbeeklei 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_64407f9b52",
+      "name": "Basic-Fit Gym Basic-Fit Waregem St-Eloois-Vijve Gentseweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_c18d73b7f5",
+      "name": "Basic-Fit Gym Basic-Fit Waremme Rue de Huy 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_8edadb4408",
+      "name": "Basic-Fit Gym Basic-Fit Waterloo Chaussee de Bruxelles 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_dce125ca8f",
+      "name": "Basic-Fit Gym Basic-Fit Wauthier-Braine Parc Industriel 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_db20ec4f72",
+      "name": "Basic-Fit Gym Basic-Fit Wavre Rue des Carabiniers",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_9c4d6dec3e",
+      "name": "Basic-Fit Gym Basic-Fit Wemmel Steenweg op Brussel 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f3db1a97ee",
+      "name": "Basic-Fit Gym Basic-Fit Wetteren Gentsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_1bac795f7b",
+      "name": "Basic-Fit Gym Basic-Fit Wezembeek-Oppem Mechelsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_433456b120",
+      "name": "Basic-Fit Gym Basic-Fit Wilsele",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_042d90f2d1",
+      "name": "Basic-Fit Gym Basic-Fit Wommelgem Mariastraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_b91704f842",
+      "name": "Basic-Fit Gym Basic-Fit Wondelgem Morekstraat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_d368dc8ace",
+      "name": "Basic-Fit Gym Basic-Fit Zaventem Ikaroslaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3ef1755363",
+      "name": "Basic-Fit Gym Basic-Fit Zelzate Hoogbouwplein",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_3c9e765876",
+      "name": "Basic-Fit Gym Basic-Fit Zemst Zemstsesteenweg 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_6b1fa13bdd",
+      "name": "Basic-Fit Gym Basic-Fit Zottegem 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_f341968b32",
+      "name": "Basic-Fit Gym Basic-Fit Zwijndrecht Dwarslaan 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "be_8b77739b32",
+      "name": "David Lloyd Uccle",
+      "brand": "David Lloyd"
+    },
+    {
+      "id": "be_a3e324bfff",
+      "name": "David Lloyd Sterrebeek",
+      "brand": "David Lloyd"
+    },
+    {
+      "id": "be_35b7c41670",
+      "name": "Fit-Out Destelbergen",
+      "brand": "Fit-Out"
+    },
+    {
+      "id": "be_0de26a39eb",
+      "name": "Fit-Out Lochristi",
+      "brand": "Fit-Out"
+    },
+    {
+      "id": "be_f345b7b493",
+      "name": "i-fitness Hasselt",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_fc89a758bb",
+      "name": "i-fitness Mol",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_5c6bedfe39",
+      "name": "i-fitness Peer",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_ad10ad34fb",
+      "name": "i-fitness Sint-Gillis / Saint-Gilles",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_6a340bc889",
+      "name": "i-fitness Turnhout",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_43c44894a5",
+      "name": "i-fitness Ukkel / Uccle",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_51e9b65c42",
+      "name": "i-fitness Balen",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_217a5a8f7e",
+      "name": "i-fitness Berchem",
+      "brand": "i-fitness"
+    },
+    {
+      "id": "be_e484edf6af",
+      "name": "Jims Aartselaar",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_79e752c1fc",
+      "name": "Jims Andenne",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ed44ed44bc",
+      "name": "Jims Anderlecht",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ce24dedd45",
+      "name": "Jims Antwerpen - Berchem",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_e686bc0df5",
+      "name": "Jims Asse",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_7cd17c5cc8",
+      "name": "Jims Bergen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_4822426084",
+      "name": "Jims Beveren",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_810c61b949",
+      "name": "Jims Booischot",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_544849d20e",
+      "name": "Jims Brugge Houtkaai",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_b3d8921147",
+      "name": "Jims Brugge Scheepsdale",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_de5f1200d1",
+      "name": "Jims Deinze",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_71185e3886",
+      "name": "Jims Ekeren",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_562711706e",
+      "name": "Jims Evere",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_2cf3c69561",
+      "name": "Jims Geel",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_560a504a3d",
+      "name": "Jims Genk Stadsplein",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_75a417108d",
+      "name": "Jims Gent De Sterre",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_e067af5a51",
+      "name": "Jims Gent Dok Noord",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_d3115079f4",
+      "name": "Jims Gent Overpoort",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_7c8524370f",
+      "name": "Jims Gent Rooigem",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_282d4d2c96",
+      "name": "Jims Gentbrugge",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_5d1ab66d1e",
+      "name": "Jims Groot-Bijgaarden",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_aa587e83c0",
+      "name": "Jims Hasselt",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_cb62e42652",
+      "name": "Jims Heist-op-den-Berg",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_97ff12c040",
+      "name": "Jims Herselt",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_9a812fee57",
+      "name": "Jims Hoogstraten",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_b77b5d0f67",
+      "name": "Jims Jette",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_bc789decad",
+      "name": "Jims Jourdan",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_2c6f274967",
+      "name": "Jims Jumet",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_cd0faf7f71",
+      "name": "Jims Kampenhout",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_6ad534c828",
+      "name": "Jims Kapellen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_0c27fb7ed5",
+      "name": "Jims Knokke-Heist",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_af68d43031",
+      "name": "Jims Kortrijk Centrum",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ee6cc67970",
+      "name": "Jims Kortrijk Walle",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_1aa4eb0e68",
+      "name": "Jims Kuurne",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_5a69e6219e",
+      "name": "Jims La Louvi\\u00e8re",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_d5fd187180",
+      "name": "Jims Laakdal",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_9370d706ce",
+      "name": "Jims Landen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_0a50466ed7",
+      "name": "Jims Leuven Bondgenoten",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ec1ae824e6",
+      "name": "Jims Leuven Slachthuislaan",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_2244e6c572",
+      "name": "Jims Lier Mol",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_6504e95ff1",
+      "name": "Jims Lier Sas",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_a65489ba90",
+      "name": "Jims Lokeren",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_90b3200249",
+      "name": "Jims Lommel",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_9ea1b1f9c5",
+      "name": "Jims Louiza",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_badc2b0310",
+      "name": "Jims Louvain-La-Neuve",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ccca1ff3a8",
+      "name": "Jims Luik Universiteit",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_e79344fee8",
+      "name": "Jims Maaseik",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_6433252a71",
+      "name": "Jims Maasmechelen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_1897e58f15",
+      "name": "Jims Maldegem",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_d5994e3f48",
+      "name": "Jims Marcinelle",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_093dbb0be2",
+      "name": "Jims Mechelen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_60c58734e9",
+      "name": "Jims Meerhout",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_54a13a000d",
+      "name": "Jims Meise",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_6c3737c9ba",
+      "name": "Jims Meiser",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ede5de9cd7",
+      "name": "Jims Moeskroen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_b266956b27",
+      "name": "Jims Montignies",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_1bfe4f5f8a",
+      "name": "Jims Naamsepoort",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_6ce42b00c2",
+      "name": "Jims Namen Acinapolis",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_1f3148e5aa",
+      "name": "Jims Namen Gare",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_557672d6cc",
+      "name": "Jims Nijlen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_a2ec6c56bd",
+      "name": "Jims Nijvel",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_822bdc0937",
+      "name": "Jims Oostende",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_caa96fd77a",
+      "name": "Jims Oostkamp",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_85c59e4529",
+      "name": "Jims Opwijk",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_9fc24eab63",
+      "name": "Jims Oudenaarde",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_d9ee3825ee",
+      "name": "Jims Oudergem",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_d50d2dfbfc",
+      "name": "Jims Paal",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_55956eedf6",
+      "name": "Jims Roeselare",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_8b8842c8a6",
+      "name": "Jims Schilde",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ccfdc543c0",
+      "name": "Jims Schoten",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_868281463f",
+      "name": "Jims Seraing Centre",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_873c581081",
+      "name": "Jims Seraing Haut",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_3cec1d68e7",
+      "name": "Jims Sint-Niklaas",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_51ddd660df",
+      "name": "Jims Sint-Truiden",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_c651f3fb84",
+      "name": "Jims Temse",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_1976598b2e",
+      "name": "Jims Tessenderlo",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_9c12e35414",
+      "name": "Jims Tielt",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_7beec54b75",
+      "name": "Jims Turnhout",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_8176ead4f3",
+      "name": "Jims Waregem",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_230e839b3f",
+      "name": "Jims Wetteren",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_9b4bae2098",
+      "name": "Jims Wilrijk",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_500b456558",
+      "name": "Jims Zelzate",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_0959c28d57",
+      "name": "Jims Zonhoven",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_08439023a9",
+      "name": "Jims Zottegem",
+      "brand": "JIMS"
+    },
+    {
+      "id": "be_ec1aa3e6b6",
+      "name": "LAGO Club Beveren",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_d582175be5",
+      "name": "LAGO Club Brugge",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_a40fc30842",
+      "name": "Lago Club Bredene",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_4445bb5913",
+      "name": "Lago Club Gent",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_9a2bb99669",
+      "name": "LAGO Club Strombeek-Bever",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_4e095546ce",
+      "name": "LAGO Club Kortrijk",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_9bfb4d3076",
+      "name": "LAGO Club Sint-Truiden",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_5dec4f849e",
+      "name": "LAGO Club Zwevegem",
+      "brand": "LAGO Club"
+    },
+    {
+      "id": "be_2ea7b70e4d",
+      "name": "Snap Fitness Ingelmunster",
+      "brand": "Snap Fitness"
+    },
+    {
+      "id": "be_fa0b1221ae",
+      "name": "Sportoase Philipssite",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_f2ba85d019",
+      "name": "Sportoase Veldstraat",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_54ff1ffa70",
+      "name": "Sportoase Ter Heide",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_d5951d2fc8",
+      "name": "Sportoase be-MINE",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_9dbb24a5a7",
+      "name": "Sportoase Stede Akkers",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_0439a4129f",
+      "name": "Sportoase Zwem.com",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_d6fe6e8caf",
+      "name": "Sportoase Montaignehof",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_e144a28bb9",
+      "name": "Sportoase De Lijster",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_cf0830e3df",
+      "name": "Sportoase De Lo",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_d5faec6084",
+      "name": "Sportoase Groot Schijn",
+      "brand": "Sportoase"
+    },
+    {
+      "id": "be_f2f7118036",
+      "name": "Sportoase Hoge Wal",
+      "brand": "Sportoase"
+    }
+  ]
+}

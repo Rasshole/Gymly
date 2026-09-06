@@ -1,13 +1,15 @@
 /**
- * Varighed for aktiv tjek ind-session (kort, dansk)
+ * Varighed for aktiv tjek ind-session (kort)
  */
+import {rt} from '@/i18n';
+
 export function formatActiveDurationSince(start: string | number | Date, now = Date.now()): string {
   const t = typeof start === 'string' || typeof start === 'number' ? new Date(start).getTime() : start.getTime();
   const diffMinutes = Math.max(1, Math.floor((now - t) / 60_000));
   if (diffMinutes >= 60) {
     const hours = Math.floor(diffMinutes / 60);
     const minutes = diffMinutes % 60;
-    return `${hours}t ${minutes}m`;
+    return rt('activeSession.hoursMinutes', {hours, minutes});
   }
   return `${diffMinutes} min`;
 }
@@ -27,7 +29,7 @@ export function formatDurationIgang(
   if (diffMinutes >= 60) {
     const hours = Math.floor(diffMinutes / 60);
     const minutes = diffMinutes % 60;
-    return `${hours}t ${String(minutes).padStart(2, '0')}m i gang`;
+    return rt('activeSession.hoursMinutes', {hours, minutes});
   }
-  return `${diffMinutes} min i gang`;
+  return rt('activeSession.minutesInProgress', {count: diffMinutes});
 }

@@ -1,0 +1,82 @@
+{
+  "hard_duplicate_conflicts": 0,
+  "diacritic_duplicate_conflicts": 0,
+  "multilingual_duplicate_conflicts": 0,
+  "unresolved_rebrand_conflicts": 0,
+  "colocated_distinct_gyms": [
+    {
+      "a_id": "ua_d28fd60e66",
+      "b_id": "ua_9fd5152b92",
+      "brand_a": "Sport Life",
+      "brand_b": "Total Fitness",
+      "distance_m": 102,
+      "address": "Dnipro, vul. Simferopolska 2m",
+      "classification": "COLOCATED_DISTINCT_GYMS",
+      "evidence": "Same building complex; different operators (Sport Life vs Total Fitness)"
+    },
+    {
+      "a_id": "ua_243f6a2d31",
+      "b_id": "ua_93f4f1560b",
+      "brand_a": "Apollo Next",
+      "brand_b": "Total Fitness",
+      "distance_m": 31,
+      "address": "Odesa Kotovskogo/Paliya corridor",
+      "classification": "DISTINCT_NEARBY_SAME_CITY",
+      "evidence": "31m proximity; separate malls/operators — not duplicate identity"
+    },
+    {
+      "a_id": "ua_39c5885bd0",
+      "b_id": "ua_c52cc6fc9b",
+      "brand_a": "Sport Life",
+      "brand_b": "Total Fitness",
+      "distance_m": 0,
+      "address": "Rivne Komfortnyi massiv / Space4",
+      "classification": "COLOCATED_DISTINCT_GYMS",
+      "evidence": "Same BC Space4 building; Sport Life vs Total Fitness distinct operators"
+    },
+    {
+      "a_id": "ua_02b5114801",
+      "b_id": "ua_bf374fdaaa",
+      "brand_a": "Apollo Next",
+      "brand_b": "Total Fitness",
+      "distance_m": 0,
+      "address": "Vinnytsia Magigrand",
+      "classification": "COLOCATED_DISTINCT_GYMS",
+      "evidence": "Same Magigrand mall; Apollo Next vs Total Fitness distinct operators"
+    },
+    {
+      "a_id": "ua_520598bbb2",
+      "b_id": "ua_eadcfce77f",
+      "brand_a": "Apollo Next",
+      "brand_b": "Total Fitness",
+      "distance_m": 0,
+      "address": "Ivano-Frankivsk WINETIME",
+      "classification": "COLOCATED_DISTINCT_GYMS",
+      "evidence": "Same WINETIME location; distinct operators"
+    },
+    {
+      "a_id": "ua_c022e00841",
+      "b_id": "ua_98971c24e8",
+      "brand_a": "Sport Life",
+      "brand_b": "Grafit",
+      "distance_m": 27,
+      "address": "Vyshneve Kyivska 2l Cherry Mall",
+      "classification": "COLOCATED_DISTINCT_GYMS",
+      "evidence": "Same Cherry Mall complex; Sport Life vs Grafit distinct operators"
+    }
+  ],
+  "proximity": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 1,
+    "lt200": 3,
+    "identical": 0
+  },
+  "proximity_raw": {
+    "lt25": 3,
+    "lt50": 2,
+    "lt100": 1,
+    "lt200": 4,
+    "identical": 3
+  }
+}

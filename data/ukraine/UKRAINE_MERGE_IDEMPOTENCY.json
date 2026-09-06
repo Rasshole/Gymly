@@ -1,0 +1,23 @@
+{
+  "first_run": {
+    "insertions": 105,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11929,
+    "total_after": 12034,
+    "ukraine_before": 0,
+    "ukraine_after": 105
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12034,
+    "total_after": 12034,
+    "ukraine_before": 105,
+    "ukraine_after": 105,
+    "ua_prefix_before": 105,
+    "ua_prefix_after": 105
+  },
+  "idempotent": true
+}

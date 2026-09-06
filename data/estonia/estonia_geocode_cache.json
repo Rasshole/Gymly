@@ -1,0 +1,617 @@
+{
+  "ee|haabersti 5, 13516, tallinn, estonia": {
+    "lat": 59.4268672,
+    "lng": 24.6450875,
+    "display_name": "5, Haabersti, Haabersti linnaosa, Tallinn, Harju maakond, 13516, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13516",
+    "country_code": "ee"
+  },
+  "ee|tammsaare tee 104a, 12918, tallinn, estonia": {
+    "lat": 59.4084923,
+    "lng": 24.6886826,
+    "display_name": "Gustav, 104a, A. H. Tammsaare tee, Sääse, Mustamäe linnaosa, Tallinn, Harju maakond, 12918, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "12918",
+    "country_code": "ee"
+  },
+  "ee|endla 45, 10615, tallinn, estonia": {
+    "lat": 59.4268608,
+    "lng": 24.7247506,
+    "display_name": "Elisa, 45, Endla, Lilleküla, Kristiine linnaosa, Tallinn, Harju maakond, 96007, Eesti",
+    "importance": 0.487297624928011,
+    "postcode": "96007",
+    "country_code": "ee"
+  },
+  "ee|pärnu mnt 186, 11314, tallinn, estonia": {
+    "lat": 59.3984235,
+    "lng": 24.725979,
+    "display_name": "186, Pärnu mnt, Järve, Kristiine linnaosa, Tallinn, Harju maakond, 11314, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "11314",
+    "country_code": "ee"
+  },
+  "ee|viru väljak 4, 10111, tallinn, estonia": {
+    "lat": 59.4365992,
+    "lng": 24.7549171,
+    "display_name": "Hotell Viru, 4, Viru väljak, Südalinn, Kesklinna linnaosa, Tallinn, Harju maakond, 10111, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10111",
+    "country_code": "ee"
+  },
+  "ee|narva mnt 1, 10111, tallinn, estonia": {
+    "lat": 59.4376931,
+    "lng": 24.7562767,
+    "display_name": "Postimaja, 1, Narva mnt, Südalinn, Kesklinna linnaosa, Tallinn, Harju maakond, 10111, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10111",
+    "country_code": "ee"
+  },
+  "ee|rävala pst 4, 10143, tallinn, estonia": {
+    "lat": 59.4343096,
+    "lng": 24.7586525,
+    "display_name": "4, Rävala pst, Kompassi, Kesklinna linnaosa, Tallinn, Harju maakond, 10145, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10145",
+    "country_code": "ee"
+  },
+  "ee|kopli 1, 10412, tallinn, estonia": {
+    "lat": 59.4425767,
+    "lng": 24.7275919,
+    "display_name": "38/1, Kopli, Krulli kvartal, Kalamaja, Põhja-Tallinna linnaosa, Tallinn, Harju maakond, 10412, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10412",
+    "country_code": "ee"
+  },
+  "ee|sepise 10, 11415, tallinn, estonia": {
+    "lat": 59.4197586,
+    "lng": 24.8064156,
+    "display_name": "10, Sepise, Ülemiste City, Ülemiste, Lasnamäe linnaosa, Tallinn, Harju maakond, 11415, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "11415",
+    "country_code": "ee"
+  },
+  "ee|linnamäe tee 3, 13912, tallinn, estonia": {
+    "lat": 59.450786,
+    "lng": 24.873892,
+    "display_name": "37a/3, Linnamäe tee, Kuristiku, Lasnamäe linnaosa, Tallinn, Harju maakond, 13912, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13912",
+    "country_code": "ee"
+  },
+  "ee|kärberi 20, 13919, tallinn, estonia": {
+    "lat": 59.4451672,
+    "lng": 24.882938,
+    "display_name": "20, Kristjan Kärberi, Mustakivi, Lasnamäe linnaosa, Tallinn, Harju maakond, 13919, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13919",
+    "country_code": "ee"
+  },
+  "ee|merivälja tee 24, 11911, tallinn, estonia": {
+    "lat": 59.4688535,
+    "lng": 24.8350783,
+    "display_name": "24, Merivälja tee, Pirita, Pirita linnaosa, Tallinn, Harju maakond, 11911, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "11911",
+    "country_code": "ee"
+  },
+  "ee|sõpruse tee 15, haabneeme, 74001, viimsi, estonia": {
+    "lat": 59.5048612,
+    "lng": 24.8268575,
+    "display_name": "Viimsi keskus, 15, Sõpruse tee, Haabneeme alevik, Viimsi vald, Harju maakond, 74001, Eesti",
+    "importance": 5.033264667730247e-05,
+    "postcode": "74001",
+    "country_code": "ee"
+  },
+  "ee|mootori tänav 2, 10416, tallinn, estonia": null,
+  "ee|küüni 7, 51004, tartu, estonia": {
+    "lat": 58.3781388,
+    "lng": 26.7248292,
+    "display_name": "Kesklinna Keskus, 7, Küüni, Uueturu, Kesklinn, Tartu linn, Tartu maakond, 51004, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "51004",
+    "country_code": "ee"
+  },
+  "ee|kalda tee 41, 50707, tartu, estonia": {
+    "lat": 58.3694513,
+    "lng": 26.7651224,
+    "display_name": "41, Kalda tee, Annelinn, Tartu linn, Tartu maakond, 50707, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "50707",
+    "country_code": "ee"
+  },
+  "ee|lääneringtee 37, 50501, tartu, estonia": {
+    "lat": 58.3591733,
+    "lng": 26.677072,
+    "display_name": "37, Lääneringtee, Ränilinn, Tartu linn, Tartu maakond, 50501, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "50501",
+    "country_code": "ee"
+  },
+  "ee|fama tänav 10, 20303, narva, estonia": null,
+  "ee|männimäe tee 4, 71010, viljandi, estonia": {
+    "lat": 58.3545334,
+    "lng": 25.5789506,
+    "display_name": "4, Männimäe tee, Männimäe, Viljandi linn, Viljandi maakond, 71010, Eesti",
+    "importance": 6.078202487216018e-05,
+    "postcode": "71010",
+    "country_code": "ee"
+  },
+  "ee|sõjakooli tn 10, 11316, tallinn, estonia": null,
+  "ee|akadeemia tee 30, tallinn, estonia": {
+    "lat": 59.3998532,
+    "lng": 24.6649109,
+    "display_name": "Mustamäe Elamuste Keskus, 30, Akadeemia tee, Kadaka, Mustamäe linnaosa, Tallinn, Harju maakond, 12613, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "12613",
+    "country_code": "ee"
+  },
+  "ee|laki põik 4, tallinn, estonia": {
+    "lat": 59.4111122,
+    "lng": 24.6721299,
+    "display_name": "Decora Mustamäe, 4, Laki põik, Kadaka, Mustamäe linnaosa, Tallinn, Harju maakond, 12919, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "12919",
+    "country_code": "ee"
+  },
+  "ee|priisle tee 16, tallinn, estonia": {
+    "lat": 59.4508908,
+    "lng": 24.8939613,
+    "display_name": "16, Priisle tee, Priisle, Lasnamäe linnaosa, Tallinn, Harju maakond, 13914, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13914",
+    "country_code": "ee"
+  },
+  "ee|vabaduse pst 174b, tallinn, estonia": {
+    "lat": 59.3648786,
+    "lng": 24.6351477,
+    "display_name": "174b, Vabaduse pst, Pääsküla, Nõmme linnaosa, Tallinn, Harju maakond, 10917, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10917",
+    "country_code": "ee"
+  },
+  "ee|mustamäe tee 4, tallinn, estonia": {
+    "lat": 59.4279704,
+    "lng": 24.701787,
+    "display_name": "4, Mustamäe tee, Lilleküla, Kristiine linnaosa, Tallinn, Harju maakond, 10616, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10616",
+    "country_code": "ee"
+  },
+  "ee|tõnismägi 11a, tallinn, estonia": {
+    "lat": 59.4293083,
+    "lng": 24.7426385,
+    "display_name": "11a, Tõnismägi, Tõnismäe, Kesklinna linnaosa, Tallinn, Harju maakond, 10119, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10119",
+    "country_code": "ee"
+  },
+  "ee|tähesaju tee 11, tallinn, estonia": {
+    "lat": 59.4433897,
+    "lng": 24.8557383,
+    "display_name": "11, Tähesaju tee, Tondiraba, Lasnamäe linnaosa, Tallinn, Harju maakond, 13917, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13917",
+    "country_code": "ee"
+  },
+  "ee|veskiposti 2/1, tallinn, estonia": {
+    "lat": 59.4185016,
+    "lng": 24.7566715,
+    "display_name": "Polaris, 2/1, Veskiposti, Avala ärikvartal, Juhkentali, Kesklinna linnaosa, Tallinn, Harju maakond, 10138, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10138",
+    "country_code": "ee"
+  },
+  "ee|paepargi 11, tallinn, estonia": {
+    "lat": 59.4299775,
+    "lng": 24.8009266,
+    "display_name": "Paepargi spordihall, 11, Paepargi, Sikupilli, Lasnamäe linnaosa, Tallinn, Harju maakond, 11417, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "11417",
+    "country_code": "ee"
+  },
+  "ee|marati 4a, tallinn, estonia": {
+    "lat": 59.4569639,
+    "lng": 24.6739604,
+    "display_name": "4a/1, Marati, Kopli, Põhja-Tallinna linnaosa, Tallinn, Harju maakond, 11712, Eesti",
+    "importance": 3.9082169832868203e-05,
+    "postcode": "11712",
+    "country_code": "ee"
+  },
+  "ee|küti tee 4, peetri, estonia": {
+    "lat": 59.3976458,
+    "lng": 24.8055661,
+    "display_name": "Peetri Keskus, 4, Küti tee, Peetri alevik, Rae vald, Harju maakond, 75312, Eesti",
+    "importance": 5.016174563205947e-05,
+    "postcode": "75312",
+    "country_code": "ee"
+  },
+  "ee|kallaste tn 7, tabasalu, estonia": null,
+  "ee|kanarbiku tee 2, järveküla, estonia": {
+    "lat": 59.382341,
+    "lng": 24.7999272,
+    "display_name": "EACE Padelikeskus Järveküla, 2, Kanarbiku tee, Järveküla, Rae vald, Harju maakond, 75304, Eesti",
+    "importance": 5.016174563205947e-05,
+    "postcode": "75304",
+    "country_code": "ee"
+  },
+  "ee|viljandi mnt 168, luige, estonia": {
+    "lat": 59.3251723,
+    "lng": 24.7665677,
+    "display_name": "Luige Keskus, 168, Viljandi mnt, Luige alevik, Luige, Kiili vald, Harju maakond, 75404, Eesti",
+    "importance": 4.957885099560567e-05,
+    "postcode": "75404",
+    "country_code": "ee"
+  },
+  "ee|veski 4, kiili, estonia": {
+    "lat": 59.3103925,
+    "lng": 24.8389654,
+    "display_name": "4, Veski, Kiili alev, Kiili, Kiili vald, Harju maakond, 75401, Eesti",
+    "importance": 4.917448691534321e-05,
+    "postcode": "75401",
+    "country_code": "ee"
+  },
+  "ee|tallinna mnt 18, keila, estonia": {
+    "lat": 59.3110578,
+    "lng": 24.4334298,
+    "display_name": "Vesiveski Keskus, 18, Tallinna mnt, Keila linn, Harju maakond, 76608, Eesti",
+    "importance": 5.516365300979656e-05,
+    "postcode": "76608",
+    "country_code": "ee"
+  },
+  "ee|tule põik 2, saue, estonia": {
+    "lat": 59.3196796,
+    "lng": 24.566167,
+    "display_name": "2, Tule põik, Saue linn, Saue, Saue vald, Harju maakond, 76505, Eesti",
+    "importance": 5.31006332493632e-05,
+    "postcode": "76505",
+    "country_code": "ee"
+  },
+  "ee|harju tn 2, keila, estonia": null,
+  "ee|sepa tn 4, tartu, estonia": null,
+  "ee|võru 55f, tartu, estonia": {
+    "lat": 58.3657567,
+    "lng": 26.7197911,
+    "display_name": "Soengur, 55f, Võru, Karlova, Tartu linn, Tartu maakond, 50111, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "50111",
+    "country_code": "ee"
+  },
+  "ee|nõlvakaare 4, tartu, estonia": {
+    "lat": 58.4085539,
+    "lng": 26.7505956,
+    "display_name": "Raadi Selver, 4, Nõlvakaare, Raadi alev, Tartu vald, Tartu maakond, 60532, Eesti",
+    "importance": 4.5979247730174985e-05,
+    "postcode": "60532",
+    "country_code": "ee"
+  },
+  "ee|ihaste tee 2f, tartu, estonia": {
+    "lat": 58.367318,
+    "lng": 26.7593976,
+    "display_name": "2f, Ihaste tee, Annelinn, Tartu linn, Tartu maakond, 51011, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "51011",
+    "country_code": "ee"
+  },
+  "ee|lai 11, pärnu, estonia": {
+    "lat": 58.3874617,
+    "lng": 24.5044927,
+    "display_name": "Port Artur 2, 11, Lai, Kesklinn, Pärnu linn, Pärnu maakond, 80010, Eesti",
+    "importance": 6.263752193479846e-05,
+    "postcode": "80010",
+    "country_code": "ee"
+  },
+  "ee|riia 99, viljandi, estonia": {
+    "lat": 58.3447873,
+    "lng": 25.5786829,
+    "display_name": "99, Riia mnt, Järveotsa, Viljandi linn, Viljandi maakond, 71009, Eesti",
+    "importance": 6.078202487216018e-05,
+    "postcode": "71009",
+    "country_code": "ee"
+  },
+  "ee|kaalu tn 2, viljandi, estonia": null,
+  "ee|f. g. adoffi 11, rakvere, estonia": null,
+  "ee|tallinna tn 65, kuressaare, estonia": {
+    "lat": 58.2616832,
+    "lng": 22.5055066,
+    "display_name": "Tallinna, Kuressaare linn, Saaremaa vald, Saare maakond, 93818, Eesti",
+    "importance": 0.05339388342107267,
+    "postcode": "93818",
+    "country_code": "ee"
+  },
+  "ee|keskväljak 4, jõhvi, estonia": {
+    "lat": 59.3582788,
+    "lng": 27.4141744,
+    "display_name": "Tsentraal, 4, Keskväljak, Jõhvi linn, Jõhvi vald, Ida-Viru maakond, 41531, Eesti",
+    "importance": 5.4612802319325816e-05,
+    "postcode": "41531",
+    "country_code": "ee"
+  },
+  "ee|4. roheline tn 8, narva, estonia": null,
+  "ee|vilja tänav 6, võru, estonia": null,
+  "ee|kesk tn 4, jõgeva, estonia": null,
+  "ee|akadeemia tee 21/2, tallinn, estonia": {
+    "lat": 59.3978344,
+    "lng": 24.6601394,
+    "display_name": "21/2, Akadeemia tee, Kadaka, Mustamäe linnaosa, Tallinn, Harju maakond, 12618, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "12618",
+    "country_code": "ee"
+  },
+  "ee|aia 3, tallinn, estonia": {
+    "lat": 59.4370596,
+    "lng": 24.7512066,
+    "display_name": "3, Aia, Vanalinn, Kesklinna linnaosa, Tallinn, Harju maakond, 10111, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10111",
+    "country_code": "ee"
+  },
+  "ee|suur-sõjamäe 4, tallinn, estonia": {
+    "lat": 59.4215663,
+    "lng": 24.7958308,
+    "display_name": "Rimi, 4, Suur-Sõjamäe, Ülemiste, Lasnamäe linnaosa, Tallinn, Harju maakond, 11415, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "11415",
+    "country_code": "ee"
+  },
+  "ee|karjavälja 4, tallinn, estonia": {
+    "lat": 59.4106802,
+    "lng": 24.6844607,
+    "display_name": "4, Karjavälja, Kadaka, Mustamäe linnaosa, Tallinn, Harju maakond, 12918, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "12918",
+    "country_code": "ee"
+  },
+  "ee|õismäe tee 130, tallinn, estonia": {
+    "lat": 59.417258,
+    "lng": 24.6447763,
+    "display_name": "RING spaa & saunad, 130, Õismäe tee, Väike-Õismäe, Haabersti linnaosa, Tallinn, Harju maakond, 13513, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13513",
+    "country_code": "ee"
+  },
+  "ee|estonia pst 9, tallinn, estonia": {
+    "lat": 59.4332203,
+    "lng": 24.7518993,
+    "display_name": "Delice, 9, Estonia pst, Südalinn, Kesklinna linnaosa, Tallinn, Harju maakond, 15030, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "15030",
+    "country_code": "ee"
+  },
+  "ee|paldiski mnt 102, tallinn, estonia": {
+    "lat": 59.4259014,
+    "lng": 24.649245,
+    "display_name": "Rocca al Mare Selver, 102, Paldiski mnt, Veskimetsa, Haabersti linnaosa, Tallinn, Harju maakond, 13522, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13522",
+    "country_code": "ee"
+  },
+  "ee|virbi 12, tallinn, estonia": {
+    "lat": 59.440949,
+    "lng": 24.8439811,
+    "display_name": "12, Virbi, Laagna, Lasnamäe linnaosa, Tallinn, Harju maakond, 13629, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13629",
+    "country_code": "ee"
+  },
+  "ee|näituse 33, tartu, estonia": {
+    "lat": 58.3771382,
+    "lng": 26.6987908,
+    "display_name": "Veeriku Spordikeskus, 33, Näituse, Veeriku, Tartu linn, Tartu maakond, 50407, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "50407",
+    "country_code": "ee"
+  },
+  "ee|turu 2, tartu, estonia": {
+    "lat": 58.3783271,
+    "lng": 26.7309714,
+    "display_name": "Eagle Vision, 2, Turu, Uueturu, Kesklinn, Tartu linn, Tartu maakond, 51004, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "51004",
+    "country_code": "ee"
+  },
+  "ee|tartu mnt 54, ülenurme, estonia": {
+    "lat": 58.3281777,
+    "lng": 26.718061,
+    "display_name": "54, Tartu mnt, Soinaste küla, Ülenurme alevik, Kambja vald, Tartu maakond, 61714, Eesti",
+    "importance": 4.233844510562322e-05,
+    "postcode": "61714",
+    "country_code": "ee"
+  },
+  "ee|paul kerese 3, narva, estonia": {
+    "lat": 59.3755878,
+    "lng": 28.192266,
+    "display_name": "Kerese Keskus, 3;4, Paul Kerese, Kerese, Narva linn, Ida-Viru maakond, 20309, Eesti",
+    "importance": 6.388723582813791e-05,
+    "postcode": "20309",
+    "country_code": "ee"
+  },
+  "ee|tallinna mnt 41, narva, estonia": {
+    "lat": 59.3812569,
+    "lng": 28.1757068,
+    "display_name": "Astri keskus, 41, Tallinna mnt, Pähklimäe, Narva linn, Ida-Viru maakond, 20605, Eesti",
+    "importance": 6.388723582813791e-05,
+    "postcode": "20605",
+    "country_code": "ee"
+  },
+  "ee|narva mnt 8, jõhvi, estonia": {
+    "lat": 59.3574856,
+    "lng": 27.4181392,
+    "display_name": "JEWE, 8, Narva mnt, Jõhvi linn, Jõhvi vald, Ida-Viru maakond, 41531, Eesti",
+    "importance": 5.4612802319325816e-05,
+    "postcode": "41531",
+    "country_code": "ee"
+  },
+  "ee|lai 5, pärnu, estonia": {
+    "lat": 58.3873675,
+    "lng": 24.5013806,
+    "display_name": "Pärnu Keskus, 5, Lai, Kesklinn, Pärnu linn, Pärnu maakond, 80011, Eesti",
+    "importance": 6.263752193479846e-05,
+    "postcode": "80011",
+    "country_code": "ee"
+  },
+  "ee|rotermanni 5, tallinn, estonia": {
+    "lat": 59.4392295,
+    "lng": 24.7563176,
+    "display_name": "5, Rotermanni, Rotermanni kvartal, Sadama, Kesklinna linnaosa, Tallinn, Harju maakond, 10111, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10111",
+    "country_code": "ee"
+  },
+  "ee|karulaugu tee 14, viimsi, estonia": {
+    "lat": 59.5111262,
+    "lng": 24.835857,
+    "display_name": "14, Karulaugu tee, Viimsi alevik, Haabneeme alevik, Viimsi vald, Harju maakond, 74001, Eesti",
+    "importance": 5.033264667730247e-05,
+    "postcode": "74001",
+    "country_code": "ee"
+  },
+  "ee|mustakivi tee 17, tallinn, estonia": {
+    "lat": 59.4433144,
+    "lng": 24.8629864,
+    "display_name": "17, Mustakivi tee, Mustakivi, Lasnamäe linnaosa, Tallinn, Harju maakond, 13912, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "13912",
+    "country_code": "ee"
+  },
+  "ee|narva mnt 27a, tartu, estonia": {
+    "lat": 58.3843107,
+    "lng": 26.7273196,
+    "display_name": "27a, Narva mnt, Ülejõe, Tartu linn, Tartu maakond, 51009, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "51009",
+    "country_code": "ee"
+  },
+  "ee|n/a, tallinn, estonia": {
+    "lat": 59.4392903,
+    "lng": 24.7563335,
+    "display_name": "A.G.A.N., 5, Rotermanni, Rotermanni kvartal, Sadama, Kesklinna linnaosa, Tallinn, Harju maakond, 10111, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "10111",
+    "country_code": "ee"
+  },
+  "ee|mootori 2, tallinn, estonia": {
+    "lat": 59.4490105,
+    "lng": 24.7222538,
+    "display_name": "7/2, Mootori, Kalamaja, Põhja-Tallinna linnaosa, Tallinn, Harju maakond, 10416, Eesti",
+    "importance": 2.8699931334355954e-05,
+    "postcode": "10416",
+    "country_code": "ee"
+  },
+  "ee|fama 10, narva, estonia": {
+    "lat": 59.3796099,
+    "lng": 28.1871406,
+    "display_name": "Hesburger, 10, Fama, Kalevi, Narva linn, Ida-Viru maakond, 20303, Eesti",
+    "importance": 6.388723582813791e-05,
+    "postcode": "20303",
+    "country_code": "ee"
+  },
+  "ee|sõjakooli 10, tallinn, estonia": {
+    "lat": 59.4038676,
+    "lng": 24.7205392,
+    "display_name": "Forus spordikeskus, 10, Sõjakooli, Tondi, Kristiine linnaosa, Tallinn, Harju maakond, 11316, Eesti",
+    "importance": 7.582894636449253e-05,
+    "postcode": "11316",
+    "country_code": "ee"
+  },
+  "ee|adoffi 11, rakvere, estonia": {
+    "lat": 59.3492497,
+    "lng": 26.3643903,
+    "display_name": "Kroonikeskus, 11, Ferdinand Gustav Adoffi, Südalinn, Rakvere linn, Lääne-Viru maakond, 44310, Eesti",
+    "importance": 5.798352025630606e-05,
+    "postcode": "44310",
+    "country_code": "ee"
+  },
+  "ee|roheline 8, narva, estonia": {
+    "lat": 59.3814964,
+    "lng": 28.172754,
+    "display_name": "Narva Centrum, 47;47b;8, 4. Roheline, Pähklimäe, Narva linn, Ida-Viru maakond, 20605, Eesti",
+    "importance": 6.388723582813791e-05,
+    "postcode": "20605",
+    "country_code": "ee"
+  },
+  "ee|kallaste 7, tabasalu, harku, estonia": {
+    "lat": 59.4289923,
+    "lng": 24.549972,
+    "display_name": "Tabasalu keskus, 7, Kallaste, Tabasalu alevik, Harku vald, Harju maakond, 76901, Eesti",
+    "importance": 5.016174563205947e-05,
+    "postcode": "76901",
+    "country_code": "ee"
+  },
+  "ee|kallaste tn 7, harku vald, estonia": null,
+  "ee|harju 2, keila, estonia": {
+    "lat": 59.394514,
+    "lng": 24.305908,
+    "display_name": "2, Horisondi väikekoht, Keila-Joa alevik, Lääne-Harju vald, Harju maakond, 76701, Eesti",
+    "importance": 5.016174563205947e-05,
+    "postcode": "76701",
+    "country_code": "ee"
+  },
+  "ee|keila keskus, keila, estonia": {
+    "lat": 59.3158793,
+    "lng": 24.4105325,
+    "display_name": "Keila Keskus, 2, Paldiski mnt, Keila linn, Harju maakond, 76607, Eesti",
+    "importance": 4.504997329666617e-05,
+    "postcode": "76607",
+    "country_code": "ee"
+  },
+  "ee|sepa 4, tartu, estonia": {
+    "lat": 58.350912,
+    "lng": 26.7196941,
+    "display_name": "4, Sepa, Ropka, Tartu linn, Tartu maakond, 50113, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "50113",
+    "country_code": "ee"
+  },
+  "ee|sepa 21, tartu, estonia": {
+    "lat": 58.3493556,
+    "lng": 26.7392143,
+    "display_name": "21, Sepa, Ropka tööstusrajoon, Tartu linn, Tartu maakond, 50113, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "50113",
+    "country_code": "ee"
+  },
+  "ee|sepa keskus, tartu, estonia": {
+    "lat": 58.3493556,
+    "lng": 26.7392143,
+    "display_name": "Sepa Keskus, 21;45b, Turu põik, Ropka tööstusrajoon, Tartu linn, Tartu maakond, 50105, Eesti",
+    "importance": 6.813076981760918e-05,
+    "postcode": "50105",
+    "country_code": "ee"
+  },
+  "ee|kaalu 2, viljandi, estonia": {
+    "lat": 58.3641736,
+    "lng": 25.5936969,
+    "display_name": "Viljandi tennisehall, 2, Kaalu, Lossimäed, Viljandi linn, Viljandi maakond, 71012, Eesti",
+    "importance": 6.078202487216018e-05,
+    "postcode": "71012",
+    "country_code": "ee"
+  },
+  "ee|kaalu tänav 2, viljandi, estonia": null,
+  "ee|vilja 6, võru, estonia": {
+    "lat": 57.8494428,
+    "lng": 27.006549,
+    "display_name": "6, Vilja, Kesklinn, Võru linn, Võru maakond, 65606, Eesti",
+    "importance": 5.737468528262787e-05,
+    "postcode": "65606",
+    "country_code": "ee"
+  },
+  "ee|vilja tänav 6, võru linn, estonia": null,
+  "ee|kesk 4, jõgeva, estonia": {
+    "lat": 58.7483727,
+    "lng": 26.397462,
+    "display_name": "Jõgeva Kaubanduskeskus, 4, Kesk, Jõgeva linn, Jõgeva, Jõgeva vald, Jõgeva maakond, 48305, Eesti",
+    "importance": 5.388036926828439e-05,
+    "postcode": "48305",
+    "country_code": "ee"
+  },
+  "ee|kesk tänav 4, jõgeva, estonia": null,
+  "ee|4. roheline 8, narva, estonia": {
+    "lat": 59.3814964,
+    "lng": 28.172754,
+    "display_name": "Narva Centrum, 47;47b;8, 4. Roheline, Pähklimäe, Narva linn, Ida-Viru maakond, 20605, Eesti",
+    "importance": 6.388723582813791e-05,
+    "postcode": "20605",
+    "country_code": "ee"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "production_cities": {
+    "Tbilisi": 23,
+    "Batumi": 2
+  },
+  "approved_cities": {
+    "Tbilisi": 23,
+    "Batumi": 2
+  },
+  "production_total": 25
+}

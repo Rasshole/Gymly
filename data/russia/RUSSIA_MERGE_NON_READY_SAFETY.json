@@ -1,0 +1,14 @@
+{
+  "coming_soon_leakage": [],
+  "excluded_leakage": [],
+  "closed_leakage": [],
+  "needs_review_leakage": [],
+  "needs_coordinates_leakage": [],
+  "disputed_territory_production_leakage": [],
+  "hotel_resort_ready_leakage": 0,
+  "private_residential_ready_leakage": 0,
+  "specialist_ready_leakage": 0,
+  "institutional_ready_leakage": 0,
+  "operation_unverified_ready": 0,
+  "stale_only_ready": 0
+}

@@ -1,0 +1,38 @@
+{
+  "cities": {
+    "Prishtina": "independent_present_candidate",
+    "Fushë Kosovë": "independent_present_candidate",
+    "Prizren": "independent_present_candidate",
+    "Pejë": "independent_present_candidate",
+    "Gjakovë": "independent_present_candidate",
+    "Ferizaj": "independent_present_candidate",
+    "Gjilan": "independent_present_candidate",
+    "Mitrovicë": "independent_present_candidate",
+    "North Mitrovica": "independent_present_candidate",
+    "Zvečan": "independent_present_candidate",
+    "Leposaviq": "independent_present_candidate",
+    "Zubin Potok": "independent_present_candidate",
+    "Vushtrri": "independent_present_candidate",
+    "Podujevë": "independent_present_candidate",
+    "Lipjan": "independent_present_candidate",
+    "Drenas": "independent_present_candidate",
+    "Skenderaj": "independent_present_candidate",
+    "Rahovec": "independent_present_candidate",
+    "Malishevë": "independent_present_candidate",
+    "Suharekë": "independent_present_candidate",
+    "Kaçanik": "independent_present_candidate",
+    "Klina": "independent_present_candidate",
+    "Deçan": "independent_present_candidate",
+    "Istog": "independent_present_candidate",
+    "Dragash": "independent_present_candidate",
+    "Štrpce": "A_legitimate_no_local_gym",
+    "Ranillug": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [],
+  "phase1_justified_a_gaps": [
+    "Štrpce",
+    "Ranillug"
+  ]
+}

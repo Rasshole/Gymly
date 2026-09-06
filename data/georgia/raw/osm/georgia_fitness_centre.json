@@ -1,0 +1,2006 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T18:42:20Z",
+    "timestamp_areas_base": "2026-08-29T08:46:41Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4275708290,
+      "lat": 41.711541,
+      "lon": 44.7574824,
+      "tags": {
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "ასპრია",
+        "name:en": "Aspria",
+        "name:ka": "ასპრია",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4308987594,
+      "lat": 42.3277349,
+      "lon": 42.4207057,
+      "tags": {
+        "addr:housenumber": "13",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4337632302,
+      "lat": 41.7887445,
+      "lon": 44.8187928,
+      "tags": {
+        "addr:street": "გობრონიძის ქუჩა",
+        "leisure": "fitness_centre",
+        "name": "BLUE FITNES"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4364950292,
+      "lat": 42.5220048,
+      "lon": 43.1477445,
+      "tags": {
+        "check_date": "2026-06-23",
+        "leisure": "fitness_centre",
+        "name:en": "Ambrolauri municipality NNJP wrestling club \"Falavani\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 4370696653,
+      "lat": 41.4646413,
+      "lon": 46.1121614,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "სპორტ დარბაზი",
+        "name:ka": "სპორტ დარბაზი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4404199189,
+      "lat": 43.1530363,
+      "lon": 40.3467934,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4412908090,
+      "lat": 41.7255748,
+      "lon": 44.7637897,
+      "tags": {
+        "charge": "20Lari",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "აუზი",
+        "name:de": "Schwimmbad Ausi",
+        "name:en": "Pool - Ausi",
+        "name:ka": "აუზი",
+        "sport": "swimming"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4423619089,
+      "lat": 41.7730534,
+      "lon": 44.7745716,
+      "tags": {
+        "check_date": "2024-09-20",
+        "contact:facebook": "https://www.facebook.com/TheRealSparta",
+        "contact:mobile": "+995 598 55 56 70",
+        "email": "spartafitness.ge@gmail.com",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "სპარტა ფიტნესი",
+        "name:en": "Sparta Fitness",
+        "name:ka": "სპარტა ფიტნესი",
+        "opening_hours": "Mo-Su 09:00-00:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4510502691,
+      "lat": 41.464404,
+      "lon": 46.1084832,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "სპორტული დარბაზი",
+        "name:en": "Sport Hall",
+        "name:ka": "სპორტული დარბაზი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4564104091,
+      "lat": 41.7130769,
+      "lon": 44.7595431,
+      "tags": {
+        "addr:housenumber": "5ა",
+        "addr:street": "ნიკოლოზ ყიფშიძის ქუჩა",
+        "contact:mobile": "+995 551 11 52 88",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "იოგას სახლი",
+        "name:en": "Yoga House",
+        "website": "https://www.yoga.ge/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4583147731,
+      "lat": 41.7169488,
+      "lon": 44.7916682,
+      "tags": {
+        "addr:housenumber": "150",
+        "addr:postcode": "0112",
+        "addr:street": "დავით აღმაშენებლის გამზირი",
+        "check_date": "2026-07-08",
+        "contact:facebook": "CAGeorgia",
+        "contact:instagram": "cageorgia",
+        "leisure": "fitness_centre",
+        "name": "ჩემპიონთა აკადემია",
+        "name:en": "Champions Academy",
+        "name:ka": "ჩემპიონთა აკადემია",
+        "website": "https://champ.ge/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4726234589,
+      "lat": 41.7119852,
+      "lon": 44.7551474,
+      "tags": {
+        "check_date": "2024-02-09",
+        "leisure": "fitness_centre",
+        "name": "City Fitness",
+        "name:en": "City Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4734552322,
+      "lat": 41.8092415,
+      "lon": 45.755948,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4785467222,
+      "lat": 41.7982549,
+      "lon": 44.8214991,
+      "tags": {
+        "check_date": "2023-09-03",
+        "leisure": "fitness_centre",
+        "name": "ჰარდ ვეი",
+        "name:en": "hard way",
+        "name:ka": "ჰარდ ვეი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4941560123,
+      "lat": 41.683284,
+      "lon": 44.8413641,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "World Feetness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5159638921,
+      "lat": 41.6433334,
+      "lon": 41.6198317,
+      "tags": {
+        "addr:housenumber": "90",
+        "addr:postcode": "6004",
+        "addr:street": "ზურაბ გორგილაძის ქუჩა",
+        "check_date": "2022-12-10",
+        "contact:phone": "+995 32 242 41 11",
+        "email": "info@aspria.fitness",
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "ასპრია",
+        "name:en": "Aspria",
+        "opening_hours": "24/7",
+        "website": "http://aspria.ge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5203305421,
+      "lat": 41.6494002,
+      "lon": 41.6322463,
+      "tags": {
+        "addr:housenumber": "16",
+        "addr:street": "ვაჟა-ფშაველას ქუჩა",
+        "leisure": "fitness_centre",
+        "name": "სპარტა",
+        "name:en": "Sparta"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5238382621,
+      "lat": 42.2687525,
+      "lon": 42.6768227,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ენერჯიმი",
+        "name:en": "Energym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5496374677,
+      "lat": 41.7236683,
+      "lon": 44.716712,
+      "tags": {
+        "check_date": "2024-02-28",
+        "contact:email": "info@oktopus.ge",
+        "contact:facebook": "https://www.facebook.com/Oktopusfitness/",
+        "contact:instagram": "https://www.instagram.com/oktopusfitness/",
+        "contact:phone": "+995 32 230 18 88",
+        "contact:website": "https://www.oktopus.ge",
+        "contact:youtube": "https://www.youtube.com/channel/UC-aVBkNDKG9HAkneDZvtzJw",
+        "currency:BCH": "yes",
+        "currency:BTG": "yes",
+        "currency:DASH": "yes",
+        "currency:LTC": "yes",
+        "currency:USDT": "yes",
+        "currency:XBT": "yes",
+        "currency:ZEC": "yes",
+        "leisure": "fitness_centre",
+        "name": "ოკტოპუს ფიტნეს კლუბი",
+        "name:en": "Oktopus Fitness Club",
+        "name:ka": "ოკტოპუს ფიტნეს კლუბი",
+        "opening_hours": "24/7",
+        "payment:lightning": "yes",
+        "payment:onchain": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5601484023,
+      "lat": 41.7219592,
+      "lon": 44.7672219,
+      "tags": {
+        "addr:housenumber": "41",
+        "addr:street": "სულხან ცინცაძის ქუჩა",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Fit Line"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5746004280,
+      "lat": 41.7298612,
+      "lon": 44.7680845,
+      "tags": {
+        "check_date": "2023-10-12",
+        "contact:email": "ge.powermax@gmail.com",
+        "contact:mobile": "+995 599 97 74 80",
+        "contact:website": "https://powermax.ge",
+        "leisure": "fitness_centre",
+        "name": "პაუერ მაქს",
+        "name:en": "Power Max",
+        "name:ka": "პაუერ მაქს",
+        "opening_hours": "Mo-Fr 07:00-23:30; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5936826785,
+      "lat": 41.7929896,
+      "lon": 44.8078943,
+      "tags": {
+        "contact:facebook": "https://www.facebook.com/Aquacentre.official/",
+        "leisure": "fitness_centre",
+        "name": "აკვა ცენტრი და ფიტნესი",
+        "name:en": "Aqua Centre & Fitness",
+        "sport": "fitness;swimming"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6076827527,
+      "lat": 41.7425114,
+      "lon": 44.8323187,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6361891385,
+      "lat": 41.7222008,
+      "lon": 44.7677983,
+      "tags": {
+        "check_date": "2025-06-06",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Snap-Fitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6465428985,
+      "lat": 41.707068,
+      "lon": 44.7877413,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:ru": "Элита"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6595968579,
+      "lat": 41.6770156,
+      "lon": 44.8740818,
+      "tags": {
+        "check_date": "2025-06-12",
+        "leisure": "fitness_centre",
+        "name": "მატა ფიტნესი",
+        "name:en": "Mata Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7975856485,
+      "lat": 41.6371049,
+      "lon": 41.6129618,
+      "tags": {
+        "addr:postcode": "6004",
+        "check_date": "2024-06-17",
+        "contact:mobile": "+995 555 88 20 20",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Olympia Fitness Club",
+        "name:en": "Olympia Fitness Club",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9081481818,
+      "lat": 41.7064105,
+      "lon": 44.7723247,
+      "tags": {
+        "check_date": "2026-08-02",
+        "contact:instagram": "tsre.ge",
+        "contact:phone": "+995 32 214 90 06",
+        "email": "info@tsre.ge",
+        "leisure": "fitness_centre",
+        "name": "წრე",
+        "name:en": "Tsre",
+        "name:ka": "წრე",
+        "opening_hours": "Mo-Sa 08:00-00:00, Su 09:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9846463093,
+      "lat": 41.7907105,
+      "lon": 44.8186598,
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:housenumber": "1",
+        "addr:street": "ალეკო გობრონიძის ქუჩა",
+        "check_date": "2026-07-12",
+        "check_date:opening_hours": "2026-06-15",
+        "contact:facebook": "https://www.facebook.com/SakemataFitness",
+        "contact:instagram": "sakematafitness",
+        "contact:phone": "+995 32 219 55 11",
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "საკემატა ფიტნესი",
+        "name:en": "Sakemata Fitness",
+        "name:ka": "საკემატა ფიტნესი",
+        "opening_hours": "Mo-Su 08:00-23:45",
+        "sport": "fitness;gym",
+        "website": "https://www.sakematafitness.ge/ka"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10250227949,
+      "lat": 41.7009908,
+      "lon": 44.767314,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Underground Gym",
+        "sport": "fitness",
+        "website": "https://www.facebook.com/UndegroundGym/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10276334109,
+      "lat": 41.7314421,
+      "lon": 44.7632155,
+      "tags": {
+        "addr:housenumber": "37",
+        "addr:street": "ოთარ ონიაშვილის ქუჩა",
+        "check_date": "2025-05-11",
+        "coffee": "yes",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name:en": "Tbilisi yoga villa",
+        "name:ru": "Тбилиси йога вилла",
+        "sport": "yoga",
+        "website": "https://tbilisiyoga.com/en/villa"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10276334110,
+      "lat": 41.7063231,
+      "lon": 44.7685766,
+      "tags": {
+        "addr:housenumber": "14",
+        "addr:postcode": "0179",
+        "addr:street": "შალვა რადიანის ქუჩა",
+        "check_date": "2024-03-08",
+        "leisure": "fitness_centre",
+        "name": "თბილისი იოგა ლოფტი",
+        "name:en": "Tbilisi Yoga Loft",
+        "name:ka": "თბილისი იოგა ლოფტი",
+        "name:ru": "Тбилиси йога лофт",
+        "website": "https://tbilisiyoga.com/en/loft"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10673767984,
+      "lat": 41.6371161,
+      "lon": 41.6136175,
+      "tags": {
+        "check_date": "2024-06-17",
+        "leisure": "fitness_centre",
+        "name": "BFA Gym",
+        "name:en": "BFA Gym",
+        "opening_hours": "08:00-24:00",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10729800930,
+      "lat": 41.6803067,
+      "lon": 41.6991717,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10796733506,
+      "lat": 41.7221845,
+      "lon": 44.7147329,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ლევიოსა მოძრაობის სივრცე",
+        "name:en": "Leviosa",
+        "sport": "dance;pilates;karate",
+        "website": "https://www.facebook.com/leviosamovelab/about"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10844889065,
+      "lat": 41.7198533,
+      "lon": 44.7160627,
+      "tags": {
+        "contact:facebook": "tidaniplius",
+        "leisure": "fitness_centre",
+        "name": "თიდანი +",
+        "name:en": "Tidani +",
+        "name:ka": "თიდანი +",
+        "sport": "fitness",
+        "website": "https://tidanigym.ge/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10889397607,
+      "lat": 41.7336391,
+      "lon": 44.7693277,
+      "tags": {
+        "addr:housenumber": "13",
+        "addr:street": "იური გაგარინის ქუჩა",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "იოგავილი",
+        "name:en": "Yogawill",
+        "opening_hours": "Mo-Fr 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10905732411,
+      "lat": 41.7210556,
+      "lon": 44.716038,
+      "tags": {
+        "contact:facebook": "maomao2000",
+        "leisure": "fitness_centre",
+        "name": "დინამიკა",
+        "name:en": "Dynamic",
+        "name:ka": "დინამიკა",
+        "sport": "dance;fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10929781476,
+      "lat": 41.5748248,
+      "lon": 44.983487,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10998482644,
+      "lat": 41.7093319,
+      "lon": 44.7533038,
+      "tags": {
+        "check_date": "2026-04-28",
+        "contact:facebook": "AspriaFitness",
+        "leisure": "fitness_centre",
+        "level": "0;1",
+        "name": "ასპრია ფიტნესი",
+        "name:en": "Aspria Fitness",
+        "name:ka": "ასპრია ფიტნესი",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11003216705,
+      "lat": 41.7102417,
+      "lon": 44.7655796,
+      "tags": {
+        "check_date": "2026-01-29",
+        "leisure": "fitness_centre",
+        "name": "სნეპ",
+        "name:en": "Snap",
+        "name:ka": "სნეპ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11047954005,
+      "lat": 41.7197539,
+      "lon": 44.8028179,
+      "tags": {
+        "check_date": "2025-06-17",
+        "leisure": "fitness_centre",
+        "name": "Stay Strong"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11104446484,
+      "lat": 41.6765531,
+      "lon": 44.8394301,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Reform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11182369253,
+      "lat": 41.7068753,
+      "lon": 44.7876712,
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:country": "GE",
+        "addr:housenumber": "8",
+        "addr:street": "Niko Nikoladze",
+        "contact:mobile": "+995 551 58 87 50",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Flow Studio",
+        "payment:app": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "sport": "yoga",
+        "website": "https://fitbase.io/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11195808424,
+      "lat": 41.7244572,
+      "lon": 44.7307417,
+      "tags": {
+        "check_date": "2026-06-12",
+        "contact:facebook": "100084314880948",
+        "contact:instagram": "prime_tbilisi",
+        "contact:phone": "+995 32 200 21 77",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "პრაიმ ფიტი",
+        "name:en": "Prime Fit",
+        "name:ka": "პრაიმ ფიტი",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "sport": "fitness;climbing;swimming;yoga",
+        "website": "https://primefit.ge/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11217670121,
+      "lat": 41.6858192,
+      "lon": 44.848718,
+      "tags": {
+        "check_date": "2024-03-24",
+        "leisure": "fitness_centre",
+        "name": "მატრიქს ფიტნესი",
+        "name:en": "Matrix Fitness",
+        "name:ka": "მატრიქს ფიტნესი",
+        "opening_hours": "Mo-Su 07:30-23:30",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11250793444,
+      "lat": 42.2616508,
+      "lon": 42.7126881,
+      "tags": {
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "leisure": "fitness_centre",
+        "name": "Galileo"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11255351452,
+      "lat": 41.7165325,
+      "lon": 44.7770688,
+      "tags": {
+        "check_date": "2023-11-15",
+        "leisure": "fitness_centre",
+        "name": "ტონუსი",
+        "name:en": "Tonusi",
+        "name:ka": "ტონუსი",
+        "opening_hours": "07:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11260341967,
+      "lat": 41.7000845,
+      "lon": 44.7946671,
+      "tags": {
+        "check_date": "2026-05-24",
+        "contact:instagram": "powermax_1",
+        "contact:mobile": "+995 599 97 74 80",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "პაუერ მაქსი",
+        "name:en": "Power Max",
+        "name:ka": "პაუერ მაქსი",
+        "opening_hours": "Mo-Sa 09:00-22:00; Su off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11263150741,
+      "lat": 41.7148836,
+      "lon": 44.7798845,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Yoga Studio 9"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11331467088,
+      "lat": 41.6944435,
+      "lon": 44.7936124,
+      "tags": {
+        "check_date": "2025-10-15",
+        "check_date:opening_hours": "2025-10-15",
+        "leisure": "fitness_centre",
+        "name": "პილატეს თბილისი",
+        "opening_hours": "Mo,We,Fr 09:30-21:00; Tu,Th 10:00-12:00; Sa 11:00-14:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11359887326,
+      "lat": 41.7010239,
+      "lon": 44.7563599,
+      "tags": {
+        "check_date": "2023-11-18",
+        "leisure": "fitness_centre",
+        "opening_hours": "07:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11482146769,
+      "lat": 41.7121799,
+      "lon": 44.7443761,
+      "tags": {
+        "amenity": "coworking_space",
+        "contact:phone": "+995 32 219 44 05",
+        "leisure": "fitness_centre",
+        "name:en": "Sative",
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "sport": "fitness;yoga",
+        "website": "https://sative.space/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11484547870,
+      "lat": 41.7325649,
+      "lon": 44.7386745,
+      "tags": {
+        "addr:housenumber": "14a",
+        "addr:postcode": "0162",
+        "addr:street": "ელგუჯა ამაშუკელის ქუჩა",
+        "check_date": "2026-04-05",
+        "leisure": "fitness_centre",
+        "name:en": "Gymnasia",
+        "website": "https://gymnasia.ge/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11484557369,
+      "lat": 41.7126926,
+      "lon": 44.7662494,
+      "tags": {
+        "addr:housenumber": "20",
+        "addr:street": "ნინო რამიშვილის ქუჩა",
+        "contact:instagram": "warriorstbilisi",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name:en": "Warriors",
+        "sport": "martial_arts"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11485439719,
+      "lat": 41.7205197,
+      "lon": 44.7808194,
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:housenumber": "13",
+        "addr:street": "გიორგი მიროტაძის ქუჩა",
+        "leisure": "fitness_centre",
+        "name": "Ringside Institute",
+        "sport": "martial_arts"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11499395438,
+      "lat": 41.7357057,
+      "lon": 44.7952654,
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:housenumber": "4",
+        "addr:street": "გიორგი ჭყონდიდელის ქუჩა",
+        "check_date": "2026-01-24",
+        "contact:facebook": "https://www.facebook.com/MoveclubMC",
+        "leisure": "fitness_centre",
+        "name": "მუვ ქლაბი",
+        "name:en": "Move Club",
+        "name:ka": "მუვ ქლაბი",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11563694769,
+      "lat": 41.7250066,
+      "lon": 44.7788491,
+      "tags": {
+        "check_date": "2024-01-28",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11630318169,
+      "lat": 41.6954492,
+      "lon": 44.7039244,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11658227003,
+      "lat": 41.7455717,
+      "lon": 44.6914537,
+      "tags": {
+        "addr:street": "სიმონ ავალიანის ქუჩა",
+        "contact:mobile": "+995 555 17 03 97",
+        "leisure": "fitness_centre",
+        "name": "იმოძრავე",
+        "name:en": "Imodzrave",
+        "name:ka": "იმოძრავე",
+        "opening_hours": "Mo-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11688408705,
+      "lat": 41.7505234,
+      "lon": 44.7857807,
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:housenumber": "4",
+        "addr:street": "თორნიკე ერისთავის ჩიხი",
+        "check_date": "2025-09-25",
+        "contact:facebook": "https://www.facebook.com/mamberfitness/?paipv=0&eav=AfZ9vQvo7m4ZvUREZgHOBdCHw1j-Av9cIrHvNCeaA2mFWJ7m2oD-zWhFjgVdrRZKU4I&_rdr",
+        "leisure": "fitness_centre",
+        "name": "მამბერი ფიტნესი",
+        "name:en": "Mamber Fitness",
+        "name:ka": "მამბერი ფიტნესი",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11734602179,
+      "lat": 41.7167333,
+      "lon": 44.7849622,
+      "tags": {
+        "check_date": "2024-03-15",
+        "leisure": "fitness_centre",
+        "name": "Snap Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11734602193,
+      "lat": 41.7168835,
+      "lon": 44.7845707,
+      "tags": {
+        "check_date": "2024-03-15",
+        "leisure": "fitness_centre",
+        "name": "Energym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11758046797,
+      "lat": 41.6896432,
+      "lon": 44.8978667,
+      "tags": {
+        "check_date": "2026-06-15",
+        "check_date:opening_hours": "2026-06-15",
+        "contact:instagram": "sakematafitness",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "საკემატა",
+        "name:en": "Sakemata",
+        "name:ka": "საკემატა",
+        "opening_hours": "Mo-Su 08:00-23:45"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11799450369,
+      "lat": 41.7245379,
+      "lon": 44.785779,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "მფჯ",
+        "name:en": "MFG"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11809979001,
+      "lat": 41.7100525,
+      "lon": 44.7702686,
+      "tags": {
+        "check_date": "2024-04-11",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11831296854,
+      "lat": 41.727284,
+      "lon": 44.7982075,
+      "tags": {
+        "check_date": "2025-03-30",
+        "leisure": "fitness_centre",
+        "name": "Absolute"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11929092162,
+      "lat": 41.6315892,
+      "lon": 41.6126565,
+      "tags": {
+        "check_date": "2024-05-23",
+        "leisure": "fitness_centre",
+        "name": "ტროა ფიტნეს",
+        "name:en": "Troy Fitness",
+        "name:ka": "ტროა ფიტნეს"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11929990269,
+      "lat": 41.6435777,
+      "lon": 41.6219425,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Reformer"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11964415570,
+      "lat": 41.6388938,
+      "lon": 41.623945,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "My Baby Pool & Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11978705069,
+      "lat": 41.6388146,
+      "lon": 41.6177063,
+      "tags": {
+        "check_date": "2024-08-30",
+        "leisure": "fitness_centre",
+        "name": "Gladiator Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12012790153,
+      "lat": 41.64044,
+      "lon": 41.6322908,
+      "tags": {
+        "check_date": "2024-06-26",
+        "contact:mobile": "+995 557 70 45 55",
+        "leisure": "fitness_centre",
+        "name": "რულ ფიტნეს",
+        "name:en": "Rule Fitness",
+        "name:ka": "რულ ფიტნეს",
+        "opening_hours": "Mo-Su 07:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12013070658,
+      "lat": 41.6354093,
+      "lon": 41.6083755,
+      "tags": {
+        "check_date": "2024-06-01",
+        "contact:email": "info@oktopus.ge",
+        "contact:facebook": "https://www.facebook.com/Oktopusfitness/",
+        "contact:instagram": "https://www.instagram.com/oktopusfitness/",
+        "contact:phone": "+995 32 230 18 88",
+        "contact:website": "https://www.oktopus.ge",
+        "contact:youtube": "https://www.youtube.com/channel/UC-aVBkNDKG9HAkneDZvtzJw",
+        "currency:BCH": "yes",
+        "currency:BTG": "yes",
+        "currency:DASH": "yes",
+        "currency:LTC": "yes",
+        "currency:USDT": "yes",
+        "currency:XBT": "yes",
+        "currency:ZEC": "yes",
+        "leisure": "fitness_centre",
+        "name": "ოკტოპუს ფიტნეს კლუბი",
+        "name:en": "Oktopus Fitness Club",
+        "name:ka": "ოკტოპუს ფიტნეს კლუბი",
+        "opening_hours": "24/7",
+        "payment:lightning": "yes",
+        "payment:onchain": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12026812895,
+      "lat": 41.7209161,
+      "lon": 44.7479878,
+      "tags": {
+        "check_date": "2026-06-12",
+        "check_date:opening_hours": "2026-06-12",
+        "contact:facebook": "100084314880948",
+        "contact:instagram": "prime_tbilisi",
+        "contact:phone": "+995 32 250 66 88",
+        "leisure": "fitness_centre",
+        "name": "პრაიმ ფიტი",
+        "name:en": "Prime Fit",
+        "opening_hours": "Su-Th 07:00-23:00; Fr-Sa 09:00-22:00",
+        "website": "https://primefit.ge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12031728101,
+      "lat": 41.750281,
+      "lon": 44.7818262,
+      "tags": {
+        "check_date": "2024-07-03",
+        "leisure": "fitness_centre",
+        "name": "Evo Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12037549431,
+      "lat": 41.6476848,
+      "lon": 41.6422339,
+      "tags": {
+        "check_date": "2024-11-23",
+        "leisure": "fitness_centre",
+        "name": "PilatesBatumi",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12037549437,
+      "lat": 41.6489173,
+      "lon": 41.6387022,
+      "tags": {
+        "check_date": "2024-07-06",
+        "leisure": "fitness_centre",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12095584063,
+      "lat": 41.6436009,
+      "lon": 41.6268014,
+      "tags": {
+        "check_date": "2025-09-07",
+        "check_date:opening_hours": "2025-09-07",
+        "contact:instagram": "https://www.instagram.com/elastic.fit.batumi",
+        "leisure": "fitness_centre",
+        "name": "Elastic Fit Space",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12108532333,
+      "lat": 41.6399275,
+      "lon": 41.6209296,
+      "tags": {
+        "check_date": "2024-08-13",
+        "contact:mobile": "+995 591 06 04 25",
+        "leisure": "fitness_centre",
+        "name": "Global Fitness",
+        "opening_hours": "Mo-Fr 10:00-22:00; Sa-Su 10:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12138087395,
+      "lat": 41.7067601,
+      "lon": 44.7737566,
+      "tags": {
+        "check_date": "2024-08-26",
+        "leisure": "fitness_centre",
+        "name": "ზენიტი",
+        "name:en": "Zenith",
+        "name:ka": "ზენიტი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12138137411,
+      "lat": 41.7063819,
+      "lon": 44.7787374,
+      "tags": {
+        "check_date": "2024-08-26",
+        "leisure": "fitness_centre",
+        "name": "ბლისს იოგა",
+        "name:en": "Bliss Yoga",
+        "name:ka": "ბლისს იოგა",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12142396821,
+      "lat": 41.6312024,
+      "lon": 41.6254037,
+      "tags": {
+        "check_date": "2024-08-28",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name:en": "Reformer"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12166252849,
+      "lat": 41.7163887,
+      "lon": 44.8756689,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12168378272,
+      "lat": 41.7621055,
+      "lon": 44.7805214,
+      "tags": {
+        "check_date": "2024-09-10",
+        "leisure": "fitness_centre",
+        "name": "ლიონ ფიტნეს პრო",
+        "name:en": "Lion Fitness Pro",
+        "name:ka": "ლიონ ფიტნეს პრო"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12208921801,
+      "lat": 41.7086115,
+      "lon": 44.7897037,
+      "tags": {
+        "check_date": "2026-08-16",
+        "contact:instagram": "heyday__yoga",
+        "leisure": "fitness_centre",
+        "name": "Heyday home",
+        "name:en": "Heyday home",
+        "opening_hours": "Mo-Su 09:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12213188066,
+      "lat": 41.8305051,
+      "lon": 41.7767393,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Hard Gym",
+        "opening_hours": "Mo-Fr 09:00-22:00; Sa, Su 10:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12255315902,
+      "lat": 41.7285965,
+      "lon": 44.723972,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Colosseum Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12258219098,
+      "lat": 41.6241436,
+      "lon": 41.5968189,
+      "tags": {
+        "instagram": "https://www.instagram.com/mega_gym_fitness_batumi/",
+        "leisure": "fitness_centre",
+        "name": "Mega Gym Fitness Batumi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12353859801,
+      "lat": 41.7241871,
+      "lon": 44.747918,
+      "tags": {
+        "check_date": "2026-08-13",
+        "leisure": "fitness_centre",
+        "name": "სნაპ ფიტნესი",
+        "name:en": "Snap Fitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12361567501,
+      "lat": 41.7307893,
+      "lon": 44.7425024,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "360⁰",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12363069601,
+      "lat": 41.6647672,
+      "lon": 41.6841854,
+      "tags": {
+        "addr:housenumber": "2a",
+        "addr:street": "მარკოზ აჭარელის ქუჩა",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12383940901,
+      "lat": 41.6217527,
+      "lon": 41.5927853,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "BI Fitness",
+        "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12467069244,
+      "lat": 43.0452819,
+      "lon": 42.731853,
+      "tags": {
+        "check_date": "2025-01-01",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12512060274,
+      "lat": 41.7293904,
+      "lon": 44.8279843,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "3",
+        "sport": "yoga;zumba;aerobics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12521468109,
+      "lat": 41.7328452,
+      "lon": 44.7223523,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "რეფორმა",
+        "name:en": "Reform",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12534806901,
+      "lat": 41.6922076,
+      "lon": 44.8211795,
+      "tags": {
+        "check_date": "2025-04-05",
+        "contact:facebook": "100094882180762",
+        "contact:instagram": "_gym13_",
+        "contact:mobile": "+995 511 13 13 78",
+        "email": "goldman@gym13.ge",
+        "leisure": "fitness_centre",
+        "name": "GYM13",
+        "name:en": "GYM13",
+        "opening_hours": "Mo-Su 08:00-01:00",
+        "website": "https://www.gym13.ge/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12549024742,
+      "lat": 41.9334191,
+      "lon": 45.478195,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Iron Viking"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12552394758,
+      "lat": 42.1625266,
+      "lon": 42.3445836,
+      "tags": {
+        "check_date": "2023-05-01",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12572113823,
+      "lat": 42.1064752,
+      "lon": 43.0354992,
+      "tags": {
+        "check_date": "2025-02-09",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12645379271,
+      "lat": 41.633635,
+      "lon": 41.6131076,
+      "tags": {
+        "check_date": "2025-03-08",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12673659055,
+      "lat": 41.7272163,
+      "lon": 44.79885,
+      "tags": {
+        "check_date": "2025-03-17",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12744247001,
+      "lat": 41.7177703,
+      "lon": 44.7223658,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Iviko's Cage",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12757538234,
+      "lat": 42.4956674,
+      "lon": 41.8561772,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ფიტნესი - Club 407",
+        "name:en": "Club 407",
+        "name:ka": "ფიტნესი - Club 407",
+        "opening_hours": "Mo-Su 11:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12766030845,
+      "lat": 41.7086328,
+      "lon": 44.8812803,
+      "tags": {
+        "check_date": "2025-04-18",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12766134531,
+      "lat": 41.7076809,
+      "lon": 44.8795521,
+      "tags": {
+        "check_date": "2026-03-03",
+        "leisure": "fitness_centre",
+        "name": "Pro Fitness",
+        "name:en": "Pro Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12770357290,
+      "lat": 41.5680124,
+      "lon": 44.966565,
+      "tags": {
+        "check_date": "2025-04-20",
+        "leisure": "fitness_centre",
+        "name": "თვინს",
+        "name:en": "Twins",
+        "name:ka": "თვინს"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12823773537,
+      "lat": 41.8406605,
+      "lon": 44.7139351,
+      "tags": {
+        "check_date": "2025-05-09",
+        "leisure": "fitness_centre",
+        "name": "K2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12896029683,
+      "lat": 41.7444594,
+      "lon": 44.7758135,
+      "tags": {
+        "check_date": "2026-07-06",
+        "leisure": "fitness_centre",
+        "name": "ელიფსი",
+        "name:en": "Ellipse",
+        "name:ka": "ელიფსი",
+        "opening_hours": "07:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12914882786,
+      "lat": 41.5971417,
+      "lon": 44.0911056,
+      "tags": {
+        "check_date": "2025-06-12",
+        "leisure": "fitness_centre",
+        "name": "Fitness Club \"Mtieli\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 12919494763,
+      "lat": 41.6900484,
+      "lon": 44.8662986,
+      "tags": {
+        "check_date": "2025-06-16",
+        "leisure": "fitness_centre",
+        "name": "პროფიტნესი",
+        "name:en": "ProFitness",
+        "name:ka": "პროფიტნესი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12966100195,
+      "lat": 41.7947143,
+      "lon": 44.7806852,
+      "tags": {
+        "check_date": "2026-06-07",
+        "leisure": "fitness_centre",
+        "name": "ფორმატ ფიტ",
+        "name:en": "Format Fit",
+        "name:ka": "ფორმატ ფიტ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13058260782,
+      "lat": 41.7497497,
+      "lon": 44.7852902,
+      "tags": {
+        "addr:housenumber": "27",
+        "addr:street": "თორნიკე ერისთავის ქუჩა",
+        "check_date": "2026-04-28",
+        "contact:facebook": "https://www.facebook.com/reformsportclub",
+        "leisure": "fitness_centre",
+        "name": "რეფორმა",
+        "name:en": "ReForm",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13094889801,
+      "lat": 41.7259738,
+      "lon": 44.7435358,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name:en": "Stronger"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13158554535,
+      "lat": 41.7320573,
+      "lon": 44.730967,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "სოლო ფიტნესი",
+        "name:en": "Solo Fitness",
+        "name:ka": "სოლო ფიტნესი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13170542803,
+      "lat": 41.7073589,
+      "lon": 44.78585,
+      "tags": {
+        "check_date": "2026-06-21",
+        "check_date:opening_hours": "2026-06-21",
+        "contact:facebook": "WorldClassGeorgia",
+        "contact:instagram": "worldclassgeorgia",
+        "contact:phone": "+995 32 291 48 88",
+        "leisure": "fitness_centre",
+        "name": "World Class Georgia",
+        "name:en": "World Class Georgia",
+        "opening_hours": "Tu-Th 07:00-00:00; Sa-Su 09:00-23:00; Mo, Fr 07:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13186113171,
+      "lat": 41.6331556,
+      "lon": 41.6090108,
+      "tags": {
+        "check_date": "2025-10-01",
+        "leisure": "fitness_centre",
+        "name": "CycleO2 cycle&fitness",
+        "opening_hours": "09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13232743565,
+      "lat": 41.675305,
+      "lon": 44.828351,
+      "tags": {
+        "check_date": "2025-10-14",
+        "leisure": "fitness_centre",
+        "name": "მანდალა",
+        "name:en": "Mandala"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13238689693,
+      "lat": 41.7150416,
+      "lon": 44.796791,
+      "tags": {
+        "check_date": "2025-10-17",
+        "contact:instagram": "https://www.instagram.com/rituals.tbilisi",
+        "leisure": "fitness_centre",
+        "name": "Rituals",
+        "name:en": "Rituals",
+        "opening_hours": "09:00-20:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13271805102,
+      "lat": 41.7486045,
+      "lon": 44.7809485,
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:housenumber": "7",
+        "addr:postcode": "0180",
+        "addr:street": "თორნიკე ერისთავის ქუჩა",
+        "contact:facebook": "powermax.ge",
+        "contact:instagram": "powermax_1",
+        "contact:mobile": "+995 599 97 74 80",
+        "email": "ge.powermax@gmail.com",
+        "leisure": "fitness_centre",
+        "name:en": "Power Max",
+        "opening_hours": "Mo-Fr 08:00-23:30; Sa-Su 09:00-23:00",
+        "website": "https://powermax.ge/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13362360853,
+      "lat": 41.9238846,
+      "lon": 45.4762648,
+      "tags": {
+        "contact:facebook": "facebook.com/fitformulagym1",
+        "leisure": "fitness_centre",
+        "name": "Fit formula"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13384305014,
+      "lat": 42.0005225,
+      "lon": 44.1231792,
+      "tags": {
+        "check_date": "2024-09-01",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13444758664,
+      "lat": 42.2451712,
+      "lon": 42.6677607,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "X Area",
+        "opening_hours": "Mo-Su 09:00-24:00; PH closed",
+        "sauna": "dry",
+        "sport": "fitness",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "no",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13458361192,
+      "lat": 41.6366453,
+      "lon": 41.6208107,
+      "tags": {
+        "addr:city": "ბათუმი",
+        "addr:housenumber": "16",
+        "addr:street": "ჟიული შარტავას გამზირი",
+        "contact:mobile": "+995 555 00 50 90",
+        "leisure": "fitness_centre",
+        "name": "Goal Fitness",
+        "opening_hours": "Mo-Su 07:00-02:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13523956054,
+      "lat": 41.7199068,
+      "lon": 44.7804489,
+      "tags": {
+        "beauty": "laser_hair_removal;tattoo_removal;cosmetology",
+        "check_date": "2026-01-30",
+        "leisure": "fitness_centre",
+        "name": "ლოტუსი",
+        "name:en": "Lotus",
+        "shop": "beauty"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13576204301,
+      "lat": 41.756028,
+      "lon": 44.7890266,
+      "tags": {
+        "check_date": "2026-02-18",
+        "leisure": "fitness_centre",
+        "level": "4",
+        "name": "გოუ ფიტნეს",
+        "name:en": "Go Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13593783679,
+      "lat": 41.7853791,
+      "lon": 44.8010371,
+      "tags": {
+        "check_date": "2024-08-01",
+        "leisure": "fitness_centre",
+        "name": "მატრიქსი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13648065612,
+      "lat": 42.0591667,
+      "lon": 45.5268561,
+      "tags": {
+        "check_date": "2026-03-14",
+        "leisure": "fitness_centre",
+        "opening_hours": "08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13666544240,
+      "lat": 41.9250062,
+      "lon": 45.4715223,
+      "tags": {
+        "contact:facebook": "facebook.com/p/ფიტნეს-ზონა-Fitness-Zone-100031786826732",
+        "leisure": "fitness_centre",
+        "name": "ფიტნეს ზონა",
+        "name:en": "Fitness Zone",
+        "name:ka": "ფიტნეს ზონა"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13813452138,
+      "lat": 41.7016942,
+      "lon": 44.7671874,
+      "tags": {
+        "check_date": "2026-08-22",
+        "contact:facebook": "Ultraformpilatestbilisi",
+        "contact:instagram": "ultraformpilates.ge",
+        "leisure": "fitness_centre",
+        "name": "Ultraform",
+        "name:en": "Ultraform",
+        "opening_hours": "Mo-Fr 09:00-21:00; Sa 09:00-14:00; Su off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13836404805,
+      "lat": 41.7755144,
+      "lon": 44.7816755,
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:housenumber": "117",
+        "addr:street": "აკაკი ბელიაშვილის ქუჩა",
+        "contact:facebook": "https://www.facebook.com/Goldsgymgeo/",
+        "contact:instagram": "https://www.instagram.com/goldsgymgeorgia.official",
+        "contact:mobile": "+995 597 11 71 17",
+        "email": "hello@goldsgym.ge",
+        "leisure": "fitness_centre",
+        "name": "Gold's Gym",
+        "sport": "fitness",
+        "website": "https://goldsgym.ge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13912370600,
+      "lat": 41.9196687,
+      "lon": 45.4847322,
+      "tags": {
+        "contact:facebook": "facebook.com/mamberfitness",
+        "leisure": "fitness_centre",
+        "name": "მამბერი ფიტნესი",
+        "name:en": "Mamber fitness",
+        "name:ka": "მამბერი ფიტნესი"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13917679632,
+      "lat": 41.7184581,
+      "lon": 44.7109606,
+      "tags": {
+        "check_date": "2026-06-07",
+        "leisure": "fitness_centre",
+        "name": "Marpha",
+        "name:en": "Marpha",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13936840117,
+      "lat": 41.7236211,
+      "lon": 44.7764217,
+      "tags": {
+        "addr:floor": "2",
+        "check_date": "2026-06-11",
+        "contact:instagram": "https://www.instagram.com/valhallaecho_fitness_club",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Valhalla",
+        "name:en": "Valhalla",
+        "ref": "205"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13936840134,
+      "lat": 41.7235682,
+      "lon": 44.7764572,
+      "tags": {
+        "addr:floor": "2",
+        "check_date": "2026-06-11",
+        "contact:instagram": "https://www.instagram.com/laboratory.ge",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Laboratory",
+        "name:en": "Laboratory"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13972320518,
+      "lat": 41.9089829,
+      "lon": 45.4676921,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14023865794,
+      "lat": 41.8329519,
+      "lon": 43.3436655,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14031855048,
+      "lat": 41.719628,
+      "lon": 44.7385677,
+      "tags": {
+        "check_date": "2026-07-19",
+        "leisure": "fitness_centre",
+        "name": "კლუბი",
+        "name:en": "Clubi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14061992261,
+      "lat": 41.7191753,
+      "lon": 44.7699966,
+      "tags": {
+        "check_date": "2026-07-30",
+        "contact:instagram": "https://www.instagram.com/wowboxing.ge",
+        "contact:website": "https://wowboxing.ge",
+        "leisure": "fitness_centre",
+        "name": "Wow Boxing",
+        "name:en": "Wow Boxing",
+        "opening_hours": "07:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14076348580,
+      "lat": 41.7928165,
+      "lon": 44.8171103,
+      "tags": {
+        "check_date": "2026-08-04",
+        "leisure": "fitness_centre",
+        "name": "ფიტნეს თაიმი",
+        "name:en": "Fitness Time",
+        "name:ka": "ფიტნეს თაიმი",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "way",
+      "id": 442206400,
+      "center": {
+        "lat": 41.6488699,
+        "lon": 44.9975674
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "საჭიდაო დარბაზი"
+      }
+    },
+    {
+      "type": "way",
+      "id": 489054431,
+      "center": {
+        "lat": 42.7447057,
+        "lon": 42.0379651
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 519647001,
+      "center": {
+        "lat": 41.6744826,
+        "lon": 44.8264633
+      },
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:country": "GE",
+        "addr:housenumber": "7",
+        "addr:street": "გიორგი გურამიშვილის ქუჩა",
+        "addr:street:en": "Giorgi Guramishvili Street",
+        "building": "yes",
+        "check_date": "2024-02-17",
+        "leisure": "fitness_centre",
+        "name": "სპორტ თაიმი",
+        "name:en": "Sport Time",
+        "name:ka": "სპორტ თაიმი"
+      }
+    },
+    {
+      "type": "way",
+      "id": 555412201,
+      "center": {
+        "lat": 41.6561791,
+        "lon": 44.989605
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 618321278,
+      "center": {
+        "lat": 43.0853067,
+        "lon": 40.8212398
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 852000085,
+      "center": {
+        "lat": 42.0164001,
+        "lon": 43.8894191
+      },
+      "tags": {
+        "addr:city": "ქარელი",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ფიტნეს დარბაზი"
+      }
+    },
+    {
+      "type": "way",
+      "id": 858394219,
+      "center": {
+        "lat": 41.7131225,
+        "lon": 44.7663675
+      },
+      "tags": {
+        "addr:city": "თბილისი",
+        "addr:housenumber": "20",
+        "addr:postcode": "0179",
+        "addr:street": "ნინო რამიშვილის ქუჩა",
+        "building": "yes",
+        "building:levels": "4",
+        "check_date": "2024-04-11",
+        "contact:email": "info@oktopus.ge",
+        "contact:facebook": "https://www.facebook.com/Oktopusfitness/",
+        "contact:instagram": "https://www.instagram.com/oktopusfitness/",
+        "contact:phone": "+995 32 230 18 88",
+        "contact:website": "https://www.oktopus.ge",
+        "contact:youtube": "https://www.youtube.com/channel/UC-aVBkNDKG9HAkneDZvtzJw",
+        "currency:BCH": "yes",
+        "currency:BTG": "yes",
+        "currency:DASH": "yes",
+        "currency:LTC": "yes",
+        "currency:USDT": "yes",
+        "currency:XBT": "yes",
+        "currency:ZEC": "yes",
+        "leisure": "fitness_centre",
+        "name": "ოკტოპუს ფიტნეს კლუბი",
+        "name:en": "Oktopus Fitness Club",
+        "name:ka": "ოკტოპუს ფიტნეს კლუბი",
+        "opening_hours": "24/7",
+        "payment:lightning": "yes",
+        "payment:onchain": "yes",
+        "sport": "fitness;weightlifting;yoga"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1363885957,
+      "center": {
+        "lat": 42.213009,
+        "lon": 43.9576329
+      },
+      "tags": {
+        "building": "fitness_centre",
+        "leisure": "fitness_centre",
+        "source": "https://cominf.org/node/1166511070",
+        "start_date": "2017"
+      }
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "country": "Lithuania",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "production_total": 11923,
+  "lithuania_live": 61,
+  "lt_prefix_live": 61,
+  "existing_lithuania_production": true,
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNN (5-digit string; LT- prefix stripped in storage)",
+  "gym_plus_gym_exclamation_identity_collisions": 0,
+  "chains": [
+    {
+      "chain": "Gym+",
+      "classification": "A",
+      "open_active": 38,
+      "official_current_active": 38,
+      "ready_estimate": 38,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Impuls",
+      "classification": "A",
+      "open_active": 5,
+      "official_current_active": 5,
+      "ready_estimate": 5,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Lemon Gym",
+      "classification": "A",
+      "open_active": 18,
+      "official_current_active": 18,
+      "ready_estimate": 18,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "Gym+",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "38/38 open in production; Viršuliškių COMING_SOON"
+    },
+    {
+      "chain": "Lemon Gym",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "18/18 open in production; Riešė + Jonava COMING_SOON"
+    },
+    {
+      "chain": "Impuls",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "5/5 official impuls.lt clubs in production"
+    },
+    {
+      "chain": "VS Fitness",
+      "action": "EXCLUDED",
+      "evidence": "Acquired by Gym+ 2024"
+    },
+    {
+      "chain": "People Fitness",
+      "action": "EXCLUDED",
+      "evidence": "Legacy; site now Gym+"
+    },
+    {
+      "chain": "FitClub",
+      "action": "EXCLUDED",
+      "evidence": "2 Kaunas sites — below threshold"
+    },
+    {
+      "chain": "Fitus",
+      "action": "EXCLUDED",
+      "evidence": "Single-site spa/gym"
+    },
+    {
+      "chain": "Gym!",
+      "action": "ABSENT",
+      "evidence": "Latvian/Estonian brand — NOT Gym+ Lithuania"
+    },
+    {
+      "chain": "MyFitness",
+      "action": "ABSENT_LT_BRAND",
+      "evidence": "EE parent; LT consumer brand is Gym+"
+    },
+    {
+      "chain": "Basic-Fit/McFIT/FITINN/clever fit/Gold's/World Class",
+      "action": "ABSENT",
+      "evidence": "No LT presence"
+    },
+    {
+      "chain": "SportGates/SkyGym/Active Gym/City Gym",
+      "action": "ABSENT",
+      "evidence": "No >=3 site Class A evidence"
+    }
+  ],
+  "official_estate": {
+    "Gym+": {
+      "open_active": 38,
+      "coming_soon": 1,
+      "source": "https://gymplius.lt/en/about-us/gyms/"
+    },
+    "Lemon Gym": {
+      "open_active": 18,
+      "coming_soon": 2,
+      "source": "https://www.lemongym.lt/en/"
+    },
+    "Impuls": {
+      "open_active": 5,
+      "source": "https://www.impuls.lt/"
+    }
+  },
+  "sources": [
+    "https://gymplius.lt/en/about-us/gyms/",
+    "https://www.lemongym.lt/en/",
+    "https://www.impuls.lt/",
+    "https://ellex.legal/project/my-fitness-acquisition-of-vs-fitness/"
+  ]
+}

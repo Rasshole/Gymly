@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-08-21T13:53:13.005542+00:00",
+  "production_catalog": 9056,
+  "production_italy": 550,
+  "phase3_discovered": 25,
+  "phase3_new_candidates": 25,
+  "READY_TO_IMPORT": 22,
+  "NEEDS_COORDINATES": 2,
+  "NEEDS_REVIEW": 0,
+  "COMING_SOON": 0,
+  "CLOSED": 1,
+  "DUPLICATE": 0,
+  "ready_by_brand": {
+    "FITINN": 9,
+    "Dabliu": 5,
+    "GetFIT": 8
+  },
+  "projected_catalog": 9078,
+  "headroom_to_10k": 922,
+  "exceed_10k_at_new_ready": 945,
+  "credible_recoverable_estimate": 49,
+  "phase4_required": true,
+  "phase4_reasons": [
+    "Orange/GetFIT material gap (23/33; acquisition not on official Orange locator)",
+    "Fit Express and/or Icon still materially incomplete vs official estate"
+  ],
+  "final_decision": "ITALY PHASE 4 REQUIRED BEFORE COMPLETENESS MERGE",
+  "live_brand_status": {
+    "FitActive": "COMPLETE",
+    "FitUP": "COMPLETE",
+    "Anytime Fitness": "COMPLETE",
+    "Fit Express": "MATERIAL GAP",
+    "McFIT": "NEAR-COMPLETE",
+    "Virgin Active": "COMPLETE",
+    "Icon Palestre": "MATERIAL GAP",
+    "Orange": "MATERIAL GAP",
+    "WebFit": "COMPLETE",
+    "20Hours": "COMPLETE",
+    "Gold's Gym": "COMPLETE",
+    "JOHN REED": "NEAR-COMPLETE"
+  }
+}

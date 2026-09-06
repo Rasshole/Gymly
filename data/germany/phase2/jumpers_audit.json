@@ -1,0 +1,43 @@
+{
+  "probes": [
+    {
+      "url": "https://www.jumpers-fitness.de/",
+      "final": "https://www.ai-fitness.de/",
+      "len": 80872,
+      "jumpers_mentions": 17,
+      "redirects_to_ai": true
+    },
+    {
+      "url": "https://jumpers-fitness.de/",
+      "final": "https://www.ai-fitness.de/",
+      "len": 80872,
+      "jumpers_mentions": 17,
+      "redirects_to_ai": true
+    },
+    {
+      "url": "https://www.jumpers.de/",
+      "final": "https://www.jumpers.de/",
+      "len": 199562,
+      "jumpers_mentions": 453,
+      "redirects_to_ai": false
+    },
+    {
+      "url": "https://www.ai-fitness.de/",
+      "final": "https://www.ai-fitness.de/",
+      "len": 80872,
+      "jumpers_mentions": 17,
+      "redirects_to_ai": true
+    },
+    {
+      "url": "https://www.ai-fitness.de/studios",
+      "final": "https://www.ai-fitness.de/studios",
+      "len": 65630,
+      "jumpers_mentions": 15,
+      "redirects_to_ai": true
+    }
+  ],
+  "conclusion": "jumpers-fitness.de redirects to ai-fitness.de (all inclusive Fitness). No separate jumpers fitness brand rows should be staged. www.jumpers.de is unrelated (youth/social org). Use brand=all inclusive Fitness only.",
+  "all_inclusive_staged": 183,
+  "jumpers_branded_in_staging": 0,
+  "jumpers_de_note": "www.jumpers.de is an unrelated youth/social NGO, NOT the former jumpers fitness chain."
+}

@@ -1,0 +1,98 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside Albania",
+  "qualifying_class_a_chains": 0,
+  "class_a_locations": 0,
+  "CLASS_A": false,
+  "market": "INDEPENDENT_PHASE_EXECUTED",
+  "operators": {
+    "Repeat": {
+      "discovered_units": 3,
+      "conventional_public_floors_verified": 2,
+      "ready_sites": 2,
+      "excluded_spa_primary": 1,
+      "verdict": "SMI_BELOW_CLASS_A",
+      "class_a": false,
+      "REPEAT_CLASS_A": false,
+      "cities": [
+        "Tirana"
+      ],
+      "notes": "Wilson WELLNESS_ADDITIVE + TEG conventional; Nobis EXCLUDED."
+    },
+    "Flex Gym": {
+      "discovered_units": 1,
+      "conventional_public_floors_verified": 1,
+      "ready_sites": 1,
+      "verdict": "SMI_SINGLE_SITE",
+      "class_a": false,
+      "FLEX_CLASS_A": false,
+      "website": "https://flexgym.al/"
+    },
+    "Planet Fitness (local AL)": {
+      "PLANET_FITNESS_AL_ACTIVE_SITES": 0,
+      "verdict": "EXCLUDED_UNVERIFIED_LOCAL_BRAND",
+      "class_a": false
+    },
+    "Basic-Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "PureGym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "McFIT": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "JOHN REED": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Anytime Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Gold's Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "World Class": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitness Park": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FitActive": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Stay Fit Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "18GYM": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Ahilej": {
+      "verdict": "ABSENT",
+      "class_a": false,
+      "notes": "Serbia-only"
+    },
+    "XBody": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Clever Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitinn": {
+      "verdict": "ABSENT",
+      "class_a": false
+    }
+  },
+  "international_recheck": "ABSENT — Anytime/Basic-Fit/McFIT/PureGym/World Class/Ahilej/JOHN REED/Gold's Gym"
+}

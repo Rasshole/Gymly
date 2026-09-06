@@ -1,0 +1,47 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Urban Gym",
+        "GO GYM"
+      ],
+      "notes": "Urban = Bulevar Ivana Crnojevića Zetagradnja; GO GYM = TPC Ražnatović Trg Republike"
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Soko Gym Morača",
+        "Soko Gym City"
+      ],
+      "notes": "Distinct conventional floors; Lady + Mall wellness remain EXCLUDED"
+    },
+    {
+      "type": "D_RELOCATION",
+      "from": "City Fitness Pete proleterske",
+      "to": "City Fitness Dom Revolucije",
+      "notes": "2019 relocation; legacy CLOSED"
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Terzo Topla 2",
+        "Terzo Premium Igalo"
+      ],
+      "notes": "Two-site SMI estate; not Class A"
+    },
+    {
+      "type": "E_CLOSED_LEGACY",
+      "entities": [
+        "City Fitness Pete proleterske"
+      ]
+    }
+  ],
+  "soko_identity_map": {
+    "Morača": "READY conventional",
+    "City": "READY conventional distinct",
+    "Lady": "EXCLUDED aerobics/women specialist",
+    "Mall wellness": "EXCLUDED spa-primary"
+  }
+}

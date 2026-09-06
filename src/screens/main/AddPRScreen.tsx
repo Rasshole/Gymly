@@ -22,6 +22,7 @@ import {createThumbnail} from 'react-native-create-thumbnail';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, PersonalRecord} from '@/types/pr.types';
 import colors from '@/theme/colors';
+import {useTranslation, getExerciseDisplayName} from '@/i18n';
 
 type AddPRRouteParams = {
   exercise: ExerciseType;
@@ -35,15 +36,22 @@ const AddPRScreen = () => {
   const route = useRoute<RouteProp<{params: AddPRRouteParams}, 'params'>>();
   const {exercise, existingPR} = route.params || {};
   const {addPR, updatePR} = usePRStore();
+  const {t, language} = useTranslation();
 
   const [weight, setWeight] = useState(existingPR?.weight.toString() || '');
   const [videoUrl, setVideoUrl] = useState(existingPR?.videoUrl || '');
   const [videoThumbnailUrl, setVideoThumbnailUrl] = useState(existingPR?.videoThumbnailUrl || '');
   const [notes, setNotes] = useState(existingPR?.notes || '');
 
+  const exerciseDisplayName = getExerciseDisplayName({
+    exerciseId: null,
+    fallbackName: String(exercise ?? ''),
+    language,
+  });
+
   const handleSave = () => {
     if (!weight || isNaN(Number(weight)) || Number(weight) <= 0) {
-      Alert.alert('Ugyldig vægt', 'Indtast venligst en gyldig vægt i kg');
+      Alert.alert(t('addPr.invalidWeightTitle'), t('addPr.invalidWeightBody'));
       return;
     }
 
@@ -54,8 +62,8 @@ const AddPRScreen = () => {
         videoThumbnailUrl: videoThumbnailUrl.trim() || undefined,
         notes: notes.trim() || undefined,
       });
-      Alert.alert('PR opdateret', 'Din PR er blevet opdateret', [
-        {text: 'OK', onPress: () => navigation.goBack()},
+      Alert.alert(t('addPr.updatedTitle'), t('addPr.updatedBody'), [
+        {text: t('common.ok'), onPress: () => navigation.goBack()},
       ]);
     } else {
       addPR({
@@ -66,8 +74,8 @@ const AddPRScreen = () => {
         videoThumbnailUrl: videoThumbnailUrl.trim() || undefined,
         notes: notes.trim() || undefined,
       });
-      Alert.alert('PR tilføjet', 'Din PR er blevet tilføjet', [
-        {text: 'OK', onPress: () => navigation.goBack()},
+      Alert.alert(t('addPr.addedTitle'), t('addPr.addedBody'), [
+        {text: t('common.ok'), onPress: () => navigation.goBack()},
       ]);
     }
   };
@@ -75,11 +83,11 @@ const AddPRScreen = () => {
   const handleVideoPick = async () => {
     try {
     Alert.alert(
-        'Vælg video',
-        'Hvordan vil du tilføje videoen?',
+        t('addPr.pickVideoTitle'),
+        t('addPr.pickVideoBody'),
         [
           {
-            text: 'Optag video',
+            text: t('addPr.recordVideo'),
             onPress: async () => {
               const videoOptions: CameraOptions = {
                 mediaType: 'video',
@@ -93,14 +101,17 @@ const AddPRScreen = () => {
                 return;
               }
               if (response.errorCode) {
-                Alert.alert('Kamera fejl', response.errorMessage || 'Kunne ikke åbne kameraet.');
+                Alert.alert(
+                  t('addPr.cameraErrorTitle'),
+                  response.errorMessage || t('addPr.cameraErrorBody'),
+                );
                 return;
               }
               const asset = response.assets && response.assets[0];
               if (asset?.uri) {
                 // Check video duration if available
                 if (asset.duration && asset.duration > 30000) {
-                  Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+                  Alert.alert(t('addPr.videoTooLongTitle'), t('addPr.videoTooLongBody'));
                   return;
                 }
                 setVideoUrl(asset.uri);
@@ -112,12 +123,12 @@ const AddPRScreen = () => {
                 } catch (error) {
                   setVideoThumbnailUrl('');
                 }
-                Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
+                Alert.alert(t('addPr.videoAddedTitle'), t('addPr.videoAddedBody'));
               }
             },
           },
           {
-            text: 'Vælg fra bibliotek',
+            text: t('addPr.pickFromLibrary'),
             onPress: async () => {
               const libraryOptions: CameraOptions = {
                 mediaType: 'video',
@@ -128,14 +139,17 @@ const AddPRScreen = () => {
                 return;
               }
               if (response.errorCode) {
-                Alert.alert('Fejl', response.errorMessage || 'Kunne ikke åbne biblioteket.');
+                Alert.alert(
+                  t('common.error'),
+                  response.errorMessage || t('addPr.libraryErrorBody'),
+                );
                 return;
               }
               const asset = response.assets && response.assets[0];
               if (asset?.uri) {
                 // Check video duration if available
                 if (asset.duration && asset.duration > 30000) {
-                  Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+                  Alert.alert(t('addPr.videoTooLongTitle'), t('addPr.videoTooLongBody'));
                   return;
                 }
                 setVideoUrl(asset.uri);
@@ -147,18 +161,18 @@ const AddPRScreen = () => {
                 } catch (error) {
                   setVideoThumbnailUrl('');
                 }
-                Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
+                Alert.alert(t('addPr.videoAddedTitle'), t('addPr.videoAddedBody'));
               }
             },
           },
           {
-            text: 'Annuller',
+            text: t('common.cancel'),
             style: 'cancel',
           },
         ],
     );
     } catch (error) {
-      Alert.alert('Fejl', 'Kunne ikke åbne video picker. Tjek tilladelser og prøv igen.');
+      Alert.alert(t('common.error'), t('addPr.pickerErrorBody'));
     }
   };
 
@@ -173,7 +187,7 @@ const AddPRScreen = () => {
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
-          {existingPR ? 'Rediger PR' : 'Tilføj PR'}
+          {existingPR ? t('addPr.titleEdit') : t('addPr.titleAdd')}
         </Text>
         <View style={styles.headerSpacer} />
       </View>
@@ -181,17 +195,17 @@ const AddPRScreen = () => {
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Exercise Name */}
         <View style={styles.section}>
-          <Text style={styles.exerciseName}>{exercise}</Text>
+          <Text style={styles.exerciseName}>{exerciseDisplayName}</Text>
         </View>
 
         {/* Weight Input */}
         <View style={styles.section}>
-          <Text style={styles.inputLabel}>Vægt (kg)</Text>
+          <Text style={styles.inputLabel}>{t('addPr.weightKg')}</Text>
           <TextInput
             style={styles.input}
             value={weight}
             onChangeText={setWeight}
-            placeholder="F.eks. 100"
+            placeholder={t('addPr.weightPlaceholder')}
             keyboardType="numeric"
             placeholderTextColor="#8E8E93"
           />
@@ -199,9 +213,9 @@ const AddPRScreen = () => {
 
         {/* Video Section */}
         <View style={styles.section}>
-          <Text style={styles.inputLabel}>Video (max 30 sekunder)</Text>
+          <Text style={styles.inputLabel}>{t('addPr.videoLabel')}</Text>
           <Text style={styles.inputHint}>
-            Upload en video af dig der udfører øvelsen
+            {t('addPr.videoHint')}
           </Text>
           <TouchableOpacity
             style={styles.videoButton}
@@ -209,7 +223,7 @@ const AddPRScreen = () => {
             activeOpacity={0.8}>
             <Icon name="videocam" size={24} color="#007AFF" />
             <Text style={styles.videoButtonText}>
-              {videoUrl ? 'Video valgt' : 'Vælg video'}
+              {videoUrl ? t('addPr.videoSelected') : t('addPr.chooseVideo')}
             </Text>
           </TouchableOpacity>
           {videoUrl && (
@@ -221,19 +235,19 @@ const AddPRScreen = () => {
               }}
               activeOpacity={0.7}>
               <Icon name="close-circle" size={20} color="#FF3B30" />
-              <Text style={styles.removeVideoText}>Fjern video</Text>
+              <Text style={styles.removeVideoText}>{t('addPr.removeVideo')}</Text>
             </TouchableOpacity>
           )}
         </View>
 
         {/* Notes (Optional) */}
         <View style={styles.section}>
-          <Text style={styles.inputLabel}>Noter (valgfrit)</Text>
+          <Text style={styles.inputLabel}>{t('addPr.notesOptional')}</Text>
           <TextInput
             style={[styles.input, styles.textArea]}
             value={notes}
             onChangeText={setNotes}
-            placeholder="Tilføj noter om din PR..."
+            placeholder={t('addPr.notesPlaceholder')}
             placeholderTextColor="#8E8E93"
             multiline
             numberOfLines={4}
@@ -247,7 +261,7 @@ const AddPRScreen = () => {
           onPress={handleSave}
           activeOpacity={0.8}>
           <Text style={styles.saveButtonText}>
-            {existingPR ? 'Opdater PR' : 'Gem PR'}
+            {existingPR ? t('addPr.update') : t('addPr.save')}
           </Text>
         </TouchableOpacity>
       </ScrollView>
@@ -368,6 +382,3 @@ const styles = StyleSheet.create({
 });
 
 export default AddPRScreen;
-
-
-

@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-08-23T07:56:42.768850+00:00",
+  "production_total": 10878,
+  "production_ireland": 0,
+  "production_sha256_expected": "93283ab74cfb19bb197f6f09b7f833f3dfb56f1ff98a35c5aefa4c15ddb45b92",
+  "phase2_ready": 46,
+  "phase2_ready_preserved": 46,
+  "phase2_ready_demoted": [],
+  "phase2_ready_repaired": [
+    "ie_3225af54be",
+    "ie_fff8f6c2e7",
+    "ie_7448978ec4"
+  ],
+  "recovered_to_ready_ids": [
+    "ie_241577f236",
+    "ie_3695d3f418",
+    "ie_42999953b2",
+    "ie_470c031a08",
+    "ie_473cfd314f",
+    "ie_6719049de4",
+    "ie_6930f99872",
+    "ie_9083565cde",
+    "ie_91052fda94",
+    "ie_aac6d0e126",
+    "ie_b9072fcf04",
+    "ie_bccb68d5cc",
+    "ie_e7ced5aa52",
+    "ie_e90de52191",
+    "ie_f6926a1734",
+    "ie_f79236bac2",
+    "ie_f921b8f931"
+  ],
+  "net_new_ready_vs_phase2": 17,
+  "unique_staged": 82,
+  "ready_count": 63,
+  "status_counts": {
+    "READY_TO_IMPORT": 63,
+    "NEEDS_REVIEW": 19
+  },
+  "ready_by_brand": {
+    "Anytime Fitness": 5,
+    "Aura Leisure": 2,
+    "Ben Dunne Gyms": 4,
+    "Energie Fitness": 16,
+    "FLYEfit": 17,
+    "Gym Plus": 7,
+    "Iconic Health Clubs": 4,
+    "Shoreline Leisure": 2,
+    "West Wood Club": 6
+  },
+  "chains": {
+    "FLYEfit": {
+      "official_current": 22,
+      "discovered": 22,
+      "ready": 17,
+      "unresolved": 5,
+      "coverage_pct": 77.3,
+      "verdict": "NEAR-COMPLETE"
+    },
+    "Ben Dunne Gyms": {
+      "official_current": 5,
+      "discovered": 5,
+      "ready": 4,
+      "unresolved": 1,
+      "coverage_pct": 80.0,
+      "verdict": "NEAR-COMPLETE"
+    },
+    "Anytime Fitness": {
+      "official_current": 7,
+      "discovered": 6,
+      "ready": 5,
+      "unresolved": 1,
+      "coverage_pct": 71.4,
+      "verdict": "PARTIAL"
+    },
+    "Energie Fitness": {
+      "official_current": 16,
+      "discovered": 16,
+      "ready": 16,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "West Wood Club": {
+      "official_current": 6,
+      "discovered": 6,
+      "ready": 6,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "Aura Leisure": {
+      "official_current": 11,
+      "discovered": 11,
+      "ready": 2,
+      "unresolved": 9,
+      "coverage_pct": 18.2,
+      "verdict": "PARTIAL"
+    },
+    "Gym Plus": {
+      "official_current": 7,
+      "discovered": 7,
+      "ready": 7,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "Iconic Health Clubs": {
+      "official_current": 4,
+      "discovered": 4,
+      "ready": 4,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "Shoreline Leisure": {
+      "official_current": 2,
+      "discovered": 2,
+      "ready": 2,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    }
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "same_brand_le_25m": 0,
+    "same_brand_le_50m": 0,
+    "same_brand_le_100m": 0,
+    "same_brand_le_200m": 0,
+    "identical_coords": 0,
+    "invalid_eircodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_coords": 0,
+    "fallback_coords": 0,
+    "ni_contamination": 0,
+    "mojibake": 0
+  },
+  "duplicate_analysis_summary": {
+    "<=25m": 0,
+    "<=50m": 0,
+    "<=100m": 0,
+    "<=200m": 0,
+    "identical": 0,
+    "energie_tallaght_citywest": {
+      "distance_m": 3643.3,
+      "classification": "A_legitimate",
+      "tallaght": "ie_6930f99872",
+      "citywest": "ie_2574437176",
+      "tallaght_category": "READY_TO_IMPORT",
+      "citywest_category": "READY_TO_IMPORT"
+    }
+  },
+  "material_gaps": [
+    "Aura Leisure only 2/11 READY \u2014 official pages omit Eircodes for most centres"
+  ],
+  "non_blocking_gaps": [
+    "FLYEfit residual Eircode debt (5 clubs) with official coords already present",
+    "Ben Dunne Cherrywood still missing Eircode (business-park pin only)",
+    "Anytime Kilnamanagh Eircode still missing (district-only on official page)",
+    "Aura De Paul excluded (pool-only, no conventional gym)"
+  ],
+  "projected_catalog": 10941,
+  "crosses_12500": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "verdict": "IRELAND PHASE 4 REQUIRED BEFORE MERGE",
+  "phase4_required": true
+}

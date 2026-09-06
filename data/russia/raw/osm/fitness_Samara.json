@@ -1,0 +1,772 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1749755173,
+      "lat": 53.1991783,
+      "lon": 50.1791236,
+      "tags": {
+        "contact:email": "info@hammer63.ru",
+        "contact:phone": "+7 960 8081827",
+        "contact:website": "https://www.hammer63.ru",
+        "leisure": "fitness_centre",
+        "name": "Hammer",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 10:00-18:00",
+        "sport": "athletics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4314136490,
+      "lat": 53.2039688,
+      "lon": 50.1439859,
+      "tags": {
+        "contact:phone": "+7 846 2112246",
+        "contact:website": "https://samara.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4672884791,
+      "lat": 53.215747,
+      "lon": 50.1610562,
+      "tags": {
+        "addr:postcode": "443086",
+        "email": "marketing@fizkultura.info",
+        "leisure": "fitness_centre",
+        "name": "Fizкультура",
+        "name:ru": "Fizкультура",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-21:00",
+        "phone": "+78463004222",
+        "website": "https://fizkultura63.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4723898892,
+      "lat": 53.2503139,
+      "lon": 50.2001285,
+      "tags": {
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name:en": "Luxury-Fitness",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "phone": "+78463725050"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5817180413,
+      "lat": 53.2602651,
+      "lon": 50.2220529,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "TechnoGim"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6770703308,
+      "lat": 53.2086514,
+      "lon": 50.1305733,
+      "tags": {
+        "addr:housenumber": "16",
+        "addr:street": "Ново-Садовая улица",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6912788658,
+      "lat": 53.2095466,
+      "lon": 50.1756918,
+      "tags": {
+        "addr:housenumber": "64Б",
+        "addr:street": "Революционная улица",
+        "check_date": "2023-10-11",
+        "leisure": "fitness_centre",
+        "name": "MetroFitness",
+        "opening_hours": "24/7",
+        "phone": "+7 987 955-09-25;+7 846 205-09-25",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8517800245,
+      "lat": 53.2515885,
+      "lon": 50.2316285,
+      "tags": {
+        "addr:housenumber": "52Б",
+        "addr:street": "улица Георгия Димитрова",
+        "leisure": "fitness_centre",
+        "name": "Ботек",
+        "phone": "+7 846 927-05-05",
+        "sport": "fitness",
+        "website": "https://botek-fitness.ru/network/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377400,
+      "lat": 53.139774,
+      "lon": 50.173309,
+      "tags": {
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 846 2060578",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-samara-v-tk-ambar.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "ИП Шкуратова С.А."
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377401,
+      "lat": 53.2311505,
+      "lon": 50.2088714,
+      "tags": {
+        "check_date": "2024-07-15",
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 846 2060578",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-samara-v-tk-shipka.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "ИП Шкуратова С.А."
+      }
+    },
+    {
+      "type": "node",
+      "id": 9645290005,
+      "lat": 53.204263,
+      "lon": 50.148377,
+      "tags": {
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 812 6100606",
+        "contact:website": "https://www.fitnesshouse.ru/fh-monte-roza.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10576483682,
+      "lat": 53.218167,
+      "lon": 50.168299,
+      "tags": {
+        "contact:email": "marketing@fizkultura.info",
+        "contact:phone": "+7 846 2140722",
+        "contact:website": "https://fizkultura63.ru",
+        "leisure": "fitness_centre",
+        "name": "Fizкультура",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10670023027,
+      "lat": 53.1863486,
+      "lon": 50.1281422,
+      "tags": {
+        "contact:email": "help@fhclub.ru",
+        "contact:phone": "+7 800 5050606",
+        "contact:website": "https://www.fitnesshouse.ru/fh-samara-v-tk-gudok.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10697378433,
+      "lat": 53.1914063,
+      "lon": 50.1021784,
+      "tags": {
+        "contact:email": "apollo-gym@mail.ru",
+        "contact:phone": "+7 917 1075179",
+        "contact:website": "https://apolloboxing.ru",
+        "leisure": "fitness_centre",
+        "name": "Apollo Gym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa 08:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10697393652,
+      "lat": 53.1962608,
+      "lon": 50.1157906,
+      "tags": {
+        "contact:email": "kangaroo_club@inbox.ru",
+        "contact:phone": "+7 846 2476777",
+        "contact:website": "https://kangaroo-club.ru",
+        "leisure": "fitness_centre",
+        "name": "Kangaroo",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10697393660,
+      "lat": 53.2065595,
+      "lon": 50.1908899,
+      "tags": {
+        "contact:email": "fitnessreforma.samara@yandex.ru",
+        "contact:phone": "+7 937 2060845",
+        "contact:website": "https://reforma.2gis.biz",
+        "leisure": "fitness_centre",
+        "name": "Reforma",
+        "opening_hours": "Mo-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10828246022,
+      "lat": 53.2149461,
+      "lon": 50.2852646,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Маяк"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10928207899,
+      "lat": 53.2104437,
+      "lon": 50.1522981,
+      "tags": {
+        "contact:email": "info@sokwellness.ru",
+        "contact:phone": "+7 846 3131313",
+        "contact:website": "https://www.sokwellness.ru/",
+        "leisure": "fitness_centre",
+        "name": "Сок Велнес",
+        "opening_hours": "Mo-Fr 08:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10928208216,
+      "lat": 53.2016659,
+      "lon": 50.1513058,
+      "tags": {
+        "contact:email": "amstaffcb@gmail.com",
+        "contact:phone": "+7 917 1059332",
+        "contact:website": "https://amstaffcb.ru/",
+        "leisure": "fitness_centre",
+        "name": "Amstaff",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 10:00-17:00",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11104619791,
+      "lat": 53.2747893,
+      "lon": 50.1943766,
+      "tags": {
+        "contact:email": "fitness.samarskiy@mail.ru",
+        "contact:phone": "+7 846 3021516",
+        "contact:website": "https://samarskiy-fitness.ru/",
+        "leisure": "fitness_centre",
+        "name": "Самарский",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa 08:00-22:00; Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11414655084,
+      "lat": 53.2072777,
+      "lon": 50.1981012,
+      "tags": {
+        "check_date": "2026-06-08",
+        "contact:phone": "+7 495 2555000",
+        "contact:website": "https://www.ddxfitness.ru",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "DDX",
+        "opening_hours": "Mo-Su 06:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443646,
+      "lat": 53.2133909,
+      "lon": 50.2399024,
+      "tags": {
+        "contact:phone": "+7 846 2218887;+7 963 9153570",
+        "contact:website": "http://lady-stretch.online/samara/",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443648,
+      "lat": 53.2589048,
+      "lon": 50.2194934,
+      "tags": {
+        "contact:phone": "+7 846 2218887;+7 963 9153659",
+        "contact:website": "http://lady-stretch.online/samara/",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443649,
+      "lat": 53.202688,
+      "lon": 50.1242278,
+      "tags": {
+        "contact:phone": "+7 846 2218887;+7 963 9153672",
+        "contact:website": "http://lady-stretch.online/samara/",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443650,
+      "lat": 53.22019,
+      "lon": 50.1550035,
+      "tags": {
+        "contact:phone": "+7 846 2218887;+7 963 9153650",
+        "contact:website": "http://lady-stretch.online/samara/",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11594121851,
+      "lat": 53.2073338,
+      "lon": 50.2040112,
+      "tags": {
+        "contact:email": "Fithall63@yandex.ru",
+        "contact:phone": "+7 846 2254020",
+        "contact:website": "https://fit-hall.ru/",
+        "leisure": "fitness_centre",
+        "name": "Fithall",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11594121945,
+      "lat": 53.1933941,
+      "lon": 50.1253045,
+      "tags": {
+        "contact:email": "samara@recordfit.ru",
+        "contact:phone": "+7 846 2140124",
+        "contact:website": "https://recordfit63.ru/",
+        "leisure": "fitness_centre",
+        "name": "Рекорд",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11766319549,
+      "lat": 53.1944547,
+      "lon": 50.1110673,
+      "tags": {
+        "contact:email": "info@margifit.ru",
+        "contact:phone": "+7 958 5780300",
+        "contact:website": "https://margifit.ru",
+        "leisure": "fitness_centre",
+        "name": "Margi",
+        "opening_hours": "Mo-Fr 09:00-21:00; Sa-Su 09:00-17:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11843571511,
+      "lat": 53.237061,
+      "lon": 50.2423992,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Железо"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11889107212,
+      "lat": 53.2430122,
+      "lon": 50.1845437,
+      "tags": {
+        "contact:phone": "+7 846 2550605",
+        "leisure": "fitness_centre",
+        "name": "Скинь",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12119828298,
+      "lat": 53.2229813,
+      "lon": 50.191615,
+      "tags": {
+        "addr:city": "Самара",
+        "addr:housenumber": "43",
+        "addr:postcode": "443086",
+        "addr:street": "Московское шоссе",
+        "alt_name": "Pride Fitness",
+        "check_date": "2026-04-02",
+        "leisure": "fitness_centre",
+        "name": "Прайд",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "Прайд фитнес",
+        "phone": "+7 (846) 212-99-09",
+        "sport": "fitness;yoga;multi",
+        "website": "https://pridefit.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12195403090,
+      "lat": 53.1886354,
+      "lon": 50.131823,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Гора-Фитнесс"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12886241543,
+      "lat": 53.2032116,
+      "lon": 50.1568457,
+      "tags": {
+        "addr:city": "Самара",
+        "addr:housenumber": "17",
+        "addr:postcode": "443013",
+        "addr:street": "Московское шоссе",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Royal Gym",
+        "phone": "+7 846 9549090",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12926977952,
+      "lat": 53.2001846,
+      "lon": 50.1987269,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fizкультура"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12994284854,
+      "lat": 53.2615021,
+      "lon": 50.2250421,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Hammer"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754232,
+      "lat": 53.256809,
+      "lon": 50.2127926,
+      "tags": {
+        "contact:phone": "+7 846 2052000;89179612500",
+        "contact:website": "https://samara.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "way",
+      "id": 28776732,
+      "center": {
+        "lat": 53.2005384,
+        "lon": 50.1436226
+      },
+      "tags": {
+        "addr:housenumber": "4Б",
+        "addr:postcode": "443013",
+        "addr:street": "Дачная улица",
+        "building": "yes",
+        "building:levels": "1",
+        "leisure": "fitness_centre",
+        "name": "Тригон",
+        "sport": "tennis"
+      }
+    },
+    {
+      "type": "way",
+      "id": 40679393,
+      "center": {
+        "lat": 53.1896437,
+        "lon": 50.1207214
+      },
+      "tags": {
+        "addr:housenumber": "7А",
+        "addr:street": "улица Агибалова",
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "Локомотив",
+        "name:en": "Locomotive",
+        "name:ru": "Локомотив"
+      }
+    },
+    {
+      "type": "way",
+      "id": 42320219,
+      "center": {
+        "lat": 53.188374,
+        "lon": 50.1087453
+      },
+      "tags": {
+        "addr:housenumber": "97А",
+        "addr:postcode": "443020",
+        "addr:street": "улица Льва Толстого",
+        "building": "commercial",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "Динамо"
+      }
+    },
+    {
+      "type": "way",
+      "id": 42591122,
+      "center": {
+        "lat": 53.2138736,
+        "lon": 50.2576636
+      },
+      "tags": {
+        "addr:housenumber": "101",
+        "addr:street": "Физкультурная улица",
+        "building": "sports_centre",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "Дворец спорта легкой атлетики"
+      }
+    },
+    {
+      "type": "way",
+      "id": 50344187,
+      "center": {
+        "lat": 53.1907698,
+        "lon": 50.1216007
+      },
+      "tags": {
+        "addr:housenumber": "7",
+        "addr:street": "улица Агибалова",
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 91611249,
+      "center": {
+        "lat": 53.2393218,
+        "lon": 50.1813748
+      },
+      "tags": {
+        "addr:housenumber": "253А",
+        "addr:street": "улица Советской Армии",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "МТЛ Арена"
+      }
+    },
+    {
+      "type": "way",
+      "id": 335937390,
+      "center": {
+        "lat": 53.2201082,
+        "lon": 50.2668269
+      },
+      "tags": {
+        "addr:housenumber": "116",
+        "addr:street": "Физкультурная улица",
+        "building": "yes",
+        "building:levels": "4",
+        "leisure": "fitness_centre",
+        "name": "Гармония",
+        "name:en": "Garmoniya"
+      }
+    },
+    {
+      "type": "way",
+      "id": 396570182,
+      "center": {
+        "lat": 53.1179582,
+        "lon": 50.1646293
+      },
+      "tags": {
+        "addr:city": "Южный Город",
+        "addr:housenumber": "4",
+        "addr:street": "Николаевский проспект",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Спортивный центр с бассейном"
+      }
+    },
+    {
+      "type": "way",
+      "id": 406132424,
+      "center": {
+        "lat": 53.2253944,
+        "lon": 50.1755175
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 406196157,
+      "center": {
+        "lat": 53.2398201,
+        "lon": 50.1817593
+      },
+      "tags": {
+        "addr:housenumber": "253В",
+        "addr:street": "улица Советской Армии",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 426763073,
+      "center": {
+        "lat": 53.2269812,
+        "lon": 50.2955211
+      },
+      "tags": {
+        "addr:housenumber": "161",
+        "addr:street": "Зубчаниновское шоссе",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Поиск ВостоК"
+      }
+    },
+    {
+      "type": "way",
+      "id": 438417354,
+      "center": {
+        "lat": 53.2213739,
+        "lon": 50.2356519
+      },
+      "tags": {
+        "addr:housenumber": "70А",
+        "addr:street": "Ново-Вокзальная улица",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ФОК \"Орбита\""
+      }
+    },
+    {
+      "type": "way",
+      "id": 580765711,
+      "center": {
+        "lat": 53.1788284,
+        "lon": 50.1369142
+      },
+      "tags": {
+        "building": "sports_centre",
+        "leisure": "fitness_centre",
+        "name": "Спортзал",
+        "roof:shape": "round"
+      }
+    },
+    {
+      "type": "way",
+      "id": 854000453,
+      "center": {
+        "lat": 53.1082921,
+        "lon": 50.1413158
+      },
+      "tags": {
+        "addr:housenumber": "43",
+        "addr:street": "Николаевский проспект",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 880615481,
+      "center": {
+        "lat": 53.2194033,
+        "lon": 50.2109641
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "школьный спортзал"
+      }
+    },
+    {
+      "type": "way",
+      "id": 880984220,
+      "center": {
+        "lat": 53.1979859,
+        "lon": 50.1797746
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 881819239,
+      "center": {
+        "lat": 53.211788,
+        "lon": 50.2184228
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 881823346,
+      "center": {
+        "lat": 53.2534047,
+        "lon": 50.3372468
+      },
+      "tags": {
+        "addr:housenumber": "69А",
+        "addr:street": "улица Александра Невского",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ФОК Невский"
+      }
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "generated": "2026-08-23T15:08:41.250Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "pre_merge_sha256": "5790acc0a384eef02c40269dd55e72488555e29c4a7970ff27b231a3239f4a30",
+  "baseline": {
+    "total": 10943,
+    "czechia": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65
+  },
+  "approved_candidates": 70,
+  "validated_safe": 70,
+  "inserted": 70,
+  "withheld": 0,
+  "withheld_details": [],
+  "after": {
+    "total": 11013,
+    "czechia": 70,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65
+  },
+  "duplicate_ids": [],
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "mcfit": 0
+  },
+  "brand_breakdown_canonical": {
+    "FITINN": 1,
+    "Form Factory": 43,
+    "JOHN REED": 1,
+    "Max Fitness": 23,
+    "Oktagon Gym": 1,
+    "clever fit": 1
+  },
+  "brand_breakdown_production": {
+    "clever fit": 1,
+    "FITINN": 1,
+    "Form Factory": 43,
+    "JOHN REED": 1,
+    "Max Fitness": 23,
+    "Oktagon Gym": 1
+  },
+  "international_chain_checks": {
+    "john_reed_count": 1,
+    "john_reed_address_ok": true,
+    "clever_fit_count": 1,
+    "clever_fit_kladno": true,
+    "fitinn_count": 1,
+    "fitinn_brno": true,
+    "mcfit_count": 0
+  },
+  "pre_merge_validation": {
+    "candidate_count": 70,
+    "cz_prefix": true,
+    "duplicate_ids": 0,
+    "invalid_psc": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "rebrand_conflicts": 0,
+    "staging_exclusions": 0,
+    "result": "PASS_ALL"
+  },
+  "post_merge": {
+    "czechia_rows": 70,
+    "cz_prefix": true,
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  },
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    }
+  },
+  "staging": {
+    "MERGED_INTO_CATALOG": 70,
+    "NEEDS_COORDINATES": 7,
+    "NEEDS_REVIEW": 8,
+    "COMING_SOON": 0,
+    "CLOSED": 0,
+    "EXCLUDED": 0,
+    "DUPLICATE_LEGACY": 0
+  },
+  "rebrand_map": {
+    "generated": "2026-08-23T14:45:07.621963+00:00",
+    "entries": [
+      {
+        "legacy": "Form Factory /klub/fitness-* only crawl (Phase 1)",
+        "successor": "Form Factory full listing incl. the-gym-* slugs",
+        "notes": "Phase 1 missed 13 the-gym-* clubs present on formfactory.cz/kluby/"
+      }
+    ],
+    "phase1_ready_preserved_count": 52,
+    "excluded_brands": [
+      {
+        "brand": "McFIT",
+        "reason": "No verified current Czech studio estate"
+      },
+      {
+        "brand": "Next.Move",
+        "reason": "Single-site operator below multi-location chain threshold"
+      },
+      {
+        "brand": "BBC Fitness",
+        "reason": "Site unreachable"
+      },
+      {
+        "brand": "Factory Pro",
+        "reason": "Site unreachable"
+      }
+    ],
+    "international_chains": {
+      "clever_fit_cz_studios": 1,
+      "fitinn_cz_studios": 1,
+      "john_reed_cz_studios": 1,
+      "mcfit_cz_studios": 0
+    }
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous_production": 10943,
+    "new_production": 11013,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "CZECHIA MERGE COMPLETE — WAITING FOR QA",
+  "post_merge_sha256": "1dd13d7ae69cc6741ec21a285a42d785356370ae2e723b2cc12b0b48656d5ebb",
+  "staging_reconciliation": {
+    "production_cz_ids": 70,
+    "staging_merged_ids": 70,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "performance": {
+    "catalog": 11013,
+    "active": 11009,
+    "json_size_mb": 2.54,
+    "parse_ms": 8,
+    "cold_index_ms": 1339,
+    "cached_index_ms": 0,
+    "typical_search_ms": 145,
+    "worst_search_ms": 22,
+    "nearest_ms": 3,
+    "map_build_ms": 4,
+    "viewport_filter_ms": 2,
+    "scale_note": "~11k live catalog; no architecture migration"
+  }
+}

@@ -1,7 +1,7 @@
 /**
  * Custom tab bar – faner med ikoner og labels
  * Rapporterer faktisk højde til navigatoren så useBottomTabBarHeight() er korrekt.
- * Launch: lidt mere horisontal luft + `minWidth: 0` så seks faner forbliver balancerede.
+ * Launch: lidt mere horisontal luft + `minWidth: 0` så fem faner forbliver balancerede.
  */
 
 import React, {useMemo} from 'react';
@@ -20,7 +20,7 @@ import {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTranslation} from '@/i18n';
 import colors from '@/theme/colors';
-import {spacing, radius, shadows, typography} from '@/theme/designTokens';
+import {spacing, radius, typography} from '@/theme/designTokens';
 import {useChatStore} from '@/store/chatStore';
 import NotificationBadge from '@/components/ui/Badge';
 
@@ -29,7 +29,7 @@ const TAB_ICONS: Record<string, {focused: string; blur: string}> = {
   Home: {focused: 'home', blur: 'home-outline'},
   Friends: {focused: 'people', blur: 'people-outline'},
   CheckIn: {focused: 'barbell', blur: 'barbell-outline'},
-  Badges: {focused: 'ribbon', blur: 'ribbon-outline'},
+  Shop: {focused: 'bag-handle', blur: 'bag-handle-outline'},
   Messages: {focused: 'chatbubbles', blur: 'chatbubbles-outline'},
   Profile: {focused: 'person', blur: 'person-outline'},
 };
@@ -38,7 +38,7 @@ const TAB_LABEL_KEYS: Record<string, string> = {
   Home: 'tabs.home',
   Friends: 'tabs.friends',
   CheckIn: 'tabs.checkIn',
-  Badges: 'tabs.badges',
+  Shop: 'tabs.shop',
   Messages: 'tabs.messages',
   Profile: 'tabs.profile',
 };
@@ -47,12 +47,30 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
   const {t} = useTranslation();
   const insets = useSafeAreaInsets();
   const onTabBarHeight = React.useContext(BottomTabBarHeightCallbackContext);
-  const iconSize = 34;
+  const iconSize = 26;
   const chats = useChatStore(s => s.chats);
   const messagesUnread = useMemo(
     () => chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
     [chats],
   );
+
+  const focusedOptions = descriptors[state.routes[state.index]?.key ?? '']?.options;
+  const flattenedTabBarStyle = StyleSheet.flatten(
+    focusedOptions?.tabBarStyle as object | undefined,
+  ) as {display?: string} | undefined;
+  const tabBarHidden = flattenedTabBarStyle?.display === 'none';
+
+  React.useEffect(() => {
+    if (tabBarHidden) {
+      // Reset reserved height so product detail does not keep a blank band
+      // under the sticky Buy now footer after the tab bar is hidden.
+      onTabBarHeight?.(0);
+    }
+  }, [tabBarHidden, onTabBarHeight]);
+
+  if (tabBarHidden) {
+    return null;
+  }
 
   const onLayout = (e: LayoutChangeEvent) => {
     onTabBarHeight?.(e.nativeEvent.layout.height);
@@ -155,8 +173,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    paddingTop: spacing.md,
-    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingHorizontal: spacing.sm,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -165,14 +183,16 @@ const styles = StyleSheet.create({
     minWidth: 0,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 2,
   },
   tabContent: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: spacing.xs,
+    paddingHorizontal: 2,
     paddingVertical: spacing.xs,
     borderRadius: radius.lg,
-    minWidth: 52,
+    minWidth: 0,
+    width: '100%',
   },
   tabContentFocused: {
     backgroundColor: colors.primary + '14',
@@ -196,7 +216,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
     color: colors.text,
-    marginTop: 3,
+    marginTop: 2,
+    maxWidth: '100%',
   },
   activeDot: {
     marginTop: 4,

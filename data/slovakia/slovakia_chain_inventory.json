@@ -1,0 +1,124 @@
+{
+  "country": "Slovakia",
+  "phase": 1,
+  "production_sha_before": "f31734acfd849b54f7cfeeb8d8f896980ed90fd975a87ae85f2aa1c6d1356854",
+  "production_total": 11217,
+  "slovakia_live": 0,
+  "chains": [
+    {
+      "chain": "FITINN",
+      "classification": "A",
+      "official_estimate": 3,
+      "discovered": 3,
+      "with_coords": 1,
+      "foreign_skipped": 0,
+      "missing_pages": [],
+      "source": "https://fitinn.sk/nase-studia/",
+      "verdict": "PARTIAL",
+      "notes": "fitinn.sk lists multi-country studios; SK filtered by postcode 0/8/9 + Bratislava/Nitra slugs"
+    },
+    {
+      "chain": "Golem Club",
+      "classification": "A",
+      "official_estimate": 11,
+      "discovered": 11,
+      "with_coords": 0,
+      "source": "https://www.golemclub.sk/sk/o-nas/vseobecne-obchodne-podmienky",
+      "verdict": "NEAR-COMPLETE",
+      "notes": "11 fitness clubs from official VOP; physiotherapy branch excluded as specialty"
+    },
+    {
+      "chain": "Form Factory",
+      "classification": "A",
+      "discovered": 18,
+      "verdict": "NEAR-COMPLETE",
+      "coming_soon": 3,
+      "with_coords": 0,
+      "notes": "WP club CPT + ADRESA pages; FitCamp absorbed; 3 coming-soon withheld",
+      "ready_estimate": 14
+    },
+    {
+      "chain": "365 Fit&Co",
+      "classification": "A",
+      "official_estimate": 8,
+      "discovered": 10,
+      "with_coords": 0,
+      "dedicated_pages": 10,
+      "source": "https://365fitco.sk/",
+      "verdict": "PARTIAL",
+      "notes": "Homepage lists ~8–9 cities; several lack dedicated address pages — Phase 2 likely"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "EfectFit",
+      "classification": "C",
+      "evidence": "Official site: sieť privátnych fitness centier / personal training focus; mixed SR+CZ",
+      "action": "EXCLUDE_FROM_PHASE1_READY",
+      "reachable": true
+    },
+    {
+      "chain": "FitCamp",
+      "classification": "F",
+      "evidence": "Form Factory lists FitCamp as a Form Factory club (Ružinov); brand succession",
+      "action": "REBRAND_TO_FORM_FACTORY",
+      "reachable": true
+    },
+    {
+      "chain": "Mozolani Fitness",
+      "classification": "E",
+      "evidence": "Single-operator / boutique; not a national multi-location conventional chain at Phase 1 scale",
+      "action": "BELOW_INCLUSION_THRESHOLD",
+      "reachable": true
+    },
+    {
+      "chain": "Maximus / Maximus Gym",
+      "classification": "E",
+      "evidence": "No multi-location national estate confirmed; single-site / local",
+      "action": "BELOW_INCLUSION_THRESHOLD",
+      "reachable": false
+    },
+    {
+      "chain": "MultiSport / benefit pass networks",
+      "classification": "B",
+      "evidence": "Membership/pass aggregator — partner gyms are not the operator",
+      "action": "EXCLUDE",
+      "reachable": true
+    }
+  ],
+  "status_counts": {
+    "READY_TO_IMPORT": 32,
+    "NEEDS_COORDINATES": 5,
+    "NEEDS_REVIEW": 1,
+    "COMING_SOON": 3
+  },
+  "ready_by_brand": {
+    "FITINN": 3,
+    "Golem Club": 11,
+    "365 Fit&Co": 4,
+    "Form Factory": 14
+  },
+  "city_coverage": {
+    "Bratislava": true,
+    "Košice": true,
+    "Prešov": true,
+    "Žilina": true,
+    "Banská Bystrica": true,
+    "Nitra": true,
+    "Trnava": false,
+    "Trenčín": true,
+    "Martin": true,
+    "Poprad": true,
+    "Považská Bystrica": true,
+    "Spišská Nová Ves": true
+  },
+  "coverage_notes": {
+    "Golem Club": "Official VOP estate — 11 fitness clubs; physiotherapy excluded",
+    "Form Factory": "WP club CPT (~18) — growing; coming-soon clubs staged separately",
+    "FITINN": "fitinn.sk multi-country locator — SK filtered by PSČ 0/8/9",
+    "365 Fit&Co": "Homepage lists ~8 cities — dedicated pages incomplete; Phase 2 likely",
+    "EfectFit": "EXCLUDED — private personal-training specialty network",
+    "FitCamp": "REBRAND — absorbed into Form Factory FitCamp club",
+    "MultiSport": "EXCLUDED — pass aggregator"
+  }
+}

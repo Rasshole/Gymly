@@ -1,0 +1,861 @@
+{
+  "generated_at": "2026-08-20 18:46 UTC",
+  "phase": 4,
+  "baseline_phase3": {
+    "READY_TO_IMPORT": 954,
+    "NEEDS_COORDINATES": 120,
+    "NEEDS_REVIEW": 2,
+    "COMING_SOON": 4,
+    "DUPLICATE": 60,
+    "unique_excl_dup": 1080
+  },
+  "overall": {
+    "unique_staged_excl_duplicates": 1076,
+    "READY_TO_IMPORT": 978,
+    "NEEDS_COORDINATES": 92,
+    "NEEDS_REVIEW": 2,
+    "COMING_SOON": 4,
+    "CLOSED": 0,
+    "DUPLICATE": 64
+  },
+  "synergym": {
+    "discovered": 194,
+    "ready": 143,
+    "unresolved": 51,
+    "coming_soon": 0,
+    "closed": 0,
+    "duplicate": 27,
+    "recovered_phase4": 17,
+    "unresolved_phase3": 71
+  },
+  "fitness_park": {
+    "discovered": 149,
+    "ready": 114,
+    "unresolved": 35,
+    "coming_soon": 0,
+    "closed": 0,
+    "duplicate": 14,
+    "recovered_phase4": 7,
+    "unresolved_phase3": 43
+  },
+  "synergym_verdict": "NEAR-COMPLETE",
+  "fitness_park_verdict": "NEAR-COMPLETE",
+  "coordinate_sources_phase4_new_ready": {
+    "STRICT_ADDRESS_GEOCODE": 23,
+    "NAMED_GYM_POI": 1
+  },
+  "coordinate_sources_all_ready": {
+    "STRICT_ADDRESS_GEOCODE": 277,
+    "OFFICIAL_COORDINATE": 587,
+    "NAMED_GYM_POI": 44,
+    "OFFICIAL_MAP_PIN": 70
+  },
+  "ready_by_brand": {
+    "Altafit": 5,
+    "Basic-Fit": 238,
+    "DIR": 22,
+    "Synergym": 143,
+    "Anytime Fitness": 57,
+    "BeOne": 25,
+    "Dreamfit": 20,
+    "Eurofitness": 3,
+    "Fitness Park": 114,
+    "Forus": 48,
+    "GO fit": 13,
+    "Holiday Gym": 22,
+    "Metropolitan": 3,
+    "O2 Centro Wellness": 1,
+    "VivaGym": 246,
+    "Enjoy!": 18
+  },
+  "data_quality": {
+    "missing_addresses": 6,
+    "missing_postal_codes": 101,
+    "missing_cities": 0,
+    "missing_coordinates": 94
+  },
+  "remaining_synergym": [
+    {
+      "id": "es_301ef8ab3d",
+      "name": "Synergym Vecindario El Doctoral",
+      "address": "Av. de las Tirajanas, 225",
+      "city": "Vecindario",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_bfa384ed17",
+      "name": "Synergym Castellón",
+      "address": "Av. de Valencia, 108",
+      "city": "Castellón de la Plana",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_eb38fdb0bb",
+      "name": "Synergym A Coruña Matadero",
+      "address": "Avenida de Pedro Barrié de la Maza, 3",
+      "city": "La Coruña",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_3e47e5f7f6",
+      "name": "Synergym Ourense Progreso",
+      "address": "Rúa do Progreso, 125",
+      "city": "Ourense",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_6f79933387",
+      "name": "Synergym Logroño ConservatorioMarques de Murrieta, 62, Logroño, La Rioja",
+      "address": "",
+      "city": "Logroño",
+      "postal_code": null,
+      "category": "NEEDS_REVIEW",
+      "reason": "incomplete_address"
+    },
+    {
+      "id": "es_d514057187",
+      "name": "Synergym Murcia",
+      "address": "Calle Sta. Teresa",
+      "city": "Murcia",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_2c67cb6107",
+      "name": "Synergym Murcia Ranero",
+      "address": "Calle Cisne, 4",
+      "city": "Murcia",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_383ca702a6",
+      "name": "Synergym Pamplona Buztintxuri",
+      "address": "Av. de Guipúzcoa, 20",
+      "city": "Pamplona",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_3cc2b3739e",
+      "name": "Synergym Bilbao IndautxuEgia Generaleran",
+      "address": "Callea, 38",
+      "city": "Bilbao",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_7769450636",
+      "name": "Synergym Algeciras",
+      "address": "Av. Virgen del Carmen, 4",
+      "city": "Algeciras",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_3a06675bde",
+      "name": "Synergym Zaragoza Las Fuentes",
+      "address": "C. de Florentino Ballesteros, 21",
+      "city": "Zaragoza",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_a4b870775f",
+      "name": "Synergym Barcelona el Clot",
+      "address": "C/ de Mallorca, 673",
+      "city": "Barcelona",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_72a3196ed9",
+      "name": "Synergym Logroño Las Gaunas",
+      "address": "Calle Huesca, 17",
+      "city": "Logroño",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_21c52813be",
+      "name": "Synergym Guadalajara Las Cañas",
+      "address": "Boulevard Clara Campoamor, 22",
+      "city": "Guadalajara",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_9954fd14f8",
+      "name": "Synergym Zaragoza Aljafería",
+      "address": "Av. de Madrid 21",
+      "city": "Zaragoza",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_e8593cff82",
+      "name": "Synergym Motril Sur",
+      "address": "Av. Doctor Norman Bethune",
+      "city": "230 Motril-Granada",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_5b577320cc",
+      "name": "Synergym Puerto del Rosario",
+      "address": "Av. Juan de Bethencourt, 41",
+      "city": "Puerto del Rosario",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_3f97ca80fb",
+      "name": "Synergym Alcàsser",
+      "address": "Av. Cortes Valencianas, 50",
+      "city": "Alcàsser",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_cb563ef22e",
+      "name": "Synergym Segovia Santo Tomás",
+      "address": "C. Santo Tomás",
+      "city": "Segovia",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_c070d2beb9",
+      "name": "Synergym Pamplona Olite",
+      "address": "Calle de Olite, 40",
+      "city": "Pamplona",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_ea84f9b524",
+      "name": "Synergym Gandía",
+      "address": "C. Nou d’octubre, 17",
+      "city": "Gandía",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_b18a765cc1",
+      "name": "Synergym Bilbao Sarriko",
+      "address": "C. Islas Canarias, 4",
+      "city": "Bilbao",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_12266bd52d",
+      "name": "Synergym Zaragoza Rosales",
+      "address": "C. de Ludwig van Beethoven, 66",
+      "city": "Zaragoza",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_afcff621e7",
+      "name": "Synergym Zaragoza Cuéllar",
+      "address": "P.º de Cuéllar, 37",
+      "city": "Zaragoza",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_200134f76e",
+      "name": "Synergym Ourense Norte",
+      "address": "Calle Río Sil",
+      "city": "Ourense",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_dfe71e98fc",
+      "name": "Synergym Yecla",
+      "address": "Calle Ctra. de Villena",
+      "city": "Yecla",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_5e681d76f3",
+      "name": "Synergym Zaragoza Valdespartera",
+      "address": "Av. de Casablanca",
+      "city": "Zaragoza",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_de6a3b3108",
+      "name": "Synergym Ontinyent",
+      "address": "Carrer de l'Ereta, 7",
+      "city": "Ontinyent",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_9197f8269a",
+      "name": "Synergym Plasencia",
+      "address": "Av. la Salle, 23",
+      "city": "Plasencia",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_fd52d711fc",
+      "name": "Synergym Torrent El Molí",
+      "address": "C. Picaña, 36",
+      "city": "Torrent",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_2660be0e34",
+      "name": "Synergym Cartagena Nueva Peral",
+      "address": "C. Batalla de Zama, 50",
+      "city": "Cartagena",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_0488899afc",
+      "name": "Synergym Factory Dos Hermanas",
+      "address": "Ctra. Sevilla-Cádiz, km.553.8",
+      "city": "Dos Hermanas",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_51af142cce",
+      "name": "Synergym Alzira Naranjo",
+      "address": "C. Naranjo, 105",
+      "city": "Alzira",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_4a9bcc9f10",
+      "name": "Synergym Almería Los Molinos",
+      "address": "C. Pintor Zabaleta, 61A",
+      "city": "Local 1",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_8972d913ec",
+      "name": "Synergym Linares",
+      "address": "Av. Julio Burrel 43-45",
+      "city": "Linares",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_db85b175bc",
+      "name": "Synergym Lepe",
+      "address": "Av. de Andalucía, 5",
+      "city": "Lepe",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_3b8e603758",
+      "name": "Synergym UtreraUtrera -",
+      "address": "Ctra. Madrid - Cádiz N IV, 30",
+      "city": "41710 Utrera",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_cccda46f9a",
+      "name": "Synergym Lleida La Bordeta",
+      "address": "C/Sebastià Gràcia",
+      "city": "Lleida",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_628de8b223",
+      "name": "Synergym Arroyo de la Encomienda",
+      "address": "Av. de José Luis Lasa, 114",
+      "city": "Arroyo de la Encomienda",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_602830d949",
+      "name": "Synergym Vall d’Uixó",
+      "address": "Ctra. Nules, 6",
+      "city": "Vall de Uxó",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_f2f49a7785",
+      "name": "Synergym Antequera",
+      "address": "Calle Cdad. De Salamanca",
+      "city": "s/n",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_42dc2f74d3",
+      "name": "Synergym Esplugues",
+      "address": "Carrer Verge de Guadalupe, 30",
+      "city": "08950 Esplugues de Llobregat",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_51bf145859",
+      "name": "Synergym Rota",
+      "address": "Parque Comercial Portalejos. C. Valverde de la Vega, s/n",
+      "city": "Rota",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_f21c59faeb",
+      "name": "Synergym Castellón Capuchinos",
+      "address": "Av. de Capuchinos, 55",
+      "city": "Castellón de la Plana",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_37f2c073d2",
+      "name": "Synergym Villanueva de la Serena",
+      "address": "Calle Hernán Cortes",
+      "city": "4. Planta 1º. Villanueva de la Serena",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_826cc40be9",
+      "name": "Synergym Arrecife Triana",
+      "address": "C. Triana 78",
+      "city": "Arrecife",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_48a9224032",
+      "name": "Synergym Cáceres El Rodeo",
+      "address": "C. María Auxiliadora, 10",
+      "city": "Centro-Casco Antiguo",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_a255a07fdd",
+      "name": "Synergym ",
+      "address": "CC PontiñasRúa Carballeira da Botica, 5",
+      "city": "Lalín",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_850faa7aa4",
+      "name": "Synergym Galdakao",
+      "address": "C. Zubiaurretarren, 23",
+      "city": "Galdácano",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_96e1130454",
+      "name": "Synergym Tabernes Blanques",
+      "address": "C. de Mariano Benlliure, 20",
+      "city": "Tabernes Blanques",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_eb73592b72",
+      "name": "Synergym Cartaya",
+      "address": "Av. San Bartolomé-Diseminados, 787",
+      "city": "Cartaya",
+      "postal_code": null,
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    }
+  ],
+  "remaining_fitness_park": [
+    {
+      "id": "es_1d7a2f9b6b",
+      "name": "Fitness Park Alfafar - Mn4",
+      "address": "Calle Alcalde de José Puertes",
+      "city": "Alfafar",
+      "postal_code": "46910",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_32a43f6b96",
+      "name": "Fitness Park Alhaurín de la Torre",
+      "address": "Calle Ur1 Retamar II, 62-73",
+      "city": "Alhaurín de la Torre",
+      "postal_code": "29130",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_2f5e7146c6",
+      "name": "Fitness Park Mairena del Aljarafe - MetroMar",
+      "address": "Av. de los Descubrimientos, S / N",
+      "city": "Mairena del Aljarafe",
+      "postal_code": "41927",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_b74c325e34",
+      "name": "Fitness Park Badajoz-Carretera-Olivenza",
+      "address": "calle Arturo Barea, esquina Avenida Príncipe de Asturias",
+      "city": "Badajoz",
+      "postal_code": "06011",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_f8898c2a29",
+      "name": "Fitness Park Benidorm - La Estación",
+      "address": "Carrer Francisco Llorca Antón",
+      "city": "Benidorm",
+      "postal_code": "03502",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_a1b7e30242",
+      "name": "Fitness Park Caceres - Ruta de la Plata",
+      "address": "Parque de Medianas APE 27.01 Ruta de la Plata",
+      "city": "Cáceres",
+      "postal_code": "10005",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_7047606f78",
+      "name": "Fitness Park Carcaixent",
+      "address": "Av. Bressol de la Taronja, 25",
+      "city": "Carcaixent",
+      "postal_code": "46740",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_e97d75b40e",
+      "name": "Fitness Park Ceuta - Marina de Hércules",
+      "address": "Puerto deportivo, Av. Juan Pablo II, s/n",
+      "city": "Ceuta",
+      "postal_code": "51001",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_19757f8b0e",
+      "name": "Fitness Park Chiclana - Puerta Chiclana",
+      "address": "CC Puerta de Chiclana - Av. del Mueble, 44",
+      "city": "Chiclana de la Frontera",
+      "postal_code": "11130",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_b8116c28a8",
+      "name": "Fitness Park Dos Hermanas - Entrenasas",
+      "address": "CC entrenasas",
+      "city": "Dos Hermanas",
+      "postal_code": "41704",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_37c0257746",
+      "name": "Fitness Park Gandia - MYO",
+      "address": "Polígon Sector Beneito Valencia",
+      "city": "Gandia",
+      "postal_code": "46702",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_d2036049d3",
+      "name": "Fitness Park Vecindario",
+      "address": "Calle de Velázquez, 37",
+      "city": "Vecindario",
+      "postal_code": "35110",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_f0cd95b7ad",
+      "name": "Fitness Park Granada - AV Juan Pablo II",
+      "address": "Carretera de Jaén S/N, Nacional 323 Km 127",
+      "city": "Granada",
+      "postal_code": "18013",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_233f298b6f",
+      "name": "Fitness Park Illescas - Señorio Plaza",
+      "address": "C. Juan Carlos Onetti, 1",
+      "city": "Illescas",
+      "postal_code": "45200",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_57ea9154a1",
+      "name": "Fitness Park Jerez de la Frontera - Luz Shopping",
+      "address": "CC Luz Shopping Rda. Aurora Boreal",
+      "city": "Jerez de la Frontera",
+      "postal_code": "11408",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_faad3f4862",
+      "name": "Fitness Park La Línea - La Alcaidesa",
+      "address": "Av Príncipe de Asturias s/n, Torre de Control",
+      "city": "La Línea de la Concepción",
+      "postal_code": "11300",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_19319b23df",
+      "name": "Fitness Park Lorca - Parque Almenara",
+      "address": "Camino Enmedio s/n 30813 Lorca Murcia",
+      "city": "Lorca",
+      "postal_code": "30813",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_8643325394",
+      "name": "Fitness Park Melilla",
+      "address": "Carretera Regimiento de la Corona, s/n",
+      "city": "Melilla",
+      "postal_code": "52006",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_00b9276d36",
+      "name": "Fitness Park Murcia - Nueva Condomina",
+      "address": "A-7, Km. 760, Autovía del Mediterráneo",
+      "city": "Churra",
+      "postal_code": "30110",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_2a935cbc8e",
+      "name": "Fitness Park Nigran Nasas",
+      "address": "Parque empresarial Porto do Molle, Rúa das Pontes, 2",
+      "city": "Nigrán",
+      "postal_code": "36350",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_6232bd56a3",
+      "name": "Fitness Park Pontevedra - Vilanova Shopping",
+      "address": "PO-530, Vilanova de Arousa",
+      "city": "Pontevedra",
+      "postal_code": "36001",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_a44052e38f",
+      "name": "Fitness Park Puerto de Santa María - El Paseo",
+      "address": "N-IV, Km 653 Local L01",
+      "city": "El Puerto de Santa María",
+      "postal_code": "11500",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_6edbf5522c",
+      "name": "Fitness Park Roquetas - Gran Plaza",
+      "address": "Ctra. de Alicun, s/n",
+      "city": "Roquetas de Mar",
+      "postal_code": "04740",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_68bdb4b591",
+      "name": "Fitness Park San Juan de Aznalfarache - Parque Comercial Alavera",
+      "address": "Parque Comercial Alavera, de San Juan",
+      "city": "Sevilla",
+      "postal_code": "41920",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_0a162ae9d8",
+      "name": "Fitness Park Sanlúcar - Las Dunas",
+      "address": "Sanlúcar Las Dunas Shopping Planta Baja. Nº del local 83",
+      "city": "Sanlúcar",
+      "postal_code": "11540",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_6fdbe6d5d2",
+      "name": "Fitness Park Telde - Las Terrazas",
+      "address": "GC-1, 5, Planta 1 - Local A6",
+      "city": "Telde",
+      "postal_code": "35220",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_12e0718e2c",
+      "name": "Fitness Park Tenerife - La Cuesta",
+      "address": "Carr. Gral. la Cuesta, 28",
+      "city": "La Laguna",
+      "postal_code": "38320",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_16464aed85",
+      "name": "Fitness Park Tenerife - La Gran Manzana",
+      "address": "Av. Lucio Diaz Flores Feo, S/N",
+      "city": "San Miguel de Abona",
+      "postal_code": "38639",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_9fe4041f61",
+      "name": "Fitness Park Terrassa - Universitat",
+      "address": "Avenida Barcelona 110 Terrassa",
+      "city": "Barcelona",
+      "postal_code": "08222",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_d094e2d53f",
+      "name": "Fitness Park Tudela - Puente de la Ribera",
+      "address": "Carr. Zaragoza, s/n",
+      "city": "Tudela",
+      "postal_code": "31500",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_2e853b4fd2",
+      "name": "Fitness Park Valencia - Bonaire",
+      "address": "Autovía del Este, Km. 345",
+      "city": "Valencia",
+      "postal_code": "46960",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_038a84660d",
+      "name": "Fitness Park Valencia - Colón",
+      "address": "Calle Grabador Esteve, nº 10, Bajo",
+      "city": "Valencia",
+      "postal_code": "46004",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_d80d10b215",
+      "name": "Fitness Park Valencia - Paiporta",
+      "address": "Calle dels Fuster 36",
+      "city": "Paiporta",
+      "postal_code": "46200",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_88bcde02f1",
+      "name": "Fitness Park Vinarós - Parque Mediterraneo",
+      "address": "Avenida Dauradors, 16, local 8",
+      "city": "Vinaròs",
+      "postal_code": "12500",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    },
+    {
+      "id": "es_ea2856a839",
+      "name": "Fitness Park Zamora - Vista Alegre",
+      "address": "C. Poeta Alfonso de Peñalosa, N-122, Km. 62,3",
+      "city": "Zamora",
+      "postal_code": "49022",
+      "category": "NEEDS_COORDINATES",
+      "reason": "failed"
+    }
+  ],
+  "preserved_ready_ids": 954,
+  "phase5_worthwhile": false,
+  "recommendation": "READY FOR SPAIN MERGE",
+  "proposed_safe_merge_ready": 978,
+  "projected_catalog": 8145,
+  "live_catalog": 7167
+}

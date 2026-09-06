@@ -1,0 +1,55 @@
+{
+  "second_pass": {
+    "new_class_a_found": false,
+    "rechecked": [
+      "Best Gyms Malta",
+      "24/7 Fitness Club",
+      "Challenger Fitness",
+      "Fort Fitness",
+      "Kinetika",
+      "Cynergi",
+      "ActiveZone",
+      "Marion Mizzi",
+      "Warehouse Fitness",
+      "Fitness Factory",
+      "Street Elements",
+      "The Gym Malta",
+      "Fitness Café"
+    ],
+    "international_absent": [
+      "Anytime Fitness",
+      "Basic-Fit",
+      "McFIT",
+      "JOHN REED",
+      "Fitness First",
+      "Gold's Gym",
+      "World Class",
+      "clever fit",
+      "FITINN",
+      "JIMS",
+      "Keep Cool",
+      "Fitness Park",
+      "L'Orange Bleue",
+      "MyFitness",
+      "Lemon Gym",
+      "Gym!",
+      "Gym+",
+      "Impuls"
+    ],
+    "notes": "Fitness Café confirmed Class E distinct; no new ≥3 conventional public chain"
+  },
+  "gozo": {
+    "classification": "A_legitimate_no_chain_presence",
+    "kinetika": "Class E (2) — not promoted",
+    "searched": [
+      "Victoria",
+      "Rabat Gozo",
+      "Xewkija",
+      "Għajnsielem",
+      "Marsalforn",
+      "Nadur"
+    ]
+  },
+  "small_market_model": "NORMAL_CHAIN_MODEL_SUFFICIENT",
+  "reason": "Three Class A chains now fully reconcile to READY for all official open clubs; independents remain significant but out of Phase 1/2 inclusion policy"
+}

@@ -1,0 +1,19 @@
+{
+  "as_of": "2026-08-26",
+  "operator": "Fitness One (Cyprus registry)",
+  "current_clubs_defensible": 0,
+  "registry_address_only": {
+    "id": "cy_3ef35c9cf8",
+    "address": "Alkidamantos 5D",
+    "postal_code": "2325",
+    "city": "Lakatamia",
+    "lat": 35.111624,
+    "lng": 33.3304482
+  },
+  "class_a": false,
+  "discovery_gap_closed": true,
+  "verdict": "SINGLE_REGISTRY_INSUFFICIENT_EXCLUDED",
+  "sources": [
+    "https://i-cyprus.com/company/468810"
+  ]
+}

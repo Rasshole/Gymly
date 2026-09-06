@@ -1,0 +1,8 @@
+Beggen|Rue de Beggen 233|Luxembourg|1221|coming=False
+Foetz|Rue du Brill 11|Foetz|3898|coming=True
+Gare|Rue Joseph Junck 11|Luxembourg|1839|coming=False
+Gasperich|Rue Christophe Plantin 18|Luxembourg|2339|coming=False
+Kirchberg Ellipse|Avenue John F. Kennedy 33|Luxembourg|1855|coming=False
+Kirchberg Infinity|Avenue John F. Kennedy 7|Luxembourg|1855|coming=False
+Mersch|2 Allée John W. Leonard, Centre Commercial LISTO|Mersch|7526|coming=False
+SOURCE https://www.jims.lu/en/clubs

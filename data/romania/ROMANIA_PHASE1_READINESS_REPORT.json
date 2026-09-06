@@ -1,0 +1,73 @@
+{
+  "country": "Romania",
+  "prefix": "ro_",
+  "generated_at": "2026-08-23T17:11:15.294228+00:00",
+  "production_total": 11063,
+  "unique_staged": 182,
+  "status_counts": {
+    "READY_TO_IMPORT": 63,
+    "NEEDS_REVIEW": 95,
+    "COMING_SOON": 5,
+    "DUPLICATE": 19
+  },
+  "ready_count": 63,
+  "ready_by_brand": {
+    "World Class": 32,
+    "18GYM": 14,
+    "Stay Fit Gym": 17
+  },
+  "brand_counts": {
+    "World Class": 45,
+    "18GYM": 47,
+    "Stay Fit Gym": 90
+  },
+  "city_coverage": {
+    "București": true,
+    "Cluj-Napoca": true,
+    "Timișoara": true,
+    "Iași": true,
+    "Constanța": true,
+    "Brașov": true,
+    "Craiova": false,
+    "Galați": true,
+    "Ploiești": true,
+    "Oradea": false,
+    "Sibiu": true,
+    "Arad": true,
+    "Târgu Mureș": true,
+    "Baia Mare": true,
+    "Bacău": true,
+    "Buzău": false,
+    "Satu Mare": true,
+    "Suceava": false,
+    "Pitești": false,
+    "Râmnicu Vâlcea": false
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "production_collisions": 0,
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 11126,
+  "verdict": "ROMANIA PHASE 2 REQUIRED BEFORE MERGE",
+  "coverage_notes": {
+    "World Class": "Official REST API — target NEAR-COMPLETE (~45 clubs)",
+    "Stay Fit Gym": "City page scrape — ~72 claimed; Phase 2 if material gaps remain",
+    "18GYM": "ASL store locator — postcodes often missing; geocoded in consolidate",
+    "ESX": "EXCLUDED — membership aggregator, not gym operator",
+    "Other national chains": "One Fitness, SAS Gym, Downtown etc. — Phase 2 probe required"
+  },
+  "geocoded_this_run": 190
+}

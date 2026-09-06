@@ -1,0 +1,21 @@
+{
+  "country": "Ukraine",
+  "phase": 1,
+  "relationships": [
+    {
+      "from": "Athletics (Fozzy legacy)",
+      "to": "Apollo Next",
+      "class": "A_rebrand_successor",
+      "evidence": "Athletics stores converted to Apollo Next (e.g. Zhytomyr Yarmarok)",
+      "action": "stage_apollo_only"
+    },
+    {
+      "from": "Kiev / Kyiv slug variants",
+      "to": "Kyiv",
+      "class": "F_city_alias",
+      "evidence": "sportlife.ua uses kiev slug; canonical Kyiv in staging",
+      "action": "alias_map"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

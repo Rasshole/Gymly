@@ -1,0 +1,37 @@
+[
+  {
+    "brand": "Impulse Treningssenter",
+    "center_name": "lade",
+    "name": "Impulse Treningssenter Lade",
+    "source_url": "https://impulse.no/senter/lade/",
+    "parsed": null
+  },
+  {
+    "brand": "Impulse Treningssenter",
+    "center_name": "lerkendal",
+    "name": "Impulse Treningssenter Lerkendal",
+    "source_url": "https://impulse.no/senter/lerkendal/",
+    "parsed": null
+  },
+  {
+    "brand": "Impulse Treningssenter",
+    "center_name": "nardobakken",
+    "name": "Impulse Treningssenter Nardobakken",
+    "source_url": "https://impulse.no/senter/nardobakken/",
+    "parsed": null
+  },
+  {
+    "brand": "Impulse Treningssenter",
+    "center_name": "pirbadet",
+    "name": "Impulse Treningssenter Pirbadet",
+    "source_url": "https://impulse.no/senter/pirbadet/",
+    "parsed": null
+  },
+  {
+    "brand": "Impulse Treningssenter",
+    "center_name": "solsiden",
+    "name": "Impulse Treningssenter Solsiden",
+    "source_url": "https://impulse.no/senter/solsiden/",
+    "parsed": null
+  }
+]

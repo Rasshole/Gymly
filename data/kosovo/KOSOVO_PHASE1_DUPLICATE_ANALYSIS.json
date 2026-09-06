@@ -1,0 +1,29 @@
+{
+  "identical_coordinates": [],
+  "same_brand": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0
+  },
+  "different_brand": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0
+  },
+  "same_brand_pairs": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": []
+  },
+  "different_brand_pairs": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": []
+  },
+  "pair_classifications": [],
+  "hard_duplicate_conflicts": 0
+}

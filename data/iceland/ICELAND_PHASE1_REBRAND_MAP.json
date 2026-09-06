@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "id": "world_class_bjarg_vatnsmyri",
+      "from": "World Class Bjarg",
+      "to": "World Class Vatnsmýri",
+      "address": "Bjargargata 1, 102 Reykjavík",
+      "classification": "A_current_successor",
+      "status": "resolved",
+      "notes": "Legacy Bjarg club name retired; same premises rebranded Vatnsmýri"
+    },
+    {
+      "id": "reebok_lambhagi_katla",
+      "from": "Reebok Fitness Lambhagi",
+      "to": "Katla Fitness Lambhagi",
+      "address": "Lambhagavegur 15, 113 Reykjavík",
+      "classification": "A_current_successor",
+      "status": "resolved",
+      "sources": [
+        "https://1819.is/info/293047/",
+        "https://katlafitness.is/stodvarnar/"
+      ]
+    },
+    {
+      "id": "world_class_kringlan_split",
+      "from": "World Class Kringlan (legacy single club)",
+      "to": "World Class Kringlan + World Class Gamla Kringlan",
+      "classification": "B_distinct_current_clubs",
+      "status": "resolved",
+      "notes": "Kringlan 4-7 vs Kringlan 1 WorldFit units are separate current clubs"
+    },
+    {
+      "id": "tjarnarvellir_wc_katla",
+      "from": "Tjarnarvellir sports complex",
+      "to": "World Class Tjarnarvellir 7 + Katla Fitness Tjarnarvellir 3",
+      "classification": "D_same_address_different_units",
+      "status": "resolved",
+      "notes": "Distinct operators/units within same municipal sports complex"
+    },
+    {
+      "id": "holtagardar_address_alias",
+      "from": "Katla Holtagarðar 2 official",
+      "to": "OSM Katla Fitness Holtavegur 10 pin",
+      "classification": "C_name_confusion",
+      "status": "resolved",
+      "notes": "Same complex; official postal address retained for display"
+    }
+  ],
+  "unresolved": []
+}

@@ -1,0 +1,34 @@
+{
+  "generated": "2026-08-23T07:17:11.259830+00:00",
+  "entries": [
+    {
+      "legacy": "One Escape Health Club / oneescape.ie",
+      "successor": "Iconic Health Clubs Smithfield",
+      "notes": "oneescape.ie resolves to Iconic Smithfield branding"
+    },
+    {
+      "legacy": "FLYEHUB Swords marketing page",
+      "successor": "FLYEfit Swords",
+      "notes": "Same physical site; hub URL treated as DUPLICATE when both present"
+    }
+  ],
+  "phase1_ready_preserved_count": 17,
+  "excluded_brands": [
+    {
+      "brand": "Perpetua Fitness",
+      "reason": "specialty CrossFit / single-site \u2014 below chain threshold"
+    },
+    {
+      "brand": "SportsCo",
+      "reason": "single-site docklands fitness centre \u2014 below chain threshold"
+    },
+    {
+      "brand": "Kingfisher",
+      "reason": "official site unreachable in Phase 2"
+    },
+    {
+      "brand": "Raw Gyms",
+      "reason": "official site unreachable in Phase 2"
+    }
+  ]
+}

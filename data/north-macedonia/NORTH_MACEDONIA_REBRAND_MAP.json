@@ -1,0 +1,30 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "F_unresolved",
+      "entities": [
+        "Fit One school sites"
+      ],
+      "notes": "Confirm whether any Fit One unit is ordinary public conventional floor",
+      "phase2": true
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Athletic Fitness (MK)",
+        "Athletic Fitness (BG)"
+      ],
+      "notes": "Do not import Bulgarian Athletic estate as MK; Diamond Mall is MK-only candidate"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "IB Fitness Ohrid",
+        "Fitness Factori Ohrid"
+      ],
+      "notes": "Distinct Ohrid independents pending Phase 2 premises proof"
+    }
+  ],
+  "note": "Phase 1 allows Phase 2 holds; merge gate requires 0 unresolved before merge."
+}

@@ -1,0 +1,319 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:53:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4298670990,
+      "lat": 43.1132243,
+      "lon": 131.9183644,
+      "tags": {
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Геометрия Фитнеса",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "phone": "+7 423 2222240",
+        "website": "https://geometriafitnessa.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4458685389,
+      "lat": 43.120661,
+      "lon": 131.8786817,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+74232433212",
+        "swimming_pool": "yes",
+        "website": "http://worldclass.vl.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4687898716,
+      "lat": 43.1160726,
+      "lon": 131.9042077,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Athletic Hall",
+        "opening_hours": "Mo-Sa 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4872930422,
+      "lat": 43.0937641,
+      "lon": 131.8963731,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Фитнес-Мания",
+        "name:ru": "Фитнес-Мания"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5071609454,
+      "lat": 43.1787902,
+      "lon": 131.9186166,
+      "tags": {
+        "contact:email": "info@yogihall.ru",
+        "contact:phone": "+7 423 2718803",
+        "contact:website": "https://yogihall.ru",
+        "leisure": "fitness_centre",
+        "name": "Yogi hall",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa 08:00-13:00; Su 09:00-13:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5162526921,
+      "lat": 43.0906152,
+      "lon": 131.8616282,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Омель Джим",
+        "name:en": "Omelgym",
+        "note": "postcode: 690000"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5289863724,
+      "lat": 43.1575609,
+      "lon": 131.9275671,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ФанДжим",
+        "name:en": "FanGym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5318517321,
+      "lat": 43.1151095,
+      "lon": 131.9209188,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Фитнес",
+        "name:en": "Fitnes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5690619124,
+      "lat": 43.1142523,
+      "lon": 131.8736046,
+      "tags": {
+        "leisure": "fitness_centre",
+        "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6894847915,
+      "lat": 43.0900804,
+      "lon": 131.8597367,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7132430633,
+      "lat": 43.091714,
+      "lon": 131.9492635,
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7498615655,
+      "lat": 43.0994524,
+      "lon": 131.9248326,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7506783771,
+      "lat": 43.0924114,
+      "lon": 131.9217988,
+      "tags": {
+        "contact:email": "fahrenheit.fit@yandex.ru",
+        "contact:phone": "+7 908 4512171",
+        "contact:website": "https://70000001035383742.2gis.biz",
+        "leisure": "fitness_centre",
+        "name": "Фаренгейт",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7677704475,
+      "lat": 43.0984001,
+      "lon": 131.9271653,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10976261821,
+      "lat": 43.1011846,
+      "lon": 131.9076303,
+      "tags": {
+        "contact:email": "katy7676@bk.ru",
+        "contact:phone": "+7 904 6275408",
+        "contact:website": "https://ladywell.club",
+        "leisure": "fitness_centre",
+        "name": "Lady well",
+        "opening_hours": "Mo-Fr 09:00-22:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11414387701,
+      "lat": 43.1037853,
+      "lon": 131.9603034,
+      "tags": {
+        "contact:email": "formula.tela@mail.ru",
+        "contact:phone": "+7 423 2949424;+7 908 9949424",
+        "leisure": "fitness_centre",
+        "name": "Формула тела",
+        "opening_hours": "Mo-Sa 08:00-23:00; Su 12:00-17:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11572398316,
+      "lat": 43.1694969,
+      "lon": 131.9346588,
+      "tags": {
+        "contact:phone": "+7 996 3865095",
+        "leisure": "fitness_centre",
+        "name": "ProJumping",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11726827251,
+      "lat": 43.1656743,
+      "lon": 131.9089848,
+      "tags": {
+        "contact:phone": "+7 908 9999779",
+        "contact:website": "https://forms.amocrm.ru/rrvtcrl",
+        "leisure": "fitness_centre",
+        "name": "Студия фитнеса Елены Ходос",
+        "opening_hours": "Mo-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11782639827,
+      "lat": 43.1220502,
+      "lon": 131.8809069,
+      "tags": {
+        "contact:phone": "+7 966 2888490",
+        "contact:website": "https://lady-stretch.online/vladivostostok",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12096758950,
+      "lat": 43.1202722,
+      "lon": 131.956358,
+      "tags": {
+        "contact:phone": "+7 924 0015177",
+        "leisure": "fitness_centre",
+        "name": "ThunderEms",
+        "opening_hours": "Mo,We,Fr 10:00-14:00,15:00-21:00; Sa 10:00-14:00,15:00-17:00; Tu,Th 15:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13137937843,
+      "lat": 43.116118,
+      "lon": 131.8757333,
+      "tags": {
+        "check_date": "2025-09-12",
+        "leisure": "fitness_centre",
+        "name": "Косатка ДВ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13140611434,
+      "lat": 43.116126,
+      "lon": 131.8876103,
+      "tags": {
+        "check_date": "2025-09-13",
+        "contact:instagram": "https://www.instagram.com/space.vesta",
+        "leisure": "fitness_centre",
+        "name": "Space.vesta",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13601898576,
+      "lat": 43.1106536,
+      "lon": 131.9379949,
+      "tags": {
+        "contact:phone": "+7 966 2888490",
+        "contact:website": "https://ladystretch.com/vladivostostok",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,15:30-21:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 47576293,
+      "center": {
+        "lat": 43.1245846,
+        "lon": 131.9392796
+      },
+      "tags": {
+        "addr:city": "Владивосток",
+        "addr:country": "RU",
+        "addr:housenumber": "71Б",
+        "addr:postcode": "690087",
+        "addr:street": "Луговая улица",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Варяг",
+        "website": "http://sportclub-varyag.ru/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 483242486,
+      "center": {
+        "lat": 43.1604377,
+        "lon": 131.9245654
+      },
+      "tags": {
+        "building": "garage",
+        "leisure": "fitness_centre",
+        "name": "Matsuda"
+      }
+    }
+  ]
+}

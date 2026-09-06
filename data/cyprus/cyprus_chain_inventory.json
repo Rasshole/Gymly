@@ -1,0 +1,40 @@
+{
+  "as_of": "2026-08-26",
+  "phase": 2,
+  "qualifying_class_a_chains": 0,
+  "class_a_chains": [],
+  "sub_threshold_operators": [
+    {
+      "brand": "Curves",
+      "current": 2,
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "brand": "Aesthetics Gym",
+      "current": 2,
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "brand": "ALTERLIFE",
+      "current": 1,
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "brand": "Fitness Factory",
+      "current": 1,
+      "path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "sanctum": "NOT_CLASS_A_NOT_INDEPENDENT_READY",
+  "fitness_factory": "SINGLE_CLUB_INDEPENDENT_READY",
+  "fitness_one": "SINGLE_REGISTRY_INSUFFICIENT_EXCLUDED",
+  "curves": "ESTATE_2_INDEPENDENT_READY",
+  "small_market": {
+    "recommended_model": "INDEPENDENT_PHASE_EXECUTED",
+    "approved": true,
+    "qualifying_class_a_chains": 0,
+    "independent_ready": 17,
+    "chain_class_a_ready": 0
+  },
+  "ready_total": 17
+}

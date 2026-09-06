@@ -1,0 +1,24 @@
+{
+  "same_brand_lt50": [],
+  "different_brand_lt50": [],
+  "identical": [],
+  "classifications": [
+    {
+      "a_id": "mk_41ca038c25",
+      "b_id": "mk_86cad1be86",
+      "a_brand": "IB Fitness",
+      "b_brand": "Fitness Factori",
+      "distance_m": 74,
+      "classification": "DISTINCT_PREMISES"
+    },
+    {
+      "a_id": "mk_cdaccb1c5c",
+      "b_id": "mk_f52f8d30cf",
+      "a_brand": "Arena",
+      "b_brand": "Starfit",
+      "distance_m": 92,
+      "classification": "DISTINCT_PREMISES"
+    }
+  ],
+  "unexplained_hard_duplicates": 0
+}

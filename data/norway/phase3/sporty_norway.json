@@ -1,0 +1,1946 @@
+[
+  {
+    "brand": "Sporty",
+    "center_name": "family-larvik-kart",
+    "name": "Sporty Larvik Kart",
+    "source_url": "https://www.sporty.no/treningssenter/family-larvik-kart",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-magasinet",
+    "name": "Sporty Magasinet",
+    "source_url": "https://www.sporty.no/treningssenter/family-magasinet",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-notodden",
+    "name": "Sporty Notodden",
+    "source_url": "https://www.sporty.no/treningssenter/family-notodden",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-padel",
+    "name": "Sporty Padel",
+    "source_url": "https://www.sporty.no/treningssenter/family-padel",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-senter",
+    "name": "Sporty Senter",
+    "source_url": "https://www.sporty.no/treningssenter/family-senter",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-sports-club",
+    "name": "Sporty Sports Club",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-sports-club-bergen-danmarkplass",
+    "name": "Sporty Bergen Danmarkplass",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club-bergen-danmarkplass",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-sports-club-grimstad",
+    "name": "Sporty Grimstad",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club-grimstad",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-sports-club-harstad-flex",
+    "name": "Sporty Harstad Flex",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club-harstad-flex",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-sports-club-orje",
+    "name": "Sporty Orje",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club-orje",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-sports-club-porsgrunn",
+    "name": "Sporty Porsgrunn",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club-porsgrunn",
+    "parsed": {
+      "address": "Kulltangv 70",
+      "postal_code": "3921",
+      "city": "Porsgrunn"
+    },
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "family-sports-club-ski",
+    "name": "Sporty Ski",
+    "source_url": "https://www.sporty.no/treningssenter/family-sports-club-ski",
+    "parsed": null,
+    "legacy_brand": "Family Sports Club"
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-blindheim",
+    "name": "Sporty Alesund Blindheim",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-blindheim",
+    "parsed": {
+      "address": "Blindheimsveien 10",
+      "postal_code": "6012",
+      "city": "Ålesund"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-breivika",
+    "name": "Sporty Alesund Breivika",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-breivika",
+    "parsed": {
+      "address": "Lerstadvegen 545",
+      "postal_code": "6018",
+      "city": "Ålesund"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-digernes",
+    "name": "Sporty Alesund Digernes",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-digernes",
+    "parsed": {
+      "address": "Digernes Næringsområdet 9",
+      "postal_code": "6260",
+      "city": "Skodje"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-moa",
+    "name": "Sporty Alesund Moa",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-moa",
+    "parsed": {
+      "address": "Langelandsvegen 17",
+      "postal_code": "6010",
+      "city": "Ålesund"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-norve",
+    "name": "Sporty Alesund Norve",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-norve",
+    "parsed": {
+      "address": "Vågaveien 27",
+      "postal_code": "6008",
+      "city": "Ålesund"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-ratvika",
+    "name": "Sporty Alesund Ratvika",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-ratvika",
+    "parsed": {
+      "address": "Ruudvegen 53",
+      "postal_code": "6014",
+      "city": "ÅLESUND"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-skansegata",
+    "name": "Sporty Alesund Skansegata",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-skansegata",
+    "parsed": {
+      "address": "Kongens gate 25",
+      "postal_code": "6002",
+      "city": "ÅLESUND"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-skodje",
+    "name": "Sporty Alesund Skodje",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-skodje",
+    "parsed": {
+      "address": "Skodjevegen 397",
+      "postal_code": "6260",
+      "city": "Skodje"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-alesund-sundgata",
+    "name": "Sporty Alesund Sundgata",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-alesund-sundgata",
+    "parsed": {
+      "address": "Sundgata 12",
+      "postal_code": "6003",
+      "city": "Ålesund"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-arendal",
+    "name": "Sporty Arendal",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-arendal",
+    "parsed": {
+      "address": "Stoaveien 41C",
+      "postal_code": "4848",
+      "city": "Arendal"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-arnes",
+    "name": "Sporty Arnes",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-arnes",
+    "parsed": {
+      "address": "Nedre Hagaveg 17b",
+      "postal_code": "2150",
+      "city": "Årnes"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-askim",
+    "name": "Sporty Askim",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-askim",
+    "parsed": {
+      "address": "Henstad alle 1 A",
+      "postal_code": "1809",
+      "city": "Askim"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-asne",
+    "name": "Sporty Asne",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-asne",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-averoy-karvag",
+    "name": "Sporty Averoy Karvag",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-averoy-karvag",
+    "parsed": {
+      "address": "Kårvågveien 108",
+      "postal_code": "6532",
+      "city": "Averøy"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-averoy-rodsand",
+    "name": "Sporty Averoy Rodsand",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-averoy-rodsand",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-basic",
+    "name": "Sporty Basic",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-basic",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-arna",
+    "name": "Sporty Bergen Arna",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-arna",
+    "parsed": {
+      "address": "Storaneset 24",
+      "postal_code": "5260",
+      "city": "Indre Arna"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-asane",
+    "name": "Sporty Bergen Asane",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-asane",
+    "parsed": {
+      "address": "Litleåsveien 47",
+      "postal_code": "5132",
+      "city": "Nyborg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-bones",
+    "name": "Sporty Bergen Bones",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-bones",
+    "parsed": {
+      "address": "Fjellsdalen 9",
+      "postal_code": "5155",
+      "city": "BØNES"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-danmarksplass",
+    "name": "Sporty Bergen Danmarksplass",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-danmarksplass",
+    "parsed": {
+      "address": "Garvergaten 15",
+      "postal_code": "5054",
+      "city": "Bergen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-krakenes",
+    "name": "Sporty Bergen Krakenes",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-krakenes",
+    "parsed": {
+      "address": "Øvre Kråkenes 49",
+      "postal_code": "5152",
+      "city": "Bønes"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-landas",
+    "name": "Sporty Bergen Landas",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-landas",
+    "parsed": {
+      "address": "Erleveien 18",
+      "postal_code": "5096",
+      "city": "Bergen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-nyborg",
+    "name": "Sporty Bergen Nyborg",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-nyborg",
+    "parsed": {
+      "address": "Langarinden 5",
+      "postal_code": "5132",
+      "city": "Nyborg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-paradis",
+    "name": "Sporty Bergen Paradis",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-paradis",
+    "parsed": {
+      "address": "Tjernvegen 30",
+      "postal_code": "5232",
+      "city": "Paradis"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-sandsli",
+    "name": "Sporty Bergen Sandsli",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-sandsli",
+    "parsed": {
+      "address": "Sandslihaugen 10",
+      "postal_code": "5254",
+      "city": "Sandsli"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-solheimsgaten",
+    "name": "Sporty Bergen Solheimsgaten",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-solheimsgaten",
+    "parsed": {
+      "address": "Solheimsgaten 56 A",
+      "postal_code": "5054",
+      "city": "Bergen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-soreide",
+    "name": "Sporty Bergen Soreide",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-soreide",
+    "parsed": {
+      "address": "Steinsvikvegen 29",
+      "postal_code": "5251",
+      "city": "Søreidgrend"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-strandgaten",
+    "name": "Sporty Bergen Strandgaten",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-strandgaten",
+    "parsed": {
+      "address": "Strandgaten 64",
+      "postal_code": "5004",
+      "city": "Bergen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergen-vestlandshallen",
+    "name": "Sporty Bergen Vestlandshallen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergen-vestlandshallen",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bergsoy",
+    "name": "Sporty Bergsoy",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bergsoy",
+    "parsed": {
+      "address": "Lisjebøvegen 10B",
+      "postal_code": "6091",
+      "city": "Fosnavåg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheim",
+    "name": "Sporty Blindheim",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheim",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimgruppesal1",
+    "name": "Sporty Blindheimgruppesal1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimgruppesal1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimgruppesal2",
+    "name": "Sporty Blindheimgruppesal2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimgruppesal2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimgruppesal3",
+    "name": "Sporty Blindheimgruppesal3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimgruppesal3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimgruppesal4",
+    "name": "Sporty Blindheimgruppesal4",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimgruppesal4",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimgruppesal5",
+    "name": "Sporty Blindheimgruppesal5",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimgruppesal5",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimgruppesal6",
+    "name": "Sporty Blindheimgruppesal6",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimgruppesal6",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheiminngang1",
+    "name": "Sporty Blindheiminngang1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheiminngang1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheiminngang2",
+    "name": "Sporty Blindheiminngang2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheiminngang2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheiminngang3",
+    "name": "Sporty Blindheiminngang3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheiminngang3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimmollesal1",
+    "name": "Sporty Blindheimmollesal1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimmollesal1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimmollesal2",
+    "name": "Sporty Blindheimmollesal2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimmollesal2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimmollesal3",
+    "name": "Sporty Blindheimmollesal3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimmollesal3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimmollesal4",
+    "name": "Sporty Blindheimmollesal4",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimmollesal4",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimmollesal5",
+    "name": "Sporty Blindheimmollesal5",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimmollesal5",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimmollesal6",
+    "name": "Sporty Blindheimmollesal6",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimmollesal6",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimmollesal7",
+    "name": "Sporty Blindheimmollesal7",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimmollesal7",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio1",
+    "name": "Sporty Blindheimstudio1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio10",
+    "name": "Sporty Blindheimstudio10",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio10",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio11",
+    "name": "Sporty Blindheimstudio11",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio11",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio12",
+    "name": "Sporty Blindheimstudio12",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio12",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio13",
+    "name": "Sporty Blindheimstudio13",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio13",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio14",
+    "name": "Sporty Blindheimstudio14",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio14",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio15",
+    "name": "Sporty Blindheimstudio15",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio15",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio16",
+    "name": "Sporty Blindheimstudio16",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio16",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio2",
+    "name": "Sporty Blindheimstudio2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio3",
+    "name": "Sporty Blindheimstudio3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio4",
+    "name": "Sporty Blindheimstudio4",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio4",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio5",
+    "name": "Sporty Blindheimstudio5",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio5",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio6",
+    "name": "Sporty Blindheimstudio6",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio6",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio7",
+    "name": "Sporty Blindheimstudio7",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio7",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio8",
+    "name": "Sporty Blindheimstudio8",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio8",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimstudio9",
+    "name": "Sporty Blindheimstudio9",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimstudio9",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimsykkelsal1",
+    "name": "Sporty Blindheimsykkelsal1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimsykkelsal1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimsykkelsal2",
+    "name": "Sporty Blindheimsykkelsal2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimsykkelsal2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimsykkelsal3",
+    "name": "Sporty Blindheimsykkelsal3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimsykkelsal3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimsykkelsal4",
+    "name": "Sporty Blindheimsykkelsal4",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimsykkelsal4",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimutside1",
+    "name": "Sporty Blindheimutside1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimutside1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimutside2",
+    "name": "Sporty Blindheimutside2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimutside2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimx-fitsal1",
+    "name": "Sporty Blindheimx Fitsal1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimx-fitsal1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimx-fitsal2",
+    "name": "Sporty Blindheimx Fitsal2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimx-fitsal2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimx-fitsal3",
+    "name": "Sporty Blindheimx Fitsal3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimx-fitsal3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimx-fitsal4",
+    "name": "Sporty Blindheimx Fitsal4",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimx-fitsal4",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimx-fitsal5",
+    "name": "Sporty Blindheimx Fitsal5",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimx-fitsal5",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimyogasal1",
+    "name": "Sporty Blindheimyogasal1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimyogasal1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-blindheimyogasal2",
+    "name": "Sporty Blindheimyogasal2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-blindheimyogasal2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bo-bosenteret",
+    "name": "Sporty Bo Bosenteret",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bo-bosenteret",
+    "parsed": {
+      "address": "Stasjonsvegen 28",
+      "postal_code": "3800",
+      "city": "Bø i Telemark"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bo-holtangarden",
+    "name": "Sporty Bo Holtangarden",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bo-holtangarden",
+    "parsed": {
+      "address": "Folkestadvegen 12",
+      "postal_code": "3802",
+      "city": "Bø i Telemark"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bodo-city-nord",
+    "name": "Sporty Bodo City Nord",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bodo-city-nord",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bodo-jensvoll",
+    "name": "Sporty Bodo Jensvoll",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bodo-jensvoll",
+    "parsed": {
+      "address": "Sneveien 17",
+      "postal_code": "8072",
+      "city": "Bodø"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bodo-morkved",
+    "name": "Sporty Bodo Morkved",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bodo-morkved",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bosenteret",
+    "name": "Sporty Bosenteret",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bosenteret",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-bruker",
+    "name": "Sporty Bruker",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-bruker",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-charlotte",
+    "name": "Sporty Charlotte",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-charlotte",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-christine",
+    "name": "Sporty Christine",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-christine",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-city-nord",
+    "name": "Sporty City Nord",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-city-nord",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-dale",
+    "name": "Sporty Dale",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-dale",
+    "parsed": {
+      "address": "Skulegata 2",
+      "postal_code": "5722",
+      "city": "Dalekvam"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-drammen-gulskogen",
+    "name": "Sporty Drammen Gulskogen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-drammen-gulskogen",
+    "parsed": {
+      "address": "Guldlisten 20",
+      "postal_code": "3042",
+      "city": "Drammen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-drobak",
+    "name": "Sporty Drobak",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-drobak",
+    "parsed": {
+      "address": "Holterveien 4G",
+      "postal_code": "1448",
+      "city": "Drøbak"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-eid",
+    "name": "Sporty Eid",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-eid",
+    "parsed": {
+      "address": "Eidsgata 53",
+      "postal_code": "6770",
+      "city": "Eid"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-eide",
+    "name": "Sporty Eide",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-eide",
+    "parsed": {
+      "address": "Eidetorget 17",
+      "postal_code": "6490",
+      "city": "Eide"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-elnesvagen",
+    "name": "Sporty Elnesvagen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-elnesvagen",
+    "parsed": {
+      "address": "Torget 15",
+      "postal_code": "6440",
+      "city": "Elnesvågen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-farmand",
+    "name": "Sporty Farmand",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-farmand",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fauske",
+    "name": "Sporty Fauske",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fauske",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-finnsnes",
+    "name": "Sporty Finnsnes",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-finnsnes",
+    "parsed": {
+      "address": "Strandveien 68",
+      "postal_code": "9300",
+      "city": "Finnsnes"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fosnavag",
+    "name": "Sporty Fosnavag",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fosnavag",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fredrikstad",
+    "name": "Sporty Fredrikstad",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fredrikstad",
+    "parsed": {
+      "address": "Rolvsøyveien 205",
+      "postal_code": "1617",
+      "city": "Fredrikstad"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fredrikstad-1",
+    "name": "Sporty Fredrikstad 1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fredrikstad-1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fredrikstad-2",
+    "name": "Sporty Fredrikstad 2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fredrikstad-2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fredrikstad-3",
+    "name": "Sporty Fredrikstad 3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fredrikstad-3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fredrikstad-4",
+    "name": "Sporty Fredrikstad 4",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fredrikstad-4",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-fredrikstad-5",
+    "name": "Sporty Fredrikstad 5",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-fredrikstad-5",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-greaker",
+    "name": "Sporty Greaker",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-greaker",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-grimstad",
+    "name": "Sporty Grimstad",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-grimstad",
+    "parsed": {
+      "address": "Storgt. 90",
+      "postal_code": "4877",
+      "city": "Grimstad"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-hareid",
+    "name": "Sporty Hareid",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-hareid",
+    "parsed": {
+      "address": "Myravegen 9",
+      "postal_code": "6060",
+      "city": "Hareid"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-harstad",
+    "name": "Sporty Harstad",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-harstad",
+    "parsed": {
+      "address": "Seljestadveien 11",
+      "postal_code": "9406",
+      "city": "Harstad"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-henger",
+    "name": "Sporty Henger",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-henger",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-hesta",
+    "name": "Sporty Hesta",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-hesta",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-hestasen-finish",
+    "name": "Sporty Hestasen Finish",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-hestasen-finish",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-hole",
+    "name": "Sporty Hole",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-hole",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-holmestrand-greaker",
+    "name": "Sporty Holmestrand Greaker",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-holmestrand-greaker",
+    "parsed": {
+      "address": "Hvittingfossveien 153",
+      "postal_code": "3086",
+      "city": "Holmestrand"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-holmestrand-kleivbrottet",
+    "name": "Sporty Holmestrand Kleivbrottet",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-holmestrand-kleivbrottet",
+    "parsed": {
+      "address": "Ringveien 12",
+      "postal_code": "3084",
+      "city": "Holmestrand"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-holtangarden",
+    "name": "Sporty Holtangarden",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-holtangarden",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-honefoss-eikli",
+    "name": "Sporty Honefoss Eikli",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-honefoss-eikli",
+    "parsed": {
+      "address": "Dronning Åstads gate 2",
+      "postal_code": "3511",
+      "city": "Hønefoss"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-honefoss-honengata",
+    "name": "Sporty Honefoss Honengata",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-honefoss-honengata",
+    "parsed": {
+      "address": "Industrigata 1",
+      "postal_code": "3510",
+      "city": "Hønefoss"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-honesfoss-honengata",
+    "name": "Sporty Honesfoss Honengata",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-honesfoss-honengata",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-horten",
+    "name": "Sporty Horten",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-horten",
+    "parsed": {
+      "address": "Falkenstensveien 31",
+      "postal_code": "3189",
+      "city": "Horten"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-hustad",
+    "name": "Sporty Hustad",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-hustad",
+    "parsed": {
+      "address": "Hustadvegen 417",
+      "postal_code": "6433",
+      "city": "Hustad"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-jevnaker",
+    "name": "Sporty Jevnaker",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-jevnaker",
+    "parsed": {
+      "address": "Storgata 6",
+      "postal_code": "3520",
+      "city": "Jevnaker"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kilen",
+    "name": "Sporty Kilen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kilen",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kjeden",
+    "name": "Sporty Kjeden",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kjeden",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kleivbrottet",
+    "name": "Sporty Kleivbrottet",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kleivbrottet",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kleppesto",
+    "name": "Sporty Kleppesto",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kleppesto",
+    "parsed": {
+      "address": "Holmedalen 6B",
+      "postal_code": "5300",
+      "city": "Kleppestø"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kongsberg",
+    "name": "Sporty Kongsberg",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kongsberg",
+    "parsed": {
+      "address": "Idrettsveien 4",
+      "postal_code": "3617",
+      "city": "Kongsberg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-konnerud",
+    "name": "Sporty Konnerud",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-konnerud",
+    "parsed": {
+      "address": "Bernåsbakken 2",
+      "postal_code": "3032",
+      "city": "Drammen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kristiansand-hanes",
+    "name": "Sporty Kristiansand Hanes",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kristiansand-hanes",
+    "parsed": {
+      "address": "Hånesveien 126",
+      "postal_code": "4635",
+      "city": "Kristiansand"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kristiansund-lokkemyra",
+    "name": "Sporty Kristiansund Lokkemyra",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kristiansund-lokkemyra",
+    "parsed": {
+      "address": "Nordmørsveien 54",
+      "postal_code": "6517",
+      "city": "Kristiansund"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-kristiansund-stortua",
+    "name": "Sporty Kristiansund Stortua",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-kristiansund-stortua",
+    "parsed": {
+      "address": "Wilhelm Dalls vei 40",
+      "postal_code": "6511",
+      "city": "Kristiansund N"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-langevag",
+    "name": "Sporty Langevag",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-langevag",
+    "parsed": {
+      "address": "Djupdalen 6",
+      "postal_code": "6030",
+      "city": "Langevåg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-larsnes",
+    "name": "Sporty Larsnes",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-larsnes",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-larvik",
+    "name": "Sporty Larvik",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-larvik",
+    "parsed": {
+      "address": "Elveveien 135",
+      "postal_code": "3271",
+      "city": "Larvik"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-larvik-nanset",
+    "name": "Sporty Larvik Nanset",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-larvik-nanset",
+    "parsed": {
+      "address": "Nansetgata 91",
+      "postal_code": "3256",
+      "city": "Larvik"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-larvik-sentrum",
+    "name": "Sporty Larvik Sentrum",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-larvik-sentrum",
+    "parsed": {
+      "address": "Olavs gate 30",
+      "postal_code": "3257",
+      "city": "Larvik"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-livet",
+    "name": "Sporty Livet",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-livet",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-livsstil",
+    "name": "Sporty Livsstil",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-livsstil",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-magasinet",
+    "name": "Sporty Magasinet",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-magasinet",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-mandal",
+    "name": "Sporty Mandal",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mandal",
+    "parsed": {
+      "address": "Skarvøyveien 55",
+      "postal_code": "4517",
+      "city": "Mandal"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-mandal-sanden",
+    "name": "Sporty Mandal Sanden",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mandal-sanden",
+    "parsed": {
+      "address": "Kastellgata 14",
+      "postal_code": "4514",
+      "city": "Mandal"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-medlem",
+    "name": "Sporty Medlem",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-medlem",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-mjondalen-mjondalshallen",
+    "name": "Sporty Mjondalen Mjondalshallen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mjondalen-mjondalshallen",
+    "parsed": {
+      "address": "Hagatjernveien 19",
+      "postal_code": "3050",
+      "city": "Mjøndalen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-mjondalen-strandveien",
+    "name": "Sporty Mjondalen Strandveien",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mjondalen-strandveien",
+    "parsed": {
+      "address": "Strandveien 33",
+      "postal_code": "3050",
+      "city": "Mjøndalen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-mjondalshallen",
+    "name": "Sporty Mjondalshallen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mjondalshallen",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-mo-i-rana",
+    "name": "Sporty Mo I Rana",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-mo-i-rana",
+    "parsed": {
+      "address": "Midtre gate 17a",
+      "postal_code": "8624",
+      "city": "Mo i Rana"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-molde-moldehallen",
+    "name": "Sporty Molde Moldehallen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-molde-moldehallen",
+    "parsed": {
+      "address": "Verftsgata 10",
+      "postal_code": "6416",
+      "city": "Molde ( Inngang C )"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-molde-reknes",
+    "name": "Sporty Molde Reknes",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-molde-reknes",
+    "parsed": {
+      "address": "Julsundvegen 49",
+      "postal_code": "6412",
+      "city": "Molde"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-molde-sjofronten",
+    "name": "Sporty Molde Sjofronten",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-molde-sjofronten",
+    "parsed": {
+      "address": "Hamnegata 47",
+      "postal_code": "6413",
+      "city": "Molde"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-morkved",
+    "name": "Sporty Morkved",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-morkved",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-moss",
+    "name": "Sporty Moss",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-moss",
+    "parsed": {
+      "address": "Midtveien 5",
+      "postal_code": "1526",
+      "city": "Moss"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-muskelterapi-bilde-1",
+    "name": "Sporty Muskelterapi Bilde 1",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-muskelterapi-bilde-1",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-muskelterapi-bilde-2355-x-1080-px",
+    "name": "Sporty Muskelterapi Bilde 2355 X 1080 Px",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-muskelterapi-bilde-2355-x-1080-px",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-narverod",
+    "name": "Sporty Narverod",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-narverod",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-nicole",
+    "name": "Sporty Nicole",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-nicole",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-norge",
+    "name": "Sporty Norge",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-norge",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-norve",
+    "name": "Sporty Norve",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-norve",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-notodden",
+    "name": "Sporty Notodden",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-notodden",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-notteroy",
+    "name": "Sporty Notteroy",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-notteroy",
+    "parsed": {
+      "address": "Stalsbergveien 7",
+      "postal_code": "3128",
+      "city": "Nøtterøy"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-orje",
+    "name": "Sporty Orje",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-orje",
+    "parsed": {
+      "address": "Skolegata 3",
+      "postal_code": "1870",
+      "city": "Ørje"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-orsta",
+    "name": "Sporty Orsta",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-orsta",
+    "parsed": {
+      "address": "Ivar Aasen Gate 10",
+      "postal_code": "6150",
+      "city": "Ørsta"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-osoyro",
+    "name": "Sporty Osoyro",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-osoyro",
+    "parsed": {
+      "address": "Brugata 32",
+      "postal_code": "5200",
+      "city": "Os"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-padel",
+    "name": "Sporty Padel",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-padel",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-paradis-katrine-tonnesen-pt",
+    "name": "Sporty Paradis Katrine Tonnesen Pt",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-paradis-katrine-tonnesen-pt",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-rabatten",
+    "name": "Sporty Rabatten",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-rabatten",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-rakkestad",
+    "name": "Sporty Rakkestad",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-rakkestad",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-ratvika",
+    "name": "Sporty Ratvika",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ratvika",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-samnanger",
+    "name": "Sporty Samnanger",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-samnanger",
+    "parsed": {
+      "address": "Bjørkheim 26",
+      "postal_code": "5652",
+      "city": "Samnanger"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sande",
+    "name": "Sporty Sande",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sande",
+    "parsed": {
+      "address": "Revåveien 37",
+      "postal_code": "3070",
+      "city": "Sande i Vestfold"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sande-map",
+    "name": "Sporty Sande Map",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sande-map",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sandefjord-moveien",
+    "name": "Sporty Sandefjord Moveien",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sandefjord-moveien",
+    "parsed": {
+      "address": "Moveien 53",
+      "postal_code": "3215",
+      "city": "Sandefjord"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sarpsborg-iseveien",
+    "name": "Sporty Sarpsborg Iseveien",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sarpsborg-iseveien",
+    "parsed": {
+      "address": "Snekkerstubakken 26",
+      "postal_code": "1738",
+      "city": "Borgenhaugen"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sem",
+    "name": "Sporty Sem",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sem",
+    "parsed": {
+      "address": "Semsbyveien 74",
+      "postal_code": "3170",
+      "city": "Sem"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sentre",
+    "name": "Sporty Sentre",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sentre",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-ski-storsenter",
+    "name": "Sporty Ski Storsenter",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ski-storsenter",
+    "parsed": {
+      "address": "Jernbanesvingen 6",
+      "postal_code": "1400",
+      "city": "Ski"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sogne",
+    "name": "Sporty Sogne",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sogne",
+    "parsed": {
+      "address": "Sentrumsveien 33",
+      "postal_code": "4640",
+      "city": "Tangvall"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-stavern",
+    "name": "Sporty Stavern",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-stavern",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-stavern-2",
+    "name": "Sporty Stavern 2",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-stavern-2",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-stavern-oversikt-3",
+    "name": "Sporty Stavern Oversikt 3",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-stavern-oversikt-3",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-stokke",
+    "name": "Sporty Stokke",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-stokke",
+    "parsed": {
+      "address": "Kornmagasingata 2",
+      "postal_code": "3160",
+      "city": "Stokke"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-stokke-sundland",
+    "name": "Sporty Stokke Sundland",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-stokke-sundland",
+    "parsed": {
+      "address": "Sundlandveien 6",
+      "postal_code": "3160",
+      "city": "Stokke"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-strandveien",
+    "name": "Sporty Strandveien",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-strandveien",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-straume",
+    "name": "Sporty Straume",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-straume",
+    "parsed": {
+      "address": "Skjenet 7",
+      "postal_code": "5353",
+      "city": "STRAUME"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-sykkylven",
+    "name": "Sporty Sykkylven",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-sykkylven",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-tonsberg-farmand",
+    "name": "Sporty Tonsberg Farmand",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-tonsberg-farmand",
+    "parsed": {
+      "address": "Slagenveien 16",
+      "postal_code": "3110",
+      "city": "Tønsberg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-tonsberg-gressbanen",
+    "name": "Sporty Tonsberg Gressbanen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-tonsberg-gressbanen",
+    "parsed": {
+      "address": "Trudvangveien 73",
+      "postal_code": "3117",
+      "city": "Tønsberg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-tonsberg-kilen",
+    "name": "Sporty Tonsberg Kilen",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-tonsberg-kilen",
+    "parsed": {
+      "address": "Kilengaten 25",
+      "postal_code": "3117",
+      "city": "Tønsberg"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-ulstein-ulsteinvik",
+    "name": "Sporty Ulstein Ulsteinvik",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ulstein-ulsteinvik",
+    "parsed": {
+      "address": "Kyrkjegata 22",
+      "postal_code": "6065",
+      "city": "Ulsteinvik"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-ulstein-varleite",
+    "name": "Sporty Ulstein Varleite",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ulstein-varleite",
+    "parsed": {
+      "address": "Varleitevegen 9",
+      "postal_code": "6065",
+      "city": "Ulsteinvik"
+    },
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-ulsteinvik",
+    "name": "Sporty Ulsteinvik",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-ulsteinvik",
+    "parsed": null,
+    "legacy_brand": null
+  },
+  {
+    "brand": "Sporty",
+    "center_name": "sporty-varleite",
+    "name": "Sporty Varleite",
+    "source_url": "https://www.sporty.no/treningssenter/sporty-varleite",
+    "parsed": null,
+    "legacy_brand": null
+  }
+]

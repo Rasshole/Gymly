@@ -1,0 +1,65 @@
+{
+  "generated": "2026-08-21T22:58:01.418107+00:00",
+  "mappings": [
+    {
+      "legacy": "Fitness Platinium",
+      "current": "Well Fitness",
+      "notes": "Official Well listing marks DAWNIEJ FITNESS PLATINIUM"
+    },
+    {
+      "legacy": "Smart Gym",
+      "current": "Well Fitness",
+      "notes": "Official Well listing marks DAWNIEJ SMART GYM"
+    },
+    {
+      "legacy": "McFIT Poland",
+      "current": "Well Fitness / Just GYM",
+      "notes": "Absorbed per Phase 1 market audit; no separate PL McFIT estate"
+    },
+    {
+      "legacy": "My Fitness Place",
+      "current": "Zdrofit",
+      "notes": "From 2026-06-03 MFP Kraków → Zdrofit"
+    },
+    {
+      "legacy": "Saturn Fitness (Kraków)",
+      "current": "Zdrofit",
+      "notes": "With MFP Kraków conversion Jun 2026"
+    },
+    {
+      "legacy": "Total Fitness",
+      "current": "Zdrofit",
+      "notes": "10 locations joined Zdrofit 2025-11-13"
+    },
+    {
+      "legacy": "Fitness For Life",
+      "current": "Zdrofit",
+      "notes": "Rzeszów/Nowy Sącz joined Jan 2026"
+    },
+    {
+      "legacy": "StepONE",
+      "current": "Zdrofit / Fit Fabric / Fabryka Formy",
+      "notes": "Clubs reassigned; StepONE not current consumer brand for those sites"
+    },
+    {
+      "legacy": "Fabryka Formy (Silesia and others)",
+      "current": "Zdrofit",
+      "notes": "Many FF locator entries already titled Zdrofit; remaining Poznań-centric FF brands still Fabryka Formy"
+    },
+    {
+      "legacy": "Tone Zone",
+      "current": "Zdrofit",
+      "notes": "Gdańsk Tone Zone → Zdrofit"
+    }
+  ],
+  "current_benefit_consumer_brands": [
+    "Zdrofit",
+    "Fabryka Formy",
+    "Fit Fabric"
+  ],
+  "excluded_or_non_club": [
+    "MultiSport (card product)",
+    "UP Fitness (equipment)",
+    "Befit.pl (content site)"
+  ]
+}

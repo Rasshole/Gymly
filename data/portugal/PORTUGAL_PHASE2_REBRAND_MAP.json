@@ -1,0 +1,22 @@
+{
+  "Fitness Hut": {
+    "successor": "VivaGym",
+    "action": "stage_as_vivagym_only",
+    "status": "resolved"
+  },
+  "Pump Fitness Spirit": {
+    "successor": "Solinca Light",
+    "action": "stage_as_solinca_light_only",
+    "status": "resolved"
+  },
+  "Virgin Active Portugal": {
+    "successor": "Holmes Place",
+    "action": "stage_as_holmes_place_only",
+    "status": "resolved"
+  },
+  "Kalorias": {
+    "successor": null,
+    "action": "exclude_while_site_404",
+    "status": "deferred"
+  }
+}

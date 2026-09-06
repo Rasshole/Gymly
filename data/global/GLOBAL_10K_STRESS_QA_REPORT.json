@@ -1,0 +1,144 @@
+{
+  "reportDate": "2026-08-22",
+  "verdict": "PASS",
+  "expansionLock": "UNLOCKED",
+  "physicalDeviceQa": "FOLLOW_UP_REQUIRED",
+  "catalog": {
+    "source": "src/data/centers.json",
+    "total": 10050,
+    "active": 10046,
+    "productionModifiedDuringQa": false,
+    "fileSizeBytes": 3093472,
+    "countryCounts": {
+      "Denmark": { "rows": 354, "active": 350, "inactiveIntentional": 4 },
+      "Sweden": { "rows": 639, "active": 639 },
+      "Norway": { "rows": 535, "active": 535 },
+      "Germany": { "rows": 1424, "active": 1424 },
+      "United Kingdom": { "rows": 1474, "active": 1474 },
+      "Finland": { "rows": 429, "active": 429 },
+      "Netherlands": { "rows": 600, "active": 600 },
+      "France": { "rows": 1712, "active": 1712 },
+      "Spain": { "rows": 976, "active": 976 },
+      "Italy": { "rows": 588, "active": 588 },
+      "Belgium": { "rows": 363, "active": 363 },
+      "Poland": { "rows": 621, "active": 621 },
+      "Austria": { "rows": 335, "active": 335 }
+    }
+  },
+  "integrity": {
+    "duplicateIds": 0,
+    "prefixCountryMismatches": 0,
+    "mojibakeRows": 0,
+    "missingRequiredFields": 0,
+    "activeNullCoords": ["se_7f7137b434"],
+    "invalidFiniteCoords": 0,
+    "zeroZeroCoords": 0
+  },
+  "duplicatesSuspicious": {
+    "sameBrandSameAddress": 33,
+    "sameBrandIdenticalCoords": 20,
+    "sameBrandWithin25m": 22,
+    "notes": "Mostly legacy Denmark postal-approx clusters; intentional AT/PL proximity pairs retained"
+  },
+  "lookup": {
+    "findCenterById": "O(1) Map",
+    "findGymById": "O(1) Map",
+    "activeGymsCacheStable": true,
+    "orphanIdSafe": true,
+    "assessment": "GOOD"
+  },
+  "search": {
+    "indexCachedOnce": true,
+    "benchmark10050": {
+      "jsonBytes": 2336627,
+      "parseMs": 12,
+      "coldIndexMs": 942,
+      "cachedIndexMs": 0,
+      "typicalSearch3qMs": 664,
+      "worstSearch2qMs": 164,
+      "nearestMs": 26,
+      "mapBuildMs": 32,
+      "mapFilterMs": 4
+    },
+    "variance3Run": [
+      { "run": 1, "coldIndexMs": 2122, "typicalSearchMs": 1648, "worstSearchMs": 377, "nearestMs": 100 },
+      { "run": 2, "coldIndexMs": 833, "typicalSearchMs": 609, "worstSearchMs": 146, "nearestMs": 22 },
+      { "run": 3, "coldIndexMs": 850, "typicalSearchMs": 626, "worstSearchMs": 152, "nearestMs": 23 }
+    ],
+    "forwardScaleMs": {
+      "12500": { "coldIndex": 1091, "typicalSearch": 764, "nearest": 29 },
+      "15000": { "coldIndex": 1351, "typicalSearch": 906, "nearest": 35 },
+      "20000": { "coldIndex": 1704, "typicalSearch": 1262, "nearest": 43 },
+      "25000": { "coldIndex": 2032, "typicalSearch": 1467, "nearest": 56 },
+      "50000": { "coldIndex": 4358, "typicalSearch": 3151, "nearest": 115 }
+    },
+    "assessment": {
+      "coldIndex": "ACCEPTABLE",
+      "cachedIndex": "GOOD",
+      "typicalSearch": "ACCEPTABLE",
+      "worstSearch": "GOOD",
+      "typingStress": "ACCEPTABLE"
+    }
+  },
+  "checkIn": {
+    "radiusMeters": 200,
+    "autoCheckoutMeters": 200,
+    "sessionGymSourceOfTruth": true,
+    "assessment": "PASS"
+  },
+  "map": {
+    "viewportFilterBeforeRender": true,
+    "assessment": "GOOD"
+  },
+  "nearest": {
+    "linearScanActiveCount": 10046,
+    "assessment": "GOOD"
+  },
+  "architectureDecision": {
+    "keepClientSide": true,
+    "monitorThreshold": 15000,
+    "planningThreshold": "20000-25000",
+    "requiredMigrationThreshold": "40000-50000",
+    "reason": "No blocker at 10,050; benchmarks scale roughly linearly"
+  },
+  "tests": {
+    "globalSuite": "__tests__/global10kStressQa.test.ts",
+    "globalTests": 131,
+    "regressionSuites": 23,
+    "regressionTestsPassed": 1649,
+    "regressionTestsFailed": 0,
+    "regressionRuntimeSec": 67
+  },
+  "bugsFound": [
+    "workoutLog.test.ts AsyncStorage mock missing (suite failed to load)"
+  ],
+  "bugsFixed": [
+    "Added AsyncStorage Jest mock to __tests__/workoutLog.test.ts"
+  ],
+  "productionBugsFound": [],
+  "remainingRisks": [
+    "Physical device cold launch and first-search latency not measured in CI",
+    "Sweden legacy null-coord fallback for se_7f7137b434",
+    "Denmark-centric onboarding popular gym list (cosmetic UX only)",
+    "Synthetic forward-scale suggests migration planning around 20-25k centers"
+  ],
+  "filesChanged": [
+    "__tests__/global10kStressQa.test.ts",
+    "__tests__/workoutLog.test.ts",
+    "__tests__/franceCatalogScalePrep.test.ts",
+    "__tests__/spainCatalogScalePrep.test.ts",
+    "__tests__/belgiumCatalogScalingPrep.test.ts",
+    "__tests__/italyCatalogScalePrep.test.ts",
+    "__tests__/germanyGymQa.test.ts",
+    "__tests__/netherlandsGymQa.test.ts",
+    "__tests__/finlandGymQa.test.ts",
+    "__tests__/ukGymQa.test.ts",
+    "__tests__/franceGymQa.test.ts",
+    "__tests__/spainGymQa.test.ts",
+    "__tests__/italyGymQa.test.ts",
+    "__tests__/belgiumGymQa.test.ts",
+    "__tests__/italyCompletenessQa.test.ts",
+    "data/global/GLOBAL_10K_STRESS_QA_REPORT.md",
+    "data/global/GLOBAL_10K_STRESS_QA_REPORT.json"
+  ]
+}

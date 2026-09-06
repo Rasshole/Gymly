@@ -1,0 +1,1232 @@
+[
+  {
+    "id": "it_ac128eb752",
+    "name": "Fit Express Lido di Camaiore",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via del Secco, 55041 Camaiore, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via del Secco Camaiore",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Lido di Camaiore, Camaiore, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via del Secco, 55041 Camaiore, Italy",
+        "n": 2
+      },
+      {
+        "q": "Via del Secco, Camaiore, Italy",
+        "n": 2
+      }
+    ]
+  },
+  {
+    "id": "it_5916976467",
+    "name": "Fit Express Milano Missaglia",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Via dei Missaglia 97, 20142 Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via dei Missaglia 97 Milano",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Milano Missaglia, Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via dei Missaglia 97, 20142 Milano, Italy",
+        "n": 2
+      },
+      {
+        "q": "Via dei Missaglia 97, Milano, Italy",
+        "n": 2
+      }
+    ],
+    "best": "Agenzia delle Entrate, 97, Via dei Missaglia, Gratosoglio - Ticinello, Municipio 5, Milano, Rodano, Milano, Lombardia, 20142, Italia"
+  },
+  {
+    "id": "it_fb3e64696e",
+    "name": "Fit Express Siena Toselli",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Strada di Busseto, 18, 53100 Siena, Italy",
+        "n": 1
+      },
+      {
+        "q": "Fit Express Strada di Busseto, 18 Siena",
+        "n": 1
+      },
+      {
+        "q": "Fit Express Siena Toselli, Siena, Italy",
+        "n": 0
+      },
+      {
+        "q": "Strada di Busseto, 18, 53100 Siena, Italy",
+        "n": 5
+      },
+      {
+        "q": "Strada di Busseto, 18, Siena, Italy",
+        "n": 5
+      }
+    ],
+    "best": "Fit Express Siena, 18, Strada di Busseto, Beko Europe, Due Ponti, Siena, Toscana, 53100, Italia"
+  },
+  {
+    "id": "it_41ddf8fcf5",
+    "name": "Fit Express Poggibonsi",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Località Belvedere, 53034 Colle di Val d'Elsa, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Località Belvedere Colle di Val d'Elsa",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Poggibonsi, Colle di Val d'Elsa, Italy",
+        "n": 0
+      },
+      {
+        "q": "Località Belvedere, 53034 Colle di Val d'Elsa, Italy",
+        "n": 1
+      },
+      {
+        "q": "Località Belvedere, Colle di Val d'Elsa, Italy",
+        "n": 1
+      }
+    ]
+  },
+  {
+    "id": "it_dfac3b918d",
+    "name": "Fit Express Lucca San Vito",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via delle Cornacchie, 55100 Lucca, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via delle Cornacchie Lucca",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Lucca San Vito, Lucca, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via delle Cornacchie, 55100 Lucca, Italy",
+        "n": 3
+      },
+      {
+        "q": "Via delle Cornacchie, Lucca, Italy",
+        "n": 3
+      }
+    ]
+  },
+  {
+    "id": "it_0177de6896",
+    "name": "Fit Express Lucca San Concordio",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Viale San Concordio, 996, 55100 Lucca, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Viale San Concordio, 996 Lucca",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Lucca San Concordio, Lucca, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale San Concordio, 996, 55100 Lucca, Italy",
+        "n": 4
+      },
+      {
+        "q": "Viale San Concordio, 996, Lucca, Italy",
+        "n": 4
+      }
+    ],
+    "best": "Mercatino dell'Usato, 996e, Viale San Concordio, Vicopelago, Gattaiola, Lucca, Toscana, 55057, Italia"
+  },
+  {
+    "id": "it_95c4059d07",
+    "name": "Fit Express Catania Etnapolis",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Contrada Valcorrente, 23, 95032 Belpasso, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Contrada Valcorrente, 23 Belpasso",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Catania Etnapolis, Belpasso, Italy",
+        "n": 0
+      },
+      {
+        "q": "Contrada Valcorrente, 23, 95032 Belpasso, Italy",
+        "n": 5
+      },
+      {
+        "q": "Contrada Valcorrente, 23, Belpasso, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_e4db5df599",
+    "name": "Fit Express Rivoli",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, C.so Francia, 157, 10098 Rivoli, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express C.so Francia, 157 Rivoli",
+        "n": 1
+      },
+      {
+        "q": "Fit Express Rivoli, Rivoli, Italy",
+        "n": 1
+      },
+      {
+        "q": "C.so Francia, 157, 10098 Rivoli, Italy",
+        "n": 5
+      },
+      {
+        "q": "C.so Francia, 157, Rivoli, Italy",
+        "n": 5
+      }
+    ],
+    "best": "Fit Express, Corso Francia, Maiasco, Cascine Vica, Rivoli, Torino, Piemonte, 10098, Italia"
+  },
+  {
+    "id": "it_28e74b261a",
+    "name": "Fit Express Acqui Terme",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Viale dei Maestri Vetrai, 10, 15011 Acqui Terme, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Viale dei Maestri Vetrai, 10 Acqui Terme",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Acqui Terme, Acqui Terme, Italy",
+        "n": 1
+      },
+      {
+        "q": "Viale dei Maestri Vetrai, 10, 15011 Acqui Terme, Italy",
+        "n": 1
+      },
+      {
+        "q": "Viale dei Maestri Vetrai, 10, Acqui Terme, Italy",
+        "n": 1
+      }
+    ],
+    "best": "Fit express, Viale dei Maestri vetrai, Acqui Terme, Alessandria, Piemonte, 15010, Italia"
+  },
+  {
+    "id": "it_86ba142f40",
+    "name": "Fit Express Pioltello",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Viale San Francesco, 33, 20096 Pioltello, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Viale San Francesco, 33 Pioltello",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Pioltello, Pioltello, Italy",
+        "n": 1
+      },
+      {
+        "q": "Viale San Francesco, 33, 20096 Pioltello, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale San Francesco, 33, Pioltello, Italy",
+        "n": 0
+      }
+    ],
+    "best": "Fit Express, Via San Francesco, Molino Ortolina, Seggiano, Pioltello, Rodano, Milano, Lombardia, 20096, Italia"
+  },
+  {
+    "id": "it_2abfeade3a",
+    "name": "Fit Express Pero",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via Sempione, 184, 20016 Pero, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Sempione, 184 Pero",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Pero, Pero, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Sempione, 184, 20016 Pero, Italy",
+        "n": 3
+      },
+      {
+        "q": "Via Sempione, 184, Pero, Italy",
+        "n": 3
+      }
+    ]
+  },
+  {
+    "id": "it_4db490308e",
+    "name": "Fit Express Palazzolo sull’Oglio",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Viale Europa, 25036 Palazzolo sull'Oglio, Italy",
+        "n": 1
+      },
+      {
+        "q": "Fit Express Viale Europa Palazzolo sull'Oglio",
+        "n": 1
+      },
+      {
+        "q": "Fit Express Palazzolo sull’Oglio, Palazzolo sull'Oglio, Italy",
+        "n": 1
+      },
+      {
+        "q": "Viale Europa, 25036 Palazzolo sull'Oglio, Italy",
+        "n": 5
+      },
+      {
+        "q": "Viale Europa, Palazzolo sull'Oglio, Italy",
+        "n": 5
+      }
+    ],
+    "best": "Fit Express, Viale Europa, San Rocco, Palazzolo sull'Oglio, Brescia, Lombardia, 25036, Italia"
+  },
+  {
+    "id": "it_6737e909ef",
+    "name": "Fit Express Paderno Dugnano",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Viale dell'Industria, 1, 20037 Paderno Dugnano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Viale dell'Industria, 1 Paderno Dugnano",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Paderno Dugnano, Paderno Dugnano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale dell'Industria, 1, 20037 Paderno Dugnano, Italy",
+        "n": 2
+      },
+      {
+        "q": "Viale dell'Industria, 1, Paderno Dugnano, Italy",
+        "n": 2
+      }
+    ]
+  },
+  {
+    "id": "it_08df8dabd2",
+    "name": "Fit Express Milano Isola",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Via Gustavo Fara, 41/A, 20124 Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Gustavo Fara, 41/A Milano",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Milano Isola, Milano, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Gustavo Fara, 41/A, 20124 Milano, Italy",
+        "n": 3
+      },
+      {
+        "q": "Via Gustavo Fara, 41/A, Milano, Italy",
+        "n": 3
+      }
+    ],
+    "best": "Fit Express milano isola, 39/41, Via Gustavo Fara, GARIBALDI REPUBBLICA, Municipio 9, Milano, Rodano, Milano, Lombardia, 20124, Italia"
+  },
+  {
+    "id": "it_c74f8603c2",
+    "name": "Fit Express Milano Fiordaliso",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Via Eugenio Curiel, 25, 20089 Rozzano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Eugenio Curiel, 25 Rozzano",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Milano Fiordaliso, Rozzano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Eugenio Curiel, 25, 20089 Rozzano, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Eugenio Curiel, 25, Rozzano, Italy",
+        "n": 5
+      }
+    ],
+    "best": "Decathlon, 25, Via Eugenio Curiel, Pontesesto, Rozzano, Rodano, Milano, Lombardia, 20089, Italia"
+  },
+  {
+    "id": "it_d6f32a0ca8",
+    "name": "Fit Express Castellanza",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Viale Don G. Minzoni, 29a, 21053 Castellanza, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Viale Don G. Minzoni, 29a Castellanza",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Castellanza, Castellanza, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Don G. Minzoni, 29a, 21053 Castellanza, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Don G. Minzoni, 29a, Castellanza, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_32b566bd0c",
+    "name": "Fit Express Arcore",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via Monte Rosa, 65, 20862 Arcore, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Monte Rosa, 65 Arcore",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Arcore, Arcore, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Monte Rosa, 65, 20862 Arcore, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Monte Rosa, 65, Arcore, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_9e7a4c929b",
+    "name": "Fit Express Agrate",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via Giuseppe Verdi, 15, 20864 Agrate Brianza, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Giuseppe Verdi, 15 Agrate Brianza",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Agrate, Agrate Brianza, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Giuseppe Verdi, 15, 20864 Agrate Brianza, Italy",
+        "n": 2
+      },
+      {
+        "q": "Via Giuseppe Verdi, 15, Agrate Brianza, Italy",
+        "n": 2
+      }
+    ]
+  },
+  {
+    "id": "it_1c496a29df",
+    "name": "Fit Express Roma Boccea",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via di Boccea, 280, 00167 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via di Boccea, 280 Roma",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Roma Boccea, Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via di Boccea, 280, 00167 Roma, Italy",
+        "n": 2
+      },
+      {
+        "q": "Via di Boccea, 280, Roma, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_d83d7afdef",
+    "name": "Fit Express Latina",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Viale Le Corbusier, 04100 Latina, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Viale Le Corbusier Latina",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Latina, Latina, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Le Corbusier, 04100 Latina, Italy",
+        "n": 5
+      },
+      {
+        "q": "Viale Le Corbusier, Latina, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_8edfe359a3",
+    "name": "Fit Express Frosinone",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via Giovanni Jacobucci, 03100 Frosinone, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Giovanni Jacobucci Frosinone",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Frosinone, Frosinone, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Giovanni Jacobucci, 03100 Frosinone, Italy",
+        "n": 2
+      },
+      {
+        "q": "Via Giovanni Jacobucci, Frosinone, Italy",
+        "n": 2
+      }
+    ]
+  },
+  {
+    "id": "it_928f9ebc0a",
+    "name": "Fit Express Aprilia",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via Nettunense, 197, 04011 Aprilia, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Nettunense, 197 Aprilia",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Aprilia, Aprilia, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Nettunense, 197, 04011 Aprilia, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Nettunense, 197, Aprilia, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_8d44492550",
+    "name": "Fit Express Rimini Malatesta",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Fit Express, Via Emilia, 150, 47921 Rimini, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Emilia, 150 Rimini",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Rimini Malatesta, Rimini, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Emilia, 150, 47921 Rimini, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Emilia, 150, Rimini, Italy",
+        "n": 5
+      }
+    ],
+    "best": "OVS Rimini Malatesta, 150, Via Emilia, Viserba, Rimini, Emilia-Romagna, 47921, Italia"
+  },
+  {
+    "id": "it_7a4805cbab",
+    "name": "Fit Express Acerra",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fit Express, Via Santa Maria la Nova, 80011 Acerra, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Via Santa Maria la Nova Acerra",
+        "n": 0
+      },
+      {
+        "q": "Fit Express Acerra, Acerra, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Santa Maria la Nova, 80011 Acerra, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Santa Maria la Nova, Acerra, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_629ac150dc",
+    "name": "ICON Palestre Roma Talenti",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Luigi Capuana, 160, 00137 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via Luigi Capuana, 160 Roma",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Roma Talenti, Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Luigi Capuana, 160, 00137 Roma, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Luigi Capuana, 160, Roma, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_e7a1251be9",
+    "name": "ICON Palestre Arezzo",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Fiorentina, 538, 52100 Arezzo, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via Fiorentina, 538 Arezzo",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Arezzo, Arezzo, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Fiorentina, 538, 52100 Arezzo, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Fiorentina, 538, Arezzo, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_7ebc07726c",
+    "name": "ICON Palestre Aprilia 1",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Nettunense, 197, 04011 Aprilia, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via Nettunense, 197 Aprilia",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Aprilia 1, Aprilia, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Nettunense, 197, 04011 Aprilia, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Nettunense, 197, Aprilia, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_d7eebf054f",
+    "name": "ICON Palestre Benevento",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via dei Mulini, 108, 82100 Benevento, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via dei Mulini, 108 Benevento",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Benevento, Benevento, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via dei Mulini, 108, 82100 Benevento, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via dei Mulini, 108, Benevento, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_f9c4784b7d",
+    "name": "ICON Palestre Caserta",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Centro Commerciale APOLLO, Via Nazionale Appia, CC Apollo, 81020 Casapulla, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Centro Commerciale APOLLO, Via Nazionale Appia, CC Apollo Casapulla",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Caserta, Casapulla, Italy",
+        "n": 0
+      },
+      {
+        "q": "Centro Commerciale APOLLO, Via Nazionale Appia, CC Apollo, 81020 Casapulla, Italy",
+        "n": 0
+      },
+      {
+        "q": "Centro Commerciale APOLLO, Via Nazionale Appia, CC Apollo, Casapulla, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_d0228c1cab",
+    "name": "ICON Palestre Ceccano",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Badia 57/59, 03023 Ceccano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via Badia 57/59 Ceccano",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Ceccano, Ceccano, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Badia 57/59, 03023 Ceccano, Italy",
+        "n": 2
+      },
+      {
+        "q": "Via Badia 57/59, Ceccano, Italy",
+        "n": 2
+      }
+    ]
+  },
+  {
+    "id": "it_903887ca03",
+    "name": "ICON Palestre Latina Via Ezio",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Ezio, 04100 Latina, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via Ezio Latina",
+        "n": 1
+      },
+      {
+        "q": "ICON Palestre Latina Via Ezio, Latina, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Ezio, 04100 Latina, Italy",
+        "n": 4
+      },
+      {
+        "q": "Via Ezio, Latina, Italy",
+        "n": 4
+      }
+    ],
+    "best": "ICON Palestre Via Ezio, Via Enea, Porta Nord, Villaggio Trieste, Latina, Lazio, 04100, Italia"
+  },
+  {
+    "id": "it_023f6dc134",
+    "name": "ICON Palestre Messina",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Icon Palestre, Centro Commerciale Tremestieri, 98125 Messina, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Centro Commerciale Tremestieri Messina",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Messina, Messina, Italy",
+        "n": 0
+      },
+      {
+        "q": "Centro Commerciale Tremestieri, 98125 Messina, Italy",
+        "n": 1
+      },
+      {
+        "q": "Centro Commerciale Tremestieri, Messina, Italy",
+        "n": 1
+      }
+    ],
+    "best": "Centro Commerciale Tremestieri, Via Adolfo Celi, Fondo Granata, Pistunina, II Circoscrizione, San Filippo Inferiore, Messina, Sicilia, 98125, Italia"
+  },
+  {
+    "id": "it_37aeb9b71b",
+    "name": "ICON Palestre Napoli SGV",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Salvati, 80047 San Giuseppe Vesuviano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via Salvati San Giuseppe Vesuviano",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Napoli SGV, San Giuseppe Vesuviano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Salvati, 80047 San Giuseppe Vesuviano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Salvati, San Giuseppe Vesuviano, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_8e6f3b3fad",
+    "name": "ICON Palestre Nettuno",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Piazzale Pier Luigi Nervi, 1, 00048 Nettuno, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Piazzale Pier Luigi Nervi, 1 Nettuno",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Nettuno, Nettuno, Italy",
+        "n": 0
+      },
+      {
+        "q": "Piazzale Pier Luigi Nervi, 1, 00048 Nettuno, Italy",
+        "n": 0
+      },
+      {
+        "q": "Piazzale Pier Luigi Nervi, 1, Nettuno, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_4647eaa4ab",
+    "name": "ICON Palestre Viterbo",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Strada Tuscanese, 01100 Viterbo, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Strada Tuscanese Viterbo",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Viterbo, Viterbo, Italy",
+        "n": 0
+      },
+      {
+        "q": "Strada Tuscanese, 01100 Viterbo, Italy",
+        "n": 5
+      },
+      {
+        "q": "Strada Tuscanese, Viterbo, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_ca6201f538",
+    "name": "ICON Palestre Catania",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Viale Ruggero di Lauria, 87, 95127 Catania, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Viale Ruggero di Lauria, 87 Catania",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Catania, Catania, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Ruggero di Lauria, 87, 95127 Catania, Italy",
+        "n": 2
+      },
+      {
+        "q": "Viale Ruggero di Lauria, 87, Catania, Italy",
+        "n": 2
+      }
+    ]
+  },
+  {
+    "id": "it_1c059893a8",
+    "name": "ICON Palestre Roma Spinaceto",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Viale degli Eroi di Rodi, 16, 00128 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Viale degli Eroi di Rodi, 16 Roma",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Roma Spinaceto, Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale degli Eroi di Rodi, 16, 00128 Roma, Italy",
+        "n": 5
+      },
+      {
+        "q": "Viale degli Eroi di Rodi, 16, Roma, Italy",
+        "n": 5
+      }
+    ]
+  },
+  {
+    "id": "it_ee6a6964f2",
+    "name": "ICON Palestre Pomezia 2",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via S. Pellico, 19, 00071 Pomezia, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via S. Pellico, 19 Pomezia",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Pomezia 2, Pomezia, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via S. Pellico, 19, 00071 Pomezia, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via S. Pellico, 19, Pomezia, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_8a876672c2",
+    "name": "ICON Palestre Avezzano",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Vincenzo Falcone, 5, 67051 Avezzano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Via Vincenzo Falcone, 5 Avezzano",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Avezzano, Avezzano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Vincenzo Falcone, 5, 67051 Avezzano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Vincenzo Falcone, 5, Avezzano, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_08668b77e9",
+    "name": "ICON Palestre Torvaianica",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Viale Italia, 23, 00071 Torvaianica, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Viale Italia, 23 Torvaianica",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Torvaianica, Torvaianica, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Italia, 23, 00071 Torvaianica, Italy",
+        "n": 2
+      },
+      {
+        "q": "Viale Italia, 23, Torvaianica, Italy",
+        "n": 2
+      }
+    ]
+  },
+  {
+    "id": "it_124b4dbe3c",
+    "name": "ICON Palestre Ferrara",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Icon Palestre, Centro Commerciale Nuova Darsena, 44100 Ferrara, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Centro Commerciale Nuova Darsena Ferrara",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Ferrara, Ferrara, Italy",
+        "n": 0
+      },
+      {
+        "q": "Centro Commerciale Nuova Darsena, 44100 Ferrara, Italy",
+        "n": 1
+      },
+      {
+        "q": "Centro Commerciale Nuova Darsena, Ferrara, Italy",
+        "n": 1
+      }
+    ],
+    "best": "Centro Commerciale \"Nuova Darsena\", Via Darsena, Doro, Giardino, Ferrara, Emilia-Romagna, 44122, Italia"
+  },
+  {
+    "id": "it_874833617d",
+    "name": "ICON Palestre Roma Portuense",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Icon Palestre, Viale Isacco Newton, 51, 00151 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Viale Isacco Newton, 51 Roma",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Roma Portuense, Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Isacco Newton, 51, 00151 Roma, Italy",
+        "n": 1
+      },
+      {
+        "q": "Viale Isacco Newton, 51, Roma, Italy",
+        "n": 1
+      }
+    ],
+    "best": "Conad, 51, Viale Isacco Newton, Municipio Roma XII, Roma, Roma Capitale, Lazio, 00151, Italia"
+  },
+  {
+    "id": "it_19a80cf8e1",
+    "name": "ICON Palestre Roma EUR",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Icon Palestre, Piazzale Luigi Sturzo, 15, 00144 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Icon Palestre Piazzale Luigi Sturzo, 15 Roma",
+        "n": 0
+      },
+      {
+        "q": "ICON Palestre Roma EUR, Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Piazzale Luigi Sturzo, 15, 00144 Roma, Italy",
+        "n": 4
+      },
+      {
+        "q": "Piazzale Luigi Sturzo, 15, Roma, Italy",
+        "n": 4
+      }
+    ]
+  },
+  {
+    "id": "it_a40782f2dd",
+    "name": "ICON Palestre Rimini",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Icon Palestre, Via Consolare Rimini - San Marino, 17,  Rimini, Italy",
+        "n": 1
+      },
+      {
+        "q": "Icon Palestre Via Consolare Rimini - San Marino, 17 Rimini",
+        "n": 1
+      },
+      {
+        "q": "ICON Palestre Rimini, Rimini, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Consolare Rimini - San Marino, 17,  Rimini, Italy",
+        "n": 2
+      },
+      {
+        "q": "Via Consolare Rimini - San Marino, 17, Rimini, Italy",
+        "n": 2
+      }
+    ],
+    "best": "ICON Palestre Rimini, 17, Via Consolare Rimini-San Marino, Villaggio 1° maggio, Rimini, Emilia-Romagna, 47923, Italia"
+  },
+  {
+    "id": "it_ffa20b11d5",
+    "name": "Fitness Park RomaEst",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fitness Park, Via Collatina (Centro commerciale RomaEst), 00132 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fitness Park Via Collatina (Centro commerciale RomaEst) Roma",
+        "n": 0
+      },
+      {
+        "q": "Fitness Park RomaEst, Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Collatina (Centro commerciale RomaEst), 00132 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Collatina (Centro commerciale RomaEst), Roma, Italy",
+        "n": 0
+      }
+    ]
+  }
+]

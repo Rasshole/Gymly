@@ -1,0 +1,11 @@
+{
+  "country": "Russia",
+  "phase": 1,
+  "generated_at": "2026-08-29T21:15:11.554731+00:00",
+  "hierarchy": "official_website > official_franchise > osm > photon > directory",
+  "ready_with_source_url": 184,
+  "osm_sourced": 0,
+  "photon_sourced": 73,
+  "disputed_territory_staged": 27,
+  "cross_border_probes_excluded": 5
+}

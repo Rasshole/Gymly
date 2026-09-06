@@ -1,0 +1,15 @@
+{
+  "catalog_size": 10878,
+  "active_count": 10873,
+  "json_size_mb": 3.21,
+  "parse_ms": 409.1,
+  "cold_index_ms": 1077,
+  "cached_index_ms": 55.7,
+  "typical_search_ms": 1.9,
+  "worst_search_ms": 2.2,
+  "nearest_ms": 4.2,
+  "map_build_ms": 10.3,
+  "viewport_filter_ms": 1.1,
+  "nearest_id": "gr_10539671a1",
+  "assessment": "REVIEW"
+}

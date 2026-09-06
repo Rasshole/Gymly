@@ -1,0 +1,14 @@
+{
+  "status_counts": {
+    "EXCLUDED": 44,
+    "READY_TO_IMPORT": 31
+  },
+  "ready": 31,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "chain_class_a_ready": 7,
+  "small_market_independent_ready": 24,
+  "projected_catalog": 11831,
+  "verdict": "READY FOR BOSNIA & HERZEGOVINA MERGE",
+  "sha": "6df5a27d1671a5b5721b63e04b2f4e891ed3c5058fa24ede7d370eaaeb1f5112"
+}

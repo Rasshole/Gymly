@@ -1,0 +1,11 @@
+{
+  "phase": 2,
+  "ready_count": 18,
+  "duplicate_ids": [],
+  "same_brand_le_25m": [],
+  "same_brand_le_50m": [],
+  "same_brand_le_100m": [],
+  "same_brand_le_200m": [],
+  "identical_coords": [],
+  "different_brand_le_100m": []
+}

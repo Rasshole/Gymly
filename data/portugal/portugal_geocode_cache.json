@@ -1,0 +1,1399 @@
+{
+  "Av. São Miguel 230C, 2775-750, Carcavelos, Portugal": {
+    "lat": 38.7003194,
+    "lng": -9.3351387,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida São Miguel, São Miguel das Encostas, Carcavelos e Parede, Cascais, Lisboa, 2775-743, Portugal"
+  },
+  "R. Francisco Stromp 14, 1600-464, Lisboa, Portugal": {
+    "lat": 38.7635311,
+    "lng": -9.1594875,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Francisco Stromp, Lumiar, Lisboa, 1600-038, Portugal"
+  },
+  "R. Agostinho Gonçalves de Abreu,, 4600-752, Telões, Portugal": null,
+  "R. Diamantina 445,, 4200-258, Porto, Portugal": {
+    "lat": 41.1806534,
+    "lng": -8.5828398,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Diamantina, Areosa, Paranhos, Porto, 4200-258, Portugal"
+  },
+  "Rua da Cavada Nova 67,, 4435-161, Rio Tinto, Portugal": {
+    "lat": 41.1751284,
+    "lng": -8.5508318,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua da Cavada Nova, Boavista, Rio Tinto, Gondomar, Porto, 4435-162, Portugal"
+  },
+  "R. Dr. Alberto Souto 1A,, 3800-147, Aveiro, Portugal": {
+    "lat": 40.6437876,
+    "lng": -8.6477337,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Doutor Alberto Souto, Carmo, Glória e Vera Cruz, Aveiro, 3800-166, Portugal"
+  },
+  "Av. 25 de Abril 1011,, 2750-512, Cascais, Portugal": {
+    "lat": 38.6952031,
+    "lng": -9.4303574,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida 25 de Abril, Bairro do Rosário, Cascais e Estoril, Cascais, Lisboa, 2750-167, Portugal"
+  },
+  "R. de Aníbal Cunha 41,, 4050-609, Porto, Portugal": {
+    "lat": 41.1536927,
+    "lng": -8.6210365,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua de Aníbal Cunha, Torrinha, Cedofeita, Cedofeita, Santo Ildefonso, Sé, Miragaia, São Nicolau e Vitória, Porto, 4050-046, Portugal"
+  },
+  "R. Luis de Camões 639,, 4420-440, Valbom, Portugal": {
+    "lat": 41.1447415,
+    "lng": -8.5535146,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Luís de Camões, Carregais, Pinheiro de Além, Gondomar (São Cosme), Valbom e Jovim, Gondomar, Porto, 4420-184, Portugal"
+  },
+  "R. do Mosteiro,, 4465-363, Leça do Balio, Portugal": {
+    "lat": 41.2061658,
+    "lng": -8.6205624,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua do Mosteiro, Leça do Balio, Matosinhos, Porto, 4465-602, Portugal"
+  },
+  "Rua 4 de Outubro Lt 7,, 6300-877, Guarda, Portugal": null,
+  "Av. Manuel Pereira Soares 604,, 4630-296, Marco de Canaveses, Portugal": {
+    "lat": 41.1849399,
+    "lng": -8.1479452,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Manuel Pereira Soares, São Nicolau, Marco, Marco de Canaveses, Porto, 4630-289, Portugal"
+  },
+  "R. das Indústrias 117, 4785-344, Trofa, Portugal": {
+    "lat": 41.3297932,
+    "lng": -8.5653208,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua das Indústrias, Trofa Velha, Lagoa, Bougado (São Martinho e Santiago), Trofa, Porto, 4785-625, Portugal"
+  },
+  "Rua da Calçada,, 4750-123, Barcelos, Portugal": {
+    "lat": 41.5321297,
+    "lng": -8.6669939,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua da Calçada, Creixomil e Mariz, Barcelos, Braga, 4750-421, Portugal"
+  },
+  "R. Cláudio Mesquita Rosa nº1,, 5300-653, Bragança, Portugal": {
+    "lat": 41.8124702,
+    "lng": -6.7613046,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Cláudio Mesquita Rosa, Loreto, Sé, Santa Maria e Meixedo, Bragança, 5300-128, Portugal"
+  },
+  "C.C. Floresta Center Tapada das Mercês, Rua 3 1B,, 2725-535, Algueirão-Mem Martins, Portugal": null,
+  "R. Vitor Cordon 2,, 2640-539, Mafra, Portugal": {
+    "lat": 38.938122,
+    "lng": -9.3309002,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Vitor Cordon, Vilãs, Mafra, Lisboa, 2640-534, Portugal"
+  },
+  "R. do Bairro dos Caldeirões, 6200-546, Covilhã, Portugal": null,
+  "Rua 25 de Abril Nº8,, 2670-482, Loures, Portugal": {
+    "lat": 38.8296162,
+    "lng": -9.1614304,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua 25 de Abril, Mealhada, Loures, Lisboa, 2670-433, Portugal"
+  },
+  "Av. 25 de Abril, Lote G1,, 1675-076, Pontinha, Portugal": null,
+  "Avenida Elias Garcia Nº123,, 1050-103, Lisboa, Portugal": {
+    "lat": 38.7384819,
+    "lng": -9.1511055,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Elias Garcia, Campo Pequeno, Avenidas Novas, Lisboa, 1050-099, Portugal"
+  },
+  "Av. Dr. Mário Soares,, 2740-119, Porto Salvo, Portugal": {
+    "lat": 38.7438181,
+    "lng": -9.306126,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Doutor Mário Soares, Taguspark - Parque de Ciência e Tecnologia, Bairro dos Navegadores, Porto Salvo, Oeiras, Lisboa, 2744-005, Portugal"
+  },
+  "Av. 1 de Maio,, 6000-161, Castelo Branco, Portugal": {
+    "lat": 39.8204714,
+    "lng": -7.4955397,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida 1º de Maio, Bairro do Barrocal, Castelo Branco, 6000-161, Portugal"
+  },
+  "R. da Bélgica,, 4400-053, Vila Nova de Gaia, Portugal": {
+    "lat": 41.1285162,
+    "lng": -8.6421287,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua da Bélgica, Canidelo, Afurada, Vila Nova de Gaia, Porto, 4400-542, Portugal"
+  },
+  "R. Conselheiro Lobato 505,, 4705-089, Braga, Portugal": {
+    "lat": 41.5432293,
+    "lng": -8.4208876,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Conselheiro Lobato, São José de São Lázaro, Braga (São José de São Lázaro e São João do Souto), Braga, 4705-089, Portugal"
+  },
+  "Rua Joaquim Ferreira da Costa Nº266,, 4470-156, Maia, Portugal": {
+    "lat": 41.2248757,
+    "lng": -8.6156093,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Joaquim Ferreira da Costa, Vermoim, Cidade da Maia, Maia, Porto, 4470-182, Portugal"
+  },
+  "Rua Infanta D. Maria 460,, 3030-036, Coimbra, Portugal": {
+    "lat": 40.2046521,
+    "lng": -8.4130534,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "460, Rua Infanta Dona Maria, Calhabé, Coimbra (Sé Nova, Santa Cruz, Almedina e São Bartolomeu), Coimbra, 3030-330, Portugal"
+  },
+  "Rua César de Oliveira 3A,, 1600-778, Lisboa, Portugal": {
+    "lat": 38.7654425,
+    "lng": -9.1749802,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua César de Oliveira, Quinta do Pisany, Lumiar, Ameixoeira, Lisboa, 1600-528, Portugal"
+  },
+  "Ginásio Be-Fit Alverca Av. do Marco da IV Légua 45B,, 2615-142, Alverca do Ribatejo, Portugal": null,
+  "Ginásio BE-FIT AVEIRO Zona Industrial da Taboeira, Rua do Monte Novo, Nº 20, 21, 3800-043, Aveiro, Portugal": null,
+  "Ginásio BE-FIT AVEIRO CENTRO Rua D. Manuel Barbuda Vasconcelos, 3810-498, Aveiro, Portugal": null,
+  "Ginásio BE-FIT BARREIRO/ Moita R. Jorge Peixinho,, 2860-124, Alhos Vedros, Portugal": null,
+  "Rua Padre António Freire, 10, 4700-006, Braga, Portugal": {
+    "lat": 41.5595497,
+    "lng": -8.4216879,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Padre António Freire, Braga (São Vicente), Real, Braga, 4700-435, Portugal"
+  },
+  "Ginásio Be-Fit CentroMar Rua da Ponta da Cruz 6, São Martinho, 9000-103, Funchal, Portugal": null,
+  "Ginásio BE-FIT ERMESINDE Ermesinde Retail Park Av. Eng. Duarte Pacheco 511, Com.2, 4445-416, Ermesinde, Portugal": null,
+  "Ginásio Be-Fit Évora Edifício Pingo Doce E.N 114 Km 4,5, 7000-172, Évora, Portugal": null,
+  "Ginásio Be-Fit Famalicão R. de São Julião 831, 4760-384, Vila Nova de Famalicão, Portugal": null,
+  "Be-Fit Felgueiras R. das Maceiras, 4610-000, Várzea, Portugal": null,
+  "Ginásio Be-Fit Grijó Pingo Doce Grijó -Lugar Barrancas, Lojas G e H,, 4415-549, Grijó, Portugal": null,
+  "Ginásio Be-Fit Maia Estrada Nacional Nº 14 NR 2405,, 4475-045, Maia, Portugal": null,
+  "R. 25 de Abril N.º 28,, 2430-313, Marinha Grande, Portugal": null,
+  "Estádio do Marítimo Rampa dos Barreiros Portas 4 e 5, 9000-695, Funchal, Portugal": null,
+  "Be-Fit Mem Martins Av. Major General Machado de Sousa 28 Edifício Printer, 2639-001, Algueirão-Mem Martins, Portugal": null,
+  "Ginásio BE-FIT MONTIJO Montijo Retail Park Estrada Do Pau Queimado, Loja 4, 2870-100, Montijo, Portugal": null,
+  "Ginásio Be-Fit Ovar N 109 São João, 3880-728, Ovar, Portugal": null,
+  "Ginásio Be-Fit Plaza Funchal Centro Comercial Plaza Madeira, Rua Dr. Brito Câmara 9 Loja 1.18, São Martinho, 9000-039, Funchal, Portugal": null,
+  "Be-Fit Portimão R. Dom Martinho Castelo Branco,, 8500-411, Portimão (Junto ao edifício Tarik), Portugal": null,
+  "Ginásio BE-FIT P. VARZIM/V. CONDE Edifício do Pingo Doce, R. Sacra Família, 1 andar, 4490-228, Argivai, Portugal": null,
+  "Ginásio BE-FIT SETÚBAL Rua Quinta da Varzinha, Lote 1, Torres do Cruzeiro, 2900-720, Setúbal, Portugal": null,
+  "Tv. da Várzea,, 2350-433, Torres Novas, Portugal": {
+    "lat": 39.4715925,
+    "lng": -8.5342632,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Travessa da Várzea, Salvador, Torres Novas, Santarém, 2350-433, Portugal"
+  },
+  "R. Garcia de Orta 2, 2800-698, Almada, Portugal": {
+    "lat": 38.6781708,
+    "lng": -9.1560029,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Garcia de Orta, Caranguejais, Cova da Piedade, Almada, Cova da Piedade, Pragal e Cacilhas, Almada, Setúbal, 2800-698, Portugal",
+    "postal_code": "2800-698"
+  },
+  "Av. Alm. Reis 89, 1170-225, Lisboa, Portugal": {
+    "lat": 38.7282732,
+    "lng": -9.1349465,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "89 A-C, Avenida Almirante Reis, Anjos, Arroios, Lisboa, 1000-148, Portugal",
+    "postal_code": "1000-148"
+  },
+  "Rua Talvai, C.C. E-Leclerc, 4764-503, Vila Nova de Famalicão, Portugal": null,
+  "Av. da Liberdade 454, 4700-924, Braga, Portugal": {
+    "lat": 41.5472946,
+    "lng": -8.4206577,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida da Liberdade, São José de São Lázaro, Braga (São José de São Lázaro e São João do Souto), Braga, 4700-912, Portugal",
+    "postal_code": "4700-912"
+  },
+  "R. Belchior de Matos 11, 2500-324, Caldas da Rainha, Portugal": {
+    "lat": 39.4012247,
+    "lng": -9.136953,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "LA VIE Caldas da Rainha, 11;9C, Rua Belchior de Matos, Nossa Senhora do Pópulo, Nossa Senhora do Pópulo, Coto e São Gregório, Caldas da Rainha, Leiria, 2500-324, Portugal",
+    "postal_code": "2500-324"
+  },
+  "R. João Machado 50, 3000-226, Coimbra, Portugal": {
+    "lat": 40.2147005,
+    "lng": -8.4335976,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "50 N, Rua João Machado, Santa Cruz, Baixa, Coimbra (Sé Nova, Santa Cruz, Almedina e São Bartolomeu), Coimbra, 3000-226, Portugal",
+    "postal_code": "3000-226"
+  },
+  "R. Azedo Gneco 21, 2845-547, Seixal, Portugal": {
+    "lat": 38.5903402,
+    "lng": -9.1044389,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Azedo Gneco, Fernão Ferro, Seixal, Setúbal, 2840-263, Portugal",
+    "postal_code": "2840-263"
+  },
+  "R. Pascoal de Melo 37, 1000-018, Lisboa, Portugal": {
+    "lat": 38.7313944,
+    "lng": -9.1382947,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitness Up, 37, Rua Pascoal de Melo, Saldanha, Arroios, Lisboa, 1000-232, Portugal",
+    "postal_code": "1000-232"
+  },
+  "R. Lordelo 330, 4510-591, Fânzeres, Portugal": {
+    "lat": 41.1702065,
+    "lng": -8.5408454,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Lordelo, Carvalha, Santa Eulália, Fânzeres e São Pedro da Cova, Gondomar, Porto, 4510-506, Portugal",
+    "postal_code": "4510-506"
+  },
+  "Rua Dr. José de Matos 13/15, 8000-504, Faro, Portugal": {
+    "lat": 37.0155047,
+    "lng": -7.9232379,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Doutor José de Matos, Horta da Areia, Faro (Sé e São Pedro), Faro, 8000-339, Portugal",
+    "postal_code": "8000-339"
+  },
+  "R. Ferrara Plaza, 4590-073, Carvalhosa, Portugal": null,
+  "Av. Vasco da Gama 1959, 4430-249, Vila Nova de Gaia, Portugal": {
+    "lat": 41.1137464,
+    "lng": -8.5896179,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Vasco da Gama, Oliveira do Douro, Vila Nova de Gaia, Porto, 4430-444, Portugal",
+    "postal_code": "4430-444"
+  },
+  "Avenida de Monte Alvar, nº141 Joane, Braga, 4770-204, Portugal": null,
+  "R. Machado dos Santos 22, 2410-128, Leiria, Portugal": {
+    "lat": 39.7425799,
+    "lng": -8.8073331,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Machado dos Santos, Bairro dos Anjos, Cruz d'Areia, Leiria, Pousos, Barreira e Cortes, Leiria, 2410-128, Portugal",
+    "postal_code": "2410-128"
+  },
+  "Avenida de António José de Almeida 30C, 1000-044, Lisboa, Portugal": null,
+  "Av. do Brasil 56, 1700-073, Lisboa, Portugal": {
+    "lat": 38.7560074,
+    "lng": -9.1473468,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Externato Séneca, 56, Avenida do Brasil, Campo Grande, Alvalade, Lisboa, 1700-073, Portugal",
+    "postal_code": "1700-073"
+  },
+  "Rua Barão de Sabrosa 115, 1900-088, Lisboa, Portugal": {
+    "lat": 38.7341817,
+    "lng": -9.1285765,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Barão de Sabrosa, Penha de França, Lisboa, 1900-097, Portugal",
+    "postal_code": "1900-097"
+  },
+  "R. Tomás Ribeiro 34, 1050-169, Lisboa, Portugal": {
+    "lat": 38.7317687,
+    "lng": -9.1488968,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "34, Rua Tomás Ribeiro, São Sebastião da Pedreira, Campo Pequeno, Avenidas Novas, Lisboa, 1050-113, Portugal",
+    "postal_code": "1050-113"
+  },
+  "Av. Dom Manuel I Loja nº 69, 3880-109, Ovar, Portugal": null,
+  "Rua Vasco da Gama, nº 60, Lisboa, Portugal, 2775-232, Portugal": null,
+  "Rua da Alegria 819, 4000-038, Porto, Portugal": {
+    "lat": 41.1539171,
+    "lng": -8.6032641,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua da Alegria, Moreira, Bonfim, Porto, 4000-045, Portugal",
+    "postal_code": "4000-045"
+  },
+  "R. Marta Mesquita da Câmara 114, 4150-485, Porto, Portugal": {
+    "lat": 41.1546865,
+    "lng": -8.6653181,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitness Up Foz, 114, Rua Marta Mesquita da Câmara, Pinhais da Foz, Foz do Douro, Aldoar, Foz do Douro e Nevogilde, Porto, 4150-485, Portugal",
+    "postal_code": "4150-485"
+  },
+  "R. Diu 590, 4465-021, São Mamede de Infesta, Portugal": {
+    "lat": 41.1821832,
+    "lng": -8.6244934,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Diu, Amieira, São Mamede de Infesta, Matosinhos, Porto, 4465-041, Portugal",
+    "postal_code": "4465-041"
+  },
+  "Rua Godinho de Faria 202, 4465-159, São Mamede de Infesta, Portugal": {
+    "lat": 41.1953473,
+    "lng": -8.611092,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Godinho de Faria, São Mamede de Infesta, Matosinhos, Porto, 4465-155, Portugal",
+    "postal_code": "4465-155"
+  },
+  "Estrada Nacional 10, Parcela F, 2975-403, Quinta do Conde, Portugal": null,
+  "R. Dr. Nicolau Bettencourt 43, 1050-078, Lisboa, Portugal": {
+    "lat": 38.7354432,
+    "lng": -9.1541323,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Doutor Nicolau de Bettencourt, São Sebastião da Pedreira, Campo Pequeno, Avenidas Novas, Lisboa, 1050-021, Portugal",
+    "postal_code": "1050-021"
+  },
+  "Estrada Nacional 10, Km 42, 2910-845, Setúbal, Portugal": null,
+  "R. Alm. Cândido dos Reis 247, 8800-318, Tavira, Portugal": {
+    "lat": 37.1306096,
+    "lng": -7.6369865,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "247, Rua Almirante Cândido dos Reis, Marlin, Tavira (Santa Maria e Santiago), Tavira, Faro, 8800-318, Portugal",
+    "postal_code": "8800-318"
+  },
+  "R. Manuel da Costa Nery, 2350-448, Torres Novas, Portugal": {
+    "lat": 39.4740515,
+    "lng": -8.537872,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Manuel da Costa Nery, Salvador, Torres Novas, Santarém, 2350-431, Portugal",
+    "postal_code": "2350-431"
+  },
+  "R. Rechousa 301, 4410-222, Canelas, Portugal": {
+    "lat": 41.0912785,
+    "lng": -8.5957627,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Radio Popular, 301, Rua da Rechousa, Canelas, Vila Nova de Gaia, Porto, 4410-222, Portugal",
+    "postal_code": "4410-222"
+  },
+  "rev:38.762300,-9.160957": {
+    "postal_code": "1501-806",
+    "display": "Edifício Multidesportivo, Ciclovia Rua Fernando Fonseca, Lumiar, Lisboa, 1501-806, Portugal"
+  },
+  "rev:38.722889,-9.160682": {
+    "postal_code": "1250-525",
+    "display": "Amoreiras Plaza, Rua Maria Ulrich, Amoreiras, Santa Isabel, Campo de Ourique, Lisboa, 1250-525, Portugal"
+  },
+  "rev:41.161641,-8.643293": {
+    "postal_code": "4100-365",
+    "display": "Telepizza, Rua de O Primeiro de Janeiro, Bessa, Ramalde, Porto, 4100-365, Portugal"
+  },
+  "rev:41.536738,-8.402722": {
+    "postal_code": "4715-350",
+    "display": "Avenida Alfredo Barros, Espadanido, Agrelo, Nogueira, Fraião e Lamaçães, Braga, 4715-350, Portugal"
+  },
+  "rev:38.686038,-9.353627": {
+    "postal_code": "2775-377",
+    "display": "Jay's Brunch Caffe, 2668, Avenida Marginal, Avencas, Carcavelos e Parede, Cascais, Lisboa, 2775-377, Portugal"
+  },
+  "rev:38.713737,-9.230813": {
+    "postal_code": "2795-046",
+    "display": "Rua Rodrigo Bessone Basto, Miraflores, Algés, Linda-a-Velha e Cruz Quebrada-Dafundo, Oeiras, Lisboa, 2795-046, Portugal"
+  },
+  "rev:38.703330,-9.303669": {
+    "postal_code": "2780-379",
+    "display": "Rua Coro de Santo Amaro de Oeiras, Casalinho Morais, Figueirinha, Oeiras e São Julião da Barra, Paço de Arcos e Caxias, Oeiras, Lisboa, 2780-379, Portugal"
+  },
+  "rev:38.728244,-9.147759": {
+    "postal_code": "1069-103",
+    "display": "LSB-00606…608, Largo de Andaluz, Arroios, Lisboa, 1069-103, Portugal"
+  },
+  "rev:38.762305,-9.373876": {
+    "postal_code": "2710-444",
+    "display": "Rua do Centro Empresarial, Quinta da Beloura I, Sintra, Sintra (Santa Maria e São Miguel, São Martinho e São Pedro de Penaferrim), Sintra, Lisboa, 2710-444, Portugal"
+  },
+  "rev:38.711783,-9.297005": {
+    "postal_code": "2740-287",
+    "display": "Fórum, 34, Rua Quinta da Fonte, Quinta da Fonte Office Park, Nova Morada, Oeiras e São Julião da Barra, Paço de Arcos e Caxias, Oeiras, Lisboa, 2740-287, Portugal"
+  },
+  "rev:38.777764,-9.221097": {
+    "postal_code": "2650-010",
+    "display": "UBBO, Avenida José Garcês, Alfornelos, Encosta do Sol, Amadora, Lisboa, 2650-010, Portugal"
+  },
+  "rev:41.132700,-8.626606": {
+    "postal_code": "4400-086",
+    "display": "Holmes Place, Rua Amélia de Sousa Luz, Lugar do Castelo, Santa Marinha, Afurada, Vila Nova de Gaia, Porto, 4400-086, Portugal"
+  },
+  "rev:41.687151,-8.847217": {
+    "postal_code": "4900-568",
+    "display": "Irmãos Jácome, Avenida de Cabo Verde, Viana do Castelo (Santa Maria Maior e Monserrate) e Meadela, Viana do Castelo, 4900-568, Portugal"
+  },
+  "rev:41.445948,-8.300051": {
+    "postal_code": "4810-525",
+    "display": "Neno, Praça 26 de Maio, Oliveira, São Paio e São Sebastião, Guimarães, Braga, 4810-525, Portugal"
+  },
+  "rev:41.162691,-8.676194": {
+    "postal_code": "4150-503",
+    "display": "Solinca, 726, Rua do Molhe, Carreiros, Nevogilde, Aldoar, Foz do Douro e Nevogilde, Porto, 4150-503, Portugal"
+  },
+  "Av. do Marco da IV Légua 45B, 2615-142, Alverca do Ribatejo, Portugal": {
+    "lat": 38.9083396,
+    "lng": -9.0284597,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida do Marco da IV Légua, Sobralinho, Alverca do Ribatejo e Sobralinho, Vila Franca de Xira, Lisboa, 2615-042, Portugal",
+    "postal_code": "2615-042"
+  },
+  "Zona Industrial da Taboeira, Rua do Monte Novo, Nº 20, 21, 3800-043, Aveiro, Portugal": null,
+  "Rua D. Manuel Barbuda Vasconcelos, 3810-498, Aveiro, Portugal": null,
+  "R. Jorge Peixinho, 2860-124, Alhos Vedros, Portugal": {
+    "lat": 38.6549825,
+    "lng": -9.0128131,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Jorge Peixinho, Lagoa da Pega, Arroteias, Alhos Vedros, Moita, Setúbal, 2860-126, Portugal",
+    "postal_code": "2860-126"
+  },
+  "Rua da Ponta da Cruz 6, São Martinho, 9000-103, Funchal, Portugal": {
+    "lat": 32.6347252,
+    "lng": -16.9468254,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Be-Fit, 6, Rua da Ponta da Cruz, Ponta da Cruz, Ajuda, São Martinho, Funchal, Madeira, 9000-103, Portugal",
+    "postal_code": "9000-103"
+  },
+  "Ermesinde Retail Park, Av. Eng. Duarte Pacheco 511, Com.2, 4445-416, Ermesinde, Portugal": null,
+  "Edifício Pingo Doce, E.N 114 Km 4,5, 7000-172, Évora, Portugal": null,
+  "R. de São Julião 831, 4760-384, Vila Nova de Famalicão, Portugal": {
+    "lat": 41.3995751,
+    "lng": -8.5250685,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Intermarché, 831, Rua de São Julião, Rorigo, Calendário, Vila Nova de Famalicão e Calendário, Vila Nova de Famalicão, Braga, 4760-384, Portugal",
+    "postal_code": "4760-384"
+  },
+  "R. das Maceiras, 4610-000, Várzea, Portugal": null,
+  "Pingo Doce Grijó -Lugar Barrancas, Lojas G e H, 4415-549, Grijó, Portugal": null,
+  "Estrada Nacional Nº 14 NR 2405, 4475-045, Maia, Portugal": null,
+  "R. 25 de Abril N.º 28, 2430-313, Marinha Grande, Portugal": null,
+  "Estádio do Marítimo, Rampa dos Barreiros Portas 4 e 5, 9000-695, Funchal, Portugal": null,
+  "Av. Major General Machado de Sousa 28, Edifício Printer, 2639-001, Algueirão-Mem Martins, Portugal": null,
+  "Montijo Retail Park Estrada Do Pau Queimado, Loja 4, 2870-100, Montijo, Portugal": null,
+  "N 109 São João, 3880-728, Ovar, Portugal": {
+    "lat": 40.8729762,
+    "lng": -8.5917291,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "São João, Ovar, Aveiro, Portugal",
+    "postal_code": ""
+  },
+  "Centro Comercial Plaza Madeira, Rua Dr. Brito Câmara 9 Loja 1.18, São Martinho, 9000-039, Funchal, Portugal": null,
+  "R. Dom Martinho Castelo Branco, 8500-411, Portimão, Portugal": {
+    "lat": 37.1205609,
+    "lng": -8.5405703,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Dom Martinho Castelo Branco, Três Castelos, Praia da Rocha, Portimão, Faro, 8500-411, Portugal",
+    "postal_code": "8500-411"
+  },
+  "Edifício do Pingo Doce, R. Sacra Família, 1 andar, 4490-228, Argivai, Portugal": null,
+  "Rua Quinta da Varzinha, Lote 1, Torres do Cruzeiro, 2900-720, Setúbal, Portugal": null,
+  "Tv. da Várzea, 2350-433, Torres Novas, Portugal": {
+    "lat": 39.4715925,
+    "lng": -8.5342632,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Travessa da Várzea, Salvador, Torres Novas, Santarém, 2350-433, Portugal",
+    "postal_code": "2350-433"
+  },
+  "Rua Professor Bento de Jesus Caraça, 314, 4200-132, Porto, Portugal": {
+    "lat": 41.16395,
+    "lng": -8.5974675,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitness UP Antas, 314, Rua do Professor Bento de Jesus Caraça, Aval de Baixo, Paranhos, Porto, 4200-132, Portugal",
+    "postal_code": "4200-132"
+  },
+  "Galeria do Auchan Maia, N14 (36,85 km), 4470-053, Cidade da Maia, Portugal": null,
+  "Av. da República 34B, Loja A, 1000-290, Lisbon, Portugal": null,
+  "Avenida Dr. Sidonio Pais nº 563, 4750-333, Barcelos, Portugal": null,
+  "R. Gen. José Celestino da Silva 10, 1500-309, Lisboa, Portugal": {
+    "lat": 38.7546208,
+    "lng": -9.1776217,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua General José Celestino da Silva, São Domingos de Benfica, Lisboa, 1500-278, Portugal",
+    "postal_code": "1500-278"
+  },
+  "Centro Comercial Braga Parque, 4710-427, São Vitor, Portugal": {
+    "lat": 41.558975,
+    "lng": -8.4061428,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "McDonald's, Rua Padre Roberto Maciel, Vilar, Braga (São Vítor), Lamaçães, Braga, 4710-427, Portugal",
+    "postal_code": "4710-427"
+  },
+  "Edifício Campera Shopping, 9002, 1F 1º Piso loja 1.22-1.26, 2580-596, Carregado, Portugal": null,
+  "Estr. Alagoa 96B, Carcavelos Portugal, 2775-717, Portugal": null,
+  "Centro Comercial Alegro, 6000-457, Castelo Branco, Portugal": {
+    "lat": 39.8160843,
+    "lng": -7.5198633,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Alegro Castelo Branco, Rua A, Zona Industrial de Castelo Branco, Castelo Branco, 6000-459, Portugal",
+    "postal_code": "6000-459"
+  },
+  "City Park Chaves, Lugar da Fonte da Nina Espaço K, 5400-570, Chaves, Portugal": null,
+  "Rua do Talvai C.C E-Leclerc, 4764-503, Vila Nova de Famalicão, Portugal": null,
+  "Centro Comercial Ferrara Plaza, R. Ferrara Plaza, 4590-073, Carvalhosa, Portugal": null,
+  "Avenida Conde Margaride, 347, 4810-535, Guimarães, Portugal": {
+    "lat": 41.4417093,
+    "lng": -8.3027732,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Conde Margaride, Creixomil, Guimarães, Braga, 4835-998, Portugal",
+    "postal_code": "4835-998"
+  },
+  "Maia Shopping Lugar de Ardegães Loja 232/304, 4425-500, Águas Santas, Portugal": null,
+  "Lugar do Cotovio – Tuías Edifício Sonae, 4630-205, Marco de Canaveses, Portugal": null,
+  "Av. Gen. Norton de Matos, 61, 1495-148, Algés, Portugal": {
+    "lat": 38.7110375,
+    "lng": -9.2260335,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida General Norton de Matos, Miraflores, Algés, Linda-a-Velha e Cruz Quebrada-Dafundo, Oeiras, Lisboa, 1495-148, Portugal",
+    "postal_code": "1495-148"
+  },
+  "Praça Pedro Nunes n.º56, 2870-447, Montijo, Portugal": null,
+  "Rua Adelaide da Silva Pinto Aroso, Moreira da Maia, 4470-048, Moreira, Portugal": null,
+  "Rua Heróis de Chaimite nº 48, 2675-375, Odivelas, Portugal": {
+    "lat": 38.7951718,
+    "lng": -9.1697024,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Heróis de Chaimite, Bairro da Codivel, Odivelas, Lisboa, 2675-374, Portugal",
+    "postal_code": "2675-374"
+  },
+  "C.C. RIA Shopping, 8700-137, Olhão, Portugal": null,
+  "Zona Industrial de Ovar, Av. Dom Manuel I Loja nº 69, 3880-109, Ovar, Portugal": null,
+  "Avenida do Marco, 165, 4595-225, Meixomil, Portugal": {
+    "lat": 41.2841412,
+    "lng": -8.3861446,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Doutor Jaime Barros, Marco, Meixomil, Paços de Ferreira, Porto, 4590-225, Portugal",
+    "postal_code": "4590-225"
+  },
+  "Praceta Parque Nascente 35, 4435-182, Rio Tinto, Portugal": {
+    "lat": 41.1750274,
+    "lng": -8.5649027,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Celeiro, 35, Praceta do Parque Nascente, Vila Cova, Rio Tinto, Gondomar, Porto, 4435-182, Portugal",
+    "postal_code": "4435-182"
+  },
+  "Avenida da República Comp. Pisc, Piso -1, 2685-232, Lisboa, Portugal": null,
+  "Rua o primeiro de Janeiro n° 314, 4100-365, Porto, Portugal": null,
+  "Rua do Seixal, 130, 4000-521, Porto, Portugal": {
+    "lat": 41.1604596,
+    "lng": -8.5977057,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "130, Rua do Seixal, São Crispim, Bonfim, Porto, 4000-521, Portugal",
+    "postal_code": "4000-521"
+  },
+  "Rua Académico Futebol Clube nº 135, 4200-602, Porto, Portugal": {
+    "lat": 41.1823015,
+    "lng": -8.6079912,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Académico Futebol Club, Azenha, Paranhos, Porto, 4200-602, Portugal",
+    "postal_code": "4200-602"
+  },
+  "Rua Manuel Pinto de Azevedo nº 2, 4100-320, Porto, Portugal": {
+    "lat": 41.1903987,
+    "lng": -8.5822333,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Manuel Pinto de Azevedo, Pedrouços, Maia, Porto, 4425-057, Portugal",
+    "postal_code": "4425-057"
+  },
+  "Praça da Galiza, 96, 4150-344, Porto, Portugal": {
+    "lat": 41.1525705,
+    "lng": -8.6264657,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Praça da Galiza, Vilar, Massarelos, Lordelo do Ouro e Massarelos, Porto, 4150-344, Portugal",
+    "postal_code": "4150-344"
+  },
+  "Largo Nossa Sra. da Piedade 4, 2005-244, Santarém, Portugal": null,
+  "Estrada da Circunvalação, 7316, 4200-287, Porto -, Portugal": {
+    "lat": 41.1827765,
+    "lng": -8.5957869,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "FitnessUP São João, 7316, Estrada Exterior da Circunvalação, Arroteia, Pedrouços, Maia, Porto, 4200-287, Portugal",
+    "postal_code": "4200-287"
+  },
+  "Rua Adolfo Coutinho, 92 - :, 3700-024, São João da Madeira - Aveiro, Portugal": {
+    "lat": 40.8900048,
+    "lng": -8.4818696,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Doutor Adolfo Coutinho, Travessas, São João da Madeira, Aveiro, 3700-012, Portugal",
+    "postal_code": "3700-012"
+  },
+  "Rua do Shopping 149 e 159 Inserido no Centro Comercial fracção L28, 4520-625, Portugal": null,
+  "R. Dr. Nicolau Bettencourt 43,, 1050-078, Lisboa, Portugal": {
+    "lat": 38.7354432,
+    "lng": -9.1541323,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Doutor Nicolau de Bettencourt, São Sebastião da Pedreira, Campo Pequeno, Avenidas Novas, Lisboa, 1050-021, Portugal",
+    "postal_code": "1050-021"
+  },
+  "Av. Salgado Zenha, 2, 2660-328, Santo António dos Cavaleiros, Portugal": {
+    "lat": 38.8065477,
+    "lng": -9.1578196,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Salgado Zenha, Flamenga, Santo António dos Cavaleiros e Frielas, Loures, Lisboa, 2660-328, Portugal",
+    "postal_code": "2660-328"
+  },
+  "Rua Padre Alberto Pinheiro Machado 201, 4785-201, Trofa, Portugal": null,
+  "R. Dr. Ribeiro de Magalhães 658, 4400-285, Vila Nova de Gaia, Portugal": null,
+  "R. Padre António Lino de Souza Vale 160, 4440-682, Valongo, Portugal": null,
+  "Complexo Turístico da Marina, Alameda 5 de Outubro, 4900-515, Viana do Castelo, Portugal": null,
+  "Av. do Brasil, 60 Vila do Conde, 4480-659, Portugal": null,
+  "Rua do Alvão, 5000-703, Vila Real, Portugal": {
+    "lat": 41.2944436,
+    "lng": -7.7358543,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua do Alvão, Quinta da Araucária, Vila Real, 5000-556, Portugal",
+    "postal_code": "5000-556"
+  },
+  "Rua Nova do Hospital, nº 18 - Viseu CP:, 3500-161, Portugal": null,
+  "Av. Álvaro Martins Homem nº12, 9700-017, Angra do Heroísmo, Portugal": {
+    "lat": 38.658128,
+    "lng": -27.2118227,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Álvaro Martins Homem, Angra do Heroísmo, Açores, 9700-096, Portugal",
+    "postal_code": "9700-096"
+  },
+  "R. Agostinho Gonçalves de Abreu, 4600-752, Telões, Portugal": null,
+  "R. Diamantina 445, 4200-258, Porto, Portugal": {
+    "lat": 41.1806534,
+    "lng": -8.5828398,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Diamantina, Areosa, Paranhos, Porto, 4200-258, Portugal",
+    "postal_code": "4200-258"
+  },
+  "Rua da Cavada Nova 67, 4435-161, Rio Tinto, Portugal": {
+    "lat": 41.1751284,
+    "lng": -8.5508318,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua da Cavada Nova, Boavista, Rio Tinto, Gondomar, Porto, 4435-162, Portugal",
+    "postal_code": "4435-162"
+  },
+  "R. Dr. Alberto Souto 1A, 3800-147, Aveiro, Portugal": {
+    "lat": 40.6437876,
+    "lng": -8.6477337,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Doutor Alberto Souto, Carmo, Glória e Vera Cruz, Aveiro, 3800-166, Portugal",
+    "postal_code": "3800-166"
+  },
+  "Av. 25 de Abril 1011, 2750-512, Cascais, Portugal": {
+    "lat": 38.6952031,
+    "lng": -9.4303574,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida 25 de Abril, Bairro do Rosário, Cascais e Estoril, Cascais, Lisboa, 2750-167, Portugal",
+    "postal_code": "2750-167"
+  },
+  "R. de Aníbal Cunha 41, 4050-609, Porto, Portugal": {
+    "lat": 41.1536927,
+    "lng": -8.6210365,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua de Aníbal Cunha, Torrinha, Cedofeita, Cedofeita, Santo Ildefonso, Sé, Miragaia, São Nicolau e Vitória, Porto, 4050-046, Portugal",
+    "postal_code": "4050-046"
+  },
+  "R. Luis de Camões 639, 4420-440, Valbom, Portugal": {
+    "lat": 41.1437461,
+    "lng": -8.5499559,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Luís de Camões, Carregais, Gondomarinho, Gondomar (São Cosme), Valbom e Jovim, Gondomar, Porto, 4420, Portugal",
+    "postal_code": ""
+  },
+  "R. do Mosteiro, 4465-363, Leça do Balio, Portugal": {
+    "lat": 41.2061658,
+    "lng": -8.6205624,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua do Mosteiro, Leça do Balio, Matosinhos, Porto, 4465-602, Portugal",
+    "postal_code": "4465-602"
+  },
+  "Zona Industrial da Guarda-Gare, , Rua 4 de Outubro Lt 7, 6300-877, Guarda, Portugal": null,
+  "Av. Manuel Pereira Soares 604, 4630-296, Marco de Canaveses, Portugal": {
+    "lat": 41.1849399,
+    "lng": -8.1479452,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Manuel Pereira Soares, São Nicolau, Marco, Marco de Canaveses, Porto, 4630-289, Portugal",
+    "postal_code": "4630-289"
+  },
+  "Praceta Progresso Clube, 2725-079, Algueirão-Mem Martins, Portugal": {
+    "lat": 38.8011733,
+    "lng": -9.3438888,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Praceta Progresso Clube, Algueirão, Algueirão-Mem Martins, Sintra, Lisboa, 2725-091, Portugal",
+    "postal_code": "2725-091"
+  },
+  "Edifício O Galo (traseiras), , Rua da Calçada, 4750-123, Barcelos, Portugal": null,
+  "R. Cláudio Mesquita Rosa nº1, 5300-653, Bragança, Portugal": {
+    "lat": 41.8124702,
+    "lng": -6.7613046,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Cláudio Mesquita Rosa, Loreto, Sé, Santa Maria e Meixedo, Bragança, Distrito de Bragança, 5300-128, Portugal",
+    "postal_code": "5300-128"
+  },
+  "Ed. Pólo de Negócios Nº404,, Av. Dom João II, Loja 13/14, 4700-154, Braga, Portugal": null,
+  "C.C. Floresta Center Tapada das Mercês, Rua 3 1B, 2725-535, Algueirão-Mem Martins, Portugal": null,
+  "R. Vitor Cordon 2, 2640-539, Mafra, Portugal": {
+    "lat": 38.938122,
+    "lng": -9.3309002,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Vitor Cordon, Vilãs, Mafra, Lisboa, 2640-534, Portugal",
+    "postal_code": "2640-534"
+  },
+  "Rua 25 de Abril Nº8, 2670-482, Loures, Portugal": {
+    "lat": 38.8296162,
+    "lng": -9.1614304,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua 25 de Abril, Mealhada, Loures, Lisboa, 2670-433, Portugal",
+    "postal_code": "2670-433"
+  },
+  "Av. 25 de Abril, Lote G1, 1675-076, Pontinha, Portugal": null,
+  "Avenida Elias Garcia Nº123, 1050-103, Lisboa, Portugal": {
+    "lat": 38.7384819,
+    "lng": -9.1511055,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenida Elias Garcia, Campo Pequeno, Avenidas Novas, Lisboa, 1050-099, Portugal",
+    "postal_code": "1050-099"
+  },
+  "novobanco Campus,, Av. Dr. Mário Soares, 2740-119, Porto Salvo, Portugal": {
+    "lat": 38.7496446,
+    "lng": -9.3068227,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Novo Banco Empresas, Avenida Doutor Mário Soares, Taguspark - Parque de Ciência e Tecnologia, Porto Salvo, Oeiras, Lisboa, 2740-119, Portugal",
+    "postal_code": "2740-119"
+  },
+  "Mercado Municipal,, Av. 1 de Maio, 6000-161, Castelo Branco, Portugal": null,
+  "R. da Bélgica, 4400-053, Vila Nova de Gaia, Portugal": {
+    "lat": 41.1285162,
+    "lng": -8.6421287,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua da Bélgica, Canidelo, Afurada, Vila Nova de Gaia, Porto, 4400-542, Portugal",
+    "postal_code": "4400-542"
+  },
+  "R. Conselheiro Lobato 505, 4705-089, Braga, Portugal": {
+    "lat": 41.5432293,
+    "lng": -8.4208876,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Conselheiro Lobato, São José de São Lázaro, Braga (São José de São Lázaro e São João do Souto), Braga, 4705-089, Portugal",
+    "postal_code": "4705-089"
+  },
+  "Praceta Manuel Regado Júnior 121, 4425-057, Águas Santas, Portugal": null,
+  "Rua Joaquim Ferreira da Costa Nº266, 4470-156, Maia, Portugal": {
+    "lat": 41.2245267,
+    "lng": -8.6198315,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Joaquim Ferreira da Costa, Vermoim, Leça do Balio, Matosinhos, Maia, Porto, 4470-002, Portugal",
+    "postal_code": "4470-002"
+  },
+  "Rua Infanta D. Maria 460, 3030-036, Coimbra, Portugal": {
+    "lat": 40.2046521,
+    "lng": -8.4130534,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "460, Rua Infanta Dona Maria, Calhabé, Coimbra (Sé Nova, Santa Cruz, Almedina e São Bartolomeu), Coimbra, 3030-330, Portugal",
+    "postal_code": "3030-330"
+  },
+  "Fórum Montijo, 2870-100, Montijo, Portugal": {
+    "lat": 38.6934109,
+    "lng": -8.9416215,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Wells, Rua da Boa Esperança, Bairro do Charqueirão, Montijo e Afonsoeiro, Montijo, Setúbal, 2870-500, Portugal",
+    "postal_code": "2870-500"
+  },
+  "Ed. Pingo Doce, Loja 6, Rua César de Oliveira 3A, 1600-778, Lisboa, Portugal": null,
+  "E.Leclerc Bobadela, EN10, 2695-444, Bobadela, Portugal": null,
+  "Caminho Fonte de Cima 33 loja 131, 4150-338, Porto, Portugal": {
+    "lat": 41.1510732,
+    "lng": -8.6709074,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Element, 33, Caminho da Fonte de Cima, Burgal, Foz do Douro, Aldoar, Foz do Douro e Nevogilde, Porto, 4150-338, Portugal",
+    "postal_code": "4150-338"
+  },
+  "rev:39.551305,-8.968749": {
+    "postal_code": "2460-045",
+    "address": "Rua Bernardino Correia de Almeida",
+    "city": "Alcobaça",
+    "display": "Rua Bernardino Correia de Almeida, Quinta do Almeida, Alcobaça e Vestiaria, Alcobaça, Leiria, 2460-045, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.745158,-8.943843": {
+    "postal_code": "2890-189",
+    "address": "Rua dos Jasmins",
+    "city": "Alcochete",
+    "display": "Rua dos Jasmins, Zona Industrial do Batel, Alcochete, Setúbal, 2890-189, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.017007,-9.029081": {
+    "postal_code": "",
+    "address": "",
+    "city": "Castanheira do Ribatejo e Cachoeiras",
+    "display": "Carregado e Cadafais, Castanheira do Ribatejo e Cachoeiras, Vila Franca de Xira, Lisboa, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "Casal da Adega, Estrada Nacional 1, Alenquer, Portugal": null,
+  "rev:39.195807,-8.625394": {
+    "postal_code": "2080-107",
+    "address": "",
+    "city": "Almeirim",
+    "display": "Almeirim, Santarém, 2080-107, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.757158,-9.141275": {
+    "postal_code": "1700-111",
+    "address": "Rua de João Saraiva 8",
+    "city": "Lisboa",
+    "display": "Loja San Ya, 8, Rua de João Saraiva, São João de Brito, Campo Grande, Alvalade, Lisboa, 1700-111, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.117366,-9.352566": {
+    "postal_code": "2560-521",
+    "address": "",
+    "city": "Torres Vedras",
+    "display": "Secarias, Silveira, Torres Vedras, Lisboa, 2560-521, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.000817,-9.081573": {
+    "postal_code": "2630-111",
+    "address": "",
+    "city": "Arruda dos Vinhos",
+    "display": "Núcleo Empresarial de Arruda dos Vinhos, Arruda dos Vinhos, Lisboa, 2630-111, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.528704,-8.646524": {
+    "postal_code": "4750-853",
+    "address": "Rua da Escola",
+    "city": "Barcelos",
+    "display": "Rua da Escola, Vila Frescainha (São Pedro), Barcelos, Braga, 4750-853, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.008943,-7.859354": {
+    "postal_code": "7800-429",
+    "address": "Rua da Cidade de São Paulo 14A",
+    "city": "Beja",
+    "display": "Vitória Escola de Condução, 14A, Rua da Cidade de São Paulo, Beja (Santiago Maior e São João Baptista), Beja, 7800-429, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.746657,-9.205664": {
+    "postal_code": "1500-242",
+    "address": "Rua Engenheiro Nobre Guedes",
+    "city": "Lisboa",
+    "display": "Rua Engenheiro Nobre Guedes, Bairro de Santa Cruz de Benfica, Benfica, Lisboa, 1500-242, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.519826,-8.424293": {
+    "postal_code": "4705-773",
+    "address": "Circular Sul de Braga",
+    "city": "Braga",
+    "display": "Circular Sul de Braga, Ventoso, Lomar e Arcos, Braga, 4705-773, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.410151,-9.133389": {
+    "postal_code": "2500-235",
+    "address": "Rua Arminda Alves",
+    "city": "Caldas da Rainha",
+    "display": "Rua Arminda Alves, Quinta dos Canários, Nossa Senhora do Pópulo, Nossa Senhora do Pópulo, Coto e São Gregório, Caldas da Rainha, Leiria, 2500-235, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:32.653312,-16.845140": {
+    "postal_code": "9125-141",
+    "address": "Estrada do Aeroporto",
+    "city": "Caniço",
+    "display": "Reta da Azenha-Mistubishi, Estrada do Aeroporto, Azenha, Figueirinhas, Caniço, Santa Cruz, Madeira, 9125-141, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.161813,-8.788069": {
+    "postal_code": "2070-071",
+    "address": "Travessa do Comendador",
+    "city": "Cartaxo",
+    "display": "Travessa do Comendador, Cartaxo e Vale da Pinta, Cartaxo, Santarém, 2070-071, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.703011,-9.416772": {
+    "postal_code": "2750-312",
+    "address": "Rua José Joaquim de Freitas 44",
+    "city": "Cascais",
+    "display": "44, Rua José Joaquim de Freitas, Bairro do Alcaide, Cascais e Estoril, Cascais, Lisboa, 2750-312, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.824178,-7.489618": {
+    "postal_code": "6000-081",
+    "address": "Rua dos Prazeres",
+    "city": "Castelo Branco",
+    "display": "Rua dos Prazeres, Castelo Branco, 6000-081, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:40.211515,-8.443562": {
+    "postal_code": "3040-389",
+    "address": "Avenida José Bonifácio de Andrade e Silva 1",
+    "city": "Coimbra",
+    "display": "Continente, 1, Avenida José Bonifácio de Andrade e Silva, Santa Clara, Santa Clara e Castelo Viegas, Coimbra, 3040-389, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:40.287338,-7.506650": {
+    "postal_code": "6200-029",
+    "address": "Rua da Indústria",
+    "city": "Covilhã",
+    "display": "Rua da Indústria, Covilhã e Canhoso, Covilhã, Castelo Branco, 6200-029, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:40.957459,-8.652001": {
+    "postal_code": "3885-515",
+    "address": "Rua Diogo Gomes 99",
+    "city": "Esmoriz",
+    "display": "Fitness Factory, 99, Rua Diogo Gomes, Praia de Esmoriz, Esmoriz, Ovar, Aveiro, 3885-515, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.003864,-8.645768": {
+    "postal_code": "4500-372",
+    "address": "Rua 33",
+    "city": "Espinho",
+    "display": "Rua 33, Espinho, Aveiro, 4500-372, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.532222,-8.757924": {
+    "postal_code": "4740-473",
+    "address": "Rua Doutor Francisco Sá Carneiro",
+    "city": "Esposende",
+    "display": "Rua Doutor Francisco Sá Carneiro, Zona industrial de Esposende, Gandra, Esposende, Braga, 4740-473, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.580424,-7.923214": {
+    "postal_code": "7000-737",
+    "address": "Rua Luís Morales",
+    "city": "Évora",
+    "display": "Rua Luís Morales, Bairro da Cartuxa, Malagueira, Malagueira e Horta das Figueiras, Évora, 7000-737, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:32.644284,-16.946058": {
+    "postal_code": "9000-246",
+    "address": "Avenida Mário Soares 51 A",
+    "city": "Funchal",
+    "display": "51 A, Avenida Mário Soares, Piornais, Ajuda, São Martinho, Funchal, Madeira, 9000-246, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.043549,-8.568029": {
+    "postal_code": "4415-551",
+    "address": "Rua do Mirante",
+    "city": "Vila Nova de Gaia",
+    "display": "Rua do Mirante, Zona Industrial Feiteira, Grijó, Vila Nova de Gaia, Porto, 4415-551, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.098419,-7.805150": {
+    "postal_code": "5100-147",
+    "address": "",
+    "city": "Lamego",
+    "display": "Lamego (Almacave e Sé), Lamego, Viseu, 5100-147, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.753597,-8.808029": {
+    "postal_code": "2415-396",
+    "address": "Estrada Nossa Senhora do Amparo 12",
+    "city": "Leiria",
+    "display": "12, Estrada Nossa Senhora do Amparo, Arrabalde da Ponte, Marinheiros, Marrazes e Barosa, Leiria, 2415-396, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.184888,-8.153596": {
+    "postal_code": "4630-420",
+    "address": "Rua Amália Rodrigues",
+    "city": "Marco",
+    "display": "Kalorias, Rua Amália Rodrigues, São Nicolau, Marco, Marco de Canaveses, Porto, 4630-420, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.747392,-8.935559": {
+    "postal_code": "2430-237",
+    "address": "Rua Professor Doutor Virgilio de Morais",
+    "city": "Marinha Grande",
+    "display": "Rua Professor Doutor Virgilio de Morais, Guarda Nova, Marinha Grande, Leiria, 2430-237, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.177070,-8.684099": {
+    "postal_code": "4450-287",
+    "address": "Rua de Sousa Aroso",
+    "city": "Matosinhos",
+    "display": "In Wash, Rua de Sousa Aroso, Carcavelos, Matosinhos, Porto, 4450-287, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:40.358080,-7.859818": {
+    "postal_code": "3400-011",
+    "address": "Rua do Desembargador A. Vasconcelos",
+    "city": "Oliveira do Hospital",
+    "display": "Rua do Desembargador A. Vasconcelos, Gavinhos de Cima, Oliveira do Hospital e São Paio de Gramaços, Oliveira do Hospital, Coimbra, 3400-011, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.583503,8.894767": null,
+  "rev:39.358330,-9.374799": {
+    "postal_code": "2520-621",
+    "address": "Praça Professor António Alves Seara",
+    "city": "Peniche",
+    "display": "Praça Professor António Alves Seara, Peniche, Leiria, 2520-621, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.915700,-8.629275": {
+    "postal_code": "3100-440",
+    "address": "Largo do Cardal",
+    "city": "Pombal",
+    "display": "Câmara Municipal de Pombal, Largo do Cardal, Vinagres, Pombal, Leiria, 3100-440, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:37.758598,-25.688815": {
+    "postal_code": "9500-362",
+    "address": "Rua da Piedade 162",
+    "city": "Ponta Delgada",
+    "display": "Agriloja, 162, Rua da Piedade, Arrifes, Ponta Delgada, Açores, 9500-362, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.275956,-7.429263": {
+    "postal_code": "7300-306",
+    "address": "Avenida de Badajoz",
+    "city": "Portalegre",
+    "display": "Roady, Avenida de Badajoz, Sé, Sé e São Lourenço, Portalegre, 7300-306, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.916039,-8.863225": {
+    "postal_code": "2135-114",
+    "address": "Avenida Nações Unidas",
+    "city": "Samora Correia",
+    "display": "Fitness Factory Samora Correia, Avenida Nações Unidas, Porto Alto, Samora Correia, Benavente, Santarém, 2135-114, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.146907,-8.602384": {
+    "postal_code": "4000-465",
+    "address": "Rua de Santo Ildefonso",
+    "city": "Porto",
+    "display": "Rua de Santo Ildefonso, Baixa do Porto, Conjunto Urbano da Ribeira, Centro Histórico do Porto, Cedofeita, Santo Ildefonso, Sé, Miragaia, São Nicolau e Vitória, Porto, 4000-465, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.242165,-8.700951": {
+    "postal_code": "2005-324",
+    "address": "Rua de Angola",
+    "city": "Santarém",
+    "display": "Bricomarché, Rua de Angola, São Nicolau, Cidade de Santarém, Santarém, 2005-324, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.013099,-8.706504": {
+    "postal_code": "7540-107",
+    "address": "Rua da Ponte do Cacém",
+    "city": "Santiago do Cacém",
+    "display": "Rua da Ponte do Cacém, Zona Industrial Ligeira de Santiago do Cacém, Ventosa, Santiago do Cacém, Santa Cruz e São Bartolomeu da Serra, Santiago do Cacém, Setúbal, 7540-107, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:32.671640,-16.936178": {
+    "postal_code": "9020-269",
+    "address": "Rua Campo do Marítimo",
+    "city": "Funchal",
+    "display": "Rua Campo do Marítimo, Lombinho, Madalena, Santo António, Funchal, Madeira, 9020-269, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:40.907499,8.479388": null,
+  "Rua Oliveira Figueiredo 348, São João da Madeira, Portugal": {
+    "lat": 40.9062955,
+    "lng": -8.4806802,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Oliveira Figueiredo, Travessas, São João da Madeira, Aveiro, 3700-202, Portugal",
+    "postal_code": "3700-202"
+  },
+  "rev:38.520468,-8.898915": {
+    "postal_code": "2900-412",
+    "address": "Avenida José Mourinho",
+    "city": "Setúbal",
+    "display": "Avenida José Mourinho, Troino, Setúbal (São Julião, Nossa Senhora da Anunciada e Santa Maria da Graça), Setúbal, 2900-412, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:37.953808,-8.855420": {
+    "postal_code": "7520-117",
+    "address": "Quinta do Meio",
+    "city": "Sines",
+    "display": "Quinta do Meio, Urbanização Quinta do Meio, Sines, Setúbal, 7520-117, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:39.092672,-9.262389": {
+    "postal_code": "2560-689",
+    "address": "Rua Elias Garcia",
+    "city": "Torres Vedras",
+    "display": "Rua Elias Garcia, Bairro de Santo António, Santa Maria, São Pedro e Matacães, Torres Vedras, Lisboa, 2560-689, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:40.764549,-7.359016": {
+    "postal_code": "6420-150",
+    "address": "",
+    "city": "Trancoso",
+    "display": "Trancoso (São Pedro e Santa Maria) e Souto Maior, Trancoso, Guarda, 6420-150, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.183740,-8.482999": {
+    "postal_code": "4440-007",
+    "address": "Rua Fonseca Dias",
+    "city": "Valongo",
+    "display": "Rua Fonseca Dias, Campo, Valongo, Porto, 4440-007, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:38.923235,-9.232404": {
+    "postal_code": "2665-998",
+    "address": "Avenida 9 de Julho 83B",
+    "city": "Venda do Pinheiro",
+    "display": "Auchan Supermercado, 83B, Avenida 9 de Julho, Casal do Ninho do Mocho, Venda do Valador, Venda do Pinheiro, Mafra, Lisboa, 2665-998, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "rev:41.119556,-8.611518": {
+    "postal_code": "4400-268",
+    "address": "Rua da Rasa 356",
+    "city": "Vila Nova de Gaia",
+    "display": "Jardim Infantil \"Aniquibébé\", 356, Rua da Rasa, Laborim, Mafamude, Vila Nova de Gaia, Porto, 4400-268, Portugal",
+    "source": "REVERSE_OF_OFFICIAL_COORDS"
+  },
+  "Rua Dona Estefânia 177, 1000-239, Lisboa, Portugal": {
+    "lat": 38.7335314,
+    "lng": -9.1414643,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "177, Rua de Dona Estefânia, Saldanha, Arroios, Lisboa, 1000-158, Portugal",
+    "postal_code": "1000-158"
+  },
+  "Av. da França 132, 4050-276, Porto Ver Mapa Horários Segunda a Sexta, Portugal": null,
+  "Rua Nossa Senhora do Carmo nº1, 3810-026, Bom Sucesso, Portugal": {
+    "lat": 40.6079235,
+    "lng": -8.6479789,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Nossa Senhora do Carmo, Bom Sucesso, Aradas, Aveiro, 3810-026, Portugal",
+    "postal_code": "3810-026"
+  },
+  "Avenida Timor Lorosae, 2500-753, Caldas da Rainha Tel, Portugal": null,
+  "Rua Amílcar Cabral 40-B, 1750-020, Lumiar, Portugal": {
+    "lat": 38.7632489,
+    "lng": -9.1516165,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rua Amílcar Cabral, Quinta do Lambert, Lumiar, Ameixoeira, Lisboa, 1749-012, Portugal",
+    "postal_code": "1749-012"
+  },
+  "4600-752 Telões, 4600-752, Telões, Portugal": null,
+  "Zona Industrial da Guarda-Gare, Rua 4 de Outubro Lt 7, 6300-877, Guarda, Portugal": null,
+  "Rua 4 de Outubro Lt 7, 6300-877, Guarda, Portugal": null,
+  "6300-877 Guarda, 6300-877, Guarda, Portugal": null,
+  "Zona Industrial da Guarda-Gare, Rua, 6300-877, Guarda, Portugal": null,
+  "Edifício O Galo (traseiras), Rua da Calçada, 4750-123, Barcelos, Portugal": null,
+  "Rua da Calçada, 4750-123, Barcelos, Portugal": {
+    "lat": 41.5321297,
+    "lng": -8.6669939,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4750-421",
+    "display": "Rua da Calçada, Creixomil e Mariz, Barcelos, Braga, 4750-421, Portugal"
+  },
+  "Ed. Pólo de Negócios Nº404, Av. Dom João II, Loja 13/14, 4700-154, Braga, Portugal": null,
+  "Loja 13/14, 4700-154, Braga, Portugal": null,
+  "Av. Dom João II, Loja 13/14, 4700-154, Braga, Portugal": null,
+  "4700-154 Braga, 4700-154, Braga, Portugal": null,
+  "Ed. Pólo de Negócios Nº, 4700-154, Braga, Portugal": null,
+  "Rua 3 1B, 2725-535, Algueirão-Mem Martins, Portugal": {
+    "lat": 38.8150978,
+    "lng": -9.3441392,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "2725-524",
+    "display": "Rua da Quinta do Lago, Sacotes, A-dos-Ramalhos, Algueirão-Mem Martins, Sintra, Lisboa, 2725-524, Portugal"
+  },
+  "Lote G1, 1675-076, Pontinha, Portugal": null,
+  "1675-076 Pontinha, 1675-076, Pontinha, Portugal": null,
+  "Mercado Municipal, Av. 1 de Maio, 6000-161, Castelo Branco, Portugal": null,
+  "Av. 1 de Maio, 6000-161, Castelo Branco, Portugal": {
+    "lat": 39.8204714,
+    "lng": -7.4955397,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "6000-161",
+    "display": "Avenida 1º de Maio, Bairro do Barrocal, Castelo Branco, 6000-161, Portugal"
+  },
+  "4425-057 Águas Santas, 4425-057, Águas Santas, Portugal": null,
+  "Praceta Manuel Regado Júnior, 4425-057, Águas Santas, Portugal": null,
+  "Rua César de Oliveira 3A, 1600-778, Lisboa, Portugal": {
+    "lat": 38.7654425,
+    "lng": -9.1749802,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "1600-528",
+    "display": "Rua César de Oliveira, Quinta do Pisany, Lumiar, Ameixoeira, Lisboa, 1600-528, Portugal"
+  },
+  "EN10, 2695-444, Bobadela, Portugal": {
+    "lat": 38.8337558,
+    "lng": -9.0851241,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "2690-447",
+    "display": "EN10 (Covina), Rua das Marinhas do Tejo, Bairro da Covina, Pirescoxe, Santa Iria de Azoia, São João da Talha e Bobadela, Loures, Lisboa, 2690-447, Portugal"
+  },
+  "rev:38.710022,-9.228276": {
+    "postal_code": "1495-158",
+    "address": "Rua Luís Manuel de Noronha",
+    "city": "Oeiras",
+    "display": "Pingo Doce Miraflores (C. C. Dolce Vita), Rua Luís Manuel de Noronha, Miraflores, Algés, Linda-a-Velha e Cruz Quebrada-Dafundo, Oeiras, Lisboa, 1495-158, Portugal"
+  },
+  "rev:38.787066,-9.318019": {
+    "postal_code": "2635-304",
+    "address": "Estrada Marquês de Pombal",
+    "city": "Rio de Mouro",
+    "display": "Fitares Shopping, Estrada Marquês de Pombal, Rinchoa, Rio de Mouro, Sintra, Lisboa, 2635-304, Portugal"
+  },
+  "rev:41.215317,-8.551737": {
+    "postal_code": "4445-485",
+    "address": "Rua José Joaquim Ribeiro Teles",
+    "city": "Ermesinde",
+    "display": "Parque Urbano de Ermesinde, Rua José Joaquim Ribeiro Teles, Gandra, Palmilheira, Ermesinde, Valongo, Porto, 4445-485, Portugal"
+  },
+  "rev:38.750817,-9.226635": {
+    "postal_code": "2720-046",
+    "address": "Avenida António Sérgio",
+    "city": "Amadora",
+    "display": "Avenida António Sérgio, Urbanização da Atalaia, Damaia, Águas Livres, Amadora, Lisboa, 2720-046, Portugal"
+  },
+  "rev:37.027776,-7.946685": {
+    "postal_code": "8005-145",
+    "address": "Ecovia do Litoral",
+    "city": "Faro",
+    "display": "Faroshopping, Ecovia do Litoral, Pontes de Marchil, Faro (Sé e São Pedro), Faro, 8005-145, Portugal"
+  },
+  "rev:38.765337,-9.098277": {
+    "postal_code": "1990-078",
+    "address": "Avenida Dom João II 21 C",
+    "city": "Lisboa",
+    "display": "Bodyconcept Parque das Nações, 21 C, Avenida Dom João II, Parque das Nações, Lisboa, 1990-078, Portugal"
+  },
+  "rev:41.181257,-8.693366": {
+    "postal_code": "4450-159",
+    "address": "Rua Heróis de França",
+    "city": "Matosinhos",
+    "display": "Eurostars Matosinhos, Rua Heróis de França, Matosinhos Sul, Matosinhos, Porto, 4450-159, Portugal"
+  },
+  "85 km), 4470-053, Cidade da Maia, Portugal": null,
+  "N14 (36, 85 km), 4470-053, Cidade da Maia, Portugal": null,
+  "4470-053 Cidade da Maia, 4470-053, Cidade da Maia, Portugal": null,
+  "Galeria do Auchan Maia, N, 4470-053, Cidade da Maia, Portugal": null,
+  "Loja A, 1000-290, Lisbon, Portugal": {
+    "lat": 38.7821703,
+    "lng": -9.0950873,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "1990-371",
+    "display": "40ª Esquadra, Parque das Nações, Loja A, Avenida da Peregrinação, Parque das Nações, Lisboa, 1990-371, Portugal"
+  },
+  "4750-333 Barcelos, 4750-333, Barcelos, Portugal": null,
+  "Avenida Dr. Sidonio Pais nº, 4750-333, Barcelos, Portugal": {
+    "lat": 41.5318972,
+    "lng": -8.6147337,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4750-333",
+    "display": "Avenida Doutor Sidónio Pais, Barcelos, Braga, 4750-333, Portugal"
+  },
+  "1F 1º Piso loja 1.22-1.26, 2580-596, Carregado, Portugal": null,
+  "9002, 1F 1º Piso loja 1.22-1.26, 2580-596, Carregado, Portugal": null,
+  "2580-596 Carregado, 2580-596, Carregado, Portugal": null,
+  "Edifício Campera Shopping, 2580-596, Carregado, Portugal": null,
+  "Estr. Alagoa 96B, Carcavelos Portugal, 2775-717, Carcavelos, Portugal": null,
+  "Carcavelos Portugal, 2775-717, Carcavelos, Portugal": {
+    "lat": 38.6812181,
+    "lng": -9.3260132,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "2775-629",
+    "display": "Avenida de Portugal (NOVA SBE), Avenida de Portugal, São Gonçalo, Carcavelos e Parede, Cascais, Lisboa, 2775-629, Portugal"
+  },
+  "Lugar da Fonte da Nina Espaço K, 5400-570, Chaves, Portugal": null,
+  "5400-570 Chaves, 5400-570, Chaves, Portugal": null,
+  "4764-503 Vila Nova de Famalicão, 4764-503, Vila Nova de Famalicão, Portugal": null,
+  "4590-073 Carvalhosa, 4590-073, Carvalhosa, Portugal": null,
+  "Avenida de Monte Alvar, nº141 Joane, Braga, 4770-204, Joane, Portugal": {
+    "lat": 41.4386375,
+    "lng": -8.4026875,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4805-546",
+    "display": "Avenida de Monte Alvar, Agra de Alvar, Joane, Vila Nova de Famalicão, Braga, 4805-546, Portugal"
+  },
+  "1000-044 Lisboa, 1000-044, Lisboa, Portugal": null,
+  "Avenida de António José de Almeida, 1000-044, Lisboa, Portugal": {
+    "lat": 38.7382378,
+    "lng": -9.1396507,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "1000-043",
+    "display": "Avenida António José de Almeida, Areeiro, Lisboa, 1000-043, Portugal"
+  },
+  "4425-500 Águas Santas, 4425-500, Águas Santas, Portugal": null,
+  "Maia Shopping Lugar de Ardegães Loja, 4425-500, Águas Santas, Portugal": null,
+  "4630-205 Marco de Canaveses, 4630-205, Marco de Canaveses, Portugal": null,
+  "2870-447 Montijo, 2870-447, Montijo, Portugal": null,
+  "Praça Pedro Nunes n.º, 2870-447, Montijo, Portugal": null,
+  "Moreira da Maia, 4470-048, Moreira, Portugal": {
+    "lat": 41.2556584,
+    "lng": -8.6544884,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4470-274",
+    "display": "Moreira da Maia, Rua Conselheiro Luís Magalhães, Guardeiras, Moreira, Maia, Porto, 4470-274, Portugal"
+  },
+  "8700-137 Olhão, 8700-137, Olhão, Portugal": null,
+  "3880-109 Ovar, 3880-109, Ovar, Portugal": null,
+  "Zona Industrial de Ovar, Av. Dom Manuel I Loja nº, 3880-109, Ovar, Portugal": null,
+  "Rua Vasco da Gama, nº 60, Lisboa, Portugal, 2775-232, Parede, Portugal": null,
+  "Portugal, 2775-232, Parede, Portugal": {
+    "lat": 38.6814163,
+    "lng": -9.3271683,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "2775-629",
+    "display": "Avenida de Portugal, São Gonçalo, Carcavelos e Parede, Cascais, Lisboa, 2775-629, Portugal"
+  },
+  "Piso -1, 2685-232, Lisboa, Portugal": {
+    "lat": 38.7549116,
+    "lng": -9.1890105,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "1550-392",
+    "display": "Centro Comercial Colombo - Estacionamento Piso -1, Rua Galileu Galilei, Carnide, Lisboa, 1550-392, Portugal"
+  },
+  "4100-365 Porto, 4100-365, Porto, Portugal": null,
+  "Rua o primeiro de Janeiro n°, 4100-365, Porto, Portugal": null,
+  "Parcela F, 2975-403, Quinta do Conde, Portugal": null,
+  "2975-403 Quinta do Conde, 2975-403, Quinta do Conde, Portugal": null,
+  "Estrada Nacional, 2975-403, Quinta do Conde, Portugal": {
+    "lat": 38.5661277,
+    "lng": -9.0364707,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "2975-628",
+    "display": "Estrada Nacional 10 (Parque da Vila), EN 10, Quinta do Conde, Sesimbra, Setúbal, 2975-628, Portugal"
+  },
+  "2005-244 Santarém, 2005-244, Santarém, Portugal": null,
+  "Largo Nossa Sra. da Piedade, 2005-244, Santarém, Portugal": null,
+  "Rua do Shopping 149 e 159 Inserido no Centro Comercial fracção L28, 4520-625, Sao Joao De Ver, Portugal": null,
+  "4520-625 Sao Joao De Ver, 4520-625, Sao Joao De Ver, Portugal": null,
+  "Rua do Shopping, 4520-625, Sao Joao De Ver, Portugal": {
+    "lat": 40.9686498,
+    "lng": -8.5378846,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4520-605",
+    "display": "Rua do Shopping, Fonte Seca, São João de Ver, Santa Maria da Feira, Aveiro, 4520-605, Portugal"
+  },
+  "Km 42, 2910-845, Setúbal, Portugal": null,
+  "2910-845 Setúbal, 2910-845, Setúbal, Portugal": null,
+  "Estrada Nacional, 2910-845, Setúbal, Portugal": null,
+  "4785-201 Trofa, 4785-201, Trofa, Portugal": null,
+  "Rua Padre Alberto Pinheiro Machado, 4785-201, Trofa, Portugal": null,
+  "4400-285 Vila Nova de Gaia, 4400-285, Vila Nova de Gaia, Portugal": null,
+  "R. Dr. Ribeiro de Magalhães, 4400-285, Vila Nova de Gaia, Portugal": null,
+  "4440-682 Valongo, 4440-682, Valongo, Portugal": null,
+  "R. Padre António Lino de Souza Vale, 4440-682, Valongo, Portugal": null,
+  "Alameda 5 de Outubro, 4900-515, Viana do Castelo, Portugal": {
+    "lat": 41.6933636,
+    "lng": -8.824423,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4900-510",
+    "display": "Alameda 5 de Outubro, Viana do Castelo, Viana do Castelo (Santa Maria Maior e Monserrate) e Meadela, Viana do Castelo, 4900-510, Portugal"
+  },
+  "Av. do Brasil, 60 Vila do Conde, 4480-659, Vila Do Conde, Portugal": {
+    "lat": 41.3518927,
+    "lng": -8.7536743,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4480-865",
+    "display": "60, Avenida do Brasil, Bairro Piscatório, Vila do Conde, Porto, 4480-865, Portugal"
+  },
+  "Rua Nova do Hospital, nº 18 - Viseu CP:, 3500-161, Viseu, Portugal": null,
+  "nº 18 - Viseu CP:, 3500-161, Viseu, Portugal": null,
+  "3500-161 Viseu, 3500-161, Viseu, Portugal": null,
+  "Rua Nova do Hospital, nº, 3500-161, Viseu, Portugal": null,
+  "21, 3800-043, Aveiro, Portugal": null,
+  "Nº 20, 21, 3800-043, Aveiro, Portugal": null,
+  "3800-043 Aveiro, 3800-043, Aveiro, Portugal": null,
+  "Zona Industrial da Taboeira, Rua do Monte Novo, Nº, 3800-043, Aveiro, Portugal": null,
+  "3810-498 Aveiro, 3810-498, Aveiro, Portugal": null,
+  "Com.2, 4445-416, Ermesinde, Portugal": null,
+  "Av. Eng. Duarte Pacheco 511, Com.2, 4445-416, Ermesinde, Portugal": null,
+  "4445-416 Ermesinde, 4445-416, Ermesinde, Portugal": null,
+  "Ermesinde Retail Park, Av. Eng. Duarte Pacheco, 4445-416, Ermesinde, Portugal": null,
+  "5, 7000-172, Évora, Portugal": null,
+  "E.N 114 Km 4, 5, 7000-172, Évora, Portugal": null,
+  "7000-172 Évora, 7000-172, Évora, Portugal": null,
+  "Edifício Pingo Doce, E.N, 7000-172, Évora, Portugal": null,
+  "4610-000 Várzea, 4610-000, Várzea, Portugal": null,
+  "Lojas G e H, 4415-549, Grijó, Portugal": null,
+  "4415-549 Grijó, 4415-549, Grijó, Portugal": null,
+  "4475-045 Maia, 4475-045, Maia, Portugal": null,
+  "Estrada Nacional Nº, 4475-045, Maia, Portugal": null,
+  "2430-313 Marinha Grande, 2430-313, Marinha Grande, Portugal": null,
+  "Rampa dos Barreiros Portas 4 e 5, 9000-695, Funchal, Portugal": null,
+  "9000-695 Funchal, 9000-695, Funchal, Portugal": null,
+  "Estádio do Marítimo, Rampa dos Barreiros Portas, 9000-695, Funchal, Portugal": null,
+  "Edifício Printer, 2639-001, Algueirão-Mem Martins, Portugal": null,
+  "2639-001 Algueirão-Mem Martins, 2639-001, Algueirão-Mem Martins, Portugal": null,
+  "Av. Major General Machado de Sousa, 2639-001, Algueirão-Mem Martins, Portugal": null,
+  "Loja 4, 2870-100, Montijo, Portugal": null,
+  "2870-100 Montijo, 2870-100, Montijo, Portugal": {
+    "lat": 38.6968419,
+    "lng": -8.9433136,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "2870-100",
+    "display": "Ciclovia-Alegro Montijo, Portas do Montijo, Bairro do Charqueirão, Montijo e Afonsoeiro, Montijo, Setúbal, 2870-100, Portugal"
+  },
+  "Montijo Retail Park Estrada Do Pau Queimado, Loja, 2870-100, Montijo, Portugal": null,
+  "São Martinho, 9000-039, Funchal, Portugal": {
+    "lat": 32.6483114,
+    "lng": -16.9441203,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "",
+    "display": "São Martinho, Funchal, Madeira, Portugal"
+  },
+  "1 andar, 4490-228, Argivai, Portugal": null,
+  "R. Sacra Família, 1 andar, 4490-228, Argivai, Portugal": {
+    "lat": 41.3793252,
+    "lng": -8.738149,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "postal_code": "4490-228",
+    "display": "Rua Sacra Família, Argivai, Póvoa de Varzim, Porto, 4490-228, Portugal"
+  },
+  "Torres do Cruzeiro, 2900-720, Setúbal, Portugal": null,
+  "Lote 1, Torres do Cruzeiro, 2900-720, Setúbal, Portugal": null,
+  "2900-720 Setúbal, 2900-720, Setúbal, Portugal": null,
+  "Rua Quinta da Varzinha, Lote, 2900-720, Setúbal, Portugal": null
+}

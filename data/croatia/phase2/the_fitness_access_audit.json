@@ -1,0 +1,18 @@
+[
+  {
+    "name": "THE Fitness Hotel Novi Zagreb",
+    "classification": "WELLNESS_ADDITIVE",
+    "evidence": "Public Multiclub membership; substantial gym floor; hotel-sited but ordinary member access",
+    "id": "hr_e99d3d2a6c",
+    "disposition": "KEEP_EXISTING",
+    "remain_ready": true
+  },
+  {
+    "name": "THE Fitness Zonar",
+    "classification": "WELLNESS_ADDITIVE",
+    "evidence": "Public membership at zonar.thefitness.hr; conventional gym + additive wellness",
+    "id": "hr_a0ec1a2c32",
+    "disposition": "KEEP_EXISTING",
+    "remain_ready": true
+  }
+]

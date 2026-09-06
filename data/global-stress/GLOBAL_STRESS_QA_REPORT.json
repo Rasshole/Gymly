@@ -1,0 +1,532 @@
+{
+  "generated_at": "2026-08-29T21:41:45.015Z",
+  "verdict": "GLOBAL STRESS QA: PASS",
+  "catalog_total": 12850,
+  "russia": 465,
+  "ru_prefix": 465,
+  "frozen_sha256": "968a997d91daf6424da847f0cb7144c148b42a47bd19f2715c3e52ae4b24d020",
+  "frozen_bytes": 4014884,
+  "threshold": 12500,
+  "signed_headroom": -350,
+  "crosses_12500": true,
+  "production_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "structural_integrity": {
+    "catalog_total": 12850,
+    "global_duplicate_ids": 0,
+    "global_missing_ids": 0,
+    "global_missing_names": 0,
+    "global_missing_countries": 0,
+    "global_missing_cities": 0,
+    "global_invalid_coordinates": 0,
+    "global_schema_failures": 0,
+    "inactive_count": 4,
+    "active_count": 12846
+  },
+  "prefix_audit": {
+    "mismatches": 0,
+    "unknown_prefixes": 1
+  },
+  "country_inventory": {
+    "generated_at": "2026-08-29T21:41:20.300Z",
+    "catalog_total": 12850,
+    "global_country_count": 49,
+    "countries": [
+      {
+        "country": "France",
+        "prefix": "fr_",
+        "count": 1712
+      },
+      {
+        "country": "United Kingdom",
+        "prefix": "gb_",
+        "count": 1474
+      },
+      {
+        "country": "Germany",
+        "prefix": "de_",
+        "count": 1424
+      },
+      {
+        "country": "Spain",
+        "prefix": "es_",
+        "count": 976
+      },
+      {
+        "country": "Sweden",
+        "prefix": "se_",
+        "count": 639
+      },
+      {
+        "country": "Poland",
+        "prefix": "pl_",
+        "count": 621
+      },
+      {
+        "country": "Netherlands",
+        "prefix": "nl_",
+        "count": 600
+      },
+      {
+        "country": "Italy",
+        "prefix": "it_",
+        "count": 588
+      },
+      {
+        "country": "Norway",
+        "prefix": "no_",
+        "count": 535
+      },
+      {
+        "country": "Switzerland",
+        "prefix": "ch_",
+        "count": 475
+      },
+      {
+        "country": "Russia",
+        "prefix": "ru_",
+        "count": 465
+      },
+      {
+        "country": "Finland",
+        "prefix": "fi_",
+        "count": 429
+      },
+      {
+        "country": "Belgium",
+        "prefix": "be_",
+        "count": 363
+      },
+      {
+        "country": "Denmark",
+        "prefix": "unknown",
+        "count": 354
+      },
+      {
+        "country": "Austria",
+        "prefix": "at_",
+        "count": 335
+      },
+      {
+        "country": "Portugal",
+        "prefix": "pt_",
+        "count": 247
+      },
+      {
+        "country": "Turkey",
+        "prefix": "tr_",
+        "count": 198
+      },
+      {
+        "country": "Romania",
+        "prefix": "ro_",
+        "count": 154
+      },
+      {
+        "country": "Greece",
+        "prefix": "gr_",
+        "count": 106
+      },
+      {
+        "country": "Ukraine",
+        "prefix": "ua_",
+        "count": 105
+      },
+      {
+        "country": "Bulgaria",
+        "prefix": "bg_",
+        "count": 82
+      },
+      {
+        "country": "Croatia",
+        "prefix": "hr_",
+        "count": 80
+      },
+      {
+        "country": "Czechia",
+        "prefix": "cz_",
+        "count": 70
+      },
+      {
+        "country": "Estonia",
+        "prefix": "ee_",
+        "count": 69
+      },
+      {
+        "country": "Ireland",
+        "prefix": "unknown",
+        "count": 65
+      },
+      {
+        "country": "Serbia",
+        "prefix": "rs_",
+        "count": 63
+      },
+      {
+        "country": "Lithuania",
+        "prefix": "lt_",
+        "count": 61
+      },
+      {
+        "country": "Hungary",
+        "prefix": "hu_",
+        "count": 50
+      },
+      {
+        "country": "Belarus",
+        "prefix": "by_",
+        "count": 46
+      },
+      {
+        "country": "Azerbaijan",
+        "prefix": "az_",
+        "count": 46
+      },
+      {
+        "country": "Slovakia",
+        "prefix": "sk_",
+        "count": 37
+      },
+      {
+        "country": "Armenia",
+        "prefix": "am_",
+        "count": 36
+      },
+      {
+        "country": "Slovenia",
+        "prefix": "si_",
+        "count": 33
+      },
+      {
+        "country": "Latvia",
+        "prefix": "lv_",
+        "count": 33
+      },
+      {
+        "country": "Bosnia and Herzegovina",
+        "prefix": "ba_",
+        "count": 31
+      },
+      {
+        "country": "Moldova",
+        "prefix": "md_",
+        "count": 28
+      },
+      {
+        "country": "Iceland",
+        "prefix": "is_",
+        "count": 27
+      },
+      {
+        "country": "Montenegro",
+        "prefix": "me_",
+        "count": 26
+      },
+      {
+        "country": "North Macedonia",
+        "prefix": "mk_",
+        "count": 25
+      },
+      {
+        "country": "Georgia",
+        "prefix": "ge_",
+        "count": 25
+      },
+      {
+        "country": "Malta",
+        "prefix": "mt_",
+        "count": 24
+      },
+      {
+        "country": "Luxembourg",
+        "prefix": "lu_",
+        "count": 20
+      },
+      {
+        "country": "Kosovo",
+        "prefix": "xk_",
+        "count": 18
+      },
+      {
+        "country": "Cyprus",
+        "prefix": "cy_",
+        "count": 17
+      },
+      {
+        "country": "Andorra",
+        "prefix": "ad_",
+        "count": 12
+      },
+      {
+        "country": "Albania",
+        "prefix": "al_",
+        "count": 9
+      },
+      {
+        "country": "Liechtenstein",
+        "prefix": "li_",
+        "count": 7
+      },
+      {
+        "country": "San Marino",
+        "prefix": "sm_",
+        "count": 6
+      },
+      {
+        "country": "Monaco",
+        "prefix": "mc_",
+        "count": 4
+      }
+    ],
+    "sum": 12850
+  },
+  "prior_regressions": [],
+  "real_global_country_data_regressions": 0,
+  "parse_benchmark": {
+    "runs": 30,
+    "min_ms": 15,
+    "median_ms": 18,
+    "p95_ms": 31,
+    "max_ms": 85,
+    "mean_ms": 20.9
+  },
+  "benchmarks": {
+    "registry": {
+      "registry_center_count": 12850,
+      "registry_duplicates": 0,
+      "registry_missing": 0,
+      "runs": 20,
+      "min_ms": 0,
+      "median_ms": 0,
+      "p95_ms": 0,
+      "max_ms": 0,
+      "mean_ms": 0
+    },
+    "search_index": {
+      "search_index_center_count": 12846,
+      "search_index_exclusions": 4,
+      "search_index_exclusion_reason": "4 intentional inactive Denmark rows",
+      "runs": 5,
+      "min_ms": 0,
+      "median_ms": 0,
+      "p95_ms": 4809,
+      "max_ms": 4809,
+      "mean_ms": 961.8
+    },
+    "search": {
+      "search_query_count": 36,
+      "search_runs_total": 36,
+      "slowest_search_query": "Saint Petersburg",
+      "slowest_search_ms": 258,
+      "max_search_result_count": 50,
+      "query_with_max_results": "Russia",
+      "runs": 36,
+      "min_ms": 14,
+      "median_ms": 120,
+      "p95_ms": 214,
+      "max_ms": 258,
+      "mean_ms": 120.36111111111111
+    },
+    "search_correctness": {
+      "global_search_correctness": "PASS",
+      "raw_ids_surfaced": 0,
+      "search_duplicate_results": 0,
+      "search_invalid_results": 0,
+      "search_country_mismatches": 0
+    },
+    "map": {
+      "map_architecture_mode": "VIEWPORT_CULLING — full marker prep then region filter",
+      "global_active_center_count": 12846,
+      "map_marker_prep_count": 12846,
+      "moscow_viewport_count": 297,
+      "map_marker_identity_errors": 0,
+      "runs": 10,
+      "min_ms": 42,
+      "median_ms": 44,
+      "p95_ms": 47,
+      "max_ms": 47,
+      "mean_ms": 44.1
+    },
+    "nearest": {
+      "nearest_probe_count": 26,
+      "nearest_runs_total": 26,
+      "nearest_results_plausible": "YES",
+      "nearest_invalid_results": 0,
+      "runs": 26,
+      "min_ms": 23,
+      "median_ms": 25,
+      "p95_ms": 27,
+      "max_ms": 28,
+      "mean_ms": 24.807692307692307
+    },
+    "checkin": {
+      "checkin_boundary_tests": 3,
+      "checkin_boundary_failures": 0,
+      "country_specific_radius_overrides": 0
+    },
+    "distance": {
+      "hot_path_global_scan": "YES",
+      "note": "findNearestGym performs O(n) linear scan; measured latency acceptable at 12,850",
+      "distance_full_scan_min_ms": 23,
+      "distance_full_scan_median_ms": 24,
+      "distance_full_scan_p95_ms": 26,
+      "distance_full_scan_max_ms": 26
+    },
+    "dense_market": {
+      "dense_market_correctness": "PASS"
+    },
+    "russia_scale": {
+      "russia": 465,
+      "ru_prefix": 465,
+      "moscow": 361,
+      "spb": 23,
+      "russia_scale_qa": "PASS",
+      "cyrillic_search": true,
+      "latin_search": true
+    },
+    "large_chains": {
+      "top_chains": [
+        {
+          "brand": "Basic-Fit",
+          "count": 1680
+        },
+        {
+          "brand": "PureGym",
+          "count": 633
+        },
+        {
+          "brand": "clever fit",
+          "count": 442
+        },
+        {
+          "brand": "Anytime Fitness",
+          "count": 433
+        },
+        {
+          "brand": "Fitness Park",
+          "count": 380
+        },
+        {
+          "brand": "VivaGym",
+          "count": 292
+        },
+        {
+          "brand": "STC",
+          "count": 291
+        },
+        {
+          "brand": "The Gym Group",
+          "count": 256
+        },
+        {
+          "brand": "Nordic Wellness",
+          "count": 234
+        },
+        {
+          "brand": "McFIT",
+          "count": 234
+        }
+      ],
+      "large_chain_search_duplicates": 0
+    },
+    "large_cities": {
+      "top_cities": [
+        {
+          "city": "Moscow",
+          "count": 361
+        },
+        {
+          "city": "London",
+          "count": 178
+        },
+        {
+          "city": "Madrid",
+          "count": 122
+        },
+        {
+          "city": "Warszawa",
+          "count": 109
+        },
+        {
+          "city": "Wien",
+          "count": 101
+        },
+        {
+          "city": "Helsinki",
+          "count": 89
+        },
+        {
+          "city": "Oslo",
+          "count": 78
+        },
+        {
+          "city": "Stockholm",
+          "count": 72
+        },
+        {
+          "city": "Berlin",
+          "count": 72
+        },
+        {
+          "city": "Barcelona",
+          "count": 72
+        }
+      ],
+      "large_city_correctness": "PASS"
+    },
+    "normalization": {
+      "normalization_exceptions": 1
+    },
+    "country_filter": {
+      "country_filter_count_mismatches": 0
+    },
+    "city_filter": {
+      "city_filter_duplicates": 0,
+      "city_filter_wrong_country": 0
+    },
+    "id_lookup": {
+      "id_lookup_sample_size": 94,
+      "id_lookup_missing": 0,
+      "id_lookup_wrong_result": 0,
+      "runs": 20,
+      "min_ms": 0,
+      "median_ms": 0,
+      "p95_ms": 0,
+      "max_ms": 0,
+      "mean_ms": 0
+    },
+    "sorting": {
+      "sort_exceptions": 0,
+      "sort_nondeterminism": 0
+    },
+    "repeated_interaction": {
+      "repeated_interaction_iterations": 50,
+      "latency_degradation_percent": 3.6,
+      "repeated_interaction_correctness": "PASS",
+      "unbounded_accumulation_detected": false
+    },
+    "russia_merge_invariant": "PASS",
+    "production_immutable": true,
+    "real_global_regression": 0,
+    "test_debt": {
+      "real_global_regression": 0,
+      "stale_historical_baseline": [
+        "__tests__/global10kStressQa.test.ts",
+        "__tests__/russiaPhase1Staging.test.ts",
+        "__tests__/russiaPhase2Staging.test.ts"
+      ],
+      "other_test_debt": []
+    }
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "recommended_next_threshold": 15000,
+  "global_scale_gate_12500": "PASSED",
+  "country_expansion": "UNLOCKED_FOR_RUSSIA_PRODUCTION_QA",
+  "russia_merge_invariant": "PASS",
+  "jest_exit_code": 0,
+  "jest_failed_tests": 0,
+  "blockers": []
+}

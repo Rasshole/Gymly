@@ -1,0 +1,19 @@
+{
+  "target": "Golden Club Tondi",
+  "recovered": [
+    {
+      "id": "ee_b9bc209fd8",
+      "name": "Golden Club Tondi",
+      "brand": "Golden Club",
+      "before_category": "NEEDS_COORDINATES",
+      "lat": 59.403868,
+      "lng": 24.720539,
+      "postal_code": "11316",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "tondi"
+    }
+  ],
+  "goal": "3/3 READY",
+  "achieved": true,
+  "eligibility": "public conventional gym inside Forus Spordikeskus — in scope"
+}

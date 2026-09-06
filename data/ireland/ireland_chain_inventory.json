@@ -1,0 +1,63 @@
+{
+  "country": "Ireland",
+  "prefix": "ie_",
+  "chains_attempted": [
+    {
+      "brand": "FLYEfit",
+      "count": 23
+    },
+    {
+      "brand": "Ben Dunne Gyms",
+      "count": 5
+    },
+    {
+      "brand": "West Wood Club",
+      "count": 0
+    },
+    {
+      "brand": "Anytime Fitness",
+      "count": 0
+    }
+  ],
+  "notes": {
+    "Energie Fitness Ireland": "UK Energie is gb_*; IE estate needs Phase 2 ROI confirmation",
+    "Aura Leisure": "Include only conventional gym product sites — Phase 2 policy",
+    "Gym Plus / NRG / Iconic / SportsCo / Swan / LeisurePoint": "Secondary audit deferred to Phase 2",
+    "Northern Ireland": "Excluded — remains United Kingdom",
+    "Eircode": "READY requires valid Eircode string; Dublin N district labels are not Eircodes"
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 17,
+    "NEEDS_REVIEW": 8,
+    "NEEDS_COORDINATES": 2
+  },
+  "ready_by_brand": {
+    "FLYEfit": 15,
+    "Ben Dunne Gyms": 2
+  },
+  "city_coverage": {
+    "Dublin": true,
+    "Cork": true,
+    "Limerick": false,
+    "Galway": true,
+    "Waterford": false,
+    "Drogheda": false,
+    "Dundalk": false,
+    "Kilkenny": false,
+    "Sligo": false,
+    "Athlone": false,
+    "Letterkenny": false,
+    "Wexford": false,
+    "Tralee": false,
+    "Killarney": false
+  },
+  "coverage_notes": {
+    "FLYEfit": "Primary national operator — Phase 1 near-complete from flyefit.ie/gyms",
+    "Ben Dunne Gyms": "Official estate extracted from bdgyms.com",
+    "West Wood Club": "Partial from westwood.ie",
+    "Anytime Fitness Ireland": "Locator partial/JS — Phase 2 if estate incomplete",
+    "Energie Fitness Ireland": "Must not reuse gb_* — Phase 2 ROI confirmation",
+    "Aura / leisure operators": "Inclusion only for conventional gym product — Phase 2 policy application",
+    "Northern Ireland": "Explicitly excluded (remains United Kingdom / gb_*)"
+  }
+}

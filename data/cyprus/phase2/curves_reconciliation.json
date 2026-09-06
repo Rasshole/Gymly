@@ -1,0 +1,30 @@
+{
+  "as_of": "2026-08-26",
+  "current_official_estate": [
+    "Aglantzia",
+    "Larnaca"
+  ],
+  "current_count": 2,
+  "third_current_club_found": false,
+  "class_a": false,
+  "legacy_closed_count": 8,
+  "legacy_ids": [
+    "cy_8cc662b057",
+    "cy_714b1bbb67",
+    "cy_87a12d4de0",
+    "cy_732e9b11f0",
+    "cy_9c255030ca",
+    "cy_e27fc5d9a5",
+    "cy_3ad0fe0091",
+    "cy_9a45ae2493"
+  ],
+  "ready_independent": [
+    "cy_f070c42b8f",
+    "cy_56b48cbccc"
+  ],
+  "verdict": "ESTATE_2_INDEPENDENT_READY",
+  "sources": [
+    "https://curves.gr/katastimata/aglantzia/",
+    "https://curves.gr/katastimata/larnaka/"
+  ]
+}

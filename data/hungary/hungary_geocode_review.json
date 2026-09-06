@@ -1,0 +1,569 @@
+[
+  {
+    "id": "hu_66d884b838",
+    "name": "4% CANDY",
+    "brand": "4% Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4973433,
+    "lng": 19.0725816,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_2bc587797d",
+    "name": "4% CANDYLAND",
+    "brand": "4% Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4981768,
+    "lng": 19.0726237,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_5ba59aa925",
+    "name": "4% CORNER",
+    "brand": "4% Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5008707,
+    "lng": 19.058374,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_64679c3ab1",
+    "name": "4% CRUSH",
+    "brand": "4% Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_COORDINATES"
+  },
+  {
+    "id": "hu_26049334fe",
+    "name": "4% GARDEN",
+    "brand": "4% Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4879415,
+    "lng": 19.0640284,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_781bc0caec",
+    "name": "4% GYM",
+    "brand": "4% Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4875255,
+    "lng": 19.0635681,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_710bcabd06",
+    "name": "4% LOTUS",
+    "brand": "4% Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_a10dd9e7d1",
+    "name": "4% ONLYGIRLS",
+    "brand": "4% Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4879415,
+    "lng": 19.0640284,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_9d8661b123",
+    "name": "4% SPIRIT",
+    "brand": "4% Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5553025,
+    "lng": 19.0900462,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_6f3dac8c88",
+    "name": "Chili Fitness Angyalföld",
+    "brand": "Chili Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5273653,
+    "lng": 19.0855997,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_3b769ac753",
+    "name": "Chili Fitness Bikás park",
+    "brand": "Chili Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4641993,
+    "lng": 19.0308539,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_1bdf08188c",
+    "name": "Chili Fitness Csepel",
+    "brand": "Chili Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4197659,
+    "lng": 19.0660584,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_b30b55c045",
+    "name": "Chili Fitness Debrecen",
+    "brand": "Chili Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5227201,
+    "lng": 21.6476775,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_46d6f40578",
+    "name": "Chili Fitness Újbuda",
+    "brand": "Chili Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4589973,
+    "lng": 19.0513655,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_60d4fa43e9",
+    "name": "Cutler Gym Győr",
+    "brand": "Cutler Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.6953888,
+    "lng": 17.6623561,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_964d97d996",
+    "name": "Cutler Gym Gödöllő",
+    "brand": "Cutler Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.6122323,
+    "lng": 19.3353952,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_0d020c3035",
+    "name": "Cutler Gym Kecskemét",
+    "brand": "Cutler Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 46.9073282,
+    "lng": 19.6946001,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_54497412e3",
+    "name": "Cutler Gym Miskolc",
+    "brand": "Cutler Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_d9af446e48",
+    "name": "Cutler Gym Nyíregyháza",
+    "brand": "Cutler Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.9581528,
+    "lng": 21.7209397,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_bf964e760b",
+    "name": "Cutler Gym Pécs",
+    "brand": "Cutler Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 46.0513032,
+    "lng": 18.2122112,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_3a9b38b121",
+    "name": "Cutler Gym Sopron",
+    "brand": "Cutler Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.697982,
+    "lng": 16.5790402,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_e98eda3758",
+    "name": "Cutler Gym Székesfehérvár",
+    "brand": "Cutler Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.185673,
+    "lng": 18.4133407,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_bb648a4fb4",
+    "name": "Fitness5 Bank Center",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5026187,
+    "lng": 19.0521499,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_b830083f43",
+    "name": "Fitness5 City Market Dunakeszi",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.6101612,
+    "lng": 19.1164023,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_51387e3952",
+    "name": "Fitness5 Dunaújváros",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 46.9664432,
+    "lng": 18.9165962,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_e179e35746",
+    "name": "Fitness5 Esztergom",
+    "brand": "Fitness5",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON"
+  },
+  {
+    "id": "hu_846fe0d713",
+    "name": "Fitness5 Home Center",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4738079,
+    "lng": 19.2712538,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_bae581d58d",
+    "name": "Fitness5 Kecskemét",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 46.910048,
+    "lng": 19.6935511,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_92f115bd5a",
+    "name": "Fitness5 Kispest",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4584838,
+    "lng": 19.1462892,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_fd01ce74d5",
+    "name": "Fitness5 KÖKI",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.462773,
+    "lng": 19.1470775,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_500c6f4520",
+    "name": "Fitness5 Kőbánya",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.483079,
+    "lng": 19.1272632,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_7dc1ce0cca",
+    "name": "Fitness5 Nagykanizsa",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 46.4549541,
+    "lng": 16.9872815,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_a56cb55b9e",
+    "name": "Fitness5 Pólus Center",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5501125,
+    "lng": 19.1384844,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_e762125127",
+    "name": "Fitness5 Sallai",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4330103,
+    "lng": 19.1783067,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_3b8b7317ed",
+    "name": "Fitness5 Savoya",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4351556,
+    "lng": 19.0413414,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_636f293a9f",
+    "name": "Fitness5 Siófok",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 46.9033848,
+    "lng": 18.0520406,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_a239f06130",
+    "name": "Fitness5 Sopron",
+    "brand": "Fitness5",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON"
+  },
+  {
+    "id": "hu_1c31693886",
+    "name": "Fitness5 Szolnok",
+    "brand": "Fitness5",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_72b7f1aaef",
+    "name": "Fitness5 Székesfehérvár",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.1645703,
+    "lng": 18.4052128,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_f6532fb59e",
+    "name": "Fitness5 Tatabánya",
+    "brand": "Fitness5",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_58a6d7e529",
+    "name": "Fitness5 Veszprém",
+    "brand": "Fitness5",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON"
+  },
+  {
+    "id": "hu_1521b3b472",
+    "name": "Fitness5 Váci Greens",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5442766,
+    "lng": 19.073362,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_c4a1d65e79",
+    "name": "Fitness5 Örs Vezér tér",
+    "brand": "Fitness5",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4923558,
+    "lng": 19.1419038,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_b3242cad90",
+    "name": "Gilda Max (legacy — acquired by Life1)",
+    "brand": "Gilda Max",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "LEGACY"
+  },
+  {
+    "id": "hu_9364053391",
+    "name": "Life1 Allee",
+    "brand": "Life1 Fitness",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 47.4750348,
+    "lng": 19.0489799,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_371365b575",
+    "name": "Life1 Corvin",
+    "brand": "Life1 Fitness",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 47.4853511,
+    "lng": 19.0748192,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_a0126964e9",
+    "name": "Life1 Etele",
+    "brand": "Life1 Fitness",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 47.4642954,
+    "lng": 19.0258247,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_9eb805b69a",
+    "name": "Life1 Mammut",
+    "brand": "Life1 Fitness",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 47.5089793,
+    "lng": 19.0245791,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_70f4487b7f",
+    "name": "Life1 Nyugati",
+    "brand": "Life1 Fitness",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 47.5098654,
+    "lng": 19.0556393,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_3dd7ed353f",
+    "name": "Life1 Váci",
+    "brand": "Life1 Fitness",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 47.5258939,
+    "lng": 19.0616161,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_443fc52cc7",
+    "name": "Nr1 Fitness Kálvin",
+    "brand": "Nr1 Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4899602,
+    "lng": 19.0611429,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_252aa3a3c1",
+    "name": "Nr1 Fitness Oktogon",
+    "brand": "Nr1 Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5068138,
+    "lng": 19.0628976,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_1aacef722b",
+    "name": "Nr1 Fitness Rákóczi tér",
+    "brand": "Nr1 Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_1059e757c0",
+    "name": "Nr1 Fitness Vágóhíd",
+    "brand": "Nr1 Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_7dee925bf1",
+    "name": "Nr1 Fitness Óbuda",
+    "brand": "Nr1 Fitness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5304147,
+    "lng": 19.0393346,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_c9304c4364",
+    "name": "Oxygen Wellness Naphegy",
+    "brand": "Oxygen Wellness",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4914936,
+    "lng": 19.0382312,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_cb9223a0d5",
+    "name": "Prestige Fitness Fáy",
+    "brand": "Prestige Fitness",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 47.5357397,
+    "lng": 19.0772082,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_53c869a4bc",
+    "name": "Thor Gym Kaposvár",
+    "brand": "Thor Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_8b266bdb04",
+    "name": "Thor Gym Savoya",
+    "brand": "Thor Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4351556,
+    "lng": 19.0413414,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_f6609f8832",
+    "name": "Thor Gym Székesfehérvár",
+    "brand": "Thor Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW"
+  },
+  {
+    "id": "hu_ba25e8fc66",
+    "name": "Thor Gym Zugló",
+    "brand": "Thor Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5136723,
+    "lng": 19.1492048,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_fee7e81046",
+    "name": "Thor Gym Óbuda",
+    "brand": "Thor Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.5499999,
+    "lng": 19.0465533,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "hu_3176a1cfef",
+    "name": "Thor Gym Újbuda",
+    "brand": "Thor Gym",
+    "coord_source": "NOMINATIM_EXACT_ADDRESS",
+    "lat": 47.4616688,
+    "lng": 19.0457137,
+    "category": "READY_TO_IMPORT"
+  }
+]

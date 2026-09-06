@@ -9,6 +9,7 @@ import type {OnlineUser} from '@/types/online.types';
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import {buildDemoPayload} from '@/demo/buildDemoPayload';
 import {buildDemoOnlineUsersFromActiveFriends} from '@/demo/demoMapAndOnline';
+import {getIntlLocale, getRuntimeLanguage} from '@/i18n';
 
 export interface GetOnlineUsersOptions {
   filter?: 'alle' | 'venner';
@@ -71,7 +72,10 @@ export async function getOnlineUsers(
   out.sort(
     (a, b) =>
       b.lastActive.getTime() - a.lastActive.getTime() ||
-      a.displayName.localeCompare(b.displayName, 'da'),
+      a.displayName.localeCompare(
+        b.displayName,
+        getIntlLocale(getRuntimeLanguage()),
+      ),
   );
   return out;
 }

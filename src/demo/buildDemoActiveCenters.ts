@@ -1,5 +1,8 @@
 /**
  * Aktive centre til Centres-fanen (samme type som Supabase `loadActiveCentersData`).
+ *
+ * Demo-only: intentionally keeps `localeCompare(..., 'da')` for stable demo sorting.
+ * Production paths use `getIntlLocale(getRuntimeLanguage())` instead.
  */
 
 import {findGymById, formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';

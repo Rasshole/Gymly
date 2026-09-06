@@ -1,0 +1,584 @@
+{
+  "country": "Belarus",
+  "qa_type": "PRODUCTION_QA_FINAL",
+  "generated_at": "2026-08-29T16:48:38.305Z",
+  "read_only": true,
+  "production_modified": false,
+  "qa_sha_before": "601e7848e80478002da147bf34287b701e2fd95ff2a21e493e0d70aed002b740",
+  "qa_bytes_before": 3761727,
+  "qa_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "catalog_total": 12080,
+  "belarus_live": 46,
+  "by_prefix_live": 46,
+  "ukraine_live": 105,
+  "malta_live": 24,
+  "headroom": 420,
+  "phase2_inputs": {
+    "keep_existing": 0,
+    "new_ready_to_import": 46,
+    "existing_review_required": 0,
+    "needs_review": 0,
+    "needs_coordinates": 0,
+    "coming_soon": 1,
+    "excluded": 11,
+    "closed": 0,
+    "approved_for_production": 46,
+    "live_production": 46,
+    "four_way": {
+      "phase2_ready": 46,
+      "approved": 46,
+      "production": 46,
+      "a_equals_b": true,
+      "b_equals_c": true,
+      "phase2_ready_missing_from_approved": 0,
+      "approved_missing_from_production": 0,
+      "production_not_approved": 0,
+      "unauthorized_belarus_production": 0
+    },
+    "merge_delta": {
+      "pre_belarus": 0,
+      "authorized_new": 46,
+      "post_belarus": 46,
+      "insertions": 46,
+      "updates": 0,
+      "removals": 0
+    }
+  },
+  "four_way_reconciliation": {
+    "phase2_ready": 46,
+    "approved": 46,
+    "production": 46,
+    "a_equals_b": true,
+    "b_equals_c": true,
+    "phase2_ready_missing_from_approved": 0,
+    "approved_missing_from_production": 0,
+    "production_not_approved": 0,
+    "unauthorized_belarus_production": 0
+  },
+  "merge_delta_reconstruction": {
+    "pre_belarus": 0,
+    "authorized_new": 46,
+    "post_belarus": 46,
+    "insertions": 46,
+    "updates": 0,
+    "removals": 0
+  },
+  "authorized_identities": {
+    "authorized_new_present": 46,
+    "authorized_new_missing": [],
+    "authorized_new_duplicated": 0,
+    "authorized_new_material_drift": []
+  },
+  "brand_inventory": {
+    "FitWorld": 1,
+    "Adrenalin": 29,
+    "Fox Club": 5,
+    "Grafit": 1,
+    "Olympic": 4,
+    "Delta": 1,
+    "Gym Express 24h": 1,
+    "Lifestyle": 3,
+    "World Class": 1
+  },
+  "expected_brands": {
+    "Adrenalin": 29,
+    "Lifestyle": 3,
+    "Fox Club": 5,
+    "Olympic": 4,
+    "World Class": 1,
+    "Gym Express 24h": 1,
+    "Grafit": 1,
+    "Delta": 1,
+    "FitWorld": 1
+  },
+  "class_a": {
+    "chain_count": 4,
+    "approved": 41,
+    "non_class_a": 5
+  },
+  "borovlyany": {
+    "id": "by_3633cd3ae9",
+    "present": true,
+    "city": "Borovlyany",
+    "city_correct": true
+  },
+  "fox_club_grodno": {
+    "address": "пр-т Я. Купалы 22",
+    "production_count": 1,
+    "exactly_once": true,
+    "ids": [
+      "by_badef82a8a"
+    ]
+  },
+  "olympic_loshitsa": {
+    "id": "by_aed96cf298",
+    "in_production": false,
+    "coming_soon_authoritative": true
+  },
+  "vitebsk": {
+    "production_count": 0,
+    "unauthorized_production": []
+  },
+  "adrenalin": {
+    "active": 29
+  },
+  "lifestyle": {
+    "active": 3
+  },
+  "fox_club": {
+    "active": 5
+  },
+  "olympic": {
+    "active": 4
+  },
+  "coming_soon": {
+    "authoritative_count": 1,
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "excluded": {
+    "authoritative_count": 11,
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "closed": {
+    "authoritative_count": 0,
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "hotel_wellness": {
+    "hotel_resort_leakage": []
+  },
+  "specialist_institutional": {
+    "specialist_leakage": [],
+    "institutional_leakage": []
+  },
+  "country_prefix": {
+    "invalid_belarus_countries": 0,
+    "invalid_by_ids": 0,
+    "non_by_belarus_ids": 0,
+    "global_duplicate_ids": false,
+    "belarus_duplicate_ids": false
+  },
+  "city_metadata": {
+    "errors": []
+  },
+  "postcodes": {
+    "invalid": 0,
+    "non_canonical": 0
+  },
+  "coordinates": {
+    "invalid": 0,
+    "missing": 0,
+    "fallback": 0,
+    "centroid": 0,
+    "suspect": 0
+  },
+  "duplicates": {
+    "hard_duplicate_conflicts": [],
+    "transliteration_duplicate_conflicts": [],
+    "multilingual_duplicate_conflicts": [],
+    "unresolved_rebrand_conflicts": 0,
+    "phase2_authoritative": {
+      "hard_duplicate_conflicts": 0,
+      "diacritic_duplicate_conflicts": 0,
+      "multilingual_duplicate_conflicts": 0,
+      "colocated_distinct_gyms": 0
+    }
+  },
+  "cross_border": {
+    "poland_outliers": [],
+    "lithuania_outliers": [],
+    "ukraine_outliers": [],
+    "russia_outliers": [],
+    "live_outliers": []
+  },
+  "data_quality": {
+    "invalid_by_ids": 0,
+    "non_by_belarus_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "non_canonical_postcodes": 0,
+    "invalid_coordinates": 0,
+    "missing_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "infrastructure": {
+    "gaps": [],
+    "runtime_hacks": 0,
+    "infrastructure_gaps": 0
+  },
+  "search_map": {
+    "search_results": [
+      {
+        "query": "Belarus",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Беларусь",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Minsk",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Минск",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Grodno",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Гродно",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Brest",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Gomel",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Mogilev",
+        "hits": 46,
+        "ok": true
+      },
+      {
+        "query": "Borovlyany",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Adrenalin",
+        "hits": 29,
+        "ok": true
+      },
+      {
+        "query": "Lifestyle",
+        "hits": 3,
+        "ok": true
+      },
+      {
+        "query": "Fox Club",
+        "hits": 5,
+        "ok": true
+      },
+      {
+        "query": "Olympic",
+        "hits": 4,
+        "ok": true
+      },
+      {
+        "query": "World Class",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Gym Express 24h",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Grafit",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Delta",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "FitWorld",
+        "hits": 1,
+        "ok": true
+      }
+    ],
+    "search_failures": [],
+    "map_active_markers": 46,
+    "coming_soon_map_markers": 0,
+    "excluded_map_markers": 0,
+    "closed_map_markers": 0,
+    "foreign_map_markers": 0,
+    "nearest_results": [
+      {
+        "label": "Minsk",
+        "lat": 53.9006,
+        "lng": 27.559,
+        "winner_id": "by_391eb2e674",
+        "winner_name": "Adrenalin Minsk Nezavisimosti",
+        "winner_brand": "Adrenalin",
+        "distance_m": 970,
+        "ok": true
+      },
+      {
+        "label": "Grodno",
+        "lat": 53.6693,
+        "lng": 23.8131,
+        "winner_id": "by_35c11d2126",
+        "winner_name": "Olympic Grodno Sovetskaya",
+        "winner_brand": "Olympic",
+        "distance_m": 1890,
+        "ok": true
+      },
+      {
+        "label": "Brest",
+        "lat": 52.0976,
+        "lng": 23.7341,
+        "winner_id": "by_2092ad55f8",
+        "winner_name": "Grafit Brest",
+        "winner_brand": "Grafit",
+        "distance_m": 2331,
+        "ok": true
+      },
+      {
+        "label": "Gomel",
+        "lat": 52.4412,
+        "lng": 30.9878,
+        "winner_id": "by_846dbc58e6",
+        "winner_name": "Adrenalin Gomel Gagarina",
+        "winner_brand": "Adrenalin",
+        "distance_m": 1980,
+        "ok": true
+      },
+      {
+        "label": "Mogilev",
+        "lat": 53.8984,
+        "lng": 30.3308,
+        "winner_id": "by_e374a381ab",
+        "winner_name": "Fox Club Mogilev Shmidta",
+        "winner_brand": "Fox Club",
+        "distance_m": 3150,
+        "ok": true
+      },
+      {
+        "label": "Borovlyany",
+        "lat": 54.001,
+        "lng": 27.667,
+        "winner_id": "by_3633cd3ae9",
+        "winner_name": "Adrenalin Borovlyany Beryozovaya Roscha",
+        "winner_brand": "Adrenalin",
+        "distance_m": 620,
+        "ok": true
+      },
+      {
+        "label": "Baranavichy",
+        "lat": 53.1327,
+        "lng": 26.0139,
+        "winner_id": "by_fe116c2222",
+        "winner_name": "Adrenalin Luninets Zapadnaya",
+        "winner_brand": "Adrenalin",
+        "distance_m": 110658,
+        "ok": true
+      },
+      {
+        "label": "Barysaw",
+        "lat": 54.2279,
+        "lng": 28.505,
+        "winner_id": "by_3633cd3ae9",
+        "winner_name": "Adrenalin Borovlyany Beryozovaya Roscha",
+        "winner_brand": "Adrenalin",
+        "distance_m": 59696,
+        "ok": true
+      },
+      {
+        "label": "Pinsk",
+        "lat": 52.1229,
+        "lng": 26.0951,
+        "winner_id": "by_798ff81350",
+        "winner_name": "Adrenalin Pinsk Gaydaenko",
+        "winner_brand": "Adrenalin",
+        "distance_m": 391,
+        "ok": true
+      },
+      {
+        "label": "Orsha",
+        "lat": 54.5153,
+        "lng": 30.4247,
+        "winner_id": "by_9e5c072155",
+        "winner_name": "Adrenalin Orsha Flerova",
+        "winner_brand": "Adrenalin",
+        "distance_m": 2445,
+        "ok": true
+      }
+    ],
+    "nearest_failures": []
+  },
+  "check_in": {
+    "radius_meters": 200,
+    "allow_199": true,
+    "allow_200": true,
+    "block_201": true,
+    "auto_checkout_meters": 200,
+    "belarus_specific_radius_override": 0
+  },
+  "prior_country_verification": {
+    "Ukraine": 105,
+    "Malta": 24,
+    "Lithuania": 61,
+    "Latvia": 33,
+    "Estonia": 69,
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "prior_country_regressions": [],
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "merge_idempotency": {
+    "first_run": {
+      "insertions": 46,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12034,
+      "total_after": 12080,
+      "belarus_before": 0,
+      "belarus_after": 46
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12080,
+      "total_after": 12080,
+      "belarus_before": 46,
+      "belarus_after": 46,
+      "by_prefix_before": 46,
+      "by_prefix_after": 46
+    },
+    "idempotent": true
+  },
+  "dry_run_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "dry_run_verification": {
+    "stdout": "DRY RUN: insertions=0 updates=0 removals=0 projected=12080\nBelarus merge dry-run: BELARUS MERGE COMPLETE — WAITING FOR QA delta=0/0/0",
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "idempotent": true,
+    "artifacts_restored": [
+      "BELARUS_PRODUCTION_MERGE_REPORT.json",
+      "BELARUS_MERGE_IDEMPOTENCY.json",
+      "BELARUS_MERGE_SHA_AFTER.txt"
+    ]
+  },
+  "historical_test_debt": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 0,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 2
+  },
+  "performance": {
+    "catalog_total": 12080,
+    "centers_json_bytes": 3761727,
+    "parse_ms": 22.37,
+    "representative_search_ms": 3.53,
+    "architecture": "KEEP CLIENT-SIDE",
+    "assessment": "HEALTHY",
+    "headroom_to_12500": 420,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false
+  },
+  "gates": {
+    "catalog_total": true,
+    "belarus_live": true,
+    "by_prefix_live": true,
+    "ukraine_live": true,
+    "malta_live": true,
+    "sha_frozen": true,
+    "bytes_frozen": true,
+    "new_ready_46": true,
+    "approved_46": true,
+    "four_way_equality": true,
+    "authorized_present": true,
+    "authorized_material_drift": true,
+    "brand_inventory_match": true,
+    "class_a_count_4": true,
+    "class_a_41": true,
+    "non_class_a_5": true,
+    "adrenalin_29": true,
+    "lifestyle_3": true,
+    "fox_club_5": true,
+    "olympic_4": true,
+    "borovlyany_present": true,
+    "borovlyany_city_borovlyany": true,
+    "fox_club_kupaly_exactly_once": true,
+    "loshitsa_not_in_production": true,
+    "coming_soon_1": true,
+    "excluded_11": true,
+    "closed_0": true,
+    "coming_soon_leakage": true,
+    "excluded_leakage": true,
+    "closed_leakage": true,
+    "vitebsk_unauthorized_production": true,
+    "independent_drift": true,
+    "hotel_leakage": true,
+    "specialist_leakage": true,
+    "institutional_leakage": true,
+    "city_metadata_errors": true,
+    "hard_duplicates": true,
+    "transliteration_conflicts": true,
+    "cross_border_clean": true,
+    "data_quality_clean": true,
+    "global_duplicate_ids": true,
+    "search_display": true,
+    "map_markers_46": true,
+    "nearest_plausible": true,
+    "check_in_200": true,
+    "prior_country_counts": true,
+    "merge_idempotent": true,
+    "historical_real_regression": true,
+    "headroom_420": true,
+    "crosses_12500": true,
+    "infrastructure": true,
+    "runtime_hacks": true
+  },
+  "qa_harness_fixes": [
+    {
+      "id": "QA-DR-001",
+      "fix": "Dry-run idempotency restores merge artifacts after --dry-run verification"
+    }
+  ],
+  "merge_verdict": "BELARUS MERGE COMPLETE — WAITING FOR QA",
+  "verdict": "BELARUS STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "qa_sha_after": "601e7848e80478002da147bf34287b701e2fd95ff2a21e493e0d70aed002b740",
+  "qa_bytes_after": 3761727
+}

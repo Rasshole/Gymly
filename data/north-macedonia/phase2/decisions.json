@@ -1,0 +1,250 @@
+{
+  "decisions": {
+    "mk_1a50b8774e": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Jordan Mijalkov 31, Diamond Mall",
+      "postal_code": "1000",
+      "lat": 41.9958,
+      "lng": 21.4254,
+      "coord_source": "official_diamond_mall_jordan_mijalkov_31",
+      "notes": "Phase2: Athletic Fitness Diamond Mall; public membership; SMI not Class A."
+    },
+    "mk_ed44181018": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Tale Hristov 1",
+      "postal_code": "1000",
+      "lat": 42.0305,
+      "lng": 21.441,
+      "coord_source": "directory_tale_hristov_1_star_gym_butel",
+      "notes": "Phase2: Star Gym Butel; day pass 200 MKD; Technogym 24/7."
+    },
+    "mk_698c3510c0": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Nikola Tesla 34",
+      "postal_code": "7000",
+      "lat": 41.0314,
+      "lng": 21.3347,
+      "coord_source": "official_flexgym_mk_nikola_tesla_34",
+      "website": "https://flexgym.mk/",
+      "notes": "Phase2: Flex Gym Bitola; website flexgym.mk monthly membership."
+    },
+    "mk_e287181ec4": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "WELLNESS_ADDITIVE",
+      "address": "Vladimir Komarov 11a",
+      "postal_code": "1000",
+      "lat": 41.9865,
+      "lng": 21.4452,
+      "coord_source": "directory_vladimir_komarov_11a_synergy",
+      "notes": "Phase2: Synergy Fitness Spa — 1000m2 Technogym floor; spa optional WELLNESS_ADDITIVE READY."
+    },
+    "mk_9898f0cbde": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Blvd Kuzman Josifovski Pitu 24A",
+      "postal_code": "1000",
+      "lat": 41.9992,
+      "lng": 21.4568,
+      "coord_source": "directory_kuzman_josifovski_pitu_24a_atleta",
+      "notes": "Phase2: Atleta Skopje conventional public gym."
+    },
+    "mk_4ac68f805e": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Naroden Front 19A",
+      "postal_code": "1000",
+      "lat": 41.9978,
+      "lng": 21.4215,
+      "coord_source": "directory_naroden_front_19a_mastersport",
+      "notes": "Phase2: Mastersport Skopje conventional public gym."
+    },
+    "mk_95994c6f81": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Simeon Kavrakirov bb",
+      "postal_code": "1000",
+      "lat": 41.9808,
+      "lng": 21.4485,
+      "coord_source": "directory_simeon_kavrakirov_terminator",
+      "notes": "Phase2: Terminator Gym Skopje conventional public gym."
+    },
+    "mk_c4cd75b049": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "9-ti Maj, Karpoš",
+      "postal_code": "1000",
+      "lat": 42.0042,
+      "lng": 21.3955,
+      "coord_source": "directory_9ti_maj_karpos_fitness_club_fit",
+      "notes": "Phase2: Fitness Club Fit Karpoš conventional public gym."
+    },
+    "mk_41ca038c25": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC",
+      "address": "15-ti Korpus 21",
+      "postal_code": "6000",
+      "lat": 41.1172,
+      "lng": 20.8015,
+      "coord_source": "directory_15ti_korpus_21_ib_fitness_ohrid",
+      "notes": "Phase2: IB Fitness Ohrid A_CONVENTIONAL_PUBLIC (not hotel)."
+    },
+    "mk_86cad1be86": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "15-ti Korpus 21",
+      "postal_code": "6000",
+      "lat": 41.1168,
+      "lng": 20.8008,
+      "coord_source": "directory_15ti_korpus_21_fitness_factori_ohrid",
+      "notes": "Phase2: Fitness Factori Ohrid; distinct unit from IB Fitness."
+    },
+    "mk_94300b469e": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Rajko Zinzifov 7",
+      "postal_code": "1300",
+      "lat": 42.1355,
+      "lng": 21.7142,
+      "coord_source": "directory_rajko_zinzifov_7_aldo_kumanovo",
+      "notes": "Phase2: Aldo Fitness Kumanovo conventional public gym."
+    },
+    "mk_5d2680a3e0": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Kosovski brigadi 1",
+      "postal_code": "1300",
+      "lat": 42.1328,
+      "lng": 21.7185,
+      "coord_source": "directory_kosovski_brigadi_1_fit_bodi",
+      "notes": "Phase2: Fit Bodi Kumanovo conventional public gym."
+    },
+    "mk_89442ce19e": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Gjorce Petrov 73",
+      "postal_code": "1300",
+      "lat": 42.1402,
+      "lng": 21.7098,
+      "coord_source": "directory_gjorce_petrov_73_chili_kumanovo",
+      "notes": "Phase2: Chili Fitness Kumanovo conventional public gym."
+    },
+    "mk_8a5f5057f3": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Jane Sandanski 22-v",
+      "postal_code": "7500",
+      "lat": 41.3465,
+      "lng": 21.5528,
+      "coord_source": "directory_jane_sandanski_22v_shampion_prilep",
+      "notes": "Phase2: Shampion Gym Prilep conventional public gym."
+    },
+    "mk_f0f98a4d56": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Braka Miladinovci 1/4",
+      "postal_code": "7500",
+      "lat": 41.3452,
+      "lng": 21.5545,
+      "coord_source": "directory_braka_miladinovci_1_4_fit_star_prilep",
+      "notes": "Phase2: Fit Star Prilep conventional public gym."
+    },
+    "mk_cdaccb1c5c": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Ilindenska (pluscode XXW6 area)",
+      "postal_code": "1220",
+      "lat": 42.0095,
+      "lng": 20.9718,
+      "coord_source": "plus_code_xxw6_ilindenska_arena_tetovo",
+      "albanian_audit": true,
+      "notes": "Phase2: Arena Fitness Tetovo; Albanian-language audit; conventional public."
+    },
+    "mk_f52f8d30cf": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Dimo Gavrovski Kara 50/2",
+      "postal_code": "1200",
+      "lat": 42.0088,
+      "lng": 20.9712,
+      "coord_source": "directory_dimo_gavrovski_kara_50_2_starfit",
+      "albanian_audit": true,
+      "notes": "Phase2: Starfit Tetovo; Albanian-language audit; conventional public."
+    },
+    "mk_1483e1adda": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Ilindenska 426",
+      "postal_code": "1200",
+      "lat": 42.0105,
+      "lng": 20.9685,
+      "coord_source": "directory_ilindenska_426_fajar_bodi",
+      "albanian_audit": true,
+      "notes": "Phase2: Fajar Bodi Tetovo; Albanian-language audit; conventional public."
+    },
+    "mk_398550063e": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Janko Mihajloski bb",
+      "postal_code": "6250",
+      "lat": 41.5128,
+      "lng": 20.9585,
+      "coord_source": "directory_janko_mihajloski_bb_flex_kicevo",
+      "albanian_audit": true,
+      "notes": "Phase2: Fitness Club Flex Kičevo; Albanian-language audit; conventional public."
+    },
+    "mk_2ee674d62a": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_INSTITUTIONAL_ONLY",
+      "notes": "Phase2: Fit One school site 1 — B_INSTITUTIONAL_ONLY (OU school hall)."
+    },
+    "mk_c91ef102cb": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_INSTITUTIONAL_ONLY",
+      "notes": "Phase2: Fit One school site 2 — B_INSTITUTIONAL_ONLY."
+    },
+    "mk_060baa180f": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Foxy Fitness Tetovo — weak/unreliable directory; cannot defend premises."
+    },
+    "mk_37822f2c0a": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Sporteks — only Karpoš area pin; no street unit defended."
+    }
+  },
+  "new_ready_ids": [
+    "mk_16fac97a4c",
+    "mk_ab20d10d09",
+    "mk_851c2b41eb",
+    "mk_d18f5092ac",
+    "mk_7c67638813",
+    "mk_2693ebaed3"
+  ]
+}

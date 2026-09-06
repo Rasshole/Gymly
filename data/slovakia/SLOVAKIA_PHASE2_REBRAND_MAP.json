@@ -1,0 +1,28 @@
+{
+  "country": "Slovakia",
+  "phase": 2,
+  "maps": [
+    {
+      "legacy_brand": "FitCamp",
+      "current_brand": "Form Factory",
+      "action": "import_as_form_factory_only",
+      "status": "confirmed"
+    },
+    {
+      "legacy": "365 Fit&Co Digital Park nav link",
+      "current": "not in official 8-branch kontakt",
+      "action": "CLOSED / do not READY"
+    },
+    {
+      "legacy": "FITINN VIVO / Petržalka secondary listings",
+      "current": "not on fitinn.sk (404)",
+      "action": "exclude; official SK estate = Prior + Nido + Nitra"
+    }
+  ],
+  "excluded": [
+    "EfectFit",
+    "MultiSport",
+    "Mozolani",
+    "Maximus"
+  ]
+}

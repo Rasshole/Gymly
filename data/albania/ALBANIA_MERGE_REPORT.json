@@ -1,0 +1,112 @@
+{
+  "country": "Albania",
+  "dry_run": false,
+  "baseline_match": true,
+  "pre_merge_sha256": "5ad0b727989bf00f9d72757a4a4d06eb29298a8951f4630e4a7eb5cc81c4dd4e",
+  "post_merge_sha256": "a1aba09e9ea375e8aa3c82c719556182ad07d8251c31ec142e307670e340aca0",
+  "before": {
+    "total": 11831,
+    "albania": 0,
+    "al_prefix": 0,
+    "bosnia_herzegovina": 31,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "phase2_ready": 9,
+  "approved": 9,
+  "validated": 9,
+  "inserted": 9,
+  "withheld": 0,
+  "after": {
+    "total": 11840,
+    "albania": 9,
+    "al_prefix": 9,
+    "bosnia_herzegovina": 31,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "eligibility": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 9
+  },
+  "repeat": {
+    "count": 2,
+    "wilson": "al_2002d5b349",
+    "teg": "al_4c11873a38",
+    "nobis_absent": true,
+    "class_a": 0
+  },
+  "flex": {
+    "count": 1,
+    "id": "al_36c04c3f26",
+    "class_a": 0
+  },
+  "city_breakdown": {
+    "Tirana": 5,
+    "Durrës": 2,
+    "Vlorë": 1,
+    "Shkodër": 1
+  },
+  "brands": {
+    "Repeat": 2,
+    "Flex Gym": 1,
+    "Fitness Zone": 1,
+    "Cheops Gym": 1,
+    "Illyrian Fitness": 1,
+    "Nandos Gym": 1,
+    "Nirvana Fitness Club": 1,
+    "Fitness Center XXL": 1
+  },
+  "reconciliation": {
+    "phase2_ready": 9,
+    "approved": 9,
+    "production_albania": 9,
+    "merged_staging": 9,
+    "invariant": "9 == 9 == 9 == 9",
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "exclusions": {
+    "municipal_leakage": 0,
+    "hotel_spa_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0,
+    "planet_fitness_albania": 0,
+    "sporti_pallati": 0,
+    "forbidden_excluded_ids_in_production": 0
+  },
+  "cross_border": {
+    "montenegro": 0,
+    "kosovo": 0,
+    "north_macedonia": 0,
+    "greece": 0
+  },
+  "duplicates": {
+    "unexplained_hard_duplicates": 0
+  },
+  "rebrand_unresolved": 0,
+  "performance": {
+    "catalog": 11840,
+    "json_bytes": 3681576,
+    "parse_ms": 28
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200,
+  "verdict": "ALBANIA MERGE COMPLETE — WAITING FOR QA"
+}

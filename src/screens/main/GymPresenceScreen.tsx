@@ -87,7 +87,7 @@ const GymPresenceScreen = () => {
     return (
       <View style={styles.container}>
         <ScreenHeader
-          title="Center"
+          title={t('gymPresence.center')}
           onBack={() => navigation.goBack()}
         />
         <View style={styles.missingWrap}>
@@ -188,7 +188,7 @@ const GymPresenceScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScreenHeader title="Aktive centre" onBack={() => navigation.goBack()} />
+      <ScreenHeader title={t('gymPresence.activeCenters')} onBack={() => navigation.goBack()} />
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
         {activeCenters.length > 0 ? (
           activeCenters.map(c => (

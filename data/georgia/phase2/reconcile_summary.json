@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-08-29T19:07:23.805397+00:00",
+  "phase1_recovered": 556,
+  "transitions": 556,
+  "new_ready": 25,
+  "coming_soon": 0,
+  "excluded": 531,
+  "closed": 0,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 25,
+    "EXCLUDED": 531
+  },
+  "class_a_brand_counts": {
+    "Oktopus Fitness": 8,
+    "Champion": 3
+  },
+  "snap_fitness_ready": 1,
+  "production_sha_unchanged": true
+}

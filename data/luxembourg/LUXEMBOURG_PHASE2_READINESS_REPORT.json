@@ -1,0 +1,66 @@
+{
+  "country": "Luxembourg",
+  "phase": 2,
+  "generated_at": "2026-08-25T19:29:24.100888+00:00",
+  "verdict": "READY FOR LUXEMBOURG MERGE",
+  "phase3_required": false,
+  "production_sha256": "54848a8c0176789248d1483c764e8c53d010bc9b6a08409a851fc00d4bd570bb",
+  "production_total": 11610,
+  "luxembourg_live": 0,
+  "phase1_ready": 20,
+  "phase1_ready_preserved": 20,
+  "demotions": [],
+  "foetz": {
+    "classification": "A_distinct_same_complex",
+    "production_decision": "CASE_A_TWO_LEGITIMATE_CURRENT_PHYSICAL_CLUBS",
+    "basic_fit_status": "OPEN",
+    "jims_status": "COMING_SOON"
+  },
+  "ready_count": 20,
+  "ready_by_brand": {
+    "Basic-Fit": 10,
+    "JIMS": 6,
+    "CK Fitness": 4
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 20,
+    "COMING_SOON": 1,
+    "EXCLUDED": 18
+  },
+  "unique_staged": 39,
+  "projected_catalog_if_merged": 11630,
+  "crossed_12500": false,
+  "global_stress_qa_required_now": false,
+  "data_quality": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_lte_100m": 1,
+    "invalid_postcodes": 0,
+    "missing_ready_addresses": 0,
+    "missing_ready_cities": 0,
+    "invalid_ready_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0
+  },
+  "chain_completeness": {
+    "Basic-Fit": "COMPLETE",
+    "JIMS_open_estate": "COMPLETE",
+    "CK Fitness": "COMPLETE"
+  },
+  "gates_ok": true,
+  "phase3_triggers": {
+    "foetz_unresolved": false,
+    "open_class_a_incomplete": false,
+    "border_contamination": false,
+    "missed_chain_uncertainty": false,
+    "hard_dq_fail": false,
+    "rebrand_collision": false,
+    "b_investigate_proximity": false
+  }
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "si_c516823c91",
+    "name": "Alfa Gym Ljubljana",
+    "brand": "Alfa Gym",
+    "chain_key": "alfa_gym",
+    "address": "Dunajska cesta 49",
+    "postal_code": "1000",
+    "city": "Ljubljana",
+    "country": "Slovenia",
+    "lat": null,
+    "lng": null,
+    "website": "https://alfagym.si/",
+    "source_url": "https://alfagym.si/",
+    "coord_source": null,
+    "notes": "single-site independent; Phase 2 review for conventional public access",
+    "import_category": "NEEDS_REVIEW",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": false,
+    "is_closed": false,
+    "discovery_class": "independent_probe",
+    "verification_status": "NEEDS_REVIEW",
+    "evidence": {
+      "source_url": "https://alfagym.si/"
+    }
+  }
+]

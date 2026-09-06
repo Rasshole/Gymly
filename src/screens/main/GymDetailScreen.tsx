@@ -59,7 +59,7 @@ const GymDetailScreen = () => {
   if (!gym) {
     return (
       <View style={styles.container}>
-        <Text>Gym ikke fundet</Text>
+        <Text>{t('phase2ui.gymNotFound')}</Text>
       </View>
     );
   }
@@ -80,7 +80,7 @@ const GymDetailScreen = () => {
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Center detaljer</Text>
+        <Text style={styles.headerTitle}>{t('phase2ui.centerDetails')}</Text>
         <View style={styles.headerRight} />
       </View>
 
@@ -106,7 +106,7 @@ const GymDetailScreen = () => {
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <Icon name="location" size={20} color="#007AFF" />
-            <Text style={styles.sectionTitle}>Adresse</Text>
+            <Text style={styles.sectionTitle}>{t('phase2ui.address')}</Text>
           </View>
           {gym.address && (
             <Text style={styles.addressText}>{gym.address}</Text>
@@ -278,7 +278,7 @@ const GymDetailScreen = () => {
         activeOpacity={0.8}>
         <View style={styles.sectionHeader}>
           <Icon name="people" size={20} color="#34C759" />
-          <Text style={styles.sectionTitle}>Aktive brugere</Text>
+          <Text style={styles.sectionTitle}>{t('phase2ui.activeUsersLabel')}</Text>
           <Icon name="chevron-forward" size={18} color={colors.textMuted} style={styles.sectionChevron} />
         </View>
         <View style={styles.statRow}>
@@ -326,7 +326,7 @@ const GymDetailScreen = () => {
                       {item.isFriend && (
                         <View style={styles.friendBadge}>
                           <Icon name="person" size={12} color="#fff" />
-                          <Text style={styles.friendBadgeText}>Ven</Text>
+                          <Text style={styles.friendBadgeText}>{t('common.friend')}</Text>
                         </View>
                       )}
                     </View>

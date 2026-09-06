@@ -1,0 +1,174 @@
+{
+  "https://www.yava.gr/content/exclusive-amarousiou-2/": {
+    "title": "YAVA EXCLUSIVE ΑΜΑΡΟΥΣΙΟΥ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/ag-anarguroi/": {
+    "title": "YAVA ΑΓ. ΑΝΑΡΓΥΡΟΙ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/agia-paraskevi-1/": {
+    "title": "YAVA ΑΓΙΑ ΠΑΡΑΣΚΕΥΗ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/ag-dimitrios/": {
+    "title": "YAVA ΑΓΙΟΣ ΔΗΜΗΤΡΙΟΣ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/aigaleo/": {
+    "title": "YAVA ΑΙΓΑΛΕΩ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/glyfada/": {
+    "title": "YAVA ΓΛΥΦΑΔΑ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/zografou/": {
+    "title": "YAVA ΖΩΓΡΑΦΟΥ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/irakleio-kritis/": {
+    "title": "YAVA ΗΡΑΚΛΕΙΟ ΚΡΗΤΗΣ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/thessaloniki-eyosmos/": {
+    "title": "YAVA ΘΕΣΣΑΛΟΝΙΚΗ (Εύοσμος)",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/thessaloniki-kato-toumpa/": {
+    "title": "YAVA ΘΕΣΣΑΛΟΝΙΚΗ (Κάτω Τούμπα)",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/thrakomakedones/": {
+    "title": "YAVA ΘΡΑΚΟΜΑΚΕΔΟΝΕΣ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/ippokratous/": {
+    "title": "YAVA ΙΠΠΟΚΡΑΤΟΥΣ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/kallithea/": {
+    "title": "YAVA ΚΑΛΛΙΘΕΑ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/korydallos_/": {
+    "title": "YAVA ΚΟΡΥΔΑΛΛΟΣ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/koropi/": {
+    "title": "YAVA ΚΟΡΩΠΙ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/lykovrysi/": {
+    "title": "YAVA ΛΥΚΟΒΡΥΣΗ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/neo-psychiko/": {
+    "title": "YAVA ΝΕΟ ΨΥΧΙΚΟ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/patra/": {
+    "title": "YAVA ΠΑΤΡΑ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/peiraias/": {
+    "title": "YAVA ΠΕΙΡΑΙΑΣ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/petroupoli/": {
+    "title": "YAVA ΠΕΤΡΟΥΠΟΛΗ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/rodos/": {
+    "title": "YAVA ΡΟΔΟΣ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/chania/": {
+    "title": "YAVA ΧΑΝΙΑ",
+    "source": "menu"
+  },
+  "https://www.yava.gr/content/acharnai/": {
+    "title": "YAVA acharnai",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/agia-paraskevi-2/": {
+    "title": "YAVA agia-paraskevi-2",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/ano-liosia/": {
+    "title": "YAVA ano-liosia",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/goudi/": {
+    "title": "YAVA goudi",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/ioannina/": {
+    "title": "YAVA ioannina",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/kifisia/": {
+    "title": "YAVA kifisia",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/markopoulo/": {
+    "title": "YAVA markopoulo",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/marousi/": {
+    "title": "YAVA marousi",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/mpournazi/": {
+    "title": "YAVA mpournazi",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/nea-chalkidona/": {
+    "title": "YAVA nea-chalkidona",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/nea-filadelfeia/": {
+    "title": "YAVA nea-filadelfeia",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/palaio-faliro/": {
+    "title": "YAVA palaio-faliro",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/peristeri/": {
+    "title": "YAVA peristeri",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/salamina/": {
+    "title": "YAVA salamina",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/salamina-low-price/": {
+    "title": "YAVA salamina-low-price",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/thessaloniki-kalamaria/": {
+    "title": "YAVA thessaloniki-kalamaria",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/thessaloniki-ksirokrini/": {
+    "title": "YAVA thessaloniki-ksirokrini",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/volos/": {
+    "title": "YAVA volos",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/volos-nea-ionia/": {
+    "title": "YAVA volos-nea-ionia",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/zakynthos/": {
+    "title": "YAVA zakynthos",
+    "source": "sitemap_slug"
+  },
+  "https://www.yava.gr/content/kolonaki/": {
+    "title": "YAVA kolonaki",
+    "source": "content_heuristic"
+  }
+}

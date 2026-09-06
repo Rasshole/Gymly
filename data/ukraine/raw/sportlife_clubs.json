@@ -1,0 +1,7082 @@
+[
+  {
+    "id": 1,
+    "name": "Арсенальна",
+    "slug": "arsenalnaia",
+    "lat": 50.435342,
+    "long": 30.544092,
+    "clubSchedule": {
+      "id": 1,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 1,
+          "days": "Пн-Пт",
+          "time": "7:30-22:00"
+        },
+        {
+          "id": 2,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 21866,
+      "name": "083A9574.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A9574.jpg",
+          "hash": "thumbnail_083_A9574_45c56e2cf4",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 10.24,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A9574_45c56e2cf4.jpg"
+        },
+        "medium": {
+          "name": "medium_083A9574.jpg",
+          "hash": "medium_083_A9574_45c56e2cf4",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 74.16,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A9574_45c56e2cf4.jpg"
+        },
+        "small": {
+          "name": "small_083A9574.jpg",
+          "hash": "small_083_A9574_45c56e2cf4",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 36.97,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A9574_45c56e2cf4.jpg"
+        }
+      },
+      "hash": "083_A9574_45c56e2cf4",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 123.83,
+      "url": "https://r2.sportlife.ua/083_A9574_45c56e2cf4.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-11-15T15:00:57.449Z",
+      "updated_at": "2024-11-15T15:00:57.457Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Князів Острозьких, 32/2, БЦ «Сенатор» ",
+    "club_format": "Клуб формату Premium",
+    "hasGenerator": null,
+    "phone": "+380443644528",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6ca-e894-11eb-9c4a-005056b7b0c0",
+    "order": 2,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Борщагівка",
+    "slug": "borschagovka",
+    "lat": 50.41636,
+    "long": 30.395563,
+    "clubSchedule": {
+      "id": 6,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 16,
+          "days": "Пн-Пт",
+          "time": "07:00-22:00"
+        },
+        {
+          "id": 17,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 413,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 499,
+          "days": "Сб-Нд",
+          "time": "10:00-20:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 20403,
+      "name": "083A0586-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A0586-Edit копия.jpg",
+          "hash": "thumbnail_083_A0586_Edit_kopiya_4663cc5f47",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 11.84,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A0586_Edit_kopiya_4663cc5f47.jpg"
+        },
+        "medium": {
+          "name": "medium_083A0586-Edit копия.jpg",
+          "hash": "medium_083_A0586_Edit_kopiya_4663cc5f47",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 86.74,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A0586_Edit_kopiya_4663cc5f47.jpg"
+        },
+        "small": {
+          "name": "small_083A0586-Edit копия.jpg",
+          "hash": "small_083_A0586_Edit_kopiya_4663cc5f47",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 42.71,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A0586_Edit_kopiya_4663cc5f47.jpg"
+        }
+      },
+      "hash": "083_A0586_Edit_kopiya_4663cc5f47",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 148.61,
+      "url": "https://r2.sportlife.ua/083_A0586_Edit_kopiya_4663cc5f47.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-05-27T14:02:20.898Z",
+      "updated_at": "2024-05-27T14:02:20.953Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Симиренка, 1",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445854705",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6bc-e894-11eb-9c4a-005056b7b0c0",
+    "order": 4,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн та басейн для немовлят"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Ретровіль",
+    "slug": "retroville",
+    "lat": 50.503766,
+    "long": 30.416663,
+    "clubSchedule": {
+      "id": 8,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 22,
+          "days": "Пн-Пт",
+          "time": "7:30-22:00"
+        },
+        {
+          "id": 23,
+          "days": "Сб-Нд",
+          "time": "9:00-21:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 20101,
+      "name": "083A5641-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 6720,
+      "height": 4480,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A5641-Edit копия.jpg",
+          "hash": "thumbnail_083_A5641_Edit_kopiya_7ce71cfa8f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 11.99,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A5641_Edit_kopiya_7ce71cfa8f.jpg"
+        },
+        "large": {
+          "name": "large_083A5641-Edit копия.jpg",
+          "hash": "large_083_A5641_Edit_kopiya_7ce71cfa8f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 667,
+          "size": 153.67,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_083_A5641_Edit_kopiya_7ce71cfa8f.jpg"
+        },
+        "medium": {
+          "name": "medium_083A5641-Edit копия.jpg",
+          "hash": "medium_083_A5641_Edit_kopiya_7ce71cfa8f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 93.23,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A5641_Edit_kopiya_7ce71cfa8f.jpg"
+        },
+        "small": {
+          "name": "small_083A5641-Edit копия.jpg",
+          "hash": "small_083_A5641_Edit_kopiya_7ce71cfa8f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 45.15,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A5641_Edit_kopiya_7ce71cfa8f.jpg"
+        }
+      },
+      "hash": "083_A5641_Edit_kopiya_7ce71cfa8f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 4543.1,
+      "url": "https://r2.sportlife.ua/083_A5641_Edit_kopiya_7ce71cfa8f.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-03-29T11:45:46.059Z",
+      "updated_at": "2024-05-23T11:30:23.070Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, просп. Європейського союзу, 47, ТРЦ «Retroville»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380443630036",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6e9-e894-11eb-9c4a-005056b7b0c0",
+    "order": 93,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн та басейн для немовлят"
+        },
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Масажні послуги"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Вишневе Вітянська",
+    "slug": "vyshneve-vytianskaia",
+    "lat": 50.390584,
+    "long": 30.381554,
+    "clubSchedule": {
+      "id": 137,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 344,
+          "days": "Пн-Пт",
+          "time": "7:30-21:30"
+        },
+        {
+          "id": 345,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 17475,
+      "name": "Вишневе Вітянська.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_Vishneve_Vityanska_c373b4b06c.jpg",
+          "hash": "small_Vishneve_Vityanska_c373b4b06c",
+          "mime": "image/jpeg",
+          "name": "small_Вишневе Вітянська.jpg",
+          "path": null,
+          "size": 52.81,
+          "width": 500,
+          "height": 334
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_Vishneve_Vityanska_c373b4b06c.jpg",
+          "hash": "medium_Vishneve_Vityanska_c373b4b06c",
+          "mime": "image/jpeg",
+          "name": "medium_Вишневе Вітянська.jpg",
+          "path": null,
+          "size": 106.1,
+          "width": 750,
+          "height": 500
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_Vishneve_Vityanska_c373b4b06c.jpg",
+          "hash": "thumbnail_Vishneve_Vityanska_c373b4b06c",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Вишневе Вітянська.jpg",
+          "path": null,
+          "size": 13.36,
+          "width": 234,
+          "height": 156
+        }
+      },
+      "hash": "Vishneve_Vityanska_c373b4b06c",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 172.34,
+      "url": "https://r2.sportlife.ua/Vishneve_Vityanska_c373b4b06c.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2021-11-21T10:30:36.398Z",
+      "updated_at": "2022-08-22T10:03:22.393Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Києво-Святошинський р-н, Вишневе, вул. Вітянська, 2а,  ЖК «Авіа Квартал»",
+    "club_format": "Клуб формату Express",
+    "hasGenerator": null,
+    "phone": "+380443644660",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6e3-e894-11eb-9c4a-005056b7b0c0",
+    "order": 7,
+    "express": false,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Street Fit Zone"
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Вишневе Чері Мол",
+    "slug": "vishneve-kiyivska",
+    "lat": 50.390339,
+    "long": 30.359958,
+    "clubSchedule": {
+      "id": 10,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 28,
+          "days": "Пн-Пт",
+          "time": "07:30-22:00"
+        },
+        {
+          "id": 29,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 480,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 491,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 592,
+      "name": "img_0074_3.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_img_0074_3_672800216d.jpg",
+          "hash": "small_img_0074_3_672800216d",
+          "mime": "image/jpeg",
+          "name": "small_img_0074_3.jpg",
+          "path": null,
+          "size": 39.29,
+          "width": 500,
+          "height": 334,
+          "provider_metadata": {
+            "public_id": "small_img_0074_3_672800216d",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_img_0074_3_672800216d.jpg",
+          "hash": "medium_img_0074_3_672800216d",
+          "mime": "image/jpeg",
+          "name": "medium_img_0074_3.jpg",
+          "path": null,
+          "size": 83.94,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_img_0074_3_672800216d",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_img_0074_3_672800216d.jpg",
+          "hash": "thumbnail_img_0074_3_672800216d",
+          "mime": "image/jpeg",
+          "name": "thumbnail_img_0074_3.jpg",
+          "path": null,
+          "size": 10.17,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_img_0074_3_672800216d",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "img_0074_3_672800216d",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 151.3,
+      "url": "https://r2.sportlife.ua/img_0074_3_672800216d.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "img_0074_3_672800216d",
+        "resource_type": "image"
+      },
+      "created_at": "2021-06-24T08:20:22.963Z",
+      "updated_at": "2023-05-24T12:54:13.902Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Вишневе, вул. Київська, 2л,  ТРЦ «Cherry Mall»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380443649960",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6e1-e894-11eb-9c4a-005056b7b0c0",
+    "order": 10,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending bar "
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Гатне",
+    "slug": "gatnoe",
+    "lat": 50.354044,
+    "long": 30.4321,
+    "clubSchedule": {
+      "id": 12,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 36,
+          "days": "Пн-Пт",
+          "time": "9:00-21:00"
+        },
+        {
+          "id": 37,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 27119,
+      "name": "Landing_Gatne_3552x1210-2.png",
+      "alternativetext": null,
+      "caption": "",
+      "width": 3552,
+      "height": 1210,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_Landing_Gatne_3552x1210-2.png",
+          "hash": "thumbnail_Landing_Gatne_3552x1210_2_671d08941d",
+          "ext": ".png",
+          "mime": "image/png",
+          "width": 245,
+          "height": 83,
+          "size": 58.05,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_Landing_Gatne_3552x1210_2_671d08941d.png"
+        },
+        "large": {
+          "name": "large_Landing_Gatne_3552x1210-2.png",
+          "hash": "large_Landing_Gatne_3552x1210_2_671d08941d",
+          "ext": ".png",
+          "mime": "image/png",
+          "width": 1000,
+          "height": 341,
+          "size": 919.11,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_Landing_Gatne_3552x1210_2_671d08941d.png"
+        },
+        "medium": {
+          "name": "medium_Landing_Gatne_3552x1210-2.png",
+          "hash": "medium_Landing_Gatne_3552x1210_2_671d08941d",
+          "ext": ".png",
+          "mime": "image/png",
+          "width": 750,
+          "height": 255,
+          "size": 519.27,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_Landing_Gatne_3552x1210_2_671d08941d.png"
+        },
+        "small": {
+          "name": "small_Landing_Gatne_3552x1210-2.png",
+          "hash": "small_Landing_Gatne_3552x1210_2_671d08941d",
+          "ext": ".png",
+          "mime": "image/png",
+          "width": 500,
+          "height": 170,
+          "size": 234.45,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_Landing_Gatne_3552x1210_2_671d08941d.png"
+        }
+      },
+      "hash": "Landing_Gatne_3552x1210_2_671d08941d",
+      "ext": ".png",
+      "mime": "image/png",
+      "size": 7317.07,
+      "url": "https://r2.sportlife.ua/Landing_Gatne_3552x1210_2_671d08941d.png",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2026-08-04T11:17:09.705Z",
+      "updated_at": "2026-08-04T11:17:09.719Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "с. Гатне, вул. Інститутська, 73, Готель Terra Nova",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380443642141",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6d6-e894-11eb-9c4a-005056b7b0c0",
+    "order": 15,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "name": "Комфорт Таун",
+    "slug": "darnicka",
+    "lat": 50.436036,
+    "long": 30.623349,
+    "clubSchedule": {
+      "id": 14,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 42,
+          "days": "Пн-Пт",
+          "time": "7:30-22:00"
+        },
+        {
+          "id": 43,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 438,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 461,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 19899,
+      "name": "083A2587-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A2587-Edit копия.jpg",
+          "hash": "thumbnail_083_A2587_Edit_kopiya_276042c999",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 9.56,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A2587_Edit_kopiya_276042c999.jpg"
+        },
+        "medium": {
+          "name": "medium_083A2587-Edit копия.jpg",
+          "hash": "medium_083_A2587_Edit_kopiya_276042c999",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 64.83,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A2587_Edit_kopiya_276042c999.jpg"
+        },
+        "small": {
+          "name": "small_083A2587-Edit копия.jpg",
+          "hash": "small_083_A2587_Edit_kopiya_276042c999",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 32.91,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A2587_Edit_kopiya_276042c999.jpg"
+        }
+      },
+      "hash": "083_A2587_Edit_kopiya_276042c999",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 105.25,
+      "url": "https://r2.sportlife.ua/083_A2587_Edit_kopiya_276042c999.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-02-13T15:01:21.618Z",
+      "updated_at": "2024-02-13T15:01:21.640Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Регенераторна, 4б,  ЖК «Комфорт Таун»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445939555",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6ad-e894-11eb-9c4a-005056b7b0c0",
+    "order": 20,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending bar "
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "name": "Дніпровська Набережна",
+    "slug": "dniprovska-naberezhna",
+    "lat": 50.40768,
+    "long": 30.61336,
+    "clubSchedule": {
+      "id": 183,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 580,
+          "days": "Пн-Пт",
+          "time": "08:00-22:00"
+        },
+        {
+          "id": 581,
+          "days": "Сб-Нд",
+          "time": "09:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 656,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 657,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21112,
+      "name": "083A4342-Edit.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 6720,
+      "height": 4480,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A4342-Edit.jpg",
+          "hash": "thumbnail_083_A4342_Edit_01ddbce9fd",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 10.2,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A4342_Edit_01ddbce9fd.jpg"
+        },
+        "large": {
+          "name": "large_083A4342-Edit.jpg",
+          "hash": "large_083_A4342_Edit_01ddbce9fd",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 667,
+          "size": 110.1,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_083_A4342_Edit_01ddbce9fd.jpg"
+        },
+        "medium": {
+          "name": "medium_083A4342-Edit.jpg",
+          "hash": "medium_083_A4342_Edit_01ddbce9fd",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 67.44,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A4342_Edit_01ddbce9fd.jpg"
+        },
+        "small": {
+          "name": "small_083A4342-Edit.jpg",
+          "hash": "small_083_A4342_Edit_01ddbce9fd",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 34.17,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A4342_Edit_01ddbce9fd.jpg"
+        }
+      },
+      "hash": "083_A4342_Edit_01ddbce9fd",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 3888.18,
+      "url": "https://r2.sportlife.ua/083_A4342_Edit_01ddbce9fd.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-08-28T10:29:17.446Z",
+      "updated_at": "2024-08-28T10:29:17.458Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Дніпровська набережна, 19а",
+    "club_format": "Клуб формату Premium",
+    "hasGenerator": true,
+    "phone": "+380445856655",
+    "closed": false,
+    "presale": true,
+    "allowBuy": false,
+    "gymId": "443bf6b8-e894-11eb-9c4a-005056b7b0c0",
+    "order": 25,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитячий та басейн для немовлят"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "name": "Дрім",
+    "slug": "dream",
+    "lat": 50.51469,
+    "long": 30.49874,
+    "clubSchedule": {
+      "id": 19,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 57,
+          "days": "Пн-Пт",
+          "time": "07:00-22:00"
+        },
+        {
+          "id": 58,
+          "days": "Сб-Нд",
+          "time": "09:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 59,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 475,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 17174,
+      "name": "IMG_8509.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_IMG_8509_8f4fd566a1.jpg",
+          "hash": "small_IMG_8509_8f4fd566a1",
+          "mime": "image/jpeg",
+          "name": "small_IMG_8509.jpg",
+          "path": null,
+          "size": 52.51,
+          "width": 500,
+          "height": 334
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_IMG_8509_8f4fd566a1.jpg",
+          "hash": "medium_IMG_8509_8f4fd566a1",
+          "mime": "image/jpeg",
+          "name": "medium_IMG_8509.jpg",
+          "path": null,
+          "size": 107.96,
+          "width": 750,
+          "height": 500
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_IMG_8509_8f4fd566a1.jpg",
+          "hash": "thumbnail_IMG_8509_8f4fd566a1",
+          "mime": "image/jpeg",
+          "name": "thumbnail_IMG_8509.jpg",
+          "path": null,
+          "size": 13.61,
+          "width": 234,
+          "height": 156
+        }
+      },
+      "hash": "IMG_8509_8f4fd566a1",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 178.29,
+      "url": "https://r2.sportlife.ua/IMG_8509_8f4fd566a1.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2021-11-11T12:45:49.040Z",
+      "updated_at": "2021-11-11T12:45:49.067Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, Оболонський просп., 21б, ТРЦ «DREAM berry», 2 лінія",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380443641515",
+    "closed": false,
+    "presale": true,
+    "allowBuy": true,
+    "gymId": "443bf6e7-e894-11eb-9c4a-005056b7b0c0",
+    "order": 30,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Дитячі басейни"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending bar "
+        }
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "name": "Мармелад",
+    "slug": "industrialniy",
+    "lat": 50.446506,
+    "long": 30.443328,
+    "clubSchedule": {
+      "id": 22,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 66,
+          "days": "Пн-Пт",
+          "time": "8:00-22:00"
+        },
+        {
+          "id": 67,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 21248,
+      "name": "Заставка.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_Заставка.jpg",
+          "hash": "thumbnail_Zastavka_9dde06221e",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.54,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_Zastavka_9dde06221e.jpg"
+        },
+        "medium": {
+          "name": "medium_Заставка.jpg",
+          "hash": "medium_Zastavka_9dde06221e",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 103.34,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_Zastavka_9dde06221e.jpg"
+        },
+        "small": {
+          "name": "small_Заставка.jpg",
+          "hash": "small_Zastavka_9dde06221e",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 48.61,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_Zastavka_9dde06221e.jpg"
+        }
+      },
+      "hash": "Zastavka_9dde06221e",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 178.82,
+      "url": "https://r2.sportlife.ua/Zastavka_9dde06221e.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-09-06T10:24:41.137Z",
+      "updated_at": "2024-09-06T10:24:41.148Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Борщагівська, 154,  ТРЦ «Мармелад»",
+    "club_format": "Клуб формату Express",
+    "hasGenerator": false,
+    "phone": "+380443645757",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6b9-e894-11eb-9c4a-005056b7b0c0",
+    "order": 35,
+    "express": false,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Зона боксу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студії масажу"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "name": "Караваєві Дачі",
+    "slug": "karavayevi-dachi",
+    "lat": 50.439137,
+    "long": 30.441425,
+    "clubSchedule": {
+      "id": 174,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 552,
+          "days": "Пн-Пт",
+          "time": "8:00-22:00"
+        },
+        {
+          "id": 553,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 554,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 555,
+          "days": "Сб-Нд",
+          "time": "10:00-20:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21029,
+      "name": "083A3995.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 6720,
+      "height": 4480,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A3995.jpg",
+          "hash": "thumbnail_083_A3995_a3455e0e2f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.33,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A3995_a3455e0e2f.jpg"
+        },
+        "large": {
+          "name": "large_083A3995.jpg",
+          "hash": "large_083_A3995_a3455e0e2f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 667,
+          "size": 136.52,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_083_A3995_a3455e0e2f.jpg"
+        },
+        "medium": {
+          "name": "medium_083A3995.jpg",
+          "hash": "medium_083_A3995_a3455e0e2f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 84.52,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A3995_a3455e0e2f.jpg"
+        },
+        "small": {
+          "name": "small_083A3995.jpg",
+          "hash": "small_083_A3995_a3455e0e2f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 42.63,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A3995_a3455e0e2f.jpg"
+        }
+      },
+      "hash": "083_A3995_a3455e0e2f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 3518.03,
+      "url": "https://r2.sportlife.ua/083_A3995_a3455e0e2f.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-08-20T10:53:04.382Z",
+      "updated_at": "2025-03-10T13:36:10.329Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Миколи Голего, 5",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445939575",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6af-e894-11eb-9c4a-005056b7b0c0",
+    "order": 40,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студія сaйклу"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending bar "
+        }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": "Куренівка",
+    "slug": "kurenevka",
+    "lat": 50.48847,
+    "long": 30.471845,
+    "clubSchedule": {
+      "id": 61,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 117,
+          "days": "Пн-Пт",
+          "time": "8:00-21:00"
+        },
+        {
+          "id": 118,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 17191,
+      "name": "img_0047.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 900,
+      "height": 600,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_img_0047_a50dcafaa4.jpg",
+          "hash": "small_img_0047_a50dcafaa4",
+          "mime": "image/jpeg",
+          "name": "small_img_0047.jpg",
+          "path": null,
+          "size": 28.38,
+          "width": 500,
+          "height": 333
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_img_0047_a50dcafaa4.jpg",
+          "hash": "medium_img_0047_a50dcafaa4",
+          "mime": "image/jpeg",
+          "name": "medium_img_0047.jpg",
+          "path": null,
+          "size": 61.81,
+          "width": 750,
+          "height": 500
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_img_0047_a50dcafaa4.jpg",
+          "hash": "thumbnail_img_0047_a50dcafaa4",
+          "mime": "image/jpeg",
+          "name": "thumbnail_img_0047.jpg",
+          "path": null,
+          "size": 7.62,
+          "width": 234,
+          "height": 156
+        }
+      },
+      "hash": "img_0047_a50dcafaa4",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 92.12,
+      "url": "https://r2.sportlife.ua/img_0047_a50dcafaa4.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2021-11-11T13:12:16.124Z",
+      "updated_at": "2021-11-11T13:12:16.140Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Кирилівська, 134а",
+    "club_format": "Клуб формату Express",
+    "hasGenerator": null,
+    "phone": "+380445937997",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6bd-e894-11eb-9c4a-005056b7b0c0",
+    "order": 45,
+    "express": false,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Настільний теніс"
+        },
+        {
+          "title": "Зона боксу"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": "Лук’янівська",
+    "slug": "luqianovka",
+    "lat": 50.471393,
+    "long": 30.477841,
+    "clubSchedule": {
+      "id": 63,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 123,
+          "days": "Пн-Пт",
+          "time": "8:00-21:00"
+        },
+        {
+          "id": 124,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 22108,
+      "name": "083A0822.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A0822.jpg",
+          "hash": "thumbnail_083_A0822_c14745c92a",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 10.74,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A0822_c14745c92a.jpg"
+        },
+        "medium": {
+          "name": "medium_083A0822.jpg",
+          "hash": "medium_083_A0822_c14745c92a",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 72.66,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A0822_c14745c92a.jpg"
+        },
+        "small": {
+          "name": "small_083A0822.jpg",
+          "hash": "small_083_A0822_c14745c92a",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 37.04,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A0822_c14745c92a.jpg"
+        }
+      },
+      "hash": "083_A0822_c14745c92a",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 116.89,
+      "url": "https://r2.sportlife.ua/083_A0822_c14745c92a.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2025-01-06T11:52:32.315Z",
+      "updated_at": "2025-01-06T11:52:32.330Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Овруцька, 18. ТЦ «Променада Центр»",
+    "club_format": "Клуб формату Express",
+    "hasGenerator": null,
+    "phone": "+380443630334",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6dd-e894-11eb-9c4a-005056b7b0c0",
+    "order": 50,
+    "express": false,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "name": "Блокбастер",
+    "slug": "blockbuster",
+    "lat": 50.486019,
+    "long": 30.519151,
+    "clubSchedule": {
+      "id": 212,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 680,
+          "days": "Пн-Пт",
+          "time": "8:00-22:00"
+        },
+        {
+          "id": 681,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 682,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 683,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21367,
+      "name": "083A5475-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A5475-Edit копия.jpg",
+          "hash": "thumbnail_083_A5475_Edit_kopiya_54fc789088",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 9.94,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A5475_Edit_kopiya_54fc789088.jpg"
+        },
+        "medium": {
+          "name": "medium_083A5475-Edit копия.jpg",
+          "hash": "medium_083_A5475_Edit_kopiya_54fc789088",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 74.31,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A5475_Edit_kopiya_54fc789088.jpg"
+        },
+        "small": {
+          "name": "small_083A5475-Edit копия.jpg",
+          "hash": "small_083_A5475_Edit_kopiya_54fc789088",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 36.23,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A5475_Edit_kopiya_54fc789088.jpg"
+        }
+      },
+      "hash": "083_A5475_Edit_kopiya_54fc789088",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 128.37,
+      "url": "https://r2.sportlife.ua/083_A5475_Edit_kopiya_54fc789088.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-09-25T10:05:10.114Z",
+      "updated_at": "2024-09-25T10:05:10.126Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, просп. Степана Бандери, 34в, РЦ «Блокбастер»",
+    "club_format": "Клуб формату Premium",
+    "hasGenerator": true,
+    "phone": "+380443646838",
+    "closed": false,
+    "presale": true,
+    "allowBuy": false,
+    "gymId": "443bf6d5-e894-11eb-9c4a-005056b7b0c0",
+    "order": 3,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending bar"
+        },
+        {
+          "title": "Роздягальні"
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "name": "Осокорки",
+    "slug": "osokorki",
+    "lat": 50.393204,
+    "long": 30.613709,
+    "clubSchedule": {
+      "id": 65,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 127,
+          "days": "Пн-Пт",
+          "time": "08:00-22:00"
+        },
+        {
+          "id": 128,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 129,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 501,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 1058,
+      "name": "112077.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 900,
+      "height": 600,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_112077_23883d4f2b.jpg",
+          "hash": "small_112077_23883d4f2b",
+          "mime": "image/jpeg",
+          "name": "small_112077.jpg",
+          "path": null,
+          "size": 50.71,
+          "width": 500,
+          "height": 333,
+          "provider_metadata": {
+            "public_id": "small_112077_23883d4f2b",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_112077_23883d4f2b.jpg",
+          "hash": "medium_112077_23883d4f2b",
+          "mime": "image/jpeg",
+          "name": "medium_112077.jpg",
+          "path": null,
+          "size": 102.21,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_112077_23883d4f2b",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_112077_23883d4f2b.jpg",
+          "hash": "thumbnail_112077_23883d4f2b",
+          "mime": "image/jpeg",
+          "name": "thumbnail_112077.jpg",
+          "path": null,
+          "size": 12.8,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_112077_23883d4f2b",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "112077_23883d4f2b",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 131.03,
+      "url": "https://r2.sportlife.ua/112077_23883d4f2b.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "112077_23883d4f2b",
+        "resource_type": "image"
+      },
+      "created_at": "2021-07-01T07:55:34.402Z",
+      "updated_at": "2021-09-16T14:15:35.634Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Дніпровська набережна, 26л, ЖК «Південна Брама»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445852848",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6b1-e894-11eb-9c4a-005056b7b0c0",
+    "order": 65,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "name": "Поділ",
+    "slug": "podol",
+    "lat": 50.472822,
+    "long": 30.511285,
+    "clubSchedule": {
+      "id": 70,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 142,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 143,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 144,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 457,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 17743,
+      "name": "PAB-97.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_PAB-97.jpg",
+          "hash": "thumbnail_PAB_97_989480ffa9",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.57,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_PAB_97_989480ffa9.jpg"
+        },
+        "medium": {
+          "name": "medium_PAB-97.jpg",
+          "hash": "medium_PAB_97_989480ffa9",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 117.39,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_PAB_97_989480ffa9.jpg"
+        },
+        "small": {
+          "name": "small_PAB-97.jpg",
+          "hash": "small_PAB_97_989480ffa9",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 53.3,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_PAB_97_989480ffa9.jpg"
+        }
+      },
+      "hash": "PAB_97_989480ffa9",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 212.15,
+      "url": "https://r2.sportlife.ua/PAB_97_989480ffa9.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2021-12-14T11:17:14.619Z",
+      "updated_at": "2021-12-14T11:17:14.629Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Волоська, 62",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445939588",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6bb-e894-11eb-9c4a-005056b7b0c0",
+    "order": 75,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "name": "Позняки",
+    "slug": "poznyaki",
+    "lat": 50.405071,
+    "long": 30.637905,
+    "clubSchedule": {
+      "id": 71,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 145,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 146,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 414,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 472,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 20765,
+      "name": "083A1907-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 6720,
+      "height": 4480,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A1907-Edit копия.jpg",
+          "hash": "thumbnail_083_A1907_Edit_kopiya_611f9e74d2",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.16,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A1907_Edit_kopiya_611f9e74d2.jpg"
+        },
+        "large": {
+          "name": "large_083A1907-Edit копия.jpg",
+          "hash": "large_083_A1907_Edit_kopiya_611f9e74d2",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 667,
+          "size": 131.66,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_083_A1907_Edit_kopiya_611f9e74d2.jpg"
+        },
+        "medium": {
+          "name": "medium_083A1907-Edit копия.jpg",
+          "hash": "medium_083_A1907_Edit_kopiya_611f9e74d2",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 81.4,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A1907_Edit_kopiya_611f9e74d2.jpg"
+        },
+        "small": {
+          "name": "small_083A1907-Edit копия.jpg",
+          "hash": "small_083_A1907_Edit_kopiya_611f9e74d2",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 41.18,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A1907_Edit_kopiya_611f9e74d2.jpg"
+        }
+      },
+      "hash": "083_A1907_Edit_kopiya_611f9e74d2",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 4706.23,
+      "url": "https://r2.sportlife.ua/083_A1907_Edit_kopiya_611f9e74d2.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-07-17T10:41:49.384Z",
+      "updated_at": "2024-07-17T10:41:49.395Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Драгоманова, 40г",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380443645151",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6b5-e894-11eb-9c4a-005056b7b0c0",
+    "order": 80,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн та для немовлят"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending Bar"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        }
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "name": "Почайна",
+    "slug": "pochaina",
+    "lat": 50.488197,
+    "long": 30.50709,
+    "clubSchedule": {
+      "id": 74,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 153,
+          "days": "Пн-Пт",
+          "time": "9:00-20:00"
+        },
+        {
+          "id": 154,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 1259,
+      "name": "_dsc4055fb_1.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_dsc4055fb_1_8c80b60469.jpg",
+          "hash": "small_dsc4055fb_1_8c80b60469",
+          "mime": "image/jpeg",
+          "name": "small__dsc4055fb_1.jpg",
+          "path": null,
+          "size": 57.11,
+          "width": 500,
+          "height": 334,
+          "provider_metadata": {
+            "public_id": "small_dsc4055fb_1_8c80b60469",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_dsc4055fb_1_8c80b60469.jpg",
+          "hash": "medium_dsc4055fb_1_8c80b60469",
+          "mime": "image/jpeg",
+          "name": "medium__dsc4055fb_1.jpg",
+          "path": null,
+          "size": 121.2,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_dsc4055fb_1_8c80b60469",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_dsc4055fb_1_8c80b60469.jpg",
+          "hash": "thumbnail_dsc4055fb_1_8c80b60469",
+          "mime": "image/jpeg",
+          "name": "thumbnail__dsc4055fb_1.jpg",
+          "path": null,
+          "size": 13.38,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_dsc4055fb_1_8c80b60469",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "dsc4055fb_1_8c80b60469",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 211.36,
+      "url": "https://r2.sportlife.ua/dsc4055fb_1_8c80b60469.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "dsc4055fb_1_8c80b60469",
+        "resource_type": "image"
+      },
+      "created_at": "2021-07-05T09:41:06.120Z",
+      "updated_at": "2023-05-19T12:01:44.753Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, просп. Степана Бандери, 20б, ТРК Plaza sport outlet, 3-й пов.",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380443641313",
+    "closed": true,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6a8-e894-11eb-9c4a-005056b7b0c0",
+    "order": 85,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": " Vending Bar у Lounge Zone"
+        }
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "name": "Смарт Плаза Політех",
+    "slug": "prospekt-pobedy",
+    "lat": 50.451185868933365,
+    "long": 30.468341939732923,
+    "clubSchedule": {
+      "id": 131,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 323,
+          "days": "Пн-Пт",
+          "time": "8:00-22:00"
+        },
+        {
+          "id": 324,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 325,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 471,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 25682,
+      "name": "083A8411-HDR.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A8411-HDR.jpg",
+          "hash": "thumbnail_083_A8411_HDR_1328a41fb6",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 10.69,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A8411_HDR_1328a41fb6.jpg"
+        },
+        "medium": {
+          "name": "medium_083A8411-HDR.jpg",
+          "hash": "medium_083_A8411_HDR_1328a41fb6",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 75.42,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A8411_HDR_1328a41fb6.jpg"
+        },
+        "small": {
+          "name": "small_083A8411-HDR.jpg",
+          "hash": "small_083_A8411_HDR_1328a41fb6",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 37.84,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A8411_HDR_1328a41fb6.jpg"
+        }
+      },
+      "hash": "083_A8411_HDR_1328a41fb6",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 124.89,
+      "url": "https://r2.sportlife.ua/083_A8411_HDR_1328a41fb6.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2026-02-20T14:24:52.325Z",
+      "updated_at": "2026-02-20T14:24:52.340Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, просп. Берестейський, 26, ТЦ Smart Plaza Polytech",
+    "club_format": "Клуб формату Premium",
+    "hasGenerator": null,
+    "phone": "+380443644042",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6d9-e894-11eb-9c4a-005056b7b0c0",
+    "order": 87,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн і для немовлят"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайкла"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитяча фітнес академія"
+        },
+        {
+          "title": "СПА"
+        }
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "name": "Протасів Яр",
+    "slug": "protasiv-yar",
+    "lat": 50.424962,
+    "long": 30.506758,
+    "clubSchedule": {
+      "id": 75,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 156,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 157,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 439,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 460,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 22375,
+      "name": "083A2153.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A2153.jpg",
+          "hash": "thumbnail_083_A2153_3ed30aad18",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 11.56,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A2153_3ed30aad18.jpg"
+        },
+        "medium": {
+          "name": "medium_083A2153.jpg",
+          "hash": "medium_083_A2153_3ed30aad18",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 87.12,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A2153_3ed30aad18.jpg"
+        },
+        "small": {
+          "name": "small_083A2153.jpg",
+          "hash": "small_083_A2153_3ed30aad18",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 43.16,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A2153_3ed30aad18.jpg"
+        }
+      },
+      "hash": "083_A2153_3ed30aad18",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 148.69,
+      "url": "https://r2.sportlife.ua/083_A2153_3ed30aad18.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2025-02-17T09:42:54.145Z",
+      "updated_at": "2025-02-17T09:42:54.163Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. М. Грінченка, 2/1,  БЦ «Протасів Бізнес Парк»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445856466",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6a7-e894-11eb-9c4a-005056b7b0c0",
+    "order": 90,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Сайкл студія"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "name": "Теремки",
+    "slug": "teremki",
+    "lat": 50.381741,
+    "long": 30.458102,
+    "clubSchedule": {
+      "id": 83,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 180,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 181,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 742,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 743,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 24568,
+      "name": "083A2079.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A2079.jpg",
+          "hash": "thumbnail_083_A2079_18756993f1",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 11.34,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A2079_18756993f1.jpg"
+        },
+        "medium": {
+          "name": "medium_083A2079.jpg",
+          "hash": "medium_083_A2079_18756993f1",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 80.82,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A2079_18756993f1.jpg"
+        },
+        "small": {
+          "name": "small_083A2079.jpg",
+          "hash": "small_083_A2079_18756993f1",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 39.89,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A2079_18756993f1.jpg"
+        }
+      },
+      "hash": "083_A2079_18756993f1",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 137.45,
+      "url": "https://r2.sportlife.ua/083_A2079_18756993f1.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2025-10-16T12:39:37.368Z",
+      "updated_at": "2025-10-16T12:39:37.380Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Самійла Кішки, 8, ЖК «Ліко-Град»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445939585",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6b2-e894-11eb-9c4a-005056b7b0c0",
+    "order": 100,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейни"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Бокс ринг"
+        },
+        {
+          "title": "Сайкл студія"
+        },
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Преміум тренажерний зал"
+        },
+        {
+          "title": "Лаунж у Преміум тренажерному залі"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Басейни для дітей"
+        },
+        {
+          "title": "Басейн для немовлят"
+        }
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "name": "Троєщина",
+    "slug": "troeschina",
+    "lat": 50.516604,
+    "long": 30.618547,
+    "clubSchedule": {
+      "id": 84,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 183,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 184,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 185,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 462,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 18526,
+      "name": "Troeshina-2.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_Troeshina-2.jpg",
+          "hash": "thumbnail_Troeshina_2_29b30e7884",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.72,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_Troeshina_2_29b30e7884.jpg"
+        },
+        "medium": {
+          "name": "medium_Troeshina-2.jpg",
+          "hash": "medium_Troeshina_2_29b30e7884",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 93.11,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_Troeshina_2_29b30e7884.jpg"
+        },
+        "small": {
+          "name": "small_Troeshina-2.jpg",
+          "hash": "small_Troeshina_2_29b30e7884",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 46.51,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_Troeshina_2_29b30e7884.jpg"
+        }
+      },
+      "hash": "Troeshina_2_29b30e7884",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 155.86,
+      "url": "https://r2.sportlife.ua/Troeshina_2_29b30e7884.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2022-11-04T07:57:09.625Z",
+      "updated_at": "2023-07-05T09:51:19.707Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, просп. Червоної калини, 44а",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380443644646",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6b7-e894-11eb-9c4a-005056b7b0c0",
+    "order": 105,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Racket Sports Arena"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Дитячі басейни"
+        },
+        {
+          "title": "Vending Bar у Lounge Zone"
+        }
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "name": "Чернігівська",
+    "slug": "chernigovskaya",
+    "lat": 50.456391,
+    "long": 30.637588,
+    "clubSchedule": {
+      "id": 164,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 519,
+          "days": "Пн-Пт",
+          "time": "8:00-22:00"
+        },
+        {
+          "id": 520,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 521,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 522,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 19427,
+      "name": "IMG_6402.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_IMG_6402.jpg",
+          "hash": "thumbnail_IMG_6402_0f6d708645",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 10.62,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_IMG_6402_0f6d708645.jpg"
+        },
+        "medium": {
+          "name": "medium_IMG_6402.jpg",
+          "hash": "medium_IMG_6402_0f6d708645",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 72.49,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_IMG_6402_0f6d708645.jpg"
+        },
+        "small": {
+          "name": "small_IMG_6402.jpg",
+          "hash": "small_IMG_6402_0f6d708645",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 36.23,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_IMG_6402_0f6d708645.jpg"
+        }
+      },
+      "hash": "IMG_6402_0f6d708645",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 119.56,
+      "url": "https://r2.sportlife.ua/IMG_6402_0f6d708645.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2023-08-25T08:49:37.719Z",
+      "updated_at": "2024-08-15T13:38:55.973Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Вінстона Черчилля, 42",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380445857373",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6ba-e894-11eb-9c4a-005056b7b0c0",
+    "order": 110,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Дитяча кімната"
+        },
+        {
+          "title": "Лазневий комплекс"
+        }
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "name": "Героїв УПА",
+    "slug": "geroyiv-upa",
+    "lat": 49.831956,
+    "long": 23.99737,
+    "clubSchedule": {
+      "id": 85,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 186,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 187,
+          "days": "Сб-Нд",
+          "time": "9:00-21:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 451,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 452,
+          "days": "Сб-Нд",
+          "time": "09:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21037,
+      "name": "083A4000.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A4000.jpg",
+          "hash": "thumbnail_083_A4000_cbede62f3d",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 11.71,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A4000_cbede62f3d.jpg"
+        },
+        "medium": {
+          "name": "medium_083A4000.jpg",
+          "hash": "medium_083_A4000_cbede62f3d",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 84.77,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A4000_cbede62f3d.jpg"
+        },
+        "small": {
+          "name": "small_083A4000.jpg",
+          "hash": "small_083_A4000_cbede62f3d",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 42.28,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A4000_cbede62f3d.jpg"
+        }
+      },
+      "hash": "083_A4000_cbede62f3d",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 140.37,
+      "url": "https://r2.sportlife.ua/083_A4000_cbede62f3d.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-08-20T11:21:20.976Z",
+      "updated_at": "2025-01-28T14:00:33.923Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Львів, вул. Героїв УПА, 72, корпус 40",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380322320007",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6c0-e894-11eb-9c4a-005056b7b0c0",
+    "order": 125,
+    "express": null,
+    "city": {
+      "id": 2,
+      "name": "Львів",
+      "slug": "lvov"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "name": "Мазепи",
+    "slug": "mazepi",
+    "lat": 49.869443,
+    "long": 24.028559,
+    "clubSchedule": {
+      "id": 86,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 189,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 190,
+          "days": "Сб-Нд",
+          "time": "9:00-21:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 405,
+          "days": "Пн-Пт",
+          "time": "10:00-20:30"
+        },
+        {
+          "id": 411,
+          "days": "Сб-Нд",
+          "time": "10:00-19:30"
+        }
+      ]
+    },
+    "image": {
+      "id": 2263,
+      "name": "sportlife_2019-05-12_5733_HBR_LUFA-082.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0.jpg",
+          "hash": "small_sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0",
+          "mime": "image/jpeg",
+          "name": "small_sportlife_2019-05-12_5733_HBR_LUFA-082.jpg",
+          "path": null,
+          "size": 48.21,
+          "width": 500,
+          "height": 334
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0.jpg",
+          "hash": "medium_sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0",
+          "mime": "image/jpeg",
+          "name": "medium_sportlife_2019-05-12_5733_HBR_LUFA-082.jpg",
+          "path": null,
+          "size": 96.31,
+          "width": 750,
+          "height": 500
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0.jpg",
+          "hash": "thumbnail_sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0",
+          "mime": "image/jpeg",
+          "name": "thumbnail_sportlife_2019-05-12_5733_HBR_LUFA-082.jpg",
+          "path": null,
+          "size": 12.49,
+          "width": 234,
+          "height": 156
+        }
+      },
+      "hash": "sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 156.45,
+      "url": "https://r2.sportlife.ua/sportlife_2019_05_12_5733_HBR_LUFA_082_702d9a6ca0.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2021-09-16T08:59:33.254Z",
+      "updated_at": "2021-09-16T08:59:33.282Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Львів, вул. Гетьмана Мазепи 1Б, ТРЦ «Спартак»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380322324280",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6df-e894-11eb-9c4a-005056b7b0c0",
+    "order": 130,
+    "express": null,
+    "city": {
+      "id": 2,
+      "name": "Львів",
+      "slug": "lvov"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Падел теніс"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія боксу"
+        },
+        {
+          "title": "Дитячі басейни"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        }
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "name": "Сихів",
+    "slug": "sykhov",
+    "lat": 49.795145,
+    "long": 24.059038,
+    "clubSchedule": {
+      "id": 87,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 192,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 193,
+          "days": "Сб-Нд",
+          "time": "9:00-21:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 194,
+          "days": "Пн-Пт",
+          "time": "10:00-20:30"
+        },
+        {
+          "id": 453,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 22245,
+      "name": "IMG_6924.jpeg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 4032,
+      "height": 3024,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_IMG_6924.jpeg",
+          "hash": "thumbnail_IMG_6924_513c5b1a38",
+          "ext": ".jpeg",
+          "mime": "image/jpeg",
+          "width": 208,
+          "height": 156,
+          "size": 11.04,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_IMG_6924_513c5b1a38.jpeg"
+        },
+        "large": {
+          "name": "large_IMG_6924.jpeg",
+          "hash": "large_IMG_6924_513c5b1a38",
+          "ext": ".jpeg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 750,
+          "size": 151.57,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_IMG_6924_513c5b1a38.jpeg"
+        },
+        "medium": {
+          "name": "medium_IMG_6924.jpeg",
+          "hash": "medium_IMG_6924_513c5b1a38",
+          "ext": ".jpeg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 563,
+          "size": 92.2,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_IMG_6924_513c5b1a38.jpeg"
+        },
+        "small": {
+          "name": "small_IMG_6924.jpeg",
+          "hash": "small_IMG_6924_513c5b1a38",
+          "ext": ".jpeg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 375,
+          "size": 46.94,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_IMG_6924_513c5b1a38.jpeg"
+        }
+      },
+      "hash": "IMG_6924_513c5b1a38",
+      "ext": ".jpeg",
+      "mime": "image/jpeg",
+      "size": 1829.5,
+      "url": "https://r2.sportlife.ua/IMG_6924_513c5b1a38.jpeg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2025-01-28T14:17:04.578Z",
+      "updated_at": "2025-01-28T14:17:04.589Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Львів, вул. Зубрівська, 38",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380322322422",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6b4-e894-11eb-9c4a-005056b7b0c0",
+    "order": 135,
+    "express": null,
+    "city": {
+      "id": 2,
+      "name": "Львів",
+      "slug": "lvov"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "name": "Котовського",
+    "slug": "kotovskogo",
+    "lat": 46.583987,
+    "long": 30.793736,
+    "clubSchedule": {
+      "id": 93,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 210,
+          "days": "Пн-Пт",
+          "time": "8:00-21:30"
+        },
+        {
+          "id": 211,
+          "days": "Сб-Нд",
+          "time": "9:00-21:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 212,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 517,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 1602,
+      "name": "img_2683_1.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 666,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_img_2683_1_a7356c8d51.jpg",
+          "hash": "small_img_2683_1_a7356c8d51",
+          "mime": "image/jpeg",
+          "name": "small_img_2683_1.jpg",
+          "path": null,
+          "size": 45.53,
+          "width": 500,
+          "height": 333,
+          "provider_metadata": {
+            "public_id": "small_img_2683_1_a7356c8d51",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_img_2683_1_a7356c8d51.jpg",
+          "hash": "medium_img_2683_1_a7356c8d51",
+          "mime": "image/jpeg",
+          "name": "medium_img_2683_1.jpg",
+          "path": null,
+          "size": 96.02,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_img_2683_1_a7356c8d51",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_img_2683_1_a7356c8d51.jpg",
+          "hash": "thumbnail_img_2683_1_a7356c8d51",
+          "mime": "image/jpeg",
+          "name": "thumbnail_img_2683_1.jpg",
+          "path": null,
+          "size": 11.86,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_img_2683_1_a7356c8d51",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "img_2683_1_a7356c8d51",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 179.84,
+      "url": "https://r2.sportlife.ua/img_2683_1_a7356c8d51.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "img_2683_1_a7356c8d51",
+        "resource_type": "image"
+      },
+      "created_at": "2021-07-06T08:21:19.930Z",
+      "updated_at": "2021-09-16T09:05:39.266Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Одеса, вул. Давида Ойстраха, 32, ТРЦ «CITY CENTER Котовський»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": false,
+    "phone": "+380487409101",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6c4-e894-11eb-9c4a-005056b7b0c0",
+    "order": 155,
+    "express": null,
+    "city": {
+      "id": 3,
+      "name": "Одеса",
+      "slug": "odessa"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячі басейни"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 33,
+    "name": "Таїрова",
+    "slug": "tayirova",
+    "lat": 46.41627,
+    "long": 30.712547,
+    "clubSchedule": {
+      "id": 111,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 260,
+          "days": "Пн-Пт",
+          "time": "8:00-21:30"
+        },
+        {
+          "id": 261,
+          "days": "Сб-Нд",
+          "time": "9:00-21:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 262,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 515,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 1662,
+      "name": "dsc06677-hdr_2.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_dsc06677_hdr_2_7e5b524911.jpg",
+          "hash": "small_dsc06677_hdr_2_7e5b524911",
+          "mime": "image/jpeg",
+          "name": "small_dsc06677-hdr_2.jpg",
+          "path": null,
+          "size": 45.14,
+          "width": 500,
+          "height": 334,
+          "provider_metadata": {
+            "public_id": "small_dsc06677_hdr_2_7e5b524911",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_dsc06677_hdr_2_7e5b524911.jpg",
+          "hash": "medium_dsc06677_hdr_2_7e5b524911",
+          "mime": "image/jpeg",
+          "name": "medium_dsc06677-hdr_2.jpg",
+          "path": null,
+          "size": 90.19,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_dsc06677_hdr_2_7e5b524911",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_dsc06677_hdr_2_7e5b524911.jpg",
+          "hash": "thumbnail_dsc06677_hdr_2_7e5b524911",
+          "mime": "image/jpeg",
+          "name": "thumbnail_dsc06677-hdr_2.jpg",
+          "path": null,
+          "size": 12.29,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_dsc06677_hdr_2_7e5b524911",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "dsc06677_hdr_2_7e5b524911",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 149.02,
+      "url": "https://r2.sportlife.ua/dsc06677_hdr_2_7e5b524911.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "dsc06677_hdr_2_7e5b524911",
+        "resource_type": "image"
+      },
+      "created_at": "2021-07-06T09:16:44.373Z",
+      "updated_at": "2021-09-16T09:26:01.957Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Одеса, просп. Небесної Сотні, 2, ТРЦ City Center",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": true,
+    "phone": "+380487854222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6bf-e894-11eb-9c4a-005056b7b0c0",
+    "order": 160,
+    "express": null,
+    "city": {
+      "id": 3,
+      "name": "Одеса",
+      "slug": "odessa"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "name": "Вечірній",
+    "slug": "vechirnii",
+    "lat": 47.93597,
+    "long": 33.433696,
+    "clubSchedule": {
+      "id": 100,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 229,
+          "days": "Пн-Пт",
+          "time": "7:00-21:00"
+        },
+        {
+          "id": 230,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 513,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 514,
+          "days": "Сб-Нд",
+          "time": "10:00-17:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21111,
+      "name": "Screenshot_1.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1677,
+      "height": 863,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_Screenshot_1.jpg",
+          "hash": "thumbnail_Screenshot_1_297eb0d3ee",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 245,
+          "height": 126,
+          "size": 7.86,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_Screenshot_1_297eb0d3ee.jpg"
+        },
+        "large": {
+          "name": "large_Screenshot_1.jpg",
+          "hash": "large_Screenshot_1_297eb0d3ee",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 515,
+          "size": 86.72,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_Screenshot_1_297eb0d3ee.jpg"
+        },
+        "medium": {
+          "name": "medium_Screenshot_1.jpg",
+          "hash": "medium_Screenshot_1_297eb0d3ee",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 386,
+          "size": 53.34,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_Screenshot_1_297eb0d3ee.jpg"
+        },
+        "small": {
+          "name": "small_Screenshot_1.jpg",
+          "hash": "small_Screenshot_1_297eb0d3ee",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 257,
+          "size": 26.47,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_Screenshot_1_297eb0d3ee.jpg"
+        }
+      },
+      "hash": "Screenshot_1_297eb0d3ee",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 206.2,
+      "url": "https://r2.sportlife.ua/Screenshot_1_297eb0d3ee.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-08-28T09:54:12.089Z",
+      "updated_at": "2024-10-22T09:15:53.293Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Кривий Ріг, Бульвар Вечірній 31а",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380564624222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6db-e894-11eb-9c4a-005056b7b0c0",
+    "order": 140,
+    "express": null,
+    "city": {
+      "id": 4,
+      "name": "Кривий Ріг",
+      "slug": "krivij-rig"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "name": "Панорама",
+    "slug": "plosha-slavi",
+    "lat": 48.451431,
+    "long": 35.068774,
+    "clubSchedule": {
+      "id": 90,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 201,
+          "days": "Пн-Пт",
+          "time": "7:30-21:30"
+        },
+        {
+          "id": 202,
+          "days": "Сб-Нд",
+          "time": "09:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 203,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 430,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 1581,
+      "name": "ERstudio - 0033.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_E_Rstudio_0033_8a8fab2f38.jpg",
+          "hash": "small_E_Rstudio_0033_8a8fab2f38",
+          "mime": "image/jpeg",
+          "name": "small_ERstudio - 0033.jpg",
+          "path": null,
+          "size": 45.02,
+          "width": 500,
+          "height": 334,
+          "provider_metadata": {
+            "public_id": "small_E_Rstudio_0033_8a8fab2f38",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_E_Rstudio_0033_8a8fab2f38.jpg",
+          "hash": "medium_E_Rstudio_0033_8a8fab2f38",
+          "mime": "image/jpeg",
+          "name": "medium_ERstudio - 0033.jpg",
+          "path": null,
+          "size": 90.23,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_E_Rstudio_0033_8a8fab2f38",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_E_Rstudio_0033_8a8fab2f38.jpg",
+          "hash": "thumbnail_E_Rstudio_0033_8a8fab2f38",
+          "mime": "image/jpeg",
+          "name": "thumbnail_ERstudio - 0033.jpg",
+          "path": null,
+          "size": 12.14,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_E_Rstudio_0033_8a8fab2f38",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "E_Rstudio_0033_8a8fab2f38",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 147.86,
+      "url": "https://r2.sportlife.ua/E_Rstudio_0033_8a8fab2f38.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "E_Rstudio_0033_8a8fab2f38",
+        "resource_type": "image"
+      },
+      "created_at": "2021-07-06T06:22:55.607Z",
+      "updated_at": "2021-09-16T09:41:14.072Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Дніпро, вул. Сімферопольська, 2м, ЖК «Панорама»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380567904222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6d0-e894-11eb-9c4a-005056b7b0c0",
+    "order": 115,
+    "express": null,
+    "city": {
+      "id": 5,
+      "name": "Дніпро",
+      "slug": "dnipro"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитячий басейн та басейн для немовлят"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Простора лаунж-зона з джакузі"
+        }
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "name": "Нікольський",
+    "slug": "nikolskiy",
+    "lat": 49.991601,
+    "long": 36.234142,
+    "clubSchedule": {
+      "id": 210,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 672,
+          "days": "Пн-Пт",
+          "time": "8:00-21:00"
+        },
+        {
+          "id": 673,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 674,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 675,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 2013,
+      "name": "NIKOLSKY (1 of 34).jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_NIKOLSKY_1_of_34_4e1b1a3afe.jpg",
+          "hash": "small_NIKOLSKY_1_of_34_4e1b1a3afe",
+          "mime": "image/jpeg",
+          "name": "small_NIKOLSKY (1 of 34).jpg",
+          "path": null,
+          "size": 38.96,
+          "width": 500,
+          "height": 334,
+          "provider_metadata": {
+            "public_id": "small_NIKOLSKY_1_of_34_4e1b1a3afe",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_NIKOLSKY_1_of_34_4e1b1a3afe.jpg",
+          "hash": "medium_NIKOLSKY_1_of_34_4e1b1a3afe",
+          "mime": "image/jpeg",
+          "name": "medium_NIKOLSKY (1 of 34).jpg",
+          "path": null,
+          "size": 76.94,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_NIKOLSKY_1_of_34_4e1b1a3afe",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_NIKOLSKY_1_of_34_4e1b1a3afe.jpg",
+          "hash": "thumbnail_NIKOLSKY_1_of_34_4e1b1a3afe",
+          "mime": "image/jpeg",
+          "name": "thumbnail_NIKOLSKY (1 of 34).jpg",
+          "path": null,
+          "size": 10.66,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_NIKOLSKY_1_of_34_4e1b1a3afe",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "NIKOLSKY_1_of_34_4e1b1a3afe",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 122.38,
+      "url": "https://r2.sportlife.ua/NIKOLSKY_1_of_34_4e1b1a3afe.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "NIKOLSKY_1_of_34_4e1b1a3afe",
+        "resource_type": "image"
+      },
+      "created_at": "2021-08-10T12:24:41.226Z",
+      "updated_at": "2021-08-10T12:24:41.281Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Харків, вул. Григорія Сковороди, 2а, ТРЦ «Nikolsky»",
+    "club_format": "Клуб формату Premium +",
+    "hasGenerator": null,
+    "phone": "+380577664222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6ea-e894-11eb-9c4a-005056b7b0c0",
+    "order": 123,
+    "express": null,
+    "city": {
+      "id": 6,
+      "name": "Харків",
+      "slug": "kharkov"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Студія групових програм"
+        },
+        {
+          "title": "Студія сайкла"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Банний комплекс"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 41,
+    "name": "Митниця",
+    "slug": "mitnicya",
+    "lat": 49.437534,
+    "long": 32.100536,
+    "clubSchedule": {
+      "id": 145,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 376,
+          "days": "Пн-Пт",
+          "time": "07:00-21:00"
+        },
+        {
+          "id": 377,
+          "days": "Сб-Нд",
+          "time": "09:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 415,
+          "days": "Пн-Пт",
+          "time": "9:00-21:00"
+        },
+        {
+          "id": 447,
+          "days": "Сб-Вс",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 1535,
+      "name": "112377.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 800,
+      "height": 533,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_112377_ca4c5793c1.jpg",
+          "hash": "small_112377_ca4c5793c1",
+          "mime": "image/jpeg",
+          "name": "small_112377.jpg",
+          "path": null,
+          "size": 58.47,
+          "width": 500,
+          "height": 333,
+          "provider_metadata": {
+            "public_id": "small_112377_ca4c5793c1",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_112377_ca4c5793c1.jpg",
+          "hash": "medium_112377_ca4c5793c1",
+          "mime": "image/jpeg",
+          "name": "medium_112377.jpg",
+          "path": null,
+          "size": 117.01,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_112377_ca4c5793c1",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_112377_ca4c5793c1.jpg",
+          "hash": "thumbnail_112377_ca4c5793c1",
+          "mime": "image/jpeg",
+          "name": "thumbnail_112377.jpg",
+          "path": null,
+          "size": 14.74,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_112377_ca4c5793c1",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "112377_ca4c5793c1",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 119.76,
+      "url": "https://r2.sportlife.ua/112377_ca4c5793c1.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "112377_ca4c5793c1",
+        "resource_type": "image"
+      },
+      "created_at": "2021-07-06T04:48:01.011Z",
+      "updated_at": "2021-09-16T09:43:14.241Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Черкаси, вул. Козацька, 2",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380472319225",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "079ec1e7-d4d7-11eb-9c49-005056b7b0c0",
+    "order": 165,
+    "express": null,
+    "city": {
+      "id": 7,
+      "name": "Черкаси",
+      "slug": "cherkassy"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Студії групових програм"
+        }
+      ]
+    }
+  },
+  {
+    "id": 42,
+    "name": "Південний",
+    "slug": "yuzhnyiy",
+    "lat": 49.435423,
+    "long": 32.011802,
+    "clubSchedule": {
+      "id": 21,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 63,
+          "days": "Пн-Пт",
+          "time": "07:30-21:00"
+        },
+        {
+          "id": 64,
+          "days": "Сб-Нд",
+          "time": "09:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 65,
+          "days": "Пн-Пт",
+          "time": "9:00-20:00"
+        },
+        {
+          "id": 449,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 2267,
+      "name": "YAK_8748.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 665,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_YAK_8748_de786c9727.jpg",
+          "hash": "small_YAK_8748_de786c9727",
+          "mime": "image/jpeg",
+          "name": "small_YAK_8748.jpg",
+          "path": null,
+          "size": 47.49,
+          "width": 500,
+          "height": 333
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_YAK_8748_de786c9727.jpg",
+          "hash": "medium_YAK_8748_de786c9727",
+          "mime": "image/jpeg",
+          "name": "medium_YAK_8748.jpg",
+          "path": null,
+          "size": 97.23,
+          "width": 750,
+          "height": 499
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_YAK_8748_de786c9727.jpg",
+          "hash": "thumbnail_YAK_8748_de786c9727",
+          "mime": "image/jpeg",
+          "name": "thumbnail_YAK_8748.jpg",
+          "path": null,
+          "size": 12.26,
+          "width": 235,
+          "height": 156
+        }
+      },
+      "hash": "YAK_8748_de786c9727",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 164.07,
+      "url": "https://r2.sportlife.ua/YAK_8748_de786c9727.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2021-09-16T09:51:42.583Z",
+      "updated_at": "2021-09-16T09:51:42.600Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Черкаси, вул. Прикордонника Лазаренка, 7/1",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380472520388",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "7ab849bc-d4d7-11eb-9c49-005056b7b0c0",
+    "order": 170,
+    "express": null,
+    "city": {
+      "id": 7,
+      "name": "Черкаси",
+      "slug": "cherkassy"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Лазневий комплекс"
+        }
+      ]
+    }
+  },
+  {
+    "id": 50,
+    "name": "Кам’янець-Подільський",
+    "slug": "kamianets-podilskyi",
+    "lat": 48.676586,
+    "long": 26.601717,
+    "clubSchedule": {
+      "id": 103,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 237,
+          "days": "Пн-Пт",
+          "time": "07:30-21:30"
+        },
+        {
+          "id": 238,
+          "days": "Сб-Нд",
+          "time": "09:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 247,
+          "days": "Пн-Пт",
+          "time": "10:00-20:30"
+        },
+        {
+          "id": 534,
+          "days": "Сб-Нд",
+          "time": "10:00-20:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 109,
+      "name": "Фото19.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 2000,
+      "height": 1333,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/large_Foto19_7c39795972.jpg",
+          "hash": "large_Foto19_7c39795972",
+          "mime": "image/jpeg",
+          "name": "large_Фото19.jpg",
+          "path": null,
+          "size": 141.36,
+          "width": 1000,
+          "height": 667,
+          "provider_metadata": {
+            "public_id": "large_Foto19_7c39795972",
+            "resource_type": "image"
+          }
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_Foto19_7c39795972.jpg",
+          "hash": "small_Foto19_7c39795972",
+          "mime": "image/jpeg",
+          "name": "small_Фото19.jpg",
+          "path": null,
+          "size": 44.92,
+          "width": 500,
+          "height": 333,
+          "provider_metadata": {
+            "public_id": "small_Foto19_7c39795972",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_Foto19_7c39795972.jpg",
+          "hash": "medium_Foto19_7c39795972",
+          "mime": "image/jpeg",
+          "name": "medium_Фото19.jpg",
+          "path": null,
+          "size": 87.02,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_Foto19_7c39795972",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_Foto19_7c39795972.jpg",
+          "hash": "thumbnail_Foto19_7c39795972",
+          "mime": "image/jpeg",
+          "name": "thumbnail_Фото19.jpg",
+          "path": null,
+          "size": 12.43,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_Foto19_7c39795972",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "Foto19_7c39795972",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 413,
+      "url": "https://r2.sportlife.ua/Foto19_7c39795972.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "Foto19_7c39795972",
+        "resource_type": "image"
+      },
+      "created_at": "2021-06-18T10:06:01.001Z",
+      "updated_at": "2025-04-18T15:01:32.348Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Кам'янець-Подільський, вул. Князів Коріатовичів, 25/8",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380384965607",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6e6-e894-11eb-9c4a-005056b7b0c0",
+    "order": 190,
+    "express": null,
+    "city": {
+      "id": 15,
+      "name": "Кам’янець-Подільський",
+      "slug": "kamianets-podilskyi"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Лазневий комплекс"
+        }
+      ]
+    }
+  },
+  {
+    "id": 51,
+    "name": "Кременчук",
+    "slug": "kremenchug",
+    "lat": 49.11488,
+    "long": 33.439225,
+    "clubSchedule": {
+      "id": 104,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 239,
+          "days": "Пн-Пт",
+          "time": "7:30-21:30"
+        },
+        {
+          "id": 240,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 416,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 459,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 46,
+      "name": "DSC-66.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1200,
+      "height": 799,
+      "formats": {
+        "large": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/large_DSC_66_6112af6960.jpg",
+          "hash": "large_DSC_66_6112af6960",
+          "mime": "image/jpeg",
+          "name": "large_DSC-66.jpg",
+          "path": null,
+          "size": 164.82,
+          "width": 1000,
+          "height": 666,
+          "provider_metadata": {
+            "public_id": "large_DSC_66_6112af6960",
+            "resource_type": "image"
+          }
+        },
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_DSC_66_6112af6960.jpg",
+          "hash": "small_DSC_66_6112af6960",
+          "mime": "image/jpeg",
+          "name": "small_DSC-66.jpg",
+          "path": null,
+          "size": 48.45,
+          "width": 500,
+          "height": 333,
+          "provider_metadata": {
+            "public_id": "small_DSC_66_6112af6960",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_DSC_66_6112af6960.jpg",
+          "hash": "medium_DSC_66_6112af6960",
+          "mime": "image/jpeg",
+          "name": "medium_DSC-66.jpg",
+          "path": null,
+          "size": 100.18,
+          "width": 750,
+          "height": 499,
+          "provider_metadata": {
+            "public_id": "medium_DSC_66_6112af6960",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_DSC_66_6112af6960.jpg",
+          "hash": "thumbnail_DSC_66_6112af6960",
+          "mime": "image/jpeg",
+          "name": "thumbnail_DSC-66.jpg",
+          "path": null,
+          "size": 12.73,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_DSC_66_6112af6960",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "DSC_66_6112af6960",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 229.28,
+      "url": "https://r2.sportlife.ua/DSC_66_6112af6960.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "DSC_66_6112af6960",
+        "resource_type": "image"
+      },
+      "created_at": "2021-06-18T07:47:07.249Z",
+      "updated_at": "2021-09-16T09:58:46.963Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Кременчук, просп. Лесі Українки, 120",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380536739091",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6be-e894-11eb-9c4a-005056b7b0c0",
+    "order": 195,
+    "express": null,
+    "city": {
+      "id": 16,
+      "name": "Кременчук",
+      "slug": "kremenchug"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        }
+      ]
+    }
+  },
+  {
+    "id": 104,
+    "name": "Житомир",
+    "slug": "zhitomir",
+    "lat": 50.266403,
+    "long": 28.685766,
+    "clubSchedule": {
+      "id": 108,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 251,
+          "days": "Пн-Пт",
+          "time": "7:30-21:30"
+        },
+        {
+          "id": 252,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 253,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 477,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 1881,
+      "name": "жи.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_zhi_159b85c599.jpg",
+          "hash": "small_zhi_159b85c599",
+          "mime": "image/jpeg",
+          "name": "small_жи.jpg",
+          "path": null,
+          "size": 42.15,
+          "width": 500,
+          "height": 334,
+          "provider_metadata": {
+            "public_id": "small_zhi_159b85c599",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_zhi_159b85c599.jpg",
+          "hash": "medium_zhi_159b85c599",
+          "mime": "image/jpeg",
+          "name": "medium_жи.jpg",
+          "path": null,
+          "size": 88.02,
+          "width": 750,
+          "height": 500,
+          "provider_metadata": {
+            "public_id": "medium_zhi_159b85c599",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_zhi_159b85c599.jpg",
+          "hash": "thumbnail_zhi_159b85c599",
+          "mime": "image/jpeg",
+          "name": "thumbnail_жи.jpg",
+          "path": null,
+          "size": 10.45,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_zhi_159b85c599",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "zhi_159b85c599",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 151.92,
+      "url": "https://r2.sportlife.ua/zhi_159b85c599.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "zhi_159b85c599",
+        "resource_type": "image"
+      },
+      "created_at": "2021-07-20T08:27:54.490Z",
+      "updated_at": "2021-07-20T08:27:54.535Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Житомир, вул. Київська, 77, ТРЦ «Глобал UA»",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380412559222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "3c91debb-d3fd-11eb-9c49-005056b7b0c0",
+    "order": 185,
+    "express": null,
+    "city": {
+      "id": 14,
+      "name": "Житомир",
+      "slug": "zhitomir"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending bar "
+        }
+      ]
+    }
+  },
+  {
+    "id": 106,
+    "name": "Героїв Майдану",
+    "slug": "geroyiv-majdanu",
+    "lat": 48.26707,
+    "long": 25.92721,
+    "clubSchedule": {
+      "id": 113,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 266,
+          "days": "Пн-Пт",
+          "time": "7:30-21:30"
+        },
+        {
+          "id": 267,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 444,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 445,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 310,
+      "name": "_DSC3157.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 999,
+      "height": 667,
+      "formats": {
+        "small": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/small_DSC_3157_7e6bfe0c40.jpg",
+          "hash": "small_DSC_3157_7e6bfe0c40",
+          "mime": "image/jpeg",
+          "name": "small__DSC3157.jpg",
+          "path": null,
+          "size": 47.48,
+          "width": 500,
+          "height": 334,
+          "provider_metadata": {
+            "public_id": "small_DSC_3157_7e6bfe0c40",
+            "resource_type": "image"
+          }
+        },
+        "medium": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/medium_DSC_3157_7e6bfe0c40.jpg",
+          "hash": "medium_DSC_3157_7e6bfe0c40",
+          "mime": "image/jpeg",
+          "name": "medium__DSC3157.jpg",
+          "path": null,
+          "size": 93.75,
+          "width": 750,
+          "height": 501,
+          "provider_metadata": {
+            "public_id": "medium_DSC_3157_7e6bfe0c40",
+            "resource_type": "image"
+          }
+        },
+        "thumbnail": {
+          "ext": ".jpg",
+          "url": "https://r2.sportlife.ua/thumbnail_DSC_3157_7e6bfe0c40.jpg",
+          "hash": "thumbnail_DSC_3157_7e6bfe0c40",
+          "mime": "image/jpeg",
+          "name": "thumbnail__DSC3157.jpg",
+          "path": null,
+          "size": 12.64,
+          "width": 234,
+          "height": 156,
+          "provider_metadata": {
+            "public_id": "thumbnail_DSC_3157_7e6bfe0c40",
+            "resource_type": "image"
+          }
+        }
+      },
+      "hash": "DSC_3157_7e6bfe0c40",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 152.16,
+      "url": "https://r2.sportlife.ua/DSC_3157_7e6bfe0c40.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": {
+        "public_id": "DSC_3157_7e6bfe0c40",
+        "resource_type": "image"
+      },
+      "created_at": "2021-06-22T10:44:17.326Z",
+      "updated_at": "2021-09-16T10:55:01.907Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": null,
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Чернівці, вул. Героїв Майдану, 71а",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380372954222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6cc-e894-11eb-9c4a-005056b7b0c0",
+    "order": 215,
+    "express": null,
+    "city": {
+      "id": 12,
+      "name": "Чернівці",
+      "slug": "chernivtsi"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 110,
+    "name": "Полтава",
+    "slug": "poltava",
+    "lat": 49.578548,
+    "long": 34.53614,
+    "clubSchedule": {
+      "id": 117,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 278,
+          "days": "Пн-Пт",
+          "time": "7:00-21:30"
+        },
+        {
+          "id": 279,
+          "days": "Сб-Нд",
+          "time": "9:00 - 20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 417,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 493,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21220,
+      "name": "LGD_1228.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1200,
+      "height": 800,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_LGD_1228.jpg",
+          "hash": "thumbnail_LGD_1228_2ddb50ae21",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.28,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_LGD_1228_2ddb50ae21.jpg"
+        },
+        "large": {
+          "name": "large_LGD_1228.jpg",
+          "hash": "large_LGD_1228_2ddb50ae21",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 667,
+          "size": 164.8,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_LGD_1228_2ddb50ae21.jpg"
+        },
+        "medium": {
+          "name": "medium_LGD_1228.jpg",
+          "hash": "medium_LGD_1228_2ddb50ae21",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 97.6,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_LGD_1228_2ddb50ae21.jpg"
+        },
+        "small": {
+          "name": "small_LGD_1228.jpg",
+          "hash": "small_LGD_1228_2ddb50ae21",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 46.7,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_LGD_1228_2ddb50ae21.jpg"
+        }
+      },
+      "hash": "LGD_1228_2ddb50ae21",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 232.78,
+      "url": "https://r2.sportlife.ua/LGD_1228_2ddb50ae21.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-08-30T14:31:07.908Z",
+      "updated_at": "2024-08-30T14:31:07.919Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Полтава, вул. Раїси Кириченко, 72",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380532654222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6d4-e894-11eb-9c4a-005056b7b0c0",
+    "order": 205,
+    "express": null,
+    "city": {
+      "id": 10,
+      "name": "Полтава",
+      "slug": "poltava"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Сквош"
+        },
+        {
+          "title": "Студія боксу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Кардіотеатр"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитячий басейн та басейн для немовлят"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Vending bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 112,
+    "name": "Луцьк",
+    "slug": "lutck",
+    "lat": 50.754037,
+    "long": 25.336457,
+    "clubSchedule": {
+      "id": 3,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 7,
+          "days": "Пн-Пт",
+          "time": "7:30-21:30"
+        },
+        {
+          "id": 8,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 9,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 458,
+          "days": "Сб-Нд",
+          "time": "10:00-16:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 22675,
+      "name": "DSC_4423.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 665,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_DSC_4423.jpg",
+          "hash": "thumbnail_DSC_4423_d2d54b0d80",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 235,
+          "height": 156,
+          "size": 11.97,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_DSC_4423_d2d54b0d80.jpg"
+        },
+        "medium": {
+          "name": "medium_DSC_4423.jpg",
+          "hash": "medium_DSC_4423_d2d54b0d80",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 499,
+          "size": 98.12,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_DSC_4423_d2d54b0d80.jpg"
+        },
+        "small": {
+          "name": "small_DSC_4423.jpg",
+          "hash": "small_DSC_4423_d2d54b0d80",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 46.78,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_DSC_4423_d2d54b0d80.jpg"
+        }
+      },
+      "hash": "DSC_4423_d2d54b0d80",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 166.27,
+      "url": "https://r2.sportlife.ua/DSC_4423_d2d54b0d80.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2025-03-27T09:33:47.171Z",
+      "updated_at": "2025-03-27T09:33:47.181Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Луцьк, просп. Василя Мойсея, 1",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380332284222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "443bf6cb-e894-11eb-9c4a-005056b7b0c0",
+    "order": 200,
+    "express": null,
+    "city": {
+      "id": 9,
+      "name": "Луцьк",
+      "slug": "lutck"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Vending Bar у Lounge Zone"
+        }
+      ]
+    }
+  },
+  {
+    "id": 149,
+    "name": "Динамо",
+    "slug": "dinamo",
+    "lat": 50.451417,
+    "long": 30.53373,
+    "clubSchedule": {
+      "id": 181,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 576,
+          "days": "Пн-Пт",
+          "time": "7:30-22:00"
+        },
+        {
+          "id": 577,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 662,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 663,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21383,
+      "name": "083A6420-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A6420-Edit копия.jpg",
+          "hash": "thumbnail_083_A6420_Edit_kopiya_cdc5b65804",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.74,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A6420_Edit_kopiya_cdc5b65804.jpg"
+        },
+        "medium": {
+          "name": "medium_083A6420-Edit копия.jpg",
+          "hash": "medium_083_A6420_Edit_kopiya_cdc5b65804",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 96.44,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A6420_Edit_kopiya_cdc5b65804.jpg"
+        },
+        "small": {
+          "name": "small_083A6420-Edit копия.jpg",
+          "hash": "small_083_A6420_Edit_kopiya_cdc5b65804",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 47.32,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A6420_Edit_kopiya_cdc5b65804.jpg"
+        }
+      },
+      "hash": "083_A6420_Edit_kopiya_cdc5b65804",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 163.99,
+      "url": "https://r2.sportlife.ua/083_A6420_Edit_kopiya_cdc5b65804.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-09-26T09:29:31.019Z",
+      "updated_at": "2024-10-01T08:05:23.772Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. М. Грушевського, 3",
+    "club_format": "Клуб формату Premium",
+    "hasGenerator": true,
+    "phone": "+380443634222",
+    "closed": false,
+    "presale": true,
+    "allowBuy": false,
+    "gymId": "443bf6c9-e894-11eb-9c4a-005056b7b0c0",
+    "order": 22,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Дитяча ігрова кімната"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Спа-кінотеатр"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 151,
+    "name": "Рівне",
+    "slug": "rovno",
+    "lat": 50.63721,
+    "long": 26.28339,
+    "clubSchedule": {
+      "id": 158,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 432,
+          "days": "Пн-Пт",
+          "time": "7:00-21:30"
+        },
+        {
+          "id": 433,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 434,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 478,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 18418,
+      "name": "Z6N_1623.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 665,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_Z6N_1623.jpg",
+          "hash": "thumbnail_Z6_N_1623_ebcb1933bb",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 235,
+          "height": 156,
+          "size": 8.55,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_Z6_N_1623_ebcb1933bb.jpg"
+        },
+        "medium": {
+          "name": "medium_Z6N_1623.jpg",
+          "hash": "medium_Z6_N_1623_ebcb1933bb",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 499,
+          "size": 62.24,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_Z6_N_1623_ebcb1933bb.jpg"
+        },
+        "small": {
+          "name": "small_Z6N_1623.jpg",
+          "hash": "small_Z6_N_1623_ebcb1933bb",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 30.82,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_Z6_N_1623_ebcb1933bb.jpg"
+        }
+      },
+      "hash": "Z6_N_1623_ebcb1933bb",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 102.5,
+      "url": "https://r2.sportlife.ua/Z6_N_1623_ebcb1933bb.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2022-09-21T15:02:21.594Z",
+      "updated_at": "2022-09-21T15:02:21.607Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Рівненська обл, с. Бармаки, масив Комфортний, 1, БЦ Space4",
+    "club_format": "Клуб формату Premium&Business",
+    "hasGenerator": null,
+    "phone": "+380362461222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "118455f0-206a-11ec-9c4c-005056b7b0c0",
+    "order": 206,
+    "express": null,
+    "city": {
+      "id": 33,
+      "name": "Рівне",
+      "slug": "rovno"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Студія сайклу"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Лазневий комплекс"
+        }
+      ]
+    }
+  },
+  {
+    "id": 153,
+    "name": "Парус",
+    "slug": "lesi-ukrainki",
+    "lat": 50.437563,
+    "long": 30.527399,
+    "clubSchedule": {
+      "id": 142,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 362,
+          "days": "Пн-Пт",
+          "time": "8:00-21:00"
+        },
+        {
+          "id": 363,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 26330,
+      "name": "10107981.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_10107981.jpg",
+          "hash": "thumbnail_10107981_ae28d51034",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 11.53,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_10107981_ae28d51034.jpg"
+        },
+        "medium": {
+          "name": "medium_10107981.jpg",
+          "hash": "medium_10107981_ae28d51034",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 74.91,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_10107981_ae28d51034.jpg"
+        },
+        "small": {
+          "name": "small_10107981.jpg",
+          "hash": "small_10107981_ae28d51034",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 38.97,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_10107981_ae28d51034.jpg"
+        }
+      },
+      "hash": "10107981_ae28d51034",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 118.87,
+      "url": "https://r2.sportlife.ua/10107981_ae28d51034.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2026-05-26T12:59:05.309Z",
+      "updated_at": "2026-05-26T12:59:05.325Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Мечникова, 2а, БЦ «Парус»",
+    "club_format": "Клуб формату Premium",
+    "hasGenerator": null,
+    "phone": "+380443644222",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6cd-e894-11eb-9c4a-005056b7b0c0",
+    "order": 47,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Класична лазня"
+        },
+        {
+          "title": "Lounge Zone"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 155,
+    "name": "Республіка",
+    "slug": "respublika",
+    "lat": 50.3741202665671,
+    "long": 30.447403862270253,
+    "clubSchedule": {
+      "id": 223,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 724,
+          "days": "Пн-Пт ",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 725,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 726,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 727,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 21522,
+      "name": "083A7359-HDR-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A7359-HDR-Edit копия.jpg",
+          "hash": "thumbnail_083_A7359_HDR_Edit_kopiya_89cf4b628f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 11.3,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A7359_HDR_Edit_kopiya_89cf4b628f.jpg"
+        },
+        "medium": {
+          "name": "medium_083A7359-HDR-Edit копия.jpg",
+          "hash": "medium_083_A7359_HDR_Edit_kopiya_89cf4b628f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 80.33,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A7359_HDR_Edit_kopiya_89cf4b628f.jpg"
+        },
+        "small": {
+          "name": "small_083A7359-HDR-Edit копия.jpg",
+          "hash": "small_083_A7359_HDR_Edit_kopiya_89cf4b628f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 39.91,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A7359_HDR_Edit_kopiya_89cf4b628f.jpg"
+        }
+      },
+      "hash": "083_A7359_HDR_Edit_kopiya_89cf4b628f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 136,
+      "url": "https://r2.sportlife.ua/083_A7359_HDR_Edit_kopiya_89cf4b628f.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-10-15T08:54:07.403Z",
+      "updated_at": "2024-10-15T08:54:07.413Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Кільцева дорога, 1, ТРЦ Respublika Park",
+    "club_format": "Клуб формату Premium +",
+    "hasGenerator": null,
+    "phone": "+380443631023",
+    "closed": false,
+    "presale": true,
+    "allowBuy": true,
+    "gymId": "60ebb375-67f2-11ec-8c66-00505601480f",
+    "order": 92,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейни"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Лазневий комплекс"
+        }
+      ]
+    }
+  },
+  {
+    "id": 157,
+    "name": "Буча",
+    "slug": "bucha",
+    "lat": 50.54693,
+    "long": 30.19363,
+    "clubSchedule": {
+      "id": 149,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 374,
+          "days": "Пн-Пт",
+          "time": "8:00-21:00"
+        },
+        {
+          "id": 443,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 18480,
+      "name": "IMG_0757-HDR.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_IMG_0757-HDR.jpg",
+          "hash": "thumbnail_IMG_0757_HDR_0b60404fee",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 9.28,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_IMG_0757_HDR_0b60404fee.jpg"
+        },
+        "medium": {
+          "name": "medium_IMG_0757-HDR.jpg",
+          "hash": "medium_IMG_0757_HDR_0b60404fee",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 64.64,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_IMG_0757_HDR_0b60404fee.jpg"
+        },
+        "small": {
+          "name": "small_IMG_0757-HDR.jpg",
+          "hash": "small_IMG_0757_HDR_0b60404fee",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 32.68,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_IMG_0757_HDR_0b60404fee.jpg"
+        }
+      },
+      "hash": "IMG_0757_HDR_0b60404fee",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 105.61,
+      "url": "https://r2.sportlife.ua/IMG_0757_HDR_0b60404fee.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2022-11-02T09:22:32.183Z",
+      "updated_at": "2022-11-02T09:22:32.194Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Буча, вул. Нове Шосе, 52, ТЦ Retail Park Bucha",
+    "club_format": "Клуб формату Express",
+    "hasGenerator": null,
+    "phone": "+380442907730",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "349e63ec-72e8-11ec-8c6b-00505601475c",
+    "order": 3,
+    "express": false,
+    "city": {
+      "id": 35,
+      "name": "Буча",
+      "slug": "bucha"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Масажні кабінети"
+        },
+        {
+          "title": "Vending Bar"
+        },
+        {
+          "title": "Роздягальня"
+        }
+      ]
+    }
+  },
+  {
+    "id": 159,
+    "name": "Деміївська",
+    "slug": "demeevskaia",
+    "lat": 50.402709,
+    "long": 30.51129,
+    "clubSchedule": {
+      "id": 150,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 382,
+          "days": "Пн-Пт",
+          "time": "7:30-22:00"
+        },
+        {
+          "id": 383,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 384,
+          "days": "Пн-Пт",
+          "time": "10:00-21:00"
+        },
+        {
+          "id": 476,
+          "days": "Сб-Нд",
+          "time": "10:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 18757,
+      "name": "IMG_23222.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_IMG_23222.jpg",
+          "hash": "thumbnail_IMG_23222_a5b6acc666",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.96,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_IMG_23222_a5b6acc666.jpg"
+        },
+        "medium": {
+          "name": "medium_IMG_23222.jpg",
+          "hash": "medium_IMG_23222_a5b6acc666",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 107.07,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_IMG_23222_a5b6acc666.jpg"
+        },
+        "small": {
+          "name": "small_IMG_23222.jpg",
+          "hash": "small_IMG_23222_a5b6acc666",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 50.97,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_IMG_23222_a5b6acc666.jpg"
+        }
+      },
+      "hash": "IMG_23222_a5b6acc666",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 182.41,
+      "url": "https://r2.sportlife.ua/IMG_23222_a5b6acc666.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2023-02-13T09:25:34.822Z",
+      "updated_at": "2023-06-13T12:56:16.073Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Деміївська, 31,  ЖК Park Avenue VIP",
+    "club_format": "Клуб формату Lux",
+    "hasGenerator": null,
+    "phone": "+380443630360",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6e0-e894-11eb-9c4a-005056b7b0c0",
+    "order": 21,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейни"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Дитячий басейн"
+        },
+        {
+          "title": "Дитяча фітнес-академія"
+        },
+        {
+          "title": "Басейн для немовлят"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Lobby Bar"
+        }
+      ]
+    }
+  },
+  {
+    "id": 163,
+    "name": "IQ Business-Center",
+    "slug": "iq-bc",
+    "lat": 50.421709,
+    "long": 30.553407,
+    "clubSchedule": {
+      "id": 154,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 392,
+          "days": "Пн-Пт",
+          "time": "7:30-22:00"
+        },
+        {
+          "id": 393,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 19281,
+      "name": "083A1470-редакт.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A1470-редакт.jpg",
+          "hash": "thumbnail_083_A1470_redakt_6b93332f11",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 7.63,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A1470_redakt_6b93332f11.jpg"
+        },
+        "medium": {
+          "name": "medium_083A1470-редакт.jpg",
+          "hash": "medium_083_A1470_redakt_6b93332f11",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 50.25,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A1470_redakt_6b93332f11.jpg"
+        },
+        "small": {
+          "name": "small_083A1470-редакт.jpg",
+          "hash": "small_083_A1470_redakt_6b93332f11",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 25.57,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A1470_redakt_6b93332f11.jpg"
+        }
+      },
+      "hash": "083_A1470_redakt_6b93332f11",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 82.4,
+      "url": "https://r2.sportlife.ua/083_A1470_redakt_6b93332f11.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2023-07-19T06:55:30.048Z",
+      "updated_at": "2023-07-26T11:20:49.173Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Болсуновська, 13-15,  БЦ IQ Business-Center",
+    "club_format": "Клуб формату Lux",
+    "hasGenerator": null,
+    "phone": "+380443644575",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6c2-e894-11eb-9c4a-005056b7b0c0",
+    "order": 31,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Літня SPA-тераса з басейном"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Лаунж-зона"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Роздягальні"
+        },
+        {
+          "title": "Lobby Bar "
+        }
+      ]
+    }
+  },
+  {
+    "id": 165,
+    "name": "Печерськ",
+    "slug": "pechersk",
+    "lat": 50.407371,
+    "long": 30.554952,
+    "clubSchedule": {
+      "id": 156,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 397,
+          "days": "Пн-Пт",
+          "time": "7:30-22:00"
+        },
+        {
+          "id": 398,
+          "days": "Сб-Нд",
+          "time": "9:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 26178,
+      "name": "DSC06565.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_DSC06565.jpg",
+          "hash": "thumbnail_DSC_06565_ecff78b51d",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.8,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_DSC_06565_ecff78b51d.jpg"
+        },
+        "medium": {
+          "name": "medium_DSC06565.jpg",
+          "hash": "medium_DSC_06565_ecff78b51d",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 91.57,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_DSC_06565_ecff78b51d.jpg"
+        },
+        "small": {
+          "name": "small_DSC06565.jpg",
+          "hash": "small_DSC_06565_ecff78b51d",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 45.55,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_DSC_06565_ecff78b51d.jpg"
+        }
+      },
+      "hash": "DSC_06565_ecff78b51d",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 153.17,
+      "url": "https://r2.sportlife.ua/DSC_06565_ecff78b51d.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2026-05-11T10:16:58.201Z",
+      "updated_at": "2026-05-11T10:16:58.212Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Звіринецька, 59,  ЖК «Тріумф»",
+    "club_format": "Клуб формату Lux",
+    "hasGenerator": null,
+    "phone": "+380445859909",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "443bf6a0-e894-11eb-9c4a-005056b7b0c0",
+    "order": 71,
+    "express": null,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Басейн"
+        },
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Студія боксу"
+        },
+        {
+          "title": "Лазневий комплекс"
+        },
+        {
+          "title": "Lounge&SPA"
+        },
+        {
+          "title": "Дитячий фітнес"
+        },
+        {
+          "title": "Басейн для немовлят"
+        }
+      ]
+    }
+  },
+  {
+    "id": 171,
+    "name": "Академмістечко",
+    "slug": "akademmistechko",
+    "lat": 50.46913,
+    "long": 30.33614,
+    "clubSchedule": {
+      "id": 166,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 530,
+          "days": "Пн-Пт",
+          "time": "08:00-21:00"
+        },
+        {
+          "id": 531,
+          "days": "Сб-Нд",
+          "time": "09:00-20:00"
+        }
+      ],
+      "childClubWorkDays": []
+    },
+    "image": {
+      "id": 19964,
+      "name": "083A3415-Улучшено-Ум. шума-Edit копия.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1000,
+      "height": 667,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_083A3415-Улучшено-Ум. шума-Edit копия.jpg",
+          "hash": "thumbnail_083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 234,
+          "height": 156,
+          "size": 12.43,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca.jpg"
+        },
+        "medium": {
+          "name": "medium_083A3415-Улучшено-Ум. шума-Edit копия.jpg",
+          "hash": "medium_083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 89.49,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca.jpg"
+        },
+        "small": {
+          "name": "small_083A3415-Улучшено-Ум. шума-Edit копия.jpg",
+          "hash": "small_083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 334,
+          "size": 45.22,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca.jpg"
+        }
+      },
+      "hash": "083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 148.14,
+      "url": "https://r2.sportlife.ua/083_A3415_Uluchsheno_Um_shuma_Edit_kopiya_c88a62beca.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2024-02-29T09:19:56.443Z",
+      "updated_at": "2024-02-29T09:19:56.449Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "Київ, вул. Булаховського, 3а, ТЦ Regina",
+    "club_format": "Клуб формату Express",
+    "hasGenerator": null,
+    "phone": "+380442221030",
+    "closed": false,
+    "presale": null,
+    "allowBuy": false,
+    "gymId": "f2571360-248e-11ee-8c85-00505601475c",
+    "order": 1,
+    "express": false,
+    "city": {
+      "id": 1,
+      "name": "Київ",
+      "slug": "kiev"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Кардіотеатр"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Студія групових програм"
+        },
+        {
+          "title": "Vending bar"
+        },
+        {
+          "title": "Роздягальні"
+        }
+      ]
+    }
+  },
+  {
+    "id": 177,
+    "name": "Антоновича",
+    "slug": "antonovicha",
+    "lat": 49.82761,
+    "long": 23.99266,
+    "clubSchedule": {
+      "id": 225,
+      "clubWorkTItle": null,
+      "childClubTitle": null,
+      "clubWorkDays": [
+        {
+          "id": 744,
+          "days": "Пн-Пт",
+          "time": "7:00-22:00"
+        },
+        {
+          "id": 745,
+          "days": "Сб-Нд",
+          "time": "9:00-21:00"
+        }
+      ],
+      "childClubWorkDays": [
+        {
+          "id": 746,
+          "days": "Пн-Пт",
+          "time": "10:00-20:00"
+        },
+        {
+          "id": 747,
+          "days": "Сб-Нд",
+          "time": "09:00-19:00"
+        }
+      ]
+    },
+    "image": {
+      "id": 25141,
+      "name": "IMG_9110_81f71faf6d.jpg",
+      "alternativetext": null,
+      "caption": "",
+      "width": 1600,
+      "height": 1067,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_IMG_9110_81f71faf6d.jpg",
+          "hash": "thumbnail_IMG_9110_81f71faf6d_1f8f1f91fe",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 235,
+          "height": 156,
+          "size": 10.36,
+          "path": null,
+          "url": "https://r2.sportlife.ua/thumbnail_IMG_9110_81f71faf6d_1f8f1f91fe.jpg"
+        },
+        "large": {
+          "name": "large_IMG_9110_81f71faf6d.jpg",
+          "hash": "large_IMG_9110_81f71faf6d_1f8f1f91fe",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 1000,
+          "height": 667,
+          "size": 118.38,
+          "path": null,
+          "url": "https://r2.sportlife.ua/large_IMG_9110_81f71faf6d_1f8f1f91fe.jpg"
+        },
+        "medium": {
+          "name": "medium_IMG_9110_81f71faf6d.jpg",
+          "hash": "medium_IMG_9110_81f71faf6d_1f8f1f91fe",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 750,
+          "height": 500,
+          "size": 72.55,
+          "path": null,
+          "url": "https://r2.sportlife.ua/medium_IMG_9110_81f71faf6d_1f8f1f91fe.jpg"
+        },
+        "small": {
+          "name": "small_IMG_9110_81f71faf6d.jpg",
+          "hash": "small_IMG_9110_81f71faf6d_1f8f1f91fe",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 333,
+          "size": 36.27,
+          "path": null,
+          "url": "https://r2.sportlife.ua/small_IMG_9110_81f71faf6d_1f8f1f91fe.jpg"
+        }
+      },
+      "hash": "IMG_9110_81f71faf6d_1f8f1f91fe",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 274.49,
+      "url": "https://r2.sportlife.ua/IMG_9110_81f71faf6d_1f8f1f91fe.jpg",
+      "previewurl": null,
+      "provider": "cf-r2",
+      "provider_metadata": null,
+      "created_at": "2025-12-17T11:16:28.840Z",
+      "updated_at": "2025-12-17T11:16:28.853Z",
+      "alternativeText_1": null,
+      "previewUrl_1": null,
+      "alternativeText": "",
+      "previewUrl": null,
+      "alternativetext_1": null,
+      "previewurl_1": null
+    },
+    "address": "м. Львів, вул. Антоновича, 120, БЦ «Вертикаль»",
+    "club_format": "Клуб формату Express",
+    "hasGenerator": null,
+    "phone": "+380322267998",
+    "closed": true,
+    "presale": null,
+    "allowBuy": true,
+    "gymId": "c6657d4f-a047-11f0-8c95-00505601475c",
+    "order": 124,
+    "express": null,
+    "city": {
+      "id": 2,
+      "name": "Львів",
+      "slug": "lvov"
+    },
+    "services": {
+      "label": "Популярні послуги",
+      "title": "Головні переваги",
+      "service": [
+        {
+          "title": "Тренажерний зал"
+        },
+        {
+          "title": "Студії групових програм"
+        },
+        {
+          "title": "Street Fit Zone"
+        },
+        {
+          "title": "Vending Bar"
+        }
+      ]
+    }
+  }
+]

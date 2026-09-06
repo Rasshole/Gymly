@@ -1,0 +1,83 @@
+{
+  "country": "Luxembourg",
+  "phase": 2,
+  "as_of": "2026-08-25",
+  "pair": {
+    "basic_fit": {
+      "id": "lu_dc1931d263",
+      "name": "Basic-Fit Foetz",
+      "address": "Rue du Brill 11",
+      "postal_code": "3898",
+      "lat": 49.5239,
+      "lng": 6.00483,
+      "coord_source": "OFFICIAL_CLUB_GEO",
+      "phone": "+352 20 22 51 72",
+      "hours": "24/7",
+      "status": "OPEN",
+      "size_claim_m2": 2625,
+      "source_url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-foetz-rue-du-brill-24-7-6dfe04f93d9e4060b307774c5c022e20.html"
+    },
+    "jims": {
+      "id": "lu_7bf8591421",
+      "name": "JIMS Foetz",
+      "address": "Rue du Brill 11",
+      "postal_code": "3898",
+      "lat": null,
+      "lng": null,
+      "phone": "+352 27 69 41 88",
+      "email": "foetz@jims.lu",
+      "hours": "Mon-Fri 06:00-22:00; Sat-Sun 09:00-17:00 (when open)",
+      "status": "COMING_SOON_RENOVATION",
+      "reopen_date": "2026-09-07",
+      "reopen_display": "07/09",
+      "source_url": "https://www.jims.lu/en/clubs/jims-foetz"
+    }
+  },
+  "questions": {
+    "1_basic_fit_currently_open": true,
+    "2_jims_reopening_same_premises_as_basic_fit": false,
+    "3_basic_fit_closing_or_rebranding": false,
+    "4_different_units_same_complex": true,
+    "5_official_map_pins_materially_differ": "Basic-Fit official geo 49.5239,6.00483; JIMS Foetz has no public OSM pin (renovating). Shared street text only — not proof of identical unit.",
+    "6_can_both_operate_simultaneously": true,
+    "7_correct_consumer_identity_now": "Basic-Fit Foetz OPEN; JIMS Foetz renovating until 07/09/2026",
+    "8_what_production_should_contain_today": "Basic-Fit Foetz only (READY). JIMS Foetz COMING_SOON — not yet operating."
+  },
+  "classification": "A_distinct_same_complex",
+  "alt_classification": "D_same_address_different_units",
+  "production_decision": "CASE_A_TWO_LEGITIMATE_CURRENT_PHYSICAL_CLUBS",
+  "rationale": [
+    "Both operators independently list Rue/Route du Brill 11, Foetz 3898",
+    "Foetz commercial / Am Brill / Cora zone commonly shares street numbers across units",
+    "Distinct phones: Basic-Fit +352 20 22 51 72 vs JIMS +352 27 69 41 88",
+    "Distinct email/domain: foetz@jims.lu vs basic-fit.com",
+    "Distinct operating models: Basic-Fit 24/7 low-cost vs JIMS staffed premium/cubes",
+    "Basic-Fit club page shows live membership + today's group classes — currently open",
+    "JIMS clubs list + Foetz page banner: We're renovating - reopening 07/09",
+    "No official rebrand/takeover announcement linking Basic-Fit Foetz to JIMS Foetz",
+    "Competing brands both marketing Foetz as their own consumer identity"
+  ],
+  "coord_upgrade": {
+    "id": "lu_dc1931d263",
+    "before": {
+      "lat": 49.5205956,
+      "lng": 6.0081746,
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    "after": {
+      "lat": 49.5239,
+      "lng": 6.00483,
+      "coord_source": "OFFICIAL_CLUB_GEO"
+    },
+    "distance_m_from_phase1_geocode": 439.6,
+    "notes": "Prefer official club-page GeoCoordinates over address geocode"
+  },
+  "merge_implication": "Keep Basic-Fit Foetz READY. Keep JIMS Foetz COMING_SOON until actually open. When JIMS reopens, both may coexist — not a predecessor/successor pair.",
+  "evidence_files": [
+    "raw/pages/phase2/basicfit_foetz.html",
+    "raw/pages/phase2/jims_foetz.html",
+    "raw/pages/phase2/jims_clubs.html",
+    "phase2/basicfit_foetz_ldjson.json",
+    "phase2/foetz_overpass.json"
+  ]
+}

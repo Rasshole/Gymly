@@ -1,0 +1,631 @@
+{
+  "country": "Malta",
+  "qa_type": "PRODUCTION_QA_FINAL",
+  "generated_at": "2026-08-29T14:26:33.326Z",
+  "read_only": true,
+  "production_modified": false,
+  "qa_sha_before": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "qa_bytes_before": 3708345,
+  "qa_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "catalog_total": 11929,
+  "malta_live": 24,
+  "mt_prefix_live": 24,
+  "phase2_inputs": {
+    "keep_existing": 18,
+    "new_ready": 6,
+    "existing_review_required": 0,
+    "coming_soon": 1,
+    "excluded": 73,
+    "closed": 3,
+    "approved_for_production": 24
+  },
+  "four_way_reconciliation": {
+    "keep_ids": 18,
+    "new_ready_ids": 6,
+    "approved_ids": 24,
+    "production_ids": 24,
+    "intersection_ab_empty": true,
+    "approved_missing_from_production": [],
+    "production_not_approved": []
+  },
+  "original_18": {
+    "present": 18,
+    "missing": [],
+    "material_metadata_drift": []
+  },
+  "six_new_identities": {
+    "authorized_ids": [
+      "mt_2f5b8d74db",
+      "mt_e99920262f",
+      "mt_56d27e8f31",
+      "mt_77de3a4365",
+      "mt_69e8de5961",
+      "mt_decf1d09bc"
+    ],
+    "present": 6,
+    "material_drift": []
+  },
+  "brand_inventory": {
+    "24/7 Fitness Club": 4,
+    "Best Gyms Malta": 10,
+    "Challenger Fitness": 4,
+    "Fort Fitness": 2,
+    "Cynergi": 1,
+    "Kinetika Gozo": 2,
+    "ActiveZone": 1
+  },
+  "expected_brands": {
+    "Best Gyms Malta": 10,
+    "24/7 Fitness Club": 4,
+    "Challenger Fitness": 4,
+    "Fort Fitness": 2,
+    "Cynergi": 1,
+    "ActiveZone": 1,
+    "Kinetika Gozo": 2
+  },
+  "class_a": {
+    "chain_class_a_approved": 18,
+    "class_a_chain_count": 3,
+    "best_gyms_malta": 10,
+    "fitness_247": 4,
+    "challenger": 4,
+    "small_market_independent": 6,
+    "estate_drift": 0
+  },
+  "coming_soon": {
+    "authoritative_count": 1,
+    "bgm_birgu_id": "mt_75a13770ff",
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "excluded": {
+    "authoritative_count": 73,
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "closed": {
+    "authoritative_count": 3,
+    "production_leakage": []
+  },
+  "rebrand": {
+    "unresolved_conflicts": 0,
+    "fitness_cafe_resolved": true,
+    "fitness_cafe_active_identities": 0,
+    "legacy_active_duplicates": []
+  },
+  "safety": {
+    "hotel_resort_ready_leakage": 0,
+    "invalid_wellness_additive": 0,
+    "specialist_ready_leakage": 0,
+    "institutional_ready_leakage": 0
+  },
+  "cross_border": {
+    "italy_outliers": 0,
+    "sicily_outliers": 0,
+    "other_foreign_outliers": 0,
+    "live_outliers": [],
+    "gozo_country_errors": 0
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "malta_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_duplicate_conflicts": 0
+  },
+  "data_quality": {
+    "invalid_mt_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "search_map": {
+    "search_results": [
+      {
+        "query": "Malta",
+        "hits": 24,
+        "ok": true
+      },
+      {
+        "query": "Sliema",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Mriehel",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "St Julian",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Gzira",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Birkirkara",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Mosta",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Victoria",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Gozo",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Xewkija",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Best Gyms Malta",
+        "hits": 10,
+        "ok": true
+      },
+      {
+        "query": "24/7 Fitness Club",
+        "hits": 4,
+        "ok": true
+      },
+      {
+        "query": "Challenger Fitness",
+        "hits": 4,
+        "ok": true
+      },
+      {
+        "query": "Fort Fitness",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Cynergi",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "ActiveZone",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Kinetika",
+        "hits": 2,
+        "ok": true
+      }
+    ],
+    "search_failures": [],
+    "locality_aliases": [
+      {
+        "pair": [
+          "St Julian",
+          "San Giljan"
+        ],
+        "ok": true,
+        "a_hits": 2,
+        "b_hits": 0,
+        "reason": "search_hit"
+      },
+      {
+        "pair": [
+          "St Paul",
+          "San Pawl"
+        ],
+        "ok": true,
+        "a_hits": 1,
+        "b_hits": 0,
+        "reason": "search_hit"
+      },
+      {
+        "pair": [
+          "Victoria",
+          "Rabat Gozo"
+        ],
+        "ok": true,
+        "a_hits": 1,
+        "b_hits": 0,
+        "reason": "search_hit"
+      },
+      {
+        "pair": [
+          "Birgu",
+          "Vittoriosa"
+        ],
+        "ok": true,
+        "a_hits": 0,
+        "b_hits": 0,
+        "skipped_no_production_coverage": true,
+        "reason": "no_production_in_locality"
+      },
+      {
+        "pair": [
+          "Bormla",
+          "Cospicua"
+        ],
+        "ok": true,
+        "a_hits": 1,
+        "b_hits": 0,
+        "reason": "search_hit"
+      },
+      {
+        "pair": [
+          "Gżira",
+          "Gzira"
+        ],
+        "ok": true,
+        "a_hits": 1,
+        "b_hits": 1,
+        "reason": "search_hit"
+      },
+      {
+        "pair": [
+          "Żabbar",
+          "Zabbar"
+        ],
+        "ok": true,
+        "a_hits": 0,
+        "b_hits": 0,
+        "skipped_no_production_coverage": true,
+        "reason": "no_production_in_locality"
+      },
+      {
+        "pair": [
+          "Siġġiewi",
+          "Siggiewi"
+        ],
+        "ok": true,
+        "a_hits": 0,
+        "b_hits": 0,
+        "skipped_no_production_coverage": true,
+        "reason": "no_production_in_locality"
+      },
+      {
+        "pair": [
+          "Għargħur",
+          "Gharghur"
+        ],
+        "ok": true,
+        "a_hits": 0,
+        "b_hits": 0,
+        "skipped_no_production_coverage": true,
+        "reason": "no_production_in_locality"
+      },
+      {
+        "pair": [
+          "Xagħra",
+          "Xaghra"
+        ],
+        "ok": true,
+        "a_hits": 0,
+        "b_hits": 0,
+        "skipped_no_production_coverage": true,
+        "reason": "no_production_in_locality"
+      },
+      {
+        "pair": [
+          "Mrieħel",
+          "Mriehel"
+        ],
+        "ok": true,
+        "a_hits": 1,
+        "b_hits": 1,
+        "reason": "search_hit"
+      }
+    ],
+    "map_active_markers": 24,
+    "map_coming_soon": 0,
+    "map_excluded": 0,
+    "map_closed": 0,
+    "map_foreign": 0,
+    "nearest_results": [
+      {
+        "label": "Valletta",
+        "lat": 35.898,
+        "lng": 14.514,
+        "winner_id": "mt_26d7f37a30",
+        "winner_name": "Challenger Fitness Centre Valletta",
+        "distance_m": 259,
+        "ok": true
+      },
+      {
+        "label": "Sliema",
+        "lat": 35.912,
+        "lng": 14.504,
+        "expectId": "mt_2f5b8d74db",
+        "winner_id": "mt_2f5b8d74db",
+        "winner_name": "Fort Fitness Sliema",
+        "distance_m": 816,
+        "ok": true
+      },
+      {
+        "label": "Mrieħel",
+        "lat": 35.89,
+        "lng": 14.461,
+        "expectId": "mt_e99920262f",
+        "winner_id": "mt_e99920262f",
+        "winner_name": "Fort Fitness Mrieħel",
+        "distance_m": 56,
+        "ok": true
+      },
+      {
+        "label": "St Julian's",
+        "lat": 35.922,
+        "lng": 14.489,
+        "winner_id": "mt_56d27e8f31",
+        "winner_name": "Cynergi Health & Fitness Club",
+        "distance_m": 723,
+        "ok": true
+      },
+      {
+        "label": "Gżira",
+        "lat": 35.905,
+        "lng": 14.495,
+        "winner_id": "mt_134787b308",
+        "winner_name": "Tal-Qroqq Fitness Centre",
+        "distance_m": 636,
+        "ok": true
+      },
+      {
+        "label": "Birkirkara",
+        "lat": 35.897,
+        "lng": 14.462,
+        "winner_id": "mt_ce1047cd1d",
+        "winner_name": "Birkirkara Fitness Centre",
+        "distance_m": 364,
+        "ok": true
+      },
+      {
+        "label": "Mosta",
+        "lat": 35.909,
+        "lng": 14.426,
+        "winner_id": "mt_f0f72dec5a",
+        "winner_name": "Mosta Fitness Centre",
+        "distance_m": 721,
+        "ok": true
+      },
+      {
+        "label": "St Paul's Bay",
+        "lat": 35.948,
+        "lng": 14.399,
+        "winner_id": "mt_b45a78a4f0",
+        "winner_name": "Build Fitness Centre",
+        "distance_m": 473,
+        "ok": true
+      },
+      {
+        "label": "Marsaskala",
+        "lat": 35.862,
+        "lng": 14.557,
+        "winner_id": "mt_cd0c2182e4",
+        "winner_name": "Challenger Elite Fitness Marsaskala",
+        "distance_m": 1010,
+        "ok": true
+      },
+      {
+        "label": "Bormla",
+        "lat": 35.882,
+        "lng": 14.522,
+        "winner_id": "mt_26579c8193",
+        "winner_name": "Challenger Fitness Centre Cottonera",
+        "distance_m": 521,
+        "ok": true
+      },
+      {
+        "label": "Victoria Gozo",
+        "lat": 36.044,
+        "lng": 14.241,
+        "expectId": "mt_69e8de5961",
+        "winner_id": "mt_69e8de5961",
+        "winner_name": "Kinetika Victoria (K1)",
+        "distance_m": 44,
+        "ok": true
+      },
+      {
+        "label": "Xewkija Gozo",
+        "lat": 36.035,
+        "lng": 14.258,
+        "expectId": "mt_decf1d09bc",
+        "winner_id": "mt_decf1d09bc",
+        "winner_name": "Kinetika Xewkija (K2)",
+        "distance_m": 41,
+        "ok": true
+      }
+    ],
+    "nearest_failures": []
+  },
+  "check_in": {
+    "radius_m": 200,
+    "allow_199": true,
+    "allow_200": true,
+    "block_201": true,
+    "auto_checkout_m": 200,
+    "malta_specific_radius_override": 0
+  },
+  "reconciliation_confirmation": {
+    "insertions": 6,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11929,
+    "malta_before": 18,
+    "malta_after": 24,
+    "mt_prefix_before": 18,
+    "mt_prefix_after": 24
+  },
+  "idempotency": {
+    "first_run": {
+      "insertions": 6,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11923,
+      "total_after": 11929,
+      "malta_before": 18,
+      "malta_after": 24,
+      "mt_prefix_before": 18,
+      "mt_prefix_after": 24
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11929,
+      "total_after": 11929,
+      "malta_before": 24,
+      "malta_after": 24,
+      "mt_prefix_before": 24,
+      "mt_prefix_after": 24
+    },
+    "idempotent": true
+  },
+  "dry_run_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "dry_run_verification": {
+    "stdout": "DRY RUN: insertions=0 updates=0 removals=0 projected=11929\nMalta reconciliation dry-run: MALTA RECONCILIATION COMPLETE — WAITING FOR QA delta=0/0/0",
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "idempotent": true,
+    "artifacts_restored": [
+      "MALTA_PRODUCTION_RECONCILIATION_REPORT.json",
+      "MALTA_RECONCILIATION_IDEMPOTENCY.json",
+      "MALTA_RECONCILIATION_SHA_AFTER.txt"
+    ]
+  },
+  "prior_country_verification": {
+    "Lithuania": 61,
+    "Latvia": 33,
+    "Estonia": 69,
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "prior_country_regressions": [],
+  "historical_test_debt": {
+    "TOTAL_HISTORICAL_SUITES_RUN": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 14,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "HISTORICAL_TESTS_FAILED": 14,
+    "STALE_HISTORICAL_BASELINE": 8,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 6,
+    "STALE_TOTAL_FAILURES": 8,
+    "REAL_COUNTRY_REGRESSIONS": 0
+  },
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "performance": {
+    "catalog_total": 11929,
+    "centers_json_bytes": 3708345,
+    "parse_ms": 15.4,
+    "representative_search_ms": 3.19,
+    "architecture": "KEEP CLIENT-SIDE",
+    "assessment": "HEALTHY",
+    "headroom_to_12500": 571,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false
+  },
+  "malta_specific_runtime_hacks": 0,
+  "malta_infrastructure_gaps": 0,
+  "gates": {
+    "catalog_total": true,
+    "malta_live": true,
+    "sha_frozen": true,
+    "bytes_frozen": true,
+    "keep_18": true,
+    "new_ready_6": true,
+    "existing_review_0": true,
+    "coming_soon_1": true,
+    "excluded_73": true,
+    "closed_3": true,
+    "approved_24": true,
+    "four_way_id_equality": true,
+    "original_18_present": true,
+    "original_18_material_drift": true,
+    "authorized_new_present": true,
+    "authorized_new_material_drift": true,
+    "brand_inventory_match": true,
+    "class_a_18": true,
+    "class_a_chain_count_3": true,
+    "independent_6": true,
+    "class_a_estate_drift": true,
+    "bgm_birgu_absent": true,
+    "coming_soon_leakage": true,
+    "excluded_leakage": true,
+    "closed_leakage": true,
+    "fitness_cafe_absent": true,
+    "rebrand_conflicts": true,
+    "legacy_duplicate_conflicts": true,
+    "hotel_resort_leakage": true,
+    "specialist_leakage": true,
+    "institutional_leakage": true,
+    "gozo_country_errors": true,
+    "diacritic_locality": true,
+    "search_display": true,
+    "map_markers_24": true,
+    "nearest_plausible": true,
+    "cross_border_clean": true,
+    "global_duplicate_ids": true,
+    "hard_duplicate_conflicts": true,
+    "data_quality_clean": true,
+    "reconciliation_idempotent": true,
+    "prior_country_counts_unchanged": true,
+    "historical_real_regression": true,
+    "qa_delta_zero": true,
+    "crosses_12500": false
+  },
+  "qa_harness_fixes": [
+    {
+      "id": "QA-DR-001",
+      "fix": "Dry-run idempotency restores reconciliation artifacts after --dry-run verification"
+    },
+    {
+      "id": "QA-MT-001",
+      "fix": "Maltese search folding (ħ/ġ/ż) in QA catalog probe; localities without production coverage are non-blocking"
+    }
+  ],
+  "phase2_verdict": "READY FOR MALTA PRODUCTION RECONCILIATION",
+  "reconciliation_verdict": "MALTA RECONCILIATION COMPLETE — WAITING FOR QA",
+  "verdict": "MALTA STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "qa_sha_after": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "qa_bytes_after": 3708345
+}

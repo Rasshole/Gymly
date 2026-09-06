@@ -1,0 +1,154 @@
+[
+  {
+    "url": "https://agefriendlyireland.ie/businesses/aura-dundalk-leisure-centre/",
+    "eirs": [
+      "A91 YW90",
+      "C15 Y291"
+    ],
+    "ctx": [
+      " Address: St. Alphonsus Road, Dundalk Eircode: A91 YW90 Directions: Find On Map Website:",
+      " Shared Service Centre Meath County Council Buvinda House Navan, Co.Meath C15 Y291 Contact Us Call 046 9032170 Email *protected email* "
+    ]
+  },
+  {
+    "url": "https://agefriendlyireland.ie/?s=Aura+Leisure",
+    "eirs": [
+      "C15 Y291"
+    ],
+    "ctx": [
+      " Shared Service Centre Meath County Council Buvinda House Navan, Co.Meath C15 Y291 Contact Us Call 046 9032170 Email *protected email* "
+    ]
+  },
+  {
+    "url": "https://www.ashleaf.ie/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.ashleaf.ie/contact/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.northsidesc.ie/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.northsidesc.ie/contact/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.airsideretailpark.ie/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://thecampus.ie/",
+    "eirs": [],
+    "ctx": []
+  },
+  {
+    "url": "https://thecampus.ie/contact/",
+    "eirs": [],
+    "ctx": []
+  },
+  {
+    "url": "https://bdgyms.com/contact/",
+    "eirs": [
+      "A52 EF9E",
+      "A77 CCFC",
+      "D38 1A35",
+      "D80 A970",
+      "E72 002C"
+    ],
+    "ctx": []
+  },
+  {
+    "url": "https://bdgyms.com/cherrywood/",
+    "eirs": [
+      "A52 EF9E",
+      "A53 4010",
+      "A77 CCFC",
+      "A82 19FD",
+      "A85 E17D",
+      "C20 EEF5",
+      "C43 45DF",
+      "D22 D681",
+      "D38 5502",
+      "D80 A970",
+      "D94 FC16",
+      "E83 A57E",
+      "E89 C3DD",
+      "E98 9521",
+      "F33 1F73",
+      "F90 0173"
+    ],
+    "ctx": []
+  },
+  {
+    "url": "https://www.anytimefitness.com/en-ie/locations/kilnamanagh-dublin-uk-0485",
+    "eirs": [],
+    "ctx": []
+  },
+  {
+    "url": "https://www.flyefit.ie/gyms/blanchardstown/",
+    "eirs": [
+      "D08 K188"
+    ],
+    "ctx": [
+      "ITED \u00a9 Copyright 2021 All Rights Reserved 8-10 Harrington Street, Dublin 8 D08K188. Registered in Ireland Company. No . 647114. VAT No. 3603717NH "
+    ]
+  },
+  {
+    "url": "https://www.flyefit.ie/gyms/crumlin/",
+    "eirs": [
+      "D08 K188"
+    ],
+    "ctx": [
+      "ITED \u00a9 Copyright 2021 All Rights Reserved 8-10 Harrington Street, Dublin 8 D08K188. Registered in Ireland Company. No . 647114. VAT No. 3603717NH "
+    ]
+  },
+  {
+    "url": "https://www.flyefit.ie/gyms/northside/",
+    "eirs": [
+      "D08 K188"
+    ],
+    "ctx": [
+      "ITED \u00a9 Copyright 2021 All Rights Reserved 8-10 Harrington Street, Dublin 8 D08K188. Registered in Ireland Company. No . 647114. VAT No. 3603717NH "
+    ]
+  },
+  {
+    "url": "https://www.flyefit.ie/gyms/swords/",
+    "eirs": [
+      "D08 K188"
+    ],
+    "ctx": [
+      "ITED \u00a9 Copyright 2021 All Rights Reserved 8-10 Harrington Street, Dublin 8 D08K188. Registered in Ireland Company. No . 647114. VAT No. 3603717NH "
+    ]
+  },
+  {
+    "url": "https://www.flyefit.ie/gyms/tallaght/",
+    "eirs": [
+      "D08 K188"
+    ],
+    "ctx": [
+      "ITED \u00a9 Copyright 2021 All Rights Reserved 8-10 Harrington Street, Dublin 8 D08K188. Registered in Ireland Company. No . 647114. VAT No. 3603717NH "
+    ]
+  },
+  {
+    "url": "https://www.meath.ie/aura-leisurelink-navan",
+    "error": "<urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)>"
+  },
+  {
+    "url": "https://www.meath.ie/services/sports-and-recreation/leisure-centres",
+    "error": "<urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)>"
+  },
+  {
+    "url": "https://www.limerick.ie/council/services/leisure/grove-island-leisure-centre",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://www.donegalcoco.ie/",
+    "eirs": [
+      "P77 36DW"
+    ],
+    "ctx": []
+  }
+]

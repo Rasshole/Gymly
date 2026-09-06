@@ -17,7 +17,6 @@ import {
   Platform,
 } from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {ComposeMessageFab} from '@/components/messages/ComposeMessageFab';
 import {useChatStore, Chat, ChatMessage} from '@/store/chatStore';
@@ -27,8 +26,10 @@ import {isDemoContentMode} from '@/demo/demoContentGate';
 import {getInitialChats, getInitialMessages} from '@/services/data';
 import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
 import {sortChatsByLastActivity} from '@/utils/chatListSort';
+import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {useFormatRelativeTime} from '@/hooks/useFormatRelativeTime';
+import {useOptionalBottomTabBarHeight} from '@/hooks/useOptionalBottomTabBarHeight';
 import {useTranslation} from '@/i18n';
 import {useNotificationStore} from '@/store/notificationStore';
 import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
@@ -38,6 +39,7 @@ import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {EmptyState} from '@/components/ui/EmptyState';
 import {UserAvatar} from '@/components/ui/UserAvatar';
+import {shouldShowMessagesInlineTitle} from '@/screens/main/messagesPresentation';
 
 type ConversationItem = {
   id: string;
@@ -322,6 +324,7 @@ const ConversationRow = ({item, presence, onPress}: ConversationRowProps) => {
 };
 
 const TypingDots = () => {
+  const {t} = useTranslation();
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     const loop = Animated.loop(
@@ -338,7 +341,7 @@ const TypingDots = () => {
 
   return (
     <View style={styles.typingRow}>
-      <Text style={styles.typingText}>Skriver</Text>
+      <Text style={styles.typingText}>{t('phase2ui.typing')}</Text>
       {[0, 1, 2].map(i => (
         <Animated.Text
           key={i}
@@ -363,7 +366,9 @@ const MessagesScreen = () => {
   const navigation = useNavigation<any>();
   const {t} = useTranslation();
   const formatRelativeTime = useFormatRelativeTime();
-  const {chats, seedChatsFromInitial, markChatAsRead} = useChatStore();
+  const chats = useChatStore(s => s.chats);
+  const seedChatsFromInitial = useChatStore(s => s.seedChatsFromInitial);
+  const markChatAsRead = useChatStore(s => s.markChatAsRead);
   const messagesByChat = useChatStore(s => s.messagesByChat);
   const pendingFriendRequests = useNotificationStore(
     s => s.incomingFriendRequestCount,
@@ -374,13 +379,17 @@ const MessagesScreen = () => {
   const {user} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
-  const tabBarHeight = useBottomTabBarHeight();
+  const tabBarHeight = useOptionalBottomTabBarHeight();
   const fabBottom = tabBarHeight + spacing.md;
   const listBottomPad = fabBottom + 72;
 
   useFocusEffect(
     useCallback(() => {
       if (!user?.id) {
+        return;
+      }
+      const inboxKey = `messages:inbox:${user.id}`;
+      if (!isFocusRefreshStale(inboxKey, 30_000)) {
         return;
       }
       void (async () => {
@@ -392,11 +401,12 @@ const MessagesScreen = () => {
             user.id,
             user.displayName?.trim() || t('common.you'),
           );
+          markFocusRefreshed(inboxKey);
         } catch {
           // offline / RLS: ignore; liste viser cache
         }
       })();
-    }, [user?.id, user?.displayName]),
+    }, [user?.id, user?.displayName, t]),
   );
 
   useEffect(() => {
@@ -448,15 +458,39 @@ const MessagesScreen = () => {
       });
   }, [chats, searchQuery, user?.id, user?.displayName, messagesByChat, t, formatRelativeTime]);
 
+  const presenceTargets = useMemo(() => {
+    const meId = user?.id;
+    if (!meId) {
+      return [];
+    }
+    return sortChatsByLastActivity(chats)
+      .slice(0, 15)
+      .map(chat => {
+        const otherUserId = (chat.participantIds || []).find(
+          id =>
+            id !== meId &&
+            id !== 'current_user' &&
+            id !== CURRENT_USER_PLACEHOLDER_ID,
+        );
+        if (!otherUserId || !chat.id) {
+          return null;
+        }
+        return {threadId: chat.id, otherUserId};
+      })
+      .filter((item): item is {threadId: string; otherUserId: string} => item != null);
+  }, [chats, user?.id]);
+
+  const presenceTargetsKey = useMemo(
+    () => presenceTargets.map(item => `${item.threadId}:${item.otherUserId}`).join('|'),
+    [presenceTargets],
+  );
+
   useEffect(() => {
-    if (!user?.id || conversations.length === 0) {
+    if (!user?.id || presenceTargets.length === 0) {
       return;
     }
     const channels: any[] = [];
-    const activeConversations = conversations.filter(c => c.id && c.otherUserId);
-    activeConversations.forEach(item => {
-      const threadId = item.id;
-      const otherUserId = item.otherUserId!;
+    presenceTargets.forEach(({threadId, otherUserId}) => {
       const channel = supabase
         .channel(`dm_presence_${threadId}`, {
           config: {presence: {key: user.id}},
@@ -506,7 +540,7 @@ const MessagesScreen = () => {
         void supabase.removeChannel(ch);
       });
     };
-  }, [conversations, upsertDmPresence, user?.id]);
+  }, [presenceTargetsKey, presenceTargets, upsertDmPresence, user?.id]);
 
   const handleOpenChat = (item: ConversationItem) => {
     const myId = user?.id;
@@ -544,7 +578,9 @@ const MessagesScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>{t('messages.title')}</Text>
+        {shouldShowMessagesInlineTitle('stack') ? (
+          <Text style={styles.headerTitle}>{t('messages.title')}</Text>
+        ) : null}
         <Text style={styles.headerSubtitle}>{t('messages.subtitle')}</Text>
       </View>
 

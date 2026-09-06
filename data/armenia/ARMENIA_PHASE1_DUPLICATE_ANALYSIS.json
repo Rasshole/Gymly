@@ -1,0 +1,12 @@
+{
+  "hard_duplicate_conflicts": 0,
+  "armenian_transliteration_duplicate_conflicts": 0,
+  "transliteration_duplicates": [],
+  "proximity": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 1,
+    "identical": 0
+  }
+}

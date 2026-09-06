@@ -1,0 +1,88 @@
+{
+  "country": "Ukraine",
+  "aliases": [
+    {
+      "canonical": "Kyiv",
+      "variants": [
+        "Kiev",
+        "Київ",
+        "kiev"
+      ]
+    },
+    {
+      "canonical": "Kharkiv",
+      "variants": [
+        "Kharkov",
+        "Харків",
+        "kharkov"
+      ]
+    },
+    {
+      "canonical": "Odesa",
+      "variants": [
+        "Odessa",
+        "Одеса",
+        "odessa"
+      ]
+    },
+    {
+      "canonical": "Lviv",
+      "variants": [
+        "Lvov",
+        "Львів",
+        "lvov"
+      ]
+    },
+    {
+      "canonical": "Dnipro",
+      "variants": [
+        "Dnepr",
+        "Дніпро",
+        "dnipro"
+      ]
+    },
+    {
+      "canonical": "Vinnytsia",
+      "variants": [
+        "Vinnitsa",
+        "Вінниця"
+      ]
+    },
+    {
+      "canonical": "Zhytomyr",
+      "variants": [
+        "Zhitomir",
+        "Житомир"
+      ]
+    },
+    {
+      "canonical": "Cherkasy",
+      "variants": [
+        "Cherkassy",
+        "Черкаси"
+      ]
+    },
+    {
+      "canonical": "Kryvyi Rih",
+      "variants": [
+        "Krivij Rig",
+        "Кривий Ріг"
+      ]
+    },
+    {
+      "canonical": "Lutsk",
+      "variants": [
+        "Lutck",
+        "Луцьк"
+      ]
+    },
+    {
+      "canonical": "Rivne",
+      "variants": [
+        "Rovno",
+        "Рівне"
+      ]
+    }
+  ],
+  "notes": "Use canonical English exonym in staging; Cyrillic preserved in address fields"
+}

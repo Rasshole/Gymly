@@ -1,0 +1,66 @@
+{
+  "conflict_region_candidates": 8,
+  "conflict_region_ready": 0,
+  "conflict_region_excluded": 8,
+  "conflict_region_closed": 0,
+  "conflict_region_unresolved": 0,
+  "conflict_region_operation_unverified_ready": 0,
+  "identities": [
+    {
+      "id": "am_fa0a931895",
+      "name": "Goris Tourist Information Centre",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "am_9068b0c87d",
+      "name": "Mobile Centre",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "am_40b63d9541",
+      "name": "FRENCH-ARMENIAN CARDIOVASCULAR CENTRE",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "am_b782110192",
+      "name": "Goris Medical Center",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "am_d67d645293",
+      "name": "Energy",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "am_d4c4a6d18c",
+      "name": "Stepanakert fitness centre probe",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "am_fd3ce63aed",
+      "name": "Shushi gym candidate",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "am_c8c90a1b4c",
+      "name": "Martakert sports club probe",
+      "region": "Artsakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    }
+  ]
+}

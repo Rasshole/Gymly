@@ -1,0 +1,247 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:52:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 3728660478,
+      "lat": 54.280441,
+      "lon": 48.2724114,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Rex"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4359866795,
+      "lat": 54.2773866,
+      "lon": 48.2934902,
+      "tags": {
+        "check_date": "2024-11-26",
+        "leisure": "fitness_centre",
+        "name": "Ultra",
+        "name:ru": "Ultra"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4364468590,
+      "lat": 54.3162433,
+      "lon": 48.3967838,
+      "tags": {
+        "addr:city": "Ульяновск",
+        "leisure": "fitness_centre",
+        "name": "Sistema",
+        "name:ru": "Sistema",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4849495640,
+      "lat": 54.3448173,
+      "lon": 48.3919687,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5068431035,
+      "lat": 54.2668331,
+      "lon": 48.2725626,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Доберман"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5837512285,
+      "lat": 54.2973653,
+      "lon": 48.3313142,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Вверх"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6281686886,
+      "lat": 54.2789804,
+      "lon": 48.3019564,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6343023906,
+      "lat": 54.3052955,
+      "lon": 48.3521595,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "cubefitness",
+        "start_date": "2019-02-03"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7007723885,
+      "lat": 54.2967557,
+      "lon": 48.3269952,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "sport": "swimming;fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7028216479,
+      "lat": 54.2852407,
+      "lon": 48.2933342,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8074100673,
+      "lat": 54.296501,
+      "lon": 48.3290766,
+      "tags": {
+        "brand": "Fitness House",
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 842 2242187",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-ulyanovsk-okt.html/",
+        "contact:youtube": "https://www.youtube.com/user/fitnessHouse6100606",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 08:00-22:00",
+        "operator": "ИП Маркова В.Н."
+      }
+    },
+    {
+      "type": "node",
+      "id": 8091643697,
+      "lat": 54.289176,
+      "lon": 48.2972583,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Лайм"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9653356233,
+      "lat": 54.3099594,
+      "lon": 48.3916493,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10140108438,
+      "lat": 54.2977623,
+      "lon": 48.3797483,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10768684529,
+      "lat": 54.2696493,
+      "lon": 48.327538,
+      "tags": {
+        "check_date": "2023-03-25",
+        "leisure": "fitness_centre",
+        "name": "Гиппократ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11113280237,
+      "lat": 54.317388,
+      "lon": 48.3996095,
+      "tags": {
+        "addr:floor": "5",
+        "check_date": "2023-08-14",
+        "leisure": "fitness_centre",
+        "level": "4",
+        "name": "Record"
+      }
+    },
+    {
+      "type": "way",
+      "id": 273477114,
+      "center": {
+        "lat": 54.3096334,
+        "lon": 48.3839074
+      },
+      "tags": {
+        "addr:housenumber": "7",
+        "addr:street": "улица Карла Либкнехта",
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "Динамо"
+      }
+    },
+    {
+      "type": "way",
+      "id": 526259392,
+      "center": {
+        "lat": 54.3136562,
+        "lon": 48.3601362
+      },
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 694037019,
+      "center": {
+        "lat": 54.284081,
+        "lon": 48.2887403
+      },
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 751826451,
+      "center": {
+        "lat": 54.2839673,
+        "lon": 48.2949174
+      },
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1256688448,
+      "center": {
+        "lat": 54.3171822,
+        "lon": 48.2826005
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "sport": "yoga"
+      }
+    }
+  ]
+}

@@ -1,0 +1,884 @@
+{
+  "bd_northwood": {
+    "query": "Ben Dunne Gyms Northwood Dublin",
+    "picks": [
+      {
+        "name": "Ben Dunne Fitness Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.4013543,
+        "lng": -6.2578333,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Dublin",
+        "street": "Northwood Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.2583519,
+          53.4017217,
+          -6.2573148,
+          53.4009568
+        ]
+      }
+    ]
+  },
+  "bd_portlaoise": {
+    "query": "Ben Dunne Gyms Portlaoise",
+    "picks": [
+      {
+        "name": "Ben Dunne's Gym",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.0276314,
+        "lng": -7.2863973,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Portlaoise",
+        "street": "Lismard Business Park",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "bd_cherrywood": {
+    "query": "Ben Dunne Gym Cherrywood",
+    "picks": [
+      {
+        "name": "Ben Dunne Gym",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.3920901,
+        "lng": -6.384776,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Blanchardstown",
+        "street": "Old Navan Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.3853579,
+          53.3925112,
+          -6.3840518,
+          53.3918322
+        ]
+      },
+      {
+        "name": "Ben Dunne Gym",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.3482897,
+        "lng": -6.4233196,
+        "postcode": "K78 Y9W0",
+        "raw_postcode": "K78 Y9W0",
+        "city": "Lucan",
+        "street": "Ballyowen Castle Shopping Centre",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      },
+      {
+        "name": "Ben Dunne's Gym",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.0276314,
+        "lng": -7.2863973,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Portlaoise",
+        "street": "Lismard Business Park",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "ef_clarehall": {
+    "query": "Energie Fitness Clarehall Dublin",
+    "picks": [
+      {
+        "name": "Energie",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.4022343,
+        "lng": -6.1784366,
+        "postcode": "D17 TX92",
+        "raw_postcode": "D17 TX92",
+        "city": null,
+        "street": "Clarehall Avenue",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.1788588,
+          53.4024373,
+          -6.1778631,
+          53.4019514
+        ]
+      },
+      {
+        "name": "\u00e9nergie Fitness",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.3386292,
+        "lng": -6.2802819,
+        "postcode": "D08 XH90",
+        "raw_postcode": "D08 XH90",
+        "city": "Dublin",
+        "street": "Cork Street",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      },
+      {
+        "name": "\u00e9nergie Fitness",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.2609906,
+        "lng": -6.2207183,
+        "postcode": "D18 W5W9",
+        "raw_postcode": "D18 W5W9",
+        "city": "Sandyford",
+        "street": "Belarmine Plaza",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "ef_limerick": {
+    "query": "Energie Fitness Limerick",
+    "picks": [
+      {
+        "name": "Womens Fitness Limerick",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 52.6292479,
+        "lng": -8.6652711,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Limerick",
+        "street": null,
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      },
+      {
+        "name": "\u00e9nergie Fitness",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.2609906,
+        "lng": -6.2207183,
+        "postcode": "D18 W5W9",
+        "raw_postcode": "D18 W5W9",
+        "city": "Sandyford",
+        "street": "Belarmine Plaza",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "ef_tallaght": {
+    "query": "Energie Fitness Tallaght Belgard",
+    "picks": [
+      {
+        "name": "\u00e9nergie Fitness",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.2829788,
+        "lng": -6.4218172,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Saggart",
+        "street": "Fortunestown Lane",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "ef_citywest": {
+    "query": "Energie Fitness Citywest",
+    "picks": [
+      {
+        "name": "\u00e9nergie Fitness",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.2829788,
+        "lng": -6.4218172,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Saggart",
+        "street": "Fortunestown Lane",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "aura_dundalk": {
+    "query": "Aura Leisure Dundalk",
+    "picks": [
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2691607,
+        "lng": -7.4749553,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Tullamore",
+        "street": "Eiscir Riada",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4753879,
+          53.2693741,
+          -7.4744443,
+          53.2689765
+        ]
+      },
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "swimming_pool",
+        "lat": 53.2693958,
+        "lng": -7.4747366,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Portarlington Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4752696,
+          53.2696023,
+          -7.4741879,
+          53.2691861
+        ]
+      },
+      {
+        "name": "Aura Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2687957,
+        "lng": -7.4751628,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Cloncollig Housing Estate",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4760031,
+          53.269678,
+          -7.4741614,
+          53.2679302
+        ]
+      }
+    ]
+  },
+  "aura_grove": {
+    "query": "Aura Leisure Grove Island Limerick",
+    "picks": [
+      {
+        "name": "Grove Island Leisure Centre",
+        "osm_key": "building",
+        "osm_value": "yes",
+        "lat": 52.6688063,
+        "lng": -8.6145755,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": null,
+        "street": "Pa Healy Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -8.6150225,
+          52.6690811,
+          -8.6141666,
+          52.668573
+        ]
+      }
+    ]
+  },
+  "aura_lucan": {
+    "query": "Aura Leisure Lucan",
+    "picks": [
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2691607,
+        "lng": -7.4749553,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Tullamore",
+        "street": "Eiscir Riada",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4753879,
+          53.2693741,
+          -7.4744443,
+          53.2689765
+        ]
+      },
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "swimming_pool",
+        "lat": 53.2693958,
+        "lng": -7.4747366,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Portarlington Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4752696,
+          53.2696023,
+          -7.4741879,
+          53.2691861
+        ]
+      },
+      {
+        "name": "Aura Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2687957,
+        "lng": -7.4751628,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Cloncollig Housing Estate",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4760031,
+          53.269678,
+          -7.4741614,
+          53.2679302
+        ]
+      }
+    ]
+  },
+  "aura_letterkenny": {
+    "query": "Aura Leisure Letterkenny",
+    "picks": [
+      {
+        "name": "Aura Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 54.9461515,
+        "lng": -7.7503267,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Letterkenny",
+        "street": "Ballymacool Street",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.7510569,
+          54.9465263,
+          -7.7496567,
+          54.9457661
+        ]
+      },
+      {
+        "name": "@Empoweringmassage",
+        "osm_key": "shop",
+        "osm_value": "massage",
+        "lat": 54.9460297,
+        "lng": -7.7502103,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Letterkenny",
+        "street": null,
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "aura_leitrim": {
+    "query": "Aura Leisure Carrick-on-Shannon",
+    "picks": [
+      {
+        "name": "Aura Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.9482946,
+        "lng": -8.0809736,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Carrick-on-Shannon",
+        "street": "Glencarraig",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -8.0815001,
+          53.9485201,
+          -8.0805149,
+          53.9481807
+        ]
+      }
+    ]
+  },
+  "aura_navan": {
+    "query": "Aura Leisure Navan",
+    "picks": [
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2691607,
+        "lng": -7.4749553,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Tullamore",
+        "street": "Eiscir Riada",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4753879,
+          53.2693741,
+          -7.4744443,
+          53.2689765
+        ]
+      },
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "swimming_pool",
+        "lat": 53.2693958,
+        "lng": -7.4747366,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Portarlington Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4752696,
+          53.2696023,
+          -7.4741879,
+          53.2691861
+        ]
+      },
+      {
+        "name": "Aura Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2687957,
+        "lng": -7.4751628,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Cloncollig Housing Estate",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4760031,
+          53.269678,
+          -7.4741614,
+          53.2679302
+        ]
+      }
+    ]
+  },
+  "aura_trim": {
+    "query": "Aura Leisure Trim",
+    "picks": [
+      {
+        "name": "Aura Leisure Trim",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.5534792,
+        "lng": -6.7998147,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Trim",
+        "street": "The Gallops",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.8007416,
+          53.5544432,
+          -6.7988139,
+          53.5525583
+        ]
+      },
+      {
+        "name": "Aura Trim Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.5533681,
+        "lng": -6.7999961,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Trim",
+        "street": "The Gallops",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.8004555,
+          53.5538388,
+          -6.7996232,
+          53.5530475
+        ]
+      }
+    ]
+  },
+  "aura_tullamore": {
+    "query": "Aura Leisure Tullamore",
+    "picks": [
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2691607,
+        "lng": -7.4749553,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Tullamore",
+        "street": "Eiscir Riada",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4753879,
+          53.2693741,
+          -7.4744443,
+          53.2689765
+        ]
+      },
+      {
+        "name": "Aura Leisure",
+        "osm_key": "leisure",
+        "osm_value": "swimming_pool",
+        "lat": 53.2693958,
+        "lng": -7.4747366,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Portarlington Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4752696,
+          53.2696023,
+          -7.4741879,
+          53.2691861
+        ]
+      },
+      {
+        "name": "Aura Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.2687957,
+        "lng": -7.4751628,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Tullamore",
+        "street": "Cloncollig Housing Estate",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.4760031,
+          53.269678,
+          -7.4741614,
+          53.2679302
+        ]
+      }
+    ]
+  },
+  "aura_youghal": {
+    "query": "Aura Leisure Youghal",
+    "picks": [
+      {
+        "name": "Aura Leisure Centre",
+        "osm_key": "leisure",
+        "osm_value": "swimming_pool",
+        "lat": 51.9358346,
+        "lng": -7.858808,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Youghal",
+        "street": "Front Strand",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -7.8595087,
+          51.9360982,
+          -7.8584028,
+          51.9355715
+        ]
+      }
+    ]
+  },
+  "aura_drogheda": {
+    "query": "Aura Leisure Drogheda",
+    "picks": [
+      {
+        "name": "Aura Leisure & Fitness",
+        "osm_key": "leisure",
+        "osm_value": "swimming_pool",
+        "lat": 53.7129057,
+        "lng": -6.3743417,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Drogheda",
+        "street": "Marley's Lane",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "ww_leopardstown": {
+    "query": "West Wood Club Leopardstown",
+    "picks": [
+      {
+        "name": "West Wood Club",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.3462897,
+        "lng": -6.2605896,
+        "postcode": "D02 N2Y4",
+        "raw_postcode": "D02 N2Y4",
+        "city": "Dublin",
+        "street": "Aston Quay",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      },
+      {
+        "name": "West Wood Club",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.3632123,
+        "lng": -6.2290091,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Dublin",
+        "street": "Clontarf Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.2299434,
+          53.3637667,
+          -6.2274387,
+          53.3625948
+        ]
+      },
+      {
+        "name": "West Wood Club Sandymount Swimming pool",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.3256393,
+        "lng": -6.2095601,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": null,
+        "street": "Radcliff Hall",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "ww_sandymount": {
+    "query": "West Wood Club Sandymount",
+    "picks": [
+      {
+        "name": "West Wood Club Sandymount",
+        "osm_key": "building",
+        "osm_value": "sports_centre",
+        "lat": 53.3256446,
+        "lng": -6.209427,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Dublin",
+        "street": "St Johns Rd",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.2097769,
+          53.325773,
+          -6.2090769,
+          53.325513
+        ]
+      },
+      {
+        "name": "West Wood Club Sandymount Swimming pool",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.3256393,
+        "lng": -6.2095601,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": null,
+        "street": "Radcliff Hall",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "ww_westmanstown": {
+    "query": "West Wood Club Westmanstown",
+    "picks": [
+      {
+        "name": "Westmanstown Golf Club",
+        "osm_key": "leisure",
+        "osm_value": "golf_course",
+        "lat": 53.3762092,
+        "lng": -6.4448434,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Blanchardstown",
+        "street": null,
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.4526066,
+          53.3797342,
+          -6.4389979,
+          53.3726267
+        ]
+      },
+      {
+        "name": "Garda Westmanstown Gaels GAA Club",
+        "osm_key": "leisure",
+        "osm_value": "pitch",
+        "lat": 53.3787365,
+        "lng": -6.4454961,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Ongar",
+        "street": "Royal Canal Way",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.4467007,
+          53.3794118,
+          -6.4442915,
+          53.3780611
+        ]
+      },
+      {
+        "name": "West Wood Club",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.3462897,
+        "lng": -6.2605896,
+        "postcode": "D02 N2Y4",
+        "raw_postcode": "D02 N2Y4",
+        "city": "Dublin",
+        "street": "Aston Quay",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "sl_grey": {
+    "query": "Shoreline Leisure Greystones",
+    "picks": [
+      {
+        "name": "Shoreline Leisure Greystones",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.1359307,
+        "lng": -6.0650606,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Greystones",
+        "street": "Mill Road",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.0663442,
+          53.1368846,
+          -6.0641663,
+          53.1351963
+        ]
+      },
+      {
+        "name": "Shoreline Leisure Charlesland",
+        "osm_key": "amenity",
+        "osm_value": "parking",
+        "lat": 53.1216119,
+        "lng": -6.0653517,
+        "postcode": "A63 TV19",
+        "raw_postcode": "A63 TV19",
+        "city": "The Municipal District of Greystones",
+        "street": "Charlesland Sports and Recreation Park",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.0657152,
+          53.1218956,
+          -6.0647322,
+          53.1210126
+        ]
+      },
+      {
+        "name": "Shoreline Leisure Charlesland",
+        "osm_key": "leisure",
+        "osm_value": "sports_centre",
+        "lat": 53.121456,
+        "lng": -6.0653541,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "The Municipal District of Greystones",
+        "street": "Hawkins Wood Avenue",
+        "state": null,
+        "country": "Ireland",
+        "extent": [
+          -6.0692983,
+          53.1226367,
+          -6.0621737,
+          53.1199621
+        ]
+      }
+    ]
+  },
+  "iconic_dartry": {
+    "query": "Iconic Health Clubs Dartry",
+    "picks": []
+  },
+  "iconic_ifsc": {
+    "query": "Iconic Health Clubs IFSC",
+    "picks": []
+  },
+  "iconic_smithfield": {
+    "query": "Iconic Health Clubs Smithfield",
+    "picks": []
+  },
+  "af_kilmainham": {
+    "query": "Anytime Fitness Kilmainham Dublin",
+    "picks": [
+      {
+        "name": "Anytime Fitness",
+        "osm_key": "leisure",
+        "osm_value": "fitness_centre",
+        "lat": 53.3439922,
+        "lng": -6.2971239,
+        "postcode": "",
+        "raw_postcode": null,
+        "city": "Dublin",
+        "street": "Saint John's Road West",
+        "state": null,
+        "country": "Ireland",
+        "extent": null
+      }
+    ]
+  },
+  "af_kilnamanagh": {
+    "query": "Anytime Fitness Kilnamanagh",
+    "picks": []
+  }
+}

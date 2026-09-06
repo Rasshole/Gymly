@@ -1,0 +1,12 @@
+{
+  "hard_duplicate_conflicts": [],
+  "transliteration_duplicate_conflicts": [],
+  "multilingual_duplicate_conflicts": [],
+  "unresolved_rebrand_conflicts": 0,
+  "phase2_authoritative": {
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "colocated_distinct_gyms": 6
+  }
+}

@@ -1,0 +1,1743 @@
+{
+  "bg|manastirski livadi district, 132 bulgaria blvd., 1303, sofia, bulgaria": null,
+  "bg|ring road 251a, 1715, sofia, bulgaria": {
+    "lat": 42.6246781,
+    "lng": 23.3727786,
+    "display_name": "Pulse, 251А, Околовръстен път, ж.к. Младост 4, София, Младост, Столична, София-град, 1766, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1766",
+    "country_code": "bg"
+  },
+  "bg|214 okolovrasten pat str., 1434, sofia, bulgaria": null,
+  "bg|academic plovdiv center, 4 asenovgradsko shose blvd., 4232, plovdiv, bulgaria": null,
+  "bg|63 tsanko dyustabanov street, 4000, plovdiv, bulgaria": null,
+  "bg|6 yanko komitov blvd., mall galleria burgas, level 2, 8001, burgas, bulgaria": null,
+  "bg|baba ganka street, 8000, burgas, bulgaria": null,
+  "bg|28 prince alexander battenberg blvd., 6002, stara zagora, bulgaria": null,
+  "bg|4 lyulin street, yurta, 8240, sveti vlas, bulgaria": null,
+  "bg|bulgaria mall, 69 bulgaria blvd, 1618, sofia, bulgaria": {
+    "lat": 42.6640603,
+    "lng": 23.2887209,
+    "display_name": "Мол България, 69, бул. България, кв. Манастирски ливади, София, Триадица, Столична, София-град, 1404, България",
+    "importance": 0.2636224323479305,
+    "postcode": "1404",
+    "country_code": "bg"
+  },
+  "bg|ul. \"kumata\" 77, 1616, sofia, bulgaria": null,
+  "bg|hadzhi dimitar club, sofia, 2023, sofia, bulgaria": null,
+  "bg|alera club, sofia, 2025, sofia, bulgaria": null,
+  "bg|nadezhda club, sofia, 2022, sofia, bulgaria": null,
+  "bg|sky city club, sofia, 2022, sofia, bulgaria": null,
+  "bg|mladost 1 club, sofia, 2022, sofia, bulgaria": {
+    "lat": 42.7819866,
+    "lng": 23.3923089,
+    "display_name": "Младост, Световрачене, Нови Искър, Столична, София-град, 1223, България",
+    "importance": 0.05340224994277863,
+    "postcode": "1223",
+    "country_code": "bg"
+  },
+  "bg|amaya club, sofia, 2019, sofia, bulgaria": null,
+  "bg|millennium club, sofia, 2019, sofia, bulgaria": null,
+  "bg|top location in krasnaya polyana 31a, ent, 2019, sofia, bulgaria": null,
+  "bg|top location in the center of sofia, at veslets 18 str, 2019, sofia, bulgaria": null,
+  "bg|11a dedeagach street, 2018, sofia, bulgaria": null,
+  "bg|manastirski livadi – west, 56 pirin str, 2019, sofia, bulgaria": null,
+  "bg|ovcha kupel, 52 nikola petkov blvd, 2019, sofia, bulgaria": null,
+  "bg|business park mladost on the second floor of the sport depot’s building, 2019, sofia, bulgaria": null,
+  "bg|47 rezbarska street, sofia, bulgaria": null,
+  "bg|60 petar dertliev blvd., sofia, bulgaria": {
+    "lat": 42.7096227,
+    "lng": 23.2572209,
+    "display_name": "R5, 60, бул. Д-р Петър Дертлиев, ж.к. Люлин 6, ж.к. Люлин, София, Люлин, Столична, София-град, 1805, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1805",
+    "country_code": "bg"
+  },
+  "bg|vinarovo kolelo, 4th km, sofia, bulgaria": null,
+  "bg|102 simeonovsko shose boulevard, sofia, bulgaria": null,
+  "bg|48 sitnyakovo blvd., 3rd floor, sofia, bulgaria": null,
+  "bg|101 a alexander stamboliyski blvd., sofia, bulgaria": null,
+  "bg|8 st. sofia str., sofia, bulgaria": null,
+  "bg|ovcha kupel, sofia, bulgaria": {
+    "lat": 42.6778469,
+    "lng": 23.2622161,
+    "display_name": "кв. Овча купел, София, Овча купел, Столична, София-град, България",
+    "importance": 0.35974352801595927,
+    "postcode": "",
+    "country_code": "bg"
+  },
+  "bg|blvd. tsaritsa ioana, bl 276, sofia, bulgaria": null,
+  "bg|drujba, sofia, bulgaria": {
+    "lat": 42.6563382,
+    "lng": 23.4063446,
+    "display_name": "Fines - Technostroy Drujba 1, Амстердам, НПЗ Искър, София, Искър, Столична, София-град, 1584, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1584",
+    "country_code": "bg"
+  },
+  "bg|zornitsa complex 75, ground floor, burgas, bulgaria": null,
+  "bg|46 republikanska street, kardzhali, bulgaria": null,
+  "bg|grand hotel therme, bulgaria, bulgaria": null,
+  "bg|grand hotel bansko, 5 glazne st, bansko, bulgaria": null,
+  "bg|ul. \"ivan vazov\" 55, plovdiv, bulgaria": null,
+  "bg|3 tsar samuil street, ladzhene district, velingrad, bulgaria": null,
+  "bg|st. \"leninova\" 44, strumica, bulgaria": null,
+  "bg|blvd. professor tzvetan lazarov 113, sofia, bulgaria": null,
+  "bg|18 shipchenski prohod blvd., sofia, bulgaria": {
+    "lat": 42.6790073,
+    "lng": 23.3605544,
+    "display_name": "Mania, 18, бул. Шипченски проход, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1113, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1113",
+    "country_code": "bg"
+  },
+  "bg|31 transportna blvd, burgas, bulgaria": null,
+  "bg|5 rezbarska street, sofia, bulgaria": null,
+  "bg|g.k. iztok, 2 nikolai haytov st, sofia, bulgaria": null,
+  "bg|bul. tsar boris iii 272, sofia, bulgaria": {
+    "lat": 42.6715762,
+    "lng": 23.2721715,
+    "display_name": "бул. Цар Борис III, кв. Овча купел, София, Овча купел, Столична, София-град, 1618, България",
+    "importance": 0.05340224994277863,
+    "postcode": "1618",
+    "country_code": "bg"
+  },
+  "bg|dobrotich str., block 329a, sofia, bulgaria": null,
+  "bg|lozenets district, 44 \"zlatovrah\" str, block 66, sofia, bulgaria": null,
+  "bg|lulin 10, 25 petur dertliev blvd. (labirint center), sofia, bulgaria": null,
+  "bg|lyulin 5, block 550 / bul. \"doctor peter dertliev\" 103, sofia, bulgaria": null,
+  "bg|kv. vitosha, simeonovsko shose 110, sofia, bulgaria": {
+    "lat": 42.6502717,
+    "lng": 23.3355622,
+    "display_name": "кв. Витоша, бул. Симеоновско шосе, кв. Витоша, София, Лозенец, Столична, София-град, 1700, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1700",
+    "country_code": "bg"
+  },
+  "bg|mladost 4, 5 atanas moskov str, sofia, bulgaria": null,
+  "bg|mladost 1, jerusalem str. 1, 2nd floor, sofia, bulgaria": null,
+  "bg|97a yordan hadzhikonstantinov-dzhinot st., sofia, bulgaria": null,
+  "bg|1 bulgaria sq., national palace of culture, sofia, bulgaria": null,
+  "bg|18 hristo botev boulevard, varna, bulgaria": null,
+  "bg|kinotsentara iii chast vitosha, lane okolovrasten pat, sofia, bulgaria": null,
+  "bg|114 president lincoln blvd., sofia, bulgaria": {
+    "lat": 42.68381,
+    "lng": 23.2417257,
+    "display_name": "Next Level, 114, бул. Президент Линкълн, кв. Васил Попов, ж.к. Овча купел, София, Овча купел, Столична, София-град, 1632, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1632",
+    "country_code": "bg"
+  },
+  "bg|2 arsenalski blvd., park center, sofia, bulgaria": null,
+  "bg|pernik, pernik, bulgaria": {
+    "lat": 42.6092185,
+    "lng": 23.0309457,
+    "display_name": "Перник, 2300, България",
+    "importance": 0.5505451974794887,
+    "postcode": "2300",
+    "country_code": "bg"
+  },
+  "bg|3 dr. georgi stranski str, plovdiv, bulgaria": null,
+  "bg|retail park varna, varna, bulgaria": {
+    "lat": 43.2276938,
+    "lng": 27.844075,
+    "display_name": "ГеоТех Керамик Парк, кв. Кайсиева градина, Варна, Владислав Варненчик, Варна, България",
+    "importance": 0.0800697726405737,
+    "postcode": "",
+    "country_code": "bg"
+  },
+  "bg|30-32 \"general eduard i. totleben\" blvd., sofia, bulgaria": null,
+  "bg|158 peshtersko shose blvd., plovdiv, bulgaria": null,
+  "bg|35 simeonovsko shose blvd., sofia, bulgaria": {
+    "lat": 42.6529442,
+    "lng": 23.336415,
+    "display_name": "Sport Box, 35, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1700, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1700",
+    "country_code": "bg"
+  },
+  "bg|115 tsarigradsko shose blvd., the mall, sofia, bulgaria": null,
+  "bg|oborishte district, 2 trakia st, sofia, bulgaria": null,
+  "bg|78 yanko sakazov blvd., sofia, bulgaria": {
+    "lat": 42.6959412,
+    "lng": 23.3453278,
+    "display_name": "78, бул. Янко Сакъзов, Център, София, Оборище, Столична, София-град, 1504, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1504",
+    "country_code": "bg"
+  },
+  "bg|21 nikolai kopernik str., sofia, bulgaria": null,
+  "bg|228 slivnitsa blvd., sofia, bulgaria": {
+    "lat": 42.7078759,
+    "lng": 23.2989171,
+    "display_name": "Pizza Gray, 228, бул. Сливница, ж.к. Света Троица, София, Илинден, Столична, София-град, 1309, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1309",
+    "country_code": "bg"
+  },
+  "bg|5 lachezar stanchev str., sopharma business towers, tower a, fl. 2, sofia, bulgaria": null,
+  "bg|47 cherni vrah blvd., sofia, bulgaria": {
+    "lat": 42.6622496,
+    "lng": 23.3181453,
+    "display_name": "Athletic Fitness, 47, бул. Черни връх, Промишлена зона Хладилника, София, Лозенец, Столична, София-град, 1407, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1407",
+    "country_code": "bg"
+  },
+  "bg|15 tsaritsa yoanna blvd., mega mall, fl. 2, sofia, bulgaria": null,
+  "bg|1 yordan yosifov str., sofia, bulgaria": null,
+  "bg|3 dr. georgi stranski str., mall plovdiv plaza, fl. 2, plovdiv, bulgaria": null,
+  "bg|52-54 ruski blvd., mall markovo tepe, fl. 3, plovdiv, bulgaria": null,
+  "bg|30 han asparuh str., mall galleria stara zagora, fl. 2, stara zagora, bulgaria": null,
+  "bg|4 george washington str., sofia, bulgaria": null,
+  "bg|7 mur str., manastirski livadi, sofia, bulgaria": null,
+  "bg|76 nishava str. (corner with solun str.), sofia, bulgaria": null,
+  "bg|9 tsaritsa eleonora str., sofia, bulgaria": null,
+  "bg|central park club, sofia, sofia, bulgaria": null,
+  "bg|mladost 1, sofia, sofia, bulgaria": {
+    "lat": 42.6529948,
+    "lng": 23.3733445,
+    "display_name": "Младост 1, бул. Андрей Сахаров, ж.к. Младост 1, София, Младост, Столична, София-град, 1079, България",
+    "importance": 0.319279276758968,
+    "postcode": "1079",
+    "country_code": "bg"
+  },
+  "bg|studentski grad, sofia, sofia, bulgaria": {
+    "lat": 42.6513461,
+    "lng": 23.347883,
+    "display_name": "ж.к. Студентски град, София, Студентски, Столична, София-град, България",
+    "importance": 0.3680830548051252,
+    "postcode": "",
+    "country_code": "bg"
+  },
+  "bg|ivan vazov district, sofia, sofia, bulgaria": {
+    "lat": 42.6814086,
+    "lng": 23.3144073,
+    "display_name": "бул. България, ж.к. Иван Вазов, София, Триадица, Столична, София-град, 1409, България",
+    "importance": 0.05340224994277863,
+    "postcode": "1409",
+    "country_code": "bg"
+  },
+  "bg|slatina, sofia, sofia, bulgaria": {
+    "lat": 42.686838,
+    "lng": 23.3990441,
+    "display_name": "Слатина, Столична, София-град, България",
+    "importance": 0.34081317763107843,
+    "postcode": "",
+    "country_code": "bg"
+  },
+  "bg|lyulin, sofia, sofia, bulgaria": {
+    "lat": 42.7181255,
+    "lng": 23.2543959,
+    "display_name": "ж.к. Люлин, София, Люлин, Столична, София-град, България",
+    "importance": 0.36760675791195535,
+    "postcode": "",
+    "country_code": "bg"
+  },
+  "bg|mladost 3, sofia, sofia, bulgaria": {
+    "lat": 42.6465261,
+    "lng": 23.3837288,
+    "display_name": "Младост 3, бул. Андрей Ляпчев, ж.к. Младост 1А, София, Младост, Столична, София-град, 1729, България",
+    "importance": 0.30289193994832775,
+    "postcode": "1729",
+    "country_code": "bg"
+  },
+  "bg|n/a, sofia, bulgaria": {
+    "lat": 42.7067079,
+    "lng": 23.3176644,
+    "display_name": "N&A, 133, Козлодуй, ж.к. Банишора, София, Сердика, Столична, София-град, 1310, България",
+    "importance": 6.891660944528905e-05,
+    "postcode": "1310",
+    "country_code": "bg"
+  },
+  "multi|bg|next level fitness next level bulgaria mall, sofia, bulgaria": [],
+  "multi|bg|next level bulgaria mall, sofia, bulgaria": [],
+  "multi|bg|bulgaria mall (69, bulgaria blvd), sofia, bulgaria": [
+    {
+      "lat": 42.6640603,
+      "lng": 23.2887209,
+      "display_name": "Мол България, 69, бул. България, кв. Манастирски ливади, София, Триадица, Столична, София-град, 1404, България",
+      "postcode": "1404",
+      "importance": 0.2636224323479305,
+      "class": "shop",
+      "type": "mall"
+    }
+  ],
+  "multi|bg|next level fitness next level druzhba, sofia, bulgaria": [],
+  "multi|bg|next level druzhba, sofia, bulgaria": [
+    {
+      "lat": 42.6508659,
+      "lng": 23.4080417,
+      "display_name": "Next Level, бул. Проф. Цветан Лазаров, НПЗ Искър, София, Искър, Столична, София-град, 1582, България",
+      "postcode": "1582",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level fohar, sofia, bulgaria": [],
+  "multi|bg|next level fohar, sofia, bulgaria": [
+    {
+      "lat": 42.6428101,
+      "lng": 23.286055,
+      "display_name": "Next Level, Кумата, ж.к. Фохар, София, Витоша, Столична, София-град, 1616, България",
+      "postcode": "1616",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level galaxy, sofia, bulgaria": [],
+  "multi|bg|next level galaxy, sofia, bulgaria": [],
+  "multi|bg|18 shipchenski prohod blvd, sofia, bulgaria": [
+    {
+      "lat": 42.6791864,
+      "lng": 23.360102,
+      "display_name": "International Asset Bank, 18, бул. Шипченски проход, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1113, България",
+      "postcode": "1113",
+      "importance": 6.891660944528905e-05,
+      "class": "amenity",
+      "type": "bank"
+    },
+    {
+      "lat": 42.6791431,
+      "lng": 23.3604397,
+      "display_name": "Raya Toys, 18, бул. Шипченски проход, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1113, България",
+      "postcode": "1113",
+      "importance": 6.891660944528905e-05,
+      "class": "shop",
+      "type": "toys"
+    },
+    {
+      "lat": 42.6790073,
+      "lng": 23.3605544,
+      "display_name": "Mania, 18, бул. Шипченски проход, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1113, България",
+      "postcode": "1113",
+      "importance": 6.891660944528905e-05,
+      "class": "shop",
+      "type": "clothes"
+    },
+    {
+      "lat": 42.6787897,
+      "lng": 23.3606266,
+      "display_name": "Next Level, 18, бул. Шипченски проход, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1113, България",
+      "postcode": "1113",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    },
+    {
+      "lat": 42.678913,
+      "lng": 23.3603888,
+      "display_name": "Galaxy Trade Center, 18, бул. Шипченски проход, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1113, България",
+      "postcode": "1113",
+      "importance": 6.891660944528905e-05,
+      "class": "building",
+      "type": "office"
+    }
+  ],
+  "multi|bg|next level fitness next level grand plaza burgas, burgas, bulgaria": [],
+  "multi|bg|next level grand plaza burgas, burgas, bulgaria": [],
+  "multi|bg|31 transportna blvd, burgas, bulgaria": [],
+  "multi|bg|31 transportna blvd, burgas": [],
+  "multi|bg|31 transportna blvd, 8211, burgas, bulgaria": [],
+  "multi|bg|next level fitness next level hadzhi dimitar, sofia, bulgaria": [],
+  "multi|bg|next level hadzhi dimitar, sofia, bulgaria": [],
+  "multi|bg|5 rezbarska street, sofia, bulgaria": [],
+  "multi|bg|5 rezbarska street, sofia": [],
+  "multi|bg|5 rezbarska street, 1100, sofia, bulgaria": [],
+  "multi|bg|next level fitness next level iztok, sofia, bulgaria": [],
+  "multi|bg|next level iztok, sofia, bulgaria": [
+    {
+      "lat": 42.6709424,
+      "lng": 23.3520911,
+      "display_name": "Next Level, 2, Николай Хайтов, комплекс \"Есте хоум\", ж.к. Изток, София, Изгрев, Столична, София-град, 1113, България",
+      "postcode": "1113",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level knyazhevo, sofia, bulgaria": [],
+  "multi|bg|next level knyazhevo, sofia, bulgaria": [
+    {
+      "lat": 42.6604908,
+      "lng": 23.2453673,
+      "display_name": "Next Level, бул. Цар Борис III, кв. Княжево, София, Витоша, Столична, София-град, 1619, България",
+      "postcode": "1619",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level krasna polyana, sofia, bulgaria": [],
+  "multi|bg|next level krasna polyana, sofia, bulgaria": [],
+  "multi|bg|dobrotich str, sofia, bulgaria": [
+    {
+      "lat": 42.6933405,
+      "lng": 23.2821644,
+      "display_name": "ул. Добротич, бул. Никола Мушанов, ж.к. Красна поляна 3, София, Красна поляна, Столична, София-град, 1330, България",
+      "postcode": "1330",
+      "importance": 6.891660944528905e-05,
+      "class": "railway",
+      "type": "tram_stop"
+    }
+  ],
+  "multi|bg|next level fitness next level lozenets, sofia, bulgaria": [],
+  "multi|bg|next level lozenets, sofia, bulgaria": [
+    {
+      "lat": 42.6712568,
+      "lng": 23.3327244,
+      "display_name": "Next Level, Златовръх, ж.к. Лозенец, София, Лозенец, Столична, София-град, 1416, България",
+      "postcode": "1416",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    },
+    {
+      "lat": 42.6784476,
+      "lng": 23.3198096,
+      "display_name": "Next Level, бул. Арсеналски, ж.к. Лозенец, София, Триадица, Столична, София-град, 1421, България",
+      "postcode": "1421",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level lyulin, sofia, bulgaria": [],
+  "multi|bg|next level lyulin, sofia, bulgaria": [
+    {
+      "lat": 42.7113859,
+      "lng": 23.2725744,
+      "display_name": "Next Level, 25, бул. Д-р Петър Дертлиев, ж.к. Люлин 10, ж.к. Люлин, София, Люлин, Столична, София-град, 1324, България",
+      "postcode": "1324",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level lyulin 5, sofia, bulgaria": [],
+  "multi|bg|next level lyulin 5, sofia, bulgaria": [],
+  "multi|bg|lyulin 5, block 550 / bul, sofia, bulgaria": [],
+  "multi|bg|lyulin 5, block 550 / bul, sofia": [],
+  "multi|bg|lyulin 5, block 550 / bul, 8220, sofia, bulgaria": [],
+  "multi|bg|next level fitness next level maxi, sofia, bulgaria": [],
+  "multi|bg|next level maxi, sofia, bulgaria": [],
+  "multi|bg|kv. vitosha, boulevard “simeonovsko shose 110, sofia, bulgaria": [],
+  "multi|bg|kv. vitosha, boulevard “simeonovsko shose 110, sofia": [],
+  "multi|bg|kv. vitosha, boulevard “simeonovsko shose 110, 8220, sofia, bulgaria": [],
+  "multi|bg|next level fitness next level mladost, sofia, bulgaria": [],
+  "multi|bg|next level mladost, sofia, bulgaria": [
+    {
+      "lat": 42.6597701,
+      "lng": 23.3827162,
+      "display_name": "Next Level, 115Ж, бул. Цариградско шосе, м. Къро, София, Младост, Столична, София-град, 1784, България",
+      "postcode": "1784",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    },
+    {
+      "lat": 42.634989,
+      "lng": 23.37533,
+      "display_name": "Next Level, 5, Д-р Атанас Москов, ж.к. Младост 4, София, Младост, Столична, София-град, 1715, България",
+      "postcode": "1715",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level mladost 1, sofia, bulgaria": [],
+  "multi|bg|next level mladost 1, sofia, bulgaria": [],
+  "multi|bg|mladost 1, №1 jerusalem str. №1, 2nd floor, sofia, bulgaria": [],
+  "multi|bg|mladost 1, №1 jerusalem str. №1, 2nd floor, sofia": [],
+  "multi|bg|next level fitness next level nadezhda, sofia, bulgaria": [],
+  "multi|bg|next level nadezhda, sofia, bulgaria": [],
+  "multi|bg|97a yordan hadzhikonstantinov-dzhinot st., sofia, bulgaria": [],
+  "multi|bg|97a yordan hadzhikonstantinov-dzhinot st., sofia": [],
+  "multi|bg|next level fitness next level ndk, sofia, bulgaria": [],
+  "multi|bg|next level ndk, sofia, bulgaria": [
+    {
+      "lat": 42.6854897,
+      "lng": 23.3197049,
+      "display_name": "Next Level, бул. Ген. Скобелев, Център, София, Триадица, Столична, София-град, 1414, България",
+      "postcode": "1414",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level new wave, varna, bulgaria": [],
+  "multi|bg|next level new wave, varna, bulgaria": [],
+  "multi|bg|18 hristo botev boulevard, varna, bulgaria": [],
+  "multi|bg|18 hristo botev boulevard, varna": [],
+  "multi|bg|18 hristo botev boulevard, 8211, varna, bulgaria": [],
+  "multi|bg|next level fitness next level okolovrasten pat, sofia, bulgaria": [],
+  "multi|bg|next level okolovrasten pat, sofia, bulgaria": [
+    {
+      "lat": 42.6481808,
+      "lng": 23.2953386,
+      "display_name": "Next Level, 18, Околовръстен път, в.з. Киноцентъра ІІІ част, София, Витоша, Столична, София-град, 1405, България",
+      "postcode": "1405",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level ovcha kupel, sofia, bulgaria": [],
+  "multi|bg|next level ovcha kupel, sofia, bulgaria": [
+    {
+      "lat": 42.68381,
+      "lng": 23.2417257,
+      "display_name": "Next Level, бул. Президент Линкълн, кв. Васил Попов, ж.к. Овча купел, София, Овча купел, Столична, София-град, 1632, България",
+      "postcode": "1632",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|next level fitness next level park center, sofia, bulgaria": [],
+  "multi|bg|next level park center, sofia, bulgaria": [],
+  "multi|bg|2 arsenalski blvd, sofia, bulgaria": [
+    {
+      "lat": 42.6787059,
+      "lng": 23.320509,
+      "display_name": "Парк Център София, 2, бул. Арсеналски, ж.к. Лозенец, София, Триадица, Столична, София-град, 1421, България",
+      "postcode": "1421",
+      "importance": 0.24930035976498935,
+      "class": "shop",
+      "type": "mall"
+    },
+    {
+      "lat": 42.6781288,
+      "lng": 23.319623,
+      "display_name": "2, бул. Арсеналски, ж.к. Лозенец, София, Триадица, Столична, София-град, 1421, България",
+      "postcode": "1421",
+      "importance": 6.891660944528905e-05,
+      "class": "building",
+      "type": "retail"
+    },
+    {
+      "lat": 42.6785577,
+      "lng": 23.3203364,
+      "display_name": "2, бул. Арсеналски, ж.к. Лозенец, София, Триадица, Столична, София-град, 1421, България",
+      "postcode": "1421",
+      "importance": 6.891660944528905e-05,
+      "class": "shop",
+      "type": "vacant"
+    },
+    {
+      "lat": 42.6788453,
+      "lng": 23.3203878,
+      "display_name": "2, бул. Арсеналски, ж.к. Лозенец, София, Триадица, Столична, София-град, 1421, България",
+      "postcode": "1421",
+      "importance": 6.891660944528905e-05,
+      "class": "amenity",
+      "type": "toilets"
+    },
+    {
+      "lat": 42.6785206,
+      "lng": 23.3202643,
+      "display_name": "2, бул. Арсеналски, ж.к. Лозенец, София, Триадица, Столична, София-град, 1421, България",
+      "postcode": "1421",
+      "importance": 6.891660944528905e-05,
+      "class": "amenity",
+      "type": "parking"
+    }
+  ],
+  "multi|bg|next level fitness next level pernik, pernik, bulgaria": [],
+  "multi|bg|next level pernik, pernik, bulgaria": [],
+  "multi|bg|plaza retail park (yuriy gagarin blvd. 2а), pernik, bulgaria": [],
+  "multi|bg|plaza retail park (yuriy gagarin blvd. 2а), pernik": [],
+  "multi|bg|plaza retail park (yuriy gagarin blvd. 2а), 8211, pernik, bulgaria": [],
+  "multi|bg|next level fitness next level plovdiv plaza, plovdiv, bulgaria": [],
+  "multi|bg|next level plovdiv plaza, plovdiv, bulgaria": [],
+  "multi|bg|3 dr. georgi stranski str, plovdiv, bulgaria": [],
+  "multi|bg|3 dr. georgi stranski str, plovdiv": [],
+  "multi|bg|3 dr. georgi stranski str, 8211, plovdiv, bulgaria": [],
+  "multi|bg|next level fitness next level ruski pametnik, sofia, bulgaria": [],
+  "multi|bg|next level ruski pametnik, sofia, bulgaria": [],
+  "multi|bg|30-32 \"general eduard i. totleben\" blvd., sofia, bulgaria": [],
+  "multi|bg|30-32 \"general eduard i. totleben\" blvd., sofia": [],
+  "multi|bg|next level fitness next level smirnenski, plovdiv, bulgaria": [],
+  "multi|bg|next level smirnenski, plovdiv, bulgaria": [],
+  "multi|bg|158 peshtersko shose blvd., plovdiv, bulgaria": [],
+  "multi|bg|158 peshtersko shose blvd., plovdiv": [],
+  "multi|bg|158 peshtersko shose blvd., 8211, plovdiv, bulgaria": [],
+  "multi|bg|next level fitness next level sport box, sofia, bulgaria": [],
+  "multi|bg|next level sport box, sofia, bulgaria": [],
+  "multi|bg|35 simeonovsko shose blvd., sofia, bulgaria": [
+    {
+      "lat": 42.6529442,
+      "lng": 23.336415,
+      "display_name": "Sport Box, 35, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1700, България",
+      "postcode": "1700",
+      "importance": 6.891660944528905e-05,
+      "class": "shop",
+      "type": "sports"
+    },
+    {
+      "lat": 42.6528411,
+      "lng": 23.3363736,
+      "display_name": "Next Level, 35, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1700, България",
+      "postcode": "1700",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    },
+    {
+      "lat": 42.6528065,
+      "lng": 23.3362794,
+      "display_name": "35, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1700, България",
+      "postcode": "1700",
+      "importance": 6.891660944528905e-05,
+      "class": "amenity",
+      "type": "bicycle_parking"
+    }
+  ],
+  "multi|bg|next level fitness next level the mall, sofia, bulgaria": [],
+  "multi|bg|next level the mall, sofia, bulgaria": [],
+  "multi|bg|115 tsarigradsko shose blvd., the mall, sofia, bulgaria": [],
+  "multi|bg|115 tsarigradsko shose blvd., the mall, sofia": [],
+  "rev|42.65996|23.38099": {
+    "place_id": 58844510,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 991508113,
+    "lat": "42.6599964",
+    "lon": "23.3810222",
+    "class": "highway",
+    "type": "unclassified",
+    "place_rank": 26,
+    "importance": 0.05340224994277863,
+    "addresstype": "road",
+    "name": "бул. Цариградско шосе",
+    "display_name": "бул. Цариградско шосе, м. Къро, София, Младост, Столична, София-град, 1784, България",
+    "address": {
+      "road": "бул. Цариградско шосе",
+      "neighbourhood": "м. Къро",
+      "city": "София",
+      "ISO3166-2-lvl8": "BG-23",
+      "county": "Младост",
+      "state_district": "Столична",
+      "state": "София-град",
+      "ISO3166-2-lvl4": "BG-22",
+      "postcode": "1784",
+      "country": "България",
+      "country_code": "bg"
+    },
+    "boundingbox": [
+      "42.6598190",
+      "42.6604001",
+      "23.3805277",
+      "23.3812981"
+    ]
+  },
+  "multi|bg|next level fitness next level zaimov, sofia, bulgaria": [],
+  "multi|bg|next level zaimov, sofia, bulgaria": [],
+  "multi|bg|oborishte district, 2 trakia st contact +359 879 419 314 info@nextlevelfitness, sofia, bulgaria": [],
+  "multi|bg|oborishte district, 2 trakia st contact +359 879 419 314 info@nextlevelfitness, sofia": [],
+  "multi|bg|pulse fitness pulse bulgaria, sofia, bulgaria": [],
+  "multi|bg|pulse bulgaria, sofia, bulgaria": [
+    {
+      "lat": 42.6556271,
+      "lng": 23.2812249,
+      "display_name": "FINES Пулс България, 8Б, Бяло поле, кв. Манастирски ливади, София, Витоша, Столична, София-град, 1618, България",
+      "postcode": "1618",
+      "importance": 6.891660944528905e-05,
+      "class": "amenity",
+      "type": "charging_station"
+    }
+  ],
+  "multi|bg|pulse fitness pulse mladost, sofia, bulgaria": [],
+  "multi|bg|pulse mladost, sofia, bulgaria": [
+    {
+      "lat": 42.6246781,
+      "lng": 23.3727786,
+      "display_name": "Pulse, 251А, Околовръстен път, ж.к. Младост 4, София, Младост, Столична, София-град, 1766, България",
+      "postcode": "1766",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|pulse fitness pulse platinum, sofia, bulgaria": [],
+  "multi|bg|pulse platinum, sofia, bulgaria": [],
+  "multi|bg|47 rezbarska street, sofia, bulgaria": [],
+  "multi|bg|47 rezbarska street, sofia": [],
+  "multi|bg|pulse fitness pulse west park, sofia, bulgaria": [],
+  "multi|bg|pulse west park, sofia, bulgaria": [],
+  "multi|bg|60 petar dertliev blvd., sofia, bulgaria": [
+    {
+      "lat": 42.7096227,
+      "lng": 23.2572209,
+      "display_name": "R5, 60, бул. Д-р Петър Дертлиев, ж.к. Люлин 6, ж.к. Люлин, София, Люлин, Столична, София-град, 1805, България",
+      "postcode": "1805",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "sports_centre"
+    }
+  ],
+  "multi|bg|pulse fitness pulse arena, sofia, bulgaria": [],
+  "multi|bg|pulse arena, sofia, bulgaria": [
+    {
+      "lat": 42.6680599,
+      "lng": 23.3671945,
+      "display_name": "Fines - Pulse Arena, 1, бул. Д-р Г. М. Димитров, ж.к. Младост 1, София, Студентски, Столична, София-град, 1797, България",
+      "postcode": "1797",
+      "importance": 6.891660944528905e-05,
+      "class": "amenity",
+      "type": "charging_station"
+    }
+  ],
+  "multi|bg|pulse fitness pulse vitosha, sofia, bulgaria": [],
+  "multi|bg|pulse vitosha, sofia, bulgaria": [
+    {
+      "lat": 42.6246781,
+      "lng": 23.3727786,
+      "display_name": "Pulse, 251А, Околовръстен път, ж.к. Младост 4, София, Младост, Столична, София-град, 1766, България",
+      "postcode": "1766",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    },
+    {
+      "lat": 42.6433221,
+      "lng": 23.3337655,
+      "display_name": "Pulse, 102А, бул. Симеоновско шосе, кв. Витоша, София, Лозенец, Столична, София-град, 1734, България",
+      "postcode": "1734",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|pulse fitness pulse serdika center, sofia, bulgaria": [],
+  "multi|bg|pulse serdika center, sofia, bulgaria": [],
+  "multi|bg|48 sitnyakovo blvd., 3rd floor, sofia, bulgaria": [],
+  "multi|bg|48 sitnyakovo blvd., 3rd floor, sofia": [],
+  "multi|bg|pulse fitness pulse energy, sofia, bulgaria": [],
+  "multi|bg|pulse energy, sofia, bulgaria": [
+    {
+      "lat": 42.6247328,
+      "lng": 23.351155,
+      "display_name": "Pulse Energy Club, 214, Околовръстен път, ж.к. Морени клуб, кв. Симеоново, София, Витоша, Столична, София-град, 1434, България",
+      "postcode": "1434",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|pulse fitness pulse mall of sofia, sofia, bulgaria": [],
+  "multi|bg|pulse mall of sofia, sofia, bulgaria": [],
+  "multi|bg|101 a alexander stamboliyski blvd., sofia, bulgaria": [],
+  "multi|bg|101 a alexander stamboliyski blvd., sofia": [],
+  "multi|bg|pulse fitness pulse downtown, sofia, bulgaria": [],
+  "multi|bg|pulse downtown, sofia, bulgaria": [],
+  "multi|bg|8 sveta sofia street in the very center of, sofia, bulgaria": [],
+  "multi|bg|8 sveta sofia street in the very center of, sofia": [],
+  "multi|bg|pulse fitness pulse lyulin, sofia, bulgaria": [],
+  "multi|bg|pulse lyulin, sofia, bulgaria": [
+    {
+      "lat": 42.709352,
+      "lng": 23.2572546,
+      "display_name": "Pulse, бул. Д-р Петър Дертлиев, ж.к. Люлин 6, ж.к. Люлин, София, Люлин, Столична, София-град, 1324, България",
+      "postcode": "1324",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|pulse fitness pulse grand plovdiv, plovdiv, bulgaria": [],
+  "multi|bg|pulse grand plovdiv, plovdiv, bulgaria": [],
+  "multi|bg|4 asenovgradsko shose blvd., plovdiv, bulgaria": [
+    {
+      "lat": 42.1290195,
+      "lng": 24.7674407,
+      "display_name": "4, бул. Асеновградско шосе, Ухото, Централен, Южен, Пловдив, 4000, България",
+      "postcode": "4000",
+      "importance": 7.000152590214416e-05,
+      "class": "building",
+      "type": "apartments"
+    }
+  ],
+  "multi|bg|pulse fitness pulse plovdiv, plovdiv, bulgaria": [],
+  "multi|bg|pulse plovdiv, plovdiv, bulgaria": [
+    {
+      "lat": 42.1357445,
+      "lng": 24.7454454,
+      "display_name": "Pulse, 63, Цанко Дюстабанов, Триъгълника, Гроздов пазар, Централен, Пловдив, 4000, България",
+      "postcode": "4000",
+      "importance": 7.000152590214416e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|pulse fitness pulse galleria burgas, burgas, bulgaria": [],
+  "multi|bg|pulse galleria burgas, burgas, bulgaria": [],
+  "multi|bg|6 yanko komitov blvd., mall galleria burgas, level 2, burgas, bulgaria": [],
+  "multi|bg|6 yanko komitov blvd., mall galleria burgas, level 2, burgas": [],
+  "multi|bg|6 yanko komitov blvd., mall galleria burgas, level 2, 8001, burgas, bulgaria": [],
+  "multi|bg|pulse fitness pulse kim center burgas, burgas, bulgaria": [],
+  "multi|bg|pulse kim center burgas, burgas, bulgaria": [],
+  "multi|bg|baba ganka street, burgas, bulgaria": [],
+  "multi|bg|baba ganka street, burgas": [],
+  "multi|bg|baba ganka street, 8000, burgas, bulgaria": [],
+  "multi|bg|pulse fitness pulse vital burgas, burgas, bulgaria": [],
+  "multi|bg|pulse vital burgas, burgas, bulgaria": [],
+  "multi|bg|zornitsa complex 75, ground floor, burgas, bulgaria": [],
+  "multi|bg|zornitsa complex 75, ground floor, burgas": [],
+  "multi|bg|zornitsa complex 75, ground floor, 0029, burgas, bulgaria": [],
+  "multi|bg|pulse fitness pulse stara zagora, stara zagora, bulgaria": [],
+  "multi|bg|pulse stara zagora, stara zagora, bulgaria": [],
+  "multi|bg|28 prince alexander battenberg blvd. 0882169864 pulse, stara zagora, bulgaria": [],
+  "multi|bg|28 prince alexander battenberg blvd. 0882169864 pulse, stara zagora": [],
+  "multi|bg|28 prince alexander battenberg blvd. 0882169864 pulse, 6002, stara zagora, bulgaria": [],
+  "multi|bg|pulse fitness pulse sveti vlas, sveti vlas, bulgaria": [],
+  "multi|bg|pulse sveti vlas, sveti vlas, bulgaria": [],
+  "multi|bg|4 lyulin street, yurta, sveti vlas, bulgaria": [],
+  "multi|bg|4 lyulin street, yurta, sveti vlas": [],
+  "multi|bg|4 lyulin street, yurta, 8240, sveti vlas, bulgaria": [],
+  "multi|bg|pulse fitness pulse kardzhali, kardzhali, bulgaria": [],
+  "multi|bg|pulse kardzhali, kardzhali, bulgaria": [],
+  "multi|bg|r zone a huge variety of first-class equipment. this is the strength zone of pulse fitness, kardzhali, bulgaria": [],
+  "multi|bg|r zone a huge variety of first-class equipment. this is the strength zone of pulse fitness, kardzhali": [],
+  "multi|bg|athletic fitness athletic yanko sakazov, sofia, bulgaria": [],
+  "multi|bg|athletic yanko sakazov, sofia, bulgaria": [
+    {
+      "lat": 42.6961367,
+      "lng": 23.3452962,
+      "display_name": "Athletic Fitness, бул. Янко Сакъзов, Център, София, Оборище, Столична, София-град, 1504, България",
+      "postcode": "1504",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    },
+    {
+      "lat": 42.6959907,
+      "lng": 23.3453015,
+      "display_name": "Атлетик Фитнес, 78, бул. Янко Сакъзов, Център, София, Оборище, Столична, София-град, 1504, България",
+      "postcode": "1504",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "sports_centre"
+    }
+  ],
+  "multi|bg|athletic fitness athletic nikolai kopernik, sofia, bulgaria": [],
+  "multi|bg|athletic nikolai kopernik, sofia, bulgaria": [],
+  "multi|bg|21 nikolai kopernik str., sofia, bulgaria": [],
+  "multi|bg|21 nikolai kopernik str., sofia": [],
+  "multi|bg|athletic fitness athletic slivnitsa, sofia, bulgaria": [],
+  "multi|bg|athletic slivnitsa, sofia, bulgaria": [
+    {
+      "lat": 42.7079626,
+      "lng": 23.298438,
+      "display_name": "Атлетик фитнес, 228, бул. Сливница, ж.к. Света Троица, София, Илинден, Столична, София-град, 1309, България",
+      "postcode": "1309",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|athletic fitness athletic sopharma towers, sofia, bulgaria": [],
+  "multi|bg|athletic sopharma towers, sofia, bulgaria": [],
+  "multi|bg|5 lachezar stanchev str., sopharma business towers, tower a, fl. 2, sofia, bulgaria": [],
+  "multi|bg|5 lachezar stanchev str., sopharma business towers, tower a, fl. 2, sofia": [],
+  "multi|bg|athletic fitness athletic cherni vrah, sofia, bulgaria": [],
+  "multi|bg|athletic cherni vrah, sofia, bulgaria": [
+    {
+      "lat": 42.6622496,
+      "lng": 23.3181453,
+      "display_name": "Athletic Fitness, 47, бул. Черни връх, Промишлена зона Хладилника, София, Лозенец, Столична, София-град, 1407, България",
+      "postcode": "1407",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|athletic fitness athletic mega mall, sofia, bulgaria": [],
+  "multi|bg|athletic mega mall, sofia, bulgaria": [],
+  "multi|bg|15 tsaritsa yoanna blvd., mega mall, fl. 2, sofia, bulgaria": [],
+  "multi|bg|15 tsaritsa yoanna blvd., mega mall, fl. 2, sofia": [],
+  "multi|bg|athletic fitness athletic yordan yosifov, sofia, bulgaria": [],
+  "multi|bg|athletic yordan yosifov, sofia, bulgaria": [
+    {
+      "lat": 42.6532361,
+      "lng": 23.3466226,
+      "display_name": "Атлетик, 1А, Доктор Йордан Йосифов, ж.к. Студентски град, София, Студентски, Столична, София-град, 1700, България",
+      "postcode": "1700",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|athletic fitness athletic plovdiv plaza, plovdiv, bulgaria": [],
+  "multi|bg|athletic plovdiv plaza, plovdiv, bulgaria": [],
+  "multi|bg|3 dr. georgi stranski str., mall plovdiv plaza, fl. 2, plovdiv, bulgaria": [],
+  "multi|bg|3 dr. georgi stranski str., mall plovdiv plaza, fl. 2, plovdiv": [],
+  "multi|bg|athletic fitness athletic markovo tepe, plovdiv, bulgaria": [],
+  "multi|bg|athletic markovo tepe, plovdiv, bulgaria": [],
+  "multi|bg|52-54 ruski blvd., mall markovo tepe, fl. 3, plovdiv, bulgaria": [],
+  "multi|bg|52-54 ruski blvd., mall markovo tepe, fl. 3, plovdiv": [],
+  "multi|bg|athletic fitness athletic galleria stara zagora, stara zagora, bulgaria": [],
+  "multi|bg|athletic galleria stara zagora, stara zagora, bulgaria": [],
+  "multi|bg|30 han asparuh str., mall galleria stara zagora, fl. 2, stara zagora, bulgaria": [],
+  "multi|bg|30 han asparuh str., mall galleria stara zagora, fl. 2, stara zagora": [],
+  "multi|bg|flais fitness flais hadzhi dimitar, sofia, bulgaria": [],
+  "multi|bg|flais hadzhi dimitar, sofia, bulgaria": [],
+  "multi|bg|“fitness club flais” is providing high quality fitness services, sofia, bulgaria": [],
+  "multi|bg|“fitness club flais” is providing high quality fitness services, sofia": [],
+  "multi|bg|“fitness club flais” is providing high quality fitness services, 2023, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais alera, sofia, bulgaria": [],
+  "multi|bg|flais alera, sofia, bulgaria": [],
+  "multi|bg|in ovcha kupel 1, next to the mizia metro station (761st street) , this gym will offer a first-class environment for everyone who wants to i, sofia, bulgaria": [],
+  "multi|bg|in ovcha kupel 1, next to the mizia metro station (761st street) , this gym will offer a first-class environment for everyone who wants to i, sofia": [],
+  "multi|bg|in ovcha kupel 1, next to the mizia metro station (761st street) , this gym will offer a first-class environment for everyone who wants to i, 1600, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais nadezhda, sofia, bulgaria": [],
+  "multi|bg|flais nadezhda, sofia, bulgaria": [],
+  "multi|bg|“fitness club flais” is providing high quality fitness services, 1220, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais millennium, sofia, bulgaria": [],
+  "multi|bg|flais millennium, sofia, bulgaria": [],
+  "multi|bg|grand hotel millennium, vitosha 89b blvd, sofia, bulgaria": [],
+  "multi|bg|grand hotel millennium, vitosha 89b blvd, sofia": [],
+  "multi|bg|grand hotel millennium, vitosha 89b blvd, 1500, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais krasna polyana, sofia, bulgaria": [],
+  "multi|bg|flais krasna polyana, sofia, bulgaria": [],
+  "multi|bg|at top location in krasnaya polyana 31a, ent, sofia, bulgaria": [],
+  "multi|bg|at top location in krasnaya polyana 31a, ent, sofia": [],
+  "multi|bg|at top location in krasnaya polyana 31a, ent, 2019, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais veslec, sofia, bulgaria": [],
+  "multi|bg|flais veslec, sofia, bulgaria": [],
+  "multi|bg|at top location in the center of sofia, at veslets 18 str, sofia, bulgaria": [],
+  "multi|bg|at top location in the center of sofia, at veslets 18 str, sofia": [],
+  "multi|bg|at top location in the center of sofia, at veslets 18 str, 1600, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais strelbishte, sofia, bulgaria": [],
+  "multi|bg|flais strelbishte, sofia, bulgaria": [],
+  "multi|bg|at 11a dedeagach street, sofia, bulgaria": [],
+  "multi|bg|at 11a dedeagach street, sofia": [],
+  "multi|bg|at 11a dedeagach street, 1400, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais manastirski livadi, sofia, bulgaria": [],
+  "multi|bg|flais manastirski livadi, sofia, bulgaria": [],
+  "multi|bg|at manastirski livadi – west, 56 pirin str, sofia, bulgaria": [],
+  "multi|bg|at manastirski livadi – west, 56 pirin str, sofia": [],
+  "multi|bg|at manastirski livadi – west, 56 pirin str, 2019, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais knyazhevo, sofia, bulgaria": [],
+  "multi|bg|flais knyazhevo, sofia, bulgaria": [],
+  "multi|bg|at ovcha kupel, 52 nikola petkov blvd, sofia, bulgaria": [],
+  "multi|bg|at ovcha kupel, 52 nikola petkov blvd, sofia": [],
+  "multi|bg|at ovcha kupel, 52 nikola petkov blvd, 1500, sofia, bulgaria": [],
+  "multi|bg|flais fitness flais mladost, sofia, bulgaria": [],
+  "multi|bg|flais mladost, sofia, bulgaria": [],
+  "multi|bg|at business park mladost on the second floor of the sport depot’s building, sofia, bulgaria": [],
+  "multi|bg|at business park mladost on the second floor of the sport depot’s building, sofia": [],
+  "multi|bg|at business park mladost on the second floor of the sport depot’s building, 2019, sofia, bulgaria": [],
+  "multi|bg|hammer gym platinum, sofia, bulgaria": [],
+  "multi|bg|4 george washington str., sofia, bulgaria": [],
+  "multi|bg|4 george washington str., sofia": [],
+  "multi|bg|hammer gym manastirski livadi, sofia, bulgaria": [
+    {
+      "lat": 42.6652416,
+      "lng": 23.2790013,
+      "display_name": "Hammer Gym, Мур, кв. Манастирски ливади, София, Витоша, Столична, София-град, 1618, България",
+      "postcode": "1618",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "multi|bg|hammer gym beli brezi, sofia, bulgaria": [],
+  "multi|bg|76 nishava str. (corner with solun str.), sofia, bulgaria": [],
+  "multi|bg|76 nishava str. (corner with solun str.), sofia": [],
+  "multi|bg|hammer gym krasno selo, sofia, bulgaria": [
+    {
+      "lat": 42.6753177,
+      "lng": 23.2951232,
+      "display_name": "Hammer Gym, 76, Нишава, ж.к. Белите брези, София, Красно село, Столична, София-град, 1620, България",
+      "postcode": "1620",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    },
+    {
+      "lat": 42.6749443,
+      "lng": 23.280721,
+      "display_name": "Hammer Gym, 9, Царица Елеонора, ж.к. Красно село, София, Красно село, Столична, София-град, 1620, България",
+      "postcode": "1620",
+      "importance": 6.891660944528905e-05,
+      "class": "leisure",
+      "type": "fitness_centre"
+    }
+  ],
+  "rev|42.65027|23.33556": {
+    "place_id": 58475022,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": 2648664277,
+    "lat": "42.6502717",
+    "lon": "23.3355622",
+    "class": "highway",
+    "type": "bus_stop",
+    "place_rank": 30,
+    "importance": 6.891660944528905e-05,
+    "addresstype": "highway",
+    "name": "кв. Витоша",
+    "display_name": "кв. Витоша, бул. Симеоновско шосе, кв. Витоша, София, Лозенец, Столична, София-град, 1700, България",
+    "address": {
+      "highway": "кв. Витоша",
+      "road": "бул. Симеоновско шосе",
+      "suburb": "кв. Витоша",
+      "city": "София",
+      "ISO3166-2-lvl8": "BG-23",
+      "county": "Лозенец",
+      "state_district": "Столична",
+      "state": "София-град",
+      "ISO3166-2-lvl4": "BG-22",
+      "postcode": "1700",
+      "country": "България",
+      "country_code": "bg"
+    },
+    "boundingbox": [
+      "42.6502217",
+      "42.6503217",
+      "23.3355122",
+      "23.3356122"
+    ]
+  },
+  "rev|42.60922|23.03095": {
+    "place_id": 58407241,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 1196992714,
+    "lat": "42.6090308",
+    "lon": "23.0309992",
+    "class": "highway",
+    "type": "residential",
+    "place_rank": 26,
+    "importance": 0.05339422217135878,
+    "addresstype": "road",
+    "name": "Св. св. Кирил и Методий",
+    "display_name": "Св. св. Кирил и Методий, Перник Център, Перник, 2300, България",
+    "address": {
+      "road": "Св. св. Кирил и Методий",
+      "suburb": "Перник Център",
+      "city": "Перник",
+      "state_district": "Перник",
+      "state": "Перник",
+      "ISO3166-2-lvl4": "BG-14",
+      "postcode": "2300",
+      "country": "България",
+      "country_code": "bg"
+    },
+    "boundingbox": [
+      "42.6078465",
+      "42.6102681",
+      "23.0288823",
+      "23.0341422"
+    ]
+  },
+  "multi|bg|next level retail park varna, varna, bulgaria": [],
+  "multi|bg|retail park varna, varna, bulgaria": [
+    {
+      "lat": 43.2276938,
+      "lng": 27.844075,
+      "display_name": "ГеоТех Керамик Парк, кв. Кайсиева градина, Варна, Владислав Варненчик, Варна, България",
+      "postcode": "",
+      "type": "retail",
+      "importance": 0.0800697726405737
+    }
+  ],
+  "multi|bg|retail park varna, varna": [
+    {
+      "lat": 43.2276938,
+      "lng": 27.844075,
+      "display_name": "ГеоТех Керамик Парк, кв. Кайсиева градина, Варна, Владислав Варненчик, Варна, България",
+      "postcode": "",
+      "type": "retail",
+      "importance": 0.0800697726405737
+    }
+  ],
+  "multi|bg|oborishte district, 2 trakia st, sofia, bulgaria": [],
+  "multi|bg|oborishte district, 2 trakia st, sofia": [],
+  "reverse|42.706710|23.348215": {
+    "postcode": "1510",
+    "display_name": "при Хаджията, Уошбърн, ж.к. Хаджи Димитър, София, Подуяне, Столична, София-град, 1510, България",
+    "road": "Уошбърн"
+  },
+  "reverse|42.731533|23.297054": {
+    "postcode": "1231",
+    "display_name": "Флайс, 2, Любородие, ж.к. Надежда 1, София, Надежда, Столична, София-град, 1231, България",
+    "road": "Любородие"
+  },
+  "reverse|42.679689|23.365362": {
+    "postcode": "1574",
+    "display_name": "Департамент за езиково обучение - ИЧС, Коста Лулчев, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1574, България",
+    "road": "Коста Лулчев"
+  },
+  "reverse|42.660684|23.374171": {
+    "postcode": "1750",
+    "display_name": "24, Димитър Моллов, ж.к. Младост 1, София, Младост, Столична, София-град, 1750, България",
+    "road": "Димитър Моллов"
+  },
+  "reverse|42.654680|23.318790": {
+    "postcode": "1407",
+    "display_name": "16, Борис Руменов, кв. Кръстова вада, София, Лозенец, Столична, София-град, 1407, България",
+    "road": "Борис Руменов"
+  },
+  "reverse|42.665603|23.258877": {
+    "postcode": "1619",
+    "display_name": "бул. Цар Борис ІІІ, бул. Никола Петков, кв. Карпузица, София, Витоша, Столична, София-град, 1619, България",
+    "road": "бул. Никола Петков"
+  },
+  "search|bg|бул. александър малинов 40, младост 1, sofia, bulgaria": [
+    {
+      "lat": 42.6489216,
+      "lng": 23.3770348,
+      "display_name": "Банка ДСК, 40, бул. Александър Малинов, ж.к. Младост 1, София, Младост, Столична, София-град, 1784, България",
+      "postcode": "1784"
+    }
+  ],
+  "search|bg|ул. стефан малинов 2, иван вазов, sofia, bulgaria": [],
+  "search|bg|ул. даскал никита 2б, христо смирненски, sofia, bulgaria": [],
+  "search|bg|бул. панчо владигеров 21, люлин 6, sofia, bulgaria": [
+    {
+      "lat": 42.7129978,
+      "lng": 23.2489549,
+      "display_name": "21, бул. Панчо Владигеров, ж.к. Люлин 6, ж.к. Люлин, София, Люлин, Столична, София-град, 1805, България",
+      "postcode": "1805"
+    },
+    {
+      "lat": 42.7130185,
+      "lng": 23.2489711,
+      "display_name": "Domino's, 21, бул. Панчо Владигеров, ж.к. Люлин 6, ж.к. Люлин, София, Люлин, Столична, София-град, 1805, България",
+      "postcode": "1805"
+    },
+    {
+      "lat": 42.7129978,
+      "lng": 23.2487852,
+      "display_name": "Хумана, 21, бул. Панчо Владигеров, ж.к. Люлин 6, ж.к. Люлин, София, Люлин, Столична, София-град, 1805, България",
+      "postcode": "1805"
+    }
+  ],
+  "search|bg|бул. симеоновско шосе 77, sofia, bulgaria": [
+    {
+      "lat": 42.6434517,
+      "lng": 23.3343805,
+      "display_name": "Slim Stone, 77В, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1734, България",
+      "postcode": "1734"
+    },
+    {
+      "lat": 42.6438029,
+      "lng": 23.3343954,
+      "display_name": "77А, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1734, България",
+      "postcode": "1734"
+    },
+    {
+      "lat": 42.6435798,
+      "lng": 23.3344033,
+      "display_name": "77Б, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1734, България",
+      "postcode": "1734"
+    },
+    {
+      "lat": 42.643437,
+      "lng": 23.3344567,
+      "display_name": "77В, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1734, България",
+      "postcode": "1734"
+    },
+    {
+      "lat": 42.6435267,
+      "lng": 23.3343583,
+      "display_name": "Light Castle, 77Б, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1734, България",
+      "postcode": "1734"
+    }
+  ],
+  "search|bg|31 transportna blvd, burgas, bulgaria": [],
+  "search|bg|31 transportna blvd, burgas": [],
+  "search|bg|grand plaza mall burgas, bulgaria": [],
+  "search|bg|5 rezbarska street, sofia, bulgaria": [],
+  "search|bg|5 rezbarska street, sofia": [],
+  "search|bg|lyulin 5 block 550, doctor peter dertliev 103, sofia, bulgaria": [],
+  "search|bg|lyulin 5 block 550, doctor peter dertliev 103, sofia": [],
+  "search|bg|1 jerusalem street, mladost 1, 2nd floor, sofia, bulgaria": [],
+  "search|bg|1 jerusalem street, mladost 1, 2nd floor, sofia": [],
+  "search|bg|97a yordan hadzhikonstantinov-dzhinot st., sofia, bulgaria": [],
+  "search|bg|97a yordan hadzhikonstantinov-dzhinot st., sofia": [],
+  "search|bg|18 hristo botev boulevard, varna, bulgaria": [],
+  "search|bg|18 hristo botev boulevard, varna": [],
+  "search|bg|hristo botev 18, varna, bulgaria": [
+    {
+      "lat": 43.2042623,
+      "lng": 27.9028819,
+      "display_name": "18, бул. Христо Ботев, Център, Варна, Одесос, Варна, 9004, България",
+      "postcode": "9004"
+    },
+    {
+      "lat": 43.2044309,
+      "lng": 27.9031008,
+      "display_name": "Банка ДСК, 18, бул. Христо Ботев, Център, Варна, Одесос, Варна, 9000, България",
+      "postcode": "9000"
+    },
+    {
+      "lat": 43.2029099,
+      "lng": 27.8981041,
+      "display_name": "бул. Христо Ботев, кв. Христо Ботев, Варна, Одесос, Варна, 9004, България",
+      "postcode": "9004"
+    },
+    {
+      "lat": 43.2045602,
+      "lng": 27.9069193,
+      "display_name": "бул. Христо Ботев, Гръцката махала, Център, Варна, Одесос, Варна, 9028, България",
+      "postcode": "9028"
+    },
+    {
+      "lat": 43.2041719,
+      "lng": 27.9048406,
+      "display_name": "бул. Христо Ботев, Център, Варна, Одесос, Варна, 9004, България",
+      "postcode": "9004"
+    }
+  ],
+  "search|bg|plaza retail park, yuriy gagarin blvd. 2a, pernik, bulgaria": [],
+  "search|bg|plaza retail park, yuriy gagarin blvd. 2a, pernik": [],
+  "search|bg|plaza retail park pernik, bulgaria": [],
+  "search|bg|3 dr. georgi stranski str, plovdiv, bulgaria": [],
+  "search|bg|3 dr. georgi stranski str, plovdiv": [],
+  "search|bg|georgi stranski 3, plovdiv, bulgaria": [
+    {
+      "lat": 42.1453556,
+      "lng": 24.7822627,
+      "display_name": "Tom Tailor, 3, Д-р Георги Странски, Гладно поле, Източен, Пловдив, 4000, България",
+      "postcode": "4000"
+    },
+    {
+      "lat": 42.1454305,
+      "lng": 24.781017,
+      "display_name": "Sport Vision, 3, Д-р Георги Странски, Гладно поле, Източен, Пловдив, 4000, България",
+      "postcode": "4000"
+    },
+    {
+      "lat": 42.1454021,
+      "lng": 24.7815225,
+      "display_name": "Intersport, 3, Д-р Георги Странски, Гладно поле, Източен, Пловдив, 4000, България",
+      "postcode": "4000"
+    },
+    {
+      "lat": 42.1453714,
+      "lng": 24.7820677,
+      "display_name": "Orange, 3, Д-р Георги Странски, Гладно поле, Източен, Пловдив, 4000, България",
+      "postcode": "4000"
+    },
+    {
+      "lat": 42.1449367,
+      "lng": 24.7819707,
+      "display_name": "International Asset Bank, 3, Д-р Георги Странски, Гладно поле, Източен, Пловдив, 4000, България",
+      "postcode": "4000"
+    }
+  ],
+  "search|bg|55 republika blvd, varna, bulgaria": [],
+  "search|bg|55 republika blvd, varna": [],
+  "search|bg|retail park varna, bulgaria": [
+    {
+      "lat": 43.2276938,
+      "lng": 27.844075,
+      "display_name": "ГеоТех Керамик Парк, кв. Кайсиева градина, Варна, Владислав Варненчик, Варна, България",
+      "postcode": ""
+    }
+  ],
+  "reverse|43.227694|27.844075": {
+    "postcode": "9023",
+    "display_name": "2, кв. Кайсиева градина, Варна, Владислав Варненчик, Варна, 9023, България",
+    "road": "2"
+  },
+  "search|bg|30-32 general eduard i. totleben blvd., sofia, bulgaria": [],
+  "search|bg|30-32 general eduard i. totleben blvd., sofia": [],
+  "search|bg|158 peshtersko shose blvd., plovdiv, bulgaria": [],
+  "search|bg|158 peshtersko shose blvd., plovdiv": [],
+  "search|bg|peshtersko shose 158, plovdiv, bulgaria": [
+    {
+      "lat": 42.1396407,
+      "lng": 24.7287254,
+      "display_name": "Пещерско шосе, Младежки хълм, Централен, Пловдив, 4002, България",
+      "postcode": "4002"
+    },
+    {
+      "lat": 42.1387037,
+      "lng": 24.7243078,
+      "display_name": "Пещерско шосе, Гарнизонна фурна, Западен, Пловдив, 4002, България",
+      "postcode": "4002"
+    },
+    {
+      "lat": 42.1409408,
+      "lng": 24.7319872,
+      "display_name": "Пещерско шосе, Младежки хълм, Централен, Пловдив, 4020, България",
+      "postcode": "4020"
+    },
+    {
+      "lat": 42.1414162,
+      "lng": 24.733144,
+      "display_name": "Пещерско шосе, Марково тепе, Младежки хълм, Централен, Пловдив, 4020, България",
+      "postcode": "4020"
+    }
+  ],
+  "search|bg|2 trakia street, oborishte, sofia, bulgaria": [],
+  "search|bg|2 trakia street, oborishte, sofia": [],
+  "search|bg|4 george washington str., sofia, bulgaria": [],
+  "search|bg|76 nishava str. (corner with solun str.), sofia, bulgaria": [],
+  "reverse|42.682375|23.313842": {
+    "postcode": "1473",
+    "display_name": "140, бул. Витоша, Център, София, Триадица, Столична, София-град, 1473, България"
+  },
+  "reverse|42.694483|23.284081": {
+    "postcode": "1330",
+    "display_name": "Криворечна паланка, ж.к. Красна поляна 3, София, Красна поляна, Столична, София-град, 1330, България"
+  },
+  "reverse|42.677941|23.300279": {
+    "postcode": "1621",
+    "display_name": "19, Енос, ж.к. Стрелбище, София, Триадица, Столична, София-град, 1621, България"
+  },
+  "reverse|42.664168|23.284716": {
+    "postcode": "1680",
+    "display_name": "бл. 16, кв. Манастирски ливади, София, Витоша, Столична, София-град, 1680, България"
+  },
+  "search|bg|транспортна 31, бургас": [
+    {
+      "lat": 42.5311579,
+      "lng": 27.458124,
+      "display_name": "dm, 31, Транспортна, ж.к. Изгрев, Бургас, 8000, България",
+      "postcode": "8000"
+    }
+  ],
+  "search|bg|ул. резбарска 5, софия": [],
+  "search|bg|rezbarska 5, sofia, bulgaria": [
+    {
+      "lat": 42.7112665,
+      "lng": 23.350769,
+      "display_name": "5, Резбарска, НПЗ Хаджи Димитър, София, Подуяне, Столична, София-град, 1510, България",
+      "postcode": "1510"
+    },
+    {
+      "lat": 42.7115093,
+      "lng": 23.3527695,
+      "display_name": "Ауто Франс 3000, 5, Резбарска, НПЗ Хаджи Димитър, София, Подуяне, Столична, София-град, 1510, България",
+      "postcode": "1510"
+    }
+  ],
+  "search|bg|бул. петър дертлиев 103, люлин 5, софия": [
+    {
+      "lat": 42.7111835,
+      "lng": 23.2423875,
+      "display_name": "бул. Д-р Петър Дертлиев, ж.к. Люлин 5, ж.к. Люлин, София, Люлин, Столична, София-град, 1359, България",
+      "postcode": "1359"
+    }
+  ],
+  "search|bg|ул. йерусалим 1, младост 1, софия": [
+    {
+      "lat": 42.6538502,
+      "lng": 23.372383,
+      "display_name": "ул. Йерусалим, бул. Андрей Сахаров, ж.к. Младост 1, София, Младост, Столична, София-град, 1079, България",
+      "postcode": "1079"
+    },
+    {
+      "lat": 42.654359,
+      "lng": 23.371596,
+      "display_name": "метростанция Младост I, бул. Андрей Сахаров, ж.к. Младост 1, София, Младост, Столична, София-град, 1750, България",
+      "postcode": "1750"
+    },
+    {
+      "lat": 42.6544236,
+      "lng": 23.3728189,
+      "display_name": "метростанция Младост I, Йерусалим, ж.к. Младост 1, София, Младост, Столична, София-град, 1750, България",
+      "postcode": "1750"
+    }
+  ],
+  "search|bg|ул. йордан хаджиконстантинов джинот 97а, софия": [],
+  "search|bg|юрий гагарин 2а, перник": [
+    {
+      "lat": 42.607036,
+      "lng": 23.0565151,
+      "display_name": "Lilly, 2А, Юрий Гагарин, кв. Димова махала, Перник, 2300, България",
+      "postcode": "2300"
+    },
+    {
+      "lat": 42.607175,
+      "lng": 23.0564875,
+      "display_name": "Billa, 2А, Юрий Гагарин, кв. Димова махала, Перник, 2300, България",
+      "postcode": "2300"
+    }
+  ],
+  "search|bg|бул. генерал тотлебен 30, софия": [],
+  "search|bg|totleben 30, sofia": [
+    {
+      "lat": 42.6909408,
+      "lng": 23.3072002,
+      "display_name": "Union Business Center, 30-32, бул. Ген. Тотлебен, Център, София, Красно село, Столична, София-град, 1606, България",
+      "postcode": "1606"
+    },
+    {
+      "lat": 42.691106,
+      "lng": 23.3078209,
+      "display_name": "бул. Ген. Тотлебен, Център, София, Красно село, Столична, София-град, 1606, България",
+      "postcode": "1606"
+    }
+  ],
+  "search|bg|ул. тракия 2, оборище, софия": [],
+  "search|bg|trakiya 2, sofia": [
+    {
+      "lat": 42.6988414,
+      "lng": 23.3398962,
+      "display_name": "2, Тракия, Център, София, Оборище, Столична, София-град, 1527, България",
+      "postcode": "1527"
+    }
+  ],
+  "search|bg|21 nikolai kopernik str., sofia, bulgaria": [],
+  "search|bg|5 lachezar stanchev str., sopharma business towers, tower a, fl. 2, sofia, bulgaria": [],
+  "search|bg|15 tsaritsa yoanna blvd., mega mall, fl. 2, sofia, bulgaria": [],
+  "search|bg|3 dr. georgi stranski str., mall plovdiv plaza, fl. 2, plovdiv, bulgaria": [],
+  "search|bg|52-54 ruski blvd., mall markovo tepe, fl. 3, plovdiv, bulgaria": [],
+  "search|bg|30 han asparuh str., mall galleria stara zagora, fl. 2, stara zagora, bulgaria": [],
+  "reverse|42.653850|23.372383": {
+    "postcode": "1079",
+    "display_name": "ул. Йерусалим, бул. Андрей Сахаров, ж.к. Младост 1, София, Младост, Столична, София-град, 1079, България"
+  },
+  "search|bg|47 rezbarska street, sofia, bulgaria": [],
+  "search|bg|48 sitnyakovo blvd, sofia, bulgaria": [
+    {
+      "lat": 42.6916209,
+      "lng": 23.3535868,
+      "display_name": "Serdika Center, 48, бул. Ситняково, кв. Подуяне, София, Оборище, Столична, София-град, 1505, България",
+      "postcode": "1505"
+    },
+    {
+      "lat": 42.6916539,
+      "lng": 23.353006,
+      "display_name": "Burger King, 48, бул. Ситняково, кв. Подуяне, София, Оборище, Столична, София-град, 1505, България",
+      "postcode": "1505"
+    },
+    {
+      "lat": 42.6919621,
+      "lng": 23.3531038,
+      "display_name": "48, бул. Ситняково, кв. Подуяне, София, Оборище, Столична, София-град, 1505, България",
+      "postcode": "1505"
+    },
+    {
+      "lat": 42.6915283,
+      "lng": 23.3530761,
+      "display_name": "McDonald's, 48, бул. Ситняково, кв. Подуяне, София, Оборище, Столична, София-град, 1505, България",
+      "postcode": "1505"
+    },
+    {
+      "lat": 42.6918281,
+      "lng": 23.3532952,
+      "display_name": "48, бул. Ситняково, кв. Подуяне, София, Оборище, Столична, София-град, 1505, България",
+      "postcode": "1505"
+    }
+  ],
+  "search|bg|101a alexander stamboliyski blvd, sofia, bulgaria": [],
+  "search|bg|mall of sofia": [
+    {
+      "lat": 42.6981899,
+      "lng": 23.308529,
+      "display_name": "Mall of Sofia, 101, бул. Александър Стамболийски, ж.к. Зона Б-5, София, Възраждане, Столична, София-град, 1303, България",
+      "postcode": "1303"
+    },
+    {
+      "lat": 42.6984446,
+      "lng": 23.3093113,
+      "display_name": "Mall of Sofia, 101, бул. Александър Стамболийски, ж.к. Зона Б-5, София, Възраждане, Столична, София-град, 1303, България",
+      "postcode": "1303"
+    },
+    {
+      "lat": 42.6986156,
+      "lng": 23.3078491,
+      "display_name": "Mall of Sofia, 101, бул. Александър Стамболийски, ж.к. Зона Б-5, София, Възраждане, Столична, София-град, 1312, България",
+      "postcode": "1312"
+    }
+  ],
+  "search|bg|8 sveta sofia street, sofia, bulgaria": [],
+  "search|bg|бул. царица йоанна блок 276, люлин, софия": [],
+  "search|bg|tsaritsa ioana 276, sofia": [],
+  "search|bg|6 yanko komitov blvd, burgas, bulgaria": [],
+  "search|bg|mall galleria burgas": [
+    {
+      "lat": 42.5126013,
+      "lng": 27.4542485,
+      "display_name": "Мол Галерия, Янко Комитов, ж.к. П. Р. Славейков, Бургас, 8005, България",
+      "postcode": "8005"
+    }
+  ],
+  "search|bg|baba ganka street, burgas, bulgaria": [],
+  "search|bg|kim center burgas": [],
+  "search|bg|zornitsa 75, burgas, bulgaria": [
+    {
+      "lat": 42.38613,
+      "lng": 26.9306499,
+      "display_name": "Зорница, Средец, Бургас, 8313, България",
+      "postcode": "8313"
+    },
+    {
+      "lat": 42.5176014,
+      "lng": 27.4659768,
+      "display_name": "ж.к. Зорница, Бургас, 8018, България",
+      "postcode": "8018"
+    }
+  ],
+  "search|bg|28 prince alexander battenberg blvd, stara zagora, bulgaria": [],
+  "search|bg|4 lyulin street, sveti vlas, bulgaria": [],
+  "search|bg|yurta, sveti vlas": [
+    {
+      "lat": 42.7123167,
+      "lng": 27.7376813,
+      "display_name": "Villa Yurta, 1-ва, кв. Юрта под пътя, Несебър, Бургас, 8256, България",
+      "postcode": "8256"
+    },
+    {
+      "lat": 42.7112738,
+      "lng": 27.7481139,
+      "display_name": "кв. Юрта под пътя, Свети Влас, Несебър, Бургас, 8256, България",
+      "postcode": "8256"
+    }
+  ],
+  "search|bg|5 lachezar stanchev str., sopharma business towers, sofia, bulgaria": [],
+  "search|bg|sopharma business towers sofia": [
+    {
+      "lat": 42.6656153,
+      "lng": 23.3565449,
+      "display_name": "Търговски център Софарма Бизнес Тауърс, 5, Лъчезар Станчев, НПЗ Дианабад, София, Изгрев, Столична, София-град, 1756, България",
+      "postcode": "1756"
+    }
+  ],
+  "search|bg|15 tsaritsa yoanna blvd., mega mall, sofia, bulgaria": [],
+  "search|bg|mega mall sofia": [
+    {
+      "lat": 42.7102894,
+      "lng": 23.2710661,
+      "display_name": "West Mall, 15, бул. Царица Йоанна, ж.к. Люлин, София, Люлин, Столична, София-град, 1324, България",
+      "postcode": "1324"
+    }
+  ],
+  "search|bg|3 dr. georgi stranski str., mall plovdiv plaza, plovdiv, bulgaria": [],
+  "search|bg|mall plovdiv plaza": [
+    {
+      "lat": 42.1450464,
+      "lng": 24.7814057,
+      "display_name": "Plovdiv Plaza, 3, Д-р Георги Странски, Гладно поле, Източен, Пловдив, 4000, България",
+      "postcode": "4000"
+    }
+  ],
+  "search|bg|52-54 ruski blvd., mall markovo tepe, plovdiv, bulgaria": [],
+  "search|bg|mall markovo tepe plovdiv": [
+    {
+      "lat": 42.1411809,
+      "lng": 24.7409206,
+      "display_name": "Марково тепе, бул. Руски, Триъгълника, Гроздов пазар, Централен, Пловдив, 4000, България",
+      "postcode": "4000"
+    }
+  ],
+  "search|bg|30 han asparuh str., mall galleria stara zagora, stara zagora, bulgaria": [],
+  "search|bg|galleria stara zagora": [
+    {
+      "lat": 42.4381235,
+      "lng": 25.6315901,
+      "display_name": "МОЛ Галерия, Хан Аспарух, кв. Бедечка - Градински, Стара Загора, 6008, България",
+      "postcode": "6008"
+    }
+  ],
+  "search|bg|76 nishava str., sofia, bulgaria": [],
+  "search|bg|yordan hadzhikonstantinov 97, sofia": [
+    {
+      "lat": 42.7308459,
+      "lng": 23.3032359,
+      "display_name": "97, Йордан Хаджиконстантинов-Джинот, ж.к. Надежда 2, София, Надежда, Столична, София-град, 1220, България",
+      "postcode": "1220"
+    }
+  ],
+  "search|bg|rezbarska 47, sofia, bulgaria": [
+    {
+      "lat": 42.7094491,
+      "lng": 23.3658159,
+      "display_name": "Pulse, 47, Резбарска, ж.к. Хаджи Димитър, София, Подуяне, Столична, София-град, 1517, България",
+      "postcode": "1517"
+    }
+  ],
+  "reverse|42.709449|23.365816": {
+    "postcode": "1517",
+    "display_name": "Pulse, 47, Резбарска, ж.к. Хаджи Димитър, София, Подуяне, Столична, София-град, 1517, България"
+  },
+  "search|bg|4 george washington street, sofia, bulgaria": [],
+  "search|bg|george washington 4, sofia": [
+    {
+      "lat": 42.6989111,
+      "lng": 23.3212092,
+      "display_name": "4, Георг Вашингтон, Център, София, Възраждане, Столична, София-град, 1000, България",
+      "postcode": "1000"
+    },
+    {
+      "lat": 42.6989647,
+      "lng": 23.3209442,
+      "display_name": "4, Георг Вашингтон, Център, София, Възраждане, Столична, София-град, 1000, България",
+      "postcode": "1000"
+    }
+  ],
+  "reverse|42.698911|23.321209": {
+    "postcode": "1000",
+    "display_name": "4, Георг Вашингтон, Център, София, Възраждане, Столична, София-град, 1000, България"
+  },
+  "search|bg|76 nishava street, sofia, bulgaria": [],
+  "search|bg|ул. нишава 76, софия": [],
+  "search|bg|nishava 76, sofia": [
+    {
+      "lat": 42.6752753,
+      "lng": 23.2950743,
+      "display_name": "76, Нишава, ж.к. Белите брези, София, Красно село, Столична, София-град, 1680, България",
+      "postcode": "1680"
+    },
+    {
+      "lat": 42.6753177,
+      "lng": 23.2951232,
+      "display_name": "Hammer Gym, 76, Нишава, ж.к. Белите брези, София, Красно село, Столична, София-град, 1620, България",
+      "postcode": "1620"
+    },
+    {
+      "lat": 42.6753059,
+      "lng": 23.2950335,
+      "display_name": "76, Нишава, ж.к. Белите брези, София, Красно село, Столична, София-град, 1620, България",
+      "postcode": "1620"
+    }
+  ],
+  "reverse|42.675275|23.295074": {
+    "postcode": "1620",
+    "display_name": "76, Нишава, ж.к. Белите брези, София, Красно село, Столична, София-град, 1620, България"
+  },
+  "search|bg|49a boryana street, ovcha kupel, sofia, bulgaria": [],
+  "search|bg|ул. боряна 49а, овча купел, софия": [],
+  "search|bg|boryana 49a, sofia": [
+    {
+      "lat": 42.6735336,
+      "lng": 23.2557787,
+      "display_name": "49А, Боряна, кв. Овча купел, София, Овча купел, Столична, София-град, 1619, България",
+      "postcode": "1619"
+    }
+  ],
+  "reverse|42.673534|23.255779": {
+    "postcode": "1619",
+    "display_name": "49А, Боряна, кв. Овча купел, София, Овча купел, Столична, София-град, 1619, България"
+  },
+  "search|bg|21 nikolai kopernik street, sofia, bulgaria": [],
+  "search|bg|ул. николай коперник 21, софия": [],
+  "search|bg|nikolai kopernik 21, sofia": [],
+  "reverse|42.639070|23.384640": {
+    "postcode": "1712",
+    "display_name": "Titanium, бл.386, ж.к. Младост 3, София, Младост, Столична, София-град, 1712, България"
+  },
+  "reverse|42.643600|23.334360": {
+    "postcode": "1734",
+    "display_name": "Light Castle, 77Б, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1734, България"
+  },
+  "reverse|42.679040|23.375320": {
+    "postcode": "1547",
+    "display_name": "2, Даскал Никита, ж.к. Христо Смирненски, София, Слатина, Столична, София-град, 1547, България"
+  },
+  "reverse|42.675976|23.304801": {
+    "postcode": "1408",
+    "display_name": "Титаниум, Стефан Малинов, ж.к. Иван Вазов, София, Триадица, Столична, София-град, 1408, България"
+  },
+  "search|bg|sveta sofia 8, sofia": [
+    {
+      "lat": 42.6963746,
+      "lng": 23.3197753,
+      "display_name": "Solar Power, 8, Света София, Център, София, Възраждане, Столична, София-град, 1000, България",
+      "postcode": "1000"
+    },
+    {
+      "lat": 42.696383,
+      "lng": 23.3197077,
+      "display_name": "Pulse, 8, Света София, Център, София, Възраждане, Столична, София-град, 1000, България",
+      "postcode": "1000"
+    },
+    {
+      "lat": 42.6963435,
+      "lng": 23.319824,
+      "display_name": "8, Света София, Център, София, Възраждане, Столична, София-град, 1000, България",
+      "postcode": "1000"
+    },
+    {
+      "lat": 42.6963651,
+      "lng": 23.3198597,
+      "display_name": "Кафе при Ани, 8, Света София, Център, София, Възраждане, Столична, София-град, 1000, България",
+      "postcode": "1000"
+    },
+    {
+      "lat": 42.6963612,
+      "lng": 23.3199199,
+      "display_name": "Eurooptik, 8, Света София, Център, София, Възраждане, Столична, София-град, 1000, България",
+      "postcode": "1000"
+    }
+  ],
+  "search|bg|бул. царица йоанна бл 276, софия": [
+    {
+      "lat": 42.7112673,
+      "lng": 23.2702626,
+      "display_name": "бул. Царица Йоанна, ж.к. Люлин 7, ж.к. Люлин, София, Люлин, Столична, София-град, 1335, България",
+      "postcode": "1335"
+    },
+    {
+      "lat": 42.7206547,
+      "lng": 23.252941,
+      "display_name": "бул. Царица Йоанна, ж.к. Люлин 2, ж.к. Люлин, София, Люлин, Столична, София-град, 1336, България",
+      "postcode": "1336"
+    },
+    {
+      "lat": 42.722417,
+      "lng": 23.2496961,
+      "display_name": "бул. Царица Йоанна, ж.к. Люлин 3, ж.к. Люлин, София, Люлин, Столична, София-град, 1343, България",
+      "postcode": "1343"
+    },
+    {
+      "lat": 42.7261731,
+      "lng": 23.2426272,
+      "display_name": "бул. Царица Йоанна, ж.к. Люлин, София, Люлин, Столична, София-град, 1343, България",
+      "postcode": "1343"
+    },
+    {
+      "lat": 42.7135534,
+      "lng": 23.2663646,
+      "display_name": "бул. Царица Йоанна, ж.к. Люлин 10, ж.к. Люлин, София, Люлин, Столична, София-град, 1324, България",
+      "postcode": "1324"
+    }
+  ],
+  "search|bg|baba ganka, burgas 8000": [
+    {
+      "lat": 42.4973094,
+      "lng": 27.4731417,
+      "display_name": "пл. Баба Ганка, Стефан Стамболов, Централна градска част, Бургас, 8001, България",
+      "postcode": "8001"
+    }
+  ],
+  "search|bg|battenberg 28, stara zagora": [],
+  "search|bg|бул. княз александър батенберг 28, стара загора": [
+    {
+      "lat": 42.4249047,
+      "lng": 25.6165611,
+      "display_name": "Търговски комплекс Сити Център, 28, бул. Княз Александър Батенберг, кв. Македонски, Стара Загора, 6000, България",
+      "postcode": "6000"
+    }
+  ],
+  "search|bg|ул. републиканска 46, кърджали": [
+    {
+      "lat": 41.6324863,
+      "lng": 25.4297444,
+      "display_name": "Улица Републиканска, Седловина, Кърджали, 6621, България",
+      "postcode": "6621"
+    }
+  ],
+  "reverse|42.684063|23.256975": {
+    "postcode": "1632",
+    "display_name": "Монтевидео, кв. Овча купел, София, Овча купел, Столична, София-град, 1632, България"
+  },
+  "reverse|42.699858|23.325604": {
+    "postcode": "1000",
+    "display_name": "13, Веслец, Център, София, Оборище, Столична, София-град, 1000, България"
+  },
+  "reverse|42.624684|23.379858": {
+    "postcode": "1715",
+    "display_name": "Технополис, 265, Околовръстен път, ж.к. Младост 4, София, Младост, Столична, София-град, 1715, България"
+  },
+  "search|bg|nikolai kopernik 21 sofia": []
+}

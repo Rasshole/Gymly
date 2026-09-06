@@ -1,9 +1,9 @@
 /**
- * Create Group Screen
- * Opret ny gruppe – navn, beskrivelse, offentlig/privat, lokation, fokus
+ * Create Group — navn, beskrivelse, valgfri billede, multi-select venner
+ * Visuelt aligned med Venner-liste + premium CTA.
  */
 
-import React, {useState, useMemo} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {
   View,
   Text,
@@ -11,147 +11,135 @@ import {
   ScrollView,
   TouchableOpacity,
   TextInput,
-  Switch,
   Alert,
-  Modal,
-  FlatList,
+  Image,
   Platform,
+  KeyboardAvoidingView,
+  Pressable,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
-import ScreenHeader from '@/components/ui/ScreenHeader';
-import {Card} from '@/components/ui/Card';
-import type {Group} from '@/types/group.types';
-import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
-
-const GROUP_GYM_LIST = getActiveDanishGyms();
-import {useAppStore} from '@/store/appStore';
-import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
-import {createGymlyGroupRpc} from '@/services/supabase/gymlyGroupsService';
-import {formatGymDisplayName} from '@/utils/gymDisplay';
-import colors from '@/theme/colors';
-import {spacing, radius, typography} from '@/theme/designTokens';
+import {launchImageLibrary} from 'react-native-image-picker';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import ScreenHeader from '@/components/ui/ScreenHeader';
+import {UserAvatar} from '@/components/ui/UserAvatar';
 import SocialPrimaryButton from '@/components/social/SocialPrimaryButton';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
+import {useAppStore} from '@/store/appStore';
+import {useFriendStore} from '@/store/friendStore';
+import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
+import {
+  createGymlyGroupRpc,
+  inviteManyToGymlyGroup,
+  uploadGymlyGroupImage,
+} from '@/services/supabase/gymlyGroupsService';
+import {useTranslation} from '@/i18n';
+import colors from '@/theme/colors';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 
-const FOCUS_OPTIONS = [
-  'Konsistens',
-  'Styrke',
-  'Kondition',
-  'Community',
-  'Morgen træning',
-  'Weekend',
-];
+const listCardShadow = Platform.select({
+  ios: {
+    shadowColor: '#0F172A',
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.06,
+    shadowRadius: 10,
+  },
+  android: {elevation: 2},
+});
 
 const CreateGroupScreen = () => {
   const navigation = useNavigation<any>();
   const insets = useSafeAreaInsets();
-  const {user} = useAppStore();
+  const {t} = useTranslation();
+  const user = useAppStore(s => s.user);
   const refreshGymly = useGymlyGroupsStore(s => s.refresh);
+  const friends = useFriendStore(s => s.friends);
+  const loadFriends = useFriendStore(s => s.load);
 
   const [name, setName] = useState('');
-  const [creating, setCreating] = useState(false);
   const [description, setDescription] = useState('');
-  const [isPrivate, setIsPrivate] = useState(false);
-  const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
-  const [selectedCity, setSelectedCity] = useState('');
-  const [gymModalVisible, setGymModalVisible] = useState(false);
-  const [cityModalVisible, setCityModalVisible] = useState(false);
-  const [gymSearchQuery, setGymSearchQuery] = useState('');
-  const [focus, setFocus] = useState('');
+  const [imageUri, setImageUri] = useState<string | null>(null);
+  const [selectedFriendIds, setSelectedFriendIds] = useState<Set<string>>(
+    () => new Set(),
+  );
+  const [friendQuery, setFriendQuery] = useState('');
+  const [creating, setCreating] = useState(false);
+  const [nameFocused, setNameFocused] = useState(false);
+  const [descFocused, setDescFocused] = useState(false);
 
-  const cities = useMemo(() => {
-    const set = new Set<string>();
-    for (const g of GROUP_GYM_LIST) {
-      if (g.city?.trim()) {
-        set.add(g.city.trim());
-      }
+  useEffect(() => {
+    if (user?.id) {
+      void loadFriends(user.id);
     }
-    return [...set].sort((a, b) => a.localeCompare(b, 'da'));
-  }, []);
+  }, [user?.id, loadFriends]);
 
-  const filteredGyms = useMemo(() => {
-    const q = gymSearchQuery.trim().toLowerCase();
+  const filteredFriends = useMemo(() => {
+    const q = friendQuery.trim().toLowerCase();
     if (!q) {
-      return GROUP_GYM_LIST;
+      return friends;
     }
-    return GROUP_GYM_LIST.filter(
-      g =>
-        g.name.toLowerCase().includes(q) ||
-        (g.city && g.city.toLowerCase().includes(q)) ||
-        (g.brand && g.brand.toLowerCase().includes(q)),
+    return friends.filter(
+      f =>
+        f.displayName.toLowerCase().includes(q) ||
+        (f.username ?? '').toLowerCase().includes(q),
     );
-  }, [gymSearchQuery]);
+  }, [friends, friendQuery]);
+
+  const canSubmit = name.trim().length > 0 && !creating;
+
+  const toggleFriend = (id: string) => {
+    setSelectedFriendIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  const pickImage = async () => {
+    const res = await launchImageLibrary({
+      mediaType: 'photo',
+      quality: 0.8,
+      selectionLimit: 1,
+    });
+    const uri = res.assets?.[0]?.uri;
+    if (uri) {
+      setImageUri(uri);
+    }
+  };
 
   const handleCreate = async () => {
     if (!name.trim()) {
-      Alert.alert('Mangler navn', 'Indtast venligst et gruppenavn');
-      return;
-    }
-    if (!selectedGym) {
-      Alert.alert('Vælg center', 'Vælg hvilket lokale center gruppen hører til');
-      return;
-    }
-    if (!selectedCity.trim()) {
-      Alert.alert('Vælg by', 'Tryk på Lokation og vælg hvilken by gruppen er i');
+      Alert.alert(t('groups.createMissingNameTitle'), t('groups.createMissingNameBody'));
       return;
     }
     if (!user?.id) {
-      Alert.alert('Log ind', 'Du skal være logget ind for at oprette en gruppe');
       return;
     }
     setCreating(true);
     try {
+      let imageUrl: string | null = null;
+      if (imageUri) {
+        imageUrl = await uploadGymlyGroupImage(user.id, imageUri);
+      }
       const gid = await createGymlyGroupRpc({
         name: name.trim(),
-        description: description.trim() || 'Ingen beskrivelse',
-        isPrivate,
-        centerId: selectedGym.id,
-        city: selectedCity.trim(),
-        focus: focus || '',
-        imageUrl: null,
+        description: description.trim(),
+        isPrivate: true,
+        imageUrl,
       });
-      await refreshGymly(user.id);
-      const row = useGymlyGroupsStore.getState().groups.find(g => g.id === gid);
-      const mems = row?.members ?? [
-        {id: user.id, name: user.displayName || 'Dig', avatar: undefined},
-      ];
-      const groupForDetail = {
-        id: gid,
-        name: name.trim(),
-        description: description.trim() || 'Ingen beskrivelse',
-        biography: description.trim() || 'Ingen beskrivelse',
-        image: row?.image_url ?? undefined,
-        isPrivate,
-        adminId: user.id,
-        members: mems.map(m => ({
-          id: m.id,
-          name: m.name,
-          avatar: m.avatar,
-          isOnline: false,
-        })),
-        totalWorkouts: 0,
-        totalTimeTogether: 0,
-        createdAt: new Date(),
-        groupId: gid,
-        lastMessagePreview: row?.last_message_preview,
-      };
-      navigation.replace('GroupDetail', {group: groupForDetail, groupId: gid});
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      if (
-        msg.includes('gymly_') ||
-        msg.includes('function') ||
-        msg.includes('does not exist')
-      ) {
-        Alert.alert(
-          'Database',
-          'Grupper er ikke aktiveret på serveren endnu. Kør den seneste Supabase-migration (gymly groups).',
-        );
-      } else {
-        Alert.alert('Kunne ikke oprette', msg);
+      const inviteIds = [...selectedFriendIds];
+      if (inviteIds.length > 0) {
+        await inviteManyToGymlyGroup(gid, inviteIds);
       }
+      await refreshGymly(user.id);
+      navigation.replace('GroupDetail', {groupId: gid});
+    } catch (e) {
+      console.warn('createGymlyGroup', e);
+      Alert.alert(t('groups.createFailedTitle'), t('groups.createFailedBody'));
     } finally {
       setCreating(false);
     }
@@ -160,373 +148,272 @@ const CreateGroupScreen = () => {
   return (
     <View style={styles.container}>
       <ScreenHeader
-        title="Opret gruppe"
+        title={t('groups.createTitle')}
         onBack={() => navigation.goBack()}
         showBack
       />
 
-      <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled">
-        <View style={styles.section}>
-          <Text style={styles.label}>Gruppenavn *</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="F.eks. Weekend Warriors"
-            placeholderTextColor={colors.textMuted}
-            value={name}
-            onChangeText={setName}
+      <KeyboardAvoidingView
+        style={styles.flex}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        keyboardVerticalOffset={8}>
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={[
+            styles.scrollContent,
+            {paddingBottom: spacing.xxl + insets.bottom + 72},
+          ]}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled">
+          <TouchableOpacity
+            style={styles.imagePicker}
+            onPress={() => void pickImage()}
+            activeOpacity={0.85}>
+            {imageUri ? (
+              <Image source={{uri: imageUri}} style={styles.imagePreview} />
+            ) : (
+              <View style={styles.imagePlaceholder}>
+                <View style={styles.imageIconWrap}>
+                  <Icon name="camera-outline" size={26} color={colors.primary} />
+                </View>
+                <Text style={styles.imageHint}>{t('groups.addImage')}</Text>
+              </View>
+            )}
+          </TouchableOpacity>
+
+          <Text style={styles.label}>{t('groups.nameLabel')}</Text>
+          <View style={[styles.inputCard, nameFocused && styles.inputCardFocused]}>
+            <TextInput
+              style={[styles.input, styles.nameInput]}
+              placeholder={t('groups.namePlaceholder')}
+              placeholderTextColor={colors.textMuted}
+              value={name}
+              onChangeText={setName}
+              maxLength={60}
+              onFocus={() => setNameFocused(true)}
+              onBlur={() => setNameFocused(false)}
+            />
+          </View>
+
+          <Text style={styles.label}>{t('groups.descriptionLabel')}</Text>
+          <View style={[styles.inputCard, descFocused && styles.inputCardFocused]}>
+            <TextInput
+              style={[styles.input, styles.textArea]}
+              placeholder={t('groups.descriptionPlaceholder')}
+              placeholderTextColor={colors.textMuted}
+              value={description}
+              onChangeText={setDescription}
+              multiline
+              numberOfLines={4}
+              textAlignVertical="top"
+              maxLength={280}
+              onFocus={() => setDescFocused(true)}
+              onBlur={() => setDescFocused(false)}
+            />
+          </View>
+
+          <Text style={styles.label}>
+            {t('groups.inviteFriends', {count: selectedFriendIds.size})}
+          </Text>
+          <SocialSearchBar
+            value={friendQuery}
+            onChangeText={setFriendQuery}
+            placeholder={t('groups.searchFriends')}
+            style={styles.friendSearch}
+          />
+          {filteredFriends.length === 0 ? (
+            <Text style={styles.emptyFriends}>{t('groups.noFriends')}</Text>
+          ) : (
+            filteredFriends.map(f => {
+              const selected = selectedFriendIds.has(f.id);
+              return (
+                <Pressable
+                  key={f.id}
+                  style={({pressed}) => [
+                    styles.friendRow,
+                    selected && styles.friendRowSelected,
+                    pressed && styles.friendRowPressed,
+                  ]}
+                  onPress={() => toggleFriend(f.id)}>
+                  <View style={styles.avatarRing}>
+                    <UserAvatar
+                      name={f.displayName}
+                      imageUrl={f.avatarUrl}
+                      size="md"
+                    />
+                  </View>
+                  <View style={styles.friendBody}>
+                    <Text style={styles.friendName} numberOfLines={1}>
+                      {f.displayName}
+                    </Text>
+                    {f.username ? (
+                      <Text style={styles.friendUser} numberOfLines={1}>
+                        @{f.username}
+                      </Text>
+                    ) : null}
+                  </View>
+                  <Icon
+                    name={selected ? 'checkmark-circle' : 'ellipse-outline'}
+                    size={26}
+                    color={selected ? colors.primary : colors.textMuted}
+                  />
+                </Pressable>
+              );
+            })
+          )}
+        </ScrollView>
+
+        <View
+          style={[
+            styles.footer,
+            {paddingBottom: Math.max(insets.bottom, spacing.md)},
+          ]}>
+          <SocialPrimaryButton
+            label={creating ? t('groups.creating') : t('groups.createSubmit')}
+            onPress={() => void handleCreate()}
+            disabled={!canSubmit}
+            loading={creating}
+            variant="premium"
           />
         </View>
-
-        <View style={styles.section}>
-          <Text style={styles.label}>Beskrivelse</Text>
-          <TextInput
-            style={[styles.input, styles.textArea]}
-            placeholder="Beskriv gruppens formål og hvem den er for..."
-            placeholderTextColor={colors.textMuted}
-            value={description}
-            onChangeText={setDescription}
-            multiline
-            numberOfLines={4}
-            textAlignVertical="top"
-          />
-        </View>
-
-        <View style={styles.section}>
-          <View style={styles.switchRow}>
-            <View>
-              <Text style={styles.label}>Offentlig gruppe</Text>
-              <Text style={styles.hint}>
-                {isPrivate
-                  ? 'Kun medlemmer kan se gruppen'
-                  : 'Alle kan søge og finde gruppen'}
-              </Text>
-            </View>
-            <Switch
-              value={!isPrivate}
-              onValueChange={v => setIsPrivate(!v)}
-              trackColor={{false: colors.surface, true: colors.primary}}
-              thumbColor={colors.white}
-            />
-          </View>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.label}>Lokalt center *</Text>
-          <TouchableOpacity
-            style={styles.pickerRow}
-            onPress={() => setGymModalVisible(true)}
-            activeOpacity={0.85}>
-            <Icon name="business-outline" size={22} color={colors.primary} />
-            <Text
-              style={[styles.pickerText, !selectedGym && styles.pickerPlaceholder]}
-              numberOfLines={2}>
-              {selectedGym
-                ? formatGymDisplayName(selectedGym)
-                : 'Vælg fitnesscenter'}
-            </Text>
-            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.label}>Lokation (by) *</Text>
-          <TouchableOpacity
-            style={styles.pickerRow}
-            onPress={() => setCityModalVisible(true)}
-            activeOpacity={0.85}>
-            <Icon name="location-outline" size={22} color={colors.primary} />
-            <Text
-              style={[styles.pickerText, !selectedCity && styles.pickerPlaceholder]}
-              numberOfLines={1}>
-              {selectedCity || 'Vælg by'}
-            </Text>
-            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-          </TouchableOpacity>
-        </View>
-
-        <Modal
-          visible={gymModalVisible}
-          animationType="slide"
-          presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : 'fullScreen'}
-          onRequestClose={() => setGymModalVisible(false)}>
-          <View style={styles.modalRoot}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Vælg center</Text>
-              <TouchableOpacity
-                onPress={() => setGymModalVisible(false)}
-                style={styles.modalClose}
-                hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}>
-                <Icon name="close" size={28} color={colors.text} />
-              </TouchableOpacity>
-            </View>
-            <SocialSearchBar
-              value={gymSearchQuery}
-              onChangeText={setGymSearchQuery}
-              placeholder="Søg efter center, by eller kæde..."
-              autoCapitalize="none"
-              style={styles.modalSearchOuter}
-            />
-            <FlatList
-              data={filteredGyms}
-              keyExtractor={item => String(item.id)}
-              keyboardShouldPersistTaps="handled"
-              renderItem={({item}) => (
-                <TouchableOpacity
-                  style={styles.modalRow}
-                  onPress={() => {
-                    setSelectedGym(item);
-                    if (item.city?.trim()) {
-                      setSelectedCity(item.city.trim());
-                    }
-                    setGymModalVisible(false);
-                    setGymSearchQuery('');
-                  }}
-                  activeOpacity={0.7}>
-                  <Text style={styles.modalRowTitle}>{formatGymDisplayName(item)}</Text>
-                  {item.city ? (
-                    <Text style={styles.modalRowSub}>{item.city}</Text>
-                  ) : null}
-                </TouchableOpacity>
-              )}
-              ListEmptyComponent={
-                <Text style={styles.modalEmpty}>Ingen centre fundet</Text>
-              }
-            />
-          </View>
-        </Modal>
-
-        <Modal
-          visible={cityModalVisible}
-          animationType="slide"
-          presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : 'fullScreen'}
-          onRequestClose={() => setCityModalVisible(false)}>
-          <View style={styles.modalRoot}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>Vælg by</Text>
-              <TouchableOpacity
-                onPress={() => setCityModalVisible(false)}
-                style={styles.modalClose}
-                hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}>
-                <Icon name="close" size={28} color={colors.text} />
-              </TouchableOpacity>
-            </View>
-            <FlatList
-              data={cities}
-              keyExtractor={item => item}
-              keyboardShouldPersistTaps="handled"
-              renderItem={({item}) => (
-                <TouchableOpacity
-                  style={styles.modalRow}
-                  onPress={() => {
-                    setSelectedCity(item);
-                    setCityModalVisible(false);
-                  }}
-                  activeOpacity={0.7}>
-                  <Text style={styles.modalRowTitle}>{item}</Text>
-                </TouchableOpacity>
-              )}
-              ListEmptyComponent={
-                <Text style={styles.modalEmpty}>Ingen byer i listen</Text>
-              }
-            />
-          </View>
-        </Modal>
-
-        <View style={styles.section}>
-          <Text style={styles.label}>Fokus / mål</Text>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.chipRow}>
-            {FOCUS_OPTIONS.map(opt => (
-              <TouchableOpacity
-                key={opt}
-                style={[styles.chip, focus === opt && styles.chipActive]}
-                onPress={() => setFocus(focus === opt ? '' : opt)}
-                activeOpacity={0.8}>
-                <Text
-                  style={[
-                    styles.chipText,
-                    focus === opt && styles.chipTextActive,
-                  ]}>
-                  {opt}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
-
-      </ScrollView>
-
-      <View
-        style={[
-          styles.footer,
-          {paddingBottom: Math.max(insets.bottom, 12) + 8},
-        ]}>
-        <SocialPrimaryButton
-          label="Opret gruppe"
-          iconName="add-circle"
-          onPress={handleCreate}
-          disabled={!name.trim()}
-          loading={creating}
-        />
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
+  container: {flex: 1, backgroundColor: colors.background},
+  flex: {flex: 1},
   scroll: {flex: 1},
   scrollContent: {
-    padding: spacing.lg,
-    paddingBottom: spacing.xl,
-  },
-  footer: {
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.md,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border,
-    backgroundColor: colors.backgroundCard,
   },
-  section: {
-    marginBottom: 22,
+  imagePicker: {
+    alignSelf: 'center',
+    marginBottom: spacing.lg,
+  },
+  imagePreview: {
+    width: 104,
+    height: 104,
+    borderRadius: 52,
+    borderWidth: 3,
+    borderColor: colors.primary + '55',
+  },
+  imagePlaceholder: {
+    width: 104,
+    height: 104,
+    borderRadius: 52,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.backgroundCard,
+    borderWidth: 1,
+    borderColor: colors.border,
+    ...shadows.sm,
+  },
+  imageIconWrap: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.primary + '14',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imageHint: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 6,
+    fontWeight: '600',
   },
   label: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: colors.textSecondary,
-    marginBottom: 8,
+    ...typography.small,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: spacing.sm,
   },
-  hint: {
+  inputCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border + 'CC',
+    paddingHorizontal: spacing.md,
+    marginBottom: spacing.lg,
+    ...shadows.sm,
+    ...listCardShadow,
+  },
+  inputCardFocused: {
+    borderColor: colors.primary + '55',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.14,
+        shadowRadius: 10,
+      },
+      android: {elevation: 3},
+    }),
+  },
+  input: {
+    ...typography.body,
+    color: colors.text,
+  },
+  nameInput: {
+    paddingVertical: Platform.OS === 'ios' ? 16 : 12,
+    lineHeight: Platform.OS === 'ios' ? typography.body.fontSize : typography.body.lineHeight,
+    ...(Platform.OS === 'android'
+      ? {includeFontPadding: false, textAlignVertical: 'center' as const}
+      : null),
+  },
+  textArea: {
+    minHeight: 100,
+    paddingVertical: Platform.OS === 'ios' ? 14 : 12,
+  },
+  friendSearch: {marginBottom: spacing.sm},
+  emptyFriends: {
+    ...typography.body,
+    color: colors.textMuted,
+    marginBottom: spacing.md,
+  },
+  friendRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border + 'CC',
+    marginBottom: spacing.sm,
+    ...shadows.sm,
+    ...listCardShadow,
+  },
+  friendRowSelected: {
+    backgroundColor: colors.primary + '08',
+    borderColor: colors.primary + '40',
+  },
+  friendRowPressed: {
+    opacity: 0.92,
+  },
+  avatarRing: {
+    marginRight: spacing.md,
+  },
+  friendBody: {flex: 1, minWidth: 0},
+  friendName: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  friendUser: {
     ...typography.caption,
     color: colors.textMuted,
     marginTop: 2,
   },
-  input: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 14,
-    minHeight: 52,
-    paddingHorizontal: spacing.md,
-    paddingVertical: 14,
-    borderWidth: 1,
-    borderColor: colors.border,
-    ...typography.body,
-    color: colors.text,
-  },
-  textArea: {
-    minHeight: 100,
-  },
-  pickerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 14,
-    minHeight: 52,
-    paddingHorizontal: spacing.md,
-    paddingVertical: 12,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  pickerText: {
-    flex: 1,
-    ...typography.body,
-    color: colors.text,
-  },
-  pickerPlaceholder: {
-    color: colors.textMuted,
-  },
-  modalRoot: {
-    flex: 1,
+  footer: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
     backgroundColor: colors.background,
-    paddingTop: Platform.OS === 'ios' ? spacing.sm : spacing.md,
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: spacing.lg,
-    paddingBottom: spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  modalTitle: {
-    ...typography.h4,
-    color: colors.text,
-  },
-  modalClose: {
-    padding: spacing.xs,
-  },
-  modalSearchOuter: {
-    marginHorizontal: spacing.lg,
-    marginBottom: spacing.sm,
-  },
-  modalRow: {
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
-  },
-  modalRowTitle: {
-    ...typography.body,
-    fontWeight: '600',
-    color: colors.text,
-  },
-  modalRowSub: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginTop: 4,
-  },
-  modalEmpty: {
-    ...typography.body,
-    color: colors.textMuted,
-    textAlign: 'center',
-    padding: spacing.xl,
-  },
-  switchRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 18,
-    paddingHorizontal: spacing.lg,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: colors.border,
-    gap: spacing.md,
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-    paddingVertical: 2,
-  },
-  chip: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    minHeight: 36,
-    justifyContent: 'center',
-    borderRadius: radius.full,
-    backgroundColor: '#F2F2F7',
-  },
-  chipActive: {
-    backgroundColor: colors.primary,
-  },
-  chipText: {
-    ...typography.small,
-    fontWeight: '600',
-    color: colors.textSecondary,
-  },
-  chipTextActive: {
-    color: colors.white,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
   },
 });
 

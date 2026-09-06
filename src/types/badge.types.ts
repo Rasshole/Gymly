@@ -30,7 +30,9 @@ export type BadgeRequirementType =
   | 'planned_workouts_completed_valid'
   | 'planned_workouts_created'
   | 'early_check_ins'
-  | 'late_check_ins';
+  | 'late_check_ins'
+  | 'total_logged_sets'
+  | 'total_pr_events';
 
 export type BadgeRarity = 'common' | 'rare' | 'epic' | 'legendary';
 
@@ -68,6 +70,10 @@ export type UserBadgeStats = {
   planned_workouts_completed_valid: number;
   early_check_ins: number;
   late_check_ins: number;
+  /** Persisted Workout Log sets (`workout_sets`) */
+  total_logged_sets: number;
+  /** Persisted PR events from existing PR system (`personal_record_events`) */
+  total_pr_events: number;
 };
 
 export type BadgeProgressStatus = 'unlocked' | 'almost_unlocked' | 'locked';

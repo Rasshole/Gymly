@@ -1,0 +1,177 @@
+{
+  "brand": "24-7 Fitness",
+  "official_open_claimed": 31,
+  "ready": 31,
+  "coming_soon": 9,
+  "coming_soon_ids": [
+    "ee_d6f5429ffa",
+    "ee_525d7cb043",
+    "ee_5c173a5f8b",
+    "ee_204834f0ca",
+    "ee_fd8bbdf6cb",
+    "ee_e4aba62219",
+    "ee_31338a0b74",
+    "ee_16eaf19854",
+    "ee_2344545426"
+  ],
+  "clubs": [
+    {
+      "club": "Akadeemia",
+      "id": "ee_136e41e3e3",
+      "present": true
+    },
+    {
+      "club": "Laki",
+      "id": "ee_8cc21c4cd5",
+      "present": true
+    },
+    {
+      "club": "Priisle",
+      "id": "ee_832f129d3f",
+      "present": true
+    },
+    {
+      "club": "Vabaduse",
+      "id": "ee_1a90775797",
+      "present": true
+    },
+    {
+      "club": "Hipodroom",
+      "id": "ee_46170252aa",
+      "present": true
+    },
+    {
+      "club": "Tõnismägi",
+      "id": "ee_a98a29c5df",
+      "present": true
+    },
+    {
+      "club": "Tähesaju",
+      "id": "ee_43b2f4c7e2",
+      "present": true
+    },
+    {
+      "club": "Avala",
+      "id": "ee_afece56ea8",
+      "present": true
+    },
+    {
+      "club": "Paepargi",
+      "id": "ee_93a443e72e",
+      "present": true
+    },
+    {
+      "club": "Kopli",
+      "id": "ee_fd66efe699",
+      "present": true
+    },
+    {
+      "club": "Peetri",
+      "id": "ee_03c252c3d0",
+      "present": true
+    },
+    {
+      "club": "Tabasalu",
+      "id": "ee_34384840a3",
+      "present": true
+    },
+    {
+      "club": "Järveküla",
+      "id": "ee_23d13ee680",
+      "present": true
+    },
+    {
+      "club": "Luige",
+      "id": "ee_3c7ccf381f",
+      "present": true
+    },
+    {
+      "club": "Kiili",
+      "id": "ee_d5090f3a35",
+      "present": true
+    },
+    {
+      "club": "Keila Vesiveski",
+      "id": "ee_ad538cbf34",
+      "present": true
+    },
+    {
+      "club": "Saue",
+      "id": "ee_bef6f55067",
+      "present": true
+    },
+    {
+      "club": "Keila Keskus",
+      "id": "ee_a15aae2d15",
+      "present": true
+    },
+    {
+      "club": "Sepa Keskus",
+      "id": "ee_d3bdd981df",
+      "present": true
+    },
+    {
+      "club": "Sõbrakeskus",
+      "id": "ee_f94ec93820",
+      "present": true
+    },
+    {
+      "club": "Raadi",
+      "id": "ee_c0961f58de",
+      "present": true
+    },
+    {
+      "club": "Ihaste",
+      "id": "ee_a0cca1d483",
+      "present": true
+    },
+    {
+      "club": "Port Artur",
+      "id": "ee_4022ce3e3c",
+      "present": true
+    },
+    {
+      "club": "Viljandi Riia",
+      "id": "ee_b8f6139ad6",
+      "present": true
+    },
+    {
+      "club": "Viljandi Kaalu",
+      "id": "ee_7707002ac8",
+      "present": true
+    },
+    {
+      "club": "Rakvere",
+      "id": "ee_2859632c67",
+      "present": true
+    },
+    {
+      "club": "Kuressaare",
+      "id": "ee_dfe043052a",
+      "present": true
+    },
+    {
+      "club": "Jõhvi",
+      "id": "ee_b98dd63ae1",
+      "present": true
+    },
+    {
+      "club": "Narva",
+      "id": "ee_71c90c9c79",
+      "present": true
+    },
+    {
+      "club": "Võru",
+      "id": "ee_9d4bb8e396",
+      "present": true
+    },
+    {
+      "club": "Jõgeva",
+      "id": "ee_909073b14a",
+      "present": true
+    }
+  ],
+  "missing": [],
+  "verdict": "COMPLETE",
+  "official_directory": "https://24-7fitness.ee/meie-klubid/"
+}

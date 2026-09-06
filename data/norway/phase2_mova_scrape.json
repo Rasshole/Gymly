@@ -1,0 +1,1106 @@
+[
+  {
+    "brand": "MOVA",
+    "center_name": "Agotnes Sentrum",
+    "name": "MOVA Agotnes Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/agotnes/sentrum",
+    "path": "/treningssenter/agotnes/sentrum",
+    "parsed": {
+      "address": "Skjergardsvegen 1370",
+      "postal_code": "5363",
+      "city": "Øygarden"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Agotnes Torg",
+    "name": "MOVA Agotnes Torg",
+    "source_url": "https://www.mova.no/treningssenter/agotnes/torg",
+    "path": "/treningssenter/agotnes/torg",
+    "parsed": {
+      "address": "Skjergardsvegen 1362",
+      "postal_code": "5363",
+      "city": "Øygarden"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Alesund Blindheim",
+    "name": "MOVA Alesund Blindheim",
+    "source_url": "https://www.mova.no/treningssenter/alesund/blindheim",
+    "path": "/treningssenter/alesund/blindheim",
+    "parsed": {
+      "address": "Blindheimshaugen 9",
+      "postal_code": "6012",
+      "city": "Ålesund"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Alesund Lerstad",
+    "name": "MOVA Alesund Lerstad",
+    "source_url": "https://www.mova.no/treningssenter/alesund/lerstad",
+    "path": "/treningssenter/alesund/lerstad",
+    "parsed": {
+      "address": "Karolusplassen 4",
+      "postal_code": "6014",
+      "city": "Ålesund"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Alesund Norve",
+    "name": "MOVA Alesund Norve",
+    "source_url": "https://www.mova.no/treningssenter/alesund/norve",
+    "path": "/treningssenter/alesund/norve",
+    "parsed": {
+      "address": "Hundsværgata 8",
+      "postal_code": "6008",
+      "city": "Ålesund"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Alesund Skarbovik",
+    "name": "MOVA Alesund Skarbovik",
+    "source_url": "https://www.mova.no/treningssenter/alesund/skarbovik",
+    "path": "/treningssenter/alesund/skarbovik",
+    "parsed": {
+      "address": "Skarbøvikgata 25",
+      "postal_code": "6006",
+      "city": "Ålesund"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Arendal Krogenes",
+    "name": "MOVA Arendal Krogenes",
+    "source_url": "https://www.mova.no/treningssenter/arendal/krogenes",
+    "path": "/treningssenter/arendal/krogenes",
+    "parsed": {
+      "address": "Kystveien 244",
+      "postal_code": "4841",
+      "city": "Arendal"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Arendal Sentrum",
+    "name": "MOVA Arendal Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/arendal/sentrum",
+    "path": "/treningssenter/arendal/sentrum",
+    "parsed": {
+      "address": "Friergangen 4",
+      "postal_code": "4836",
+      "city": "Arendal"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Austrheim",
+    "name": "MOVA Austrheim",
+    "source_url": "https://www.mova.no/treningssenter/austrheim",
+    "path": "/treningssenter/austrheim",
+    "parsed": {
+      "address": "Sætremarka Mastrevik Torg",
+      "postal_code": "5943",
+      "city": "Austrheim"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Baerum Gjettum",
+    "name": "MOVA Baerum Gjettum",
+    "source_url": "https://www.mova.no/treningssenter/baerum/gjettum",
+    "path": "/treningssenter/baerum/gjettum",
+    "parsed": {
+      "address": "Durudveien 37",
+      "postal_code": "1344",
+      "city": "Bærum"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Baerum Nadderud",
+    "name": "MOVA Baerum Nadderud",
+    "source_url": "https://www.mova.no/treningssenter/baerum/nadderud",
+    "path": "/treningssenter/baerum/nadderud",
+    "parsed": {
+      "address": "Haukeveien 11",
+      "postal_code": "1357",
+      "city": "Bærum"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Baerum Nesbru",
+    "name": "MOVA Baerum Nesbru",
+    "source_url": "https://www.mova.no/treningssenter/baerum/nesbru",
+    "path": "/treningssenter/baerum/nesbru",
+    "parsed": {
+      "address": "Fekjan 29",
+      "postal_code": "1394",
+      "city": "Asker"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Hylkje",
+    "name": "MOVA Bergen Hylkje",
+    "source_url": "https://www.mova.no/treningssenter/bergen/hylkje",
+    "path": "/treningssenter/bergen/hylkje",
+    "parsed": {
+      "address": "Hylkjebakken 3",
+      "postal_code": "5109",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Knarvik",
+    "name": "MOVA Bergen Knarvik",
+    "source_url": "https://www.mova.no/treningssenter/bergen/knarvik",
+    "path": "/treningssenter/bergen/knarvik",
+    "parsed": {
+      "address": "Kvassnesvegen 19",
+      "postal_code": "5914",
+      "city": "Alver"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Kronstad",
+    "name": "MOVA Bergen Kronstad",
+    "source_url": "https://www.mova.no/treningssenter/bergen/kronstad",
+    "path": "/treningssenter/bergen/kronstad",
+    "parsed": {
+      "address": "Edvard Griegsvei 3A",
+      "postal_code": "5059",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Landas",
+    "name": "MOVA Bergen Landas",
+    "source_url": "https://www.mova.no/treningssenter/bergen/landas",
+    "path": "/treningssenter/bergen/landas",
+    "parsed": {
+      "address": "Mannsverk 2",
+      "postal_code": "5094",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Nostet",
+    "name": "MOVA Bergen Nostet",
+    "source_url": "https://www.mova.no/treningssenter/bergen/nostet",
+    "path": "/treningssenter/bergen/nostet",
+    "parsed": {
+      "address": "Nøstegaten 44",
+      "postal_code": "5011",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Sandsli",
+    "name": "MOVA Bergen Sandsli",
+    "source_url": "https://www.mova.no/treningssenter/bergen/sandsli",
+    "path": "/treningssenter/bergen/sandsli",
+    "parsed": {
+      "address": "Aurdalslia 10",
+      "postal_code": "5253",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Sandviken",
+    "name": "MOVA Bergen Sandviken",
+    "source_url": "https://www.mova.no/treningssenter/bergen/sandviken",
+    "path": "/treningssenter/bergen/sandviken",
+    "parsed": {
+      "address": "Nye Sandviksveien 9",
+      "postal_code": "5003",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bergen Ytre Arna",
+    "name": "MOVA Bergen Ytre Arna",
+    "source_url": "https://www.mova.no/treningssenter/bergen/ytre-arna",
+    "path": "/treningssenter/bergen/ytre-arna",
+    "parsed": {
+      "address": "Peter Jebsens veg 13",
+      "postal_code": "5265",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Bjorkelangen",
+    "name": "MOVA Bjorkelangen",
+    "source_url": "https://www.mova.no/treningssenter/bjorkelangen",
+    "path": "/treningssenter/bjorkelangen",
+    "parsed": {
+      "address": "Serviceveien 1",
+      "postal_code": "1940",
+      "city": "Aurskog-Høland"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Brandbu",
+    "name": "MOVA Brandbu",
+    "source_url": "https://www.mova.no/treningssenter/brandbu",
+    "path": "/treningssenter/brandbu",
+    "parsed": {
+      "address": "Storlinna 73",
+      "postal_code": "2760",
+      "city": "Gran"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Brattvag",
+    "name": "MOVA Brattvag",
+    "source_url": "https://www.mova.no/treningssenter/brattvag",
+    "path": "/treningssenter/brattvag",
+    "parsed": {
+      "address": "Skjelt-Iver Bakken 1",
+      "postal_code": "6270",
+      "city": "Haram"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Dal",
+    "name": "MOVA Dal",
+    "source_url": "https://www.mova.no/treningssenter/dal",
+    "path": "/treningssenter/dal",
+    "parsed": {
+      "address": "Kolonivegen 43",
+      "postal_code": "2072",
+      "city": "Eidsvoll"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Drammen Assiden",
+    "name": "MOVA Drammen Assiden",
+    "source_url": "https://www.mova.no/treningssenter/drammen/assiden",
+    "path": "/treningssenter/drammen/assiden",
+    "parsed": {
+      "address": "Ingvald Ludvigsens gate 14",
+      "postal_code": "3027",
+      "city": "Drammen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Drammen Lierstranda",
+    "name": "MOVA Drammen Lierstranda",
+    "source_url": "https://www.mova.no/treningssenter/drammen/lierstranda",
+    "path": "/treningssenter/drammen/lierstranda",
+    "parsed": {
+      "address": "Lierstranda 97",
+      "postal_code": "3414",
+      "city": "Lier"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Drammen Liertoppen",
+    "name": "MOVA Drammen Liertoppen",
+    "source_url": "https://www.mova.no/treningssenter/drammen/liertoppen",
+    "path": "/treningssenter/drammen/liertoppen",
+    "parsed": {
+      "address": "Drammensveien 201",
+      "postal_code": "3420",
+      "city": "Lier"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Drammen Marienlyst",
+    "name": "MOVA Drammen Marienlyst",
+    "source_url": "https://www.mova.no/treningssenter/drammen/marienlyst",
+    "path": "/treningssenter/drammen/marienlyst",
+    "parsed": {
+      "address": "Schwarts gate 6 (Idrettens hus)",
+      "postal_code": "3043",
+      "city": "Drammen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Eidsvag I Asane",
+    "name": "MOVA Eidsvag I Asane",
+    "source_url": "https://www.mova.no/treningssenter/eidsvag-i-asane",
+    "path": "/treningssenter/eidsvag-i-asane",
+    "parsed": {
+      "address": "Vollane 1",
+      "postal_code": "5105",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Fyllingsdalen",
+    "name": "MOVA Fyllingsdalen",
+    "source_url": "https://www.mova.no/treningssenter/fyllingsdalen",
+    "path": "/treningssenter/fyllingsdalen",
+    "parsed": {
+      "address": "Løvåsveien 20",
+      "postal_code": "5145",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Gamle Fredrikstad",
+    "name": "MOVA Gamle Fredrikstad",
+    "source_url": "https://www.mova.no/treningssenter/gamle-fredrikstad",
+    "path": "/treningssenter/gamle-fredrikstad",
+    "parsed": {
+      "address": "Torsnesveien 12",
+      "postal_code": "1630",
+      "city": "Fredrikstad"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Gjovik Cc",
+    "name": "MOVA Gjovik Cc",
+    "source_url": "https://www.mova.no/treningssenter/gjovik/cc",
+    "path": "/treningssenter/gjovik/cc",
+    "parsed": {
+      "address": "Jernbanesvingen 6",
+      "postal_code": "2821",
+      "city": "Gjøvik"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Gjovik Sentrum",
+    "name": "MOVA Gjovik Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/gjovik/sentrum",
+    "path": "/treningssenter/gjovik/sentrum",
+    "parsed": {
+      "address": "Storgata 25",
+      "postal_code": "2815",
+      "city": "Gjøvik"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Gran",
+    "name": "MOVA Gran",
+    "source_url": "https://www.mova.no/treningssenter/gran",
+    "path": "/treningssenter/gran",
+    "parsed": {
+      "address": "Smiegata 3",
+      "postal_code": "2750",
+      "city": "Gran"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Hamar",
+    "name": "MOVA Hamar",
+    "source_url": "https://www.mova.no/treningssenter/hamar",
+    "path": "/treningssenter/hamar",
+    "parsed": {
+      "address": "Brygga 20",
+      "postal_code": "2317",
+      "city": "Hamar"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Harestua",
+    "name": "MOVA Harestua",
+    "source_url": "https://www.mova.no/treningssenter/harestua",
+    "path": "/treningssenter/harestua",
+    "parsed": {
+      "address": "Kvernhusvegen 23",
+      "postal_code": "2743",
+      "city": "Lunner"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Haugesund",
+    "name": "MOVA Haugesund",
+    "source_url": "https://www.mova.no/treningssenter/haugesund",
+    "path": "/treningssenter/haugesund",
+    "parsed": {
+      "address": "Hanne Hauglands veg 8",
+      "postal_code": "5519",
+      "city": "Haugesund"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Holmestrand",
+    "name": "MOVA Holmestrand",
+    "source_url": "https://www.mova.no/treningssenter/holmestrand",
+    "path": "/treningssenter/holmestrand",
+    "parsed": {
+      "address": "Kleivbrottet 3",
+      "postal_code": "3084",
+      "city": "Holmestrand"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Honefoss Helgelandsmoen",
+    "name": "MOVA Honefoss Helgelandsmoen",
+    "source_url": "https://www.mova.no/treningssenter/honefoss/helgelandsmoen",
+    "path": "/treningssenter/honefoss/helgelandsmoen",
+    "parsed": {
+      "address": "Furuhallveien 17B",
+      "postal_code": "3512",
+      "city": "Ringerike"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Honefoss Sentrum",
+    "name": "MOVA Honefoss Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/honefoss/sentrum",
+    "path": "/treningssenter/honefoss/sentrum",
+    "parsed": {
+      "address": "Ringeriksgata 35",
+      "postal_code": "3510",
+      "city": "Ringerike"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Horten Focus",
+    "name": "MOVA Horten Focus",
+    "source_url": "https://www.mova.no/treningssenter/horten/focus",
+    "path": "/treningssenter/horten/focus",
+    "parsed": {
+      "address": "Trimveien 41",
+      "postal_code": "3186",
+      "city": "Horten"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Horten Hovedsenter",
+    "name": "MOVA Horten Hovedsenter",
+    "source_url": "https://www.mova.no/treningssenter/horten/hovedsenter",
+    "path": "/treningssenter/horten/hovedsenter",
+    "parsed": {
+      "address": "Trimveien 41B",
+      "postal_code": "3186",
+      "city": "Horten"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Horten Sentrum",
+    "name": "MOVA Horten Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/horten/sentrum",
+    "path": "/treningssenter/horten/sentrum",
+    "parsed": {
+      "address": "Storgata 72",
+      "postal_code": "3182",
+      "city": "Horten"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Karmoy",
+    "name": "MOVA Karmoy",
+    "source_url": "https://www.mova.no/treningssenter/karmoy",
+    "path": "/treningssenter/karmoy",
+    "parsed": {
+      "address": "Eidsbakkane 13",
+      "postal_code": "4250",
+      "city": "Karmøy"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Kleppe",
+    "name": "MOVA Kleppe",
+    "source_url": "https://www.mova.no/treningssenter/kleppe",
+    "path": "/treningssenter/kleppe",
+    "parsed": {
+      "address": "Solavegen 25",
+      "postal_code": "4352",
+      "city": "Klepp"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Kleppesto",
+    "name": "MOVA Kleppesto",
+    "source_url": "https://www.mova.no/treningssenter/kleppesto",
+    "path": "/treningssenter/kleppesto",
+    "parsed": {
+      "address": "Ranavegen 3A",
+      "postal_code": "5300",
+      "city": "Askøy"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Kristiansund",
+    "name": "MOVA Kristiansund",
+    "source_url": "https://www.mova.no/treningssenter/kristiansund",
+    "path": "/treningssenter/kristiansund",
+    "parsed": {
+      "address": "Dalaveien 16",
+      "postal_code": "6511",
+      "city": "Kristiansund"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Laksevag",
+    "name": "MOVA Laksevag",
+    "source_url": "https://www.mova.no/treningssenter/laksevag",
+    "path": "/treningssenter/laksevag",
+    "parsed": {
+      "address": "Sjøkrigsskoleveien 15 (Simonsviken næringspark)",
+      "postal_code": "5165",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Langesund",
+    "name": "MOVA Langesund",
+    "source_url": "https://www.mova.no/treningssenter/langesund",
+    "path": "/treningssenter/langesund",
+    "parsed": {
+      "address": "Stathelleveien 33",
+      "postal_code": "3970",
+      "city": "Bamble"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Lillehammer Arena",
+    "name": "MOVA Lillehammer Arena",
+    "source_url": "https://www.mova.no/treningssenter/lillehammer/arena",
+    "path": "/treningssenter/lillehammer/arena",
+    "parsed": {
+      "address": "Hagevegen 4",
+      "postal_code": "2613",
+      "city": "Lillehammer"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Lillehammer Faberg",
+    "name": "MOVA Lillehammer Faberg",
+    "source_url": "https://www.mova.no/treningssenter/lillehammer/faberg",
+    "path": "/treningssenter/lillehammer/faberg",
+    "parsed": {
+      "address": "Jørstadmoveien 690",
+      "postal_code": "2625",
+      "city": "Lillehammer"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Lillehammer Nord",
+    "name": "MOVA Lillehammer Nord",
+    "source_url": "https://www.mova.no/treningssenter/lillehammer/nord",
+    "path": "/treningssenter/lillehammer/nord",
+    "parsed": {
+      "address": "Oskar Skoglys veg 2",
+      "postal_code": "2619",
+      "city": "Lillehammer"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Lillestrom",
+    "name": "MOVA Lillestrom",
+    "source_url": "https://www.mova.no/treningssenter/lillestrom",
+    "path": "/treningssenter/lillestrom",
+    "parsed": {
+      "address": "Elvesvingen 23",
+      "postal_code": "2003",
+      "city": "Lillestrøm"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Lindas",
+    "name": "MOVA Lindas",
+    "source_url": "https://www.mova.no/treningssenter/lindas",
+    "path": "/treningssenter/lindas",
+    "parsed": {
+      "address": "Lindås Senter",
+      "postal_code": "5951",
+      "city": "Alver"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Lonevag",
+    "name": "MOVA Lonevag",
+    "source_url": "https://www.mova.no/treningssenter/lonevag",
+    "path": "/treningssenter/lonevag",
+    "parsed": {
+      "address": "Fotlandsvegen 15",
+      "postal_code": "5282",
+      "city": "Osterøy"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Lorenskog",
+    "name": "MOVA Lorenskog",
+    "source_url": "https://www.mova.no/treningssenter/lorenskog",
+    "path": "/treningssenter/lorenskog",
+    "parsed": {
+      "address": "Luhrtoppen 2",
+      "postal_code": "1470",
+      "city": "Lørenskog"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Mathopen",
+    "name": "MOVA Mathopen",
+    "source_url": "https://www.mova.no/treningssenter/mathopen",
+    "path": "/treningssenter/mathopen",
+    "parsed": {
+      "address": "Skareveien 1A",
+      "postal_code": "5174",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Moss Lilleeng",
+    "name": "MOVA Moss Lilleeng",
+    "source_url": "https://www.mova.no/treningssenter/moss/lilleeng",
+    "path": "/treningssenter/moss/lilleeng",
+    "parsed": {
+      "address": "Lilleengveien 8",
+      "postal_code": "1523",
+      "city": "Moss"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Moss Sentrum",
+    "name": "MOVA Moss Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/moss/sentrum",
+    "path": "/treningssenter/moss/sentrum",
+    "parsed": {
+      "address": "Storgata 28",
+      "postal_code": "1531",
+      "city": "Moss"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Mysen",
+    "name": "MOVA Mysen",
+    "source_url": "https://www.mova.no/treningssenter/mysen",
+    "path": "/treningssenter/mysen",
+    "parsed": {
+      "address": "Opsahlveien 1A",
+      "postal_code": "1850",
+      "city": "Indre Østfold"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Odda",
+    "name": "MOVA Odda",
+    "source_url": "https://www.mova.no/treningssenter/odda",
+    "path": "/treningssenter/odda",
+    "parsed": {
+      "address": "Tyssedalsvegen 4",
+      "postal_code": "5750",
+      "city": "Ullensvang"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Orsta Holmegata",
+    "name": "MOVA Orsta Holmegata",
+    "source_url": "https://www.mova.no/treningssenter/orsta/holmegata",
+    "path": "/treningssenter/orsta/holmegata",
+    "parsed": {
+      "address": "Holmegata 6",
+      "postal_code": "6153",
+      "city": "Ørsta"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Orsta Strandgata",
+    "name": "MOVA Orsta Strandgata",
+    "source_url": "https://www.mova.no/treningssenter/orsta/strandgata",
+    "path": "/treningssenter/orsta/strandgata",
+    "parsed": {
+      "address": "Strandgata 4",
+      "postal_code": "6150",
+      "city": "Ørsta"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Os Kuventrae",
+    "name": "MOVA Os Kuventrae",
+    "source_url": "https://www.mova.no/treningssenter/os/kuventrae",
+    "path": "/treningssenter/os/kuventrae",
+    "parsed": {
+      "address": "Idrettsvegen 39",
+      "postal_code": "5210",
+      "city": "Bjørnafjorden"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Os Osoyro",
+    "name": "MOVA Os Osoyro",
+    "source_url": "https://www.mova.no/treningssenter/os/osoyro",
+    "path": "/treningssenter/os/osoyro",
+    "parsed": {
+      "address": "Holtbrekka 7",
+      "postal_code": "5200",
+      "city": "Bjørnafjorden"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Oslo Furuset",
+    "name": "MOVA Oslo Furuset",
+    "source_url": "https://www.mova.no/treningssenter/oslo/furuset",
+    "path": "/treningssenter/oslo/furuset",
+    "parsed": {
+      "address": "Furuset senter: Trygve Lies vei 1",
+      "postal_code": "1051",
+      "city": "Oslo"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Oslo Ullern",
+    "name": "MOVA Oslo Ullern",
+    "source_url": "https://www.mova.no/treningssenter/oslo/ullern",
+    "path": "/treningssenter/oslo/ullern",
+    "parsed": {
+      "address": "Silurveien 2",
+      "postal_code": "0380",
+      "city": "Oslo"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Porsgrunn",
+    "name": "MOVA Porsgrunn",
+    "source_url": "https://www.mova.no/treningssenter/porsgrunn",
+    "path": "/treningssenter/porsgrunn",
+    "parsed": {
+      "address": "Øvre Lundeveg 1",
+      "postal_code": "3941",
+      "city": "Porsgrunn"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Raholt",
+    "name": "MOVA Raholt",
+    "source_url": "https://www.mova.no/treningssenter/raholt",
+    "path": "/treningssenter/raholt",
+    "parsed": {
+      "address": "Gladbakkvegen 1",
+      "postal_code": "2070",
+      "city": "Eidsvoll"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Raufoss Amfi",
+    "name": "MOVA Raufoss Amfi",
+    "source_url": "https://www.mova.no/treningssenter/raufoss/amfi",
+    "path": "/treningssenter/raufoss/amfi",
+    "parsed": {
+      "address": "Storgata 49",
+      "postal_code": "2830",
+      "city": "Vestre Toten"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Raufoss Sentrum",
+    "name": "MOVA Raufoss Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/raufoss/sentrum",
+    "path": "/treningssenter/raufoss/sentrum",
+    "parsed": {
+      "address": "Storgata 25",
+      "postal_code": "2830",
+      "city": "Vestre Toten"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Saetre",
+    "name": "MOVA Saetre",
+    "source_url": "https://www.mova.no/treningssenter/saetre",
+    "path": "/treningssenter/saetre",
+    "parsed": {
+      "address": "Åsveien 21",
+      "postal_code": "3475",
+      "city": "Asker"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Sandefjord Framnaes",
+    "name": "MOVA Sandefjord Framnaes",
+    "source_url": "https://www.mova.no/treningssenter/sandefjord/framnaes",
+    "path": "/treningssenter/sandefjord/framnaes",
+    "parsed": {
+      "address": "Framnesveien 7",
+      "postal_code": "3222",
+      "city": "Sandefjord"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Sandefjord Pindsle",
+    "name": "MOVA Sandefjord Pindsle",
+    "source_url": "https://www.mova.no/treningssenter/sandefjord/pindsle",
+    "path": "/treningssenter/sandefjord/pindsle",
+    "parsed": {
+      "address": "Nygårdsveien 84",
+      "postal_code": "3221",
+      "city": "Sandefjord"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Sandnes",
+    "name": "MOVA Sandnes",
+    "source_url": "https://www.mova.no/treningssenter/sandnes",
+    "path": "/treningssenter/sandnes",
+    "parsed": {
+      "address": "Gravarsveien 7",
+      "postal_code": "4306",
+      "city": "Sandnes"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Skien Hovedsenter",
+    "name": "MOVA Skien Hovedsenter",
+    "source_url": "https://www.mova.no/treningssenter/skien/hovedsenter",
+    "path": "/treningssenter/skien/hovedsenter",
+    "parsed": {
+      "address": "Fridtjof Nansens gate 21",
+      "postal_code": "3277",
+      "city": "Larvik"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Skien Sentrum",
+    "name": "MOVA Skien Sentrum",
+    "source_url": "https://www.mova.no/treningssenter/skien/sentrum",
+    "path": "/treningssenter/skien/sentrum",
+    "parsed": {
+      "address": "Arkaden Skien Storsenter, Bruene 1",
+      "postal_code": "3724",
+      "city": "Skien"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Skogsvag",
+    "name": "MOVA Skogsvag",
+    "source_url": "https://www.mova.no/treningssenter/skogsvag",
+    "path": "/treningssenter/skogsvag",
+    "parsed": {
+      "address": "Skogsvågskiftet",
+      "postal_code": "5382",
+      "city": "Øygarden"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Sorumsand Noractorgarden",
+    "name": "MOVA Sorumsand Noractorgarden",
+    "source_url": "https://www.mova.no/treningssenter/sorumsand/noractorgarden",
+    "path": "/treningssenter/sorumsand/noractorgarden",
+    "parsed": {
+      "address": "Blakerveien 25",
+      "postal_code": "1920",
+      "city": "Lillestrøm"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Sorumsand Park",
+    "name": "MOVA Sorumsand Park",
+    "source_url": "https://www.mova.no/treningssenter/sorumsand/park",
+    "path": "/treningssenter/sorumsand/park",
+    "parsed": {
+      "address": "Sørumsandvegen 66",
+      "postal_code": "1920",
+      "city": "Lillestrøm"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Stathelle",
+    "name": "MOVA Stathelle",
+    "source_url": "https://www.mova.no/treningssenter/stathelle",
+    "path": "/treningssenter/stathelle",
+    "parsed": {
+      "address": "Krabberødveien 6",
+      "postal_code": "3960",
+      "city": "Bamble"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Stavanger Bikuba",
+    "name": "MOVA Stavanger Bikuba",
+    "source_url": "https://www.mova.no/treningssenter/stavanger/bikuba",
+    "path": "/treningssenter/stavanger/bikuba",
+    "parsed": {
+      "address": "Hillevågsveien 70",
+      "postal_code": "4016",
+      "city": "Stavanger"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Stavanger Forus",
+    "name": "MOVA Stavanger Forus",
+    "source_url": "https://www.mova.no/treningssenter/stavanger/forus",
+    "path": "/treningssenter/stavanger/forus",
+    "parsed": {
+      "address": "Godesetdalen 10",
+      "postal_code": "4034",
+      "city": "Stavanger"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Stavanger Tjensvoll",
+    "name": "MOVA Stavanger Tjensvoll",
+    "source_url": "https://www.mova.no/treningssenter/stavanger/tjensvoll",
+    "path": "/treningssenter/stavanger/tjensvoll",
+    "parsed": {
+      "address": "Tjensvolltorget 36",
+      "postal_code": "4021",
+      "city": "Stavanger"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Stord",
+    "name": "MOVA Stord",
+    "source_url": "https://www.mova.no/treningssenter/stord",
+    "path": "/treningssenter/stord",
+    "parsed": {
+      "address": "Ringvegen 45",
+      "postal_code": "5412",
+      "city": "Stord"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Straume Straume",
+    "name": "MOVA Straume Straume",
+    "source_url": "https://www.mova.no/treningssenter/straume/straume",
+    "path": "/treningssenter/straume/straume",
+    "parsed": {
+      "address": "Arefjordvegen 21",
+      "postal_code": "5353",
+      "city": "Øygarden"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Straume Straumeparken",
+    "name": "MOVA Straume Straumeparken",
+    "source_url": "https://www.mova.no/treningssenter/straume/straumeparken",
+    "path": "/treningssenter/straume/straumeparken",
+    "parsed": {
+      "address": "Straumeparken – Smålonane 2",
+      "postal_code": "5353",
+      "city": "Øygarden"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Ulset",
+    "name": "MOVA Ulset",
+    "source_url": "https://www.mova.no/treningssenter/ulset",
+    "path": "/treningssenter/ulset",
+    "parsed": {
+      "address": "Hesthaugveien 18",
+      "postal_code": "5119",
+      "city": "Bergen"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Valderoya",
+    "name": "MOVA Valderoya",
+    "source_url": "https://www.mova.no/treningssenter/valderoya",
+    "path": "/treningssenter/valderoya",
+    "parsed": {
+      "address": "Ytterlandshavna 5",
+      "postal_code": "6050",
+      "city": "Giske"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Vigra",
+    "name": "MOVA Vigra",
+    "source_url": "https://www.mova.no/treningssenter/vigra",
+    "path": "/treningssenter/vigra",
+    "parsed": {
+      "address": "Gjøsund",
+      "postal_code": "6040",
+      "city": "Giske"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Voss Vangsgata",
+    "name": "MOVA Voss Vangsgata",
+    "source_url": "https://www.mova.no/treningssenter/voss/vangsgata",
+    "path": "/treningssenter/voss/vangsgata",
+    "parsed": {
+      "address": "Vangsgata 36",
+      "postal_code": "5700",
+      "city": "Voss"
+    }
+  },
+  {
+    "brand": "MOVA",
+    "center_name": "Voss Vossabygg",
+    "name": "MOVA Voss Vossabygg",
+    "source_url": "https://www.mova.no/treningssenter/voss/vossabygg",
+    "path": "/treningssenter/voss/vossabygg",
+    "parsed": {
+      "address": "Vossabygg 19",
+      "postal_code": "5700",
+      "city": "Voss"
+    }
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "shape_house_existing": 18,
+  "shape_house_new_ready": 0,
+  "shape_house_estate_gaps": 0,
+  "bodifit_existing": 8,
+  "bodifit_new_ready": 0,
+  "bodifit_estate_gaps": 0,
+  "fitinn_existing": 6,
+  "fitinn_new_ready": 0,
+  "fitinn_estate_gaps": 0,
+  "final_class_a_chain_count": 3,
+  "final_class_a_chain_names": [
+    "Shape House",
+    "BODIFIT",
+    "FITINN"
+  ],
+  "final_class_a_existing_count": 32,
+  "final_class_a_new_ready_count": 0,
+  "chain_estate_gaps": 0,
+  "new_class_a_chains_found": 0,
+  "new_class_a_ready_locations": 0
+}

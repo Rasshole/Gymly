@@ -1,0 +1,56 @@
+{
+  "country": "Czechia",
+  "prefix": "cz_",
+  "chains_attempted": [
+    {
+      "brand": "Form Factory",
+      "count": 44
+    },
+    {
+      "brand": "Max Fitness",
+      "count": 25
+    },
+    {
+      "brand": "FITINN",
+      "count": 1
+    }
+  ],
+  "notes": {
+    "McFIT / John Reed": "No current Czech consumer locator confirmed in Phase 1",
+    "clever fit": "CZ listing empty/thin in Phase 1 — Phase 2 if needed",
+    "BBC Fitness / Factory Pro / Zone4You / Element / Next.Move": "Secondary — Phase 2 if coverage gaps remain"
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 53,
+    "NEEDS_REVIEW": 12,
+    "NEEDS_COORDINATES": 5
+  },
+  "ready_by_brand": {
+    "Form Factory": 28,
+    "Max Fitness": 23,
+    "Oktagon Gym": 1,
+    "FITINN": 1
+  },
+  "city_coverage": {
+    "Praha": true,
+    "Brno": true,
+    "Ostrava": true,
+    "Plzeň": true,
+    "Liberec": true,
+    "Olomouc": false,
+    "České Budějovice": true,
+    "Hradec Králové": false,
+    "Pardubice": true,
+    "Zlín": false,
+    "Ústí nad Labem": false,
+    "Jihlava": false,
+    "Karlovy Vary": false
+  },
+  "coverage_notes": {
+    "Form Factory": "Highest priority — club pages via formfactory.cz/klub",
+    "Max Fitness": "Official branches from maxfitness.cz",
+    "FITINN": "Czech studios via fitinn.at (CZ-only filter)",
+    "clever fit": "CZ listing thin — Phase 2 if materially incomplete",
+    "McFIT / John Reed": "Not confirmed present in Phase 1"
+  }
+}

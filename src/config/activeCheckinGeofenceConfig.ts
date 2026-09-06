@@ -1,10 +1,15 @@
 /**
- * Auto-tjek-ud: GPS >200 m fra aktivt center → gem session + stop timer.
- * App-genstart, crash, baggrund og manglende GPS afslutter aldrig session alene.
+ * Auto-tjek-ud: GPS > CHECK_IN_RADIUS_METERS (200 m) fra det aktive session-center
+ * → completeWorkoutSession + stop timer.
+ *
+ * Afstand beregnes altid mod stored/active check-in gym_id (ikke nærmeste center).
+ * Safeguards: rolling median, spike reject, ~12s grace, 2 consecutive outside readings.
  */
 
-/** Samme radius som manuelt tjek-ind */
-export const AUTO_CHECKOUT_DISTANCE_METERS = 200;
+import {CHECK_IN_RADIUS_METERS} from '@/config/dataConfig';
+
+/** Samme 200 m-radius som manuelt tjek-ind */
+export const AUTO_CHECKOUT_DISTANCE_METERS = CHECK_IN_RADIUS_METERS;
 
 export const ACTIVE_CHECKIN_SAFE_RADIUS = AUTO_CHECKOUT_DISTANCE_METERS;
 export const ACTIVE_CHECKIN_BUFFER_RADIUS = AUTO_CHECKOUT_DISTANCE_METERS;
@@ -18,7 +23,7 @@ export const ACTIVE_CHECKIN_OUTSIDE_GRACE_MS = ACTIVE_CHECKIN_OUTSIDE_WARNING_MS
 export const ACTIVE_CHECKIN_INACTIVITY_TIMEOUT_MS = 4 * 60 * 60 * 1000;
 export const ACTIVE_CHECKIN_INACTIVITY_WARN_BEFORE_MS = 30 * 60 * 1000;
 
-/** 2 på hinanden følgende målinger >200 m → afslut */
+/** 2 på hinanden følgende målinger uden for radius → afslut */
 export const ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE = 2;
 export const ACTIVE_CHECKIN_STABLE_CONSECUTIVE_BUFFER = ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE;
 

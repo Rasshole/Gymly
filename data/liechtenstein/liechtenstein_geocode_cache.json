@@ -1,0 +1,39 @@
+{
+  "phase2_confirmed": {
+    "li_9fdb1d933f": {
+      "lat": 47.1546705,
+      "lng": 9.5099197,
+      "coord_source": "OFFICIAL_PREMISES_NOMINATIM"
+    },
+    "li_9514fe2df2": {
+      "lat": 47.1354865,
+      "lng": 9.5141048,
+      "coord_source": "OFFICIAL_PREMISES_NOMINATIM"
+    },
+    "li_35eed72b39": {
+      "lat": 47.1747102,
+      "lng": 9.5121756,
+      "coord_source": "OFFICIAL_PREMISES_NOMINATIM"
+    },
+    "li_688dc73ac2": {
+      "lat": 47.2056244,
+      "lng": 9.5035504,
+      "coord_source": "OFFICIAL_PREMISES_NOMINATIM"
+    },
+    "li_f02192ce76": {
+      "lat": 47.0767349,
+      "lng": 9.5121186,
+      "coord_source": "OFFICIAL_PREMISES_NOMINATIM"
+    },
+    "li_740e149c77": {
+      "lat": 47.2077115,
+      "lng": 9.5340621,
+      "coord_source": "OFFICIAL_PREMISES_NOMINATIM"
+    },
+    "li_9b66d0aa5e": {
+      "lat": 47.2494755,
+      "lng": 9.5269321,
+      "coord_source": "OFFICIAL_PREMISES_NOMINATIM"
+    }
+  }
+}

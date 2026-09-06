@@ -1,0 +1,1801 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "Gym Rue du Brill 24/7 Foetz",
+  "image": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Front_club_outside/Front_club_outside",
+  "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-foetz-rue-du-brill-24-7-6dfe04f93d9e4060b307774c5c022e20.html",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Route de Brill 11",
+    "addressLocality": "Foetz",
+    "postalCode": "3898",
+    "addressCountry": "LU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "49.5239",
+    "longitude": "6.00483"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "24:00"
+    }
+  ],
+  "images": [
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Front_club_outside/Front_club_outside"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Free_weight_zone_1/Free_weight_zone_1"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Free_weight_zone_2/Free_weight_zone_2"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Strength_zone_1/Strength_zone_1"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Strength_zone_2/Strength_zone_2"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Cardio_zone_1/Cardio_zone_1"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Cardio_zone_2/Cardio_zone_2"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Functional___Stretch_zone/Functional___Stretch_zone"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "ImageObject",
+      "contentUrl": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Social_corner/Social_corner"
+    }
+  ],
+  "breadcrumb": {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Basic-Fit home",
+        "item": "https://www.basic-fit.com/en-lu/home"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Foetz",
+        "item": "https://www.basic-fit.com/en-lu/gyms/foetz"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Basic-Fit Foetz Rue du Brill 24/7",
+        "item": "https://www.basic-fit.com/en-lu/clubs/basic-fit-foetz-rue-du-brill-24-7-6dfe04f93d9e4060b307774c5c022e20.html"
+      }
+    ]
+  },
+  "events": {
+    "@context": "http://schema.org",
+    "@type": "Event",
+    "name": "Gym Training Schedule",
+    "description": "2 Weeks training schedule at Basic-Fit Foetz Rue du Brill 24/7",
+    "startDate": "2026-08-25T07:30:00.000Z",
+    "endDate": "2026-09-07T18:30:00.000Z",
+    "location": {
+      "@type": "Place",
+      "name": "Basic-Fit Foetz Rue du Brill 24/7",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Route de Brill 11",
+        "addressLocality": "Foetz",
+        "postalCode": "3898",
+        "addressCountry": "LU"
+      }
+    },
+    "subEvent": [
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-08-25T07:30:00.000Z",
+        "endDate": "2026-08-25T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-08-25T08:30:00.000Z",
+        "endDate": "2026-08-25T09:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT30M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyCombat",
+        "description": "Le Bodycombat est un entra\u00eenement cardio-vasculaire inspir\u00e9 des arts martiaux. Boxez et \u00e9vacuez toute votre \u00e9nergie.",
+        "startDate": "2026-08-25T16:30:00.000Z",
+        "endDate": "2026-08-25T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3P9LEZyYqD03sjfMwhUwMp/3ee0aa81134f75799e4ce4b8ecbc39c8/webimage-Basicfit-groepslessen-20-10-2514591.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-08-25T17:30:00.000Z",
+        "endDate": "2026-08-25T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT30M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-08-26T07:30:00.000Z",
+        "endDate": "2026-08-26T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Strength Development",
+        "description": "Un entra\u00eenement progressif de renforcement musculaire ax\u00e9 sur une technique correcte et s\u00e9curis\u00e9e des exercices de force et d'hypertrophie. Vous vous entra\u00eenez individuellement, mais en groupe sous la supervision d'un instructeur. Pendant 12 semaines, vous recevrez chaque semaine un entra\u00eenement diff\u00e9rent, utilisant une barre et des poids libres. Cet entra\u00eenement se combine parfaitement avec l'entra\u00eenement en salle de sport.",
+        "startDate": "2026-08-26T07:30:00.000Z",
+        "endDate": "2026-08-26T08:15:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3LANaAMKJcvEZor7PpPSYi/0627ff8cebb6ee2c6c1442ca93110a84/webimage-Basicfit-groepslessen-20-10-2514184.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT45M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-08-26T10:30:00.000Z",
+        "endDate": "2026-08-26T11:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-08-26T16:30:00.000Z",
+        "endDate": "2026-08-26T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-08-26T17:00:00.000Z",
+        "endDate": "2026-08-26T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-08-26T17:30:00.000Z",
+        "endDate": "2026-08-26T18:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-08-27T10:30:00.000Z",
+        "endDate": "2026-08-27T11:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyCombat",
+        "description": "Le Bodycombat est un entra\u00eenement cardio-vasculaire inspir\u00e9 des arts martiaux. Boxez et \u00e9vacuez toute votre \u00e9nergie.",
+        "startDate": "2026-08-27T16:30:00.000Z",
+        "endDate": "2026-08-27T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3P9LEZyYqD03sjfMwhUwMp/3ee0aa81134f75799e4ce4b8ecbc39c8/webimage-Basicfit-groepslessen-20-10-2514591.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-08-27T17:30:00.000Z",
+        "endDate": "2026-08-27T18:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-08-28T07:30:00.000Z",
+        "endDate": "2026-08-28T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-08-28T07:30:00.000Z",
+        "endDate": "2026-08-28T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-08-28T16:00:00.000Z",
+        "endDate": "2026-08-28T17:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-08-28T17:00:00.000Z",
+        "endDate": "2026-08-28T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyCombat",
+        "description": "Le Bodycombat est un entra\u00eenement cardio-vasculaire inspir\u00e9 des arts martiaux. Boxez et \u00e9vacuez toute votre \u00e9nergie.",
+        "startDate": "2026-08-29T08:30:00.000Z",
+        "endDate": "2026-08-29T09:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3P9LEZyYqD03sjfMwhUwMp/3ee0aa81134f75799e4ce4b8ecbc39c8/webimage-Basicfit-groepslessen-20-10-2514591.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-08-29T08:30:00.000Z",
+        "endDate": "2026-08-29T09:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-08-29T09:30:00.000Z",
+        "endDate": "2026-08-29T10:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-08-30T07:30:00.000Z",
+        "endDate": "2026-08-30T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-08-30T08:30:00.000Z",
+        "endDate": "2026-08-30T09:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-08-30T08:30:00.000Z",
+        "endDate": "2026-08-30T09:15:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT45M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-08-30T09:15:00.000Z",
+        "endDate": "2026-08-30T10:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT45M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-08-31T07:30:00.000Z",
+        "endDate": "2026-08-31T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Pilates",
+        "description": "Un cours qui se concentre sur le renforcement de vos muscles abdominaux et dorsaux. C'est un bon entra\u00eenement pour am\u00e9liorer la posture, le contr\u00f4le et la force. ",
+        "startDate": "2026-08-31T07:30:00.000Z",
+        "endDate": "2026-08-31T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/1oNQ83cJPkuHxbuLlUed68/c924916cad34f723cce6cda629360117/webimage-Basicfit-groepslessen-20-10-2515248.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-08-31T10:30:00.000Z",
+        "endDate": "2026-08-31T11:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-08-31T15:30:00.000Z",
+        "endDate": "2026-08-31T16:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-08-31T16:30:00.000Z",
+        "endDate": "2026-08-31T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-08-31T17:00:00.000Z",
+        "endDate": "2026-08-31T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-08-31T17:30:00.000Z",
+        "endDate": "2026-08-31T18:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-09-01T07:30:00.000Z",
+        "endDate": "2026-09-01T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-09-01T08:30:00.000Z",
+        "endDate": "2026-09-01T09:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT30M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyCombat",
+        "description": "Le Bodycombat est un entra\u00eenement cardio-vasculaire inspir\u00e9 des arts martiaux. Boxez et \u00e9vacuez toute votre \u00e9nergie.",
+        "startDate": "2026-09-01T16:30:00.000Z",
+        "endDate": "2026-09-01T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3P9LEZyYqD03sjfMwhUwMp/3ee0aa81134f75799e4ce4b8ecbc39c8/webimage-Basicfit-groepslessen-20-10-2514591.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-09-01T17:30:00.000Z",
+        "endDate": "2026-09-01T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT30M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Strength Development",
+        "description": "Un entra\u00eenement progressif de renforcement musculaire ax\u00e9 sur une technique correcte et s\u00e9curis\u00e9e des exercices de force et d'hypertrophie. Vous vous entra\u00eenez individuellement, mais en groupe sous la supervision d'un instructeur. Pendant 12 semaines, vous recevrez chaque semaine un entra\u00eenement diff\u00e9rent, utilisant une barre et des poids libres. Cet entra\u00eenement se combine parfaitement avec l'entra\u00eenement en salle de sport.",
+        "startDate": "2026-09-02T07:30:00.000Z",
+        "endDate": "2026-09-02T08:15:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3LANaAMKJcvEZor7PpPSYi/0627ff8cebb6ee2c6c1442ca93110a84/webimage-Basicfit-groepslessen-20-10-2514184.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT45M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-09-02T07:30:00.000Z",
+        "endDate": "2026-09-02T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-09-02T10:30:00.000Z",
+        "endDate": "2026-09-02T11:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-09-02T16:30:00.000Z",
+        "endDate": "2026-09-02T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-09-02T17:00:00.000Z",
+        "endDate": "2026-09-02T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-09-02T17:30:00.000Z",
+        "endDate": "2026-09-02T18:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-09-03T10:30:00.000Z",
+        "endDate": "2026-09-03T11:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyCombat",
+        "description": "Le Bodycombat est un entra\u00eenement cardio-vasculaire inspir\u00e9 des arts martiaux. Boxez et \u00e9vacuez toute votre \u00e9nergie.",
+        "startDate": "2026-09-03T16:30:00.000Z",
+        "endDate": "2026-09-03T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3P9LEZyYqD03sjfMwhUwMp/3ee0aa81134f75799e4ce4b8ecbc39c8/webimage-Basicfit-groepslessen-20-10-2514591.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-09-03T17:30:00.000Z",
+        "endDate": "2026-09-03T18:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-09-04T07:30:00.000Z",
+        "endDate": "2026-09-04T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-09-04T07:30:00.000Z",
+        "endDate": "2026-09-04T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-09-04T16:00:00.000Z",
+        "endDate": "2026-09-04T17:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-09-04T17:00:00.000Z",
+        "endDate": "2026-09-04T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyCombat",
+        "description": "Le Bodycombat est un entra\u00eenement cardio-vasculaire inspir\u00e9 des arts martiaux. Boxez et \u00e9vacuez toute votre \u00e9nergie.",
+        "startDate": "2026-09-05T08:30:00.000Z",
+        "endDate": "2026-09-05T09:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3P9LEZyYqD03sjfMwhUwMp/3ee0aa81134f75799e4ce4b8ecbc39c8/webimage-Basicfit-groepslessen-20-10-2514591.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-09-05T08:30:00.000Z",
+        "endDate": "2026-09-05T09:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-09-05T09:30:00.000Z",
+        "endDate": "2026-09-05T10:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-09-06T07:30:00.000Z",
+        "endDate": "2026-09-06T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-09-06T08:30:00.000Z",
+        "endDate": "2026-09-06T09:15:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT45M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-09-06T08:30:00.000Z",
+        "endDate": "2026-09-06T09:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-09-06T09:15:00.000Z",
+        "endDate": "2026-09-06T10:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT45M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Pilates",
+        "description": "Un cours qui se concentre sur le renforcement de vos muscles abdominaux et dorsaux. C'est un bon entra\u00eenement pour am\u00e9liorer la posture, le contr\u00f4le et la force. ",
+        "startDate": "2026-09-07T07:30:00.000Z",
+        "endDate": "2026-09-07T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/1oNQ83cJPkuHxbuLlUed68/c924916cad34f723cce6cda629360117/webimage-Basicfit-groepslessen-20-10-2515248.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-09-07T07:30:00.000Z",
+        "endDate": "2026-09-07T08:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live RPM",
+        "description": "D\u00e9couvrez le/la cycliste qui sommeille en vous gr\u00e2ce \u00e0 cet entra\u00eenement de cyclisme en salle ! Faites du v\u00e9lo par monts et par vall\u00e9es au rythme d'une musique motivante.  ",
+        "startDate": "2026-09-07T10:30:00.000Z",
+        "endDate": "2026-09-07T11:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3teEXo9ZGgb794MacOs39G/c7565fb8e19b24e0541ab695bfb9967d/webimage-Basicfit-groepslessen-20-10-2514742.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Zumba",
+        "description": "La Zumba est un entra\u00eenement de danse inspir\u00e9 des styles de danse latino-am\u00e9ricains. Plus on s'amuse, plus on br\u00fble de calories.",
+        "startDate": "2026-09-07T15:30:00.000Z",
+        "endDate": "2026-09-07T16:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/49EIx5blRFJTHPKHrp9UI3/a7ddfec3dca9bd8985307f4913920df8/webimage-Basicfit-groepslessen-20-10-2515142.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyPump",
+        "description": "BodyPump est l'entra\u00eenement de fitness le plus populaire pour tout le corps, \u00e0 l'aide d'une barre et des poids. Vous entra\u00eenez tous les muscles et devenez plus fort(e), plus mince et plus en forme.",
+        "startDate": "2026-09-07T16:30:00.000Z",
+        "endDate": "2026-09-07T17:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/7eiLTBzSbGURMURdyxftfr/dcba3538f09e9252176675a3aa3e6cf6/webimage-Basicfit-groepslessen-20-10-2514214.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live Cycle",
+        "description": "Mettez-vous au d\u00e9fi avec cet entra\u00eenement de v\u00e9lo d'int\u00e9rieur ! Le moniteur partira avec vous et le groupe et trouvera la meilleure musique pour cela. La course jusqu'\u00e0 l'arriv\u00e9e !",
+        "startDate": "2026-09-07T17:00:00.000Z",
+        "endDate": "2026-09-07T18:00:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/4TFe0GskWDcLGRIGQI7lL9/841bab2746ef84027c64825d967962dd/webimage-Basicfit-groepslessen-20-10-2514771.png",
+        "location": {
+          "@type": "Place",
+          "name": "Cycle Studio",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      },
+      {
+        "@type": "Event",
+        "name": "Live BodyBalance",
+        "description": "BodyBalance est une s\u00e9ance d'entra\u00eenement ax\u00e9e sur le corps et l'esprit. Les influences venant du yoga, du tai-chi et du pilates inclues dans ce cours vous donneront plus de force, de souplesse et de conscience. Ce cours est une pause pour le corps et l'esprit.",
+        "startDate": "2026-09-07T17:30:00.000Z",
+        "endDate": "2026-09-07T18:30:00.000Z",
+        "image": "https://images.ctfassets.net/ztnn01luatek/3Urn944YLlJVotvmRhYyLz/da0f99edceefcf866534b55f455a6f08/webimage-Basicfit-groepslessen-20-10-2514807.png",
+        "location": {
+          "@type": "Place",
+          "name": "LGC Studio 1",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Route de Brill 11",
+            "addressLocality": "Foetz",
+            "postalCode": "3898",
+            "addressCountry": "LU"
+          }
+        },
+        "duration": "PT60M",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Disclaimer",
+            "value": "Please note that the event schedule is subject to change. We encourage you to check our website for updates."
+          }
+        ]
+      }
+    ]
+  }
+}

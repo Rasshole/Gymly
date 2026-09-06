@@ -2,7 +2,7 @@
  * Auto-checkout: bekræftelse + Afslut træning-modal (samme som manuel).
  */
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {Alert} from 'react-native';
+import {Alert, AppState, type AppStateStatus} from 'react-native';
 import WorkoutSummaryModal from '@/components/checkin/WorkoutSummaryModal';
 import {useAppStore} from '@/store/appStore';
 import {useTranslation} from '@/i18n';
@@ -13,6 +13,18 @@ import {
   useCheckInUIStore,
   type AutoCheckoutReviewPayload,
 } from '@/store/checkInUIStore';
+import {
+  buildSharedWorkoutSnapshot,
+  evaluateSessionPersonalRecords,
+  persistSessionPersonalRecords,
+} from '@/services/supabase/personalRecordService';
+import {fetchWorkoutLogForSession} from '@/services/supabase/workoutLogService';
+
+function reviewTargetKey(
+  target: AutoCheckoutReviewPayload | null | undefined,
+): string | null {
+  return target?.checkInId ?? null;
+}
 
 export function AutoCheckoutCompletionHost(): React.ReactElement {
   const {t} = useTranslation();
@@ -21,10 +33,21 @@ export function AutoCheckoutCompletionHost(): React.ReactElement {
   const clearImmediate = useCheckInUIStore(s => s.clearImmediateAutoCheckoutReview);
   const {pendingReview, dismissForThisLaunch, refresh} = useWorkoutReviewPrompt();
   const alertShownFor = useRef<string | null>(null);
+  const [appState, setAppState] = useState<AppStateStatus>(AppState.currentState);
   const [summaryVisible, setSummaryVisible] = useState(false);
   const [reviewTarget, setReviewTarget] = useState<AutoCheckoutReviewPayload | null>(
     null,
   );
+
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', next => {
+      setAppState(next);
+      if (next === 'active') {
+        refresh();
+      }
+    });
+    return () => sub.remove();
+  }, [refresh]);
 
   useEffect(() => {
     if (immediate) {
@@ -34,24 +57,34 @@ export function AutoCheckoutCompletionHost(): React.ReactElement {
     }
   }, [immediate, pendingReview]);
 
+  const showAutoCheckoutAlert = useCallback(
+    (target: AutoCheckoutReviewPayload) => {
+      if (alertShownFor.current === target.checkInId) {
+        return;
+      }
+      alertShownFor.current = target.checkInId;
+      Alert.alert(
+        t('checkIn.autoCheckoutTitle'),
+        '',
+        [
+          {
+            text: t('common.ok'),
+            onPress: () => setSummaryVisible(true),
+          },
+        ],
+        {cancelable: false},
+      );
+    },
+    [t],
+  );
+
   useEffect(() => {
     const target = immediate ?? pendingReview;
-    if (!target || alertShownFor.current === target.checkInId) {
+    if (!target || appState !== 'active') {
       return;
     }
-    alertShownFor.current = target.checkInId;
-    Alert.alert(
-      t('checkIn.autoCheckoutTitle'),
-      '',
-      [
-        {
-          text: t('common.ok'),
-          onPress: () => setSummaryVisible(true),
-        },
-      ],
-      {cancelable: false},
-    );
-  }, [immediate, pendingReview, t]);
+    showAutoCheckoutAlert(target);
+  }, [immediate, pendingReview, appState, showAutoCheckoutAlert]);
 
   const finishReview = useCallback(
     async (data: {
@@ -71,6 +104,27 @@ export function AutoCheckoutCompletionHost(): React.ReactElement {
         /* already saved */
       }
 
+      let workoutSnapshot = null;
+      try {
+        const exercises = await fetchWorkoutLogForSession(reviewTarget.checkInId);
+        const evaluated = await evaluateSessionPersonalRecords(
+          user.id,
+          reviewTarget.checkInId,
+          exercises,
+        );
+        await persistSessionPersonalRecords(user.id, evaluated);
+        if (exercises.some(e => e.sets.length > 0)) {
+          workoutSnapshot = await buildSharedWorkoutSnapshot(
+            reviewTarget.checkInId,
+            reviewTarget.durationMinutes,
+            evaluated.records,
+            exercises,
+          );
+        }
+      } catch {
+        /* PR optional */
+      }
+
       if (data.shareToFeed) {
         await applyWorkoutSummaryShare({
           userId: user.id,
@@ -82,6 +136,8 @@ export function AutoCheckoutCompletionHost(): React.ReactElement {
           caption: data.caption,
           mood: data.mood,
           shareToFeed: true,
+          checkInId: reviewTarget.checkInId,
+          workoutSnapshot,
           t,
         });
       }
@@ -99,7 +155,8 @@ export function AutoCheckoutCompletionHost(): React.ReactElement {
     setSummaryVisible(false);
     clearImmediate();
     dismissForThisLaunch();
-  }, [clearImmediate, dismissForThisLaunch]);
+    alertShownFor.current = reviewTargetKey(reviewTarget);
+  }, [clearImmediate, dismissForThisLaunch, reviewTarget]);
 
   const modalTarget = reviewTarget ?? immediate ?? pendingReview;
 

@@ -1,0 +1,5562 @@
+[
+  {
+    "id": "ge_4f547667b8",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Vake",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_6b0b14f0ed",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Saburtalo",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_0e2fa4eaa6",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Gldani",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_940706c5ca",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Isani",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_a151d09963",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Digomi",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_17ef6b43d4",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Varketili",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_d82a6618d2",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Didi Dighomi",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_051da6fe5e",
+    "brand": "Oktopus Fitness",
+    "name": "Oktopus Fitness Ortachala",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_96c3252ede",
+    "brand": "World Class Georgia",
+    "name": "World Class Georgia Melikishvili",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_3bd67719e5",
+    "brand": "Snap Fitness",
+    "name": "Snap Fitness Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Snap Fitness Tbilisi official franchise; premises geocode tighten",
+    "in_production": false
+  },
+  {
+    "id": "ge_9705b4ab7b",
+    "brand": "Champion",
+    "name": "Champion Fitness Vake",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_b9389ebbae",
+    "brand": "Champion",
+    "name": "Champions Academy Saburtalo",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_68bf296095",
+    "brand": "Champion",
+    "name": "Champion Fitness Batumi",
+    "city": "Batumi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_cb4c5b571f",
+    "brand": "Fitness House",
+    "name": "Fitness House Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_1ccb2b6d0c",
+    "brand": "Fitness House",
+    "name": "Fitness House Batumi",
+    "city": "Batumi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_7fb7714ed8",
+    "brand": "Colosseum",
+    "name": "Colosseum Gym Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_f884dff47e",
+    "brand": "Life Sport Club",
+    "name": "Life Sport Club Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_a82476e116",
+    "brand": "Arena Sports Complex",
+    "name": "Arena Sports Complex Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "ge_85f13f38c1",
+    "brand": "Independent (Kutaisi)",
+    "name": "Kutaisi Fitness Centre",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — regional probe unverified: Kutaisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_8b4f5b5345",
+    "brand": "Independent (Rustavi)",
+    "name": "Rustavi Sports Club",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — regional probe unverified: Rustavi",
+    "in_production": false
+  },
+  {
+    "id": "ge_3738fef1f2",
+    "brand": "Independent (Gori)",
+    "name": "Gori Gym",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — regional probe unverified: Gori",
+    "in_production": false
+  },
+  {
+    "id": "ge_2f443986f5",
+    "brand": "Independent (Zugdidi)",
+    "name": "Zugdidi Fitness",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — regional probe unverified: Zugdidi",
+    "in_production": false
+  },
+  {
+    "id": "ge_10f96dfd72",
+    "brand": "Independent (Poti)",
+    "name": "Poti Sports Club",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — regional probe unverified: Poti",
+    "in_production": false
+  },
+  {
+    "id": "ge_b6991564e3",
+    "brand": "Independent (Telavi)",
+    "name": "Telavi Fitness",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — regional probe unverified: Telavi",
+    "in_production": false
+  },
+  {
+    "id": "ge_04d8994e61",
+    "brand": "Independent (Kobuleti)",
+    "name": "Kobuleti Beach Gym",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — regional probe unverified: Kobuleti",
+    "in_production": false
+  },
+  {
+    "id": "ge_d73eb316ca",
+    "brand": "ასპრია",
+    "name": "ასპრია",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ასპრია",
+    "in_production": false
+  },
+  {
+    "id": "ge_cfa1e0dcc5",
+    "brand": "BLUE FITNES",
+    "name": "BLUE FITNES",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: BLUE FITNES",
+    "in_production": false
+  },
+  {
+    "id": "ge_b52d21d283",
+    "brand": "სპორტ დარბაზი",
+    "name": "სპორტ დარბაზი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: სპორტ დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_32ea24a39e",
+    "brand": "აუზი",
+    "name": "აუზი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: აუზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_84f7e4a946",
+    "brand": "სპარტა ფიტნესი",
+    "name": "სპარტა ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: სპარტა ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_98729c7d02",
+    "brand": "სპორტული დარბაზი",
+    "name": "სპორტული დარბაზი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: სპორტული დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_54c0aad47d",
+    "brand": "იოგას სახლი",
+    "name": "იოგას სახლი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: იოგას სახლი",
+    "in_production": false
+  },
+  {
+    "id": "ge_f6653160de",
+    "brand": "ჩემპიონთა აკადემია",
+    "name": "ჩემპიონთა აკადემია",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: ჩემპიონთა აკადემია",
+    "in_production": false
+  },
+  {
+    "id": "ge_e9254e21c6",
+    "brand": "City Fitness",
+    "name": "City Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: City Fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_e5929babd5",
+    "brand": "ჰარდ ვეი",
+    "name": "ჰარდ ვეი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ჰარდ ვეი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c01e74d235",
+    "brand": "ასპრია",
+    "name": "ასპრია",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: ასპრია",
+    "in_production": false
+  },
+  {
+    "id": "ge_3a461ba96b",
+    "brand": "სპარტა",
+    "name": "სპარტა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: სპარტა",
+    "in_production": false
+  },
+  {
+    "id": "ge_c429bf770f",
+    "brand": "ენერჯიმი",
+    "name": "ენერჯიმი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ენერჯიმი",
+    "in_production": false
+  },
+  {
+    "id": "ge_8b766399c9",
+    "brand": "ოკტოპუს ფიტნეს კლუბი",
+    "name": "ოკტოპუს ფიტნეს კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ოკტოპუს ფიტნეს კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c4a7d8b637",
+    "brand": "Fit Line",
+    "name": "Fit Line",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Fit Line",
+    "in_production": false
+  },
+  {
+    "id": "ge_fe787ea191",
+    "brand": "პაუერ მაქს",
+    "name": "პაუერ მაქს",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: პაუერ მაქს",
+    "in_production": false
+  },
+  {
+    "id": "ge_0d30f5dec2",
+    "brand": "აკვა ცენტრი და ფიტნესი",
+    "name": "აკვა ცენტრი და ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: აკვა ცენტრი და ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_acb97ad5c6",
+    "brand": "Snap-Fitness",
+    "name": "Snap-Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Snap-Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f8a192e9eb",
+    "brand": "მატა ფიტნესი",
+    "name": "მატა ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: მატა ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_ba83d98bd3",
+    "brand": "Olympia Fitness Club",
+    "name": "Olympia Fitness Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Olympia Fitness Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_8fd8d48f01",
+    "brand": "წრე",
+    "name": "წრე",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: წრე",
+    "in_production": false
+  },
+  {
+    "id": "ge_fd5bb7aba1",
+    "brand": "საკემატა ფიტნესი",
+    "name": "საკემატა ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: საკემატა ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_08a839e893",
+    "brand": "Underground Gym",
+    "name": "Underground Gym",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Underground Gym",
+    "in_production": false
+  },
+  {
+    "id": "ge_446b2cf75f",
+    "brand": "თბილისი იოგა ლოფტი",
+    "name": "თბილისი იოგა ლოფტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: თბილისი იოგა ლოფტი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c94ad6acac",
+    "brand": "BFA Gym",
+    "name": "BFA Gym",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: BFA Gym",
+    "in_production": false
+  },
+  {
+    "id": "ge_9954b8d142",
+    "brand": "ლევიოსა მოძრაობის სივრცე",
+    "name": "ლევიოსა მოძრაობის სივრცე",
+    "city": "Tbilisi",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "ge_add46eaa9a",
+    "brand": "თიდანი +",
+    "name": "თიდანი +",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: თიდანი +",
+    "in_production": false
+  },
+  {
+    "id": "ge_3aadc2eebb",
+    "brand": "იოგავილი",
+    "name": "იოგავილი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: იოგავილი",
+    "in_production": false
+  },
+  {
+    "id": "ge_db5a7d3b1a",
+    "brand": "დინამიკა",
+    "name": "დინამიკა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: დინამიკა",
+    "in_production": false
+  },
+  {
+    "id": "ge_d0041ea58f",
+    "brand": "ასპრია ფიტნესი",
+    "name": "ასპრია ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ასპრია ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_417907d013",
+    "brand": "სნეპ",
+    "name": "სნეპ",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: სნეპ",
+    "in_production": false
+  },
+  {
+    "id": "ge_ad5d4332ef",
+    "brand": "Stay Strong",
+    "name": "Stay Strong",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Stay Strong",
+    "in_production": false
+  },
+  {
+    "id": "ge_4899dabb50",
+    "brand": "Reform",
+    "name": "Reform",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Reform",
+    "in_production": false
+  },
+  {
+    "id": "ge_f1c2e397e3",
+    "brand": "Flow Studio",
+    "name": "Flow Studio",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Flow Studio",
+    "in_production": false
+  },
+  {
+    "id": "ge_fb464a7252",
+    "brand": "პრაიმ ფიტი",
+    "name": "პრაიმ ფიტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: პრაიმ ფიტი",
+    "in_production": false
+  },
+  {
+    "id": "ge_96e59a6ab4",
+    "brand": "მატრიქს ფიტნესი",
+    "name": "მატრიქს ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: მატრიქს ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_d49f4dccee",
+    "brand": "Galileo",
+    "name": "Galileo",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Galileo",
+    "in_production": false
+  },
+  {
+    "id": "ge_5d4d62aee8",
+    "brand": "ტონუსი",
+    "name": "ტონუსი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ტონუსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_433b043c82",
+    "brand": "პაუერ მაქსი",
+    "name": "პაუერ მაქსი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: პაუერ მაქსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_3b7edbeacb",
+    "brand": "Yoga Studio 9",
+    "name": "Yoga Studio 9",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Yoga Studio 9",
+    "in_production": false
+  },
+  {
+    "id": "ge_9c3da9aa24",
+    "brand": "პილატეს თბილისი",
+    "name": "პილატეს თბილისი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: პილატეს თბილისი",
+    "in_production": false
+  },
+  {
+    "id": "ge_590e64291d",
+    "brand": "Ringside Institute",
+    "name": "Ringside Institute",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Ringside Institute",
+    "in_production": false
+  },
+  {
+    "id": "ge_24e24aa390",
+    "brand": "მუვ ქლაბი",
+    "name": "მუვ ქლაბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: მუვ ქლაბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_2d568940ee",
+    "brand": "იმოძრავე",
+    "name": "იმოძრავე",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: იმოძრავე",
+    "in_production": false
+  },
+  {
+    "id": "ge_0b782dc001",
+    "brand": "მამბერი ფიტნესი",
+    "name": "მამბერი ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: მამბერი ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_063d1a0aeb",
+    "brand": "Snap Fitness",
+    "name": "Snap Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Snap Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "ge_40235cc998",
+    "brand": "Energym",
+    "name": "Energym",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Energym",
+    "in_production": false
+  },
+  {
+    "id": "ge_fe056bec72",
+    "brand": "საკემატა",
+    "name": "საკემატა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: საკემატა",
+    "in_production": false
+  },
+  {
+    "id": "ge_5990a06552",
+    "brand": "მფჯ",
+    "name": "მფჯ",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: მფჯ",
+    "in_production": false
+  },
+  {
+    "id": "ge_55ea4a99fe",
+    "brand": "Absolute",
+    "name": "Absolute",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Absolute",
+    "in_production": false
+  },
+  {
+    "id": "ge_debcb318d3",
+    "brand": "ტროა ფიტნეს",
+    "name": "ტროა ფიტნეს",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ტროა ფიტნეს",
+    "in_production": false
+  },
+  {
+    "id": "ge_61f4c842fb",
+    "brand": "Reformer",
+    "name": "Reformer",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Reformer",
+    "in_production": false
+  },
+  {
+    "id": "ge_b03f74d662",
+    "brand": "Gladiator Fitness",
+    "name": "Gladiator Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Gladiator Fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_9ef02ffb32",
+    "brand": "რულ ფიტნეს",
+    "name": "რულ ფიტნეს",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: რულ ფიტნეს",
+    "in_production": false
+  },
+  {
+    "id": "ge_d99ac319c1",
+    "brand": "Evo Gym",
+    "name": "Evo Gym",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Evo Gym",
+    "in_production": false
+  },
+  {
+    "id": "ge_a85d6d4fd9",
+    "brand": "PilatesBatumi",
+    "name": "PilatesBatumi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: PilatesBatumi",
+    "in_production": false
+  },
+  {
+    "id": "ge_b9b6340711",
+    "brand": "Elastic Fit Space",
+    "name": "Elastic Fit Space",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Elastic Fit Space",
+    "in_production": false
+  },
+  {
+    "id": "ge_d2c4919339",
+    "brand": "Global Fitness",
+    "name": "Global Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Global Fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_8cad036663",
+    "brand": "ზენიტი",
+    "name": "ზენიტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ზენიტი",
+    "in_production": false
+  },
+  {
+    "id": "ge_2d02f1f001",
+    "brand": "ბლისს იოგა",
+    "name": "ბლისს იოგა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: ბლისს იოგა",
+    "in_production": false
+  },
+  {
+    "id": "ge_ab22f8ab30",
+    "brand": "ლიონ ფიტნეს პრო",
+    "name": "ლიონ ფიტნეს პრო",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ლიონ ფიტნეს პრო",
+    "in_production": false
+  },
+  {
+    "id": "ge_98a4d78ac5",
+    "brand": "Heyday home",
+    "name": "Heyday home",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — hotel/resort leakage: Heyday home",
+    "in_production": false
+  },
+  {
+    "id": "ge_7845659d98",
+    "brand": "Hard Gym",
+    "name": "Hard Gym",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Hard Gym",
+    "in_production": false
+  },
+  {
+    "id": "ge_6aecd15355",
+    "brand": "Mega Gym Fitness Batumi",
+    "name": "Mega Gym Fitness Batumi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Mega Gym Fitness Batumi",
+    "in_production": false
+  },
+  {
+    "id": "ge_813cb35910",
+    "brand": "სნაპ ფიტნესი",
+    "name": "სნაპ ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: სნაპ ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_cfde4d67cc",
+    "brand": "360⁰",
+    "name": "360⁰",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: 360⁰",
+    "in_production": false
+  },
+  {
+    "id": "ge_a6a903852a",
+    "brand": "BI Fitness",
+    "name": "BI Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: BI Fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_7df60f6179",
+    "brand": "რეფორმა",
+    "name": "რეფორმა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: რეფორმა",
+    "in_production": false
+  },
+  {
+    "id": "ge_27d553d850",
+    "brand": "GYM13",
+    "name": "GYM13",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: GYM13",
+    "in_production": false
+  },
+  {
+    "id": "ge_d92a69596f",
+    "brand": "Iron Viking",
+    "name": "Iron Viking",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Iron Viking",
+    "in_production": false
+  },
+  {
+    "id": "ge_8f92762c5e",
+    "brand": "ფიტნესი - Club 407",
+    "name": "ფიტნესი - Club 407",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ფიტნესი - Club 407",
+    "in_production": false
+  },
+  {
+    "id": "ge_dcda65e88d",
+    "brand": "Pro Fitness",
+    "name": "Pro Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Pro Fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_141c40a17c",
+    "brand": "თვინს",
+    "name": "თვინს",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: თვინს",
+    "in_production": false
+  },
+  {
+    "id": "ge_ddfe5ee68e",
+    "brand": "K2",
+    "name": "K2",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: K2",
+    "in_production": false
+  },
+  {
+    "id": "ge_83e9489006",
+    "brand": "ელიფსი",
+    "name": "ელიფსი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ელიფსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_2befd97fe1",
+    "brand": "Fitness Club \"Mtieli\"",
+    "name": "Fitness Club \"Mtieli\"",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Fitness Club \"Mtieli\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_c24b161700",
+    "brand": "პროფიტნესი",
+    "name": "პროფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: პროფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_2bcee39b15",
+    "brand": "ფორმატ ფიტ",
+    "name": "ფორმატ ფიტ",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ფორმატ ფიტ",
+    "in_production": false
+  },
+  {
+    "id": "ge_692205209d",
+    "brand": "რეფორმა",
+    "name": "რეფორმა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: რეფორმა",
+    "in_production": false
+  },
+  {
+    "id": "ge_39c086219b",
+    "brand": "სოლო ფიტნესი",
+    "name": "სოლო ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: სოლო ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_45d484e2ce",
+    "brand": "World Class Georgia",
+    "name": "World Class Georgia",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class Georgia)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ba7ee22f3d",
+    "brand": "CycleO2 cycle&fitness",
+    "name": "CycleO2 cycle&fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: CycleO2 cycle&fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_bedc41898a",
+    "brand": "მანდალა",
+    "name": "მანდალა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: მანდალა",
+    "in_production": false
+  },
+  {
+    "id": "ge_5b67b86006",
+    "brand": "Rituals",
+    "name": "Rituals",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Rituals",
+    "in_production": false
+  },
+  {
+    "id": "ge_7b029f76e9",
+    "brand": "Fit formula",
+    "name": "Fit formula",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Fit formula",
+    "in_production": false
+  },
+  {
+    "id": "ge_13fbf11224",
+    "brand": "X Area",
+    "name": "X Area",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: X Area",
+    "in_production": false
+  },
+  {
+    "id": "ge_d7dec2421d",
+    "brand": "Goal Fitness",
+    "name": "Goal Fitness",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM row failed production gates: Goal Fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_f79e2c52c1",
+    "brand": "ლოტუსი",
+    "name": "ლოტუსი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ლოტუსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_803757f198",
+    "brand": "გოუ ფიტნეს",
+    "name": "გოუ ფიტნეს",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: გოუ ფიტნეს",
+    "in_production": false
+  },
+  {
+    "id": "ge_1fa2eee68a",
+    "brand": "მატრიქსი",
+    "name": "მატრიქსი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: მატრიქსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_f3f62a9bd0",
+    "brand": "ფიტნეს ზონა",
+    "name": "ფიტნეს ზონა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ფიტნეს ზონა",
+    "in_production": false
+  },
+  {
+    "id": "ge_6fd612a2da",
+    "brand": "Ultraform",
+    "name": "Ultraform",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Ultraform",
+    "in_production": false
+  },
+  {
+    "id": "ge_98e017a54f",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM row failed production gates: Gold's Gym",
+    "in_production": false
+  },
+  {
+    "id": "ge_7b7c743e86",
+    "brand": "მამბერი ფიტნესი",
+    "name": "მამბერი ფიტნესი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: მამბერი ფიტნესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_b62c385bf2",
+    "brand": "Marpha",
+    "name": "Marpha",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Marpha",
+    "in_production": false
+  },
+  {
+    "id": "ge_dd45f6171b",
+    "brand": "Valhalla",
+    "name": "Valhalla",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Valhalla",
+    "in_production": false
+  },
+  {
+    "id": "ge_a74be943f2",
+    "brand": "Laboratory",
+    "name": "Laboratory",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Laboratory",
+    "in_production": false
+  },
+  {
+    "id": "ge_276cbf687e",
+    "brand": "კლუბი",
+    "name": "კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_d0935e229e",
+    "brand": "Wow Boxing",
+    "name": "Wow Boxing",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Wow Boxing",
+    "in_production": false
+  },
+  {
+    "id": "ge_c7213aba94",
+    "brand": "ფიტნეს თაიმი",
+    "name": "ფიტნეს თაიმი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ფიტნეს თაიმი",
+    "in_production": false
+  },
+  {
+    "id": "ge_182f46f3e8",
+    "brand": "საჭიდაო დარბაზი",
+    "name": "საჭიდაო დარბაზი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: საჭიდაო დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c61c9c9900",
+    "brand": "სპორტ თაიმი",
+    "name": "სპორტ თაიმი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM row failed production gates: სპორტ თაიმი",
+    "in_production": false
+  },
+  {
+    "id": "ge_8ae9dad7b9",
+    "brand": "ფიტნეს დარბაზი",
+    "name": "ფიტნეს დარბაზი",
+    "city": "ქარელი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ფიტნეს დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_47e0f8c69b",
+    "brand": "ოკტოპუს ფიტნეს კლუბი",
+    "name": "ოკტოპუს ფიტნეს კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — duplicate Oktopus premises (OSM transliteration)",
+    "in_production": false
+  },
+  {
+    "id": "ge_46e0b8240c",
+    "brand": "Independent",
+    "name": "Ibis Budget Tbilisi Center",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ibis Budget Tbilisi Center",
+    "in_production": false
+  },
+  {
+    "id": "ge_29228a52d1",
+    "brand": "Independent",
+    "name": "Jo.Ha.Ku. Family Center in Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Jo.Ha.Ku. Family Center in Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_0f5c3d5939",
+    "brand": "Independent",
+    "name": "Belarus Center Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Belarus Center Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_7bcf589dad",
+    "brand": "Independent",
+    "name": "Fitness Plaza Gym",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Fitness Plaza Gym",
+    "in_production": false
+  },
+  {
+    "id": "ge_848c6a3828",
+    "brand": "Independent",
+    "name": "Aspria Fitness",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Aspria Fitness",
+    "in_production": false
+  },
+  {
+    "id": "ge_50618498d5",
+    "brand": "Independent",
+    "name": "ხელნაწერთა ეროვნული ცენტრი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ხელნაწერთა ეროვნული ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_7280c27697",
+    "brand": "Independent",
+    "name": "სსიპ სახელმწიფო სამხედრო სამეცნიერო-ტექნიკური ცენტრი \"დელტა\"",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სსიპ სახელმწიფო სამხედრო სამეცნიერო-ტექნიკური ცენტრი \"დელტა\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_b5f09afb1d",
+    "brand": "Independent",
+    "name": "ჯანსუღ კახიძის სახელობის თბილისის მუსიკალურ-კულტურული ცენტრი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჯანსუღ კახიძის სახელობის თბილისის მუსიკალურ-კულტურული ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_5bd889ae79",
+    "brand": "Independent",
+    "name": "fitness center Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_6223a7a1ea",
+    "brand": "Independent",
+    "name": "fitness center Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_6145d4205a",
+    "brand": "Independent",
+    "name": "თბილისის აუტიზმის ცენტრი - პირამიდა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თბილისის აუტიზმის ცენტრი - პირამიდა",
+    "in_production": false
+  },
+  {
+    "id": "ge_233c7cc938",
+    "brand": "Independent",
+    "name": "ტოიოტა ცენტრი თბილისი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ტოიოტა ცენტრი თბილისი",
+    "in_production": false
+  },
+  {
+    "id": "ge_4ab408b09b",
+    "brand": "Independent",
+    "name": "თბილისის გულის ცენტრი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თბილისის გულის ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_02f89be40c",
+    "brand": "Independent",
+    "name": "fitness center Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_ebe271a7b3",
+    "brand": "Independent",
+    "name": "fitness center Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_da76e69fe3",
+    "brand": "Independent",
+    "name": "ოკტოპუს ფიტნეს კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ოკტოპუს ფიტნეს კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_383b2c9eb3",
+    "brand": "Independent",
+    "name": "თბილისის სასწრაფო სამედიცინო დახმარების ცენტრი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თბილისის სასწრაფო სამედიცინო დახმარების ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_0d2ec88c4c",
+    "brand": "Independent",
+    "name": "GymBreeze",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: GymBreeze",
+    "in_production": false
+  },
+  {
+    "id": "ge_0afa26b9cc",
+    "brand": "Independent",
+    "name": "ტექნოჯიმ",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ტექნოჯიმ",
+    "in_production": false
+  },
+  {
+    "id": "ge_0be8593d6f",
+    "brand": "Independent",
+    "name": "ვაკის საცოცი დარბაზი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ვაკის საცოცი დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_a43fb1f70d",
+    "brand": "Independent",
+    "name": "GymBreeze Radio City",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: GymBreeze Radio City",
+    "in_production": false
+  },
+  {
+    "id": "ge_ddfec6f8c1",
+    "brand": "Independent",
+    "name": "gym Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: gym Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_a2d315808f",
+    "brand": "Independent",
+    "name": "gym Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: gym Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_65d9986b19",
+    "brand": "Independent",
+    "name": "კულა გლდანელის საჭიდაო დარბაზი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: კულა გლდანელის საჭიდაო დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_88251430f1",
+    "brand": "Independent",
+    "name": "თბილისის კლასიკური გიმნაზია",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თბილისის კლასიკური გიმნაზია",
+    "in_production": false
+  },
+  {
+    "id": "ge_2f49785285",
+    "brand": "Independent",
+    "name": "თბილისის სპორტის სასახლე",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თბილისის სპორტის სასახლე",
+    "in_production": false
+  },
+  {
+    "id": "ge_bf9b828ee5",
+    "brand": "Independent",
+    "name": "მშვილდოსნობის კლუბი თბილისი-2014",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მშვილდოსნობის კლუბი თბილისი-2014",
+    "in_production": false
+  },
+  {
+    "id": "ge_159bc18497",
+    "brand": "Independent",
+    "name": "თბილისის ზღვის კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თბილისის ზღვის კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_1f616d1944",
+    "brand": "Independent",
+    "name": "თბილისის საიალქნო კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თბილისის საიალქნო კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_4c7d12d03f",
+    "brand": "Independent",
+    "name": "ჰავანა კლუბ თბილისი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჰავანა კლუბ თბილისი",
+    "in_production": false
+  },
+  {
+    "id": "ge_7b40ad0eda",
+    "brand": "Independent",
+    "name": "ტრიბუნა სპორტ ბარი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ტრიბუნა სპორტ ბარი",
+    "in_production": false
+  },
+  {
+    "id": "ge_5927cc68f5",
+    "brand": "Independent",
+    "name": "TES club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: TES club",
+    "in_production": false
+  },
+  {
+    "id": "ge_fdaa351842",
+    "brand": "Independent",
+    "name": "Fit Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Fit Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_5277e70bec",
+    "brand": "Independent",
+    "name": "Valhalla Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Valhalla Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_da941fa10a",
+    "brand": "Independent",
+    "name": "Cinema Club \"CaCHe\"",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Cinema Club \"CaCHe\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_254d583b55",
+    "brand": "Independent",
+    "name": "Chuvi's Comedy Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Chuvi's Comedy Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_5f543d027f",
+    "brand": "Independent",
+    "name": "Jazz Club 1984",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Jazz Club 1984",
+    "in_production": false
+  },
+  {
+    "id": "ge_2c3faa8c64",
+    "brand": "Independent",
+    "name": "Philosof CLub",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Philosof CLub",
+    "in_production": false
+  },
+  {
+    "id": "ge_8c90643a44",
+    "brand": "Independent",
+    "name": "Star's Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Star's Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_001e701916",
+    "brand": "Independent",
+    "name": "მაკრონ სპორტს ჰაბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მაკრონ სპორტს ჰაბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_6e27e6abca",
+    "brand": "Independent",
+    "name": "AUTO CLUB 5",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): AUTO CLUB 5",
+    "in_production": false
+  },
+  {
+    "id": "ge_6a3ad485c2",
+    "brand": "Independent",
+    "name": "გიმნაზიის სპორტული პარკი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გიმნაზიის სპორტული პარკი",
+    "in_production": false
+  },
+  {
+    "id": "ge_06406ef104",
+    "brand": "Independent",
+    "name": "Royal pocker club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Royal pocker club",
+    "in_production": false
+  },
+  {
+    "id": "ge_638c036fbd",
+    "brand": "Independent",
+    "name": "გლდანის ახალი საცურაო აუზი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გლდანის ახალი საცურაო აუზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_42cd55b13a",
+    "brand": "Independent",
+    "name": "P.A.M. Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: P.A.M. Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_647f27ebb8",
+    "brand": "Independent",
+    "name": "Arrow Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Arrow Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_81c62d6724",
+    "brand": "Independent",
+    "name": "Paulaner Fun Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Paulaner Fun Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_11983b9cc1",
+    "brand": "Independent",
+    "name": "12 Rounds Boxing Club",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: 12 Rounds Boxing Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_514b4e2ffd",
+    "brand": "Independent",
+    "name": "sports club Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: sports club Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_68d9d5facd",
+    "brand": "Independent",
+    "name": "მექანიკა საუნდ ქლაბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მექანიკა საუნდ ქლაბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_a910aa1d78",
+    "brand": "Independent",
+    "name": "შაურმა ქლაბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: შაურმა ქლაბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_41e5b287e4",
+    "brand": "Independent",
+    "name": "ჩაის მოყვარულთა კლუბი \"MoyChay\"",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჩაის მოყვარულთა კლუბი \"MoyChay\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_2c005089d2",
+    "brand": "Independent",
+    "name": "შაურმა ქლაბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: შაურმა ქლაბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_139d292192",
+    "brand": "Independent",
+    "name": "ქაშ კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქაშ კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_d2a0ac3f6a",
+    "brand": "Independent",
+    "name": "sports club Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: sports club Tbilisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_9b31ef4fd9",
+    "brand": "Independent",
+    "name": "შაურმა ქლაბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: შაურმა ქლაბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_9c80645a36",
+    "brand": "Champion",
+    "name": "ჩემპიონი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b2600d4d07",
+    "brand": "Champion",
+    "name": "ჩემპიონი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7c111e0094",
+    "brand": "Champion",
+    "name": "კაჭრეთის ჩემპიონი სედოვიჩთან",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_bc164618e8",
+    "brand": "Champion",
+    "name": "Champion",
+    "city": "საგვარამიო",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5b0f5a724d",
+    "brand": "Champion",
+    "name": "Royal Art - The School of Champions",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_2c07261636",
+    "brand": "Fitness House",
+    "name": "Fitness House Rustavi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_561e17ce07",
+    "brand": "Colosseum",
+    "name": "Colosseum Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Colosseum)",
+    "in_production": false
+  },
+  {
+    "id": "ge_545c377387",
+    "brand": "Life Sport",
+    "name": "City Sport",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_694d33fb9a",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f55e1f6b8e",
+    "brand": "Life Sport",
+    "name": "Life Sport Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_cd2ff3f871",
+    "brand": "Life Sport",
+    "name": "სიცოცხლის ხე",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_a5ce803350",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_81f6e2d69e",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5bea22acd5",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_8df652d2e9",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_41a29e42cd",
+    "brand": "Life Sport",
+    "name": "Life Sport Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_938ee53457",
+    "brand": "Life Sport",
+    "name": "Life Sport Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b2a2bed028",
+    "brand": "Life Sport",
+    "name": "ლაიფ დენტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7702a22d62",
+    "brand": "Life Sport",
+    "name": "GreenLife Apartments Vake",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_41dd3854f3",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5518c51406",
+    "brand": "Life Sport",
+    "name": "ზოო ლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_fce8de05f1",
+    "brand": "Life Sport",
+    "name": "ტოპსპორტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_1cb3bee921",
+    "brand": "Life Sport",
+    "name": "სპორტ X",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_c6753f7dd4",
+    "brand": "Life Sport",
+    "name": "Life Sport Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ac106648c2",
+    "brand": "Life Sport",
+    "name": "ჯიელ სპორტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_70350fbef7",
+    "brand": "Life Sport",
+    "name": "ადამიანი, შრომა — ყოფის აზრი და სილამაზე",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_09f40597f4",
+    "brand": "Life Sport",
+    "name": "სპორტ თაიმი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_50319618dc",
+    "brand": "Life Sport",
+    "name": "ტოპსპორტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_24857c4ac3",
+    "brand": "Life Sport",
+    "name": "ევანგელური ეკლესია\"სიცოცხლის სიტყვა\"",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_3c7adad95d",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_1ba78aa4f7",
+    "brand": "Life Sport",
+    "name": "გლდანი-ნაძალადევის კომპლექსური სპორტული ცენტრი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_75c2543a04",
+    "brand": "Life Sport",
+    "name": "ზოოლაიფი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_8e62583380",
+    "brand": "Life Sport",
+    "name": "Life Sport Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_2f439aa857",
+    "brand": "Life Sport",
+    "name": "გოუ სპორტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_e784a9d381",
+    "brand": "Life Sport",
+    "name": "საქართველოს სპორტის სამინისტრო",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b7b456c34d",
+    "brand": "Life Sport",
+    "name": "ვახტანგ ფანგანის სახელობის სპორტული მოედანი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_8aaeb1c04d",
+    "brand": "Life Sport",
+    "name": "ტოპსპორტი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_945eac82bd",
+    "brand": "Life Sport",
+    "name": "ავენიუ 64",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d8b8ee4e90",
+    "brand": "Arena Sports",
+    "name": "ბორის პაიჭაძის სახელობის დინამო არენა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_acb697a21f",
+    "brand": "Arena Sports",
+    "name": "თბილისი არენა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_65598d2f1b",
+    "brand": "Arena Sports",
+    "name": "Arena",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_752b38fc64",
+    "brand": "Arena Sports",
+    "name": "\"ლელო\" არენა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_58fde6e3e0",
+    "brand": "Arena Sports",
+    "name": "ჰაუსარტ არენა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f380d5379f",
+    "brand": "Arena Sports",
+    "name": "Arena Sports Tbilisi",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_cffa505977",
+    "brand": "Arena Sports",
+    "name": "ფრენბურთის არენა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_aa87abf7d9",
+    "brand": "Arena Sports",
+    "name": "ლილო არენა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b90596adc5",
+    "brand": "Independent",
+    "name": "მშვილდოსნობის კლუბი მაგი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მშვილდოსნობის კლუბი მაგი",
+    "in_production": false
+  },
+  {
+    "id": "ge_1b55622ea9",
+    "brand": "Independent",
+    "name": "თაბორის რეკრეაციული სივრცე და გოლფის კლუბი - თაბორი ჰილს კურსი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თაბორის რეკრეაციული სივრცე და გოლფის კლუბი - თაბორი ჰილს კურსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_5b88ef7cca",
+    "brand": "Independent",
+    "name": "ანდერვილ კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ანდერვილ კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_2b621d20ca",
+    "brand": "Independent",
+    "name": "12 რაუმდი ბოქსის კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: 12 რაუმდი ბოქსის კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_81720ce7c9",
+    "brand": "Independent",
+    "name": "ბანკ კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბანკ კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_846cd5a88b",
+    "brand": "Independent",
+    "name": "ძიუდოს კლუბი “ჯორჯია”",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ძიუდოს კლუბი “ჯორჯია”",
+    "in_production": false
+  },
+  {
+    "id": "ge_d74d592f7b",
+    "brand": "Independent",
+    "name": "მშვილდოსნობის კლუბი საქართველო",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მშვილდოსნობის კლუბი საქართველო",
+    "in_production": false
+  },
+  {
+    "id": "ge_529a3907d2",
+    "brand": "Independent",
+    "name": "მეჩ ფოინთ პინგ-პონგის კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მეჩ ფოინთ პინგ-პონგის კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_475624a7f6",
+    "brand": "Independent",
+    "name": "გზაათ კენდოს კლუბი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გზაათ კენდოს კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_d71b624aee",
+    "brand": "Independent",
+    "name": "სპორტული კომპლექსი შატილი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტული კომპლექსი შატილი",
+    "in_production": false
+  },
+  {
+    "id": "ge_bf2ce6eae7",
+    "brand": "Independent",
+    "name": "სპარტაკის ქუჩა",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპარტაკის ქუჩა",
+    "in_production": false
+  },
+  {
+    "id": "ge_a4685eff03",
+    "brand": "Independent",
+    "name": "სპარტაკ ბაღაშვილის I ჩიხი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპარტაკ ბაღაშვილის I ჩიხი",
+    "in_production": false
+  },
+  {
+    "id": "ge_0bfde37e1e",
+    "brand": "Independent",
+    "name": "პეტრე გამჯაშვილის სპორტული მოედანი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: პეტრე გამჯაშვილის სპორტული მოედანი",
+    "in_production": false
+  },
+  {
+    "id": "ge_8ec9c2a385",
+    "brand": "Independent",
+    "name": "სპორტსქეიფი პადელი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტსქეიფი პადელი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c90eab77e5",
+    "brand": "Independent",
+    "name": "ჩემპიონი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჩემპიონი",
+    "in_production": false
+  },
+  {
+    "id": "ge_60575fb147",
+    "brand": "Independent",
+    "name": "მსოფლიო ჩემპიონი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მსოფლიო ჩემპიონი",
+    "in_production": false
+  },
+  {
+    "id": "ge_838d79d34a",
+    "brand": "Independent",
+    "name": "ბათუმის სახელმწიფო მუსიკალური ცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბათუმის სახელმწიფო მუსიკალური ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_5aec686cc0",
+    "brand": "Independent",
+    "name": "ბათუმი-ცენტრალი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბათუმი-ცენტრალი",
+    "in_production": false
+  },
+  {
+    "id": "ge_5e4745fae7",
+    "brand": "Independent",
+    "name": "ბარბერ კლუბი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბარბერ კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_bc58f12708",
+    "brand": "Independent",
+    "name": "ქალაქ ბათუმის მუნიციპალიტეტის მერია. სამრეწველოს ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქალაქ ბათუმის მუნიციპალიტეტის მერია. სამრეწველოს ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_9421f4ccaa",
+    "brand": "Independent",
+    "name": "Hampton by Hilton Batumi Center",
+    "city": "Batumi",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "ge_d6057d87bb",
+    "brand": "Independent",
+    "name": "Cyber Club Controller",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Cyber Club Controller",
+    "in_production": false
+  },
+  {
+    "id": "ge_abe132a507",
+    "brand": "Independent",
+    "name": "ბათუმის ცენტრალური პარკი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბათუმის ცენტრალური პარკი",
+    "in_production": false
+  },
+  {
+    "id": "ge_db0fcd1b88",
+    "brand": "Independent",
+    "name": "ბათუმის სამედიცინო ცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბათუმის სამედიცინო ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_07055a9a78",
+    "brand": "Independent",
+    "name": "ბათუმის საცხენოსნო კლუბი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბათუმის საცხენოსნო კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c6d30d25b5",
+    "brand": "Independent",
+    "name": "gym Batumi",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: gym Batumi",
+    "in_production": false
+  },
+  {
+    "id": "ge_4e50f85842",
+    "brand": "Independent",
+    "name": "მ. იაშვილის სახელობის ბათუმის დედათა და ბავშვთა ცენტრალური ჰოსპიტალი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მ. იაშვილის სახელობის ბათუმის დედათა და ბავშვთა ცენტრალური ჰოსპიტალი",
+    "in_production": false
+  },
+  {
+    "id": "ge_2367d992c7",
+    "brand": "Independent",
+    "name": "ქალაქ ბათუმის მუნიციპალიტეტის მერია. ბაგრატიონი ერთის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქალაქ ბათუმის მუნიციპალიტეტის მერია. ბაგრატიონი ერთის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_dcb9cb2da4",
+    "brand": "Independent",
+    "name": "Mardi City Center",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mardi City Center",
+    "in_production": false
+  },
+  {
+    "id": "ge_0b38411d6a",
+    "brand": "Independent",
+    "name": "GNT beauty center",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: GNT beauty center",
+    "in_production": false
+  },
+  {
+    "id": "ge_ae00b753a7",
+    "brand": "Independent",
+    "name": "Cyber club Game Center controller",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Cyber club Game Center controller",
+    "in_production": false
+  },
+  {
+    "id": "ge_7b851bd828",
+    "brand": "Independent",
+    "name": "ქალაქ ბათუმის მუნიციპალიტეტის მერია. რუსთაველის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქალაქ ბათუმის მუნიციპალიტეტის მერია. რუსთაველის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_6d0ddd9ed3",
+    "brand": "Independent",
+    "name": "ამერიკული სამედიცინო ცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ამერიკული სამედიცინო ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_f19fe1e83f",
+    "brand": "Independent",
+    "name": "ქალაქ ბათუმის მუნიციპალიტეტის მერია. ძველი ბატუმის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქალაქ ბათუმის მუნიციპალიტეტის მერია. ძველი ბატუმის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_cdecbea840",
+    "brand": "Independent",
+    "name": "ქალაქ ბათუმის მუნიციპალიტეტის მერია. ბონი-გოროდოკის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქალაქ ბათუმის მუნიციპალიტეტის მერია. ბონი-გოროდოკის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_a431925912",
+    "brand": "Independent",
+    "name": "სკოლის კლუბი საქარტველო",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სკოლის კლუბი საქარტველო",
+    "in_production": false
+  },
+  {
+    "id": "ge_42d84eb963",
+    "brand": "Independent",
+    "name": "ჰავანა კლუბი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჰავანა კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_8d8eb85364",
+    "brand": "Independent",
+    "name": "ბათუმის სახელმწიფო მუსიკალური ცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ბათუმის სახელმწიფო მუსიკალური ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_91a51351ba",
+    "brand": "Independent",
+    "name": "ქალაქ ბათუმის მუნიციპალიტეტის მერია. თამარის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქალაქ ბათუმის მუნიციპალიტეტის მერია. თამარის ადმინისტრაციული ერთეულის სერვისცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_95651572e4",
+    "brand": "Independent",
+    "name": "ირის ბორჩაშვილის სახელობის ჯანმრთელობის ცენტრი \"მედინა\"",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ირის ბორჩაშვილის სახელობის ჯანმრთელობის ცენტრი \"მედინა\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_890f6ea228",
+    "brand": "Independent",
+    "name": "Friends Club Batumi",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Friends Club Batumi",
+    "in_production": false
+  },
+  {
+    "id": "ge_7f239fdca0",
+    "brand": "Independent",
+    "name": "სპორტის სასახლე",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის სასახლე",
+    "in_production": false
+  },
+  {
+    "id": "ge_eb09cf62fd",
+    "brand": "Independent",
+    "name": "Товары для спорта",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Товары для спорта",
+    "in_production": false
+  },
+  {
+    "id": "ge_01c3d17223",
+    "brand": "Independent",
+    "name": "ხელვაჩაურის კომპლექსური სასპორტო სკოლა",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ხელვაჩაურის კომპლექსური სასპორტო სკოლა",
+    "in_production": false
+  },
+  {
+    "id": "ge_bfd0847deb",
+    "brand": "Independent",
+    "name": "Men's Club",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Men's Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_706a0ef500",
+    "brand": "Independent",
+    "name": "ფარმ ქლუბი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ფარმ ქლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_5feefac468",
+    "brand": "Independent",
+    "name": "L Club",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: L Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_6e24192a4f",
+    "brand": "Independent",
+    "name": "Marina Club",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Marina Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_3a5a5fe7b8",
+    "brand": "Independent",
+    "name": "ვეტერანთა კლუბი ნონა",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ვეტერანთა კლუბი ნონა",
+    "in_production": false
+  },
+  {
+    "id": "ge_a756219c37",
+    "brand": "World Class",
+    "name": "სასტუმრო ვორდ პალასი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_4a3ce29856",
+    "brand": "World Class",
+    "name": "ბათუმის კლასიკური ბალეტის სახელმწიფო სკოლა-სასწავლებელი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0b4c25ff0a",
+    "brand": "World Class",
+    "name": "დენტალ-კლასი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_68354f3ae8",
+    "brand": "World Class",
+    "name": "World Style",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_4e85fc5a4a",
+    "brand": "World Class",
+    "name": "მასტერ კლასი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_495f619704",
+    "brand": "World Class",
+    "name": "ავტო სამყარო",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d9b7a7e71d",
+    "brand": "Fitness House",
+    "name": "Mardi Grand House Batumi",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ac853196f7",
+    "brand": "Fitness House",
+    "name": "Wine House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_eb990006d1",
+    "brand": "Fitness House",
+    "name": "Mari's Guest House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_e6497a6c52",
+    "brand": "Fitness House",
+    "name": "Medical House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b32b296b87",
+    "brand": "Fitness House",
+    "name": "Emirplast | Thermo House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_2688af62ec",
+    "brand": "Fitness House",
+    "name": "Guest House Green Rooms",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_119d5e6e49",
+    "brand": "Fitness House",
+    "name": "Family house",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ff15e98764",
+    "brand": "Fitness House",
+    "name": "Brothers House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_71881853c9",
+    "brand": "Fitness House",
+    "name": "White House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_26912e6cb5",
+    "brand": "Fitness House",
+    "name": "Mickey's House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_34f66011d8",
+    "brand": "Fitness House",
+    "name": "Golden House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d7f7fec97c",
+    "brand": "Fitness House",
+    "name": "Sea Zone Guest house",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0f12097a38",
+    "brand": "Fitness House",
+    "name": "Sanni Guest House",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_991e5a3e46",
+    "brand": "Fitness House",
+    "name": "სახლი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_958d5f80f7",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_06d5c666a2",
+    "brand": "Fitness House",
+    "name": "Fitness House Batumi",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_14595b907f",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b54c0c6a61",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_17473609b4",
+    "brand": "Fitness House",
+    "name": "ბელორუსული სახლი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_88610deb8e",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5e44075a20",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7946cf17c7",
+    "brand": "Fitness House",
+    "name": "სასტუმრო არსენ",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_04980c1cc9",
+    "brand": "Colosseum",
+    "name": "შერიფ ხიმშიაშვილის ქ. კოლიზეუმი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Colosseum)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5626f03e97",
+    "brand": "Life Sport",
+    "name": "Life Sport Batumi",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_034ba1d8d0",
+    "brand": "Life Sport",
+    "name": "მუხრან ვახტანგაძის ბათუმის სპორტის სასახლე",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f1672aba09",
+    "brand": "Life Sport",
+    "name": "Top Sport",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_c5cfebb1ef",
+    "brand": "Life Sport",
+    "name": "Van Life Home",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7f5883d066",
+    "brand": "Life Sport",
+    "name": "PharmaLife",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ad734c47b5",
+    "brand": "Life Sport",
+    "name": "დი-ლაიფ ფარმა",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7df360d134",
+    "brand": "Life Sport",
+    "name": "განათლების, კულტურის და სპორტის სამინისტრო",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_dc1e9d97ba",
+    "brand": "Life Sport",
+    "name": "ელიტ სპორტ",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_17352f33bb",
+    "brand": "Life Sport",
+    "name": "ტოპსპორტი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_de0983b5dc",
+    "brand": "Life Sport",
+    "name": "დელტა სპორტი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_dff7bc893c",
+    "brand": "Life Sport",
+    "name": "ელიტ სპორტი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_8ff48806c0",
+    "brand": "Life Sport",
+    "name": "Sportuli botasebi tuflebi",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_4961f40670",
+    "brand": "Arena Sports",
+    "name": "არენა პაბი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d4c3150d29",
+    "brand": "Arena Sports",
+    "name": "Arena Sports Batumi",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0636c6e65c",
+    "brand": "Independent",
+    "name": "სპორტული დარბაზი",
+    "city": "რიყეთი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტული დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_6a1ac55edd",
+    "brand": "Independent",
+    "name": "ჯეო სპორტი",
+    "city": "Batumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჯეო სპორტი",
+    "in_production": false
+  },
+  {
+    "id": "ge_bb14c07be0",
+    "brand": "Independent",
+    "name": "Global Training Centre",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Global Training Centre",
+    "in_production": false
+  },
+  {
+    "id": "ge_8a594c26d1",
+    "brand": "Independent",
+    "name": "fitness center Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Kutaisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_0bc7f0416b",
+    "brand": "Independent",
+    "name": "fitness center Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Kutaisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_7315a8005c",
+    "brand": "Independent",
+    "name": "ცენტრალური ბაღი “ბულვარი“",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ცენტრალური ბაღი “ბულვარი“",
+    "in_production": false
+  },
+  {
+    "id": "ge_ba556c2ed8",
+    "brand": "Independent",
+    "name": "იეჰოვას მოწმეების სამეფო დარბაზი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: იეჰოვას მოწმეების სამეფო დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_b965bd94a8",
+    "brand": "Independent",
+    "name": "Hostel Center",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Hostel Center",
+    "in_production": false
+  },
+  {
+    "id": "ge_6676a5fec2",
+    "brand": "Independent",
+    "name": "ჩემპიონი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჩემპიონი",
+    "in_production": false
+  },
+  {
+    "id": "ge_58f91dcec2",
+    "brand": "Independent",
+    "name": "Central Hotel",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — hotel/resort leakage: Central Hotel",
+    "in_production": false
+  },
+  {
+    "id": "ge_93f87c2f97",
+    "brand": "Independent",
+    "name": "წმ. ნიკოლოზის სახელობის ქირურგიული ცენტრი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: წმ. ნიკოლოზის სახელობის ქირურგიული ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_ea9c3d91d6",
+    "brand": "Independent",
+    "name": "საგანმანთლებლო რესურს ცენტრი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: საგანმანთლებლო რესურს ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_4ebc39715e",
+    "brand": "Independent",
+    "name": "Terrace Center",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Terrace Center",
+    "in_production": false
+  },
+  {
+    "id": "ge_22f118e8c0",
+    "brand": "Independent",
+    "name": "სერვის ცენტრი “დოსი”",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სერვის ცენტრი “დოსი”",
+    "in_production": false
+  },
+  {
+    "id": "ge_a1aba4fb52",
+    "brand": "Independent",
+    "name": "საქველმოქმედო ჰუმანიტარული ცენტრი აფხაზეთი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: საქველმოქმედო ჰუმანიტარული ცენტრი აფხაზეთი",
+    "in_production": false
+  },
+  {
+    "id": "ge_e91e357f17",
+    "brand": "Independent",
+    "name": "fitness centre Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness centre Kutaisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_2b119153af",
+    "brand": "Independent",
+    "name": "fitness center Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Kutaisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_0365b55550",
+    "brand": "Independent",
+    "name": "fitness centre Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness centre Kutaisi",
+    "in_production": false
+  },
+  {
+    "id": "ge_386cf32dca",
+    "brand": "Independent",
+    "name": "ქუთაისის ტორპედოს ბაზა",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქუთაისის ტორპედოს ბაზა",
+    "in_production": false
+  },
+  {
+    "id": "ge_269ebc9197",
+    "brand": "Independent",
+    "name": "ჯენტლმენ კლუბი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჯენტლმენ კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_974e7a3174",
+    "brand": "Independent",
+    "name": "სპორტის სასახლე",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის სასახლე",
+    "in_production": false
+  },
+  {
+    "id": "ge_31414b7fb8",
+    "brand": "Independent",
+    "name": "სპორტული სკოლა",
+    "city": "ჟახუნდერი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტული სკოლა",
+    "in_production": false
+  },
+  {
+    "id": "ge_5e96f2d68f",
+    "brand": "World Class",
+    "name": "ვორლდ ვიჟენ საქართველო",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_61ab8f747d",
+    "brand": "World Class",
+    "name": "დისნეის სამყარო",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_4689a379ce",
+    "brand": "Champion",
+    "name": "Olympic Champions of Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5665f07979",
+    "brand": "Fitness House",
+    "name": "Green House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_19336de863",
+    "brand": "Fitness House",
+    "name": "Fitness House Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b8699d5b18",
+    "brand": "Fitness House",
+    "name": "Cheese House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f1c9990ad4",
+    "brand": "Fitness House",
+    "name": "Tiflis Lux Boutique Guest House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_623fc90abf",
+    "brand": "Fitness House",
+    "name": "Friend's house",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_9f760e7513",
+    "brand": "Fitness House",
+    "name": "Friendly Guest House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_4bba833b57",
+    "brand": "Fitness House",
+    "name": "GUEST HOUSE “BAGRATI”",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_654ac2d9f6",
+    "brand": "Fitness House",
+    "name": "Guest House Royal Comfort",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_62d71a27cd",
+    "brand": "Fitness House",
+    "name": "Guest House GEO",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_150eee9768",
+    "brand": "Fitness House",
+    "name": "Belas House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_306a37a6b3",
+    "brand": "Fitness House",
+    "name": "Guest house Sapichxia",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f8d9997eeb",
+    "brand": "Fitness House",
+    "name": "Medico & Suliko guest house",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0fabe3bbe5",
+    "brand": "Fitness House",
+    "name": "Sisi Guest House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b747ba7f55",
+    "brand": "Fitness House",
+    "name": "GEO Guest House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_88597229df",
+    "brand": "Fitness House",
+    "name": "Tasty House",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0f5d4cb9ba",
+    "brand": "Fitness House",
+    "name": "House N31",
+    "city": "მაღლაკი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_2c5a463cf7",
+    "brand": "Fitness House",
+    "name": "მწერალთა სახლი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_44846decf3",
+    "brand": "Fitness House",
+    "name": "Fitness House Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_fcb852a207",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_778bc91973",
+    "brand": "Fitness House",
+    "name": "Fitness House Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_dfb6b5f541",
+    "brand": "Fitness House",
+    "name": "Fitness House Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ba75f3a360",
+    "brand": "Fitness House",
+    "name": "ქართული სახლი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ceeaae7523",
+    "brand": "Fitness House",
+    "name": "Fitness House Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7f6448f2ea",
+    "brand": "Fitness House",
+    "name": "Fitness House Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_fbef6343f6",
+    "brand": "Fitness House",
+    "name": "ბელორუსული სახლი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_a74d1baa35",
+    "brand": "Life Sport",
+    "name": "Kutaisi Museum of Sport",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_164c4a54e5",
+    "brand": "Life Sport",
+    "name": "Sport 2020",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_3bdd47bad9",
+    "brand": "Life Sport",
+    "name": "კაფე ტკბილი ცხოვრება",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d7adc31d07",
+    "brand": "Life Sport",
+    "name": "აკაკი კაკაურიძის სახელობის N18 კრივის სპორტული სკოლა",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_07760a6b3d",
+    "brand": "Life Sport",
+    "name": "სპორტსკოლა",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_86afbcccfe",
+    "brand": "Life Sport",
+    "name": "Life Sport Kutaisi",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_a0bd03854a",
+    "brand": "Life Sport",
+    "name": "ქუთაისის ახალგაზრდა სოციალისტ-ინტერნაციონალისტთა ორგანიზაცია „სპარტაკი“",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0863269881",
+    "brand": "Arena Sports",
+    "name": "\"აია\" არენა",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_50a7102964",
+    "brand": "Arena Sports",
+    "name": "გეიმ არენა დოსი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_065c5a1cec",
+    "brand": "Arena Sports",
+    "name": "არენა",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_e25e5dbbd3",
+    "brand": "Independent",
+    "name": "იეჰოვას მოწმეების სამეფო დარბაზი",
+    "city": "Kutaisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: იეჰოვას მოწმეების სამეფო დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c9b66283e6",
+    "brand": "Independent",
+    "name": "ძველი დარბაზი",
+    "city": "დიმის სოფელი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ძველი დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_d72da410b0",
+    "brand": "Independent",
+    "name": "„რუსთავის წყალის“ სერვის ცენტრი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: „რუსთავის წყალის“ სერვის ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_aa6fd59ca1",
+    "brand": "Independent",
+    "name": "რუსთავი ცენტრალი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: რუსთავი ცენტრალი",
+    "in_production": false
+  },
+  {
+    "id": "ge_8f4f4ff6c0",
+    "brand": "Independent",
+    "name": "რუსთავის ხელოვნების ცენტრი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: რუსთავის ხელოვნების ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_b39aa73e21",
+    "brand": "Independent",
+    "name": "რუსთავის ცენტრალური საავადმყოფო",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: რუსთავის ცენტრალური საავადმყოფო",
+    "in_production": false
+  },
+  {
+    "id": "ge_4e2825a2de",
+    "brand": "Independent",
+    "name": "რუსთავის საგანმანათლებლო რესურს ცენტრი (Rustavi City Educational Resource Center)",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: რუსთავის საგანმანათლებლო რესურს ცენტრი (Rustavi City Educational Resource Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5cb5e0cf78",
+    "brand": "Independent",
+    "name": "მუნიციპალური სერვისების ცენტრი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მუნიციპალური სერვისების ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_7409c6cb1d",
+    "brand": "Independent",
+    "name": "რუსთავის #2 სამკურნალო დიაგნოსტიკური ცენტრი \"ჰიგია\"",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: რუსთავის #2 სამკურნალო დიაგნოსტიკური ცენტრი \"ჰიგია\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_779c08228a",
+    "brand": "Independent",
+    "name": "Development and innovation center",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Development and innovation center",
+    "in_production": false
+  },
+  {
+    "id": "ge_d05ff477c8",
+    "brand": "Independent",
+    "name": "სამედიცინო დიაგნოსტიკური ცენტრი- ეკომედი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სამედიცინო დიაგნოსტიკური ცენტრი- ეკომედი",
+    "in_production": false
+  },
+  {
+    "id": "ge_69d6dc7f47",
+    "brand": "Independent",
+    "name": "სილამაზის ცენტრი (Beauty Center)",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სილამაზის ცენტრი (Beauty Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_8ae6126003",
+    "brand": "Independent",
+    "name": "მალიბუ კომპიუტერული კლუბი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მალიბუ კომპიუტერული კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_1e9fed7dbd",
+    "brand": "Independent",
+    "name": "ქიმიკოსთა სპორტული კომპლექსი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქიმიკოსთა სპორტული კომპლექსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_086ff3f628",
+    "brand": "Independent",
+    "name": "სპორტის სასახლე",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის სასახლე",
+    "in_production": false
+  },
+  {
+    "id": "ge_8308d48cd8",
+    "brand": "Independent",
+    "name": "სპორტის ქუჩა",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის ქუჩა",
+    "in_production": false
+  },
+  {
+    "id": "ge_806daaccea",
+    "brand": "Champion",
+    "name": "ჩემპიონი (Champion)",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_523200aa6c",
+    "brand": "Fitness House",
+    "name": "რუსთავის მოხუცებულთა სახლი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_4dfc4e38ca",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_11437655af",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_52d8a87f2b",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_808dff0507",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f31f2f9638",
+    "brand": "Fitness House",
+    "name": "კაფელის სახლი (Tile House)",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_53eb122e09",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_9ad354a8bf",
+    "brand": "Fitness House",
+    "name": "ბელორუსული სახლი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ca4b38d0a4",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Tbilisi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_c976ffe160",
+    "brand": "Life Sport",
+    "name": "სპორტული სკოლა შევარდენი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_cdb6e801d7",
+    "brand": "Life Sport",
+    "name": "შოთა რუსთაველის სახელობის ლიცეუმი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0f2cedb70e",
+    "brand": "Life Sport",
+    "name": "სპორტის ჩიხი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d5aff2522f",
+    "brand": "Arena Sports",
+    "name": "რუსთავი არენა",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_cc5de057c6",
+    "brand": "Independent",
+    "name": "სპორტსკოლა",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტსკოლა",
+    "in_production": false
+  },
+  {
+    "id": "ge_12437adc66",
+    "brand": "Independent",
+    "name": "სპორტის ჩიხი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის ჩიხი",
+    "in_production": false
+  },
+  {
+    "id": "ge_1fa176d1b4",
+    "brand": "Independent",
+    "name": "კრივის დარბაზი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: კრივის დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_879c1845f8",
+    "brand": "Independent",
+    "name": "სპორტული მოედანი",
+    "city": "ცაგერი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტული მოედანი",
+    "in_production": false
+  },
+  {
+    "id": "ge_b60c035429",
+    "brand": "Independent",
+    "name": "საბანკეტო დარბაზი (Banquet Hall)",
+    "city": "სენაკი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: საბანკეტო დარბაზი (Banquet Hall)",
+    "in_production": false
+  },
+  {
+    "id": "ge_c883406cd4",
+    "brand": "Independent",
+    "name": "სპორტის ჩიხი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის ჩიხი",
+    "in_production": false
+  },
+  {
+    "id": "ge_4208bf8231",
+    "brand": "Independent",
+    "name": "ნეო კლუბი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ნეო კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_344a45ca12",
+    "brand": "Independent",
+    "name": "ჩემპიონი",
+    "city": "Rustavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ჩემპიონი",
+    "in_production": false
+  },
+  {
+    "id": "ge_4711fd0d6b",
+    "brand": "Independent",
+    "name": "გორის სახელმწიფო სასწავლო უნივერსიტეტი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გორის სახელმწიფო სასწავლო უნივერსიტეტი",
+    "in_production": false
+  },
+  {
+    "id": "ge_feb5f39d2d",
+    "brand": "Independent",
+    "name": "ცენტრი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_95b60be3da",
+    "brand": "Independent",
+    "name": "Local Diagnostic Centre",
+    "city": "შინდისი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "ge_49e776ab99",
+    "brand": "Independent",
+    "name": "გორის ცენტრალური მოედანი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გორის ცენტრალური მოედანი",
+    "in_production": false
+  },
+  {
+    "id": "ge_a921a9a2e4",
+    "brand": "Independent",
+    "name": "fitness center Gori",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Gori",
+    "in_production": false
+  },
+  {
+    "id": "ge_f5809a7dd0",
+    "brand": "Independent",
+    "name": "გორის სოციალური მომსახურების ცენტრი (Gori Social Service Center)",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გორის სოციალური მომსახურების ცენტრი (Gori Social Service Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d9b7fe80fc",
+    "brand": "Independent",
+    "name": "სპორტული მალაზია",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტული მალაზია",
+    "in_production": false
+  },
+  {
+    "id": "ge_837783b76e",
+    "brand": "Independent",
+    "name": "გორის კულტურის ცენტრი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გორის კულტურის ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_a9a4054c32",
+    "brand": "Independent",
+    "name": "დარიალი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: დარიალი",
+    "in_production": false
+  },
+  {
+    "id": "ge_04b69c7ade",
+    "brand": "Independent",
+    "name": "გოგი ცაბაძის ქუჩა",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გოგი ცაბაძის ქუჩა",
+    "in_production": false
+  },
+  {
+    "id": "ge_5f7bd4a95f",
+    "brand": "Independent",
+    "name": "სპორტსკოლა",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტსკოლა",
+    "in_production": false
+  },
+  {
+    "id": "ge_6d563bccde",
+    "brand": "World Class",
+    "name": "საბრძოლო დიდების მუზეუმი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b58c07e358",
+    "brand": "Champion",
+    "name": "ჩემპიონი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ed021020b0",
+    "brand": "Fitness House",
+    "name": "Nitsa guest house",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d98509f6e8",
+    "brand": "Fitness House",
+    "name": "გორის საკრებულო და მერია",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0845f01f49",
+    "brand": "Fitness House",
+    "name": "California Guest House",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7e9ed34970",
+    "brand": "Independent",
+    "name": "ფიცესი",
+    "city": "შიდა ქართლი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ფიცესი",
+    "in_production": false
+  },
+  {
+    "id": "ge_f320af60cf",
+    "brand": "Independent",
+    "name": "დარიალის ხეობა",
+    "city": "მცხეთა-მთიანეთი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: დარიალის ხეობა",
+    "in_production": false
+  },
+  {
+    "id": "ge_f09e7b9057",
+    "brand": "Independent",
+    "name": "დარიალის ქუჩა",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: დარიალის ქუჩა",
+    "in_production": false
+  },
+  {
+    "id": "ge_68a7d38482",
+    "brand": "Independent",
+    "name": "ევქსსვეტიანი დარბაზი",
+    "city": "მცხეთა",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ევქსსვეტიანი დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_a86a888fd4",
+    "brand": "Independent",
+    "name": "სპორტის სასახლე",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის სასახლე",
+    "in_production": false
+  },
+  {
+    "id": "ge_a1ae1dc061",
+    "brand": "Independent",
+    "name": "კაზინო- სლოტ კლუბი",
+    "city": "Gori",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: კაზინო- სლოტ კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_12d28b0869",
+    "brand": "Independent",
+    "name": "სპორტმოედანი",
+    "city": "ხიდისთავი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტმოედანი",
+    "in_production": false
+  },
+  {
+    "id": "ge_f738851b88",
+    "brand": "Independent",
+    "name": "ზუგდიდის კულტურის სახლი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ზუგდიდის კულტურის სახლი",
+    "in_production": false
+  },
+  {
+    "id": "ge_1bb992d946",
+    "brand": "Independent",
+    "name": "კერხერ-ცენტრი ზუგდიდი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: კერხერ-ცენტრი ზუგდიდი",
+    "in_production": false
+  },
+  {
+    "id": "ge_8131f101e6",
+    "brand": "Independent",
+    "name": "fitness centre Zugdidi",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness centre Zugdidi",
+    "in_production": false
+  },
+  {
+    "id": "ge_be5afad26f",
+    "brand": "Independent",
+    "name": "საზოგადოებრივი უსაფრთხოების მართვის ცენტრი 112",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: საზოგადოებრივი უსაფრთხოების მართვის ცენტრი 112",
+    "in_production": false
+  },
+  {
+    "id": "ge_ec2d27d9fb",
+    "brand": "Independent",
+    "name": "სამედიცინო დიაგნოსტიკური ცენტრი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სამედიცინო დიაგნოსტიკური ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_5be5e85b8d",
+    "brand": "Independent",
+    "name": "fitness centre Zugdidi",
+    "city": "ჯუმი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness centre Zugdidi",
+    "in_production": false
+  },
+  {
+    "id": "ge_e9cdf307e7",
+    "brand": "Independent",
+    "name": "კოლხეთის ეროვნული პარკის ჭურიის უბნის ვიზიტორთა ცენტრი",
+    "city": "ანაკლია",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: კოლხეთის ეროვნული პარკის ჭურიის უბნის ვიზიტორთა ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_0ab2e0cfb6",
+    "brand": "Independent",
+    "name": "დარიალი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: დარიალი",
+    "in_production": false
+  },
+  {
+    "id": "ge_43be4cdd59",
+    "brand": "Independent",
+    "name": "თერმო ცენტრის",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თერმო ცენტრის",
+    "in_production": false
+  },
+  {
+    "id": "ge_d6d374b07e",
+    "brand": "Independent",
+    "name": "ტუბერკულიოზის ცენტრი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ტუბერკულიოზის ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_094fabf3ed",
+    "brand": "Independent",
+    "name": "ზღვაიას კულტურის სასახლე (Zghvaia Cultural Center)",
+    "city": "ზღვაია",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ზღვაიას კულტურის სასახლე (Zghvaia Cultural Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_e7c4b2f672",
+    "brand": "Independent",
+    "name": "ინგირის ადმინისტრაციული ცენტრი (Ingiri Administrative Center)",
+    "city": "ინგირი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ინგირის ადმინისტრაციული ცენტრი (Ingiri Administrative Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_8e1974bcf7",
+    "brand": "Independent",
+    "name": "კულტურის სახლი (Fine Arts Center)",
+    "city": "ახალსოფელი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: კულტურის სახლი (Fine Arts Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_8aee043628",
+    "brand": "Independent",
+    "name": "დევნილთა კომპაქტური ცენტრი",
+    "city": "წალენჯიხა",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: დევნილთა კომპაქტური ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_efbc7e0655",
+    "brand": "Independent",
+    "name": "გურამ თიკანაძის სახელობის სპორტული კომპლექსი (Latali Sports Complex of Guram Tikanadze)",
+    "city": "იენაში",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გურამ თიკანაძის სახელობის სპორტული კომპლექსი (Latali Sports Complex of Guram Tikanadze)",
+    "in_production": false
+  },
+  {
+    "id": "ge_1f07bc682b",
+    "brand": "Independent",
+    "name": "მულახის სპორტული კომპლექსი",
+    "city": "მულახი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: მულახის სპორტული კომპლექსი",
+    "in_production": false
+  },
+  {
+    "id": "ge_2ffafae2cc",
+    "brand": "World Class",
+    "name": "ვორლდ ნათს",
+    "city": "ინგირი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_dc4b4e181d",
+    "brand": "Fitness House",
+    "name": "Guest house Zugdidi Inn",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_fe7a66bfda",
+    "brand": "Fitness House",
+    "name": "Khazalia House",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_bbe7f33931",
+    "brand": "Fitness House",
+    "name": "My Moon Hostel",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_0dc9878608",
+    "brand": "Fitness House",
+    "name": "art house",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_86566a4761",
+    "brand": "Fitness House",
+    "name": "Folk House",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_347dae5443",
+    "brand": "Fitness House",
+    "name": "Fitness House Zugdidi",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_a60892ebf1",
+    "brand": "Fitness House",
+    "name": "დორ ჰაუსი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_16697505f6",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_2d141eae3e",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_208db64566",
+    "brand": "Fitness House",
+    "name": "Fitness House Zugdidi",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_41715fb4fa",
+    "brand": "Fitness House",
+    "name": "Shorena",
+    "city": "Zugdidi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_c597d7e8e6",
+    "brand": "Fitness House",
+    "name": "კულტურის სახლი (Culture House)",
+    "city": "კახათი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_258e7fd0c3",
+    "brand": "Fitness House",
+    "name": "კულტურის სახლი (Culture House)",
+    "city": "ზედა ეწერი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_df03d610ec",
+    "brand": "Fitness House",
+    "name": "White House Anaklia",
+    "city": "Anaklia",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5012be7c4c",
+    "brand": "Fitness House",
+    "name": "Beach House Anaklia",
+    "city": "ანაკლია",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b89bde1f79",
+    "brand": "Fitness House",
+    "name": "კულტურის სახლი (House of Culture)",
+    "city": "ზუბი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ed38ee014e",
+    "brand": "Fitness House",
+    "name": "ლაშა გახარია სახლ-მუზეუმი",
+    "city": "მუხური",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_f04166d7e5",
+    "brand": "Fitness House",
+    "name": "კერძო სათბური",
+    "city": "ცაიში",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_511b448d42",
+    "brand": "Fitness House",
+    "name": "Hanmer Guest House",
+    "city": "ეცერი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ea44a75789",
+    "brand": "Fitness House",
+    "name": "Nanago Guest House",
+    "city": "იენაში",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_54a8853a24",
+    "brand": "Fitness House",
+    "name": "Nanila guest house",
+    "city": "ლენჯერი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_e1e9a9e5e3",
+    "brand": "Fitness House",
+    "name": "Guest House Robinzon Lalkhori",
+    "city": "ლალხორი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_bcef4f6eb7",
+    "brand": "Fitness House",
+    "name": "Svan house museum",
+    "city": "მულახი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_cfd22401a5",
+    "brand": "Life Sport",
+    "name": "Life Sport Zugdidi",
+    "city": "ზედა ეწერი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_2a2971cc7c",
+    "brand": "Independent",
+    "name": "ცენტრი",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_458eb8058e",
+    "brand": "Independent",
+    "name": "ფოთის ნიკო ნიკოლაძის სახელობის ცენტრალური საბავშვო ბიბლიოთეკა",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ფოთის ნიკო ნიკოლაძის სახელობის ცენტრალური საბავშვო ბიბლიოთეკა",
+    "in_production": false
+  },
+  {
+    "id": "ge_2031425bbb",
+    "brand": "Independent",
+    "name": "ფოთის სამედიცინო ცენტრი",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ფოთის სამედიცინო ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_8818aafd63",
+    "brand": "Independent",
+    "name": "კოლხეთის ეროვნული პარკის ვიზიტორთა ცენტრი",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: კოლხეთის ეროვნული პარკის ვიზიტორთა ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_e87529dd31",
+    "brand": "Independent",
+    "name": "ქალაქ ფოთის შოთა რუსთაველის სახელობის ცენტრალური ბიბლიოთეკა",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქალაქ ფოთის შოთა რუსთაველის სახელობის ცენტრალური ბიბლიოთეკა",
+    "in_production": false
+  },
+  {
+    "id": "ge_d66765330a",
+    "brand": "Independent",
+    "name": "ფოთის საცურაო აუზი",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ფოთის საცურაო აუზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_859edaeb2d",
+    "brand": "Fitness House",
+    "name": "ბელორუსული სახლი",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_1eafdc0f18",
+    "brand": "Fitness House",
+    "name": "Green House",
+    "city": "Poti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ded93c0c15",
+    "brand": "Fitness House",
+    "name": "Beach House",
+    "city": "სუფსის თემი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_68482c96d3",
+    "brand": "Independent",
+    "name": "თელავის კულტურის ცენტრი (Telavi Cultural Center)",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თელავის კულტურის ცენტრი (Telavi Cultural Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_ed56cde6ed",
+    "brand": "Independent",
+    "name": "თელავის ცენტრალური საავადმყოფო",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თელავის ცენტრალური საავადმყოფო",
+    "in_production": false
+  },
+  {
+    "id": "ge_6c3bd09c03",
+    "brand": "Independent",
+    "name": "ქართულის ფოლკლორის ცენტრი",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქართულის ფოლკლორის ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_ff55305aa4",
+    "brand": "Independent",
+    "name": "სტრატეგიული კვლევის ცენტრი (Strategy Research Center)",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სტრატეგიული კვლევის ცენტრი (Strategy Research Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_9302e54844",
+    "brand": "Independent",
+    "name": "ფოლკლორის ცენტრი (Folk Center)",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ფოლკლორის ცენტრი (Folk Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_acc8a144eb",
+    "brand": "Independent",
+    "name": "ტატიშვილის სამედიცინო ცენტრი (Tatishvili Medical Center)",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ტატიშვილის სამედიცინო ცენტრი (Tatishvili Medical Center)",
+    "in_production": false
+  },
+  {
+    "id": "ge_d155c79fc1",
+    "brand": "Independent",
+    "name": "თერმო ცენტრი",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: თერმო ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_68ddf73bab",
+    "brand": "Independent",
+    "name": "Game club",
+    "city": "ნაფარეული",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Game club",
+    "in_production": false
+  },
+  {
+    "id": "ge_1a85df19c9",
+    "brand": "Independent",
+    "name": "ჯაზ კლუბი",
+    "city": "კახეთი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): ჯაზ კლუბი",
+    "in_production": false
+  },
+  {
+    "id": "ge_de3c8f305c",
+    "brand": "World Class",
+    "name": "საკანცელარიო სამყარო (Stationery World)",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_65cab27404",
+    "brand": "World Class",
+    "name": "ბავშვთა სამყარო",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)",
+    "in_production": false
+  },
+  {
+    "id": "ge_08506bbfe6",
+    "brand": "Fitness House",
+    "name": "Guest House LiLu",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_3e43609b00",
+    "brand": "Fitness House",
+    "name": "Guest House Top Floor",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_66b96677bb",
+    "brand": "Fitness House",
+    "name": "Tamari Guest House",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_c7c0faafad",
+    "brand": "Fitness House",
+    "name": "Grandpa's Inn Guest House",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_1ec0783f1c",
+    "brand": "Fitness House",
+    "name": "Guest House Poligloti",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_051cf5bda8",
+    "brand": "Fitness House",
+    "name": "ფრჩხილის სახლი",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_386586c7a4",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_aeccd7436e",
+    "brand": "Fitness House",
+    "name": "ბელორუსული სახლი",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_a495335725",
+    "brand": "Fitness House",
+    "name": "Fitness House Telavi",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_54cb9a428e",
+    "brand": "Fitness House",
+    "name": "Fitness House Telavi",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_38e800b944",
+    "brand": "Life Sport",
+    "name": "ახალი სიცოცხლე",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5696784989",
+    "brand": "Life Sport",
+    "name": "სპორტული სკოლა",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Life Sport)",
+    "in_production": false
+  },
+  {
+    "id": "ge_b2299f164d",
+    "brand": "Arena Sports",
+    "name": "რაგბის სტადიონი \"კავკასიონი\"",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Arena Sports)",
+    "in_production": false
+  },
+  {
+    "id": "ge_669d8c3dc3",
+    "brand": "Independent",
+    "name": "რუისპირის ყოვლადწმინდა ღვთისმშობლის ( დედა მარიამის) დარბაზული ეკლესია",
+    "city": "რუისპირი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: რუისპირის ყოვლადწმინდა ღვთისმშობლის ( დედა მარიამის) დარბაზული ეკლესია",
+    "in_production": false
+  },
+  {
+    "id": "ge_65723866ef",
+    "brand": "Independent",
+    "name": "ველისციხის ციხე-დარბაზი",
+    "city": "ახაშენი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ველისციხის ციხე-დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_af164cdf9d",
+    "brand": "Independent",
+    "name": "დაბალი ცერი",
+    "city": "კახეთი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: დაბალი ცერი",
+    "in_production": false
+  },
+  {
+    "id": "ge_324bad4257",
+    "brand": "Independent",
+    "name": "სპორტის სასახლე",
+    "city": "Telavi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: სპორტის სასახლე",
+    "in_production": false
+  },
+  {
+    "id": "ge_f5ad74c9d8",
+    "brand": "Independent",
+    "name": "ავალიშვილების დარბაზული ეკლესია(ავალიანთ საყდარი)",
+    "city": "პალდო",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ავალიშვილების დარბაზული ეკლესია(ავალიანთ საყდარი)",
+    "in_production": false
+  },
+  {
+    "id": "ge_20b00e67c9",
+    "brand": "Independent",
+    "name": "ქობულეთის და კინტრიშის დაცული ტერიტორიების ადმინისტრაცია და ვიზიტორთა ცენტრი",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქობულეთის და კინტრიშის დაცული ტერიტორიების ადმინისტრაცია და ვიზიტორთა ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_4f63935b8c",
+    "brand": "Independent",
+    "name": "ქობულეთის პროფესიული სწავლების ცენტრი",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქობულეთის პროფესიული სწავლების ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_c9259a60ce",
+    "brand": "Independent",
+    "name": "ქობულეთის სამედიცინო ცენტრი",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქობულეთის სამედიცინო ცენტრი",
+    "in_production": false
+  },
+  {
+    "id": "ge_19afdcdac0",
+    "brand": "Independent",
+    "name": "ქობულეთის პირველადი ჯანდაცვის გადაუდებელი მედიცინისა დარეაბილიტაციის ცენტრი \"მედჰაუსი\"",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ქობულეთის პირველადი ჯანდაცვის გადაუდებელი მედიცინისა დარეაბილიტაციის ცენტრი \"მედჰაუსი\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_c005c9ff69",
+    "brand": "Independent",
+    "name": "Kobuleti Beach Club",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Kobuleti Beach Club",
+    "in_production": false
+  },
+  {
+    "id": "ge_8195433aa6",
+    "brand": "Champion",
+    "name": "ჩემპიონი",
+    "city": "ჩაქვი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Champion)",
+    "in_production": false
+  },
+  {
+    "id": "ge_340f43a10d",
+    "brand": "Fitness House",
+    "name": "Fitness House Kobuleti",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_09edea6d84",
+    "brand": "Fitness House",
+    "name": "Private House in Kobuleti",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_eb7e278c9e",
+    "brand": "Fitness House",
+    "name": "ქობულეთის კულტურის სახლი",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_123fd865fb",
+    "brand": "Fitness House",
+    "name": "ilusha's house",
+    "city": "ქვედა კვირიკე",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_fb8639649a",
+    "brand": "Fitness House",
+    "name": "Tirkius House",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_473fb8ee08",
+    "brand": "Fitness House",
+    "name": "Wine House",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_e171020eb0",
+    "brand": "Fitness House",
+    "name": "Beer house",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_2919c8e213",
+    "brand": "Fitness House",
+    "name": "Cosy House",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_3667fc2549",
+    "brand": "Fitness House",
+    "name": "სუფთა სახლი",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_7332527aa7",
+    "brand": "Fitness House",
+    "name": "აჭარული სახლი",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_bc96363436",
+    "brand": "Fitness House",
+    "name": "Fitness House Kobuleti",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_af2411e817",
+    "brand": "Fitness House",
+    "name": "მწვანე სახლი (Green House)",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_5dd8e20727",
+    "brand": "Fitness House",
+    "name": "ლალა",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_1e71d52c52",
+    "brand": "Fitness House",
+    "name": "Fitness House Kobuleti",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_82d688fd78",
+    "brand": "Fitness House",
+    "name": "Fitness House Kobuleti",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_1d9d50e4fe",
+    "brand": "Fitness House",
+    "name": "Fitness House Kobuleti",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_9f5d581be5",
+    "brand": "Fitness House",
+    "name": "დაგვის კულტურის სახლი",
+    "city": "Kobuleti",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_db2fb9355c",
+    "brand": "Fitness House",
+    "name": "Wooden House Tsikhisdziri",
+    "city": "ციხისძირი",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fitness House)",
+    "in_production": false
+  },
+  {
+    "id": "ge_87a2351071",
+    "brand": "Independent",
+    "name": "საბანკეტო დარბაზი \"მედეა\"",
+    "city": "ბოხვაური",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: საბანკეტო დარბაზი \"მედეა\"",
+    "in_production": false
+  },
+  {
+    "id": "ge_314192e964",
+    "brand": "Independent",
+    "name": "გურიის ერისთავების ციხე-დარბაზი",
+    "city": "ჩოხატაური",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: გურიის ერისთავების ციხე-დარბაზი",
+    "in_production": false
+  },
+  {
+    "id": "ge_64891500ff",
+    "brand": "Exclusion probe",
+    "name": "Hotel Radisson Blu Batumi fitness",
+    "city": "Batumi",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "ge_95031ba4a5",
+    "brand": "Exclusion probe",
+    "name": "Private residential gym Vake",
+    "city": "Tbilisi",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "ge_2207805660",
+    "brand": "USA Georgia probe",
+    "name": "Planet Fitness Georgia USA",
+    "city": "Atlanta",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "ge_21526ff050",
+    "brand": "USA Georgia probe",
+    "name": "Savannah Gym",
+    "city": "Savannah",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "ge_39f96dfcfe",
+    "brand": "Conflict region probe",
+    "name": "Sokhumi fitness centre probe",
+    "city": "Sokhumi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "ge_0a6f100016",
+    "brand": "Conflict region probe",
+    "name": "Gali gym candidate",
+    "city": "Gali",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "ge_e24e7e58d9",
+    "brand": "Conflict region probe",
+    "name": "Tskhinvali sports club probe",
+    "city": "Tskhinvali",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  }
+]

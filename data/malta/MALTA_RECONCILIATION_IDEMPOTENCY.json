@@ -1,0 +1,25 @@
+{
+  "first_run": {
+    "insertions": 6,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11929,
+    "malta_before": 18,
+    "malta_after": 24,
+    "mt_prefix_before": 18,
+    "mt_prefix_after": 24
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11929,
+    "total_after": 11929,
+    "malta_before": 24,
+    "malta_after": 24,
+    "mt_prefix_before": 24,
+    "mt_prefix_after": 24
+  },
+  "idempotent": true
+}

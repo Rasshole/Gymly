@@ -1,0 +1,13 @@
+{
+  "map_architecture_mode": "VIEWPORT_CULLING — full marker prep then region filter",
+  "global_active_center_count": 12846,
+  "map_marker_prep_count": 12846,
+  "moscow_viewport_count": 297,
+  "map_marker_identity_errors": 0,
+  "runs": 10,
+  "min_ms": 61,
+  "median_ms": 86,
+  "p95_ms": 169,
+  "max_ms": 169,
+  "mean_ms": 89.8
+}

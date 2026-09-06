@@ -8,7 +8,7 @@ import {fetchWorkoutNeedingReview} from '@/services/session/workoutReviewService
  * Henter afsluttet auto-checkout der venter på gennemgang (DB: workout_needs_review).
  */
 export function useWorkoutReviewPrompt(): {
-  pendingReview: PendingAutoCheckoutSummary | null;
+  pendingReview: AutoCheckoutReviewPayload | null;
   refresh: () => void;
   dismissForThisLaunch: () => void;
   dismissedThisLaunch: boolean;

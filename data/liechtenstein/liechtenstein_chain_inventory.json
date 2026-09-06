@@ -1,0 +1,50 @@
+{
+  "country": "Liechtenstein",
+  "phase": 2,
+  "production_total": 11692,
+  "production_sha256": "ff19dfaae9f99984ae5c6a73765b3e585263b61050d8c927fc45a38037dfa3dc",
+  "liechtenstein_live": 0,
+  "iceland_live": 27,
+  "class_a_chains": [],
+  "class_a_open_estimate": 0,
+  "ready_total": 7,
+  "ready_by_brand": {
+    "update Fitness": 1,
+    "LieFit": 1,
+    "purfitness": 1,
+    "Lorez": 1,
+    "flexigym": 1,
+    "In Motion": 1,
+    "KOKON Fitness": 1
+  },
+  "small_market": {
+    "recommended_model": "INDEPENDENT_PHASE_EXECUTED",
+    "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+    "qualifying_class_a_chains": 0,
+    "independent_ready": 7
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 7,
+    "EXCLUDED": 43,
+    "CLOSED": 2
+  },
+  "phase1_candidates_recovered": 8,
+  "phase1_promoted_to_ready": 6,
+  "phase1_excluded": 2,
+  "new_phase2_ready": 1,
+  "municipality_coverage": {
+    "Vaduz": "READY_present",
+    "Schaan": "READY_present",
+    "Balzers": "READY_present",
+    "Eschen": "READY_present",
+    "Bendern": "READY_present",
+    "Ruggell": "READY_present",
+    "Triesen": "C_scope_exclusion",
+    "Mauren": "A_legitimate_no_local_gym",
+    "Triesenberg": "A_legitimate_no_local_gym",
+    "Schellenberg": "A_legitimate_no_local_gym",
+    "Planken": "A_legitimate_no_local_gym",
+    "Nendeln": "C_scope_exclusion",
+    "Gamprin": "READY_present"
+  }
+}

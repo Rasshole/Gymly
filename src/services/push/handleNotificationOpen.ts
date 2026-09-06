@@ -158,10 +158,7 @@ export function navigateFromPushData(data: Record<string, string> | undefined): 
 
   if (type === 'badge_unlocked' || type === 'streak_milestone' || type === 'badge_progress') {
     const badgeId = data.badgeId;
-    nav.navigate('MainTabs', {
-      screen: 'Badges',
-      params: badgeId ? {highlightBadgeId: badgeId} : {},
-    });
+    nav.navigate('Badges', badgeId ? {highlightBadgeId: badgeId} : undefined);
     return;
   }
 

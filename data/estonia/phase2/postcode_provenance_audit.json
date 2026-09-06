@@ -1,0 +1,618 @@
+{
+  "upgrades": [],
+  "audit_count": 68,
+  "rows": [
+    {
+      "id": "ee_4f65d6f0eb",
+      "name": "MyFitness Rocca al Mare",
+      "brand": "MyFitness",
+      "postal_before": "13516",
+      "postal_after": "13516",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_1e612943e0",
+      "name": "MyFitness Mustamäe",
+      "brand": "MyFitness",
+      "postal_before": "12918",
+      "postal_after": "12918",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_8225d3bb1d",
+      "name": "MyFitness Kristiine",
+      "brand": "MyFitness",
+      "postal_before": "10615",
+      "postal_after": "10615",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_7d5ca69d64",
+      "name": "MyFitness Järve",
+      "brand": "MyFitness",
+      "postal_before": "11314",
+      "postal_after": "11314",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_751f32334b",
+      "name": "MyFitness Viru",
+      "brand": "MyFitness",
+      "postal_before": "10111",
+      "postal_after": "10111",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_e47c68a9de",
+      "name": "MyFitness Postimaja",
+      "brand": "MyFitness",
+      "postal_before": "10111",
+      "postal_after": "10111",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_8d111de06c",
+      "name": "MyFitness Rävala",
+      "brand": "MyFitness",
+      "postal_before": "10143",
+      "postal_after": "10143",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_355933c364",
+      "name": "MyFitness Balti Jaama Turg",
+      "brand": "MyFitness",
+      "postal_before": "10412",
+      "postal_after": "10412",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_538bb1b19c",
+      "name": "MyFitness Ülemiste City",
+      "brand": "MyFitness",
+      "postal_before": "11415",
+      "postal_after": "11415",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_a8e37194c2",
+      "name": "MyFitness Lasnamäe Linnamäe",
+      "brand": "MyFitness",
+      "postal_before": "13912",
+      "postal_after": "13912",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_dcc71d4e59",
+      "name": "MyFitness Lasnamäe Kärberi",
+      "brand": "MyFitness",
+      "postal_before": "13919",
+      "postal_after": "13919",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_287161a69a",
+      "name": "MyFitness Pirita",
+      "brand": "MyFitness",
+      "postal_before": "11911",
+      "postal_after": "11911",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_27690314de",
+      "name": "MyFitness Viimsi",
+      "brand": "MyFitness",
+      "postal_before": "74001",
+      "postal_after": "74001",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_2544fa6a0b",
+      "name": "MyFitness Volta",
+      "brand": "MyFitness",
+      "postal_before": "10416",
+      "postal_after": "10416",
+      "provenance": "PHASE2_RECOVERY_STRICT_ADDRESS_GEOCODE_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_5792883bb0",
+      "name": "MyFitness Tartu Kesklinn",
+      "brand": "MyFitness",
+      "postal_before": "51004",
+      "postal_after": "51004",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_834e59f825",
+      "name": "MyFitness Tartu Annelinn",
+      "brand": "MyFitness",
+      "postal_before": "50707",
+      "postal_after": "50707",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_a089358904",
+      "name": "MyFitness Tartu Lõunakeskus",
+      "brand": "MyFitness",
+      "postal_before": "50501",
+      "postal_after": "50501",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_6353f66ecd",
+      "name": "MyFitness Narva Fama",
+      "brand": "MyFitness",
+      "postal_before": "20303",
+      "postal_after": "20303",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_67132ad9d1",
+      "name": "MyFitness Viljandi",
+      "brand": "MyFitness",
+      "postal_before": "71010",
+      "postal_after": "71010",
+      "provenance": "OFFICIAL_MYFITNESS_EE_CLUB_PAGE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_136e41e3e3",
+      "name": "24-7 Fitness Akadeemia",
+      "brand": "24-7 Fitness",
+      "postal_before": "12613",
+      "postal_after": "12613",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_8cc21c4cd5",
+      "name": "24-7 Fitness Laki",
+      "brand": "24-7 Fitness",
+      "postal_before": "12919",
+      "postal_after": "12919",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_832f129d3f",
+      "name": "24-7 Fitness Priisle",
+      "brand": "24-7 Fitness",
+      "postal_before": "13914",
+      "postal_after": "13914",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_1a90775797",
+      "name": "24-7 Fitness Vabaduse",
+      "brand": "24-7 Fitness",
+      "postal_before": "10917",
+      "postal_after": "10917",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_46170252aa",
+      "name": "24-7 Fitness Hipodroom",
+      "brand": "24-7 Fitness",
+      "postal_before": "10616",
+      "postal_after": "10616",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_a98a29c5df",
+      "name": "24-7 Fitness Tõnismägi",
+      "brand": "24-7 Fitness",
+      "postal_before": "10119",
+      "postal_after": "10119",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_43b2f4c7e2",
+      "name": "24-7 Fitness Tähesaju",
+      "brand": "24-7 Fitness",
+      "postal_before": "13917",
+      "postal_after": "13917",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_afece56ea8",
+      "name": "24-7 Fitness Avala",
+      "brand": "24-7 Fitness",
+      "postal_before": "10138",
+      "postal_after": "10138",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_93a443e72e",
+      "name": "24-7 Fitness Paepargi",
+      "brand": "24-7 Fitness",
+      "postal_before": "11417",
+      "postal_after": "11417",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_fd66efe699",
+      "name": "24-7 Fitness Kopli",
+      "brand": "24-7 Fitness",
+      "postal_before": "11712",
+      "postal_after": "11712",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_03c252c3d0",
+      "name": "24-7 Fitness Peetri",
+      "brand": "24-7 Fitness",
+      "postal_before": "75312",
+      "postal_after": "75312",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_34384840a3",
+      "name": "24-7 Fitness Tabasalu",
+      "brand": "24-7 Fitness",
+      "postal_before": "76901",
+      "postal_after": "76901",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_23d13ee680",
+      "name": "24-7 Fitness Järveküla",
+      "brand": "24-7 Fitness",
+      "postal_before": "75304",
+      "postal_after": "75304",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_3c7ccf381f",
+      "name": "24-7 Fitness Luige",
+      "brand": "24-7 Fitness",
+      "postal_before": "75404",
+      "postal_after": "75404",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_d5090f3a35",
+      "name": "24-7 Fitness Kiili",
+      "brand": "24-7 Fitness",
+      "postal_before": "75401",
+      "postal_after": "75401",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_ad538cbf34",
+      "name": "24-7 Fitness Keila Vesiveski",
+      "brand": "24-7 Fitness",
+      "postal_before": "76608",
+      "postal_after": "76608",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_bef6f55067",
+      "name": "24-7 Fitness Saue",
+      "brand": "24-7 Fitness",
+      "postal_before": "76505",
+      "postal_after": "76505",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_a15aae2d15",
+      "name": "24-7 Fitness Keila Keskus",
+      "brand": "24-7 Fitness",
+      "postal_before": "76607",
+      "postal_after": "76607",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_d3bdd981df",
+      "name": "24-7 Fitness Sepa Keskus",
+      "brand": "24-7 Fitness",
+      "postal_before": "50105",
+      "postal_after": "50105",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_f94ec93820",
+      "name": "24-7 Fitness Sõbrakeskus",
+      "brand": "24-7 Fitness",
+      "postal_before": "50111",
+      "postal_after": "50111",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_c0961f58de",
+      "name": "24-7 Fitness Raadi",
+      "brand": "24-7 Fitness",
+      "postal_before": "60532",
+      "postal_after": "60532",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_a0cca1d483",
+      "name": "24-7 Fitness Ihaste",
+      "brand": "24-7 Fitness",
+      "postal_before": "51011",
+      "postal_after": "51011",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_4022ce3e3c",
+      "name": "24-7 Fitness Port Artur",
+      "brand": "24-7 Fitness",
+      "postal_before": "80010",
+      "postal_after": "80010",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_b8f6139ad6",
+      "name": "24-7 Fitness Viljandi Riia",
+      "brand": "24-7 Fitness",
+      "postal_before": "71009",
+      "postal_after": "71009",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_7707002ac8",
+      "name": "24-7 Fitness Viljandi Kaalu",
+      "brand": "24-7 Fitness",
+      "postal_before": "71012",
+      "postal_after": "71012",
+      "provenance": "PHASE2_RECOVERY_STRICT_ADDRESS_GEOCODE_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_2859632c67",
+      "name": "24-7 Fitness Rakvere",
+      "brand": "24-7 Fitness",
+      "postal_before": "44310",
+      "postal_after": "44310",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_dfe043052a",
+      "name": "24-7 Fitness Kuressaare",
+      "brand": "24-7 Fitness",
+      "postal_before": "93818",
+      "postal_after": "93818",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_b98dd63ae1",
+      "name": "24-7 Fitness Jõhvi",
+      "brand": "24-7 Fitness",
+      "postal_before": "41531",
+      "postal_after": "41531",
+      "provenance": "OFFICIAL_247_OR_STRICT_GEOCODE_NNNNN",
+      "upgraded": false
+    },
+    {
+      "id": "ee_71c90c9c79",
+      "name": "24-7 Fitness Narva",
+      "brand": "24-7 Fitness",
+      "postal_before": "20605",
+      "postal_after": "20605",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_9d4bb8e396",
+      "name": "24-7 Fitness Võru",
+      "brand": "24-7 Fitness",
+      "postal_before": "65606",
+      "postal_after": "65606",
+      "provenance": "PHASE2_RECOVERY_STRICT_ADDRESS_GEOCODE_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_909073b14a",
+      "name": "24-7 Fitness Jõgeva",
+      "brand": "24-7 Fitness",
+      "postal_before": "48305",
+      "postal_after": "48305",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_eeb3b2ed6e",
+      "name": "Gym! Tehnopol",
+      "brand": "Gym!",
+      "postal_before": "12618",
+      "postal_after": "12618",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_0464e0b52f",
+      "name": "Gym! Vanalinn",
+      "brand": "Gym!",
+      "postal_before": "10111",
+      "postal_after": "10111",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_d2f42682e1",
+      "name": "Gym! Ülemiste",
+      "brand": "Gym!",
+      "postal_before": "11415",
+      "postal_after": "11415",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_02781d2158",
+      "name": "Gym! Mustika",
+      "brand": "Gym!",
+      "postal_before": "12918",
+      "postal_after": "12918",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_206498f4e2",
+      "name": "Gym! Õismäe",
+      "brand": "Gym!",
+      "postal_before": "13513",
+      "postal_after": "13513",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_1223384fb6",
+      "name": "Gym! Solaris",
+      "brand": "Gym!",
+      "postal_before": "15030",
+      "postal_after": "15030",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_e62a625275",
+      "name": "Gym! Rocca al Mare",
+      "brand": "Gym!",
+      "postal_before": "13522",
+      "postal_after": "13522",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_6f01f6ecd7",
+      "name": "Gym! Virbi",
+      "brand": "Gym!",
+      "postal_before": "13629",
+      "postal_after": "13629",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_c46ffdde83",
+      "name": "Gym! Veeriku",
+      "brand": "Gym!",
+      "postal_before": "50407",
+      "postal_after": "50407",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_fd122813c5",
+      "name": "Gym! Tasku",
+      "brand": "Gym!",
+      "postal_before": "51004",
+      "postal_after": "51004",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_c752f2b24e",
+      "name": "Gym! Ülenurme",
+      "brand": "Gym!",
+      "postal_before": "61714",
+      "postal_after": "61714",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_9f63cae695",
+      "name": "Gym! Kerese",
+      "brand": "Gym!",
+      "postal_before": "20309",
+      "postal_after": "20309",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_a39df7a926",
+      "name": "Gym! Astri",
+      "brand": "Gym!",
+      "postal_before": "20605",
+      "postal_after": "20605",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_7346437c59",
+      "name": "Gym! Jõhvi",
+      "brand": "Gym!",
+      "postal_before": "41531",
+      "postal_after": "41531",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_b8c1d8bc6e",
+      "name": "Gym! Pärnu",
+      "brand": "Gym!",
+      "postal_before": "80011",
+      "postal_after": "80011",
+      "provenance": "STRICT_ADDRESS_GEOCODE_NOMINATIM_EE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_b9bc209fd8",
+      "name": "Golden Club Tondi",
+      "brand": "Golden Club",
+      "postal_before": "11316",
+      "postal_after": "11316",
+      "provenance": "PHASE2_RECOVERY_VERIFIED_PREMISES_PIN_POSTCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_141f92d21d",
+      "name": "Golden Club Rotermanni",
+      "brand": "Golden Club",
+      "postal_before": "10111",
+      "postal_after": "10111",
+      "provenance": "OFFICIAL_GOLDENCLUB_OR_PREMISES_GEOCODE",
+      "upgraded": false
+    },
+    {
+      "id": "ee_a3aff2f162",
+      "name": "Golden Club Viimsi",
+      "brand": "Golden Club",
+      "postal_before": "74001",
+      "postal_after": "74001",
+      "provenance": "OFFICIAL_GOLDENCLUB_OR_PREMISES_GEOCODE",
+      "upgraded": false
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "generated": "2026-08-23T08:24:03.106Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "pre_merge_sha256": "93283ab74cfb19bb197f6f09b7f833f3dfb56f1ff98a35c5aefa4c15ddb45b92",
+  "baseline": {
+    "total": 10878,
+    "ireland": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106
+  },
+  "approved_candidates": 65,
+  "validated_safe": 65,
+  "inserted": 65,
+  "withheld": 0,
+  "withheld_details": [],
+  "after": {
+    "total": 10943,
+    "ireland": 65,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106
+  },
+  "duplicate_ids": [],
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "foreign_coords": 0,
+    "northern_ireland": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "legacy_brand": 0
+  },
+  "brand_breakdown_canonical": {
+    "Anytime Fitness": 5,
+    "Aura Leisure": 4,
+    "Ben Dunne Gyms": 4,
+    "Energie Fitness": 16,
+    "FLYEfit": 17,
+    "Gym Plus": 7,
+    "Iconic Health Clubs": 4,
+    "Shoreline Leisure": 2,
+    "West Wood Club": 6
+  },
+  "brand_breakdown_production": {
+    "Anytime Fitness": 5,
+    "Aura Leisure": 4,
+    "Ben Dunne Gyms": 4,
+    "Energie Fitness": 16,
+    "FLYEfit": 17,
+    "Gym Plus": 7,
+    "Iconic Health Clubs": 4,
+    "Shoreline Leisure": 2,
+    "West Wood Club": 6
+  },
+  "rebrand_validation": {
+    "one_escape_absent": true,
+    "flyehub_absent": true,
+    "iconic_smithfield_present": true,
+    "iconic_count": 4,
+    "flyefit_count": 17
+  },
+  "energie_tallaght_citywest": {
+    "tallaght": "ie_6930f99872",
+    "citywest": "ie_2574437176",
+    "distance_m": 3643.3,
+    "classification": "A_legitimate",
+    "action": "retain_both"
+  },
+  "pre_merge_validation": {
+    "candidate_count": 65,
+    "ie_prefix": true,
+    "duplicate_ids": 0,
+    "invalid_eircodes": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "northern_ireland_contamination": 0,
+    "mojibake": 0,
+    "rebrand_conflicts": 0,
+    "staging_exclusions": 0,
+    "result": "PASS_ALL"
+  },
+  "post_merge": {
+    "ireland_rows": 65,
+    "ie_prefix": true,
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  },
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    }
+  },
+  "staging": {
+    "MERGED_INTO_CATALOG": 65,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 13,
+    "COMING_SOON": 0,
+    "CLOSED": 0,
+    "EXCLUDED": 4,
+    "DUPLICATE_LEGACY": 0
+  },
+  "rebrand_map": {
+    "one_escape_to_iconic_smithfield": {
+      "legacy": "One Escape Health Club",
+      "current": "Iconic Health Clubs Smithfield",
+      "id": "ie_42999953b2"
+    },
+    "aura_depaul_excluded_pool_only": {
+      "id": "ie_31276d22be",
+      "status": "EXCLUDED"
+    },
+    "phase3_ready_preserved_count": 63,
+    "phase4_recovered": [
+      "ie_36b8a305fe",
+      "ie_edd9fa4599"
+    ]
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous_production": 10878,
+    "new_production": 10943,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "IRELAND MERGE COMPLETE — WAITING FOR QA",
+  "post_merge_sha256": "5790acc0a384eef02c40269dd55e72488555e29c4a7970ff27b231a3239f4a30",
+  "staging_reconciliation": {
+    "production_ie_ids": 65,
+    "staging_merged_ids": 65,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "country": "Latvia",
+  "reconciliation_type": "ZERO_DELTA_PRESERVE_33",
+  "generated_at": "2026-08-29T13:38:59.877Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "production_total_before": 11923,
+  "production_total_after": 11923,
+  "production_sha256_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "production_sha256_after": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "latvia_before": 33,
+  "latvia_after": 33,
+  "phase2_inputs": {
+    "keep_existing": 33,
+    "new_ready_to_import": 0,
+    "existing_review_required": 0,
+    "coming_soon": 1,
+    "excluded": 40,
+    "closed": 0
+  },
+  "approved_for_production": 33,
+  "id_reconciliation": {
+    "keep_existing_ids": 33,
+    "approved_ids": 33,
+    "production_latvia_ids": 33,
+    "exact_id_match_count": 33,
+    "missing_from_production": [],
+    "unexpected_in_production": [],
+    "approved_missing_from_production": [],
+    "production_not_in_approved": []
+  },
+  "metadata": {
+    "material_metadata_drift_count": 0,
+    "material_metadata_drift": [],
+    "existing_rows_changed": 0
+  },
+  "coming_soon": {
+    "identity": "lv_eb2ad44f7d",
+    "coming_soon_count": 1,
+    "coming_soon_in_production": [],
+    "coming_soon_inserted": 0
+  },
+  "excluded": {
+    "excluded_count": 40,
+    "excluded_in_production": [],
+    "excluded_inserted": 0
+  },
+  "brand_inventory": {
+    "Gym!": 10,
+    "Lemon Gym": 8,
+    "MyFitness": 15
+  },
+  "expected_brands": {
+    "MyFitness": 15,
+    "Lemon Gym": 8,
+    "Gym!": 10
+  },
+  "brand_inventory_reconciles": true,
+  "class_a": {
+    "chain_class_a_approved": 33,
+    "class_a_chain_count": 3,
+    "class_a_chain_names": [
+      "MyFitness",
+      "Lemon Gym",
+      "Gym!"
+    ],
+    "myfitness": 15,
+    "lemon_gym": 8,
+    "gym_bang": 10,
+    "estate_drift": {
+      "myfitness": 0,
+      "lemon_gym": 0,
+      "gym_bang": 0
+    }
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "latvia_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0
+  },
+  "cross_border": {
+    "estonia_outliers": 0,
+    "lithuania_outliers": 0,
+    "russia_outliers": 0,
+    "belarus_outliers": 0,
+    "valka_valga_identity_collisions": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "latvia_before": 33,
+    "latvia_after": 33,
+    "lv_prefix_before": 33,
+    "lv_prefix_after": 33
+  },
+  "proposed_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "production_write_performed": false,
+  "projected_catalog_after_reconciliation": 11923,
+  "crosses_12500": false,
+  "remaining_headroom": 577,
+  "global_stress_qa_required": false,
+  "global_stress_qa_run": false,
+  "prior_country_counts": {
+    "Estonia": 69,
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "performance": {
+    "catalog_total": 11923,
+    "centers_json_bytes": 3706426
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "phase2_verdict": "READY FOR LATVIA PRODUCTION RECONCILIATION",
+  "verdict": "LATVIA RECONCILIATION COMPLETE — ZERO DELTA — WAITING FOR QA"
+}

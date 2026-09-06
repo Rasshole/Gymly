@@ -1,0 +1,188 @@
+{
+  "generated_at": "2026-08-29T14:26:33.324Z",
+  "live_catalog_total": 11929,
+  "live_malta": 24,
+  "post_reconciliation_sha": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "jest_exit_code": 1,
+  "prior_country_verification": {
+    "live": {
+      "Lithuania": 61,
+      "Latvia": 33,
+      "Estonia": 69,
+      "Slovenia": 33,
+      "Croatia": 80,
+      "Serbia": 63,
+      "Kosovo": 18,
+      "Albania": 9,
+      "Bosnia and Herzegovina": 31,
+      "North Macedonia": 25,
+      "Montenegro": 26,
+      "Moldova": 28,
+      "San Marino": 6,
+      "Monaco": 4,
+      "Andorra": 12,
+      "Liechtenstein": 7,
+      "Iceland": 27
+    },
+    "regressions": [],
+    "catalog_total": 11929,
+    "malta": 24
+  },
+  "summary": {
+    "TOTAL_HISTORICAL_SUITES_RUN": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 14,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "HISTORICAL_TESTS_FAILED": 14,
+    "STALE_HISTORICAL_BASELINE": 8,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 6,
+    "STALE_TOTAL_FAILURES": 8,
+    "REAL_COUNTRY_REGRESSIONS": 0
+  },
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "blocking_malta_qa": false,
+  "failures": [
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaPhase2Staging.test.ts",
+      "test": "Malta Deep Phase 2 staging (existing production reconciliation prep) production frozen at 11923 / Malta 18 / SHA unchanged",
+      "file": "__tests__/maltaPhase2Staging.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 11923\nReceived: 11929\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaPhase2Staging.test.ts:96:36)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-reconciliation baseline 11923 vs post-reconciliation live 11929"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaPhase1Staging.test.ts",
+      "test": "Malta Deep Phase 1 staging (existing production) production frozen at 11923 / Malta 18 / SHA unchanged",
+      "file": "__tests__/maltaPhase1Staging.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 11923\nReceived: 11929\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaPhase1Staging.test.ts:114:36)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-reconciliation baseline 11923 vs post-reconciliation live 11929"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 1. Catalog integrity / freeze total production = 11692; Malta = 18; mt_* = 18; SHA match",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 11692\nReceived: 11929\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:150:30)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Hard-coded catalog total 11692 vs live 11929"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 1. Catalog integrity / freeze production IDs reconcile with approved + Phase2 READY + staging MERGED",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 18\nReceived: 24\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:166:25)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-reconciliation baseline 18 vs post-reconciliation live 24"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 1. Catalog integrity / freeze all mt_* IDs unique with required fields and valid Malta geography",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 18\nReceived: 24\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:214:24)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-reconciliation baseline 18 vs post-reconciliation live 24"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 1. Catalog integrity / freeze exact brand breakdown; unexpected brands = 0",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toEqual(expected) // deep equality\n\n- Expected  - 0\n+ Received  + 4\n\n  Object {\n    \"24/7 Fitness Club\": 4,\n+   \"ActiveZone\": 1,\n    \"Best Gyms Malta\": 10,\n    \"Challenger Fitness\": 4,\n+   \"Cynergi\": 1,\n+   \"Fort Fitness\": 2,\n+   \"Kinetika Gozo\": 2,\n  }\n    at Object.toEqual (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:222:23)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts Malta gym QA 1. Catalog integrity / freeze exact"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 2. Staging exclusions / coming-soon / closed withheld MERGED 18 / CS 1 / CLOSED 3 / EXCLUDED 31; none live",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 18\nReceived: undefined\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:231:40)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts Malta gym QA 2. Staging exclusions / coming-soon"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 4. 24/7 Fitness Club QA has exactly 4 live clubs; historical closed absent",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 0\nReceived: 1\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:317:75)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts Malta gym QA 4. 24/7 Fitness Club QA has exactly"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 8. Border / island safety zero Italy/Sicily/foreign contamination",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBeGreaterThan(expected)\n\nExpected: > 14.3\nReceived:   14.241\n    at Object.toBeGreaterThan (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:404:24)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts Malta gym QA 8. Border / island safety zero Ital"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 9. Maltese text / brand / locality / postcode search resolves mt_* → Malta; orphan stub safe; display without raw id",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 18\nReceived: 24\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:419:54)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-reconciliation baseline 18 vs post-reconciliation live 24"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 9. Maltese text / brand / locality / postcode search brand and locality search resolve correct live centers; zero-chain not fabricated",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n    at toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:523:54)\n    at Object._loop3 (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:522:47)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts Malta gym QA 9. Maltese text / brand / locality "
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 10. Check-in / map / nearest / core ID flows map builds 18 Malta markers; no Birgu/closed/excluded",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 18\nReceived: 24\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:603:30)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-reconciliation baseline 18 vs post-reconciliation live 24"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 11. Country regression exact 30-country production counts totaling 11692",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 32\nReceived: 33\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:663:34)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts Malta gym QA 11. Country regression exact 30-cou"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts",
+      "test": "Malta gym QA 12. Performance snapshot + freeze records live catalog timings; under 12,500; KEEP CLIENT-SIDE; SHA unchanged",
+      "file": "__tests__/maltaGymQa.test.ts",
+      "messages": [
+        "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 11692\nReceived: 11929\n    at Object.toBe (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/maltaGymQa.test.ts:807:28)\n    at Promise.then.completed (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:252:3)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:126:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at _runTestsForDescribeBlock (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:121:9)\n    at run (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/run.js:71:3)\n    at runAndTransformResultsToJestFormat (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at jestAdapter (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at runTestInternal (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:367:16)\n    at runTest (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/runTest.js:444:34)\n    at Object.worker (/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/jest-runner/build/testWorker.js:106:12)"
+      ],
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-reconciliation SHA frozen in historical Phase 1/2 staging test"
+    }
+  ],
+  "note": "Phase 1/2 frozen-baseline failures after authorized +6 reconciliation are STALE_HISTORICAL_BASELINE and non-blocking when REAL_COUNTRY_REGRESSIONS=0."
+}

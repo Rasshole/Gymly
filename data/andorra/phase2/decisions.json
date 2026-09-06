@@ -1,0 +1,67 @@
+{
+  "class_a": {
+    "operator_group": "AnyósPark / Urban Gym",
+    "shared_membership": true,
+    "year_round_clear_urban_anyos_sites": 2,
+    "canillo_reclassified": "Palau de Gel gym (municipal/sports-complex operated; historically Urban-branded)",
+    "arinsal": "seasonal Dec–Apr/May — EXCLUDED_SEASONAL",
+    "qualifies_class_a": false,
+    "reason": "Only AnyósPark La Massana + Urban Gym Andorra la Vella have clear year-round Urban/AnyósPark consumer membership products. Canillo gym is currently sold and operated as Palau de Gel gimnàs (Perecaus temporary during remodel). Arinsal seasonal. 2 < 3 Class A threshold."
+  },
+  "rows": {
+    "ad_8989e7b07f": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_488e241114": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_1fb5491cda": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT",
+      "rebrand": "Urban Gym Canillo → Palau de Gel"
+    },
+    "ad_9447826d36": {
+      "verdict": "EXCLUDED_SEASONAL",
+      "open_months": "December–April/May",
+      "policy": "C_EXCLUDED_SEASONAL"
+    },
+    "ad_6fc179f949": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_2594f0bd4f": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_be0d30a1f0": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_2759cd904a": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_cfb6dcda5e": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_918cf36646": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_8e838a1d13": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_886040e59f": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_ae9200b719": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    }
+  }
+}

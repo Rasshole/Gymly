@@ -1,0 +1,12 @@
+{
+  "hard_duplicate_conflicts": 0,
+  "russian_transliteration_duplicate_conflicts": 0,
+  "unresolved_ready_rebrand_conflicts": 0,
+  "proximity": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 6,
+    "lt200": 13,
+    "identical": 0
+  }
+}

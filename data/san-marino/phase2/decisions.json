@@ -1,0 +1,29 @@
+{
+  "recovered_ids": [
+    "sm_54007fb102",
+    "sm_8e18d472a9",
+    "sm_cc1fd3ba1d",
+    "sm_3c035258fb",
+    "sm_d1cb014d10",
+    "sm_a5d9743343"
+  ],
+  "promoted": [
+    "sm_54007fb102",
+    "sm_8e18d472a9",
+    "sm_cc1fd3ba1d",
+    "sm_3c035258fb",
+    "sm_d1cb014d10",
+    "sm_a5d9743343"
+  ],
+  "excluded_from_phase1_review": [],
+  "missed_sweep": {
+    "bodyline": "EXCLUDED_AESTHETIC",
+    "pfc_studio": "EXCLUDED_PT_APPOINTMENT_ONLY",
+    "games_fit": "CLOSED_2018",
+    "new_ready": 0
+  },
+  "fsbb": "A_PUBLIC_CONVENTIONAL_GYM",
+  "energia": "READY_WELLNESS_ADDITIVE",
+  "move": "READY_INDEPENDENT_ON_CAMPUS",
+  "multieventi": "EXCLUDED"
+}

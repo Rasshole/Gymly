@@ -1,0 +1,64 @@
+{
+  "country": "Greece",
+  "prefix": "gr_",
+  "generated_at": "2026-08-22T21:06:40.867085+00:00",
+  "production_total": 10772,
+  "unique_staged": 91,
+  "status_counts": {
+    "READY_TO_IMPORT": 68,
+    "NEEDS_COORDINATES": 21,
+    "DUPLICATE": 1,
+    "NEEDS_REVIEW": 1
+  },
+  "ready_count": 68,
+  "ready_by_brand": {
+    "Alterlife": 66,
+    "Holmes Place": 2
+  },
+  "brand_counts": {
+    "Alterlife": 88,
+    "Holmes Place": 3
+  },
+  "city_coverage": {
+    "Athens": true,
+    "Αθήνα": true,
+    "Thessaloniki": false,
+    "Θεσσαλονίκη": true,
+    "Patras": false,
+    "Πάτρα": false,
+    "Heraklion": false,
+    "Ηράκλειο": true,
+    "Larissa": false,
+    "Volos": false,
+    "Ioannina": false,
+    "Chania": false,
+    "Rhodes": false,
+    "Kalamata": false
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "production_collisions": 0,
+  "proximity_summary": {
+    "lt25": 1,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 10840,
+  "verdict": "GREECE PHASE 2 REQUIRED BEFORE MERGE",
+  "coverage_notes": {
+    "Alterlife": "WP API club list + per-club HTML address recovery",
+    "Yava": "JS-rendered locator — PHASE 2 REQUIRED for near-complete estate",
+    "Holmes Place Greece": "Official locator pins (GR-only)",
+    "Islands": "Chain presence captured when present in Alterlife/Yava; no indie crawl"
+  },
+  "geocoded_this_run": 22
+}

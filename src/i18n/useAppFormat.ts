@@ -1,6 +1,7 @@
 import {useCallback, useMemo} from 'react';
 import {format} from 'date-fns';
 import {useTranslation} from './LanguageContext';
+import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
 
 /** App-language date/streak formatting (not device locale). */
 export function useAppFormat() {
@@ -71,20 +72,8 @@ export function useAppFormat() {
   );
 
   const formatTrainingDuration = useCallback(
-    (minutes: number) => {
-      if (minutes < 60) {
-        return t('format.durationMinutes', {count: String(minutes)});
-      }
-      const hours = Math.floor(minutes / 60);
-      const remainder = minutes % 60;
-      return remainder === 0
-        ? t('format.durationHoursOnly', {hours: String(hours)})
-        : t('format.durationHoursMinutes', {
-            hours: String(hours),
-            minutes: String(remainder),
-          });
-    },
-    [t],
+    (minutes: number) => formatWorkoutDuration(minutes),
+    [],
   );
 
   return {

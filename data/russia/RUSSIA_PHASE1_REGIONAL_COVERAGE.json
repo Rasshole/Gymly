@@ -1,0 +1,23 @@
+{
+  "regions": {
+    "Central": "A",
+    "Northwest": "A",
+    "Volga": "A",
+    "Urals": "A",
+    "Siberia": "A",
+    "South": "B",
+    "Far East": "D",
+    "Disputed": "B",
+    "Other": "A"
+  },
+  "ready_by_region": {
+    "Central": 114,
+    "Other": 66,
+    "Northwest": 15,
+    "Siberia": 8,
+    "Urals": 5,
+    "Volga": 2
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0
+}

@@ -1,0 +1,7 @@
+{
+  "new_ready_invalid_coordinates": 0,
+  "new_ready_fallback_coordinates": 0,
+  "new_ready_centroid_coordinates": 0,
+  "apollo_city_metadata_errors": 0,
+  "ready_city_metadata_errors": 0
+}

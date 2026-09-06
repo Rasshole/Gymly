@@ -1,0 +1,57 @@
+{
+  "started": "2026-08-17T17:04:09Z",
+  "chains": {
+    "puregym": {
+      "discovered": 494
+    },
+    "the_gym_group": {
+      "discovered": 253
+    },
+    "jd_gyms": {
+      "discovered": 112
+    },
+    "david_lloyd": {
+      "discovered": 113
+    },
+    "nuffield": {
+      "discovered": 123
+    },
+    "bannatyne": {
+      "discovered": 86
+    },
+    "fitness_first": {
+      "discovered": 24
+    },
+    "snap": {
+      "discovered": 0
+    },
+    "energie": {
+      "discovered": 48
+    },
+    "anytime": {
+      "discovered": 187
+    },
+    "buzz": {
+      "discovered": 11
+    },
+    "everlast": {
+      "discovered": 61
+    }
+  },
+  "total_pre_geocode": 1512,
+  "by_chain": {
+    "puregym": 494,
+    "the_gym_group": 253,
+    "jd_gyms": 112,
+    "david_lloyd": 113,
+    "nuffield": 123,
+    "bannatyne": 86,
+    "fitness_first": 24,
+    "snap": 0,
+    "energie": 48,
+    "anytime": 187,
+    "buzz": 11,
+    "everlast": 61
+  },
+  "finished": "2026-08-17T17:08:48Z"
+}

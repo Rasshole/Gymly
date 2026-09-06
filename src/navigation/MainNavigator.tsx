@@ -11,6 +11,7 @@ import {
   useNavigation,
   CompositeNavigationProp,
   NavigatorScreenParams,
+  getFocusedRouteNameFromRoute,
 } from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
@@ -19,27 +20,25 @@ import colors from '@/theme/colors';
 import {spacing, radius} from '@/theme/designTokens';
 
 const HEADER_ICON = 24;
-/** Equal-width header slots so the title stays visually centered on iOS */
-const HEADER_SIDE_SLOT = 132;
+/** Right/left header padding — avoid fixed wide slots that clip icons on compact phones */
+const HEADER_SIDE_PAD = spacing.sm;
 
 const tabHeaderStyles = StyleSheet.create({
   headerSideLeft: {
-    width: HEADER_SIDE_SLOT,
     justifyContent: 'center',
     alignItems: 'flex-start',
-    paddingLeft: spacing.sm,
+    paddingLeft: HEADER_SIDE_PAD,
   },
   headerSideRight: {
-    width: HEADER_SIDE_SLOT,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingRight: spacing.sm,
-    gap: 4,
+    paddingRight: HEADER_SIDE_PAD,
+    gap: 2,
   },
   iconTap: {
-    width: 40,
-    height: 40,
+    width: 44,
+    height: 44,
     borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
@@ -65,6 +64,7 @@ import MessagesScreen from '@/screens/main/MessagesScreen';
 import BadgesScreen from '@/screens/main/BadgesScreen';
 import FriendsNavigator from '@/screens/main/FriendsNavigator';
 import CheckInScreen from '@/screens/main/CheckInScreen';
+import LiveWorkoutScreen from '@/screens/main/LiveWorkoutScreen';
 import NotificationsScreen from '@/screens/main/NotificationsScreen';
 import NewMessageScreen from '@/screens/main/NewMessageScreen';
 import ChatScreen from '@/screens/main/ChatScreen';
@@ -91,6 +91,10 @@ import AboutGymlyScreen from '@/screens/main/AboutGymlyScreen';
 import TermsScreen from '@/screens/main/TermsScreen';
 import PrivacyPolicyScreen from '@/screens/main/PrivacyPolicyScreen';
 import WorkoutHistoryScreen from '@/screens/main/WorkoutHistoryScreen';
+import WorkoutHistoryDetailScreen from '@/screens/main/WorkoutHistoryDetailScreen';
+import ShareWorkoutScreen from '@/screens/main/ShareWorkoutScreen';
+import SharedWorkoutDetailScreen from '@/screens/main/SharedWorkoutDetailScreen';
+import ExercisePrDetailScreen from '@/screens/main/ExercisePrDetailScreen';
 import AllTrainingsScreen from '@/screens/main/AllTrainingsScreen';
 import UpcomingWorkoutsScreen from '@/screens/main/UpcomingWorkoutsScreen';
 import WorkoutScheduleScreen from '@/screens/main/WorkoutScheduleScreen';
@@ -113,20 +117,30 @@ import {DemoContentOrchestrator} from '@/demo/DemoContentOrchestrator';
 import {PushNotificationBootstrap} from '@/components/push/PushNotificationBootstrap';
 import {UserBadgesRealtimeSync} from '@/components/badges/UserBadgesRealtimeSync';
 import {GymlyRealtimeHub} from '@/realtime/gymlyRealtimeHub';
-import {SURFACE_LEADERBOARD_IN_MAIN_CHROME} from '@/config/launchSurfaceConfig';
+import {SURFACE_LEADERBOARD_IN_MAIN_CHROME, SURFACE_SHOP_IN_TABS} from '@/config/launchSurfaceConfig';
 import {useTranslation} from '@/i18n';
 import {LanguageSettingsScreen} from '@/screens/settings/LanguageScreen';
+import {MessagesHeaderButton} from '@/components/navigation/MessagesHeaderButton';
+import LazyShopNavigator from '@/navigation/LazyShopNavigator';
+import {
+  getMainHeaderActions,
+  type MainTabHeaderKey,
+} from '@/navigation/mainHeaderActions';
+import {shouldHideMainTabBarForShopRoute} from '@/shop/utils/shopGridLayout';
 import type {ActiveCenter} from '@/types/activeCenter.types';
 import type {GymPresence} from '@/types/gymPresence.types';
 export type CheckInStackParamList = {
-  CheckInMain: undefined;
+  CheckInMain: {preselectedGroupId?: string} | undefined;
+  LiveWorkout: undefined;
 };
 
 export type MainTabParamList = {
   Home: undefined;
-  Friends: {screen?: 'Venner' | 'Centre' | 'Kort'};
-  Badges: {highlightBadgeId?: string} | undefined;
-  Messages: undefined;
+  Friends: {screen?: 'Venner' | 'Grupper' | 'Centre' | 'Kort'};
+  /** Present when SURFACE_SHOP_IN_TABS is false (safe five-tab fallback). */
+  Messages?: undefined;
+  /** Present when SURFACE_SHOP_IN_TABS is true. */
+  Shop?: undefined;
   Profile: undefined;
   CheckIn: NavigatorScreenParams<CheckInStackParamList> | undefined;
   Settings: undefined;
@@ -134,6 +148,8 @@ export type MainTabParamList = {
 
 export type MainStackParamList = {
   MainTabs: NavigatorScreenParams<MainTabParamList> | undefined;
+  /** Always available from header — not only as a tab. */
+  Messages: undefined;
   Settings: undefined;
   Notifications: {highlightNotificationId?: string} | undefined;
   NewMessage: undefined;
@@ -195,7 +211,19 @@ export type MainStackParamList = {
   Terms: undefined;
   PrivacyPolicy: undefined;
   WorkoutHistory: undefined;
+  WorkoutHistoryDetail: {sessionId: string};
+  ShareWorkout: {sessionId: string};
+  SharedWorkoutDetail: {
+    authorName: string;
+    gymName?: string;
+    snapshot: import('@/types/personalRecord.types').SharedWorkoutSnapshot;
+  };
+  ExercisePrDetail: {
+    exerciseName: string;
+    exerciseId?: string | null;
+  };
   AllTrainings: undefined;
+  Badges: {highlightBadgeId?: string} | undefined;
   UpcomingWorkouts: undefined;
   WorkoutSchedule: {
     initialTab?: 'upcoming' | 'history';
@@ -253,11 +281,13 @@ const CheckInStack = () => (
       },
     }}>
     <CheckInStackNav.Screen name="CheckInMain" component={CheckInScreen} />
+    <CheckInStackNav.Screen name="LiveWorkout" component={LiveWorkoutScreen} />
   </CheckInStackNav.Navigator>
 );
 
 // Settings button component for header
 const SettingsButton = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<CompositeNavigationProp<
     BottomTabNavigationProp<MainTabParamList>,
     StackNavigationProp<MainStackParamList>
@@ -269,7 +299,7 @@ const SettingsButton = () => {
       }}
       style={tabHeaderStyles.iconTap}
       activeOpacity={0.75}
-      accessibilityLabel="Indstillinger">
+      accessibilityLabel={t('a11y.settings')}>
       <Icon name="settings-outline" size={HEADER_ICON} color={colors.text} />
     </TouchableOpacity>
   );
@@ -294,6 +324,7 @@ const UpcomingButton = () => {
 
 /** Reserved for future competitive/social systems — gated by launchSurfaceConfig. */
 const LeaderboardHeaderButton = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<CompositeNavigationProp<
     BottomTabNavigationProp<MainTabParamList>,
     StackNavigationProp<MainStackParamList>
@@ -303,7 +334,7 @@ const LeaderboardHeaderButton = () => {
       onPress={() => navigation.navigate('Leaderboard')}
       style={tabHeaderStyles.iconTap}
       activeOpacity={0.75}
-      accessibilityLabel="Ranglister">
+      accessibilityLabel={t('a11y.leaderboards')}>
       <Icon name="trophy-outline" size={HEADER_ICON} color={colors.text} />
     </TouchableOpacity>
   );
@@ -340,6 +371,20 @@ const NotificationsButton = () => {
   );
 };
 
+const MainTabHeaderRight = ({tab}: {tab: MainTabHeaderKey}) => {
+  const actions = getMainHeaderActions(tab);
+  return (
+    <View style={tabHeaderStyles.headerSideRight}>
+      {actions.messages ? <MessagesHeaderButton /> : null}
+      {SURFACE_LEADERBOARD_IN_MAIN_CHROME && tab === 'Home' ? (
+        <LeaderboardHeaderButton />
+      ) : null}
+      {actions.calendar ? <UpcomingButton /> : null}
+      {actions.settings ? <SettingsButton /> : null}
+    </View>
+  );
+};
+
 const MainTabs = () => {
   const {t} = useTranslation();
   return (
@@ -363,48 +408,67 @@ const MainTabs = () => {
           color: colors.text,
           letterSpacing: -0.3,
         },
-        headerLeftContainerStyle: {minWidth: HEADER_SIDE_SLOT},
-        headerRightContainerStyle: {minWidth: HEADER_SIDE_SLOT},
         headerTintColor: colors.text,
         headerShown: true,
         headerLeft: () => <NotificationsButton />,
-        headerRight: () => (
-          <View style={tabHeaderStyles.headerSideRight}>
-            {SURFACE_LEADERBOARD_IN_MAIN_CHROME ? <LeaderboardHeaderButton /> : null}
-            <UpcomingButton />
-            <SettingsButton />
-          </View>
-        ),
       }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: t('tabs.home')}}
+        options={{
+          title: t('tabs.home'),
+          headerRight: () => <MainTabHeaderRight tab="Home" />,
+        }}
       />
       <Tab.Screen
         name="Friends"
         component={FriendsNavigator}
-        options={{title: t('tabs.friends')}}
+        options={{
+          title: t('tabs.friends'),
+          headerRight: () => <MainTabHeaderRight tab="Friends" />,
+        }}
       />
       <Tab.Screen
         name="CheckIn"
         component={CheckInStack}
-        options={{title: t('tabs.checkIn')}}
+        options={{
+          title: t('tabs.checkIn'),
+          headerRight: () => <MainTabHeaderRight tab="CheckIn" />,
+        }}
       />
-      <Tab.Screen
-        name="Badges"
-        component={BadgesScreen}
-        options={{title: t('tabs.badges')}}
-      />
-      <Tab.Screen
-        name="Messages"
-        component={MessagesScreen}
-        options={{title: t('tabs.messages')}}
-      />
+      {SURFACE_SHOP_IN_TABS ? (
+        <Tab.Screen
+          name="Shop"
+          component={LazyShopNavigator}
+          options={({route}) => {
+            const nested =
+              getFocusedRouteNameFromRoute(route) ?? 'ShopHome';
+            return {
+              title: t('tabs.shop'),
+              headerShown: false,
+              tabBarStyle: shouldHideMainTabBarForShopRoute(nested)
+                ? {display: 'none'}
+                : undefined,
+            };
+          }}
+        />
+      ) : (
+        <Tab.Screen
+          name="Messages"
+          component={MessagesScreen}
+          options={{
+            title: t('tabs.messages'),
+            headerRight: () => <MainTabHeaderRight tab="Messages" />,
+          }}
+        />
+      )}
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{title: t('tabs.profile')}}
+        options={{
+          title: t('tabs.profile'),
+          headerRight: () => <MainTabHeaderRight tab="Profile" />,
+        }}
       />
     </Tab.Navigator>
   );
@@ -436,6 +500,14 @@ const MainNavigator = () => {
         name="MainTabs"
         component={MainTabs}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Messages"
+        component={MessagesScreen}
+        options={{
+          title: t('tabs.messages'),
+          headerBackTitle: t('common.back'),
+        }}
       />
       <Stack.Screen
         name="Settings"
@@ -635,15 +707,51 @@ const MainNavigator = () => {
         name="WorkoutHistory"
         component={WorkoutHistoryScreen}
         options={{
-          title: t('nav.workoutHistory'),
+          title: t('workoutHistory.listTitle'),
           headerBackTitle: t('common.back'),
+        }}
+      />
+      <Stack.Screen
+        name="WorkoutHistoryDetail"
+        component={WorkoutHistoryDetailScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ShareWorkout"
+        component={ShareWorkoutScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="SharedWorkoutDetail"
+        component={SharedWorkoutDetailScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ExercisePrDetail"
+        component={ExercisePrDetailScreen}
+        options={{
+          headerShown: false,
         }}
       />
       <Stack.Screen
         name="AllTrainings"
         component={AllTrainingsScreen}
         options={{
-          title: t('nav.allTrainings'),
+          title: t('workoutHistory.listTitle'),
+          headerBackTitle: t('common.back'),
+        }}
+      />
+      <Stack.Screen
+        name="Badges"
+        component={BadgesScreen}
+        options={{
+          title: t('tabs.badges'),
           headerBackTitle: t('common.back'),
         }}
       />

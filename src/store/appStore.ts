@@ -11,6 +11,7 @@ import AuthService from '@/services/auth/AuthService';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {mergeProfileUsernameIntoUser, upsertMyProfile} from '@/services/supabase/friendService';
 import {useBadgeStore} from '@/store/badgeStore';
+import {useTrainingStatsStore} from '@/store/trainingStatsStore';
 import {completeWorkoutSession} from '@/services/session/completeWorkoutSession';
 import {
   fetchUserHomeGymIds,
@@ -129,6 +130,11 @@ export const useAppStore = create<AppState>((set, get) => ({
               );
           })
           .catch(() => {});
+        void useTrainingStatsStore
+          .getState()
+          .hydrate()
+          .then(() => useTrainingStatsStore.getState().load(mergedUser.id))
+          .catch(() => {});
         syncPublicProfileToSupabase(mergedUser);
         return;
       }
@@ -190,6 +196,11 @@ export const useAppStore = create<AppState>((set, get) => ({
             (user.displayName || '').trim() || 'Bruger',
           );
       })
+      .catch(() => {});
+    void useTrainingStatsStore
+      .getState()
+      .hydrate()
+      .then(() => useTrainingStatsStore.getState().load(user.id))
       .catch(() => {});
     syncPublicProfileToSupabase(user);
   },

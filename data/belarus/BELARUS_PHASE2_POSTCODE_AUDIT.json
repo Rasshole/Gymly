@@ -1,0 +1,8 @@
+{
+  "model": "NNNNNN (6 digits)",
+  "regex": "^\\d{6}$",
+  "new_ready_total": 46,
+  "valid_postcodes": 46,
+  "invalid_postcodes": 0,
+  "invalid_rows": []
+}

@@ -1,0 +1,103 @@
+{
+  "albania_ready": 0,
+  "montenegro_ready": 0,
+  "mk_ready": 0,
+  "serbia_ready": 0,
+  "foreign_probes_staged": 13,
+  "foreign_probes_excluded": 13,
+  "probes": [
+    {
+      "name": "Kukës AL border probe",
+      "city": "Kukës",
+      "territory": "Albania",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Bajram Curri AL border probe",
+      "city": "Bajram Curri",
+      "territory": "Albania",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Tropojë AL border probe",
+      "city": "Tropojë",
+      "territory": "Albania",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Rožaje ME border probe",
+      "city": "Rožaje",
+      "territory": "Montenegro",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Berane ME gym probe",
+      "city": "Berane",
+      "territory": "Montenegro",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Skopje MK gym probe",
+      "city": "Skopje",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Tetovo MK gym probe",
+      "city": "Tetovo",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Kumanovo MK gym probe",
+      "city": "Kumanovo",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Debar MK border probe",
+      "city": "Debar",
+      "territory": "North Macedonia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Novi Pazar RS gym probe",
+      "city": "Novi Pazar",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Vranje RS border probe",
+      "city": "Vranje",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Preševo RS border probe",
+      "city": "Preševo",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    },
+    {
+      "name": "Leskovac RS gym probe",
+      "city": "Leskovac",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_xk_gate": false
+    }
+  ],
+  "ready_all_zero": true,
+  "notes": "Phase2: all foreign probes remain EXCLUDED; cross-border READY = 0."
+}

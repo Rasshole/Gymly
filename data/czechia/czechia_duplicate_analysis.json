@@ -1,0 +1,16 @@
+{
+  "proximity_detail": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": []
+  },
+  "proximity_all_brands": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  }
+}

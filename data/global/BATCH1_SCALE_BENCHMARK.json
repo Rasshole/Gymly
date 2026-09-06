@@ -1,0 +1,115 @@
+{
+  "liveCatalog": 10772,
+  "liveActive": 10768,
+  "source": "npm run bench:catalog (Jest gymSearchIndex / searchGyms / nearest / map)",
+  "rows": [
+    {
+      "size": 10772,
+      "jsonBytes": 2500793,
+      "parseMs": 13,
+      "indexMs": 2099,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 1095,
+      "worstSearch2qMs": 169,
+      "nearestMs": 27,
+      "mapBuildMs": 33,
+      "mapFilterMs": 3
+    },
+    {
+      "size": 11000,
+      "jsonBytes": 2554095,
+      "parseMs": 12,
+      "indexMs": 1143,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 654,
+      "worstSearch2qMs": 150,
+      "nearestMs": 25,
+      "mapBuildMs": 31,
+      "mapFilterMs": 3
+    },
+    {
+      "size": 11500,
+      "jsonBytes": 2669294,
+      "parseMs": 14,
+      "indexMs": 2675,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 823,
+      "worstSearch2qMs": 187,
+      "nearestMs": 30,
+      "mapBuildMs": 36,
+      "mapFilterMs": 4
+    },
+    {
+      "size": 12000,
+      "jsonBytes": 2776875,
+      "parseMs": 14,
+      "indexMs": 1283,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 684,
+      "worstSearch2qMs": 173,
+      "nearestMs": 27,
+      "mapBuildMs": 33,
+      "mapFilterMs": 4
+    },
+    {
+      "size": 12500,
+      "jsonBytes": 2890917,
+      "parseMs": 13,
+      "indexMs": 1320,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 710,
+      "worstSearch2qMs": 183,
+      "nearestMs": 29,
+      "mapBuildMs": 34,
+      "mapFilterMs": 4
+    },
+    {
+      "size": 13000,
+      "jsonBytes": 3007840,
+      "parseMs": 13,
+      "indexMs": 1409,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 754,
+      "worstSearch2qMs": 185,
+      "nearestMs": 31,
+      "mapBuildMs": 37,
+      "mapFilterMs": 5
+    },
+    {
+      "size": 15000,
+      "jsonBytes": 3498327,
+      "parseMs": 17,
+      "indexMs": 1526,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 834,
+      "worstSearch2qMs": 192,
+      "nearestMs": 34,
+      "mapBuildMs": 41,
+      "mapFilterMs": 4
+    },
+    {
+      "size": 20000,
+      "jsonBytes": 4693443,
+      "parseMs": 22,
+      "indexMs": 2086,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 1209,
+      "worstSearch2qMs": 291,
+      "nearestMs": 46,
+      "mapBuildMs": 53,
+      "mapFilterMs": 7
+    },
+    {
+      "size": 25000,
+      "jsonBytes": 5856429,
+      "parseMs": 27,
+      "indexMs": 2635,
+      "indexCachedMs": 0,
+      "typicalSearch3qMs": 1477,
+      "worstSearch2qMs": 346,
+      "nearestMs": 55,
+      "mapBuildMs": 58,
+      "mapFilterMs": 8
+    }
+  ]
+}

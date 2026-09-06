@@ -1,0 +1,10 @@
+{
+  "runs": 30,
+  "min_ms": 15,
+  "median_ms": 18,
+  "p95_ms": 31,
+  "max_ms": 85,
+  "mean_ms": 20.9,
+  "catalog_bytes": 4014884,
+  "catalog_mb": 3.829
+}

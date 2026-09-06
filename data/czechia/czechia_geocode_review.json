@@ -1,0 +1,113 @@
+{
+  "items": [
+    {
+      "id": "cz_db863bd82a",
+      "reason": "missing_postal_for_geocode"
+    },
+    {
+      "id": "cz_15ae8b3b7e",
+      "reason": "missing_postal_for_geocode"
+    },
+    {
+      "id": "cz_1d1e1794d2",
+      "reason": "missing_postal_for_geocode"
+    },
+    {
+      "id": "cz_92bc2852dc",
+      "brand": "Form Factory",
+      "name": "Form Factory Kolbenova",
+      "query": "Kolbenova 886/92, 190 00, Praha, Czechia"
+    },
+    {
+      "id": "cz_959b6e4d42",
+      "reason": "missing_postal_for_geocode"
+    },
+    {
+      "id": "cz_fc15b6b1f1",
+      "reason": "missing_postal_for_geocode"
+    },
+    {
+      "id": "cz_e4942fde4a",
+      "brand": "Form Factory",
+      "name": "Form Factory SO-HO",
+      "query": "SO-HO Rezidence Holešovice, V Háji 10, 170 00, Praha, Czechia"
+    },
+    {
+      "id": "cz_8f312abffd",
+      "brand": "Form Factory",
+      "name": "Form Factory Vlněna",
+      "query": "Vlněna 526/7 (budova D), 602 00, Brno, Czechia"
+    },
+    {
+      "id": "cz_52deb846a9",
+      "brand": "Form Factory",
+      "name": "Form Factory Zličín",
+      "query": "Metropole Zličín, Řevnická 1, 155 21, Praha, Czechia"
+    },
+    {
+      "id": "cz_a6027a8c1e",
+      "brand": "Form Factory",
+      "name": "Form Factory Cubex",
+      "query": "Form Factory Cubex, 209 76, Praha, Czechia"
+    },
+    {
+      "id": "cz_fc39b7f7a5",
+      "brand": "Form Factory",
+      "name": "Form Factory Hradčanská",
+      "query": "Form Factory Hradčanská, 116 10, Praha, Czechia"
+    },
+    {
+      "id": "cz_b0f99f6760",
+      "reason": "missing_postal_for_geocode"
+    },
+    {
+      "id": "cz_58e478183d",
+      "brand": "Max Fitness",
+      "name": "Max Fitness Fitness Centrum Dejvice",
+      "query": "Gen. Píky 430/26, 160 00 Praha 6, 160 00, Praha, Czechia"
+    },
+    {
+      "id": "cz_92bc2852dc",
+      "brand": "Form Factory",
+      "name": "Form Factory Kolbenova",
+      "query": "Kolbenova 886/92, 190 00, Praha, Czechia"
+    },
+    {
+      "id": "cz_e4942fde4a",
+      "brand": "Form Factory",
+      "name": "Form Factory SO-HO",
+      "query": "SO-HO Rezidence Holešovice, V Háji 10, 170 00, Praha, Czechia"
+    },
+    {
+      "id": "cz_8f312abffd",
+      "brand": "Form Factory",
+      "name": "Form Factory Vlněna",
+      "query": "Vlněna 526/7 (budova D), 602 00, Brno, Czechia"
+    },
+    {
+      "id": "cz_52deb846a9",
+      "brand": "Form Factory",
+      "name": "Form Factory Zličín",
+      "query": "Metropole Zličín, Řevnická 1, 155 21, Praha, Czechia"
+    },
+    {
+      "id": "cz_a6027a8c1e",
+      "brand": "Form Factory",
+      "name": "Form Factory Cubex",
+      "query": "Form Factory Cubex, 209 76, Praha, Czechia"
+    },
+    {
+      "id": "cz_fc39b7f7a5",
+      "brand": "Form Factory",
+      "name": "Form Factory Hradčanská",
+      "query": "Form Factory Hradčanská, 116 10, Praha, Czechia"
+    },
+    {
+      "id": "cz_58e478183d",
+      "brand": "Max Fitness",
+      "name": "Max Fitness Fitness Centrum Dejvice",
+      "query": "Gen. Píky 430/26, 160 00 Praha 6, 160 00, Praha, Czechia"
+    }
+  ],
+  "count": 20
+}

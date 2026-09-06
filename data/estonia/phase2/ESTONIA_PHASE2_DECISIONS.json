@@ -1,0 +1,929 @@
+[
+  {
+    "id": "ee_136e41e3e3",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Akadeemia",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_afece56ea8",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Avala",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_46170252aa",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Hipodroom",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_a0cca1d483",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Ihaste",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_909073b14a",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Jõgeva",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_b98dd63ae1",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Jõhvi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_23d13ee680",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Järveküla",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_a15aae2d15",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Keila Keskus",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_ad538cbf34",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Keila Vesiveski",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_d5090f3a35",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Kiili",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_fd66efe699",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Kopli",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_dfe043052a",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Kuressaare",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_8cc21c4cd5",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Laki",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_3c7ccf381f",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Luige",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_71c90c9c79",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Narva",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_93a443e72e",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Paepargi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_03c252c3d0",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Peetri",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_4022ce3e3c",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Port Artur",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_832f129d3f",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Priisle",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_c0961f58de",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Raadi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_2859632c67",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Rakvere",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_bef6f55067",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Saue",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_d3bdd981df",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Sepa Keskus",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_f94ec93820",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Sõbrakeskus",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_34384840a3",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Tabasalu",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_a98a29c5df",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Tõnismägi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_43b2f4c7e2",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Tähesaju",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_1a90775797",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Vabaduse",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_7707002ac8",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Viljandi Kaalu",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_b8f6139ad6",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Viljandi Riia",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_9d4bb8e396",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Võru",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_141f92d21d",
+    "brand": "Golden Club",
+    "name": "Golden Club Rotermanni",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_b9bc209fd8",
+    "brand": "Golden Club",
+    "name": "Golden Club Tondi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_a3aff2f162",
+    "brand": "Golden Club",
+    "name": "Golden Club Viimsi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_a39df7a926",
+    "brand": "Gym!",
+    "name": "Gym! Astri",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_7346437c59",
+    "brand": "Gym!",
+    "name": "Gym! Jõhvi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_9f63cae695",
+    "brand": "Gym!",
+    "name": "Gym! Kerese",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_02781d2158",
+    "brand": "Gym!",
+    "name": "Gym! Mustika",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_b8c1d8bc6e",
+    "brand": "Gym!",
+    "name": "Gym! Pärnu",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_e62a625275",
+    "brand": "Gym!",
+    "name": "Gym! Rocca al Mare",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_1223384fb6",
+    "brand": "Gym!",
+    "name": "Gym! Solaris",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_fd122813c5",
+    "brand": "Gym!",
+    "name": "Gym! Tasku",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_eeb3b2ed6e",
+    "brand": "Gym!",
+    "name": "Gym! Tehnopol",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_0464e0b52f",
+    "brand": "Gym!",
+    "name": "Gym! Vanalinn",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_c46ffdde83",
+    "brand": "Gym!",
+    "name": "Gym! Veeriku",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_6f01f6ecd7",
+    "brand": "Gym!",
+    "name": "Gym! Virbi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_206498f4e2",
+    "brand": "Gym!",
+    "name": "Gym! Õismäe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_d2f42682e1",
+    "brand": "Gym!",
+    "name": "Gym! Ülemiste",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_c752f2b24e",
+    "brand": "Gym!",
+    "name": "Gym! Ülenurme",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_355933c364",
+    "brand": "MyFitness",
+    "name": "MyFitness Balti Jaama Turg",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_7d5ca69d64",
+    "brand": "MyFitness",
+    "name": "MyFitness Järve",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_8225d3bb1d",
+    "brand": "MyFitness",
+    "name": "MyFitness Kristiine",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_dcc71d4e59",
+    "brand": "MyFitness",
+    "name": "MyFitness Lasnamäe Kärberi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_a8e37194c2",
+    "brand": "MyFitness",
+    "name": "MyFitness Lasnamäe Linnamäe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_1e612943e0",
+    "brand": "MyFitness",
+    "name": "MyFitness Mustamäe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_6353f66ecd",
+    "brand": "MyFitness",
+    "name": "MyFitness Narva Fama",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_287161a69a",
+    "brand": "MyFitness",
+    "name": "MyFitness Pirita",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_e47c68a9de",
+    "brand": "MyFitness",
+    "name": "MyFitness Postimaja",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_4f65d6f0eb",
+    "brand": "MyFitness",
+    "name": "MyFitness Rocca al Mare",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_8d111de06c",
+    "brand": "MyFitness",
+    "name": "MyFitness Rävala",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_834e59f825",
+    "brand": "MyFitness",
+    "name": "MyFitness Tartu Annelinn",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_5792883bb0",
+    "brand": "MyFitness",
+    "name": "MyFitness Tartu Kesklinn",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_a089358904",
+    "brand": "MyFitness",
+    "name": "MyFitness Tartu Lõunakeskus",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_27690314de",
+    "brand": "MyFitness",
+    "name": "MyFitness Viimsi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_67132ad9d1",
+    "brand": "MyFitness",
+    "name": "MyFitness Viljandi",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_751f32334b",
+    "brand": "MyFitness",
+    "name": "MyFitness Viru",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_2544fa6a0b",
+    "brand": "MyFitness",
+    "name": "MyFitness Volta",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_538bb1b19c",
+    "brand": "MyFitness",
+    "name": "MyFitness Ülemiste City",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_68_of_68",
+    "in_production": true
+  },
+  {
+    "id": "ee_d6f5429ffa",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Pirita",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "24-7fitness.ee — Avame oktoober 2026; not yet open",
+    "in_production": false
+  },
+  {
+    "id": "ee_525d7cb043",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Annelinn",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "24-7fitness.ee — Avame sügis 2026; Annelinn branch not yet open",
+    "in_production": false
+  },
+  {
+    "id": "ee_5c173a5f8b",
+    "brand": "24-7 Fitness",
+    "name": "24-7 Fitness Mai",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "24-7fitness.ee — Avame sügis 2026; Mai/Papiniidu branch not yet open",
+    "in_production": false
+  },
+  {
+    "id": "ee_05114ce91a",
+    "brand": "Gym!",
+    "name": "Gym! Viimsi",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "gymeesti.ee/klubid — Viimsi listed; autumn 2026 opening; not yet operational",
+    "in_production": false
+  },
+  {
+    "id": "ee_cc255a409d",
+    "brand": "Gym!",
+    "name": "Gym! Rakvere",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "gymeesti.ee/klubid — Rakvere listed; end-2026 opening; not yet operational",
+    "in_production": false
+  },
+  {
+    "id": "ee_8dc45f1c66",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Mustakivi",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_103e1b56c6",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Tartu",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_725700475f",
+    "brand": "Reval-Sport",
+    "name": "Reval-Sport Tallinn",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_1cf688bf39",
+    "brand": "Sparta",
+    "name": "Sparta Tallinn",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_0f9c7ecabf",
+    "brand": "FitLife",
+    "name": "FitLife Tartu Eeden",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_6cb32c0ae2",
+    "brand": "HC Gym",
+    "name": "HC Gym",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_1731290853",
+    "brand": "People Fitness",
+    "name": "People Fitness EE",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_eeba04d2bc",
+    "brand": "Gym+",
+    "name": "Gym+ Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_577916abdc",
+    "brand": "Impuls",
+    "name": "Impuls Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_2eabb3e104",
+    "brand": "Basic-Fit",
+    "name": "Basic-Fit Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_cdacdae71f",
+    "brand": "McFIT",
+    "name": "McFIT Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_dc0f5cf5a8",
+    "brand": "Anytime Fitness",
+    "name": "Anytime Fitness Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_386191decf",
+    "brand": "FITINN",
+    "name": "FITINN Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_9d04b77ba3",
+    "brand": "clever fit",
+    "name": "clever fit Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_0082cf606d",
+    "brand": "World Class",
+    "name": "World Class Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_e77a221bbb",
+    "brand": "Fitness First",
+    "name": "Fitness First Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_2e7e1f30af",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_c514c13d21",
+    "brand": "JOHN REED",
+    "name": "JOHN REED Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_a2fbf6fc43",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_4c2eb1ae06",
+    "brand": "Shape House",
+    "name": "Shape House Estonia",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_91d7bd69f0",
+    "brand": "FitLife",
+    "name": "FitLife Tartu Eeden",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "fitlife.ee — conventional 24/7 public gym Eeden centre; memberships €25–45/mo; day pass €10 at turnstile; OSM leisure=fitness_centre FitLife Kalda tee 1c",
+    "in_production": false
+  },
+  {
+    "id": "ee_c23ed9d698",
+    "brand": "Audentes",
+    "name": "Audentes Spordikeskus fitness",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Audentes private sports school; access tied to school/athlete programmes, not ordinary public gym",
+    "in_production": false
+  },
+  {
+    "id": "ee_388290af6f",
+    "brand": "Tervise Paradiis",
+    "name": "Tervise Paradiis Aqua & Spa fitness",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Tervise Paradiis aqua/spa primary; no independently consumer-facing conventional gym",
+    "in_production": false
+  },
+  {
+    "id": "ee_4f134b7823",
+    "brand": "Valga Spordikeskus",
+    "name": "Valga Spordikeskus fitness room",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Valga municipal sports hall; no verified ordinary public gym membership/day-access model",
+    "in_production": false
+  },
+  {
+    "id": "ee_6b10b38d8f",
+    "brand": "Haapsalu probe",
+    "name": "Haapsalu public gym candidate",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Haapsalu Phase 2 sweep — no credible conventional public gym; spa/wellness false-positive risk",
+    "in_production": false
+  },
+  {
+    "id": "ee_c36257ed6e",
+    "brand": "Kohtla-Järve probe",
+    "name": "Kohtla-Järve municipal fitness candidate",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Kohtla-Järve municipal candidate; restricted/athlete access not established for conventional gym",
+    "in_production": false
+  },
+  {
+    "id": "ee_e62d5c5dfa",
+    "brand": "Rapla probe",
+    "name": "Rapla independent gym candidate",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Rapla — no open conventional gym; 24-7 Rapla announced spring 2027 (not yet open)",
+    "in_production": false
+  },
+  {
+    "id": "ee_73741d5ab6",
+    "brand": "Maardu probe",
+    "name": "Maardu public gym candidate",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Maardu — no qualifying independent; Tallinn-adjacent chain coverage sufficient; no standalone gym verified",
+    "in_production": false
+  },
+  {
+    "id": "ee_d2a996268c",
+    "brand": "Foreign Probe",
+    "name": "Valka Latvia Border Probe",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "ee_1d0bb68f2f",
+    "brand": "Foreign Probe",
+    "name": "Ivangorod Russia Border Probe",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  }
+]

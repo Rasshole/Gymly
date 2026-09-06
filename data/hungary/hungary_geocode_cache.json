@@ -1,0 +1,662 @@
+{
+  "hu|etele út 57., 1119 budapest, hungary": {
+    "lat": 47.4641993,
+    "lng": 19.0308539,
+    "display_name": "Etele 57 irodaház, 57, Etele út, Kelenföld, XI. kerület, Budapest, Közép-Magyarország, 1119, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1119",
+    "country_code": "hu"
+  },
+  "hu|hengermalom út 19-21., 1117 budapest, hungary": {
+    "lat": 47.4596775,
+    "lng": 19.0514933,
+    "display_name": "Újbuda Center, 19-21, Hengermalom út, Kelenföld, XI. kerület, Budapest, Közép-Magyarország, 1117, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1117",
+    "country_code": "hu"
+  },
+  "hu|szegedi út 56., 1135 budapest, hungary": {
+    "lat": 47.5273653,
+    "lng": 19.0855997,
+    "display_name": "Chilli Fitness 3, 56, Szegedi út, Angyalföld, XIII. kerület, Budapest, Közép-Magyarország, 1135, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1135",
+    "country_code": "hu"
+  },
+  "hu|kossuth lajos u. 117., 1214 budapest, hungary": {
+    "lat": 47.4197659,
+    "lng": 19.0660584,
+    "display_name": "Főtáv, 117, Kossuth Lajos utca, Csepel-Erdőalja, XXI. kerület, Budapest, Közép-Magyarország, 1214, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1214",
+    "country_code": "hu"
+  },
+  "hu|vágóhíd u. 3/b,  debrecen, hungary": {
+    "lat": 47.5196249,
+    "lng": 21.6585051,
+    "display_name": "Vágóhíd utca, Bozzaytelep, Műhelytelep, Debrecen, Debreceni járás, Hajdú-Bihar vármegye, Észak-Alföld, Alföld és Észak, 4030, Magyarország",
+    "importance": 0.05340378194857706,
+    "postcode": "4030",
+    "country_code": "hu"
+  },
+  "hu|vágóhíd u. 3/b, debrecen, hungary": {
+    "lat": 47.5227201,
+    "lng": 21.6476775,
+    "display_name": "Vágóhíd utca, Zsibogó, Debrecen, Debreceni járás, Hajdú-Bihar vármegye, Észak-Alföld, Alföld és Észak, 4034, Magyarország",
+    "importance": 0.05340378194857706,
+    "postcode": "4034",
+    "country_code": "hu"
+  },
+  "hu|ráday utca 16., 1092 budapest, hungary": {
+    "lat": 47.4875255,
+    "lng": 19.0635681,
+    "display_name": "16, Ráday utca, Belső-Ferencváros, IX. kerület, Budapest, Közép-Magyarország, 1092, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1092",
+    "country_code": "hu"
+  },
+  "hu|czuczor utca 10., 1093 budapest, hungary": {
+    "lat": 47.580694,
+    "lng": 19.0829258,
+    "display_name": "10, Czuczor utca, Újpesti Duna-part, Újpest, IV. kerület, Budapest, Közép-Magyarország, 1044, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1044",
+    "country_code": "hu"
+  },
+  "hu|pozsonyi utca 17., 1045 budapest, hungary": {
+    "lat": 47.5553025,
+    "lng": 19.0900462,
+    "display_name": "4% Fitness Spirit, 17, Pozsonyi utca, Pozsonyi utcai lakótelep, Újpest Városközpont, Újpest, IV. kerület, Budapest, Közép-Magyarország, 1045, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1045",
+    "country_code": "hu"
+  },
+  "hu|rákóczi út 60., 1074 budapest, hungary": {
+    "lat": 47.4981768,
+    "lng": 19.0726237,
+    "display_name": "60, Rákóczi út, Erzsébetváros, VII. kerület, Budapest, Közép-Magyarország, 1074, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1074",
+    "country_code": "hu"
+  },
+  "hu|rákóczi út 47., 1088 budapest, hungary": {
+    "lat": 47.4973433,
+    "lng": 19.0725816,
+    "display_name": "47, Rákóczi út, Népszínháznegyed, VIII. kerület, Budapest, Közép-Magyarország, 1088, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1088",
+    "country_code": "hu"
+  },
+  "hu|paulay ede utca 25-27., 1061 budapest, hungary": {
+    "lat": 47.5008707,
+    "lng": 19.058374,
+    "display_name": "25-27, Paulay Ede utca, Terézváros, VI. kerület, Budapest, Közép-Magyarország, 1061, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1061",
+    "country_code": "hu"
+  },
+  "hu|erkel utca 18., 1092 budapest, hungary": {
+    "lat": 47.4879415,
+    "lng": 19.0640284,
+    "display_name": "18, Erkel utca, Belső-Ferencváros, IX. kerület, Budapest, Közép-Magyarország, 1092, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1092",
+    "country_code": "hu"
+  },
+  "hu|szabadság tér 7., 1054 budapest, hungary": {
+    "lat": 47.5026187,
+    "lng": 19.0521499,
+    "display_name": "Bank Center, 7, Szabadság tér, Lipótváros, V. kerület, Budapest, Közép-Magyarország, 1054, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1054",
+    "country_code": "hu"
+  },
+  "hu|nádas utca 8., 2120 dunakeszi, hungary": {
+    "lat": 47.6101612,
+    "lng": 19.1164023,
+    "display_name": "CityMarket, 8, Nádas utca, Dunakeszi Déli Ipari Park, Dunakeszi, Dunakeszi járás, Pest vármegye, Közép-Magyarország, 2120, Magyarország",
+    "importance": 5.746166170743904e-05,
+    "postcode": "2120",
+    "country_code": "hu"
+  },
+  "hu|szabadság út 1., 2400 dunaújváros, hungary": {
+    "lat": 46.9664432,
+    "lng": 18.9165962,
+    "display_name": "Z-box, 1, Szabadság út, Béke városrész, Dunaújváros, Dunaújvárosi járás, Fejér vármegye, Közép-Dunántúl, Dunántúl, 2400, Magyarország",
+    "importance": 6.217059586475956e-05,
+    "postcode": "2400",
+    "country_code": "hu"
+  },
+  "hu|pesti út 237f, 1173 budapest, hungary": {
+    "lat": 47.4738079,
+    "lng": 19.2712538,
+    "display_name": "Fitness 5 & Gyn, 237f, Pesti út, Rákoskeresztúr, XVII. kerület, Budapest, Közép-Magyarország, 1173, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1173",
+    "country_code": "hu"
+  },
+  "hu|nagykőrösi utca 2., 6000 kecskemét, hungary": {
+    "lat": 46.910048,
+    "lng": 19.6935511,
+    "display_name": "Centrum Áruház, 2, Nagykőrösi utca, Villanegyed, Belváros, Kecskemét, Kecskeméti járás, Bács-Kiskun vármegye, Dél-Alföld, Alföld és Észak, 6000, Magyarország",
+    "importance": 6.562218661779228e-05,
+    "postcode": "6000",
+    "country_code": "hu"
+  },
+  "hu|áruház köz 1., 1191 budapest, hungary": {
+    "lat": 47.4584838,
+    "lng": 19.1462892,
+    "display_name": "easybox, 1-3, Áruház köz, Felsődűlő, Kispest, XIX. kerület, Budapest, Közép-Magyarország, 1191, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1191",
+    "country_code": "hu"
+  },
+  "hu|liget tér 1., 1102 budapest, hungary": {
+    "lat": 47.4827312,
+    "lng": 19.1290041,
+    "display_name": "1, Liget tér, Kőbánya Városközpont, Óhegy, X. kerület, Budapest, Közép-Magyarország, 1102, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1102",
+    "country_code": "hu"
+  },
+  "hu|vak bottyán u. 75/a-c, 1191 budapest, hungary": {
+    "lat": 47.462773,
+    "lng": 19.1470775,
+    "display_name": "CCC, 75/a-c, Vak Bottyán utca, Felsődűlő, Kispest, XIX. kerület, Budapest, Közép-Magyarország, 1191, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1191",
+    "country_code": "hu"
+  },
+  "hu|király utca 36., 8800 nagykanizsa, hungary": {
+    "lat": 46.4542239,
+    "lng": 16.987489,
+    "display_name": "Aldi, 36, Király utca, Belváros, Nagykanizsa, Nagykanizsai járás, Zala vármegye, Nyugat-Dunántúl, Dunántúl, 8800, Magyarország",
+    "importance": 6.320973525592458e-05,
+    "postcode": "8800",
+    "country_code": "hu"
+  },
+  "hu|fehér út 1/b, 1104 budapest, hungary": {
+    "lat": 47.4923558,
+    "lng": 19.1419038,
+    "display_name": "Fehér út, Felsőrákos, X. kerület, Budapest, Közép-Magyarország, 1106, Magyarország",
+    "importance": 0.05341741893644614,
+    "postcode": "1106",
+    "country_code": "hu"
+  },
+  "hu|szentmihályi út 131., 1152 budapest, hungary": {
+    "lat": 47.5533209,
+    "lng": 19.1433339,
+    "display_name": "131, Szentmihályi út, Rákospalota, XV. kerület, Budapest, Közép-Magyarország, 1152, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1152",
+    "country_code": "hu"
+  },
+  "hu|cziffra györgy utca 15/b, 1184 budapest, hungary": {
+    "lat": 47.4330103,
+    "lng": 19.1783067,
+    "display_name": "Spar, 15/b, Cziffra György utca, Gloriett-telep, XVIII. kerület, Budapest, Közép-Magyarország, 1186, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1186",
+    "country_code": "hu"
+  },
+  "hu|hunyadi jános út 19., 1117 budapest, hungary": {
+    "lat": 47.4351556,
+    "lng": 19.0413414,
+    "display_name": "Savoya Park, 19, Hunyadi János út, Albertfalva, XI. kerület, Budapest, Közép-Magyarország, 1117, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1117",
+    "country_code": "hu"
+  },
+  "hu|sió utca 4., 8600 siófok, hungary": {
+    "lat": 46.9033848,
+    "lng": 18.0520406,
+    "display_name": "Sió utca, Belváros, Siófok, Siófoki járás, Somogy vármegye, Dél-Dunántúl, Dunántúl, 8600, Magyarország",
+    "importance": 0.05339405432211792,
+    "postcode": "8600",
+    "country_code": "hu"
+  },
+  "hu|balatoni út 44-46, 8000 székesfehérvár, hungary": {
+    "lat": 47.1645703,
+    "lng": 18.4052128,
+    "display_name": "Prémium Center, 44-46, Balatoni út, Rádió lakótelep, Székesfehérvár, Székesfehérvári járás, Fejér vármegye, Közép-Dunántúl, Dunántúl, 8000, Magyarország",
+    "importance": 6.705348287170242e-05,
+    "postcode": "8000",
+    "country_code": "hu"
+  },
+  "hu|edison tér 1., 1138 budapest, hungary": {
+    "lat": 47.5442766,
+    "lng": 19.073362,
+    "display_name": "Váci Greens Buliding B, 1, Edison tér, Angyalföld, XIII. kerület, Budapest, Közép-Magyarország, 1138, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1138",
+    "country_code": "hu"
+  },
+  "hu|aradi utca 8-10., 1062 budapest, hungary": {
+    "lat": 47.5068138,
+    "lng": 19.0628976,
+    "display_name": "OKTOGON Irodaház, 8-10, Aradi utca, Terézváros, VI. kerület, Budapest, Közép-Magyarország, 1062, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1062",
+    "country_code": "hu"
+  },
+  "hu|kecskeméti u. 14., 1053 budapest, hungary": {
+    "lat": 47.4899602,
+    "lng": 19.0611429,
+    "display_name": "Mercure Korona Hotel, 14, Kecskeméti utca, Pest, Belváros, V. kerület, Budapest, Közép-Magyarország, 1053, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1053",
+    "country_code": "hu"
+  },
+  "hu|lajos utca 66., 1036 budapest, hungary": {
+    "lat": 47.5304147,
+    "lng": 19.0393346,
+    "display_name": "Nr1Fitness Hungary, 66, Lajos utca, Újlak, III. kerület, Budapest, Közép-Magyarország, 1036, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1036",
+    "country_code": "hu"
+  },
+  "hu|naphegy utca 67., 1016 budapest, hungary": {
+    "lat": 47.491052,
+    "lng": 19.0376402,
+    "display_name": "Oxygen Wellness Naphegy, 67, Naphegy utca, Naphegy, Tabán, I. kerület, Budapest, Közép-Magyarország, 1016, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1016",
+    "country_code": "hu"
+  },
+  "hu|nagysándor józsef utca 31., 9027 győr, hungary": {
+    "lat": 47.6953888,
+    "lng": 17.6623561,
+    "display_name": "ETO Park Élményközpont, 31, Nagysándor József utca, Kiskút, Győr, Győri járás, Győr-Moson-Sopron vármegye, Nyugat-Dunántúl, Dunántúl, 9027, Magyarország",
+    "importance": 6.90341039138936e-05,
+    "postcode": "9027",
+    "country_code": "hu"
+  },
+  "hu|kálvin tér 10-12, 6000 kecskemét, hungary": {
+    "lat": 46.9073282,
+    "lng": 19.6946001,
+    "display_name": "Viktória Fitness, 10-12, Kálvin tér, Villanegyed, Belváros, Kecskemét, Kecskeméti járás, Bács-Kiskun vármegye, Dél-Alföld, Alföld és Észak, 6000, Magyarország",
+    "importance": 6.562218661779228e-05,
+    "postcode": "6000",
+    "country_code": "hu"
+  },
+  "hu|dózsa györgy út 160., 2100 gödöllő, hungary": {
+    "lat": 47.6122323,
+    "lng": 19.3353952,
+    "display_name": "160, Dózsa György út, Haraszt, Gödöllő, Gödöllői járás, Pest vármegye, Közép-Magyarország, 2100, Magyarország",
+    "importance": 6.066605630574529e-05,
+    "postcode": "2100",
+    "country_code": "hu"
+  },
+  "hu|vay ádám körút 20., 4400 nyíregyháza, hungary": {
+    "lat": 47.9582659,
+    "lng": 21.72103,
+    "display_name": "Aldi, 20, Vay Ádám körút, Belváros, Nyíregyháza, Nyíregyházi járás, Szabolcs-Szatmár-Bereg vármegye, Észak-Alföld, Alföld és Észak, 4400, Magyarország",
+    "importance": 6.508049134045956e-05,
+    "postcode": "4400",
+    "country_code": "hu"
+  },
+  "hu|balatoni út 2., 8000 székesfehérvár, hungary": {
+    "lat": 47.185673,
+    "lng": 18.4133407,
+    "display_name": "Cutler Gym, 2, Balatoni út, Tóvárosi lakónegyed, Székesfehérvár, Székesfehérvári járás, Fejér vármegye, Közép-Dunántúl, Dunántúl, 8000, Magyarország",
+    "importance": 6.705348287170242e-05,
+    "postcode": "8000",
+    "country_code": "hu"
+  },
+  "hu|megyeri út 76., 7623 pécs, hungary": {
+    "lat": 46.0513032,
+    "lng": 18.2122112,
+    "display_name": "Aldi, 76, Megyeri út, Füzes, Pécs, Pécsi járás, Baranya vármegye, Dél-Dunántúl, Dunántúl, 7632, Magyarország",
+    "importance": 6.98336766612805e-05,
+    "postcode": "7632",
+    "country_code": "hu"
+  },
+  "hu|lackner kristóf u. 35., 9400 sopron, hungary": {
+    "lat": 47.697982,
+    "lng": 16.5790402,
+    "display_name": "Sopron Plaza, 35, Lackner Kristóf utca, Bécsidomb, Sopron, Soproni járás, Győr-Moson-Sopron vármegye, Nyugat-Dunántúl, Dunántúl, 9400, Magyarország",
+    "importance": 6.62096589608151e-05,
+    "postcode": "9400",
+    "country_code": "hu"
+  },
+  "hu|nándorfejérvári út 40., 1116 budapest, hungary": {
+    "lat": 47.4616688,
+    "lng": 19.0457137,
+    "display_name": "40, Nándorfejérvári út, Kelenföld, XI. kerület, Budapest, Közép-Magyarország, 1116, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1116",
+    "country_code": "hu"
+  },
+  "hu|füredi u. 72-76., 1144 budapest, hungary": {
+    "lat": 47.5136723,
+    "lng": 19.1492048,
+    "display_name": "V+3B Bt., 72-76, Füredi utca, Füredi utcai lakótelep, Alsórákos, XIV. kerület, Budapest, Közép-Magyarország, 1144, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1144",
+    "country_code": "hu"
+  },
+  "hu|bogdáni út 1-3., 1033 budapest, hungary": {
+    "lat": 47.5499999,
+    "lng": 19.0465533,
+    "display_name": "Budapesti Harinyagyár, 1-3, Bogdáni út, Waterfront City, Aquincum, III. kerület, Budapest, Közép-Magyarország, 1033, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1033",
+    "country_code": "hu"
+  },
+  "hu|erkel utca 18. (onlygirls), 1092 budapest, hungary": null,
+  "hu|erkel utca 18. (onlygirls), budapest, hungary": null,
+  "hu|erkel utca 18. (garden 24/7), 1092 budapest, hungary": null,
+  "hu|erkel utca 18. (garden 24/7), budapest, hungary": null,
+  "hu|etele út 57, 1119 budapest, hungary": {
+    "lat": 47.4641993,
+    "lng": 19.0308539,
+    "display_name": "Etele 57 irodaház, 57, Etele út, Kelenföld, XI. kerület, Budapest, Közép-Magyarország, 1119, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1119",
+    "country_code": "hu"
+  },
+  "hu|hengermalom út 19-21, 1117 budapest, hungary": {
+    "lat": 47.4589973,
+    "lng": 19.0513655,
+    "display_name": "Tesco, 19-21, Hengermalom út, Kelenföld, XI. kerület, Budapest, Közép-Magyarország, 1117, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1117",
+    "country_code": "hu"
+  },
+  "hu|szegedi út 56, 1135 budapest, hungary": {
+    "lat": 47.5273653,
+    "lng": 19.0855997,
+    "display_name": "Chilli Fitness 3, 56, Szegedi út, Angyalföld, XIII. kerület, Budapest, Közép-Magyarország, 1135, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1135",
+    "country_code": "hu"
+  },
+  "hu|kossuth lajos u. 117, 1214 budapest, hungary": {
+    "lat": 47.4197659,
+    "lng": 19.0660584,
+    "display_name": "Főtáv, 117, Kossuth Lajos utca, Csepel-Erdőalja, XXI. kerület, Budapest, Közép-Magyarország, 1214, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1214",
+    "country_code": "hu"
+  },
+  "hu|ráday utca 16, 1092 budapest, hungary": {
+    "lat": 47.4875255,
+    "lng": 19.0635681,
+    "display_name": "16, Ráday utca, Belső-Ferencváros, IX. kerület, Budapest, Közép-Magyarország, 1092, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1092",
+    "country_code": "hu"
+  },
+  "hu|czuczor utca 10, 1093 budapest, hungary": {
+    "lat": 47.580694,
+    "lng": 19.0829258,
+    "display_name": "10, Czuczor utca, Újpesti Duna-part, Újpest, IV. kerület, Budapest, Közép-Magyarország, 1044, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1044",
+    "country_code": "hu"
+  },
+  "hu|czuczor utca 10, budapest, hungary": {
+    "lat": 47.580694,
+    "lng": 19.0829258,
+    "display_name": "10, Czuczor utca, Újpesti Duna-part, Újpest, IV. kerület, Budapest, Közép-Magyarország, 1044, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1044",
+    "country_code": "hu"
+  },
+  "hu|pozsonyi utca 17, 1045 budapest, hungary": {
+    "lat": 47.5553025,
+    "lng": 19.0900462,
+    "display_name": "4% Fitness Spirit, 17, Pozsonyi utca, Pozsonyi utcai lakótelep, Újpest Városközpont, Újpest, IV. kerület, Budapest, Közép-Magyarország, 1045, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1045",
+    "country_code": "hu"
+  },
+  "hu|rákóczi út 60, 1074 budapest, hungary": {
+    "lat": 47.4981768,
+    "lng": 19.0726237,
+    "display_name": "60, Rákóczi út, Erzsébetváros, VII. kerület, Budapest, Közép-Magyarország, 1074, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1074",
+    "country_code": "hu"
+  },
+  "hu|rákóczi út 47, 1088 budapest, hungary": {
+    "lat": 47.4973433,
+    "lng": 19.0725816,
+    "display_name": "47, Rákóczi út, Népszínháznegyed, VIII. kerület, Budapest, Közép-Magyarország, 1088, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1088",
+    "country_code": "hu"
+  },
+  "hu|paulay ede utca 25-27, 1061 budapest, hungary": {
+    "lat": 47.5008707,
+    "lng": 19.058374,
+    "display_name": "25-27, Paulay Ede utca, Terézváros, VI. kerület, Budapest, Közép-Magyarország, 1061, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1061",
+    "country_code": "hu"
+  },
+  "hu|erkel utca 18, 1092 budapest, hungary": {
+    "lat": 47.4879415,
+    "lng": 19.0640284,
+    "display_name": "18, Erkel utca, Belső-Ferencváros, IX. kerület, Budapest, Közép-Magyarország, 1092, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1092",
+    "country_code": "hu"
+  },
+  "hu|szabadság tér 7, 1054 budapest, hungary": {
+    "lat": 47.5026187,
+    "lng": 19.0521499,
+    "display_name": "Bank Center, 7, Szabadság tér, Lipótváros, V. kerület, Budapest, Közép-Magyarország, 1054, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1054",
+    "country_code": "hu"
+  },
+  "hu|nádas utca 8, 2120 dunakeszi, hungary": {
+    "lat": 47.6101612,
+    "lng": 19.1164023,
+    "display_name": "CityMarket, 8, Nádas utca, Dunakeszi Déli Ipari Park, Dunakeszi, Dunakeszi járás, Pest vármegye, Közép-Magyarország, 2120, Magyarország",
+    "importance": 5.746166170743904e-05,
+    "postcode": "2120",
+    "country_code": "hu"
+  },
+  "hu|szabadság út 1, 2400 dunaújváros, hungary": {
+    "lat": 46.9664432,
+    "lng": 18.9165962,
+    "display_name": "Z-box, 1, Szabadság út, Béke városrész, Dunaújváros, Dunaújvárosi járás, Fejér vármegye, Közép-Dunántúl, Dunántúl, 2400, Magyarország",
+    "importance": 6.217059586475956e-05,
+    "postcode": "2400",
+    "country_code": "hu"
+  },
+  "hu|nagykőrösi utca 2, 6000 kecskemét, hungary": {
+    "lat": 46.910048,
+    "lng": 19.6935511,
+    "display_name": "Centrum Áruház, 2, Nagykőrösi utca, Villanegyed, Belváros, Kecskemét, Kecskeméti járás, Bács-Kiskun vármegye, Dél-Alföld, Alföld és Észak, 6000, Magyarország",
+    "importance": 6.562218661779228e-05,
+    "postcode": "6000",
+    "country_code": "hu"
+  },
+  "hu|áruház köz 1, 1191 budapest, hungary": {
+    "lat": 47.4584838,
+    "lng": 19.1462892,
+    "display_name": "easybox, 1-3, Áruház köz, Felsődűlő, Kispest, XIX. kerület, Budapest, Közép-Magyarország, 1191, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1191",
+    "country_code": "hu"
+  },
+  "hu|liget tér 1, 1102 budapest, hungary": {
+    "lat": 47.483079,
+    "lng": 19.1272632,
+    "display_name": "1, Liget tér, Ligettelek, X. kerület, Budapest, Közép-Magyarország, 1102, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1102",
+    "country_code": "hu"
+  },
+  "hu|király utca 36, 8800 nagykanizsa, hungary": {
+    "lat": 46.4549541,
+    "lng": 16.9872815,
+    "display_name": "36, Király utca, Belváros, Nagykanizsa, Nagykanizsai járás, Zala vármegye, Nyugat-Dunántúl, Dunántúl, 8800, Magyarország",
+    "importance": 6.320973525592458e-05,
+    "postcode": "8800",
+    "country_code": "hu"
+  },
+  "hu|fehér út 1/b, budapest, hungary": {
+    "lat": 47.500785,
+    "lng": 19.136999,
+    "display_name": "Fehér út, Ligettelek, X. kerület, Budapest, Közép-Magyarország, 1106, Magyarország",
+    "importance": 0.05341741893644614,
+    "postcode": "1106",
+    "country_code": "hu"
+  },
+  "hu|szentmihályi út 131, 1152 budapest, hungary": {
+    "lat": 47.5501125,
+    "lng": 19.1384844,
+    "display_name": "OMV, 131, Szentmihályi út, Szilas lakótelep, Rákospalota, XV. kerület, Budapest, Közép-Magyarország, 1152, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1152",
+    "country_code": "hu"
+  },
+  "hu|cziffra györgy utca 15/b, budapest, hungary": {
+    "lat": 47.4330103,
+    "lng": 19.1783067,
+    "display_name": "Spar, 15/b, Cziffra György utca, Gloriett-telep, XVIII. kerület, Budapest, Közép-Magyarország, 1186, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1186",
+    "country_code": "hu"
+  },
+  "hu|hunyadi jános út 19, 1117 budapest, hungary": {
+    "lat": 47.4351556,
+    "lng": 19.0413414,
+    "display_name": "Savoya Park, 19, Hunyadi János út, Albertfalva, XI. kerület, Budapest, Közép-Magyarország, 1117, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1117",
+    "country_code": "hu"
+  },
+  "hu|sió utca 4, 8600 siófok, hungary": {
+    "lat": 46.9033848,
+    "lng": 18.0520406,
+    "display_name": "Sió utca, Belváros, Siófok, Siófoki járás, Somogy vármegye, Dél-Dunántúl, Dunántúl, 8600, Magyarország",
+    "importance": 0.05339405432211792,
+    "postcode": "8600",
+    "country_code": "hu"
+  },
+  "hu|edison tér 1, 1138 budapest, hungary": {
+    "lat": 47.5442766,
+    "lng": 19.073362,
+    "display_name": "Váci Greens Buliding B, 1, Edison tér, Angyalföld, XIII. kerület, Budapest, Közép-Magyarország, 1138, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1138",
+    "country_code": "hu"
+  },
+  "hu|aradi utca 8-10, 1062 budapest, hungary": {
+    "lat": 47.5068138,
+    "lng": 19.0628976,
+    "display_name": "OKTOGON Irodaház, 8-10, Aradi utca, Terézváros, VI. kerület, Budapest, Közép-Magyarország, 1062, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1062",
+    "country_code": "hu"
+  },
+  "hu|kecskeméti u. 14, 1053 budapest, hungary": {
+    "lat": 47.4899602,
+    "lng": 19.0611429,
+    "display_name": "Mercure Korona Hotel, 14, Kecskeméti utca, Pest, Belváros, V. kerület, Budapest, Közép-Magyarország, 1053, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1053",
+    "country_code": "hu"
+  },
+  "hu|lajos utca 66, 1036 budapest, hungary": {
+    "lat": 47.5304147,
+    "lng": 19.0393346,
+    "display_name": "Nr1Fitness Hungary, 66, Lajos utca, Újlak, III. kerület, Budapest, Közép-Magyarország, 1036, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1036",
+    "country_code": "hu"
+  },
+  "hu|naphegy utca 67, 1016 budapest, hungary": {
+    "lat": 47.4914936,
+    "lng": 19.0382312,
+    "display_name": "Tabáni játszótér, 67, Naphegy utca, Naphegy, Tabán, I. kerület, Budapest, Közép-Magyarország, 1016, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1016",
+    "country_code": "hu"
+  },
+  "hu|nagysándor józsef utca 31, 9027 győr, hungary": {
+    "lat": 47.6953888,
+    "lng": 17.6623561,
+    "display_name": "ETO Park Élményközpont, 31, Nagysándor József utca, Kiskút, Győr, Győri járás, Győr-Moson-Sopron vármegye, Nyugat-Dunántúl, Dunántúl, 9027, Magyarország",
+    "importance": 6.90341039138936e-05,
+    "postcode": "9027",
+    "country_code": "hu"
+  },
+  "hu|dózsa györgy út 160, 2100 gödöllő, hungary": {
+    "lat": 47.6122323,
+    "lng": 19.3353952,
+    "display_name": "160, Dózsa György út, Haraszt, Gödöllő, Gödöllői járás, Pest vármegye, Közép-Magyarország, 2100, Magyarország",
+    "importance": 6.066605630574529e-05,
+    "postcode": "2100",
+    "country_code": "hu"
+  },
+  "hu|vay ádám körút 20, 4400 nyíregyháza, hungary": {
+    "lat": 47.9581528,
+    "lng": 21.7209397,
+    "display_name": "Cutler Gym, 20, Vay Ádám körút, Belváros, Nyíregyháza, Nyíregyházi járás, Szabolcs-Szatmár-Bereg vármegye, Észak-Alföld, Alföld és Észak, 4400, Magyarország",
+    "importance": 6.508049134045956e-05,
+    "postcode": "4400",
+    "country_code": "hu"
+  },
+  "hu|balatoni út 2, 8000 székesfehérvár, hungary": {
+    "lat": 47.185673,
+    "lng": 18.4133407,
+    "display_name": "Cutler Gym, 2, Balatoni út, Tóvárosi lakónegyed, Székesfehérvár, Székesfehérvári járás, Fejér vármegye, Közép-Dunántúl, Dunántúl, 8000, Magyarország",
+    "importance": 6.705348287170242e-05,
+    "postcode": "8000",
+    "country_code": "hu"
+  },
+  "hu|megyeri út 76, 7623 pécs, hungary": {
+    "lat": 46.0513032,
+    "lng": 18.2122112,
+    "display_name": "Aldi, 76, Megyeri út, Füzes, Pécs, Pécsi járás, Baranya vármegye, Dél-Dunántúl, Dunántúl, 7632, Magyarország",
+    "importance": 6.98336766612805e-05,
+    "postcode": "7632",
+    "country_code": "hu"
+  },
+  "hu|megyeri út 76, pécs, hungary": {
+    "lat": 46.0513032,
+    "lng": 18.2122112,
+    "display_name": "Aldi, 76, Megyeri út, Füzes, Pécs, Pécsi járás, Baranya vármegye, Dél-Dunántúl, Dunántúl, 7632, Magyarország",
+    "importance": 6.98336766612805e-05,
+    "postcode": "7632",
+    "country_code": "hu"
+  },
+  "hu|lackner kristóf u. 35, 9400 sopron, hungary": {
+    "lat": 47.697982,
+    "lng": 16.5790402,
+    "display_name": "Sopron Plaza, 35, Lackner Kristóf utca, Bécsidomb, Sopron, Soproni járás, Győr-Moson-Sopron vármegye, Nyugat-Dunántúl, Dunántúl, 9400, Magyarország",
+    "importance": 6.62096589608151e-05,
+    "postcode": "9400",
+    "country_code": "hu"
+  },
+  "hu|nándorfejérvári út 40, 1116 budapest, hungary": {
+    "lat": 47.4616688,
+    "lng": 19.0457137,
+    "display_name": "40, Nándorfejérvári út, Kelenföld, XI. kerület, Budapest, Közép-Magyarország, 1116, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1116",
+    "country_code": "hu"
+  },
+  "hu|füredi u. 72-76, 1144 budapest, hungary": {
+    "lat": 47.5136723,
+    "lng": 19.1492048,
+    "display_name": "V+3B Bt., 72-76, Füredi utca, Füredi utcai lakótelep, Alsórákos, XIV. kerület, Budapest, Közép-Magyarország, 1144, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1144",
+    "country_code": "hu"
+  },
+  "hu|bogdáni út 1-3, 1033 budapest, hungary": {
+    "lat": 47.5499999,
+    "lng": 19.0465533,
+    "display_name": "Budapesti Harinyagyár, 1-3, Bogdáni út, Waterfront City, Aquincum, III. kerület, Budapest, Közép-Magyarország, 1033, Magyarország",
+    "importance": 8.408560311279495e-05,
+    "postcode": "1033",
+    "country_code": "hu"
+  }
+}

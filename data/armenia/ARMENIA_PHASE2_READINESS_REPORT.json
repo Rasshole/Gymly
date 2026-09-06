@@ -1,0 +1,1082 @@
+{
+  "country": "Armenia",
+  "phase": 2,
+  "generated_at": "2026-08-29T19:43:53.177624+00:00",
+  "production_total": 12303,
+  "production_bytes": 3832712,
+  "production_sha256": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+  "baseline_georgia": 25,
+  "baseline_turkey": 198,
+  "baseline_belarus": 46,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "armenia_live": 0,
+  "am_prefix_live": 0,
+  "phase1_rows_recovered": 312,
+  "phase1_status_counts": {
+    "READY_TO_IMPORT": 11,
+    "NEEDS_REVIEW": 293,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 0,
+    "EXCLUDED": 8,
+    "CLOSED": 0
+  },
+  "keep_existing_count": 0,
+  "existing_review_required_count": 0,
+  "new_ready_to_import_count": 36,
+  "final_approved_armenia": 36,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 36,
+    "EXCLUDED": 276
+  },
+  "ready_by_brand_new": {
+    "Orange Fitness": 6,
+    "Energy Fitness": 1,
+    "Gold's Gym": 1,
+    "World Gym Armenia": 1,
+    "Panorama Fitness": 1,
+    "Grand Sport Club": 1,
+    "Independent (Abovyan)": 1,
+    "Progress ֆիզիկական զարգացման կենտրոն": 1,
+    "Independent (Armavir)": 1,
+    "Dreambody": 1,
+    "Oxylife": 1,
+    "Lady Zone": 1,
+    "Independent (Vanadzor)": 1,
+    "Allegro": 1,
+    "Star Gym": 1,
+    "Reebok Sports Club Armenia": 1,
+    "Independent (Gyumri)": 1,
+    "jamm fit": 1,
+    "Grig fitness club": 1,
+    "MASGym": 1,
+    "Independent (Hrazdan)": 1,
+    "Թի-էյջ": 1,
+    "Independent (Kapan)": 1,
+    "Delta": 1,
+    "Gym Unity": 1,
+    "Ketrin": 1,
+    "Sparta": 1,
+    "Independent (Goris)": 1,
+    "Davis' gym": 1,
+    "Fitness Zone": 1,
+    "Մուլտի ուելնես կենտրոն": 1
+  },
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "coming_soon": 0,
+  "excluded": 276,
+  "closed": 0,
+  "total_final_staging": 312,
+  "chain_inventory": {
+    "Orange Fitness": {
+      "active_approved": 6,
+      "excluded": 2,
+      "total_accounted": 8,
+      "official_current": 6,
+      "class_a": true,
+      "curated_single_site": false,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "am_7878973e26",
+          "name": "Orange Fitness Komitas",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_4be62b7252",
+          "name": "Orange Fitness Arabkir",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_d0d7229cd3",
+          "name": "Orange Fitness Davtashen",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_64802e03bf",
+          "name": "Orange Fitness Malatia",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_e381190ac5",
+          "name": "Orange Fitness Shengavit",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_5b26cefdf9",
+          "name": "Orange Fitness Kentron",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_6e539c270f",
+          "name": "Orange",
+          "city": "Vanadzor",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_10738b14c4",
+          "name": "Orange Elephant",
+          "city": "Vanadzor",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "Gold's Gym": {
+      "active_approved": 1,
+      "excluded": 5,
+      "total_accounted": 6,
+      "official_current": 1,
+      "class_a": false,
+      "curated_single_site": true,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "am_479a56e570",
+          "name": "Gold's Gym Yerevan",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_0fd6a5e618",
+          "name": "Gold's Gym",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_90e11673a8",
+          "name": "Gold's Gym",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_a13ff237ef",
+          "name": "Gold's Gym Gyumri",
+          "city": "Gyumri",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_cdbccb638a",
+          "name": "Капанский ГОК Deno Gold",
+          "city": "Կապան",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_c2dd7095ad",
+          "name": "Dilijan Gold Resort",
+          "city": "Դիլիջան",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "Panorama Fitness": {
+      "active_approved": 1,
+      "excluded": 3,
+      "total_accounted": 4,
+      "official_current": 1,
+      "class_a": false,
+      "curated_single_site": true,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "am_c76cb0ba57",
+          "name": "Panorama Fitness Club Yerevan",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_889e65d2f1",
+          "name": "Տեսարան ռեստորան",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_7aeb818594",
+          "name": "Պանորամա",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_a01cf49dde",
+          "name": "Panorama Dilijan",
+          "city": "Դիլիջան",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "World Gym Armenia": {
+      "active_approved": 1,
+      "excluded": 0,
+      "total_accounted": 1,
+      "official_current": 1,
+      "class_a": false,
+      "curated_single_site": true,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "am_818c480981",
+          "name": "World Gym Yerevan",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "Energy Fitness": {
+      "active_approved": 1,
+      "excluded": 11,
+      "total_accounted": 12,
+      "official_current": 1,
+      "class_a": false,
+      "curated_single_site": true,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "am_11ae441734",
+          "name": "Energy Fitness Yerevan",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "am_9b6103277d",
+          "name": "Energy",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_efd6f255fb",
+          "name": "Team Energy",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_a9b95b2c5b",
+          "name": "Team Energy",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_e00f77ca19",
+          "name": "Էներգակարգաբերում",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_b9774266f4",
+          "name": "ՕՀՄ ԷՆԵՐՋԻ",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_85b63698cc",
+          "name": "Թիմ էներջի",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_16d24afb5d",
+          "name": "Թիմ էներջի",
+          "city": "Yerevan",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_d67d645293",
+          "name": "Energy",
+          "city": "Գորիս",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_294d9a668e",
+          "name": "Թիմ էներջի",
+          "city": "Դիլիջան",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_22b9b116f7",
+          "name": "Թիմ էներջի",
+          "city": "Դիլիջան",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "am_00c78665e9",
+          "name": "Թիմ էներջի",
+          "city": "Գեղարքունիք",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "Grand Sport Club": {
+      "active_approved": 1,
+      "excluded": 0,
+      "total_accounted": 1,
+      "official_current": 1,
+      "class_a": false,
+      "curated_single_site": true,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "am_d134df34a4",
+          "name": "Grand Sport Club Yerevan",
+          "city": "Yerevan",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "summary": {
+      "curated_operator_count": 5,
+      "curated_operator_names": [
+        "Energy Fitness",
+        "Gold's Gym",
+        "Grand Sport Club",
+        "Panorama Fitness",
+        "World Gym Armenia"
+      ],
+      "final_class_a_chain_count": 1,
+      "final_class_a_chain_names": [
+        "Orange Fitness"
+      ],
+      "final_class_a_new_ready_count": 6,
+      "final_curated_new_ready_count": 5,
+      "chain_estate_gaps": 0,
+      "class_a_estate_gaps": 0,
+      "curated_operator_estate_gaps": 0,
+      "orange_fitness_estate_gaps": 0,
+      "golds_gym_estate_gaps": 0,
+      "panorama_fitness_estate_gaps": 0,
+      "world_gym_armenia_estate_gaps": 0,
+      "energy_fitness_estate_gaps": 0,
+      "grand_sport_club_estate_gaps": 0,
+      "missed_class_a_chains_found": 0,
+      "missed_class_a_estate_gaps": 0,
+      "class_a_semantics_correct": "YES"
+    }
+  },
+  "class_a_semantics_correct": "YES",
+  "curated_operator_count": 5,
+  "class_a_chain_count": 1,
+  "class_a_names": [
+    "Orange Fitness"
+  ],
+  "class_a_approved_total": 6,
+  "class_a_estate_gaps": 0,
+  "curated_operator_estate_gaps": 0,
+  "orange_fitness_estate_gaps": 0,
+  "golds_gym_estate_gaps": 0,
+  "panorama_fitness_estate_gaps": 0,
+  "world_gym_armenia_estate_gaps": 0,
+  "energy_fitness_estate_gaps": 0,
+  "grand_sport_club_estate_gaps": 0,
+  "missed_class_a_estate_gaps": 0,
+  "cross_border": {
+    "georgia_outliers": 0,
+    "turkey_outliers": 0,
+    "azerbaijan_outliers": 0,
+    "iran_outliers": 0,
+    "foreign_outliers": 0,
+    "armenia_ready_outliers": 0
+  },
+  "conflict_region_audit": {
+    "conflict_region_candidates": 8,
+    "conflict_region_ready": 0,
+    "conflict_region_excluded": 8,
+    "conflict_region_closed": 0,
+    "conflict_region_unresolved": 0,
+    "conflict_region_operation_unverified_ready": 0,
+    "identities": [
+      {
+        "id": "am_fa0a931895",
+        "name": "Goris Tourist Information Centre",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      },
+      {
+        "id": "am_9068b0c87d",
+        "name": "Mobile Centre",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      },
+      {
+        "id": "am_40b63d9541",
+        "name": "FRENCH-ARMENIAN CARDIOVASCULAR CENTRE",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      },
+      {
+        "id": "am_b782110192",
+        "name": "Goris Medical Center",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      },
+      {
+        "id": "am_d67d645293",
+        "name": "Energy",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      },
+      {
+        "id": "am_d4c4a6d18c",
+        "name": "Stepanakert fitness centre probe",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      },
+      {
+        "id": "am_fd3ce63aed",
+        "name": "Shushi gym candidate",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      },
+      {
+        "id": "am_c8c90a1b4c",
+        "name": "Martakert sports club probe",
+        "region": "Artsakh",
+        "disposition": "EXCLUDED",
+        "classification": "CONFLICT_REGION"
+      }
+    ]
+  },
+  "data_quality_new_ready": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "missing_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "stale_only_evidence": 0,
+    "operation_unverified_ready": 0,
+    "conflict_region_ready": 0,
+    "foreign_probe_ready": 0
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "armenian_transliteration_duplicate_conflicts": 0,
+    "unresolved_ready_rebrand_conflicts": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 3,
+      "identical": 0
+    }
+  },
+  "hotel_resort_ready_leakage": 0,
+  "specialist_ready_leakage": 0,
+  "city_coverage": {
+    "cities": {
+      "Yerevan": "A",
+      "Gyumri": "A",
+      "Vanadzor": "A",
+      "Abovyan": "A",
+      "Hrazdan": "A",
+      "Kapan": "A",
+      "Armavir": "A",
+      "Goris": "A",
+      "Dilijan": "B"
+    },
+    "approved_by_city": {
+      "Yerevan": 27,
+      "Abovyan": 1,
+      "Armavir": 1,
+      "Vanadzor": 2,
+      "Gyumri": 1,
+      "Masis": 1,
+      "Hrazdan": 1,
+      "Kapan": 1,
+      "Goris": 1
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0,
+    "dilijan_material_d": "NO",
+    "dilijan_audit_grade": "B"
+  },
+  "regional_coverage": {
+    "regions": {
+      "Yerevan": "A",
+      "Aragatsotn": "B",
+      "Ararat": "A",
+      "Armavir": "A",
+      "Gegharkunik": "D",
+      "Kotayk": "A",
+      "Lori": "A",
+      "Shirak": "A",
+      "Syunik": "A",
+      "Tavush": "B",
+      "Vayots Dzor": "D",
+      "Artsakh": "B",
+      "Other": "B"
+    },
+    "ready_by_region": {
+      "Yerevan": 27,
+      "Kotayk": 2,
+      "Armavir": 1,
+      "Lori": 2,
+      "Shirak": 1,
+      "Ararat": 1,
+      "Syunik": 2
+    },
+    "grade_a_count": 7,
+    "grade_b_count": 4,
+    "grade_c_count": 0,
+    "grade_d_count": 2,
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0
+  },
+  "material_d_gaps_count": 0,
+  "dilijan_audit": {
+    "candidates": 25,
+    "final_ready": 0,
+    "final_excluded": 25,
+    "audit_grade": "B",
+    "material_d": "NO"
+  },
+  "yerevan_audit": {
+    "final_ready": 27,
+    "final_coming_soon": 0,
+    "final_excluded": 144,
+    "final_closed": 0,
+    "final_unresolved": 0
+  },
+  "gyumri_audit": {
+    "final_ready": 1,
+    "final_coming_soon": 0,
+    "final_excluded": 24,
+    "final_closed": 0,
+    "final_unresolved": 0
+  },
+  "vanadzor_audit": {
+    "final_ready": 2,
+    "final_coming_soon": 0,
+    "final_excluded": 28,
+    "final_closed": 0,
+    "final_unresolved": 0
+  },
+  "phase1_nr_total": 293,
+  "phase1_nr_resolved": 293,
+  "phase1_nr_unresolved": 0,
+  "nr_resolution_audit": {
+    "disposition_distribution": {
+      "NEW_READY_TO_IMPORT": 25,
+      "EXCLUDED": 268
+    },
+    "classification_distribution": {
+      "REGIONAL_INDEPENDENT_ACTIVE": 7,
+      "OPERATION_UNVERIFIED": 34,
+      "OSM_INDEPENDENT_ACTIVE": 18,
+      "SPECIALIST_NON_QUALIFYING": 4,
+      "INSUFFICIENT_CONVENTIONAL_GYM": 15,
+      "DUPLICATE_STALE_CHAIN_PHOTON": 66,
+      "STALE_LISTING": 128,
+      "HOTEL_RESORT_WELLNESS": 3,
+      "INSTITUTIONAL_NON_QUALIFYING": 10,
+      "CONFLICT_REGION": 8
+    },
+    "nr_promoted_to_ready": 25,
+    "nr_to_excluded": 268
+  },
+  "independents_audit": {
+    "independent_candidates_reviewed": 166,
+    "independent_brands": [
+      "Allegro",
+      "Davis' gym",
+      "Delta",
+      "Dreambody",
+      "Fitness Zone",
+      "Grig fitness club",
+      "Gym Unity",
+      "Independent (Abovyan)",
+      "Independent (Armavir)",
+      "Independent (Goris)",
+      "Independent (Gyumri)",
+      "Independent (Hrazdan)",
+      "Independent (Kapan)",
+      "Independent (Vanadzor)",
+      "Ketrin",
+      "Lady Zone",
+      "MASGym",
+      "Oxylife",
+      "Progress ֆիզիկական զարգացման կենտրոն",
+      "Reebok Sports Club Armenia",
+      "Sparta",
+      "Star Gym",
+      "jamm fit",
+      "Թի-էյջ",
+      "Մուլտի ուելնես կենտրոն"
+    ],
+    "new_ready_independents": 25,
+    "independents_promoted_to_ready": 25,
+    "independents_excluded": 159,
+    "independents_closed": 0,
+    "phase2_nr_promoted_independents": 25,
+    "phase2_nr_promoted_osm": 18,
+    "phase2_nr_promoted_regional": 7,
+    "locations": [
+      {
+        "id": "am_59a231b372",
+        "brand": "Independent (Gyumri)",
+        "name": "Gyumri Fitness Centre",
+        "city": "Gyumri"
+      },
+      {
+        "id": "am_511afad14c",
+        "brand": "Independent (Vanadzor)",
+        "name": "Vanadzor Sports Club",
+        "city": "Vanadzor"
+      },
+      {
+        "id": "am_045c20e5e4",
+        "brand": "Independent (Abovyan)",
+        "name": "Abovyan Gym",
+        "city": "Abovyan"
+      },
+      {
+        "id": "am_8758b54ad0",
+        "brand": "Independent (Hrazdan)",
+        "name": "Hrazdan Fitness",
+        "city": "Hrazdan"
+      },
+      {
+        "id": "am_906dca9825",
+        "brand": "Independent (Kapan)",
+        "name": "Kapan Sports Club",
+        "city": "Kapan"
+      },
+      {
+        "id": "am_1aba19e385",
+        "brand": "Independent (Armavir)",
+        "name": "Armavir Fitness",
+        "city": "Armavir"
+      },
+      {
+        "id": "am_e37fde58c7",
+        "brand": "Independent (Goris)",
+        "name": "Goris Gym",
+        "city": "Goris"
+      },
+      {
+        "id": "am_070a05f85b",
+        "brand": "Progress ֆիզիկական զարգացման կենտրոն",
+        "name": "Progress ֆիզիկական զարգացման կենտրոն",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_e5dd3ae42d",
+        "brand": "Davis' gym",
+        "name": "Davis' gym",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_f6a5febe43",
+        "brand": "Մուլտի ուելնես կենտրոն",
+        "name": "Մուլտի ուելնես կենտրոն",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_55ef0d75b4",
+        "brand": "Star Gym",
+        "name": "Սթար Ջիմ Պրեմիեր",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_5ef92e0c7a",
+        "brand": "Grig fitness club",
+        "name": "Grig fitness club",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_566cdcee60",
+        "brand": "Reebok Sports Club Armenia",
+        "name": "Reebok Sports Club Armenia",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_8c7f92c2e9",
+        "brand": "Թի-էյջ",
+        "name": "Թի-էյջ",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_43d12efb9f",
+        "brand": "Oxylife",
+        "name": "Oxylife",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_5db22c1887",
+        "brand": "jamm fit",
+        "name": "jamm fit",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_90e3844ca0",
+        "brand": "Delta",
+        "name": "Delta",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_f1fc60831e",
+        "brand": "Fitness Zone",
+        "name": "Fitness Zone",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_4cda657d75",
+        "brand": "Lady Zone",
+        "name": "Lady Zone",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_655f99a9e3",
+        "brand": "MASGym",
+        "name": "MASGym",
+        "city": "Մասիս"
+      },
+      {
+        "id": "am_3ee6bd0963",
+        "brand": "Dreambody",
+        "name": "Dreambody",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_525edbb005",
+        "brand": "Allegro",
+        "name": "Allegro",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_912df09b01",
+        "brand": "Gym Unity",
+        "name": "Gym Unity",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_b434afb728",
+        "brand": "Ketrin",
+        "name": "Ketrin",
+        "city": "Yerevan"
+      },
+      {
+        "id": "am_e321de5b21",
+        "brand": "Sparta",
+        "name": "Sparta",
+        "city": "Vanadzor"
+      }
+    ]
+  },
+  "market_model": "CHAIN_LED_SMALL_MARKET",
+  "postcode_model": "NNNN (4 digits)",
+  "projected_catalog_total": 12339,
+  "projected_remaining_headroom": 161,
+  "projected_crosses_12500": false,
+  "global_stress_qa_required_after_future_merge": false,
+  "global_stress_qa_run": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "verdict": "READY FOR ARMENIA PRODUCTION MERGE",
+  "check_in_radius_meters": 200,
+  "nearest_qa": "PLAUSIBLE",
+  "geocode_audit": {
+    "ready_invalid_coordinates": 0,
+    "ready_missing_coordinates": 0,
+    "ready_fallback_coordinates": 0,
+    "ready_centroid_coordinates": 0,
+    "conflict_region_ready": 0,
+    "foreign_probe_ready": 0
+  },
+  "postcode_audit": {
+    "model": "NNNN (4 digits)",
+    "regex": "^\\d{4}$",
+    "invalid_ready_postcodes": 0,
+    "missing_ready_postcodes": 0,
+    "non_canonical_ready_postcodes": 0
+  },
+  "source_recency_audit": {
+    "buckets": {
+      "CURRENT_FIRST_PARTY": 11,
+      "CURRENT_MULTI_SOURCE": 25
+    },
+    "stale_only_ready": 0,
+    "operation_unverified_ready": 0,
+    "rows": [
+      {
+        "id": "am_4be62b7252",
+        "brand": "Orange Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_5b26cefdf9",
+        "brand": "Orange Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_64802e03bf",
+        "brand": "Orange Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_7878973e26",
+        "brand": "Orange Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_d0d7229cd3",
+        "brand": "Orange Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_e381190ac5",
+        "brand": "Orange Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_11ae441734",
+        "brand": "Energy Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_479a56e570",
+        "brand": "Gold's Gym",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_818c480981",
+        "brand": "World Gym Armenia",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_c76cb0ba57",
+        "brand": "Panorama Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_d134df34a4",
+        "brand": "Grand Sport Club",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_045c20e5e4",
+        "brand": "Independent (Abovyan)",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "LOW",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_070a05f85b",
+        "brand": "Progress ֆիզիկական զարգացման կենտրոն",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_1aba19e385",
+        "brand": "Independent (Armavir)",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "LOW",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_3ee6bd0963",
+        "brand": "Dreambody",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_43d12efb9f",
+        "brand": "Oxylife",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_4cda657d75",
+        "brand": "Lady Zone",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_511afad14c",
+        "brand": "Independent (Vanadzor)",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "LOW",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_525edbb005",
+        "brand": "Allegro",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_55ef0d75b4",
+        "brand": "Star Gym",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_566cdcee60",
+        "brand": "Reebok Sports Club Armenia",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_59a231b372",
+        "brand": "Independent (Gyumri)",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "LOW",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_5db22c1887",
+        "brand": "jamm fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_5ef92e0c7a",
+        "brand": "Grig fitness club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_655f99a9e3",
+        "brand": "MASGym",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_8758b54ad0",
+        "brand": "Independent (Hrazdan)",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "LOW",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_8c7f92c2e9",
+        "brand": "Թի-էյջ",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_906dca9825",
+        "brand": "Independent (Kapan)",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "LOW",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_90e3844ca0",
+        "brand": "Delta",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_912df09b01",
+        "brand": "Gym Unity",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_b434afb728",
+        "brand": "Ketrin",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_e321de5b21",
+        "brand": "Sparta",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_e37fde58c7",
+        "brand": "Independent (Goris)",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "LOW",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_e5dd3ae42d",
+        "brand": "Davis' gym",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_f1fc60831e",
+        "brand": "Fitness Zone",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "am_f6a5febe43",
+        "brand": "Մուլտի ուելնես կենտրոն",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      }
+    ]
+  },
+  "hard_duplicate_conflicts": 0,
+  "production_immutability": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "sha_before": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+    "sha_after": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4"
+  }
+}

@@ -1,0 +1,543 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4525297998,
+      "lat": 54.7228318,
+      "lon": 55.9259278,
+      "tags": {
+        "addr:city": "Уфа",
+        "addr:housenumber": "11",
+        "addr:street": "улица Гафури",
+        "description": "Бывший фитнес-клуб \"Династия\".",
+        "leisure": "fitness_centre",
+        "name": "Relief-Fitness",
+        "opening_hours": "10:00-23:00",
+        "website": "vk.com/relief_club"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4689211390,
+      "lat": 54.7735394,
+      "lon": 56.0165421,
+      "tags": {
+        "addr:housenumber": "75",
+        "addr:street": "улица Зорге",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Зорге фитнесс",
+        "name:en": "ZorgeFitness",
+        "name:ru": "Зорге фитнесс",
+        "opening_hours": "24/7",
+        "website": "https://www.zorgefitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5079678722,
+      "lat": 54.727074,
+      "lon": 55.927756,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Крепыш",
+        "name:en": "Strong",
+        "name:ru": "Крепыш"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5110074412,
+      "lat": 54.739832,
+      "lon": 55.9637476,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Элита",
+        "website": "https://elita.fitness/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5763555553,
+      "lat": 54.7162988,
+      "lon": 56.0081523,
+      "tags": {
+        "contact:email": "arena@fitness3000.ru",
+        "contact:phone": "+7 347 2250364",
+        "contact:website": "https://fitness3000.ru/",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Фитнес-Арена 3000",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9713707917,
+      "lat": 54.7663114,
+      "lon": 56.0268288,
+      "tags": {
+        "email": "filipps.p@yandex.ru",
+        "leisure": "fitness_centre",
+        "name": "Yoga Feel",
+        "phone": "+7 (919) 619-80-07",
+        "website": "https://vk.com/yogafeel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9713715817,
+      "lat": 54.7287921,
+      "lon": 55.9413487,
+      "tags": {
+        "email": "filipps.p@yandex.ru",
+        "leisure": "fitness_centre",
+        "name": "Yoga Feel",
+        "name:ba": "Yoga Feel",
+        "phone": "+7 (919) 619-80-07",
+        "website": "https://vk.com/yogafeel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9713725417,
+      "lat": 54.7259173,
+      "lon": 55.9334532,
+      "tags": {
+        "email": "filipps.p@yandex.ru",
+        "leisure": "fitness_centre",
+        "name": "Yoga Feel",
+        "phone": "+7 (919) 619-80-07",
+        "website": "https://vk.com/yogafeel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9788300404,
+      "lat": 54.7946261,
+      "lon": 55.8741287,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Effect"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9857713252,
+      "lat": 54.7808366,
+      "lon": 56.1285905,
+      "tags": {
+        "addr:housenumber": "9",
+        "addr:postcode": "450043",
+        "addr:street": "бульвар Баландина",
+        "leisure": "fitness_centre",
+        "name": "Result Fitness",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10072437358,
+      "lat": 54.7286759,
+      "lon": 55.9387717,
+      "tags": {
+        "check_date": "2022-10-03",
+        "leisure": "fitness_centre",
+        "name": "Центр мира",
+        "name:ba": "Донъя үҙәге"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10844194529,
+      "lat": 54.7415565,
+      "lon": 55.9553915,
+      "tags": {
+        "check_date": "2024-09-07",
+        "contact:email": "yogayogaufa@gmail.com",
+        "contact:phone": "+7 987 1313638",
+        "contact:website": "https://n517038.yclients.com/company/489150/record-type?o=",
+        "leisure": "fitness_centre",
+        "name": "Собака мордой вниз",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 10:00-18:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11083658897,
+      "lat": 54.7015801,
+      "lon": 55.9882646,
+      "tags": {
+        "contact:email": "orangefitufa@yandex.ru",
+        "contact:phone": "+7 347 2560561",
+        "contact:website": "https://orangefitness-ufa.ru/",
+        "leisure": "fitness_centre",
+        "name": "Orange",
+        "opening_hours": "Mo-Fr 06:00-00:00, Sa-Su 09:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11425475329,
+      "lat": 54.7601845,
+      "lon": 56.0360047,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Train Me"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443633,
+      "lat": 54.7264696,
+      "lon": 55.931978,
+      "tags": {
+        "contact:phone": "+7 937 8463949",
+        "contact:website": "https://ladystretch.com/ufa2",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11572366528,
+      "lat": 54.7142003,
+      "lon": 55.9954476,
+      "tags": {
+        "contact:email": "jump.on@mail.ru",
+        "contact:phone": "+7 917 4778868",
+        "contact:website": "https://jump-on.ru",
+        "leisure": "fitness_centre",
+        "name": "Jump.on_ufa",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11634512704,
+      "lat": 54.7280922,
+      "lon": 55.9467462,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Be Fine",
+        "name:ba": "Be Fine",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11738716371,
+      "lat": 54.7561537,
+      "lon": 55.9926503,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Stretch House"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11739311034,
+      "lat": 54.7619581,
+      "lon": 55.9999588,
+      "tags": {
+        "check_date": "2026-05-11",
+        "leisure": "fitness_centre",
+        "name": "S-fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11747572248,
+      "lat": 54.7262528,
+      "lon": 55.9885651,
+      "tags": {
+        "contact:phone": "+7 347 2249960",
+        "contact:website": "https://ufasport.ru/fitness",
+        "leisure": "fitness_centre",
+        "name": "Уфа",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11782640844,
+      "lat": 54.7782447,
+      "lon": 56.0767282,
+      "tags": {
+        "contact:phone": "+7 999 7570699",
+        "contact:website": "https://ladystretch.com/ufa",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11881336870,
+      "lat": 54.762457,
+      "lon": 56.0111764,
+      "tags": {
+        "check_date": "2026-06-09",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "ProFitness",
+        "opening_hours": "24/7",
+        "sport": "fitness",
+        "website": "https://ufa.profitness-club.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11951514273,
+      "lat": 54.8182896,
+      "lon": 56.1228673,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Result Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11966468939,
+      "lat": 54.8126342,
+      "lon": 56.0933908,
+      "tags": {
+        "check_date": "2025-03-22",
+        "leisure": "fitness_centre",
+        "name": "Result Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11991901369,
+      "lat": 54.7140051,
+      "lon": 56.0007906,
+      "tags": {
+        "contact:phone": "+7 965 6599771",
+        "contact:website": "https://taplink.cc/stretching_time__ufa",
+        "leisure": "fitness_centre",
+        "name": "Stretching Time",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12132345650,
+      "lat": 54.7624354,
+      "lon": 56.0112527,
+      "tags": {
+        "check_date": "2026-06-09",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Чудо Банджи",
+        "sport": "dance;bungee;pilates"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12142052656,
+      "lat": 54.7161184,
+      "lon": 56.0079815,
+      "tags": {
+        "contact:email": "nadolko.yuliya@list.ru",
+        "contact:phone": "+7 919 6005111;+7 987 6037723",
+        "contact:website": "https://upilates.ru",
+        "leisure": "fitness_centre",
+        "name": "Юпилатес",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12298845254,
+      "lat": 54.722665,
+      "lon": 55.957651,
+      "tags": {
+        "contact:email": "levita.ufa@gmail.com",
+        "contact:phone": "+7 917 3668886",
+        "contact:website": "https://levitafamily.ru/ufa",
+        "leisure": "fitness_centre",
+        "name": "Levita",
+        "opening_hours": "Mo-Fr 10:00-22:00; Sa-Su 12:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12298885506,
+      "lat": 54.7174725,
+      "lon": 56.0072387,
+      "tags": {
+        "contact:email": "mass_gym@mail.ru",
+        "contact:phone": "+7 937 8472030",
+        "contact:website": "https://mass-gym.com",
+        "leisure": "fitness_centre",
+        "name": "Mass Gym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12298885507,
+      "lat": 54.7770677,
+      "lon": 56.0316575,
+      "tags": {
+        "contact:email": "fitplus@mail.ru",
+        "contact:phone": "+7 347 2588019",
+        "contact:website": "https://fitness-ufa.ru/fitness",
+        "leisure": "fitness_centre",
+        "name": "Fitness+",
+        "opening_hours": "Mo-Fr 10:00-22:00; Sa-Su 10:00-15:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378229088,
+      "lat": 54.810562,
+      "lon": 56.1010253,
+      "tags": {
+        "contact:phone": "+7 937 3377949",
+        "contact:website": "https://ladystretch.com/ufa",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12723687696,
+      "lat": 54.7493117,
+      "lon": 55.9872604,
+      "tags": {
+        "check_date": "2025-04-02",
+        "leisure": "fitness_centre",
+        "name": "MetroFitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754224,
+      "lat": 54.8180792,
+      "lon": 56.0631547,
+      "tags": {
+        "contact:phone": "+7 347 2008300;+7 347 2577879",
+        "contact:website": "https://ufa.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754225,
+      "lat": 54.7650381,
+      "lon": 56.0505134,
+      "tags": {
+        "contact:phone": "+7 347 2008300;+7 347 2577877",
+        "contact:website": "https://ufa.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754226,
+      "lat": 54.7134767,
+      "lon": 55.9940745,
+      "tags": {
+        "contact:phone": "+7 347 2008300;+7 347 2577778",
+        "contact:website": "https://ufa.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13439312792,
+      "lat": 54.73415,
+      "lon": 55.9581643,
+      "tags": {
+        "contact:website": "https://babballet.com",
+        "leisure": "fitness_centre",
+        "name": "BabBallet"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13907768135,
+      "lat": 54.7631774,
+      "lon": 56.0248271,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Тетраэдр",
+        "opening_hours": "Mo-Su 06:30-00:00",
+        "sport": "fitness;yoga;swimming;gymnastics",
+        "website": "https://tetraedr.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13928079738,
+      "lat": 54.7532209,
+      "lon": 56.0148528,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Цех"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13930665207,
+      "lat": 54.72468,
+      "lon": 55.9537347,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Mayakofsky",
+        "website": "https://mayakofsky.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13955666550,
+      "lat": 54.7511029,
+      "lon": 55.9826462,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Darkfit",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 95409021,
+      "center": {
+        "lat": 54.7370328,
+        "lon": 55.9478638
+      },
+      "tags": {
+        "addr:housenumber": "39/2",
+        "addr:postcode": "450015",
+        "addr:street": "Революционная улица",
+        "building": "yes",
+        "building:levels": "5",
+        "contact:email": "info@wclass-ufa.ru",
+        "contact:phone": "+7 347 2251025",
+        "contact:website": "http://www.worldclass-ufa.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class Уфа",
+        "name:ba": "World Class Өфө",
+        "opening_hours": "Mo-Fr 06:00-00:00, Sa-Su 09:00-00:00",
+        "sport": "multi"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "predecessor": "OrlandoFit Fitness Kaptol",
+      "successor": "THE Fitness Kaptol",
+      "address": "Nova ves 17, Zagreb",
+      "classification": "C_rebrand",
+      "evidence": "Benefit Systems / THE Fitness vertical integration; official thefitness.hr list"
+    },
+    {
+      "predecessor": "OrlandoFit Green Gold Gym",
+      "successor": "THE Fitness Green Gold",
+      "address": "Radnička cesta 52, Zagreb",
+      "classification": "C_rebrand",
+      "evidence": "Same address; THE Fitness list; Lider market coverage Nov 2025"
+    },
+    {
+      "predecessor": "OrlandoFit Fitness Branimir",
+      "successor": "THE Fitness Branimir",
+      "address": "Ulica kneza Branimira 29, Zagreb",
+      "classification": "C_rebrand",
+      "evidence": "Same address; THE Fitness list"
+    },
+    {
+      "predecessor": "Play Fitness Zagreb (Gradišćanska)",
+      "successor": "THE Fitness Črnomerec",
+      "address": "Gradišćanska ulica 36, Zagreb",
+      "classification": "C_rebrand",
+      "evidence": "Same address now listed as THE Fitness Črnomerec"
+    }
+  ]
+}

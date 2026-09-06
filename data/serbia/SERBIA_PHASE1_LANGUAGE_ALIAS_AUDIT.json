@@ -1,0 +1,43 @@
+{
+  "performed": true,
+  "languages": [
+    "Serbian",
+    "Latin",
+    "Cyrillic"
+  ],
+  "serbian_terms_used": [
+    "teretana",
+    "fitnes",
+    "fitnes centar",
+    "sportska sala",
+    "фитнес",
+    "teretana",
+    "gym"
+  ],
+  "cities_audited": [
+    "Belgrade",
+    "Novi Sad",
+    "Niš",
+    "Kragujevac",
+    "Subotica",
+    "Pančevo",
+    "Čačak",
+    "Kraljevo",
+    "Novi Pazar",
+    "Kruševac",
+    "Leskovac",
+    "Užice",
+    "Zrenjanin",
+    "Smederevo",
+    "Valjevo",
+    "Šabac",
+    "Sombor",
+    "Vranje",
+    "Bujanovac",
+    "Preševo",
+    "Pirot",
+    "Sremska Mitrovica"
+  ],
+  "independent_candidates": 38,
+  "notes": "Serbian-language discovery covers Belgrade capital cluster and regional cities; Mitrovica identity gate separates Sremska Mitrovica (Serbia) from Kosovo Mitrovica."
+}

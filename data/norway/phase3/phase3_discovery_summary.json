@@ -1,0 +1,66 @@
+{
+  "soft_postal_approved": 26,
+  "soft_postal_held": 0,
+  "skip_incomplete_results": {
+    "postal_filled": 12,
+    "postal_unresolved": 1
+  },
+  "sporty_discovered": 0,
+  "sporty_with_address": 0,
+  "f24_discovered": 302,
+  "f24_with_address": 0,
+  "impulse_discovered": 5,
+  "impulse_with_address": 0,
+  "phase3_new_keep": 1,
+  "phase3_new_ambiguous": 0,
+  "unresolved_now": 135,
+  "ready_now": 26,
+  "ready_for_geocode": 105,
+  "gaps": {
+    "SATS": {
+      "gymly_live_plus_unresolved_staged": 78,
+      "official_approx": 78,
+      "gap_estimate": 0
+    },
+    "Fresh Fitness": {
+      "gymly_live_plus_unresolved_staged": 41,
+      "official_approx": 41,
+      "gap_estimate": 0
+    },
+    "EVO Fitness": {
+      "gymly_live_plus_unresolved_staged": 82,
+      "official_approx": 80,
+      "gap_estimate": 0
+    },
+    "Feel24": {
+      "gymly_live_plus_unresolved_staged": 113,
+      "official_approx": 100,
+      "gap_estimate": 0
+    },
+    "MUDO Gym": {
+      "gymly_live_plus_unresolved_staged": 13,
+      "official_approx": 13,
+      "gap_estimate": 0
+    },
+    "3T-Treningssenter": {
+      "gymly_live_plus_unresolved_staged": 17,
+      "official_approx": 18,
+      "gap_estimate": 1
+    },
+    "MOVA": {
+      "gymly_live_plus_unresolved_staged": 92,
+      "official_approx": 92,
+      "gap_estimate": 0
+    },
+    "SKY Fitness": {
+      "gymly_live_plus_unresolved_staged": 45,
+      "official_approx": 45,
+      "gap_estimate": 0
+    },
+    "Spenst": {
+      "gymly_live_plus_unresolved_staged": 21,
+      "official_approx": 21,
+      "gap_estimate": 0
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "phase2_total": 1287,
+  "phase3_total": 1495,
+  "phase3_new_net": 208,
+  "categories": {
+    "READY_TO_IMPORT": 1424,
+    "CLOSED": 6,
+    "COMING_SOON": 15,
+    "NEEDS_COORDINATES": 12,
+    "NEEDS_REVIEW": 38
+  },
+  "ready_by_brand": {
+    "Basic-Fit": 56,
+    "EASYFITNESS": 169,
+    "ELBGYM": 7,
+    "ELEMENTS": 7,
+    "FitX": 112,
+    "Fitness First": 82,
+    "Gold's Gym": 5,
+    "INJOY": 69,
+    "JOHN REED": 32,
+    "Kieser": 113,
+    "McFIT": 177,
+    "PRIME TIME fitness": 22,
+    "Pfitzenmeier": 8,
+    "VeniceBeach": 15,
+    "all inclusive Fitness": 172,
+    "clever fit": 378
+  },
+  "proposed_first_merge": 1424,
+  "expected_catalog_after_merge": 2952,
+  "centers_sha256": "df0ceb6b4ed23585d9607014b658c3fe5ad1bb783e2ac17928193da55d7e82fe",
+  "new_chains": [
+    {
+      "brand": "Kieser",
+      "official": 113,
+      "discovered": 113,
+      "READY": 113,
+      "unresolved": 0,
+      "recommendation": "INCLUDE — physical strength studios, independent member workouts"
+    },
+    {
+      "brand": "Pfitzenmeier",
+      "official": 8,
+      "discovered": 8,
+      "READY": 8,
+      "unresolved": 0,
+      "recommendation": "INCLUDE — 8 owned Premium Resorts/Clubs with normal gym floors"
+    },
+    {
+      "brand": "FitnessLOFT",
+      "official": 0,
+      "discovered": 0,
+      "READY": 0,
+      "unresolved": 0,
+      "recommendation": "DO NOT INCLUDE as own brand — rebranded to Fitness First (2023)"
+    },
+    {
+      "brand": "ELEMENTS",
+      "official": 7,
+      "discovered": 7,
+      "READY": 7,
+      "unresolved": 0,
+      "recommendation": "INCLUDE — 7 premium fitness+wellness clubs (Migros)"
+    },
+    {
+      "brand": "Basic-Fit",
+      "official": 56,
+      "discovered": 56,
+      "READY": 56,
+      "unresolved": 0,
+      "recommendation": "INCLUDE — own-brand DE clubs; keep distinct from clever fit"
+    },
+    {
+      "brand": "VeniceBeach",
+      "official": 28,
+      "discovered": 26,
+      "READY": 15,
+      "unresolved": 11,
+      "recommendation": "INCLUDE — regional conventional chain (Pfitzenmeier partner network)"
+    },
+    {
+      "brand": "wellyou",
+      "official": 41,
+      "discovered": 0,
+      "READY": 0,
+      "unresolved": 0,
+      "recommendation": "DO NOT STAGE this pass — locator unavailable; pending Basic-Fit rebrand"
+    }
+  ]
+}

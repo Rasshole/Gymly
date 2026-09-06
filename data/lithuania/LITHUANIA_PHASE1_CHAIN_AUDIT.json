@@ -1,0 +1,105 @@
+{
+  "country": "Lithuania",
+  "phase": 1,
+  "chains": [
+    {
+      "brand": "Gym+",
+      "evidence": "production_hydrate + official locator (38 open)",
+      "apparent_locations": 38,
+      "qualifying_active": 38,
+      "coming_soon": 1,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "reason": "COMPLETE"
+    },
+    {
+      "brand": "Lemon Gym",
+      "evidence": "production_hydrate + official locator (18 open)",
+      "apparent_locations": 18,
+      "qualifying_active": 18,
+      "coming_soon": 2,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "reason": "COMPLETE"
+    },
+    {
+      "brand": "Impuls",
+      "evidence": "production_hydrate + official locator (5 open)",
+      "apparent_locations": 5,
+      "qualifying_active": 5,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "reason": "COMPLETE"
+    }
+  ],
+  "probes_investigated": [
+    {
+      "chain": "Gym+",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "38/38 open in production; Viršuliškių COMING_SOON"
+    },
+    {
+      "chain": "Lemon Gym",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "18/18 open in production; Riešė + Jonava COMING_SOON"
+    },
+    {
+      "chain": "Impuls",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "5/5 official impuls.lt clubs in production"
+    },
+    {
+      "chain": "VS Fitness",
+      "action": "EXCLUDED",
+      "evidence": "Acquired by Gym+ 2024"
+    },
+    {
+      "chain": "People Fitness",
+      "action": "EXCLUDED",
+      "evidence": "Legacy; site now Gym+"
+    },
+    {
+      "chain": "FitClub",
+      "action": "EXCLUDED",
+      "evidence": "2 Kaunas sites — below threshold"
+    },
+    {
+      "chain": "Fitus",
+      "action": "EXCLUDED",
+      "evidence": "Single-site spa/gym"
+    },
+    {
+      "chain": "Gym!",
+      "action": "ABSENT",
+      "evidence": "Latvian/Estonian brand — NOT Gym+ Lithuania"
+    },
+    {
+      "chain": "MyFitness",
+      "action": "ABSENT_LT_BRAND",
+      "evidence": "EE parent; LT consumer brand is Gym+"
+    },
+    {
+      "chain": "Basic-Fit/McFIT/FITINN/clever fit/Gold's/World Class",
+      "action": "ABSENT",
+      "evidence": "No LT presence"
+    },
+    {
+      "chain": "SportGates/SkyGym/Active Gym/City Gym",
+      "action": "ABSENT",
+      "evidence": "No >=3 site Class A evidence"
+    }
+  ],
+  "summary": {
+    "final_class_a_chain_count": 3,
+    "final_class_a_ready_count": 61,
+    "chain_estate_gaps": 0
+  },
+  "gym_plus_gym_exclamation_identity_collisions": 0
+}

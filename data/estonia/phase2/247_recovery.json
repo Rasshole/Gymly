@@ -1,0 +1,97 @@
+{
+  "targets": 8,
+  "recovered": [
+    {
+      "id": "ee_34384840a3",
+      "name": "24-7 Fitness Tabasalu",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 59.428992,
+      "lng": 24.549972,
+      "postal_code": "76901",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "tabasalu"
+    },
+    {
+      "id": "ee_a15aae2d15",
+      "name": "24-7 Fitness Keila Keskus",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 59.315879,
+      "lng": 24.410532,
+      "postal_code": "76607",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "keila_keskus"
+    },
+    {
+      "id": "ee_d3bdd981df",
+      "name": "24-7 Fitness Sepa Keskus",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 58.349356,
+      "lng": 26.739214,
+      "postal_code": "50105",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "sepa"
+    },
+    {
+      "id": "ee_7707002ac8",
+      "name": "24-7 Fitness Viljandi Kaalu",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 58.364174,
+      "lng": 25.593697,
+      "postal_code": "71012",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "key": "viljandi_kaalu"
+    },
+    {
+      "id": "ee_2859632c67",
+      "name": "24-7 Fitness Rakvere",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 59.34925,
+      "lng": 26.36439,
+      "postal_code": "44310",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "rakvere"
+    },
+    {
+      "id": "ee_71c90c9c79",
+      "name": "24-7 Fitness Narva",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 59.381496,
+      "lng": 28.172754,
+      "postal_code": "20605",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "narva_247"
+    },
+    {
+      "id": "ee_9d4bb8e396",
+      "name": "24-7 Fitness Võru",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 57.849443,
+      "lng": 27.006549,
+      "postal_code": "65606",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "key": "voru"
+    },
+    {
+      "id": "ee_909073b14a",
+      "name": "24-7 Fitness Jõgeva",
+      "brand": "24-7 Fitness",
+      "before_category": "NEEDS_REVIEW",
+      "lat": 58.748373,
+      "lng": 26.397462,
+      "postal_code": "48305",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "jogeva"
+    }
+  ],
+  "rakvere_resolved": true,
+  "voru_resolved": true,
+  "goal": "31/31 open READY",
+  "achieved": true
+}

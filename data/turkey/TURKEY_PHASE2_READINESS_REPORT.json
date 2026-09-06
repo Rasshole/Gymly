@@ -1,0 +1,2486 @@
+{
+  "country": "Turkey",
+  "phase": 2,
+  "generated_at": "2026-08-29T18:05:58.340903+00:00",
+  "production_total": 12080,
+  "production_bytes": 3761727,
+  "production_sha256": "601e7848e80478002da147bf34287b701e2fd95ff2a21e493e0d70aed002b740",
+  "baseline_belarus": 46,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "turkey_live": 0,
+  "tr_prefix_live": 0,
+  "phase1_rows_recovered": 135,
+  "phase1_status_counts": {
+    "READY_TO_IMPORT": 125,
+    "NEEDS_REVIEW": 2,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 2,
+    "EXCLUDED": 6,
+    "CLOSED": 0
+  },
+  "keep_existing_count": 0,
+  "existing_review_required_count": 0,
+  "new_ready_to_import_count": 198,
+  "final_approved_turkey": 198,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 198,
+    "COMING_SOON": 2,
+    "EXCLUDED": 19
+  },
+  "ready_by_brand_new": {
+    "MACFit": 34,
+    "A/C Fit": 1,
+    "Spil Fit": 1,
+    "Sports International": 5,
+    "Quite Fit": 1,
+    "Fit-Station": 1,
+    "GymFit": 20,
+    "Fit & Alive": 1,
+    "Fit Girl Kadınlara Özel Spor Salonu": 1,
+    "FitLife": 1,
+    "Fit Box Fitness": 1,
+    "Akpınar San-Fit": 1,
+    "M95 Fit Club": 1,
+    "Fit House sağlıklı yemek": 1,
+    "B-Fit": 3,
+    "Vision Fit Body": 1,
+    "Merve Mahallesi San-Fit": 1,
+    "Safa Mahallesi San-Fit": 1,
+    "Fit Yaşam": 1,
+    "Kemal Türkler Mahallesi San-Fit": 1,
+    "Fit In Time": 1,
+    "Volume Fit Plus": 1,
+    "Fit Life Spor Merkezi": 1,
+    "Fit Round Fitness": 1,
+    "Fit Club": 1,
+    "Fit Global": 1,
+    "FIT UP": 1,
+    "7 Fit": 1,
+    "Eat Fit": 1,
+    "Easy Fit": 1,
+    "19 FIT Pilates & Gym XL": 1,
+    "Fit House": 1,
+    "Fit Life Sports": 1,
+    "B Fitness Clup": 1,
+    "JustFit20": 1,
+    "Zeran fit": 1,
+    "FitLab Life Club": 1,
+    "Crross Fit Skylıght": 1,
+    "Ergo! Fit": 1,
+    "Fit's Club": 1,
+    "ProFit Sport Center": 1,
+    "Akın Fit Club": 1,
+    "Fit'n Food": 1,
+    "Fit Life World": 1,
+    "Fit Life": 1,
+    "Fit Plan": 1,
+    "Mars Athletic Club": 2,
+    "Fit Lady": 1,
+    "En Fit Body": 1,
+    "Hilal Mahallesi San-Fit": 1,
+    "Fit Slim": 1,
+    "Arabica Kitchen Fit": 1,
+    "Tam Fit": 1,
+    "Just Fit": 1,
+    "Gym Fit": 1,
+    "Spor Salonu": 15,
+    "Çok Amaçlı Spor Salonu": 1,
+    "Abdi İpekçi Spor Salonu": 1,
+    "Çekmeköy Spor Salonu": 1,
+    "Zeytinburnu Belediyesi Spor Salonu": 1,
+    "Merkez Spor Salonu": 1,
+    "Atlas spor salonu": 1,
+    "Hacı Aldatmaz Spor Salonu": 1,
+    "Şahinbey Spor Salonu": 1,
+    "Sancak Spor Salonu": 1,
+    "SYAL spor salonu": 1,
+    "Energy Fitness Salonu": 1,
+    "Zenun Fitness Salonu": 1,
+    "Sakıp Sabancı Spor ve Sergi Salonu": 1,
+    "Halkapınar Spor Salonu": 1,
+    "Vadi Yurtları Spor Salonu": 1,
+    "Bayındır Spor Salonu": 1,
+    "Hayri Gür Spor Salonu": 1,
+    "Gym Life": 1,
+    "Maxfit Spor Salonu": 1,
+    "Mustafa Kemal Atatürk Karşıyaka Spor Salonu": 1,
+    "Özdemir Sabancı Spor Salonu": 1,
+    "Suri Kardeşler Fitness Salonun": 1,
+    "Develi Lisesi Açık Hava Spor Salonu": 1,
+    "Ağaoğlu Spor Salonu": 1,
+    "İlhan Spor Salonu": 1,
+    "Flex Women Bayan Spor Salonu": 1,
+    "İmece İlkokulu Spor Salonu": 1,
+    "Şamil Gülan Spor Salonu": 1,
+    "Gelenvevi Anadolu Lisesi Spor Salonu": 1,
+    "Yakacık İTO Spor Salonu": 1,
+    "Çapa Fen Lisesi Spor Salonu": 1,
+    "Ankara Spor Salonu": 1,
+    "İstanbul Üsküdar Lisesi Spor Salonu": 1,
+    "Selim Sırrı Tarcan Spor Salonu": 1,
+    "GYM": 1,
+    "Ümit Meriç Kiz Anadolu İmam Hatip Lisesi Spor Salonu": 1,
+    "Dr. Mimar Kadir Topbaş Spor Kompleksi - Fitness Salonu": 1,
+    "Tozkoparan Spor Salonu": 1,
+    "Yurt Spor Salonu": 1,
+    "Fatin Rüştü Zorlu Anadolu Lisesi Spor Salonu": 1,
+    "Fitness Salonu": 1,
+    "spor salonu": 1,
+    "Vefa Küçük Spor Salonu": 1,
+    "Semih Erden Spor Salonu": 1,
+    "Yakup Kılınç Spor Salonu": 1,
+    "Yunus Emre And. Lis. Spor Salonu": 1,
+    "Orhangazi Spor Salonu": 1,
+    "Beyoğlu Belediyesi Cihangir Spor Salonu": 1,
+    "Akyüz Spor Salonu": 1,
+    "Mustafa Dağıstanlı Spor Salonu": 1,
+    "80.Yıl Cumhuriyet Spor Salonu": 1,
+    "Sinan Erdem Spor Salonu": 1,
+    "Spor salonu": 1,
+    "Kabataş Erkek Lisesi Spor Salonu": 1,
+    "Kadıköy Belediyesi Caferağa Spor Salonu": 1,
+    "Metin aydın spor salonu": 1,
+    "Vali M. Lütfullah Bilgin Spor Salonu": 1,
+    "Free Life Fitness Spor Salonu": 1,
+    "Eczacıbaşı Spor Salonu": 1,
+    "Atatürk Mahallesi Fitness Salonu": 1,
+    "Lütfulla Aksungur Spor Salonu": 1,
+    "75.YIL SPOR SALONU": 1,
+    "Serdar Aksun Okulu spor salonu": 1,
+    "Antepia Spor Salonu": 1,
+    "Güngören MTAL Spor Salonu": 1,
+    "Mersin Özel Spor Salonu": 1,
+    "KAYAKLA ATLAMA KULESİ VE ATLAMA KULESİ FİTNESS SALONU": 1,
+    "Okul Spor Salonu": 1,
+    "İstanbul Büyükşehir Belediyesi Spor Salonu": 1
+  },
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "coming_soon": 2,
+  "excluded": 19,
+  "closed": 0,
+  "total_final_staging": 219,
+  "chain_inventory": {
+    "MACFit": {
+      "active_approved": 34,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unverified": 0,
+      "total_accounted": 34,
+      "official_current": 34,
+      "phase1_marketing_estimate": 320,
+      "estate_gaps": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "tr_2ff63fd549",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_684f6189b7",
+          "name": "MACFit",
+          "city": "Beşiktaş",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_fc8f4bba2b",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_9f4d739931",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_ad1601d39a",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_621e046fdc",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_543c849cfc",
+          "name": "MACFit",
+          "city": "Ümraniye",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_46872d9bed",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_b11f4e2d39",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_5c527202e0",
+          "name": "MACFit",
+          "city": "Kartal",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_16fa12ba3b",
+          "name": "MACFit",
+          "city": "Maltepe",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_518f07383a",
+          "name": "MACFit",
+          "city": "Pendik",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_888f2c3b00",
+          "name": "MACFit",
+          "city": "Küçükçekmece",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_1e14f26ded",
+          "name": "MACFit",
+          "city": "Sancaktepe",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_ed3b0005b4",
+          "name": "MACFit",
+          "city": "Sarıyer",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_25c85deed7",
+          "name": "MACFit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_23721e9cca",
+          "name": "MACFit",
+          "city": "İzmit",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_2d11ef51c3",
+          "name": "MACFit",
+          "city": "Bursa",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_893107c342",
+          "name": "MACFit",
+          "city": "Konak",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_e072f5bfb2",
+          "name": "MACFit",
+          "city": "Etimesgut",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_3c3ef20587",
+          "name": "MACFit",
+          "city": "Çiğli",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_be58f68b61",
+          "name": "MACFit",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_59a4105c71",
+          "name": "MACFit",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_0058881262",
+          "name": "MACFit",
+          "city": "Konak",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_63ae41b630",
+          "name": "MACFit",
+          "city": "Konak",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_ee646fee52",
+          "name": "MACFit",
+          "city": "Gaziemir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_c6574ee740",
+          "name": "MACFit",
+          "city": "Çankaya",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_e0bb3b25b4",
+          "name": "MACFit",
+          "city": "Keçiören",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_b58dc58106",
+          "name": "MACFit",
+          "city": "Yenimahalle",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_eb859ffccf",
+          "name": "MACFit Balçova Kipa",
+          "city": "İzmir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_16a60deeff",
+          "name": "MACFit Erasta",
+          "city": "Antalya",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_9133253094",
+          "name": "Mac Fit",
+          "city": "Gebze",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_6851ee847d",
+          "name": "Mac-Fit",
+          "city": "Yenimahalle",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_158f4f2ce8",
+          "name": "Mac Fit",
+          "city": "Bornova",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "Mars Athletic Club": {
+      "active_approved": 2,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unverified": 0,
+      "total_accounted": 2,
+      "official_current": 2,
+      "phase1_marketing_estimate": 45,
+      "estate_gaps": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "tr_fc24632906",
+          "name": "Mars Athletic Club",
+          "city": "Ataşehir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_acdfb031ca",
+          "name": "MARS Athletic Club",
+          "city": "Çankaya",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "Sports International": {
+      "active_approved": 5,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 1,
+      "unverified": 0,
+      "total_accounted": 6,
+      "official_current": 6,
+      "phase1_marketing_estimate": 28,
+      "estate_gaps": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "tr_f53d5104f3",
+          "name": "Sports International",
+          "city": "Bakırköy",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_316f102698",
+          "name": "Sports International",
+          "city": "Çankaya",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_263ec93a91",
+          "name": "Sports International",
+          "city": "Çankaya",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_db468745b2",
+          "name": "Sports International",
+          "city": "Yenişehir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_eb6beab7b7",
+          "name": "Sports International",
+          "city": "Yenişehir",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_04742a1022",
+          "name": "Mavişehir Sports International",
+          "city": "İzmir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "GymFit": {
+      "active_approved": 20,
+      "coming_soon": 2,
+      "closed": 0,
+      "excluded": 0,
+      "unverified": 0,
+      "total_accounted": 22,
+      "official_current": 22,
+      "phase1_marketing_estimate": 22,
+      "estate_gaps": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "tr_90132f81c8",
+          "name": "GYMFIT NUROL PARK",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_df2525bc63",
+          "name": "GYMFIT OLIVIUM",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_99bed7d7de",
+          "name": "GYMFIT ATRIUM",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_991a4a71bc",
+          "name": "GYMFIT ANATOLIUM",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_28931ac3f7",
+          "name": "GYMFIT WORLD POINT",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_a415a9b61c",
+          "name": "GYMFIT VENEZIA",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_2eac898f2d",
+          "name": "GYMFIT İNEGÖL",
+          "city": "Bursa",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_7483ed5e01",
+          "name": "GYMFIT KORUPARK",
+          "city": "Bursa",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_10bead02ac",
+          "name": "GYMFIT VEGA OUTLET AVM",
+          "city": "Eskişehir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_589ccf58bb",
+          "name": "GYMFIT İKİ EYLÜL",
+          "city": "Eskişehir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_6d5623c24c",
+          "name": "GYMFIT EXPRESS",
+          "city": "Eskişehir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_8f1115c5bf",
+          "name": "GYMFIT SPORTS PLAZA",
+          "city": "Eskişehir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_2bdff164b1",
+          "name": "GYMFIT NOVACITY",
+          "city": "Eskişehir",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_6d8596f2ab",
+          "name": "GYMFIT VEGA SUBAYEVLERİ",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_4e40beba0d",
+          "name": "GYMFIT METROMALL",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_b70e267ba9",
+          "name": "GYMFIT ANTARES",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_6bf349cea0",
+          "name": "GYMFIT NEXT LEVEL",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_e9e27467a0",
+          "name": "GYMFIT TAURUS",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_8de022c2be",
+          "name": "GYMFIT VELUX ANKARA",
+          "city": "Ankara",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_716f911874",
+          "name": "GYMFIT ADRES ANKARA",
+          "city": "Ankara",
+          "disposition": "COMING_SOON"
+        },
+        {
+          "id": "tr_dd6d274fc0",
+          "name": "GYMFIT ZİRVEKENT ANKARA",
+          "city": "Ankara",
+          "disposition": "COMING_SOON"
+        },
+        {
+          "id": "tr_d7230f72ee",
+          "name": "GYMFIT KENT PLAZA",
+          "city": "Konya",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "LifeClub": {
+      "active_approved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unverified": 0,
+      "total_accounted": 0,
+      "official_current": 0,
+      "phase1_marketing_estimate": 18,
+      "estate_gaps": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "locations": []
+    },
+    "B-Fit": {
+      "active_approved": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 12,
+      "unverified": 0,
+      "total_accounted": 15,
+      "official_current": 15,
+      "phase1_marketing_estimate": 120,
+      "estate_gaps": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "tr_3acf4d171a",
+          "name": "B fit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_9e05be27e2",
+          "name": "b-fit",
+          "city": "İstanbul",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_3f8be1057f",
+          "name": "b-fit",
+          "city": "Çankaya",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "tr_f4b5ead69a",
+          "name": "Mac Fit",
+          "city": "Gebze",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_74e421011f",
+          "name": "Mac-Fit",
+          "city": "Yenimahalle",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_7e9a62db77",
+          "name": "Mac Fit",
+          "city": "Bornova",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_e50b7d6d39",
+          "name": "Fit",
+          "city": "Fethiye",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_5ac588b617",
+          "name": "CrossFit",
+          "city": "Konak",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_799ed63dbc",
+          "name": "FIT Gloria Fitness Center",
+          "city": "Serik",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_826349ad23",
+          "name": "Fit arena",
+          "city": "Kemer",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_fe66cda12c",
+          "name": "Fit & Fun",
+          "city": "Manavgat",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_aefa658d1c",
+          "name": "fit and akay office",
+          "city": "Kemer",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_f037e23fd4",
+          "name": "FIT life",
+          "city": "Manavgat",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_2b90ecd5e6",
+          "name": "CrossFit",
+          "city": "Muratpaşa",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "tr_c6bc41e8a3",
+          "name": "Boks Fit Club",
+          "city": "Serdivan",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "summary": {
+      "final_class_a_chain_count": 6,
+      "final_class_a_chain_names": [
+        "MACFit",
+        "Mars Athletic Club",
+        "Sports International",
+        "GymFit",
+        "LifeClub",
+        "B-Fit"
+      ],
+      "final_class_a_new_ready_count": 64,
+      "chain_estate_gaps": 0,
+      "class_a_estate_gaps": 0,
+      "phase1_marketing_gap_retired": true,
+      "missed_class_a_chains_found": 0
+    }
+  },
+  "class_a_estate_gaps": 0,
+  "cross_border": {
+    "greece_ready_outliers": 0,
+    "bulgaria_ready_outliers": 0,
+    "georgia_ready_outliers": 0,
+    "armenia_ready_outliers": 0,
+    "azerbaijan_ready_outliers": 0,
+    "iran_ready_outliers": 0,
+    "iraq_ready_outliers": 0,
+    "syria_ready_outliers": 0,
+    "cyprus_turkey_conflicts": 0,
+    "other_foreign_ready_outliers": 0
+  },
+  "data_quality_new_ready": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "missing_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "stale_only_evidence": 0,
+    "operation_unverified_ready": 0,
+    "city_metadata_errors": 31
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "turkish_diacritic_duplicate_conflicts": 0,
+    "unresolved_ready_rebrand_conflicts": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 1,
+      "lt200": 4,
+      "identical": 0
+    }
+  },
+  "hotel_resort_ready_leakage": 0,
+  "invalid_wellness_additive": 0,
+  "specialist_ready_leakage": 0,
+  "institutional_ready_leakage": 0,
+  "province_coverage": {
+    "provinces": {
+      "Adana": "A",
+      "Adıyaman": "A",
+      "Afyonkarahisar": "D",
+      "Ağrı": "D",
+      "Aksaray": "D",
+      "Amasya": "D",
+      "Ankara": "A",
+      "Antalya": "A",
+      "Ardahan": "D",
+      "Artvin": "D",
+      "Aydın": "D",
+      "Balıkesir": "A",
+      "Bartın": "D",
+      "Batman": "A",
+      "Bayburt": "D",
+      "Bilecik": "D",
+      "Bingöl": "A",
+      "Bitlis": "D",
+      "Bolu": "D",
+      "Burdur": "D",
+      "Bursa": "A",
+      "Çanakkale": "D",
+      "Çankırı": "D",
+      "Çorum": "D",
+      "Denizli": "D",
+      "Diyarbakır": "B",
+      "Düzce": "D",
+      "Edirne": "D",
+      "Elazığ": "D",
+      "Erzincan": "D",
+      "Erzurum": "D",
+      "Eskişehir": "A",
+      "Gaziantep": "A",
+      "Giresun": "D",
+      "Gümüşhane": "D",
+      "Hakkâri": "D",
+      "Hatay": "D",
+      "Iğdır": "D",
+      "Isparta": "D",
+      "İstanbul": "A",
+      "İzmir": "A",
+      "Kahramanmaraş": "D",
+      "Karabük": "D",
+      "Karaman": "A",
+      "Kars": "D",
+      "Kastamonu": "D",
+      "Kayseri": "A",
+      "Kırıkkale": "D",
+      "Kırklareli": "D",
+      "Kırşehir": "D",
+      "Kilis": "D",
+      "Kocaeli": "A",
+      "Konya": "A",
+      "Kütahya": "D",
+      "Malatya": "D",
+      "Manisa": "A",
+      "Mardin": "D",
+      "Mersin": "A",
+      "Muğla": "A",
+      "Muş": "D",
+      "Nevşehir": "D",
+      "Niğde": "A",
+      "Ordu": "D",
+      "Osmaniye": "D",
+      "Rize": "D",
+      "Sakarya": "C",
+      "Samsun": "D",
+      "Siirt": "D",
+      "Sinop": "D",
+      "Sivas": "D",
+      "Şanlıurfa": "D",
+      "Şırnak": "D",
+      "Tekirdağ": "A",
+      "Tokat": "D",
+      "Trabzon": "D",
+      "Tunceli": "D",
+      "Uşak": "A",
+      "Van": "D",
+      "Yalova": "D",
+      "Yozgat": "D",
+      "Zonguldak": "D"
+    },
+    "approved_by_province": {
+      "İzmir": 14,
+      "Adana": 1,
+      "Manisa": 1,
+      "İstanbul": 77,
+      "Eskişehir": 6,
+      "Antalya": 3,
+      "Tekirdağ": 1,
+      "Kocaeli": 3,
+      "Ankara": 26,
+      "Bursa": 3,
+      "Balıkesir": 2,
+      "Gaziantep": 3,
+      "Konya": 2,
+      "Uşak": 1,
+      "Mersin": 3,
+      "Niğde": 3,
+      "Batman": 8,
+      "Kayseri": 6,
+      "Muğla": 1,
+      "Bingöl": 1,
+      "Karaman": 1,
+      "Adıyaman": 1
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0,
+    "grade_a_count": 22,
+    "grade_b_count": 1,
+    "grade_c_count": 1,
+    "grade_d_count": 57,
+    "diyarbakir_grade": "B",
+    "gaziantep_grade": "A",
+    "kayseri_grade": "A",
+    "mersin_grade": "A"
+  },
+  "city_coverage": {
+    "cities": {
+      "İstanbul": "A",
+      "Ankara": "A",
+      "İzmir": "A",
+      "Bursa": "A",
+      "Antalya": "A",
+      "Adana": "A",
+      "Konya": "A",
+      "Gaziantep": "B",
+      "Mersin": "A",
+      "Kocaeli": "A",
+      "Diyarbakır": "B",
+      "Kayseri": "A",
+      "Eskişehir": "A",
+      "Samsun": "B",
+      "Denizli": "B",
+      "Şanlıurfa": "B",
+      "Malatya": "B",
+      "Erzurum": "B",
+      "Van": "B",
+      "Manisa": "B",
+      "Balıkesir": "A",
+      "Tekirdağ": "B",
+      "Sakarya": "B",
+      "Aydın": "B",
+      "Muğla": "C",
+      "Trabzon": "B",
+      "Hatay": "B"
+    },
+    "approved_by_city": {
+      "Konak": 4,
+      "Adana": 1,
+      "Yunusemre": 1,
+      "İzmir": 4,
+      "Sancaktepe": 9,
+      "Eskişehir": 5,
+      "Ataşehir": 7,
+      "Bornova": 1,
+      "Antalya": 2,
+      "Kapaklı": 1,
+      "Maltepe": 2,
+      "Buca": 1,
+      "İzmit": 1,
+      "İstanbul": 28,
+      "Çankaya": 8,
+      "Küçükçekmece": 2,
+      "Bursa": 3,
+      "Kadıköy": 4,
+      "Çiğli": 1,
+      "Yenimahalle": 3,
+      "Balıkesir": 2,
+      "Sarıyer": 4,
+      "Şehitkamil/Gaziantep": 1,
+      "Bergama": 1,
+      "Ankara": 11,
+      "Pendik": 1,
+      "Ümraniye": 1,
+      "Odunpazarı": 1,
+      "Kartal": 3,
+      "Sincan": 1,
+      "Çekmeköy": 4,
+      "Beşiktaş": 1,
+      "Beykoz": 1,
+      "Gebze": 1,
+      "Muratpaşa": 1,
+      "Selçuklu": 1,
+      "Eyüpsultan": 2,
+      "Kocaeli": 1,
+      "Uşak": 1,
+      "Konya": 1,
+      "Fatih": 4,
+      "Yenişehir": 1,
+      "Etimesgut": 2,
+      "Keçiören": 1,
+      "Gaziemir": 1,
+      "Bakırköy": 2,
+      "Niğde": 3,
+      "Batman": 8,
+      "Zeytinburnu": 2,
+      "Elâzığ": 2,
+      "Karaisalı": 1,
+      "Şahinbey": 2,
+      "Bayrampaşa": 2,
+      "Kocasinan": 2,
+      "Sarıçam": 3,
+      "Ortahisar": 1,
+      "Mersin": 1,
+      "Karşıyaka": 1,
+      "Üsküdar": 1,
+      "Fethiye": 1,
+      "Bingöl": 1,
+      "Develi": 1,
+      "Kâğıthane": 1,
+      "Hacıbektaş": 1,
+      "Altındağ": 2,
+      "Kayseri": 1,
+      "زاخۆ": 1,
+      "Kadirli": 2,
+      "Karaman": 1,
+      "Güngören": 3,
+      "Çubuk": 1,
+      "Antakya": 1,
+      "Talas": 2,
+      "Sultangazi": 2,
+      "Beyoğlu": 1,
+      "Atakum": 1,
+      "Adıyaman": 1,
+      "Yahyalı": 1,
+      "Melikgazi": 1,
+      "Nurdağı": 1,
+      "Tuzla": 1,
+      "Akdeniz": 1,
+      "Palandöken": 1
+    },
+    "istanbul_phase2_new_candidates": 34,
+    "istanbul_phase2_new_ready": 34
+  },
+  "material_d_gaps_count": 0,
+  "phase1_nr_total": 2,
+  "phase1_nr_resolved": 2,
+  "phase1_nr_unresolved": 0,
+  "phase1_cs_total": 2,
+  "phase1_cs_still_cs": 2,
+  "phase1_cs_promoted": 0,
+  "phase1_cs_excluded": 0,
+  "phase1_cs_closed": 0,
+  "independents_audit": {
+    "phase2_new_independents_found": 84,
+    "phase2_new_independents_ready": 84,
+    "phase2_new_independents_excluded": 0
+  },
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNN (5 digits)",
+  "projected_catalog_total": 12278,
+  "projected_remaining_headroom": 222,
+  "projected_crosses_12500": false,
+  "global_stress_qa_required_after_future_merge": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "turkey_infrastructure_gaps": 0,
+  "turkey_specific_runtime_hacks": 0,
+  "verdict": "READY FOR TURKEY PRODUCTION MERGE",
+  "check_in_radius_meters": 200,
+  "check_in_199_allow": true,
+  "check_in_200_allow": true,
+  "check_in_201_block": true,
+  "auto_checkout_distance_meters": 200,
+  "turkey_specific_radius_override": 0,
+  "search_display_qa": "PASS",
+  "nearest_qa": "PLAUSIBLE",
+  "map_qa": {
+    "ready_map_markers": 198,
+    "nr_map_markers": 0,
+    "nc_map_markers": 0,
+    "coming_soon_map_markers": 0,
+    "excluded_map_markers": 0,
+    "closed_map_markers": 0,
+    "foreign_map_markers": 0
+  },
+  "geocode_audit": {
+    "ready_invalid_coordinates": 0,
+    "ready_missing_coordinates": 0,
+    "ready_fallback_coordinates": 0,
+    "ready_centroid_coordinates": 0,
+    "ready_suspect_geocodes": 0,
+    "geocode_fixes_applied": 4
+  },
+  "postcode_audit": {
+    "model": "NNNNN (5 digits)",
+    "regex": "^\\d{5}$",
+    "invalid_ready_postcodes": 0,
+    "missing_ready_postcodes": 0,
+    "non_canonical_ready_postcodes": 0
+  },
+  "source_recency_audit": {
+    "buckets": {
+      "CURRENT_MULTI_SOURCE": 198
+    },
+    "stale_only_ready": 0,
+    "operation_unverified_ready": 0,
+    "rows": [
+      {
+        "id": "tr_0058881262",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_032db2df87",
+        "brand": "A/C Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_033c66b763",
+        "brand": "Spil Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_04742a1022",
+        "brand": "Sports International",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_0db36f1769",
+        "brand": "Quite Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_0eb75d4fe7",
+        "brand": "Fit-Station",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_10bead02ac",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_156cde4711",
+        "brand": "Fit & Alive",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_158f4f2ce8",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_16a60deeff",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_16cbb27072",
+        "brand": "Fit Girl Kadınlara Özel Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_16fa12ba3b",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_1d86455fb4",
+        "brand": "FitLife",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_1e14f26ded",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_23721e9cca",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_25c85deed7",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_263ec93a91",
+        "brand": "Sports International",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_28931ac3f7",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2bdff164b1",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2c16d1d3e5",
+        "brand": "Fit Box Fitness",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2d11ef51c3",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2eac898f2d",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2ff63fd549",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_30a7fec38e",
+        "brand": "Akpınar San-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_316f102698",
+        "brand": "Sports International",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_33a990cf09",
+        "brand": "M95 Fit Club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_39c46bfe49",
+        "brand": "Fit House sağlıklı yemek",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3acf4d171a",
+        "brand": "B-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3c3ef20587",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3c514b41dc",
+        "brand": "Vision Fit Body",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3e64c33403",
+        "brand": "Merve Mahallesi San-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3f41bf37b8",
+        "brand": "Safa Mahallesi San-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3f8be1057f",
+        "brand": "B-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_414cb72372",
+        "brand": "Fit Yaşam",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_415d36b641",
+        "brand": "Kemal Türkler Mahallesi San-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_42b4c860d2",
+        "brand": "Fit In Time",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_433b17c8a6",
+        "brand": "Volume Fit Plus",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_46872d9bed",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_499bbe08f9",
+        "brand": "Fit Life Spor Merkezi",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_4d2640040d",
+        "brand": "Fit Round Fitness",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_4e40beba0d",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_518f07383a",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_543c849cfc",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_578f01ff9c",
+        "brand": "Fit Club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_589ccf58bb",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_5985f19f67",
+        "brand": "Fit Global",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_59a4105c71",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_59da37e58e",
+        "brand": "FIT UP",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_5c527202e0",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_5e180f2cd8",
+        "brand": "7 Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_5e2a50a820",
+        "brand": "Eat Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_5f27867a93",
+        "brand": "Easy Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_61e59dfb86",
+        "brand": "19 FIT Pilates & Gym XL",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_621e046fdc",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_63ae41b630",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_67ce18d95d",
+        "brand": "Fit House",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_684f6189b7",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6851ee847d",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_68798be5a2",
+        "brand": "Fit Life Sports",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6a63cd8fdd",
+        "brand": "B Fitness Clup",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6bf349cea0",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6d5623c24c",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6d8596f2ab",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_7098b28477",
+        "brand": "JustFit20",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_7483ed5e01",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_7c51b14a5d",
+        "brand": "Zeran fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_888f2c3b00",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_893107c342",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_8c032ebe2e",
+        "brand": "FitLab Life Club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_8de022c2be",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_8f1115c5bf",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_90132f81c8",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_9133253094",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_91de101720",
+        "brand": "Crross Fit Skylıght",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_968916905e",
+        "brand": "Ergo! Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_97e3a72113",
+        "brand": "Fit's Club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_991a4a71bc",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_99bed7d7de",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_9a2f507bdb",
+        "brand": "ProFit Sport Center",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_9dee7c709f",
+        "brand": "Akın Fit Club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_9e05be27e2",
+        "brand": "B-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_9f4d739931",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_9fd443b8e7",
+        "brand": "Fit'n Food",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_a0c7687129",
+        "brand": "Fit Life World",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_a2c308e847",
+        "brand": "Fit Life",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_a415a9b61c",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_a5421042ee",
+        "brand": "Fit Plan",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_acdfb031ca",
+        "brand": "Mars Athletic Club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ad1601d39a",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_b11f4e2d39",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_b58dc58106",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_b70e267ba9",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_bc61fcee19",
+        "brand": "Fit Lady",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_be58f68b61",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_c42323b19a",
+        "brand": "En Fit Body",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_c6574ee740",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ca548dce07",
+        "brand": "Hilal Mahallesi San-Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_d7230f72ee",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_db15e31e1d",
+        "brand": "Fit Slim",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_db468745b2",
+        "brand": "Sports International",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_df2525bc63",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e072f5bfb2",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e0bb3b25b4",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e7a3fff0eb",
+        "brand": "Arabica Kitchen Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e7b74a6d4c",
+        "brand": "Tam Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e9e27467a0",
+        "brand": "GymFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_eb859ffccf",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ed3b0005b4",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ee646fee52",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_f5018978f2",
+        "brand": "Just Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_f53d5104f3",
+        "brand": "Sports International",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_f850c95db9",
+        "brand": "Gym Fit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_fc24632906",
+        "brand": "Mars Athletic Club",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_fc8f4bba2b",
+        "brand": "MACFit",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_002cec01c7",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_06cb98cf5b",
+        "brand": "Çok Amaçlı Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_0e53f43a2d",
+        "brand": "Abdi İpekçi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_10bfea782b",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_10dfd74ad7",
+        "brand": "Çekmeköy Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_14127a4f59",
+        "brand": "Zeytinburnu Belediyesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_14ca330eb3",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_1c6421b64a",
+        "brand": "Merkez Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_1d08837c4c",
+        "brand": "Atlas spor salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_1da6ba8af4",
+        "brand": "Hacı Aldatmaz Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_244783a2e5",
+        "brand": "Şahinbey Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2571e3db88",
+        "brand": "Sancak Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_25b14d26ee",
+        "brand": "SYAL spor salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2735e96f48",
+        "brand": "Energy Fitness Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2a9cdbc93d",
+        "brand": "Zenun Fitness Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_2de7c1f53f",
+        "brand": "Sakıp Sabancı Spor ve Sergi Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_33d63c0005",
+        "brand": "Halkapınar Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3506f62dcf",
+        "brand": "Vadi Yurtları Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_377bc8da02",
+        "brand": "Bayındır Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_39a59bc64c",
+        "brand": "Hayri Gür Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3b2b1bfde0",
+        "brand": "Gym Life",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3d287086a2",
+        "brand": "Maxfit Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3dbf5bed27",
+        "brand": "Mustafa Kemal Atatürk Karşıyaka Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_3fa9139843",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_40146a31d0",
+        "brand": "Özdemir Sabancı Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_43b51fb8e4",
+        "brand": "Suri Kardeşler Fitness Salonun",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_48ec06efab",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_4c12138545",
+        "brand": "Develi Lisesi Açık Hava Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_50fc99f4d8",
+        "brand": "Ağaoğlu Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_537947e737",
+        "brand": "İlhan Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_53aacb41c9",
+        "brand": "Flex Women Bayan Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_53e0fef708",
+        "brand": "İmece İlkokulu Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_552d72d70c",
+        "brand": "Şamil Gülan Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_59990714d8",
+        "brand": "Gelenvevi Anadolu Lisesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6534a0258a",
+        "brand": "Yakacık İTO Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6e4ffb8736",
+        "brand": "Çapa Fen Lisesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_6fe239dafb",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_72cf4c807d",
+        "brand": "Ankara Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_7367793124",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_751f315b6c",
+        "brand": "İstanbul Üsküdar Lisesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_75da202d2c",
+        "brand": "Selim Sırrı Tarcan Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_79d0b79d26",
+        "brand": "GYM",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_7c9e79355e",
+        "brand": "Ümit Meriç Kiz Anadolu İmam Hatip Lisesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_7d3d845ec3",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_816ada08c1",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_872a39e9c4",
+        "brand": "Dr. Mimar Kadir Topbaş Spor Kompleksi - Fitness Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_88864d2597",
+        "brand": "Tozkoparan Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_896bc0f659",
+        "brand": "Yurt Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_8a00530a6c",
+        "brand": "Fatin Rüştü Zorlu Anadolu Lisesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_8ddb05e0d7",
+        "brand": "Fitness Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_96125b6c44",
+        "brand": "spor salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_987260c0c2",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_9884e5353c",
+        "brand": "Vefa Küçük Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_a8c798f400",
+        "brand": "Semih Erden Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ab3cf38b23",
+        "brand": "Yakup Kılınç Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_abb1d53b13",
+        "brand": "Yunus Emre And. Lis. Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ade0dbac82",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_b21a1cb9f5",
+        "brand": "Orhangazi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_b80c6f49ed",
+        "brand": "Beyoğlu Belediyesi Cihangir Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ba5b17ee0d",
+        "brand": "Akyüz Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_bacb1212d5",
+        "brand": "Mustafa Dağıstanlı Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_bb73fd6a37",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_bb7e5239c3",
+        "brand": "80.Yıl Cumhuriyet Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_bc70fa4734",
+        "brand": "Sinan Erdem Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_c0d9d0001f",
+        "brand": "Spor salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_c59f10a537",
+        "brand": "Kabataş Erkek Lisesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_c754a67792",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_c8aa25f2da",
+        "brand": "Kadıköy Belediyesi Caferağa Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_c8ab2071b4",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_cb3a0c6aa5",
+        "brand": "Metin aydın spor salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_d0a64c21fa",
+        "brand": "Vali M. Lütfullah Bilgin Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_d37141e5bb",
+        "brand": "Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_d62ef6cff5",
+        "brand": "Free Life Fitness Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_d8398b61bf",
+        "brand": "Eczacıbaşı Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_de8a153f11",
+        "brand": "Atatürk Mahallesi Fitness Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_df76b7dd05",
+        "brand": "Lütfulla Aksungur Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e05ea63d36",
+        "brand": "75.YIL SPOR SALONU",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e2901c4eb4",
+        "brand": "Serdar Aksun Okulu spor salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e49033f6e3",
+        "brand": "Antepia Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_e4aaaddc26",
+        "brand": "Güngören MTAL Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ea4a83c1a2",
+        "brand": "Mersin Özel Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_f8264e1cf0",
+        "brand": "KAYAKLA ATLAMA KULESİ VE ATLAMA KULESİ FİTNESS SALONU",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_fa910c85aa",
+        "brand": "Okul Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "tr_ffa3319a7a",
+        "brand": "İstanbul Büyükşehir Belediyesi Spor Salonu",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      }
+    ]
+  },
+  "hard_duplicate_conflicts": 0,
+  "production_immutability": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "sha_before": "601e7848e80478002da147bf34287b701e2fd95ff2a21e493e0d70aed002b740",
+    "sha_after": "601e7848e80478002da147bf34287b701e2fd95ff2a21e493e0d70aed002b740"
+  }
+}

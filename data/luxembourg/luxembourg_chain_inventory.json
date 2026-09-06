@@ -1,0 +1,48 @@
+{
+  "country": "Luxembourg",
+  "phase": 2,
+  "chains": {
+    "Basic-Fit": {
+      "official_current": 10,
+      "READY": 10,
+      "COMING_SOON": 0,
+      "verdict": "COMPLETE",
+      "coverage_pct": 100.0,
+      "classification": "A",
+      "sources": [
+        "https://www.basic-fit.com/en-lu/club-finder"
+      ]
+    },
+    "JIMS": {
+      "official_current": 7,
+      "official_open": 6,
+      "READY": 6,
+      "COMING_SOON": 1,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE",
+      "classification": "A",
+      "sources": [
+        "https://www.jims.lu/en/clubs"
+      ],
+      "notes": "Open estate 6/6 READY. Foetz renovating (07/09) is non-blocking COMING_SOON after CASE A identity resolution."
+    },
+    "CK Fitness": {
+      "official_current": 4,
+      "READY": 4,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE",
+      "classification": "A",
+      "sources": [
+        "https://www.ck-fitness.lu/fr/nos-centres"
+      ]
+    }
+  },
+  "ready_total": 20,
+  "ready_by_brand": {
+    "Basic-Fit": 10,
+    "JIMS": 6,
+    "CK Fitness": 4
+  },
+  "foetz_decision": "CASE_A_TWO_LEGITIMATE_CURRENT_PHYSICAL_CLUBS",
+  "foetz_classification": "A_distinct_same_complex"
+}

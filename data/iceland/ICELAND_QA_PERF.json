@@ -1,0 +1,34 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "iceland": 27,
+  "world_class": 20,
+  "katla_fitness": 7,
+  "json_size_bytes": 3705822,
+  "json_size_mb": 3.53,
+  "parse_ms": 68,
+  "cold_index_ms": 20043,
+  "cached_index_ms": 2,
+  "typical_search_ms": 665.2,
+  "worst_search_ms": 62,
+  "nearest_ms": 1,
+  "map_build_ms": 1,
+  "viewport_filter_ms": 0,
+  "map_markers_built": 27,
+  "architecture": "KEEP CLIENT-SIDE",
+  "cyprus_qa_baseline": {
+    "catalog": 11692,
+    "json_size_mb": 3.47
+  },
+  "iceland_merge_baseline": {
+    "catalog": 11692,
+    "json_size_bytes": 3705822
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false,
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "sha_after_qa": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "production_modified": false
+}

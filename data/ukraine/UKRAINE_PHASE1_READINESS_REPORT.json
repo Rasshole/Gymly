@@ -1,0 +1,2013 @@
+{
+  "country": "Ukraine",
+  "phase": 1,
+  "deep_phase": true,
+  "generated_at": "2026-08-29T14:48:42.882958+00:00",
+  "production_total": 11929,
+  "production_sha256": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "baseline_malta": 24,
+  "baseline_ukraine": 0,
+  "ukraine_live": 0,
+  "ua_prefix_live": 0,
+  "existing_ukraine_production": false,
+  "unique_staged": 133,
+  "status_counts": {
+    "READY_TO_IMPORT": 99,
+    "NEEDS_REVIEW": 17,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 5,
+    "EXCLUDED": 10,
+    "CLOSED": 2
+  },
+  "ready_count": 99,
+  "genuinely_new_ready": 99,
+  "ready_by_brand": {
+    "Apollo Next": 24,
+    "Atlas Fitness": 1,
+    "Energy Fitness": 5,
+    "FitCurves": 1,
+    "Fitness Formula": 1,
+    "Grafit": 4,
+    "Grand Prix": 1,
+    "Olymp": 1,
+    "ProFitness": 1,
+    "Smartass": 9,
+    "Sport Life": 42,
+    "SportZal": 1,
+    "Total Fitness": 8
+  },
+  "brand_counts": {
+    "Anytime Fitness": 1,
+    "Apollo Next": 25,
+    "Atlas Fitness": 1,
+    "Basic-Fit": 1,
+    "CrossFit Kyiv": 1,
+    "Energy Fitness": 6,
+    "FitCurves": 1,
+    "Fitness Formula": 1,
+    "Grafit": 5,
+    "Grand Prix": 1,
+    "Hotel Ukraine": 1,
+    "Independent": 1,
+    "InterContinental": 1,
+    "McFIT": 1,
+    "Municipal audit": 5,
+    "Olymp": 1,
+    "ProFitness": 1,
+    "PureGym": 1,
+    "Smartass": 11,
+    "Sport Life": 51,
+    "SportZal": 1,
+    "Total Fitness": 13,
+    "University": 1,
+    "World Class": 1
+  },
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNN (5 digits)",
+  "class_a_chain_count": 4,
+  "class_a_chain_names": [
+    "Sport Life",
+    "Apollo Next",
+    "Smartass",
+    "Total Fitness"
+  ],
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 99,
+    "raw_id_display_names": 0,
+    "conflict_area_ready_leakage": 0
+  },
+  "city_coverage": {
+    "cities": {
+      "Kyiv": "A",
+      "Lviv": "A",
+      "Odesa": "A",
+      "Dnipro": "A",
+      "Kharkiv": "A",
+      "Vinnytsia": "A",
+      "Zhytomyr": "A",
+      "Poltava": "A",
+      "Cherkasy": "A",
+      "Chernivtsi": "A",
+      "Rivne": "A",
+      "Lutsk": "A",
+      "Kryvyi Rih": "A",
+      "Kremenchuk": "A",
+      "Bucha": "A",
+      "Ivano-Frankivsk": "B",
+      "Boryspil": "B",
+      "Bila Tserkva": "B",
+      "Kamianets-Podilskyi": "A",
+      "Uzhhorod": "B",
+      "Donetsk": "B",
+      "Luhansk": "B",
+      "Kherson": "B",
+      "Zaporizhzhia": "B"
+    },
+    "ready_by_city": {
+      "Kyiv": 67,
+      "Lviv": 8,
+      "Odesa": 5,
+      "Kryvyi Rih": 1,
+      "Dnipro": 3,
+      "Kharkiv": 3,
+      "Cherkasy": 2,
+      "Kamianets-Podilskyi": 1,
+      "Kremenchuk": 1,
+      "Zhytomyr": 2,
+      "Chernivtsi": 1,
+      "Poltava": 1,
+      "Lutsk": 1,
+      "Rivne": 1,
+      "Bucha": 1,
+      "Vinnytsia": 1
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0,
+    "conflict_cities_staged": [
+      "Crimea",
+      "Donetsk",
+      "Kherson",
+      "Luhansk",
+      "Mariupol",
+      "Sevastopol",
+      "Zaporizhzhia"
+    ]
+  },
+  "chain_audit": {
+    "country": "Ukraine",
+    "phase": 1,
+    "market_model": "CHAIN_LED",
+    "chains": [
+      {
+        "brand": "Sport Life",
+        "official_open_active": 49,
+        "qualifying_active": 42,
+        "ready": 42,
+        "coming_soon": 5,
+        "closed": 2,
+        "needs_review": 2,
+        "unresolved": 2,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "ua_f2452b7d63",
+            "name": "Sport Life IQ Business-Center",
+            "address": "Київ, вул. Болсуновська, 13-15, БЦ IQ Business-Center",
+            "city": "Kyiv",
+            "postal_code": "01014",
+            "lat": 50.421709,
+            "lng": 30.553407,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f3e525fb8e",
+            "name": "Sport Life Академмістечко",
+            "address": "Київ, вул. Булаховського, 3а, ТЦ Regina",
+            "city": "Kyiv",
+            "postal_code": "03164",
+            "lat": 50.46913,
+            "lng": 30.33614,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_a5400d6d03",
+            "name": "Sport Life Арсенальна",
+            "address": "Київ, вул. Князів Острозьких, 32/2, БЦ «Сенатор»",
+            "city": "Kyiv",
+            "postal_code": "01010",
+            "lat": 50.435342,
+            "lng": 30.544092,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_23d66f73cd",
+            "name": "Sport Life Борщагівка",
+            "address": "Київ, вул. Симиренка, 1",
+            "city": "Kyiv",
+            "postal_code": "03134",
+            "lat": 50.41636,
+            "lng": 30.395563,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c4830b8d8c",
+            "name": "Sport Life Буча",
+            "address": "Буча, вул. Нове Шосе, 52, ТЦ Retail Park Bucha",
+            "city": "Bucha",
+            "postal_code": "08297",
+            "lat": 50.54693,
+            "lng": 30.19363,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_71abefe151",
+            "name": "Sport Life Вечірній",
+            "address": "Кривий Ріг, Бульвар Вечірній 31а",
+            "city": "Kryvyi Rih",
+            "postal_code": "50008",
+            "lat": 47.93597,
+            "lng": 33.433696,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1b3bc4a8bb",
+            "name": "Sport Life Вишневе Вітянська",
+            "address": "Києво-Святошинський р-н, Вишневе, вул. Вітянська, 2а, ЖК «Авіа Квартал»",
+            "city": "Kyiv",
+            "postal_code": "08132",
+            "lat": 50.390584,
+            "lng": 30.381554,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c022e00841",
+            "name": "Sport Life Вишневе Чері Мол",
+            "address": "Вишневе, вул. Київська, 2л, ТРЦ «Cherry Mall»",
+            "city": "Kyiv",
+            "postal_code": "08132",
+            "lat": 50.390339,
+            "lng": 30.359958,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1a4b056c49",
+            "name": "Sport Life Гатне",
+            "address": "с. Гатне, вул. Інститутська, 73, Готель Terra Nova",
+            "city": "Kyiv",
+            "postal_code": "08160",
+            "lat": 50.354044,
+            "lng": 30.4321,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f4c35b3c7a",
+            "name": "Sport Life Героїв Майдану",
+            "address": "Чернівці, вул. Героїв Майдану, 71а",
+            "city": "Chernivtsi",
+            "postal_code": "58006",
+            "lat": 48.26707,
+            "lng": 25.92721,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f94b1faa87",
+            "name": "Sport Life Героїв УПА",
+            "address": "Львів, вул. Героїв УПА, 72, корпус 40",
+            "city": "Lviv",
+            "postal_code": "79018",
+            "lat": 49.831956,
+            "lng": 23.99737,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_74e7ec34b8",
+            "name": "Sport Life Деміївська",
+            "address": "Київ, вул. Деміївська, 31, ЖК Park Avenue VIP",
+            "city": "Kyiv",
+            "postal_code": "03039",
+            "lat": 50.402709,
+            "lng": 30.51129,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_029f83f67d",
+            "name": "Sport Life Житомир",
+            "address": "Житомир, вул. Київська, 77, ТРЦ «Глобал UA»",
+            "city": "Zhytomyr",
+            "postal_code": "10012",
+            "lat": 50.266403,
+            "lng": 28.685766,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d6218220ca",
+            "name": "Sport Life Кам’янець-Подільський",
+            "address": "Кам'янець-Подільський, вул. Князів Коріатовичів, 25/8",
+            "city": "Kamianets-Podilskyi",
+            "postal_code": "32319",
+            "lat": 48.676586,
+            "lng": 26.601717,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_235fcd3d4d",
+            "name": "Sport Life Караваєві Дачі",
+            "address": "Київ, вул. Миколи Голего, 5",
+            "city": "Kyiv",
+            "postal_code": "03058",
+            "lat": 50.439137,
+            "lng": 30.441425,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_0ba2e8f931",
+            "name": "Sport Life Комфорт Таун",
+            "address": "Київ, вул. Регенераторна, 4б, ЖК «Комфорт Таун»",
+            "city": "Kyiv",
+            "postal_code": "02160",
+            "lat": 50.436036,
+            "lng": 30.623349,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_3291a2b4f2",
+            "name": "Sport Life Котовського",
+            "address": "Одеса, вул. Давида Ойстраха, 32, ТРЦ «CITY CENTER Котовський»",
+            "city": "Odesa",
+            "postal_code": "65025",
+            "lat": 46.583987,
+            "lng": 30.793736,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_3d6f2df12c",
+            "name": "Sport Life Кременчук",
+            "address": "Кременчук, просп. Лесі Українки, 120",
+            "city": "Kremenchuk",
+            "postal_code": "39627",
+            "lat": 49.11488,
+            "lng": 33.439225,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d70e261140",
+            "name": "Sport Life Куренівка",
+            "address": "Київ, вул. Кирилівська, 134а",
+            "city": "Kyiv",
+            "postal_code": "04023",
+            "lat": 50.48847,
+            "lng": 30.471845,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_4b45af914a",
+            "name": "Sport Life Лук’янівська",
+            "address": "Київ, вул. Овруцька, 18. ТЦ «Променада Центр»",
+            "city": "Kyiv",
+            "postal_code": "04107",
+            "lat": 50.471393,
+            "lng": 30.477841,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_59d45929f4",
+            "name": "Sport Life Луцьк",
+            "address": "Луцьк, просп. Василя Мойсея, 1",
+            "city": "Lutsk",
+            "postal_code": "43002",
+            "lat": 50.754037,
+            "lng": 25.336457,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f57ff11db1",
+            "name": "Sport Life Мазепи",
+            "address": "Львів, вул. Гетьмана Мазепи 1Б, ТРЦ «Спартак»",
+            "city": "Lviv",
+            "postal_code": "79051",
+            "lat": 49.869443,
+            "lng": 24.028559,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_2f13a900bc",
+            "name": "Sport Life Мармелад",
+            "address": "Київ, вул. Борщагівська, 154, ТРЦ «Мармелад»",
+            "city": "Kyiv",
+            "postal_code": "03056",
+            "lat": 50.446506,
+            "lng": 30.443328,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c5a86b7122",
+            "name": "Sport Life Митниця",
+            "address": "Черкаси, вул. Козацька, 2",
+            "city": "Cherkasy",
+            "postal_code": "18018",
+            "lat": 49.437534,
+            "lng": 32.100536,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_24b745a754",
+            "name": "Sport Life Нікольський",
+            "address": "Харків, вул. Григорія Сковороди, 2а, ТРЦ «Nikolsky»",
+            "city": "Kharkiv",
+            "postal_code": "61003",
+            "lat": 49.991601,
+            "lng": 36.234142,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_eb31c07c31",
+            "name": "Sport Life Осокорки",
+            "address": "Київ, вул. Дніпровська набережна, 26л, ЖК «Південна Брама»",
+            "city": "Kyiv",
+            "postal_code": "02132",
+            "lat": 50.393204,
+            "lng": 30.613709,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d28fd60e66",
+            "name": "Sport Life Панорама",
+            "address": "Дніпро, вул. Сімферопольська, 2м, ЖК «Панорама»",
+            "city": "Dnipro",
+            "postal_code": "49000",
+            "lat": 48.451431,
+            "lng": 35.068774,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8a5255824f",
+            "name": "Sport Life Парус",
+            "address": "Київ, вул. Мечникова, 2а, БЦ «Парус»",
+            "city": "Kyiv",
+            "postal_code": "01024",
+            "lat": 50.437563,
+            "lng": 30.527399,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_7c3a4ce1de",
+            "name": "Sport Life Печерськ",
+            "address": "Київ, вул. Звіринецька, 59, ЖК «Тріумф»",
+            "city": "Kyiv",
+            "postal_code": "01014",
+            "lat": 50.407371,
+            "lng": 30.554952,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c3ab82360e",
+            "name": "Sport Life Поділ",
+            "address": "Київ, вул. Волоська, 62",
+            "city": "Kyiv",
+            "postal_code": "04071",
+            "lat": 50.472822,
+            "lng": 30.511285,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_075699fcc7",
+            "name": "Sport Life Позняки",
+            "address": "Київ, вул. Драгоманова, 40г",
+            "city": "Kyiv",
+            "postal_code": "04140",
+            "lat": 50.405071,
+            "lng": 30.637905,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_9d1bb57dba",
+            "name": "Sport Life Полтава",
+            "address": "Полтава, вул. Раїси Кириченко, 72",
+            "city": "Poltava",
+            "postal_code": "36009",
+            "lat": 49.578548,
+            "lng": 34.53614,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_37e9896dcc",
+            "name": "Sport Life Протасів Яр",
+            "address": "Київ, вул. М. Грінченка, 2/1, БЦ «Протасів Бізнес Парк»",
+            "city": "Kyiv",
+            "postal_code": "03038",
+            "lat": 50.424962,
+            "lng": 30.506758,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ca1711a911",
+            "name": "Sport Life Південний",
+            "address": "Черкаси, вул. Прикордонника Лазаренка, 7/1",
+            "city": "Cherkasy",
+            "postal_code": "18014",
+            "lat": 49.435423,
+            "lng": 32.011802,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_eb4170dbc3",
+            "name": "Sport Life Ретровіль",
+            "address": "Київ, просп. Європейського союзу, 47, ТРЦ «Retroville»",
+            "city": "Kyiv",
+            "postal_code": "02000",
+            "lat": 50.503766,
+            "lng": 30.416663,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_39c5885bd0",
+            "name": "Sport Life Рівне",
+            "address": "Рівненська обл, с. Бармаки, масив Комфортний, 1, БЦ Space4",
+            "city": "Rivne",
+            "postal_code": "35372",
+            "lat": 50.63721,
+            "lng": 26.28339,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_a8d1ccb825",
+            "name": "Sport Life Сихів",
+            "address": "Львів, вул. Зубрівська, 38",
+            "city": "Lviv",
+            "postal_code": "79066",
+            "lat": 49.795145,
+            "lng": 24.059038,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8e2b8d9ea0",
+            "name": "Sport Life Смарт Плаза Політех",
+            "address": "Київ, просп. Берестейський, 26, ТЦ Smart Plaza Polytech",
+            "city": "Kyiv",
+            "postal_code": "03055",
+            "lat": 50.451185868933365,
+            "lng": 30.468341939732923,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_24c456dc9d",
+            "name": "Sport Life Таїрова",
+            "address": "Одеса, просп. Небесної Сотні, 2, ТРЦ City Center",
+            "city": "Odesa",
+            "postal_code": "65101",
+            "lat": 46.41627,
+            "lng": 30.712547,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_a503660ece",
+            "name": "Sport Life Теремки",
+            "address": "Київ, вул. Самійла Кішки, 8, ЖК «Ліко-Град»",
+            "city": "Kyiv",
+            "postal_code": "03191",
+            "lat": 50.381741,
+            "lng": 30.458102,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_91ca128bfe",
+            "name": "Sport Life Троєщина",
+            "address": "Київ, просп. Червоної калини, 44а",
+            "city": "Kyiv",
+            "postal_code": "02232",
+            "lat": 50.516604,
+            "lng": 30.618547,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_deaa0ac28c",
+            "name": "Sport Life Чернігівська",
+            "address": "Київ, вул. Вінстона Черчилля, 42",
+            "city": "Kyiv",
+            "postal_code": "02094",
+            "lat": 50.456391,
+            "lng": 30.637588,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Apollo Next",
+        "official_open_active": 24,
+        "qualifying_active": 24,
+        "ready": 24,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 1,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "ua_3a88cf6a35",
+            "name": "APOLLO NEXT 019 (ТРЦ DREAM)",
+            "address": "APOLLO NEXT 019 (ТРЦ DREAM) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "04205",
+            "lat": 50.507535220589446,
+            "lng": 30.498530861376974,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_bb2684f412",
+            "name": "APOLLO NEXT 020 (ТРЦ «ХарьОК»)",
+            "address": "APOLLO NEXT 020 (ТРЦ «ХарьОК») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02102",
+            "lat": 50.40306070000001,
+            "lng": 30.6540624,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_04452ccd8e",
+            "name": "APOLLO NEXT 021 (ARENA City)",
+            "address": "APOLLO NEXT 021 (ARENA City) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "01003",
+            "lat": 50.4421144,
+            "lng": 30.5225001,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_2d7d0d8004",
+            "name": "APOLLO NEXT 022 (ТРЦ «Аладдін»)",
+            "address": "APOLLO NEXT 022 (ТРЦ «Аладдін») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02141",
+            "lat": 50.39590299999999,
+            "lng": 30.63243,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1a8d96058a",
+            "name": "APOLLO NEXT 023 (ТРЦ «Cosmo Multimall»)",
+            "address": "APOLLO NEXT 023 (ТРЦ «Cosmo Multimall») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03168",
+            "lat": 50.4500665,
+            "lng": 30.4431522,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_0f2b7da5ca",
+            "name": "APOLLO NEXT 024 (ТРЦ Victoria Gardens)",
+            "address": "APOLLO NEXT 024 (ТРЦ Victoria Gardens) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "79071",
+            "lat": 49.8074658,
+            "lng": 23.9783576,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d92a8c5ed0",
+            "name": "APOLLO NEXT 025 (ТРЦ Ocean Plaza)",
+            "address": "APOLLO NEXT 025 (ТРЦ Ocean Plaza) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03093",
+            "lat": 50.4130474,
+            "lng": 30.5205956,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_3c991cd281",
+            "name": "APOLLO NEXT 026 (ТРЦ «Фестивальний», Троєщина)",
+            "address": "APOLLO NEXT 026 (ТРЦ «Фестивальний», Троєщина) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02222",
+            "lat": 50.50867787014683,
+            "lng": 30.607223510742188,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_00d5002637",
+            "name": "APOLLO NEXT 027 (ЦУМ «Київський Шлях»)",
+            "address": "APOLLO NEXT 027 (ЦУМ «Київський Шлях») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "08302",
+            "lat": 50.35758649999999,
+            "lng": 30.9409978,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_4e5c9633ff",
+            "name": "APOLLO NEXT 028 (ТЦ «Уніцентр»)",
+            "address": "APOLLO NEXT 028 (ТЦ «Уніцентр») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02105",
+            "lat": 50.44141427541625,
+            "lng": 30.626239248657242,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_9c00aafd54",
+            "name": "APOLLO NEXT 029 (ТЦ «Ультрамарин»)",
+            "address": "APOLLO NEXT 029 (ТЦ «Ультрамарин») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03031",
+            "lat": 50.436057511318666,
+            "lng": 30.489349462975454,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f2f5faf4f8",
+            "name": "APOLLO NEXT 030 (ТЦ «Магелан»)",
+            "address": "APOLLO NEXT 030 (ТЦ «Магелан») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03187",
+            "lat": 50.367932,
+            "lng": 30.458165,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6914b0cff8",
+            "name": "APOLLO NEXT 031 (ТЦ «Сільпо, Борщагівка»)",
+            "address": "APOLLO NEXT 031 (ТЦ «Сільпо, Борщагівка») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03194",
+            "lat": 50.4248019,
+            "lng": 30.3830083,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1706e531c1",
+            "name": "APOLLO NEXT 032 (ТЦ «Сільпо», Теремки)",
+            "address": "APOLLO NEXT 032 (ТЦ «Сільпо», Теремки) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03191",
+            "lat": 50.3843339,
+            "lng": 30.4580937,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_02b5114801",
+            "name": "APOLLO NEXT 033 (ТЦ «Магігранд»)",
+            "address": "APOLLO NEXT 033 (ТЦ «Магігранд») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "21030",
+            "lat": 49.22605000000001,
+            "lng": 28.4125814,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_87c187d472",
+            "name": "APOLLO NEXT 034 (БЦ «Таурус»)",
+            "address": "APOLLO NEXT 034 (БЦ «Таурус») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "79029",
+            "lat": 49.8290803,
+            "lng": 23.9930122,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_fc1cc0498e",
+            "name": "APOLLO NEXT 035 (ТРЦ «Гермес»)",
+            "address": "APOLLO NEXT 035 (ТРЦ «Гермес») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "09117",
+            "lat": 49.7975903,
+            "lng": 30.1218898,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_243f6a2d31",
+            "name": "APOLLO NEXT 036 (ТЦ «Сім’я», Котовського)",
+            "address": "APOLLO NEXT 036 (ТЦ «Сім’я», Котовського) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "65000",
+            "lat": 46.5753725,
+            "lng": 30.7968088,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8941c70c36",
+            "name": "APOLLO NEXT 037 (ТРЦ «Острів»)",
+            "address": "APOLLO NEXT 037 (ТРЦ «Острів») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "65012",
+            "lat": 46.4690279,
+            "lng": 30.7374998,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6c1adb270c",
+            "name": "APOLLO NEXT 038 (ТЦ DOMA Center, Метро “Дарниця”)",
+            "address": "APOLLO NEXT 038 (ТЦ DOMA Center, Метро “Дарниця”) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02100",
+            "lat": 50.4547264,
+            "lng": 30.6103311,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_520598bbb2",
+            "name": "APOLLO NEXT 039 (WINETIME)",
+            "address": "APOLLO NEXT 039 (WINETIME) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "76000",
+            "lat": 48.9234137,
+            "lng": 24.7027229,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1265ae1a08",
+            "name": "APOLLO NEXT 040 (ТЦ ЕКО МАРКЕТ)",
+            "address": "APOLLO NEXT 040 (ТЦ ЕКО МАРКЕТ) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02225",
+            "lat": 50.5020803,
+            "lng": 30.5915105,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d108951244",
+            "name": "APOLLO NEXT 041 (ЯРМАРОК)",
+            "address": "APOLLO NEXT 041 (ЯРМАРОК) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "10012",
+            "lat": 50.2649489,
+            "lng": 28.6834228,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8bbebdf962",
+            "name": "APOLLO NEXT 144",
+            "address": "APOLLO NEXT 144 — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02175",
+            "lat": 50.421631,
+            "lng": 30.6510994,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Smartass",
+        "official_open_active": 10,
+        "qualifying_active": 9,
+        "ready": 9,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 1,
+        "unresolved": 1,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "ua_776079d90b",
+            "name": "Smartass Kharkiv — Universytetska St, 16",
+            "address": "Universytetska St, 16",
+            "city": "Kharkiv",
+            "postal_code": "61003",
+            "lat": 49.9892413,
+            "lng": 36.229623,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8dff0c1e5e",
+            "name": "Smartass Kyiv — Korolenkivska St, 4",
+            "address": "Korolenkivska St, 4",
+            "city": "Kyiv",
+            "postal_code": "01033",
+            "lat": 50.4327279,
+            "lng": 30.5064503,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6c014a9921",
+            "name": "Smartass Kyiv — Mezhyhirska St, 82",
+            "address": "Mezhyhirska St, 82",
+            "city": "Kyiv",
+            "postal_code": "03080",
+            "lat": 50.4777389,
+            "lng": 30.498471,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d592c1fdcf",
+            "name": "Smartass Kyiv — Mykoly Bazhana Ave, 10А",
+            "address": "Mykoly Bazhana Ave, 10А",
+            "city": "Kyiv",
+            "postal_code": "02072",
+            "lat": 50.3954017,
+            "lng": 30.6207029,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_0db0275a23",
+            "name": "Smartass Kyiv — Obolonskyi Ave, 19",
+            "address": "Obolonskyi Ave, 19",
+            "city": "Kyiv",
+            "postal_code": "04207",
+            "lat": 50.5127771,
+            "lng": 30.497069,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1530de3558",
+            "name": "Smartass Kyiv — Verkhohliada St, 14A",
+            "address": "Verkhohliada St, 14A",
+            "city": "Kyiv",
+            "postal_code": "01103",
+            "lat": 50.4118222,
+            "lng": 30.5449866,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_b3e80e8a23",
+            "name": "Smartass Kyiv — Zhylianska St, 41А",
+            "address": "Zhylianska St, 41А",
+            "city": "Kyiv",
+            "postal_code": "01033",
+            "lat": 50.4340676,
+            "lng": 30.5073107,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6882f81ca4",
+            "name": "Smartass Lviv — Panasa Myrnoho St, 24",
+            "address": "Panasa Myrnoho St, 24",
+            "city": "Lviv",
+            "postal_code": "79034",
+            "lat": 49.8136273,
+            "lng": 24.0343815,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ee0fe78037",
+            "name": "Smartass Lviv — Shevchenka St, 120",
+            "address": "Shevchenka St, 120",
+            "city": "Lviv",
+            "postal_code": "79039",
+            "lat": 49.8491148,
+            "lng": 23.9970669,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Total Fitness",
+        "official_open_active": 12,
+        "qualifying_active": 8,
+        "ready": 8,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 5,
+        "unresolved": 4,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "ua_9fd5152b92",
+            "name": "Total Fitness Dnipro — вул. Сімферопольська, 2м",
+            "address": "вул. Сімферопольська, 2м",
+            "city": "Dnipro",
+            "postal_code": "49000",
+            "lat": 48.4508328,
+            "lng": 35.0677235,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_7f1ccd82c4",
+            "name": "Total Fitness Kyiv — вул. Бориса Лятошинського, 4",
+            "address": "вул. Бориса Лятошинського, 4",
+            "city": "Kyiv",
+            "postal_code": "08296",
+            "lat": 50.5407605,
+            "lng": 30.1361096,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_e039f31e1d",
+            "name": "Total Fitness Kyiv — вул. Героїв України, 21-B",
+            "address": "вул. Героїв України, 21-B",
+            "city": "Kyiv",
+            "postal_code": "07400",
+            "lat": 50.5114057,
+            "lng": 30.7903266,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_2613c425fa",
+            "name": "Total Fitness Kyiv — вул. Київський шлях, 4",
+            "address": "вул. Київський шлях, 4",
+            "city": "Kyiv",
+            "postal_code": "08302",
+            "lat": 50.3596075,
+            "lng": 30.9357475,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ef9ba5767c",
+            "name": "Total Fitness Kyiv — вул. Олександра Мишуги, 3-А",
+            "address": "вул. Олександра Мишуги, 3-А",
+            "city": "Kyiv",
+            "postal_code": "02149",
+            "lat": 50.3974436,
+            "lng": 30.6401974,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_70d717e7c6",
+            "name": "Total Fitness Kyiv — вул. Ревуцького, 12/1",
+            "address": "вул. Ревуцького, 12/1",
+            "city": "Kyiv",
+            "postal_code": "02091",
+            "lat": 50.4119495,
+            "lng": 30.6443983,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ed4980d2dc",
+            "name": "Total Fitness Kyiv — вул. Чорних Запорожців, 76",
+            "address": "вул. Чорних Запорожців, 76",
+            "city": "Kyiv",
+            "postal_code": "07405",
+            "lat": 50.5237058,
+            "lng": 30.7916946,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_93f4f1560b",
+            "name": "Total Fitness Odesa — вул. Семена Палія, 93А",
+            "address": "вул. Семена Палія, 93А",
+            "city": "Odesa",
+            "postal_code": "65069",
+            "lat": 46.5756423,
+            "lng": 30.7969278,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "probes_investigated": [
+      {
+        "chain": "Sport Life",
+        "action": "CLASS_A_FETCHED",
+        "evidence": "49 clubs via sportlife.ua __NEXT_DATA__"
+      },
+      {
+        "chain": "Apollo Next",
+        "action": "CLASS_A_FETCHED",
+        "evidence": "24 clubs via apollo.online locator"
+      },
+      {
+        "chain": "Smartass",
+        "action": "CLASS_A_UA_ONLY",
+        "evidence": "Kyiv/Lviv/Kharkiv from smartass.club; Warsaw excluded"
+      },
+      {
+        "chain": "Total Fitness",
+        "action": "CLASS_A_SEED",
+        "evidence": "12 seeds from totalfitness.com.ua clubs page"
+      },
+      {
+        "chain": "Energy Fitness",
+        "action": "NEEDS_REVIEW_SEED",
+        "evidence": "5 seeds; domain unreachable"
+      },
+      {
+        "chain": "Grafit",
+        "action": "NEEDS_REVIEW_SEED",
+        "evidence": "4 seeds; TLS issues on official domain"
+      },
+      {
+        "chain": "Anytime/PureGym/McFIT/Basic-Fit/World Class",
+        "action": "ABSENT",
+        "evidence": "No UA conventional chain presence"
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 4,
+      "final_class_a_ready_count": 83,
+      "chain_estate_gaps": 7
+    }
+  },
+  "chain_estate_audit": {
+    "chains": [
+      {
+        "brand": "Sport Life",
+        "official_open_active": 49,
+        "qualifying_active": 42,
+        "ready": 42,
+        "coming_soon": 5,
+        "closed": 2,
+        "needs_review": 2,
+        "unresolved": 2,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "ua_f2452b7d63",
+            "name": "Sport Life IQ Business-Center",
+            "address": "Київ, вул. Болсуновська, 13-15, БЦ IQ Business-Center",
+            "city": "Kyiv",
+            "postal_code": "01014",
+            "lat": 50.421709,
+            "lng": 30.553407,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f3e525fb8e",
+            "name": "Sport Life Академмістечко",
+            "address": "Київ, вул. Булаховського, 3а, ТЦ Regina",
+            "city": "Kyiv",
+            "postal_code": "03164",
+            "lat": 50.46913,
+            "lng": 30.33614,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_a5400d6d03",
+            "name": "Sport Life Арсенальна",
+            "address": "Київ, вул. Князів Острозьких, 32/2, БЦ «Сенатор»",
+            "city": "Kyiv",
+            "postal_code": "01010",
+            "lat": 50.435342,
+            "lng": 30.544092,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_23d66f73cd",
+            "name": "Sport Life Борщагівка",
+            "address": "Київ, вул. Симиренка, 1",
+            "city": "Kyiv",
+            "postal_code": "03134",
+            "lat": 50.41636,
+            "lng": 30.395563,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c4830b8d8c",
+            "name": "Sport Life Буча",
+            "address": "Буча, вул. Нове Шосе, 52, ТЦ Retail Park Bucha",
+            "city": "Bucha",
+            "postal_code": "08297",
+            "lat": 50.54693,
+            "lng": 30.19363,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_71abefe151",
+            "name": "Sport Life Вечірній",
+            "address": "Кривий Ріг, Бульвар Вечірній 31а",
+            "city": "Kryvyi Rih",
+            "postal_code": "50008",
+            "lat": 47.93597,
+            "lng": 33.433696,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1b3bc4a8bb",
+            "name": "Sport Life Вишневе Вітянська",
+            "address": "Києво-Святошинський р-н, Вишневе, вул. Вітянська, 2а, ЖК «Авіа Квартал»",
+            "city": "Kyiv",
+            "postal_code": "08132",
+            "lat": 50.390584,
+            "lng": 30.381554,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c022e00841",
+            "name": "Sport Life Вишневе Чері Мол",
+            "address": "Вишневе, вул. Київська, 2л, ТРЦ «Cherry Mall»",
+            "city": "Kyiv",
+            "postal_code": "08132",
+            "lat": 50.390339,
+            "lng": 30.359958,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1a4b056c49",
+            "name": "Sport Life Гатне",
+            "address": "с. Гатне, вул. Інститутська, 73, Готель Terra Nova",
+            "city": "Kyiv",
+            "postal_code": "08160",
+            "lat": 50.354044,
+            "lng": 30.4321,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f4c35b3c7a",
+            "name": "Sport Life Героїв Майдану",
+            "address": "Чернівці, вул. Героїв Майдану, 71а",
+            "city": "Chernivtsi",
+            "postal_code": "58006",
+            "lat": 48.26707,
+            "lng": 25.92721,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f94b1faa87",
+            "name": "Sport Life Героїв УПА",
+            "address": "Львів, вул. Героїв УПА, 72, корпус 40",
+            "city": "Lviv",
+            "postal_code": "79018",
+            "lat": 49.831956,
+            "lng": 23.99737,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_74e7ec34b8",
+            "name": "Sport Life Деміївська",
+            "address": "Київ, вул. Деміївська, 31, ЖК Park Avenue VIP",
+            "city": "Kyiv",
+            "postal_code": "03039",
+            "lat": 50.402709,
+            "lng": 30.51129,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_029f83f67d",
+            "name": "Sport Life Житомир",
+            "address": "Житомир, вул. Київська, 77, ТРЦ «Глобал UA»",
+            "city": "Zhytomyr",
+            "postal_code": "10012",
+            "lat": 50.266403,
+            "lng": 28.685766,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d6218220ca",
+            "name": "Sport Life Кам’янець-Подільський",
+            "address": "Кам'янець-Подільський, вул. Князів Коріатовичів, 25/8",
+            "city": "Kamianets-Podilskyi",
+            "postal_code": "32319",
+            "lat": 48.676586,
+            "lng": 26.601717,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_235fcd3d4d",
+            "name": "Sport Life Караваєві Дачі",
+            "address": "Київ, вул. Миколи Голего, 5",
+            "city": "Kyiv",
+            "postal_code": "03058",
+            "lat": 50.439137,
+            "lng": 30.441425,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_0ba2e8f931",
+            "name": "Sport Life Комфорт Таун",
+            "address": "Київ, вул. Регенераторна, 4б, ЖК «Комфорт Таун»",
+            "city": "Kyiv",
+            "postal_code": "02160",
+            "lat": 50.436036,
+            "lng": 30.623349,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_3291a2b4f2",
+            "name": "Sport Life Котовського",
+            "address": "Одеса, вул. Давида Ойстраха, 32, ТРЦ «CITY CENTER Котовський»",
+            "city": "Odesa",
+            "postal_code": "65025",
+            "lat": 46.583987,
+            "lng": 30.793736,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_3d6f2df12c",
+            "name": "Sport Life Кременчук",
+            "address": "Кременчук, просп. Лесі Українки, 120",
+            "city": "Kremenchuk",
+            "postal_code": "39627",
+            "lat": 49.11488,
+            "lng": 33.439225,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d70e261140",
+            "name": "Sport Life Куренівка",
+            "address": "Київ, вул. Кирилівська, 134а",
+            "city": "Kyiv",
+            "postal_code": "04023",
+            "lat": 50.48847,
+            "lng": 30.471845,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_4b45af914a",
+            "name": "Sport Life Лук’янівська",
+            "address": "Київ, вул. Овруцька, 18. ТЦ «Променада Центр»",
+            "city": "Kyiv",
+            "postal_code": "04107",
+            "lat": 50.471393,
+            "lng": 30.477841,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_59d45929f4",
+            "name": "Sport Life Луцьк",
+            "address": "Луцьк, просп. Василя Мойсея, 1",
+            "city": "Lutsk",
+            "postal_code": "43002",
+            "lat": 50.754037,
+            "lng": 25.336457,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f57ff11db1",
+            "name": "Sport Life Мазепи",
+            "address": "Львів, вул. Гетьмана Мазепи 1Б, ТРЦ «Спартак»",
+            "city": "Lviv",
+            "postal_code": "79051",
+            "lat": 49.869443,
+            "lng": 24.028559,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_2f13a900bc",
+            "name": "Sport Life Мармелад",
+            "address": "Київ, вул. Борщагівська, 154, ТРЦ «Мармелад»",
+            "city": "Kyiv",
+            "postal_code": "03056",
+            "lat": 50.446506,
+            "lng": 30.443328,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c5a86b7122",
+            "name": "Sport Life Митниця",
+            "address": "Черкаси, вул. Козацька, 2",
+            "city": "Cherkasy",
+            "postal_code": "18018",
+            "lat": 49.437534,
+            "lng": 32.100536,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_24b745a754",
+            "name": "Sport Life Нікольський",
+            "address": "Харків, вул. Григорія Сковороди, 2а, ТРЦ «Nikolsky»",
+            "city": "Kharkiv",
+            "postal_code": "61003",
+            "lat": 49.991601,
+            "lng": 36.234142,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_eb31c07c31",
+            "name": "Sport Life Осокорки",
+            "address": "Київ, вул. Дніпровська набережна, 26л, ЖК «Південна Брама»",
+            "city": "Kyiv",
+            "postal_code": "02132",
+            "lat": 50.393204,
+            "lng": 30.613709,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d28fd60e66",
+            "name": "Sport Life Панорама",
+            "address": "Дніпро, вул. Сімферопольська, 2м, ЖК «Панорама»",
+            "city": "Dnipro",
+            "postal_code": "49000",
+            "lat": 48.451431,
+            "lng": 35.068774,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8a5255824f",
+            "name": "Sport Life Парус",
+            "address": "Київ, вул. Мечникова, 2а, БЦ «Парус»",
+            "city": "Kyiv",
+            "postal_code": "01024",
+            "lat": 50.437563,
+            "lng": 30.527399,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_7c3a4ce1de",
+            "name": "Sport Life Печерськ",
+            "address": "Київ, вул. Звіринецька, 59, ЖК «Тріумф»",
+            "city": "Kyiv",
+            "postal_code": "01014",
+            "lat": 50.407371,
+            "lng": 30.554952,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_c3ab82360e",
+            "name": "Sport Life Поділ",
+            "address": "Київ, вул. Волоська, 62",
+            "city": "Kyiv",
+            "postal_code": "04071",
+            "lat": 50.472822,
+            "lng": 30.511285,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_075699fcc7",
+            "name": "Sport Life Позняки",
+            "address": "Київ, вул. Драгоманова, 40г",
+            "city": "Kyiv",
+            "postal_code": "04140",
+            "lat": 50.405071,
+            "lng": 30.637905,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_9d1bb57dba",
+            "name": "Sport Life Полтава",
+            "address": "Полтава, вул. Раїси Кириченко, 72",
+            "city": "Poltava",
+            "postal_code": "36009",
+            "lat": 49.578548,
+            "lng": 34.53614,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_37e9896dcc",
+            "name": "Sport Life Протасів Яр",
+            "address": "Київ, вул. М. Грінченка, 2/1, БЦ «Протасів Бізнес Парк»",
+            "city": "Kyiv",
+            "postal_code": "03038",
+            "lat": 50.424962,
+            "lng": 30.506758,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ca1711a911",
+            "name": "Sport Life Південний",
+            "address": "Черкаси, вул. Прикордонника Лазаренка, 7/1",
+            "city": "Cherkasy",
+            "postal_code": "18014",
+            "lat": 49.435423,
+            "lng": 32.011802,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_eb4170dbc3",
+            "name": "Sport Life Ретровіль",
+            "address": "Київ, просп. Європейського союзу, 47, ТРЦ «Retroville»",
+            "city": "Kyiv",
+            "postal_code": "02000",
+            "lat": 50.503766,
+            "lng": 30.416663,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_39c5885bd0",
+            "name": "Sport Life Рівне",
+            "address": "Рівненська обл, с. Бармаки, масив Комфортний, 1, БЦ Space4",
+            "city": "Rivne",
+            "postal_code": "35372",
+            "lat": 50.63721,
+            "lng": 26.28339,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_a8d1ccb825",
+            "name": "Sport Life Сихів",
+            "address": "Львів, вул. Зубрівська, 38",
+            "city": "Lviv",
+            "postal_code": "79066",
+            "lat": 49.795145,
+            "lng": 24.059038,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8e2b8d9ea0",
+            "name": "Sport Life Смарт Плаза Політех",
+            "address": "Київ, просп. Берестейський, 26, ТЦ Smart Plaza Polytech",
+            "city": "Kyiv",
+            "postal_code": "03055",
+            "lat": 50.451185868933365,
+            "lng": 30.468341939732923,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_24c456dc9d",
+            "name": "Sport Life Таїрова",
+            "address": "Одеса, просп. Небесної Сотні, 2, ТРЦ City Center",
+            "city": "Odesa",
+            "postal_code": "65101",
+            "lat": 46.41627,
+            "lng": 30.712547,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_a503660ece",
+            "name": "Sport Life Теремки",
+            "address": "Київ, вул. Самійла Кішки, 8, ЖК «Ліко-Град»",
+            "city": "Kyiv",
+            "postal_code": "03191",
+            "lat": 50.381741,
+            "lng": 30.458102,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_91ca128bfe",
+            "name": "Sport Life Троєщина",
+            "address": "Київ, просп. Червоної калини, 44а",
+            "city": "Kyiv",
+            "postal_code": "02232",
+            "lat": 50.516604,
+            "lng": 30.618547,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_deaa0ac28c",
+            "name": "Sport Life Чернігівська",
+            "address": "Київ, вул. Вінстона Черчилля, 42",
+            "city": "Kyiv",
+            "postal_code": "02094",
+            "lat": 50.456391,
+            "lng": 30.637588,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Apollo Next",
+        "official_open_active": 24,
+        "qualifying_active": 24,
+        "ready": 24,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 1,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "ua_3a88cf6a35",
+            "name": "APOLLO NEXT 019 (ТРЦ DREAM)",
+            "address": "APOLLO NEXT 019 (ТРЦ DREAM) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "04205",
+            "lat": 50.507535220589446,
+            "lng": 30.498530861376974,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_bb2684f412",
+            "name": "APOLLO NEXT 020 (ТРЦ «ХарьОК»)",
+            "address": "APOLLO NEXT 020 (ТРЦ «ХарьОК») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02102",
+            "lat": 50.40306070000001,
+            "lng": 30.6540624,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_04452ccd8e",
+            "name": "APOLLO NEXT 021 (ARENA City)",
+            "address": "APOLLO NEXT 021 (ARENA City) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "01003",
+            "lat": 50.4421144,
+            "lng": 30.5225001,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_2d7d0d8004",
+            "name": "APOLLO NEXT 022 (ТРЦ «Аладдін»)",
+            "address": "APOLLO NEXT 022 (ТРЦ «Аладдін») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02141",
+            "lat": 50.39590299999999,
+            "lng": 30.63243,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1a8d96058a",
+            "name": "APOLLO NEXT 023 (ТРЦ «Cosmo Multimall»)",
+            "address": "APOLLO NEXT 023 (ТРЦ «Cosmo Multimall») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03168",
+            "lat": 50.4500665,
+            "lng": 30.4431522,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_0f2b7da5ca",
+            "name": "APOLLO NEXT 024 (ТРЦ Victoria Gardens)",
+            "address": "APOLLO NEXT 024 (ТРЦ Victoria Gardens) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "79071",
+            "lat": 49.8074658,
+            "lng": 23.9783576,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d92a8c5ed0",
+            "name": "APOLLO NEXT 025 (ТРЦ Ocean Plaza)",
+            "address": "APOLLO NEXT 025 (ТРЦ Ocean Plaza) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03093",
+            "lat": 50.4130474,
+            "lng": 30.5205956,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_3c991cd281",
+            "name": "APOLLO NEXT 026 (ТРЦ «Фестивальний», Троєщина)",
+            "address": "APOLLO NEXT 026 (ТРЦ «Фестивальний», Троєщина) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02222",
+            "lat": 50.50867787014683,
+            "lng": 30.607223510742188,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_00d5002637",
+            "name": "APOLLO NEXT 027 (ЦУМ «Київський Шлях»)",
+            "address": "APOLLO NEXT 027 (ЦУМ «Київський Шлях») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "08302",
+            "lat": 50.35758649999999,
+            "lng": 30.9409978,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_4e5c9633ff",
+            "name": "APOLLO NEXT 028 (ТЦ «Уніцентр»)",
+            "address": "APOLLO NEXT 028 (ТЦ «Уніцентр») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02105",
+            "lat": 50.44141427541625,
+            "lng": 30.626239248657242,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_9c00aafd54",
+            "name": "APOLLO NEXT 029 (ТЦ «Ультрамарин»)",
+            "address": "APOLLO NEXT 029 (ТЦ «Ультрамарин») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03031",
+            "lat": 50.436057511318666,
+            "lng": 30.489349462975454,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_f2f5faf4f8",
+            "name": "APOLLO NEXT 030 (ТЦ «Магелан»)",
+            "address": "APOLLO NEXT 030 (ТЦ «Магелан») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03187",
+            "lat": 50.367932,
+            "lng": 30.458165,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6914b0cff8",
+            "name": "APOLLO NEXT 031 (ТЦ «Сільпо, Борщагівка»)",
+            "address": "APOLLO NEXT 031 (ТЦ «Сільпо, Борщагівка») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03194",
+            "lat": 50.4248019,
+            "lng": 30.3830083,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1706e531c1",
+            "name": "APOLLO NEXT 032 (ТЦ «Сільпо», Теремки)",
+            "address": "APOLLO NEXT 032 (ТЦ «Сільпо», Теремки) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "03191",
+            "lat": 50.3843339,
+            "lng": 30.4580937,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_02b5114801",
+            "name": "APOLLO NEXT 033 (ТЦ «Магігранд»)",
+            "address": "APOLLO NEXT 033 (ТЦ «Магігранд») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "21030",
+            "lat": 49.22605000000001,
+            "lng": 28.4125814,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_87c187d472",
+            "name": "APOLLO NEXT 034 (БЦ «Таурус»)",
+            "address": "APOLLO NEXT 034 (БЦ «Таурус») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "79029",
+            "lat": 49.8290803,
+            "lng": 23.9930122,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_fc1cc0498e",
+            "name": "APOLLO NEXT 035 (ТРЦ «Гермес»)",
+            "address": "APOLLO NEXT 035 (ТРЦ «Гермес») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "09117",
+            "lat": 49.7975903,
+            "lng": 30.1218898,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_243f6a2d31",
+            "name": "APOLLO NEXT 036 (ТЦ «Сім’я», Котовського)",
+            "address": "APOLLO NEXT 036 (ТЦ «Сім’я», Котовського) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "65000",
+            "lat": 46.5753725,
+            "lng": 30.7968088,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8941c70c36",
+            "name": "APOLLO NEXT 037 (ТРЦ «Острів»)",
+            "address": "APOLLO NEXT 037 (ТРЦ «Острів») — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "65012",
+            "lat": 46.4690279,
+            "lng": 30.7374998,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6c1adb270c",
+            "name": "APOLLO NEXT 038 (ТЦ DOMA Center, Метро “Дарниця”)",
+            "address": "APOLLO NEXT 038 (ТЦ DOMA Center, Метро “Дарниця”) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02100",
+            "lat": 50.4547264,
+            "lng": 30.6103311,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_520598bbb2",
+            "name": "APOLLO NEXT 039 (WINETIME)",
+            "address": "APOLLO NEXT 039 (WINETIME) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "76000",
+            "lat": 48.9234137,
+            "lng": 24.7027229,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1265ae1a08",
+            "name": "APOLLO NEXT 040 (ТЦ ЕКО МАРКЕТ)",
+            "address": "APOLLO NEXT 040 (ТЦ ЕКО МАРКЕТ) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02225",
+            "lat": 50.5020803,
+            "lng": 30.5915105,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d108951244",
+            "name": "APOLLO NEXT 041 (ЯРМАРОК)",
+            "address": "APOLLO NEXT 041 (ЯРМАРОК) — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "10012",
+            "lat": 50.2649489,
+            "lng": 28.6834228,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8bbebdf962",
+            "name": "APOLLO NEXT 144",
+            "address": "APOLLO NEXT 144 — Kyiv",
+            "city": "Kyiv",
+            "postal_code": "02175",
+            "lat": 50.421631,
+            "lng": 30.6510994,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Smartass",
+        "official_open_active": 10,
+        "qualifying_active": 9,
+        "ready": 9,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 1,
+        "unresolved": 1,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "ua_776079d90b",
+            "name": "Smartass Kharkiv — Universytetska St, 16",
+            "address": "Universytetska St, 16",
+            "city": "Kharkiv",
+            "postal_code": "61003",
+            "lat": 49.9892413,
+            "lng": 36.229623,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_8dff0c1e5e",
+            "name": "Smartass Kyiv — Korolenkivska St, 4",
+            "address": "Korolenkivska St, 4",
+            "city": "Kyiv",
+            "postal_code": "01033",
+            "lat": 50.4327279,
+            "lng": 30.5064503,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6c014a9921",
+            "name": "Smartass Kyiv — Mezhyhirska St, 82",
+            "address": "Mezhyhirska St, 82",
+            "city": "Kyiv",
+            "postal_code": "03080",
+            "lat": 50.4777389,
+            "lng": 30.498471,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_d592c1fdcf",
+            "name": "Smartass Kyiv — Mykoly Bazhana Ave, 10А",
+            "address": "Mykoly Bazhana Ave, 10А",
+            "city": "Kyiv",
+            "postal_code": "02072",
+            "lat": 50.3954017,
+            "lng": 30.6207029,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_0db0275a23",
+            "name": "Smartass Kyiv — Obolonskyi Ave, 19",
+            "address": "Obolonskyi Ave, 19",
+            "city": "Kyiv",
+            "postal_code": "04207",
+            "lat": 50.5127771,
+            "lng": 30.497069,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_1530de3558",
+            "name": "Smartass Kyiv — Verkhohliada St, 14A",
+            "address": "Verkhohliada St, 14A",
+            "city": "Kyiv",
+            "postal_code": "01103",
+            "lat": 50.4118222,
+            "lng": 30.5449866,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_b3e80e8a23",
+            "name": "Smartass Kyiv — Zhylianska St, 41А",
+            "address": "Zhylianska St, 41А",
+            "city": "Kyiv",
+            "postal_code": "01033",
+            "lat": 50.4340676,
+            "lng": 30.5073107,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_6882f81ca4",
+            "name": "Smartass Lviv — Panasa Myrnoho St, 24",
+            "address": "Panasa Myrnoho St, 24",
+            "city": "Lviv",
+            "postal_code": "79034",
+            "lat": 49.8136273,
+            "lng": 24.0343815,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ee0fe78037",
+            "name": "Smartass Lviv — Shevchenka St, 120",
+            "address": "Shevchenka St, 120",
+            "city": "Lviv",
+            "postal_code": "79039",
+            "lat": 49.8491148,
+            "lng": 23.9970669,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Total Fitness",
+        "official_open_active": 12,
+        "qualifying_active": 8,
+        "ready": 8,
+        "coming_soon": 0,
+        "closed": 0,
+        "needs_review": 5,
+        "unresolved": 4,
+        "class_a": true,
+        "estate_completeness": "GAP",
+        "locations": [
+          {
+            "id": "ua_9fd5152b92",
+            "name": "Total Fitness Dnipro — вул. Сімферопольська, 2м",
+            "address": "вул. Сімферопольська, 2м",
+            "city": "Dnipro",
+            "postal_code": "49000",
+            "lat": 48.4508328,
+            "lng": 35.0677235,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_7f1ccd82c4",
+            "name": "Total Fitness Kyiv — вул. Бориса Лятошинського, 4",
+            "address": "вул. Бориса Лятошинського, 4",
+            "city": "Kyiv",
+            "postal_code": "08296",
+            "lat": 50.5407605,
+            "lng": 30.1361096,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_e039f31e1d",
+            "name": "Total Fitness Kyiv — вул. Героїв України, 21-B",
+            "address": "вул. Героїв України, 21-B",
+            "city": "Kyiv",
+            "postal_code": "07400",
+            "lat": 50.5114057,
+            "lng": 30.7903266,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_2613c425fa",
+            "name": "Total Fitness Kyiv — вул. Київський шлях, 4",
+            "address": "вул. Київський шлях, 4",
+            "city": "Kyiv",
+            "postal_code": "08302",
+            "lat": 50.3596075,
+            "lng": 30.9357475,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ef9ba5767c",
+            "name": "Total Fitness Kyiv — вул. Олександра Мишуги, 3-А",
+            "address": "вул. Олександра Мишуги, 3-А",
+            "city": "Kyiv",
+            "postal_code": "02149",
+            "lat": 50.3974436,
+            "lng": 30.6401974,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_70d717e7c6",
+            "name": "Total Fitness Kyiv — вул. Ревуцького, 12/1",
+            "address": "вул. Ревуцького, 12/1",
+            "city": "Kyiv",
+            "postal_code": "02091",
+            "lat": 50.4119495,
+            "lng": 30.6443983,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_ed4980d2dc",
+            "name": "Total Fitness Kyiv — вул. Чорних Запорожців, 76",
+            "address": "вул. Чорних Запорожців, 76",
+            "city": "Kyiv",
+            "postal_code": "07405",
+            "lat": 50.5237058,
+            "lng": 30.7916946,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "ua_93f4f1560b",
+            "name": "Total Fitness Odesa — вул. Семена Палія, 93А",
+            "address": "вул. Семена Палія, 93А",
+            "city": "Odesa",
+            "postal_code": "65069",
+            "lat": 46.5756423,
+            "lng": 30.7969278,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 4,
+      "final_class_a_ready_count": 83,
+      "chain_estate_gaps": 7
+    }
+  },
+  "cross_border": {
+    "ukraine_ready_outliers": 0,
+    "poland_ready_outliers": 0,
+    "moldova_ready_outliers": 0,
+    "romania_ready_outliers": 0,
+    "russia_ready_outliers": 0,
+    "belarus_ready_outliers": 0,
+    "other_foreign_ready_outliers": 0
+  },
+  "geocode_audit": {
+    "premises_coords": 66,
+    "geocoded_coords": 33,
+    "fallback_coords": 0,
+    "missing_coords": 0,
+    "geocoded_this_run": 53,
+    "postal_filled_this_run": 40,
+    "postal_reverse_filled_this_run": 64
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 1,
+    "diacritic_duplicate_conflicts": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 1,
+      "lt100": 1,
+      "lt200": 5,
+      "identical": 0
+    }
+  },
+  "specialist_ready_leakage": 0,
+  "hotel_resort_ready_leakage": 0,
+  "projected_catalog_after_future_merge": 12028,
+  "projected_crosses_12500": false,
+  "global_stress_qa_will_be_required_after_future_merge": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "ukraine_infrastructure_present": true,
+  "ukraine_infrastructure_gaps": [],
+  "phase2_required": true,
+  "unresolved_rebrand_conflicts": 0,
+  "verdict": "UKRAINE PHASE 2 REQUIRED — UNRESOLVED DISCOVERY / RECONCILIATION"
+}

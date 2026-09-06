@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-23T16:11:35.070045+00:00",
+  "mappings": [
+    {
+      "from": "Gilda Max",
+      "to": "Life1 Fitness",
+      "status": "acquired_2017_legacy",
+      "action": "do_not_import_gilda_max",
+      "evidence": "Life1 acquisition reporting; no current Gilda Max consumer sites found"
+    },
+    {
+      "from": "Oxygen Wellness Fáy / Life1 Fáy",
+      "to": "Prestige Fitness",
+      "status": "rebranded",
+      "action": "import_as_prestige_preserve_phase1_id",
+      "phase1_id": "hu_cb9223a0d5",
+      "evidence": "prestigefitness.hu + life1.hu map data-link=/prestige"
+    },
+    {
+      "from": "Pólus Fitness",
+      "to": "Fitness5 Pólus Center",
+      "status": "rebranded_on_site",
+      "action": "import_as_fitness5",
+      "evidence": "fitness5.hu/gym/polus-center copy"
+    }
+  ]
+}

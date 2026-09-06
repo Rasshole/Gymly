@@ -1,0 +1,97 @@
+{
+  "elements": [
+    {
+      "type": "node",
+      "id": 1843623561,
+      "lat": 53.3462897,
+      "lon": -6.2605896,
+      "tags": {
+        "addr:city": "Dublin",
+        "addr:street": "Aston Quay",
+        "contact:facebook": "https://www.facebook.com/westwoodclub/",
+        "contact:instagram": "https://www.instagram.com/westwoodclub/",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "West Wood Club",
+        "old_name": "Crunch Fitness",
+        "opening_hours": "Mo-Fr 06:00-23:00, Sa-Su 08:00-20:00",
+        "phone": "+353 1 675 1716",
+        "website": "https://westwood.ie/gyms-dublin/gyms-in-dublin-city"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4272123789,
+      "lat": 53.3256393,
+      "lon": -6.2095601,
+      "tags": {
+        "description": "heated natural \u2018sea water\u2019 pool",
+        "leisure": "sports_centre",
+        "name": "West Wood Club Sandymount Swimming pool",
+        "sport": "swimming"
+      }
+    },
+    {
+      "type": "way",
+      "id": 38088739,
+      "center": {
+        "lat": 53.3631808,
+        "lon": -6.2286911
+      },
+      "tags": {
+        "addr:city": "Dublin",
+        "addr:street": "Clontarf Road",
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "sports_centre",
+        "name": "West Wood Club"
+      }
+    },
+    {
+      "type": "way",
+      "id": 51261838,
+      "center": {
+        "lat": 53.325643,
+        "lon": -6.2094269
+      },
+      "tags": {
+        "addr:city": "Dublin",
+        "addr:housename": "West Wood Club   Sandymount",
+        "addr:housenumber": "1a",
+        "addr:postcode": "4",
+        "addr:street": "St Johns Rd",
+        "building": "sports_centre",
+        "name": "West Wood Club Sandymount",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-21:00",
+        "phone": "+353 1 2695764",
+        "sport": "swimming",
+        "website": "https://www.westwood.ie/index.html"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1303878170,
+      "center": {
+        "lat": 53.3195882,
+        "lon": -8.2660943
+      },
+      "tags": {
+        "name": "West Wood",
+        "natural": "wood"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 6480910,
+      "center": {
+        "lat": 53.2485294,
+        "lon": -8.9727702
+      },
+      "tags": {
+        "name": "West Wood",
+        "natural": "wood",
+        "type": "multipolygon"
+      }
+    }
+  ]
+}

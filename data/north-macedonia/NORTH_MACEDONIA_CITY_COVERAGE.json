@@ -1,0 +1,51 @@
+{
+  "cities": {
+    "Skopje": "READY_present",
+    "Bitola": "READY_present",
+    "Kumanovo": "READY_present",
+    "Prilep": "READY_present",
+    "Tetovo": "READY_present",
+    "Ohrid": "READY_present",
+    "Kičevo": "READY_present",
+    "Strumica": "READY_present",
+    "Gostivar": "READY_present",
+    "Štip": "READY_present",
+    "Veles": "A_legitimate_no_local_gym",
+    "Kavadarci": "A_legitimate_no_local_gym",
+    "Kočani": "A_legitimate_no_local_gym",
+    "Gevgelija": "A_legitimate_no_local_gym",
+    "Debar": "A_legitimate_no_local_gym",
+    "Radoviš": "A_legitimate_no_local_gym",
+    "Saraj": "A_legitimate_no_local_gym",
+    "Šuto Orizari": "A_legitimate_no_local_gym"
+  },
+  "skopje_municipalities": {
+    "Centar": "READY_present",
+    "Karpoš": "READY_present",
+    "Aerodrom": "READY_present",
+    "Kisela Voda": "READY_present",
+    "Gazi Baba": "READY_present",
+    "Čair": "READY_present",
+    "Butel": "READY_present",
+    "Saraj": "A_legitimate_no_local_gym",
+    "Šuto Orizari": "A_legitimate_no_local_gym",
+    "Gjorče Petrov": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase2_closed_former_b_gaps": [
+    "Štip",
+    "Gostivar",
+    "Strumica"
+  ],
+  "phase2_legitimate_no_local_gym": [
+    "Veles",
+    "Kavadarci",
+    "Kočani",
+    "Gevgelija",
+    "Debar",
+    "Radoviš",
+    "Saraj",
+    "Šuto Orizari"
+  ]
+}

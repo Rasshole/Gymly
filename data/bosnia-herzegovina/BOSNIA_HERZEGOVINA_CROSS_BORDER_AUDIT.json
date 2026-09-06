@@ -1,0 +1,46 @@
+{
+  "croatia_ready": 0,
+  "serbia_ready": 0,
+  "montenegro_ready": 0,
+  "foreign_probes_staged": 5,
+  "foreign_probes_excluded": 5,
+  "probes": [
+    {
+      "name": "Dubrovnik HR border probe",
+      "city": "Dubrovnik",
+      "territory": "Croatia",
+      "import_category": "EXCLUDED",
+      "in_ba_gate": true
+    },
+    {
+      "name": "Slavonski Brod HR border probe",
+      "city": "Slavonski Brod",
+      "territory": "Croatia",
+      "import_category": "EXCLUDED",
+      "in_ba_gate": false
+    },
+    {
+      "name": "Šabac RS border probe",
+      "city": "Šabac",
+      "territory": "Serbia",
+      "import_category": "EXCLUDED",
+      "in_ba_gate": false
+    },
+    {
+      "name": "Herceg Novi ME gym probe",
+      "city": "Herceg Novi",
+      "territory": "Montenegro",
+      "import_category": "EXCLUDED",
+      "in_ba_gate": false
+    },
+    {
+      "name": "Zagreb directory noise probe",
+      "city": "Zagreb",
+      "territory": "Croatia",
+      "import_category": "EXCLUDED",
+      "in_ba_gate": false
+    }
+  ],
+  "ready_all_zero": true,
+  "notes": "Phase2: all foreign probes remain EXCLUDED; cross-border READY = 0."
+}

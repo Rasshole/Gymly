@@ -25,6 +25,7 @@ export type GymChain =
   | 'pwr8'
   | 'training_for_warriors'
   | 'local_fitness'
+  | 'stc'
   | 'unknown';
 
 export interface LogoSource {
@@ -43,6 +44,7 @@ const LOCAL_LOGO_ASSETS: Partial<Record<GymChain, number>> = {
   arcaplanet: require('@/assets/images/brandLogos/arca_logo.png'),
   /** Official SHC */
   sporting_health_club: require('@/assets/images/brandLogos/shc_logo.png'),
+  stc: require('@/assets/images/brandLogos/stc_logo.png'),
 };
 
 const DEFAULT_GYMLY = require('@/assets/images/gymly-kettlebell-logo.png');
@@ -58,6 +60,7 @@ const BRAND_KEY_TO_CHAIN: Record<string, GymChain> = {
   loop: 'loop_fitness',
   'loop fitness': 'loop_fitness',
   sats: 'sats',
+  stc: 'stc',
   shc: 'sporting_health_club',
   'sporting health club': 'sporting_health_club',
 };
@@ -88,6 +91,11 @@ export function detectGymChain(
 
   const patterns: Array<{pattern: RegExp; chain: GymChain; displayName: string}> = [
     {pattern: /sats/, chain: 'sats', displayName: 'SATS'},
+    {pattern: /\bstc\b/, chain: 'stc', displayName: 'STC'},
+    {pattern: /nordic wellness/, chain: 'unknown', displayName: 'Nordic Wellness'},
+    {pattern: /fitness24seven|fitness 24 seven|fitness 24/, chain: 'unknown', displayName: 'Fitness24Seven'},
+    {pattern: /friskis|svettis/, chain: 'unknown', displayName: 'Friskis & Svettis'},
+    {pattern: /actic/, chain: 'unknown', displayName: 'Actic'},
     {pattern: /puregym|pure gym/, chain: 'puregym', displayName: 'PureGym'},
     {pattern: /fitness world|fitnessworld/, chain: 'fitness_world', displayName: 'Fitness World'},
     {pattern: /fitnessx|fitness x/, chain: 'fitnessx', displayName: 'Fitness X'},
@@ -149,6 +157,24 @@ export function getLogoFallbackInitials(brand?: string, gymName?: string): strin
   }
   if (chain === 'sats') {
     return 'S';
+  }
+  if (chain === 'stc') {
+    return 'STC';
+  }
+  if (displayName.toLowerCase().includes('stc')) {
+    return 'STC';
+  }
+  if (displayName.toLowerCase().includes('nordic')) {
+    return 'NW';
+  }
+  if (displayName.toLowerCase().includes('fitness24') || displayName.toLowerCase().includes('fitness 24')) {
+    return 'F24';
+  }
+  if (displayName.toLowerCase().includes('friskis')) {
+    return 'F&S';
+  }
+  if (displayName.toLowerCase().includes('actic')) {
+    return 'AC';
   }
   if (chain === 'puregym') {
     return 'P';

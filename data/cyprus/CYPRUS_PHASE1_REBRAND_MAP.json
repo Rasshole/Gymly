@@ -1,0 +1,34 @@
+{
+  "relationships": [
+    {
+      "from": "DP Sports Club",
+      "to": "Arise Active",
+      "class": "A_current_successor",
+      "notes": "ariseactive.eu states founded 2013 as DP Sports Club; single current club."
+    },
+    {
+      "from": "Curves historical Cyprus directory listings",
+      "to": "Curves official 2026 estate (Aglantzia + Larnaca)",
+      "class": "E_legacy_closed",
+      "notes": "Multiple cyprusbeauty.com listings absent from curves.gr sitemap."
+    },
+    {
+      "from": "Fitness Café / Elite-style confusion",
+      "to": null,
+      "class": "G_not_applicable",
+      "notes": "No Cyprus equivalent of Malta Elite→BGM conflict found in Phase 1."
+    }
+  ],
+  "unresolved": [
+    {
+      "topic": "Sanctum Spa & Fitness Class A candidacy",
+      "class": "F_unresolved",
+      "notes": "3 Limassol sites; spa-first brand vs conventional gym policy."
+    },
+    {
+      "topic": "Fitness Factory / Fitness One multi-city claims",
+      "class": "F_unresolved",
+      "notes": "Third-party directories assert multi-city; official estate not proven."
+    }
+  ]
+}

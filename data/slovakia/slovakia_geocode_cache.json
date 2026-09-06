@@ -1,0 +1,271 @@
+{
+  "sk|trnavská cesta 43,, 831 04, bratislava telefón, slovakia": null,
+  "sk|štefánikova trieda 48,, 949 01, nitra od nitra, slovakia": null,
+  "sk|hypermarket tesco zvolenská cesta 8, 974 00, banská bystrica otváracie hodiny fitness, slovakia": null,
+  "sk|pribinova 8, 811 09, bratislava otváracie hodiny fitness, slovakia": null,
+  "sk|tesco hypermarket trolejbusová 1, 040 01, košice otváracie hodiny fitness, slovakia": null,
+  "sk|lamačská cesta 1c, 841 03, bratislava otváracie hodiny fitness, slovakia": null,
+  "sk|arm. gen. svobodu 25, 080 01, prešov, slovakia": {
+    "lat": 48.9892505,
+    "lng": 21.2622013,
+    "display_name": "Zmenáreň Olymp, 14815/25, Armádneho generála Svobodu, Prešov, Prešov 6, Sídlisko Šváby, Prešov, okres Prešov, Prešovský kraj, 080 01, Slovensko",
+    "importance": 6.616540779731468e-05,
+    "postcode": "080 01",
+    "country_code": "sk"
+  },
+  "sk|businesscentrum roca južná trieda 117, 040 11, košice, slovakia": null,
+  "sk|hypermarket tesco medza 15, 052 01, spišská nová ves otváracie hodiny fitness, slovakia": null,
+  "sk|oc južanka gen. svobodu 1, 826 06, trenčín otváracie hodiny fitness, slovakia": null,
+  "sk|einsteinova 18, bratislava, slovakia": {
+    "lat": 48.132411,
+    "lng": 17.1076755,
+    "display_name": "3541/18, Einsteinova, Sad, Dvory, Bratislava, okres Bratislava V, Bratislava, Borinka, Bratislavský kraj, 851 01, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "851 01",
+    "country_code": "sk"
+  },
+  "sk|ivánska cesta 16, bratislava, slovakia": {
+    "lat": 48.1655848,
+    "lng": 17.1806614,
+    "display_name": "Nordsee, 16, Ivanská cesta, Trnávka, Bratislava, okres Bratislava II, Bratislava, Borinka, Bratislavský kraj, 821 04, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "821 04",
+    "country_code": "sk"
+  },
+  "sk|metodova 6, bratislava, slovakia": {
+    "lat": 48.1577369,
+    "lng": 17.1298836,
+    "display_name": "Orange Slovensko a.s., 6, Metodova, Starý Ružinov, Nivy, Bratislava, okres Bratislava II, Bratislava, Borinka, Bratislavský kraj, 821 08, Slovensko",
+    "importance": 0.37958691803318917,
+    "postcode": "821 08",
+    "country_code": "sk"
+  },
+  "sk|lamač 6683, bratislava, slovakia": {
+    "lat": 48.1848775,
+    "lng": 17.0503034,
+    "display_name": "Bratislava - Lamač, 6683, Lamačská cesta, Segnáre, Bratislava, okres Bratislava IV, Bratislava, Borinka, Bratislavský kraj, 900 32, Slovensko",
+    "importance": 0.2772938966131108,
+    "postcode": "900 32",
+    "country_code": "sk"
+  },
+  "sk|pribinova 25, bratislava, slovakia": {
+    "lat": 48.1413495,
+    "lng": 17.1274644,
+    "display_name": "Tower 115, 4195/25, Pribinova, Eurovea City, Oblasť Dunajská, Bratislava, okres Bratislava I, Bratislava, Borinka, Bratislavský kraj, 811 09, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "811 09",
+    "country_code": "sk"
+  },
+  "sk|vajnorská 100, bratislava, slovakia": {
+    "lat": 48.1686279,
+    "lng": 17.1396851,
+    "display_name": "Polus, 10645/100, Vajnorská, Ľudová štvrť, Slovany, Bratislava, okres Bratislava III, Bratislava, Borinka, Bratislavský kraj, 900 32, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "900 32",
+    "country_code": "sk"
+  },
+  "sk|einsteinova 7, bratislava, slovakia": {
+    "lat": 48.1308641,
+    "lng": 17.1156631,
+    "display_name": "RELAXX, 3734/7, Einsteinova, Sad, Dvory, Bratislava, okres Bratislava V, Bratislava, Borinka, Bratislavský kraj, 851 01, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "851 01",
+    "country_code": "sk"
+  },
+  "sk|veľká okružná 59/a, žilina, slovakia": {
+    "lat": 49.2204991,
+    "lng": 18.7405046,
+    "display_name": "Aupark Žilina, 8618/59A, Veľká okružná, Hliny I. - IV., Staré mesto, Žilina, okres Žilina, Žilinský kraj, 010 01, Slovensko",
+    "importance": 0.1679799034751623,
+    "postcode": "010 01",
+    "country_code": "sk"
+  },
+  "sk|námestie osloboditeľov 1, košice, slovakia": {
+    "lat": 48.7578206,
+    "lng": 21.922098,
+    "display_name": "Družstevný dom, 940/1, Námestie osloboditeľov, Stráňany, Michalovce, okres Michalovce, Košický kraj, 071 01, Slovensko",
+    "importance": 5.996871900506626e-05,
+    "postcode": "071 01",
+    "country_code": "sk"
+  },
+  "sk|námestie svätého egídia 3290/124, poprad, slovakia": {
+    "lat": 49.0535304,
+    "lng": 20.2989736,
+    "display_name": "OC Forum Poprad, 3290/124, Námestie svätého Egídia, Veľká, Poprad, okres Poprad, Prešovský kraj, 058 01, Slovensko",
+    "importance": 6.24193179216757e-05,
+    "postcode": "058 01",
+    "country_code": "sk"
+  },
+  "sk|pltníky 2, martin, slovakia": {
+    "lat": 49.0848176,
+    "lng": 18.9242559,
+    "display_name": "Tulip, 10262/2, Pltníky, Podháj, Záturčie, Martin, okres Martin, Žilinský kraj, 036 01, Slovensko",
+    "importance": 6.162432288085782e-05,
+    "postcode": "036 01",
+    "country_code": "sk"
+  },
+  "sk|365 fit&co, bratislava, slovakia": {
+    "lat": 48.1404235,
+    "lng": 17.123846,
+    "display_name": "365 Fit&Co, Pribinova, Eurovea, Nivy, Bratislava-Ružinov, okres Bratislava II, Bratislava, Borinka, Bratislavský kraj, 900 32, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "900 32",
+    "country_code": "sk"
+  },
+  "sk|trnavská cesta 43, 831 04, bratislava, slovakia": {
+    "lat": 48.165087,
+    "lng": 17.1488237,
+    "display_name": "14335/43, Trnavská cesta, Štrkovec, Nové Mesto, okres Bratislava II, Bratislava, Borinka, Bratislavský kraj, 831 04, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "831 04",
+    "country_code": "sk"
+  },
+  "sk|štefánikova trieda 48, 949 01, nitra, slovakia": {
+    "lat": 48.3088921,
+    "lng": 18.0853405,
+    "display_name": "Prior Nitra, 73/48, Štefánikova trieda, Dolné Mesto, Staré Mesto, Nitra, okres Nitra, Nitriansky kraj, 949 01, Slovensko",
+    "importance": 6.510795757987362e-05,
+    "postcode": "949 01",
+    "country_code": "sk"
+  },
+  "sk|hypermarket tesco zvolenská cesta 8, 974 00, banská bystrica, slovakia": {
+    "lat": 48.7133741,
+    "lng": 19.1364486,
+    "display_name": "Tesco Extra, 6465/8, Zvolenská cesta, Kráľová, Banská Bystrica, okres Banská Bystrica, Banskobystrický kraj, 974 05, Slovensko",
+    "importance": 6.656519417100813e-05,
+    "postcode": "974 05",
+    "country_code": "sk"
+  },
+  "sk|pribinova 8, 811 09, bratislava, slovakia": {
+    "lat": 48.1402211,
+    "lng": 17.122985,
+    "display_name": "Faxcopy, 8, Pribinova, Bratislavský downtown, Bratislava, okres Bratislava I, Bratislava, Borinka, Bratislavský kraj, 811 09, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "811 09",
+    "country_code": "sk"
+  },
+  "sk|tesco hypermarket trolejbusová 1, 040 01, košice, slovakia": null,
+  "sk|lamačská cesta 1c, 841 03, bratislava, slovakia": {
+    "lat": 48.1770911,
+    "lng": 17.0649412,
+    "display_name": "Obchodné centrum Galéria, 1C, Lamačská cesta, Bratislava, okres Bratislava IV, Bratislava, Borinka, Bratislavský kraj, 841 04, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "841 04",
+    "country_code": "sk"
+  },
+  "sk|hypermarket tesco medza 15, 052 01, spišská nová ves, slovakia": null,
+  "sk|oc južanka gen. svobodu 1, 826 06, trenčín, slovakia": null,
+  "sk|dolnozemská cesta 3, 851 04, bratislava, slovakia": {
+    "lat": 48.1232938,
+    "lng": 17.1337359,
+    "display_name": "3535/3, Dolnozemská cesta, Ovsište, Háje, Bratislava, okres Bratislava V, Bratislava, Bratislavský kraj, 851 04, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "851 04",
+    "country_code": "sk"
+  },
+  "sk|pri prachárni 4, 040 01, košice, slovakia": {
+    "lat": 48.6960267,
+    "lng": 21.2514881,
+    "display_name": "Cassovia, 2842/4, Pri prachárni, Košice-Juh, okres Košice IV, Košice, Košický kraj, 040 11, Slovensko",
+    "importance": 0.18554865524912875,
+    "postcode": "040 11",
+    "country_code": "sk"
+  },
+  "sk|námestie andreja hlinku 7b, 010 01, žilina, slovakia": {
+    "lat": 49.2247079,
+    "lng": 18.7400367,
+    "display_name": "8610/7B, Námestie Andreja Hlinku, Stred, Staré mesto, Žilina, okres Žilina, Žilinský kraj, 010 01, Slovensko",
+    "importance": 6.550621805137739e-05,
+    "postcode": "010 01",
+    "country_code": "sk"
+  },
+  "sk|žriedlová 11, 040 01, košice, slovakia": {
+    "lat": 48.7181878,
+    "lng": 21.2460419,
+    "display_name": "3384/11, Žriedlová, Košice-Staré Mesto, okres Košice I, Košice, Košický kraj, 040 01, Slovensko",
+    "importance": 7.030212863350907e-05,
+    "postcode": "040 01",
+    "country_code": "sk"
+  },
+  "sk|snp 167, 017 07, považská bystrica, slovakia": {
+    "lat": 49.1040257,
+    "lng": 18.4614422,
+    "display_name": "5164/167, SNP, Dedovec, SNP, Považská Bystrica, okres Považská Bystrica, Trenčiansky kraj, 017 07, Slovensko",
+    "importance": 5.6974898908934423e-05,
+    "postcode": "017 07",
+    "country_code": "sk"
+  },
+  "sk|gen. m. r. štefánika 426, 911 01, trenčín, slovakia": {
+    "lat": 48.8906828,
+    "lng": 18.0566796,
+    "display_name": "426/90, Gen. M. R. Štefánika, Pod Sokolice, Žabinec, Trenčín, okres Trenčín, Trenčiansky kraj, 911 01, Slovensko",
+    "importance": 6.358968490115233e-05,
+    "postcode": "911 01",
+    "country_code": "sk"
+  },
+  "sk|farského 3266, 851 01, bratislava, slovakia": {
+    "lat": 48.1276482,
+    "lng": 17.1142726,
+    "display_name": "3266/24, Farského, Dvory IV, Dvory, Bratislava, okres Bratislava V, Bratislava, Borinka, Bratislavský kraj, 851 01, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "851 01",
+    "country_code": "sk"
+  },
+  "sk|drieňová 11/a, 821 03, bratislava, slovakia": {
+    "lat": 48.1609354,
+    "lng": 17.152452,
+    "display_name": "380/11A, Drieňová, Štrkovec, Bratislava, okres Bratislava II, Bratislava, Borinka, Bratislavský kraj, 821 03, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "821 03",
+    "country_code": "sk"
+  },
+  "sk|kubačova 1/b, 831 06, bratislava, slovakia": {
+    "lat": 48.2071098,
+    "lng": 17.1496831,
+    "display_name": "Kubačova, Nemecká kolónia, Rača, Bratislava, okres Bratislava III, Bratislava, Borinka, Bratislavský kraj, 831 06, Slovensko",
+    "importance": 0.053410607309071455,
+    "postcode": "831 06",
+    "country_code": "sk"
+  },
+  "sk|legionárska 8, 811 07, bratislava, slovakia": {
+    "lat": 48.1561832,
+    "lng": 17.1229728,
+    "display_name": "2728/8, Legionárska, Blumentál, Oblasť Obchodná, Bratislava-Staré Mesto, okres Bratislava I, Bratislava, Borinka, Bratislavský kraj, 811 07, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "811 07",
+    "country_code": "sk"
+  },
+  "sk|bottova 7969/2a, 811 09, bratislava, slovakia": null,
+  "sk|sliačska 1, 831 02, bratislava, slovakia": {
+    "lat": 48.17204,
+    "lng": 17.1265011,
+    "display_name": "1212/1, Sliačska, Zátišie, Vinohrady, Bratislava, okres Bratislava III, Bratislava, Borinka, Bratislavský kraj, 831 02, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "831 02",
+    "country_code": "sk"
+  },
+  "sk|plynárenská 7/a, 821 09, bratislava, slovakia": {
+    "lat": 48.1447136,
+    "lng": 17.1429492,
+    "display_name": "UniCredit Bank, 7A, Plynárenská, Mlynské nivy, Nivy, Bratislava, okres Bratislava II, Bratislava, Borinka, Bratislavský kraj, 821 09, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "821 09",
+    "country_code": "sk"
+  },
+  "sk|trnavská cesta 31, 831 04, bratislava, slovakia": {
+    "lat": 48.1626632,
+    "lng": 17.1424297,
+    "display_name": "SPORT HOUSE, 14505/31, Trnavská cesta, Štrkovec, Nové Mesto, okres Bratislava II, Bratislava, Borinka, Bratislavský kraj, 831 04, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "831 04",
+    "country_code": "sk"
+  },
+  "sk|mlynské nivy 3, 821 09, bratislava, slovakia": {
+    "lat": 48.1466322,
+    "lng": 17.128235,
+    "display_name": "Faxcopy, 3, Mlynské nivy, Bratislavský downtown, Bratislava, okres Bratislava I, Bratislava, Borinka, Bratislavský kraj, 821 09, Slovensko",
+    "importance": 7.727397573810967e-05,
+    "postcode": "821 09",
+    "country_code": "sk"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "total": 1287,
+  "cats": {
+    "READY_TO_IMPORT": 1245,
+    "CLOSED": 6,
+    "COMING_SOON": 15,
+    "NEEDS_COORDINATES": 16,
+    "NEEDS_REVIEW": 5
+  },
+  "brands": {
+    "McFIT": 181,
+    "JOHN REED": 34,
+    "all inclusive Fitness": 183,
+    "PRIME TIME fitness": 22,
+    "EASYFITNESS": 201,
+    "clever fit": 382,
+    "FitX": 112,
+    "INJOY": 70,
+    "Gold's Gym": 5,
+    "Fitness First": 97
+  },
+  "live_report": {
+    "existing_germany": 0,
+    "id_collisions": [],
+    "border_proximity_other_country": []
+  },
+  "phase1_total": 1159,
+  "phase1_ready": 1097,
+  "removed_count": 105
+}

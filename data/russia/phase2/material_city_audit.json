@@ -1,0 +1,47 @@
+{
+  "Voronezh": {
+    "osm_elements_reviewed": 34,
+    "osm_candidates_reviewed": 0,
+    "promoted_to_ready": 0,
+    "audit_grade": "B",
+    "material_d_closed": "YES",
+    "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+    "promotions": []
+  },
+  "Krasnodar": {
+    "osm_elements_reviewed": 39,
+    "osm_candidates_reviewed": 0,
+    "promoted_to_ready": 0,
+    "audit_grade": "B",
+    "material_d_closed": "YES",
+    "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+    "promotions": []
+  },
+  "Khabarovsk": {
+    "osm_elements_reviewed": 17,
+    "osm_candidates_reviewed": 0,
+    "promoted_to_ready": 0,
+    "audit_grade": "B",
+    "material_d_closed": "YES",
+    "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+    "promotions": []
+  },
+  "Vladivostok": {
+    "osm_elements_reviewed": 25,
+    "osm_candidates_reviewed": 0,
+    "promoted_to_ready": 0,
+    "audit_grade": "B",
+    "material_d_closed": "YES",
+    "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+    "promotions": []
+  },
+  "Kursk": {
+    "osm_elements_reviewed": 10,
+    "osm_candidates_reviewed": 0,
+    "promoted_to_ready": 0,
+    "audit_grade": "B",
+    "material_d_closed": "YES",
+    "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+    "promotions": []
+  }
+}

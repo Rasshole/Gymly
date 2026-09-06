@@ -1,0 +1,157 @@
+{
+  "country": "North Macedonia",
+  "phase": 2,
+  "production_total": 11775,
+  "production_sha256": "2eaa8b9f0ea10fce0a3ab0336f9312e6dc7ff77f463ee1669737f880ae6f0698",
+  "north_macedonia_live": 0,
+  "mk_prefix_live": 0,
+  "phase1_recovered": true,
+  "phase1_staging_total": 77,
+  "phase1_unresolved_recovered": 23,
+  "phase1_promoted_to_ready": 19,
+  "phase1_excluded": 4,
+  "phase1_closed": 0,
+  "new_legitimate_gyms_discovered": 6,
+  "status_counts": {
+    "EXCLUDED": 59,
+    "READY_TO_IMPORT": 25
+  },
+  "ready_to_import": 25,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "qualifying_class_a_chains": 0,
+  "class_a_locations": 0,
+  "CLASS_A": false,
+  "chain_class_a_ready": 0,
+  "small_market_independent_ready": 25,
+  "ready_by_brand": {
+    "Athletic Fitness": 1,
+    "Star Gym": 1,
+    "Synergy Fitness Spa": 1,
+    "Fitness Club Fit": 1,
+    "Terminator": 1,
+    "Atleta": 1,
+    "Mastersport": 1,
+    "Flex Gym": 1,
+    "IB Fitness": 1,
+    "Fitness Factori": 1,
+    "Aldo": 1,
+    "Fit Bodi": 1,
+    "Chili": 1,
+    "Shampion": 1,
+    "Fit Star": 1,
+    "Arena": 1,
+    "Starfit": 1,
+    "Fajar Bodi": 1,
+    "Fitness Club Flex": 1,
+    "Fit One": 1,
+    "Magnus Fitness": 1,
+    "Pulse Fitness": 1,
+    "Urban Gym": 1,
+    "Fit Jim Kiko": 1,
+    "Arena Fitness": 1
+  },
+  "city_coverage": {
+    "Skopje": "READY_present",
+    "Bitola": "READY_present",
+    "Kumanovo": "READY_present",
+    "Prilep": "READY_present",
+    "Tetovo": "READY_present",
+    "Ohrid": "READY_present",
+    "Kičevo": "READY_present",
+    "Strumica": "READY_present",
+    "Gostivar": "READY_present",
+    "Štip": "READY_present",
+    "Veles": "A_legitimate_no_local_gym",
+    "Kavadarci": "A_legitimate_no_local_gym",
+    "Kočani": "A_legitimate_no_local_gym",
+    "Gevgelija": "A_legitimate_no_local_gym",
+    "Debar": "A_legitimate_no_local_gym",
+    "Radoviš": "A_legitimate_no_local_gym",
+    "Saraj": "A_legitimate_no_local_gym",
+    "Šuto Orizari": "A_legitimate_no_local_gym"
+  },
+  "skopje_municipalities": {
+    "Centar": "READY_present",
+    "Karpoš": "READY_present",
+    "Aerodrom": "READY_present",
+    "Kisela Voda": "READY_present",
+    "Gazi Baba": "READY_present",
+    "Čair": "READY_present",
+    "Butel": "READY_present",
+    "Saraj": "A_legitimate_no_local_gym",
+    "Šuto Orizari": "A_legitimate_no_local_gym",
+    "Gjorče Petrov": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "cross_border": {
+    "greece_ready": 0,
+    "kosovo_ready": 0,
+    "serbia_ready": 0,
+    "bulgaria_ready": 0,
+    "albania_ready": 0,
+    "greek_macedonia_false_positives_ready": 0
+  },
+  "data_quality": {
+    "fallback_ready_coords": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "mojibake": 0,
+    "hard_duplicates": 0,
+    "unresolved_rebrands": 0
+  },
+  "slim_gym_audit": {
+    "SLIM_GYM_ACTIVE_SITES": 0,
+    "CLASS_A": false,
+    "estate": "ABSENT_AS_CHAIN"
+  },
+  "forma_audit": {
+    "FORMA_ACTIVE_SITES": 0,
+    "CLASS_A": false,
+    "verdict": "EXCLUDED_SPECIALIST"
+  },
+  "hotel_spa_leakage_ready": 0,
+  "phase3_required": false,
+  "merge_ready": true,
+  "projected_catalog": 11800,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "verdict": "READY FOR NORTH MACEDONIA MERGE",
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200,
+  "fit_one_audit": {
+    "ordinary_public_gym": true,
+    "eligible_locations": 1,
+    "institutional_leakage_ready": 0,
+    "dame_gruev_centar": "READY_TO_IMPORT",
+    "school_hall_sites": "EXCLUDED_B_INSTITUTIONAL_ONLY",
+    "notes": "School/OU halls excluded; Dame Gruev 18 consumer Fit One Centar promoted as SMI."
+  },
+  "synergy_audit": {
+    "classification": "WELLNESS_ADDITIVE",
+    "ready": true,
+    "notes": "1000m2 Technogym conventional floor; spa/massage optional additive; ordinary membership."
+  },
+  "albanian_language_audit": {
+    "performed": true,
+    "ready": [
+      "Arena Fitness Tetovo",
+      "Starfit Tetovo",
+      "Fajar Bodi Tetovo",
+      "Fitness Club Flex Kičevo",
+      "Urban Gym Gostivar"
+    ],
+    "excluded": [
+      "Foxy Fitness Tetovo"
+    ],
+    "new_gyms": [
+      "Urban Gym Gostivar"
+    ]
+  },
+  "ohrid_tourism_audit": {
+    "ib_fitness": "READY_TO_IMPORT",
+    "fitness_factori": "READY_TO_IMPORT",
+    "hotel_spa_leakage_ready": 0
+  }
+}

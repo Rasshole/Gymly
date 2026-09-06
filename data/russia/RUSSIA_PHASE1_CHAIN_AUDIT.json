@@ -1,0 +1,112 @@
+{
+  "country": "Russia",
+  "phase": 1,
+  "market_model": "CHAIN_LED_LARGE_MARKET",
+  "chains": [
+    {
+      "operator": "World Class",
+      "active_verified": 33,
+      "staged_total": 51,
+      "official_estimated": 120,
+      "class_a": true,
+      "estate_gaps": 87,
+      "estate_completeness": "GAP"
+    },
+    {
+      "operator": "X-Fit",
+      "active_verified": 30,
+      "staged_total": 38,
+      "official_estimated": 80,
+      "class_a": true,
+      "estate_gaps": 50,
+      "estate_completeness": "GAP"
+    },
+    {
+      "operator": "Alex Fitness",
+      "active_verified": 11,
+      "staged_total": 13,
+      "official_estimated": 45,
+      "class_a": true,
+      "estate_gaps": 34,
+      "estate_completeness": "GAP"
+    },
+    {
+      "operator": "DDxFitness",
+      "active_verified": 20,
+      "staged_total": 22,
+      "official_estimated": 35,
+      "class_a": true,
+      "estate_gaps": 15,
+      "estate_completeness": "GAP"
+    },
+    {
+      "operator": "Spirit Fitness",
+      "active_verified": 2,
+      "staged_total": 3,
+      "official_estimated": 30,
+      "class_a": true,
+      "estate_gaps": 28,
+      "estate_completeness": "GAP"
+    }
+  ],
+  "probes_investigated": [
+    {
+      "chain": "World Class",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "Large estate; official list not fully machine-readable"
+    },
+    {
+      "chain": "X-Fit",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "OSM+Photon partial; regional site fragmentation"
+    },
+    {
+      "chain": "Alex Fitness",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "OSM+Photon partial estate"
+    },
+    {
+      "chain": "DDxFitness",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "OSM+Photon partial; franchise mix"
+    },
+    {
+      "chain": "Spirit Fitness",
+      "action": "CLASS_A_PARTIAL",
+      "evidence": "OSM+Photon partial estate"
+    },
+    {
+      "chain": "Anytime Fitness",
+      "action": "ABSENT",
+      "evidence": "No verified Russia estate in discovery"
+    },
+    {
+      "chain": "Gold's Gym",
+      "action": "BELOW_CLASS_A",
+      "evidence": "Limited OSM hits — boutique presence"
+    },
+    {
+      "chain": "Fitness House",
+      "action": "BELOW_CLASS_A",
+      "evidence": "Regional chain — partial OSM"
+    },
+    {
+      "chain": "Orange Fitness",
+      "action": "BELOW_CLASS_A",
+      "evidence": "Regional — limited OSM"
+    }
+  ],
+  "summary": {
+    "class_a_chain_count": 5,
+    "class_a_names": [
+      "World Class",
+      "X-Fit",
+      "Alex Fitness",
+      "DDxFitness",
+      "Spirit Fitness"
+    ],
+    "final_class_a_ready_count": 96,
+    "chain_estate_gaps": 214,
+    "class_a_estate_gaps": 214
+  }
+}

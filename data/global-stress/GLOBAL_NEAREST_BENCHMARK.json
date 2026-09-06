@@ -1,0 +1,12 @@
+{
+  "nearest_probe_count": 26,
+  "nearest_runs_total": 26,
+  "nearest_results_plausible": "YES",
+  "nearest_invalid_results": 0,
+  "runs": 26,
+  "min_ms": 31,
+  "median_ms": 33,
+  "p95_ms": 37,
+  "max_ms": 38,
+  "mean_ms": 33.65384615384615
+}

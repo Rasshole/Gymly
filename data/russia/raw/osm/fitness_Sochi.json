@@ -1,0 +1,274 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:56:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4359976896,
+      "lat": 43.6098033,
+      "lon": 39.7255325,
+      "tags": {
+        "addr:housenumber": "6А",
+        "addr:street": "Хлебозаводской переулок",
+        "leisure": "fitness_centre",
+        "name": "LA Vida",
+        "name:ru": "LA Vida",
+        "opening_hours": "Mo-Sa 09:00-21:00",
+        "phone": "+7 862 2390409",
+        "website": "http://facebook.com/pages/la-vida-studio/901431613202986"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4371776697,
+      "lat": 43.5378809,
+      "lon": 39.8064368,
+      "tags": {
+        "addr:housenumber": "17/1",
+        "addr:street": "Новороссийское шоссе",
+        "leisure": "fitness_centre",
+        "name": "Водно-оздоровительный комплекс",
+        "name:ru": "Водно-оздоровительный комплекс"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5057698735,
+      "lat": 43.5852167,
+      "lon": 39.7601347,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Йогатайм",
+        "name:en": "YOGAtime",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+7 900 2365785",
+        "website": "http://yogatime.tilda.ws"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6040863725,
+      "lat": 43.6356468,
+      "lon": 39.7054024,
+      "tags": {
+        "addr:housenumber": "230А",
+        "addr:street": "Виноградная улица",
+        "contact:email": "hello@motiv.fitness",
+        "contact:phone": "+7 800 7008733;+7 928 2942585",
+        "contact:website": "https://motiv.fitness/",
+        "leisure": "fitness_centre",
+        "name": "Мотив фитнес",
+        "name:en": "Motiv фитнес",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6328022404,
+      "lat": 43.5848926,
+      "lon": 39.7166758,
+      "tags": {
+        "addr:city": "Сочи",
+        "addr:housenumber": "1А",
+        "addr:postcode": "354000",
+        "addr:street": "Несебрская улица",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 09:00-23:00",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "phone": "+78622665501",
+        "sport": "fitness;multi;gymnastics;exercise;yoga;athletics",
+        "website": "https://www.worldclass.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10906087806,
+      "lat": 43.5841995,
+      "lon": 39.7241935,
+      "tags": {
+        "addr:housenumber": "20А",
+        "addr:street": "улица Горького",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Сочи Танго Академия",
+        "name:en": "Sochi Tango Academy",
+        "opening_hours": "24/7",
+        "phone": "+7 966 779-13-31",
+        "website": "https://www.sochitango.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10925091475,
+      "lat": 43.565513,
+      "lon": 39.7660997,
+      "tags": {
+        "addr:city": "Сочи",
+        "addr:country": "RU",
+        "addr:housenumber": "1/1",
+        "addr:street": "Ворошиловская",
+        "brand": "Fitness Aelita",
+        "leisure": "fitness_centre",
+        "name": "Fitness Aelita",
+        "name:ru": "Фитнес Аэлита",
+        "opening_hours": "08:30-21:00",
+        "phone": "+79189164483",
+        "shop": "sports",
+        "sport": "yoga;gymnastics;fitness",
+        "website": "https://taplink.cc/fitnessaelita"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11843553854,
+      "lat": 43.6261431,
+      "lon": 39.7222012,
+      "tags": {
+        "contact:email": "valuevanad@yandex.ru",
+        "contact:phone": "+7 918 3073620;+7 989 7553455",
+        "contact:website": "https://fitnes-klub-nadezhdy-valuevoj.clients.site",
+        "leisure": "fitness_centre",
+        "name": "Фитнес-клуб Надежды Валуевой",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa 09:00-21:00; Su 09:00-18:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11843553874,
+      "lat": 43.513658,
+      "lon": 39.8600265,
+      "tags": {
+        "contact:email": "hostagym@gmail.com",
+        "contact:phone": "+7 989 2809090",
+        "leisure": "fitness_centre",
+        "name": "Hostagym",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11958139260,
+      "lat": 43.5867092,
+      "lon": 39.7227484,
+      "tags": {
+        "contact:email": "33shpagatasochi@gmail.com",
+        "contact:phone": "+7 862 2969336",
+        "contact:website": "https://33shpagata.ru/sochi",
+        "leisure": "fitness_centre",
+        "name": "33 шпагата",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11958163696,
+      "lat": 43.5110203,
+      "lon": 39.8711524,
+      "tags": {
+        "contact:email": "antipina0105@yandex.ru",
+        "contact:phone": "+7 908 6723233",
+        "contact:website": "https://centr-5stihii.ru",
+        "leisure": "fitness_centre",
+        "name": "5 стихий",
+        "opening_hours": "Mo,We,Fr 09:00-20:00; Sa 09:00-13:00; Tu,Th 09:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13136422641,
+      "lat": 43.6035991,
+      "lon": 39.7193666,
+      "tags": {
+        "addr:city": "Сочи",
+        "addr:housenumber": "20А/1",
+        "addr:street": "Виноградная улица",
+        "leisure": "fitness_centre",
+        "name": "Эн-Ден",
+        "name:ru": "Эн-Ден"
+      }
+    },
+    {
+      "type": "way",
+      "id": 53181111,
+      "center": {
+        "lat": 43.5672256,
+        "lon": 39.8053308
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "1",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 420030716,
+      "center": {
+        "lat": 43.5137979,
+        "lon": 39.860355
+      },
+      "tags": {
+        "access": "customers",
+        "addr:city": "Сочи",
+        "addr:housenumber": "13/2",
+        "addr:postcode": "354037",
+        "addr:street": "Железнодорожная улица",
+        "building": "yes",
+        "building:levels": "1",
+        "height": "4",
+        "leisure": "fitness_centre",
+        "name": "FABRIKA Fitness & Dance Studio",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "phone": "+7 900 286-44-16",
+        "smoking": "no",
+        "sport": "fitness;multi",
+        "website": "https://www.instagram.com/fabrika_fitness_dance/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 974397144,
+      "center": {
+        "lat": 43.5137586,
+        "lon": 39.8603468
+      },
+      "tags": {
+        "addr:city": "Хоста",
+        "addr:housenumber": "13/2",
+        "addr:postcode": "354037",
+        "addr:street": "Железнодорожная улица",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1175894543,
+      "center": {
+        "lat": 43.5655124,
+        "lon": 39.7661077
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

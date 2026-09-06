@@ -1,0 +1,12 @@
+{
+  "phase": 4,
+  "counts": {
+    "READY_TO_IMPORT": 978,
+    "NEEDS_COORDINATES": 92,
+    "DUPLICATE": 64,
+    "NEEDS_REVIEW": 2,
+    "COMING_SOON": 4
+  },
+  "preserved_phase3_ready_ids": 954,
+  "note": "Phase4 soft-dedupe never demotes Phase3 READY; conflicting Phase4 rows marked DUPLICATE instead."
+}

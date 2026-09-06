@@ -1,0 +1,95 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside Bosnia and Herzegovina",
+  "qualifying_class_a_chains": 0,
+  "potential_class_a_operators": 2,
+  "class_a_locations": 0,
+  "international_chains": "ABSENT",
+  "operators": {
+    "ALL IN FITNESS": {
+      "discovered_units": 3,
+      "conventional_public_floors_verified": 0,
+      "verdict": "POTENTIAL_CLASS_A",
+      "class_a": false,
+      "phase1_status": "NEEDS_REVIEW",
+      "cities": [
+        "Sarajevo"
+      ],
+      "notes": "3 Sarajevo sites — potential Class A; all NEEDS_REVIEW in Phase 1"
+    },
+    "Kron Fitness": {
+      "discovered_units": 4,
+      "conventional_public_floors_verified": 0,
+      "verdict": "POTENTIAL_CLASS_A_REGIONAL",
+      "class_a": false,
+      "phase1_status": "NEEDS_REVIEW",
+      "cities": [
+        "Tuzla",
+        "Živinice",
+        "Srebrenik",
+        "Gračanica"
+      ],
+      "notes": "4 Tuzla-canton sites — potential Class A regional; all NEEDS_REVIEW Phase 1"
+    },
+    "Basic-Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "PureGym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "McFIT": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "JOHN REED": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Anytime Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Gold's Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "World Class": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitness Park": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FitActive": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Stay Fit Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "18GYM": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Ahilej": {
+      "verdict": "ABSENT",
+      "class_a": false,
+      "notes": "Serbia-only"
+    },
+    "XBody": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Clever Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitinn": {
+      "verdict": "ABSENT",
+      "class_a": false
+    }
+  }
+}

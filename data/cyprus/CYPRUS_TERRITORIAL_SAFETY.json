@@ -1,0 +1,34 @@
+{
+  "scope": "Republic of Cyprus (government-controlled)",
+  "hard_gate": "Northern Cyprus / TRNC contamination = 0 for READY",
+  "ready_foreign_outliers": 0,
+  "ready_count": 17,
+  "northern_cyprus_rows_staged_excluded": 3,
+  "northern_cyprus_examples": [
+    {
+      "id": "cy_c758e26ca6",
+      "name": "Lifezone Fitness Centre Karavas (Northern Cyprus)",
+      "postal_code": "99350"
+    },
+    {
+      "id": "cy_f5d0e98c2e",
+      "name": "Murat Gym Girne (Northern Cyprus)",
+      "postal_code": "99320"
+    },
+    {
+      "id": "cy_a65fe9efc9",
+      "name": "Directory hit Gazimagusa / Famagusta North (excluded)",
+      "postal_code": ""
+    }
+  ],
+  "northern_candidates_encountered": 3,
+  "excluded_northern_candidates": [
+    "cy_c758e26ca6",
+    "cy_f5d0e98c2e",
+    "cy_a65fe9efc9"
+  ],
+  "ambiguous_candidates": [],
+  "ready_territorial_outliers": [],
+  "coordinate_gate_note": "Phase2 raised north carve-out to lat>=35.19 to keep Pallouriotissa ~35.178",
+  "result": "CLEAN_FOR_READY"
+}

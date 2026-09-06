@@ -12,6 +12,11 @@ import {
 import type {BadgeDefinition, BadgeRarity} from '@/types/badge.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
+import {
+  useTranslation,
+  badgeDisplayName,
+  badgeDisplayDescription,
+} from '@/i18n';
 
 type Props = {
   visible: boolean;
@@ -19,16 +24,17 @@ type Props = {
   onDismiss: () => void;
 };
 
-const RARITY_DK: Record<BadgeRarity, string> = {
-  common: 'Almindelig',
-  rare: 'Sjælden',
-  epic: 'Episk',
-  legendary: 'Legendarisk',
+const RARITY_KEY: Record<BadgeRarity, string> = {
+  common: 'badges.rarityCommon',
+  rare: 'badges.rarityRare',
+  epic: 'badges.rarityEpic',
+  legendary: 'badges.rarityLegendary',
 };
 
 const DURATION_UP = 220;
 
 export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
+  const {t} = useTranslation();
   const scale = useRef(new Animated.Value(0.8)).current;
   const opacity = useRef(new Animated.Value(0)).current;
 
@@ -88,17 +94,17 @@ export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
                   {badge.emoji}
                 </Text>
               </View>
-              <Text style={styles.kicker}>Nyt badge låst op</Text>
+              <Text style={styles.kicker}>{t('badgeUnlock.title')}</Text>
               <View style={styles.rarityPill}>
-                <Text style={styles.rarityText}>{RARITY_DK[badge.rarity]}</Text>
+                <Text style={styles.rarityText}>{t(RARITY_KEY[badge.rarity])}</Text>
               </View>
-              <Text style={styles.name}>{badge.name}</Text>
-              <Text style={styles.desc}>{badge.description}</Text>
+              <Text style={styles.name}>{badgeDisplayName(t, badge)}</Text>
+              <Text style={styles.desc}>{badgeDisplayDescription(t, badge)}</Text>
               <TouchableOpacity
                 style={styles.btn}
                 onPress={onDismiss}
                 activeOpacity={0.85}>
-                <Text style={styles.btnText}>Fedt!</Text>
+                <Text style={styles.btnText}>{t('badgeUnlock.awesome')}</Text>
               </TouchableOpacity>
             </View>
           </Pressable>

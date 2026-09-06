@@ -1,0 +1,106 @@
+{
+  "country": "Slovenia",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "production_total": 11921,
+  "slovenia_live": 32,
+  "existing_slovenia_production": true,
+  "chains": [
+    {
+      "chain": "BODIFIT",
+      "classification": "A",
+      "open_active": 8,
+      "ready_estimate": 8,
+      "class_a": true,
+      "source": "production_hydrate + prior official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "FITINN",
+      "classification": "A",
+      "open_active": 6,
+      "ready_estimate": 6,
+      "class_a": true,
+      "source": "production_hydrate + prior official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Shape House",
+      "classification": "A",
+      "open_active": 18,
+      "ready_estimate": 18,
+      "class_a": true,
+      "source": "production_hydrate + prior official estate audit",
+      "verdict": "COMPLETE"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "McFIT",
+      "action": "ABSENT",
+      "evidence": "No SI clubs on McFIT locator"
+    },
+    {
+      "chain": "JOHN REED",
+      "action": "ABSENT",
+      "evidence": "No verified SI estate"
+    },
+    {
+      "chain": "Basic-Fit",
+      "action": "ABSENT",
+      "evidence": "No verified SI conventional chain"
+    },
+    {
+      "chain": "PureGym",
+      "action": "ABSENT",
+      "evidence": "No SI presence"
+    },
+    {
+      "chain": "Fitness24Seven",
+      "action": "ABSENT",
+      "evidence": "No SI presence"
+    },
+    {
+      "chain": "Anytime Fitness",
+      "action": "ABSENT",
+      "evidence": "No verified SI clubs"
+    },
+    {
+      "chain": "Gold's Gym",
+      "action": "ABSENT",
+      "evidence": "No multi-site SI chain"
+    },
+    {
+      "chain": "World Class",
+      "action": "ABSENT",
+      "evidence": "No conventional SI chain"
+    },
+    {
+      "chain": "Clever Fit (legacy brand)",
+      "action": "REBRANDED",
+      "evidence": "CF FITNESS d.o.o. operates as Shape House in production"
+    },
+    {
+      "chain": "4P Fitness",
+      "action": "BELOW_THRESHOLD",
+      "evidence": "2 sites — sub Class A threshold"
+    },
+    {
+      "chain": "Fit13",
+      "action": "BELOW_THRESHOLD",
+      "evidence": "2 Ljubljana sites — sub threshold"
+    },
+    {
+      "chain": "Alfa Gym",
+      "action": "SINGLE_SITE",
+      "evidence": "Single Ljubljana Dunajska 49"
+    },
+    {
+      "chain": "Millennium / Konex",
+      "action": "UNRESOLVED",
+      "evidence": "Insufficient >=3 conventional SI evidence"
+    }
+  ],
+  "market_model": "CHAIN_LED"
+}

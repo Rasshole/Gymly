@@ -1,0 +1,19 @@
+{
+  "phase1_ready_preserved": 0,
+  "phase1_status_counts": {
+    "EXCLUDED": 36,
+    "CLOSED": 8,
+    "NEEDS_REVIEW": 3
+  },
+  "phase1_unresolved_recovered": 3,
+  "records_demoted": 3,
+  "records_reclassified": [
+    "sanctum",
+    "fitness_factory",
+    "fitness_one",
+    "curves"
+  ],
+  "new_locations": 20,
+  "new_independents_ready": 10,
+  "new_closed_legacy_evidence": 0
+}

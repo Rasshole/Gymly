@@ -1,0 +1,327 @@
+{
+  "search_results": [
+    {
+      "query": "Malta",
+      "hits": 24,
+      "ok": true
+    },
+    {
+      "query": "Sliema",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Mriehel",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "St Julian",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Gzira",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Birkirkara",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Mosta",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Victoria",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Gozo",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Xewkija",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Best Gyms Malta",
+      "hits": 10,
+      "ok": true
+    },
+    {
+      "query": "24/7 Fitness Club",
+      "hits": 4,
+      "ok": true
+    },
+    {
+      "query": "Challenger Fitness",
+      "hits": 4,
+      "ok": true
+    },
+    {
+      "query": "Fort Fitness",
+      "hits": 2,
+      "ok": true
+    },
+    {
+      "query": "Cynergi",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "ActiveZone",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Kinetika",
+      "hits": 2,
+      "ok": true
+    }
+  ],
+  "search_failures": [],
+  "locality_aliases": [
+    {
+      "pair": [
+        "St Julian",
+        "San Giljan"
+      ],
+      "ok": true,
+      "a_hits": 2,
+      "b_hits": 0,
+      "reason": "search_hit"
+    },
+    {
+      "pair": [
+        "St Paul",
+        "San Pawl"
+      ],
+      "ok": true,
+      "a_hits": 1,
+      "b_hits": 0,
+      "reason": "search_hit"
+    },
+    {
+      "pair": [
+        "Victoria",
+        "Rabat Gozo"
+      ],
+      "ok": true,
+      "a_hits": 1,
+      "b_hits": 0,
+      "reason": "search_hit"
+    },
+    {
+      "pair": [
+        "Birgu",
+        "Vittoriosa"
+      ],
+      "ok": true,
+      "a_hits": 0,
+      "b_hits": 0,
+      "skipped_no_production_coverage": true,
+      "reason": "no_production_in_locality"
+    },
+    {
+      "pair": [
+        "Bormla",
+        "Cospicua"
+      ],
+      "ok": true,
+      "a_hits": 1,
+      "b_hits": 0,
+      "reason": "search_hit"
+    },
+    {
+      "pair": [
+        "Gżira",
+        "Gzira"
+      ],
+      "ok": true,
+      "a_hits": 1,
+      "b_hits": 1,
+      "reason": "search_hit"
+    },
+    {
+      "pair": [
+        "Żabbar",
+        "Zabbar"
+      ],
+      "ok": true,
+      "a_hits": 0,
+      "b_hits": 0,
+      "skipped_no_production_coverage": true,
+      "reason": "no_production_in_locality"
+    },
+    {
+      "pair": [
+        "Siġġiewi",
+        "Siggiewi"
+      ],
+      "ok": true,
+      "a_hits": 0,
+      "b_hits": 0,
+      "skipped_no_production_coverage": true,
+      "reason": "no_production_in_locality"
+    },
+    {
+      "pair": [
+        "Għargħur",
+        "Gharghur"
+      ],
+      "ok": true,
+      "a_hits": 0,
+      "b_hits": 0,
+      "skipped_no_production_coverage": true,
+      "reason": "no_production_in_locality"
+    },
+    {
+      "pair": [
+        "Xagħra",
+        "Xaghra"
+      ],
+      "ok": true,
+      "a_hits": 0,
+      "b_hits": 0,
+      "skipped_no_production_coverage": true,
+      "reason": "no_production_in_locality"
+    },
+    {
+      "pair": [
+        "Mrieħel",
+        "Mriehel"
+      ],
+      "ok": true,
+      "a_hits": 1,
+      "b_hits": 1,
+      "reason": "search_hit"
+    }
+  ],
+  "map_active_markers": 24,
+  "map_coming_soon": 0,
+  "map_excluded": 0,
+  "map_closed": 0,
+  "map_foreign": 0,
+  "nearest_results": [
+    {
+      "label": "Valletta",
+      "lat": 35.898,
+      "lng": 14.514,
+      "winner_id": "mt_26d7f37a30",
+      "winner_name": "Challenger Fitness Centre Valletta",
+      "distance_m": 259,
+      "ok": true
+    },
+    {
+      "label": "Sliema",
+      "lat": 35.912,
+      "lng": 14.504,
+      "expectId": "mt_2f5b8d74db",
+      "winner_id": "mt_2f5b8d74db",
+      "winner_name": "Fort Fitness Sliema",
+      "distance_m": 816,
+      "ok": true
+    },
+    {
+      "label": "Mrieħel",
+      "lat": 35.89,
+      "lng": 14.461,
+      "expectId": "mt_e99920262f",
+      "winner_id": "mt_e99920262f",
+      "winner_name": "Fort Fitness Mrieħel",
+      "distance_m": 56,
+      "ok": true
+    },
+    {
+      "label": "St Julian's",
+      "lat": 35.922,
+      "lng": 14.489,
+      "winner_id": "mt_56d27e8f31",
+      "winner_name": "Cynergi Health & Fitness Club",
+      "distance_m": 723,
+      "ok": true
+    },
+    {
+      "label": "Gżira",
+      "lat": 35.905,
+      "lng": 14.495,
+      "winner_id": "mt_134787b308",
+      "winner_name": "Tal-Qroqq Fitness Centre",
+      "distance_m": 636,
+      "ok": true
+    },
+    {
+      "label": "Birkirkara",
+      "lat": 35.897,
+      "lng": 14.462,
+      "winner_id": "mt_ce1047cd1d",
+      "winner_name": "Birkirkara Fitness Centre",
+      "distance_m": 364,
+      "ok": true
+    },
+    {
+      "label": "Mosta",
+      "lat": 35.909,
+      "lng": 14.426,
+      "winner_id": "mt_f0f72dec5a",
+      "winner_name": "Mosta Fitness Centre",
+      "distance_m": 721,
+      "ok": true
+    },
+    {
+      "label": "St Paul's Bay",
+      "lat": 35.948,
+      "lng": 14.399,
+      "winner_id": "mt_b45a78a4f0",
+      "winner_name": "Build Fitness Centre",
+      "distance_m": 473,
+      "ok": true
+    },
+    {
+      "label": "Marsaskala",
+      "lat": 35.862,
+      "lng": 14.557,
+      "winner_id": "mt_cd0c2182e4",
+      "winner_name": "Challenger Elite Fitness Marsaskala",
+      "distance_m": 1010,
+      "ok": true
+    },
+    {
+      "label": "Bormla",
+      "lat": 35.882,
+      "lng": 14.522,
+      "winner_id": "mt_26579c8193",
+      "winner_name": "Challenger Fitness Centre Cottonera",
+      "distance_m": 521,
+      "ok": true
+    },
+    {
+      "label": "Victoria Gozo",
+      "lat": 36.044,
+      "lng": 14.241,
+      "expectId": "mt_69e8de5961",
+      "winner_id": "mt_69e8de5961",
+      "winner_name": "Kinetika Victoria (K1)",
+      "distance_m": 44,
+      "ok": true
+    },
+    {
+      "label": "Xewkija Gozo",
+      "lat": 36.035,
+      "lng": 14.258,
+      "expectId": "mt_decf1d09bc",
+      "winner_id": "mt_decf1d09bc",
+      "winner_name": "Kinetika Xewkija (K2)",
+      "distance_m": 41,
+      "ok": true
+    }
+  ],
+  "nearest_failures": []
+}

@@ -1,0 +1,22 @@
+{
+  "ready_count": 68,
+  "same_brand": {
+    "lte_25m": [],
+    "lte_50m": [],
+    "lte_100m": [],
+    "lte_200m": [
+      {
+        "a_id": "ee_751f32334b",
+        "b_id": "ee_e47c68a9de",
+        "brand": "MyFitness",
+        "distance_m": 144,
+        "same_address": false
+      }
+    ],
+    "identical": []
+  },
+  "different_brand_lte_100m": [],
+  "myfitness_viru_postimaja_m": 144,
+  "myfitness_viru_postimaja_classification": "A_legitimate",
+  "phase": 2
+}

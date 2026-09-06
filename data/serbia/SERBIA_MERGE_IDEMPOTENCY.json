@@ -1,0 +1,9 @@
+{
+  "second_run_insertions": 0,
+  "final_catalog": 11921,
+  "serbia": 63,
+  "rs_prefix": 63,
+  "expected_catalog": 11921,
+  "expected_serbia": 63,
+  "result": "PASS"
+}

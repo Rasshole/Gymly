@@ -1,0 +1,228 @@
+{
+  "registry": {
+    "registry_center_count": 12850,
+    "registry_duplicates": 0,
+    "registry_missing": 0,
+    "runs": 20,
+    "min_ms": 0,
+    "median_ms": 0,
+    "p95_ms": 1,
+    "max_ms": 1,
+    "mean_ms": 0.1
+  },
+  "search_index": {
+    "search_index_center_count": 12846,
+    "search_index_exclusions": 4,
+    "search_index_exclusion_reason": "4 intentional inactive Denmark rows",
+    "runs": 5,
+    "min_ms": 0,
+    "median_ms": 0,
+    "p95_ms": 19624,
+    "max_ms": 19624,
+    "mean_ms": 3924.8
+  },
+  "search": {
+    "search_query_count": 36,
+    "search_runs_total": 36,
+    "slowest_search_query": "Санкт-Петербург",
+    "slowest_search_ms": 967,
+    "max_search_result_count": 50,
+    "query_with_max_results": "Russia",
+    "runs": 36,
+    "min_ms": 24,
+    "median_ms": 182,
+    "p95_ms": 767,
+    "max_ms": 967,
+    "mean_ms": 245.08333333333334
+  },
+  "search_correctness": {
+    "global_search_correctness": "PASS",
+    "raw_ids_surfaced": 0,
+    "search_duplicate_results": 0,
+    "search_invalid_results": 0,
+    "search_country_mismatches": 0
+  },
+  "map": {
+    "map_architecture_mode": "VIEWPORT_CULLING — full marker prep then region filter",
+    "global_active_center_count": 12846,
+    "map_marker_prep_count": 12846,
+    "moscow_viewport_count": 297,
+    "map_marker_identity_errors": 0,
+    "runs": 10,
+    "min_ms": 61,
+    "median_ms": 86,
+    "p95_ms": 169,
+    "max_ms": 169,
+    "mean_ms": 89.8
+  },
+  "nearest": {
+    "nearest_probe_count": 26,
+    "nearest_runs_total": 26,
+    "nearest_results_plausible": "YES",
+    "nearest_invalid_results": 0,
+    "runs": 26,
+    "min_ms": 31,
+    "median_ms": 33,
+    "p95_ms": 37,
+    "max_ms": 38,
+    "mean_ms": 33.65384615384615
+  },
+  "checkin": {
+    "checkin_boundary_tests": 3,
+    "checkin_boundary_failures": 0,
+    "country_specific_radius_overrides": 0
+  },
+  "distance": {
+    "hot_path_global_scan": "YES",
+    "note": "findNearestGym performs O(n) linear scan; measured latency acceptable at 12,850",
+    "distance_full_scan_min_ms": 30,
+    "distance_full_scan_median_ms": 37,
+    "distance_full_scan_p95_ms": 61,
+    "distance_full_scan_max_ms": 61
+  },
+  "dense_market": {
+    "dense_market_correctness": "PASS"
+  },
+  "russia_scale": {
+    "russia": 465,
+    "ru_prefix": 465,
+    "moscow": 361,
+    "spb": 23,
+    "russia_scale_qa": "PASS",
+    "cyrillic_search": true,
+    "latin_search": true
+  },
+  "large_chains": {
+    "top_chains": [
+      {
+        "brand": "Basic-Fit",
+        "count": 1680
+      },
+      {
+        "brand": "PureGym",
+        "count": 633
+      },
+      {
+        "brand": "clever fit",
+        "count": 442
+      },
+      {
+        "brand": "Anytime Fitness",
+        "count": 433
+      },
+      {
+        "brand": "Fitness Park",
+        "count": 380
+      },
+      {
+        "brand": "VivaGym",
+        "count": 292
+      },
+      {
+        "brand": "STC",
+        "count": 291
+      },
+      {
+        "brand": "The Gym Group",
+        "count": 256
+      },
+      {
+        "brand": "Nordic Wellness",
+        "count": 234
+      },
+      {
+        "brand": "McFIT",
+        "count": 234
+      }
+    ],
+    "large_chain_search_duplicates": 0
+  },
+  "large_cities": {
+    "top_cities": [
+      {
+        "city": "Moscow",
+        "count": 361
+      },
+      {
+        "city": "London",
+        "count": 178
+      },
+      {
+        "city": "Madrid",
+        "count": 122
+      },
+      {
+        "city": "Warszawa",
+        "count": 109
+      },
+      {
+        "city": "Wien",
+        "count": 101
+      },
+      {
+        "city": "Helsinki",
+        "count": 89
+      },
+      {
+        "city": "Oslo",
+        "count": 78
+      },
+      {
+        "city": "Stockholm",
+        "count": 72
+      },
+      {
+        "city": "Berlin",
+        "count": 72
+      },
+      {
+        "city": "Barcelona",
+        "count": 72
+      }
+    ],
+    "large_city_correctness": "PASS"
+  },
+  "normalization": {
+    "normalization_exceptions": 1
+  },
+  "country_filter": {
+    "country_filter_count_mismatches": 0
+  },
+  "city_filter": {
+    "city_filter_duplicates": 0,
+    "city_filter_wrong_country": 0
+  },
+  "id_lookup": {
+    "id_lookup_sample_size": 94,
+    "id_lookup_missing": 0,
+    "id_lookup_wrong_result": 0,
+    "runs": 20,
+    "min_ms": 0,
+    "median_ms": 0,
+    "p95_ms": 1,
+    "max_ms": 1,
+    "mean_ms": 0.05
+  },
+  "sorting": {
+    "sort_exceptions": 0,
+    "sort_nondeterminism": 0
+  },
+  "repeated_interaction": {
+    "repeated_interaction_iterations": 50,
+    "latency_degradation_percent": -12.4,
+    "repeated_interaction_correctness": "PASS",
+    "unbounded_accumulation_detected": false
+  },
+  "russia_merge_invariant": "PASS",
+  "production_immutable": true,
+  "real_global_regression": 0,
+  "test_debt": {
+    "real_global_regression": 0,
+    "stale_historical_baseline": [
+      "__tests__/global10kStressQa.test.ts",
+      "__tests__/russiaPhase1Staging.test.ts",
+      "__tests__/russiaPhase2Staging.test.ts"
+    ],
+    "other_test_debt": []
+  }
+}

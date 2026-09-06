@@ -1,0 +1,23 @@
+{
+  "first_run": {
+    "insertions": 25,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12278,
+    "total_after": 12303,
+    "georgia_before": 0,
+    "georgia_after": 25
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12303,
+    "total_after": 12303,
+    "georgia_before": 25,
+    "georgia_after": 25,
+    "ge_prefix_before": 25,
+    "ge_prefix_after": 25
+  },
+  "idempotent": true
+}

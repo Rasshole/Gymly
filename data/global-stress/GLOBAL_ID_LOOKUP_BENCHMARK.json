@@ -1,0 +1,11 @@
+{
+  "id_lookup_sample_size": 94,
+  "id_lookup_missing": 0,
+  "id_lookup_wrong_result": 0,
+  "runs": 20,
+  "min_ms": 0,
+  "median_ms": 0,
+  "p95_ms": 1,
+  "max_ms": 1,
+  "mean_ms": 0.05
+}

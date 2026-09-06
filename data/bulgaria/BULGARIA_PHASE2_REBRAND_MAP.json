@@ -1,0 +1,21 @@
+{
+  "Pulse_Platinum": {
+    "status": "UNRESOLVED_IDENTITY_CONFLICT",
+    "evidence": "Pulse Platinum remains staged as Pulse Fitness location candidate (47 Rezbarska) but geocode incomplete in Phase 2; Platinum Health Club / Pulse Platinum naming overlap not fully disambiguated as separate operator vs marketing.",
+    "action": "NEEDS_REVIEW — do not merge under alternate brand without Phase 3 confirmation"
+  },
+  "Pulse_hotel_foreign": {
+    "status": "EXCLUDED",
+    "items": [
+      "Pulse Therme",
+      "Pulse Therme Bansko",
+      "Pulse Royal Hotel Plovdiv",
+      "Pulse Royal Hotel Velingrad",
+      "Pulse Atlantis (Strumica, North Macedonia)"
+    ]
+  },
+  "Hammer_Gym_Platinum": {
+    "status": "DISTINCT_FROM_PULSE_PLATINUM",
+    "evidence": "Hammer Gym Platinum is Hammer Gym branded location (George Washington str.), not Pulse."
+  }
+}

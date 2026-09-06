@@ -1,0 +1,166 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:58:18Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4690368389,
+      "lat": 54.5123215,
+      "lon": 36.2441139,
+      "tags": {
+        "addr:postcode": "248000",
+        "leisure": "fitness_centre",
+        "name": "Ассолька",
+        "name:ru": "Ассолька"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5047801184,
+      "lat": 54.4946562,
+      "lon": 36.225982,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "JoyFit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5301710922,
+      "lat": 54.5763989,
+      "lon": 36.2524078,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Притяжение",
+        "opening_hours": "Mo-Su 15:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5535627821,
+      "lat": 54.5125569,
+      "lon": 36.2582179,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Фиталайф"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5540047522,
+      "lat": 54.5579979,
+      "lon": 36.1254386,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5968356790,
+      "lat": 54.5146771,
+      "lon": 36.2365793,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Re:Form",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6801420413,
+      "lat": 54.5227476,
+      "lon": 36.2475898,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "JoyFIT"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7232690733,
+      "lat": 54.5431006,
+      "lon": 36.2990186,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Полёт"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7460105331,
+      "lat": 54.5520615,
+      "lon": 36.2729847,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Олимп"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9904390805,
+      "lat": 54.5233628,
+      "lon": 36.2916563,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Grand Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458191,
+      "lat": 54.4876157,
+      "lon": 36.1923959,
+      "tags": {
+        "contact:phone": "+7 920 8880024",
+        "contact:website": "https://ladystretch.com/kaluga",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458192,
+      "lat": 54.5134194,
+      "lon": 36.2489074,
+      "tags": {
+        "contact:phone": "+7 909 2528858",
+        "contact:website": "https://ladystretch.com/kaluga",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14087965177,
+      "lat": 54.5170612,
+      "lon": 36.2560177,
+      "tags": {
+        "check_date": "2026-08-09",
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "DOX fitness",
+        "opening_hours": "06:00-24:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 121510307,
+      "center": {
+        "lat": 54.5303434,
+        "lon": 36.1692265
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "4",
+        "description": "Спортзал",
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

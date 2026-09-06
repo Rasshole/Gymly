@@ -27,6 +27,8 @@ export function getDemoBadgeSnapshot(): {
     planned_workouts_completed_valid: 6,
     early_check_ins: 9,
     late_check_ins: 5,
+    total_logged_sets: 47,
+    total_pr_events: 3,
   };
   const unlocked: Record<string, string> = {
     checkin_first_1: isoDaysAgo(200),

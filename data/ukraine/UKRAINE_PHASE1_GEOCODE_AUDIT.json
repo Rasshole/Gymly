@@ -1,0 +1,9 @@
+{
+  "premises_coords": 66,
+  "geocoded_coords": 33,
+  "fallback_coords": 0,
+  "missing_coords": 0,
+  "geocoded_this_run": 53,
+  "postal_filled_this_run": 40,
+  "postal_reverse_filled_this_run": 64
+}

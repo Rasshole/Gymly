@@ -1,0 +1,38 @@
+{
+  "phase": 2,
+  "same_brand": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": []
+  },
+  "different_brand": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": []
+  },
+  "identical_coordinates": [],
+  "same_normalized_address": [],
+  "unexplained_hard_duplicates": 0,
+  "known_legitimate_proximity": [
+    {
+      "pair": "Hercule ↔ Stade Louis II",
+      "note": "~1 km apart; Port Hercule vs Fontvieille — A_DISTINCT_PUBLIC_GYMS"
+    }
+  ],
+  "dq": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_fields": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "french_contamination": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "hard_duplicate_problems": 0,
+    "missing_eligibility_path": 0,
+    "hotel_spa_private_leakage": 0
+  }
+}

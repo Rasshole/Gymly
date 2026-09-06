@@ -1,0 +1,23 @@
+{
+  "cities": {
+    "Baku": "A",
+    "Sumqayit": "A",
+    "Ganja": "A",
+    "Mingachevir": "A",
+    "Nakhchivan": "B",
+    "Lankaran": "A",
+    "Shaki": "B"
+  },
+  "approved_by_city": {
+    "Baku": 21,
+    "Ganja": 8,
+    "Sumqayit": 12,
+    "Masazır": 1,
+    "Lankaran": 2,
+    "Mingachevir": 2
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0,
+  "nakhchivan_material_d": "NO",
+  "nakhchivan_audit_grade": "B"
+}

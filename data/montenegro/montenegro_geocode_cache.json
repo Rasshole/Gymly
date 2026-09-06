@@ -1,0 +1,87 @@
+{
+  "me_54169ac803": {
+    "lat": 42.44285,
+    "lng": 19.26295,
+    "coord_source": "official_address_capital_plaza_premises"
+  },
+  "me_aebbd15856": {
+    "lat": 42.4412,
+    "lng": 19.2448,
+    "coord_source": "official_website_address_premises"
+  },
+  "me_c220315889": {
+    "lat": 42.4429,
+    "lng": 19.2631,
+    "coord_source": "directory_capital_plaza_premises"
+  },
+  "me_27a3463ee9": {
+    "lat": 42.4175,
+    "lng": 19.2598,
+    "coord_source": "directory_stari_aerodrom_premises"
+  },
+  "me_9eeaa4aa02": {
+    "lat": 42.4418,
+    "lng": 19.2622,
+    "coord_source": "directory_boulevard_premises_approx"
+  },
+  "me_eaf8aa192f": {
+    "lat": 42.4375,
+    "lng": 19.2485,
+    "coord_source": "directory_blok9_premises"
+  },
+  "me_9c7043893c": {
+    "lat": 42.4422,
+    "lng": 19.2495,
+    "coord_source": "sports_center_moraca_premises"
+  },
+  "me_7b154b9bfc": {
+    "lat": 42.4428,
+    "lng": 19.263,
+    "coord_source": "official_capital_plaza"
+  },
+  "me_c945ad2b04": {
+    "lat": 42.7746,
+    "lng": 18.9552,
+    "coord_source": "dom_revolucije_premises"
+  },
+  "me_84ef15d2b4": {
+    "lat": 42.2869,
+    "lng": 18.8385,
+    "coord_source": "official_website_address"
+  },
+  "me_0ca0ffcb7a": {
+    "lat": 42.2875,
+    "lng": 18.8412,
+    "coord_source": "official_tq_plaza_premises"
+  },
+  "me_fe03c93cd3": {
+    "lat": 42.0945,
+    "lng": 19.1008,
+    "coord_source": "directory_kula_a_premises"
+  },
+  "me_662586aec1": {
+    "lat": 42.6507,
+    "lng": 18.0944,
+    "coord_source": "border_probe_landmark"
+  },
+  "me_45293aa656": {
+    "lat": 42.71197,
+    "lng": 18.34362,
+    "coord_source": "border_probe_landmark"
+  },
+  "me_a8ec325400": {
+    "lat": 42.0683,
+    "lng": 19.5126,
+    "coord_source": "border_probe_landmark"
+  },
+  "me_ae88bcbd7a": {
+    "lat": 43.1367,
+    "lng": 20.5122,
+    "coord_source": "border_probe_landmark"
+  },
+  "me_c53afe35b6": {
+    "lat": 42.6593,
+    "lng": 20.2887,
+    "coord_source": "border_probe_landmark"
+  }
+}

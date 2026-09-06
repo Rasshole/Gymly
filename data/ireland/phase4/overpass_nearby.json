@@ -1,0 +1,236 @@
+{
+  "ie_09c791f803": {
+    "name": "Anytime Fitness Kilnamanagh",
+    "pcs": [],
+    "named": []
+  },
+  "ie_2f24ee9ee2": {
+    "name": "Aura Leisure Drogheda",
+    "pcs": [],
+    "named": [
+      {
+        "name": "Aura Leisure & Fitness",
+        "pc": null,
+        "lat": 53.7129057,
+        "lng": -6.3743417
+      }
+    ]
+  },
+  "ie_ee4229dbbd": {
+    "name": "Aura Leisure Grove Island",
+    "pcs": [],
+    "named": [
+      {
+        "name": "Bamboo Garden",
+        "pc": null,
+        "lat": 52.6691592,
+        "lng": -8.6151921
+      },
+      {
+        "name": "Fusion",
+        "pc": null,
+        "lat": 52.6693246,
+        "lng": -8.6155731
+      },
+      {
+        "name": "Lloyds Pharmacy",
+        "pc": null,
+        "lat": 52.6692655,
+        "lng": -8.6154012
+      },
+      {
+        "name": "McManus",
+        "pc": null,
+        "lat": 52.6692032,
+        "lng": -8.6152665
+      },
+      {
+        "name": "Luca\u2019s Pizzeria",
+        "pc": null,
+        "lat": 52.6690055,
+        "lng": -8.6149388
+      },
+      {
+        "name": "Luca's",
+        "pc": null,
+        "lat": 52.6690377,
+        "lng": -8.6149884
+      },
+      {
+        "name": "Aura",
+        "pc": null,
+        "lat": 52.6688564,
+        "lng": -8.6145961
+      },
+      {
+        "name": "Grove Island Leisure Centre",
+        "pc": null,
+        "lat": 52.6688271,
+        "lng": -8.6145945
+      }
+    ]
+  },
+  "ie_f8136e849c": {
+    "name": "Aura Leisure Leitrim",
+    "pcs": [],
+    "named": [
+      {
+        "name": "Aura Leisure Centre",
+        "pc": null,
+        "lat": 53.9483504,
+        "lng": -8.0810075
+      }
+    ]
+  },
+  "ie_e29d0ea889": {
+    "error": "HTTP Error 502: Bad Gateway"
+  },
+  "ie_36b8a305fe": {
+    "name": "Aura Leisure Lucan",
+    "pcs": [],
+    "named": []
+  },
+  "ie_b49e3bc44e": {
+    "name": "Aura Leisure Trim",
+    "pcs": [],
+    "named": [
+      {
+        "name": "Mugendo Martial Arts Academy",
+        "pc": null,
+        "lat": 53.5532148,
+        "lng": -6.7997915
+      },
+      {
+        "name": "Aura Trim Leisure Centre",
+        "pc": null,
+        "lat": 53.5534431,
+        "lng": -6.8000394
+      },
+      {
+        "name": "Aura Leisure Trim",
+        "pc": null,
+        "lat": 53.5535007,
+        "lng": -6.7997778
+      }
+    ]
+  },
+  "ie_375273e7dc": {
+    "error": "HTTP Error 502: Bad Gateway"
+  },
+  "ie_64481d16de": {
+    "error": "The read operation timed out"
+  },
+  "ie_4f70d12c26": {
+    "name": "FLYEfit Blanchardstown",
+    "pcs": [],
+    "named": []
+  },
+  "ie_014f49e560": {
+    "error": "HTTP Error 502: Bad Gateway"
+  },
+  "ie_45c6e8b8d4": {
+    "name": "FLYEfit Northside",
+    "pcs": [],
+    "named": [
+      {
+        "name": "OSCAR TRAYNOR ROAD (NC)",
+        "pc": null,
+        "lat": 53.396996,
+        "lng": -6.218606
+      },
+      {
+        "name": "OSCAR TRAYNOR ROAD (NC)",
+        "pc": null,
+        "lat": 53.396864,
+        "lng": -6.218206
+      },
+      {
+        "name": "OSCAR TRAYNOR ROAD (NC)",
+        "pc": null,
+        "lat": 53.396634,
+        "lng": -6.217839
+      },
+      {
+        "name": "OSCAR TRAYNOR ROAD (NC)",
+        "pc": null,
+        "lat": 53.396563,
+        "lng": -6.217316
+      },
+      {
+        "name": "OSCAR TRAYNOR ROAD (NC)",
+        "pc": null,
+        "lat": 53.396344,
+        "lng": -6.21707
+      },
+      {
+        "name": "OSCAR TRAYNOR ROAD (NC)",
+        "pc": null,
+        "lat": 53.396264,
+        "lng": -6.216502
+      },
+      {
+        "name": "OSCAR TRAYNOR ROAD (NC)",
+        "pc": null,
+        "lat": 53.396112,
+        "lng": -6.216538
+      },
+      {
+        "name": "CROMCASTLE ROAD (NC)",
+        "pc": null,
+        "lat": 53.395722,
+        "lng": -6.217547
+      },
+      {
+        "name": "CROMCASTLE ROAD (NC)",
+        "pc": null,
+        "lat": 53.395791,
+        "lng": -6.21792
+      },
+      {
+        "name": "CROMCASTLE ROAD (NC)",
+        "pc": null,
+        "lat": 53.395805,
+        "lng": -6.21825
+      },
+      {
+        "name": "CROMCASTLE ROAD (NC)",
+        "pc": null,
+        "lat": 53.395941,
+        "lng": -6.218334
+      },
+      {
+        "name": "CROMCASTLE ROAD (NC)",
+        "pc": null,
+        "lat": 53.395983,
+        "lng": -6.218784
+      }
+    ]
+  },
+  "ie_db780fb567": {
+    "name": "FLYEfit Swords",
+    "pcs": [],
+    "named": [
+      {
+        "name": "Esquires Coffee",
+        "pc": null,
+        "lat": 53.4447655,
+        "lng": -6.2265234
+      },
+      {
+        "name": "Airside Road",
+        "pc": null,
+        "lat": 53.4449935,
+        "lng": -6.2271727
+      },
+      {
+        "name": "Lakeshore Drive",
+        "pc": null,
+        "lat": 53.4449541,
+        "lng": -6.2271093
+      }
+    ]
+  },
+  "ie_f953bcc5cd": {
+    "error": "HTTP Error 500: Internal Server Error"
+  }
+}

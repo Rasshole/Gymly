@@ -1,0 +1,14 @@
+{
+  "kosovo_ready_outliers": 0,
+  "kosovo_ids": [],
+  "bosnia_ready": 0,
+  "montenegro_ready": 0,
+  "mk_ready": 0,
+  "bg_ready": 0,
+  "romania_ready": 0,
+  "hungary_ready": 0,
+  "croatia_ready": 0,
+  "mitrovica_identity_collisions": 0,
+  "serbia_presevo_bujanovac_country_errors": 0,
+  "notes": "Phase2: all READY in_serbia(); Sremska Mitrovica distinct from Kosovo Mitrovicë; Preševo/Bujanovac country=Serbia."
+}

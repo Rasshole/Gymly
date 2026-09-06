@@ -1,0 +1,160 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": [],
+    "sameAddr": []
+  },
+  "skipped_existing_id": [],
+  "included": [
+    {
+      "id": "is_fa25e94b31",
+      "name": "World Class Laugar",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_b39588e5e0",
+      "name": "World Class Vatnsmýri",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_8965d0054f",
+      "name": "World Class HR",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_7511719617",
+      "name": "World Class Kringlan",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_48dceefaa5",
+      "name": "World Class Gamla Kringlan",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_be8006d4f1",
+      "name": "World Class Árbær",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_5e1b98a2dd",
+      "name": "World Class Breiðholt",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_d51273caa3",
+      "name": "World Class Egilshöll",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_bfa65dd42f",
+      "name": "World Class Seltjarnarnes",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_822280d124",
+      "name": "World Class Smáralind",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_5d81077bc1",
+      "name": "World Class Ögurhvarf",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_e6b7170863",
+      "name": "World Class Dalshraun",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_271c199e79",
+      "name": "World Class Tjarnarvellir",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_2d37413632",
+      "name": "World Class Mosfellsbær",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_06bbf1b677",
+      "name": "World Class Skólastígur",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_93ac745cab",
+      "name": "World Class Strandgata",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_37c5b3de3c",
+      "name": "World Class Selfoss",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_96374deb5c",
+      "name": "World Class Hella",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_bc68af1d1f",
+      "name": "World Class Vestmannaeyjar",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_d2bae462dd",
+      "name": "World Class Akranes",
+      "brand": "World Class"
+    },
+    {
+      "id": "is_bece47bcec",
+      "name": "Katla Fitness Holtagarðar",
+      "brand": "Katla Fitness"
+    },
+    {
+      "id": "is_df6449ee85",
+      "name": "Katla Fitness Lambhagi",
+      "brand": "Katla Fitness"
+    },
+    {
+      "id": "is_1d130c0197",
+      "name": "Katla Fitness Faxafen",
+      "brand": "Katla Fitness"
+    },
+    {
+      "id": "is_87beb5bac0",
+      "name": "Katla Fitness Urðarhvarf",
+      "brand": "Katla Fitness"
+    },
+    {
+      "id": "is_3c1b16259b",
+      "name": "Katla Fitness Tjarnarvellir",
+      "brand": "Katla Fitness"
+    },
+    {
+      "id": "is_e36f4d62b2",
+      "name": "Katla Fitness Salalaug",
+      "brand": "Katla Fitness"
+    },
+    {
+      "id": "is_31dded1371",
+      "name": "Katla Fitness Kópavogslaug",
+      "brand": "Katla Fitness"
+    }
+  ],
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": [],
+    "sameAddr": []
+  },
+  "duplicate_ids": [],
+  "unexplained_hard_duplicates": 0
+}

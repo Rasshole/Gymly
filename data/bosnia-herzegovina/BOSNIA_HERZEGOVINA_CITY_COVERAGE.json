@@ -1,0 +1,41 @@
+{
+  "cities": {
+    "Sarajevo": "READY_present",
+    "Banja Luka": "READY_present",
+    "Tuzla": "READY_present",
+    "Mostar": "READY_present",
+    "Zenica": "READY_present",
+    "Bijeljina": "READY_present",
+    "Bihać": "READY_present",
+    "Brčko": "READY_present",
+    "Prijedor": "READY_present",
+    "Doboj": "READY_present",
+    "Trebinje": "READY_present",
+    "Cazin": "READY_present",
+    "Travnik": "READY_present",
+    "Gradačac": "A_legitimate_no_local_gym",
+    "Gračanica": "READY_present",
+    "Živinice": "READY_present",
+    "Lukavac": "A_legitimate_no_local_gym",
+    "Visoko": "A_legitimate_no_local_gym",
+    "Goražde": "READY_present",
+    "Konjic": "A_legitimate_no_local_gym",
+    "Bugojno": "A_legitimate_no_local_gym",
+    "Jajce": "A_legitimate_no_local_gym",
+    "Livno": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase2_closed_former_b_gaps": [],
+  "phase2_legitimate_no_local_gym": [
+    "Gradačac",
+    "Lukavac",
+    "Visoko",
+    "Konjic",
+    "Bugojno",
+    "Jajce",
+    "Livno"
+  ],
+  "phase2_gradacac_resolution": "A_legitimate_no_local_gym — deep sweep found no defended conventional gym",
+  "federation_rs_brcko_unified": true
+}

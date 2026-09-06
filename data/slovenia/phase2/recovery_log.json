@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-29T10:53:47.602421+00:00",
+  "production_total": 11921,
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "phase1_rows_recovered": 38,
+  "phase1_ids_preserved": 38,
+  "phase1_ids_missing": 0,
+  "keep_existing": 32,
+  "new_ready_to_import": 1,
+  "existing_review_required": 0,
+  "status_counts": {
+    "KEEP_EXISTING": 32,
+    "EXCLUDED": 5,
+    "NEW_READY_TO_IMPORT": 1
+  },
+  "reconciliation": {
+    "exact_id_match": 32,
+    "metadata_drift": 0,
+    "material_metadata_drift": 0
+  },
+  "alfa_gym": {
+    "id": "si_c516823c91",
+    "phase1_status": "NEEDS_REVIEW",
+    "final_disposition": "NEW_READY_TO_IMPORT",
+    "evidence": "alfagym.si / alfa-gym.si Dunajska 49; 1490m2 conventional public gym; day passes + memberships; OSM building geocode",
+    "locations_in_slovenia": 1,
+    "class_a_eligible": false,
+    "small_market_independent": true
+  }
+}

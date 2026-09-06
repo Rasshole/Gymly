@@ -17,7 +17,8 @@ export async function fetchCompletedCheckInsForStats(
     'get_my_completed_check_ins_for_stats',
     {p_limit: 5000},
   );
-  if (!rpcErr && Array.isArray(rpcRows)) {
+  // Tom RPC-liste kan være race (auth.uid endnu ikke klar) — falder tilbage til direkte query.
+  if (!rpcErr && Array.isArray(rpcRows) && rpcRows.length > 0) {
     return rpcRows as CompletedCheckInStatsRow[];
   }
 
@@ -31,6 +32,10 @@ export async function fetchCompletedCheckInsForStats(
     .limit(5000);
 
   if (error) {
+    // Behold RPC-resultat hvis det fandtes (også tomt), frem for at kaste når fallback fejler.
+    if (!rpcErr && Array.isArray(rpcRows)) {
+      return rpcRows as CompletedCheckInStatsRow[];
+    }
     throw error;
   }
   return (data ?? []) as CompletedCheckInStatsRow[];

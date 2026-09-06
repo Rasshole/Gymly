@@ -1,0 +1,1 @@
+/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native/ReactCommon/yoga/yoga/algorithm/SizingMode.h

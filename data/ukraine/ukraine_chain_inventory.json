@@ -1,0 +1,200 @@
+{
+  "country": "Ukraine",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "production_total": 11929,
+  "ukraine_live": 0,
+  "ua_prefix_live": 0,
+  "existing_ukraine_production": false,
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNN (5 digits)",
+  "fetch_summary": {
+    "sport_life": 49,
+    "smartass_ukraine": 10,
+    "apollo_next": 24,
+    "total_fitness_seeds": 12
+  },
+  "chains": [
+    {
+      "chain": "Apollo Next",
+      "classification": "A",
+      "staged": 25,
+      "official_current_active": 24,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Atlas Fitness",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Energy Fitness",
+      "classification": "A",
+      "staged": 6,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "FitCurves",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Fitness Formula",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Grafit",
+      "classification": "A",
+      "staged": 5,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Grand Prix",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Independent",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Municipal audit",
+      "classification": "A",
+      "staged": 5,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Olymp",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "ProFitness",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Smartass",
+      "classification": "A",
+      "staged": 10,
+      "official_current_active": 10,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Sport Life",
+      "classification": "A",
+      "staged": 51,
+      "official_current_active": 49,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "SportZal",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Total Fitness",
+      "classification": "A",
+      "staged": 13,
+      "official_current_active": 12,
+      "class_a": true,
+      "source": "phase1_discovery"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "Sport Life",
+      "action": "CLASS_A_FETCHED",
+      "evidence": "49 clubs via sportlife.ua __NEXT_DATA__"
+    },
+    {
+      "chain": "Apollo Next",
+      "action": "CLASS_A_FETCHED",
+      "evidence": "24 clubs via apollo.online locator"
+    },
+    {
+      "chain": "Smartass",
+      "action": "CLASS_A_UA_ONLY",
+      "evidence": "Kyiv/Lviv/Kharkiv from smartass.club; Warsaw excluded"
+    },
+    {
+      "chain": "Total Fitness",
+      "action": "CLASS_A_SEED",
+      "evidence": "12 seeds from totalfitness.com.ua clubs page"
+    },
+    {
+      "chain": "Energy Fitness",
+      "action": "NEEDS_REVIEW_SEED",
+      "evidence": "5 seeds; domain unreachable"
+    },
+    {
+      "chain": "Grafit",
+      "action": "NEEDS_REVIEW_SEED",
+      "evidence": "4 seeds; TLS issues on official domain"
+    },
+    {
+      "chain": "Anytime/PureGym/McFIT/Basic-Fit/World Class",
+      "action": "ABSENT",
+      "evidence": "No UA conventional chain presence"
+    }
+  ],
+  "official_estate": {
+    "Sport Life": {
+      "active_locator": 49,
+      "source": "https://sportlife.ua/uk/clubs/"
+    },
+    "Apollo Next": {
+      "active_locator": 24,
+      "source": "https://apollo.online/"
+    },
+    "Smartass": {
+      "ukraine_only": 10,
+      "source": "https://smartass.club"
+    },
+    "Total Fitness": {
+      "seed_count": 12,
+      "source": "https://www.totalfitness.com.ua/clubs/"
+    }
+  },
+  "final_missed_chain_sweep": {
+    "complete": true,
+    "new_class_a_found": false,
+    "notes": "Sport Life + Apollo Next + Smartass + Total Fitness meet Class A threshold"
+  }
+}

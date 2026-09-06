@@ -1,0 +1,35 @@
+{
+  "hard_duplicate_conflicts": 0,
+  "identical_coordinates": [],
+  "pairs_le_200m": [
+    {
+      "a_id": "rs_3d36bc5b45",
+      "b_id": "rs_5ef979e138",
+      "a_brand": "Ahilej",
+      "b_brand": "Ahilej",
+      "distance_m": 193.1
+    },
+    {
+      "a_id": "rs_aed7eddac4",
+      "b_id": "rs_2fc73eff11",
+      "a_brand": "Ahilej",
+      "b_brand": "Centar X Fitness",
+      "distance_m": 31.2
+    },
+    {
+      "a_id": "rs_3c7aec5473",
+      "b_id": "rs_58d720a04f",
+      "a_brand": "Ahilej",
+      "b_brand": "Ahilej",
+      "distance_m": 193.0
+    },
+    {
+      "a_id": "rs_753bc9119e",
+      "b_id": "rs_e7f7b48767",
+      "a_brand": "Mega Gym",
+      "b_brand": "X Sport Gym",
+      "distance_m": 99.4
+    }
+  ],
+  "multilingual_duplicate_conflicts": 0
+}

@@ -1,0 +1,382 @@
+{
+  "decisions": {
+    "ba_0ace57c4b2": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "CHAIN_CLASS_A",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Paromlinska 34, Novo Sarajevo",
+      "lat": 43.8562,
+      "lng": 18.3954,
+      "coord_source": "official_allinfitness_malta_paromlinska_34",
+      "chain_key": "all_in_fitness",
+      "notes": "Phase2: ALL IN FITNESS Malta; conventional public floor; Class A estate site 1/3."
+    },
+    "ba_383806522f": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "CHAIN_CLASS_A",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Butmirska cesta 14, Ilidža",
+      "lat": 43.8285,
+      "lng": 18.3098,
+      "coord_source": "official_allinfitness_ilidza_butmirska_14",
+      "chain_key": "all_in_fitness",
+      "notes": "Phase2: ALL IN FITNESS Ilidža; Class A estate site 2/3."
+    },
+    "ba_0bf4cc7be5": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "CHAIN_CLASS_A",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Milana Preloga 12, Bingo City Centar",
+      "lat": 43.8518,
+      "lng": 18.3882,
+      "coord_source": "official_allinfitness_bingo_milana_preloga_12",
+      "chain_key": "all_in_fitness",
+      "notes": "Phase2: ALL IN FITNESS Bingo; Class A estate site 3/3."
+    },
+    "ba_4b2b262dac": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "CHAIN_CLASS_A",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Zlokovac bb, Murex zgrada",
+      "lat": 44.5348,
+      "lng": 18.6685,
+      "coord_source": "official_kron_tuzla_zlokovac_murex",
+      "chain_key": "kron_fitness",
+      "notes": "Phase2: Kron Tuzla; Class A regional estate site 1/4."
+    },
+    "ba_234269c33b": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "CHAIN_CLASS_A",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "TC Bingo, Živinice",
+      "lat": 44.4496,
+      "lng": 18.6499,
+      "coord_source": "official_kron_zivinice_tc_bingo",
+      "chain_key": "kron_fitness",
+      "notes": "Phase2: Kron Živinice; Class A regional estate site 2/4."
+    },
+    "ba_fbb6ab9577": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "CHAIN_CLASS_A",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Ul. Bajazita Kešetovića 72",
+      "lat": 44.5085,
+      "lng": 18.4885,
+      "coord_source": "official_kron_srebrenik_bajazita_kesetovica_72",
+      "chain_key": "kron_fitness",
+      "notes": "Phase2: Kron Srebrenik; Class A regional estate site 3/4."
+    },
+    "ba_6e8f727eb6": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "CHAIN_CLASS_A",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Branilaca grada bb, TC Millery",
+      "lat": 44.7035,
+      "lng": 18.3102,
+      "coord_source": "official_kron_gracanica_tc_millery",
+      "chain_key": "kron_fitness",
+      "notes": "Phase2: Kron Gračanica; Class A regional estate site 4/4."
+    },
+    "ba_fa6f3c8b99": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "WELLNESS_ADDITIVE",
+      "address": "Bulevar Franca Lehara 2, Alta Shopping Center",
+      "lat": 43.8486,
+      "lng": 18.3578,
+      "coord_source": "official_avalon_alta_bulevar_franca_lehara_2",
+      "notes": "Phase2: Avalon SMI WELLNESS_ADDITIVE; spa additive on conventional floor."
+    },
+    "ba_f63cafd3fe": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Radnička cesta bb, BTC City",
+      "lat": 43.822,
+      "lng": 18.2795,
+      "coord_source": "directory_btc_fitness_radnicka_bb",
+      "notes": "Phase2: BTC Fitness Sarajevo conventional public; SMI."
+    },
+    "ba_e6bae3c12c": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Džemala Bijedića 161",
+      "lat": 43.8555,
+      "lng": 18.3685,
+      "coord_source": "directory_dzemala_bijedica_161_body_art",
+      "notes": "Phase2: Body Art Fitness Sarajevo; SMI."
+    },
+    "ba_760fbe82ce": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Šejha Huseina Bakri Gazaza bb, Mojmilo",
+      "lat": 43.8382,
+      "lng": 18.3655,
+      "coord_source": "directory_mojmilo_sejha_huseina_bakri_gazaza",
+      "notes": "Phase2: Fitness Centar Mojmilo; SMI."
+    },
+    "ba_d705f4fca7": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Zmaja od Bosne 7",
+      "lat": 43.8595,
+      "lng": 18.421,
+      "coord_source": "official_extreme_fitness_zmaja_od_bosne_7",
+      "notes": "Phase2: Extreme Fitness Sarajevo; distinct from Xtreme Gym EXCLUDED duplicate."
+    },
+    "ba_605d38b631": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Butmirska cesta 1, Ilidža",
+      "lat": 43.831,
+      "lng": 18.3025,
+      "coord_source": "directory_butmirska_1_fitness_zone",
+      "notes": "Phase2: Fitness Zone Sarajevo; SMI distinct from ALL IN Ilidža."
+    },
+    "ba_5fd8cc9b20": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Marsala Tita 16",
+      "lat": 43.852,
+      "lng": 18.382,
+      "coord_source": "directory_marsala_tita_16_olympic_gym",
+      "notes": "Phase2: Olympic Gym Sarajevo; SMI."
+    },
+    "ba_1e88b67b77": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Bulevar srpske vojske 8",
+      "lat": 44.772,
+      "lng": 17.435,
+      "coord_source": "directory_bulevar_srpske_vojske_8_4life",
+      "notes": "Phase2: 4Life Banja Luka; SMI distinct from Xtreme Fit BL."
+    },
+    "ba_d10bc012e8": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Bulevar srpskih vladara 41",
+      "lat": 43.8272,
+      "lng": 18.368,
+      "coord_source": "directory_bulevar_srpskih_vladara_41_xtreme_fit",
+      "notes": "Phase2: Xtreme Fit BL defended premises; SMI."
+    },
+    "ba_446902cbcb": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Karađorđeva 2",
+      "lat": 44.7708,
+      "lng": 17.4325,
+      "coord_source": "directory_karadjordjeva_2_fit_artemida",
+      "notes": "Phase2: Fit Artemida Banja Luka; SMI."
+    },
+    "ba_82f2fa3809": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Ulica Fuada Ferizbegovića 2",
+      "lat": 44.5415,
+      "lng": 18.6825,
+      "coord_source": "directory_fuada_ferizbegovica_2_slavinovici",
+      "notes": "Phase2: Slavinovici Teretana Tuzla; SMI distinct from Kron Tuzla."
+    },
+    "ba_957417e083": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Krajiska 25",
+      "lat": 43.3434,
+      "lng": 17.8078,
+      "coord_source": "directory_krajiska_25_fitness_mostar",
+      "notes": "Phase2: Fitness Centar Mostar; SMI."
+    },
+    "ba_0116ad0cd5": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Kneza Domagoja bb",
+      "lat": 43.3385,
+      "lng": 17.8012,
+      "coord_source": "directory_kneza_domagoja_bb_iron_gym_mostar",
+      "notes": "Phase2: Iron Gym Mostar; SMI."
+    },
+    "ba_5a82ca68bf": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Trg Alije Izetbegovića bb",
+      "lat": 44.2018,
+      "lng": 17.9078,
+      "coord_source": "directory_trg_alije_izetbegovica_zenica",
+      "notes": "Phase2: Fitness Centar Zenica; SMI."
+    },
+    "ba_deeabeda92": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Svetog Save 12",
+      "lat": 44.7575,
+      "lng": 19.2155,
+      "coord_source": "directory_svetog_save_12_bijeljina",
+      "notes": "Phase2: Fitness Centar Bijeljina; SMI."
+    },
+    "ba_7d8fd80b4a": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Jovana Ducica 3",
+      "lat": 44.9805,
+      "lng": 17.435,
+      "coord_source": "directory_jovana_ducica_3_prijedor",
+      "notes": "Phase2: Teretana Prijedor; SMI."
+    },
+    "ba_21c2e65f54": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Marsala Tita 12",
+      "lat": 44.732,
+      "lng": 18.0875,
+      "coord_source": "directory_marsala_tita_12_doboj",
+      "notes": "Phase2: Fitness Centar Doboj; SMI."
+    },
+    "ba_7612d3d4c2": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Jovana Ducica 5",
+      "lat": 42.7125,
+      "lng": 18.3445,
+      "coord_source": "directory_jovana_ducica_5_trebinje",
+      "notes": "Phase2: Fitness Centar Trebinje; SMI."
+    },
+    "ba_342f507ce7": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Kralja Tvrtka 8",
+      "lat": 44.2268,
+      "lng": 17.6605,
+      "coord_source": "directory_kralja_tvrtka_8_travnik",
+      "notes": "Phase2: Fitness Centar Travnik; SMI."
+    },
+    "ba_23287d2052": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Maršala Tita 15",
+      "lat": 44.668,
+      "lng": 18.976,
+      "coord_source": "directory_marsala_tita_15_gorazde",
+      "notes": "Phase2: Fitness Centar Goražde; SMI."
+    },
+    "ba_64b95bab44": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Vojvode Radomira Putnika 12",
+      "lat": 43.824,
+      "lng": 18.358,
+      "coord_source": "directory_vojvode_radomira_putnika_12_istocno_sarajevo",
+      "notes": "Phase2: Fitness Centar Istočno Sarajevo; SMI."
+    },
+    "ba_ba510b2696": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Branislava Nuhića 5",
+      "lat": 44.8735,
+      "lng": 18.809,
+      "coord_source": "directory_branislava_nuhica_5_brcko",
+      "notes": "Phase2: Fitness Centar Brčko; SMI."
+    },
+    "ba_7aeec79730": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Krupska bb",
+      "lat": 44.8169,
+      "lng": 15.8708,
+      "coord_source": "directory_krupska_bb_bihac",
+      "notes": "Phase2: Fitness Centar Bihać; SMI."
+    },
+    "ba_bc60505bc2": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Strossmayerova bb",
+      "lat": 44.9669,
+      "lng": 15.9436,
+      "coord_source": "directory_strossmayerova_bb_cazin",
+      "notes": "Phase2: Fitness Centar Cazin; SMI."
+    },
+    "ba_57da7dd70d": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: ALL4SPORT — B_UNVERIFIED_PREMISES; premises not defended."
+    },
+    "ba_69162d2178": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_CROSSFIT_SPECIALIST",
+      "notes": "Phase2: Pro-Fit — B_CROSSFIT_SPECIALIST."
+    },
+    "ba_78f8ad5126": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_DUPLICATE_UNVERIFIED",
+      "notes": "Phase2: Xtreme Gym Sarajevo — C_DUPLICATE_UNVERIFIED vs Extreme Fitness READY."
+    },
+    "ba_d8a16be7ac": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Power Gym — B_UNVERIFIED_PREMISES."
+    },
+    "ba_e6ba48931b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Active Life — B_UNVERIFIED_PREMISES."
+    },
+    "ba_327db3a237": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_SPECIALIST_AEROBICS",
+      "notes": "Phase2: Forma Plus — B_SPECIALIST_AEROBICS."
+    },
+    "ba_68ec8f2d3d": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fit Zone Banja Luka — B_UNVERIFIED_PREMISES."
+    },
+    "ba_5ddab9c740": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Active Mostar — B_UNVERIFIED_PREMISES."
+    },
+    "ba_3b9800cdd0": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_MUNICIPAL_NO_PUBLIC_MEMBERSHIP",
+      "notes": "Phase2: SC Sarajevo municipal — B_MUNICIPAL_NO_PUBLIC_MEMBERSHIP."
+    },
+    "ba_cced171393": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_MUNICIPAL_NO_PUBLIC_MEMBERSHIP",
+      "notes": "Phase2: SC Banja Luka municipal — B_MUNICIPAL_NO_PUBLIC_MEMBERSHIP."
+    }
+  },
+  "new_ready_ids": []
+}

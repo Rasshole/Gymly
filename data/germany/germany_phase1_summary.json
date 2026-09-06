@@ -1,0 +1,160 @@
+{
+  "total": 1159,
+  "categories": {
+    "READY_TO_IMPORT": 1097,
+    "CLOSED": 6,
+    "COMING_SOON": 15,
+    "NEEDS_COORDINATES": 37,
+    "NEEDS_REVIEW": 4
+  },
+  "brands": {
+    "McFIT": 181,
+    "JOHN REED": 34,
+    "Gold's Gym": 5,
+    "FitX": 43,
+    "all inclusive Fitness": 183,
+    "PRIME TIME fitness": 22,
+    "EASYFITNESS": 202,
+    "clever fit": 382,
+    "Fitness First": 107
+  },
+  "ready": 1097,
+  "by_chain": {
+    "clever fit": {
+      "official_estimated": 400,
+      "discovered": 382,
+      "verified_current": 378,
+      "geocoded": 382,
+      "READY": 378,
+      "unresolved": 0,
+      "COMING_SOON": 4,
+      "CLOSED": 0,
+      "discovery_status": "COMPLETE_OR_NEAR"
+    },
+    "McFIT": {
+      "official_estimated": 200,
+      "discovered": 181,
+      "verified_current": 177,
+      "geocoded": 181,
+      "READY": 177,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 4,
+      "discovery_status": "COMPLETE_OR_NEAR"
+    },
+    "FitX": {
+      "official_estimated": 105,
+      "discovered": 43,
+      "verified_current": 43,
+      "geocoded": 43,
+      "READY": 43,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "DISCOVERY_INCOMPLETE"
+    },
+    "EASYFITNESS": {
+      "official_estimated": 205,
+      "discovered": 202,
+      "verified_current": 202,
+      "geocoded": 188,
+      "READY": 188,
+      "unresolved": 14,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "COMPLETE_OR_NEAR"
+    },
+    "Fitness First": {
+      "official_estimated": 100,
+      "discovered": 107,
+      "verified_current": 107,
+      "geocoded": 80,
+      "READY": 80,
+      "unresolved": 27,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "COMPLETE_OR_NEAR"
+    },
+    "JOHN REED": {
+      "official_estimated": 40,
+      "discovered": 34,
+      "verified_current": 32,
+      "geocoded": 34,
+      "READY": 32,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 2,
+      "discovery_status": "COMPLETE_OR_NEAR"
+    },
+    "Gold's Gym": {
+      "official_estimated": 8,
+      "discovered": 5,
+      "verified_current": 5,
+      "geocoded": 5,
+      "READY": 5,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "DISCOVERY_INCOMPLETE"
+    },
+    "all inclusive Fitness": {
+      "official_estimated": 170,
+      "discovered": 183,
+      "verified_current": 172,
+      "geocoded": 183,
+      "READY": 172,
+      "unresolved": 0,
+      "COMING_SOON": 11,
+      "CLOSED": 0,
+      "discovery_status": "COMPLETE_OR_NEAR"
+    },
+    "jumpers fitness": {
+      "official_estimated": 0,
+      "discovered": 0,
+      "verified_current": 0,
+      "geocoded": 0,
+      "READY": 0,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "ABSORBED_OR_UNAVAILABLE"
+    },
+    "INJOY": {
+      "official_estimated": 100,
+      "discovered": 0,
+      "verified_current": 0,
+      "geocoded": 0,
+      "READY": 0,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "DISCOVERY_INCOMPLETE"
+    },
+    "ELBGYM": {
+      "official_estimated": 10,
+      "discovered": 0,
+      "verified_current": 0,
+      "geocoded": 0,
+      "READY": 0,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "DISCOVERY_INCOMPLETE"
+    },
+    "PRIME TIME fitness": {
+      "official_estimated": 25,
+      "discovered": 22,
+      "verified_current": 22,
+      "geocoded": 22,
+      "READY": 22,
+      "unresolved": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "discovery_status": "COMPLETE_OR_NEAR"
+    }
+  },
+  "centers_json_unmodified": true,
+  "xlsx": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/data/germany/Gymly_Germany_All_Discovered_Centers.xlsx",
+  "proposed_first_merge": 1097,
+  "expected_catalog_after_merge": 2625
+}

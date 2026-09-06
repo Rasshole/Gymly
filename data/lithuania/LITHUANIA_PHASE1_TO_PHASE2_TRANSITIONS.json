@@ -1,0 +1,1032 @@
+[
+  {
+    "id": "lt_5b02033f34",
+    "brand": "Gym+",
+    "name": "Gym+ Alytus",
+    "city": "Alytus",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_767591bc25",
+    "brand": "Gym+",
+    "name": "Gym+ Kaunas Baltų",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_2bc6b027e4",
+    "brand": "Gym+",
+    "name": "Gym+ Kaunas Islandijos",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_b17e0562bf",
+    "brand": "Gym+",
+    "name": "Gym+ Kaunas Lyderystės",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_c99c69835a",
+    "brand": "Gym+",
+    "name": "Gym+ Kaunas Pramonės",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_5e1bdb00d1",
+    "brand": "Gym+",
+    "name": "Gym+ Kaunas Savanorių",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_c0c3b3ba5e",
+    "brand": "Gym+",
+    "name": "Gym+ Kaunas V. Krėvės",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_85466a49c0",
+    "brand": "Gym+",
+    "name": "Gym+ Kėdainiai",
+    "city": "Kėdainiai",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_315bd35664",
+    "brand": "Gym+",
+    "name": "Gym+ Klaipėda Akropolis",
+    "city": "Klaipėda",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_4f9b9568d4",
+    "brand": "Gym+",
+    "name": "Gym+ Klaipėda Arena",
+    "city": "Klaipėda",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_aa6a3966e6",
+    "brand": "Gym+",
+    "name": "Gym+ Klaipėda Bangų",
+    "city": "Klaipėda",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_00c95cd280",
+    "brand": "Gym+",
+    "name": "Gym+ Klaipėda H. Manto",
+    "city": "Klaipėda",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_783964bbc1",
+    "brand": "Gym+",
+    "name": "Gym+ Klaipėda Vingio",
+    "city": "Klaipėda",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_3874589af2",
+    "brand": "Gym+",
+    "name": "Gym+ Marijampolė",
+    "city": "Marijampolė",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_ac04c2ee6c",
+    "brand": "Gym+",
+    "name": "Gym+ Mažeikiai",
+    "city": "Mažeikiai",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_1e498c2e4f",
+    "brand": "Gym+",
+    "name": "Gym+ Palanga",
+    "city": "Palanga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_211bd0913a",
+    "brand": "Gym+",
+    "name": "Gym+ Panevėžys Klaipėdos",
+    "city": "Panevėžys",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_67bc5da2ce",
+    "brand": "Gym+",
+    "name": "Gym+ Panevėžys Smėlynės",
+    "city": "Panevėžys",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_ad2adac4ef",
+    "brand": "Gym+",
+    "name": "Gym+ Panevėžys Ukmergės",
+    "city": "Panevėžys",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_5b1f24ce40",
+    "brand": "Gym+",
+    "name": "Gym+ Šiauliai Gardino",
+    "city": "Šiauliai",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_d9955aa280",
+    "brand": "Gym+",
+    "name": "Gym+ Šiauliai Gumbinės",
+    "city": "Šiauliai",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_0aa89de8a5",
+    "brand": "Gym+",
+    "name": "Gym+ Šiauliai Vairo",
+    "city": "Šiauliai",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_f39f98eb03",
+    "brand": "Gym+",
+    "name": "Gym+ Telšiai",
+    "city": "Telšiai",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_05508dc595",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Dariaus ir Girėno",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_70c41d18a7",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Gedimino",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_b4dcd88872",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Kalvarijų",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_599d49215c",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Mokslininkų",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_5e91d3e3b7",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Ozo",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_b3e748e109",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Pavilnionių",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_e7e904234e",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius PC Europa",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_038c37554c",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Priegliaus",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_7906e643a2",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Saltoniškių",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_bc598810fc",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Savanorių",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_52241d6b06",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Ukmergės",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_688d913f05",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius URBAN HUB",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_6ddca417a2",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Vytauto Pociūno",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_11c7800655",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Žemaitės",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_469dbe56a5",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Žirmūnų",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_73a259f27f",
+    "brand": "Impuls",
+    "name": "Impuls Klaipėda",
+    "city": "Klaipėda",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_45641da581",
+    "brand": "Impuls",
+    "name": "Impuls Panevėžys",
+    "city": "Panevėžys",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_f446893edd",
+    "brand": "Impuls",
+    "name": "Impuls Vilnius Fabijoniškių",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_92cb16bf9d",
+    "brand": "Impuls",
+    "name": "Impuls Vilnius Kareivių",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_b49edd5919",
+    "brand": "Impuls",
+    "name": "Impuls Vilnius Savanorių",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_bd4f45a9ac",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Antakalnis",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_98dac4e739",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Asanavičiūtė",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_1a0be783f8",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Ateities",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_e3b03fe2fe",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Banginis",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_7352842442",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Europa",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_3963b9131f",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Kauno Žalgirio arena",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_459f3fcf45",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Perkūnkiemis",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_7e6f007f43",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Pikas",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_ae46c595a4",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Pilaitė",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_eb655bb80e",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Raudondvaris",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_585ac8405d",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Savanoriai",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_dcee389cb7",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Skraja",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_5d27655261",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Šiaulių Akropolis",
+    "city": "Šiauliai",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_9d642a49f1",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Šilainiai",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_561aafd381",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Urmas",
+    "city": "Kaunas",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_1b9b31a01f",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Vienuolis",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_b2b8ac4a64",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Vilniaus Akropolis",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_723fd904a3",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Vilniaus Žalgiris",
+    "city": "Vilnius",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_61_of_61",
+    "in_production": true
+  },
+  {
+    "id": "lt_bc21f9653f",
+    "brand": "Gym+",
+    "name": "Gym+ Vilnius Viršuliškių",
+    "city": "Vilnius",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "gymplius.lt Aug 2026 — Viršuliškių club page still under construction / COMING_SOON; not operating at Phase 2 audit",
+    "in_production": false
+  },
+  {
+    "id": "lt_4decf7f80b",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Riešė",
+    "city": "Didžioji Riešė",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "lemongym.lt Aug 2026 — Riešė location still marked coming soon; not operating at Phase 2 audit",
+    "in_production": false
+  },
+  {
+    "id": "lt_c3d4f6ba00",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Jonava (announced)",
+    "city": "Jonava",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "lemongym.lt Aug 2026 — Jonava announced with Žemaitės g. 45; still pre-opening / COMING_SOON at Phase 2 audit",
+    "in_production": false
+  },
+  {
+    "id": "lt_94e5c84009",
+    "brand": "FitClub",
+    "name": "FitClub Kaunas Šiaurės",
+    "city": "Kaunas",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_cba61866ae",
+    "brand": "FitClub",
+    "name": "FitClub Kaunas V. Krėvės",
+    "city": "Kaunas",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_85287003a2",
+    "brand": "Fitus",
+    "name": "Fitus Vilnius Ukmergės",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_5f628ee472",
+    "brand": "People Fitness",
+    "name": "People Fitness Vilnius (legacy)",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_6dacc49d13",
+    "brand": "VS Fitness",
+    "name": "VS Fitness (legacy brand)",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_3fae1cd240",
+    "brand": "Fitness Factory Gym",
+    "name": "Fitness Factory Gym Garliava",
+    "city": "Garliava",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_86014c1f65",
+    "brand": "Gym!",
+    "name": "Gym! Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_da38f27212",
+    "brand": "MyFitness",
+    "name": "MyFitness Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_cb2bbb5eb3",
+    "brand": "Basic-Fit",
+    "name": "Basic-Fit Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_3425bf9ee4",
+    "brand": "McFIT",
+    "name": "McFIT Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_8d734a7d68",
+    "brand": "Anytime Fitness",
+    "name": "Anytime Fitness Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_95ad3735ae",
+    "brand": "FITINN",
+    "name": "FITINN Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_8e440dc33a",
+    "brand": "clever fit",
+    "name": "clever fit Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_2c3aa4a423",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_b7b8ad175c",
+    "brand": "World Class",
+    "name": "World Class Lithuania probe",
+    "city": "Vilnius",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lt_7947d2f41b",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Utena",
+    "city": "Utena",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Utena Phase 2 sweep — no Gym+/Lemon/Impuls estate; no verified conventional public Class A gym",
+    "in_production": false
+  },
+  {
+    "id": "lt_2098085688",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Tauragė",
+    "city": "Tauragė",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Tauragė Phase 2 sweep — Kaliningrad proximity scrutiny; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_e542c715f1",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Jonava",
+    "city": "Jonava",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Jonava Phase 2 sweep — Lemon Gym Jonava remains COMING_SOON only; no open Class A club",
+    "in_production": false
+  },
+  {
+    "id": "lt_6b168d3ed3",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Visaginas",
+    "city": "Visaginas",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Visaginas Phase 2 multilingual LT/RU sweep — border scrutiny; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_ade8a2dd9f",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Druskininkai",
+    "city": "Druskininkai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Druskininkai Phase 2 sweep — spa/resort false-positive control; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_fe33533ff7",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Plungė",
+    "city": "Plungė",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Plungė Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_86d0d3eaed",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Kretinga",
+    "city": "Kretinga",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Kretinga Phase 2 sweep — Klaipėda orbit; no separate Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_7dcfedf042",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Gargždai",
+    "city": "Gargždai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Gargždai Phase 2 sweep — Klaipėda orbit; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_7ba6960963",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Raseiniai",
+    "city": "Raseiniai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Raseiniai Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_6a4d5028b9",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Radviliškis",
+    "city": "Radviliškis",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Radviliškis Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_7185a63912",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Vilkaviškis",
+    "city": "Vilkaviškis",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Vilkaviškis Phase 2 sweep — Poland border scrutiny; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_91e228aeb6",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Šilutė",
+    "city": "Šilutė",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Šilutė Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_ee800dfb24",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Joniškis",
+    "city": "Joniškis",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Joniškis Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_ac56639411",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Rokiškis",
+    "city": "Rokiškis",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Rokiškis Phase 2 sweep — Latvia border scrutiny; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_9e8f817307",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Kuršėnai",
+    "city": "Kuršėnai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Kuršėnai Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_a7443b609e",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Biržai",
+    "city": "Biržai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Biržai Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_648aae3139",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Anykščiai",
+    "city": "Anykščiai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Anykščiai Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_35a70e96c3",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Elektrėnai",
+    "city": "Elektrėnai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Elektrėnai Phase 2 sweep — Vilnius orbit; no separate Class A beyond Vilnius estate",
+    "in_production": false
+  },
+  {
+    "id": "lt_a1afb72035",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Garliava",
+    "city": "Garliava",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Garliava Phase 2 sweep — Kaunas orbit; Fitness Factory excluded specialist only",
+    "in_production": false
+  },
+  {
+    "id": "lt_1e95c7021f",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Šalčininkai",
+    "city": "Šalčininkai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Šalčininkai Phase 2 multilingual LT/PL/RU sweep — Belarus border; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_1d02be57e0",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Zarasai",
+    "city": "Zarasai",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Zarasai Phase 2 sweep — Latvia border scrutiny; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_3fbe9eb6a8",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Ukmergė",
+    "city": "Ukmergė",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Ukmergė Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_3a6d5a3a91",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Neringa",
+    "city": "Neringa",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Neringa/Nida Phase 2 sweep — tourism false-positive control; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lt_922eb2c3a4",
+    "brand": "Municipal audit",
+    "name": "Lithuania Phase 1 municipal audit — Didžioji Riešė",
+    "city": "Didžioji Riešė",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Didžioji Riešė Vilnius metro sweep — Lemon Gym Riešė COMING_SOON only; no open Class A club",
+    "in_production": false
+  }
+]

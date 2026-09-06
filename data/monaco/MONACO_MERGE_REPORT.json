@@ -1,0 +1,205 @@
+{
+  "country": "Monaco",
+  "verdict": "MONACO MERGE COMPLETE — WAITING FOR QA",
+  "dry_run": false,
+  "idempotency_check": false,
+  "inserted": 4,
+  "withheld": 0,
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "bad_postal_format": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "foreign_coords": 0,
+    "french_outlier": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "bad_eligibility": 0
+  },
+  "before": {
+    "total": 11711,
+    "monaco": 0,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "after": {
+    "total": 11715,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "pre_merge_sha256": "bde8ba6b5ac7467078e971732e0deeb42e3fb338f5280f390d8395714792f02f",
+  "post_merge_sha256": "0e21508d09f038bcd4d20d59f37f8b09d326faa9ecacf262e09db330852e0c28",
+  "eligibility_breakdown": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 4,
+    "TOTAL": 4
+  },
+  "brand_breakdown": {
+    "Eclub": 1,
+    "Fit Factory": 1,
+    "Hercule Fitness Club": 1,
+    "Stade Louis II": 1
+  },
+  "live_inventory": [
+    {
+      "id": "mc_2771a49489",
+      "brand": "Stade Louis II",
+      "name": "Salle de Musculation Stade Louis II",
+      "address": "3 Avenue des Castelans",
+      "city": "Fontvieille",
+      "district": "Fontvieille",
+      "postal_code": "98000",
+      "lat": 43.7276,
+      "lng": 7.4154,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_cb57fc40d1",
+      "brand": "Hercule Fitness Club",
+      "name": "Hercule Fitness Club Port Hercule",
+      "address": "Quai Albert 1er (Stade Nautique Rainier III)",
+      "city": "La Condamine",
+      "district": "La Condamine",
+      "postal_code": "98000",
+      "lat": 43.7349,
+      "lng": 7.4218,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_4d51f17fbd",
+      "brand": "Fit Factory",
+      "name": "Fit Factory Larvotto",
+      "address": "Promenade inférieure du Larvotto, Avenue Princesse Grace",
+      "city": "Larvotto",
+      "district": "Larvotto",
+      "postal_code": "98000",
+      "lat": 43.7462,
+      "lng": 7.4348,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_acfff20d6b",
+      "brand": "Eclub",
+      "name": "Eclub Monte-Carlo Gym",
+      "address": "Le Montaigne, 6 Boulevard des Moulins (2ème niveau)",
+      "city": "Monte-Carlo",
+      "district": "Monte-Carlo",
+      "postal_code": "98000",
+      "lat": 43.7405,
+      "lng": 7.4268,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 4,
+    "EXCLUDED": 35,
+    "CLOSED": 0,
+    "NEEDS_REVIEW": 0,
+    "NEEDS_COORDINATES": 0,
+    "unique_staged": 39,
+    "reconciliation": "4 == 4 == 4 == 4",
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "metadata_drift": "NONE",
+    "drift_details": [],
+    "phase2_ready_eq_approved": true,
+    "approved_eq_production": true,
+    "production_eq_merged": true
+  },
+  "excluded_leakage": {
+    "forbidden_names_in_monaco_production": [],
+    "world_class_cap_dail_absent": true,
+    "result": "CLEAN"
+  },
+  "territorial_safety": {
+    "monaco_premises": 4,
+    "france": 0,
+    "foreign_outliers": [],
+    "result": "CLEAN"
+  },
+  "municipal_identity": {
+    "classification": "A_DISTINCT_PUBLIC_GYMS",
+    "hercule_id": "mc_cb57fc40d1",
+    "stade_louis_ii_id": "mc_2771a49489",
+    "distance_m": 961,
+    "result": "PASS"
+  },
+  "rebrand_validation": {
+    "monte_carlo_gym_to_eclub": "SUCCESSOR_ONE_UNIT",
+    "larvotto_gym_center_to_fit_factory": "SUCCESSOR_ONE_UNIT",
+    "world_class_monaco_to_cap_dail_france": "EXCLUDED_FOREIGN",
+    "unresolved_conflicts": 0,
+    "result": "PASS"
+  },
+  "country_regression": {
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27,
+    "malta": 18,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32,
+    "cyprus": 17
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "allow_199m": true,
+    "allow_200m": true,
+    "block_201m": true,
+    "changed": false
+  },
+  "performance": {
+    "catalog": 11715,
+    "active": 11711,
+    "json_bytes": 3641079,
+    "json_size_mb": 3.47,
+    "parse_ms": 17.91,
+    "architecture": "KEEP CLIENT-SIDE"
+  },
+  "global_scale": {
+    "previous_production": 11711,
+    "new_production": 11715,
+    "crossed_12500": false,
+    "global_stress_qa_required": false
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "unexplained_hard_duplicates": 0
+}

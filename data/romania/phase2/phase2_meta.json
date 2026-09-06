@@ -1,0 +1,641 @@
+{
+  "generated_at": "2026-08-23T17:32:18.704060+00:00",
+  "sha_before": "365a1bd25c1fad250172099a0430d9475899859c11a8e07e2ae05ea471dba75a",
+  "phase1_staged": 182,
+  "phase1_ready": 63,
+  "world_class_api_count": 45,
+  "18gym_store_count": 47,
+  "18gym_coming_recheck": [
+    {
+      "name": "18GYM București Lujerului",
+      "url": "https://18gym.ro/sala-fitness-bucuresti-lujerului/",
+      "page_status": true,
+      "desc_flag": true
+    },
+    {
+      "name": "18GYM București Otopeni",
+      "url": "https://18gym.ro/sala-fitness-bucuresti-otopeni/",
+      "page_status": true,
+      "desc_flag": true
+    },
+    {
+      "name": "18GYM Cluj Edgar Quinet",
+      "url": "https://18gym.ro/sala-fitness-cluj-edgar-quinet/",
+      "page_status": true,
+      "desc_flag": true
+    },
+    {
+      "name": "18GYM Cluj Era",
+      "url": "https://18gym.ro/sala-fitness-cluj-era/",
+      "page_status": true,
+      "desc_flag": true
+    },
+    {
+      "name": "18GYM Cluj Via",
+      "url": "https://18gym.ro/sala-fitness-cluj-via/",
+      "page_status": true,
+      "desc_flag": true
+    }
+  ],
+  "stayfit_cpt_count": 74,
+  "stayfit_club_page_urls": 80,
+  "stayfit_no_address": [
+    "https://stayfit.ro/bucuresti/pallady/",
+    "https://stayfit.ro/bucuresti/otopeni/",
+    "https://stayfit.ro/bacau/aurora/regulament/",
+    "https://stayfit.ro/cluj/urbano/regulament/",
+    "https://stayfit.ro/bucuresti/valea-cascadelor/",
+    "https://stayfit.ro/bucuresti/fundeni/",
+    "https://stayfit.ro/bucuresti/chitila/",
+    "https://stayfit.ro/bucuresti/pipera-nord/"
+  ],
+  "stayfit_cpt_only": [
+    {
+      "title": "Stay Fit Gym Brașov Craiter",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-brasov-craiter/"
+    },
+    {
+      "title": "Stay Fit Gym Iași Vișan",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-iasi-visan/"
+    },
+    {
+      "title": "Stay Fit Gym Ploiești Vest",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-ploiesti-vest/"
+    },
+    {
+      "title": "Stay Fit Gym Brașov Bartolomeu",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-brasov-bartolomeu/"
+    },
+    {
+      "title": "Stay Fit Gym Urbano Cluj",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-urbano-cluj/"
+    },
+    {
+      "title": "Stay Fit Gym Bacău Aurora",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-bacau-aurora/"
+    },
+    {
+      "title": "Stay Fit Gym Valea Lupului Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-valea-lupului-iasi/"
+    },
+    {
+      "title": "Stay Fit Gym Valea Adâncă Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-valea-adanca-iasi/"
+    },
+    {
+      "title": "Stay Fit Gym Otopeni",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-otopeni/"
+    },
+    {
+      "title": "Stay Fit Gym Timisoara Bega Central",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-timisoara-bega-central/"
+    },
+    {
+      "title": "Stay Fit Gym Timisoara Auchan Nord",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-timisoara-auchan-nord/"
+    },
+    {
+      "title": "Stay Fit Gym Pallady",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-pallady/"
+    },
+    {
+      "title": "Stay Fit Gym Crângași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-crangasi/"
+    },
+    {
+      "title": "Stay Fit Gym Silk Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-silk-iasi/"
+    },
+    {
+      "title": "Stay Fit Gym Lake View Constanta",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-lake-view-constanta/"
+    },
+    {
+      "title": "Stay Fit Gym Esplanada Pantelimon",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-esplanada-pantelimon/"
+    },
+    {
+      "title": "Stay Fit Gym Black Romană București",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-black-romana-bucuresti/"
+    },
+    {
+      "title": "Stay Fit Gym Black Palas Mall Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-black-palas-mall-iasi/"
+    },
+    {
+      "title": "Stay Fit Gym Brașov Tractorul",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-brasov-tractorul/"
+    },
+    {
+      "title": "Stay Fit Gym Păcurari Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-pacurari-iasi/"
+    },
+    {
+      "title": "Stay Fit Gym Ploiești Nord",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-ploiesti-nord/"
+    },
+    {
+      "title": "Stay Fit Gym Arad Vladimirescu",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-arad-vladimirescu/"
+    },
+    {
+      "title": "Stay Fit Gym Popești Leordeni",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-popesti-leordeni/"
+    },
+    {
+      "title": "Stay Fit Gym Ștefănești",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-stefanesti/"
+    },
+    {
+      "title": "Stay Fit Fun Shop Vaslui",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-vaslui/"
+    },
+    {
+      "title": "Stay Fit Giroc Timișoara",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-giroc-timisoara/"
+    },
+    {
+      "title": "Stay Fit Mosnita Timișoara",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-mosnita-timisoara/"
+    },
+    {
+      "title": "Stay Fit Gym Târgu Jiu",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-targu-jiu/"
+    },
+    {
+      "title": "Stay Fit Gym Târgoviște",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-targoviste/"
+    },
+    {
+      "title": "Stay Fit Shopping City Sibiu",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-shopping-city-sibiu/"
+    },
+    {
+      "title": "Stay Fit Promenada Sibiu",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-promenada-sibiu/"
+    },
+    {
+      "title": "Stay Fit Malului Sibiu",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-malului-sibiu/"
+    },
+    {
+      "title": "Stay Fit Gym Ploiești Sud",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-ploiesti/"
+    },
+    {
+      "title": "Stay Fit Central Piatra Neamț",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-central-piatra-neamt/"
+    },
+    {
+      "title": "Stay Fit Gym Iulius Mall Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-iulius-mall-iasi/"
+    },
+    {
+      "title": "Stay Fit Gym Miroslava Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-miroslava-iasi/"
+    },
+    {
+      "title": "Stay Fit Gym Palas Campus Iași",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-palas-campus-iasi/"
+    },
+    {
+      "title": "Stay Fit Winmarkt Galati",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-winmarkt-galati/"
+    },
+    {
+      "title": "Stay Fit Shopping City Galati",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-shopping-city-galati/"
+    },
+    {
+      "title": "Stay Fit Central Galati",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-central-galati/"
+    },
+    {
+      "title": "Stay Fit Mercur Craiova",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-mercur-craiova/"
+    },
+    {
+      "title": "Stay Fit Promenada Craiova",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-promenada-craiova/"
+    },
+    {
+      "title": "Stay Fit Constanta Supernova",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-constanta-supernova/"
+    },
+    {
+      "title": "Stay Fit Gym Florești",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-floresti/"
+    },
+    {
+      "title": "Stay Fit Central Cluj",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-central-cluj/"
+    },
+    {
+      "title": "Stay Fit Central Buzau",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-central-buzau/"
+    },
+    {
+      "title": "Stay Fit Crevedia",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-crevedia/"
+    },
+    {
+      "title": "Stay Fit Rahova",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-rahova/"
+    },
+    {
+      "title": "Stay Fit Gym Lemon Retail Park",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-gym-lemon-retail-park/"
+    },
+    {
+      "title": "Stay Fit Arges Mall Pitesti",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-arges-mall-pitesti/"
+    },
+    {
+      "title": "Stay Fit Central Pitesti",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-central-pitesti/"
+    },
+    {
+      "title": "Stay Fit Central Braila",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-central-braila/"
+    },
+    {
+      "title": "Stay Fit Gym Afi Arad",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-afi-arad/"
+    },
+    {
+      "title": "Stay Fit Alba-Iulia",
+      "link": "https://stayfit.ro/centru-sfg/stay-fit-alba-iulia/"
+    },
+    {
+      "title": "Stay Fit Central Valcea",
+      "link": "https://stayfit.ro/centru-sfg/central-valcea/"
+    },
+    {
+      "title": "Stay Fit Nord Pitesti",
+      "link": "https://stayfit.ro/centru-sfg/nord-pitesti/"
+    }
+  ],
+  "stayfit_discovered_pages": 72,
+  "secondary_probes": [
+    {
+      "chain": "One Fitness",
+      "url": "https://onefitness.ro/locatii/",
+      "reachable": true,
+      "loc_keyword_hits": 4,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+    },
+    {
+      "chain": "SAS Gym",
+      "url": "https://sasgym.ro/",
+      "reachable": true,
+      "loc_keyword_hits": 4,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+    },
+    {
+      "chain": "Downtown Fitness",
+      "url": "https://downtownfitness.ro/",
+      "reachable": true,
+      "loc_keyword_hits": 27,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+    },
+    {
+      "chain": "Anytime Fitness Romania",
+      "url": "https://www.anytimefitness.ro/",
+      "reachable": false,
+      "loc_keyword_hits": 0,
+      "verdict": "BLOCKED",
+      "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+    },
+    {
+      "chain": "Nextfit",
+      "url": "https://nextfit.ro/",
+      "reachable": false,
+      "loc_keyword_hits": 0,
+      "verdict": "BLOCKED",
+      "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+    },
+    {
+      "chain": "Burn Fitness",
+      "url": "https://burnfitness.ro/",
+      "reachable": false,
+      "loc_keyword_hits": 0,
+      "verdict": "BLOCKED",
+      "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+    },
+    {
+      "chain": "ESX",
+      "url": "https://esx.ro/",
+      "reachable": true,
+      "physical_clubs": 0,
+      "verdict": "EXCLUDED",
+      "notes": "Membership aggregator — partner gyms not imported"
+    }
+  ],
+  "id_preservation": {
+    "preserved": 94,
+    "new": 70,
+    "phase1_ready_kept": 46
+  },
+  "recovered_postcodes": [
+    {
+      "id": "ro_a95ce67da1",
+      "pc": "500097",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_2dc1f5a198",
+      "pc": "023498",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_3b9a8a4920",
+      "pc": "031281",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_702c4acd67",
+      "pc": "011131",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_729eb3137e",
+      "pc": "014476",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_234ee24035",
+      "pc": "041325",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_63d8da8998",
+      "pc": "021313",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_e89f164578",
+      "pc": "020339",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_6e68495a1a",
+      "pc": "011441",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_7a73553618",
+      "pc": "400186",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_6bf48addef",
+      "pc": "400436",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_03e0e2b82a",
+      "pc": "700023",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_8862d37d24",
+      "pc": "900457",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_d96b9f3d8b",
+      "pc": "510178",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_dd985c435b",
+      "pc": "310451",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_2da49abf68",
+      "pc": "420155",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_10f0656450",
+      "pc": "500331",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_d0adf299fb",
+      "pc": "500203",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_947234691e",
+      "pc": "077041",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_046cb86136",
+      "pc": "050883",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_c981b8da8e",
+      "pc": "031824",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_a35b5e37b6",
+      "pc": "041918",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_bb293cb601",
+      "pc": "021651",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_5c076da1ca",
+      "pc": "401100",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_119cf7fa9c",
+      "pc": "400494",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_91f5842b3a",
+      "pc": "400689",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_85acdaeff5",
+      "pc": "400194",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_fb25ec6ac8",
+      "pc": "470280",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_eabbc15f99",
+      "pc": "400434",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_035bd36311",
+      "pc": "400641",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_ebab5c8188",
+      "pc": "400606",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_8f15041304",
+      "pc": "400620",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_1c8c51acf7",
+      "pc": "900726",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_3ca36c0566",
+      "pc": "700025",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_fe7e47234f",
+      "pc": "545100",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_ff936ccccd",
+      "pc": "540029",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_bd275bf06c",
+      "pc": "610003",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_7dc254ae52",
+      "pc": "550003",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_980dfc0cfe",
+      "pc": "540650",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_93b9454fa9",
+      "pc": "540510",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_24adde7789",
+      "pc": "540519",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_b623fabafd",
+      "pc": "023709",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_45bb2216f0",
+      "pc": "021651",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_0481434748",
+      "pc": "012407",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_a29eb1e100",
+      "pc": "011203",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_3362c5e31e",
+      "pc": "810002",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_3144f560d2",
+      "pc": "730178",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_a78f952b63",
+      "pc": "310414",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_eb6d18ca26",
+      "pc": "210006",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_74cdcd0395",
+      "pc": "061692",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_f3f833d4bb",
+      "pc": "107072",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_9c4c4c9bb9",
+      "pc": "700534",
+      "src": "reverse"
+    },
+    {
+      "id": "ro_1b34c031f6",
+      "pc": "500461",
+      "src": "forward"
+    },
+    {
+      "id": "ro_635dbefff4",
+      "pc": "100299",
+      "src": "forward"
+    },
+    {
+      "id": "ro_4c5fd28082",
+      "pc": "041833",
+      "src": "forward"
+    }
+  ],
+  "phase1_ready_ids_preserved_in_p2_ready": 46,
+  "phase1_ready_ids_lost": [
+    "ro_09939e6792",
+    "ro_2cb4d95b35",
+    "ro_4069b4d7bf",
+    "ro_594fef6cf1",
+    "ro_5ca4bd1915",
+    "ro_6fa5b440b5",
+    "ro_89ad244314",
+    "ro_956942e658",
+    "ro_b67a386c56",
+    "ro_b8acab05e7",
+    "ro_dc602e108e",
+    "ro_e310d1e64c",
+    "ro_f178cfc215",
+    "ro_f8e66fc690",
+    "ro_fa191e82bf",
+    "ro_fba83aeba1",
+    "ro_fea7fe0e9e"
+  ],
+  "phase1_ready_ids_lost_count": 17,
+  "sha_after": "365a1bd25c1fad250172099a0430d9475899859c11a8e07e2ae05ea471dba75a"
+}

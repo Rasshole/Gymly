@@ -1,0 +1,226 @@
+exercise_id,exercise_name,primary_muscle,equipment,illustration_status,asset_filename,asset_exists,duplicate_asset_usage,source_batch,issue,recommended_action
+ex-barbell-row,Barbell Row,back,barbell,CORRECT,barbell_row.webp,true,SAFE_REUSE,3,SAFE_REUSE: shared barbell_row with ['ex-pendlay-row'],Keep unless dedicated variant asset is supplied later
+ex-close-grip-lat-pulldown,Close Grip Lat Pulldown,back,cable,CORRECT,lat_pulldown.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared lat_pulldown with ['ex-lat-pulldown', 'ex-neutral-grip-lat-pulldown', 'ex-wide-grip-lat-pulldown']",Keep unless dedicated variant asset is supplied later
+ex-close-grip-seated-cable-row,Close Grip Seated Cable Row,back,cable,CORRECT,seated_cable_row.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared seated_cable_row with ['ex-seated-row', 'ex-wide-grip-seated-cable-row']",Keep unless dedicated variant asset is supplied later
+ex-db-row,Dumbbell Row,back,dumbbell,CORRECT,dumbbell_row.webp,true,SAFE_REUSE,3,SAFE_REUSE: shared dumbbell_row with ['ex-single-arm-dumbbell-row'],Keep unless dedicated variant asset is supplied later
+ex-iso-lateral-row,Iso-Lateral Row,back,machine,CORRECT,machine_row.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared machine_row with ['ex-low-row-machine', 'ex-machine-row', 'ex-plate-loaded-row']",Keep unless dedicated variant asset is supplied later
+ex-lat-pulldown,Lat Pulldown,back,cable,CORRECT,lat_pulldown.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared lat_pulldown with ['ex-close-grip-lat-pulldown', 'ex-neutral-grip-lat-pulldown', 'ex-wide-grip-lat-pulldown']",Keep unless dedicated variant asset is supplied later
+ex-low-row-machine,Low Row Machine,back,machine,CORRECT,machine_row.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared machine_row with ['ex-iso-lateral-row', 'ex-machine-row', 'ex-plate-loaded-row']",Keep unless dedicated variant asset is supplied later
+ex-machine-pullover,Machine Pullover,back,machine,CORRECT,pullover_machine.webp,true,,3,,
+ex-machine-row,Machine Row,back,machine,CORRECT,machine_row.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared machine_row with ['ex-iso-lateral-row', 'ex-low-row-machine', 'ex-plate-loaded-row']",Keep unless dedicated variant asset is supplied later
+ex-neutral-grip-lat-pulldown,Neutral Grip Lat Pulldown,back,cable,CORRECT,lat_pulldown.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared lat_pulldown with ['ex-close-grip-lat-pulldown', 'ex-lat-pulldown', 'ex-wide-grip-lat-pulldown']",Keep unless dedicated variant asset is supplied later
+ex-neutral-grip-pull-up,Neutral Grip Pull-Up,back,bodyweight,CORRECT,pull_up.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared pull_up with ['ex-pull-up', 'ex-weighted-pull-up']",Keep unless dedicated variant asset is supplied later
+ex-pendlay-row,Pendlay Row,back,barbell,CORRECT,barbell_row.webp,true,SAFE_REUSE,3,SAFE_REUSE: shared barbell_row with ['ex-barbell-row'],Keep unless dedicated variant asset is supplied later
+ex-plate-loaded-row,Plate Loaded Row,back,machine,CORRECT,machine_row.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared machine_row with ['ex-iso-lateral-row', 'ex-low-row-machine', 'ex-machine-row']",Keep unless dedicated variant asset is supplied later
+ex-pull-up,Pull-Up,back,bodyweight,CORRECT,pull_up.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared pull_up with ['ex-neutral-grip-pull-up', 'ex-weighted-pull-up']",Keep unless dedicated variant asset is supplied later
+ex-seated-row,Seated Cable Row,back,cable,CORRECT,seated_cable_row.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared seated_cable_row with ['ex-close-grip-seated-cable-row', 'ex-wide-grip-seated-cable-row']",Keep unless dedicated variant asset is supplied later
+ex-single-arm-cable-row,Single Arm Cable Row,back,cable,CORRECT,cable_row_single_arm.webp,true,,3,,
+ex-single-arm-dumbbell-row,Single Arm Dumbbell Row,back,dumbbell,CORRECT,dumbbell_row.webp,true,SAFE_REUSE,3,SAFE_REUSE: shared dumbbell_row with ['ex-db-row'],Keep unless dedicated variant asset is supplied later
+ex-straight-arm-pulldown,Straight Arm Pulldown,back,cable,CORRECT,straight_arm_pulldown.webp,true,,3,,
+ex-t-bar-row,T-Bar Row,back,barbell,CORRECT,t_bar_row.webp,true,,3,,
+ex-weighted-pull-up,Weighted Pull-Up,back,bodyweight,CORRECT,pull_up.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared pull_up with ['ex-neutral-grip-pull-up', 'ex-pull-up']",Keep unless dedicated variant asset is supplied later
+ex-wide-grip-lat-pulldown,Wide Grip Lat Pulldown,back,cable,CORRECT,lat_pulldown.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared lat_pulldown with ['ex-close-grip-lat-pulldown', 'ex-lat-pulldown', 'ex-neutral-grip-lat-pulldown']",Keep unless dedicated variant asset is supplied later
+ex-wide-grip-seated-cable-row,Wide Grip Seated Cable Row,back,cable,CORRECT,seated_cable_row.webp,true,SAFE_REUSE,3,"SAFE_REUSE: shared seated_cable_row with ['ex-close-grip-seated-cable-row', 'ex-seated-row']",Keep unless dedicated variant asset is supplied later
+ex-barbell-curl,Barbell Curl,biceps,barbell,CORRECT,curl_barbell.webp,true,,4,,
+ex-bayesian-cable-curl,Bayesian Cable Curl,biceps,cable,CORRECT,curl_cable_bayesian.webp,true,,4,,
+ex-biceps-curl,Biceps Curl,biceps,dumbbell,CORRECT,curl_dumbbell.webp,true,,2,,
+ex-cable-curl,Cable Curl,biceps,cable,CORRECT,curl_cable.webp,true,,4,,
+ex-concentration-curl,Concentration Curl,biceps,dumbbell,CORRECT,curl_concentration.webp,true,,4,,
+ex-hammer-curl,Hammer Curl,biceps,dumbbell,CORRECT,curl_hammer.webp,true,,2,,
+ex-incline-dumbbell-curl,Incline Dumbbell Curl,biceps,dumbbell,CORRECT,curl_dumbbell_incline.webp,true,,4,,
+ex-preacher-curl,Preacher Curl,biceps,barbell,CORRECT,curl_preacher.webp,true,,5,,
+ex-reverse-curl,Reverse Curl,biceps,barbell,CORRECT,curl_reverse.webp,true,,5,,
+ex-spider-curl,Spider Curl,biceps,barbell,CORRECT,curl_spider.webp,true,,5,,
+ex-calf,Calf Raise,calves,machine,CORRECT,calf_raise_standing.webp,true,,8,,
+ex-seated-calf-raise,Seated Calf Raise,calves,machine,CORRECT,calf_raise_seated.webp,true,,8,,
+ex-cycling,Cycling,cardio,cardio_machine,CORRECT,bike_stationary.webp,true,,2,,
+ex-rowing,Rowing,cardio,cardio_machine,CORRECT,rower.webp,true,,2,,
+ex-running,Running,cardio,cardio_machine,CORRECT,running_treadmill.webp,true,,2,,
+ex-stairmaster,Stairmaster,cardio,cardio_machine,CORRECT,stair_climber.webp,true,,2,,
+ex-bench-press,Bench Press,chest,barbell,CORRECT,bench_press_barbell.webp,true,SAFE_REUSE,1,SAFE_REUSE: shared bench_press_barbell with ['ex-close-grip-bench-press'],Keep unless dedicated variant asset is supplied later
+ex-cable-fly,Cable Fly,chest,cable,CORRECT,chest_fly_cable.webp,true,,1,,
+ex-chest-press,Chest Press,chest,machine,CORRECT,chest_press_machine.webp,true,SAFE_REUSE,1,SAFE_REUSE: shared chest_press_machine with ['ex-plate-loaded-chest-press'],Keep unless dedicated variant asset is supplied later
+ex-close-grip-bench-press,Close Grip Bench Press,chest,barbell,CORRECT,bench_press_barbell.webp,true,SAFE_REUSE,1,SAFE_REUSE of standard barbell bench asset (close-grip not unique),Optional: supply dedicated close-grip bench illustration
+ex-decline-barbell-bench-press,Decline Barbell Bench Press,chest,barbell,CORRECT,bench_press_barbell_decline.webp,true,,1,,
+ex-decline-dumbbell-bench-press,Decline Dumbbell Bench Press,chest,dumbbell,CORRECT,bench_press_dumbbell_decline.webp,true,,1,,
+ex-dumbbell-bench-press,Dumbbell Bench Press,chest,dumbbell,CORRECT,bench_press_dumbbell.webp,true,,1,,
+ex-dumbbell-fly,Dumbbell Fly,chest,dumbbell,CORRECT,chest_fly_dumbbell.webp,true,,1,,
+ex-incline-bench,Incline Bench Press,chest,barbell,CORRECT,bench_press_barbell_incline.webp,true,,1,,
+ex-incline-dumbbell-bench-press,Incline Dumbbell Bench Press,chest,dumbbell,CORRECT,bench_press_dumbbell_incline.webp,true,,1,,
+ex-incline-dumbbell-fly,Incline Dumbbell Fly,chest,dumbbell,CORRECT,chest_fly_dumbbell_incline.webp,true,,1,,
+ex-plate-loaded-chest-press,Plate Loaded Chest Press,chest,machine,CORRECT,chest_press_machine.webp,true,SAFE_REUSE,1,SAFE_REUSE: shared chest_press_machine with ['ex-chest-press'],Keep unless dedicated variant asset is supplied later
+ex-smith-machine-bench-press,Smith Machine Bench Press,chest,smith,CORRECT,bench_press_smith.webp,true,,1,,
+ex-ab-wheel-rollout,Ab Wheel Rollout,core,other,CORRECT,ab_wheel_rollout.webp,true,,8,,
+ex-cable-crunch,Cable Crunch,core,cable,CORRECT,crunch_cable.webp,true,,2,,
+ex-leg-raise,Leg Raise,core,bodyweight,CORRECT,leg_raise_lying.webp,true,,2,,
+ex-machine-crunch,Machine Crunch,core,machine,CORRECT,crunch_machine.webp,true,,8,,
+ex-plank,Plank,core,bodyweight,CORRECT,plank.webp,true,,2,,
+ex-bulgarian,Bulgarian Split Squat,glutes,dumbbell,CORRECT,bulgarian_split_squat.webp,true,,2,,
+ex-cable-kickback,Cable Kickback,glutes,cable,CORRECT,glute_kickback.webp,true,,7,,
+ex-glute-bridge,Glute Bridge,glutes,bodyweight,CORRECT,glute_bridge.webp,true,,7,,
+ex-hip-abd,Hip Abduction,glutes,machine,CORRECT,hip_abduction_machine.webp,true,,2,,
+ex-hip-thrust,Hip Thrust,glutes,barbell,CORRECT,hip_thrust_barbell.webp,true,,2,,
+ex-leg-curl,Leg Curl,hamstrings,machine,CORRECT,leg_curl_lying.webp,true,,7,,
+ex-rdl,Romanian Deadlift,hamstrings,barbell,CORRECT,rdl_barbell.webp,true,,7,,
+ex-seated-leg-curl,Seated Leg Curl,hamstrings,machine,CORRECT,leg_curl_seated.webp,true,,7,,
+ex-stiff-leg-deadlift,Stiff Leg Deadlift,hamstrings,barbell,CORRECT,stiff_leg_deadlift.webp,true,,7,,
+ex-leg-ext,Leg Extension,quads,machine,CORRECT,leg_extension.webp,true,,5,,
+ex-leg-press,Leg Press,quads,machine,CORRECT,leg_press.webp,true,,5,,
+ex-barbell-overhead-press,Barbell Overhead Press,shoulders,barbell,CORRECT,shoulder_press_barbell.webp,true,,4,,
+ex-cable-rear-delt-fly,Cable Rear Delt Fly,shoulders,cable,CORRECT,rear_delt_fly_cable.webp,true,,4,,
+ex-dumbbell-shoulder-press,Dumbbell Shoulder Press,shoulders,dumbbell,CORRECT,shoulder_press_dumbbell.webp,true,,4,,
+ex-machine-lateral-raise,Machine Lateral Raise,shoulders,machine,CORRECT,lateral_raise_machine.webp,true,,4,,
+ex-machine-shoulder-press,Machine Shoulder Press,shoulders,machine,CORRECT,shoulder_press_machine.webp,true,,4,,
+ex-rear-delt,Rear Delt Fly,shoulders,dumbbell,CORRECT,rear_delt_fly_dumbbell.webp,true,,2,,
+ex-reverse-pec-deck,Reverse Pec Deck,shoulders,machine,CORRECT,reverse_pec_deck.webp,true,,4,,
+ex-smith-machine-shoulder-press,Smith Machine Shoulder Press,shoulders,smith,CORRECT,shoulder_press_smith.webp,true,,4,,
+ex-upright-row,Upright Row,shoulders,barbell,CORRECT,upright_row.webp,true,,4,,
+ex-bench-dip,Bench Dip,triceps,bodyweight,CORRECT,dip_bench.webp,true,,5,,
+ex-dumbbell-overhead-tricep-extension,Dumbbell Overhead Tricep Extension,triceps,dumbbell,CORRECT,tricep_overhead_dumbbell.webp,true,,5,,
+ex-overhead-cable-tricep-extension,Overhead Cable Tricep Extension,triceps,cable,CORRECT,tricep_overhead_cable.webp,true,,5,,
+ex-skull-crusher,Skull Crusher,triceps,barbell,CORRECT,skull_crusher.webp,true,,2,,
+ex-tricep-dip,Tricep Dip,triceps,bodyweight,CORRECT,dip_tricep.webp,true,,5,,
+ex-triceps-pushdown,Triceps Pushdown,triceps,cable,CORRECT,tricep_pushdown.webp,true,,2,,
+ex-assisted-pull-up,Assisted Pull-Up,back,machine,FALLBACK,pull_up_assisted.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-back-extension,Back Extension,back,machine,FALLBACK,back_extension.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-chest-supported-dumbbell-row,Chest Supported Dumbbell Row,back,dumbbell,FALLBACK,dumbbell_row_chest_supported.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-chest-supported-t-bar-row,Chest Supported T-Bar Row,back,machine,FALLBACK,t_bar_row_chest_supported.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-chin-up,Chin-Up,back,bodyweight,FALLBACK,chin_up.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-conventional-deadlift,Conventional Deadlift,back,barbell,FALLBACK,deadlift_conventional.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-pullover,Dumbbell Pullover,back,dumbbell,FALLBACK,pullover_dumbbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-high-row-machine,High Row Machine,back,machine,FALLBACK,machine_row_high.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-machine-back-extension,Machine Back Extension,back,machine,FALLBACK,back_extension.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-meadows-row,Meadows Row,back,barbell,FALLBACK,meadows_row.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-rack-pull,Rack Pull,back,barbell,FALLBACK,deadlift_rack_pull.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-single-arm-lat-pulldown,Single Arm Lat Pulldown,back,cable,FALLBACK,lat_pulldown_single_arm.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-alternating-dumbbell-curl,Alternating Dumbbell Curl,biceps,dumbbell,FALLBACK,curl_dumbbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-cross-body-hammer-curl,Cross Body Hammer Curl,biceps,dumbbell,FALLBACK,curl_hammer.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-curl,Dumbbell Curl,biceps,dumbbell,FALLBACK,curl_dumbbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-preacher-curl,Dumbbell Preacher Curl,biceps,dumbbell,FALLBACK,curl_preacher.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-ez-bar-curl,EZ Bar Curl,biceps,barbell,FALLBACK,curl_barbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-ez-bar-preacher-curl,EZ Bar Preacher Curl,biceps,barbell,FALLBACK,curl_preacher.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-machine-preacher-curl,Machine Preacher Curl,biceps,machine,FALLBACK,curl_preacher_machine.webp,false,,5,No illustration mapping,Import exact asset curl_preacher_machine.webp and map to this ID
+ex-rope-hammer-curl,Rope Hammer Curl,biceps,cable,FALLBACK,curl_cable.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-straight-bar-cable-curl,Straight Bar Cable Curl,biceps,cable,FALLBACK,curl_cable.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-donkey-calf-raise,Donkey Calf Raise,calves,machine,FALLBACK,calf_raise_donkey.webp,false,,8,No illustration mapping,Import exact asset calf_raise_donkey.webp and map to this ID
+ex-leg-press-calf-raise,Leg Press Calf Raise,calves,machine,FALLBACK,calf_raise_leg_press.webp,false,,8,No illustration mapping,Import exact asset calf_raise_leg_press.webp and map to this ID
+ex-machine-seated-calf-raise,Machine Seated Calf Raise,calves,machine,FALLBACK,calf_raise_seated.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-machine-standing-calf-raise,Machine Standing Calf Raise,calves,machine,FALLBACK,calf_raise_standing.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-single-leg-calf-raise,Single Leg Calf Raise,calves,bodyweight,FALLBACK,calf_raise_standing.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-smith-machine-calf-raise,Smith Machine Calf Raise,calves,smith,FALLBACK,calf_raise_standing.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-standing-calf-raise,Standing Calf Raise,calves,machine,FALLBACK,calf_raise_standing.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-assault-bike,Assault Bike,cardio,cardio_machine,FALLBACK,bike_assault.webp,false,,10,No illustration mapping,Import exact asset bike_assault.webp and map to this ID
+ex-elliptical,Elliptical,cardio,cardio_machine,FALLBACK,elliptical.webp,false,,10,No illustration mapping,Import exact asset elliptical.webp and map to this ID
+ex-jump-rope,Jump Rope,cardio,other,FALLBACK,jump_rope.webp,false,,10,No illustration mapping,Import exact asset jump_rope.webp and map to this ID
+ex-outdoor-walking,Outdoor Walking,cardio,other,FALLBACK,walking_outdoor.webp,false,,11,No illustration mapping,Import exact asset walking_outdoor.webp and map to this ID
+ex-skierg,SkiErg,cardio,cardio_machine,FALLBACK,skierg.webp,false,,10,No illustration mapping,Import exact asset skierg.webp and map to this ID
+ex-spinning-bike,Spinning Bike,cardio,cardio_machine,FALLBACK,bike_stationary.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-swimming,Swimming,cardio,other,FALLBACK,swimming.webp,false,,10,No illustration mapping,Import exact asset swimming.webp and map to this ID
+ex-treadmill-walking,Treadmill Walking,cardio,cardio_machine,FALLBACK,walking_treadmill.webp,false,,11,No illustration mapping,Import exact asset walking_treadmill.webp and map to this ID
+ex-chest-dip,Chest Dip,chest,bodyweight,FALLBACK,dip_chest.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-decline-chest-press-machine,Decline Chest Press Machine,chest,machine,FALLBACK,chest_press_machine_decline.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-high-to-low-cable-fly,High to Low Cable Fly,chest,cable,FALLBACK,chest_fly_cable_high_to_low.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-incline-chest-press-machine,Incline Chest Press Machine,chest,machine,FALLBACK,chest_press_machine_incline.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-low-to-high-cable-fly,Low to High Cable Fly,chest,cable,FALLBACK,chest_fly_cable_low_to_high.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-pec-deck,Pec Deck,chest,machine,FALLBACK,pec_deck.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-push-up,Push-Up,chest,bodyweight,FALLBACK,push_up.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-smith-machine-incline-bench-press,Smith Machine Incline Bench Press,chest,smith,FALLBACK,bench_press_smith_incline.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-weighted-push-up,Weighted Push-Up,chest,bodyweight,FALLBACK,push_up.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-ab-crunch,Ab Crunch,core,bodyweight,FALLBACK,crunch.webp,false,,8,No illustration mapping,Import exact asset crunch.webp and map to this ID
+ex-bicycle-crunch,Bicycle Crunch,core,bodyweight,FALLBACK,crunch_bicycle.webp,false,,8,No illustration mapping,Import exact asset crunch_bicycle.webp and map to this ID
+ex-cable-woodchop,Cable Woodchop,core,cable,FALLBACK,woodchop_cable.webp,false,,9,No illustration mapping,Import exact asset woodchop_cable.webp and map to this ID
+ex-captain-s-chair-leg-raise,Captain's Chair Leg Raise,core,machine,FALLBACK,leg_raise_captains_chair.webp,false,,9,No illustration mapping,Import exact asset leg_raise_captains_chair.webp and map to this ID
+ex-dead-bug,Dead Bug,core,bodyweight,FALLBACK,dead_bug.webp,false,,9,No illustration mapping,Import exact asset dead_bug.webp and map to this ID
+ex-decline-sit-up,Decline Sit-Up,core,bodyweight,FALLBACK,sit_up.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-hanging-knee-raise,Hanging Knee Raise,core,bodyweight,FALLBACK,leg_raise_hanging.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-hanging-leg-raise,Hanging Leg Raise,core,bodyweight,FALLBACK,leg_raise_hanging.webp,false,,9,No illustration mapping,Import exact asset leg_raise_hanging.webp and map to this ID
+ex-pallof-press,Pallof Press,core,cable,FALLBACK,pallof_press.webp,false,,9,No illustration mapping,Import exact asset pallof_press.webp and map to this ID
+ex-reverse-crunch,Reverse Crunch,core,bodyweight,FALLBACK,crunch_reverse.webp,false,,9,No illustration mapping,Import exact asset crunch_reverse.webp and map to this ID
+ex-russian-twist,Russian Twist,core,bodyweight,FALLBACK,russian_twist.webp,false,,9,No illustration mapping,Import exact asset russian_twist.webp and map to this ID
+ex-side-plank,Side Plank,core,bodyweight,FALLBACK,plank_side.webp,false,,9,No illustration mapping,Import exact asset plank_side.webp and map to this ID
+ex-sit-up,Sit-Up,core,bodyweight,FALLBACK,sit_up.webp,false,,9,No illustration mapping,Import exact asset sit_up.webp and map to this ID
+ex-toe-touch,Toe Touch,core,bodyweight,FALLBACK,toe_touch.webp,false,,9,No illustration mapping,Import exact asset toe_touch.webp and map to this ID
+ex-v-up,V-Up,core,bodyweight,FALLBACK,v_up.webp,false,,9,No illustration mapping,Import exact asset v_up.webp and map to this ID
+ex-weighted-crunch,Weighted Crunch,core,other,FALLBACK,crunch.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-weighted-plank,Weighted Plank,core,other,FALLBACK,plank.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-weighted-sit-up,Weighted Sit-Up,core,other,FALLBACK,sit_up.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-barbell-thruster,Barbell Thruster,full_body,barbell,FALLBACK,thruster_barbell.webp,false,,10,No illustration mapping,Import exact asset thruster_barbell.webp and map to this ID
+ex-burpee,Burpee,full_body,bodyweight,FALLBACK,burpee.webp,false,,9,No illustration mapping,Import exact asset burpee.webp and map to this ID
+ex-clean,Clean,full_body,barbell,FALLBACK,olympic_clean.webp,false,,10,No illustration mapping,Import exact asset olympic_clean.webp and map to this ID
+ex-clean-and-jerk,Clean and Jerk,full_body,barbell,FALLBACK,olympic_clean_and_jerk.webp,false,,10,No illustration mapping,Import exact asset olympic_clean_and_jerk.webp and map to this ID
+ex-dumbbell-farmer-s-walk,Dumbbell Farmer's Walk,full_body,dumbbell,FALLBACK,farmers_walk.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-thruster,Dumbbell Thruster,full_body,dumbbell,FALLBACK,thruster_dumbbell.webp,false,,10,No illustration mapping,Import exact asset thruster_dumbbell.webp and map to this ID
+ex-farmer-s-walk,Farmer's Walk,full_body,other,FALLBACK,farmers_walk.webp,false,,9,No illustration mapping,Import exact asset farmers_walk.webp and map to this ID
+ex-kettlebell-farmer-s-walk,Kettlebell Farmer's Walk,full_body,kettlebell,FALLBACK,farmers_walk.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-kettlebell-swing,Kettlebell Swing,full_body,kettlebell,FALLBACK,kettlebell_swing.webp,false,,10,No illustration mapping,Import exact asset kettlebell_swing.webp and map to this ID
+ex-power-clean,Power Clean,full_body,barbell,FALLBACK,olympic_clean.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-snatch,Snatch,full_body,barbell,FALLBACK,olympic_snatch.webp,false,,10,No illustration mapping,Import exact asset olympic_snatch.webp and map to this ID
+ex-barbell-glute-bridge,Barbell Glute Bridge,glutes,barbell,FALLBACK,glute_bridge.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-cable-hip-abduction,Cable Hip Abduction,glutes,cable,FALLBACK,hip_abduction_cable.webp,false,,7,No illustration mapping,Import exact asset hip_abduction_cable.webp and map to this ID
+ex-dumbbell-hip-thrust,Dumbbell Hip Thrust,glutes,dumbbell,FALLBACK,hip_thrust_dumbbell.webp,false,,8,No illustration mapping,Import exact asset hip_thrust_dumbbell.webp and map to this ID
+ex-frog-pump,Frog Pump,glutes,bodyweight,FALLBACK,frog_pump.webp,false,,7,No illustration mapping,Import exact asset frog_pump.webp and map to this ID
+ex-machine-glute-kickback,Machine Glute Kickback,glutes,machine,FALLBACK,glute_kickback.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-machine-hip-thrust,Machine Hip Thrust,glutes,machine,FALLBACK,hip_thrust_machine.webp,false,,8,No illustration mapping,Import exact asset hip_thrust_machine.webp and map to this ID
+ex-smith-machine-hip-thrust,Smith Machine Hip Thrust,glutes,smith,FALLBACK,hip_thrust_smith.webp,false,,8,No illustration mapping,Import exact asset hip_thrust_smith.webp and map to this ID
+ex-standing-hip-abduction,Standing Hip Abduction,glutes,cable,FALLBACK,hip_abduction_cable.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-sumo-deadlift,Sumo Deadlift,glutes,barbell,FALLBACK,deadlift_sumo.webp,false,,7,No illustration mapping,Import exact asset deadlift_sumo.webp and map to this ID
+ex-sumo-squat,Sumo Squat,glutes,dumbbell,FALLBACK,squat_sumo.webp,false,,8,No illustration mapping,Import exact asset squat_sumo.webp and map to this ID
+ex-barbell-good-morning,Barbell Good Morning,hamstrings,barbell,FALLBACK,good_morning.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-barbell-romanian-deadlift,Barbell Romanian Deadlift,hamstrings,barbell,FALLBACK,rdl_barbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-cable-pull-through,Cable Pull Through,hamstrings,cable,FALLBACK,cable_pull_through.webp,false,,6,No illustration mapping,Import exact asset cable_pull_through.webp and map to this ID
+ex-dumbbell-romanian-deadlift,Dumbbell Romanian Deadlift,hamstrings,dumbbell,FALLBACK,rdl_dumbbell.webp,false,,7,No illustration mapping,Import exact asset rdl_dumbbell.webp and map to this ID
+ex-dumbbell-single-leg-romanian-deadlift,Dumbbell Single Leg Romanian Deadlift,hamstrings,dumbbell,FALLBACK,rdl_single_leg.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-glute-ham-raise,Glute Ham Raise,hamstrings,machine,FALLBACK,glute_ham_raise.webp,false,,6,No illustration mapping,Import exact asset glute_ham_raise.webp and map to this ID
+ex-good-morning,Good Morning,hamstrings,barbell,FALLBACK,good_morning.webp,false,,6,No illustration mapping,Import exact asset good_morning.webp and map to this ID
+ex-lying-leg-curl,Lying Leg Curl,hamstrings,machine,FALLBACK,leg_curl_lying.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-nordic-hamstring-curl,Nordic Hamstring Curl,hamstrings,bodyweight,FALLBACK,nordic_curl.webp,false,,7,No illustration mapping,Import exact asset nordic_curl.webp and map to this ID
+ex-single-leg-curl,Single Leg Curl,hamstrings,machine,FALLBACK,leg_curl_lying.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-single-leg-romanian-deadlift,Single Leg Romanian Deadlift,hamstrings,dumbbell,FALLBACK,rdl_single_leg.webp,false,,7,No illustration mapping,Import exact asset rdl_single_leg.webp and map to this ID
+ex-smith-machine-romanian-deadlift,Smith Machine Romanian Deadlift,hamstrings,smith,FALLBACK,rdl_smith.webp,false,,7,No illustration mapping,Import exact asset rdl_smith.webp and map to this ID
+ex-standing-leg-curl,Standing Leg Curl,hamstrings,machine,FALLBACK,leg_curl_standing.webp,false,,7,No illustration mapping,Import exact asset leg_curl_standing.webp and map to this ID
+ex-45-degree-leg-press,45 Degree Leg Press,quads,machine,FALLBACK,leg_press.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-barbell-front-squat,Barbell Front Squat,quads,barbell,FALLBACK,squat_front_barbell.webp,false,,6,No illustration mapping,Import exact asset squat_front_barbell.webp and map to this ID
+ex-belt-squat,Belt Squat,quads,machine,FALLBACK,squat_belt.webp,false,,6,No illustration mapping,Import exact asset squat_belt.webp and map to this ID
+ex-dumbbell-bulgarian-split-squat,Dumbbell Bulgarian Split Squat,quads,dumbbell,FALLBACK,bulgarian_split_squat.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-step-up,Dumbbell Step-Up,quads,dumbbell,FALLBACK,step_up.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-walking-lunge,Dumbbell Walking Lunge,quads,dumbbell,FALLBACK,lunge.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-forward-lunge,Forward Lunge,quads,dumbbell,FALLBACK,lunge.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-goblet-squat,Goblet Squat,quads,dumbbell,FALLBACK,squat_goblet.webp,false,,6,No illustration mapping,Import exact asset squat_goblet.webp and map to this ID
+ex-hack-squat,Hack Squat,quads,machine,FALLBACK,squat_hack.webp,false,,6,No illustration mapping,Import exact asset squat_hack.webp and map to this ID
+ex-high-bar-squat,High Bar Squat,quads,barbell,FALLBACK,squat_back_barbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-horizontal-leg-press,Horizontal Leg Press,quads,machine,FALLBACK,leg_press_horizontal.webp,false,,6,No illustration mapping,Import exact asset leg_press_horizontal.webp and map to this ID
+ex-low-bar-squat,Low Bar Squat,quads,barbell,FALLBACK,squat_back_barbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-pendulum-squat,Pendulum Squat,quads,machine,FALLBACK,squat_pendulum.webp,false,,6,No illustration mapping,Import exact asset squat_pendulum.webp and map to this ID
+ex-reverse-lunge,Reverse Lunge,quads,dumbbell,FALLBACK,lunge_reverse.webp,false,,6,No illustration mapping,Import exact asset lunge_reverse.webp and map to this ID
+ex-single-leg-extension,Single Leg Extension,quads,machine,FALLBACK,leg_extension.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-single-leg-press,Single Leg Press,quads,machine,FALLBACK,leg_press.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-sissy-squat,Sissy Squat,quads,bodyweight,FALLBACK,squat_sissy.webp,false,,6,No illustration mapping,Import exact asset squat_sissy.webp and map to this ID
+ex-smith-machine-bulgarian-split-squat,Smith Machine Bulgarian Split Squat,quads,smith,FALLBACK,bulgarian_split_squat.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-smith-machine-lunge,Smith Machine Lunge,quads,smith,FALLBACK,lunge.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-smith-machine-squat,Smith Machine Squat,quads,smith,FALLBACK,squat_smith.webp,false,,6,No illustration mapping,Import exact asset squat_smith.webp and map to this ID
+ex-squat,Squat,quads,barbell,FALLBACK,squat_back_barbell.webp,false,,6,No illustration mapping,Import exact asset squat_back_barbell.webp and map to this ID
+ex-step-up,Step-Up,quads,dumbbell,FALLBACK,step_up.webp,false,,6,No illustration mapping,Import exact asset step_up.webp and map to this ID
+ex-walking-lunge,Walking Lunge,quads,dumbbell,FALLBACK,lunge.webp,false,,6,No illustration mapping,Import exact asset lunge.webp and map to this ID
+ex-arnold-press,Arnold Press,shoulders,dumbbell,FALLBACK,arnold_press.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-cable-front-raise,Cable Front Raise,shoulders,cable,FALLBACK,front_raise.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-cable-lateral-raise,Cable Lateral Raise,shoulders,cable,FALLBACK,lateral_raise_cable.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-front-raise,Dumbbell Front Raise,shoulders,dumbbell,FALLBACK,front_raise.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-upright-row,Dumbbell Upright Row,shoulders,dumbbell,FALLBACK,upright_row.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-face-pull,Face Pull,shoulders,cable,FALLBACK,face_pull.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-lateral-raise,Lateral Raise,shoulders,dumbbell,FALLBACK,lateral_raise_dumbbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-plate-front-raise,Plate Front Raise,shoulders,other,FALLBACK,front_raise.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-seated-barbell-shoulder-press,Seated Barbell Shoulder Press,shoulders,barbell,FALLBACK,shoulder_press_barbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-seated-dumbbell-shoulder-press,Seated Dumbbell Shoulder Press,shoulders,dumbbell,FALLBACK,shoulder_press_dumbbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-shoulder-press,Shoulder Press,shoulders,dumbbell,FALLBACK,shoulder_press_dumbbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-single-arm-cable-lateral-raise,Single Arm Cable Lateral Raise,shoulders,cable,FALLBACK,lateral_raise_cable.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-dumbbell-skull-crusher,Dumbbell Skull Crusher,triceps,dumbbell,FALLBACK,skull_crusher_dumbbell.webp,false,,5,No illustration mapping,Import exact asset skull_crusher_dumbbell.webp and map to this ID
+ex-ez-bar-skull-crusher,EZ Bar Skull Crusher,triceps,barbell,FALLBACK,skull_crusher.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-lying-tricep-extension,Lying Tricep Extension,triceps,barbell,FALLBACK,skull_crusher.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-reverse-grip-tricep-pushdown,Reverse Grip Tricep Pushdown,triceps,cable,FALLBACK,tricep_pushdown.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-rope-overhead-tricep-extension,Rope Overhead Tricep Extension,triceps,cable,FALLBACK,tricep_overhead_cable.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-rope-tricep-pushdown,Rope Tricep Pushdown,triceps,cable,FALLBACK,tricep_pushdown.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-single-arm-dumbbell-tricep-extension,Single Arm Dumbbell Tricep Extension,triceps,dumbbell,FALLBACK,tricep_overhead_dumbbell.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-single-arm-tricep-pushdown,Single Arm Tricep Pushdown,triceps,cable,FALLBACK,tricep_pushdown.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-straight-bar-tricep-pushdown,Straight Bar Tricep Pushdown,triceps,cable,FALLBACK,tricep_pushdown.webp,false,,,No illustration mapping,Supply exact illustration when available
+ex-tricep-extension-machine,Tricep Extension Machine,triceps,machine,FALLBACK,tricep_extension_machine.webp,false,,5,No illustration mapping,Import exact asset tricep_extension_machine.webp and map to this ID
+ex-v-bar-tricep-pushdown,V-Bar Tricep Pushdown,triceps,cable,FALLBACK,tricep_pushdown.webp,false,,,No illustration mapping,Supply exact illustration when available

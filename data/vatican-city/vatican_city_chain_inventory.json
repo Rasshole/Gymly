@@ -1,0 +1,30 @@
+{
+  "country": "Vatican City",
+  "phase": 1,
+  "class_a_chains": 0,
+  "class_a_locations": 0,
+  "probed_chains_with_zero_vatican_locations": [
+    "McFIT",
+    "JOHN REED",
+    "Basic-Fit",
+    "Anytime Fitness",
+    "Virgin Active",
+    "FitActive",
+    "FitExpress",
+    "Fit And Go",
+    "Curves",
+    "Fitness First",
+    "Gold's Gym",
+    "PureGym",
+    "World Class",
+    "Fitness Park",
+    "Keep Cool",
+    "OrangeTheory"
+  ],
+  "small_market": {
+    "recommended_model": "ZERO_PUBLIC_GYM_MARKET_CONFIRMED",
+    "public_conventional_independents": 0,
+    "public_municipal_consumer_gyms": 0,
+    "restricted_institutional_facilities_audited": 3
+  }
+}

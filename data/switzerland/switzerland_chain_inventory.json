@@ -1,0 +1,19 @@
+{
+  "generated": "2026-08-22",
+  "chains": {
+    "ACTIV FITNESS / Fitnesspark": 147,
+    "PureGym": 54,
+    "clever fit": 23,
+    "Let's Go Fitness": 66,
+    "Kieser": 0
+  },
+  "total_candidates": 290,
+  "blocked_chains": [
+    {
+      "brand": "NonStop Gym",
+      "status": "BLOCKED",
+      "reason": "HTTP 403 on official our-clubs locator from research environment; Phase 2 priority (~40+ clubs)",
+      "official_estimate": "40+"
+    }
+  ]
+}

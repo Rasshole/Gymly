@@ -1,0 +1,32 @@
+{
+  "regions": {
+    "Baku": "A",
+    "Nakhchivan": "B",
+    "Absheron": "A",
+    "Ganja-Qazakh": "A",
+    "Shaki-Zagatala": "B",
+    "Lankaran": "A",
+    "Guba-Khachmaz": "D",
+    "Aran": "A",
+    "Upper Karabakh": "B",
+    "Kalbajar-Lachin": "D",
+    "Mountainous Shirvan": "D",
+    "Central Aran": "D",
+    "East Zangezur": "D",
+    "Shirvan": "B",
+    "Other": "B"
+  },
+  "ready_by_region": {
+    "Baku": 21,
+    "Ganja-Qazakh": 8,
+    "Absheron": 13,
+    "Lankaran": 2,
+    "Aran": 2
+  },
+  "grade_a_count": 5,
+  "grade_b_count": 5,
+  "grade_c_count": 0,
+  "grade_d_count": 5,
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0
+}

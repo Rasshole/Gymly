@@ -1,0 +1,66 @@
+{
+  "country": "Turkey",
+  "search_normalization": "normalize_turkish_search() — ı/i İ/I ş/s ğ/g ç/c ö/o ü/u",
+  "aliases": [
+    {
+      "canonical": "İstanbul",
+      "variants": [
+        "Istanbul",
+        "istanbul",
+        "Constantinople"
+      ]
+    },
+    {
+      "canonical": "İzmir",
+      "variants": [
+        "Izmir",
+        "izmir",
+        "Smyrna"
+      ]
+    },
+    {
+      "canonical": "Ankara",
+      "variants": [
+        "ankara"
+      ]
+    },
+    {
+      "canonical": "Turkey",
+      "variants": [
+        "Türkiye",
+        "Turkiye",
+        "TR"
+      ]
+    },
+    {
+      "canonical": "Diyarbakır",
+      "variants": [
+        "Diyarbakir",
+        "diyarbakir"
+      ]
+    },
+    {
+      "canonical": "Eskişehir",
+      "variants": [
+        "Eskisehir",
+        "eskisehir"
+      ]
+    },
+    {
+      "canonical": "Şanlıurfa",
+      "variants": [
+        "Sanliurfa",
+        "sanliurfa",
+        "Urfa"
+      ]
+    },
+    {
+      "canonical": "Muğla",
+      "variants": [
+        "Mugla",
+        "mugla"
+      ]
+    }
+  ],
+  "notes": "Canonical Turkish local names preserved in storage; ASCII variants for search only"
+}

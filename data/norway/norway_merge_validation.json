@@ -1,0 +1,29 @@
+{
+  "merged_at": "2026-08-16",
+  "before_count": 993,
+  "after_count": 1139,
+  "norway_added": 146,
+  "denmark_unchanged": 354,
+  "sweden_unchanged": 639,
+  "duplicate_ids": 0,
+  "norway_active_with_finite_coords": 146,
+  "skipped_no_coords": 99,
+  "by_norwegian_chain": {
+    "EVO Fitness": 58,
+    "SATS": 46,
+    "Fresh Fitness": 30,
+    "MUDO Gym": 10,
+    "Feel24": 2
+  },
+  "triaden_mudo": {
+    "sats_triaden_id": "no_57dfa10c2e",
+    "mudo_lorenskog_id": "no_8d28883955",
+    "shared_coords": [59.918615, 10.953523],
+    "separate_records": true
+  },
+  "unresolved_staging_remaining": {
+    "NEEDS_REVIEW": 38,
+    "NEEDS_COORDINATES": 47,
+    "SKIP_INCOMPLETE": 14
+  }
+}

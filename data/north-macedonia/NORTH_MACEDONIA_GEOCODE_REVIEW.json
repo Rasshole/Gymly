@@ -1,0 +1,6 @@
+{
+  "fallback_ready": 0,
+  "outside_gate": 0,
+  "invalid_postcodes": 0,
+  "notes": "All READY passed in_north_macedonia + MK_POSTAL_RE; no FALLBACK coord_source."
+}

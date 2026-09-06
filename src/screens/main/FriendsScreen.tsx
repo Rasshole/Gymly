@@ -3,7 +3,7 @@
  * Live directory for alle brugere ligger fremtidigt i Online-fanen (FriendsNavigator) + Hjem / tjek ind.
  */
 
-import React, {useState, useCallback, useEffect, useRef} from 'react';
+import React, {useState, useCallback, useEffect, useRef, useMemo} from 'react';
 import {
   View,
   Text,
@@ -45,6 +45,7 @@ import {buildDemoFriendsScreenList} from '@/demo/demoFriendsList';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {formatTrainingDurationDa} from '@/utils/socialTrainingLive';
 import {useTranslation} from '@/i18n';
+import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
 
 type Friend = {
   id: string;
@@ -58,6 +59,42 @@ type Friend = {
   checkOutTime?: Date; // When they checked out (for sorting offline friends)
 };
 
+function mapProfilesToFriends(
+  profiles: {id: string; displayName: string; avatarUrl?: string | null}[],
+  latestByUser: Map<string, CheckInRow>,
+): Friend[] {
+  const windowMs = PRESENCE_WINDOW_HOURS * 3600_000;
+  const now = Date.now();
+  return profiles.map(p => {
+    const row = latestByUser.get(p.id);
+    if (row && now - new Date(row.created_at).getTime() <= windowMs) {
+      const mins = Math.max(
+        1,
+        Math.floor((now - new Date(row.created_at).getTime()) / 60_000),
+      );
+      return {
+        id: p.id,
+        name: p.displayName,
+        avatar: p.avatarUrl ?? undefined,
+        isOnline: true,
+        gymName: row.gym_name,
+        activeTime: `${mins} min`,
+        muscleGroup: row.workout_type ?? undefined,
+        checkInTime: new Date(row.created_at),
+        checkOutTime: undefined,
+      };
+    }
+    return {
+      id: p.id,
+      name: p.displayName,
+      avatar: p.avatarUrl ?? undefined,
+      isOnline: false,
+      checkOutTime: row ? new Date(row.created_at) : undefined,
+      checkInTime: undefined,
+    };
+  });
+}
+
 const FriendsScreen = () => {
   const navigation = useNavigation<any>();
   const {t, intlLocale} = useTranslation();
@@ -69,6 +106,8 @@ const FriendsScreen = () => {
   const [friends, setFriends] = useState<Friend[]>([]);
   const [loadingFriends, setLoadingFriends] = useState(true);
   const [liveDurationTick, setLiveDurationTick] = useState(0);
+  const friendsFetchGenRef = useRef(0);
+  const userId = user?.id;
 
   useEffect(() => {
     const id = setInterval(() => setLiveDurationTick(n => n + 1), 30_000);
@@ -139,7 +178,7 @@ const FriendsScreen = () => {
           participants: [{id: friendId, name: friendName}],
         });
       } catch (e) {
-        Alert.alert('Besked', (e as Error).message);
+        Alert.alert(t('friendProfile.messageAlertTitle'), (e as Error).message);
       }
     },
     [user, getChatByParticipants, navigation, upsertChat],
@@ -148,26 +187,52 @@ const FriendsScreen = () => {
   useFocusEffect(
     useCallback(() => {
       setLiveDurationTick(n => n + 1);
-      if (!user) {
+      if (!userId) {
         setFriends([]);
         setLoadingFriends(false);
         return;
       }
-      let cancelled = false;
-      void (async () => {
+
+      const fetchGen = ++friendsFetchGenRef.current;
+      const cachedStore = useFriendStore.getState();
+      if (cachedStore.lastLoadedUserId === userId && cachedStore.friends.length > 0) {
+        setFriends(mapProfilesToFriends(cachedStore.friends, new Map()));
+        setLoadingFriends(false);
+      } else {
         setLoadingFriends(true);
+      }
+
+      void (async () => {
         try {
+          const currentUser = useAppStore.getState().user;
+          if (currentUser) {
+            void upsertMyProfile(currentUser).catch(() => {});
+          }
+          void loadFriendStore(userId);
+
+          const friendsKey = `friends:list:${userId}`;
+          const skipNetwork =
+            !isFocusRefreshStale(friendsKey, 45_000) &&
+            useFriendStore.getState().lastLoadedUserId === userId &&
+            useFriendStore.getState().friends.length > 0;
+
           if (isDemoContentMode()) {
-            await upsertMyProfile(user);
-            void loadFriendStore(user.id);
-            setFriends(buildDemoFriendsScreenList(user.id) as Friend[]);
-          } else {
-          await upsertMyProfile(user);
-          void loadFriendStore(user.id);
-          const profiles = await listFriendsWithProfiles(user.id);
-          if (cancelled) {
+            if (fetchGen !== friendsFetchGenRef.current) {
+              return;
+            }
+            setFriends(buildDemoFriendsScreenList(userId) as Friend[]);
             return;
           }
+
+          if (skipNetwork) {
+            return;
+          }
+
+          const profiles = await listFriendsWithProfiles(userId);
+          if (fetchGen !== friendsFetchGenRef.current) {
+            return;
+          }
+
           const friendIds = profiles.map(p => p.id);
           let latestByUser = new Map<string, CheckInRow>();
           try {
@@ -175,83 +240,56 @@ const FriendsScreen = () => {
           } catch {
             latestByUser = new Map();
           }
-          if (cancelled) {
+          if (fetchGen !== friendsFetchGenRef.current) {
             return;
           }
-          const windowMs = PRESENCE_WINDOW_HOURS * 3600_000;
-          const now = Date.now();
-          setFriends(
-            profiles.map(p => {
-              const row = latestByUser.get(p.id);
-              if (row && now - new Date(row.created_at).getTime() <= windowMs) {
-                const mins = Math.max(
-                  1,
-                  Math.floor((now - new Date(row.created_at).getTime()) / 60_000),
-                );
-                return {
-                  id: p.id,
-                  name: p.displayName,
-                  avatar: p.avatarUrl ?? undefined,
-                  isOnline: true,
-                  gymName: row.gym_name,
-                  activeTime: `${mins} min`,
-                  muscleGroup: row.workout_type ?? undefined,
-                  checkInTime: new Date(row.created_at),
-                  checkOutTime: undefined,
-                };
-              }
-              return {
-                id: p.id,
-                name: p.displayName,
-                avatar: p.avatarUrl ?? undefined,
-                isOnline: false,
-                checkOutTime: row ? new Date(row.created_at) : undefined,
-                checkInTime: undefined,
-              };
-            }),
-          );
-          }
+
+          setFriends(mapProfilesToFriends(profiles, latestByUser));
+          markFocusRefreshed(`friends:list:${userId}`);
         } catch {
-          if (!cancelled) {
+          if (fetchGen === friendsFetchGenRef.current) {
             setFriends([]);
           }
         } finally {
-          if (!cancelled) {
+          if (fetchGen === friendsFetchGenRef.current) {
             setLoadingFriends(false);
           }
         }
       })();
-      return () => {
-        cancelled = true;
-      };
-    }, [user, loadFriendStore]),
+    }, [userId, loadFriendStore]),
   );
 
   // Sort friends: online first (by check-in time, newest first), then offline (by check-out time, newest first)
-  const sortedFriends = [...friends].sort((a, b) => {
-    // Online friends come first
-    if (a.isOnline && !b.isOnline) return -1;
-    if (!a.isOnline && b.isOnline) return 1;
+  const sortedFriends = useMemo(
+    () =>
+      [...friends].sort((a, b) => {
+        if (a.isOnline && !b.isOnline) {
+          return -1;
+        }
+        if (!a.isOnline && b.isOnline) {
+          return 1;
+        }
+        if (a.isOnline && b.isOnline) {
+          const aTime = a.checkInTime?.getTime() || 0;
+          const bTime = b.checkInTime?.getTime() || 0;
+          return bTime - aTime;
+        }
+        if (!a.isOnline && !b.isOnline) {
+          const aTime = a.checkOutTime?.getTime() || 0;
+          const bTime = b.checkOutTime?.getTime() || 0;
+          return bTime - aTime;
+        }
+        return 0;
+      }),
+    [friends],
+  );
 
-    // If both are online, sort by check-in time (newest first)
-    if (a.isOnline && b.isOnline) {
-      const aTime = a.checkInTime?.getTime() || 0;
-      const bTime = b.checkInTime?.getTime() || 0;
-      return bTime - aTime; // Descending (newest first)
-    }
-
-    // If both are offline, sort by check-out time (newest first)
-    if (!a.isOnline && !b.isOnline) {
-      const aTime = a.checkOutTime?.getTime() || 0;
-      const bTime = b.checkOutTime?.getTime() || 0;
-      return bTime - aTime; // Descending (newest first)
-    }
-
-    return 0;
-  });
-
-  const filteredFriends = sortedFriends.filter(friend =>
-    friend.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  const filteredFriends = useMemo(
+    () =>
+      sortedFriends.filter(friend =>
+        friend.name.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+    [sortedFriends, searchQuery],
   );
 
   /** Kort “Aktiv nu” når check-in er frisk; ellers “Aktiv i X min”. */
@@ -368,6 +406,10 @@ const FriendsScreen = () => {
         extraData={liveDurationTick}
         renderItem={renderFriendItem}
         keyExtractor={item => item.id}
+        initialNumToRender={12}
+        maxToRenderPerBatch={8}
+        windowSize={7}
+        removeClippedSubviews={Platform.OS === 'android'}
         contentContainerStyle={
           filteredFriends.length === 0 ? styles.emptyList : styles.list
         }
@@ -411,7 +453,7 @@ type FriendListRowProps = {
   onMessage: () => void;
 };
 
-const FriendListRow = ({
+const FriendListRow = React.memo(({
   item,
   formatActiveSubtitle,
   formatLastSeen,
@@ -421,6 +463,7 @@ const FriendListRow = ({
   onOpenProfile,
   onMessage,
 }: FriendListRowProps) => {
+  const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
   const activeLabel =
     item.isOnline && item.activeTime ? formatActiveSubtitle(item.activeTime) : '';
@@ -472,7 +515,7 @@ const FriendListRow = ({
         onPressOut={pressOut}
         style={rowStyles.profileTap}
         accessibilityRole="button"
-        accessibilityLabel={`${item.name}, se profil`}>
+        accessibilityLabel={t('chat.openProfile', {name: item.name})}>
         <View style={rowStyles.avatarWrapper}>
           <View style={[rowStyles.avatarRing, item.isOnline && rowStyles.avatarRingOnline]}>
             <UserAvatar
@@ -538,7 +581,7 @@ const FriendListRow = ({
             pressed && rowStyles.messageBtnPressed,
           ]}
           hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-          accessibilityLabel="Besked">
+          accessibilityLabel={t('a11y.message')}>
           <Icon name="chatbubble" size={20} color={colors.primary} />
         </Pressable>
       ) : (
@@ -546,7 +589,7 @@ const FriendListRow = ({
       )}
     </Animated.View>
   );
-};
+});
 
 const FriendRequestsCard = ({onPress}: {onPress: () => void}) => {
   const {t} = useTranslation();
@@ -576,7 +619,7 @@ const FriendRequestsCard = ({onPress}: {onPress: () => void}) => {
       onPressIn={pressIn}
       onPressOut={pressOut}
       accessibilityRole="button"
-      accessibilityLabel="Åbn notifikationer for venneanmodninger">
+      accessibilityLabel={t('a11y.openFriendRequestNotifications')}>
       <Animated.View style={[rowStyles.requestsCard, {transform: [{scale}]}]}>
         <View style={rowStyles.requestsIconWrap}>
           <Icon name="mail-unread" size={20} color={colors.primary} />

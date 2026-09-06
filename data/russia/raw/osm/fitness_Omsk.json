@@ -1,0 +1,581 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 2117258001,
+      "lat": 54.9976523,
+      "lon": 73.2258062,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Impulse"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2924524379,
+      "lat": 54.9934274,
+      "lon": 73.2629251,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "sauna": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3318183761,
+      "lat": 54.9857015,
+      "lon": 73.3151541,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Атлант",
+        "opening_hours": "09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3878466949,
+      "lat": 55.0288622,
+      "lon": 73.2760135,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Stretch House",
+        "opening_hours": "09:00-22:00",
+        "sport": "fitness",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3894539411,
+      "lat": 54.9940293,
+      "lon": 73.3615051,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Flex Gym",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa,Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3905293734,
+      "lat": 55.0250846,
+      "lon": 73.2973271,
+      "tags": {
+        "contact:email": "info@master-sportclub.ru",
+        "contact:instagram": "https://instagram.com/masterclub_omsk",
+        "contact:phone": "+7 381 2990240;+7 913 6330148",
+        "contact:vk": "https://vk.com/mclub55",
+        "contact:website": "https://www.master-sportclub.ru/",
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "Masterclub",
+        "opening_hours": "Mo-Fr 08:00-22:00;Sa 09:00-21:00;Su 09:00-18:00",
+        "operator": "MASTERCLUB"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3905300679,
+      "lat": 54.9716398,
+      "lon": 73.3960877,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "Чемпион"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3905300681,
+      "lat": 54.9956604,
+      "lon": 73.3576666,
+      "tags": {
+        "check_date:opening_hours": "2026-03-26",
+        "leisure": "fitness_centre",
+        "name": "Fitness Factory",
+        "opening_hours": "Mo-Fr 08:00-22:00, Sa,Su 09:00-22:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3905904678,
+      "lat": 54.936633,
+      "lon": 73.3693718,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Барбара"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3923476141,
+      "lat": 55.0285245,
+      "lon": 73.259458,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Beauty",
+        "opening_hours": "08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3995071044,
+      "lat": 54.980883,
+      "lon": 73.3205503,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Parkfitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3995071045,
+      "lat": 55.0033439,
+      "lon": 73.3590525,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Slim Project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3995071046,
+      "lat": 54.9860479,
+      "lon": 73.3099594,
+      "tags": {
+        "addr:housenumber": "7",
+        "addr:street": "улица 70 лет Октября",
+        "leisure": "fitness_centre",
+        "name": "SuperClub"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3995071047,
+      "lat": 54.9932929,
+      "lon": 73.368128,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Мадонна"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3995071048,
+      "lat": 54.9898418,
+      "lon": 73.308893,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Пятый элемент"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4021142288,
+      "lat": 55.0299653,
+      "lon": 73.2812707,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Лори"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4185329621,
+      "lat": 55.0381454,
+      "lon": 73.2871933,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Т-Фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4212029841,
+      "lat": 54.9842804,
+      "lon": 73.3934558,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Адам и Ева"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4701572234,
+      "lat": 55.0284103,
+      "lon": 73.2848704,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "4",
+        "name": "Flex Gym",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-22:00",
+        "sport": "fitness",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5031713643,
+      "lat": 55.0376726,
+      "lon": 73.2662214,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Витамин"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5206538784,
+      "lat": 54.9875641,
+      "lon": 73.2799378,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Олимп"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5442539464,
+      "lat": 54.9808107,
+      "lon": 73.3215871,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "MetroFitness",
+        "opening_hours": "24/7",
+        "phone": "+7 381 2209207",
+        "website": "https://omsk.metrofitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479365683,
+      "lat": 54.9218704,
+      "lon": 73.3062058,
+      "tags": {
+        "addr:housenumber": "72",
+        "addr:street": "8-я Кировская улица",
+        "leisure": "fitness_centre",
+        "name": "Спортивный город"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5606510521,
+      "lat": 54.9384312,
+      "lon": 73.3816733,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Wild fire",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-22:00",
+        "phone": "282010",
+        "website": "https://vk.com/wildfire55"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7167484351,
+      "lat": 54.9755109,
+      "lon": 73.3893907,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "SuperClub"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7687532579,
+      "lat": 55.029803,
+      "lon": 73.2957035,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Fitness Plus",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa,Su 09:00-21:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7710806902,
+      "lat": 54.9489969,
+      "lon": 73.3885512,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Flex Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7960155887,
+      "lat": 55.00532,
+      "lon": 73.3614601,
+      "tags": {
+        "addr:city": "Омск",
+        "addr:housenumber": "45/2",
+        "addr:street": "улица Вавилова",
+        "leisure": "fitness_centre",
+        "name": "Центр развития пилонного спорта и воздушной гимнастики по Омской области",
+        "phone": "+79139797097",
+        "sport": "pole_dance;fitness;gymnastics;aerial_silks",
+        "website": "http://poledanceomsk.su"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8259244334,
+      "lat": 55.0399384,
+      "lon": 73.2683037,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "4",
+        "name": "Parkfitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8752493700,
+      "lat": 55.0495488,
+      "lon": 73.2626993,
+      "tags": {
+        "contact:email": "aleksurchenko@yandex.ru",
+        "contact:phone": "+7 902 6739709;+7 913 1439522",
+        "contact:website": "https://xn--d1acjgcpb3bod6j.xn--p1ai/",
+        "leisure": "fitness_centre",
+        "name": "Нефтяник",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8752493715,
+      "lat": 54.9601587,
+      "lon": 73.3857349,
+      "tags": {
+        "contact:phone": "+7 381 2207169;+7 381 2320500;+7 906 9902277",
+        "contact:website": "https://gym55.ru/",
+        "leisure": "fitness_centre",
+        "name": "GymStudio & DOLMATOV",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9162326202,
+      "lat": 55.029149,
+      "lon": 73.2501653,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fitness Plus"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9229526106,
+      "lat": 54.9774536,
+      "lon": 73.38673,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Flex Gym",
+        "opening_hours": "Mo-Fr 07:00-22:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10316767209,
+      "lat": 54.9787999,
+      "lon": 73.4621373,
+      "tags": {
+        "contact:instagram": "omskfitness1",
+        "contact:vk": "omskfitness",
+        "email": "info@omskfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Линия жизни",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "phone": "+7 950 336-18-00;+7 3812 48-18-00",
+        "website": "https://omskfitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443663,
+      "lat": 54.9750136,
+      "lon": 73.4078266,
+      "tags": {
+        "contact:email": "omsk@ladystretch.ru",
+        "contact:phone": "+7 923 6718724",
+        "contact:website": "https://ladystretch.com/omsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443664,
+      "lat": 54.98937,
+      "lon": 73.2990555,
+      "tags": {
+        "contact:email": "omsk@ladystretch.ru",
+        "contact:phone": "+7 923 8244217",
+        "contact:website": "https://ladystretch.com/omsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12012057618,
+      "lat": 55.0111941,
+      "lon": 73.3355384,
+      "tags": {
+        "contact:email": "omsk@ladystretch.ru",
+        "contact:phone": "+7 923 4585688",
+        "contact:website": "https://ladystretch.com/omsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12558374501,
+      "lat": 54.9858148,
+      "lon": 73.3892448,
+      "tags": {
+        "contact:vk": "genesisgym55",
+        "leisure": "fitness_centre",
+        "name": "GENESIS GYM",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 10:00-22:00",
+        "phone": "+7 999 459 25 99"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12620064045,
+      "lat": 54.9857743,
+      "lon": 73.3859306,
+      "tags": {
+        "contact:email": "pr-flexgym55@mail.ru",
+        "contact:phone": "+7 381 2905333",
+        "contact:website": "https://flexgym55.ru/",
+        "leisure": "fitness_centre",
+        "name": "Flex gym",
+        "opening_hours": "Mo-Fr 07:00-24:00, Sa-Su 09:00-24:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12741085282,
+      "lat": 54.9674433,
+      "lon": 73.3821714,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Girl Fit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754235,
+      "lat": 55.0284264,
+      "lon": 73.2881293,
+      "tags": {
+        "contact:phone": "+7 381 2290227;+7 983 5623278",
+        "contact:website": "https://omsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754236,
+      "lat": 55.0440922,
+      "lon": 73.3154663,
+      "tags": {
+        "contact:phone": "+7 381 2290227;+7 913 9600256",
+        "contact:website": "https://omsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754237,
+      "lat": 54.9851864,
+      "lon": 73.3141304,
+      "tags": {
+        "contact:phone": "+7 381 2290227;+7 983 5623283",
+        "contact:website": "https://omsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13818636046,
+      "lat": 54.9817769,
+      "lon": 73.3173798,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Студия коррекции фигуры"
+      }
+    },
+    {
+      "type": "way",
+      "id": 952669952,
+      "center": {
+        "lat": 54.9576622,
+        "lon": 73.3477341
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "4",
+        "leisure": "fitness_centre",
+        "name": "Спортивный комплекс"
+      }
+    },
+    {
+      "type": "way",
+      "id": 990250637,
+      "center": {
+        "lat": 54.9571057,
+        "lon": 73.3478458
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Физкультурно оздоровительный комплекс"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1384764388,
+      "center": {
+        "lat": 55.0247044,
+        "lon": 73.2951829
+      },
+      "tags": {
+        "indoor": "room",
+        "leisure": "fitness_centre",
+        "level": "4",
+        "name": "Flex gym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-23:00"
+      }
+    }
+  ]
+}

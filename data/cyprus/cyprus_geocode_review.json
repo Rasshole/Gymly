@@ -1,0 +1,40 @@
+{
+  "needs_coordinates": [
+    {
+      "id": "cy_8713fecd49",
+      "name": "Arise Active Aradippou",
+      "address": "Acropoleos 23",
+      "postal_code": "7101",
+      "city": "Aradippou"
+    },
+    {
+      "id": "cy_34d6f81192",
+      "name": "Anaplasis Gym Limassol",
+      "address": "Kanika Business Center, 28is Oktovriou 319A",
+      "postal_code": "3105",
+      "city": "Limassol"
+    },
+    {
+      "id": "cy_cd15f4d2ad",
+      "name": "Kondylis The Gym Mesa Geitonia",
+      "address": "Grigoriou Afxentiou & 1is Apriliou",
+      "postal_code": "4003",
+      "city": "Mesa Geitonia"
+    },
+    {
+      "id": "cy_df58defb47",
+      "name": "Barbarian Fitness Kiti",
+      "address": "Demosthenous 12-14",
+      "postal_code": "7550",
+      "city": "Kiti"
+    },
+    {
+      "id": "cy_cf3ac99b32",
+      "name": "Gymland Matsagides Larnaca",
+      "address": "Dimonikou 9",
+      "postal_code": "6016",
+      "city": "Larnaca"
+    }
+  ],
+  "fallback_in_ready": []
+}

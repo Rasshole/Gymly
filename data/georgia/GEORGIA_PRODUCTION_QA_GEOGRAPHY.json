@@ -1,0 +1,16 @@
+{
+  "cities": {
+    "Tbilisi": 23,
+    "Batumi": 2
+  },
+  "approved_cities": {
+    "Tbilisi": 23,
+    "Batumi": 2
+  },
+  "expected_cities": {
+    "Tbilisi": 23,
+    "Batumi": 2
+  },
+  "city_drift": 0,
+  "region_drift": 0
+}

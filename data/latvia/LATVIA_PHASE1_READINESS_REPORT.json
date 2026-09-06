@@ -1,0 +1,700 @@
+{
+  "country": "Latvia",
+  "phase": 1,
+  "deep_phase": true,
+  "generated_at": "2026-08-29T13:22:12.955074+00:00",
+  "production_total": 11923,
+  "production_sha256": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "baseline_latvia": 33,
+  "baseline_lv_prefix": 33,
+  "latvia_live": 33,
+  "lv_prefix_live": 33,
+  "existing_latvia_production": true,
+  "unique_staged": 74,
+  "status_counts": {
+    "READY_TO_IMPORT": 33,
+    "NEEDS_REVIEW": 28,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 1,
+    "EXCLUDED": 12,
+    "CLOSED": 0
+  },
+  "ready_count": 33,
+  "ready_by_brand": {
+    "Gym!": 10,
+    "Lemon Gym": 8,
+    "MyFitness": 15
+  },
+  "brand_counts": {
+    "Anytime Fitness": 1,
+    "Basic-Fit": 1,
+    "Best Fit": 1,
+    "City Fitness": 1,
+    "FITINN": 1,
+    "Global Fitness": 1,
+    "Gym Lāčplēsis": 1,
+    "Gym!": 10,
+    "Gym+": 1,
+    "Impuls": 1,
+    "Lemon Gym": 9,
+    "McFIT": 1,
+    "Municipal audit": 28,
+    "MyFitness": 15,
+    "People Fitness": 1,
+    "clever fit": 1
+  },
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNN (4-digit; LV- prefix stripped in storage)",
+  "existing_production_reconciliation": {
+    "existing_production_count": 33,
+    "phase1_ready_count": 33,
+    "exact_id_overlap": 33,
+    "ready_already_in_production": [
+      "lv_00100556b1",
+      "lv_0ab2d9fa6b",
+      "lv_0e3eba9f8c",
+      "lv_111c1440e3",
+      "lv_19f5ee52f2",
+      "lv_1a0f184657",
+      "lv_2c843b109c",
+      "lv_378dc8d996",
+      "lv_3a2f2a4625",
+      "lv_3b6472323b",
+      "lv_3bb2c336e8",
+      "lv_3d7a57f038",
+      "lv_482c69e16b",
+      "lv_553900baf2",
+      "lv_5c8cffee8f",
+      "lv_63f56e7170",
+      "lv_814dd2ac94",
+      "lv_86cad25aff",
+      "lv_8d289fb8a1",
+      "lv_933fcf75a1",
+      "lv_9944f27897",
+      "lv_a0e6fa5985",
+      "lv_a7854a3b19",
+      "lv_b3e5e39619",
+      "lv_c3befe3f7f",
+      "lv_c4985e5c94",
+      "lv_d0c8689014",
+      "lv_de8c7df71e",
+      "lv_e2b2c34717",
+      "lv_e644a6cbdf",
+      "lv_e97e5cd222",
+      "lv_f7b3a90fa8",
+      "lv_f9bb5b6450"
+    ],
+    "ready_missing_from_production": [],
+    "production_not_in_phase1_ready": [],
+    "material_metadata_drift": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "city_coverage": {
+    "cities": {
+      "Rīga": "A",
+      "Daugavpils": "A",
+      "Liepāja": "B",
+      "Jelgava": "B",
+      "Jūrmala": "B",
+      "Ventspils": "B",
+      "Rēzekne": "B",
+      "Valmiera": "B",
+      "Jēkabpils": "B",
+      "Ogre": "B",
+      "Tukums": "B",
+      "Cēsis": "B",
+      "Sigulda": "B",
+      "Kuldīga": "B",
+      "Saldus": "B",
+      "Bauska": "B",
+      "Madona": "B",
+      "Limbaži": "B",
+      "Gulbene": "B",
+      "Alūksne": "B",
+      "Krāslava": "B",
+      "Ludza": "B",
+      "Preiļi": "B",
+      "Dobele": "B",
+      "Aizkraukle": "B",
+      "Valka": "B",
+      "Mārupe": "B",
+      "Salaspils": "B",
+      "Ikšķile": "B",
+      "Ādaži": "B"
+    },
+    "ready_by_city": {
+      "Rīga": 32,
+      "Daugavpils": 1
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0,
+    "secondary_municipality_gaps": []
+  },
+  "chain_audit": {
+    "country": "Latvia",
+    "phase": 1,
+    "chains": [
+      {
+        "brand": "MyFitness",
+        "evidence": "production_hydrate + official locator (15 open)",
+        "apparent_locations": 15,
+        "qualifying_active": 15,
+        "coming_soon": 0,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "reason": "COMPLETE"
+      },
+      {
+        "brand": "Lemon Gym",
+        "evidence": "production_hydrate + official locator (8 open)",
+        "apparent_locations": 8,
+        "qualifying_active": 8,
+        "coming_soon": 1,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "reason": "COMPLETE"
+      },
+      {
+        "brand": "Gym!",
+        "evidence": "production_hydrate + official locator (10 open)",
+        "apparent_locations": 10,
+        "qualifying_active": 10,
+        "coming_soon": 0,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "reason": "COMPLETE"
+      }
+    ],
+    "probes_investigated": [
+      {
+        "chain": "MyFitness",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "15/15 official Rīga-metro clubs in production"
+      },
+      {
+        "chain": "Lemon Gym",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "8/8 open in production; Ziepniekkalns COMING_SOON"
+      },
+      {
+        "chain": "Gym!",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "10/10 official (9 Rīga + Daugavpils) in production"
+      },
+      {
+        "chain": "People Fitness",
+        "action": "EXCLUDED",
+        "evidence": "Liquidated legacy operator"
+      },
+      {
+        "chain": "F1 Fitness",
+        "action": "ABSENT",
+        "evidence": "No >=3 conventional LV estate found"
+      },
+      {
+        "chain": "Atlētika",
+        "action": "ABSENT",
+        "evidence": "No >=3 conventional LV estate found"
+      },
+      {
+        "chain": "City Fitness",
+        "action": "EXCLUDED",
+        "evidence": "Legacy/MyFitness name confusion"
+      },
+      {
+        "chain": "Global Fitness",
+        "action": "EXCLUDED",
+        "evidence": "Hotel single-site"
+      },
+      {
+        "chain": "Fitness24Seven",
+        "action": "ABSENT",
+        "evidence": "No LV conventional chain estate"
+      },
+      {
+        "chain": "Basic-Fit",
+        "action": "ABSENT",
+        "evidence": "No LV presence"
+      },
+      {
+        "chain": "PureGym",
+        "action": "ABSENT",
+        "evidence": "No LV presence"
+      },
+      {
+        "chain": "McFIT",
+        "action": "ABSENT",
+        "evidence": "No LV presence"
+      },
+      {
+        "chain": "JOHN REED",
+        "action": "ABSENT",
+        "evidence": "No verified LV estate"
+      },
+      {
+        "chain": "Gold's Gym",
+        "action": "ABSENT",
+        "evidence": "No multi-site LV chain"
+      },
+      {
+        "chain": "World Class",
+        "action": "ABSENT",
+        "evidence": "No conventional LV chain"
+      },
+      {
+        "chain": "24-7 Fitness",
+        "action": "ABSENT",
+        "evidence": "Estonian chain — no LV estate"
+      },
+      {
+        "chain": "Gym+",
+        "action": "ABSENT",
+        "evidence": "Lithuanian brand only"
+      },
+      {
+        "chain": "Impuls",
+        "action": "ABSENT",
+        "evidence": "Lithuanian brand only"
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 3,
+      "final_class_a_ready_count": 33,
+      "chain_estate_gaps": 0
+    }
+  },
+  "chain_estate_audit": {
+    "chains": [
+      {
+        "brand": "MyFitness",
+        "official_open_active": 15,
+        "qualifying_active": 15,
+        "ready": 15,
+        "coming_soon": 0,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "locations": [
+          {
+            "id": "lv_482c69e16b",
+            "name": "MyFitness Aleja",
+            "address": "Vienības gatve 194A",
+            "city": "Rīga",
+            "postal_code": "1058",
+            "lat": 56.8963564,
+            "lng": 24.0788844,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_00100556b1",
+            "name": "MyFitness Alfa",
+            "address": "Brīvības gatve 372",
+            "city": "Rīga",
+            "postal_code": "1006",
+            "lat": 56.9826538,
+            "lng": 24.2035652,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_c4985e5c94",
+            "name": "MyFitness Domina",
+            "address": "Ieriķu iela 3",
+            "city": "Rīga",
+            "postal_code": "1084",
+            "lat": 56.9665603,
+            "lng": 24.1659438,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_553900baf2",
+            "name": "MyFitness Dzelzava",
+            "address": "Dzelzavas iela 78",
+            "city": "Rīga",
+            "postal_code": "1082",
+            "lat": 56.9543543,
+            "lng": 24.2002215,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_9944f27897",
+            "name": "MyFitness Galerija Centrs",
+            "address": "Audēju iela 16",
+            "city": "Rīga",
+            "postal_code": "1050",
+            "lat": 56.948155,
+            "lng": 24.1122966,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_933fcf75a1",
+            "name": "MyFitness Galleria Rīga",
+            "address": "Dzirnavu iela 67",
+            "city": "Rīga",
+            "postal_code": "1011",
+            "lat": 56.9546607,
+            "lng": 24.1208409,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_b3e5e39619",
+            "name": "MyFitness Imanta",
+            "address": "Anniņmuižas bulvāris 40A",
+            "city": "Rīga",
+            "postal_code": "1067",
+            "lat": 56.960432,
+            "lng": 24.012464,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_f7b3a90fa8",
+            "name": "MyFitness Matīss",
+            "address": "Matīsa iela 25",
+            "city": "Rīga",
+            "postal_code": "1001",
+            "lat": 56.9571483,
+            "lng": 24.1342394,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_3d7a57f038",
+            "name": "MyFitness Pļavnieki",
+            "address": "Tīnūžu iela 2",
+            "city": "Rīga",
+            "postal_code": "1021",
+            "lat": 56.9347758,
+            "lng": 24.2036309,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_a0e6fa5985",
+            "name": "MyFitness Riga Plaza",
+            "address": "Mūkusalas iela 71",
+            "city": "Rīga",
+            "postal_code": "1004",
+            "lat": 56.9266608,
+            "lng": 24.1030713,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_5c8cffee8f",
+            "name": "MyFitness Sky & More",
+            "address": "Duntes iela 19A",
+            "city": "Rīga",
+            "postal_code": "1005",
+            "lat": 56.9868527,
+            "lng": 24.1321034,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_8d289fb8a1",
+            "name": "MyFitness Spice",
+            "address": "Jaunmoku iela 13",
+            "city": "Rīga",
+            "postal_code": "1046",
+            "lat": 56.9312515,
+            "lng": 24.0392871,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_1a0f184657",
+            "name": "MyFitness Sāga",
+            "address": "Biķeru iela 4",
+            "city": "Rīga",
+            "postal_code": "2130",
+            "lat": 56.9560286,
+            "lng": 24.2563579,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_d0c8689014",
+            "name": "MyFitness Teika Plaza",
+            "address": "Brīvības gatve 201",
+            "city": "Rīga",
+            "postal_code": "1039",
+            "lat": 56.9743172,
+            "lng": 24.161518,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_de8c7df71e",
+            "name": "MyFitness Upītis",
+            "address": "Ernesta Birznieka Upīša iela 21E",
+            "city": "Rīga",
+            "postal_code": "1011",
+            "lat": 56.950172,
+            "lng": 24.1294902,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Lemon Gym",
+        "official_open_active": 8,
+        "qualifying_active": 8,
+        "ready": 8,
+        "coming_soon": 1,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "locations": [
+          {
+            "id": "lv_c3befe3f7f",
+            "name": "Lemon Gym Akropole",
+            "address": "Latgales iela 257",
+            "city": "Rīga",
+            "postal_code": "1019",
+            "lat": 56.9239706,
+            "lng": 24.1751577,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_3a2f2a4625",
+            "name": "Lemon Gym Imanta",
+            "address": "Slokas iela 161",
+            "city": "Rīga",
+            "postal_code": "1067",
+            "lat": 56.9602273,
+            "lng": 24.0338859,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_f9bb5b6450",
+            "name": "Lemon Gym Jugla",
+            "address": "Juglas krastmala 2",
+            "city": "Rīga",
+            "postal_code": "1024",
+            "lat": 56.9894098,
+            "lng": 24.2451218,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_a7854a3b19",
+            "name": "Lemon Gym Purvciems",
+            "address": "Dzelzavas iela 72",
+            "city": "Rīga",
+            "postal_code": "1082",
+            "lat": 56.9556834,
+            "lng": 24.1906435,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_2c843b109c",
+            "name": "Lemon Gym Pļavnieki",
+            "address": "Andreja Saharova iela 30",
+            "city": "Rīga",
+            "postal_code": "1021",
+            "lat": 56.94537,
+            "lng": 24.2088959,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_814dd2ac94",
+            "name": "Lemon Gym Skanste",
+            "address": "Grostonas iela 1",
+            "city": "Rīga",
+            "postal_code": "1013",
+            "lat": 56.9645568,
+            "lng": 24.1196595,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_e97e5cd222",
+            "name": "Lemon Gym Teika",
+            "address": "Gustava Zemgala gatve 71",
+            "city": "Rīga",
+            "postal_code": "1039",
+            "lat": 56.9714791,
+            "lng": 24.1656432,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_0e3eba9f8c",
+            "name": "Lemon Gym Ķengarags",
+            "address": "Latgales iela 264",
+            "city": "Rīga",
+            "postal_code": "1063",
+            "lat": 56.9082626,
+            "lng": 24.1825721,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Gym!",
+        "official_open_active": 10,
+        "qualifying_active": 10,
+        "ready": 10,
+        "coming_soon": 0,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "locations": [
+          {
+            "id": "lv_3b6472323b",
+            "name": "Gym! Barons",
+            "address": "Krišjāņa Barona iela 46",
+            "city": "Rīga",
+            "postal_code": "1011",
+            "lat": 56.9540919,
+            "lng": 24.1276816,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_e2b2c34717",
+            "name": "Gym! Daugava",
+            "address": "Augšiela 1",
+            "city": "Rīga",
+            "postal_code": "1009",
+            "lat": 56.9547093,
+            "lng": 24.1560588,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_0ab2d9fa6b",
+            "name": "Gym! Daugavpils",
+            "address": "Saules iela 64",
+            "city": "Daugavpils",
+            "postal_code": "5401",
+            "lat": 55.8728263,
+            "lng": 26.5260287,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_378dc8d996",
+            "name": "Gym! Dreiliņi",
+            "address": "Ulbrokas iela 34",
+            "city": "Rīga",
+            "postal_code": "1021",
+            "lat": 56.948507,
+            "lng": 24.2199938,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_63f56e7170",
+            "name": "Gym! Imanta",
+            "address": "Kurzemes prospekts 3",
+            "city": "Rīga",
+            "postal_code": "1067",
+            "lat": 56.956297,
+            "lng": 24.0367722,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_3bb2c336e8",
+            "name": "Gym! Imanta X",
+            "address": "Jūrmalas gatve 89",
+            "city": "Rīga",
+            "postal_code": "1069",
+            "lat": 56.9540911,
+            "lng": 24.004589,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_e644a6cbdf",
+            "name": "Gym! Olimpia",
+            "address": "Āzenes iela 5",
+            "city": "Rīga",
+            "postal_code": "1048",
+            "lat": 56.9497668,
+            "lng": 24.0823861,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_86cad25aff",
+            "name": "Gym! Origo",
+            "address": "Stacijas laukums 2",
+            "city": "Rīga",
+            "postal_code": "1050",
+            "lat": 56.947293,
+            "lng": 24.120073,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_19f5ee52f2",
+            "name": "Gym! Purvciems",
+            "address": "Vaidavas iela 9A",
+            "city": "Rīga",
+            "postal_code": "1084",
+            "lat": 56.9625308,
+            "lng": 24.176676,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lv_111c1440e3",
+            "name": "Gym! Zolitūde",
+            "address": "Anniņmuižas iela 17",
+            "city": "Rīga",
+            "postal_code": "1029",
+            "lat": 56.9433858,
+            "lng": 24.018377,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 3,
+      "final_class_a_ready_count": 33,
+      "chain_estate_gaps": 0
+    }
+  },
+  "cross_border": {
+    "latvia_ready_outliers": 0,
+    "lithuania_ready_outliers": 0,
+    "estonia_ready_outliers": 0,
+    "russia_ready_outliers": 0,
+    "belarus_ready_outliers": 0,
+    "valka_valga_identity_collisions": 0
+  },
+  "geocode_audit": {
+    "premises_coords": 33,
+    "fallback_coords": 0,
+    "centroid_coords": 0,
+    "missing_coords": 0
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "identity_conflicts": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 0,
+      "identical": 0
+    }
+  },
+  "specialist_ready_leakage": 0,
+  "institutional_ready_leakage": 0,
+  "hotel_resort_ready_leakage": 0,
+  "new_candidates_from_final_sweep": 0,
+  "projected_catalog_after_future_merge": 11923,
+  "actual_potential_new_delta": 0,
+  "genuinely_new_ready": 0,
+  "projected_remaining_headroom": 577,
+  "projected_crosses_12500": false,
+  "global_stress_qa_will_be_required_after_future_merge": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "phase2_required": true,
+  "verdict": "LATVIA PHASE 2 REQUIRED — EXISTING PRODUCTION RECONCILIATION"
+}

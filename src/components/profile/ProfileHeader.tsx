@@ -148,7 +148,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         onPress={onEditPress}
         activeOpacity={0.8}>
         <Icon name="add-circle-outline" size={18} color={colors.primary} />
-        <Text style={styles.bioPlaceholderText}>Tilføj en bio</Text>
+        <Text style={styles.bioPlaceholderText}>{t('phase2ui.addBio')}</Text>
       </TouchableOpacity>
     ) : null}
   </View>

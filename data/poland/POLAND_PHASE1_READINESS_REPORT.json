@@ -1,0 +1,65 @@
+{
+  "generated": "2026-08-21T22:40:38.741699+00:00",
+  "production_total": 9094,
+  "poland_live": 0,
+  "production_modified": false,
+  "discovered_unique": 415,
+  "categories": {
+    "NEEDS_COORDINATES": 14,
+    "READY_TO_IMPORT": 372,
+    "NEEDS_REVIEW": 25,
+    "COMING_SOON": 4
+  },
+  "ready_to_import": 372,
+  "ready_by_brand": {
+    "Xtreme Fitness Gyms": 185,
+    "Well Fitness": 99,
+    "Just GYM": 55,
+    "CityFit": 24,
+    "Calypso Fitness": 9
+  },
+  "ready_by_city_top": {
+    "Warszawa": 31,
+    "Łódź": 13,
+    "Kraków": 13,
+    "Wrocław": 13,
+    "Poznań": 10,
+    "Katowice": 7,
+    "Gdańsk": 6,
+    "Lublin": 6,
+    "Białystok": 5,
+    "Bydgoszcz": 5,
+    "Kielce": 5,
+    "Szczecin": 5,
+    "Tarnów": 5,
+    "Rzeszów": 4,
+    "Bytom": 4,
+    "Lubin": 4,
+    "Opole": 4,
+    "Głogów": 4,
+    "Siedlce": 3,
+    "Częstochowa": 3,
+    "Elbląg": 3,
+    "Gdynia": 3,
+    "Racibórz": 3,
+    "Bełchatów": 3,
+    "Legnica": 3
+  },
+  "projected_catalog": 9466,
+  "would_cross_10000": false,
+  "centers_below_10000": 534,
+  "centers_above_10000": 0,
+  "global_10k_stress_after_poland_qa": false,
+  "supplement_applied": [
+    "xtreme_api_198",
+    "calypso_markerData_9",
+    "platinium_demoted_rebrand_to_well"
+  ],
+  "material_gaps": [
+    "Zdrofit / Benefit Systems (~279 YE2025 owned; WAF blocks curl — need browser extract)",
+    "Fabryka Formy, FitFabric, Fitness Academy, My Fitness Place, Saturn (Benefit platform)",
+    "Well Fitness WP REST ACF empty — map HTML preferred; verify full 106"
+  ],
+  "recommendation": "POLAND PHASE 2 REQUIRED BEFORE MERGE",
+  "market_audit": "data/poland/raw/MARKET_AUDIT_NOTES.json"
+}

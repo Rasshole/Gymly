@@ -1,0 +1,118 @@
+{
+  "phase": "Norway Phase 2 — readiness (NO MERGE)",
+  "centers_json_untouched": true,
+  "live_norway": 146,
+  "existing_unresolved_batch": {
+    "starting_unresolved": 99,
+    "resolved_and_geocoded_ready": 38,
+    "still_unresolved_no_coords": 60,
+    "by_category_now": {
+      "NEEDS_REVIEW": 18,
+      "NEEDS_COORDINATES": 30,
+      "READY_TO_IMPORT": 38,
+      "SKIP_INCOMPLETE": 13
+    },
+    "still_by_brand": {
+      "SATS": 22,
+      "Fresh Fitness": 9,
+      "EVO Fitness": 18,
+      "MUDO Gym": 2,
+      "3T-Treningssenter": 1,
+      "Feel24": 8
+    }
+  },
+  "missing_chains": {
+    "MOVA": {
+      "discovered": 92,
+      "verified_address": 92,
+      "geocoded": 72,
+      "ready_to_import": 72,
+      "unresolved": 20
+    },
+    "Sporty": {
+      "discovered": 0,
+      "verified": 0,
+      "geocoded": 0,
+      "unresolved": "JS-rendered site — manual/API follow-up"
+    },
+    "Fitness24Seven": {
+      "discovered": 0,
+      "verified": 0,
+      "geocoded": 0,
+      "unresolved": "No address list in static HTML — manual follow-up"
+    },
+    "SKY Fitness": {
+      "discovered": 45,
+      "verified_address": 45,
+      "geocoded": 40,
+      "ready_to_import": 40,
+      "unresolved": 5
+    },
+    "Spenst": {
+      "discovered": 21,
+      "verified_address": 21,
+      "geocoded": 17,
+      "ready_to_import": 17,
+      "unresolved": 4
+    },
+    "Impulse": {
+      "discovered": 4,
+      "verified": 0,
+      "geocoded": 0,
+      "unresolved": "Center pages found (Lade/Lerkendal/Pirbadet/Solsiden) but addresses not in static HTML"
+    },
+    "3T": {
+      "discovered_official": 17,
+      "phase2_new_ready": 11,
+      "phase1_staging_ready": 1,
+      "still_unresolved": 5
+    },
+    "Feel24": {
+      "scraped_with_address": 111,
+      "phase2_new_ready": 69,
+      "phase1_staging_ready": 18,
+      "live_already": 2,
+      "still_unresolved_phase1": 8
+    }
+  },
+  "duplicates": {
+    "same_address_same_brand_as_staging": 26,
+    "same_address_same_brand_as_live": 3,
+    "flagged_feelgood_harstad": "Same address as live Feel24 Harstad Sentrum — demoted from READY",
+    "same_address_legitimate_separate": "SATS Triaden / MUDO Lørenskog already live (Phase 1)"
+  },
+  "overall": {
+    "live_now": 146,
+    "new_READY_TO_IMPORT": 247,
+    "ready_from_phase1_unresolved": 38,
+    "ready_from_phase2_new_chains": 209,
+    "remaining_unresolved_no_coords": 108,
+    "estimated_total_norway_after_phase2_merge": 393
+  },
+  "quality": {
+    "suspicious_soft_postal_or_weak_match": 26,
+    "ambiguous_left_null": 30,
+    "coming_soon_notes": [
+      "Spenst Fredrikstad åpner januar 2027 (not imported)",
+      "SKY site mentions new Moss/Ski centres høsten 2026 — verify if any listed centres are not yet open"
+    ],
+    "human_review_recommended": [
+      "All geocode_suspicious READY rows (postal soft-match)",
+      "Feel24 Feelgood Harstad vs Harstad Sentrum",
+      "Remaining EVO rows without postal on official list",
+      "Sporty / Fitness24Seven / Impulse address capture",
+      "Feel24 Fløylia + Stormyra Panorama (no Besøksadresse on page)"
+    ]
+  },
+  "ready_breakdown_by_brand": {
+    "SATS": 10,
+    "Fresh Fitness": 2,
+    "EVO Fitness": 6,
+    "MUDO Gym": 1,
+    "3T-Treningssenter": 12,
+    "Feel24": 87,
+    "MOVA": 72,
+    "SKY Fitness": 40,
+    "Spenst": 17
+  }
+}

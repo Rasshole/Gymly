@@ -1,0 +1,35 @@
+{
+  "proximity": {
+    "identical": [],
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "different_brand_lt100": [],
+    "different_brand_lt200": []
+  },
+  "dq": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "missing_eligibility_path": 0,
+    "all_gates_pass": true
+  },
+  "dq_detail": {
+    "duplicate_ids": [],
+    "invalid_ready_postcodes": [],
+    "missing_ready_fields": [],
+    "invalid_ready_coords": [],
+    "fallback_coords": [],
+    "foreign_outliers": [],
+    "mojibake": [],
+    "missing_eligibility_path": [],
+    "all_gates_pass": true
+  },
+  "hard_duplicate_problems": 0,
+  "unexplained_same_brand_proximity": 0
+}

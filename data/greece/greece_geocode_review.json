@@ -1,0 +1,174 @@
+{
+  "needs_coordinates": [
+    {
+      "id": "gr_ec928ebde5",
+      "name": "Alterlife ΑΓΙΑ ΣΟΦΙΑ",
+      "brand": "Alterlife",
+      "address": "Π. Ιωακείμ 12, Κέντρο Θεσσαλονίκης 54622"
+    },
+    {
+      "id": "gr_2605da93d9",
+      "name": "Alterlife ΚΑΡΔΙΤΣΑ – ΠΑΥΣΙΛΥΠΟ",
+      "brand": "Alterlife",
+      "address": "Γαρδικιου 5, Καρδιτσα Παυσιλυπο 43100"
+    },
+    {
+      "id": "gr_998c065f2e",
+      "name": "Alterlife ΚΕΦΑΛΑΡΙ",
+      "brand": "Alterlife",
+      "address": "Φιλαδέλφεως 8 & Χαριλάου Τρικούπη , Κεφαλάρι Κηφισιάς 14562"
+    },
+    {
+      "id": "gr_b2e2663615",
+      "name": "Alterlife ΝΕΑ ΠΟΛΙΤΕΙΑ ΕΥΟΣΜΟΥ",
+      "brand": "Alterlife",
+      "address": "Προέκταση Μακρυγιάννη & Γανυμήδη 1, Θεσσαλονίκη 56224"
+    },
+    {
+      "id": "gr_334bc68f48",
+      "name": "Alterlife ΠΑΓΚΡΑΤΙ – ΦΙΛΟΛΑΟΥ",
+      "brand": "Alterlife",
+      "address": "Φιλολάου 64, Παγκράτι 11633"
+    },
+    {
+      "id": "gr_f92600c6d5",
+      "name": "Alterlife ΦΑΡΣΑΛΑ",
+      "brand": "Alterlife",
+      "address": "Μαρίνου Αντύπα 16 και Ανώνυμου , Φαρσαλα 40300"
+    },
+    {
+      "id": "gr_0b98944848",
+      "name": "Alterlife ΧΑΪΔΑΡΙ",
+      "brand": "Alterlife",
+      "address": "Λεωφόρος Αθηνών 336, Χαϊδάρι 12462"
+    },
+    {
+      "id": "gr_63efc92f24",
+      "name": "Alterlife ΧΑΛΑΝΔΡΙ – ΑΒΑΝΑ",
+      "brand": "Alterlife",
+      "address": "Λ. ΚΗΦΙΣΙΑΣ 216, ΧΑΛΑΝΔΡΙ 15231"
+    },
+    {
+      "id": "gr_c3def102a4",
+      "name": "Alterlife ΧΑΝΙΑ – ΜΑΚΡΥΣ ΤΟΙΧΟΣ",
+      "brand": "Alterlife",
+      "address": "Κανδάνου 1, 3O Χλμ Παλαιάς Εθνικής Όδου , Μακρύς Τοίχος, Χανιά 73099"
+    },
+    {
+      "id": "gr_8f260a5fa5",
+      "name": "Alterlife ΧΑΝΙΑ – ΠΑΤΡΙΑΡΧΟΥ ΓΕΡΑΣΙΜΟΥ",
+      "brand": "Alterlife",
+      "address": "Πατριάρχου Γερασίμου 18, Νέα Χώρα Χανιά 73131"
+    },
+    {
+      "id": "gr_3b5acc9060",
+      "name": "Alterlife ΧΟΛΑΡΓΟΣ",
+      "brand": "Alterlife",
+      "address": "Λ. Μεσογείων 273 & Βύρωνος 2 , Χολαργός 15231"
+    },
+    {
+      "id": "gr_ec48c28605",
+      "name": "Alterlife GOLDEN HALL",
+      "brand": "Alterlife",
+      "address": "Κηφισίας 37Α, Μαρούσι 15122"
+    },
+    {
+      "id": "gr_0619e3ecac",
+      "name": "Alterlife RIVER WEST",
+      "brand": "Alterlife",
+      "address": "Κηφισού 96-98, Αιγάλεω 12241"
+    },
+    {
+      "id": "gr_738ad726c1",
+      "name": "Alterlife THE ORBIT – ΑΜΠΕΛΟΚΗΠΟΙ",
+      "brand": "Alterlife",
+      "address": "Λ. Κηφισίας 115, Αμπελόκηποι 11524"
+    },
+    {
+      "id": "gr_0492203173",
+      "name": "Alterlife WEST SALONICA",
+      "brand": "Alterlife",
+      "address": "Γιαννιτσών 92, Θεσσαλονίκη 54627"
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "gr_3bf45df5e8",
+      "name": "YAVA ΑΙΓΑΛΕΩ",
+      "brand": "Yava",
+      "notes": "yava_content_page_phase2"
+    },
+    {
+      "id": "gr_eb35e58530",
+      "name": "YAVA ΓΛΥΦΑΔΑ",
+      "brand": "Yava",
+      "notes": "yava_content_page_phase2"
+    },
+    {
+      "id": "gr_2db6f839a2",
+      "name": "YAVA ΗΡΑΚΛΕΙΟ ΚΡΗΤΗΣ",
+      "brand": "Yava",
+      "notes": "yava_content_page_phase2"
+    },
+    {
+      "id": "gr_40319541e3",
+      "name": "YAVA ΚΟΡΩΠΙ",
+      "brand": "Yava",
+      "notes": "yava_content_page_phase2"
+    },
+    {
+      "id": "gr_9de7e1fe6d",
+      "name": "YAVA ΝΕΟ ΨΥΧΙΚΟ",
+      "brand": "Yava",
+      "notes": "yava_content_page_phase2"
+    },
+    {
+      "id": "gr_141eb26141",
+      "name": "YAVA ΠΑΤΡΑ",
+      "brand": "Yava",
+      "notes": "yava_content_page_phase2"
+    },
+    {
+      "id": "gr_4817875458",
+      "name": "YAVA ΘΕΣΣΑΛΟΝΙΚΗ (Κάτω Τούμπα)",
+      "brand": "Yava",
+      "notes": "yava_content_page_phase2"
+    },
+    {
+      "id": "gr_9bace127df",
+      "name": "Planet Fitness Καλλιθέα",
+      "brand": "Planet Fitness Greece",
+      "notes": "planetfitness_gr_club_page"
+    },
+    {
+      "id": "gr_e53450042b",
+      "name": "Planet Fitness Πειραιάς",
+      "brand": "Planet Fitness Greece",
+      "notes": "planetfitness_gr_club_page"
+    },
+    {
+      "id": "gr_df2945b81f",
+      "name": "Planet Fitness Σαλαμίνα",
+      "brand": "Planet Fitness Greece",
+      "notes": "planetfitness_gr_club_page"
+    },
+    {
+      "id": "gr_a6bc7980a6",
+      "name": "Mega Gym Γλυφάδα",
+      "brand": "Mega Gym",
+      "notes": "megagym_official_contact_block"
+    },
+    {
+      "id": "gr_a03c85edee",
+      "name": "Mega Gym Νέα Κηφισιά",
+      "brand": "Mega Gym",
+      "notes": "megagym_official_contact_block"
+    },
+    {
+      "id": "gr_47495f9e2c",
+      "name": "Mega Gym Γέρακας",
+      "brand": "Mega Gym",
+      "notes": "megagym_official_contact_block"
+    }
+  ]
+}

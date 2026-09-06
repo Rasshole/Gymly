@@ -1,0 +1,178 @@
+{
+  "conflict_region_candidates": 24,
+  "conflict_region_ready": 0,
+  "conflict_region_excluded": 24,
+  "conflict_region_closed": 0,
+  "conflict_region_unresolved": 0,
+  "conflict_region_operation_unverified_ready": 0,
+  "identities": [
+    {
+      "id": "az_000a4240ed",
+      "name": "Trenajor zalı",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_11a8b2f361",
+      "name": "Taekvando kursu",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_31e6e9ffe6",
+      "name": "İdman Məktəbi",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_f233ff84d4",
+      "name": "Güləş məktəbi",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_6c52c6ff08",
+      "name": "Trenajor zalı",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_4d7e3b9682",
+      "name": "Fitnes zalı",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_bf11d78641",
+      "name": "İdman zalı",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_e91ac9546f",
+      "name": "Trenajor",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_85d2a1b58b",
+      "name": "Trenajor zalı",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_354ff819e0",
+      "name": "Klub",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_5e18f13d84",
+      "name": "Ovçu-balıqçı klubu",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_d7731a6467",
+      "name": "Khankendi fitness centre probe",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_130d5b7006",
+      "name": "Shusha gym candidate",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_1f5a034fee",
+      "name": "Agdam sports club probe",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_b032b4590b",
+      "name": "Fuzuli fitness probe",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION"
+    },
+    {
+      "id": "az_a36cfba7de",
+      "name": "İdman məktəbi",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_dba8ed1cf5",
+      "name": "2 saylı idman məktəbi",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_b2ce9db928",
+      "name": "İdman məktəbi",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_c6f71b2943",
+      "name": "İdman zalı",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_f1cb059896",
+      "name": "Köhnə Dinamo",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_23501b988c",
+      "name": "İdman salonu",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_d30d4fc499",
+      "name": "İdman zalı",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_5abede98ab",
+      "name": "İdman məktəbi",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    },
+    {
+      "id": "az_b95d1ed404",
+      "name": "Uşaq İdman Məktəbi",
+      "region": "Karabakh",
+      "disposition": "EXCLUDED",
+      "classification": "PHASE1_EXCLUDED"
+    }
+  ]
+}

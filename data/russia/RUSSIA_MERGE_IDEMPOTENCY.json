@@ -1,0 +1,23 @@
+{
+  "first_run": {
+    "insertions": 465,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12385,
+    "total_after": 12850,
+    "russia_before": 0,
+    "russia_after": 465
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12850,
+    "total_after": 12850,
+    "russia_before": 465,
+    "russia_after": 465,
+    "ru_prefix_before": 465,
+    "ru_prefix_after": 465
+  },
+  "idempotent": true
+}

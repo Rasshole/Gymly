@@ -1,12 +1,15 @@
 /**
- * Auto-checkout: GPS >200 m → completeWorkoutSession + stop timer + modal.
+ * Auto-checkout: GPS uden for radius → completeWorkoutSession + stop timer + modal.
  */
 import {type AppStateStatus} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-import {ACTIVE_CHECKIN_LOCATION_INTERVAL_MS} from '@/config/activeCheckinGeofenceConfig';
+import {
+  ACTIVE_CHECKIN_LOCATION_INTERVAL_MS,
+  ACTIVE_CHECKIN_SAFE_RADIUS,
+} from '@/config/activeCheckinGeofenceConfig';
 import {getGymLatLngForCheckIn} from '@/utils/gymCoordinatesForCheckIn';
 import {getDistanceInMeters} from '@/utils/geoUtils';
-import {pushDistanceSample, type GeofenceZone} from '@/logic/activeCheckinGeofenceEngine';
+import {pushDistanceSample, computeStableFlags, type GeofenceZone} from '@/logic/activeCheckinGeofenceEngine';
 import {
   decideGeofenceAutoCheckout,
   shouldShowAwayZoneWarning,
@@ -126,9 +129,6 @@ export async function runAutoCheckoutEvaluation(params: {
   userCoords?: {latitude: number; longitude: number} | null;
 }): Promise<void> {
   const {userId, appState, userCoords} = params;
-  if (appState !== 'active') {
-    return;
-  }
 
   const now = Date.now();
   const row = await getActiveCheckInForUser(userId).catch(() => null);
@@ -164,7 +164,7 @@ export async function runAutoCheckoutEvaluation(params: {
   const devD = getAutoCheckoutDevDistanceOverride();
   if (devD != null) {
     distM = devD;
-    st.zoneHistory = [...st.zoneHistory, devD > 200 ? 2 : 1].slice(-5) as GeofenceZone[];
+    st.zoneHistory = [...st.zoneHistory, devD > ACTIVE_CHECKIN_SAFE_RADIUS ? 2 : 1].slice(-5) as GeofenceZone[];
     st.lastDistM = devD;
     st.lastCoordsAt = now;
   } else {
@@ -208,9 +208,11 @@ export async function runAutoCheckoutEvaluation(params: {
     st.clientAwayStartedAt ?? row.away_started_at ?? null;
   const decision = decideGeofenceAutoCheckout(distM, awayIso, now);
 
-  useCheckInUIStore
-    .getState()
-    .setShowAwayZoneWarning(shouldShowAwayZoneWarning(decision, distM));
+  if (appState === 'active') {
+    useCheckInUIStore
+      .getState()
+      .setShowAwayZoneWarning(shouldShowAwayZoneWarning(decision, distM));
+  }
 
   if (__DEV__) {
     console.log('[AutoCheckout]', {
@@ -260,9 +262,24 @@ export async function runAutoCheckoutEvaluation(params: {
       }
       return;
 
-    case 'checkout_away':
+    case 'checkout_away': {
+      // Require 2 consecutive outside readings (in addition to grace) so one noisy GPS sample cannot end the session.
+      const {stableOutside} = computeStableFlags(st.zoneHistory);
+      if (!stableOutside && getAutoCheckoutDevDistanceOverride() == null) {
+        try {
+          await patchCheckInAwayState(row.id, userId, {
+            away_started_at: awayIso,
+            last_distance_meters: Math.round(distM),
+          });
+          await updateCheckInLastSeenAt(row.id, userId, new Date());
+        } catch {
+          /* ignore */
+        }
+        return;
+      }
       await performAutoDistanceCheckout(row, userId, distM, st);
       return;
+    }
 
     case 'none':
     default:

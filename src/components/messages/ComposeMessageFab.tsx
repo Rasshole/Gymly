@@ -12,6 +12,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import Svg, {Circle, Defs, LinearGradient, Stop} from 'react-native-svg';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 const FAB_SIZE = 60;
 const ICON_SIZE = 26;
@@ -23,6 +24,7 @@ type Props = {
 };
 
 export function ComposeMessageFab({onPress, bottom, right = 16}: Props) {
+  const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
 
   const pressIn = () => {
@@ -59,7 +61,7 @@ export function ComposeMessageFab({onPress, bottom, right = 16}: Props) {
         onPressIn={pressIn}
         onPressOut={pressOut}
         accessibilityRole="button"
-        accessibilityLabel="Ny besked"
+        accessibilityLabel={t('a11y.newMessage')}
         style={styles.hit}>
         <View style={styles.shadowLayer} />
         <Svg width={FAB_SIZE} height={FAB_SIZE} style={StyleSheet.absoluteFill}>

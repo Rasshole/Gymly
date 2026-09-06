@@ -1,0 +1,343 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:53:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4316323603,
+      "lat": 57.6371513,
+      "lon": 39.8435248,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Лазурный"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4760344596,
+      "lat": 57.6517557,
+      "lon": 39.9486648,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Лофт-Фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5027197821,
+      "lat": 57.6238574,
+      "lon": 39.8840187,
+      "tags": {
+        "email": "newfitness76@yandex.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "ФК \"Стиль Жизни\"",
+        "name:en": "FC \"Life Style\"",
+        "website": "http://фкстильжизни.рф"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5863392205,
+      "lat": 57.600715,
+      "lon": 39.876441,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Качёк"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6691245624,
+      "lat": 57.6094608,
+      "lon": 39.8729723,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6766497927,
+      "lat": 57.6304356,
+      "lon": 39.8506046,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "The Best",
+        "phone": "+7 4852 586807"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6877895082,
+      "lat": 57.6289905,
+      "lon": 39.8545004,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Полет"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6961474356,
+      "lat": 57.6974196,
+      "lon": 39.7951295,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Pride"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377408,
+      "lat": 57.5720119,
+      "lon": 39.8493755,
+      "tags": {
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 485 2695329;+7 800 5050606",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-yaroslavl-nagornyj.html/",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 08:00-22:00",
+        "operator": "ИП Илларионов Р.И."
+      }
+    },
+    {
+      "type": "node",
+      "id": 8936686417,
+      "lat": 57.608767,
+      "lon": 39.8437755,
+      "tags": {
+        "addr:postcode": "150002",
+        "email": "info@expert-sports.ru",
+        "leisure": "fitness_centre",
+        "name": "Эксперт",
+        "name:en": "Expert",
+        "opening_hours": "Mo-Su 08:00-21:00",
+        "phone": "+74852980909",
+        "website": "https://expert-sports.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8936689917,
+      "lat": 57.6085443,
+      "lon": 39.8439953,
+      "tags": {
+        "addr:postcode": "150002",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Эволюция",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "phone": "+74852663863",
+        "website": "http://gym76.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9274803653,
+      "lat": 57.6410223,
+      "lon": 39.8394068,
+      "tags": {
+        "addr:city": "Ярославль",
+        "addr:housenumber": "10",
+        "addr:street": "улица Белинского",
+        "leisure": "fitness_centre",
+        "name": "ФитКульт"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9276962138,
+      "lat": 57.6406851,
+      "lon": 39.8432311,
+      "tags": {
+        "addr:city": "Ярославль",
+        "addr:housenumber": "10/12",
+        "addr:street": "улица Радищева",
+        "leisure": "fitness_centre",
+        "name": "Яроо Федерация спортивной аэробики"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9404790130,
+      "lat": 57.5743691,
+      "lon": 39.8742418,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Grafit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9772662337,
+      "lat": 57.6852146,
+      "lon": 39.8033982,
+      "tags": {
+        "addr:city": "Ярославль",
+        "addr:housenumber": "7А",
+        "addr:postcode": "150044",
+        "addr:street": "улица Урицкого",
+        "leisure": "fitness_centre",
+        "name": "PROFIT",
+        "phone": "+7 4852  20 62 60",
+        "website": "https://vk.com/profit76sport"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10670023028,
+      "lat": 57.626382,
+      "lon": 39.877877,
+      "tags": {
+        "contact:email": "help@fhclub.ru",
+        "contact:phone": "+7 485 2695329;+7 800 5050606",
+        "contact:website": "https://www.fitnesshouse.ru/fh-yaroslavl-respublikanskaya.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10982344961,
+      "lat": 57.7253454,
+      "lon": 39.7541928,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Будь Круче"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11138735095,
+      "lat": 57.6277553,
+      "lon": 39.8694065,
+      "tags": {
+        "contact:phone": "+7 495 2555000",
+        "contact:website": "https://www.ddxfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Ddx",
+        "opening_hours": "Mo-Su 06:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443631,
+      "lat": 57.6228801,
+      "lon": 39.8560746,
+      "tags": {
+        "contact:phone": "+7 999 7867533",
+        "contact:website": "https://ladystretch.com/yaroslavl",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12541072826,
+      "lat": 57.67881,
+      "lon": 39.7897261,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Flex Fitness",
+        "opening_hours": "Mo-Fr 06:30-23:00; Sa-Su 08:30-22:00",
+        "phone": "26-88-88",
+        "sauna": "yes",
+        "sport": "fitness",
+        "website": "https://yaroslavl.flex-fitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13823965154,
+      "lat": 57.6177604,
+      "lon": 39.8540664,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Галерея"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14081880901,
+      "lat": 57.6571072,
+      "lon": 39.8429015,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fortius"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14081881001,
+      "lat": 57.6571173,
+      "lon": 39.8428254,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Prime Alliance Team"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14082254401,
+      "lat": 57.6396084,
+      "lon": 39.841642,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Волжанин"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14133472801,
+      "lat": 57.6122238,
+      "lon": 39.8815582,
+      "tags": {
+        "addr:housenumber": "10/15",
+        "addr:street": "Московский проспект",
+        "leisure": "fitness_centre",
+        "name": "Афитнес",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-21:00",
+        "phone": "+7 (4852) 33-52-52;+7 (995) 295-11-50;+7 (910) 973-52-52",
+        "website": "http://www.azimut.fit/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 101935967,
+      "center": {
+        "lat": 57.6268013,
+        "lon": 39.8692995
+      },
+      "tags": {
+        "addr:housenumber": "46А",
+        "addr:street": "улица Свободы",
+        "building": "yes",
+        "building:levels": "2",
+        "height": "12",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 240520038,
+      "center": {
+        "lat": 57.6290215,
+        "lon": 39.8563035
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "1",
+        "leisure": "fitness_centre",
+        "name": "Prime"
+      }
+    }
+  ]
+}

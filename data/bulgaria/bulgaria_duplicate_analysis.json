@@ -1,0 +1,38 @@
+{
+  "ready_count": 82,
+  "duplicate_ids": 0,
+  "same_brand_counts": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "same_brand": {
+    "lte_25m": [],
+    "lte_50m": [],
+    "lte_100m": [],
+    "lte_200m": [],
+    "identical": []
+  },
+  "phase2_ready_preserved": 67,
+  "pulse_westpark_lyulin": {
+    "classification": "A_legitimate",
+    "distance_m": 1081,
+    "west_park": {
+      "address": "60 Petar Dertliev Blvd.",
+      "postal": "1805",
+      "lat": 42.7096227,
+      "lng": 23.2572209,
+      "status": "READY_TO_IMPORT"
+    },
+    "lyulin": {
+      "address": "Blvd. Tsaritsa Ioana, bl 276",
+      "postal": "1335",
+      "lat": 42.7112673,
+      "lng": 23.2702626,
+      "status": "READY_TO_IMPORT"
+    },
+    "evidence": "Distinct official addresses (Petar Dertliev 60 vs Tsaritsa Ioana bl 276); geocodes ~1.08km apart"
+  }
+}

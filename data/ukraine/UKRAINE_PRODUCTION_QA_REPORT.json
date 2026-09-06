@@ -1,0 +1,713 @@
+{
+  "country": "Ukraine",
+  "qa_type": "PRODUCTION_QA_FINAL",
+  "generated_at": "2026-08-29T15:31:34.565Z",
+  "read_only": true,
+  "production_modified": false,
+  "qa_sha_before": "bec3945dd35bb8bf9cc57046110736a5fa267a673445cf4a26dba6ed92d64e05",
+  "qa_bytes_before": 3746747,
+  "qa_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "catalog_total": 12034,
+  "ukraine_live": 105,
+  "ua_prefix_live": 105,
+  "malta_live": 24,
+  "headroom": 466,
+  "phase2_inputs": {
+    "keep_existing": 0,
+    "new_ready_to_import": 105,
+    "existing_review_required": 0,
+    "needs_review": 0,
+    "needs_coordinates": 0,
+    "coming_soon": 6,
+    "excluded": 31,
+    "closed": 2,
+    "approved_for_production": 105,
+    "live_production": 105,
+    "four_way": {
+      "phase2_ready": 105,
+      "approved": 105,
+      "production": 105,
+      "a_equals_b": true,
+      "b_equals_c": true,
+      "phase2_ready_missing_from_approved": 0,
+      "approved_missing_from_production": 0,
+      "production_not_approved": 0,
+      "unauthorized_ukraine_production": 0
+    },
+    "merge_delta": {
+      "pre_ukraine": 0,
+      "authorized_new": 105,
+      "post_ukraine": 105,
+      "insertions": 105,
+      "updates": 0,
+      "removals": 0
+    }
+  },
+  "four_way_reconciliation": {
+    "phase2_ready": 105,
+    "approved": 105,
+    "production": 105,
+    "a_equals_b": true,
+    "b_equals_c": true,
+    "phase2_ready_missing_from_approved": 0,
+    "approved_missing_from_production": 0,
+    "production_not_approved": 0,
+    "unauthorized_ukraine_production": 0
+  },
+  "merge_delta_reconstruction": {
+    "pre_ukraine": 0,
+    "authorized_new": 105,
+    "post_ukraine": 105,
+    "insertions": 105,
+    "updates": 0,
+    "removals": 0
+  },
+  "authorized_identities": {
+    "authorized_new_present": 105,
+    "authorized_new_missing": [],
+    "authorized_new_duplicated": 0,
+    "authorized_new_material_drift": []
+  },
+  "brand_inventory": {
+    "Apollo Next": 24,
+    "Sport Life": 42,
+    "Total Fitness": 18,
+    "Smartass": 10,
+    "Fitness Formula": 1,
+    "Grafit": 4,
+    "Grand Prix": 1,
+    "FitCurves": 1,
+    "SportZal": 1,
+    "Atlas Fitness": 1,
+    "ProFitness": 1,
+    "Olymp": 1
+  },
+  "expected_brands": {
+    "Sport Life": 42,
+    "Apollo Next": 24,
+    "Smartass": 10,
+    "Total Fitness": 18,
+    "Grafit": 4,
+    "Atlas Fitness": 1,
+    "Grand Prix": 1,
+    "Olymp": 1,
+    "Fitness Formula": 1,
+    "ProFitness": 1,
+    "FitCurves": 1,
+    "SportZal": 1
+  },
+  "class_a": {
+    "chain_count": 4,
+    "approved": 94,
+    "estate_drift": 0
+  },
+  "sport_life": {
+    "active": 42,
+    "cs_leakage": [],
+    "excluded_leakage": [],
+    "closed_leakage": [],
+    "gatne_present": true
+  },
+  "apollo_next": {
+    "active": 24,
+    "city_metadata_errors": [],
+    "estate_drift": 0
+  },
+  "smartass": {
+    "active": 10,
+    "pidstryhacha_count": 1,
+    "foreign_leakage": [],
+    "estate_drift": 0
+  },
+  "total_fitness": {
+    "active": 18,
+    "city_metadata_errors": [],
+    "hlybochytska_production": 0
+  },
+  "energy_fitness": {
+    "active": 0
+  },
+  "grafit": {
+    "active": 4,
+    "estate_drift": []
+  },
+  "independents": {
+    "drift": []
+  },
+  "coming_soon": {
+    "authoritative_count": 6,
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "excluded": {
+    "authoritative_count": 31,
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "closed": {
+    "authoritative_count": 2,
+    "production_leakage": [],
+    "approved_leakage": []
+  },
+  "conflict_area": {
+    "operation_unverified_production": []
+  },
+  "hotel_wellness": {
+    "hotel_resort_leakage": []
+  },
+  "specialist_institutional": {
+    "specialist_leakage": [],
+    "institutional_leakage": []
+  },
+  "country_prefix": {
+    "invalid_ukraine_countries": 0,
+    "invalid_ua_ids": 0,
+    "non_ua_ukraine_ids": 0,
+    "global_duplicate_ids": false,
+    "ukraine_duplicate_ids": false
+  },
+  "city_metadata": {
+    "errors": []
+  },
+  "postcodes": {
+    "invalid": 0,
+    "non_canonical": 0
+  },
+  "coordinates": {
+    "invalid": 0,
+    "missing": 0,
+    "fallback": 0,
+    "centroid": 0,
+    "suspect": 0
+  },
+  "duplicates": {
+    "hard_duplicate_conflicts": [],
+    "transliteration_duplicate_conflicts": [],
+    "multilingual_duplicate_conflicts": [],
+    "unresolved_rebrand_conflicts": 0,
+    "phase2_authoritative": {
+      "hard_duplicate_conflicts": 0,
+      "diacritic_duplicate_conflicts": 0,
+      "multilingual_duplicate_conflicts": 0,
+      "colocated_distinct_gyms": 6
+    }
+  },
+  "cross_border": {
+    "poland_outliers": [],
+    "slovakia_outliers": [],
+    "hungary_outliers": [],
+    "romania_outliers": [],
+    "moldova_outliers": [],
+    "belarus_outliers": [],
+    "russia_geocode_outliers": [],
+    "live_outliers": []
+  },
+  "data_quality": {
+    "invalid_ua_ids": 0,
+    "non_ua_ukraine_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "non_canonical_postcodes": 0,
+    "invalid_coordinates": 0,
+    "missing_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "infrastructure": {
+    "gaps": [],
+    "runtime_hacks": 0,
+    "infrastructure_gaps": 0
+  },
+  "search_map": {
+    "search_results": [
+      {
+        "query": "Ukraine",
+        "hits": 105,
+        "ok": true
+      },
+      {
+        "query": "Україна",
+        "hits": 105,
+        "ok": true
+      },
+      {
+        "query": "Kyiv",
+        "hits": 64,
+        "ok": true
+      },
+      {
+        "query": "Kiev",
+        "hits": 105,
+        "ok": true
+      },
+      {
+        "query": "Київ",
+        "hits": 105,
+        "ok": true
+      },
+      {
+        "query": "Kharkiv",
+        "hits": 3,
+        "ok": true
+      },
+      {
+        "query": "Kharkov",
+        "hits": 105,
+        "ok": true
+      },
+      {
+        "query": "Odesa",
+        "hits": 6,
+        "ok": true
+      },
+      {
+        "query": "Odessa",
+        "hits": 105,
+        "ok": true
+      },
+      {
+        "query": "Dnipro",
+        "hits": 3,
+        "ok": true
+      },
+      {
+        "query": "Lviv",
+        "hits": 11,
+        "ok": true
+      },
+      {
+        "query": "Vinnytsia",
+        "hits": 3,
+        "ok": true
+      },
+      {
+        "query": "Ivano-Frankivsk",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Zhytomyr",
+        "hits": 4,
+        "ok": true
+      },
+      {
+        "query": "Brovary",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Boryspil",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Bila Tserkva",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Vyshneve",
+        "hits": 3,
+        "ok": true
+      },
+      {
+        "query": "Sofiivska Borshchahivka",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Khmelnytskyi",
+        "hits": 2,
+        "ok": true
+      },
+      {
+        "query": "Sport Life",
+        "hits": 42,
+        "ok": true
+      },
+      {
+        "query": "Apollo Next",
+        "hits": 24,
+        "ok": true
+      },
+      {
+        "query": "Smartass",
+        "hits": 10,
+        "ok": true
+      },
+      {
+        "query": "Total Fitness",
+        "hits": 18,
+        "ok": true
+      },
+      {
+        "query": "Grafit",
+        "hits": 4,
+        "ok": true
+      },
+      {
+        "query": "Atlas Fitness",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Grand Prix",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Olymp",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "Fitness Formula",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "ProFitness",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "FitCurves",
+        "hits": 1,
+        "ok": true
+      },
+      {
+        "query": "SportZal",
+        "hits": 1,
+        "ok": true
+      }
+    ],
+    "search_failures": [],
+    "map_active_markers": 105,
+    "coming_soon_map_markers": 0,
+    "excluded_map_markers": 0,
+    "closed_map_markers": 0,
+    "foreign_map_markers": 0,
+    "nearest_results": [
+      {
+        "label": "Kyiv",
+        "lat": 50.4501,
+        "lng": 30.5234,
+        "winner_id": "ua_04452ccd8e",
+        "winner_name": "APOLLO NEXT 021 (ARENA City)",
+        "winner_brand": "Apollo Next",
+        "distance_m": 890,
+        "ok": true
+      },
+      {
+        "label": "Lviv",
+        "lat": 49.8397,
+        "lng": 24.0297,
+        "winner_id": "ua_f462572161",
+        "winner_name": "Total Fitness Lviv — вул. Вовчинецька, 225а, ТРЦ Veles Mall",
+        "winner_brand": "Total Fitness",
+        "distance_m": 1413,
+        "ok": true
+      },
+      {
+        "label": "Odesa",
+        "lat": 46.4825,
+        "lng": 30.7233,
+        "winner_id": "ua_8941c70c36",
+        "winner_name": "APOLLO NEXT 037 (ТРЦ «Острів»)",
+        "winner_brand": "Apollo Next",
+        "distance_m": 1851,
+        "ok": true
+      },
+      {
+        "label": "Dnipro",
+        "lat": 48.4647,
+        "lng": 35.0462,
+        "winner_id": "ua_10e02e217c",
+        "winner_name": "Fitness Formula Dnipro",
+        "winner_brand": "Fitness Formula",
+        "distance_m": 866,
+        "ok": true
+      },
+      {
+        "label": "Kharkiv",
+        "lat": 49.9935,
+        "lng": 36.2304,
+        "winner_id": "ua_24b745a754",
+        "winner_name": "Sport Life Нікольський",
+        "winner_brand": "Sport Life",
+        "distance_m": 341,
+        "ok": true
+      },
+      {
+        "label": "Vinnytsia",
+        "lat": 49.2328,
+        "lng": 28.4682,
+        "winner_id": "ua_7055f7e4fe",
+        "winner_name": "FitCurves Vinnytsia",
+        "winner_brand": "FitCurves",
+        "distance_m": 1297,
+        "ok": true
+      },
+      {
+        "label": "Cherkasy",
+        "lat": 49.4444,
+        "lng": 32.0598,
+        "winner_id": "ua_04cb2314b1",
+        "winner_name": "Total Fitness Cherkasy — вул. Смілянська, 45, ТЦ «Ринковий»",
+        "winner_brand": "Total Fitness",
+        "distance_m": 1832,
+        "ok": true
+      },
+      {
+        "label": "Rivne",
+        "lat": 50.6199,
+        "lng": 26.2516,
+        "winner_id": "ua_39c5885bd0",
+        "winner_name": "Sport Life Рівне",
+        "winner_brand": "Sport Life",
+        "distance_m": 2955,
+        "ok": true
+      },
+      {
+        "label": "Lutsk",
+        "lat": 50.7472,
+        "lng": 25.3254,
+        "winner_id": "ua_59d45929f4",
+        "winner_name": "Sport Life Луцьк",
+        "winner_brand": "Sport Life",
+        "distance_m": 1088,
+        "ok": true
+      },
+      {
+        "label": "Chernivtsi",
+        "lat": 48.2915,
+        "lng": 25.9358,
+        "winner_id": "ua_f4c35b3c7a",
+        "winner_name": "Sport Life Героїв Майдану",
+        "winner_brand": "Sport Life",
+        "distance_m": 2790,
+        "ok": true
+      },
+      {
+        "label": "Ivano-Frankivsk",
+        "lat": 48.9226,
+        "lng": 24.7111,
+        "winner_id": "ua_520598bbb2",
+        "winner_name": "APOLLO NEXT 039 (WINETIME)",
+        "winner_brand": "Apollo Next",
+        "distance_m": 619,
+        "ok": true
+      },
+      {
+        "label": "Khmelnytskyi",
+        "lat": 49.4229,
+        "lng": 26.9871,
+        "winner_id": "ua_eb5b6f5a2c",
+        "winner_name": "Total Fitness Khmelnytskyi — вул. Зарічанська, 34",
+        "winner_brand": "Total Fitness",
+        "distance_m": 1524,
+        "ok": true
+      },
+      {
+        "label": "Brovary",
+        "lat": 50.5111,
+        "lng": 30.7909,
+        "winner_id": "ua_e039f31e1d",
+        "winner_name": "Total Fitness Kyiv — вул. Героїв України, 21-B",
+        "winner_brand": "Total Fitness",
+        "distance_m": 53,
+        "ok": true
+      },
+      {
+        "label": "Boryspil",
+        "lat": 50.3427,
+        "lng": 30.9419,
+        "winner_id": "ua_00d5002637",
+        "winner_name": "APOLLO NEXT 027 (ЦУМ «Київський Шлях»)",
+        "winner_brand": "Apollo Next",
+        "distance_m": 1657,
+        "ok": true
+      },
+      {
+        "label": "Bila Tserkva",
+        "lat": 49.8094,
+        "lng": 30.1121,
+        "winner_id": "ua_fc1cc0498e",
+        "winner_name": "APOLLO NEXT 035 (ТРЦ «Гермес»)",
+        "winner_brand": "Apollo Next",
+        "distance_m": 1489,
+        "ok": true
+      },
+      {
+        "label": "Vyshneve",
+        "lat": 50.3895,
+        "lng": 30.3706,
+        "winner_id": "ua_c022e00841",
+        "winner_name": "Sport Life Вишневе Чері Мол",
+        "winner_brand": "Sport Life",
+        "distance_m": 760,
+        "ok": true
+      }
+    ],
+    "nearest_failures": []
+  },
+  "check_in": {
+    "radius_meters": 200,
+    "allow_199": true,
+    "allow_200": true,
+    "block_201": true,
+    "auto_checkout_meters": 200,
+    "ukraine_specific_radius_override": 0
+  },
+  "prior_country_verification": {
+    "Malta": 24,
+    "Lithuania": 61,
+    "Latvia": 33,
+    "Estonia": 69,
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "prior_country_regressions": [],
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "merge_idempotency": {
+    "first_run": {
+      "insertions": 105,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11929,
+      "total_after": 12034,
+      "ukraine_before": 0,
+      "ukraine_after": 105
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12034,
+      "total_after": 12034,
+      "ukraine_before": 105,
+      "ukraine_after": 105,
+      "ua_prefix_before": 105,
+      "ua_prefix_after": 105
+    },
+    "idempotent": true
+  },
+  "dry_run_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "dry_run_verification": {
+    "stdout": "DRY RUN: insertions=0 updates=0 removals=0 projected=12034\nUkraine merge dry-run: UKRAINE MERGE COMPLETE — WAITING FOR QA delta=0/0/0",
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "idempotent": true,
+    "artifacts_restored": [
+      "UKRAINE_PRODUCTION_MERGE_REPORT.json",
+      "UKRAINE_MERGE_IDEMPOTENCY.json",
+      "UKRAINE_MERGE_SHA_AFTER.txt"
+    ]
+  },
+  "historical_test_debt": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 1,
+    "HISTORICAL_SUITES_FAILED": 2,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 3
+  },
+  "performance": {
+    "catalog_total": 12034,
+    "centers_json_bytes": 3746747,
+    "parse_ms": 27.23,
+    "representative_search_ms": 6.19,
+    "architecture": "KEEP CLIENT-SIDE",
+    "assessment": "HEALTHY",
+    "headroom_to_12500": 466,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false
+  },
+  "gates": {
+    "catalog_total": true,
+    "ukraine_live": true,
+    "malta_live": true,
+    "sha_frozen": true,
+    "bytes_frozen": true,
+    "new_ready_105": true,
+    "approved_105": true,
+    "four_way_equality": true,
+    "authorized_present": true,
+    "authorized_material_drift": true,
+    "brand_inventory_match": true,
+    "class_a_count_4": true,
+    "class_a_approved_94": true,
+    "class_a_estate_drift": true,
+    "sport_life_42": true,
+    "apollo_24": true,
+    "smartass_10": true,
+    "total_fitness_18": true,
+    "grafit_4": true,
+    "energy_fitness_0": true,
+    "coming_soon_leakage": true,
+    "excluded_leakage": true,
+    "closed_leakage": true,
+    "operation_unverified": true,
+    "apollo_city_errors": true,
+    "smartass_foreign": true,
+    "tf_city_errors": true,
+    "independent_drift": true,
+    "hotel_leakage": true,
+    "specialist_leakage": true,
+    "institutional_leakage": true,
+    "city_metadata_errors": true,
+    "hard_duplicates": true,
+    "transliteration_conflicts": true,
+    "cross_border_clean": true,
+    "data_quality_clean": true,
+    "global_duplicate_ids": true,
+    "search_display": true,
+    "map_markers_105": true,
+    "nearest_plausible": true,
+    "check_in_200": true,
+    "prior_country_counts": true,
+    "merge_idempotent": true,
+    "historical_real_regression": true,
+    "headroom_466": true,
+    "crosses_12500": true,
+    "infrastructure": true,
+    "runtime_hacks": true
+  },
+  "qa_harness_fixes": [
+    {
+      "id": "QA-DR-001",
+      "fix": "Dry-run idempotency restores merge artifacts after --dry-run verification"
+    }
+  ],
+  "merge_verdict": "UKRAINE MERGE COMPLETE — WAITING FOR QA",
+  "verdict": "UKRAINE STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "qa_sha_after": "bec3945dd35bb8bf9cc57046110736a5fa267a673445cf4a26dba6ed92d64e05",
+  "qa_bytes_after": 3746747
+}

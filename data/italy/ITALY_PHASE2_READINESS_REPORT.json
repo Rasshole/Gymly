@@ -1,0 +1,93 @@
+{
+  "generated_utc": "2026-08-21T09:35:51.106148+00:00",
+  "production_before": 8143,
+  "italy_live_before": 0,
+  "production_modified": false,
+  "phase1_baseline": {
+    "staged": 465,
+    "ready": 338,
+    "needs_coordinates": 11,
+    "needs_review": 114,
+    "coming_soon": 2
+  },
+  "merge_stats": {
+    "phase1_in": 465,
+    "phase2_in": 329,
+    "preserved_phase1_ready": 338,
+    "enriched": 0,
+    "new_added": 254,
+    "replaced_unresolved": 109
+  },
+  "discovered": 610,
+  "categories": {
+    "READY_TO_IMPORT": 550,
+    "COMING_SOON": 15,
+    "NEEDS_REVIEW": 27,
+    "NEEDS_COORDINATES": 18
+  },
+  "ready_to_import": 550,
+  "ready_by_brand": {
+    "FitActive": 193,
+    "Fit Express": 45,
+    "FitUP": 80,
+    "McFIT": 42,
+    "Gold's Gym": 2,
+    "JOHN REED": 1,
+    "Virgin Active": 42,
+    "WebFit": 16,
+    "20Hours": 7,
+    "Orange": 23,
+    "Anytime Fitness": 68,
+    "Icon Palestre": 31
+  },
+  "ready_by_brand_sum": 550,
+  "projected_catalog": 8693,
+  "crosses_10k": false,
+  "phase3": false,
+  "recommendation": "READY FOR ITALY MERGE",
+  "completeness": {
+    "FitActive": "COMPLETE",
+    "McFIT": "COMPLETE",
+    "JOHN REED": "NEAR-COMPLETE",
+    "Gold's Gym": "COMPLETE",
+    "Virgin Active": "COMPLETE",
+    "FitUP": "COMPLETE",
+    "Fit Express": "NEAR-COMPLETE",
+    "Anytime Fitness": "COMPLETE",
+    "Orange": "COMPLETE",
+    "WebFit": "COMPLETE",
+    "20Hours": "COMPLETE",
+    "Fitness Park": "MATERIAL GAP",
+    "Icon Palestre": "NEAR-COMPLETE",
+    "GetFIT": "MATERIAL GAP",
+    "Basic-Fit": "EXCLUDED",
+    "Fit And Go": "EXCLUDED"
+  },
+  "geography_ready": {
+    "north": 369,
+    "central": 127,
+    "sardinia": 10,
+    "south": 23,
+    "sicily": 21
+  },
+  "live_dupes": {
+    "existing_italy_in_catalog": 0,
+    "live_catalog_total": 8143,
+    "id_collisions": [],
+    "same_brand_address_matches": [],
+    "proximity_same_brand": [],
+    "it_prefix_already_used": []
+  },
+  "staging_dupes": {
+    "duplicate_ids": [],
+    "same_brand_address": [],
+    "proximity_same_brand_80m": [
+      {
+        "a": "FitUP Vicenza",
+        "b": "FitUP Vicenza",
+        "distance_m": 0
+      }
+    ]
+  },
+  "collapsed": 0
+}

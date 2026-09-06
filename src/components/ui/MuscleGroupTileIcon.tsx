@@ -67,16 +67,31 @@ const MuscleGroupTileIcon: React.FC<MuscleGroupTileIconProps> = ({
     );
   }
 
+  const source = muscleImg.getMuscleGroupImage(group);
+  const imageBoxStyle = {width: size, height: size, resizeMode: 'contain' as const};
+
+  // iOS: fjernelse af tint kræver at prop udelades helt — ellers kan ikonet blive blåt/gråt
+  // efter valg (fx bryst i Ny session-grid).
+  if (tintColor != null) {
+    return (
+      <View style={box}>
+        <Image
+          source={source}
+          style={[imageBoxStyle, {tintColor}, imageStyle]}
+          resizeMode="contain"
+        />
+      </View>
+    );
+  }
+
   return (
-    <Image
-      source={muscleImg.getMuscleGroupImage(group)}
-      style={[
-        {width: size, height: size, resizeMode: 'contain'},
-        tintColor != null ? {tintColor} : null,
-        imageStyle,
-      ]}
-      resizeMode="contain"
-    />
+    <View style={box}>
+      <Image
+        source={source}
+        style={[imageBoxStyle, imageStyle]}
+        resizeMode="contain"
+      />
+    </View>
   );
 };
 

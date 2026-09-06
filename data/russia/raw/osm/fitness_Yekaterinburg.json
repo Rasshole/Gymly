@@ -1,0 +1,964 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:46:05Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 639126003,
+      "lat": 56.835343,
+      "lon": 60.652962,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Золотой Тигр"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1315988500,
+      "lat": 56.8394677,
+      "lon": 60.5858893,
+      "tags": {
+        "addr:city": "Екатеринбург",
+        "addr:housenumber": "21",
+        "addr:street": "улица Шейнкмана",
+        "leisure": "fitness_centre",
+        "name": "AversFit",
+        "phone": "+7(343)3892400",
+        "sport": "fitness;swimming",
+        "website": "https://aversfit.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2309475508,
+      "lat": 56.7909036,
+      "lon": 60.5152923,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Гамак",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2334986312,
+      "lat": 56.8135988,
+      "lon": 60.5910412,
+      "tags": {
+        "addr:city": "Екатеринбург",
+        "addr:housenumber": "117",
+        "addr:postcode": "620144",
+        "addr:street": "улица Фурманова",
+        "description": "Фитнес-клуб имени 11-кратного чемпиона Мира по бодибилдингу Александра Сергеевича Яшанькина.",
+        "email": "sales@yashankin.com",
+        "leisure": "fitness_centre",
+        "name": "Yashankin Fitness",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-22:00",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "+7 343 3762886",
+        "sport": "fitness;gymnastics;yoga",
+        "start_date": "01.10.2016",
+        "website": "https://yashankin.com/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3569027313,
+      "lat": 56.8337866,
+      "lon": 60.5681836,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fresh fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4087692851,
+      "lat": 56.8962173,
+      "lon": 60.6054878,
+      "tags": {
+        "addr:housenumber": "47",
+        "addr:street": "улица Ильича",
+        "leisure": "fitness_centre",
+        "name": "Drive Fitness",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 09:00-22:00",
+        "phone": "+73432876600,3",
+        "website": "https://drivefitness.ru/",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4166271189,
+      "lat": 56.8396042,
+      "lon": 60.6734158,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Качалка",
+        "website": "http://www.club-kachalka.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4305803594,
+      "lat": 56.8998485,
+      "lon": 60.6151521,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "майюшка Плюшка, детский оздоровительный центр"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4363453298,
+      "lat": 56.8526983,
+      "lon": 60.6407745,
+      "tags": {
+        "contact:phone": "+7 343 3450050",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4417096518,
+      "lat": 56.7923086,
+      "lon": 60.6169876,
+      "tags": {
+        "contact:website": "http://drivefitness.ru/",
+        "leisure": "fitness_centre",
+        "name": "Drive Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4430111991,
+      "lat": 56.8415223,
+      "lon": 60.5853011,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Центральный",
+        "name:ru": "Центральный"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4461213751,
+      "lat": 56.8353973,
+      "lon": 60.6895503,
+      "tags": {
+        "contact:phone": "+7 343 3440054",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4462779161,
+      "lat": 56.7893658,
+      "lon": 60.6483708,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Drive Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4462779162,
+      "lat": 56.8022325,
+      "lon": 60.5991756,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Drive Fitness",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4462779163,
+      "lat": 56.8239105,
+      "lon": 60.6490516,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Drive Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4462779164,
+      "lat": 56.8366922,
+      "lon": 60.6223093,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Drive Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4486718770,
+      "lat": 56.827489,
+      "lon": 60.6157003,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Атриум Палас Отель"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4573228274,
+      "lat": 56.793683,
+      "lon": 60.5189004,
+      "tags": {
+        "contact:phone": "+7 343 3460100",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa,Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4579508881,
+      "lat": 56.8348303,
+      "lon": 60.5636882,
+      "tags": {
+        "addr:city": "Екатеринбург",
+        "addr:housenumber": "49",
+        "addr:street": "улица Татищева",
+        "dance:style": "jazz dance",
+        "dance:teaching": "yes",
+        "leisure": "fitness_centre",
+        "leisure_1": "dance",
+        "level": "0",
+        "name": "Фриссон",
+        "name:en": "Frisson",
+        "name:ru": "Фриссон",
+        "opening_hours": "09:00-20:00",
+        "sport": "fitness",
+        "sport_1": "dance"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4696652417,
+      "lat": 56.8844036,
+      "lon": 60.5684795,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Metro Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4914139250,
+      "lat": 56.8314291,
+      "lon": 60.6020156,
+      "tags": {
+        "addr:city": "Екатеринбург",
+        "addr:housenumber": "16",
+        "addr:postcode": "620014",
+        "addr:street": "улица Чернышевского",
+        "description": "йога, хатха-йога, аштанга_йога",
+        "leisure": "fitness_centre",
+        "name": "Центр йоги \"Анахата\"",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "sport": "yoga",
+        "website": "https://www.anahata-club.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5068164611,
+      "lat": 56.8301795,
+      "lon": 60.6812614,
+      "tags": {
+        "clothes": "sports",
+        "contact:email": "marketing@ratiborets.ru",
+        "contact:phone": "+7 343 2435339",
+        "contact:vk": "https://vk.com/ratiborets_ekb",
+        "contact:website": "https://ratiborets.ru/",
+        "leisure": "fitness_centre",
+        "name": "ЦСП \"Ратиборец\"",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "operator": "Ратиборец",
+        "sport": "exercise;бокс;кикбоксинг;тайский_бокс;муай_таи;running"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5202136946,
+      "lat": 56.8108918,
+      "lon": 60.5666258,
+      "tags": {
+        "contact:phone": "+7 343 3450066",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa,Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5383242367,
+      "lat": 56.8864004,
+      "lon": 60.6161803,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Конан"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5419966622,
+      "lat": 56.9075092,
+      "lon": 60.621828,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "SL Fitness",
+        "website": "https://slfit96.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5594612649,
+      "lat": 56.8004862,
+      "lon": 60.5905464,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "PORT FITNESS",
+        "sport": "swimming;athletics;running"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6511779811,
+      "lat": 56.8486181,
+      "lon": 60.5916814,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Gold's gym",
+        "name:en": "World Class",
+        "name:ru": "World Class",
+        "opening_hours": "Mo-Fr 06:15-23:00; Sa-Su 09:00-22:00",
+        "phone": "+73432868525",
+        "website": "https://worldclass-ekb.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6610279358,
+      "lat": 56.831724,
+      "lon": 60.6084837,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Выкрутасы",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa,Su 10:00-18:00",
+        "operator": "ООО \"Велостудия\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 6731293674,
+      "lat": 56.8412676,
+      "lon": 60.5916166,
+      "tags": {
+        "contact:phone": "+7 343 2718771;+7 982 6948771",
+        "contact:website": "https://newfitekb.com/",
+        "leisure": "fitness_centre",
+        "name": "New Fit",
+        "opening_hours": "Mo-Fr 09:00-22:00;Sa-Su 10:00-18:00",
+        "operator": "НЬЮФИТ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7126879315,
+      "lat": 56.860079,
+      "lon": 60.6193584,
+      "tags": {
+        "addr:city": "Екатеринбург",
+        "addr:housenumber": "3",
+        "addr:postcode": "620041",
+        "addr:street": "улица Смазчиков",
+        "description": "Фитнес-клуб, тренажерный зал, зал групповых программ, йога, пилатес, стретчинг",
+        "email": "mail@pioner66.ru",
+        "leisure": "fitness_centre",
+        "name": "Пионер",
+        "opening_hours": "08:00-22:00",
+        "phone": "+7 343 2130131",
+        "sport": "fitness;multi;gymnastics;yoga",
+        "website": "https://pioner66.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7165875164,
+      "lat": 56.832393,
+      "lon": 60.617183,
+      "tags": {
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 343 2721030",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-00:00;Sa-Su 9:00-00:00",
+        "operator": "«Спорт Форум»"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7570091955,
+      "lat": 56.8162709,
+      "lon": 60.6326772,
+      "tags": {
+        "contact:phone": "+7 343 3431201",
+        "contact:website": "https://clever.xfit.ru/",
+        "entrance": "yes",
+        "leisure": "fitness_centre",
+        "name": "X-Fit Клевер",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7832351412,
+      "lat": 56.7915306,
+      "lon": 60.5127248,
+      "tags": {
+        "amenity": "social_centre",
+        "contact:email": "fitlandy@yandex.ru",
+        "contact:phone": "+7 953 6056263",
+        "contact:website": "https://fitlandiy.ru/",
+        "leisure": "fitness_centre",
+        "name": "ФитЛандия",
+        "opening_hours": "Mo-Sa 08:00-21:00",
+        "operator": "ФитЛандия"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7964411336,
+      "lat": 56.859966,
+      "lon": 60.6171974,
+      "tags": {
+        "entrance": "yes",
+        "leisure": "fitness_centre",
+        "name": "Carver Fitness",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8065641957,
+      "lat": 56.883971,
+      "lon": 60.633385,
+      "tags": {
+        "contact:email": "kinezisekb@mail.ru",
+        "contact:facebook": "https://facebook.com/782291458505689",
+        "contact:instagram": "https://instagram.com/kinezis_ekb",
+        "contact:phone": "+7 343 3362237;+7 343 3720119",
+        "contact:vk": "https://vk.com/kinezisekb",
+        "contact:website": "https://kinezisekb.ru/",
+        "leisure": "fitness_centre",
+        "name": "Кинезис",
+        "opening_hours": "Mo-Fr 09:00-21:00;Sa 09:00-15:00",
+        "operator": "Кинезис"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8308996677,
+      "lat": 56.7864018,
+      "lon": 60.5060968,
+      "tags": {
+        "entrance": "yes",
+        "leisure": "fitness_centre",
+        "name": "Вертикаль",
+        "sport": "gymnastics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8318924989,
+      "lat": 56.7885959,
+      "lon": 60.5089398,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Вертикаль",
+        "sport": "gymnastics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8327474715,
+      "lat": 56.7840014,
+      "lon": 60.5168975,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Вертикаль",
+        "sport": "gymnastics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8521166060,
+      "lat": 56.8396452,
+      "lon": 60.6733596,
+      "tags": {
+        "contact:email": "info@irongym24.ru",
+        "contact:instagram": "https://instagram.com/iron_gym_ekaterinburg",
+        "contact:phone": "+7 343 2892811;+7 343 2892812;+7 992 0020324",
+        "contact:vk": "https://vk.com/irongymekb",
+        "contact:website": "https://irongym24.ru/",
+        "leisure": "fitness_centre",
+        "name": "IRON GYM",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00",
+        "operator": "IRON GYM",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635410400,
+      "lat": 56.798217,
+      "lon": 60.6170118,
+      "tags": {
+        "contact:email": "ggym96@mail.ru",
+        "contact:instagram": "https://instagram.com/goldengym_ekaterinburg",
+        "contact:phone": "+7 343 2867583",
+        "contact:vk": "https://vk.com/goldengym_ekb",
+        "contact:website": "https://golden-gym.ru/",
+        "leisure": "fitness_centre",
+        "name": "Golden Gym",
+        "opening_hours": "Mo-Fr 06:00-00:00;Sa-Su 08:00-22:00",
+        "operator": "Golden Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635410401,
+      "lat": 56.8276686,
+      "lon": 60.5814028,
+      "tags": {
+        "contact:instagram": "https://instagram.com/i_fitness_ekb",
+        "contact:phone": "+7 343 3182669",
+        "contact:vk": "https://vk.com/clubifitness",
+        "contact:website": "https://xn----jtbiuvdm0g.xn--p1ai/",
+        "leisure": "fitness_centre",
+        "name": "Я-фитнес",
+        "opening_hours": "Mo-Fr 08:00-22:00;Sa-Su 09:00-22:00",
+        "operator": "Я-фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8752542305,
+      "lat": 56.821375,
+      "lon": 60.57717,
+      "tags": {
+        "contact:email": "info@i-fitness.me",
+        "contact:phone": "+7 343 3182669",
+        "contact:website": "https://xn----jtbiuvdm0g.xn--p1ai/",
+        "leisure": "fitness_centre",
+        "name": "Я-фитнес",
+        "opening_hours": "Mo-Fr 07:00-22:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9030280481,
+      "lat": 56.8676294,
+      "lon": 60.5298854,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Sport-House",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9164020487,
+      "lat": 56.8525539,
+      "lon": 60.5743928,
+      "tags": {
+        "brand": "Drive Fitness",
+        "leisure": "fitness_centre",
+        "name": "ДРАЙВ ФИТНЕС",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242271,
+      "lat": 56.8119136,
+      "lon": 60.6084341,
+      "tags": {
+        "contact:phone": "+7 343 3110099",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242272,
+      "lat": 56.7768642,
+      "lon": 60.5231291,
+      "tags": {
+        "contact:phone": "+7 343 2535251",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242273,
+      "lat": 56.809099,
+      "lon": 60.496645,
+      "tags": {
+        "contact:phone": "+7 343 3100311",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242274,
+      "lat": 56.8362295,
+      "lon": 60.5943203,
+      "tags": {
+        "contact:phone": "+7 343 3440010",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242275,
+      "lat": 56.821078,
+      "lon": 60.624039,
+      "tags": {
+        "contact:phone": "+7 343 3110123",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242276,
+      "lat": 56.8164163,
+      "lon": 60.5863515,
+      "tags": {
+        "contact:phone": "+7 343 2530054",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9945394118,
+      "lat": 56.8959212,
+      "lon": 60.6051752,
+      "tags": {
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Драйв.",
+        "name:en": "Drive Fitness",
+        "name:ru": "Драйв Фитнесс"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10087449711,
+      "lat": 56.8465716,
+      "lon": 60.589837,
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10230368507,
+      "lat": 56.8358183,
+      "lon": 60.5639409,
+      "tags": {
+        "entrance": "yes",
+        "leisure": "fitness_centre",
+        "name": "WorldClass"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11430255687,
+      "lat": 56.8606035,
+      "lon": 60.6160551,
+      "tags": {
+        "entrance": "yes",
+        "leisure": "fitness_centre",
+        "name": "Пионер",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458209,
+      "lat": 56.8294979,
+      "lon": 60.6116683,
+      "tags": {
+        "contact:phone": "+7 912 6370646",
+        "contact:website": "https://ladystretch.com/ekb",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873851642,
+      "lat": 56.921042,
+      "lon": 60.613878,
+      "tags": {
+        "contact:phone": "+7 343 2535552",
+        "contact:website": "https://www.брайтфит.рф",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873851643,
+      "lat": 56.8958554,
+      "lon": 60.6084636,
+      "tags": {
+        "contact:phone": "+7 343 3450055",
+        "contact:website": "https://www.брайтфит.рф",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12059064273,
+      "lat": 56.875141,
+      "lon": 60.5116355,
+      "tags": {
+        "addr:city": "Екатеринбург",
+        "addr:housenumber": "16",
+        "addr:street": "Соликамская улица",
+        "leisure": "fitness_centre",
+        "name": "Gold Fit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12077381577,
+      "lat": 56.8312506,
+      "lon": 60.5949642,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Yoga projeсt",
+        "phone": "+7‒992‒023‒33‒34",
+        "sport": "yoga",
+        "website": "Yoga-project.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378278113,
+      "lat": 56.8357409,
+      "lon": 60.5953181,
+      "tags": {
+        "contact:phone": "+7 999 5695556",
+        "contact:website": "https://thetop-ekb.ru",
+        "leisure": "fitness_centre",
+        "name": "TheTop",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 10:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13061617001,
+      "lat": 56.8055987,
+      "lon": 60.6119842,
+      "tags": {
+        "addr:housenumber": "57",
+        "addr:street": "улица Циолковского",
+        "leisure": "fitness_centre",
+        "name": "Метро-fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13200646639,
+      "lat": 56.8357374,
+      "lon": 60.5445443,
+      "tags": {
+        "addr:city": "Екатеринбург",
+        "addr:housenumber": "107",
+        "addr:street": "улица Татищева",
+        "leisure": "fitness_centre",
+        "name": "Powerhouse Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754248,
+      "lat": 56.8533749,
+      "lon": 60.5499296,
+      "tags": {
+        "contact:phone": "+7 343 2885333",
+        "contact:website": "https://metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754249,
+      "lat": 56.83036,
+      "lon": 60.5482615,
+      "tags": {
+        "contact:phone": "+7 343 2885333;+7 929 2225392",
+        "contact:website": "https://metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754250,
+      "lat": 56.8562039,
+      "lon": 60.6342477,
+      "tags": {
+        "contact:phone": "+7 343 2885333",
+        "contact:website": "https://metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754251,
+      "lat": 56.7974283,
+      "lon": 60.5815046,
+      "tags": {
+        "contact:phone": "+7 343 2885333;+7 904 5488484",
+        "contact:website": "https://metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13366248852,
+      "lat": 56.8174554,
+      "lon": 60.5748355,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "На ясной поляне",
+        "phone": "+79122103987",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13895842601,
+      "lat": 56.8881855,
+      "lon": 60.567329,
+      "tags": {
+        "addr:housenumber": "20",
+        "addr:street": "Донбасская улица",
+        "leisure": "fitness_centre",
+        "name": "Выzов",
+        "opening_hours": "Mo-Sa 10:00-22:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 55881536,
+      "center": {
+        "lat": 56.79281,
+        "lon": 60.6275385
+      },
+      "tags": {
+        "addr:housenumber": "29",
+        "addr:street": "Родонитовая улица",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Powerhouse Gym",
+        "phone": "+7(343) 288-55-46",
+        "sport": "athletics;fitness",
+        "website": "https://powerhousegym.ru"
+      }
+    },
+    {
+      "type": "way",
+      "id": 86600808,
+      "center": {
+        "lat": 56.8379415,
+        "lon": 60.6542558
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "1",
+        "height": "3",
+        "leisure": "fitness_centre",
+        "name": "Тренажёрный зал"
+      }
+    },
+    {
+      "type": "way",
+      "id": 519947171,
+      "center": {
+        "lat": 56.8972334,
+        "lon": 60.6022229
+      },
+      "tags": {
+        "addr:housenumber": "34",
+        "addr:street": "Стахановская улица",
+        "building": "yes",
+        "building:levels": "3",
+        "contact:phone": "+7 343 3450055",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 09:00-22:00",
+        "wheelchair": "no"
+      }
+    }
+  ]
+}

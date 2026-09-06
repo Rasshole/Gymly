@@ -1,0 +1,1171 @@
+[
+  {
+    "id": "no_82d5c73afa",
+    "name": "SATS Bekkestua",
+    "brand": "SATS",
+    "address": "Gamle Ringeriksvei 34c",
+    "postal_code": "1357",
+    "city": "Bekkestua",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Bekkestua",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 235,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9158616,
+        "lng": 10.5889836,
+        "score": 9.05339751964599,
+        "display": "Gamle Ringeriksvei, Ringstabekk, Stabekk, Bekkestua, Bærum, Akershus, 1357, Norge"
+      },
+      "second": {
+        "lat": 59.9148654,
+        "lng": 10.5927114,
+        "score": 9.05339751964599,
+        "display": "Gamle Ringeriksvei, Ringstabekk, Stabekk, Bekkestua, Bærum, Akershus, 1357, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_16538b6e38",
+    "name": "SATS Hellerud",
+    "brand": "SATS",
+    "address": "Tvetenveien 168-170",
+    "postal_code": "0671",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Hellerud",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 168,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9150958,
+        "lng": 10.8471248,
+        "score": 9.053414707408255,
+        "display": "Tvetenveien, Nedre Hellerud, Hellerud, Alna, Oslo, 0671, Norge"
+      },
+      "second": {
+        "lat": 59.9140396,
+        "lng": 10.844959,
+        "score": 9.053414707408255,
+        "display": "Tvetenveien, Nedre Hellerud, Tveita, Alna, Oslo, 0671, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_c6f2dfc0e2",
+    "name": "SATS Nydalen",
+    "brand": "SATS",
+    "address": "Sandakerveien 109-111",
+    "postal_code": "0484",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Nydalen",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 270,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9499736,
+        "lng": 10.7687845,
+        "score": 9.282754602720402,
+        "display": "Sandakerveien, Gullhaug, Nydalen, Nordre Aker, Oslo, 0484, Norge"
+      },
+      "second": {
+        "lat": 59.9476837,
+        "lng": 10.7704082,
+        "score": 9.282754602720402,
+        "display": "Sandakerveien, Lillo, Sandaker, Sagene, Oslo, 0484, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_605d44b0db",
+    "name": "SATS Sandnes",
+    "brand": "SATS",
+    "address": "Vågsgata 16",
+    "postal_code": "4306",
+    "city": "Sandnes",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Sandnes",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 348,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 58.8499095,
+        "lng": 5.7357013,
+        "score": 9.053393779659725,
+        "display": "Vågsgata, Gravaren, Brualand, Trones, Sandnes, Rogaland, 4306, Norge"
+      },
+      "second": {
+        "lat": 58.8525613,
+        "lng": 5.738909,
+        "score": 9.04006044632639,
+        "display": "Vågsgata, Gravaren, Brualand, Trones, Sandnes, Rogaland, 4306, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_974a0638b0",
+    "name": "SATS Vinderen",
+    "brand": "SATS",
+    "address": "Slemdalsveien 70",
+    "postal_code": "0373",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Vinderen",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 246,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9442008,
+        "lng": 10.707001,
+        "score": 9.239928609078355,
+        "display": "Slemdalsveien, Lille Borgen, Vinderen, Vestre Aker, Oslo, 0373, Norge"
+      },
+      "second": {
+        "lat": 59.9457046,
+        "lng": 10.7102527,
+        "score": 9.239928609078355,
+        "display": "Slemdalsveien, Vinderen, Vestre Aker, Oslo, 0373, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_791bc020c7",
+    "name": "Fresh Fitness Ås",
+    "brand": "Fresh Fitness",
+    "address": "Moerveien 8",
+    "postal_code": "1430",
+    "city": "Ås",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (general; Søgne may differ)",
+    "source_url": "https://www.freshfitness.no/bli-medlem/",
+    "legacy_brand": null,
+    "center_name": "Ås",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 375,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.660346,
+        "lng": 10.7931002,
+        "score": 9.053386726939802,
+        "display": "Moerveien, Moer, Ås, Akershus, 1430, Norge"
+      },
+      "second": {
+        "lat": 59.6636931,
+        "lng": 10.7923158,
+        "score": 9.053386726939802,
+        "display": "Moerveien, Kaia, Landås, Moer, Ås, Akershus, 1430, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_0e477283ad",
+    "name": "Fresh Fitness Jessheim",
+    "brand": "Fresh Fitness",
+    "address": "Trondheimsvegen 85",
+    "postal_code": "2050",
+    "city": "Jessheim",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (general; Søgne may differ)",
+    "source_url": "https://www.freshfitness.no/bli-medlem/",
+    "legacy_brand": null,
+    "center_name": "Jessheim",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 1739,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 60.1308067,
+        "lng": 11.1602717,
+        "score": 9.053387642481116,
+        "display": "Trondheimsvegen, Døli, Jessheim, Ullensaker, Akershus, 2050, Norge"
+      },
+      "second": {
+        "lat": 60.145683,
+        "lng": 11.16996,
+        "score": 8.000054309147783,
+        "display": "85, Trondheimsvegen - Jessheim, Nordby, Jessheim, Ullensaker, Akershus, 2050, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_4fa3e4fda8",
+    "name": "Fresh Fitness Strømmen",
+    "brand": "Fresh Fitness",
+    "address": "Strømsveien 43-45",
+    "postal_code": "2010",
+    "city": "Strømmen",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (general; Søgne may differ)",
+    "source_url": "https://www.freshfitness.no/bli-medlem/",
+    "legacy_brand": null,
+    "center_name": "Strømmen",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 172,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9535309,
+        "lng": 11.0125905,
+        "score": 9.053390651560235,
+        "display": "Strømsveien, Vestby, Volla, Strømmen, Lillestrøm, Akershus, 2010, Norge"
+      },
+      "second": {
+        "lat": 59.9520061,
+        "lng": 11.0121095,
+        "score": 9.053390651560235,
+        "display": "Strømsveien, Vestby, Volla, Strømmen, Lillestrøm, Akershus, 2010, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_c8ffb7bdd7",
+    "name": "Fresh Fitness Vågsbygd Lumber",
+    "brand": "Fresh Fitness",
+    "address": "Lumberveien 5-7",
+    "postal_code": "4621",
+    "city": "Kristiansand S",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (general; Søgne may differ)",
+    "source_url": "https://www.freshfitness.no/bli-medlem/",
+    "legacy_brand": null,
+    "center_name": "Vågsbygd Lumber",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 251,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 58.1241035,
+        "lng": 7.9650856,
+        "score": 9.053400931563287,
+        "display": "Lumberveien, Elkem Solar, Vågsbygd, Kristiansand, Agder, 4621, Norge"
+      },
+      "second": {
+        "lat": 58.1229527,
+        "lng": 7.9687629,
+        "score": 9.053400931563287,
+        "display": "Lumberveien, Elkem Solar, Voiebyen, Kristiansand, Agder, 4621, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_054d036e8c",
+    "name": "EVO Fitness Teisen",
+    "brand": "EVO Fitness",
+    "address": "Ole Deviks vei 6",
+    "postal_code": "0666",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (chain standard)",
+    "source_url": "https://evofitness.no/sentre/",
+    "legacy_brand": null,
+    "center_name": "Teisen",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 543,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9175911,
+        "lng": 10.8279499,
+        "score": 9.053414707408255,
+        "display": "Ole Deviks vei, Einsvold, Teisen, Alna, Oslo, 0666, Norge"
+      },
+      "second": {
+        "lat": 59.913296,
+        "lng": 10.8233093,
+        "score": 9.053414707408255,
+        "display": "Ole Deviks vei, Teisen, Alna, Oslo, 0666, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_931189eb0c",
+    "name": "EVO Fitness Gressvik",
+    "brand": "EVO Fitness",
+    "address": "Storveien 81",
+    "postal_code": "1621",
+    "city": "Gressvik",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (chain standard)",
+    "source_url": "https://evofitness.no/sentre/",
+    "legacy_brand": null,
+    "center_name": "Gressvik",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 580,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.2122991,
+        "lng": 10.9000202,
+        "score": 9.05339705882353,
+        "display": "Storveien, Ålestranda, Gressvik, Fredrikstad, Østfold, 1621, Norge"
+      },
+      "second": {
+        "lat": 59.216475,
+        "lng": 10.906132,
+        "score": 9.000063725490197,
+        "display": "81A, Storveien, Ålestranda, Gressvik, Fredrikstad, Østfold, 1621, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_e34ca69239",
+    "name": "EVO Fitness Horten",
+    "brand": "EVO Fitness",
+    "address": "Strandparken 3-5",
+    "postal_code": "3187",
+    "city": "Horten",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (chain standard)",
+    "source_url": "https://evofitness.no/sentre/",
+    "legacy_brand": null,
+    "center_name": "Horten",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 159,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.4037889,
+        "lng": 10.4834266,
+        "score": 9.053392525368125,
+        "display": "Strandparken, Tveiten, Horten, Vestfold, 3187, Norge"
+      },
+      "second": {
+        "lat": 59.405204,
+        "lng": 10.4837717,
+        "score": 9.053392525368125,
+        "display": "Strandparken, Tveiten, Horten, Vestfold, 3187, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_71df87b5a1",
+    "name": "Feel24 Tromsø Fløylia",
+    "brand": "Feel24",
+    "address": "",
+    "postal_code": "",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "location_known_address_pending",
+    "opening_hours_raw": null,
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-treningssenter",
+    "legacy_brand": null,
+    "center_name": "Tromsø Fløylia",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "missing_address"
+  },
+  {
+    "id": "no_3be165cf87",
+    "name": "Feel24 Tromsø Sportssenter",
+    "brand": "Feel24",
+    "address": "Stakkevollvegen 65B",
+    "postal_code": "9010",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-sportssenter",
+    "legacy_brand": null,
+    "center_name": "Tromsø Sportssenter",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "phase2_ready_for_geocode": true,
+    "address_resolved_phase2": true,
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 818,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 69.6716135,
+        "lng": 18.9737619,
+        "score": 9.053400322728313,
+        "display": "Stakkevollvegen, Nordheim, Breivika, Tromsø, Troms, 9010, Norge"
+      },
+      "second": {
+        "lat": 69.6645932,
+        "lng": 18.9673928,
+        "score": 9.053400322728313,
+        "display": "Stakkevollvegen, Kvamstykket, Guleng, Tromsø, Troms, 9010, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_1089e87edb",
+    "name": "Feel24 Tromsø The Box",
+    "brand": "Feel24",
+    "address": "Stakkevollvegen 11",
+    "postal_code": "9010",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-the-box",
+    "legacy_brand": null,
+    "center_name": "Tromsø The Box",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "phase2_ready_for_geocode": true,
+    "address_resolved_phase2": true,
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 818,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 69.6716135,
+        "lng": 18.9737619,
+        "score": 9.053400322728313,
+        "display": "Stakkevollvegen, Nordheim, Breivika, Tromsø, Troms, 9010, Norge"
+      },
+      "second": {
+        "lat": 69.6645932,
+        "lng": 18.9673928,
+        "score": 9.053400322728313,
+        "display": "Stakkevollvegen, Kvamstykket, Guleng, Tromsø, Troms, 9010, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_ffb4f24c2a",
+    "name": "Feel24 Bodø Olav V",
+    "brand": "Feel24",
+    "address": "Olav V gate 102",
+    "postal_code": "8004",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/olav-v",
+    "legacy_brand": null,
+    "center_name": "Bodø Olav V",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ambiguous",
+    "phase2_ready_for_geocode": true,
+    "address_resolved_phase2": true,
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 655,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 67.2740601,
+        "lng": 14.389314,
+        "score": 9.053397794308385,
+        "display": "Olav V gate, Vestbyen, Hernes - Hierggenjárgga - Härrgenjárrga, Bodø, Nordland, 8004, Norge"
+      },
+      "second": {
+        "lat": 67.274886,
+        "lng": 14.40442,
+        "score": 9.00006446097505,
+        "display": "102C, Olav V gate, Prærien, Østbyen, Bodø, Nordland, 8004, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_fdfd4eae38",
+    "name": "Feel24 Stormyra Panorama",
+    "brand": "Feel24",
+    "address": "",
+    "postal_code": "",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "location_known_address_pending",
+    "opening_hours_raw": null,
+    "source_url": "https://feel24.no/treningssentre/",
+    "legacy_brand": null,
+    "center_name": "Stormyra Panorama",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "missing_address"
+  },
+  {
+    "id": "no_91e79fc5a9",
+    "name": "Feel24 Feelgood Harstad",
+    "brand": "Feel24",
+    "address": "Hans Egedes gate 6",
+    "postal_code": "9405",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": 68.79941,
+    "lng": 16.541526,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/feelgood-harstad",
+    "legacy_brand": null,
+    "center_name": "Feelgood Harstad",
+    "import_category": "NEEDS_REVIEW",
+    "geocode_status": "ok",
+    "phase2_ready_for_geocode": true,
+    "address_resolved_phase2": true,
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Hans Egedes gate, Eineberget, Harstadåsen, Harstad, Troms, 9405, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 11.000060658426793,
+        "lat": 68.7994102,
+        "lng": 16.5415257,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Hans Egedes gate, Eineberget, Harstadåsen, Harstad, Troms, 9405, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "duplicate_note": "Same address as live Feel24 Harstad Sentrum (Hans Egedes gate 6) — likely same gym / rebrand listing"
+  },
+  {
+    "id": "no_140bf885b0",
+    "name": "Feel24 Bjerkvik",
+    "brand": "Feel24",
+    "address": "Trollvikveien 32",
+    "postal_code": "8530",
+    "city": "Bjerkvik",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bjerkvik/bjerkvik",
+    "legacy_brand": null,
+    "center_name": "bjerkvik",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 1058,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 68.5492272,
+        "lng": 17.5135405,
+        "score": 9.05338641718166,
+        "display": "Trollvikveien, Haugen, Prestjorda, Bjerkvik - Rahkka, Narvik, Nordland, 8530, Norge"
+      },
+      "second": {
+        "lat": 68.55204,
+        "lng": 17.5383972,
+        "score": 9.05338641718166,
+        "display": "Trollvikveien, Prestjorda, Bjerkvik - Rahkka, Narvik, Nordland, 8530, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_087d84004e",
+    "name": "Feel24 Narvik Sentrum",
+    "brand": "Feel24",
+    "address": "Kongens gate 52/54",
+    "postal_code": "8514",
+    "city": "Narvik",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-narvik/narvik-sentrum",
+    "legacy_brand": null,
+    "center_name": "narvik-sentrum",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 168,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 68.4336949,
+        "lng": 17.4245238,
+        "score": 9.05338641718166,
+        "display": "Kongens gate, Luossavaara Kiirunavaara Aktie Bolag (LKAB), Trekanten, Narvik, Nordland, 8514, Norge"
+      },
+      "second": {
+        "lat": 68.4322397,
+        "lng": 17.423405,
+        "score": 9.05338641718166,
+        "display": "Kongens gate, Trekanten, Narvik, Nordland, 8514, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_7edff65cca",
+    "name": "Feel24 TreningssenterFeel24 Skytta Gjelleråsen",
+    "brand": "Feel24",
+    "address": "Brennaveien 4",
+    "postal_code": "1481",
+    "city": "Hagan",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-nittedal/skytta",
+    "legacy_brand": null,
+    "center_name": "skytta",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 466,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9935282,
+        "lng": 10.9151569,
+        "score": 9.053387708094911,
+        "display": "Brennaveien, Hagan, Slattum, Nittedal, Akershus, 1481, Norge"
+      },
+      "second": {
+        "lat": 59.992342,
+        "lng": 10.923202,
+        "score": 9.000054374761579,
+        "display": "4A, Brennaveien, Hagan, Slattum, Nittedal, Akershus, 1481, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_90af98f3bc",
+    "name": "Feel24 Brobekk Vollebekk",
+    "brand": "Feel24",
+    "address": "Brobekkveien 31",
+    "postal_code": "0598",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oslo/brobekk-vollebekk",
+    "legacy_brand": null,
+    "center_name": "brobekk-vollebekk",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 690,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9351567,
+        "lng": 10.8262252,
+        "score": 9.053414707408255,
+        "display": "Brobekkveien, Nedre Vollebekk, Vollebekk, Bjerke, Oslo, 0598, Norge"
+      },
+      "second": {
+        "lat": 59.9413082,
+        "lng": 10.8245425,
+        "score": 9.053414707408255,
+        "display": "Brobekkveien, Borrebekken, Brobekk, Bjerke, Oslo, 0598, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_5bf4b2b046",
+    "name": "Feel24 Okern Brobekk",
+    "brand": "Feel24",
+    "address": "Lundliveien 11",
+    "postal_code": "0584",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-oslo/okern-brobekk",
+    "legacy_brand": null,
+    "center_name": "okern-brobekk",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 221,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9378327,
+        "lng": 10.8147057,
+        "score": 9.053414707408255,
+        "display": "Lundliveien, Bråten, Bjerke, Oslo, 0584, Norge"
+      },
+      "second": {
+        "lat": 59.936005,
+        "lng": 10.813135,
+        "score": 9.000081374074922,
+        "display": "11B, Lundliveien, Bråten, Bjerke, Oslo, 0584, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_6c0d12df19",
+    "name": "3T-Treningssenter Solsiden",
+    "brand": "3T-Treningssenter",
+    "address": "Dyre Halses gate 1",
+    "postal_code": "7042",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.3t.no/treningssenter/3t-solsiden",
+    "legacy_brand": null,
+    "center_name": "3t-solsiden",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 196,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 63.4365531,
+        "lng": 10.4128809,
+        "score": 9.053406360723278,
+        "display": "Dyre Halses gate, Nyhavna, Reina, Nedre Elvehavn, Østbyen, Trondheim, Trøndelag, 7042, Norge"
+      },
+      "second": {
+        "lat": 63.4367539,
+        "lng": 10.4167881,
+        "score": 9.053406360723278,
+        "display": "Dyre Halses gate, Nyhavna, Reina, Nedre Elvehavn, Østbyen, Trondheim, Trøndelag, 7042, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_abfd4e9468",
+    "name": "MOVA Agotnes Torg",
+    "brand": "MOVA",
+    "address": "Skjergardsvegen 1362",
+    "postal_code": "5363",
+    "city": "Øygarden",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.mova.no/treningssenter/agotnes/torg",
+    "legacy_brand": null,
+    "center_name": "Agotnes Torg",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 1976,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 60.4215991,
+        "lng": 4.9857585,
+        "score": 9.053370834668499,
+        "display": "Skjergardsvegen, Vindenes, Angeltveit, Sollsvika, Øygarden, Vestland, 5363, Norge"
+      },
+      "second": {
+        "lat": 60.4051193,
+        "lng": 4.9992358,
+        "score": 9.053370834668499,
+        "display": "Skjergardsvegen, Ågotnes, Angeltveit, Ågotnes, Øygarden, Vestland, 5363, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_647782e6ee",
+    "name": "MOVA Moss Sentrum",
+    "brand": "MOVA",
+    "address": "Storgata 28",
+    "postal_code": "1531",
+    "city": "Moss",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.mova.no/treningssenter/moss/sentrum",
+    "legacy_brand": null,
+    "center_name": "Moss Sentrum",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 325,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.4350189,
+        "lng": 10.6573118,
+        "score": 9.053383334859236,
+        "display": "Storgata, Malakoff, Moss, Østfold, 1531, Norge"
+      },
+      "second": {
+        "lat": 59.4370293,
+        "lng": 10.6614926,
+        "score": 9.053383334859236,
+        "display": "Storgata, Skarmyra, Moss, Østfold, 1531, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_e3cd2d657c",
+    "name": "MOVA Raufoss Sentrum",
+    "brand": "MOVA",
+    "address": "Storgata 25",
+    "postal_code": "2830",
+    "city": "Vestre Toten",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.mova.no/treningssenter/raufoss/sentrum",
+    "legacy_brand": null,
+    "center_name": "Raufoss Sentrum",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 1212,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 60.7202652,
+        "lng": 10.6129991,
+        "score": 9.053385133897917,
+        "display": "Storgata, Grimåsfeltet, Raufoss, Vestre Toten, Innlandet, 2830, Norge"
+      },
+      "second": {
+        "lat": 60.7310478,
+        "lng": 10.6162378,
+        "score": 9.053385133897917,
+        "display": "Storgata, Vestrumenga, Raufoss, Vestre Toten, Innlandet, 2830, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_87e9f8e87e",
+    "name": "MOVA Sorumsand Park",
+    "brand": "MOVA",
+    "address": "Sørumsandvegen 66",
+    "postal_code": "1920",
+    "city": "Lillestrøm",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.mova.no/treningssenter/sorumsand/park",
+    "legacy_brand": null,
+    "center_name": "Sorumsand Park",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 718,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.9865542,
+        "lng": 11.2509923,
+        "score": 9.053376080720227,
+        "display": "Sørumsandvegen, Fynsfeltet, Sennerud, Fossum, Sørumsand, Lillestrøm, Akershus, 1920, Norge"
+      },
+      "second": {
+        "lat": 59.985687,
+        "lng": 11.238196,
+        "score": 9.053376080720227,
+        "display": "Sørumsandvegen, Rebakken, Sennerud, Vestby, Sørumsand, Lillestrøm, Akershus, 1920, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_bb530f8b74",
+    "name": "SKY Fitness Greaker",
+    "brand": "SKY Fitness",
+    "address": "Greåkerveien 145-147",
+    "postal_code": "1718",
+    "city": "Greåker",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://skyfitness.no/sentere/greaker/",
+    "legacy_brand": null,
+    "center_name": "greaker",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 382,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.2645126,
+        "lng": 11.0414214,
+        "score": 9.053383334859236,
+        "display": "Greåkerveien, Hannestad, Greåker, Sarpsborg, Østfold, 1718, Norge"
+      },
+      "second": {
+        "lat": 59.2651384,
+        "lng": 11.0348077,
+        "score": 9.053383334859236,
+        "display": "Greåkerveien, Hannestad, Greåker, Sarpsborg, Østfold, 1718, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_58d5679d97",
+    "name": "SKY Fitness Sarpsborg Borgenhaugen",
+    "brand": "SKY Fitness",
+    "address": "Skjebergveien 5",
+    "postal_code": "1738",
+    "city": "Borgenhaugen",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://skyfitness.no/sentere/sarpsborg-borgenhaugen/",
+    "legacy_brand": null,
+    "center_name": "sarpsborg-borgenhaugen",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 957,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.2618524,
+        "lng": 11.1608286,
+        "score": 9.053383334859236,
+        "display": "Skjebergveien, Borgenhaugen, Borgen, Sarpsborg, Østfold, 1738, Norge"
+      },
+      "second": {
+        "lat": 59.269474,
+        "lng": 11.1530096,
+        "score": 9.053383334859236,
+        "display": "Skjebergveien, Borgenhaugen, Hafslund, Sarpsborg, Østfold, 1738, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_c65b474e8e",
+    "name": "SKY Fitness Torp",
+    "brand": "SKY Fitness",
+    "address": "Torpegata 8A",
+    "postal_code": "1658",
+    "city": "Torp",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://skyfitness.no/sentere/torp/",
+    "legacy_brand": null,
+    "center_name": "torp",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 232,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.2442749,
+        "lng": 11.0170818,
+        "score": 9.05339705882353,
+        "display": "Torpegata, Moum, Torp, Fredrikstad, Østfold, 1658, Norge"
+      },
+      "second": {
+        "lat": 59.2424084,
+        "lng": 11.0152614,
+        "score": 9.05339705882353,
+        "display": "Torpegata, Moum, Torp, Fredrikstad, Østfold, 1658, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_71cd277828",
+    "name": "Spenst Halden",
+    "brand": "Spenst",
+    "address": "Walkers gate 10",
+    "postal_code": "1771",
+    "city": "Halden",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://spenst.no/finn-treningssenter/",
+    "legacy_brand": null,
+    "center_name": "Spenst Halden",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 306,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.1203345,
+        "lng": 11.3745501,
+        "score": 9.053394333562219,
+        "display": "Walkers gate, Høvleriet, Halden, Østfold, 1771, Norge"
+      },
+      "second": {
+        "lat": 59.12195,
+        "lng": 11.3788851,
+        "score": 9.053394333562219,
+        "display": "Walkers gate, Stangeløkka, Halden, Østfold, 1771, Norge"
+      }
+    }
+  },
+  {
+    "id": "no_8ecd21c0f4",
+    "name": "Spenst Kongsberg",
+    "brand": "Spenst",
+    "address": "Reins gate 2",
+    "postal_code": "3611",
+    "city": "Kongsberg",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://spenst.no/finn-treningssenter/",
+    "legacy_brand": null,
+    "center_name": "Spenst Kongsberg",
+    "import_category": "NEEDS_REVIEW",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "ambiguous",
+    "geocode_reason": "multiple_strong_candidates",
+    "geocode_distance_m": 204,
+    "geocode_candidates_detail": {
+      "best": {
+        "lat": 59.6720884,
+        "lng": 9.644073,
+        "score": 9.053394267948423,
+        "display": "Reins gate, Raumyr, Kongsberg, Buskerud, 3611, Norge"
+      },
+      "second": {
+        "lat": 59.6732367,
+        "lng": 9.6468955,
+        "score": 9.000060934615092,
+        "display": "2D, Reins gate, Raumyr, Kongsberg, Buskerud, 3611, Norge"
+      }
+    }
+  }
+]

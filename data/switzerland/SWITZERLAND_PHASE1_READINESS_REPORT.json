@@ -1,0 +1,131 @@
+{
+  "generated": "2026-08-22T15:34:31.835908+00:00",
+  "production_baseline": {
+    "production_total": 10050,
+    "switzerland_production": 0,
+    "sha256": "109ffde46db3a12a917122ee2e3d8e109e46216cfbd289895539c11e06e825b6"
+  },
+  "unique_staged": 290,
+  "ready_to_import": 281,
+  "status_counts": {
+    "READY_TO_IMPORT": 281,
+    "COMING_SOON": 6,
+    "NEEDS_COORDINATES": 3
+  },
+  "ready_by_brand": {
+    "ACTIV FITNESS": 128,
+    "Fitnesspark": 15,
+    "PureGym": 49,
+    "clever fit": 23,
+    "Let's Go Fitness": 66
+  },
+  "projected_catalog": 10331,
+  "quality": {
+    "duplicate_ids": 0,
+    "missing_addresses": 1,
+    "missing_postcodes": 1,
+    "missing_cities": 1,
+    "missing_coordinates": 4,
+    "invalid_coordinates": 0,
+    "foreign_outliers": 0,
+    "fallback_coordinates": 0,
+    "mojibake": 0,
+    "same_brand_physical_duplicates": 0,
+    "ambiguous_geocodes": 3
+  },
+  "chain_coverage": [
+    {
+      "chain": "ACTIV FITNESS",
+      "official_estimate": "~126",
+      "discovered": 131,
+      "ready": 128,
+      "unresolved": 2,
+      "coming_soon": 1,
+      "closed": 0,
+      "coverage_pct": 101.6,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Fitnesspark",
+      "official_estimate": "16",
+      "discovered": 16,
+      "ready": 15,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 93.8,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Kieser",
+      "official_estimate": "unknown",
+      "discovered": 0,
+      "ready": 0,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 0.0,
+      "verdict": "NOT_EXTRACTED"
+    },
+    {
+      "chain": "Let's Go Fitness",
+      "official_estimate": "~66",
+      "discovered": 66,
+      "ready": 66,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "NonStop Gym",
+      "official_estimate": "40+",
+      "discovered": 0,
+      "ready": 0,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 0.0,
+      "verdict": "BLOCKED"
+    },
+    {
+      "chain": "PureGym",
+      "official_estimate": "~48",
+      "discovered": 54,
+      "ready": 49,
+      "unresolved": 0,
+      "coming_soon": 5,
+      "closed": 0,
+      "coverage_pct": 102.1,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "clever fit",
+      "official_estimate": "~23",
+      "discovered": 23,
+      "ready": 23,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    }
+  ],
+  "regional_coverage": {
+    "german_speaking_sample_hits": 56,
+    "french_speaking_sample_hits": 36,
+    "italian_speaking_sample_hits": 4,
+    "other_cities": 188
+  },
+  "phase2_required": true,
+  "verdict": "SWITZERLAND PHASE 2 REQUIRED BEFORE MERGE",
+  "blocked_chains": [
+    {
+      "brand": "NonStop Gym",
+      "status": "BLOCKED",
+      "reason": "HTTP 403 on official our-clubs locator from research environment; Phase 2 priority (~40+ clubs)",
+      "official_estimate": "40+"
+    }
+  ]
+}

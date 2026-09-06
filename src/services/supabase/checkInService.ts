@@ -7,6 +7,10 @@ import {
   type CompletedTrainingSession,
 } from '@/services/training/completedTraining';
 import {sessionDurationMinutes} from '@/utils/trainingStatsFromCheckIns';
+import {
+  completeGymlyGroupParticipant,
+  startOrJoinGymlyGroupSession,
+} from '@/services/supabase/gymlyGroupSessionService';
 import type {
   CheckInEndReason,
   CheckoutReason,
@@ -23,6 +27,13 @@ export type {CompletedTrainingSession} from '@/services/training/completedTraini
 export async function endPriorActiveCheckInsForUser(
   userId: string,
 ): Promise<void> {
+  const {data: prior} = await supabase
+    .from('check_ins')
+    .select('id')
+    .eq('user_id', userId)
+    .eq('is_active', true)
+    .is('ended_at', null);
+
   const {error} = await supabase
     .from('check_ins')
     .update({
@@ -39,6 +50,13 @@ export async function endPriorActiveCheckInsForUser(
         ? 'Kunne ikke opdatere tidligere tjek-ind. Tjek rettigheder (RLS) for check_ins.'
         : error.message,
     );
+  }
+
+  const priorIds = (prior ?? []).map((r: {id: string}) => r.id);
+  if (priorIds.length > 0) {
+    for (const id of priorIds) {
+      await completeGymlyGroupParticipant(id).catch(() => {});
+    }
   }
 }
 
@@ -140,6 +158,19 @@ export async function completeActiveTrainingSession(
   }
 
   if (existingCheckIn.ended_at) {
+    const needsReview =
+      params.workoutNeedsReview === true ||
+      params.checkoutReason === 'auto_distance';
+    if (needsReview) {
+      await supabase
+        .from('check_ins')
+        .update({
+          workout_needs_review: true,
+          checkout_reason: params.checkoutReason ?? 'auto_distance',
+        })
+        .eq('id', checkInId)
+        .eq('user_id', userId);
+    }
     return completedTrainingFromCheckInRow({
       id: String(existingCheckIn.id),
       gym_id: existingCheckIn.gym_id as string | undefined,
@@ -169,8 +200,6 @@ export async function completeActiveTrainingSession(
             : null;
 
   const patchAttempts: Array<Record<string, unknown>> = [
-    {is_active: false, ended_at: now},
-    {is_active: false, ended_at: now, end_reason: endReason},
     {
       is_active: false,
       ended_at: now,
@@ -207,6 +236,8 @@ export async function completeActiveTrainingSession(
       last_distance_meters: null,
       auto_checkout_reason: auto,
     },
+    {is_active: false, ended_at: now, end_reason: endReason},
+    {is_active: false, ended_at: now},
   ];
 
   let lastError: string | undefined;
@@ -288,6 +319,19 @@ export async function completeActiveTrainingSession(
       lastError ??
         'Kunne ikke afslutte træningen. Tjek forbindelsen og prøv igen.',
     );
+  }
+
+  if (workoutNeedsReview && endedRow?.ended_at) {
+    await tryPatch(
+      {
+        workout_needs_review: true,
+        checkout_reason: checkoutReason ?? 'auto_distance',
+        end_reason: endReason,
+        auto_checkout_reason: auto ?? 'left_geofence',
+      },
+      false,
+    );
+    endedRow = (await fetchCheckInRowForUser(checkInId, userId)) ?? endedRow;
   }
 
   const completed = completedTrainingFromCheckInRow({
@@ -505,6 +549,9 @@ export async function submitCheckInSupabase(
   if (params.plannedWorkoutId) {
     insertPayload.planned_workout_id = params.plannedWorkoutId;
   }
+  if (params.gymlyGroupId) {
+    insertPayload.gymly_group_id = params.gymlyGroupId;
+  }
   insertPayload.away_started_at = null;
   insertPayload.last_distance_meters = null;
 
@@ -525,6 +572,18 @@ export async function submitCheckInSupabase(
       .single();
     data = r2.data;
     error = r2.error;
+  }
+  if (error && /gymly_group_id/i.test(String(error.message))) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {gymly_group_id, ...withoutGroup} = insertPayload;
+    void gymly_group_id;
+    const rg = await supabase
+      .from('check_ins')
+      .insert(withoutGroup)
+      .select('id, started_at')
+      .single();
+    data = rg.data;
+    error = rg.error;
   }
   if (error && /last_seen_at|column.*does not exist/i.test(String(error.message))) {
     const {user_id, gym_id, gym_name, city, workout_type, note, user_display_name, started_at, is_active, ended_at} =
@@ -575,6 +634,17 @@ export async function submitCheckInSupabase(
   if (!data) {
     throw new Error('Kunne ikke gemme tjek-ind (ingen række returneret).');
   }
+
+  if (params.gymlyGroupId) {
+    try {
+      await startOrJoinGymlyGroupSession(params.gymlyGroupId, data.id);
+    } catch (groupErr) {
+      if (__DEV__) {
+        console.warn('[CheckIn] group session join failed', groupErr);
+      }
+    }
+  }
+
   void checkAndUnlockBadges(user.id, params.displayName);
   return {
     id: data.id,

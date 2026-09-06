@@ -1,0 +1,133 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:56:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 3764277287,
+      "lat": 53.1852367,
+      "lon": 44.9815948,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Медведь"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4217639000,
+      "lat": 53.1905612,
+      "lon": 45.0005679,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Слим клуб",
+        "note": "ИП: Вега, ИнжСтройКом"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4397771642,
+      "lat": 53.1795424,
+      "lon": 45.011888,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Апельсин-ка",
+        "opening_hours": "Mo-Sa 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4397935727,
+      "lat": 53.1790117,
+      "lon": 45.0124849,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Детский гимнастический клуб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5139679819,
+      "lat": 53.1906566,
+      "lon": 45.0186762,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "Тонус клуб",
+        "opening_hours": "Mo-Su 07:30-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8459689618,
+      "lat": 53.1643742,
+      "lon": 45.003457,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Энигма Сура",
+        "phone": "+7 (903) 324-77-74;+7 (8412) 98-88-56",
+        "website": "https://www.enigmasura.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443656,
+      "lat": 53.2216483,
+      "lon": 44.9346254,
+      "tags": {
+        "contact:phone": "+7 937 4491114",
+        "contact:website": "https://ladystretch.com/penza",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443657,
+      "lat": 53.2108906,
+      "lon": 44.9801736,
+      "tags": {
+        "contact:phone": "+7 987 5070004",
+        "contact:website": "https://ladystretch.com/penza",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11757562732,
+      "lat": 53.1853627,
+      "lon": 45.0148815,
+      "tags": {
+        "contact:phone": "+7 (8412) 20-06-91",
+        "leisure": "fitness_centre",
+        "name": "Атмосфера"
+      }
+    },
+    {
+      "type": "way",
+      "id": 34389246,
+      "center": {
+        "lat": 53.2270355,
+        "lon": 44.9380907
+      },
+      "tags": {
+        "addr:city": "Пенза",
+        "addr:housenumber": "124Б",
+        "addr:postcode": "440066",
+        "addr:street": "проспект Победы",
+        "building": "yes",
+        "building:levels": "4",
+        "leisure": "fitness_centre",
+        "name": "Uni-Gym",
+        "phone": "+7-8412-250656",
+        "website": "https://www.unigym.ru/"
+      }
+    }
+  ]
+}

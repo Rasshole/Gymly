@@ -1,0 +1,837 @@
+{
+  "dry_run": false,
+  "idempotency_check": true,
+  "before": {
+    "total": 7167,
+    "france": 1712,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600
+  },
+  "after": {
+    "total": 7167,
+    "france": 1712,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600
+  },
+  "inserted": 0,
+  "rejected": {
+    "not_ready": 1953,
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 1,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "outside_bbox": 0,
+    "mojibake": 0,
+    "not_active": 168
+  },
+  "rejected_details": [
+    {
+      "id": "fr_c0e4948147",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_603f33188b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2d03839402",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_96a6c9250c",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_abb6e9f6b9",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d03046c55b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_e37444d298",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_1148ade37b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_9701f19df7",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_8a0c15dde7",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_167624e08c",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_9d19863473",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d00724a817",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_40b6cff6b9",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0bff8f27c1",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_fe2e8a9b9f",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_fc33a5f297",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_424bc5249e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_dcb3bd202d",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_1875ce4f71",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_a4b5a5f9d5",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_e9a2d684f0",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f2dd199e55",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_ebb7d7daa2",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_a5e50ad4b6",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_fc4a93a7d9",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d8630e2cbd",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0f1acbcea4",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_5627d39215",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_e2a0ec8f8a",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_198ec29149",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_ae73acb1d8",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0c9b4c53fa",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_b90e860b53",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_430869a148",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0be91ea07b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_b08a32e2d9",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_03cb299a8e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2c80469a3b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_1e86fc7fab",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d46a5c8b2e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d0e8bcd1c2",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_9eef0a8380",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_933a095f05",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_ff82841042",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_a25d1c41de",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_3237449cb2",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0b411744d6",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_efff9468fb",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f763445323",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d7ee41bc73",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d8e79e280c",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_b417f483fe",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_3e35d76237",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_e6d7435f82",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_52c7afcf06",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_77f0be1da5",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f9dcc2582f",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_7fe2dc15fe",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_905f6d27b8",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f76078e98b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_3848f27ad5",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_a2b4bc75a9",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_ad75a0741b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_7c96064b59",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c452075dcb",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_9e42c19e86",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_50ae2e5245",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_02f4bee959",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d04598017c",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_fbb5441cb3",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_7cdf21931b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c7849ea422",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_7cb55bce57",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_1798781378",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c4bcabf649",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0a785d913c",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_6b0e65a35e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0cdadb446a",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2880ff1ae0",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d311bdf9e7",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_83a98bd165",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_9a1017d68f",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_cfeac00cf8",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_6513df2af6",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0da344c6fb",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_81841f9bfc",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_49155206b4",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_23e94c63ca",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_890fc3010a",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_68db5a99fb",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_a02fbd2dcf",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c9f0635f9d",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_63a6378d28",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_8a13dce2fa",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_e0ce962c33",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f9cc36dd38",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_ce8243d18e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_3266710d32",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_14de4cc35e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2a73def625",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_1550073b3b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_7eb15de6e9",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2ad607936e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_0261d7ec1d",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_138a26c81e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_909807e16d",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_35bff53d77",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_6096af050d",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_dabbd515f5",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_4c7ceed8f1",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_287880f38e",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_399e157a21",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_cda0e703b4",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_67fb51e6e8",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2d0f7ac351",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_6674cfa8cd",
+      "reason": "missing_address"
+    },
+    {
+      "id": "fr_e76d314d06",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f834d5a9db",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_96cbcbd760",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_6311cc12c1",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_ea05f86104",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_a93994504d",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_5972539e9f",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2caa400030",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_713e7e5eec",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_82a2464aec",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_df44a30205",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_fc1c6eef21",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f6058d487c",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2dc2987990",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_de76733912",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2a2f16a14a",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f85f598cd7",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_281f304ba6",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_6f91cd9440",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_8bbdce33bb",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_bd18982891",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_33c4d49627",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_063eaf79d0",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_df6aa75559",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_b6b1417e96",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_6977670a64",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_4a71537242",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d6e500562b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_7e2488fe02",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_dc4d44ec6a",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c525b0aaa2",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_b69eba33cc",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_864daa7aec",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_19e7b8c34b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_af18dbfe95",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2c4d778dcc",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c5d67c46e9",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_2725f6e67a",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_f04a0d181b",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_bfe44ef2ed",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_75fd94da49",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_7ee43318de",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c10ed12008",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_b49da77a2d",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_cf4ef96ea7",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_9364eaf1a7",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_c484c39f08",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_547b193e26",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_29f2999e58",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_d547d90ca5",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_301d018d38",
+      "reason": "not_active"
+    },
+    {
+      "id": "fr_e72e4a005a",
+      "reason": "not_active"
+    }
+  ],
+  "france_by_brand": {
+    "Anytime Fitness": 3,
+    "Basic-Fit": 892,
+    "Fitness Park": 266,
+    "L'Appart Fitness": 109,
+    "L'Orange Bleue": 169,
+    "ON AIR Fitness": 20,
+    "Keepcool": 197,
+    "Neoness": 1,
+    "Elancia": 28,
+    "Magic Form": 2,
+    "Vita Liberté": 22,
+    "Gigafit": 3
+  },
+  "brand_sum": 1712,
+  "duplicate_ids_in_catalog": [],
+  "duplicate_same_brand_physical": [],
+  "close_clusters_100_200m": [],
+  "missing_address": 0,
+  "missing_postal": 0,
+  "missing_city": 0,
+  "encoding_issues": [],
+  "french_letter_counts": {
+    "e_acute": 818,
+    "e_grave": 285,
+    "e_circ": 23,
+    "e_diaeresis": 11,
+    "a_grave": 4,
+    "a_circ": 66,
+    "c_cedilla": 50,
+    "i_circ": 13,
+    "i_diaeresis": 1,
+    "o_circ": 40,
+    "u_grave": 0,
+    "u_circ": 7,
+    "oe": 5,
+    "ae": 0
+  },
+  "metropolitan_outliers": [],
+  "overseas_entries": [
+    {
+      "id": "fr_17fee3724d",
+      "name": "ON AIR Guadeloupe La Jaille",
+      "territory": "Guadeloupe",
+      "lat": 16.2550572,
+      "lng": -61.5633468
+    },
+    {
+      "id": "fr_e2545c96ce",
+      "name": "Keepcool Martinique Fort-De-France",
+      "territory": "Martinique",
+      "lat": 14.6128825,
+      "lng": -61.0501095
+    },
+    {
+      "id": "fr_ba2b1111c0",
+      "name": "Keepcool La Réunion Le Tampon",
+      "territory": "Réunion",
+      "lat": -21.2734357,
+      "lng": 55.5086003
+    },
+    {
+      "id": "fr_1d9c1d9c6c",
+      "name": "Keepcool La Réunion Sainte-Marie Duparc",
+      "territory": "Réunion",
+      "lat": -20.89949,
+      "lng": 55.5204018
+    },
+    {
+      "id": "fr_6269501af6",
+      "name": "Keepcool La Réunion Saint-Joseph",
+      "territory": "Réunion",
+      "lat": -21.377322,
+      "lng": 55.6168735
+    },
+    {
+      "id": "fr_ba7a995268",
+      "name": "Keepcool La Réunion Saint-Louis",
+      "territory": "Réunion",
+      "lat": -21.2884597,
+      "lng": 55.3995191
+    },
+    {
+      "id": "fr_d630258ec0",
+      "name": "Keepcool La Réunion Saint-Pierre",
+      "territory": "Réunion",
+      "lat": -21.3144524,
+      "lng": 55.4762255
+    }
+  ],
+  "countries_intact": {
+    "dk": true,
+    "se": true,
+    "no": true,
+    "fi": true,
+    "de": true,
+    "uk": true,
+    "nl": true
+  },
+  "staging_categories": {
+    "MERGED_INTO_CATALOG": 1712,
+    "COMING_SOON": 9,
+    "READY_TO_IMPORT": 190,
+    "NEEDS_REVIEW": 63,
+    "NEEDS_COORDINATES": 169
+  },
+  "excluded_still_staged": {
+    "NEEDS_COORDINATES": 169,
+    "NEEDS_REVIEW": 63,
+    "COMING_SOON": 9,
+    "CLOSED": 0
+  },
+  "dupAnalysis_summary": {
+    "skipped_existing_id": 0,
+    "skipped_same_addr_brand": 15,
+    "skipped_proximity_same_brand": 6
+  }
+}

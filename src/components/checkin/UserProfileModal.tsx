@@ -56,17 +56,8 @@ export interface UserProfileModalProps {
   activitySubtitle?: string;
 }
 
-const FRIEND_VIBES = [
-  {emoji: '💪', label: 'Stærkt'},
-  {emoji: '🔥', label: 'On fire'},
-  {emoji: '👀', label: 'Ser dig'},
-] as const;
-
-const NON_FRIEND_VIBES = [
-  {emoji: '💪', label: 'Respekt'},
-  {emoji: '🔥', label: 'On fire'},
-  {emoji: '👋', label: 'Hey'},
-] as const;
+const FRIEND_VIBE_EMOJIS = ['💪', '🔥', '👀'] as const;
+const NON_FRIEND_VIBE_EMOJIS = ['💪', '🔥', '👋'] as const;
 
 type FriendshipStatus = 'friend' | 'pending_sent' | 'pending_received' | 'none';
 
@@ -114,7 +105,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
     isActive: true,
     checkInId: null,
   });
-  const [profileName, setProfileName] = useState<string>('Ukendt bruger');
+  const [profileName, setProfileName] = useState<string>('');
   const [profileAvatar, setProfileAvatar] = useState<string | null>(null);
   const [selectedVibe, setSelectedVibe] = useState<string>('💪');
   const [userStats, setUserStats] = useState<UserStats | null>(null);
@@ -193,7 +184,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
     );
 
     const p = pMap.get(user.id);
-    setProfileName(safeDisplayName(p?.displayName, p?.username, user.name, 'Ukendt bruger'));
+    setProfileName(safeDisplayName(p?.displayName, p?.username, user.name, t('userProfileModal.unknownUser')));
     setProfileAvatar(p?.avatarUrl ?? user.avatar ?? null);
 
     let nextFriendship: FriendshipStatus = 'none';
@@ -230,7 +221,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
   const loadDeliveredEmojis = useCallback(
     async (recipientId: string, checkInId: string | null, fr: FriendshipStatus) => {
       const allowed = new Set(
-        (fr === 'friend' ? FRIEND_VIBES : NON_FRIEND_VIBES).map(v => v.emoji),
+        (fr === 'friend' ? FRIEND_VIBE_EMOJIS : NON_FRIEND_VIBE_EMOJIS),
       );
       try {
         const list = await fetchSentWorkoutVibeEmojis(recipientId, checkInId);
@@ -382,7 +373,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
         [viewerUserId]: viewerName || 'Dig',
         [otherUserId]: otherName,
       };
-      const participantNames = participantIds.map(id => nameById[id] ?? 'Ukendt bruger');
+      const participantNames = participantIds.map(id => nameById[id] ?? t('userProfileModal.unknownUser'));
       const existingChat = getChatByParticipants(participantIds);
       const threadId = await getOrCreateDmThread(otherUserId);
       upsertChat({
@@ -405,7 +396,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
         return;
       }
       if (deliveredEmojisRef.current.has(emoji)) {
-        setVibeHint('Du har allerede sendt den vibe');
+        setVibeHint(t('userProfileModal.vibeAlreadySent'));
         return;
       }
       if (sendPhase === 'sending' || sendPhase === 'success') {
@@ -481,7 +472,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
           console.log('[UserProfileModal] vibe already_sent (duplicate)', {emoji});
           setDeliveredEmojis(prev => new Set(prev).add(emoji));
           setSendPhase('idle');
-          setVibeHint('Du har allerede sendt den vibe');
+          setVibeHint(t('userProfileModal.vibeAlreadySent'));
           return;
         }
 
@@ -633,7 +624,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
         }
       }
     } catch (e) {
-      Alert.alert('Venner', (e as Error).message);
+      Alert.alert(t('userProfileModal.friendsAlertTitle'), (e as Error).message);
     } finally {
       setBusy(false);
     }
@@ -641,13 +632,15 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
 
   const activityLine = useMemo(() => {
     const startedAt = liveState.startedAt ?? user?.startedAt ?? null;
-    const duration = startedAt ? formatDurationIgang(startedAt) : '0 min i gang';
+    const duration = startedAt
+      ? formatDurationIgang(startedAt)
+      : t('activeSession.minutesInProgress', {count: 0});
     const type = formatWorkoutTypeDisplay(
       liveState.workoutType ?? user?.workoutType ?? undefined,
       getRuntimeLanguage(),
     );
-    return `Aktiv nu · ${duration} · ${type}`;
-  }, [liveState.startedAt, liveState.workoutType, user?.startedAt, user?.workoutType]);
+    return `${t('home.activeNow')} · ${duration} · ${type}`;
+  }, [liveState.startedAt, liveState.workoutType, user?.startedAt, user?.workoutType, t]);
 
   useEffect(() => {
     if (!visible || !user?.id || isSyntheticLiveUser(user)) {
@@ -672,23 +665,44 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
 
   const friendButtonLabel =
     friendship === 'friend'
-      ? 'Venner ✓'
+      ? t('userProfileModal.friendsCheck')
       : friendship === 'pending_sent'
-        ? 'Anmodning sendt'
+        ? t('userProfileModal.requestSent')
         : friendship === 'pending_received'
-          ? 'Acceptér anmodning'
+          ? t('userProfileModal.acceptRequest')
           : t('userProfile.addFriend');
   const friendButtonDisabled =
     isSelf || busy || friendship === 'pending_sent' || friendship === 'friend';
   const modalTitle = isSelf
     ? t('userProfile.yourActiveSession')
     : friendship === 'friend'
-      ? 'Send vibe'
-      : 'Sig hey';
-  const vibes = friendship === 'friend' ? FRIEND_VIBES : NON_FRIEND_VIBES;
+      ? t('friendProfile.sendVibe')
+      : t('userProfileModal.sayHey');
+  const vibes = useMemo(() => {
+    if (friendship === 'friend') {
+      return FRIEND_VIBE_EMOJIS.map(emoji => ({
+        emoji,
+        label:
+          emoji === '💪'
+            ? t('userProfileModal.vibeStrong')
+            : emoji === '🔥'
+              ? t('userProfileModal.vibeOnFire')
+              : t('userProfileModal.vibeSeeYou'),
+      }));
+    }
+    return NON_FRIEND_VIBE_EMOJIS.map(emoji => ({
+      emoji,
+      label:
+        emoji === '💪'
+          ? t('friendProfile.respect')
+          : emoji === '🔥'
+            ? t('userProfileModal.vibeOnFire')
+            : t('userProfileModal.heyVibe'),
+    }));
+  }, [friendship, t]);
   const streakText =
     (userStats?.currentStreak ?? 0) > 0
-      ? `🔥 ${userStats?.currentStreak} dages streak`
+      ? `🔥 ${t('leaderboard.dayStreak', {count: userStats?.currentStreak ?? 0})}`
       : t('userProfile.noActiveStreak');
 
   const sendButtonDisabled =
@@ -700,10 +714,10 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
 
   const sendButtonLabel =
     sendPhase === 'sending'
-      ? 'Sender…'
+      ? t('chat.sending')
       : sendPhase === 'success'
-        ? 'Vibe sendt'
-        : 'Send vibe';
+        ? t('userProfileModal.vibeSent')
+        : t('friendProfile.sendVibe');
 
   if (!user) return null;
 
@@ -732,24 +746,28 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                 {friendship === 'friend' && (
                   <View style={styles.friendLabel}>
                     <Icon name="people" size={12} color={colors.secondary} />
-                    <Text style={styles.friendText}>Ven</Text>
+                    <Text style={styles.friendText}>{t('userProfileModal.friend')}</Text>
                   </View>
                 )}
                 <Text style={styles.activityText}>{activityLine}</Text>
                 <Text style={styles.centerText}>
-                  {liveState.centerName ?? 'Samme center lige nu'}
+                  {liveState.centerName ?? t('userProfileModal.sameCenterNow')}
                 </Text>
                 <Text style={styles.streakMetaText}>{streakText}</Text>
                 {!isSelf && primaryCenterSummary ? (
                   <View style={styles.primaryCenterPill}>
-                    <Text style={styles.primaryCenterPillLabel}>Primært center</Text>
+                    <Text style={styles.primaryCenterPillLabel}>
+                      {t('userProfileModal.primaryCenter')}
+                    </Text>
                     <Text style={styles.primaryCenterPillValue} numberOfLines={2}>
                       {primaryCenterSummary}
                     </Text>
                   </View>
                 ) : null}
                 {!liveState.isActive ? (
-                  <Text style={styles.inactiveText}>{profileName} er ikke aktiv længere</Text>
+                  <Text style={styles.inactiveText}>
+                    {t('userProfileModal.notActiveAnymore', {name: profileName})}
+                  </Text>
                 ) : null}
                 {!isSelf ? (
                   <Text style={styles.sameGymHint}>
@@ -764,7 +782,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                     onClose();
                     navigation.navigate('Profile');
                   }}>
-                  <Text style={styles.inviteButtonText}>Se min profil</Text>
+                  <Text style={styles.inviteButtonText}>{t('userProfileModal.seeMyProfile')}</Text>
                 </Pressable>
               ) : (
                 <>
@@ -836,7 +854,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                         onPress={() => {
                           if (delivered) {
                             setSelectedVibe(emoji);
-                            setVibeHint('Du har allerede sendt den vibe');
+                            setVibeHint(t('userProfileModal.vibeAlreadySent'));
                             return;
                           }
                           setSelectedVibe(emoji);
@@ -849,7 +867,9 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                           sendPhase === 'success'
                         }>
                         {delivered ? (
-                          <View style={styles.reactionSentBadge} accessibilityLabel="Sendt">
+                          <View
+                            style={styles.reactionSentBadge}
+                            accessibilityLabel={t('userProfileModal.sentA11y')}>
                             <Icon name="checkmark" size={10} color={colors.white} />
                           </View>
                         ) : null}
@@ -880,7 +900,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                       const center =
                         liveState.centerName ||
                         user?.centerName ||
-                        'Samme center';
+                        t('userProfileModal.sameCenterNow');
                       const type = formatWorkoutTypeDisplay(
                         liveState.workoutType ?? user?.workoutType ?? 'cardio',
                       );
@@ -901,7 +921,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                         undefined,
                     });
                   }}>
-                  <Text style={styles.secondaryText}>Se profil</Text>
+                  <Text style={styles.secondaryText}>{t('userProfileModal.seeProfile')}</Text>
                 </TouchableOpacity>
                 {friendship !== 'friend' ? (
                   <Pressable
@@ -924,7 +944,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                     disabled={
                       busy || sendPhase === 'sending' || sendPhase === 'success'
                     }>
-                    <Text style={styles.secondaryText}>Skriv besked</Text>
+                    <Text style={styles.secondaryText}>{t('userProfileModal.writeMessage')}</Text>
                   </Pressable>
                 ) : null}
               </View> : null}
@@ -933,7 +953,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                 style={styles.closeButton}
                 onPress={onClose}
                 activeOpacity={0.8}>
-                <Text style={styles.closeButtonText}>Luk</Text>
+                <Text style={styles.closeButtonText}>{t('userProfileModal.close')}</Text>
               </TouchableOpacity>
           </TouchableOpacity>
         </View>

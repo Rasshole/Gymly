@@ -1,0 +1,635 @@
+{
+  "lu|avenue du swing 1, 4367, belvaux, luxembourg": {
+    "lat": 49.5015375,
+    "lng": 5.9430399,
+    "display_name": "Morgan, 1, Avenue du Swing, Belval, Belvaux, Sanem, Canton Esch-sur-Alzette, 4367, Lëtzebuerg",
+    "importance": 5.1199359121034826e-05,
+    "postcode": "4367",
+    "country_code": "lu"
+  },
+  "lu|route de luxembourg 111, 7241, bereldange, luxembourg": {
+    "lat": 49.6510591,
+    "lng": 6.1278068,
+    "display_name": "111, Route de Luxembourg, Bereldange, Walferdange, Canton Luxembourg, 7241, Lëtzebuerg",
+    "importance": 5.254367895013378e-05,
+    "postcode": "7241",
+    "country_code": "lu"
+  },
+  "lu|route de luxembourg 235, 3254, bettembourg, luxembourg": {
+    "lat": 49.5309334,
+    "lng": 6.1010456,
+    "display_name": "235, Route de Luxembourg, Abweiler, Bettembourg, Canton Esch-sur-Alzette, 3254, Lëtzebuerg",
+    "importance": 5.348973830772896e-05,
+    "postcode": "3254",
+    "country_code": "lu"
+  },
+  "lu|za et commerciale 1, 9085, ettelbruck, luxembourg": {
+    "lat": 49.838854,
+    "lng": 6.0968671,
+    "display_name": "1, Zone Artisanale et Commerciale, Grentzingen, Ettelbruck, Canton Diekirch, 9085, Lëtzebuerg",
+    "importance": 4.5001144426596745e-05,
+    "postcode": "9085",
+    "country_code": "lu"
+  },
+  "lu|rue du brill 11, 3898, foetz, luxembourg": {
+    "lat": 49.5205956,
+    "lng": 6.0081746,
+    "display_name": "E. Leclerc, 11, Rue du Brill, Foetz, Mondercange, Canton Esch-sur-Alzette, 3898, Lëtzebuerg",
+    "importance": 5.230411230635565e-05,
+    "postcode": "3898",
+    "country_code": "lu"
+  },
+  "lu|rue du père raphaël 18, 1349, luxembourg, luxembourg": {
+    "lat": 49.5885401,
+    "lng": 6.1228695,
+    "display_name": "Rue du Père Raphaël, Cloche d'Or, Gasperich, Luxembourg, Canton Luxembourg, 2413, Lëtzebuerg",
+    "importance": 0.05340490043488209,
+    "postcode": "2413",
+    "country_code": "lu"
+  },
+  "lu|rue joseph junck 12, 1839, luxembourg, luxembourg": {
+    "lat": 49.6008266,
+    "lng": 6.1324294,
+    "display_name": "Basic-Fit, 12, Rue Joseph Junck, Gare, Luxembourg, Canton Luxembourg, 1839, Lëtzebuerg",
+    "importance": 7.156710154874522e-05,
+    "postcode": "1839",
+    "country_code": "lu"
+  },
+  "lu|rue de luxembourg 11, 5230, sandweiler, luxembourg": {
+    "lat": 49.6145243,
+    "lng": 6.20773,
+    "display_name": "11, Rue de Luxembourg, Sandweiler, Canton Luxembourg, 5230, Lëtzebuerg",
+    "importance": 5.121461814293152e-05,
+    "postcode": "5230",
+    "country_code": "lu"
+  },
+  "lu|rue du cimetière 150-152, 8069, strassen, luxembourg": {
+    "lat": 49.6145192,
+    "lng": 6.0725353,
+    "display_name": "Rue du Cimetière, Strassen, Canton Luxembourg, 8018, Lëtzebuerg",
+    "importance": 0.053384462500953654,
+    "postcode": "8018",
+    "country_code": "lu"
+  },
+  "lu|route d’arlon 5, 8399, windhof, luxembourg": null,
+  "lu|rue de beggen 233, 1221, luxembourg, luxembourg": {
+    "lat": 49.6458226,
+    "lng": 6.1267252,
+    "display_name": "Centre Espace, 233-241, Rue de Beggen, Beggen, Bereldange, Luxembourg, Canton Luxembourg, 1221, Lëtzebuerg",
+    "importance": 7.156710154874522e-05,
+    "postcode": "1221",
+    "country_code": "lu"
+  },
+  "lu|rue joseph junck 11, 1839, luxembourg, luxembourg": {
+    "lat": 49.6004103,
+    "lng": 6.1319654,
+    "display_name": "Lonesah Gym, 11, Rue Joseph Junck, Gare, Luxembourg, Canton Luxembourg, 1839, Lëtzebuerg",
+    "importance": 7.156710154874522e-05,
+    "postcode": "1839",
+    "country_code": "lu"
+  },
+  "lu|rue christophe plantin 18, 2339, luxembourg, luxembourg": {
+    "lat": 49.5876234,
+    "lng": 6.1209579,
+    "display_name": "18, Rue Christophe Plantin, Cloche d'Or, Gasperich, Luxembourg, Canton Luxembourg, 2339, Lëtzebuerg",
+    "importance": 7.156710154874522e-05,
+    "postcode": "2339",
+    "country_code": "lu"
+  },
+  "lu|avenue john f. kennedy 33, 1855, luxembourg, luxembourg": {
+    "lat": 49.6267512,
+    "lng": 6.161147,
+    "display_name": "Sushi Shop, 33, Avenue John F. Kennedy, Parc Central, Kirchberg, Luxembourg, Canton Luxembourg, 1885, Lëtzebuerg",
+    "importance": 7.156710154874522e-05,
+    "postcode": "1885",
+    "country_code": "lu"
+  },
+  "lu|avenue john f. kennedy 7, 1855, luxembourg, luxembourg": {
+    "lat": 49.6201751,
+    "lng": 6.1425202,
+    "display_name": "7, Avenue John F. Kennedy, Quartier Européen Sud, Kirchberg, Luxembourg, Canton Luxembourg, 1855, Lëtzebuerg",
+    "importance": 7.156710154874522e-05,
+    "postcode": "1855",
+    "country_code": "lu"
+  },
+  "lu|zone industrielle mierscherbierg 1, centre commercial listo, 7526, mersch, luxembourg": null,
+  "lu|city concorde, 80 route de longwy, 8060, bertrange, luxembourg": {
+    "lat": 49.6017071,
+    "lng": 6.0650541,
+    "display_name": "Centre Commercial City Concorde, 80, Route de Longwy, City Concorde, Bertrange, Canton Luxembourg, 8080, Lëtzebuerg",
+    "importance": 5.214694438081968e-05,
+    "postcode": "8080",
+    "country_code": "lu"
+  },
+  "lu|2 rue de mondercange, 4247, esch-sur-alzette, luxembourg": {
+    "lat": 49.5123532,
+    "lng": 5.9871145,
+    "display_name": "Rue de Mondercange, Lankelz, Esch-sur-Alzette, Canton Esch-sur-Alzette, 4247, Lëtzebuerg",
+    "importance": 0.053394600595101815,
+    "postcode": "4247",
+    "country_code": "lu"
+  },
+  "lu|laangwiss ii, rue nicolas glesener, 6131, junglinster, luxembourg": null,
+  "lu|topaze, rue colmar-berg, 7525, mersch, luxembourg": {
+    "lat": 49.7571521,
+    "lng": 6.0987378,
+    "display_name": "Topaze Shopping Center, Rue de Colmar-Berg, Pettingen, Mersch, Canton Mersch, 7553, Lëtzebuerg",
+    "importance": 5.361028458071286e-05,
+    "postcode": "7553",
+    "country_code": "lu"
+  },
+  "lu|excluded — not a merge candidate, belvaux, luxembourg": null,
+  "lu|excluded — not a merge candidate, luxembourg, luxembourg": null,
+  "Route d'Arlon 5, 8399 Windhof, Luxembourg": [],
+  "Route d'Arlon, Windhof, Luxembourg": [
+    {
+      "place_id": 119680159,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 6412805983,
+      "lat": "49.6474632",
+      "lon": "5.9553905",
+      "class": "amenity",
+      "type": "charging_station",
+      "place_rank": 30,
+      "importance": 5.144808117795098e-05,
+      "addresstype": "amenity",
+      "name": "Chargy Ok - Windhof - Parking route d'Arlon",
+      "display_name": "Chargy Ok - Windhof - Parking route d'Arlon, Rue de Koerich, Wandhaff, Koerich, Canton Capellen, 8399, Lëtzebuerg",
+      "address": {
+        "amenity": "Chargy Ok - Windhof - Parking route d'Arlon",
+        "road": "Rue de Koerich",
+        "village": "Wandhaff",
+        "county": "Canton Capellen",
+        "ISO3166-2-lvl6": "LU-CA",
+        "postcode": "8399",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.6474132",
+        "49.6475132",
+        "5.9553405",
+        "5.9554405"
+      ]
+    }
+  ],
+  "Basic-Fit Windhof, Luxembourg": [
+    {
+      "place_id": 120736146,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 8742551514,
+      "lat": "49.6469913",
+      "lon": "5.9601903",
+      "class": "leisure",
+      "type": "fitness_centre",
+      "place_rank": 30,
+      "importance": 5.2973983367620625e-05,
+      "addresstype": "leisure",
+      "name": "Basic-Fit",
+      "display_name": "Basic-Fit, Rue d'Arlon, Wandhaff, Koerich, Canton Capellen, 8399, Lëtzebuerg",
+      "address": {
+        "leisure": "Basic-Fit",
+        "road": "Rue d'Arlon",
+        "village": "Wandhaff",
+        "county": "Canton Capellen",
+        "ISO3166-2-lvl6": "LU-CA",
+        "postcode": "8399",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.6469413",
+        "49.6470413",
+        "5.9601403",
+        "5.9602403"
+      ]
+    }
+  ],
+  "5 Route d Arlon, Koerich, Luxembourg": [
+    {
+      "place_id": 119738014,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 47253933,
+      "lat": "49.6465213",
+      "lon": "5.9689512",
+      "class": "highway",
+      "type": "primary",
+      "place_rank": 26,
+      "importance": 0.053386307316700965,
+      "addresstype": "road",
+      "name": "Route d'Arlon",
+      "display_name": "Route d'Arlon, Capellen, Mamer, Canton Capellen, 8311, Lëtzebuerg",
+      "address": {
+        "road": "Route d'Arlon",
+        "city_district": "Capellen",
+        "village": "Mamer",
+        "county": "Canton Capellen",
+        "ISO3166-2-lvl6": "LU-CA",
+        "postcode": "8311",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.6463201",
+        "49.6467042",
+        "5.9657177",
+        "5.9721838"
+      ]
+    }
+  ],
+  "Windhof, Koerich, Luxembourg": [
+    {
+      "place_id": 119302017,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 2907661401,
+      "lat": "49.6471021",
+      "lon": "5.9578187",
+      "class": "place",
+      "type": "village",
+      "place_rank": 19,
+      "importance": 0.24158668584662718,
+      "addresstype": "village",
+      "name": "Wandhaff",
+      "display_name": "Wandhaff, Koerich, Canton Capellen, 8399, Lëtzebuerg",
+      "address": {
+        "village": "Wandhaff",
+        "county": "Canton Capellen",
+        "ISO3166-2-lvl6": "LU-CA",
+        "postcode": "8399",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.6271021",
+        "49.6671021",
+        "5.9378187",
+        "5.9778187"
+      ]
+    }
+  ],
+  "Centre Commercial LISTO, Mierscherbierg 1, 7526 Mersch, Luxembourg": [],
+  "Mierscherbierg 1, Mersch, Luxembourg": [
+    {
+      "place_id": 118873734,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 172408693,
+      "lat": "49.7601257",
+      "lon": "6.1008487",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338694361791406,
+      "addresstype": "road",
+      "name": "Um Mierscherbierg",
+      "display_name": "Um Mierscherbierg, Pettingen, Mersch, Canton Mersch, 7526, Lëtzebuerg",
+      "address": {
+        "road": "Um Mierscherbierg",
+        "village": "Pettingen",
+        "county": "Canton Mersch",
+        "ISO3166-2-lvl6": "LU-ME",
+        "postcode": "7526",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7591315",
+        "49.7612825",
+        "6.0987734",
+        "6.1028405"
+      ]
+    },
+    {
+      "place_id": 119397206,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 172408697,
+      "lat": "49.7581038",
+      "lon": "6.0975051",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338694361791406,
+      "addresstype": "road",
+      "name": "Um Mierscherbierg",
+      "display_name": "Um Mierscherbierg, Pettingen, Mersch, Canton Mersch, 7553, Lëtzebuerg",
+      "address": {
+        "road": "Um Mierscherbierg",
+        "village": "Pettingen",
+        "county": "Canton Mersch",
+        "ISO3166-2-lvl6": "LU-ME",
+        "postcode": "7553",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7579744",
+        "49.7583533",
+        "6.0971121",
+        "6.0978386"
+      ]
+    }
+  ],
+  "LISTO Mersch, Luxembourg": [
+    {
+      "place_id": 123357488,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 34911738,
+      "lat": "49.7586970",
+      "lon": "6.0971937",
+      "class": "shop",
+      "type": "mall",
+      "place_rank": 30,
+      "importance": 5.361028458071286e-05,
+      "addresstype": "shop",
+      "name": "Listo Shopping Center",
+      "display_name": "Listo Shopping Center, 2, Allée John W. Leonard, Pettingen, Mersch, Canton Mersch, 7526, Lëtzebuerg",
+      "address": {
+        "shop": "Listo Shopping Center",
+        "house_number": "2",
+        "road": "Allée John W. Leonard",
+        "village": "Pettingen",
+        "county": "Canton Mersch",
+        "ISO3166-2-lvl6": "LU-ME",
+        "postcode": "7526",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7582080",
+        "49.7593435",
+        "6.0963247",
+        "6.0980332"
+      ]
+    }
+  ],
+  "Zone Industrielle Mierscherbierg, Mersch, Luxembourg": [],
+  "Rue Nicolas Glesener, 6131 Junglinster, Luxembourg": [
+    {
+      "place_id": 119132571,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 967834189,
+      "lat": "49.7057634",
+      "lon": "6.2524895",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338476768139159,
+      "addresstype": "road",
+      "name": "Rue Nicolas Glesener",
+      "display_name": "Rue Nicolas Glesener, Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, 6131, Lëtzebuerg",
+      "address": {
+        "road": "Rue Nicolas Glesener",
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "postcode": "6131",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7053929",
+        "49.7061339",
+        "6.2512056",
+        "6.2537734"
+      ]
+    },
+    {
+      "place_id": 117906832,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 1017209342,
+      "lat": "49.7053196",
+      "lon": "6.2509518",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338476768139159,
+      "addresstype": "road",
+      "name": "Rue Nicolas Glesener",
+      "display_name": "Rue Nicolas Glesener, Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, 6121, Lëtzebuerg",
+      "address": {
+        "road": "Rue Nicolas Glesener",
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "postcode": "6121",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7052073",
+        "49.7053929",
+        "6.2507162",
+        "6.2512056"
+      ]
+    },
+    {
+      "place_id": 118229669,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 22946514,
+      "lat": "49.7050391",
+      "lon": "6.2488694",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338476768139159,
+      "addresstype": "road",
+      "name": "Rue Nicolas Glesener",
+      "display_name": "Rue Nicolas Glesener, Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, 6111, Lëtzebuerg",
+      "address": {
+        "road": "Rue Nicolas Glesener",
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "postcode": "6111",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7050103",
+        "49.7050679",
+        "6.2486978",
+        "6.2490410"
+      ]
+    }
+  ],
+  "Laangwiss II, Junglinster, Luxembourg": [
+    {
+      "place_id": 121837851,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 25362510,
+      "lat": "49.7059460",
+      "lon": "6.2531254",
+      "class": "landuse",
+      "type": "commercial",
+      "place_rank": 24,
+      "importance": 0.08005143434805825,
+      "addresstype": "commercial",
+      "name": "Zone d'activité Laangwiss",
+      "display_name": "Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, Lëtzebuerg",
+      "address": {
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7031948",
+        "49.7087088",
+        "6.2484030",
+        "6.2576492"
+      ]
+    }
+  ],
+  "CK Fitness Junglinster, Luxembourg": [
+    {
+      "place_id": 119172140,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "node",
+      "osm_id": 4502199193,
+      "lat": "49.7057648",
+      "lon": "6.2512708",
+      "class": "leisure",
+      "type": "fitness_centre",
+      "place_rank": 30,
+      "importance": 5.143434805824395e-05,
+      "addresstype": "leisure",
+      "name": "CK Fitness Jonglënster",
+      "display_name": "CK Fitness Jonglënster, Rue Nicolas Glesener, Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, 6131, Lëtzebuerg",
+      "address": {
+        "leisure": "CK Fitness Jonglënster",
+        "road": "Rue Nicolas Glesener",
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "postcode": "6131",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7057148",
+        "49.7058148",
+        "6.2512208",
+        "6.2513208"
+      ]
+    }
+  ],
+  "Nicolas Glesener, Junglinster, Luxembourg": [
+    {
+      "place_id": 118702070,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 967834189,
+      "lat": "49.7057634",
+      "lon": "6.2524895",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338476768139159,
+      "addresstype": "road",
+      "name": "Rue Nicolas Glesener",
+      "display_name": "Rue Nicolas Glesener, Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, 6131, Lëtzebuerg",
+      "address": {
+        "road": "Rue Nicolas Glesener",
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "postcode": "6131",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7053929",
+        "49.7061339",
+        "6.2512056",
+        "6.2537734"
+      ]
+    },
+    {
+      "place_id": 118630068,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 1017209341,
+      "lat": "49.7050262",
+      "lon": "6.2498893",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338476768139159,
+      "addresstype": "road",
+      "name": "Rue Nicolas Glesener",
+      "display_name": "Rue Nicolas Glesener, Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, 6121, Lëtzebuerg",
+      "address": {
+        "road": "Rue Nicolas Glesener",
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "postcode": "6121",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7049797",
+        "49.7052174",
+        "6.2490410",
+        "6.2507162"
+      ]
+    },
+    {
+      "place_id": 118623978,
+      "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+      "osm_type": "way",
+      "osm_id": 178778432,
+      "lat": "49.7049134",
+      "lon": "6.2487806",
+      "class": "highway",
+      "type": "unclassified",
+      "place_rank": 26,
+      "importance": 0.05338476768139159,
+      "addresstype": "road",
+      "name": "Rue Nicolas Glesener",
+      "display_name": "Rue Nicolas Glesener, Zone d'activité Laangwiss, Junglinster, Canton Grevenmacher, 6111, Lëtzebuerg",
+      "address": {
+        "road": "Rue Nicolas Glesener",
+        "commercial": "Zone d'activité Laangwiss",
+        "city_district": "Junglinster",
+        "village": "Junglinster",
+        "county": "Canton Grevenmacher",
+        "ISO3166-2-lvl6": "LU-GR",
+        "postcode": "6111",
+        "country": "Lëtzebuerg",
+        "country_code": "lu"
+      },
+      "boundingbox": [
+        "49.7047370",
+        "49.7050103",
+        "6.2485681",
+        "6.2490410"
+      ]
+    }
+  ]
+}

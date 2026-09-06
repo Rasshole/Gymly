@@ -13,6 +13,10 @@ export interface UserPresence {
   avatar?: string | null;
   /** Aktiv sessions workout_type (til Live i centret) */
   workoutType?: string | null;
+  /** Live workout log status (fase 1) */
+  liveExerciseName?: string | null;
+  liveSetCount?: number | null;
+  liveExerciseCount?: number | null;
   status: UserPresenceStatus;
   lastActivity: Date;
   /** Minutes ago when status is active_minutes or checked_in_minutes */

@@ -1,0 +1,166 @@
+{
+  "dry_run": false,
+  "idempotency_check": false,
+  "source_of_truth": "data/italy/ITALY_PHASE2_READY_TO_IMPORT.json",
+  "expected_insert": 550,
+  "note": "SAFE merge of Phase 2 READY_TO_IMPORT only (550). Unresolved / coming-soon / closed / duplicates withheld.",
+  "stopped_short_of_expected": false,
+  "stop_reason": null,
+  "pre_merge_sha256": "cf74223bd8c30ea87358f9439815055c87b304dbb2992f1d224f14ae1f170a3d",
+  "ready_file_count": 550,
+  "staging_ready_count": 550,
+  "phase2_report_ready": 550,
+  "before": {
+    "total": 8143,
+    "italy": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976
+  },
+  "after": {
+    "total": 8693,
+    "italy": 550,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976
+  },
+  "inserted": 550,
+  "would_have_inserted": 550,
+  "rejected": {
+    "not_ready": 0,
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "outside_bbox": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "questionable_city": 0,
+    "foreign_neighbor": 0,
+    "staging_mismatch": 0,
+    "dup_id_in_batch": 0,
+    "bad_coord_source": 0,
+    "fallback_coord": 0
+  },
+  "rejected_details": [],
+  "italy_by_brand": {
+    "FitActive": 193,
+    "Fit Express": 45,
+    "FitUP": 80,
+    "McFIT": 42,
+    "Gold's Gym": 2,
+    "JOHN REED": 1,
+    "Virgin Active": 42,
+    "WebFit": 16,
+    "20Hours": 7,
+    "Orange": 23,
+    "Anytime Fitness": 68,
+    "Icon Palestre": 31
+  },
+  "brand_sum": 550,
+  "duplicate_ids_in_catalog": [],
+  "duplicate_same_brand_physical": [],
+  "encoding_issues": [],
+  "italian_letter_counts": {
+    "a_grave": 10,
+    "e_grave": 1,
+    "e_acute": 0,
+    "i_grave": 4,
+    "o_grave": 2,
+    "u_grave": 2
+  },
+  "geography": {
+    "north": 369,
+    "central": 127,
+    "south": 23,
+    "sicily": 21,
+    "sardinia": 10,
+    "outlier": 0
+  },
+  "geography_outliers": [],
+  "postal_format_ok": true,
+  "postal_all_string": true,
+  "postal_leading_zero_count": 85,
+  "countries_intact": {
+    "dk": true,
+    "se": true,
+    "no": true,
+    "fi": true,
+    "de": true,
+    "uk": true,
+    "nl": true,
+    "fr": true,
+    "es": true
+  },
+  "staging_categories": {
+    "MERGED_INTO_CATALOG": 550,
+    "COMING_SOON": 15,
+    "NEEDS_REVIEW": 27,
+    "NEEDS_COORDINATES": 18
+  },
+  "excluded_still_staged": {
+    "NEEDS_COORDINATES": 18,
+    "NEEDS_REVIEW": 27,
+    "COMING_SOON": 15,
+    "CLOSED": 0,
+    "DUPLICATE": 0,
+    "READY_TO_IMPORT": 0,
+    "MERGED_INTO_CATALOG": 550
+  },
+  "dupAnalysis_summary": {
+    "skipped_existing_id": 0,
+    "skipped_same_addr_brand": 0,
+    "skipped_proximity_same_brand": 0,
+    "different_brand_colocations_kept": 2,
+    "withheld_questionable": 0,
+    "would_include": 550
+  },
+  "checkpoint_10k": {
+    "live_after_if_merged": 8693,
+    "headroom_to_10k": 1307,
+    "stress_qa": "NO"
+  },
+  "check_in_radius_meters": 200,
+  "auto_checkout_unchanged": true,
+  "post_merge_smoke": {
+    "findGymById_it_sample": true,
+    "getActiveGymsByCountry_Italy": 550,
+    "cap_string_5char": true,
+    "postal_leading_zero": 85,
+    "no_invented_coords": true,
+    "accent_normalize_ok": true
+  },
+  "idempotency": {
+    "second_run_would_insert": 0
+  },
+  "benchmark": {
+    "liveCatalog": 8693,
+    "liveActive": 8689,
+    "size_8693": {
+      "parseMs": 9,
+      "indexMs": 509,
+      "typicalSearch3qMs": 476,
+      "nearestMs": 20,
+      "mapBuildMs": 25
+    }
+  },
+  "auto_checkout_distance_meters": 200
+}

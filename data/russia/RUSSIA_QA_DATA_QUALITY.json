@@ -1,0 +1,12 @@
+{
+  "invalid_russia_countries": 0,
+  "invalid_ru_ids": 0,
+  "invalid_postcodes": 0,
+  "missing_postcodes": 0,
+  "invalid_coordinates": 0,
+  "cross_border": 0,
+  "disputed_territory": 0,
+  "mojibake": 0,
+  "raw_id_names": 0,
+  "demoted_in_production": false
+}

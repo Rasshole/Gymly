@@ -1,0 +1,472 @@
+[
+  {
+    "id": "bg_3b2837619b",
+    "postal": "1404",
+    "source": "nominatim_address_geocode",
+    "display": "Мол България, 69, бул. България, кв. Манастирски ливади, София, Триадица, Столична, София-град, 1404, България"
+  },
+  {
+    "id": "bg_e14a3a1ab4",
+    "postal": "1582",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, бул. Проф. Цветан Лазаров, НПЗ Искър, София, Искър, Столична, София-град, 1582, България"
+  },
+  {
+    "id": "bg_0474485c62",
+    "postal": "1616",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, Кумата, ж.к. Фохар, София, Витоша, Столична, София-град, 1616, България"
+  },
+  {
+    "id": "bg_635a0e365b",
+    "postal": "1113",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, 18, бул. Шипченски проход, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1113, България"
+  },
+  {
+    "id": "bg_9bd587ceaf",
+    "postal": "8000",
+    "source": "nl_retry",
+    "city": "Burgas"
+  },
+  {
+    "id": "bg_6c7565e724",
+    "postal": "1510",
+    "source": "nl_retry",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_bd036ddd4e",
+    "postal": "1113",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, 2, Николай Хайтов, комплекс \"Есте хоум\", ж.к. Изток, София, Изгрев, Столична, София-град, 1113, България"
+  },
+  {
+    "id": "bg_b830d74826",
+    "postal": "1619",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, бул. Цар Борис III, кв. Княжево, София, Витоша, Столична, София-град, 1619, България"
+  },
+  {
+    "id": "bg_53f070f35c",
+    "postal": "1330",
+    "source": "nominatim_address_geocode",
+    "display": "ул. Добротич, бул. Никола Мушанов, ж.к. Красна поляна 3, София, Красна поляна, Столична, София-град, 1330, България"
+  },
+  {
+    "id": "bg_6b84334ac6",
+    "postal": "1416",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, Златовръх, ж.к. Лозенец, София, Лозенец, Столична, София-град, 1416, България"
+  },
+  {
+    "id": "bg_cfb3ce3f12",
+    "postal": "1324",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, 25, бул. Д-р Петър Дертлиев, ж.к. Люлин 10, ж.к. Люлин, София, Люлин, Столична, София-град, 1324, България"
+  },
+  {
+    "id": "bg_b8f05b86e8",
+    "postal": "1359",
+    "source": "nl_retry",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_cc6b3f5e46",
+    "postal": "8220",
+    "source": "official_page_text",
+    "url": "https://www.nextlevelclub.bg/en/clubs/maxi/"
+  },
+  {
+    "id": "bg_a3ab794bf3",
+    "postal": "1784",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, 115Ж, бул. Цариградско шосе, м. Къро, София, Младост, Столична, София-град, 1784, България"
+  },
+  {
+    "id": "bg_b134eee5d9",
+    "postal": "1414",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, бул. Ген. Скобелев, Център, София, Триадица, Столична, София-град, 1414, България"
+  },
+  {
+    "id": "bg_abcb56afe1",
+    "postal": "9004",
+    "source": "nl_geocode_reverse",
+    "city": "Varna"
+  },
+  {
+    "id": "bg_a1bccd747f",
+    "postal": "1405",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, 18, Околовръстен път, в.з. Киноцентъра ІІІ част, София, Витоша, Столична, София-град, 1405, България"
+  },
+  {
+    "id": "bg_776a638de1",
+    "postal": "1632",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, бул. Президент Линкълн, кв. Васил Попов, ж.к. Овча купел, София, Овча купел, Столична, София-град, 1632, България"
+  },
+  {
+    "id": "bg_319d9811d4",
+    "postal": "1421",
+    "source": "nominatim_address_geocode",
+    "display": "2, бул. Арсеналски, ж.к. Лозенец, София, Триадица, Столична, София-град, 1421, България"
+  },
+  {
+    "id": "bg_75ec7775ce",
+    "postal": "2300",
+    "source": "nl_retry",
+    "city": "Pernik"
+  },
+  {
+    "id": "bg_14fc047239",
+    "postal": "4000",
+    "source": "nl_geocode_reverse",
+    "city": "Plovdiv"
+  },
+  {
+    "id": "bg_cac0035145",
+    "postal": "9023",
+    "source": "nl_geocode_reverse",
+    "city": "Varna"
+  },
+  {
+    "id": "bg_f2e88ab2b1",
+    "postal": "4002",
+    "source": "nl_geocode_reverse",
+    "city": "Plovdiv"
+  },
+  {
+    "id": "bg_d5a647ddc8",
+    "postal": "1700",
+    "source": "nominatim_address_geocode",
+    "display": "Next Level, 35, бул. Симеоновско шосе, кв. Витоша, София, Студентски, Столична, София-град, 1700, България"
+  },
+  {
+    "id": "bg_a116b6e807",
+    "postal": "1784",
+    "source": "reverse_geocode_official_or_trusted_coords",
+    "display": "бул. Цариградско шосе, м. Къро, София, Младост, Столична, София-град, 1784, България",
+    "lat": 42.6599595,
+    "lng": 23.3809945
+  },
+  {
+    "id": "bg_efbf36132a",
+    "postal": "1618",
+    "source": "nominatim_address_geocode",
+    "display": "FINES Пулс България, 8Б, Бяло поле, кв. Манастирски ливади, София, Витоша, Столична, София-град, 1618, България"
+  },
+  {
+    "id": "bg_08cc12ef7b",
+    "postal": "1766",
+    "source": "nominatim_address_geocode",
+    "display": "Pulse, 251А, Околовръстен път, ж.к. Младост 4, София, Младост, Столична, София-град, 1766, България"
+  },
+  {
+    "id": "bg_5d141dacf5",
+    "postal": "1805",
+    "source": "nominatim_address_geocode",
+    "display": "R5, 60, бул. Д-р Петър Дертлиев, ж.к. Люлин 6, ж.к. Люлин, София, Люлин, Столична, София-град, 1805, България"
+  },
+  {
+    "id": "bg_ef7c667891",
+    "postal": "1797",
+    "source": "nominatim_address_geocode",
+    "display": "Fines - Pulse Arena, 1, бул. Д-р Г. М. Димитров, ж.к. Младост 1, София, Студентски, Столична, София-град, 1797, България"
+  },
+  {
+    "id": "bg_126696d4df",
+    "postal": "1734",
+    "source": "nominatim_address_geocode",
+    "display": "Pulse, 102А, бул. Симеоновско шосе, кв. Витоша, София, Лозенец, Столична, София-град, 1734, България"
+  },
+  {
+    "id": "bg_24abf2e465",
+    "postal": "1434",
+    "source": "nominatim_address_geocode",
+    "display": "Pulse Energy Club, 214, Околовръстен път, ж.к. Морени клуб, кв. Симеоново, София, Витоша, Столична, София-град, 1434, България"
+  },
+  {
+    "id": "bg_b05cd8d08e",
+    "postal": "1335",
+    "source": "phase3",
+    "address": "Blvd. Tsaritsa Ioana, bl 276",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_7a626bfa8a",
+    "postal": "4000",
+    "source": "nominatim_address_geocode",
+    "display": "4, бул. Асеновградско шосе, Ухото, Централен, Южен, Пловдив, 4000, България"
+  },
+  {
+    "id": "bg_fae2ff57f2",
+    "postal": "4000",
+    "source": "nominatim_address_geocode",
+    "display": "Pulse, 63, Цанко Дюстабанов, Триъгълника, Гроздов пазар, Централен, Пловдив, 4000, България"
+  },
+  {
+    "id": "bg_3ca8c1f554",
+    "postal": "8313",
+    "source": "pulse_geocode",
+    "city": "Burgas"
+  },
+  {
+    "id": "bg_d05f15760f",
+    "postal": "1504",
+    "source": "nominatim_address_geocode",
+    "display": "Атлетик Фитнес, 78, бул. Янко Сакъзов, Център, София, Оборище, Столична, София-град, 1504, България"
+  },
+  {
+    "id": "bg_354c3c6d17",
+    "postal": "1309",
+    "source": "nominatim_address_geocode",
+    "display": "Атлетик фитнес, 228, бул. Сливница, ж.к. Света Троица, София, Илинден, Столична, София-град, 1309, България"
+  },
+  {
+    "id": "bg_253498876f",
+    "postal": "1407",
+    "source": "nominatim_address_geocode",
+    "display": "Athletic Fitness, 47, бул. Черни връх, Промишлена зона Хладилника, София, Лозенец, Столична, София-град, 1407, България"
+  },
+  {
+    "id": "bg_4c1f2b3d94",
+    "postal": "1700",
+    "source": "nominatim_address_geocode",
+    "display": "Атлетик, 1А, Доктор Йордан Йосифов, ж.к. Студентски град, София, Студентски, Столична, София-град, 1700, България"
+  },
+  {
+    "id": "bg_1eb791b2fd",
+    "postal": "1632",
+    "source": "phase3",
+    "address": "761st Street, Ovcha Kupel 1 (near Mizia metro)",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_a78530e2bf",
+    "postal": "1220",
+    "source": "official_page_printed",
+    "note": "page listed 1220"
+  },
+  {
+    "id": "bg_bc5456e6c2",
+    "postal": "1574",
+    "source": "reverse_or_official_page",
+    "slug": "sky_city",
+    "display": "Департамент за езиково обучение - ИЧС, Коста Лулчев, ж.к. Гео Милев, София, Слатина, Столична, София-град, 1574, България"
+  },
+  {
+    "id": "bg_a5af084b53",
+    "postal": "1750",
+    "source": "reverse_or_official_page",
+    "slug": "mladost_1",
+    "display": "24, Димитър Моллов, ж.к. Младост 1, София, Младост, Столична, София-град, 1750, България"
+  },
+  {
+    "id": "bg_017f0ef482",
+    "postal": "1473",
+    "source": "reverse_embed_or_street",
+    "address": "Vitosha Blvd 89B, Grand Hotel Millennium"
+  },
+  {
+    "id": "bg_1d4b8086db",
+    "postal": "1000",
+    "source": "phase3",
+    "address": "Veslec 18 str., Sofia Center",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_ce2916770a",
+    "postal": "1621",
+    "source": "reverse_embed_or_street",
+    "address": "11A Dedeagach Street, Strelbishte"
+  },
+  {
+    "id": "bg_ebfd8d53d1",
+    "postal": "1619",
+    "source": "reverse_or_official_page",
+    "slug": "knyazhevo",
+    "display": "бул. Цар Борис ІІІ, бул. Никола Петков, кв. Карпузица, София, Витоша, Столична, София-град, 1619, България"
+  },
+  {
+    "id": "bg_9af258abe7",
+    "postal": "1618",
+    "source": "nominatim_address_geocode",
+    "display": "Hammer Gym, Мур, кв. Манастирски ливади, София, Витоша, Столична, София-град, 1618, България"
+  },
+  {
+    "id": "bg_e38cb0747e",
+    "postal": "1620",
+    "source": "nominatim_address_geocode",
+    "display": "Hammer Gym, 9, Царица Елеонора, ж.к. Красно село, София, Красно село, Столична, София-град, 1620, България"
+  },
+  {
+    "id": "bg_07e4ec34c7",
+    "postal": "1510",
+    "source": "reverse_or_official_page",
+    "slug": "hadzhi_dimitar",
+    "display": "при Хаджията, Уошбърн, ж.к. Хаджи Димитър, София, Подуяне, Столична, София-град, 1510, България"
+  },
+  {
+    "id": "bg_84ffbbbc27",
+    "postal": "1407",
+    "source": "reverse_or_official_page",
+    "slug": "amaya",
+    "display": "16, Борис Руменов, кв. Кръстова вада, София, Лозенец, Столична, София-град, 1407, България"
+  },
+  {
+    "id": "bg_78adcf3f7c",
+    "postal": "1784",
+    "source": "titanium_geocode",
+    "address": "бул. Александър Малинов 40, Младост 1"
+  },
+  {
+    "id": "bg_4d5460e107",
+    "postal": "1805",
+    "source": "titanium_geocode",
+    "address": "бул. Панчо Владигеров 21, Люлин 6"
+  },
+  {
+    "id": "bg_5448ddd9dd",
+    "postal": "1712",
+    "source": "phase3",
+    "address": "Блок 386, ж.к. Младост 3",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_463d58ecdc",
+    "postal": "1330",
+    "source": "reverse_embed_or_street",
+    "address": "31A Krasna Polyana"
+  },
+  {
+    "id": "bg_b6ab1909ed",
+    "postal": "1680",
+    "source": "reverse_embed_or_street",
+    "address": "56 Pirin Street, Manastirski Livadi West"
+  },
+  {
+    "id": "bg_628259c4b8",
+    "postal": "1079",
+    "source": "nl_retry",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_ac1324ebc8",
+    "postal": "1606",
+    "source": "nl_retry",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_07b70f564c",
+    "postal": "1527",
+    "source": "nl_retry",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_900e366812",
+    "postal": "1505",
+    "source": "pulse_geocode",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_7f689ce1f4",
+    "postal": "1303",
+    "source": "pulse_geocode",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_082732d5b3",
+    "postal": "8005",
+    "source": "pulse_geocode",
+    "city": "Burgas"
+  },
+  {
+    "id": "bg_f788456d07",
+    "postal": "8256",
+    "source": "pulse_geocode",
+    "city": "Sveti Vlas"
+  },
+  {
+    "id": "bg_5ff29203ad",
+    "postal": "1517",
+    "source": "phase3",
+    "address": "47 Rezbarska Street",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_3ee4262945",
+    "postal": "1000",
+    "source": "phase3",
+    "address": "4 George Washington str."
+  },
+  {
+    "id": "bg_fe05b50ec9",
+    "postal": "1620",
+    "source": "phase3",
+    "address": "76 Nishava str. (corner with Solun str.)"
+  },
+  {
+    "id": "bg_8badbd1c73",
+    "postal": "1619",
+    "source": "phase3",
+    "address": "49A Boryana str., Ovcha Kupel"
+  },
+  {
+    "id": "bg_900362e749",
+    "postal": "1734",
+    "source": "phase3",
+    "address": "бул. Симеоновско шосе 77",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_116a6dbe83",
+    "postal": "1547",
+    "source": "phase3",
+    "address": "ул. Даскал Никита 2Б, ж.к. Христо Смирненски",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_bcfa812f4e",
+    "postal": "1000",
+    "source": "phase3",
+    "address": "8 Sveta Sofia Street",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_c8b76e84ec",
+    "postal": "8000",
+    "source": "phase3",
+    "address": "Baba Ganka Street",
+    "city": "Burgas"
+  },
+  {
+    "id": "bg_a3caffaf56",
+    "postal": "6002",
+    "source": "phase3",
+    "address": "28 Prince Alexander Battenberg Blvd.",
+    "city": "Stara Zagora"
+  },
+  {
+    "id": "bg_6502b58e83",
+    "postal": "6621",
+    "source": "phase3",
+    "address": "ул. Републиканска 46",
+    "city": "Kardzhali"
+  },
+  {
+    "id": "bg_163e7c5e53",
+    "postal": "1715",
+    "source": "phase3",
+    "address": "Business Park Mladost, Sport Depot building, fl. 2",
+    "city": "Sofia"
+  },
+  {
+    "id": "bg_2fe399a8c4",
+    "postal": "1233",
+    "source": "phase3",
+    "address": "ul. Skopie 3, g.k. Banishora",
+    "city": "Sofia"
+  }
+]

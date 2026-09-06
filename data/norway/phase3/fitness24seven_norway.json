@@ -1,0 +1,137 @@
+[
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "drammen-sentrum",
+    "name": "Fitness24Seven Drammen Sentrum",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/drammen-sentrum/",
+    "parsed": {
+      "address": "Torgeir Vraas nr 6",
+      "postal_code": "3044",
+      "city": "Drammen"
+    },
+    "lat": null,
+    "lng": null,
+    "is_coming_soon": false,
+    "coord_source": null
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-bjerke",
+    "name": "Fitness24Seven Oslo Bjerke",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-bjerke/",
+    "parsed": {
+      "address": "Trondheimsveien 275",
+      "postal_code": "0589",
+      "city": "Oslo"
+    },
+    "lat": 59.942625,
+    "lng": 10.812061,
+    "is_coming_soon": false,
+    "coord_source": "official_google_maps_query"
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-carl-berners-plass",
+    "name": "Fitness24Seven Oslo Carl Berners Plass",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-carl-berners-plass/",
+    "parsed": {
+      "address": "Hammerfestgata 2",
+      "postal_code": "0565",
+      "city": "Oslo"
+    },
+    "lat": null,
+    "lng": null,
+    "is_coming_soon": false,
+    "coord_source": null
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-gruenerlokka",
+    "name": "Fitness24Seven Oslo Gruenerlokka",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-gruenerlokka/",
+    "parsed": {
+      "address": "Markveien 35",
+      "postal_code": "0554",
+      "city": "Oslo"
+    },
+    "lat": 59.9217167,
+    "lng": 10.756934,
+    "is_coming_soon": false,
+    "coord_source": "official_google_maps_query"
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-haugenstua",
+    "name": "Fitness24Seven Oslo Haugenstua",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-haugenstua/",
+    "parsed": {
+      "address": "Garver Ytteborgs vei 98",
+      "postal_code": "0977",
+      "city": "Oslo"
+    },
+    "lat": 59.9532485,
+    "lng": 10.9082831000001,
+    "is_coming_soon": false,
+    "coord_source": "official_google_maps_query"
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-mortensrud-torg",
+    "name": "Fitness24Seven Oslo Mortensrud Torg",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-mortensrud-torg/",
+    "parsed": {
+      "address": "Helga Vaneks vei 1-3",
+      "postal_code": "1282",
+      "city": "Oslo"
+    },
+    "lat": 59.849631,
+    "lng": 10.830275,
+    "is_coming_soon": false,
+    "coord_source": "official_google_maps_query"
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-storo",
+    "name": "Fitness24Seven Oslo Storo",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-storo/",
+    "parsed": {
+      "address": "Grefsenveien 49",
+      "postal_code": "0485",
+      "city": "Oslo"
+    },
+    "lat": 59.944445,
+    "lng": 10.776972,
+    "is_coming_soon": false,
+    "coord_source": "official_google_maps_query"
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-stortorvet",
+    "name": "Fitness24Seven Oslo Stortorvet",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-stortorvet/",
+    "parsed": {
+      "address": "Grubbegata 6",
+      "postal_code": "0179",
+      "city": "Oslo"
+    },
+    "lat": 59.91383,
+    "lng": 10.745557,
+    "is_coming_soon": false,
+    "coord_source": "official_google_maps_query"
+  },
+  {
+    "brand": "Fitness24Seven",
+    "center_name": "oslo-veitvet",
+    "name": "Fitness24Seven Oslo Veitvet",
+    "source_url": "https://no.fitness24seven.com/vare-treningssenter/oslo-veitvet/",
+    "parsed": {
+      "address": "Veitvetveien 8",
+      "postal_code": "0596",
+      "city": "Oslo"
+    },
+    "lat": 59.946059,
+    "lng": 10.8509127,
+    "is_coming_soon": false,
+    "coord_source": "official_google_maps_query"
+  }
+]

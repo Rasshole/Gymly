@@ -1,0 +1,16 @@
+{
+  "riese": {
+    "disposition": "COMING_SOON",
+    "address": "Molėtų g. 13",
+    "postal_code": "",
+    "evidence": "lemongym.lt Aug 2026 — Riešė location still marked coming soon; not operating at Phase 2 audit",
+    "opened": false
+  },
+  "jonava": {
+    "disposition": "COMING_SOON",
+    "address": "Žemaitės g. 45, Jonava",
+    "postal_code": "55134",
+    "evidence": "lemongym.lt Aug 2026 — Jonava announced with Žemaitės g. 45; still pre-opening / COMING_SOON at Phase 2 audit",
+    "opened": false
+  }
+}

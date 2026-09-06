@@ -1,0 +1,12 @@
+# Android local secrets & SDK path (see local.properties.example)
+local.properties
+keystore.properties
+*.keystore
+!debug.keystore
+
+# Gradle / build outputs
+.gradle/
+build/
+app/build/
+.cxx/
+PLAY_STORE_SIGNING.txt

@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-29T13:53:57.454379+00:00",
+  "production_total": 11923,
+  "production_sha256": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "phase1_rows_recovered": 103,
+  "phase1_status_counts": {
+    "READY_TO_IMPORT": 61,
+    "COMING_SOON": 3,
+    "EXCLUDED": 15,
+    "NEEDS_REVIEW": 24
+  },
+  "keep_existing": 61,
+  "new_ready_to_import": 0,
+  "existing_review_required": 0,
+  "coming_soon": 3,
+  "excluded": 39,
+  "closed": 0,
+  "status_counts": {
+    "KEEP_EXISTING": 61,
+    "COMING_SOON": 3,
+    "EXCLUDED": 39
+  },
+  "reconciliation": {
+    "exact_id_match": 61,
+    "material_metadata_drift": 0
+  }
+}

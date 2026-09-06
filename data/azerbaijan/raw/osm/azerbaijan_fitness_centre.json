@@ -1,0 +1,1652 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:06:21Z",
+    "timestamp_areas_base": "2026-08-29T05:46:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 3670171248,
+      "lat": 40.3824789,
+      "lon": 49.8774831,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:housenumber": "12",
+        "addr:street": "Nəcəfqulu Rəfiyev küç.",
+        "leisure": "fitness_centre",
+        "name": "Atlant Gym \\ Bakı Nərimanov",
+        "name:az": "Atlant Gym \\ Bakı Nərimanov",
+        "name:en": "Atlant Gym",
+        "name:ru": "Атлант",
+        "opening_hours": "10:00-23:00",
+        "sport": "gymnastics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4209578401,
+      "lat": 40.4254745,
+      "lon": 49.8172385,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "FS Cristal club"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4229103791,
+      "lat": 40.3765567,
+      "lon": 49.8624994,
+      "tags": {
+        "email": "info@theclub.az",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "The Club Port Baku",
+        "opening_hours": "24/7",
+        "phone": "+994124998909",
+        "website": "https://www.www.theclub.az/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4234002696,
+      "lat": 40.5633862,
+      "lon": 49.6988471,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Iron Man"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4249134190,
+      "lat": 40.3833104,
+      "lon": 49.8063537,
+      "tags": {
+        "addr:street": "Mirəli Seyidov",
+        "leisure": "fitness_centre",
+        "name": "La Fitness",
+        "phone": "004048"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4253360565,
+      "lat": 40.3831054,
+      "lon": 49.9749377,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Gunesh"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4344444001,
+      "lat": 40.4012655,
+      "lon": 49.9757224,
+      "tags": {
+        "addr:street": "Zaur Şərifov",
+        "leisure": "fitness_centre",
+        "name": "Atletika Fitnes",
+        "opening_hours": "Mo-Sa 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4392770591,
+      "lat": 40.5754608,
+      "lon": 49.6910494,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Uventa"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4392786989,
+      "lat": 40.5787687,
+      "lon": 49.6871908,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4392787089,
+      "lat": 40.5699757,
+      "lon": 49.6787133,
+      "tags": {
+        "addr:street": "Koroğlu pr.",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name:en": "POWER Fitness",
+        "opening_hours": "Mo-Sa 09:00-00:00; Su 09:00-15:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4404445803,
+      "lat": 41.2135631,
+      "lon": 48.9869099,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4426032912,
+      "lat": 40.3850711,
+      "lon": 49.8503849,
+      "tags": {
+        "addr:housenumber": "2",
+        "addr:street": "Ülvi Bünyadzadə",
+        "leisure": "fitness_centre",
+        "name": "Evolution Fitness Baku",
+        "opening_hours": "Mo-Sa 09:00-23:00; Su 11:00-17:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4434661293,
+      "lat": 41.20221,
+      "lon": 47.1806895,
+      "tags": {
+        "addr:city": "Şəki",
+        "leisure": "fitness_centre",
+        "name": "Herkules"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4434824791,
+      "lat": 40.3967079,
+      "lon": 49.8770147,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Tornado GYM",
+        "opening_hours": "Mo-Sa 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4458434196,
+      "lat": 40.383949,
+      "lon": 49.8095197,
+      "tags": {
+        "addr:street": "Həsən Məcidov küç.",
+        "leisure": "fitness_centre",
+        "name:en": "VITR Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4512306908,
+      "lat": 40.428725,
+      "lon": 49.8487901,
+      "tags": {
+        "addr:street": "Abay Kunanbayev küç.",
+        "leisure": "fitness_centre",
+        "name": "5.11 İdman Zalı"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4541934090,
+      "lat": 40.380084,
+      "lon": 49.8320579,
+      "tags": {
+        "addr:street": "Zivərbəy Əhmədbəyov",
+        "leisure": "fitness_centre",
+        "name:en": "Buffalo GYM",
+        "name:ru": "Буффало"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4596834997,
+      "lat": 40.4165672,
+      "lon": 49.9289046,
+      "tags": {
+        "addr:street": "Kamil Balakişiyev",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4613671890,
+      "lat": 40.420549,
+      "lon": 49.9282677,
+      "tags": {
+        "addr:housenumber": "65А",
+        "addr:street": "Tofiq Abbasov küç.",
+        "leisure": "fitness_centre",
+        "name": "Lokomotiv"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4665048093,
+      "lat": 40.3704085,
+      "lon": 49.9540336,
+      "tags": {
+        "addr:street": "Xudu Məmmədov",
+        "leisure": "fitness_centre",
+        "name": "Wolf Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4696356322,
+      "lat": 40.3875794,
+      "lon": 49.856191,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Gorgud Wellness Center"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4786750321,
+      "lat": 40.3743118,
+      "lon": 49.9496548,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Modern İdman Əyləncə"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4796589026,
+      "lat": 40.3780208,
+      "lon": 49.8325054,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Cüdo Klubu 2012",
+        "name:en": "Judo Club 2012",
+        "sport": "gymnastics;martial_arts"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4901467921,
+      "lat": 41.0026849,
+      "lon": 47.7963715,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Gabala shooting range",
+        "name:ru": "Стрелковый комплекс Габала"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4922982822,
+      "lat": 40.3924207,
+      "lon": 49.8590387,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:tr": "masaj 777 Elnare"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4948401422,
+      "lat": 40.4064005,
+      "lon": 49.8698717,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Idman zali Narimanov"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4986254423,
+      "lat": 40.376804,
+      "lon": 49.9608242,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Extreme Force Gym",
+        "opening_hours": "Mo-Sa 09:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5054632622,
+      "lat": 40.3826166,
+      "lon": 49.9628917,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Gartal Fitnes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5136649321,
+      "lat": 40.3863974,
+      "lon": 49.8473555,
+      "tags": {
+        "addr:street": "Eldar Tağızadə",
+        "leisure": "fitness_centre",
+        "name:en": "Eldorado Gym",
+        "opening_hours": "Mo-Sa 09:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5403801322,
+      "lat": 40.3831338,
+      "lon": 49.8705897,
+      "tags": {
+        "addr:street": "Xocalı prospekti",
+        "leisure": "fitness_centre",
+        "name:en": "Xetai Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5466684822,
+      "lat": 40.3928029,
+      "lon": 49.9560877,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Cobra",
+        "opening_hours": "Mo-Fr 08:30-23:00; Sa 10:00-23:00; Su 10:00-17:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5714551922,
+      "lat": 40.4073849,
+      "lon": 49.8113686,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "EDEM Fitnes merkezi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760621723,
+      "lat": 40.4307422,
+      "lon": 49.9184034,
+      "tags": {
+        "addr:housenumber": "323",
+        "addr:street": "Heydər Əliyev prospekti",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "GYM Olimpiyskiy",
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "website": "https://www.bos.az/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760626821,
+      "lat": 40.4293009,
+      "lon": 49.9207323,
+      "tags": {
+        "addr:housenumber": "323",
+        "addr:street": "Heydər Əliyev prospekti",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name:en": "Olimpiya Fight Club",
+        "opening_hours": "Mo-Sa 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5760637021,
+      "lat": 40.4298079,
+      "lon": 49.921051,
+      "tags": {
+        "addr:housenumber": "323",
+        "addr:street": "Heydər Əliyev prospekti",
+        "leisure": "fitness_centre",
+        "name": "Azərbaycan Cudo Federasiyası",
+        "name:az": "Azərbaycan Cudo Federasiyası",
+        "name:en": "Azerbaijan Judo Federation",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "website": "https://www.bos.az/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5871095192,
+      "lat": 41.3627732,
+      "lon": 48.5322292,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Universal"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5871104088,
+      "lat": 41.3626516,
+      "lon": 48.5036777,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Trenajor zalı",
+        "name:ru": "Тренажёрный зал"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5898802591,
+      "lat": 40.4152135,
+      "lon": 49.9277097,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Gym Shark Fitness",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6091771186,
+      "lat": 40.4000549,
+      "lon": 49.8689053,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Askod MMC (Epilife estetik merkez)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6095582805,
+      "lat": 40.3724082,
+      "lon": 49.9458117,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:street": "Xudu Məmmədov küçəsi",
+        "leisure": "fitness_centre",
+        "name": "Modern İdman Məktəbi",
+        "sport": "gymnastics;fitness;yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6180583485,
+      "lat": 41.7101064,
+      "lon": 46.2699826,
+      "tags": {
+        "addr:city": "Qabaqçöl",
+        "addr:street": "xalatala",
+        "leisure": "fitness_centre",
+        "name": "Trenajor zalı"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6187734785,
+      "lat": 40.4113549,
+      "lon": 49.8398236,
+      "tags": {
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Arena Fitnes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6254207187,
+      "lat": 40.408527,
+      "lon": 49.8041901,
+      "tags": {
+        "addr:street": "Yasamal ray. Moskva pr. 73A",
+        "leisure": "fitness_centre",
+        "name": "Sapfir Fitnes",
+        "name:en": "Sapfir",
+        "name:ru": "Сапфир"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6475782686,
+      "lat": 40.4074801,
+      "lon": 49.8112141,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Edem fitness spa"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6568802090,
+      "lat": 40.3549644,
+      "lon": 49.8179167,
+      "tags": {
+        "addr:housenumber": "19",
+        "addr:street": "Abbasqulu Abbaszadə",
+        "leisure": "fitness_centre",
+        "name": "Zen Fitness & Bodybuilding"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6625563686,
+      "lat": 39.7909726,
+      "lon": 47.1191957,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6751901032,
+      "lat": 40.3808884,
+      "lon": 49.8058213,
+      "tags": {
+        "addr:city": "Baku",
+        "addr:housenumber": "86",
+        "addr:postcode": "AZ1138",
+        "addr:street": "Abbas Mirzə Şərifzadə küçəsi",
+        "description": "The first WBC certified boxing club in the world located in Baku, Azerbaijan",
+        "email": "info@akk.az",
+        "leisure": "fitness_centre",
+        "name": "Knockout Boxing Club",
+        "opening_hours": "Mo-Sa 09:00-22:00",
+        "phone": "+99450 605 00 05",
+        "sport": "boxing;crossfit;fitness_box",
+        "website": "https://www.instagram.com/knockoutbc_baku/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6780115085,
+      "lat": 40.4248999,
+      "lon": 49.8431009,
+      "tags": {
+        "addr:street": "İbrahimpaşa Dadaşov küçəsi",
+        "leisure": "fitness_centre",
+        "name": "Black Mamba crossfit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6905999788,
+      "lat": 41.009861,
+      "lon": 45.6145949,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Lion Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7492299285,
+      "lat": 40.4322872,
+      "lon": 49.8170493,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Abordaj Fitness Zalı"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7549703956,
+      "lat": 41.6304761,
+      "lon": 48.6812943,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7691577144,
+      "lat": 41.6610822,
+      "lon": 48.5016936,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "İdman"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7692382943,
+      "lat": 41.553261,
+      "lon": 48.4365991,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "İdman Məktəbi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7692642694,
+      "lat": 41.515615,
+      "lon": 48.4255698,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7705878972,
+      "lat": 41.1816336,
+      "lon": 48.1284562,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "İdman Məktəbi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7797479685,
+      "lat": 41.1660397,
+      "lon": 47.1514684,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Şəki Qartal Arena",
+        "opening_hours": "Mo-Su 10:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7843348185,
+      "lat": 40.4104211,
+      "lon": 49.9365367,
+      "tags": {
+        "addr:housenumber": "1A",
+        "addr:postcode": "AZ1096",
+        "addr:street": "Məhsəti Gəncəvi",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Sədərk İdman Klubu",
+        "opening_hours": "Mo-Su 09:00-13:00, 14:00-20:00",
+        "phone": "+994 12 555 03 60"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9005003443,
+      "lat": 40.3807079,
+      "lon": 49.8665164,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:housenumber": "50",
+        "addr:postcode": "AZ1025",
+        "addr:street": "Mehdi Mehdizadə küçəsi",
+        "leisure": "fitness_centre",
+        "name": "Fit Lady",
+        "opening_hours": "Mo-Sa 09:00-22:00",
+        "phone": "+994 51 351 52 52",
+        "sport": "fitness;gym;dance;zumba;stretching;pilates;fly_yoga;massage",
+        "website": "https://www.instagram.com/fitlady_baku/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9547492898,
+      "lat": 39.8259211,
+      "lon": 46.7612475,
+      "tags": {
+        "addr:city": "Xankəndi",
+        "addr:housenumber": "48/1",
+        "addr:postcode": "2600",
+        "addr:street": "Խաչատուր Աբովյանի փողոց",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "Mo-Sa 10:00-19:00",
+        "sport": "fitness;yoga;jud;wrestling;boxing;kickboxing;karate"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9902680762,
+      "lat": 40.3438712,
+      "lon": 49.8099478,
+      "tags": {
+        "addr:city": "Baku",
+        "addr:postcode": "AZ1021",
+        "addr:street": "Badamdar şossesi",
+        "leisure": "fitness_centre",
+        "name": "XH GYM",
+        "opening_hours": "Mo-Su 08:00-24:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10078471006,
+      "lat": 40.4291956,
+      "lon": 49.9641225,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fitlife Fitnes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10087645511,
+      "lat": 40.4091358,
+      "lon": 49.9669066,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "İBM Trenajor"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10106036217,
+      "lat": 41.4187907,
+      "lon": 48.4173694,
+      "tags": {
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Sparta Fitnes",
+        "name:az": "Smart Service \\ Qusar",
+        "name:ru": "Спарта",
+        "opening_hours": "Mo-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10167490626,
+      "lat": 40.5090417,
+      "lon": 49.942241,
+      "tags": {
+        "addr:city": "Yeni Kürdəxanı",
+        "leisure": "fitness_centre",
+        "name": "X Fitnes Klub"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10250935086,
+      "lat": 40.5024034,
+      "lon": 49.8567617,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fitnes Trenajor"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10276927956,
+      "lat": 40.3841064,
+      "lon": 49.8682406,
+      "tags": {
+        "addr:housenumber": "1156",
+        "addr:street": "Fəzail Bayramov",
+        "branch": "Xətai",
+        "leisure": "fitness_centre",
+        "name": "FitnessLab",
+        "opening_hours": "Mo-Su 06:00-23:00",
+        "phone": "+994504003135",
+        "sport": "boxing;kickboxing;gym;fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10280993811,
+      "lat": 40.4645673,
+      "lon": 49.8381753,
+      "tags": {
+        "addr:city": "Bidəqədi",
+        "leisure": "fitness_centre",
+        "name": "Arktika İdman Klubu"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10537626985,
+      "lat": 40.4530775,
+      "lon": 49.7847323,
+      "tags": {
+        "addr:street": "Xırdalan - Binəqədi yolu",
+        "leisure": "fitness_centre",
+        "name": "Golds Trenajor"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10540422130,
+      "lat": 40.4808078,
+      "lon": 49.7550765,
+      "tags": {
+        "addr:city": "Masazır",
+        "addr:street": "Əliağa Vahid küç.",
+        "leisure": "fitness_centre",
+        "name": "Fitnes Spa Mərkəzi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10655962111,
+      "lat": 40.5233458,
+      "lon": 50.1004545,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "CH Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10746666195,
+      "lat": 40.4044689,
+      "lon": 50.3016168,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "İdman Zalı"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10974521428,
+      "lat": 40.453799,
+      "lon": 49.7396108,
+      "tags": {
+        "addr:street": "Heydər Əliev pr.",
+        "leisure": "fitness_centre",
+        "name": "Çempion Fitnes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10974521437,
+      "lat": 40.4546684,
+      "lon": 49.7427571,
+      "tags": {
+        "addr:street": "Mehdi Hüseynzadə küç.",
+        "leisure": "fitness_centre",
+        "name": "Karol Fitnes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11085984105,
+      "lat": 41.4292619,
+      "lon": 48.4308924,
+      "tags": {
+        "addr:housenumber": "45",
+        "addr:street": "Mirzə Vəliyev küç.",
+        "leisure": "fitness_centre",
+        "name:en": "Sparta Fight Club",
+        "opening_hours": "Su-Sa 10:00-22:00",
+        "phone": "+994705105030"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11420339936,
+      "lat": 40.6826163,
+      "lon": 46.3559395,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fit House"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11420339969,
+      "lat": 40.6973478,
+      "lon": 46.3633678,
+      "tags": {
+        "addr:city": "Gəncə",
+        "addr:street": "Şah İsmayıl Xətai",
+        "leisure": "fitness_centre",
+        "name": "Viking"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11746506271,
+      "lat": 40.4181896,
+      "lon": 49.8242948,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:floor": ";G",
+        "addr:housenumber": "54/56",
+        "addr:postcode": "AZ1114",
+        "addr:street": "Mirmahmud Kazımovski küçəsi",
+        "check_date": "2024-10-05",
+        "contact:instagram": "boroda_gym_baku",
+        "fee": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "leisure": "fitness_centre",
+        "level": "0;0",
+        "name": "Boroda Gym",
+        "opening_hours": "Mo-Sa 09:00-23:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+994553450707",
+        "sport": "fitness;crossfit",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11746528015,
+      "lat": 40.421455,
+      "lon": 49.8165117,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:housenumber": "51",
+        "addr:street": "Cavad Xan küçəsi",
+        "instagram": "sparta.gym.baku",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Sparta",
+        "opening_hours": "Mo-Sa 09:00-23:00; Su 11:00-17:00",
+        "phone": "+994507761016",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12077449619,
+      "lat": 39.7538249,
+      "lon": 46.8737939,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Kənd idman zalı",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "sport": "fitness;judo;wrestling"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12083974725,
+      "lat": 39.8185556,
+      "lon": 46.7521865,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fitnes zalı",
+        "sport": "fitness;bodybuilding"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12128374712,
+      "lat": 39.7231539,
+      "lon": 46.9067835,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "Mo-Sa 11:00-18:00",
+        "sport": "fitness;judo;wrestling;boxing;kickboxing"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12224093153,
+      "lat": 40.3750999,
+      "lon": 49.852215,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:housenumber": "2a",
+        "addr:street": "Fikrət Əmirov küçəsi",
+        "contact:instagram": "jv_fitness_",
+        "leisure": "fitness_centre",
+        "name": "JV Fitness",
+        "opening_hours": "Mo-Fr 09:00-23:00, Sa 10:00-21:30",
+        "phone": "+994552559040",
+        "website": "https://jvfitness.az"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12255859502,
+      "lat": 40.366225,
+      "lon": 49.9446285,
+      "tags": {
+        "contact:instagram": "just_4_fit_",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Just 4 Fit",
+        "opening_hours": "Mo-Fr 08:00-22:30; Sa-Su 12:00-17:30",
+        "phone": "+994103720010"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12833336293,
+      "lat": 40.3948055,
+      "lon": 49.8282882,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:street": "Cəlil Məmmədquluzadə küçəsi",
+        "contact:facebook": "angelsembassy",
+        "contact:instagram": "angels_embassy",
+        "contact:whatsapp": "994502811881",
+        "leisure": "fitness_centre",
+        "name": "Angels’ Embassy",
+        "opening_hours": "Mo-Su 07:00-21:00",
+        "phone": "+994 50 281 18 81",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12999815613,
+      "lat": 39.9658639,
+      "lon": 48.950116,
+      "tags": {
+        "addr:city": "Şirvan ş.",
+        "leisure": "fitness_centre",
+        "name": "GYM Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13741814452,
+      "lat": 40.4573836,
+      "lon": 49.7476996,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Alik fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14067098842,
+      "lat": 40.4244281,
+      "lon": 49.8220185,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:housenumber": "5N",
+        "addr:street": "Həmzə Babaşov küçəsi",
+        "instagram": "go_fitness_baku",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Go",
+        "opening_hours": "Mo-Sa 08:00-23:00; Su 11:00-18:00",
+        "phone": "+994 50 858 23 23"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14085601818,
+      "lat": 40.4088809,
+      "lon": 49.8627982,
+      "tags": {
+        "addr:city": "Bakı",
+        "addr:housenumber": "7",
+        "addr:postcode": "AZ 1052",
+        "addr:street": "Əhməd Rəcəbli küç.",
+        "contact:instagram": "https://www.instagram.com/rooffitnessbaku/?hl=en",
+        "leisure": "fitness_centre",
+        "level": "5",
+        "name": "ROOF 24-hour Fitness",
+        "opening_hours": "Mo-Sa 00:00-24:00",
+        "phone": "+994505009099",
+        "sport": "gym",
+        "website": "https://roof.az/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14093884302,
+      "lat": 40.5943021,
+      "lon": 49.6825814,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Premium Fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 290258585,
+      "center": {
+        "lat": 40.0465447,
+        "lon": 46.5462575
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Trenajor zalı"
+      }
+    },
+    {
+      "type": "way",
+      "id": 299015057,
+      "center": {
+        "lat": 40.3918068,
+        "lon": 49.869045
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "Aura Sağlamlıq Mərkəzi",
+        "name:az": "Aura Sağlamlıq Mərkəzi \\ Bakı",
+        "name:en": "Aura Wellness Center"
+      }
+    },
+    {
+      "type": "way",
+      "id": 355283804,
+      "center": {
+        "lat": 39.8070266,
+        "lon": 46.760733
+      },
+      "tags": {
+        "addr:city": "Xankəndi",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "2 saylı idman məktəbi",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;bodybuilding;wrestling;gymnastics;judo"
+      }
+    },
+    {
+      "type": "way",
+      "id": 359743947,
+      "center": {
+        "lat": 39.8229769,
+        "lon": 46.7488058
+      },
+      "tags": {
+        "addr:city": "Stepanakert",
+        "addr:housenumber": "9",
+        "addr:street": "Terteryan st.",
+        "building": "house",
+        "leisure": "fitness_centre",
+        "name": "Taekvando kursu",
+        "opening_hours": "sunrise-sunset"
+      }
+    },
+    {
+      "type": "way",
+      "id": 386636527,
+      "center": {
+        "lat": 39.7064375,
+        "lon": 46.8677799
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "08:00-22:00",
+        "sport": "judo;wrestling;futsal"
+      }
+    },
+    {
+      "type": "way",
+      "id": 680575308,
+      "center": {
+        "lat": 39.8243751,
+        "lon": 46.7674492
+      },
+      "tags": {
+        "addr:city": "Xankəndi",
+        "addr:postcode": "AZ2600",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "judo;wrestling;karate;boxing;kickboxing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 689948195,
+      "center": {
+        "lat": 39.7935437,
+        "lon": 47.1133555
+      },
+      "tags": {
+        "addr:city": "Մարտունի",
+        "addr:street": "Garegin Nzhde street",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman Məktəbi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 689970889,
+      "center": {
+        "lat": 39.8959444,
+        "lon": 46.7005012
+      },
+      "tags": {
+        "building": "house",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "sport": "wrestling;karate;fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 690487801,
+      "center": {
+        "lat": 39.9247151,
+        "lon": 46.6665704
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "wrestling;fitness;gymnastics;judo;boxing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 747193358,
+      "center": {
+        "lat": 39.8075199,
+        "lon": 46.7532434
+      },
+      "tags": {
+        "addr:city": "Xankəndi",
+        "addr:postcode": "AZ2600",
+        "addr:street": "Ənvər Paşa küç.",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Güləş məktəbi",
+        "opening_hours": "sunrise-sunset",
+        "sport": "wrestling"
+      }
+    },
+    {
+      "type": "way",
+      "id": 784110834,
+      "center": {
+        "lat": 39.8289896,
+        "lon": 46.7478656
+      },
+      "tags": {
+        "addr:city": "Xankəndi",
+        "addr:postcode": "AZ2600",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Trenajor zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;bodybuilding"
+      }
+    },
+    {
+      "type": "way",
+      "id": 799240077,
+      "center": {
+        "lat": 40.6023543,
+        "lon": 49.6789592
+      },
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 809231954,
+      "center": {
+        "lat": 39.8183837,
+        "lon": 46.755627
+      },
+      "tags": {
+        "addr:city": "Xankəndi",
+        "addr:postcode": "AZ2600",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Köhnə Dinamo",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "sport": "fitness;wrestling;judo;basketball;baseball;swimming;tennis;futsal;chess;gymnastics"
+      }
+    },
+    {
+      "type": "way",
+      "id": 835661482,
+      "center": {
+        "lat": 39.8270438,
+        "lon": 46.770656
+      },
+      "tags": {
+        "addr:city": "Xankəndi",
+        "addr:postcode": "AZ2600",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Fitnes zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;gymnastics;bodybuilding"
+      }
+    },
+    {
+      "type": "way",
+      "id": 967168995,
+      "center": {
+        "lat": 39.8024264,
+        "lon": 46.8240325
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1234017303,
+      "center": {
+        "lat": 40.6715139,
+        "lon": 46.3697612
+      },
+      "tags": {
+        "addr:city": "Gəncə",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Olimpiya"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1303761410,
+      "center": {
+        "lat": 39.8945402,
+        "lon": 46.7329262
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;kickboxing;boxing;judo;running"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1304801623,
+      "center": {
+        "lat": 39.9887125,
+        "lon": 46.6961379
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "sport": "fitness;judo;wrestling"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1307818779,
+      "center": {
+        "lat": 39.9785362,
+        "lon": 46.7177617
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;judo;wrestling;gymnastics;karate"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1308274039,
+      "center": {
+        "lat": 39.8775701,
+        "lon": 46.9004983
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Köhnə idman zalı",
+        "sport": "fitness;judo"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1308676743,
+      "center": {
+        "lat": 39.9659314,
+        "lon": 46.8207332
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "sunrise-sunset",
+        "sport": "judo;wrestling;karate;fitness;gymnastics"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1310663378,
+      "center": {
+        "lat": 39.9300688,
+        "lon": 46.7721098
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman salonu",
+        "opening_hours": "sunrise-sunset",
+        "sport": "wrestling;fitness;gymnastics;judo;boxing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1310897416,
+      "center": {
+        "lat": 39.9706964,
+        "lon": 46.6869351
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "judo;karate;wrestling;fitness;bodybuilding"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1311105108,
+      "center": {
+        "lat": 39.7708712,
+        "lon": 46.7876099
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;wrestling;karate"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1311368183,
+      "center": {
+        "lat": 39.8739513,
+        "lon": 46.7280737
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "07:00-22:00",
+        "sport": "fitness;boxing;kickboxing;judo;wrestling"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1311823074,
+      "center": {
+        "lat": 39.7069867,
+        "lon": 46.8298066
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;gymnastics;wrestling;bodybuilding;karate"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312076612,
+      "center": {
+        "lat": 39.7220215,
+        "lon": 46.8027676
+      },
+      "tags": {
+        "addr:city": "Sığnaq",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;wrestling;judo;boxing;bodybuilding"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312330435,
+      "center": {
+        "lat": 39.9250064,
+        "lon": 46.7075333
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "sunrise-sunset",
+        "sport": "karate;wrestling;fitness;gymnastics;bodybuilding"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1312900460,
+      "center": {
+        "lat": 39.8190524,
+        "lon": 46.7487529
+      },
+      "tags": {
+        "addr:city": "Xankəndi",
+        "addr:postcode": "AZ2600",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Uşaq İdman Məktəbi",
+        "opening_hours": "sunrise-sunset",
+        "sport": "swimming;table_tennis;judo;wrestling;karate;baseball;equestrian"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1314230336,
+      "center": {
+        "lat": 39.8992461,
+        "lon": 46.8836048
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;bodybuilding;judo;wrestling"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1317233076,
+      "center": {
+        "lat": 39.8394617,
+        "lon": 46.7852187
+      },
+      "tags": {
+        "building": "yes",
+        "government": "administrative",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1317416306,
+      "center": {
+        "lat": 39.8776148,
+        "lon": 46.7842162
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman məktəbi",
+        "opening_hours": "24/7",
+        "payment:cash": "yes",
+        "payment:maestro": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "sport": "fitness;judo;wrestling;karate"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1322656370,
+      "center": {
+        "lat": 39.9400588,
+        "lon": 46.8346117
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Trenajor",
+        "opening_hours": "sunrise-sunset",
+        "sport": "fitness;bodybuilding"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1323466612,
+      "center": {
+        "lat": 39.9468283,
+        "lon": 46.8293746
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1377020092,
+      "center": {
+        "lat": 40.2148914,
+        "lon": 46.709232
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1377052354,
+      "center": {
+        "lat": 40.1280674,
+        "lon": 46.5775378
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "İdman zalı"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1549075047,
+      "center": {
+        "lat": 40.387154,
+        "lon": 49.960699
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Ay Sport Klub"
+      }
+    }
+  ]
+}

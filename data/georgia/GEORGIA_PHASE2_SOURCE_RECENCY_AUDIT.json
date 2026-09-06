@@ -1,0 +1,185 @@
+{
+  "buckets": {
+    "CURRENT_FIRST_PARTY": 17,
+    "CURRENT_MULTI_SOURCE": 8
+  },
+  "stale_only_ready": 0,
+  "operation_unverified_ready": 0,
+  "rows": [
+    {
+      "id": "ge_051da6fe5e",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_0e2fa4eaa6",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_17ef6b43d4",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_4f547667b8",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_68bf296095",
+      "brand": "Champion",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_6b0b14f0ed",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_940706c5ca",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_9705b4ab7b",
+      "brand": "Champion",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_a151d09963",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_b9389ebbae",
+      "brand": "Champion",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_d82a6618d2",
+      "brand": "Oktopus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_0b782dc001",
+      "brand": "მამბერი ფიტნესი",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_1ccb2b6d0c",
+      "brand": "Fitness House",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_2d568940ee",
+      "brand": "იმოძრავე",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_3a461ba96b",
+      "brand": "სპარტა",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_3bd67719e5",
+      "brand": "Snap Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_692205209d",
+      "brand": "რეფორმა",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_7fb7714ed8",
+      "brand": "Colosseum",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_96c3252ede",
+      "brand": "World Class Georgia",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_a82476e116",
+      "brand": "Arena Sports Complex",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_c01e74d235",
+      "brand": "ასპრია",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_c4a7d8b637",
+      "brand": "Fit Line",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_cb4c5b571f",
+      "brand": "Fitness House",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_cfa1e0dcc5",
+      "brand": "BLUE FITNES",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ge_f884dff47e",
+      "brand": "Life Sport Club",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    }
+  ]
+}

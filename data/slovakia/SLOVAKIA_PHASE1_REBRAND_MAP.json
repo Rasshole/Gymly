@@ -1,0 +1,25 @@
+{
+  "country": "Slovakia",
+  "maps": [
+    {
+      "legacy_brand": "FitCamp",
+      "current_brand": "Form Factory",
+      "evidence": "formfactory.sk/klub/fitcamp/ — FitCamp listed as Form Factory club",
+      "action": "import_as_form_factory_only"
+    },
+    {
+      "legacy_brand": "Golem Club Polus / FITINN Polus adjacency",
+      "current_brand": "separate operators",
+      "evidence": "Golem Polus and FITINN VIVO/Polus are distinct mall clubs if both present",
+      "action": "keep_both_if_distinct_addresses"
+    }
+  ],
+  "excluded_aggregators": [
+    "MultiSport",
+    "ESX-like pass networks"
+  ],
+  "specialty_excluded": [
+    "EfectFit (private PT)",
+    "Golem Fyzioterapia"
+  ]
+}

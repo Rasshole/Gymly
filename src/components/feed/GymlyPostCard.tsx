@@ -18,6 +18,8 @@ import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {getRuntimeLanguage} from '@/i18n';
+import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
+import {WorkoutSnapshotCard} from '@/components/personalRecords/WorkoutSnapshotCard';
 
 const MEDIA_HEIGHT = 280;
 
@@ -41,6 +43,8 @@ export interface GymlyPostCardProps {
   reactions?: GymlyPostReactions;
   hasPR?: boolean;
   timestamp: string;
+  workoutSnapshot?: SharedWorkoutSnapshot | null;
+  onWorkoutSnapshotPress?: () => void;
   onUserPress?: () => void;
   onReaction?: (type: 'bicep' | 'fire' | 'eyes') => void;
   commentCount?: number;
@@ -48,6 +52,7 @@ export interface GymlyPostCardProps {
   onMenuPress?: () => void;
   bicepActive?: boolean;
   onBicepsCountPress?: () => void;
+  onSharePress?: () => void;
 }
 
 const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
@@ -62,6 +67,8 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
   reactions = {bicep: 0, fire: 0, eyes: 0},
   hasPR,
   timestamp,
+  workoutSnapshot,
+  onWorkoutSnapshotPress,
   onUserPress,
   onReaction,
   commentCount = 0,
@@ -69,6 +76,7 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
   onMenuPress,
   bicepActive = false,
   onBicepsCountPress,
+  onSharePress,
 }) => {
   return (
     <View style={styles.card}>
@@ -126,6 +134,15 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
         </View>
       )}
 
+      {workoutSnapshot ? (
+        <View style={styles.snapshotWrap}>
+          <WorkoutSnapshotCard
+            snapshot={workoutSnapshot}
+            onPress={onWorkoutSnapshotPress}
+          />
+        </View>
+      ) : null}
+
       {/* Caption */}
       {caption ? (
         <Text style={styles.caption} numberOfLines={3}>
@@ -154,6 +171,14 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
           <Icon name="chatbubble-outline" size={18} color={colors.primary} />
           <Text style={styles.commentCount}>{commentCount}</Text>
         </TouchableOpacity>
+        {onSharePress ? (
+          <TouchableOpacity
+            style={styles.reactionButton}
+            onPress={onSharePress}
+            activeOpacity={0.7}>
+            <Icon name="share-outline" size={18} color={colors.primary} />
+          </TouchableOpacity>
+        ) : null}
         <Text style={styles.timestamp}>{timestamp}</Text>
       </View>
     </View>
@@ -246,6 +271,9 @@ const styles = StyleSheet.create({
   media: {
     width: '100%',
     height: '100%',
+  },
+  snapshotWrap: {
+    paddingHorizontal: spacing.md,
   },
   caption: {
     ...typography.body,

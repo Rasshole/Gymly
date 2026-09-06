@@ -1,0 +1,619 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [
+      {
+        "a_id": "gr_f92effe0b0",
+        "a_name": "Alterlife ΓΑΛΑΤΣΙ – ΒΕΪΚΟΥ",
+        "a_address": "Λ. Βεΐκου 117-119, Γαλάτσι 11146",
+        "a_postal": "111 46",
+        "b_id": "gr_0fc7dfed4c",
+        "b_name": "Alterlife ΓΑΛΑΤΣΙ – Λ. ΓΑΛΑΤΣΙΟΥ",
+        "b_address": "Λεωφόρο Γαλατσίου 33 και Μαρκορά , Γαλάτσι 11141",
+        "b_postal": "111 41",
+        "brand": "Alterlife",
+        "distance_m": 14,
+        "same_address": false
+      }
+    ],
+    "lt50": [
+      {
+        "a_id": "gr_f92effe0b0",
+        "a_name": "Alterlife ΓΑΛΑΤΣΙ – ΒΕΪΚΟΥ",
+        "a_address": "Λ. Βεΐκου 117-119, Γαλάτσι 11146",
+        "a_postal": "111 46",
+        "b_id": "gr_0fc7dfed4c",
+        "b_name": "Alterlife ΓΑΛΑΤΣΙ – Λ. ΓΑΛΑΤΣΙΟΥ",
+        "b_address": "Λεωφόρο Γαλατσίου 33 και Μαρκορά , Γαλάτσι 11141",
+        "b_postal": "111 41",
+        "brand": "Alterlife",
+        "distance_m": 14,
+        "same_address": false
+      }
+    ],
+    "lt100": [
+      {
+        "a_id": "gr_f92effe0b0",
+        "a_name": "Alterlife ΓΑΛΑΤΣΙ – ΒΕΪΚΟΥ",
+        "a_address": "Λ. Βεΐκου 117-119, Γαλάτσι 11146",
+        "a_postal": "111 46",
+        "b_id": "gr_0fc7dfed4c",
+        "b_name": "Alterlife ΓΑΛΑΤΣΙ – Λ. ΓΑΛΑΤΣΙΟΥ",
+        "b_address": "Λεωφόρο Γαλατσίου 33 και Μαρκορά , Γαλάτσι 11141",
+        "b_postal": "111 41",
+        "brand": "Alterlife",
+        "distance_m": 14,
+        "same_address": false
+      }
+    ],
+    "lt200": [
+      {
+        "a_id": "gr_f92effe0b0",
+        "a_name": "Alterlife ΓΑΛΑΤΣΙ – ΒΕΪΚΟΥ",
+        "a_address": "Λ. Βεΐκου 117-119, Γαλάτσι 11146",
+        "a_postal": "111 46",
+        "b_id": "gr_0fc7dfed4c",
+        "b_name": "Alterlife ΓΑΛΑΤΣΙ – Λ. ΓΑΛΑΤΣΙΟΥ",
+        "b_address": "Λεωφόρο Γαλατσίου 33 και Μαρκορά , Γαλάτσι 11141",
+        "b_postal": "111 41",
+        "brand": "Alterlife",
+        "distance_m": 14,
+        "same_address": false
+      }
+    ],
+    "identical": [],
+    "diffBrand": []
+  },
+  "proximity_classifications": [
+    {
+      "a_id": "gr_f92effe0b0",
+      "a_name": "Alterlife ΓΑΛΑΤΣΙ – ΒΕΪΚΟΥ",
+      "a_address": "Λ. Βεΐκου 117-119, Γαλάτσι 11146",
+      "a_postal": "111 46",
+      "b_id": "gr_0fc7dfed4c",
+      "b_name": "Alterlife ΓΑΛΑΤΣΙ – Λ. ΓΑΛΑΤΣΙΟΥ",
+      "b_address": "Λεωφόρο Γαλατσίου 33 και Μαρκορά , Γαλάτσι 11141",
+      "b_postal": "111 41",
+      "brand": "Alterlife",
+      "distance_m": 14,
+      "same_address": false,
+      "classification": "A",
+      "action": "retain_both",
+      "evidence": "Separate Alterlife club pages (galatsi-veikou vs galatsi-galatsiou-ave); different street addresses and postcodes (111 46 vs 111 41)"
+    }
+  ],
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "withheld": [],
+  "included": [
+    {
+      "id": "gr_082ca9b872",
+      "name": "YAVA ΑΓ. ΑΝΑΡΓΥΡΟΙ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_f56bf5de7b",
+      "name": "YAVA ΑΓΙΟΣ ΔΗΜΗΤΡΙΟΣ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_3b457e796e",
+      "name": "YAVA ΑΓΙΑ ΠΑΡΑΣΚΕΥΗ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_3bf45df5e8",
+      "name": "YAVA ΑΙΓΑΛΕΩ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_353c44b22d",
+      "name": "YAVA ΧΑΝΙΑ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_ad4c5c4edd",
+      "name": "YAVA EXCLUSIVE ΑΜΑΡΟΥΣΙΟΥ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_eb35e58530",
+      "name": "YAVA ΓΛΥΦΑΔΑ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_10539671a1",
+      "name": "YAVA ΙΠΠΟΚΡΑΤΟΥΣ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_2db6f839a2",
+      "name": "YAVA ΗΡΑΚΛΕΙΟ ΚΡΗΤΗΣ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_9f439ef7cb",
+      "name": "YAVA ΚΑΛΛΙΘΕΑ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_40319541e3",
+      "name": "YAVA ΚΟΡΩΠΙ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_cc00102299",
+      "name": "YAVA ΚΟΡΥΔΑΛΛΟΣ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_d004ac27da",
+      "name": "YAVA ΛΥΚΟΒΡΥΣΗ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_9de7e1fe6d",
+      "name": "YAVA ΝΕΟ ΨΥΧΙΚΟ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_141eb26141",
+      "name": "YAVA ΠΑΤΡΑ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_52ef8b03e1",
+      "name": "YAVA ΠΕΙΡΑΙΑΣ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_fa81b6d848",
+      "name": "YAVA ΠΕΤΡΟΥΠΟΛΗ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_4a41ab2391",
+      "name": "YAVA ΡΟΔΟΣ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_9d414ee48b",
+      "name": "YAVA ΘΕΣΣΑΛΟΝΙΚΗ (Εύοσμος)",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_4817875458",
+      "name": "YAVA ΘΕΣΣΑΛΟΝΙΚΗ (Κάτω Τούμπα)",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_db35849611",
+      "name": "YAVA ΘΡΑΚΟΜΑΚΕΔΟΝΕΣ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_6897868eee",
+      "name": "YAVA ΖΩΓΡΑΦΟΥ",
+      "brand": "Yava"
+    },
+    {
+      "id": "gr_98fb2e4f0e",
+      "name": "Holmes Place Athens",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "gr_c6a1f4ad64",
+      "name": "Holmes Place Maroussi",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "gr_29853f4256",
+      "name": "Holmes Place Glyfada",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "gr_aa357c70a8",
+      "name": "Planet Fitness Χαλκίδα",
+      "brand": "Planet Fitness Greece"
+    },
+    {
+      "id": "gr_69a1593347",
+      "name": "Planet Fitness Χαϊδάρι",
+      "brand": "Planet Fitness Greece"
+    },
+    {
+      "id": "gr_9bace127df",
+      "name": "Planet Fitness Καλλιθέα",
+      "brand": "Planet Fitness Greece"
+    },
+    {
+      "id": "gr_e53450042b",
+      "name": "Planet Fitness Πειραιάς",
+      "brand": "Planet Fitness Greece"
+    },
+    {
+      "id": "gr_df2945b81f",
+      "name": "Planet Fitness Σαλαμίνα",
+      "brand": "Planet Fitness Greece"
+    },
+    {
+      "id": "gr_61df622b54",
+      "name": "Mega Gym Μελίσσια",
+      "brand": "Mega Gym"
+    },
+    {
+      "id": "gr_40d69575c5",
+      "name": "Mega Gym Αγία Παρασκευή",
+      "brand": "Mega Gym"
+    },
+    {
+      "id": "gr_62966b36f9",
+      "name": "Mega Gym Άλιμος",
+      "brand": "Mega Gym"
+    },
+    {
+      "id": "gr_dd0c5e2a5c",
+      "name": "Mega Gym 12ο χλμ Αθηνών-Λαμίας",
+      "brand": "Mega Gym"
+    },
+    {
+      "id": "gr_bef62811ee",
+      "name": "Alterlife ΑΓΙΑ ΠΑΡΑΣΚΕΥΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_ebc48e7495",
+      "name": "Alterlife ΑΙΓΑΛΕΩ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_046223aef1",
+      "name": "Alterlife ΑΓΡΙΝΙΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_21e0d5a2a7",
+      "name": "Alterlife ΆΛΙΜΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_faed5664f7",
+      "name": "Alterlife ΑΛΕΞΑΝΔΡΟΥΠΟΛΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_6675b0f1cd",
+      "name": "Alterlife ΑΡΓΥΡΟΥΠΟΛΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_04cf8e2d36",
+      "name": "Alterlife ΑΥΛΩΝΑΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_ae5a0d39af",
+      "name": "Alterlife ΑΧΑΡΝΩΝ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_3c9dd157dc",
+      "name": "Alterlife ΒΑΣ. ΌΛΓΑΣ ΘΕΣΣΑΛΟΝΙΚΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_65a8cdb4bb",
+      "name": "Alterlife ΒΟΛΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_9a4d4d9186",
+      "name": "Alterlife ΒΡΙΛΗΣΣΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_f92effe0b0",
+      "name": "Alterlife ΓΑΛΑΤΣΙ – ΒΕΪΚΟΥ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_0fc7dfed4c",
+      "name": "Alterlife ΓΑΛΑΤΣΙ – Λ. ΓΑΛΑΤΣΙΟΥ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_fe3562dd67",
+      "name": "Alterlife ΓΙΑΝΝΙΤΣΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_3524a8ea65",
+      "name": "Alterlife ΓΛΥΦΑΔΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_fdc6eca742",
+      "name": "Alterlife ΓΛΥΦΑΔΑ – ΕΛΛΗΝΙΚΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_89cf4e9865",
+      "name": "Alterlife ΔΡΑΠΕΤΣΩΝΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_9e5206aa13",
+      "name": "Alterlife ΕΥΟΣΜΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_a35f3b5e15",
+      "name": "Alterlife ΖΩΓΡΑΦΟΥ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_d95115acb1",
+      "name": "Alterlife ΗΓΟΥΜΕΝΙΤΣΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_c76c57fe22",
+      "name": "Alterlife ΙΩΑΝΝΙΝΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_756c2221b5",
+      "name": "Alterlife ΚΑΛΑΜΑΡΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_a2740c5b17",
+      "name": "Alterlife ΚΑΛΑΜΠΑΚΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_3e3ac90e77",
+      "name": "Alterlife ΚΑΛΛΙΘΕΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_f2930aefb0",
+      "name": "Alterlife ΚΑΡΔΙΤΣΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_41cf5f9346",
+      "name": "Alterlife ΚΑΤΕΡΙΝΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_44deae02df",
+      "name": "Alterlife ΚΕΡΑΤΣΙΝΙ – ΑΜΦΙΑΛΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_8e114e85dc",
+      "name": "Alterlife ΚΕΡΚΥΡΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_424cf9ef4b",
+      "name": "Alterlife ΚΗΦΙΣΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_816706e4a3",
+      "name": "Alterlife ΚΟΖΑΝΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_e9851263da",
+      "name": "Alterlife ΚΟΛΩΝΑΚΙ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_5e756d4df1",
+      "name": "Alterlife ΚΟΡΥΔΑΛΛΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_627fd5c737",
+      "name": "Alterlife ΚΥΨΕΛΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_9695380024",
+      "name": "Alterlife ΛΑΡΙΣΑ – ΚΕΝΤΡΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_cdae2a9be7",
+      "name": "Alterlife ΛΑΡΙΣΑ – ΦΙΛΙΠΠΟΥΠΟΛΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_d171aa21db",
+      "name": "Alterlife ΛΙΒΑΔΕΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_b9a100fa83",
+      "name": "Alterlife ΛΙΟΣΙΩΝ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_46e498843a",
+      "name": "Alterlife ΛΥΚΟΒΡΥΣΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_c7e3183254",
+      "name": "Alterlife ΜΑΒΙΛΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_ba8a599adf",
+      "name": "Alterlife ΜΑΡΟΥΣΙ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_717b340f46",
+      "name": "Alterlife ΜΑΡΤΙΟΥ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_82ba50b2c2",
+      "name": "Alterlife ΜΕΛΙΣΣΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_ec3df8de2c",
+      "name": "Alterlife ΜΠΟΥΡΝΑΖΙ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_ae2ff16916",
+      "name": "Alterlife ΝΑΥΠΛΙΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_ce788d442d",
+      "name": "Alterlife ΝΕΑ ΕΡΥΘΡΑΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_aa1da5c7e7",
+      "name": "Alterlife ΝΕΑ ΣΜΥΡΝΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_8eb38fa280",
+      "name": "Alterlife ΝΕΑ ΧΑΛΚΗΔΟΝΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_7fef83b96a",
+      "name": "Alterlife ΝΕΟ ΗΡΑΚΛΕΙΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_17cb390fa7",
+      "name": "Alterlife ΝΕΟ ΦΑΛΗΡΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_49f97ba5d2",
+      "name": "Alterlife ΝΙΚΑΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_47571b99df",
+      "name": "Alterlife ΞΑΝΘΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_b875785917",
+      "name": "Alterlife ΠΑΓΚΡΑΤΙ – ΆΛΣΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_8ccf8e9c8f",
+      "name": "Alterlife ΠΑΙΑΝΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_3e19667e35",
+      "name": "Alterlife ΠΑΛΑΙΟ ΦΑΛΗΡΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_04e5e1d37a",
+      "name": "Alterlife ΠΑΛΑΙΟ ΦΑΛΗΡΟ – ΑΜΦΙΘΕΑΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_7ff518af04",
+      "name": "Alterlife ΠΑΠΑΓΟΥ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_7de9c69ee3",
+      "name": "Alterlife ΠΕΙΡΑΙΑΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_11d9e1e677",
+      "name": "Alterlife ΠΕΡΙΣΤΕΡΙ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_89bdae0cfa",
+      "name": "Alterlife ΠΕΤΡΟΥΠΟΛΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_aa6c8345b2",
+      "name": "Alterlife ΠΡΕΒΕΖΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_74c41c67a4",
+      "name": "Alterlife ΠΥΛΑΙΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_1bc70d5fce",
+      "name": "Alterlife ΡΕΘΥΜΝΟ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_4683577a9e",
+      "name": "Alterlife ΣΕΡΡΕΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_51798d1902",
+      "name": "Alterlife ΣΚΥΔΡΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_a8dcf6068b",
+      "name": "Alterlife ΣΤΑΥΡΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_fd74f26b05",
+      "name": "Alterlife ΣΥΡΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_87ccf7cfae",
+      "name": "Alterlife ΤΟΥΜΠΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_2a85c2f302",
+      "name": "Alterlife ΤΡΙΚΑΛΑ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_b6932eaa82",
+      "name": "Alterlife ΤΡΙΛΟΦΟΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_fcc74826b7",
+      "name": "Alterlife ΤΣΙΜΙΣΚΗ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_7b1800e092",
+      "name": "Alterlife ΧΑΛΑΝΔΡΙ – Λ. ΠΕΝΤΕΛΗΣ",
+      "brand": "Alterlife"
+    },
+    {
+      "id": "gr_7b0ec796a7",
+      "name": "Alterlife ΩΡΑΙΟΚΑΣΤΡΟ",
+      "brand": "Alterlife"
+    }
+  ]
+}

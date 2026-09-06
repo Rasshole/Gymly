@@ -1,0 +1,16 @@
+{
+  "cities": {
+    "Baku": "A",
+    "Sumqayit": "B",
+    "Ganja": "B",
+    "Mingachevir": "B",
+    "Nakhchivan": "B",
+    "Lankaran": "B",
+    "Shaki": "B"
+  },
+  "ready_by_city": {
+    "Baku": 11
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0
+}

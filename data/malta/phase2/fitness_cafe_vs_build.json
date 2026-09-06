@@ -1,0 +1,10 @@
+{
+  "conflict": "Fitness Café San Pawl vs Build Fitness Centre",
+  "resolution": "A_historical_predecessor",
+  "classification": "Fitness Café San Pawl is a historical/secondary listing identity for the Sirens ASC cluster now branded Build Fitness Centre under Best Gyms Malta",
+  "successor_production_id": "mt_b45a78a4f0",
+  "successor_name": "Build Fitness Centre",
+  "separate_active_gym": false,
+  "terminal_disposition": "EXCLUDED",
+  "unresolved": false
+}

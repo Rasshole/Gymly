@@ -1,0 +1,66 @@
+[
+  {
+    "name": "EVO Fitness Sandvika",
+    "status": "postal_filled",
+    "postal": "1337"
+  },
+  {
+    "name": "EVO Fitness Hønefoss",
+    "status": "postal_filled",
+    "postal": "3510"
+  },
+  {
+    "name": "EVO Fitness Strømsø",
+    "status": "postal_filled",
+    "postal": "3044"
+  },
+  {
+    "name": "EVO Fitness Gjøvik",
+    "status": "postal_filled",
+    "postal": "2821"
+  },
+  {
+    "name": "EVO Fitness Frysja",
+    "status": "postal_filled",
+    "postal": "0884"
+  },
+  {
+    "name": "EVO Fitness Holmlia",
+    "status": "postal_filled",
+    "postal": "1255"
+  },
+  {
+    "name": "EVO Fitness Vollebekk",
+    "status": "postal_filled",
+    "postal": "0598"
+  },
+  {
+    "name": "EVO Fitness Bryne Torg",
+    "status": "postal_filled",
+    "postal": "4340"
+  },
+  {
+    "name": "EVO Fitness Egersund",
+    "status": "postal_filled",
+    "postal": "4373"
+  },
+  {
+    "name": "EVO Fitness Sandnes",
+    "status": "postal_unresolved"
+  },
+  {
+    "name": "EVO Fitness Fyllingsdalen",
+    "status": "postal_filled",
+    "postal": "5143"
+  },
+  {
+    "name": "EVO Fitness Minde",
+    "status": "postal_filled",
+    "postal": "5063"
+  },
+  {
+    "name": "EVO Fitness Sandsli",
+    "status": "postal_filled",
+    "postal": "5254"
+  }
+]

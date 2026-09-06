@@ -1,0 +1,536 @@
+id,name,brand,address,postal_code,city,country,latitude,longitude,is_active,is_coming_soon
+no_6096fa15f6,3T-Treningssenter Levanger,3T-Treningssenter,Høgskolevegen 5,7600,Levanger,Norway,63.753594,11.30829,True,False
+no_e0b288d7b8,3T-Treningssenter Melhus,3T-Treningssenter,Melhusvegen 475,7224,Melhus,Norway,63.284931,10.27891,True,False
+no_962aaa7dc8,3T-Treningssenter Orkanger,3T-Treningssenter,Grønørveien 20,7300,Orkanger,Norway,63.306946,9.837449,True,False
+no_e36244dc22,3T-Treningssenter Ranheim,3T-Treningssenter,Ranheimsvegen 174,7055,Ranheim,Norway,63.428481,10.525558,True,False
+no_14260f29e8,3T-Treningssenter Steinkjer,3T-Treningssenter,Kongens Gate 43B,7713,Steinkjer,Norway,64.011928,11.498252,True,False
+no_a307de8ae2,3T-Treningssenter Stjordal,3T-Treningssenter,Ole Rises gate 2,7500,Stjørdal,Norway,63.469582,10.924222,True,False
+no_ceca6fd989,3T-Treningssenter Fossegrenda,3T-Treningssenter,Hornebergvegen 7B,7038,Trondheim,Norway,63.391212,10.40314,True,False
+no_db1d867cea,3T-Treningssenter Lade,3T-Treningssenter,Haakon VIIs gate 11,7041,Trondheim,Norway,63.44319,10.450583,True,False
+no_e93e9ae3d0,3T-Treningssenter Midtbyen,3T-Treningssenter,Dronningens gate 1a,7011,Trondheim,Norway,63.431793,10.401576,True,False
+no_78f9f6283e,3T-Treningssenter Moholt,3T-Treningssenter,Vegamot 16,7048,Trondheim,Norway,63.410259,10.445038,True,False
+no_d4f19861ea,3T-Treningssenter Rosten,3T-Treningssenter,Vestre Rosten 80,7075,Trondheim,Norway,63.365131,10.371453,True,False
+no_ad0e77efc9,3T-Treningssenter Teknostallen,3T-Treningssenter,Professor Brochs gate 16,7030,Trondheim,Norway,63.415438,10.39531,True,False
+no_d2608a01f0,EVO Fitness Asker,EVO Fitness,Fusdal Terrasse 3,1387,Asker,Norway,59.833276,10.442668,True,False
+no_1cc7afe0df,EVO Fitness Asker Sentrum,EVO Fitness,Bankveien 10,1383,Asker,Norway,59.834399,10.432725,True,False
+no_9b261fdeee,EVO Fitness Damsgårdssundet,EVO Fitness,Damsgårdsveien 82,5058,Bergen,Norway,60.380962,5.320527,True,False
+no_eb88d37575,EVO Fitness Minde,EVO Fitness,Minde allé 10,5063,Bergen,Norway,60.361318,5.348727,True,False
+no_2342af81f8,EVO Fitness Nordnes,EVO Fitness,C. Sundts gate 53,5004,Bergen,Norway,60.397939,5.312378,True,False
+no_73c5b9fba0,EVO Fitness Bryne,EVO Fitness,Arne Garborgs veg 17,4340,Bryne,Norway,58.734944,5.653032,True,False
+no_e7dc16acf4,EVO Fitness Bryne Torg,EVO Fitness,Meierigata 3,4340,Bryne,Norway,58.734697,5.647679,True,False
+no_fe0160ebe3,EVO Fitness CC Drammen,EVO Fitness,Tomtegata 36,3012,Drammen,Norway,59.741233,10.222777,True,False
+no_c913347c50,EVO Fitness Drammen,EVO Fitness,Nedre Torggate 17,3015,Drammen,Norway,59.743525,10.209,True,False
+no_0c7efc480a,EVO Fitness Konnerud,EVO Fitness,Pettersvollen 3,3032,Drammen,Norway,59.717538,10.149622,True,False
+no_55d8b70d18,EVO Fitness Strømsø,EVO Fitness,Bjørnstjerne Bjørnsons gate 60,3044,Drammen,Norway,59.734475,10.206699,True,False
+no_fd14287942,EVO Fitness Drøbak,EVO Fitness,Holterveien 2a,1448,Drøbak,Norway,59.674023,10.65621,True,False
+no_0f644302c9,EVO Fitness Egersund,EVO Fitness,Elganeveien 1,4373,Egersund,Norway,58.462139,6.006195,True,False
+no_46cc8ffe26,EVO Fitness Fredrikstad,EVO Fitness,Storgata 32,1607,Fredrikstad,Norway,59.21441,10.933279,True,False
+no_1988620646,EVO Fitness Fyllingsdalen,EVO Fitness,Hjalmar Brantings vei 2a,5143,Fyllingsdalen,Norway,60.348973,5.283312,True,False
+no_5053d18628,EVO Fitness Gjøvik,EVO Fitness,Tordenskjolds gate 3,2821,Gjøvik,Norway,60.797475,10.691591,True,False
+no_e9ef8ba50a,EVO Fitness Godvik,EVO Fitness,Godviksvingene 127,5179,Godvik,Norway,60.375606,5.208352,True,False
+no_dbc468d200,EVO Fitness Gran,EVO Fitness,Storgata 10,2750,Gran,Norway,60.356311,10.572258,True,False
+no_7eef80e8a1,EVO Fitness Greåker,EVO Fitness,Tamburveien 9,1718,Greåker,Norway,59.267889,11.032063,True,False
+no_65f0762459,EVO Fitness Hamar,EVO Fitness,Skogvegen 16a,2321,Hamar,Norway,60.795278,11.093252,True,False
+no_5dcd39b67b,EVO Fitness Haugesund,EVO Fitness,Karmsundgata 72,5529,Haugesund,Norway,59.405628,5.285791,True,False
+no_e8ef59cb62,EVO Fitness Heimdal,EVO Fitness,Industriveien 13,7080,Heimdal,Norway,63.349952,10.359564,True,False
+no_6caec55433,EVO Fitness Hønefoss,EVO Fitness,Kong Rings gate 1,3510,Hønefoss,Norway,60.164751,10.254656,True,False
+no_6c28a7bfc5,EVO Fitness Jessheim,EVO Fitness,Nordre Dølibekken 12,2050,Jessheim,Norway,60.134942,11.160701,True,False
+no_7e0fd591c5,EVO Fitness Kongsberg,EVO Fitness,Herman Foss gate 12,3611,Kongsberg,Norway,59.6721,9.648942,True,False
+no_4feb0a955d,EVO Fitness Larvik,EVO Fitness,Frankendalsveien 97,3274,Larvik,Norway,59.064959,10.052779,True,False
+no_22ffb0430b,EVO Fitness Levanger,EVO Fitness,Jernbanegata 11,7600,Levanger,Norway,63.744689,11.298201,True,False
+no_dc80e0f00f,EVO Fitness Lillestrøm,EVO Fitness,Sørumsgata 14,2000,Lillestrøm,Norway,59.955738,11.053404,True,False
+no_b44083792a,EVO Fitness SNØ Lørenskog,EVO Fitness,Snøfonna 1,1470,Lørenskog,Norway,59.946273,10.950711,True,False
+no_90d098f09d,EVO Fitness Toppe,EVO Fitness,Toppemyr 7,5136,Mjølkeråen,Norway,60.483273,5.271975,True,False
+no_f0dad9e464,EVO Fitness Moss,EVO Fitness,Dronningens gate 1,1530,Moss,Norway,59.436464,10.666425,True,False
+no_006726d3a7,EVO Fitness Nannestad,EVO Fitness,Teiealleen 5,2030,Nannestad,Norway,60.219953,11.016002,True,False
+no_1ff9cd5661,EVO Fitness Nesttun,EVO Fitness,Østre Nesttunvegen 10,5221,Nesttun,Norway,60.317985,5.354207,True,False
+no_632f94833e,EVO Fitness Os,EVO Fitness,Industrivegen 2,5200,Os,Norway,60.20463,5.449656,True,False
+no_35395ea4a9,EVO Fitness Bryn,EVO Fitness,Østensjøveien 79,0667,Oslo,Norway,59.903192,10.822458,True,False
+no_6fa3e538ea,EVO Fitness Frysja,EVO Fitness,Frysjaveien 42,0884,Oslo,Norway,59.965825,10.772016,True,False
+no_4c15d55f22,EVO Fitness Grorud,EVO Fitness,Rosenbergveien 15,0963,Oslo,Norway,59.960486,10.879239,True,False
+no_d9e96d3b58,EVO Fitness Grünerløkka,EVO Fitness,Thorvald Meyers gate 72,0552,Oslo,Norway,59.919838,10.759545,True,False
+no_7ca09e8918,EVO Fitness Holmlia,EVO Fitness,Holmlia Senter vei 18,1255,Oslo,Norway,59.834673,10.794288,True,False
+no_1feb29f8b4,EVO Fitness Ila,EVO Fitness,Vøyensvingen 7,0458,Oslo,Norway,59.93014,10.752772,True,False
+no_2fc7903371,EVO Fitness Lambertseter,EVO Fitness,Cecilie Thoresens vei 17,1153,Oslo,Norway,59.874914,10.810462,True,False
+no_40989b8b37,EVO Fitness Løren,EVO Fitness,Lørenveien 37,0585,Oslo,Norway,59.931123,10.789939,True,False
+no_3ac283b5a6,EVO Fitness Majorstua,EVO Fitness,Sørkedalsveien 9,0369,Oslo,Norway,59.931436,10.71016,True,False
+no_58fa80dfe2,EVO Fitness Nordberg,EVO Fitness,Langmyrgrenda 1,0861,Oslo,Norway,59.964122,10.746309,True,False
+no_4a8dbb8057,EVO Fitness Nordstrand,EVO Fitness,Ekebergveien 233,1162,Oslo,Norway,59.86141,10.799674,True,False
+no_83adf133ce,EVO Fitness Nydalen,EVO Fitness,Nydalsveien 36,0484,Oslo,Norway,59.949419,10.766435,True,False
+no_0acd341123,EVO Fitness Oscarsgate,EVO Fitness,Oscars gate 20,0352,Oslo,Norway,59.922443,10.728144,True,False
+no_89e96b157f,EVO Fitness Ryen,EVO Fitness,Ryensvingen 3,0680,Oslo,Norway,59.893627,10.805415,True,False
+no_82ccb058e8,EVO Fitness Røa,EVO Fitness,Vækerøveien 207,0751,Oslo,Norway,59.948322,10.643835,True,False
+no_b62dcbd8fd,EVO Fitness Sjølyst,EVO Fitness,Karenslyst Allé 12-14,0278,Oslo,Norway,59.91949,10.686062,True,False
+no_0ffc2024f9,EVO Fitness Vika,EVO Fitness,"Munkedamsveien 20, Sentrum",0250,Oslo,Norway,59.912904,10.728868,True,False
+no_4019cb16be,EVO Fitness Vollebekk,EVO Fitness,Brobekkveien 53,0598,Oslo,Norway,59.935157,10.826225,True,False
+no_08e6d97694,EVO Fitness Vålerenga,EVO Fitness,Østerdalsgata 7,0658,Oslo,Norway,59.910166,10.789694,True,False
+no_1101825726,EVO Fitness Østfoldhallen,EVO Fitness,Dikeveien 28,1661,Rolvsøy,Norway,59.251569,10.993056,True,False
+no_6250a985e5,EVO Fitness Nordås,EVO Fitness,Søråshøgda 9,5235,Rådal,Norway,60.30626,5.322781,True,False
+no_9ba24ad4c8,EVO Fitness Sandefjord Vest,EVO Fitness,Skiringssalveien 20,3208,Sandefjord,Norway,59.135105,10.212466,True,False
+no_c7f9077464,EVO Fitness Sandefjord Øst,EVO Fitness,Uranienborgveien 4,3217,Sandefjord,Norway,59.130997,10.24637,True,False
+no_a7892633ed,EVO Fitness Sandsli,EVO Fitness,Sandsliåsen 40,5254,Sandsli,Norway,60.294916,5.292595,True,False
+no_0c9eef66bd,EVO Fitness Sandvika,EVO Fitness,Leif Tronstads plass 7,1337,Sandvika,Norway,59.893202,10.524303,True,False
+no_8baf53a2af,EVO Fitness Tollnes,EVO Fitness,Porsgrunnsvegen 261,3736,Skien,Norway,59.162835,9.635306,True,False
+no_3870996c2c,EVO Fitness Sola,EVO Fitness,Vingvegen 3,4050,Sola,Norway,58.882937,5.647307,True,False
+no_82ed09992d,EVO Fitness Sorgenfri,EVO Fitness,Sorgenfriveien 28,7031,Sorgenfri,Norway,63.405234,10.400168,True,False
+no_0b3ec9a0ab,EVO Fitness Stabekk,EVO Fitness,Gamle Drammensvei 46a,1369,Stabekk,Norway,59.908048,10.601794,True,False
+no_55dcae6dd6,EVO Fitness Bjergsted,EVO Fitness,Kaptein Mejlænders gate 23,4026,Stavanger,Norway,58.979844,5.714267,True,False
+no_4fcd92cb60,EVO Fitness Forus,EVO Fitness,Lagerveien 1,4033,Stavanger,Norway,58.895353,5.703678,True,False
+no_7b9cfa946d,EVO Fitness Kannik,EVO Fitness,Engelsminnegata 16,4008,Stavanger,Norway,58.965908,5.728248,True,False
+no_d32d518e0d,EVO Fitness Paradis,EVO Fitness,Lagårdsveien 78,4010,Stavanger,Norway,58.957984,5.740388,True,False
+no_9cf281cb8b,EVO Fitness Storhaug,EVO Fitness,Støperigata 38,4014,Stavanger,Norway,58.9692,5.755179,True,False
+no_04f33e875b,EVO Fitness Åsen,EVO Fitness,Auglendsmyrå 8,4016,Stavanger,Norway,58.942555,5.727394,True,False
+no_7bd1ef15f5,EVO Fitness Tiller,EVO Fitness,Ivar Lykkes veg 9,7075,Tiller,Norway,63.354639,10.372904,True,False
+no_e6f525df95,EVO Fitness Tromsø Nord,EVO Fitness,Stakkevollvegen 63,9010,Tromsø,Norway,69.673064,18.976206,True,False
+no_9710b4ce91,EVO Fitness Tromsø sentrum,EVO Fitness,Skippergata 16,9008,Tromsø,Norway,69.653571,18.962678,True,False
+no_9f63337b9c,EVO Fitness Tromsø Sør,EVO Fitness,Strandvegen 140,9006,Tromsø,Norway,69.631335,18.922911,True,False
+no_84e8aadd32,EVO Fitness Nøtterøy,EVO Fitness,Kjernåsveien 13A,3142,Vestskogen,Norway,59.240291,10.396926,True,False
+no_8103a7fc38,EVO Fitness Ålgård,EVO Fitness,Ålgårdsheia 6,4330,Ålgård,Norway,58.770374,5.856035,True,False
+no_fecdec74db,EVO Fitness Østerås,EVO Fitness,Grini Næringspark 1,1361,Østerås,Norway,59.945796,10.597539,True,False
+no_e45cdb73ce,Feel24 Alta Parksenteret,Feel24,Sentrumsparken 4,9510,Alta,Norway,69.967075,23.27332,True,False
+no_92c0247f89,Feel24 Kronstad,Feel24,Storengveien 21,9515,Alta,Norway,69.965432,23.386862,True,False
+no_ac37a01289,Feel24 Nordlysbadet,Feel24,Markedsgata 27,9510,Alta,Norway,69.965498,23.269528,True,False
+no_be806a38a7,Feel24 Bossekop,Feel24,Altaveien 73,9513,Alta.,Norway,69.958649,23.223095,True,False
+no_1876ea76d0,Feel24 Langenga,Feel24,Langenga 62,1386,Asker,Norway,59.825516,10.452329,True,False
+no_627834cee3,Feel24 Bardu,Feel24,Fogd Holmboes gate 59,9360,Bardu,Norway,68.864031,18.347377,True,False
+no_ea9e65f22c,Feel24 Bardufoss,Feel24,Nerveien 23,9325,Bardufoss,Norway,69.065237,18.514832,True,False
+no_85eb17eee1,Feel24 Beitostolen,Feel24,Bygdinvegen 3764,2953,Beitostølen,Norway,61.246685,8.910335,True,False
+no_67672543c3,Feel24 Feel24 Lien,Feel24,Lien 79,5057,Bergen,Norway,60.380301,5.319058,True,False
+no_4c04c19d18,Feel24 Alstad,Feel24,Notveien 17,8013,Bodø,Norway,67.275696,14.458937,True,False
+no_3ea80249f8,Feel24 Balanse,Feel24,Sjøgata 6,8006,Bodø,Norway,67.283804,14.376929,True,False
+no_dfe9d5dcce,Feel24 Bodø Mørkved,Feel24,Kongsdatterveien 26/28,8028,Bodø,Norway,67.289589,14.58415,True,False
+no_521966d012,Feel24 Bodø Performance,Feel24,Nordstrandveien 41,8012,Bodø,Norway,67.295672,14.408137,True,False
+no_1e59ef1166,Feel24 Bodø Sentrum,Feel24,Dronningens gate 56,8006,Bodø,Norway,67.284226,14.387433,True,False
+no_2deb34ac09,Feel24 Bodø Vestbyen,Feel24,General Fleischers gate 11,8003,Bodø,Norway,67.277284,14.374964,True,False
+no_2620268436,Feel24 Rønvika,Feel24,Dreyfushammarn 17,8012,Bodø,Norway,67.296884,14.400737,True,False
+no_dbd7773225,Feel24 Brumunddal,Feel24,Nygata 22,2380,Brumunddal,Norway,60.883955,10.940304,True,False
+no_d1a5c5f2b4,Feel24 Brygga,Feel24,Strandveien 30,8904,Brønnøysund,Norway,65.470523,12.202199,True,False
+no_795b5dfd50,Feel24 Salhus,Feel24,Industribakken 8,8907,Brønnøysund,Norway,65.488193,12.239019,True,False
+no_d5e130244e,Feel24 Oren,Feel24,Rosenkrantzgata 75,3018,Drammen,Norway,59.749621,10.175154,True,False
+no_0adf0532a5,Feel24 Tangen,Feel24,Havnegata 59,3040,Drammen,Norway,59.730765,10.236766,True,False
+no_af85a9d8e9,Feel24 Fauske,Feel24,Sjøgata 78,8200,Fauske,Norway,67.258601,15.397375,True,False
+no_8f25b5624b,Feel24 Finnsnes,Feel24,Smørhusbakken 1,9300,Finnsnes,Norway,69.230307,17.981414,True,False
+no_6e39ec68e4,Feel24 Raelingen,Feel24,Øvre Rælingsveg 176,2008,Fjerdingby,Norway,59.930448,11.061865,True,False
+no_1856da5191,Feel24 Fornebu,Feel24,Rolfsbuktveien 4A,1364,Fornebu,Norway,59.894606,10.627661,True,False
+no_f04f5098f4,Feel24 Hagan,Feel24,Tyriveien 7,1481,Hagan,Norway,60.00634,10.928381,True,False
+no_76f289c4eb,Feel24 Hammerfest,Feel24,Fuglenesveien 20,9600,Hammerfest,Norway,70.669809,23.690694,True,False
+no_82de7bbbbc,Feel24 Harstad Grottebadet,Feel24,Håkons gate 7,9405,Harstad,Norway,68.800515,16.540338,True,False
+no_e12a08c3de,Feel24 Harstad Medkila,Feel24,Mølnholtet 8,9414,Harstad,Norway,68.761962,16.555661,True,False
+no_92c0b711e4,Feel24 Harstad Sama,Feel24,Flåtenveien 2,9404,Harstad,Norway,68.805726,16.534501,True,False
+no_aeba10cb0f,Feel24 Harstad Seljestad,Feel24,Tunneset 8,9407,Harstad,Norway,68.782674,16.537246,True,False
+no_6178a477c9,Feel24 Harstad Sentrum,Feel24,Hans Egedes gate 6,9405,Harstad,Norway,68.79941,16.541526,True,False
+no_add488ae57,Feel24 Treningssenter Feel24 Haugesund,Feel24,Karmsundgata 178,5527,Haugesund,Norway,59.413081,5.276678,True,False
+no_7030797a59,Feel24 Treningssenter Feel24 Haugesund,Feel24,Nygårdsvegen 6,5515,Haugesund,Norway,59.427064,5.263638,True,False
+no_5f1ea731b0,Feel24 Heggedal,Feel24,Heggedalsbakken 6,1389,Heggedal,Norway,59.786638,10.436556,True,False
+no_b30a977d03,Feel24 Treningssenter Feel24 Hokksund,Feel24,Stasjonsgata 61,3300,Hokksund,Norway,59.769306,9.91064,True,False
+no_064e7e01a3,Feel24 Hovik,Feel24,Ramstadsletta 17,1363,Høvik,Norway,59.898597,10.566651,True,False
+no_d1ce88da2d,Feel24 Kirkenes,Feel24,Sjøgata 1,9900,Kirkenes,Norway,69.728982,30.049072,True,False
+no_213cd3bdf9,Feel24 Feelgood Leknes,Feel24,Lufthavnveien 3,8370,Leknes,Norway,68.156554,13.622874,True,False
+no_c89ebab564,Feel24 Levanger,Feel24,Halsanvegen 1,7600,Levanger,Norway,63.743723,11.296642,True,False
+no_8f1abb66eb,Feel24 Lommedalen,Feel24,Lommedalsveien 299,1350,Lommedalen,Norway,59.958701,10.483828,True,False
+no_1a7e0a369d,Feel24 Lyngen,Feel24,Strandveien 10,9060,Lyngseidet,Norway,69.576287,20.219771,True,False
+no_7fb03354b5,Feel24 Misvær,Feel24,Kulturveien 3576,8100,Misvær,Norway,67.116802,15.000576,True,False
+no_25fb1fff76,Feel24 Mo Gruben,Feel24,Storgata 22,8610,Mo I Rana,Norway,66.318321,14.192787,True,False
+no_9df0c698fd,Feel24 Treningssenter Feel24 Mo Ytteren,Feel24,Langdalen 100,8614,Mo i Rana,Norway,66.348228,14.128864,True,False
+no_c80be04f12,Feel24 Mosjoen,Feel24,Vefsnvegen 11,8656,Mosjøen,Norway,65.831733,13.205166,True,False
+no_a8ce3507c3,Feel24 Myre,Feel24,Storgata 8,8430,Myre,Norway,68.914184,15.071208,True,False
+no_76f4d6bc85,Feel24 Treningssenter Feel24 Rotnes,Feel24,Gamleveien 2,1482,Nittedal,Norway,60.054021,10.882015,True,False
+no_8faac4c04c,Feel24 Nordkjosbotn,Feel24,Torgveien 4,9040,Nordkjosbotn,Norway,69.218732,19.561051,True,False
+no_97311425d6,Feel24 Myrvoll,Feel24,Skiveien 123,1415,Oppegård,Norway,59.789175,10.799328,True,False
+no_adac8e8158,Feel24 Oppegaard,Feel24,Sætreskogveien 4,1415,Oppegård,Norway,59.76537,10.814117,True,False
+no_67b2e701b4,Feel24 Grorud Senter,Feel24,Bergensveien 2,0963,Oslo,Norway,59.960343,10.882004,True,False
+no_4b487c3552,Feel24 Oppsal,Feel24,Mekanikerveien 32,0683,Oslo,Norway,59.902026,10.841708,True,False
+no_461f5c8ca4,Feel24 Treningssenter Feel24 Gamlebyen Panorama,Feel24,Konows gate 67B,0196,Oslo,Norway,59.902223,10.783734,True,False
+no_ac29fbf7aa,Feel24 Rognan,Feel24,Jernbanegata 19,8250,Rognan,Norway,67.101506,15.392349,True,False
+no_1cd61fe047,Feel24 Sandnessjoen,Feel24,Havnegata 23,8800,Sandnessjøen,Norway,66.021046,12.624682,True,False
+no_9674abb772,Feel24 Sandnessjoen Lyngasen,Feel24,Novikveien 109,8800,Sandnessjøen,Norway,66.008572,12.58112,True,False
+no_5498242b28,Feel24 Skjervoy,Feel24,Strandvegen 88A,9180,Skjervøy,Norway,70.03066,20.970454,True,False
+no_f8b47c2b1f,Feel24 Skjetten,Feel24,Nordens vei 15,2013,Skjetten.,Norway,59.967067,10.999481,True,False
+no_cd81f676d1,Feel24 Skala,Feel24,Saksebakken 2,6456,Skåla,Norway,62.696545,7.426324,True,False
+no_1d3ca6ad79,Feel24 Slemmestad,Feel24,Skolebakken 14,3470,Slemmestad,Norway,59.776829,10.478312,True,False
+no_aa07135b67,Feel24 Sortland Kjopmannsgata,Feel24,Kjøpmannsgata 10,8400,Sortland,Norway,68.694369,15.414472,True,False
+no_b763cc69a9,Feel24 Sortland Radhusgata,Feel24,Rådhusgata 9,8400,Sortland,Norway,68.695856,15.416357,True,False
+no_0b5fb7029c,Feel24 Steinkjer,Feel24,Sjøfartsgata 2,7714,Steinkjer,Norway,64.011243,11.491622,True,False
+no_907fd70dd6,Feel24 Stjordal,Feel24,Stokmovegen 1,7501,Stjørdal,Norway,63.469112,10.923203,True,False
+no_b45d7e10d4,Feel24 Stokmarknes Sentrum,Feel24,Markedsgata 17,8450,Stokmarknes,Norway,68.56575,14.911907,True,False
+no_ffe612b5c3,Feel24 Strommen,Feel24,Strømsveien 65,2010,Strømmen,Norway,59.94851,11.010417,True,False
+no_71299d0a43,Feel24 Sulitjelma,Feel24,Charlotta 54,8230,Sulitjelma,Norway,67.135047,16.061668,True,False
+no_63114d1ba8,Feel24 Svolvaer,Feel24,Sivert Nilsens gate 35,8300,Svolvær,Norway,68.23357,14.561312,True,False
+no_7f16f3df9e,Feel24 Svolvaer Sentrum,Feel24,Sivert Nilsens gt. 51,8300,Svolvær,Norway,68.235655,14.563358,True,False
+no_bab3ec3141,Feel24 Sorreisa,Feel24,Nordsiveien 1,9310,Sørreisa,Norway,69.144797,18.153663,True,False
+no_74e607526a,Feel24 Treningssenter Feel24 Tønsberg,Feel24,Valløveien 80,3154,Tolvsrød,Norway,59.271884,10.477077,True,False
+no_61c331f57a,Feel24 Tromsø Tomasjord,Feel24,Evjenvegen 144,9024,Tomasjord,Norway,69.667159,19.025942,True,False
+no_86fef59942,Feel24 Tranby,Feel24,Dølasletta 7,3408,Tranby,Norway,59.818335,10.27591,True,False
+no_32a1fcf9b7,Feel24 Tromsø Tromsdalen,Feel24,Solstrandvegen 25,9020,Tromsdalen,Norway,69.641922,18.975976,True,False
+no_d0685e1a04,Feel24 Tromsø Fagereng,Feel24,Kvaløyvegen 103,9013,Tromsø,Norway,69.639835,18.901681,True,False
+no_4d593d7289,Feel24 Tromsø Håpet,Feel24,Ørnevegen 110,9015,Tromsø,Norway,69.680298,18.926228,True,False
+no_018f98b224,Feel24 Tromsø Isrenna,Feel24,Stakkevollvegen 333,9019,Tromsø,Norway,69.685567,19.004796,True,False
+no_e957f82e0e,Feel24 Tromsø Skippergata,Feel24,Skippergata 7A,9008,Tromsø,Norway,69.653571,18.962678,True,False
+no_4f1f93cc08,Feel24 Tromsø Strandgata,Feel24,Strandgata 5/7,9008,Tromsø,Norway,69.646258,18.9532,True,False
+no_85e7a89f76,Feel24 Buran,Feel24,Gamle Kirkevei 22,7043,Trondheim,Norway,63.436084,10.423403,True,False
+no_ae6b484f28,Feel24 Byasen,Feel24,Selsbakkvegen 37,7027,Trondheim,Norway,63.39308,10.371219,True,False
+no_0c1d577262,Feel24 Risvollan,Feel24,Hoeggvegen 66,7036,Trondheim,Norway,63.397791,10.419625,True,False
+no_0d9b6dbd2a,Feel24 Treningssenter Feel24 Dalgård,Feel24,Anders Wigens veg 2,7024,Trondheim,Norway,63.395428,10.33851,True,False
+no_2f9bac50a0,Feel24 Tyholt,Feel24,Otto Nielsens veg 4,7052,Trondheim,Norway,63.422357,10.431934,True,False
+no_eb069ea386,Feel24 Vadso,Feel24,Sør-varangerveien 2,9800,Vadsø,Norway,70.080882,29.701091,True,False
+no_c7a53c9368,Feel24 Valnesfjorden,Feel24,Trivselsveien 270,8215,Valnesfjord,Norway,67.300667,15.18366,True,False
+no_0296ca6df4,Feel24 Verdal,Feel24,Jernbanegata 7m,7650,Verdalsøra,Norway,63.790067,11.485663,True,False
+no_4c7078741c,Feel24 Voyenenga,Feel24,Vøyenengtunet 14,1339,Vøyenenga,Norway,59.908642,10.476765,True,False
+no_b16ff67ece,Fitness24Seven Drammen Sentrum,Fitness24Seven,Torgeir Vraas plass 6,3044,Drammen,Norway,59.739112,10.200515,True,False
+no_4d2c9e8d95,Fitness24Seven Oslo Bjerke,Fitness24Seven,Trondheimsveien 275,0589,Oslo,Norway,59.942625,10.812061,True,False
+no_c606d96a49,Fitness24Seven Oslo Carl Berners Plass,Fitness24Seven,Hammerfestgata 2,0565,Oslo,Norway,59.92493,10.773814,True,False
+no_67fdc29098,Fitness24Seven Oslo Gruenerlokka,Fitness24Seven,Markveien 35,0554,Oslo,Norway,59.9217167,10.756934,True,False
+no_a1f48eb478,Fitness24Seven Oslo Haugenstua,Fitness24Seven,Garver Ytteborgs vei 98,0977,Oslo,Norway,59.9532485,10.9082831000001,True,False
+no_e3616dfba4,Fitness24Seven Oslo Mortensrud Torg,Fitness24Seven,Helga Vaneks vei 1-3,1282,Oslo,Norway,59.849631,10.830275,True,False
+no_30128fc6b4,Fitness24Seven Oslo Storo,Fitness24Seven,Grefsenveien 49,0485,Oslo,Norway,59.944445,10.776972,True,False
+no_85514428be,Fitness24Seven Oslo Stortorvet,Fitness24Seven,Grubbegata 6,0179,Oslo,Norway,59.91383,10.745557,True,False
+no_6c30cdf583,Fitness24Seven Oslo Veitvet,Fitness24Seven,Veitvetveien 8,0596,Oslo,Norway,59.946059,10.8509127,True,False
+no_0a89b4c5f6,Fitnesspoint Askim,Fitnesspoint,Dr. Randers gate 11,1830,Askim,Norway,59.583369,11.16134,True,False
+no_2b65c488fa,Fitnesspoint Bjugn,Fitnesspoint,Strandveien 3,7160,Bjugn,Norway,63.765888,9.807497,True,False
+no_3d8250b7b1,Fitnesspoint Dyrøy (Brøstadbotn),Fitnesspoint,Tverrveien 16,9311,Brøstadbotn,Norway,69.091092,17.698235,True,False
+no_f43b6e3cec,Fitnesspoint Bud,Fitnesspoint,Kippersundvegen 2,6430,Bud,Norway,62.905502,6.919807,True,False
+no_8461400b6f,Fitnesspoint Børsa,Fitnesspoint,Lensmannsekra 1,7353,Børsa,Norway,63.323886,10.065762,True,False
+no_5a052ce6cd,Fitnesspoint Elverum - Paulsbyen Gym,Fitnesspoint,Torggata 6,2409,Elverum,Norway,60.88483,11.560656,True,False
+no_15e924db05,Fitnesspoint Engerdal,Fitnesspoint,Åveien 7,2440,Engerdal,Norway,61.756193,11.962224,True,False
+no_40f8eba8d9,Fitnesspoint Hommelvik,Fitnesspoint,Øyavegen 17,7550,Hommelvik,Norway,63.412137,10.802635,True,False
+no_9e1a24623f,Fitnesspoint Knarvik,Fitnesspoint,Kvernhushaugane 10,5914,Isdalstø,Norway,60.548057,5.287637,True,False
+no_435cd6699d,Fitnesspoint Sand Jessheim,Fitnesspoint,Gamle Gardermovei 1A,2067,Jessheim,Norway,60.152728,11.130676,True,False
+no_acaf682e97,Fitnesspoint Kløfta,Fitnesspoint,Trondheimsvegen - Kløfta 86,2040,Kløfta,Norway,60.076127,11.136117,True,False
+no_0653d4d7d4,Fitnesspoint Kristiansund,Fitnesspoint,Arnulf Øverlands gate 12,6509,Kristiansund,Norway,63.108902,7.731346,True,False
+no_cb2da77fba,Fitnesspoint Kyrksæterøra,Fitnesspoint,Industriveien 5,7200,Kyrksæterøra,Norway,63.293795,9.086724,True,False
+no_946710dfeb,Fitnesspoint Lillehammer,Fitnesspoint,Kirkegata 79,2609,Lillehammer,Norway,61.116673,10.462692,True,False
+no_4c9b62d3bb,Fitnesspoint Maura,Fitnesspoint,Nannestadvegen 522,2032,Maura,Norway,60.256033,11.027762,True,False
+no_3008a09677,Fitnesspoint Orkanger,Fitnesspoint,Orkdalsveien 100,7300,Orkanger,Norway,63.298357,9.847851,True,False
+no_bfbbf65654,Fitnesspoint Nydalen,Fitnesspoint,Nydalsveien 15,0484,Oslo,Norway,59.947464,10.76434,True,False
+no_9f5a6cc9c6,Fitnesspoint Rjukan,Fitnesspoint,Storgata 22A,3660,Rjukan,Norway,59.879144,8.592521,True,False
+no_731a40fbf3,Fitnesspoint Rødberg,Fitnesspoint,Rudisvingen 6,3630,Rødberg,Norway,60.267754,8.941801,True,False
+no_9ebd0d0f37,Fitnesspoint Selbu (Mebonden),Fitnesspoint,Gjelbakken 1,7580,Selbu,Norway,63.219183,11.040663,True,False
+no_ad82f981d2,Fitnesspoint Skibotn,Fitnesspoint,Skibotsveien 384,9143,Skibotn,Norway,69.397226,20.268712,True,False
+no_bb86479c96,Fitnesspoint Stjørdal,Fitnesspoint,Kjøpmannsgata 21,7500,Stjørdal,Norway,63.468348,10.922391,True,False
+no_908b0803cc,Fitnesspoint Stord (Heiane),Fitnesspoint,Rundehaugen 19,5412,Stord,Norway,59.763508,5.457682,True,False
+no_f100a680e5,Fitnesspoint Malvik (Vikhammer),Fitnesspoint,Vikhovlia 1300,7560,Vikhammer,Norway,63.439528,10.640325,True,False
+no_6cfa92af61,Fitnesspoint Åfjord,Fitnesspoint,Joakim Brevolds Allé 28,7170,Åfjord,Norway,63.960763,10.22453,True,False
+no_8dc43e2959,Fresh Fitness Grimstad,Fresh Fitness,Jon Lilletunsvei 1,4879,Grimstad,Norway,58.336502,8.576251,True,False
+no_13f240080d,Fresh Fitness Kristiansand sentrum,Fresh Fitness,Henrik Wergelands gate 27,4666,Kristiansand S,Norway,58.147562,7.99225,True,False
+no_61550dfbab,Fresh Fitness Lund,Fresh Fitness,Industrigata 6,4632,Kristiansand S,Norway,58.151406,8.025736,True,False
+no_3b45b32bdc,Fresh Fitness Rona,Fresh Fitness,Gamle Strømmevei 1,4638,Kristiansand S,Norway,58.160941,8.081617,True,False
+no_ebff724839,Fresh Fitness Vågsbygd Kjos,Fresh Fitness,Vågsbygd Ringvei 5A,4620,Kristiansand S,Norway,58.117609,7.959585,True,False
+no_900e97a7f7,Fresh Fitness Larvik,Fresh Fitness,Frankendalsveien 101,3274,Larvik,Norway,59.065608,10.053719,True,False
+no_34c518b41b,Fresh Fitness Lillesand,Fresh Fitness,Tingsakerbakken 17,4790,Lillesand,Norway,58.260985,8.391842,True,False
+no_b6eaa19b35,Fresh Fitness Lillestrøm,Fresh Fitness,Stillverksveien 3,2004,Lillestrøm,Norway,59.95345,11.049791,True,False
+no_ec1bb60a58,Fresh Fitness Lyngdal,Fresh Fitness,Fiboveien 1,4580,Lyngdal,Norway,58.156359,7.101673,True,False
+no_fa49a9265a,Fresh Fitness Skårer,Fresh Fitness,Skårersletta 60,1473,Lørenskog,Norway,59.920566,10.955309,True,False
+no_91f66fea71,Fresh Fitness Blindern,Fresh Fitness,Vestgrensa 2,0851,Oslo,Norway,59.94079,10.729133,True,False
+no_2ed91c9c32,Fresh Fitness Carl Berner,Fresh Fitness,Dælenenggata 4,0567,Oslo,Norway,59.925504,10.774338,True,False
+no_43e1beaa87,Fresh Fitness Ensjø,Fresh Fitness,Gladengveien 1,0661,Oslo,Norway,59.914558,10.78817,True,False
+no_b6b042c258,Fresh Fitness Grønland,Fresh Fitness,Grønlandsleiret 25,0190,Oslo,Norway,59.911829,10.766096,True,False
+no_10018953ab,Fresh Fitness Hauketo,Fresh Fitness,Hauketoveien 8,1266,Oslo,Norway,59.847142,10.804518,True,False
+no_e1cf151c11,Fresh Fitness Kalbakken,Fresh Fitness,Trondheimsveien 391,0953,Oslo,Norway,59.952359,10.867368,True,False
+no_ab0c4c76c6,Fresh Fitness Lindeberg,Fresh Fitness,Jerikoveien 28,1067,Oslo,Norway,59.935626,10.886957,True,False
+no_c73a8f66bd,Fresh Fitness Majorstuen,Fresh Fitness,Bogstadveien 9,0355,Oslo,Norway,59.925263,10.72305,True,False
+no_2274c9720c,Fresh Fitness Manglerud,Fresh Fitness,Plogveien 6,0612,Oslo,Norway,59.89729,10.81286,True,False
+no_e83e33fa0e,Fresh Fitness Romsås,Fresh Fitness,Romsås Senter 1,0970,Oslo,Norway,59.963161,10.892858,True,False
+no_26bb8a360a,Fresh Fitness Sandaker,Fresh Fitness,Sandakerveien 59,0477,Oslo,Norway,59.938436,10.768478,True,False
+no_326bd8e730,Fresh Fitness Sinsen,Fresh Fitness,Trondheimsveien 137,0570,Oslo,Norway,59.929188,10.778257,True,False
+no_058e55320a,Fresh Fitness St. Hanshaugen,Fresh Fitness,Waldemar Thranes Gate 25,0171,Oslo,Norway,59.925943,10.745483,True,False
+no_8046b5d181,Fresh Fitness Storo,Fresh Fitness,Sandakerveien 78,0484,Oslo,Norway,59.943702,10.770942,True,False
+no_db2ce1fa5b,Fresh Fitness Ulven,Fresh Fitness,Ulvenveien 82,0581,Oslo,Norway,59.926128,10.811724,True,False
+no_200825dc37,Fresh Fitness Sandefjord,Fresh Fitness,Hegnasletta 1,3217,Sandefjord,Norway,59.129258,10.243245,True,False
+no_656d0271a9,Fresh Fitness Sandvika,Fresh Fitness,Industriveien 33,1337,Sandvika,Norway,59.891846,10.510211,True,False
+no_33780555fa,Fresh Fitness Skedsmokorset,Fresh Fitness,Industriveien 11b,2020,Skedsmokorset,Norway,60.008559,11.042635,True,False
+no_9472403c8e,Fresh Fitness Ski,Fresh Fitness,Kjeppestadveien 2,1400,Ski,Norway,59.715158,10.83956,True,False
+no_4fa3e4fda8,Fresh Fitness Strømmen,Fresh Fitness,Strømsveien 43-45,2010,Strømmen,Norway,59.954575,11.01334,True,False
+no_f002706b5e,Fresh Fitness Søgne,Fresh Fitness,Rådhusveien 47,4640,Søgne,Norway,58.095925,7.811213,True,False
+no_8ce9f65c6a,Fresh Fitness Trondheim Sentrum,Fresh Fitness,Kjøpmannsgata 65,7011,Trondheim,Norway,63.432712,10.404054,True,False
+no_8f999bd80a,Fresh Fitness Valentinlyst,Fresh Fitness,Anders Estenstads Veg 6,7046,Trondheim,Norway,63.424205,10.443342,True,False
+no_2481f247a5,Fresh Fitness Tønsberg,Fresh Fitness,Stensarmen 4,3112,Tønsberg,Norway,59.262067,10.41892,True,False
+no_f319ebcf75,Fresh Fitness Østerås,Fresh Fitness,Otto Ruges Vei 80,1361,Østerås,Norway,59.94373,10.60709,True,False
+no_e6a0ecb3bd,Impulse Treningssenter Leuthenhave,Impulse Treningssenter,Kongens gate 49,1606,Fredrikstad,Norway,59.208429,10.944997,True,False
+no_0143ba939b,Impulse Treningssenter Stjordal,Impulse Treningssenter,Ole Vigs gate 1,7500,Stjørdal,Norway,63.470545,10.915256,True,False
+no_55f383227b,Impulse Treningssenter Granasen,Impulse Treningssenter,Smistadvegen 9,7026,Trondheim,Norway,63.376603,10.31303,True,False
+no_c210130ebf,Impulse Treningssenter Grilstad Marina,Impulse Treningssenter,Skonnertvegen 8,7053,Trondheim,Norway,63.434034,10.50387,True,False
+no_d06f4a6448,Impulse Treningssenter Lade,Impulse Treningssenter,Østmarkveien 4,7040,Trondheim,Norway,63.44728,10.443447,True,False
+no_a271cb6d74,Impulse Treningssenter Leangen,Impulse Treningssenter,Haakon VIIs gate 27,7041,Trondheim,Norway,63.438774,10.463933,True,False
+no_f4c2cadced,Impulse Treningssenter Lerkendal,Impulse Treningssenter,Klæbuveien 12,7034,Trondheim,Norway,63.413682,10.399615,True,False
+no_345ff67dd4,Impulse Treningssenter Nardobakken,Impulse Treningssenter,Nardobakken 2,7032,Trondheim,Norway,63.409791,10.418069,True,False
+no_6d99a7479c,Impulse Treningssenter Pirbadet,Impulse Treningssenter,Havnegata 12,7010,Trondheim,Norway,63.440401,10.400701,True,False
+no_79b619418b,Impulse Treningssenter Rosten,Impulse Treningssenter,Vestre Rosten 81,7075,Trondheim,Norway,63.364686,10.373839,True,False
+no_1e31c8607b,Impulse Treningssenter Solsiden,Impulse Treningssenter,Innherredsveien 7,7014,Trondheim,Norway,63.433957,10.413739,True,False
+no_bd65482c1c,MOVA Bergen Knarvik,MOVA,Kvassnesvegen 19,5914,Alver,Norway,60.546009,5.288001,True,False
+no_ef44a49053,MOVA Arendal Krogenes,MOVA,Kystveien 244,4841,Arendal,Norway,58.474435,8.816461,True,False
+no_93f70d9f4b,MOVA Arendal Sentrum,MOVA,Friergangen 4,4836,Arendal,Norway,58.458671,8.766073,True,False
+no_3351844c94,MOVA Baerum Nesbru,MOVA,Fekjan 29,1394,Asker,Norway,59.862436,10.490288,True,False
+no_bb19213220,MOVA Saetre,MOVA,Åsveien 21,3475,Asker,Norway,59.673385,10.524471,True,False
+no_14572eee18,MOVA Kleppesto,MOVA,Ranavegen 3A,5300,Askøy,Norway,60.413456,5.219598,True,False
+no_29818b152d,MOVA Bjorkelangen,MOVA,Serviceveien 1,1940,Aurskog-Høland,Norway,59.88911,11.561541,True,False
+no_9c45729c5b,MOVA Langesund,MOVA,Stathelleveien 33,3970,Bamble,Norway,59.012784,9.743511,True,False
+no_ab4c9c49f6,MOVA Stathelle,MOVA,Krabberødveien 6,3960,Bamble,Norway,59.043951,9.693332,True,False
+no_c5415c2d43,MOVA Bergen Hylkje,MOVA,Hylkjebakken 3,5109,Bergen,Norway,60.509754,5.347921,True,False
+no_dfc6a8b93c,MOVA Bergen Kronstad,MOVA,Edvard Griegsvei 3A,5059,Bergen,Norway,60.373091,5.340983,True,False
+no_a58870b787,MOVA Bergen Landas,MOVA,Mannsverk 2,5094,Bergen,Norway,60.353568,5.367337,True,False
+no_a2aaaf5479,MOVA Bergen Nostet,MOVA,Nøstegaten 44,5011,Bergen,Norway,60.392843,5.315281,True,False
+no_7b59c04659,MOVA Bergen Sandsli,MOVA,Aurdalslia 10,5253,Bergen,Norway,60.305234,5.282702,True,False
+no_425ffabcf2,MOVA Bergen Sandviken,MOVA,Nye Sandviksveien 9,5003,Bergen,Norway,60.399863,5.32375,True,False
+no_7ba21461b1,MOVA Bergen Ytre Arna,MOVA,Peter Jebsens veg 13,5265,Bergen,Norway,60.460237,5.436839,True,False
+no_e54dade9b4,MOVA Eidsvag I Asane,MOVA,Vollane 1,5105,Bergen,Norway,60.436472,5.318539,True,False
+no_57444bc7a3,MOVA Fyllingsdalen,MOVA,Løvåsveien 20,5145,Bergen,Norway,60.355821,5.289783,True,False
+no_41edb2827c,MOVA Mathopen,MOVA,Skareveien 1A,5174,Bergen,Norway,60.333615,5.212204,True,False
+no_670d0712f3,MOVA Os Kuventrae,MOVA,Idrettsvegen 39,5210,Bjørnafjorden,Norway,60.194394,5.452062,True,False
+no_c15f1168be,MOVA Os Osoyro,MOVA,Holtbrekka 7,5200,Bjørnafjorden,Norway,60.18868,5.464574,True,False
+no_9061cc1394,MOVA Baerum Gjettum,MOVA,Durudveien 37,1344,Bærum,Norway,59.910196,10.541106,True,False
+no_8839adfb96,MOVA Baerum Nadderud,MOVA,Haukeveien 11,1357,Bærum,Norway,59.921912,10.585644,True,False
+no_054baa5c1a,MOVA Drammen Assiden,MOVA,Ingvald Ludvigsens gate 14,3027,Drammen,Norway,59.75245,10.12838,True,False
+no_0142993bd6,MOVA Dal,MOVA,Kolonivegen 43,2072,Eidsvoll,Norway,60.250521,11.180595,True,False
+no_b84f545f68,MOVA Raholt,MOVA,Gladbakkvegen 1,2070,Eidsvoll,Norway,60.281003,11.173984,True,False
+no_551ab7edf8,MOVA Gamle Fredrikstad,MOVA,Torsnesveien 12,1630,Fredrikstad,Norway,59.200295,10.959869,True,False
+no_76a80b5584,MOVA Gjovik Cc,MOVA,Jernbanesvingen 6,2821,Gjøvik,Norway,60.799991,10.693635,True,False
+no_f7dadcef54,MOVA Gjovik Sentrum,MOVA,Storgata 25,2815,Gjøvik,Norway,60.794142,10.687108,True,False
+no_fc937870d6,MOVA Brandbu,MOVA,Storlinna 73,2760,Gran,Norway,60.416386,10.516669,True,False
+no_692fa55c32,MOVA Gran,MOVA,Smiegata 3,2750,Gran,Norway,60.353985,10.572772,True,False
+no_35b42933c3,MOVA Hamar,MOVA,Brygga 20,2317,Hamar,Norway,60.791402,11.073487,True,False
+no_5541dee893,MOVA Brattvag,MOVA,Skjelt-Iver Bakken 1,6270,Haram,Norway,62.595161,6.445411,True,False
+no_ec953c20dd,MOVA Haugesund,MOVA,Hanne Hauglands veg 8,5519,Haugesund,Norway,59.423654,5.279908,True,False
+no_b2a633346f,MOVA Holmestrand,MOVA,Kleivbrottet 3,3084,Holmestrand,Norway,59.479746,10.31848,True,False
+no_1bbfc742d7,MOVA Horten Focus,MOVA,Trimveien 41,3186,Horten,Norway,59.401931,10.462501,True,False
+no_9f831866d8,MOVA Horten Hovedsenter,MOVA,Trimveien 41B,3186,Horten,Norway,59.400639,10.46085,True,False
+no_aee58de65d,MOVA Horten Sentrum,MOVA,Storgata 72,3182,Horten,Norway,59.410722,10.479183,True,False
+no_5b43386788,MOVA Mysen,MOVA,Opsahlveien 1A,1850,Indre Østfold,Norway,59.552848,11.33821,True,False
+no_00907353ec,MOVA Karmoy,MOVA,Eidsbakkane 13,4250,Karmøy,Norway,59.27997,5.286367,True,False
+no_10b59f3e09,MOVA Kleppe,MOVA,Solavegen 25,4352,Klepp,Norway,58.779313,5.626292,True,False
+no_d0c0bad41a,MOVA Kristiansund,MOVA,Dalaveien 16,6511,Kristiansund,Norway,63.124027,7.732797,True,False
+no_129b6a8755,MOVA Drammen Lierstranda,MOVA,Lierstranda 97,3414,Lier,Norway,59.749893,10.249271,True,False
+no_bba4207859,MOVA Drammen Liertoppen,MOVA,Drammensveien 201,3420,Lier,Norway,59.811291,10.30584,True,False
+no_e8a22e903b,MOVA Lillehammer Arena,MOVA,Hagevegen 4,2613,Lillehammer,Norway,61.100486,10.470775,True,False
+no_52a99359cd,MOVA Lillehammer Nord,MOVA,Oskar Skoglys veg 2,2619,Lillehammer,Norway,61.131141,10.448283,True,False
+no_0477a75824,MOVA Sorumsand Noractorgarden,MOVA,Blakerveien 25,1920,Lillestrøm,Norway,59.985677,11.25083,True,False
+no_1e7b5bcfd3,MOVA Harestua,MOVA,Kvernhusvegen 23,2743,Lunner,Norway,60.212609,10.706733,True,False
+no_36ddb9df1f,MOVA Lorenskog,MOVA,Luhrtoppen 2,1470,Lørenskog,Norway,59.945733,10.950836,True,False
+no_a86baa8393,MOVA Moss Lilleeng,MOVA,Lilleengveien 8,1523,Moss,Norway,59.418162,10.678468,True,False
+no_5afc04a17b,MOVA Oslo Ullern,MOVA,Silurveien 2,0380,Oslo,Norway,59.926786,10.650921,True,False
+no_4b50540e55,MOVA Lonevag,MOVA,Fotlandsvegen 15,5282,Osterøy,Norway,60.524733,5.496924,True,False
+no_e8bc6443e2,MOVA Porsgrunn,MOVA,Øvre Lundeveg 1,3941,Porsgrunn,Norway,59.08748,9.687836,True,False
+no_f1294d12a1,MOVA Honefoss Sentrum,MOVA,Ringeriksgata 35,3510,Ringerike,Norway,60.159924,10.267417,True,False
+no_9363e29ecf,MOVA Sandefjord Framnaes,MOVA,Framnesveien 7,3222,Sandefjord,Norway,59.120043,10.231374,True,False
+no_f8252f0d4b,MOVA Sandefjord Pindsle,MOVA,Nygårdsveien 84,3221,Sandefjord,Norway,59.137827,10.178962,True,False
+no_d5d02c75f3,MOVA Sandnes,MOVA,Gravarsveien 7,4306,Sandnes,Norway,58.848227,5.739652,True,False
+no_21480f012a,MOVA Stavanger Bikuba,MOVA,Hillevågsveien 70,4016,Stavanger,Norway,58.945939,5.744472,True,False
+no_1abe3dd11a,MOVA Stavanger Forus,MOVA,Godesetdalen 10,4034,Stavanger,Norway,58.895344,5.713605,True,False
+no_2a28f18b15,MOVA Stavanger Tjensvoll,MOVA,Tjensvolltorget 36,4021,Stavanger,Norway,58.949941,5.697422,True,False
+no_ec640b0294,MOVA Stord,MOVA,Ringvegen 45,5412,Stord,Norway,59.76506,5.462579,True,False
+no_1bcda3391a,MOVA Odda,MOVA,Tyssedalsvegen 4,5750,Ullensvang,Norway,60.069308,6.547922,True,False
+no_3b44b95e9c,MOVA Raufoss Amfi,MOVA,Storgata 49,2830,Vestre Toten,Norway,60.728938,10.614343,True,False
+no_efd88cfa23,MOVA Voss Vangsgata,MOVA,Vangsgata 36,5700,Voss,Norway,60.629034,6.420751,True,False
+no_451e5734e4,MOVA Alesund Blindheim,MOVA,Blindheimshaugen 9,6012,Ålesund,Norway,62.441385,6.372065,True,False
+no_66f585c8ce,MOVA Alesund Lerstad,MOVA,Karolusplassen 4,6014,Ålesund,Norway,62.470274,6.306144,True,False
+no_ae4d8eb977,MOVA Alesund Norve,MOVA,Hundsværgata 8,6008,Ålesund,Norway,62.470738,6.211386,True,False
+no_cb5b305133,MOVA Alesund Skarbovik,MOVA,Skarbøvikgata 25,6006,Ålesund,Norway,62.466693,6.114175,True,False
+no_2d716aad99,MOVA Orsta Holmegata,MOVA,Holmegata 6,6153,Ørsta,Norway,62.19681,6.128126,True,False
+no_13cd5836c3,MOVA Orsta Strandgata,MOVA,Strandgata 4,6150,Ørsta,Norway,62.201907,6.12086,True,False
+no_5faa9098c9,MOVA Agotnes Sentrum,MOVA,Skjergardsvegen 1370,5363,Øygarden,Norway,60.403311,5.001843,True,False
+no_0323e33a2e,MOVA Straume Straume,MOVA,Arefjordvegen 21,5353,Øygarden,Norway,60.356183,5.128261,True,False
+no_3884f4b71c,MUDO Gym Gjøvik,MUDO Gym,Storgata 10,2815,Gjøvik,Norway,60.794816,10.690219,True,False
+no_8d28883955,MUDO Gym Lørenskog,MUDO Gym,Gamleveien 88,1461,Lørenskog,Norway,59.918615,10.953523,True,False
+no_ea0303a3a9,MUDO Gym Moelv,MUDO Gym,Storgata 105,2390,Moelv,Norway,60.930025,10.700585,True,False
+no_4c1054666e,MUDO Gym Moss,MUDO Gym,Th. Petersons gate 5,1530,Moss,Norway,59.436422,10.66353,True,False
+no_99f9988f69,MUDO Gym Carl Berner,MUDO Gym,Hasleveien 15B,0571,Oslo,Norway,59.928498,10.780833,True,False
+no_77c0b642fb,MUDO Gym Etterstad,MUDO Gym,Biskop Jens Nilssøns gate 5,0659,Oslo,Norway,59.906661,10.795614,True,False
+no_a1a168554d,MUDO Gym Nordstrand,MUDO Gym,Raschs vei 38,1153,Oslo,Norway,59.879664,10.80402,True,False
+no_ff70ca81a0,MUDO Gym Prinsdal,MUDO Gym,Nedre Prinsdals vei 79,1263,Oslo,Norway,59.833151,10.807035,True,False
+no_9a221ade86,MUDO Gym Tveita,MUDO Gym,Tvetenveien 162,0671,Oslo,Norway,59.915181,10.846551,True,False
+no_70d210b862,MUDO Gym Sofiemyr,MUDO Gym,Sønsterudveien 32,1412,Sofiemyr,Norway,59.8015,10.817802,True,False
+no_721366550a,MUDO Gym Kilden,MUDO Gym,Gartnerveien 15,4016,Stavanger,Norway,58.948154,5.740812,True,False
+no_6af474ce48,MUDO Gym Tynset,MUDO Gym,Meierigata 1,2500,Tynset,Norway,62.277307,10.7787,True,False
+no_bce68c7d3f,MUDO Gym Åsane,MUDO Gym,Storbotn 108,5106,Øvre Ervik,Norway,60.453732,5.323515,True,False
+no_3b60ab5803,SATS Asker,SATS,Erteløkka 1,1384,Asker,Norway,59.834375,10.438255,True,False
+no_542dbb68fb,SATS Bekkestua stasjon,SATS,Bærumsveien 206,1357,Bekkestua,Norway,59.917283,10.588554,True,False
+no_b78e2e8011,SATS Danmarksplass,SATS,Solheimsgaten 58,5054,Bergen,Norway,60.375901,5.338398,True,False
+no_9727941eec,SATS Oasen,SATS,Folke Bernadottes Vei 52,5881,Bergen,Norway,60.348956,5.291796,True,False
+no_592b404cfc,SATS Sandviken,SATS,Måseskjæret 3,5035,Bergen,Norway,60.412826,5.320735,True,False
+no_c6985b40b2,SATS Vestkanten,SATS,Loddefjordveien 2,5881,Bergen,Norway,60.36322,5.233628,True,False
+no_b9dddf6467,SATS Wergeland,SATS,Storetveitvegen 6,5067,Bergen,Norway,60.36134,5.351505,True,False
+no_8403b12c3d,SATS Billingstad,SATS,Billingstadsletta 11,1396,Billingstad,Norway,59.877017,10.500693,True,False
+no_d1f534e36e,SATS Drammen,SATS,Brandtenborggata 1,3002,Drammen,Norway,59.740973,10.221753,True,False
+no_d54096f9dc,SATS Strømsø,SATS,C.O. Lunds gate 25,3043,Drammen,Norway,59.731504,10.21335,True,False
+no_f756ba8a60,SATS Åssiden,SATS,Ingvald Ludvigsens Gt. 21,3027,Drammen,Norway,59.752877,10.123662,True,False
+no_66dd8f174e,SATS Fornebu,SATS,Forneburingen 209,1364,Fornebu,Norway,59.893834,10.618665,True,False
+no_e663968ce8,SATS Madla,SATS,Madlakrossen 9,4042,Hafrsfjord,Norway,58.952237,5.679535,True,False
+no_292145caaf,SATS Jessheim,SATS,Industrivegen 21,2069,Jessheim,Norway,60.15164,11.1846,True,False
+no_1eaddceda4,SATS Kokstad,SATS,Kokstadvegen 25B,5257,Kokstad,Norway,60.29645,5.266201,True,False
+no_b2d1320bc1,SATS Kolbotn,SATS,Kolbotnveien 12,1410,Kolbotn,Norway,59.81082,10.801974,True,False
+no_d215832a50,SATS Aquarama,SATS,Tangen 8,4608,Kristiansand S,Norway,58.147185,8.006505,True,False
+no_469d55fae3,SATS Vågsbygd,SATS,Fiskåveien 4,4621,Kristiansand S,Norway,58.126542,7.963411,True,False
+no_0ccd1bca2c,SATS Fredrikstad,SATS,Kråkerøyveien 4,1671,Kråkerøy,Norway,59.20552,10.938176,True,False
+no_c2b4c820bc,SATS Damsgård,SATS,Damsgårdsveien 135,5160,Laksevåg,Norway,60.384611,5.309891,True,False
+no_89980ad534,SATS Lillestrøm,SATS,Dampsagveien 12,2000,Lillestrøm,Norway,59.952426,11.044605,True,False
+no_75263d074f,SATS Metro,SATS,Kulturhusgata 2,1473,Lørenskog,Norway,59.927419,10.961879,True,False
+no_57dfa10c2e,SATS Triaden,SATS,Gamleveien 88,1461,Lørenskog,Norway,59.918615,10.953523,True,False
+no_b785822f13,SATS Nesttun,SATS,Apeltunvegen 2,5223,Nesttun,Norway,60.311556,5.35447,True,False
+no_fbb25d673f,SATS Adamstuen,SATS,Kirkeveien 159,0451,Oslo,Norway,59.936078,10.733519,True,False
+no_511b13fd6d,SATS Akersgata,SATS,Akersgata 51,0180,Oslo,Norway,59.914755,10.74325,True,False
+no_4e981626b4,SATS Bislett,SATS,Bislettgata 6,0170,Oslo,Norway,59.924464,10.732327,True,False
+no_42a04bc325,SATS Bjørvika,SATS,Dronning Eufemias Gate 18,0191,Oslo,Norway,59.907832,10.75894,True,False
+no_a8ddc8abc4,SATS Carl Berner,SATS,Trondheimsveien 135,0570,Oslo,Norway,59.928767,10.778181,True,False
+no_d7244ef0db,SATS CC Vest,SATS,Lilleakerveien 14,0283,Oslo,Norway,59.916018,10.635408,True,False
+no_37cbe475fc,SATS Fagerborg,SATS,Pilestredet 75 C,0354,Oslo,Norway,59.926947,10.728609,True,False
+no_d55f7f86fe,SATS Hasle,SATS,Grenseveien 50,0579,Oslo,Norway,59.923566,10.792788,True,False
+no_899b62f7d9,SATS Ila,SATS,Waldemar Thranes Gate 86,0175,Oslo,Norway,59.928304,10.753731,True,False
+no_68e9951c98,SATS Kalbakken,SATS,Kalbakkveien 6,0953,Oslo,Norway,59.952686,10.868443,True,False
+no_7b751b2abe,SATS Kampen,SATS,Østerdalsgata 1,0658,Oslo,Norway,59.910326,10.789708,True,False
+no_ca6bf88579,SATS Karlsrud,SATS,Cecilie Thoresensvei 3,1153,Oslo,Norway,59.878407,10.808163,True,False
+no_454d46d456,SATS Lambertseter,SATS,Langbølgen 5,1153,Oslo,Norway,59.873072,10.811845,True,False
+no_a134428847,SATS Linderud,SATS,Erich Mogensøns Vei 38,0517,Oslo,Norway,59.943242,10.835473,True,False
+no_f8ff6091c7,SATS Nationalteateret,SATS,Ruseløkkveien 6,0251,Oslo,Norway,59.91469,10.731137,True,False
+no_6ae2fda08e,SATS Njård,SATS,Sørkedalsveien 106,0378,Oslo,Norway,59.941488,10.671457,True,False
+no_7e354bf642,SATS Ringnes Park,SATS,Sannergata 6b,0557,Oslo,Norway,59.928583,10.759722,True,False
+no_059ed281b0,SATS Ryen,SATS,Ryensvingen 5,0680,Oslo,Norway,59.892383,10.805036,True,False
+no_f7963c4946,SATS Røa,SATS,Tore Hals Mejdells Vei 18,0751,Oslo,Norway,59.946148,10.645639,True,False
+no_723d9cfbb0,SATS Sagene,SATS,Pontoppidans Gate 7,0462,Oslo,Norway,59.936445,10.754143,True,False
+no_a0a5f5ce53,SATS Schous plass,SATS,Trondheimsveien 2 D,0560,Oslo,Norway,59.918858,10.760316,True,False
+no_bb326e73fc,SATS Solli,SATS,Henrik Ibsens gate 100,0254,Oslo,Norway,59.914391,10.718977,True,False
+no_59fa018fdf,SATS Storo,SATS,Vitaminveien 7-9,0485,Oslo,Norway,59.946536,10.774187,True,False
+no_2a2e6a9903,SATS Ullevaal,SATS,Sognsveien 75,0855,Oslo,Norway,59.949629,10.732958,True,False
+no_6185a15658,SATS Yoga Aker Brygge,SATS,Bryggetorget 5,0520,Oslo,Norway,59.910096,10.724639,True,False
+no_056002d0e7,SATS Yoga Majorstuen,SATS,Schultz' Gate 1,0368,Oslo,Norway,59.9273,10.720182,True,False
+no_2e33d7ec76,SATS Porselensfabrikken,SATS,Porselensvegen 8,3920,Porsgrunn,Norway,59.140789,9.639713,True,False
+no_b94f474ea9,SATS Porsgrunn,SATS,Jernbanegata 3,3916,Porsgrunn,Norway,59.139458,9.654835,True,False
+no_aa7d0510b2,SATS Lagunen,SATS,Laguneveien 1,5239,Rådal,Norway,60.296865,5.331155,True,False
+no_1424322418,SATS Trim Towers,SATS,Larsamyrå 18,4313,Sandnes,Norway,58.869743,5.717288,True,False
+no_0da06a0f50,SATS Sandvika Panorama,SATS,Sandviksveien 176,1338,Sandvika,Norway,59.886853,10.521136,True,False
+no_8aeef0f6d2,SATS Sarpsborg,SATS,Roald Amundsens Gate 36,1723,Sarpsborg,Norway,59.283326,11.107507,True,False
+no_1c5860edb9,SATS Forus,SATS,Svanholmen 2,4033,Stavanger,Norway,58.893786,5.707489,True,False
+no_a4e4026219,SATS Herbarium,SATS,Lars Hertervigs Gate 6,4005,Stavanger,Norway,58.969866,5.728301,True,False
+no_f8872999c1,SATS Hillevåg,SATS,Hillevågsveien 25,4016,Stavanger,Norway,58.950003,5.742168,True,False
+no_a6ddb18846,SATS Stadionparken,SATS,Jåttåvågveien 7,4020,Stavanger,Norway,58.914907,5.729386,True,False
+no_0472637887,SATS Storhaug,SATS,Kvitsøygata 19b,4014,Stavanger,Norway,58.968997,5.756897,True,False
+no_a8242c42cb,SATS Tasta,SATS,Tastatunet 1-3,4027,Stavanger,Norway,58.984123,5.689769,True,False
+no_f7a3eb95a6,SATS Langnes,SATS,Huldervegen 8,9016,Tromsø,Norway,69.671489,18.919893,True,False
+no_bfd82c5b4b,SKY Fitness Alstad,SKY Fitness,Trålveien 50,8013,Bodø,Norway,67.275052,14.46508,True,False
+no_edb788a1d8,SKY Fitness Bodo,SKY Fitness,Storgata 13-15,8006,Bodø,Norway,67.285562,14.392803,True,False
+no_bf3037ee73,SKY Fitness Ronvika,SKY Fitness,Nordstrandveien 63,8012,Bodø,Norway,67.297922,14.402546,True,False
+no_1991b76540,SKY Fitness Bomlo,SKY Fitness,Hollundsdalen 2,5430,Bremnes,Norway,59.798461,5.208488,True,False
+no_140788dda7,SKY Fitness Drammen,SKY Fitness,Betzy Kjelsbergs vei 263,3028,Drammen,Norway,59.756692,10.123842,True,False
+no_df7b448f03,SKY Fitness Fauske,SKY Fitness,Sjøgata 65,8200,Fauske,Norway,67.258449,15.39259,True,False
+no_c45d724747,SKY Fitness Flatasen,SKY Fitness,Øvre Flatåsveg 4D,7079,Flatåsen,Norway,63.372271,10.34274,True,False
+no_c17e66848d,SKY Fitness Fredrikstad,SKY Fitness,Stadion 3,1671,Fredrikstad,Norway,59.212564,10.928957,True,False
+no_b14b03f390,SKY Fitness Ilaveien,SKY Fitness,Ilaveien 28,1605,Fredrikstad,Norway,59.219182,10.94467,True,False
+no_53f1e7151f,SKY Fitness Lisleby,SKY Fitness,Lislebyveien 191,1604,Fredrikstad,Norway,59.232352,10.977608,True,False
+no_55146d27e4,SKY Fitness Fyllingsdalen,SKY Fitness,Spelhaugen 6,5147,Fyllingsdalen,Norway,60.350894,5.277843,True,False
+no_06890841e6,SKY Fitness Geilo,SKY Fitness,Geilovegen 30,3580,Geilo,Norway,60.535166,8.208898,True,False
+no_dc53c5f73b,SKY Fitness Drotningsvik,SKY Fitness,Drotningsvikveien 132,5179,Godvik,Norway,60.372053,5.180273,True,False
+no_6d1719742d,SKY Fitness Gressvik,SKY Fitness,Mosseveien 109,1624,Gressvik,Norway,59.23224,10.90533,True,False
+no_534d658b02,SKY Fitness Grimstad,SKY Fitness,Storgaten 35,4876,Grimstad,Norway,58.342977,8.589957,True,False
+no_79280724f2,SKY Fitness Sarpsborg Gralum,SKY Fitness,Gamle Kongevei 21,1712,Grålum,Norway,59.294673,11.05591,True,False
+no_8579c7a620,SKY Fitness Halden,SKY Fitness,Storgata 14,1776,Halden,Norway,59.12346,11.387304,True,False
+no_ce23990392,SKY Fitness Husnes,SKY Fitness,Onarheimsvegen 4,5460,Husnes,Norway,59.859391,5.773616,True,False
+no_dc99a8376c,SKY Fitness Kongsvinger,SKY Fitness,Jernbanegata 6,2211,Kongsvinger,Norway,60.186368,12.005601,True,False
+no_03c5867f8c,SKY Fitness Kopervik,SKY Fitness,Karmsundsgata 9,4250,Kopervik,Norway,59.283022,5.306852,True,False
+no_b6e280624e,SKY Fitness Tinnheia,SKY Fitness,Tinnheiveien 16,4629,Kristiansand,Norway,58.146642,7.95691,True,False
+no_6859b8aebe,SKY Fitness Langhus,SKY Fitness,Håndverksveien 2,1405,Langhus,Norway,59.764245,10.841691,True,False
+no_5a35eeb503,SKY Fitness Lillesand,SKY Fitness,Stykkene 2A,4790,Lillesand,Norway,58.260033,8.385835,True,False
+no_92af241728,SKY Fitness Moss Jeloy,SKY Fitness,Helgerødgata 11,1511,Moss,Norway,59.433994,10.648161,True,False
+no_31c530fdba,SKY Fitness Moss Sentrum,SKY Fitness,Kongens gate 38,1530,Moss,Norway,59.435062,10.6687,True,False
+no_38c81e79a6,SKY Fitness Asane,SKY Fitness,Liavegen 1,5132,Nyborg,Norway,60.464966,5.34538,True,False
+no_3c1dd36ce0,SKY Fitness Randaberg,SKY Fitness,Torvmyrveien 26,4096,Randaberg,Norway,59.00379,5.631091,True,False
+no_146e030d87,SKY Fitness Rissa,SKY Fitness,Leiraveien 4,7100,Rissa,Norway,63.598208,10.001938,True,False
+no_099a30bdd6,SKY Fitness Dikeveien,SKY Fitness,Dikeveien 48,1661,Rolvsøy,Norway,59.256196,11.001143,True,False
+no_5cea22c2b4,SKY Fitness Rygge,SKY Fitness,Ryggeraet 49,1580,Ryggebyen,Norway,59.379183,10.75779,True,False
+no_9219c50ce6,SKY Fitness Rade,SKY Fitness,Mosseveien 20,1640,Råde,Norway,59.353701,10.864751,True,False
+no_467eb7ac0f,SKY Fitness Sarpsborg,SKY Fitness,Pellygata 42,1706,Sarpsborg,Norway,59.282042,11.117815,True,False
+no_f5199b2898,SKY Fitness Ski,SKY Fitness,Grenseveien 10,1406,Ski,Norway,59.722725,10.809949,True,False
+no_8598c7c685,SKY Fitness Ski Sentrum,SKY Fitness,Torgveien 2,1400,Ski,Norway,59.719064,10.836904,True,False
+no_6c2980920b,SKY Fitness Byfjordparken,SKY Fitness,Byfjordparken 13,4007,Stavanger,Norway,58.981626,5.713316,True,False
+no_1797431fe9,SKY Fitness Stord,SKY Fitness,Osen 2,5411,Stord,Norway,59.779591,5.500226,True,False
+no_f5b4b773e5,SKY Fitness Tjolling,SKY Fitness,Tjøllingveien 620,3280,Tjodalyng,Norway,59.06141,10.140071,True,False
+no_1bc3fc5292,SKY Fitness Trondheim Fossegrenda,SKY Fitness,Fossegrenda 44,7038,Trondheim,Norway,63.387275,10.4082,True,False
+no_a992c9444b,SKY Fitness Ulefoss,SKY Fitness,Stårrvegen 14,3830,Ulefoss,Norway,59.28227,9.268932,True,False
+no_764673b5a9,SKY Fitness Voss,SKY Fitness,Uttrågata 33,5700,Voss,Norway,60.628796,6.425159,True,False
+no_2808fe8ec6,Spenst Alta,Spenst,Bossekopveien 117,9511,Alta,Norway,69.973426,23.271678,True,False
+no_8003a88aa2,Spenst Borgenhaugen,Spenst,Rådhusveien 23,1739,Borgenhaugen,Norway,59.267562,11.170283,True,False
+no_cb2d905102,Spenst Fetsund,Spenst,Gamle Fetvei 7,1900,Fetsund,Norway,59.927334,11.160382,True,False
+no_754c9e9596,Spenst Florø,Spenst,Hestenesgata 4,6900,Florø,Norway,61.601049,5.037914,True,False
+no_4b554ee23a,Spenst Høyanger,Spenst,Hjetland 2,6993,Høyanger,Norway,61.221799,6.079495,True,False
+no_7735705a4e,Spenst Jessheim,Spenst,Dampsaga Allé 20,2053,Jessheim,Norway,60.14142,11.178816,True,False
+no_bb62e523c9,Spenst Leikanger,Spenst,Riverdalen 5,6863,Leikanger,Norway,61.183039,6.852835,True,False
+no_fa21310e5d,Spenst Moss,Spenst,Ryggeveien 96,1528,Moss,Norway,59.41798,10.686045,True,False
+no_2fc699513e,Spenst Nesttun,Spenst,Hardangervegen 21,5224,Nesttun,Norway,60.319989,5.368336,True,False
+no_23f7da190b,Spenst Otta,Spenst,Storgata 15,2670,Otta,Norway,61.769996,9.537376,True,False
+no_9401aee6fc,Spenst Sandane,Spenst,Krånavegen 5,6823,Sandane,Norway,61.777571,6.213883,True,False
+no_e544d8439c,Spenst Sarpsborg,Spenst,Sandesundsveien 3b,1706,Sarpsborg,Norway,59.283042,11.108211,True,False
+no_b5a31236f3,Spenst Sarpsborg,Spenst,Lilletuneveien 6A,1711,Sarpsborg,Norway,59.288855,11.083655,True,False
+no_29f5e3b1e1,Spenst Skjold,Spenst,Skjoldavikvegen 59,5574,Skjold,Norway,59.502524,5.587029,True,False
+no_20acd1cb7e,Spenst Sogndal,Spenst,Trolladalen 30,6856,Sogndal,Norway,61.231851,7.087334,True,False
+no_4dc259d188,Spenst Åpningstider Spenst Fredrikstad åpner januar 2027!,Spenst,Hafstadvegen 36,6800,Sunnfjord,Norway,61.450157,5.855704,True,False
+no_0170eeaacd,Spenst Trysil,Spenst,Liavegen 11,2420,Trysil,Norway,61.313901,12.267375,True,False
+no_9ce3550547,Sporty Arendal,Sporty,Stoaveien 41C,4848,Arendal,Norway,58.463607,8.715242,True,False
+no_8cb4f52389,Sporty Averoy Karvag,Sporty,Kårvågveien 108,6532,Averøy,Norway,63.014859,7.448106,True,False
+no_d8f8e4ae63,Sporty Bergen Danmarksplass,Sporty,Garvergaten 15,5054,Bergen,Norway,60.375707,5.337188,True,False
+no_76f5afdb98,Sporty Bergen Landas,Sporty,Erleveien 18,5096,Bergen,Norway,60.361688,5.368466,True,False
+no_267df4ee66,Sporty Bergen Solheimsgaten,Sporty,Solheimsgaten 56 A,5054,Bergen,Norway,60.376188,5.338058,True,False
+no_9985bea7c2,Sporty Bergen Strandgaten,Sporty,Strandgaten 64,5004,Bergen,Norway,60.395113,5.318384,True,False
+no_01478d26ec,Sporty Bodo Jensvoll,Sporty,Sneveien 17,8072,Bodø,Norway,67.278701,14.483555,True,False
+no_210b6fc427,Sporty Sarpsborg Iseveien,Sporty,Snekkerstubakken 26,1738,Borgenhaugen,Norway,59.269107,11.159264,True,False
+no_e6e86b813f,Sporty Bo Bosenteret,Sporty,Stasjonsvegen 28,3800,Bø i Telemark,Norway,59.411317,9.070835,True,False
+no_37c04a834f,Sporty Bo Holtangarden,Sporty,Folkestadvegen 12,3802,Bø i Telemark,Norway,59.414605,9.068956,True,False
+no_e49f86033e,Sporty Bergen Bones,Sporty,Fjellsdalen 9,5155,Bønes,Norway,60.334011,5.296087,True,False
+no_0bfe23fad1,Sporty Bergen Krakenes,Sporty,Øvre Kråkenes 49,5152,Bønes,Norway,60.338987,5.320237,True,False
+no_93b3326fb6,Sporty Dale,Sporty,Skulegata 2,5722,Dalekvam,Norway,60.590229,5.820909,True,False
+no_faf08586db,Sporty Drammen Gulskogen,Sporty,Guldlisten 20,3042,Drammen,Norway,59.743117,10.160608,True,False
+no_6b81d879bc,Sporty Konnerud,Sporty,Bernåsbakken 2,3032,Drammen,Norway,59.71924,10.145965,True,False
+no_6d2fd73620,Sporty Drobak,Sporty,Holterveien 4G,1448,Drøbak,Norway,59.675317,10.659588,True,False
+no_f23c14f534,Sporty Eide,Sporty,Eidetorget 17,6490,Eide,Norway,62.916164,7.445968,True,False
+no_79197c25a7,Sporty Elnesvagen,Sporty,Torget 15,6440,Elnesvågen,Norway,62.854361,7.16482,True,False
+no_6c8e2f2094,Sporty Finnsnes,Sporty,Strandveien 68,9300,Finnsnes,Norway,69.237224,17.977531,True,False
+no_d30f298242,Sporty Bergsoy,Sporty,Lisjebøvegen 10B,6091,Fosnavåg,Norway,62.333451,5.642407,True,False
+no_bff66c3970,Sporty Fredrikstad,Sporty,Rolvsøyveien 205,1617,Fredrikstad,Norway,59.240364,10.974353,True,False
+no_1fc8ea4736,Sporty Hareid,Sporty,Myravegen 9,6060,Hareid,Norway,62.368966,6.016284,True,False
+no_fa3b7b94e4,Sporty Harstad,Sporty,Seljestadveien 11,9406,Harstad,Norway,68.792572,16.530943,True,False
+no_a0be86548c,Sporty Holmestrand Greaker,Sporty,Hvittingfossveien 153,3086,Holmestrand,Norway,59.496704,10.282273,True,False
+no_4d3fcafabd,Sporty Holmestrand Kleivbrottet,Sporty,Ringveien 12,3084,Holmestrand,Norway,59.585737,10.228171,True,False
+no_9426c7489c,Sporty Horten,Sporty,Falkenstensveien 31,3189,Horten,Norway,59.426678,10.455084,True,False
+no_cc0c093645,Sporty Hustad,Sporty,Hustadvegen 417,6433,Hustad,Norway,62.953877,7.095574,True,False
+no_d61af83daf,Sporty Bergen Arna,Sporty,Storaneset 24,5260,Indre Arna,Norway,60.433584,5.462945,True,False
+no_4f9ff1dce0,Sporty Jevnaker,Sporty,Storgata 6,3520,Jevnaker,Norway,60.239969,10.389711,True,False
+no_96863e9cd7,Sporty Kleppesto,Sporty,Holmedalen 6B,5300,Kleppestø,Norway,60.406002,5.219774,True,False
+no_cde81e0535,Sporty Kongsberg,Sporty,Idrettsveien 4,3617,Kongsberg,Norway,59.680491,9.629132,True,False
+no_347ebeb0ca,Sporty Kristiansand Hanes,Sporty,Hånesveien 126,4635,Kristiansand,Norway,58.181666,8.094756,True,False
+no_abc5059594,Sporty Kristiansund Lokkemyra,Sporty,Nordmørsveien 54,6517,Kristiansund,Norway,63.109668,7.773086,True,False
+no_8b010df4ad,Sporty Kristiansund Stortua,Sporty,Wilhelm Dalls vei 40,6511,Kristiansund N,Norway,63.122704,7.735957,True,False
+no_6c4c5d6a5d,Sporty Langevag,Sporty,Djupdalen 6,6030,Langevåg,Norway,62.440581,6.192368,True,False
+no_3776fc33e4,Sporty Larvik,Sporty,Elveveien 135,3271,Larvik,Norway,59.078416,10.061164,True,False
+no_6c861a6e8c,Sporty Larvik Nanset,Sporty,Nansetgata 91,3256,Larvik,Norway,59.064793,10.039938,True,False
+no_aa5a9c22fd,Sporty Larvik Sentrum,Sporty,Olavs gate 30,3257,Larvik,Norway,59.053717,10.032469,True,False
+no_5963534437,Sporty Mandal,Sporty,Skarvøyveien 55,4517,Mandal,Norway,58.029041,7.460841,True,False
+no_a994ae581b,Sporty Mandal Sanden,Sporty,Kastellgata 14,4514,Mandal,Norway,58.022657,7.451601,True,False
+no_dcfb2a79d1,Sporty Mjondalen Mjondalshallen,Sporty,Hagatjernveien 19,3050,Mjøndalen,Norway,59.745422,10.016845,True,False
+no_c8439e183b,Sporty Mjondalen Strandveien,Sporty,Strandveien 33,3050,Mjøndalen,Norway,59.751521,10.021285,True,False
+no_702b2cc128,Sporty Mo I Rana,Sporty,Midtre gate 17a,8624,Mo i Rana,Norway,66.31598,14.126768,True,False
+no_26ca6e0499,Sporty Molde Sjofronten,Sporty,Hamnegata 47,6413,Molde,Norway,62.736821,7.162375,True,False
+no_95d75f9fcb,Sporty Moss,Sporty,Midtveien 5,1526,Moss,Norway,59.415359,10.676154,True,False
+no_99a72dbb2d,Sporty Bergen Nyborg,Sporty,Langarinden 5,5132,Nyborg,Norway,60.473354,5.343887,True,False
+no_1ea1f96802,Sporty Notteroy,Sporty,Stalsbergveien 7,3128,Nøtterøy,Norway,59.264462,10.390934,True,False
+no_655f19fc2a,Sporty Osoyro,Sporty,Brugata 32,5200,Os,Norway,60.185447,5.4714,True,False
+no_f1e6bbf5f1,Sporty Bergen Paradis,Sporty,Tjernvegen 30,5232,Paradis,Norway,60.332141,5.348982,True,False
+no_86e14a8701,Sporty Samnanger,Sporty,Bjørkheim 26,5652,Samnanger,Norway,60.40125,5.731473,True,False
+no_1c64ee8482,Sporty Sande,Sporty,Revåveien 37,3070,Sande i Vestfold,Norway,59.583638,10.210322,True,False
+no_aa5433400e,Sporty Sandefjord Moveien,Sporty,Moveien 53,3215,Sandefjord,Norway,59.143093,10.199981,True,False
+no_9b16d3390c,Sporty Bergen Sandsli,Sporty,Sandslihaugen 10,5254,Sandsli,Norway,60.292648,5.283299,True,False
+no_03f4709a5e,Sporty Sem,Sporty,Semsbyveien 74,3170,Sem,Norway,59.281602,10.32878,True,False
+no_fe93127a26,Sporty Ski Storsenter,Sporty,Jernbanesvingen 6,1400,Ski,Norway,59.716364,10.835714,True,False
+no_c67a0f32f2,Sporty Alesund Skodje,Sporty,Skodjevegen 397,6260,Skodje,Norway,62.504987,6.692728,True,False
+no_840be66482,Sporty Stokke,Sporty,Kornmagasingata 2,3160,Stokke,Norway,59.221861,10.30447,True,False
+no_50ed05e4bd,Sporty Stokke Sundland,Sporty,Sundlandveien 6,3160,Stokke,Norway,59.228907,10.288148,True,False
+no_27dc2be1cc,Sporty Straume,Sporty,Skjenet 7,5353,Straume,Norway,60.364436,5.122302,True,False
+no_d510970dea,Sporty Bergen Soreide,Sporty,Steinsvikvegen 29,5251,Søreidgrend,Norway,60.31473,5.282852,True,False
+no_e2b5508480,Sporty Sogne,Sporty,Sentrumsveien 33,4640,Tangvall,Norway,58.097139,7.811981,True,False
+no_35de227136,Sporty Tonsberg Farmand,Sporty,Slagenveien 16,3110,Tønsberg,Norway,59.268906,10.413678,True,False
+no_2014739db9,Sporty Tonsberg Gressbanen,Sporty,Trudvangveien 73,3117,Tønsberg,Norway,59.282998,10.415298,True,False
+no_f61a0c9c58,Sporty Tonsberg Kilen,Sporty,Kilengaten 25,3117,Tønsberg,Norway,59.277124,10.432515,True,False
+no_752ab1af98,Sporty Ulstein Ulsteinvik,Sporty,Kyrkjegata 22,6065,Ulsteinvik,Norway,62.34479,5.843179,True,False
+no_739aee697f,Sporty Ulstein Varleite,Sporty,Varleitevegen 9,6065,Ulsteinvik,Norway,62.342067,5.89151,True,False
+no_42356ae9cf,Sporty Alesund Breivika,Sporty,Lerstadvegen 545,6018,Ålesund,Norway,62.471726,6.363353,True,False
+no_66559f210f,Sporty Alesund Moa,Sporty,Langelandsvegen 17,6010,Ålesund,Norway,62.46429,6.348683,True,False
+no_b11f1b6576,Sporty Alesund Ratvika,Sporty,Ruudvegen 53,6014,Ålesund,Norway,62.463374,6.269556,True,False
+no_3902ecd781,Sporty Alesund Skansegata,Sporty,Kongens gate 25,6002,Ålesund,Norway,62.474956,6.156366,True,False
+no_bd84245ec1,Sporty Alesund Sundgata,Sporty,Sundgata 12,6003,Ålesund,Norway,62.471021,6.16793,True,False
+no_4221617cfc,Sporty Arnes,Sporty,Nedre Hagaveg 17b,2150,Årnes,Norway,60.119381,11.462659,True,False
+no_ed3a78056b,Sporty Orje,Sporty,Skolegata 3,1870,Ørje,Norway,59.480053,11.65704,True,False

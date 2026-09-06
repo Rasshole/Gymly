@@ -1,0 +1,23 @@
+{
+  "ready_by_city": {
+    "Vilnius": 30,
+    "Kaunas": 11,
+    "Klaipėda": 6,
+    "Šiauliai": 4,
+    "Panevėžys": 4,
+    "Alytus": 1,
+    "Marijampolė": 1,
+    "Mažeikiai": 1,
+    "Jonava": 0,
+    "Utena": 0,
+    "Kėdainiai": 1,
+    "Tauragė": 0,
+    "Telšiai": 1,
+    "Palanga": 1
+  },
+  "zero_open_classifications": {
+    "Jonava": "A_legitimate_no_chain_presence — Lemon Gym COMING_SOON (2027 Žemaitės g.)",
+    "Utena": "A_legitimate_no_chain_presence",
+    "Tauragė": "A_legitimate_no_chain_presence"
+  }
+}

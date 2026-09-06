@@ -1,0 +1,2192 @@
+[
+  {
+    "id": "tr_90132f81c8",
+    "brand": "GymFit",
+    "name": "GYMFIT NUROL PARK",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_df2525bc63",
+    "brand": "GymFit",
+    "name": "GYMFIT OLIVIUM",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_99bed7d7de",
+    "brand": "GymFit",
+    "name": "GYMFIT ATRIUM",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_991a4a71bc",
+    "brand": "GymFit",
+    "name": "GYMFIT ANATOLIUM",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_28931ac3f7",
+    "brand": "GymFit",
+    "name": "GYMFIT WORLD POINT",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_a415a9b61c",
+    "brand": "GymFit",
+    "name": "GYMFIT VENEZIA",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_2eac898f2d",
+    "brand": "GymFit",
+    "name": "GYMFIT İNEGÖL",
+    "city": "Bursa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_7483ed5e01",
+    "brand": "GymFit",
+    "name": "GYMFIT KORUPARK",
+    "city": "Bursa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_10bead02ac",
+    "brand": "GymFit",
+    "name": "GYMFIT VEGA OUTLET AVM",
+    "city": "Eskişehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_589ccf58bb",
+    "brand": "GymFit",
+    "name": "GYMFIT İKİ EYLÜL",
+    "city": "Eskişehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_6d5623c24c",
+    "brand": "GymFit",
+    "name": "GYMFIT EXPRESS",
+    "city": "Eskişehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_8f1115c5bf",
+    "brand": "GymFit",
+    "name": "GYMFIT SPORTS PLAZA",
+    "city": "Eskişehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_2bdff164b1",
+    "brand": "GymFit",
+    "name": "GYMFIT NOVACITY",
+    "city": "Eskişehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_6d8596f2ab",
+    "brand": "GymFit",
+    "name": "GYMFIT VEGA SUBAYEVLERİ",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_4e40beba0d",
+    "brand": "GymFit",
+    "name": "GYMFIT METROMALL",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_b70e267ba9",
+    "brand": "GymFit",
+    "name": "GYMFIT ANTARES",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_6bf349cea0",
+    "brand": "GymFit",
+    "name": "GYMFIT NEXT LEVEL",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_e9e27467a0",
+    "brand": "GymFit",
+    "name": "GYMFIT TAURUS",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_8de022c2be",
+    "brand": "GymFit",
+    "name": "GYMFIT VELUX ANKARA",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_716f911874",
+    "brand": "GymFit",
+    "name": "GYMFIT ADRES ANKARA",
+    "city": "Ankara",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "Phase 2 — GymFit API confirms coming:true (Aug 2026)",
+    "in_production": false
+  },
+  {
+    "id": "tr_dd6d274fc0",
+    "brand": "GymFit",
+    "name": "GYMFIT ZİRVEKENT ANKARA",
+    "city": "Ankara",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "Phase 2 — GymFit API confirms coming:true (Aug 2026)",
+    "in_production": false
+  },
+  {
+    "id": "tr_d7230f72ee",
+    "brand": "GymFit",
+    "name": "GYMFIT KENT PLAZA",
+    "city": "Konya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_2ff63fd549",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_684f6189b7",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Beşiktaş",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_fc8f4bba2b",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_9f4d739931",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_ad1601d39a",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_621e046fdc",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_543c849cfc",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Ümraniye",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_46872d9bed",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_b11f4e2d39",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_5c527202e0",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Kartal",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_16fa12ba3b",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Maltepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_518f07383a",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Pendik",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_888f2c3b00",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Küçükçekmece",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_1e14f26ded",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Sancaktepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_ed3b0005b4",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Sarıyer",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_25c85deed7",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_23721e9cca",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "İzmit",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_2d11ef51c3",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Bursa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_893107c342",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Konak",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_e072f5bfb2",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Etimesgut",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_3c3ef20587",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Çiğli",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_be58f68b61",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_59a4105c71",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_0058881262",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Konak",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_63ae41b630",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Konak",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_ee646fee52",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Gaziemir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_c6574ee740",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_e0bb3b25b4",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Keçiören",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_b58dc58106",
+    "brand": "MACFit",
+    "name": "MACFit",
+    "city": "Yenimahalle",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_eb859ffccf",
+    "brand": "MACFit",
+    "name": "MACFit Balçova Kipa",
+    "city": "İzmir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_16a60deeff",
+    "brand": "MACFit",
+    "name": "MACFit Erasta",
+    "city": "Antalya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_9133253094",
+    "brand": "MACFit",
+    "name": "Mac Fit",
+    "city": "Gebze",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_6851ee847d",
+    "brand": "MACFit",
+    "name": "Mac-Fit",
+    "city": "Yenimahalle",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_158f4f2ce8",
+    "brand": "MACFit",
+    "name": "Mac Fit",
+    "city": "Bornova",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_fc24632906",
+    "brand": "Mars Athletic Club",
+    "name": "Mars Athletic Club",
+    "city": "Ataşehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_acdfb031ca",
+    "brand": "Mars Athletic Club",
+    "name": "MARS Athletic Club",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_f53d5104f3",
+    "brand": "Sports International",
+    "name": "Sports International",
+    "city": "Bakırköy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_316f102698",
+    "brand": "Sports International",
+    "name": "Sports International",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_263ec93a91",
+    "brand": "Sports International",
+    "name": "Sports International",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_db468745b2",
+    "brand": "Sports International",
+    "name": "Sports International",
+    "city": "Yenişehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_eb6beab7b7",
+    "brand": "Sports International",
+    "name": "Sports International",
+    "city": "Yenişehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — duplicate Mersin Marina Sports International premises",
+    "in_production": false
+  },
+  {
+    "id": "tr_04742a1022",
+    "brand": "Sports International",
+    "name": "Mavişehir Sports International",
+    "city": "İzmir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_3acf4d171a",
+    "brand": "B-Fit",
+    "name": "B fit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_9e05be27e2",
+    "brand": "B-Fit",
+    "name": "b-fit",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_3f8be1057f",
+    "brand": "B-Fit",
+    "name": "b-fit",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_91de101720",
+    "brand": "Crross Fit Skylıght",
+    "name": "Crross Fit Skylıght",
+    "city": "Ataşehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_a2c308e847",
+    "brand": "Fit Life",
+    "name": "Fit Life",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_db15e31e1d",
+    "brand": "Fit Slim",
+    "name": "Fit Slim",
+    "city": "Fatih",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_f5018978f2",
+    "brand": "Just Fit",
+    "name": "Just Fit",
+    "city": "Kadıköy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_39c46bfe49",
+    "brand": "Fit House sağlıklı yemek",
+    "name": "Fit House sağlıklı yemek",
+    "city": "Kadıköy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_9dee7c709f",
+    "brand": "Akın Fit Club",
+    "name": "Akın Fit Club",
+    "city": "Eyüpsultan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_67ce18d95d",
+    "brand": "Fit House",
+    "name": "Fit House",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_4d2640040d",
+    "brand": "Fit Round Fitness",
+    "name": "Fit Round Fitness",
+    "city": "Kadıköy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_c42323b19a",
+    "brand": "En Fit Body",
+    "name": "En Fit Body",
+    "city": "İstanbul",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_6a63cd8fdd",
+    "brand": "B Fitness Clup",
+    "name": "B Fitness Clup",
+    "city": "Beykoz",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_5985f19f67",
+    "brand": "Fit Global",
+    "name": "Fit Global",
+    "city": "Kadıköy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_156cde4711",
+    "brand": "Fit & Alive",
+    "name": "Fit & Alive",
+    "city": "Ataşehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_5e2a50a820",
+    "brand": "Eat Fit",
+    "name": "Eat Fit",
+    "city": "Ataşehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_578f01ff9c",
+    "brand": "Fit Club",
+    "name": "Fit Club",
+    "city": "Ataşehir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_68798be5a2",
+    "brand": "Fit Life Sports",
+    "name": "Fit Life Sports",
+    "city": "Maltepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_2c16d1d3e5",
+    "brand": "Fit Box Fitness",
+    "name": "Fit Box Fitness",
+    "city": "Küçükçekmece",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_5f27867a93",
+    "brand": "Easy Fit",
+    "name": "Easy Fit",
+    "city": "Çekmeköy",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_0eb75d4fe7",
+    "brand": "Fit-Station",
+    "name": "Fit-Station",
+    "city": "Sancaktepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_42b4c860d2",
+    "brand": "Fit In Time",
+    "name": "Fit In Time",
+    "city": "Sarıyer",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_415d36b641",
+    "brand": "Kemal Türkler Mahallesi San-Fit",
+    "name": "Kemal Türkler Mahallesi San-Fit",
+    "city": "Sancaktepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_30a7fec38e",
+    "brand": "Akpınar San-Fit",
+    "name": "Akpınar San-Fit",
+    "city": "Sancaktepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_3e64c33403",
+    "brand": "Merve Mahallesi San-Fit",
+    "name": "Merve Mahallesi San-Fit",
+    "city": "Sancaktepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_bc61fcee19",
+    "brand": "Fit Lady",
+    "name": "Fit Lady",
+    "city": "Kartal",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_ca548dce07",
+    "brand": "Hilal Mahallesi San-Fit",
+    "name": "Hilal Mahallesi San-Fit",
+    "city": "Sancaktepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_3f41bf37b8",
+    "brand": "Safa Mahallesi San-Fit",
+    "name": "Safa Mahallesi San-Fit",
+    "city": "Sancaktepe",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_e7b74a6d4c",
+    "brand": "Tam Fit",
+    "name": "Tam Fit",
+    "city": "Balıkesir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_16cbb27072",
+    "brand": "Fit Girl Kadınlara Özel Spor Salonu",
+    "name": "Fit Girl Kadınlara Özel Spor Salonu",
+    "city": "Kapaklı",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_a0c7687129",
+    "brand": "Fit Life World",
+    "name": "Fit Life World",
+    "city": "Kocaeli",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_f4b5ead69a",
+    "brand": "B-Fit",
+    "name": "Mac Fit",
+    "city": "Gebze",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — duplicate MACFit premises (Phase 1 B-Fit photon mis-tag)",
+    "in_production": false
+  },
+  {
+    "id": "tr_61e59dfb86",
+    "brand": "19 FIT Pilates & Gym XL",
+    "name": "19 FIT Pilates & Gym XL",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_7c51b14a5d",
+    "brand": "Zeran fit",
+    "name": "Zeran fit",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_3c514b41dc",
+    "brand": "Vision Fit Body",
+    "name": "Vision Fit Body",
+    "city": "Yenimahalle",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_74e421011f",
+    "brand": "B-Fit",
+    "name": "Mac-Fit",
+    "city": "Yenimahalle",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — duplicate MACFit premises (Phase 1 B-Fit photon mis-tag)",
+    "in_production": false
+  },
+  {
+    "id": "tr_d6c0ec9b27",
+    "brand": "Fit Kids Academy",
+    "name": "Fit Kids Academy",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Fit Kids Academy",
+    "in_production": false
+  },
+  {
+    "id": "tr_e7a3fff0eb",
+    "brand": "Arabica Kitchen Fit",
+    "name": "Arabica Kitchen Fit",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_9fd443b8e7",
+    "brand": "Fit'n Food",
+    "name": "Fit'n Food",
+    "city": "Çankaya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_f850c95db9",
+    "brand": "Gym Fit",
+    "name": "Gym Fit",
+    "city": "Etimesgut",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_5e180f2cd8",
+    "brand": "7 Fit",
+    "name": "7 Fit",
+    "city": "Sincan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_8c032ebe2e",
+    "brand": "FitLab Life Club",
+    "name": "FitLab Life Club",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_7098b28477",
+    "brand": "JustFit20",
+    "name": "JustFit20",
+    "city": "Ankara",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_0db36f1769",
+    "brand": "Quite Fit",
+    "name": "Quite Fit",
+    "city": "Konak",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_7e9a62db77",
+    "brand": "B-Fit",
+    "name": "Mac Fit",
+    "city": "Bornova",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — duplicate MACFit premises (Phase 1 B-Fit photon mis-tag)",
+    "in_production": false
+  },
+  {
+    "id": "tr_033c66b763",
+    "brand": "Spil Fit",
+    "name": "Spil Fit",
+    "city": "Yunusemre",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_9a2f507bdb",
+    "brand": "ProFit Sport Center",
+    "name": "ProFit Sport Center",
+    "city": "İzmir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_499bbe08f9",
+    "brand": "Fit Life Spor Merkezi",
+    "name": "Fit Life Spor Merkezi",
+    "city": "Bergama",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_e50b7d6d39",
+    "brand": "B-Fit",
+    "name": "Fit",
+    "city": "Fethiye",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Fethiye generic 'Fit' resort/coast; non-qualifying",
+    "in_production": false
+  },
+  {
+    "id": "tr_1d86455fb4",
+    "brand": "FitLife",
+    "name": "FitLife",
+    "city": "Buca",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_5ac588b617",
+    "brand": "B-Fit",
+    "name": "CrossFit",
+    "city": "Konak",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "tr_a5421042ee",
+    "brand": "Fit Plan",
+    "name": "Fit Plan",
+    "city": "Uşak",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_414cb72372",
+    "brand": "Fit Yaşam",
+    "name": "Fit Yaşam",
+    "city": "Balıkesir",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_3b26056956",
+    "brand": "Power Fit Pilates",
+    "name": "Power Fit Pilates",
+    "city": "Körfez",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Power Fit Pilates",
+    "in_production": false
+  },
+  {
+    "id": "tr_968916905e",
+    "brand": "Ergo! Fit",
+    "name": "Ergo! Fit",
+    "city": "Muratpaşa",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_33a990cf09",
+    "brand": "M95 Fit Club",
+    "name": "M95 Fit Club",
+    "city": "Antalya",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_799ed63dbc",
+    "brand": "B-Fit",
+    "name": "FIT Gloria Fitness Center",
+    "city": "Serik",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Serik Gloria resort-area fitness; hotel/resort scope",
+    "in_production": false
+  },
+  {
+    "id": "tr_826349ad23",
+    "brand": "B-Fit",
+    "name": "Fit arena",
+    "city": "Kemer",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Kemer 'Fit arena' photon false positive; not B-Fit chain; resort-area non-chain gym",
+    "in_production": false
+  },
+  {
+    "id": "tr_fe66cda12c",
+    "brand": "B-Fit",
+    "name": "Fit & Fun",
+    "city": "Manavgat",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Manavgat 'Fit & Fun' photon false positive; not B-Fit chain; Antalya coast mis-tag",
+    "in_production": false
+  },
+  {
+    "id": "tr_aefa658d1c",
+    "brand": "B-Fit",
+    "name": "fit and akay office",
+    "city": "Kemer",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Kemer 'fit and akay office' resort-area; not B-Fit chain",
+    "in_production": false
+  },
+  {
+    "id": "tr_f037e23fd4",
+    "brand": "B-Fit",
+    "name": "FIT life",
+    "city": "Manavgat",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Manavgat coast FIT life; resort-market non-chain",
+    "in_production": false
+  },
+  {
+    "id": "tr_2b90ecd5e6",
+    "brand": "B-Fit",
+    "name": "CrossFit",
+    "city": "Muratpaşa",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "tr_032db2df87",
+    "brand": "A/C Fit",
+    "name": "A/C Fit",
+    "city": "Adana",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_433b17c8a6",
+    "brand": "Volume Fit Plus",
+    "name": "Volume Fit Plus",
+    "city": "Şehitkamil/Gaziantep",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_97e3a72113",
+    "brand": "Fit's Club",
+    "name": "Fit's Club",
+    "city": "Selçuklu",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_c6bc41e8a3",
+    "brand": "B-Fit",
+    "name": "Boks Fit Club",
+    "city": "Serdivan",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "tr_59da37e58e",
+    "brand": "FIT UP",
+    "name": "FIT UP",
+    "city": "Odunpazarı",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — active verified; production-grade revalidation",
+    "in_production": false
+  },
+  {
+    "id": "tr_8f9c7e20c0",
+    "brand": "Fit in Time",
+    "name": "Fit In Time",
+    "city": "Sarıyer",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — dedupe: colocated duplicate premises",
+    "in_production": false
+  },
+  {
+    "id": "tr_3838d03d99",
+    "brand": "Hotel/Resort",
+    "name": "Gloria Sports Arena",
+    "city": "Antalya",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "tr_c9d5b1971f",
+    "brand": "Hotel/Resort",
+    "name": "Titanic Deluxe Lara",
+    "city": "Antalya",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "tr_1ab82e0760",
+    "brand": "Hotel/Resort",
+    "name": "D-Hotel Maris Spa",
+    "city": "Muğla",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "tr_8ddb05e0d7",
+    "brand": "Fitness Salonu",
+    "name": "Fitness Salonu",
+    "city": "Çubuk",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=506287878",
+    "in_production": false
+  },
+  {
+    "id": "tr_2a9cdbc93d",
+    "brand": "Zenun Fitness Salonu",
+    "name": "Zenun Fitness Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=7003993592",
+    "in_production": false
+  },
+  {
+    "id": "tr_2735e96f48",
+    "brand": "Energy Fitness Salonu",
+    "name": "Energy Fitness Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=5969605190",
+    "in_production": false
+  },
+  {
+    "id": "tr_de8a153f11",
+    "brand": "Atatürk Mahallesi Fitness Salonu",
+    "name": "Atatürk Mahallesi Fitness Salonu",
+    "city": "Sancaktepe",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1384281209",
+    "in_production": false
+  },
+  {
+    "id": "tr_872a39e9c4",
+    "brand": "Dr. Mimar Kadir Topbaş Spor Kompleksi - Fitness Salonu",
+    "name": "Dr. Mimar Kadir Topbaş Spor Kompleksi - Fitness Salonu",
+    "city": "Çekmeköy",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=12301261902",
+    "in_production": false
+  },
+  {
+    "id": "tr_d62ef6cff5",
+    "brand": "Free Life Fitness Spor Salonu",
+    "name": "Free Life Fitness Spor Salonu",
+    "city": "Sultangazi",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=5289936081",
+    "in_production": false
+  },
+  {
+    "id": "tr_f8264e1cf0",
+    "brand": "KAYAKLA ATLAMA KULESİ VE ATLAMA KULESİ FİTNESS SALONU",
+    "name": "KAYAKLA ATLAMA KULESİ VE ATLAMA KULESİ FİTNESS SALONU",
+    "city": "Palandöken",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=520865564",
+    "in_production": false
+  },
+  {
+    "id": "tr_43b51fb8e4",
+    "brand": "Suri Kardeşler Fitness Salonun",
+    "name": "Suri Kardeşler Fitness Salonun",
+    "city": "Fethiye",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1132495688",
+    "in_production": false
+  },
+  {
+    "id": "tr_14ca330eb3",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=655459439",
+    "in_production": false
+  },
+  {
+    "id": "tr_48ec06efab",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Bingöl",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1145549044",
+    "in_production": false
+  },
+  {
+    "id": "tr_10bfea782b",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Elâzığ",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=10568406977",
+    "in_production": false
+  },
+  {
+    "id": "tr_bb73fd6a37",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Adıyaman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=223400018",
+    "in_production": false
+  },
+  {
+    "id": "tr_72cf4c807d",
+    "brand": "Ankara Spor Salonu",
+    "name": "Ankara Spor Salonu",
+    "city": "Altındağ",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=419275960",
+    "in_production": false
+  },
+  {
+    "id": "tr_39a59bc64c",
+    "brand": "Hayri Gür Spor Salonu",
+    "name": "Hayri Gür Spor Salonu",
+    "city": "Ortahisar",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=394920164",
+    "in_production": false
+  },
+  {
+    "id": "tr_3dbf5bed27",
+    "brand": "Mustafa Kemal Atatürk Karşıyaka Spor Salonu",
+    "name": "Mustafa Kemal Atatürk Karşıyaka Spor Salonu",
+    "city": "Karşıyaka",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=37247853",
+    "in_production": false
+  },
+  {
+    "id": "tr_33d63c0005",
+    "brand": "Halkapınar Spor Salonu",
+    "name": "Halkapınar Spor Salonu",
+    "city": "İzmir",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=552913267",
+    "in_production": false
+  },
+  {
+    "id": "tr_3d287086a2",
+    "brand": "Maxfit Spor Salonu",
+    "name": "Maxfit Spor Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=3702279318",
+    "in_production": false
+  },
+  {
+    "id": "tr_abb1d53b13",
+    "brand": "Yunus Emre And. Lis. Spor Salonu",
+    "name": "Yunus Emre And. Lis. Spor Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=478689941",
+    "in_production": false
+  },
+  {
+    "id": "tr_53aacb41c9",
+    "brand": "Flex Women Bayan Spor Salonu",
+    "name": "Flex Women Bayan Spor Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=3604396381",
+    "in_production": false
+  },
+  {
+    "id": "tr_06cb98cf5b",
+    "brand": "Çok Amaçlı Spor Salonu",
+    "name": "Çok Amaçlı Spor Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=503866293",
+    "in_production": false
+  },
+  {
+    "id": "tr_377bc8da02",
+    "brand": "Bayındır Spor Salonu",
+    "name": "Bayındır Spor Salonu",
+    "city": "Batman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1074762984",
+    "in_production": false
+  },
+  {
+    "id": "tr_bacb1212d5",
+    "brand": "Mustafa Dağıstanlı Spor Salonu",
+    "name": "Mustafa Dağıstanlı Spor Salonu",
+    "city": "Atakum",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=554666826",
+    "in_production": false
+  },
+  {
+    "id": "tr_75da202d2c",
+    "brand": "Selim Sırrı Tarcan Spor Salonu",
+    "name": "Selim Sırrı Tarcan Spor Salonu",
+    "city": "Altındağ",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=28470451",
+    "in_production": false
+  },
+  {
+    "id": "tr_ab3cf38b23",
+    "brand": "Yakup Kılınç Spor Salonu",
+    "name": "Yakup Kılınç Spor Salonu",
+    "city": "Elâzığ",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=10568851498",
+    "in_production": false
+  },
+  {
+    "id": "tr_79d0b79d26",
+    "brand": "GYM",
+    "name": "GYM",
+    "city": "زاخۆ",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1085965597",
+    "in_production": false
+  },
+  {
+    "id": "tr_7d3d845ec3",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Kadirli",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=488664325",
+    "in_production": false
+  },
+  {
+    "id": "tr_c8ab2071b4",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Kadirli",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=488669471",
+    "in_production": false
+  },
+  {
+    "id": "tr_96125b6c44",
+    "brand": "spor salonu",
+    "name": "spor salonu",
+    "city": "Antakya",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=668407097",
+    "in_production": false
+  },
+  {
+    "id": "tr_ade0dbac82",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Sarıçam",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1055128855",
+    "in_production": false
+  },
+  {
+    "id": "tr_987260c0c2",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Talas",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=255660621",
+    "in_production": false
+  },
+  {
+    "id": "tr_c754a67792",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Talas",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=259909624",
+    "in_production": false
+  },
+  {
+    "id": "tr_c0d9d0001f",
+    "brand": "Spor salonu",
+    "name": "Spor salonu",
+    "city": "Melikgazi",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=405362895",
+    "in_production": false
+  },
+  {
+    "id": "tr_7367793124",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Kayseri",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=254613442",
+    "in_production": false
+  },
+  {
+    "id": "tr_3fa9139843",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Kocasinan",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=531536511",
+    "in_production": false
+  },
+  {
+    "id": "tr_244783a2e5",
+    "brand": "Şahinbey Spor Salonu",
+    "name": "Şahinbey Spor Salonu",
+    "city": "Şahinbey",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=806436683",
+    "in_production": false
+  },
+  {
+    "id": "tr_e49033f6e3",
+    "brand": "Antepia Spor Salonu",
+    "name": "Antepia Spor Salonu",
+    "city": "Şahinbey",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=12009974389",
+    "in_production": false
+  },
+  {
+    "id": "tr_d0a64c21fa",
+    "brand": "Vali M. Lütfullah Bilgin Spor Salonu",
+    "name": "Vali M. Lütfullah Bilgin Spor Salonu",
+    "city": "Nurdağı",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1138986717",
+    "in_production": false
+  },
+  {
+    "id": "tr_6fe239dafb",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Hacıbektaş",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=168408679",
+    "in_production": false
+  },
+  {
+    "id": "tr_002cec01c7",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Niğde",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=321507988",
+    "in_production": false
+  },
+  {
+    "id": "tr_25b14d26ee",
+    "brand": "SYAL spor salonu",
+    "name": "SYAL spor salonu",
+    "city": "Kocasinan",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=407707592",
+    "in_production": false
+  },
+  {
+    "id": "tr_4c12138545",
+    "brand": "Develi Lisesi Açık Hava Spor Salonu",
+    "name": "Develi Lisesi Açık Hava Spor Salonu",
+    "city": "Develi",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=13514905901",
+    "in_production": false
+  },
+  {
+    "id": "tr_bb7e5239c3",
+    "brand": "80.Yıl Cumhuriyet Spor Salonu",
+    "name": "80.Yıl Cumhuriyet Spor Salonu",
+    "city": "Yahyalı",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=150242846",
+    "in_production": false
+  },
+  {
+    "id": "tr_537947e737",
+    "brand": "İlhan Spor Salonu",
+    "name": "İlhan Spor Salonu",
+    "city": "Niğde",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=13233622403",
+    "in_production": false
+  },
+  {
+    "id": "tr_e05ea63d36",
+    "brand": "75.YIL SPOR SALONU",
+    "name": "75.YIL SPOR SALONU",
+    "city": "Niğde",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=320703616",
+    "in_production": false
+  },
+  {
+    "id": "tr_816ada08c1",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Karaman",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=386119427",
+    "in_production": false
+  },
+  {
+    "id": "tr_ea4a83c1a2",
+    "brand": "Mersin Özel Spor Salonu",
+    "name": "Mersin Özel Spor Salonu",
+    "city": "Akdeniz",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=704966234",
+    "in_production": false
+  },
+  {
+    "id": "tr_1da6ba8af4",
+    "brand": "Hacı Aldatmaz Spor Salonu",
+    "name": "Hacı Aldatmaz Spor Salonu",
+    "city": "Karaisalı",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=688249963",
+    "in_production": false
+  },
+  {
+    "id": "tr_2de7c1f53f",
+    "brand": "Sakıp Sabancı Spor ve Sergi Salonu",
+    "name": "Sakıp Sabancı Spor ve Sergi Salonu",
+    "city": "Sarıçam",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=49433527",
+    "in_production": false
+  },
+  {
+    "id": "tr_df76b7dd05",
+    "brand": "Lütfulla Aksungur Spor Salonu",
+    "name": "Lütfulla Aksungur Spor Salonu",
+    "city": "Sarıçam",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=49437969",
+    "in_production": false
+  },
+  {
+    "id": "tr_3b2b1bfde0",
+    "brand": "Gym Life",
+    "name": "Gym Life",
+    "city": "Mersin",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=6334078248",
+    "in_production": false
+  },
+  {
+    "id": "tr_c8aa25f2da",
+    "brand": "Kadıköy Belediyesi Caferağa Spor Salonu",
+    "name": "Kadıköy Belediyesi Caferağa Spor Salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=8847860",
+    "in_production": false
+  },
+  {
+    "id": "tr_b80c6f49ed",
+    "brand": "Beyoğlu Belediyesi Cihangir Spor Salonu",
+    "name": "Beyoğlu Belediyesi Cihangir Spor Salonu",
+    "city": "Beyoğlu",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=11521914912",
+    "in_production": false
+  },
+  {
+    "id": "tr_1d08837c4c",
+    "brand": "Atlas spor salonu",
+    "name": "Atlas spor salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=5243952625",
+    "in_production": false
+  },
+  {
+    "id": "tr_59990714d8",
+    "brand": "Gelenvevi Anadolu Lisesi Spor Salonu",
+    "name": "Gelenvevi Anadolu Lisesi Spor Salonu",
+    "city": "Fatih",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1206730294",
+    "in_production": false
+  },
+  {
+    "id": "tr_9884e5353c",
+    "brand": "Vefa Küçük Spor Salonu",
+    "name": "Vefa Küçük Spor Salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=110311525",
+    "in_production": false
+  },
+  {
+    "id": "tr_cb3a0c6aa5",
+    "brand": "Metin aydın spor salonu",
+    "name": "Metin aydın spor salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=6190558853",
+    "in_production": false
+  },
+  {
+    "id": "tr_751f315b6c",
+    "brand": "İstanbul Üsküdar Lisesi Spor Salonu",
+    "name": "İstanbul Üsküdar Lisesi Spor Salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=659499245",
+    "in_production": false
+  },
+  {
+    "id": "tr_c59f10a537",
+    "brand": "Kabataş Erkek Lisesi Spor Salonu",
+    "name": "Kabataş Erkek Lisesi Spor Salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=580441735",
+    "in_production": false
+  },
+  {
+    "id": "tr_fa910c85aa",
+    "brand": "Okul Spor Salonu",
+    "name": "Okul Spor Salonu",
+    "city": "Fatih",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=19843211",
+    "in_production": false
+  },
+  {
+    "id": "tr_6e4ffb8736",
+    "brand": "Çapa Fen Lisesi Spor Salonu",
+    "name": "Çapa Fen Lisesi Spor Salonu",
+    "city": "Fatih",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=521335168",
+    "in_production": false
+  },
+  {
+    "id": "tr_40146a31d0",
+    "brand": "Özdemir Sabancı Spor Salonu",
+    "name": "Özdemir Sabancı Spor Salonu",
+    "city": "Üsküdar",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1076697532",
+    "in_production": false
+  },
+  {
+    "id": "tr_0e53f43a2d",
+    "brand": "Abdi İpekçi Spor Salonu",
+    "name": "Abdi İpekçi Spor Salonu",
+    "city": "Zeytinburnu",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=13167979531",
+    "in_production": false
+  },
+  {
+    "id": "tr_ba5b17ee0d",
+    "brand": "Akyüz Spor Salonu",
+    "name": "Akyüz Spor Salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=5667643002",
+    "in_production": false
+  },
+  {
+    "id": "tr_e2901c4eb4",
+    "brand": "Serdar Aksun Okulu spor salonu",
+    "name": "Serdar Aksun Okulu spor salonu",
+    "city": "Eyüpsultan",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1029656308",
+    "in_production": false
+  },
+  {
+    "id": "tr_88864d2597",
+    "brand": "Tozkoparan Spor Salonu",
+    "name": "Tozkoparan Spor Salonu",
+    "city": "Güngören",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=6753096942",
+    "in_production": false
+  },
+  {
+    "id": "tr_a8c798f400",
+    "brand": "Semih Erden Spor Salonu",
+    "name": "Semih Erden Spor Salonu",
+    "city": "Bayrampaşa",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=724636818",
+    "in_production": false
+  },
+  {
+    "id": "tr_896bc0f659",
+    "brand": "Yurt Spor Salonu",
+    "name": "Yurt Spor Salonu",
+    "city": "Güngören",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=13701504401",
+    "in_production": false
+  },
+  {
+    "id": "tr_7c9e79355e",
+    "brand": "Ümit Meriç Kiz Anadolu İmam Hatip Lisesi Spor Salonu",
+    "name": "Ümit Meriç Kiz Anadolu İmam Hatip Lisesi Spor Salonu",
+    "city": "Ataşehir",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=12806095401",
+    "in_production": false
+  },
+  {
+    "id": "tr_e4aaaddc26",
+    "brand": "Güngören MTAL Spor Salonu",
+    "name": "Güngören MTAL Spor Salonu",
+    "city": "Güngören",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1250415583",
+    "in_production": false
+  },
+  {
+    "id": "tr_14127a4f59",
+    "brand": "Zeytinburnu Belediyesi Spor Salonu",
+    "name": "Zeytinburnu Belediyesi Spor Salonu",
+    "city": "Zeytinburnu",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1353152271",
+    "in_production": false
+  },
+  {
+    "id": "tr_53e0fef708",
+    "brand": "İmece İlkokulu Spor Salonu",
+    "name": "İmece İlkokulu Spor Salonu",
+    "city": "Kâğıthane",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1324372022",
+    "in_production": false
+  },
+  {
+    "id": "tr_2571e3db88",
+    "brand": "Sancak Spor Salonu",
+    "name": "Sancak Spor Salonu",
+    "city": "Bayrampaşa",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=498796937",
+    "in_production": false
+  },
+  {
+    "id": "tr_1c6421b64a",
+    "brand": "Merkez Spor Salonu",
+    "name": "Merkez Spor Salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=145819342",
+    "in_production": false
+  },
+  {
+    "id": "tr_d8398b61bf",
+    "brand": "Eczacıbaşı Spor Salonu",
+    "name": "Eczacıbaşı Spor Salonu",
+    "city": "Sarıyer",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1067748016",
+    "in_production": false
+  },
+  {
+    "id": "tr_b21a1cb9f5",
+    "brand": "Orhangazi Spor Salonu",
+    "name": "Orhangazi Spor Salonu",
+    "city": "Sultangazi",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=1077198444",
+    "in_production": false
+  },
+  {
+    "id": "tr_bc70fa4734",
+    "brand": "Sinan Erdem Spor Salonu",
+    "name": "Sinan Erdem Spor Salonu",
+    "city": "Bakırköy",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=13168101373",
+    "in_production": false
+  },
+  {
+    "id": "tr_3506f62dcf",
+    "brand": "Vadi Yurtları Spor Salonu",
+    "name": "Vadi Yurtları Spor Salonu",
+    "city": "Sarıyer",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=249589121",
+    "in_production": false
+  },
+  {
+    "id": "tr_d37141e5bb",
+    "brand": "Spor Salonu",
+    "name": "Spor Salonu",
+    "city": "Tuzla",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=440653275",
+    "in_production": false
+  },
+  {
+    "id": "tr_ffa3319a7a",
+    "brand": "İstanbul Büyükşehir Belediyesi Spor Salonu",
+    "name": "İstanbul Büyükşehir Belediyesi Spor Salonu",
+    "city": "Ataşehir",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=691957223",
+    "in_production": false
+  },
+  {
+    "id": "tr_50fc99f4d8",
+    "brand": "Ağaoğlu Spor Salonu",
+    "name": "Ağaoğlu Spor Salonu",
+    "city": "Çekmeköy",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=2258710175",
+    "in_production": false
+  },
+  {
+    "id": "tr_552d72d70c",
+    "brand": "Şamil Gülan Spor Salonu",
+    "name": "Şamil Gülan Spor Salonu",
+    "city": "Sancaktepe",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=813721010",
+    "in_production": false
+  },
+  {
+    "id": "tr_10dfd74ad7",
+    "brand": "Çekmeköy Spor Salonu",
+    "name": "Çekmeköy Spor Salonu",
+    "city": "Çekmeköy",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=11668679616",
+    "in_production": false
+  },
+  {
+    "id": "tr_6534a0258a",
+    "brand": "Yakacık İTO Spor Salonu",
+    "name": "Yakacık İTO Spor Salonu",
+    "city": "İstanbul",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=548728974",
+    "in_production": false
+  },
+  {
+    "id": "tr_8a00530a6c",
+    "brand": "Fatin Rüştü Zorlu Anadolu Lisesi Spor Salonu",
+    "name": "Fatin Rüştü Zorlu Anadolu Lisesi Spor Salonu",
+    "city": "Kartal",
+    "phase1_category": "PHASE2_DISCOVERY",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "phase2_photon; osm_id=491112846",
+    "in_production": false
+  }
+]

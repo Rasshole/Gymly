@@ -22,6 +22,7 @@ import DateTimePicker, {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, sheet} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 import {SheetHandle} from './SheetHandle';
 
 /** UIDatePicker wheels er typisk 216pt; lidt ekstra undgår clipping i Modal. */
@@ -57,8 +58,11 @@ const TimePickerSheet: React.FC<TimePickerSheetProps> = ({
   onClose,
   onConfirm,
   minuteInterval = 15,
-  title = 'Tid',
+  title,
 }) => {
+  const {t, intlLocale} = useTranslation();
+  const pickerLocale = intlLocale.replace('-', '_');
+  const sheetTitle = title ?? t('timePicker.title');
   const insets = useSafeAreaInsets();
   const [draft, setDraft] = useState(() => new Date(value));
 
@@ -109,7 +113,11 @@ const TimePickerSheet: React.FC<TimePickerSheetProps> = ({
       statusBarTranslucent
       onRequestClose={onClose}>
       <View style={styles.overlay} pointerEvents="box-none">
-        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessibilityLabel="Luk" />
+        <Pressable
+          style={StyleSheet.absoluteFill}
+          onPress={onClose}
+          accessibilityLabel={t('timePicker.closeA11y')}
+        />
         <View
           style={[
             styles.sheet,
@@ -118,11 +126,11 @@ const TimePickerSheet: React.FC<TimePickerSheetProps> = ({
           <SheetHandle />
           <View style={styles.header}>
             <Pressable onPress={onClose} hitSlop={12} style={styles.headerBtn}>
-              <Text style={styles.cancelText}>Annuller</Text>
+              <Text style={styles.cancelText}>{t('timePicker.cancel')}</Text>
             </Pressable>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{sheetTitle}</Text>
             <Pressable onPress={commit} hitSlop={12} style={styles.headerBtn}>
-              <Text style={styles.okText}>OK</Text>
+              <Text style={styles.okText}>{t('timePicker.ok')}</Text>
             </Pressable>
           </View>
 
@@ -139,7 +147,7 @@ const TimePickerSheet: React.FC<TimePickerSheetProps> = ({
                   setDraft(d);
                 }
               }}
-              locale="da_DK"
+              locale={pickerLocale}
               themeVariant="light"
               style={styles.pickerNative}
             />

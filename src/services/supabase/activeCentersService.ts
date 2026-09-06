@@ -15,6 +15,7 @@ import {
   isEffectiveActiveCheckIn,
   runStaleActiveSessionCleanup,
 } from '@/services/supabase/activeSessionsSync';
+import {getIntlLocale, getRuntimeLanguage} from '@/i18n';
 
 type CheckInActiveRow = {
   id: string;
@@ -27,6 +28,9 @@ type CheckInActiveRow = {
   last_seen_at?: string | null;
   is_active?: boolean;
   ended_at?: string | null;
+  live_exercise_name?: string | null;
+  live_set_count?: number | null;
+  live_exercise_count?: number | null;
 };
 
 function toSession(
@@ -40,6 +44,9 @@ function toSession(
     workoutType: r.workout_type,
     startedAt: r.started_at,
     avatarUrl: avatars.get(r.user_id)?.avatarUrl ?? null,
+    liveExerciseName: r.live_exercise_name ?? null,
+    liveSetCount: r.live_set_count ?? null,
+    liveExerciseCount: r.live_exercise_count ?? null,
   };
 }
 
@@ -61,7 +68,10 @@ function sortActiveCenters(a: ActiveCenter, b: ActiveCenter): number {
   if (da == null && db != null) {
     return 1;
   }
-  return a.displayName.localeCompare(b.displayName, 'da');
+  return a.displayName.localeCompare(
+    b.displayName,
+    getIntlLocale(getRuntimeLanguage()),
+  );
 }
 
 export function mapSessionToUserPresence(s: ActiveCenterSession): UserPresence {
@@ -78,6 +88,9 @@ export function mapSessionToUserPresence(s: ActiveCenterSession): UserPresence {
     name: s.displayName,
     avatar: s.avatarUrl ?? undefined,
     workoutType: s.workoutType ?? undefined,
+    liveExerciseName: s.liveExerciseName,
+    liveSetCount: s.liveSetCount,
+    liveExerciseCount: s.liveExerciseCount,
     status,
     lastActivity: new Date(s.startedAt),
     minutesAgo,
@@ -108,7 +121,7 @@ export async function loadActiveCentersData(
     supabase
       .from('check_ins')
       .select(
-        'id, user_id, gym_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name',
+        'id, user_id, gym_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name, live_exercise_name, live_set_count, live_exercise_count',
       )
       .eq('is_active', true)
       .is('ended_at', null),

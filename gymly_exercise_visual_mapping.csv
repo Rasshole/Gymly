@@ -1,0 +1,226 @@
+exercise_id,exercise_name,primary_muscle_group,equipment,visual_family,recommended_view,primary_muscles_to_highlight,secondary_muscles_to_highlight,needs_unique_illustration,asset_key
+ex-bench-press,Bench Press,chest,barbell,bench_press_barbell,3/4 side,chest,"front_delts,triceps",false,bench_press_barbell
+ex-incline-bench,Incline Bench Press,chest,barbell,bench_press_barbell,3/4 side,upper_chest,"front_delts,triceps",false,bench_press_barbell_incline
+ex-chest-press,Chest Press,chest,machine,chest_press_machine,front 3/4,chest,"front_delts,triceps",false,chest_press_machine
+ex-cable-fly,Cable Fly,chest,cable,chest_fly_cable,front,chest,front_delts,false,chest_fly_cable
+ex-push-up,Push-Up,chest,bodyweight,push_up,3/4 side,chest,"triceps,front_delts,core",false,push_up
+ex-lat-pulldown,Lat Pulldown,back,cable,lat_pulldown,front 3/4,lats,"biceps,upper_back",false,lat_pulldown
+ex-pull-up,Pull-Up,back,bodyweight,pull_up,back 3/4,lats,"biceps,rear_delts,upper_back",false,pull_up
+ex-barbell-row,Barbell Row,back,barbell,barbell_row,3/4 side,"lats,mid_back","biceps,rear_delts,erectors",false,barbell_row
+ex-seated-row,Seated Cable Row,back,cable,seated_cable_row,3/4 side,"mid_back,lats","biceps,rear_delts",false,seated_cable_row
+ex-db-row,Dumbbell Row,back,dumbbell,dumbbell_row,3/4 side,"lats,mid_back","biceps,rear_delts",false,dumbbell_row
+ex-squat,Squat,quads,barbell,squat_back_barbell,3/4 side,quads,"glutes,hamstrings,core",false,squat_back_barbell
+ex-leg-press,Leg Press,quads,machine,leg_press,3/4 side,quads,"glutes,hamstrings",false,leg_press
+ex-rdl,Romanian Deadlift,hamstrings,barbell,rdl,3/4 side,"hamstrings,glutes","erectors,forearms",false,rdl_barbell
+ex-leg-ext,Leg Extension,quads,machine,leg_extension,3/4 side,quads,,false,leg_extension
+ex-leg-curl,Leg Curl,hamstrings,machine,leg_curl,3/4 side,hamstrings,calves,false,leg_curl_lying
+ex-calf,Calf Raise,calves,machine,calf_raise_standing,3/4 side,calves,,false,calf_raise_standing
+ex-shoulder-press,Shoulder Press,shoulders,dumbbell,shoulder_press_dumbbell,front 3/4,"front_delts,side_delts","triceps,upper_chest",false,shoulder_press_dumbbell
+ex-lateral-raise,Lateral Raise,shoulders,dumbbell,lateral_raise_dumbbell,front,side_delts,traps,false,lateral_raise_dumbbell
+ex-rear-delt,Rear Delt Fly,shoulders,dumbbell,rear_delt_fly_dumbbell,3/4 rear,rear_delts,upper_back,false,rear_delt_fly_dumbbell
+ex-biceps-curl,Biceps Curl,biceps,dumbbell,curl_dumbbell,3/4 side,biceps,forearms,false,curl_dumbbell
+ex-hammer-curl,Hammer Curl,biceps,dumbbell,curl_hammer,3/4 side,"brachialis,biceps",forearms,false,curl_hammer
+ex-triceps-pushdown,Triceps Pushdown,triceps,cable,tricep_pushdown,3/4 side,triceps,forearms,false,tricep_pushdown
+ex-skull-crusher,Skull Crusher,triceps,barbell,skull_crusher,3/4 side,triceps,,false,skull_crusher
+ex-hip-thrust,Hip Thrust,glutes,barbell,hip_thrust,3/4 side,glutes,"hamstrings,core",false,hip_thrust_barbell
+ex-bulgarian,Bulgarian Split Squat,glutes,dumbbell,bulgarian_split_squat,3/4 side,"quads,glutes","hamstrings,core",false,bulgarian_split_squat
+ex-hip-abd,Hip Abduction,glutes,machine,hip_abduction,front,glutes_medius,glutes,false,hip_abduction_machine
+ex-plank,Plank,core,bodyweight,plank,3/4 side,core,"shoulders,glutes",false,plank
+ex-cable-crunch,Cable Crunch,core,cable,crunch_cable,3/4 side,abs,,true,crunch_cable
+ex-leg-raise,Leg Raise,core,bodyweight,leg_raise_lying,3/4 side,lower_abs,hip_flexors,false,leg_raise_lying
+ex-running,Running,cardio,cardio_machine,running,3/4 side,cardio_legs,core,false,running_treadmill
+ex-cycling,Cycling,cardio,cardio_machine,bike,3/4 side,cardio_legs,core,false,bike_stationary
+ex-stairmaster,Stairmaster,cardio,cardio_machine,stair_climber,3/4 side,"cardio_legs,glutes",core,true,stair_climber
+ex-rowing,Rowing,cardio,cardio_machine,rower,3/4 side,cardio_full_body,"back,legs,core",true,rower
+ex-decline-barbell-bench-press,Decline Barbell Bench Press,chest,barbell,bench_press_barbell,3/4 side,lower_chest,"triceps,front_delts",false,bench_press_barbell_decline
+ex-close-grip-bench-press,Close Grip Bench Press,chest,barbell,bench_press_barbell,3/4 side,"triceps,chest",front_delts,false,bench_press_barbell
+ex-dumbbell-bench-press,Dumbbell Bench Press,chest,dumbbell,bench_press_dumbbell,3/4 side,chest,"front_delts,triceps",false,bench_press_dumbbell
+ex-incline-dumbbell-bench-press,Incline Dumbbell Bench Press,chest,dumbbell,bench_press_dumbbell,3/4 side,upper_chest,"front_delts,triceps",false,bench_press_dumbbell_incline
+ex-decline-dumbbell-bench-press,Decline Dumbbell Bench Press,chest,dumbbell,bench_press_dumbbell,3/4 side,lower_chest,"triceps,front_delts",false,bench_press_dumbbell_decline
+ex-dumbbell-fly,Dumbbell Fly,chest,dumbbell,chest_fly_dumbbell,top-down 3/4,chest,front_delts,false,chest_fly_dumbbell
+ex-incline-dumbbell-fly,Incline Dumbbell Fly,chest,dumbbell,chest_fly_dumbbell,top-down 3/4,upper_chest,front_delts,false,chest_fly_dumbbell_incline
+ex-incline-chest-press-machine,Incline Chest Press Machine,chest,machine,chest_press_machine,front 3/4,upper_chest,"front_delts,triceps",false,chest_press_machine_incline
+ex-decline-chest-press-machine,Decline Chest Press Machine,chest,machine,chest_press_machine,front 3/4,lower_chest,"triceps,front_delts",false,chest_press_machine_decline
+ex-plate-loaded-chest-press,Plate Loaded Chest Press,chest,machine,chest_press_machine,front 3/4,chest,"front_delts,triceps",false,chest_press_machine
+ex-smith-machine-bench-press,Smith Machine Bench Press,chest,smith,bench_press_smith,3/4 side,chest,"front_delts,triceps",false,bench_press_smith
+ex-smith-machine-incline-bench-press,Smith Machine Incline Bench Press,chest,smith,bench_press_smith,3/4 side,upper_chest,"front_delts,triceps",false,bench_press_smith_incline
+ex-low-to-high-cable-fly,Low to High Cable Fly,chest,cable,chest_fly_cable,front,upper_chest,front_delts,false,chest_fly_cable_low_to_high
+ex-high-to-low-cable-fly,High to Low Cable Fly,chest,cable,chest_fly_cable,front,lower_chest,front_delts,false,chest_fly_cable_high_to_low
+ex-pec-deck,Pec Deck,chest,machine,pec_deck,front,chest,front_delts,true,pec_deck
+ex-weighted-push-up,Weighted Push-Up,chest,bodyweight,push_up,3/4 side,chest,"triceps,front_delts,core",false,push_up
+ex-chest-dip,Chest Dip,chest,bodyweight,dip,3/4 side,chest,"triceps,front_delts",true,dip_chest
+ex-chin-up,Chin-Up,back,bodyweight,pull_up,back 3/4,"lats,biceps",upper_back,false,chin_up
+ex-neutral-grip-pull-up,Neutral Grip Pull-Up,back,bodyweight,pull_up,back 3/4,lats,"biceps,upper_back",false,pull_up
+ex-assisted-pull-up,Assisted Pull-Up,back,machine,pull_up_assisted,back 3/4,lats,"biceps,upper_back",true,pull_up_assisted
+ex-weighted-pull-up,Weighted Pull-Up,back,bodyweight,pull_up,back 3/4,lats,"biceps,rear_delts,upper_back",false,pull_up
+ex-wide-grip-lat-pulldown,Wide Grip Lat Pulldown,back,cable,lat_pulldown,front 3/4,lats,"biceps,upper_back",false,lat_pulldown
+ex-close-grip-lat-pulldown,Close Grip Lat Pulldown,back,cable,lat_pulldown,front 3/4,lats,"biceps,upper_back",false,lat_pulldown
+ex-neutral-grip-lat-pulldown,Neutral Grip Lat Pulldown,back,cable,lat_pulldown,front 3/4,lats,"biceps,upper_back",false,lat_pulldown
+ex-single-arm-lat-pulldown,Single Arm Lat Pulldown,back,cable,lat_pulldown,front 3/4,lats,"biceps,upper_back",false,lat_pulldown_single_arm
+ex-straight-arm-pulldown,Straight Arm Pulldown,back,cable,straight_arm_pulldown,3/4 side,lats,"triceps,core",true,straight_arm_pulldown
+ex-wide-grip-seated-cable-row,Wide Grip Seated Cable Row,back,cable,seated_cable_row,3/4 side,"mid_back,lats","biceps,rear_delts",false,seated_cable_row
+ex-close-grip-seated-cable-row,Close Grip Seated Cable Row,back,cable,seated_cable_row,3/4 side,"mid_back,lats","biceps,rear_delts",false,seated_cable_row
+ex-single-arm-cable-row,Single Arm Cable Row,back,cable,seated_cable_row,3/4 side,"lats,mid_back","biceps,rear_delts",false,cable_row_single_arm
+ex-pendlay-row,Pendlay Row,back,barbell,barbell_row,3/4 side,"lats,mid_back","biceps,rear_delts,erectors",false,barbell_row
+ex-t-bar-row,T-Bar Row,back,barbell,t_bar_row,3/4 side,"mid_back,lats","biceps,rear_delts",true,t_bar_row
+ex-chest-supported-t-bar-row,Chest Supported T-Bar Row,back,machine,t_bar_row,3/4 side,"mid_back,lats","biceps,rear_delts",true,t_bar_row_chest_supported
+ex-single-arm-dumbbell-row,Single Arm Dumbbell Row,back,dumbbell,dumbbell_row,3/4 side,"lats,mid_back","biceps,rear_delts",false,dumbbell_row
+ex-chest-supported-dumbbell-row,Chest Supported Dumbbell Row,back,dumbbell,dumbbell_row,3/4 side,"lats,mid_back","biceps,rear_delts",true,dumbbell_row_chest_supported
+ex-machine-row,Machine Row,back,machine,machine_row,3/4 side,"mid_back,lats","biceps,rear_delts",false,machine_row
+ex-plate-loaded-row,Plate Loaded Row,back,machine,machine_row,3/4 side,"mid_back,lats","biceps,rear_delts",false,machine_row
+ex-high-row-machine,High Row Machine,back,machine,machine_row,3/4 side,"upper_back,lats","rear_delts,biceps",false,machine_row_high
+ex-low-row-machine,Low Row Machine,back,machine,machine_row,3/4 side,"mid_back,lats","biceps,rear_delts",false,machine_row
+ex-iso-lateral-row,Iso-Lateral Row,back,machine,machine_row,3/4 side,"lats,mid_back","biceps,rear_delts",false,machine_row
+ex-meadows-row,Meadows Row,back,barbell,meadows_row,3/4 side,"lats,mid_back","biceps,rear_delts",true,meadows_row
+ex-rack-pull,Rack Pull,back,barbell,deadlift_rack_pull,3/4 side,"back,traps","glutes,forearms",true,deadlift_rack_pull
+ex-conventional-deadlift,Conventional Deadlift,back,barbell,deadlift_conventional,3/4 side,"posterior_chain,back","glutes,hamstrings,traps,forearms",true,deadlift_conventional
+ex-back-extension,Back Extension,back,machine,back_extension,3/4 side,erectors,"glutes,hamstrings",false,back_extension
+ex-machine-back-extension,Machine Back Extension,back,machine,back_extension,3/4 side,erectors,"glutes,hamstrings",false,back_extension
+ex-dumbbell-pullover,Dumbbell Pullover,back,dumbbell,pullover,3/4 side,"lats,chest",triceps,true,pullover_dumbbell
+ex-machine-pullover,Machine Pullover,back,machine,pullover,3/4 side,"lats,chest",triceps,true,pullover_machine
+ex-barbell-overhead-press,Barbell Overhead Press,shoulders,barbell,shoulder_press_barbell,3/4 side,"front_delts,side_delts","triceps,upper_chest,core",false,shoulder_press_barbell
+ex-seated-barbell-shoulder-press,Seated Barbell Shoulder Press,shoulders,barbell,shoulder_press_barbell,front 3/4,"front_delts,side_delts",triceps,false,shoulder_press_barbell
+ex-dumbbell-shoulder-press,Dumbbell Shoulder Press,shoulders,dumbbell,shoulder_press_dumbbell,front 3/4,"front_delts,side_delts","triceps,upper_chest",false,shoulder_press_dumbbell
+ex-seated-dumbbell-shoulder-press,Seated Dumbbell Shoulder Press,shoulders,dumbbell,shoulder_press_dumbbell,front 3/4,"front_delts,side_delts",triceps,false,shoulder_press_dumbbell
+ex-arnold-press,Arnold Press,shoulders,dumbbell,arnold_press,front 3/4,"front_delts,side_delts",triceps,true,arnold_press
+ex-machine-shoulder-press,Machine Shoulder Press,shoulders,machine,shoulder_press_machine,front 3/4,"front_delts,side_delts",triceps,true,shoulder_press_machine
+ex-smith-machine-shoulder-press,Smith Machine Shoulder Press,shoulders,smith,shoulder_press_smith,front 3/4,"front_delts,side_delts",triceps,false,shoulder_press_smith
+ex-cable-lateral-raise,Cable Lateral Raise,shoulders,cable,lateral_raise_cable,front 3/4,side_delts,traps,false,lateral_raise_cable
+ex-single-arm-cable-lateral-raise,Single Arm Cable Lateral Raise,shoulders,cable,lateral_raise_cable,front 3/4,side_delts,traps,false,lateral_raise_cable
+ex-machine-lateral-raise,Machine Lateral Raise,shoulders,machine,lateral_raise_machine,front,side_delts,traps,true,lateral_raise_machine
+ex-dumbbell-front-raise,Dumbbell Front Raise,shoulders,dumbbell,front_raise,3/4 side,front_delts,upper_chest,false,front_raise
+ex-cable-front-raise,Cable Front Raise,shoulders,cable,front_raise,3/4 side,front_delts,upper_chest,false,front_raise
+ex-plate-front-raise,Plate Front Raise,shoulders,other,front_raise,3/4 side,front_delts,upper_chest,false,front_raise
+ex-reverse-pec-deck,Reverse Pec Deck,shoulders,machine,reverse_pec_deck,front,rear_delts,upper_back,true,reverse_pec_deck
+ex-cable-rear-delt-fly,Cable Rear Delt Fly,shoulders,cable,rear_delt_fly_cable,3/4 rear,rear_delts,upper_back,false,rear_delt_fly_cable
+ex-face-pull,Face Pull,shoulders,cable,face_pull,front 3/4,"rear_delts,upper_back","rotator_cuff,biceps",true,face_pull
+ex-upright-row,Upright Row,shoulders,barbell,upright_row,front,"side_delts,traps",biceps,false,upright_row
+ex-dumbbell-upright-row,Dumbbell Upright Row,shoulders,dumbbell,upright_row,front,"side_delts,traps",biceps,false,upright_row
+ex-barbell-curl,Barbell Curl,biceps,barbell,curl_barbell,3/4 side,biceps,forearms,false,curl_barbell
+ex-ez-bar-curl,EZ Bar Curl,biceps,barbell,curl_barbell,3/4 side,biceps,forearms,false,curl_barbell
+ex-dumbbell-curl,Dumbbell Curl,biceps,dumbbell,curl_dumbbell,3/4 side,biceps,forearms,false,curl_dumbbell
+ex-alternating-dumbbell-curl,Alternating Dumbbell Curl,biceps,dumbbell,curl_dumbbell,3/4 side,biceps,forearms,false,curl_dumbbell
+ex-cross-body-hammer-curl,Cross Body Hammer Curl,biceps,dumbbell,curl_hammer,3/4 side,"brachialis,biceps",forearms,false,curl_hammer
+ex-incline-dumbbell-curl,Incline Dumbbell Curl,biceps,dumbbell,curl_dumbbell_incline,3/4 side,biceps,forearms,true,curl_dumbbell_incline
+ex-preacher-curl,Preacher Curl,biceps,barbell,curl_preacher,3/4 side,biceps,forearms,false,curl_preacher
+ex-ez-bar-preacher-curl,EZ Bar Preacher Curl,biceps,barbell,curl_preacher,3/4 side,biceps,forearms,false,curl_preacher
+ex-dumbbell-preacher-curl,Dumbbell Preacher Curl,biceps,dumbbell,curl_preacher,3/4 side,biceps,forearms,false,curl_preacher
+ex-machine-preacher-curl,Machine Preacher Curl,biceps,machine,curl_preacher,3/4 side,biceps,forearms,false,curl_preacher_machine
+ex-cable-curl,Cable Curl,biceps,cable,curl_cable,3/4 side,biceps,forearms,false,curl_cable
+ex-straight-bar-cable-curl,Straight Bar Cable Curl,biceps,cable,curl_cable,3/4 side,biceps,forearms,false,curl_cable
+ex-rope-hammer-curl,Rope Hammer Curl,biceps,cable,curl_cable,3/4 side,"brachialis,biceps",forearms,false,curl_cable
+ex-bayesian-cable-curl,Bayesian Cable Curl,biceps,cable,curl_cable,3/4 side,biceps,forearms,true,curl_cable_bayesian
+ex-concentration-curl,Concentration Curl,biceps,dumbbell,curl_concentration,3/4 side,biceps,forearms,true,curl_concentration
+ex-spider-curl,Spider Curl,biceps,barbell,curl_spider,3/4 side,biceps,forearms,true,curl_spider
+ex-reverse-curl,Reverse Curl,biceps,barbell,curl_reverse,3/4 side,"forearms,brachialis",biceps,true,curl_reverse
+ex-rope-tricep-pushdown,Rope Tricep Pushdown,triceps,cable,tricep_pushdown,3/4 side,triceps,forearms,false,tricep_pushdown
+ex-straight-bar-tricep-pushdown,Straight Bar Tricep Pushdown,triceps,cable,tricep_pushdown,3/4 side,triceps,forearms,false,tricep_pushdown
+ex-v-bar-tricep-pushdown,V-Bar Tricep Pushdown,triceps,cable,tricep_pushdown,3/4 side,triceps,forearms,false,tricep_pushdown
+ex-single-arm-tricep-pushdown,Single Arm Tricep Pushdown,triceps,cable,tricep_pushdown,3/4 side,triceps,forearms,false,tricep_pushdown
+ex-reverse-grip-tricep-pushdown,Reverse Grip Tricep Pushdown,triceps,cable,tricep_pushdown,3/4 side,triceps,forearms,false,tricep_pushdown
+ex-overhead-cable-tricep-extension,Overhead Cable Tricep Extension,triceps,cable,tricep_overhead,3/4 side,triceps,core,false,tricep_overhead_cable
+ex-rope-overhead-tricep-extension,Rope Overhead Tricep Extension,triceps,cable,tricep_overhead,3/4 side,triceps,core,false,tricep_overhead_cable
+ex-dumbbell-overhead-tricep-extension,Dumbbell Overhead Tricep Extension,triceps,dumbbell,tricep_overhead,3/4 side,triceps,,false,tricep_overhead_dumbbell
+ex-single-arm-dumbbell-tricep-extension,Single Arm Dumbbell Tricep Extension,triceps,dumbbell,tricep_overhead,3/4 side,triceps,,false,tricep_overhead_dumbbell
+ex-ez-bar-skull-crusher,EZ Bar Skull Crusher,triceps,barbell,skull_crusher,3/4 side,triceps,,false,skull_crusher
+ex-dumbbell-skull-crusher,Dumbbell Skull Crusher,triceps,dumbbell,skull_crusher,3/4 side,triceps,,false,skull_crusher_dumbbell
+ex-lying-tricep-extension,Lying Tricep Extension,triceps,barbell,skull_crusher,3/4 side,triceps,,false,skull_crusher
+ex-tricep-dip,Tricep Dip,triceps,bodyweight,dip,3/4 side,triceps,"chest,front_delts",true,dip_tricep
+ex-bench-dip,Bench Dip,triceps,bodyweight,dip_bench,3/4 side,triceps,"chest,front_delts",true,dip_bench
+ex-tricep-extension-machine,Tricep Extension Machine,triceps,machine,tricep_extension_machine,3/4 side,triceps,,true,tricep_extension_machine
+ex-barbell-front-squat,Barbell Front Squat,quads,barbell,squat_front_barbell,3/4 side,quads,"core,glutes,upper_back",true,squat_front_barbell
+ex-high-bar-squat,High Bar Squat,quads,barbell,squat_back_barbell,3/4 side,quads,"glutes,hamstrings,core",false,squat_back_barbell
+ex-low-bar-squat,Low Bar Squat,quads,barbell,squat_back_barbell,3/4 side,"quads,glutes","hamstrings,core",false,squat_back_barbell
+ex-smith-machine-squat,Smith Machine Squat,quads,smith,squat_smith,3/4 side,quads,"glutes,hamstrings",false,squat_smith
+ex-hack-squat,Hack Squat,quads,machine,squat_hack,3/4 side,quads,glutes,true,squat_hack
+ex-pendulum-squat,Pendulum Squat,quads,machine,squat_pendulum,3/4 side,quads,glutes,true,squat_pendulum
+ex-belt-squat,Belt Squat,quads,machine,squat_belt,3/4 front,quads,glutes,true,squat_belt
+ex-goblet-squat,Goblet Squat,quads,dumbbell,squat_goblet,3/4 front,quads,"glutes,core",true,squat_goblet
+ex-45-degree-leg-press,45 Degree Leg Press,quads,machine,leg_press,3/4 side,quads,"glutes,hamstrings",false,leg_press
+ex-horizontal-leg-press,Horizontal Leg Press,quads,machine,leg_press,side,quads,"glutes,hamstrings",false,leg_press_horizontal
+ex-single-leg-press,Single Leg Press,quads,machine,leg_press,3/4 side,quads,"glutes,hamstrings",false,leg_press
+ex-single-leg-extension,Single Leg Extension,quads,machine,leg_extension,3/4 side,quads,,false,leg_extension
+ex-dumbbell-bulgarian-split-squat,Dumbbell Bulgarian Split Squat,quads,dumbbell,bulgarian_split_squat,3/4 side,"quads,glutes","hamstrings,core",false,bulgarian_split_squat
+ex-smith-machine-bulgarian-split-squat,Smith Machine Bulgarian Split Squat,quads,smith,bulgarian_split_squat,3/4 side,"quads,glutes","hamstrings,core",false,bulgarian_split_squat
+ex-walking-lunge,Walking Lunge,quads,dumbbell,lunge,3/4 side,"quads,glutes","hamstrings,core",false,lunge
+ex-dumbbell-walking-lunge,Dumbbell Walking Lunge,quads,dumbbell,lunge,3/4 side,"quads,glutes","hamstrings,core",false,lunge
+ex-reverse-lunge,Reverse Lunge,quads,dumbbell,lunge,3/4 side,"quads,glutes","hamstrings,core",false,lunge_reverse
+ex-forward-lunge,Forward Lunge,quads,dumbbell,lunge,3/4 side,"quads,glutes","hamstrings,core",false,lunge
+ex-smith-machine-lunge,Smith Machine Lunge,quads,smith,lunge,3/4 side,"quads,glutes",hamstrings,false,lunge
+ex-step-up,Step-Up,quads,dumbbell,step_up,3/4 side,"quads,glutes","hamstrings,core",false,step_up
+ex-dumbbell-step-up,Dumbbell Step-Up,quads,dumbbell,step_up,3/4 side,"quads,glutes","hamstrings,core",false,step_up
+ex-sissy-squat,Sissy Squat,quads,bodyweight,squat_sissy,3/4 side,quads,,true,squat_sissy
+ex-barbell-romanian-deadlift,Barbell Romanian Deadlift,hamstrings,barbell,rdl,3/4 side,"hamstrings,glutes","erectors,forearms",false,rdl_barbell
+ex-dumbbell-romanian-deadlift,Dumbbell Romanian Deadlift,hamstrings,dumbbell,rdl,3/4 side,"hamstrings,glutes","erectors,forearms",false,rdl_dumbbell
+ex-smith-machine-romanian-deadlift,Smith Machine Romanian Deadlift,hamstrings,smith,rdl,3/4 side,"hamstrings,glutes",erectors,false,rdl_smith
+ex-stiff-leg-deadlift,Stiff Leg Deadlift,hamstrings,barbell,rdl,3/4 side,hamstrings,"glutes,erectors",true,stiff_leg_deadlift
+ex-seated-leg-curl,Seated Leg Curl,hamstrings,machine,leg_curl,3/4 side,hamstrings,calves,true,leg_curl_seated
+ex-lying-leg-curl,Lying Leg Curl,hamstrings,machine,leg_curl,3/4 side,hamstrings,calves,false,leg_curl_lying
+ex-standing-leg-curl,Standing Leg Curl,hamstrings,machine,leg_curl,3/4 side,hamstrings,calves,true,leg_curl_standing
+ex-single-leg-curl,Single Leg Curl,hamstrings,machine,leg_curl,3/4 side,hamstrings,calves,false,leg_curl_lying
+ex-nordic-hamstring-curl,Nordic Hamstring Curl,hamstrings,bodyweight,nordic_curl,3/4 side,hamstrings,"glutes,core",true,nordic_curl
+ex-good-morning,Good Morning,hamstrings,barbell,good_morning,3/4 side,"hamstrings,erectors",glutes,false,good_morning
+ex-barbell-good-morning,Barbell Good Morning,hamstrings,barbell,good_morning,3/4 side,"hamstrings,erectors",glutes,false,good_morning
+ex-cable-pull-through,Cable Pull Through,hamstrings,cable,cable_pull_through,3/4 side,"glutes,hamstrings",erectors,true,cable_pull_through
+ex-glute-ham-raise,Glute Ham Raise,hamstrings,machine,glute_ham_raise,3/4 side,"hamstrings,glutes",erectors,true,glute_ham_raise
+ex-single-leg-romanian-deadlift,Single Leg Romanian Deadlift,hamstrings,dumbbell,rdl_single_leg,3/4 side,"hamstrings,glutes","core,erectors",false,rdl_single_leg
+ex-dumbbell-single-leg-romanian-deadlift,Dumbbell Single Leg Romanian Deadlift,hamstrings,dumbbell,rdl_single_leg,3/4 side,"hamstrings,glutes","core,erectors",false,rdl_single_leg
+ex-smith-machine-hip-thrust,Smith Machine Hip Thrust,glutes,smith,hip_thrust,3/4 side,glutes,"hamstrings,core",false,hip_thrust_smith
+ex-machine-hip-thrust,Machine Hip Thrust,glutes,machine,hip_thrust,3/4 side,glutes,hamstrings,true,hip_thrust_machine
+ex-dumbbell-hip-thrust,Dumbbell Hip Thrust,glutes,dumbbell,hip_thrust,3/4 side,glutes,"hamstrings,core",false,hip_thrust_dumbbell
+ex-glute-bridge,Glute Bridge,glutes,bodyweight,glute_bridge,3/4 side,glutes,"hamstrings,core",false,glute_bridge
+ex-barbell-glute-bridge,Barbell Glute Bridge,glutes,barbell,glute_bridge,3/4 side,glutes,"hamstrings,core",false,glute_bridge
+ex-cable-kickback,Cable Kickback,glutes,cable,glute_kickback,3/4 side,glutes,hamstrings,false,glute_kickback
+ex-machine-glute-kickback,Machine Glute Kickback,glutes,machine,glute_kickback,3/4 side,glutes,hamstrings,false,glute_kickback
+ex-cable-hip-abduction,Cable Hip Abduction,glutes,cable,hip_abduction,3/4 side,glutes_medius,glutes,false,hip_abduction_cable
+ex-standing-hip-abduction,Standing Hip Abduction,glutes,cable,hip_abduction,3/4 side,glutes_medius,glutes,false,hip_abduction_cable
+ex-frog-pump,Frog Pump,glutes,bodyweight,frog_pump,top-down,glutes,hamstrings,true,frog_pump
+ex-sumo-squat,Sumo Squat,glutes,dumbbell,squat_sumo,3/4 front,"glutes,quads","hamstrings,adductors",true,squat_sumo
+ex-sumo-deadlift,Sumo Deadlift,glutes,barbell,deadlift_sumo,3/4 front,"glutes,hamstrings","quads,back,forearms",true,deadlift_sumo
+ex-standing-calf-raise,Standing Calf Raise,calves,machine,calf_raise_standing,3/4 side,calves,,false,calf_raise_standing
+ex-seated-calf-raise,Seated Calf Raise,calves,machine,calf_raise_seated,3/4 side,"soleus,calves",,false,calf_raise_seated
+ex-machine-standing-calf-raise,Machine Standing Calf Raise,calves,machine,calf_raise_standing,3/4 side,calves,,false,calf_raise_standing
+ex-machine-seated-calf-raise,Machine Seated Calf Raise,calves,machine,calf_raise_seated,3/4 side,"soleus,calves",,false,calf_raise_seated
+ex-leg-press-calf-raise,Leg Press Calf Raise,calves,machine,calf_raise_leg_press,3/4 side,calves,,true,calf_raise_leg_press
+ex-smith-machine-calf-raise,Smith Machine Calf Raise,calves,smith,calf_raise_standing,3/4 side,calves,,false,calf_raise_standing
+ex-single-leg-calf-raise,Single Leg Calf Raise,calves,bodyweight,calf_raise_standing,3/4 side,calves,,false,calf_raise_standing
+ex-donkey-calf-raise,Donkey Calf Raise,calves,machine,calf_raise_donkey,3/4 side,calves,,true,calf_raise_donkey
+ex-machine-crunch,Machine Crunch,core,machine,crunch_machine,3/4 side,abs,,true,crunch_machine
+ex-ab-crunch,Ab Crunch,core,bodyweight,crunch,3/4 side,abs,,false,crunch
+ex-weighted-crunch,Weighted Crunch,core,other,crunch,3/4 side,abs,,false,crunch
+ex-sit-up,Sit-Up,core,bodyweight,sit_up,3/4 side,abs,hip_flexors,false,sit_up
+ex-weighted-sit-up,Weighted Sit-Up,core,other,sit_up,3/4 side,abs,hip_flexors,false,sit_up
+ex-decline-sit-up,Decline Sit-Up,core,bodyweight,sit_up,3/4 side,abs,hip_flexors,false,sit_up
+ex-hanging-leg-raise,Hanging Leg Raise,core,bodyweight,leg_raise_hanging,front 3/4,lower_abs,"hip_flexors,lats,grip",false,leg_raise_hanging
+ex-hanging-knee-raise,Hanging Knee Raise,core,bodyweight,leg_raise_hanging,front 3/4,lower_abs,"hip_flexors,grip",false,leg_raise_hanging
+ex-captain-s-chair-leg-raise,Captain's Chair Leg Raise,core,machine,leg_raise_captains_chair,front 3/4,lower_abs,hip_flexors,true,leg_raise_captains_chair
+ex-reverse-crunch,Reverse Crunch,core,bodyweight,crunch_reverse,3/4 side,lower_abs,,true,crunch_reverse
+ex-ab-wheel-rollout,Ab Wheel Rollout,core,other,ab_wheel_rollout,3/4 side,core,"lats,shoulders",true,ab_wheel_rollout
+ex-weighted-plank,Weighted Plank,core,other,plank,3/4 side,core,"shoulders,glutes",false,plank
+ex-side-plank,Side Plank,core,bodyweight,plank_side,3/4 front,"obliques,core","shoulders,glutes",true,plank_side
+ex-russian-twist,Russian Twist,core,bodyweight,russian_twist,3/4 front,"obliques,core",,true,russian_twist
+ex-cable-woodchop,Cable Woodchop,core,cable,woodchop_cable,3/4 front,"obliques,core",shoulders,true,woodchop_cable
+ex-pallof-press,Pallof Press,core,cable,pallof_press,front 3/4,"core,obliques",shoulders,true,pallof_press
+ex-bicycle-crunch,Bicycle Crunch,core,bodyweight,crunch_bicycle,top-down 3/4,"abs,obliques",,true,crunch_bicycle
+ex-dead-bug,Dead Bug,core,bodyweight,dead_bug,top-down,core,,true,dead_bug
+ex-v-up,V-Up,core,bodyweight,v_up,3/4 side,abs,hip_flexors,true,v_up
+ex-toe-touch,Toe Touch,core,bodyweight,toe_touch,3/4 side,abs,,true,toe_touch
+ex-clean,Clean,full_body,barbell,olympic_clean,3/4 side,full_body,"traps,legs,shoulders,core",false,olympic_clean
+ex-power-clean,Power Clean,full_body,barbell,olympic_clean,3/4 side,full_body,"traps,legs,shoulders,core",false,olympic_clean
+ex-clean-and-jerk,Clean and Jerk,full_body,barbell,olympic_clean_and_jerk,3/4 side,full_body,"legs,shoulders,triceps,core",true,olympic_clean_and_jerk
+ex-snatch,Snatch,full_body,barbell,olympic_snatch,3/4 side,full_body,"legs,shoulders,traps,core",true,olympic_snatch
+ex-dumbbell-thruster,Dumbbell Thruster,full_body,dumbbell,thruster,3/4 side,"quads,shoulders","glutes,triceps,core",false,thruster_dumbbell
+ex-barbell-thruster,Barbell Thruster,full_body,barbell,thruster,3/4 side,"quads,shoulders","glutes,triceps,core",false,thruster_barbell
+ex-kettlebell-swing,Kettlebell Swing,full_body,kettlebell,kettlebell_swing,3/4 side,"glutes,hamstrings","core,shoulders,back",true,kettlebell_swing
+ex-farmer-s-walk,Farmer's Walk,full_body,other,farmers_walk,3/4 side,"forearms,traps,core","shoulders,legs",false,farmers_walk
+ex-dumbbell-farmer-s-walk,Dumbbell Farmer's Walk,full_body,dumbbell,farmers_walk,3/4 side,"forearms,traps,core","shoulders,legs",false,farmers_walk
+ex-kettlebell-farmer-s-walk,Kettlebell Farmer's Walk,full_body,kettlebell,farmers_walk,3/4 side,"forearms,traps,core","shoulders,legs",false,farmers_walk
+ex-burpee,Burpee,full_body,bodyweight,burpee,3/4 side,full_body,"chest,legs,core",true,burpee
+ex-treadmill-walking,Treadmill Walking,cardio,cardio_machine,walking,3/4 side,cardio_legs,core,false,walking_treadmill
+ex-outdoor-walking,Outdoor Walking,cardio,other,walking,3/4 side,cardio_legs,core,false,walking_outdoor
+ex-assault-bike,Assault Bike,cardio,cardio_machine,bike_assault,3/4 side,cardio_full_body,"legs,shoulders,core",true,bike_assault
+ex-spinning-bike,Spinning Bike,cardio,cardio_machine,bike,3/4 side,cardio_legs,core,false,bike_stationary
+ex-elliptical,Elliptical,cardio,cardio_machine,elliptical,3/4 side,cardio_legs,core,true,elliptical
+ex-skierg,SkiErg,cardio,cardio_machine,skierg,3/4 side,cardio_full_body,"lats,core,shoulders",true,skierg
+ex-swimming,Swimming,cardio,other,swimming,3/4 side,cardio_full_body,"lats,shoulders,core",true,swimming
+ex-jump-rope,Jump Rope,cardio,other,jump_rope,3/4 side,"cardio_legs,calves","shoulders,core",true,jump_rope

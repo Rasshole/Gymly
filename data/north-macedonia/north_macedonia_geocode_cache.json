@@ -1,0 +1,82 @@
+{
+  "mk_1a50b8774e": {
+    "lat": 41.9958,
+    "lng": 21.4285,
+    "coord_source": "directory_diamond_mall_jordan_mijalkov_31"
+  },
+  "mk_ed44181018": {
+    "lat": 42.0305,
+    "lng": 21.4422,
+    "coord_source": "directory_tale_hristov_1_butel"
+  },
+  "mk_698c3510c0": {
+    "lat": 41.0314,
+    "lng": 21.3347,
+    "coord_source": "directory_nikola_tesla_34_bitola"
+  },
+  "mk_c1a237a0fc": {
+    "lat": 40.6401,
+    "lng": 22.9444,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_8f0bfa0e80": {
+    "lat": 40.7823,
+    "lng": 21.4098,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_3163d4ce22": {
+    "lat": 40.8026,
+    "lng": 22.0473,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_14b72584f2": {
+    "lat": 40.993,
+    "lng": 22.8743,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_38d4f0d530": {
+    "lat": 42.6629,
+    "lng": 21.1655,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_280f2a37d8": {
+    "lat": 42.37,
+    "lng": 21.155,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_aab56e839a": {
+    "lat": 42.4635,
+    "lng": 21.4694,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_e34919e4f8": {
+    "lat": 42.5514,
+    "lng": 21.9003,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_733584ea2d": {
+    "lat": 42.3067,
+    "lng": 21.65,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_b1eda5d1f7": {
+    "lat": 42.2833,
+    "lng": 22.6911,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_cba0014289": {
+    "lat": 42.011,
+    "lng": 23.09,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_4bdb1b8003": {
+    "lat": 40.6186,
+    "lng": 20.7808,
+    "coord_source": "border_probe_landmark"
+  },
+  "mk_3100ef6ad5": {
+    "lat": 40.9025,
+    "lng": 20.6525,
+    "coord_source": "border_probe_landmark"
+  }
+}

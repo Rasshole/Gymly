@@ -1,0 +1,308 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:52:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4407650290,
+      "lat": 52.2864038,
+      "lon": 104.2672468,
+      "tags": {
+        "addr:city": "Иркутск",
+        "addr:housenumber": "74",
+        "addr:street": "бульвар Гагарина",
+        "description": "универсальный тренинговый центр. три просторных зала, разнообразные групповые телесно-ориентированные тренинги",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Praktika.center",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+7 3952 434405",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6094624908,
+      "lat": 52.2310028,
+      "lon": 104.4157715,
+      "tags": {
+        "addr:city": "поселок Молодёжный",
+        "addr:housenumber": "30В",
+        "addr:postcode": "664038",
+        "addr:street": "Школьная улица",
+        "leisure": "fitness_centre",
+        "name": "Спортзал \"Легенда\"",
+        "phone": "+7 999 6434617"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7264250196,
+      "lat": 52.2322825,
+      "lon": 104.2810583,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "WorldGym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10734775346,
+      "lat": 52.2772253,
+      "lon": 104.3035206,
+      "tags": {
+        "contact:email": "kovalevaekat@yandex.ru",
+        "contact:phone": "+7 395 2742299;+7 904 1229912",
+        "leisure": "fitness_centre",
+        "name": "Идеал",
+        "opening_hours": "Mo-Sa 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10734775407,
+      "lat": 52.282445,
+      "lon": 104.272946,
+      "tags": {
+        "contact:email": "firstclub@eastland.ru",
+        "contact:phone": "+7 395 2250350;+7 904 1287686",
+        "contact:website": "https://first-club.ru/sport",
+        "leisure": "fitness_centre",
+        "name": "First",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 07:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10886253197,
+      "lat": 52.2377035,
+      "lon": 104.2802766,
+      "tags": {
+        "contact:email": "nf@denbo.ru",
+        "contact:phone": "+7 950 1320014;+7 964 8001071",
+        "contact:website": "https://новый-фитнес.рф",
+        "leisure": "fitness_centre",
+        "name": "Cosmofit",
+        "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11016493461,
+      "lat": 52.2722657,
+      "lon": 104.3045452,
+      "tags": {
+        "contact:phone": "+7 395 2999329",
+        "contact:website": "https://vectorpremium.fit/",
+        "leisure": "fitness_centre",
+        "name": "Vector",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa 08:00-22:00; Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11016502060,
+      "lat": 52.266227,
+      "lon": 104.3395293,
+      "tags": {
+        "contact:email": "podlesskaya_anastasia@mail.ru",
+        "contact:phone": "+7 395 2481120",
+        "contact:website": "http://matrixirk.ru/",
+        "leisure": "fitness_centre",
+        "name": "Matrix",
+        "opening_hours": "Mo-Fr 07:00-22:30; Sa-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458201,
+      "lat": 52.3602394,
+      "lon": 104.2120884,
+      "tags": {
+        "contact:phone": "+7 924 5381467",
+        "contact:website": "https://ladystretch.com/irkutsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458202,
+      "lat": 52.2530294,
+      "lon": 104.2585115,
+      "tags": {
+        "contact:phone": "+7 924 5321467",
+        "contact:website": "https://ladystretch.com/irkutsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11696648695,
+      "lat": 52.2317882,
+      "lon": 104.2802954,
+      "tags": {
+        "contact:email": "irkutsk@romansgym.ru",
+        "contact:phone": "+7 395 2789451",
+        "contact:website": "https://romansgym.ru/",
+        "leisure": "fitness_centre",
+        "name": "Roman`s Gym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11824502659,
+      "lat": 52.2678554,
+      "lon": 104.317224,
+      "tags": {
+        "contact:phone": "+7 902 5192019;+7 983 4050993",
+        "contact:website": "https://fit-annemc.clients.site",
+        "leisure": "fitness_centre",
+        "name": "FitAnnEms",
+        "opening_hours": "Mo-Sa 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11925675909,
+      "lat": 52.2789271,
+      "lon": 104.254353,
+      "tags": {
+        "contact:email": "ffcenter@mail.ru",
+        "contact:phone": "+7 395 2485959",
+        "contact:website": "https://family-fit.ru",
+        "leisure": "fitness_centre",
+        "name": "Family Fitness",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11925699571,
+      "lat": 52.2387826,
+      "lon": 104.2768246,
+      "tags": {
+        "contact:email": "souljump38@yandex.ru",
+        "contact:phone": "+7 924 5315525",
+        "leisure": "fitness_centre",
+        "name": "Soul Jump",
+        "opening_hours": "Mo-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11925699617,
+      "lat": 52.2520981,
+      "lon": 104.3695646,
+      "tags": {
+        "contact:email": "upstretch-irk@yandex.ru",
+        "contact:phone": "+7 993 2910888",
+        "contact:website": "https://irk.upstretch.ru",
+        "leisure": "fitness_centre",
+        "name": "Upstretch",
+        "opening_hours": "Mo-Fr 09:00-12:00,18:00-21:00; Sa 09:00-12:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12059116973,
+      "lat": 52.2731917,
+      "lon": 104.2916052,
+      "tags": {
+        "contact:phone": "+7 495 2555000",
+        "contact:website": "https://www.ddxfitness.ru/clubs/ddx-irkutsk-modnyj-kvartal",
+        "leisure": "fitness_centre",
+        "name": "Ddx",
+        "opening_hours": "Mo-Su 06:00-24:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12096671524,
+      "lat": 52.2758205,
+      "lon": 104.3052962,
+      "tags": {
+        "contact:email": "sale@xfit38.ru",
+        "contact:phone": "+7 395 2792500",
+        "contact:website": "https://xfit-irkutsk.ru/",
+        "leisure": "fitness_centre",
+        "name": "Xfit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12522244420,
+      "lat": 52.2269599,
+      "lon": 104.3049933,
+      "tags": {
+        "contact:email": "info@fizruk-ub.ru",
+        "contact:phone": "+7 395 2244444;+7 395 2436600",
+        "contact:website": "https://fizruk.com/yubilejnyj/",
+        "leisure": "fitness_centre",
+        "name": "Fizruk",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12581540759,
+      "lat": 52.2775384,
+      "lon": 104.3122491,
+      "tags": {
+        "contact:phone": "+7 924 5361467",
+        "contact:website": "https://ladystretch.com/irkutsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:30,15:30-21:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 80347173,
+      "center": {
+        "lat": 52.2705025,
+        "lon": 104.2873587
+      },
+      "tags": {
+        "addr:housenumber": "12",
+        "addr:street": "улица Кожова",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Динамо"
+      }
+    },
+    {
+      "type": "way",
+      "id": 121511090,
+      "center": {
+        "lat": 52.2706199,
+        "lon": 104.2864275
+      },
+      "tags": {
+        "addr:housenumber": "10",
+        "addr:postcode": "664022",
+        "addr:street": "улица Кожова",
+        "building": "yes",
+        "contact:email": "vesnafitness@yandex.ru",
+        "contact:phone": "+73952505005",
+        "contact:website": "https://vesnafitness.com",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Весна",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "same_id_vs_italy": [],
+  "same_id_vs_catalog": [],
+  "same_brand_proximity_50m": [],
+  "same_brand_proximity_100m": [],
+  "cross_brand_proximity_50m": [
+    {
+      "new": "Dabliu Roma Margherita",
+      "live": "Anytime Fitness Roma (Regina Margherita)",
+      "live_brand": "Anytime Fitness",
+      "m": 18.7
+    }
+  ],
+  "internal_phase3_dupes": []
+}

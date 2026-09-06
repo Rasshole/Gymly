@@ -7,6 +7,7 @@ import {View, Text, TouchableOpacity, StyleSheet, ViewStyle} from 'react-native'
 import {UserAvatar} from './UserAvatar';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 type LeaderboardRowProps = {
   rank: number;
@@ -37,6 +38,7 @@ export const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
   onPress,
   style,
 }) => {
+  const {t} = useTranslation();
   const rankColor = rank <= 3 ? rankColors[rank - 1] : colors.textMuted;
   const content = (
     <>
@@ -51,7 +53,7 @@ export const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
           </Text>
           {isFriend && !isCurrentUser && (
             <View style={styles.friendBadge}>
-              <Text style={styles.friendBadgeText}>Ven</Text>
+              <Text style={styles.friendBadgeText}>{t('common.friend')}</Text>
             </View>
           )}
         </View>

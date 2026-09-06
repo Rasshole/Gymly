@@ -1,0 +1,63 @@
+{
+  "country": "Andorra",
+  "phase": 1,
+  "verdict": "ANDORRA PHASE 2 REQUIRED BEFORE MERGE",
+  "small_market_model": "INDEPENDENT_PHASE_RECOMMENDED",
+  "production_total": 11699,
+  "production_sha256": "b4f155e2501d10af07eded1ca1342f06784f5f122f4e51bb081ebf943cdb0bbc",
+  "andorra_live": 0,
+  "liechtenstein_live": 7,
+  "iceland_live": 27,
+  "cyprus_live": 17,
+  "production_modified": false,
+  "status_counts": {
+    "NEEDS_REVIEW": 13,
+    "EXCLUDED": 40
+  },
+  "ready_count": 0,
+  "ready_by_brand": {},
+  "independent_candidate_count": 7,
+  "municipal_candidate_count": 6,
+  "class_a_chains": 1,
+  "class_a_locations": 3,
+  "class_a_seasonal_extra": 1,
+  "phase2_required": true,
+  "phase2_reasons": [
+    "Urban Gym / AnyósPark reaches ≥3 year-round conventional sites but alone does not represent how Andorrans access gyms nationwide",
+    "Duplex Sport Club and NEXT Sports Club are essential central commercial independents",
+    "Municipal/comú sports centres dominate Ordino, Encamp, Pas de la Casa, Sant Julià and part of ALV/Escaldes — Phase 2 scope gate required",
+    "Princiesport racket club with substantial gym floor needs Phase 2 Class C vs conventional decision",
+    "Urban Gym Arinsal is seasonal (Dec–Apr) — not a year-round Class A unit",
+    "Micro-state geography + border ES/FR contamination risk → INDEPENDENT_PHASE_RECOMMENDED"
+  ],
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_territorial_outliers": 0,
+    "spanish_contamination": 0,
+    "french_contamination": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0
+  },
+  "territorial_safety": "CLEAN_FOR_READY",
+  "ready_foreign_outliers": 0,
+  "ready_spanish_outliers": 0,
+  "ready_french_outliers": 0,
+  "projected_catalog_if_merged": 11699,
+  "crossed_12500_if_merged": false,
+  "global_stress_qa_required_now": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "parish_coverage": {
+    "Andorra la Vella": "independent_present_candidate",
+    "Escaldes-Engordany": "independent_present_candidate",
+    "La Massana": "chain_present",
+    "Canillo": "chain_present",
+    "Ordino": "independent_present_candidate",
+    "Encamp": "independent_present_candidate",
+    "Sant Julià de Lòria": "independent_present_candidate"
+  },
+  "unique_staged": 53
+}

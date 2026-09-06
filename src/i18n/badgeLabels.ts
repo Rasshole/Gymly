@@ -41,6 +41,10 @@ export function progressLabelT(
       return t('badges.progress.early', {cur, target});
     case 'late_check_ins':
       return t('badges.progress.late', {cur, target});
+    case 'total_logged_sets':
+      return t('badges.progress.sets', {cur, target});
+    case 'total_pr_events':
+      return t('badges.progress.prs', {cur, target});
     default:
       return `${progress.percent}%`;
   }
@@ -74,6 +78,14 @@ export function upcomingBadgeHintT(
       return left === 1
         ? t('badges.hint.sessionOne', {emoji})
         : t('badges.hint.sessionsMany', {count: String(left), emoji});
+    case 'total_logged_sets':
+      return left === 1
+        ? t('badges.hint.setOne', {emoji})
+        : t('badges.hint.setsMany', {count: String(left), emoji});
+    case 'total_pr_events':
+      return left === 1
+        ? t('badges.hint.prOne', {emoji})
+        : t('badges.hint.prsMany', {count: String(left), emoji});
     default:
       return left === 1
         ? t('badges.hint.genericOne', {emoji})

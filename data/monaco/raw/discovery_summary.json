@@ -1,0 +1,21 @@
+{
+  "country": "Monaco",
+  "phase": 1,
+  "production_total": 11711,
+  "production_sha256": "bde8ba6b5ac7467078e971732e0deeb42e3fb338f5280f390d8395714792f02f",
+  "candidates": 39,
+  "by_discovery_class": {
+    "municipal_sports_center": 2,
+    "independent_candidate": 2,
+    "private_members_club": 1,
+    "hotel_spa": 2,
+    "specialist_boutique": 1,
+    "outdoor_amenity": 1,
+    "foreign_border_probe": 5,
+    "international_chain_probe": 25
+  },
+  "by_import_category": {
+    "NEEDS_REVIEW": 4,
+    "EXCLUDED": 35
+  }
+}

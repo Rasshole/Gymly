@@ -10,6 +10,9 @@ export type ActiveCenterSession = {
   workoutType: string | null;
   startedAt: string;
   avatarUrl: string | null;
+  liveExerciseName?: string | null;
+  liveSetCount?: number | null;
+  liveExerciseCount?: number | null;
 };
 
 export type ActiveCenter = {

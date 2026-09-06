@@ -430,12 +430,12 @@ const SettingsScreen = () => {
         </Section>
 
         {__DEV__ && SURFACE_DEMO_MODE_IN_SETTINGS ? (
-          <Section title="INTERN — DEMO / OPTAGELSE">
+          <Section title={t('phase2ui.demoSectionTitle')}>
             <View style={{opacity: demoBusy ? 0.55 : 1}}>
               <SettingSwitch
                 icon="videocam-outline"
                 iconColor={colors.secondary}
-                title="Demo-indhold (optagelse)"
+                title={t('phase2ui.demoContentTitle')}
                 subtitle={t('settings.demoContentSub')}
                 value={demoEnabled}
                 onValueChange={v => {

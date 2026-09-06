@@ -1,0 +1,377 @@
+{
+  "generated_at": "2026-08-20 11:04 UTC",
+  "status": "PHASE 2 DISCOVERY COMPLETE — DO NOT MERGE",
+  "phase1_baseline": {
+    "staged": 489,
+    "READY": 262,
+    "NEEDS_COORDINATES": 219,
+    "NEEDS_REVIEW": 8
+  },
+  "merge_stats": {
+    "phase1_in": 489,
+    "phase2_in": 892,
+    "enriched": 0,
+    "new_added": 628,
+    "altafit_dropped_as_vivagym_rebrand": 0,
+    "preserved_phase1_ready": 262
+  },
+  "totals": {
+    "unique_staged": 1097,
+    "READY_TO_IMPORT": 867,
+    "NEEDS_COORDINATES": 227,
+    "NEEDS_REVIEW": 3,
+    "COMING_SOON": 0,
+    "CLOSED": 0,
+    "DUPLICATE": 20
+  },
+  "ready_by_brand": {
+    "Altafit": 5,
+    "Basic-Fit": 236,
+    "DIR": 19,
+    "Synergym": 99,
+    "Anytime Fitness": 57,
+    "BeOne": 25,
+    "Dreamfit": 14,
+    "Eurofitness": 3,
+    "Fitness Park": 80,
+    "Forus": 48,
+    "GO fit": 12,
+    "Holiday Gym": 22,
+    "Metropolitan": 1,
+    "VivaGym": 246
+  },
+  "chain_coverage": [
+    {
+      "brand": "Basic-Fit",
+      "estimate": "~246 clubs (includes former McFIT 42 + Holmes Place 5)",
+      "discovered": 240,
+      "ready": 236,
+      "unresolved": 4,
+      "coverage_pct": 98,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "VivaGym",
+      "estimate": "~250+ clubs (includes former Altafit ~70)",
+      "discovered": 246,
+      "ready": 246,
+      "unresolved": 0,
+      "coverage_pct": 98,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "Synergym",
+      "estimate": "~180-240 clubs (acquired by VivaGym group, still own brand)",
+      "discovered": 221,
+      "ready": 99,
+      "unresolved": 122,
+      "coverage_pct": 123,
+      "status": "PARTIAL"
+    },
+    {
+      "brand": "Altafit",
+      "estimate": "~5 remaining (rest rebranded to VivaGym)",
+      "discovered": 5,
+      "ready": 5,
+      "unresolved": 0,
+      "coverage_pct": 100,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "DIR",
+      "estimate": "~20 clubs in Barcelona + Sant Cugat",
+      "discovered": 23,
+      "ready": 19,
+      "unresolved": 4,
+      "coverage_pct": 115,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "Anytime Fitness",
+      "estimate": "~60+ franchise clubs",
+      "discovered": 57,
+      "ready": 57,
+      "unresolved": 0,
+      "coverage_pct": 95,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "Dreamfit",
+      "estimate": "~25 clubs",
+      "discovered": 22,
+      "ready": 14,
+      "unresolved": 8,
+      "coverage_pct": 88,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "GO fit",
+      "estimate": "~20 clubs",
+      "discovered": 13,
+      "ready": 12,
+      "unresolved": 1,
+      "coverage_pct": 65,
+      "status": "PARTIAL"
+    },
+    {
+      "brand": "Metropolitan",
+      "estimate": "~10-20 premium clubs",
+      "discovered": 2,
+      "ready": 1,
+      "unresolved": 1,
+      "coverage_pct": 20,
+      "status": "PARTIAL"
+    },
+    {
+      "brand": "Forus",
+      "estimate": "~15-50 sports/fitness centers",
+      "discovered": 49,
+      "ready": 48,
+      "unresolved": 1,
+      "coverage_pct": 327,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "Fitness Park",
+      "estimate": "~150-165 clubs (Spain)",
+      "discovered": 163,
+      "ready": 80,
+      "unresolved": 83,
+      "coverage_pct": 109,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "Supera",
+      "estimate": "~5+ (partial)",
+      "discovered": 1,
+      "ready": 0,
+      "unresolved": 1,
+      "coverage_pct": 20,
+      "status": "PARTIAL"
+    },
+    {
+      "brand": "Enjoy!",
+      "estimate": "unknown — site unreachable",
+      "discovered": 0,
+      "ready": 0,
+      "unresolved": 0,
+      "coverage_pct": null,
+      "status": "MATERIAL GAP"
+    },
+    {
+      "brand": "BeOne",
+      "estimate": "~20-25 gym floors",
+      "discovered": 26,
+      "ready": 25,
+      "unresolved": 1,
+      "coverage_pct": 130,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "O2 Centro Wellness",
+      "estimate": "~8-12 clubs",
+      "discovered": 4,
+      "ready": 0,
+      "unresolved": 4,
+      "coverage_pct": 50,
+      "status": "PARTIAL"
+    },
+    {
+      "brand": "Eurofitness",
+      "estimate": "~20 clubs (Catalonia)",
+      "discovered": 3,
+      "ready": 3,
+      "unresolved": 0,
+      "coverage_pct": 15,
+      "status": "PARTIAL"
+    },
+    {
+      "brand": "Holiday Gym",
+      "estimate": "~22 clubs",
+      "discovered": 22,
+      "ready": 22,
+      "unresolved": 0,
+      "coverage_pct": 100,
+      "status": "COMPLETE"
+    },
+    {
+      "brand": "McFIT",
+      "estimate": "N/A — sold to Basic-Fit 2024",
+      "discovered": 0,
+      "ready": 0,
+      "unresolved": 0,
+      "coverage_pct": null,
+      "status": "COMPLETE_VIA_BASIC_FIT"
+    }
+  ],
+  "cities": [
+    {
+      "city": "Madrid",
+      "discovered": 140,
+      "ready": 128
+    },
+    {
+      "city": "Barcelona",
+      "discovered": 97,
+      "ready": 84
+    },
+    {
+      "city": "Valencia",
+      "discovered": 51,
+      "ready": 44
+    },
+    {
+      "city": "Sevilla",
+      "discovered": 29,
+      "ready": 25
+    },
+    {
+      "city": "Zaragoza",
+      "discovered": 34,
+      "ready": 26
+    },
+    {
+      "city": "Málaga",
+      "discovered": 15,
+      "ready": 15
+    },
+    {
+      "city": "Murcia",
+      "discovered": 15,
+      "ready": 10
+    },
+    {
+      "city": "Palma",
+      "discovered": 25,
+      "ready": 20
+    },
+    {
+      "city": "Las Palmas",
+      "discovered": 12,
+      "ready": 9
+    },
+    {
+      "city": "Bilbao",
+      "discovered": 14,
+      "ready": 10
+    },
+    {
+      "city": "Alicante",
+      "discovered": 16,
+      "ready": 13
+    },
+    {
+      "city": "Córdoba",
+      "discovered": 8,
+      "ready": 7
+    },
+    {
+      "city": "Valladolid",
+      "discovered": 9,
+      "ready": 4
+    },
+    {
+      "city": "Vigo",
+      "discovered": 8,
+      "ready": 5
+    },
+    {
+      "city": "Gijón",
+      "discovered": 12,
+      "ready": 12
+    },
+    {
+      "city": "Granada",
+      "discovered": 12,
+      "ready": 7
+    },
+    {
+      "city": "A Coruña",
+      "discovered": 11,
+      "ready": 10
+    }
+  ],
+  "islands": {
+    "balearic_ready": 13,
+    "canary_ready": 20,
+    "ceuta_ready": 0,
+    "melilla_ready": 0
+  },
+  "data_quality": {
+    "missing_addresses": 2,
+    "missing_postal_codes": 169,
+    "missing_cities": 1,
+    "missing_coordinates": 230
+  },
+  "completeness_gates": {
+    "A_VivaGym": {
+      "discovered": 246,
+      "ready": 246,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "materially_complete": true
+    },
+    "B_BasicFit": {
+      "discovered": 240,
+      "ready": 236,
+      "unresolved": 4,
+      "coming_soon": 0,
+      "materially_complete": true
+    },
+    "C_Altafit": {
+      "discovered": 5,
+      "ready": 5,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "materially_complete": true
+    },
+    "D_Synergym": {
+      "discovered": 221,
+      "ready": 99,
+      "unresolved": 122,
+      "coming_soon": 0,
+      "materially_complete": false
+    },
+    "E_McFIT": {
+      "status": "N/A_ABSORBED_INTO_BASIC_FIT",
+      "materially_complete": true
+    },
+    "F_Anytime": {
+      "discovered": 57,
+      "ready": 57,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "materially_complete": true
+    },
+    "G_MajorChainsRepresented": {
+      "brands_with_rows": [
+        "Altafit",
+        "Anytime Fitness",
+        "Basic-Fit",
+        "BeOne",
+        "DIR",
+        "Dreamfit",
+        "Eurofitness",
+        "Fitness Park",
+        "Forus",
+        "GO fit",
+        "Holiday Gym",
+        "Metropolitan",
+        "O2 Centro Wellness",
+        "Supera",
+        "Synergym",
+        "VivaGym"
+      ],
+      "materially_complete": true
+    },
+    "H_StillCompletelyMissing": [
+      "Enjoy!"
+    ]
+  },
+  "proposed_safe_merge": {
+    "ready_count": 867,
+    "live_catalog": 7167,
+    "projected_total": 8034
+  },
+  "checkpoint_10k": false
+}

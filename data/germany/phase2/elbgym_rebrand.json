@@ -1,0 +1,47 @@
+{
+  "rebranded": [
+    {
+      "from": "Fitness First",
+      "name": "Fitness First Hamburg Alsterufer - Performance (ELBGYM)",
+      "url": "https://www.fitnessfirst.de/clubs/hamburg-alsterufer",
+      "id": "de_64f4db5752"
+    },
+    {
+      "from": "Fitness First",
+      "name": "Fitness First Hamburg Eppendorf Stra\u00dfenbahnring - Performance (ELBGYM)",
+      "url": "https://www.fitnessfirst.de/clubs/hamburg-eppendorf-strassenbahnring",
+      "id": "de_b7d8dcfb6f"
+    },
+    {
+      "from": "Fitness First",
+      "name": "Fitness First Hamburg Innenstadt Dammtorpark - Performance (ELBGYM)",
+      "url": "https://www.fitnessfirst.de/clubs/hamburg-innenstadt-dammtorpark",
+      "id": "de_ae2588bbb5"
+    },
+    {
+      "from": "Fitness First",
+      "name": "Fitness First Hamburg Stadth\u00f6fe - Performance (ELBGYM)",
+      "url": "https://www.fitnessfirst.de/clubs/hamburg-stadthoefe",
+      "id": "de_40d6f9137f"
+    },
+    {
+      "from": "Fitness First",
+      "name": "Fitness First Hamburg Winterhude - Performance (ELBGYM)",
+      "url": "https://www.fitnessfirst.de/clubs/hamburg-winterhude",
+      "id": "de_5f769863f4"
+    },
+    {
+      "from": "Fitness First",
+      "name": "Fitness First M\u00fcnchen DER Bogen - Performance (ELBGYM)",
+      "url": "https://www.fitnessfirst.de/clubs/muenchen-bogen",
+      "id": "de_4b5d4eaac8"
+    },
+    {
+      "from": "Fitness First",
+      "name": "Fitness First M\u00fcnchen Hofstatt - Performance (ELBGYM)",
+      "url": "https://www.fitnessfirst.de/clubs/muenchen-hofstatt",
+      "id": "de_903014c9cf"
+    }
+  ],
+  "count": 7
+}

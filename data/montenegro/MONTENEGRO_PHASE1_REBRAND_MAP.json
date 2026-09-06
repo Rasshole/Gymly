@@ -1,0 +1,37 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "A_current_successor",
+      "from": "City Fitness Pete proleterske",
+      "to": "City Fitness Dom Revolucije Nikšić",
+      "notes": "Moved 2019 into Dom Revolucije"
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Urban Gym",
+        "GO GYM"
+      ],
+      "notes": "Possible co-location / shared marketing — Phase 2 confirm"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Hulk 23 Podgorica",
+        "Teretana Hulk Bijelo Polje"
+      ],
+      "notes": "Same brand name, different cities — not a Class A estate"
+    },
+    {
+      "type": "F_unresolved",
+      "entities": [
+        "Soko Gym City",
+        "Soko Gym Morača"
+      ],
+      "notes": "Confirm whether City is distinct live floor",
+      "phase2": true
+    }
+  ],
+  "note": "F_unresolved Soko City is held for Phase 2; merge gate requires 0 unresolved before merge — Phase 1 allows Phase 2 hold."
+}

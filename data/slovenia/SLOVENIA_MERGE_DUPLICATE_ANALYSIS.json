@@ -1,0 +1,190 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "skipped_existing_id": [],
+  "included": [
+    {
+      "id": "si_3146650ae8",
+      "name": "FITINN Ljubljana BTC City",
+      "brand": "FITINN"
+    },
+    {
+      "id": "si_688dfb3d45",
+      "name": "FITINN Ljubljana Šiška",
+      "brand": "FITINN"
+    },
+    {
+      "id": "si_d6c37de6b9",
+      "name": "FITINN Maribor Maribox",
+      "brand": "FITINN"
+    },
+    {
+      "id": "si_c381f7120f",
+      "name": "FITINN Maribor Tabor",
+      "brand": "FITINN"
+    },
+    {
+      "id": "si_da8b0ba8a8",
+      "name": "FITINN Celje",
+      "brand": "FITINN"
+    },
+    {
+      "id": "si_e1cb5eec31",
+      "name": "FITINN Kranj",
+      "brand": "FITINN"
+    },
+    {
+      "id": "si_3b3d2f4612",
+      "name": "BODIFIT Ljubljana",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_172b769bc9",
+      "name": "BODIFIT Maribor",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_6810506253",
+      "name": "BODIFIT Maribor Studenci",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_23c2f453f3",
+      "name": "BODIFIT Maribor City",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_a50f92f6e9",
+      "name": "BODIFIT Celje",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_a6b3661756",
+      "name": "BODIFIT Kamnik",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_21050d1b89",
+      "name": "BODIFIT Mengeš",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_564d63c631",
+      "name": "BODIFIT Murska Sobota",
+      "brand": "BODIFIT"
+    },
+    {
+      "id": "si_673eba29e0",
+      "name": "Shape House Ljubljana Situla",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_87aeb083b4",
+      "name": "Shape House Ljubljana Šiška",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_ae7796d56f",
+      "name": "Shape House Ljubljana Rudnik",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_cf31bee5f4",
+      "name": "Shape House Ljubljana Letališka",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_1e461b2ce1",
+      "name": "Shape House Maribor",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_c0ab7d90a3",
+      "name": "Shape House Novo mesto",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_812bd7056e",
+      "name": "Shape House Koper Planet Tuš",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_021f737987",
+      "name": "Shape House Kranj",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_c55bd4763c",
+      "name": "Shape House Ljubljana Loberia",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_98079e395a",
+      "name": "Shape House Murska Sobota",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_4191b87a6e",
+      "name": "Shape House Domžale",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_2f5157cb18",
+      "name": "Shape House Grosuplje",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_95f6c33ba2",
+      "name": "Shape House Ljubljana Tiskarna",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_5dfb02ad9d",
+      "name": "Shape House Koper Istrska",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_8cdc4b9b69",
+      "name": "Shape House Celje",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_760f077cf3",
+      "name": "Shape House Novo mesto 2",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_e0283b435e",
+      "name": "Shape House Ljubljana Metalka",
+      "brand": "Shape House"
+    },
+    {
+      "id": "si_a795962ca4",
+      "name": "Shape House Jesenice",
+      "brand": "Shape House"
+    }
+  ],
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "counts": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  }
+}

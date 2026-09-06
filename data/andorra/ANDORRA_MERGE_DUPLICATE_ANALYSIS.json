@@ -1,0 +1,153 @@
+{
+  "duplicate_ids": [],
+  "unexplained_hard_duplicates": 0,
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand100": [
+      {
+        "a_id": "ad_488e241114",
+        "a_brand": "Urban Gym",
+        "a_name": "Urban Gym Andorra la Vella",
+        "b_id": "ad_6fc179f949",
+        "b_brand": "Duplex Sport Club",
+        "b_name": "Duplex Sport Club Andorra la Vella",
+        "distance_m": 76,
+        "classification": "A_legitimate"
+      }
+    ],
+    "diffBrand200": [
+      {
+        "a_id": "ad_2594f0bd4f",
+        "a_brand": "NEXT Sports Club",
+        "a_name": "NEXT Sports Club Illa Carlemany",
+        "b_id": "ad_cfb6dcda5e",
+        "b_brand": "Centre Esportiu Escaldes-Engordany",
+        "b_name": "Centre Esportiu Comunal Escaldes-Engordany",
+        "distance_m": 146,
+        "classification": "A_legitimate"
+      }
+    ],
+    "sameAddr": []
+  },
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand100": [
+      {
+        "a_id": "ad_6fc179f949",
+        "a_brand": "Duplex Sport Club",
+        "a_name": "Duplex Sport Club Andorra la Vella",
+        "b_id": "ad_488e241114",
+        "b_brand": "Urban Gym",
+        "b_name": "Urban Gym Andorra la Vella",
+        "distance_m": 76,
+        "classification": "A_legitimate"
+      }
+    ],
+    "diffBrand200": [
+      {
+        "a_id": "ad_cfb6dcda5e",
+        "a_brand": "Centre Esportiu Escaldes-Engordany",
+        "a_name": "Centre Esportiu Comunal Escaldes-Engordany",
+        "b_id": "ad_2594f0bd4f",
+        "b_brand": "NEXT Sports Club",
+        "b_name": "NEXT Sports Club Illa Carlemany",
+        "distance_m": 146,
+        "classification": "A_legitimate"
+      }
+    ],
+    "sameAddr": []
+  },
+  "known_legitimate_proximity": [
+    {
+      "pair": "Urban Gym ↔ Duplex Sport Club",
+      "note": "~76 m different-brand dense ALV; distinct premises"
+    },
+    {
+      "pair": "NEXT Sports Club ↔ Centre Esportiu Escaldes-Engordany",
+      "note": "~146 m different-brand; distinct premises"
+    }
+  ],
+  "included": [
+    {
+      "id": "ad_8989e7b07f",
+      "name": "AnyósPark Club La Massana",
+      "brand": "AnyósPark",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_488e241114",
+      "name": "Urban Gym Andorra la Vella",
+      "brand": "Urban Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_1fb5491cda",
+      "name": "Gimnàs Palau de Gel Canillo",
+      "brand": "Palau de Gel",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_6fc179f949",
+      "name": "Duplex Sport Club Andorra la Vella",
+      "brand": "Duplex Sport Club",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_2594f0bd4f",
+      "name": "NEXT Sports Club Illa Carlemany",
+      "brand": "NEXT Sports Club",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_be0d30a1f0",
+      "name": "Princiesport Santa Coloma",
+      "brand": "Princiesport",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_2759cd904a",
+      "name": "Centre Esportiu dels Serradells",
+      "brand": "Serradells",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_cfb6dcda5e",
+      "name": "Centre Esportiu Comunal Escaldes-Engordany",
+      "brand": "Centre Esportiu Escaldes-Engordany",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_918cf36646",
+      "name": "Centre Esportiu d'Ordino",
+      "brand": "CEO Ordino",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_8e838a1d13",
+      "name": "Complex Esportiu i Sociocultural d'Encamp",
+      "brand": "Complex Esportiu Encamp",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_886040e59f",
+      "name": "Centre Esportiu del Pas de la Casa",
+      "brand": "Centre Esportiu Pas de la Casa",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "ad_ae9200b719",
+      "name": "LAUesport Sant Julià de Lòria",
+      "brand": "LAUesport",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "skipped_existing_id": []
+}

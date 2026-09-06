@@ -1,0 +1,741 @@
+{
+  "chains": [
+    {
+      "brand": "MyFitness",
+      "official_open_active": 19,
+      "qualifying_active": 19,
+      "ready": 19,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "locations": [
+        {
+          "id": "ee_355933c364",
+          "name": "MyFitness Balti Jaama Turg",
+          "address": "Kopli 1",
+          "city": "Tallinn",
+          "postal_code": "10412",
+          "lat": 59.4425767,
+          "lng": 24.7275919,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_7d5ca69d64",
+          "name": "MyFitness Järve",
+          "address": "Pärnu mnt 186",
+          "city": "Tallinn",
+          "postal_code": "11314",
+          "lat": 59.3984235,
+          "lng": 24.725979,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_8225d3bb1d",
+          "name": "MyFitness Kristiine",
+          "address": "Endla 45",
+          "city": "Tallinn",
+          "postal_code": "10615",
+          "lat": 59.4268608,
+          "lng": 24.7247506,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_dcc71d4e59",
+          "name": "MyFitness Lasnamäe Kärberi",
+          "address": "Kärberi 20",
+          "city": "Tallinn",
+          "postal_code": "13919",
+          "lat": 59.4451672,
+          "lng": 24.882938,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_a8e37194c2",
+          "name": "MyFitness Lasnamäe Linnamäe",
+          "address": "Linnamäe tee 3",
+          "city": "Tallinn",
+          "postal_code": "13912",
+          "lat": 59.450786,
+          "lng": 24.873892,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_1e612943e0",
+          "name": "MyFitness Mustamäe",
+          "address": "Tammsaare tee 104a",
+          "city": "Tallinn",
+          "postal_code": "12918",
+          "lat": 59.4084923,
+          "lng": 24.6886826,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_6353f66ecd",
+          "name": "MyFitness Narva Fama",
+          "address": "Fama tänav 10",
+          "city": "Narva",
+          "postal_code": "20303",
+          "lat": 59.37961,
+          "lng": 28.187141,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_287161a69a",
+          "name": "MyFitness Pirita",
+          "address": "Merivälja tee 24",
+          "city": "Tallinn",
+          "postal_code": "11911",
+          "lat": 59.4688535,
+          "lng": 24.8350783,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_e47c68a9de",
+          "name": "MyFitness Postimaja",
+          "address": "Narva mnt 1",
+          "city": "Tallinn",
+          "postal_code": "10111",
+          "lat": 59.4376931,
+          "lng": 24.7562767,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_4f65d6f0eb",
+          "name": "MyFitness Rocca al Mare",
+          "address": "Haabersti 5",
+          "city": "Tallinn",
+          "postal_code": "13516",
+          "lat": 59.4268672,
+          "lng": 24.6450875,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_8d111de06c",
+          "name": "MyFitness Rävala",
+          "address": "Rävala pst 4",
+          "city": "Tallinn",
+          "postal_code": "10143",
+          "lat": 59.4343096,
+          "lng": 24.7586525,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_834e59f825",
+          "name": "MyFitness Tartu Annelinn",
+          "address": "Kalda tee 41",
+          "city": "Tartu",
+          "postal_code": "50707",
+          "lat": 58.3694513,
+          "lng": 26.7651224,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_5792883bb0",
+          "name": "MyFitness Tartu Kesklinn",
+          "address": "Küüni 7",
+          "city": "Tartu",
+          "postal_code": "51004",
+          "lat": 58.3781388,
+          "lng": 26.7248292,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_a089358904",
+          "name": "MyFitness Tartu Lõunakeskus",
+          "address": "Lääneringtee 37",
+          "city": "Tartu",
+          "postal_code": "50501",
+          "lat": 58.3591733,
+          "lng": 26.677072,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_27690314de",
+          "name": "MyFitness Viimsi",
+          "address": "Sõpruse tee 15, Haabneeme",
+          "city": "Viimsi",
+          "postal_code": "74001",
+          "lat": 59.5048612,
+          "lng": 24.8268575,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_67132ad9d1",
+          "name": "MyFitness Viljandi",
+          "address": "Männimäe tee 4",
+          "city": "Viljandi",
+          "postal_code": "71010",
+          "lat": 58.3545334,
+          "lng": 25.5789506,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_751f32334b",
+          "name": "MyFitness Viru",
+          "address": "Viru väljak 4",
+          "city": "Tallinn",
+          "postal_code": "10111",
+          "lat": 59.4365992,
+          "lng": 24.7549171,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_2544fa6a0b",
+          "name": "MyFitness Volta",
+          "address": "Mootori tänav 2",
+          "city": "Tallinn",
+          "postal_code": "10416",
+          "lat": 59.44901,
+          "lng": 24.722254,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_538bb1b19c",
+          "name": "MyFitness Ülemiste City",
+          "address": "Sepise 10",
+          "city": "Tallinn",
+          "postal_code": "11415",
+          "lat": 59.4197586,
+          "lng": 24.8064156,
+          "disposition": "OPEN_ACTIVE"
+        }
+      ]
+    },
+    {
+      "brand": "24-7 Fitness",
+      "official_open_active": 31,
+      "qualifying_active": 31,
+      "ready": 31,
+      "coming_soon": 3,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "locations": [
+        {
+          "id": "ee_136e41e3e3",
+          "name": "24-7 Fitness Akadeemia",
+          "address": "Akadeemia tee 30",
+          "city": "Tallinn",
+          "postal_code": "12613",
+          "lat": 59.3998532,
+          "lng": 24.6649109,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_afece56ea8",
+          "name": "24-7 Fitness Avala",
+          "address": "Veskiposti 2/1",
+          "city": "Tallinn",
+          "postal_code": "10138",
+          "lat": 59.4185016,
+          "lng": 24.7566715,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_46170252aa",
+          "name": "24-7 Fitness Hipodroom",
+          "address": "Mustamäe tee 4",
+          "city": "Tallinn",
+          "postal_code": "10616",
+          "lat": 59.4279704,
+          "lng": 24.701787,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_a0cca1d483",
+          "name": "24-7 Fitness Ihaste",
+          "address": "Ihaste tee 2F",
+          "city": "Tartu",
+          "postal_code": "51011",
+          "lat": 58.367318,
+          "lng": 26.7593976,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_23d13ee680",
+          "name": "24-7 Fitness Järveküla",
+          "address": "Kanarbiku tee 2",
+          "city": "Järveküla",
+          "postal_code": "75304",
+          "lat": 59.382341,
+          "lng": 24.7999272,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_909073b14a",
+          "name": "24-7 Fitness Jõgeva",
+          "address": "Kesk tn 4",
+          "city": "Jõgeva",
+          "postal_code": "48305",
+          "lat": 58.748373,
+          "lng": 26.397462,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_b98dd63ae1",
+          "name": "24-7 Fitness Jõhvi",
+          "address": "Keskväljak 4",
+          "city": "Jõhvi",
+          "postal_code": "41531",
+          "lat": 59.3582788,
+          "lng": 27.4141744,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_a15aae2d15",
+          "name": "24-7 Fitness Keila Keskus",
+          "address": "Harju tn 2",
+          "city": "Keila",
+          "postal_code": "76607",
+          "lat": 59.315879,
+          "lng": 24.410532,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_ad538cbf34",
+          "name": "24-7 Fitness Keila Vesiveski",
+          "address": "Tallinna mnt 18",
+          "city": "Keila",
+          "postal_code": "76608",
+          "lat": 59.3110578,
+          "lng": 24.4334298,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_d5090f3a35",
+          "name": "24-7 Fitness Kiili",
+          "address": "Veski 4",
+          "city": "Kiili",
+          "postal_code": "75401",
+          "lat": 59.3103925,
+          "lng": 24.8389654,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_fd66efe699",
+          "name": "24-7 Fitness Kopli",
+          "address": "Marati 4A",
+          "city": "Tallinn",
+          "postal_code": "11712",
+          "lat": 59.4569639,
+          "lng": 24.6739604,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_dfe043052a",
+          "name": "24-7 Fitness Kuressaare",
+          "address": "Tallinna tn 65",
+          "city": "Kuressaare",
+          "postal_code": "93818",
+          "lat": 58.2616832,
+          "lng": 22.5055066,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_8cc21c4cd5",
+          "name": "24-7 Fitness Laki",
+          "address": "Laki põik 4",
+          "city": "Tallinn",
+          "postal_code": "12919",
+          "lat": 59.4111122,
+          "lng": 24.6721299,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_3c7ccf381f",
+          "name": "24-7 Fitness Luige",
+          "address": "Viljandi mnt 168",
+          "city": "Luige",
+          "postal_code": "75404",
+          "lat": 59.3251723,
+          "lng": 24.7665677,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_71c90c9c79",
+          "name": "24-7 Fitness Narva",
+          "address": "4. Roheline tn 8",
+          "city": "Narva",
+          "postal_code": "20605",
+          "lat": 59.381496,
+          "lng": 28.172754,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_93a443e72e",
+          "name": "24-7 Fitness Paepargi",
+          "address": "Paepargi 11",
+          "city": "Tallinn",
+          "postal_code": "11417",
+          "lat": 59.4299775,
+          "lng": 24.8009266,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_03c252c3d0",
+          "name": "24-7 Fitness Peetri",
+          "address": "Küti tee 4",
+          "city": "Peetri",
+          "postal_code": "75312",
+          "lat": 59.3976458,
+          "lng": 24.8055661,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_4022ce3e3c",
+          "name": "24-7 Fitness Port Artur",
+          "address": "Lai 11",
+          "city": "Pärnu",
+          "postal_code": "80010",
+          "lat": 58.3874617,
+          "lng": 24.5044927,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_832f129d3f",
+          "name": "24-7 Fitness Priisle",
+          "address": "Priisle tee 16",
+          "city": "Tallinn",
+          "postal_code": "13914",
+          "lat": 59.4508908,
+          "lng": 24.8939613,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_c0961f58de",
+          "name": "24-7 Fitness Raadi",
+          "address": "Nõlvakaare 4",
+          "city": "Tartu",
+          "postal_code": "60532",
+          "lat": 58.4085539,
+          "lng": 26.7505956,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_2859632c67",
+          "name": "24-7 Fitness Rakvere",
+          "address": "F. G. Adoffi 11",
+          "city": "Rakvere",
+          "postal_code": "44310",
+          "lat": 59.34925,
+          "lng": 26.36439,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_bef6f55067",
+          "name": "24-7 Fitness Saue",
+          "address": "Tule põik 2",
+          "city": "Saue",
+          "postal_code": "76505",
+          "lat": 59.3196796,
+          "lng": 24.566167,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_d3bdd981df",
+          "name": "24-7 Fitness Sepa Keskus",
+          "address": "Sepa tn 4",
+          "city": "Tartu",
+          "postal_code": "50105",
+          "lat": 58.349356,
+          "lng": 26.739214,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_f94ec93820",
+          "name": "24-7 Fitness Sõbrakeskus",
+          "address": "Võru 55f",
+          "city": "Tartu",
+          "postal_code": "50111",
+          "lat": 58.3657567,
+          "lng": 26.7197911,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_34384840a3",
+          "name": "24-7 Fitness Tabasalu",
+          "address": "Kallaste tn 7",
+          "city": "Tabasalu",
+          "postal_code": "76901",
+          "lat": 59.428992,
+          "lng": 24.549972,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_43b2f4c7e2",
+          "name": "24-7 Fitness Tähesaju",
+          "address": "Tähesaju tee 11",
+          "city": "Tallinn",
+          "postal_code": "13917",
+          "lat": 59.4433897,
+          "lng": 24.8557383,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_a98a29c5df",
+          "name": "24-7 Fitness Tõnismägi",
+          "address": "Tõnismägi 11A",
+          "city": "Tallinn",
+          "postal_code": "10119",
+          "lat": 59.4293083,
+          "lng": 24.7426385,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_1a90775797",
+          "name": "24-7 Fitness Vabaduse",
+          "address": "Vabaduse pst 174B",
+          "city": "Tallinn",
+          "postal_code": "10917",
+          "lat": 59.3648786,
+          "lng": 24.6351477,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_7707002ac8",
+          "name": "24-7 Fitness Viljandi Kaalu",
+          "address": "Kaalu tn 2",
+          "city": "Viljandi",
+          "postal_code": "71012",
+          "lat": 58.364174,
+          "lng": 25.593697,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_b8f6139ad6",
+          "name": "24-7 Fitness Viljandi Riia",
+          "address": "Riia 99",
+          "city": "Viljandi",
+          "postal_code": "71009",
+          "lat": 58.3447873,
+          "lng": 25.5786829,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_9d4bb8e396",
+          "name": "24-7 Fitness Võru",
+          "address": "Vilja tänav 6",
+          "city": "Võru",
+          "postal_code": "65606",
+          "lat": 57.849443,
+          "lng": 27.006549,
+          "disposition": "OPEN_ACTIVE"
+        }
+      ]
+    },
+    {
+      "brand": "Gym!",
+      "official_open_active": 15,
+      "qualifying_active": 15,
+      "ready": 15,
+      "coming_soon": 2,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "locations": [
+        {
+          "id": "ee_a39df7a926",
+          "name": "Gym! Astri",
+          "address": "Tallinna mnt 41",
+          "city": "Narva",
+          "postal_code": "20605",
+          "lat": 59.3812569,
+          "lng": 28.1757068,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_7346437c59",
+          "name": "Gym! Jõhvi",
+          "address": "Narva mnt 8",
+          "city": "Jõhvi",
+          "postal_code": "41531",
+          "lat": 59.3574856,
+          "lng": 27.4181392,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_9f63cae695",
+          "name": "Gym! Kerese",
+          "address": "Paul Kerese 3",
+          "city": "Narva",
+          "postal_code": "20309",
+          "lat": 59.3755878,
+          "lng": 28.192266,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_02781d2158",
+          "name": "Gym! Mustika",
+          "address": "Karjavälja 4",
+          "city": "Tallinn",
+          "postal_code": "12918",
+          "lat": 59.4106802,
+          "lng": 24.6844607,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_b8c1d8bc6e",
+          "name": "Gym! Pärnu",
+          "address": "Lai 5",
+          "city": "Pärnu",
+          "postal_code": "80011",
+          "lat": 58.3873675,
+          "lng": 24.5013806,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_e62a625275",
+          "name": "Gym! Rocca al Mare",
+          "address": "Paldiski mnt 102",
+          "city": "Tallinn",
+          "postal_code": "13522",
+          "lat": 59.4259014,
+          "lng": 24.649245,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_1223384fb6",
+          "name": "Gym! Solaris",
+          "address": "Estonia pst 9",
+          "city": "Tallinn",
+          "postal_code": "15030",
+          "lat": 59.4332203,
+          "lng": 24.7518993,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_fd122813c5",
+          "name": "Gym! Tasku",
+          "address": "Turu 2",
+          "city": "Tartu",
+          "postal_code": "51004",
+          "lat": 58.3783271,
+          "lng": 26.7309714,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_eeb3b2ed6e",
+          "name": "Gym! Tehnopol",
+          "address": "Akadeemia tee 21/2",
+          "city": "Tallinn",
+          "postal_code": "12618",
+          "lat": 59.3978344,
+          "lng": 24.6601394,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_0464e0b52f",
+          "name": "Gym! Vanalinn",
+          "address": "Aia 3",
+          "city": "Tallinn",
+          "postal_code": "10111",
+          "lat": 59.4370596,
+          "lng": 24.7512066,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_c46ffdde83",
+          "name": "Gym! Veeriku",
+          "address": "Näituse 33",
+          "city": "Tartu",
+          "postal_code": "50407",
+          "lat": 58.3771382,
+          "lng": 26.6987908,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_6f01f6ecd7",
+          "name": "Gym! Virbi",
+          "address": "Virbi 12",
+          "city": "Tallinn",
+          "postal_code": "13629",
+          "lat": 59.440949,
+          "lng": 24.8439811,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_206498f4e2",
+          "name": "Gym! Õismäe",
+          "address": "Õismäe tee 130",
+          "city": "Tallinn",
+          "postal_code": "13513",
+          "lat": 59.417258,
+          "lng": 24.6447763,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_d2f42682e1",
+          "name": "Gym! Ülemiste",
+          "address": "Suur-Sõjamäe 4",
+          "city": "Tallinn",
+          "postal_code": "11415",
+          "lat": 59.4215663,
+          "lng": 24.7958308,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_c752f2b24e",
+          "name": "Gym! Ülenurme",
+          "address": "Tartu mnt 54",
+          "city": "Ülenurme",
+          "postal_code": "61714",
+          "lat": 58.3281777,
+          "lng": 26.718061,
+          "disposition": "OPEN_ACTIVE"
+        }
+      ]
+    },
+    {
+      "brand": "Golden Club",
+      "official_open_active": 3,
+      "qualifying_active": 3,
+      "ready": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "locations": [
+        {
+          "id": "ee_141f92d21d",
+          "name": "Golden Club Rotermanni",
+          "address": "Rotermanni 5",
+          "city": "Tallinn",
+          "postal_code": "10111",
+          "lat": 59.4392295,
+          "lng": 24.7563176,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_b9bc209fd8",
+          "name": "Golden Club Tondi",
+          "address": "Sõjakooli tn 10",
+          "city": "Tallinn",
+          "postal_code": "11316",
+          "lat": 59.403868,
+          "lng": 24.720539,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "ee_a3aff2f162",
+          "name": "Golden Club Viimsi",
+          "address": "Karulaugu tee 14",
+          "city": "Viimsi",
+          "postal_code": "74001",
+          "lat": 59.5111262,
+          "lng": 24.835857,
+          "disposition": "OPEN_ACTIVE"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "final_class_a_chain_count": 4,
+    "final_class_a_ready_count": 68,
+    "chain_estate_gaps": 0
+  }
+}

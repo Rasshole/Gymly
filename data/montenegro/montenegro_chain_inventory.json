@@ -1,0 +1,30 @@
+{
+  "class_a_threshold": "≥3 conventional public ME locations",
+  "qualifying_class_a_chains": 0,
+  "operators": {
+    "Benex Fitness": {
+      "sites": 2,
+      "class_a": false,
+      "path": "SMI"
+    },
+    "Terzo": {
+      "sites": 2,
+      "class_a": false,
+      "path": "SMI"
+    },
+    "Soko Gym": {
+      "conventional_ready": 2,
+      "class_a": false,
+      "path": "SMI",
+      "excluded_units": [
+        "Lady",
+        "Mall wellness"
+      ]
+    },
+    "City Fitness": {
+      "sites": 1,
+      "class_a": false
+    }
+  },
+  "international_recheck": "ABSENT — Anytime/Basic-Fit/McFIT/PureGym/World Class/Ahilej/XTZ/BIGSPORT/Energy"
+}

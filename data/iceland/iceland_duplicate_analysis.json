@@ -1,0 +1,15 @@
+{
+  "ready_count": 27,
+  "duplicate_ids": [],
+  "normalized_same_addresses": [],
+  "same_brand_le_25m": [],
+  "same_brand_le_50m": [],
+  "same_brand_le_100m": [],
+  "same_brand_le_200m": [],
+  "identical_coords": [],
+  "different_brand_le_100m": [],
+  "notes": [
+    "Gamla Kringlan vs Kringlan are distinct units — not duplicates",
+    "Tjarnarvellir WC/Katla co-location expected in sports complex"
+  ]
+}

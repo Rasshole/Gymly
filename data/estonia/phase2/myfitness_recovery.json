@@ -1,0 +1,32 @@
+{
+  "targets": [
+    "Volta",
+    "Narva Fama"
+  ],
+  "recovered": [
+    {
+      "id": "ee_2544fa6a0b",
+      "name": "MyFitness Volta",
+      "brand": "MyFitness",
+      "before_category": "NEEDS_COORDINATES",
+      "lat": 59.44901,
+      "lng": 24.722254,
+      "postal_code": "10416",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "key": "volta"
+    },
+    {
+      "id": "ee_6353f66ecd",
+      "name": "MyFitness Narva Fama",
+      "brand": "MyFitness",
+      "before_category": "NEEDS_COORDINATES",
+      "lat": 59.37961,
+      "lng": 28.187141,
+      "postal_code": "20303",
+      "coord_source": "VERIFIED_PREMISES_PIN",
+      "key": "narva_fama"
+    }
+  ],
+  "goal": "19/19 READY",
+  "achieved": true
+}

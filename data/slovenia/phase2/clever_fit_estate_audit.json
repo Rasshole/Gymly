@@ -1,0 +1,172 @@
+{
+  "official_current": 18,
+  "discovered": 18,
+  "ready": 18,
+  "coming_soon": 0,
+  "records": [
+    {
+      "id": "si_673eba29e0",
+      "name": "Shape House Ljubljana Situla",
+      "address": "Vilharjeva cesta 36",
+      "city": "Ljubljana",
+      "postal_code": "1000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_87aeb083b4",
+      "name": "Shape House Ljubljana Šiška",
+      "address": "Bravničarjeva ulica 18",
+      "city": "Ljubljana",
+      "postal_code": "1000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_ae7796d56f",
+      "name": "Shape House Ljubljana Rudnik",
+      "address": "Premrlova ulica 14",
+      "city": "Ljubljana",
+      "postal_code": "1000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_cf31bee5f4",
+      "name": "Shape House Ljubljana Letališka",
+      "address": "Letališka cesta 1",
+      "city": "Ljubljana",
+      "postal_code": "1000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_1e461b2ce1",
+      "name": "Shape House Maribor",
+      "address": "Na Poljanah 18",
+      "city": "Maribor",
+      "postal_code": "2000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_c0ab7d90a3",
+      "name": "Shape House Novo mesto",
+      "address": "Ljubljanska cesta 32",
+      "city": "Novo mesto",
+      "postal_code": "8000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_812bd7056e",
+      "name": "Shape House Koper Planet Tuš",
+      "address": "Ankaranska cesta 2",
+      "city": "Koper",
+      "postal_code": "6000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_021f737987",
+      "name": "Shape House Kranj",
+      "address": "Cesta Jaka Platiše 18",
+      "city": "Kranj",
+      "postal_code": "4000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_c55bd4763c",
+      "name": "Shape House Ljubljana Loberia",
+      "address": "Celovška cesta 522",
+      "city": "Ljubljana",
+      "postal_code": "1210",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_98079e395a",
+      "name": "Shape House Murska Sobota",
+      "address": "Lendavska ulica 29D",
+      "city": "Murska Sobota",
+      "postal_code": "9000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_4191b87a6e",
+      "name": "Shape House Domžale",
+      "address": "Breznikova ulica 17",
+      "city": "Domžale",
+      "postal_code": "1230",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_2f5157cb18",
+      "name": "Shape House Grosuplje",
+      "address": "Industrijska cesta 1G",
+      "city": "Grosuplje",
+      "postal_code": "1290",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_95f6c33ba2",
+      "name": "Shape House Ljubljana Tiskarna",
+      "address": "Dunajska cesta 123",
+      "city": "Ljubljana",
+      "postal_code": "1000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_5dfb02ad9d",
+      "name": "Shape House Koper Istrska",
+      "address": "Istrska cesta 67",
+      "city": "Koper",
+      "postal_code": "6000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_8cdc4b9b69",
+      "name": "Shape House Celje",
+      "address": "Mariborska cesta 128",
+      "city": "Celje",
+      "postal_code": "3000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_760f077cf3",
+      "name": "Shape House Novo mesto 2",
+      "address": "Belokranjska cesta 5",
+      "city": "Novo mesto",
+      "postal_code": "8000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_e0283b435e",
+      "name": "Shape House Ljubljana Metalka",
+      "address": "Dalmatinova ulica 2a",
+      "city": "Ljubljana",
+      "postal_code": "1000",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    },
+    {
+      "id": "si_a795962ca4",
+      "name": "Shape House Jesenice",
+      "address": "Fužinska cesta 8",
+      "city": "Jesenice",
+      "postal_code": "4270",
+      "phase2_status": "READY_TO_IMPORT",
+      "coord_source": "STRICT_ADDRESS_GEOCODE"
+    }
+  ],
+  "rebrand_note": "clever fit → Shape House (Basic-Fit acquisition, Feb 2026)",
+  "verdict": "COMPLETE"
+}

@@ -1,0 +1,325 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:49:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1072877945,
+      "lat": 51.4900145,
+      "lon": 45.9182165,
+      "tags": {
+        "description": "Тренажерный зал",
+        "leisure": "fitness_centre",
+        "name": "Атлант",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3948575189,
+      "lat": 51.5484896,
+      "lon": 46.0063007,
+      "tags": {
+        "contact:website": "http://wclass-saratov.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4332512090,
+      "lat": 51.5196245,
+      "lon": 46.0190949,
+      "tags": {
+        "addr:housenumber": "133",
+        "addr:postcode": "413503",
+        "addr:street": "улица Чернышевского",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "КлубникаСпорт",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "phone": "2652272"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4709682893,
+      "lat": 51.5490547,
+      "lon": 46.053727,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Strong gym",
+        "name:ru": "Strong gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6229311823,
+      "lat": 51.5777619,
+      "lon": 45.9712033,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "World Class lite",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6425104014,
+      "lat": 51.5811479,
+      "lon": 46.0715766,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Максюта Юнион",
+        "sport": "bodybuilding"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10231667835,
+      "lat": 51.5977463,
+      "lon": 45.9208447,
+      "tags": {
+        "addr:city": "Саратов",
+        "addr:housenumber": "9",
+        "addr:postcode": "410062",
+        "addr:street": "3-й Московский проезд",
+        "leisure": "fitness_centre",
+        "name": "Лидер",
+        "opening_hours": "Mo-Fr 10:00-22:00; Sa-Su 11:00-17:00",
+        "phone": "+7 (8452) 46-03-72",
+        "website": "https://www.lider-fit.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11363879567,
+      "lat": 51.4973752,
+      "lon": 46.1225516,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Студия растяжки “Ficelle”"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443644,
+      "lat": 51.543937,
+      "lon": 46.008755,
+      "tags": {
+        "contact:phone": "+7 937 1475005",
+        "contact:website": "https://ladystretch.com/saratov",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443645,
+      "lat": 51.5272416,
+      "lon": 46.0162729,
+      "tags": {
+        "contact:phone": "+7 937 8175005",
+        "contact:website": "https://ladystretch.com/saratov",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11505611403,
+      "lat": 51.537238,
+      "lon": 46.0188241,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "MetroFitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11736518166,
+      "lat": 51.5853482,
+      "lon": 46.0341887,
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11738932973,
+      "lat": 51.527541,
+      "lon": 46.0400869,
+      "tags": {
+        "leisure": "fitness_centre",
+        "mobile": "+7 927 1458484",
+        "name": "Май студия пилатеса",
+        "sport": "pilates",
+        "website": "https://my-pilates.pro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11738945963,
+      "lat": 51.5683642,
+      "lon": 45.9684223,
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "fitness",
+        "website": "https://sokolfit64.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11739302242,
+      "lat": 51.5364247,
+      "lon": 46.0178239,
+      "tags": {
+        "leisure": "fitness_centre",
+        "mobile": "+7 (927) 051-59-27",
+        "name": "ЙогаДом",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11755710973,
+      "lat": 51.5200111,
+      "lon": 46.010769,
+      "tags": {
+        "fixme": "уточнить местоположение",
+        "leisure": "fitness_centre",
+        "mobile": "+7 (927) 223-72-80",
+        "name": "Студия Исток",
+        "sport": "yoga",
+        "website": "https://yoga-saratov.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11773957817,
+      "lat": 51.5280249,
+      "lon": 46.0459247,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Zen stretching",
+        "phone": "+7 (906) 892-66-93"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11773957823,
+      "lat": 51.5316842,
+      "lon": 46.0251778,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Alex Gym Fitness Club",
+        "phone": "+7 8452 338936",
+        "website": "https://alexgym.pro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11773957824,
+      "lat": 51.5276761,
+      "lon": 46.0389617,
+      "tags": {
+        "leisure": "fitness_centre",
+        "mobile": "+7 951 8800261",
+        "name": "Levita",
+        "website": "https://levitafamily.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11782640840,
+      "lat": 51.6015063,
+      "lon": 46.0130945,
+      "tags": {
+        "contact:phone": "+7 927 1425005",
+        "contact:website": "https://ladystretch.com/saratov",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754231,
+      "lat": 51.6085445,
+      "lon": 46.0190624,
+      "tags": {
+        "contact:phone": "+7 845 2396999",
+        "contact:website": "https://saratov.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13930253301,
+      "lat": 51.5344306,
+      "lon": 46.0218531,
+      "tags": {
+        "addr:housenumber": "49/65",
+        "addr:postcode": "410012",
+        "addr:street": "Большая Казачья улица",
+        "check_date": "2026-06-12",
+        "contact:vk": "nonstopsaratov",
+        "email": "nonstop-saratov@list.ru",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Нонстоп",
+        "phone": "+78452338866",
+        "website": "https://fitness-nonstop.ru/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 643342373,
+      "center": {
+        "lat": 51.4510788,
+        "lon": 46.1498931
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 671653640,
+      "center": {
+        "lat": 51.5297005,
+        "lon": 46.0603231
+      },
+      "tags": {
+        "addr:housenumber": "2",
+        "addr:street": "улица Хвесина",
+        "landuse": "commercial",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 692580566,
+      "center": {
+        "lat": 51.5402343,
+        "lon": 46.0323256
+      },
+      "tags": {
+        "addr:housenumber": "29Б",
+        "addr:street": "Симбирская улица",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

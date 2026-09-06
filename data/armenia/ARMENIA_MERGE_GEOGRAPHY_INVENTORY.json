@@ -1,0 +1,25 @@
+{
+  "production_cities": {
+    "Abovyan": 1,
+    "Yerevan": 27,
+    "Armavir": 1,
+    "Vanadzor": 2,
+    "Gyumri": 1,
+    "Մասիս": 1,
+    "Hrazdan": 1,
+    "Kapan": 1,
+    "Goris": 1
+  },
+  "approved_cities": {
+    "Yerevan": 27,
+    "Abovyan": 1,
+    "Armavir": 1,
+    "Vanadzor": 2,
+    "Gyumri": 1,
+    "Մասիս": 1,
+    "Hrazdan": 1,
+    "Kapan": 1,
+    "Goris": 1
+  },
+  "production_total": 36
+}

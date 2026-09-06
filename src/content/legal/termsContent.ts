@@ -274,5 +274,9 @@ const termsEn: LegalDocument = {
 };
 
 export function getTermsContent(language: AppLanguage): LegalDocument {
-  return language === 'en' ? termsEn : termsDa;
+  if (language === 'da') {
+    return termsDa;
+  }
+  // en + any locale without a reviewed legal pack (e.g. sv) → English
+  return termsEn;
 }

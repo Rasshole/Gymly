@@ -1,0 +1,46 @@
+{
+  "checked": [
+    {
+      "brand": "Global Fitness",
+      "class": "E",
+      "notes": "Hotel/SPA single-site Rīga"
+    },
+    {
+      "brand": "Best Fit",
+      "class": "E",
+      "notes": "Single Daugavpils club"
+    },
+    {
+      "brand": "Gym Lāčplēsis",
+      "class": "E",
+      "notes": "Single Liepāja club"
+    },
+    {
+      "brand": "F1 / Atlētika / Sportima / FitSpot / Vingruma Klubs / DCH",
+      "class": "D/F",
+      "notes": "No 3+ conventional estate found"
+    },
+    {
+      "brand": "People Fitness",
+      "class": "F",
+      "notes": "Liquidated 2023 — READY 0"
+    },
+    {
+      "brand": "City Fitness",
+      "class": "C",
+      "notes": "Name confusion with MyFitness — READY 0"
+    },
+    {
+      "brand": "Gym+ / Impuls",
+      "class": "F",
+      "notes": "Lithuanian consumer brands — absent LV"
+    },
+    {
+      "brand": "Basic-Fit / McFIT / Anytime / FITINN / clever fit / JOHN REED / Gold's / Fitness First / World Class",
+      "class": "F",
+      "notes": "Absent in Latvia"
+    }
+  ],
+  "new_class_a_found": false,
+  "conclusion": "No additional Class A conventional Latvian chain beyond MyFitness, Lemon Gym, Gym!"
+}

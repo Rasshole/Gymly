@@ -1,84 +1,223 @@
-import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
-import {MuscleGroup} from '@/types/workout.types';
-import {formatGymDisplayName} from '@/utils/gymDisplay';
+/**
+ * Full workout history — completed check_ins with log summaries.
+ * Opened from Profile → Se alle.
+ */
+
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import type {StackNavigationProp} from '@react-navigation/stack';
+import {useAppStore} from '@/store/appStore';
+import {CompletedSessionRow} from '@/components/profile/CompletedSessionRow';
+import {
+  fetchWorkoutHistoryList,
+} from '@/services/supabase/workoutHistoryService';
+import type {ProfileCompletedSession} from '@/services/supabase/profileCheckInHistory';
+import type {WorkoutSessionLogSummary} from '@/types/workoutLog.types';
+import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {getDemoRecentSessions} from '@/demo/demoTrainingStatsSeed';
+import {
+  filterSessionsByPeriod,
+  sortSessionsNewestFirst,
+} from '@/utils/filterSessionsByPeriod';
+import type {WorkoutPeriod} from '@/utils/workoutPeriodFilter';
+import {formatVolumeKg} from '@/utils/workoutLogFormat';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
+import {spacing, typography, radius} from '@/theme/designTokens';
 
-const MUSCLE_LABELS: Record<MuscleGroup, string> = {
-  bryst: 'Bryst',
-  triceps: 'Triceps',
-  skulder: 'Skulder',
-  ben: 'Ben',
-  biceps: 'Biceps',
-  mave: 'Mave',
-  ryg: 'Ryg',
-  cardio: 'Cardio',
-  reformer: 'Reformer',
-  pilates: 'Pilates',
-};
-
-const formatDateTime = (date: Date) =>
-  new Date(date).toLocaleString('da-DK', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
-const formatDuration = (durationMs: number) => {
-  const minutes = Math.round(durationMs / 60000);
-  if (minutes < 60) {
-    return `${minutes} min`;
-  }
-  const hours = Math.floor(minutes / 60);
-  const rest = minutes % 60;
-  return rest === 0 ? `${hours} t` : `${hours} t ${rest} min`;
-};
+type Nav = StackNavigationProp<{
+  WorkoutHistoryDetail: {sessionId: string};
+}>;
 
 const WorkoutHistoryScreen = () => {
-  const completedWorkouts = useWorkoutPlanStore(state => state.completedWorkouts);
+  const {t} = useTranslation();
+  const navigation = useNavigation<Nav>();
+  const periodOptions = useMemo(
+    () => [
+      {key: 'all' as const, label: t('profile.periodAll')},
+      {key: 'week' as const, label: t('profile.periodWeek')},
+      {key: 'month' as const, label: t('allTrainings.periodMonth')},
+      {key: 'year' as const, label: t('allTrainings.periodYear')},
+    ],
+    [t],
+  );
+  const userId = useAppStore(s => s.user?.id);
+  const [sessions, setSessions] = useState<ProfileCompletedSession[]>([]);
+  const [summaries, setSummaries] = useState<
+    Record<string, WorkoutSessionLogSummary>
+  >({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [query, setQuery] = useState('');
+  const [period, setPeriod] = useState<WorkoutPeriod>('all');
+
+  const load = useCallback(async () => {
+    if (!userId) {
+      setSessions([]);
+      setSummaries({});
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    try {
+      if (isDemoContentMode()) {
+        setSessions(sortSessionsNewestFirst(getDemoRecentSessions()));
+        setSummaries({});
+      } else {
+        const {sessions: rows, summaries: sums} =
+          await fetchWorkoutHistoryList(userId, 200);
+        setSessions(sortSessionsNewestFirst(rows));
+        setSummaries(sums);
+      }
+    } catch (e: any) {
+      setSessions([]);
+      setSummaries({});
+      setError(e?.message ?? t('workoutHistory.loadFailed'));
+    } finally {
+      setLoading(false);
+    }
+  }, [userId, t]);
+
+  useEffect(() => {
+    void load();
+  }, [load]);
+
+  useFocusEffect(
+    useCallback(() => {
+      void load();
+    }, [load]),
+  );
+
+  useEffect(() => {
+    if (!userId || isDemoContentMode()) {
+      return;
+    }
+    return subscribeCheckInsPresence(() => {
+      void load();
+    });
+  }, [userId, load]);
+
+  const filtered = useMemo(() => {
+    let list = filterSessionsByPeriod(sessions, period);
+    const q = query.trim().toLowerCase();
+    if (!q) {
+      return list;
+    }
+    return list.filter(s => {
+      const hay =
+        `${s.gymName} ${s.workoutType ?? ''} ${s.partnerDisplayName ?? ''}`.toLowerCase();
+      return hay.includes(q);
+    });
+  }, [sessions, period, query]);
+
+  const openDetail = (sessionId: string) => {
+    navigation.navigate('WorkoutHistoryDetail', {sessionId});
+  };
+
+  const summaryLine = (sessionId: string): string | undefined => {
+    const s = summaries[sessionId];
+    if (!s || (s.exerciseCount === 0 && s.setCount === 0)) {
+      return undefined;
+    }
+    return t('workoutHistory.summaryLine', {
+      exercises: s.exerciseCount,
+      sets: s.setCount,
+      volume: formatVolumeKg(s.totalVolumeKg),
+    });
+  };
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={completedWorkouts}
-        keyExtractor={item => item.id}
-        contentContainerStyle={styles.listContent}
-        renderItem={({item}) => (
-          <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <Text style={styles.gymName}>{formatGymDisplayName(item.gym)}</Text>
-              <Text style={styles.duration}>{formatDuration(item.durationMs)}</Text>
-            </View>
-            <Text style={styles.timestamp}>{formatDateTime(item.completedAt)}</Text>
-            <View style={styles.muscleRow}>
-              {item.muscles.map(group => (
-                <View key={group} style={styles.muscleChip}>
-                  <Text style={styles.muscleChipText}>{MUSCLE_LABELS[group]}</Text>
-                </View>
-              ))}
-            </View>
-            {item.acceptedFriends && item.acceptedFriends.length > 0 && (
-              <Text style={styles.friendText}>
-                {`Du trænede med ${item.acceptedFriends.length} ${
-                  item.acceptedFriends.length === 1 ? 'ven' : 'venner'
-                }`}
+      <Text style={styles.screenSub}>{t('workoutHistory.listSubtitle')}</Text>
+
+      <View style={styles.searchWrap}>
+        <Icon name="search-outline" size={20} color={colors.textMuted} />
+        <TextInput
+          style={styles.searchInput}
+          value={query}
+          onChangeText={setQuery}
+          placeholder={t('allTrainings.searchPlaceholder')}
+          placeholderTextColor={colors.textMuted}
+          autoCorrect={false}
+          autoCapitalize="none"
+          clearButtonMode="while-editing"
+        />
+      </View>
+
+      <View style={styles.periodRow}>
+        {periodOptions.map(({key, label}) => {
+          const active = period === key;
+          return (
+            <TouchableOpacity
+              key={key}
+              style={[styles.periodChip, active && styles.periodChipActive]}
+              onPress={() => setPeriod(key)}
+              activeOpacity={0.85}>
+              <Text
+                style={[
+                  styles.periodChipText,
+                  active && styles.periodChipTextActive,
+                ]}>
+                {label}
               </Text>
-            )}
-          </View>
-        )}
-        ListEmptyComponent={
-          <View style={styles.emptyState}>
-            <Text style={styles.emptyEmoji}>💪</Text>
-            <Text style={styles.emptyTitle}>Ingen træninger endnu</Text>
-            <Text style={styles.emptySubtitle}>
-              Når du afslutter en træning, dukker den op her.
-            </Text>
-          </View>
-        }
-      />
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+
+      {loading && sessions.length === 0 ? (
+        <View style={styles.centered}>
+          <ActivityIndicator color={colors.primary} size="large" />
+        </View>
+      ) : error && sessions.length === 0 ? (
+        <View style={styles.centered}>
+          <Text style={styles.errorTitle}>{t('workoutHistory.loadFailed')}</Text>
+          <TouchableOpacity style={styles.retryBtn} onPress={() => void load()}>
+            <Text style={styles.retryText}>{t('common.retry')}</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <FlatList
+          data={filtered}
+          keyExtractor={item => item.id}
+          contentContainerStyle={
+            filtered.length === 0 ? styles.listEmptyContent : styles.listContent
+          }
+          renderItem={({item, index}) => (
+            <CompletedSessionRow
+              session={item}
+              isLast={index === filtered.length - 1}
+              summaryLine={summaryLine(item.id)}
+              onPress={() => openDetail(item.id)}
+            />
+          )}
+          ListEmptyComponent={
+            <View style={styles.empty}>
+              <Icon name="fitness-outline" size={40} color={colors.textMuted} />
+              <Text style={styles.emptyTitle}>
+                {t('workoutHistory.emptyTitle')}
+              </Text>
+              <Text style={styles.emptySub}>
+                {sessions.length === 0
+                  ? t('workoutHistory.emptyBody')
+                  : t('allTrainings.emptyFiltered')}
+              </Text>
+            </View>
+          }
+        />
+      )}
     </View>
   );
 };
@@ -88,82 +227,109 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  listContent: {
-    padding: 16,
-  },
-  card: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 18,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: colors.primary,
-    shadowOpacity: 0.05,
-    shadowRadius: 10,
-    shadowOffset: {width: 0, height: 4},
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 4,
-  },
-  gymName: {
-    fontSize: 17,
-    fontWeight: '700',
-    color: colors.text,
-  },
-  duration: {
-    fontSize: 15,
-    color: colors.secondary,
+  screenSub: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    paddingHorizontal: spacing.lg,
+    marginTop: spacing.sm,
+    marginBottom: spacing.xs,
     fontWeight: '600',
   },
-  timestamp: {
-    fontSize: 14,
-    color: colors.textTertiary,
-    marginBottom: 12,
+  searchWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.sm,
+    marginBottom: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  muscleRow: {
+  searchInput: {
+    flex: 1,
+    ...typography.body,
+    color: colors.text,
+    paddingVertical: 4,
+  },
+  periodRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    gap: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.md,
   },
-  muscleChip: {
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    backgroundColor: '#EFF6FF',
-    borderRadius: 999,
+  periodChip: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.full,
+    backgroundColor: colors.backgroundCard,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  muscleChipText: {
-    fontSize: 13,
-    color: '#1D4ED8',
+  periodChipActive: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  periodChipText: {
+    ...typography.caption,
     fontWeight: '600',
+    color: colors.textSecondary,
   },
-  friendText: {
-    marginTop: 12,
-    fontSize: 13,
-    color: '#334155',
+  periodChipTextActive: {
+    color: colors.white,
   },
-  emptyState: {
+  listContent: {
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.xxxl,
+  },
+  listEmptyContent: {
+    flexGrow: 1,
+    paddingHorizontal: spacing.lg,
+    justifyContent: 'center',
+  },
+  centered: {
+    flex: 1,
     alignItems: 'center',
-    marginTop: 80,
-    paddingHorizontal: 24,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.xl,
   },
-  emptyEmoji: {
-    fontSize: 48,
-    marginBottom: 16,
+  empty: {
+    alignItems: 'center',
+    paddingVertical: spacing.xxxl,
+    paddingHorizontal: spacing.xl,
   },
   emptyTitle: {
-    fontSize: 20,
-    fontWeight: '700',
+    ...typography.bodyBold,
     color: colors.text,
-    marginBottom: 6,
-  },
-  emptySubtitle: {
-    fontSize: 14,
-    color: colors.textTertiary,
+    marginTop: spacing.md,
     textAlign: 'center',
+  },
+  emptySub: {
+    ...typography.body,
+    color: colors.textSecondary,
+    marginTop: spacing.sm,
+    textAlign: 'center',
+  },
+  errorTitle: {
+    ...typography.bodyBold,
+    color: colors.text,
+    textAlign: 'center',
+    marginBottom: spacing.md,
+  },
+  retryBtn: {
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    borderRadius: radius.lg,
+    backgroundColor: colors.primary,
+  },
+  retryText: {
+    ...typography.bodyBold,
+    color: colors.white,
   },
 });
 
 export default WorkoutHistoryScreen;
-
-

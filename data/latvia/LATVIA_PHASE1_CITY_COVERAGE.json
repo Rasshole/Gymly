@@ -1,0 +1,41 @@
+{
+  "cities": {
+    "Rīga": "A",
+    "Daugavpils": "A",
+    "Liepāja": "B",
+    "Jelgava": "B",
+    "Jūrmala": "B",
+    "Ventspils": "B",
+    "Rēzekne": "B",
+    "Valmiera": "B",
+    "Jēkabpils": "B",
+    "Ogre": "B",
+    "Tukums": "B",
+    "Cēsis": "B",
+    "Sigulda": "B",
+    "Kuldīga": "B",
+    "Saldus": "B",
+    "Bauska": "B",
+    "Madona": "B",
+    "Limbaži": "B",
+    "Gulbene": "B",
+    "Alūksne": "B",
+    "Krāslava": "B",
+    "Ludza": "B",
+    "Preiļi": "B",
+    "Dobele": "B",
+    "Aizkraukle": "B",
+    "Valka": "B",
+    "Mārupe": "B",
+    "Salaspils": "B",
+    "Ikšķile": "B",
+    "Ādaži": "B"
+  },
+  "ready_by_city": {
+    "Rīga": 32,
+    "Daugavpils": 1
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0,
+  "secondary_municipality_gaps": []
+}

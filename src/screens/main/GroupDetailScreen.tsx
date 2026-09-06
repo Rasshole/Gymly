@@ -1,9 +1,9 @@
 /**
- * Group Detail Screen
- * Gruppens detaljer – beskrivelse, medlemmer, aktivitet, join/leave/invite
+ * Group Detail — MVP: aktive nu, ugens leaderboard, medlemmer, admin-menu
+ * Visuelt aligned med Profil + Hjem cards.
  */
 
-import React, {useState, useMemo, useEffect, useCallback} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {
   View,
   Text,
@@ -14,1000 +14,934 @@ import {
   Alert,
   Modal,
   FlatList,
-  TextInput,
   ActivityIndicator,
-  KeyboardAvoidingView,
   Platform,
+  Pressable,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation, useRoute, useFocusEffect} from '@react-navigation/native';
-import {supabase} from '@/services/supabase/supabaseClient';
-import {
-  fetchGymlyGroupMessages,
-  leaveGymlyGroup,
-  fetchGymlyGroupMembers,
-  inviteToGymlyGroup,
-  sendGymlyGroupMessage,
-} from '@/services/supabase/gymlyGroupsService';
-import {useFriendStore} from '@/store/friendStore';
-import type {PublicProfile} from '@/services/supabase/friendService';
-import type {GymlyGroupMessageRow} from '@/types/gymlyGroups.types';
-import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
-import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
+import {useFocusEffect, useNavigation, useRoute} from '@react-navigation/native';
 import ScreenHeader from '@/components/ui/ScreenHeader';
-import {Card} from '@/components/ui/Card';
+import {UserAvatar} from '@/components/ui/UserAvatar';
 import {useAppStore} from '@/store/appStore';
-import {useGroup, useGroupActivity} from '@/hooks/data';
-import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import {useFriendStore} from '@/store/friendStore';
+import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
+import {
+  fetchGymlyGroup,
+  fetchGymlyGroupMembers,
+  fetchGymlyGroupActiveMembers,
+  fetchGymlyGroupWeeklyLeaderboard,
+  inviteToGymlyGroup,
+  leaveGymlyGroup,
+  deleteGymlyGroup,
+  removeGymlyGroupMember,
+  type GymlyGroupActiveMember,
+} from '@/services/supabase/gymlyGroupsService';
+import {
+  fetchGymlyGroupStats,
+  fetchActiveGymlyGroupSession,
+  fetchRecentGymlyGroupSessions,
+  formatGroupDurationLabel,
+  type GymlyGroupStats,
+  type GymlyActiveGroupSession,
+  type GymlyRecentGroupSession,
+} from '@/services/supabase/gymlyGroupSessionService';
+import SocialPrimaryButton from '@/components/social/SocialPrimaryButton';
+import type {GymlyGroupRow} from '@/types/gymlyGroups.types';
+import {formatTrainingDurationDa} from '@/utils/socialTrainingLive';
+import {formatWeeklyRankLabel} from '@/utils/weeklySummary';
+import type {WeeklyFriendLeaderboardEntry} from '@/utils/weeklySummary';
+import {useTranslation} from '@/i18n';
 import colors from '@/theme/colors';
-import {spacing, radius, typography} from '@/theme/designTokens';
-import type {GroupMember} from '@/types/group.types';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 
-type Group = {
-  id: string;
-  name: string;
-  description?: string;
-  biography?: string;
-  image?: string;
-  isPrivate?: boolean;
-  adminId?: string;
-  members: Array<{id: string; name: string; avatar?: string; isOnline?: boolean}>;
-  totalWorkouts?: number;
-  totalTimeTogether?: number;
-  totalCheckIns?: number;
-  location?: string;
-  focus?: string;
-  createdAt?: Date | string;
+type MemberRow = {
+  user_id: string;
+  role: 'admin' | 'member';
+  displayName: string;
+  avatarUrl: string | null;
 };
+
+const listCardShadow = Platform.select({
+  ios: {
+    shadowColor: '#0F172A',
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.06,
+    shadowRadius: 10,
+  },
+  android: {elevation: 2},
+});
 
 const GroupDetailScreen = () => {
   const navigation = useNavigation<any>();
   const route = useRoute();
-  const {group: initialGroup, groupId: routeGroupId} = (route.params as any) || {};
-  const {user} = useAppStore();
-  const groupId = (routeGroupId as string) || initialGroup?.id;
+  const {t, intlLocale} = useTranslation();
+  const params = (route.params as {groupId?: string; group?: {id: string; name?: string}}) || {};
+  const groupId = params.groupId || params.group?.id;
+  const user = useAppStore(s => s.user);
   const refreshGymly = useGymlyGroupsStore(s => s.refresh);
-  const refreshNotif = useInAppNotificationStore(s => s.refresh);
-  const loadFriends = useFriendStore(s => s.load);
   const friends = useFriendStore(s => s.friends);
-  const [serverMessages, setServerMessages] = useState<GymlyGroupMessageRow[]>([]);
-  const [serverMembers, setServerMembers] = useState(
-    () => initialGroup?.members,
+  const loadFriends = useFriendStore(s => s.load);
+
+  const [group, setGroup] = useState<GymlyGroupRow | null>(null);
+  const [members, setMembers] = useState<MemberRow[]>([]);
+  const [activeMembers, setActiveMembers] = useState<GymlyGroupActiveMember[]>([]);
+  const [leaderboard, setLeaderboard] = useState<WeeklyFriendLeaderboardEntry[]>([]);
+  const [stats, setStats] = useState<GymlyGroupStats | null>(null);
+  const [activeSession, setActiveSession] = useState<GymlyActiveGroupSession | null>(
+    null,
   );
-  const [inviteModalVisible, setInviteModalVisible] = useState(false);
+  const [recentSessions, setRecentSessions] = useState<GymlyRecentGroupSession[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [inviteVisible, setInviteVisible] = useState(false);
   const [invitingId, setInvitingId] = useState<string | null>(null);
-  const [messageDraft, setMessageDraft] = useState('');
-  const [sendingMessage, setSendingMessage] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
-  const {group: groupFromMock} = useGroup(initialGroup?.id, user?.id || 'current_user');
-  const groupActivityRaw = useGroupActivity(initialGroup?.id, user?.id || 'current_user');
+  const myRole = useMemo(() => {
+    if (!user?.id) {
+      return null;
+    }
+    return members.find(m => m.user_id === user.id)?.role ?? null;
+  }, [members, user?.id]);
 
-  const [isMember, setIsMember] = useState(() => {
-    if (!user || !initialGroup?.members) return false;
-    return initialGroup.members.some(
-      (m: GroupMember) => m.id === user.id || m.id === 'current',
-    );
-  });
+  const isAdmin = myRole === 'admin';
 
-  const totalCheckIns =
-    initialGroup?.totalCheckIns ??
-    groupFromMock?.totalCheckIns ??
-    (initialGroup?.totalWorkouts ?? 0) * 2;
-
-  const groupActivity = useMemo(
-    () =>
-      [...groupActivityRaw]
-        .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
-        .slice(0, 5),
-    [groupActivityRaw]
-  );
-
-  const isRealGroup =
-    groupId && typeof groupId === 'string' && !groupId.startsWith('g_');
-
-  const loadMembersOnly = useCallback(async () => {
-    if (!isRealGroup || !user?.id || !groupId) {
+  const reload = useCallback(async () => {
+    if (!groupId) {
       return;
     }
+    setLoading(true);
     try {
-      const mem = await fetchGymlyGroupMembers(groupId);
-      const mapped = mem.map(m => ({
-        id: m.user_id,
-        name: m.displayName,
-        avatar: m.avatarUrl ?? undefined,
-        isOnline: false,
-      }));
-      setServerMembers(mapped);
-      if (user?.id) {
-        setIsMember(mapped.some(m => m.id === user.id));
-      }
-    } catch {
-      /* tabel findes muligvis ikke */
+      const [g, mems, active, week, groupStats, session, recent] =
+        await Promise.all([
+          fetchGymlyGroup(groupId),
+          fetchGymlyGroupMembers(groupId),
+          fetchGymlyGroupActiveMembers(groupId),
+          fetchGymlyGroupWeeklyLeaderboard(groupId),
+          fetchGymlyGroupStats(groupId).catch(() => null),
+          fetchActiveGymlyGroupSession(groupId).catch(() => null),
+          fetchRecentGymlyGroupSessions(groupId, 5).catch(() => []),
+        ]);
+      setGroup(g);
+      setMembers(
+        mems.map(m => ({
+          user_id: m.user_id,
+          role: m.role,
+          displayName: m.displayName,
+          avatarUrl: m.avatarUrl,
+        })),
+      );
+      setActiveMembers(active);
+      setLeaderboard(week);
+      setStats(groupStats);
+      setActiveSession(session);
+      setRecentSessions(recent);
+    } catch (e) {
+      console.warn('GroupDetail reload', e);
+    } finally {
+      setLoading(false);
     }
-  }, [isRealGroup, groupId, user?.id]);
-
-  const loadMessagesOnly = useCallback(async () => {
-    if (!isRealGroup || !user?.id || !groupId) {
-      return;
-    }
-    try {
-      const msg = await fetchGymlyGroupMessages(groupId, 50);
-      setServerMessages([...msg].reverse());
-    } catch {
-      /* tabel findes muligvis ikke */
-    }
-  }, [isRealGroup, groupId, user?.id]);
-
-  const loadServerData = useCallback(async () => {
-    await Promise.all([loadMembersOnly(), loadMessagesOnly()]);
-  }, [loadMembersOnly, loadMessagesOnly]);
-
+  }, [groupId]);
 
   useFocusEffect(
     useCallback(() => {
-      void loadServerData();
-    }, [loadServerData]),
+      void reload();
+      if (user?.id) {
+        void loadFriends(user.id);
+      }
+    }, [reload, user?.id, loadFriends]),
   );
 
-  useEffect(() => {
-    if (!isRealGroup || !groupId) {
-      return;
-    }
-    const ch = supabase
-      .channel(`gymly_gd_msg_${groupId}`)
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'gymly_group_messages',
-          filter: `group_id=eq.${groupId}`,
-        },
-        () => {
-          void loadMessagesOnly();
-        },
-      )
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'gymly_group_members',
-          filter: `group_id=eq.${groupId}`,
-        },
-        () => {
-          void loadMembersOnly();
-        },
-      )
-      .subscribe();
-    return () => {
-      void supabase.removeChannel(ch);
-    };
-  }, [isRealGroup, groupId, loadMessagesOnly, loadMembersOnly]);
-
-  const displayMembers = serverMembers ?? initialGroup?.members;
-
-  const isAdmin =
-    user && initialGroup?.adminId && (initialGroup.adminId === user.id || initialGroup.adminId === 'current');
-
-  const handleJoin = () => {
-    if (isRealGroup) {
-      Alert.alert(
-        'Kun med invitation',
-        'Gruppen er privat. Be et medlem om en invitation for at være med.',
-      );
-      return;
-    }
-    setIsMember(true);
-    Alert.alert('Velkommen!', `Du er nu medlem af ${initialGroup.name}`);
-  };
-
-  const handleLeave = () => {
-    Alert.alert(
-      'Forlad gruppe',
-      `Er du sikker på at du vil forlade ${initialGroup.name}?`,
-      [
-        {text: 'Annuller', style: 'cancel'},
-        {
-          text: 'Forlad',
-          style: 'destructive',
-          onPress: () => {
-            void (async () => {
-              if (isRealGroup && user?.id) {
-                try {
-                  await leaveGymlyGroup(groupId);
-                  await refreshGymly(user.id);
-                  await refreshNotif(user.id);
-                } catch (e) {
-                  console.warn('leaveGymlyGroup', e);
-                }
-              }
-              setIsMember(false);
-              navigation.goBack();
-            })();
-          },
-        },
-      ]
-    );
-  };
-
-  const handleInvite = () => {
-    if (!user?.id) {
-      return;
-    }
-    setInviteModalVisible(true);
-    void loadFriends(user.id);
-  };
-
-  const memberIdSet = useMemo(() => {
-    const s = new Set<string>();
-    (serverMembers ?? initialGroup?.members ?? []).forEach((m: GroupMember) =>
-      s.add(m.id),
-    );
-    return s;
-  }, [serverMembers, initialGroup?.members]);
+  const memberIds = useMemo(() => new Set(members.map(m => m.user_id)), [members]);
 
   const inviteCandidates = useMemo(
-    () =>
-      friends.filter(
-        f => f.id !== user?.id && !memberIdSet.has(f.id),
-      ),
-    [friends, user?.id, memberIdSet],
+    () => friends.filter(f => !memberIds.has(f.id)),
+    [friends, memberIds],
   );
 
-  const onPickFriendToInvite = async (p: PublicProfile) => {
-    if (!groupId || !user?.id) {
+  const openProfile = (userId: string, name: string) => {
+    navigation.navigate('FriendProfile', {friendId: userId, friendName: name});
+  };
+
+  const goStartOrJoinTraining = () => {
+    if (!groupId) {
       return;
     }
-    setInvitingId(p.id);
+    navigation.navigate('CheckIn', {
+      screen: 'CheckInMain',
+      params: {preselectedGroupId: groupId},
+    });
+  };
+
+  const onInvite = async (friendId: string) => {
+    if (!groupId) {
+      return;
+    }
+    setInvitingId(friendId);
     try {
-      await inviteToGymlyGroup(groupId, p.id);
-      await refreshGymly(user.id);
-      await refreshNotif(user.id);
-      setInviteModalVisible(false);
+      await inviteToGymlyGroup(groupId, friendId);
+      Alert.alert(t('groups.inviteSentTitle'), t('groups.inviteSentBody'));
     } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      Alert.alert('Kunne ikke invitere', msg);
+      console.warn('invite', e);
+      Alert.alert(t('groups.inviteFailedTitle'), t('groups.inviteFailedBody'));
     } finally {
       setInvitingId(null);
     }
   };
 
-  const handleSendGroupChat = async () => {
-    const t = messageDraft.trim();
-    if (!t || !groupId || !isRealGroup || !user?.id) {
+  const onLeave = () => {
+    if (!groupId || !user?.id) {
       return;
     }
-    setSendingMessage(true);
-    try {
-      await sendGymlyGroupMessage(groupId, t, 'text');
-      setMessageDraft('');
-      await loadMessagesOnly();
-      await refreshGymly(user.id);
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      Alert.alert('Kunne ikke sende', msg);
-    } finally {
-      setSendingMessage(false);
-    }
+    Alert.alert(t('groups.leaveTitle'), t('groups.leaveBody'), [
+      {text: t('groups.cancel'), style: 'cancel'},
+      {
+        text: t('groups.leaveConfirm'),
+        style: 'destructive',
+        onPress: () => {
+          void (async () => {
+            try {
+              await leaveGymlyGroup(groupId);
+              await refreshGymly(user.id);
+              navigation.goBack();
+            } catch (e) {
+              console.warn('leave', e);
+              Alert.alert(t('groups.actionFailed'));
+            }
+          })();
+        },
+      },
+    ]);
   };
 
-  if (!initialGroup) {
+  const onDelete = () => {
+    if (!groupId || !user?.id) {
+      return;
+    }
+    Alert.alert(t('groups.deleteTitle'), t('groups.deleteBody'), [
+      {text: t('groups.cancel'), style: 'cancel'},
+      {
+        text: t('groups.deleteConfirm'),
+        style: 'destructive',
+        onPress: () => {
+          void (async () => {
+            try {
+              await deleteGymlyGroup(groupId);
+              await refreshGymly(user.id);
+              navigation.goBack();
+            } catch (e) {
+              console.warn('delete', e);
+              Alert.alert(t('groups.actionFailed'));
+            }
+          })();
+        },
+      },
+    ]);
+  };
+
+  const onRemoveMember = (member: MemberRow) => {
+    if (!groupId || !user?.id) {
+      return;
+    }
+    Alert.alert(
+      t('groups.removeMemberTitle'),
+      t('groups.removeMemberBody', {name: member.displayName}),
+      [
+        {text: t('groups.cancel'), style: 'cancel'},
+        {
+          text: t('groups.removeConfirm'),
+          style: 'destructive',
+          onPress: () => {
+            void (async () => {
+              try {
+                await removeGymlyGroupMember(groupId, member.user_id);
+                await reload();
+                await refreshGymly(user.id);
+              } catch (e) {
+                console.warn('remove', e);
+                Alert.alert(t('groups.actionFailed'));
+              }
+            })();
+          },
+        },
+      ],
+    );
+  };
+
+  if (!groupId) {
     return (
       <View style={styles.container}>
-        <ScreenHeader title="Gruppe" onBack={() => navigation.goBack()} />
-        <View style={styles.errorContainer}>
-          <Icon name="alert-circle-outline" size={48} color={colors.textMuted} />
-          <Text style={styles.errorText}>Gruppe ikke fundet</Text>
-        </View>
+        <ScreenHeader title={t('groups.title')} onBack={() => navigation.goBack()} showBack />
+        <Text style={styles.errorText}>{t('groups.notFound')}</Text>
       </View>
     );
   }
 
-  const createdAtDate =
-    typeof initialGroup.createdAt === 'string'
-      ? new Date(initialGroup.createdAt)
-      : initialGroup.createdAt ?? new Date();
-
-  const formatTime = (minutes: number): string => {
-    if (!minutes || minutes === 0) return '0 min';
-    if (minutes < 60) return `${minutes} min`;
-    const h = Math.floor(minutes / 60);
-    const m = minutes % 60;
-    return m === 0 ? `${h}t` : `${h}t ${m}m`;
-  };
+  const title = group?.name ?? params.group?.name ?? t('groups.title');
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}>
+    <View style={styles.container}>
       <ScreenHeader
-        title={initialGroup.name}
+        title={title}
         onBack={() => navigation.goBack()}
+        showBack
         rightElement={
-          isAdmin ? (
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate('EditGroup', {
-                  group: {
-                    ...initialGroup,
-                    createdAt:
-                      typeof initialGroup.createdAt === 'string'
-                        ? initialGroup.createdAt
-                        : initialGroup.createdAt?.toISOString?.(),
-                  },
-                })
-              }>
-              <Icon name="create-outline" size={24} color={colors.primary} />
-            </TouchableOpacity>
-          ) : undefined
+          <TouchableOpacity
+            onPress={() => setMenuVisible(true)}
+            hitSlop={12}
+            accessibilityLabel={t('groups.menu')}>
+            <Icon name="ellipsis-horizontal" size={22} color={colors.text} />
+          </TouchableOpacity>
         }
       />
 
-      <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}>
-        {/* Header */}
-        <View style={styles.header}>
-          <View style={styles.groupIcon}>
-            {initialGroup.image ? (
-              <Image
-                source={{uri: initialGroup.image}}
-                style={styles.groupImage}
-                resizeMode="cover"
-              />
+      {loading && !group ? (
+        <ActivityIndicator color={colors.primary} style={{marginTop: spacing.xl}} />
+      ) : (
+        <ScrollView
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.hero}>
+            {group?.image_url ? (
+              <Image source={{uri: group.image_url}} style={styles.heroImage} />
             ) : (
-              <Icon name="people" size={48} color={colors.primary} />
-            )}
-            {initialGroup.isPrivate && (
-              <View style={styles.privateBadge}>
-                <Icon name="lock-closed" size={14} color={colors.white} />
+              <View style={styles.heroPlaceholder}>
+                <Icon name="people" size={36} color={colors.white} />
               </View>
             )}
+            <Text style={styles.heroName}>{group?.name}</Text>
+            {group?.description ? (
+              <Text style={styles.heroDesc}>{group.description}</Text>
+            ) : null}
+            <View style={styles.metaPill}>
+              <Text style={styles.metaPillText}>
+                {t('groups.memberCount', {
+                  count: stats?.memberCount ?? members.length,
+                })}
+              </Text>
+            </View>
           </View>
-          <Text style={styles.groupName}>{initialGroup.name}</Text>
-          {(initialGroup.location || initialGroup.focus) && (
-            <Text style={styles.groupMeta}>
-              {[initialGroup.location, initialGroup.focus]
-                .filter(Boolean)
-                .join(' • ')}
-            </Text>
-          )}
-        </View>
 
-        {/* Description */}
-        <View style={styles.section}>
-          <Text style={styles.description}>
-            {initialGroup.biography || initialGroup.description || 'Ingen beskrivelse'}
-          </Text>
-        </View>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.statsRow}>
+            <View style={styles.statCard}>
+              <Text style={styles.statValue}>
+                {stats?.togetherSessionCount ?? 0}
+              </Text>
+              <Text style={styles.statLabel}>{t('groups.togetherTrained')}</Text>
+              <Text style={styles.statHint}>{t('groups.togetherTimes')}</Text>
+            </View>
+            <View style={styles.statCard}>
+              <Text style={styles.statValue} numberOfLines={1} adjustsFontSizeToFit>
+                {formatGroupDurationLabel(stats?.totalDurationSeconds ?? 0)}
+              </Text>
+              <Text style={styles.statLabel}>{t('groups.totalTrainingTime')}</Text>
+              <Text style={styles.statHint}>{t('groups.totalTrainingLabel')}</Text>
+            </View>
+            <View style={styles.statCard}>
+              <Text style={styles.statValue}>
+                {stats?.memberCount ?? members.length}
+              </Text>
+              <Text style={styles.statLabel}>{t('groups.membersInGroup')}</Text>
+              <Text style={styles.statHint}>{t('groups.membersInGroupLabel')}</Text>
+            </View>
+          </ScrollView>
 
-        {/* Stats */}
-        <View style={styles.statsRow}>
-          <View style={styles.statCard}>
-            <Icon name="checkmark-circle" size={24} color={colors.primary} />
-            <Text style={styles.statValue}>{totalCheckIns}</Text>
-            <Text style={styles.statLabel}>Check-ins</Text>
-          </View>
-          <View style={styles.statCard}>
-            <Icon name="people" size={24} color={colors.primary} />
-            <Text style={styles.statValue}>
-              {displayMembers?.length ?? initialGroup.members?.length ?? 0}
-            </Text>
-            <Text style={styles.statLabel}>Medlemmer</Text>
-          </View>
-          <View style={styles.statCard}>
-            <Icon name="time" size={24} color={colors.primary} />
-            <Text style={styles.statValue}>
-              {formatTime(initialGroup.totalTimeTogether ?? 0)}
-            </Text>
-            <Text style={styles.statLabel}>Træningstid</Text>
-          </View>
-        </View>
-
-        {/* CTAs */}
-        <View style={styles.ctaRow}>
-          {isMember ? (
-            <>
-              <TouchableOpacity
-                style={styles.ctaPrimary}
-                onPress={handleInvite}
-                activeOpacity={0.8}>
-                <Icon name="person-add" size={20} color={colors.white} />
-                <Text style={styles.ctaPrimaryText}>Inviter</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.ctaSecondary}
-                onPress={handleLeave}
-                activeOpacity={0.8}>
-                <Text style={styles.ctaSecondaryText}>Forlad gruppe</Text>
-              </TouchableOpacity>
-            </>
-          ) : (
-            <TouchableOpacity
-              style={styles.ctaJoin}
-              onPress={handleJoin}
-              activeOpacity={0.8}>
-              <Icon name="add-circle" size={24} color={colors.white} />
-              <Text style={styles.ctaJoinText}>Join gruppe</Text>
-            </TouchableOpacity>
-          )}
-        </View>
-
-        {isRealGroup && isMember && (
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Gruppechat</Text>
-            {serverMessages.length > 0 ? (
-              <Card variant="outlined" padding="md">
-                {serverMessages.map(m => (
-                  <View key={m.id} style={styles.activityRow}>
-                    <View style={styles.activityContent}>
-                      <Text style={styles.activityText} numberOfLines={8}>
-                        {m.message_type === 'text'
-                          ? m.body
-                          : `${m.message_type}: ${m.body || ''}`}
-                      </Text>
-                      <Text style={styles.activityTime}>
-                        {formatRelativeTime(new Date(m.created_at))}
-                      </Text>
-                    </View>
+          {activeSession ? (
+            <View style={styles.activeSessionCard}>
+              <Text style={styles.activeSessionTitle}>
+                {t('groups.activeSessionAt', {
+                  gym: activeSession.gymName || activeSession.gymId,
+                })}
+              </Text>
+              <Text style={styles.activeSessionMeta}>
+                {t('groups.activeSessionPeople', {
+                  count: activeSession.participants.length,
+                })}
+                {' · '}
+                {t('groups.activeSessionFor', {
+                  time: formatTrainingDurationDa(new Date(activeSession.startedAt)),
+                })}
+              </Text>
+              <View style={styles.activeSessionAvatars}>
+                {activeSession.participants.slice(0, 5).map(p => (
+                  <View key={p.userId} style={styles.activeSessionAvatar}>
+                    <UserAvatar
+                      name={p.displayName}
+                      imageUrl={p.avatarUrl}
+                      size="xs"
+                    />
                   </View>
                 ))}
-              </Card>
-            ) : (
-              <Text style={styles.emptyChatHint}>Ingen beskeder endnu – sig hej 👋</Text>
-            )}
-            <View style={styles.composerRow}>
-              <TextInput
-                style={styles.composerInput}
-                value={messageDraft}
-                onChangeText={setMessageDraft}
-                placeholder="Skriv til gruppen…"
-                placeholderTextColor={colors.textMuted}
-                multiline
-                maxLength={2000}
-                editable={!sendingMessage}
+              </View>
+              <SocialPrimaryButton
+                label={t('groups.joinGroupTraining')}
+                onPress={goStartOrJoinTraining}
+                variant="premium"
+                style={styles.trainCta}
               />
-              <TouchableOpacity
-                style={[
-                  styles.composerSend,
-                  (!messageDraft.trim() || sendingMessage) && styles.composerSendDisabled,
-                ]}
-                onPress={() => {
-                  void handleSendGroupChat();
-                }}
-                disabled={!messageDraft.trim() || sendingMessage}>
-                {sendingMessage ? (
-                  <ActivityIndicator color={colors.white} size="small" />
-                ) : (
-                  <Icon name="send" size={20} color={colors.white} />
-                )}
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-
-        {/* Activity feed preview */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Seneste aktivitet</Text>
-          {groupActivity.length > 0 ? (
-            <Card variant="outlined" padding="md">
-              {groupActivity.map(activity => (
-                <View key={activity.id} style={styles.activityRow}>
-                  <View style={styles.activityAvatar}>
-                    <Text style={styles.activityAvatarText}>
-                      {activity.userName.charAt(0)}
-                    </Text>
-                  </View>
-                  <View style={styles.activityContent}>
-                    <Text style={styles.activityText}>{activity.message}</Text>
-                    <Text style={styles.activityTime}>
-                      {formatRelativeTime(activity.timestamp)}
-                    </Text>
-                  </View>
-                </View>
-              ))}
-            </Card>
-          ) : (
-            <View style={styles.emptyActivity}>
-              <Icon name="pulse-outline" size={32} color={colors.textMuted} />
-              <Text style={styles.emptyActivityText}>
-                Ingen aktivitet endnu
-              </Text>
-              <Text style={styles.emptyActivitySubtext}>
-                Tjek ind for at vise aktivitet her
-              </Text>
-            </View>
-          )}
-        </View>
-
-        {/* Members */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            Medlemmer ({displayMembers?.length ?? initialGroup.members?.length ?? 0})
-          </Text>
-          <View style={styles.membersCard}>
-            {displayMembers?.map((member: GroupMember, idx: number) => {
-              const isCurrentUser =
-                user && (member.id === user.id || member.id === 'current');
-              const isGroupAdmin = member.id === initialGroup.adminId;
-              return (
-                <TouchableOpacity
-                  key={member.id}
-                  style={[
-                    styles.memberRow,
-                    idx < (displayMembers?.length ?? 0) - 1 && styles.memberRowBorder,
-                  ]}
-                  onPress={() => {
-                    if (!isCurrentUser) {
-                      navigation.navigate('FriendProfile', {
-                        friendId: member.id,
-                        friendName: member.name,
-                        mutualFriends: 0,
-                        gyms: [],
-                      });
-                    }
-                  }}
-                  activeOpacity={0.8}>
-                  <View style={styles.memberAvatar}>
-                    {member.avatar ? (
-                      <Image
-                        source={{uri: member.avatar}}
-                        style={styles.memberAvatarImage}
-                      />
-                    ) : (
-                      <Text style={styles.memberAvatarText}>
-                        {member.name.charAt(0)}
-                      </Text>
-                    )}
-                    {member.isOnline && <View style={styles.onlineDot} />}
-                  </View>
-                  <View style={styles.memberInfo}>
-                    <Text style={styles.memberName}>
-                      {isCurrentUser ? 'Dig' : member.name}
-                      {isGroupAdmin && (
-                        <Text style={styles.adminLabel}> • Admin</Text>
-                      )}
-                    </Text>
-                    <Text
-                      style={[
-                        styles.memberStatus,
-                        member.isOnline && styles.memberStatusOnline,
-                      ]}>
-                      {member.isOnline ? 'Online' : 'Offline'}
-                    </Text>
-                  </View>
-                  {!isCurrentUser && (
-                    <Icon name="chevron-forward" size={18} color={colors.textMuted} />
-                  )}
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-        </View>
-
-        {/* Created */}
-        <View style={styles.metadata}>
-          <Icon name="calendar-outline" size={16} color={colors.textMuted} />
-          <Text style={styles.metadataText}>
-            Oprettet{' '}
-            {createdAtDate.toLocaleDateString('da-DK', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </Text>
-        </View>
-      </ScrollView>
-
-      <Modal
-        visible={inviteModalVisible}
-        animationType="slide"
-        presentationStyle="pageSheet"
-        onRequestClose={() => setInviteModalVisible(false)}>
-        <View style={styles.inviteModal}>
-          <View style={styles.inviteHeader}>
-            <Text style={styles.inviteTitle}>Inviter ven</Text>
-            <TouchableOpacity
-              onPress={() => setInviteModalVisible(false)}
-              hitSlop={12}>
-              <Text style={styles.inviteClose}>Luk</Text>
-            </TouchableOpacity>
-          </View>
-          <Text style={styles.inviteSub}>
-            Vælg en ven – du skal være venner, og de må ikke allerede være
-            medlem.
-          </Text>
-          {inviteCandidates.length === 0 ? (
-            <View style={styles.inviteEmpty}>
-              <Text style={styles.emptyChatHint}>
-                Ingen venner at invitere lige nu.
-              </Text>
             </View>
           ) : (
-            <FlatList
-              data={inviteCandidates}
-              keyExtractor={it => it.id}
-              contentContainerStyle={styles.inviteList}
-              renderItem={({item}) => (
-                <TouchableOpacity
-                  style={styles.inviteRow}
-                  onPress={() => {
-                    void onPickFriendToInvite(item);
-                  }}
-                  disabled={invitingId != null}>
-                  <View style={styles.inviteAvatar}>
-                    <Text style={styles.inviteAvatarText}>
-                      {(item.displayName || item.username || '?').charAt(0)}
-                    </Text>
-                  </View>
-                  <Text style={styles.inviteName}>
-                    {item.displayName?.trim() || item.username || 'Bruger'}
-                  </Text>
-                  {invitingId === item.id ? (
-                    <ActivityIndicator color={colors.primary} />
-                  ) : (
-                    <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-                  )}
-                </TouchableOpacity>
-              )}
+            <SocialPrimaryButton
+              label={t('groups.startGroupTraining')}
+              onPress={goStartOrJoinTraining}
+              variant="premium"
+              style={styles.trainCta}
             />
           )}
+
+          <Text style={styles.sectionTitle}>{t('groups.activeNow')}</Text>
+          {activeMembers.length === 0 ? (
+            <View style={styles.emptyCard}>
+              <Text style={styles.emptyCardText}>{t('groups.noOneTraining')}</Text>
+            </View>
+          ) : (
+            activeMembers.map(m => (
+              <Pressable
+                key={m.userId}
+                style={({pressed}) => [styles.row, pressed && styles.rowPressed]}
+                onPress={() => openProfile(m.userId, m.displayName)}>
+                <UserAvatar
+                  name={m.displayName}
+                  imageUrl={m.avatarUrl}
+                  size="md"
+                  showOnlineIndicator
+                  isOnline
+                />
+                <View style={styles.rowBody}>
+                  <Text style={styles.rowTitle} numberOfLines={1}>
+                    {m.displayName}
+                  </Text>
+                  <Text style={styles.rowSub} numberOfLines={2}>
+                    {m.liveExerciseName
+                      ? `${m.liveExerciseName}${
+                          m.liveSetCount != null ? ` · ${m.liveSetCount} sæt` : ''
+                        }`
+                      : m.gymName
+                        ? `${m.gymName} · ${formatTrainingDurationDa(new Date(m.startedAt))}`
+                        : formatTrainingDurationDa(new Date(m.startedAt))}
+                  </Text>
+                </View>
+                <Icon name="chevron-forward" size={16} color={colors.textMuted} />
+              </Pressable>
+            ))
+          )}
+
+          <Text style={styles.sectionTitle}>{t('groups.weekLeaderboard')}</Text>
+          {leaderboard.length === 0 ? (
+            <View style={styles.emptyCard}>
+              <Text style={styles.emptyCardText}>{t('groups.weekEmpty')}</Text>
+            </View>
+          ) : (
+            <View style={styles.lbCard}>
+              {leaderboard.map((entry, index) => (
+                <View
+                  key={entry.userId}
+                  style={[
+                    styles.lbRow,
+                    index < leaderboard.length - 1 && styles.lbRowBorder,
+                    entry.userId === user?.id && styles.lbRowSelf,
+                  ]}>
+                  <Text style={styles.rank}>{formatWeeklyRankLabel(entry.rank)}</Text>
+                  <UserAvatar name={entry.name} size="sm" />
+                  <Text style={styles.rowTitle} numberOfLines={1}>
+                    {entry.name}
+                  </Text>
+                  <Text style={styles.lbCount}>
+                    {t('groups.checkInCount', {count: entry.checkInCount})}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          )}
+
+          <Text style={styles.sectionTitle}>{t('groups.recentGroupSessions')}</Text>
+          {recentSessions.length === 0 ? (
+            <View style={styles.emptyCard}>
+              <Text style={styles.emptyCardText}>{t('groups.recentSessionEmpty')}</Text>
+            </View>
+          ) : (
+            recentSessions.map(s => (
+              <View key={s.id} style={styles.recentCard}>
+                <Text style={styles.recentGym} numberOfLines={1}>
+                  {s.gymName || s.gymId}
+                </Text>
+                <Text style={styles.recentMeta}>
+                  {new Date(s.startedAt).toLocaleDateString(intlLocale, {
+                    day: 'numeric',
+                    month: 'short',
+                  })}
+                  {' · '}
+                  {formatGroupDurationLabel(s.totalDurationSeconds)}
+                </Text>
+                <Text style={styles.recentPeople} numberOfLines={2}>
+                  {s.participantNames.join(', ')}
+                </Text>
+              </View>
+            ))
+          )}
+
+          <View style={styles.membersHeader}>
+            <Text style={[styles.sectionTitle, styles.sectionTitleInline]}>
+              {t('groups.members')}
+            </Text>
+            <TouchableOpacity onPress={() => setInviteVisible(true)} hitSlop={8}>
+              <Text style={styles.inviteLink}>{t('groups.invite')}</Text>
+            </TouchableOpacity>
+          </View>
+          {members.map(m => (
+            <Pressable
+              key={m.user_id}
+              style={({pressed}) => [styles.row, pressed && styles.rowPressed]}
+              onPress={() => openProfile(m.user_id, m.displayName)}
+              onLongPress={
+                isAdmin && m.user_id !== user?.id
+                  ? () => onRemoveMember(m)
+                  : undefined
+              }>
+              <UserAvatar name={m.displayName} imageUrl={m.avatarUrl} size="md" />
+              <View style={styles.rowBody}>
+                <Text style={styles.rowTitle} numberOfLines={1}>
+                  {m.displayName}
+                </Text>
+                {m.role === 'admin' ? (
+                  <View style={styles.adminPill}>
+                    <Text style={styles.adminPillText}>{t('groups.admin')}</Text>
+                  </View>
+                ) : null}
+              </View>
+              {isAdmin && m.user_id !== user?.id ? (
+                <TouchableOpacity
+                  onPress={() => onRemoveMember(m)}
+                  hitSlop={10}
+                  accessibilityLabel={t('groups.removeConfirm')}>
+                  <Icon name="remove-circle-outline" size={22} color={colors.textMuted} />
+                </TouchableOpacity>
+              ) : (
+                <Icon name="chevron-forward" size={16} color={colors.textMuted} />
+              )}
+            </Pressable>
+          ))}
+        </ScrollView>
+      )}
+
+      <Modal visible={menuVisible} transparent animationType="fade">
+        <TouchableOpacity
+          style={styles.menuBackdrop}
+          activeOpacity={1}
+          onPress={() => setMenuVisible(false)}>
+          <View style={styles.menuSheet}>
+            {isAdmin ? (
+              <>
+                <TouchableOpacity
+                  style={styles.menuItem}
+                  onPress={() => {
+                    setMenuVisible(false);
+                    navigation.navigate('EditGroup', {
+                      groupId,
+                      group: {
+                        id: groupId,
+                        name: group?.name,
+                        description: group?.description,
+                        image: group?.image_url,
+                        isPrivate: group?.is_private,
+                        adminId: group?.created_by,
+                        members: members.map(m => ({
+                          id: m.user_id,
+                          name: m.displayName,
+                          avatar: m.avatarUrl ?? undefined,
+                        })),
+                      },
+                    });
+                  }}>
+                  <Text style={styles.menuItemText}>{t('groups.edit')}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.menuItem}
+                  onPress={() => {
+                    setMenuVisible(false);
+                    onDelete();
+                  }}>
+                  <Text style={[styles.menuItemText, styles.danger]}>
+                    {t('groups.delete')}
+                  </Text>
+                </TouchableOpacity>
+              </>
+            ) : null}
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => {
+                setMenuVisible(false);
+                setInviteVisible(true);
+              }}>
+              <Text style={styles.menuItemText}>{t('groups.invite')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => {
+                setMenuVisible(false);
+                onLeave();
+              }}>
+              <Text style={[styles.menuItemText, styles.danger]}>{t('groups.leave')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => setMenuVisible(false)}>
+              <Text style={styles.menuItemMuted}>{t('groups.cancel')}</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      </Modal>
+
+      <Modal visible={inviteVisible} transparent animationType="slide">
+        <View style={styles.inviteModal}>
+          <View style={styles.inviteSheet}>
+            <View style={styles.inviteHeader}>
+              <Text style={styles.inviteTitle}>{t('groups.invite')}</Text>
+              <TouchableOpacity onPress={() => setInviteVisible(false)}>
+                <Icon name="close" size={24} color={colors.text} />
+              </TouchableOpacity>
+            </View>
+            {inviteCandidates.length === 0 ? (
+              <Text style={styles.emptyCardText}>{t('groups.noFriendsToInvite')}</Text>
+            ) : (
+              <FlatList
+                data={inviteCandidates}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => (
+                  <Pressable
+                    style={({pressed}) => [styles.row, pressed && styles.rowPressed]}
+                    onPress={() => void onInvite(item.id)}
+                    disabled={invitingId === item.id}>
+                    <UserAvatar
+                      name={item.displayName}
+                      imageUrl={item.avatarUrl}
+                      size="md"
+                    />
+                    <Text style={[styles.rowTitle, {flex: 1}]} numberOfLines={1}>
+                      {item.displayName}
+                    </Text>
+                    {invitingId === item.id ? (
+                      <ActivityIndicator color={colors.primary} />
+                    ) : (
+                      <Icon name="person-add-outline" size={20} color={colors.primary} />
+                    )}
+                  </Pressable>
+                )}
+              />
+            )}
+          </View>
         </View>
       </Modal>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  scroll: {flex: 1},
-  scrollContent: {paddingBottom: spacing.xxxl},
-  errorContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: spacing.xl,
+  container: {flex: 1, backgroundColor: colors.background},
+  scrollContent: {
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.xxl,
   },
   errorText: {
     ...typography.body,
     color: colors.textMuted,
+    textAlign: 'center',
+    marginTop: spacing.xl,
+  },
+  hero: {
+    alignItems: 'center',
+    marginBottom: spacing.lg,
     marginTop: spacing.md,
   },
-  header: {
-    alignItems: 'center',
-    paddingVertical: spacing.xl,
+  heroImage: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    marginBottom: spacing.md,
+    borderWidth: 3,
+    borderColor: colors.primary + '55',
   },
-  groupIcon: {
-    width: 88,
-    height: 88,
-    borderRadius: 44,
-    backgroundColor: colors.primary + '20',
+  heroPlaceholder: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: spacing.md,
-    position: 'relative',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 4},
+        shadowOpacity: 0.25,
+        shadowRadius: 10,
+      },
+      android: {elevation: 3},
+    }),
   },
-  groupImage: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 44,
-  },
-  privateBadge: {
-    position: 'absolute',
-    top: 4,
-    right: 4,
-    backgroundColor: colors.textMuted,
-    borderRadius: 10,
-    padding: 4,
-  },
-  groupName: {
+  heroName: {
     ...typography.h3,
+    fontWeight: '800',
     color: colors.text,
     textAlign: 'center',
   },
-  groupMeta: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginTop: 4,
-  },
-  section: {
-    paddingHorizontal: spacing.lg,
-    marginBottom: spacing.xl,
-  },
-  description: {
+  heroDesc: {
     ...typography.body,
-    color: colors.text,
-    lineHeight: 24,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    marginTop: spacing.sm,
+    paddingHorizontal: spacing.md,
+    lineHeight: 22,
+  },
+  metaPill: {
+    marginTop: spacing.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 6,
+    borderRadius: radius.full,
+    backgroundColor: colors.primary + '14',
+  },
+  metaPillText: {
+    ...typography.caption,
+    color: colors.primary,
+    fontWeight: '700',
   },
   statsRow: {
-    flexDirection: 'row',
-    paddingHorizontal: spacing.lg,
     gap: spacing.sm,
-    marginBottom: spacing.xl,
+    paddingBottom: spacing.sm,
   },
   statCard: {
-    flex: 1,
+    width: 128,
     backgroundColor: colors.backgroundCard,
-    padding: spacing.md,
-    borderRadius: radius.lg,
-    alignItems: 'center',
+    borderRadius: radius.xl,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border + 'CC',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.sm,
+    ...shadows.sm,
+    ...listCardShadow,
   },
   statValue: {
-    ...typography.h4,
-    color: colors.text,
-    marginTop: spacing.sm,
+    fontSize: 20,
+    fontWeight: '800',
+    color: colors.primary,
+    marginBottom: 4,
   },
   statLabel: {
     ...typography.caption,
-    color: colors.textSecondary,
-    marginTop: 2,
-  },
-  ctaRow: {
-    flexDirection: 'row',
-    paddingHorizontal: spacing.lg,
-    gap: spacing.sm,
-    marginBottom: spacing.xl,
-  },
-  ctaPrimary: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    paddingVertical: spacing.md,
-    backgroundColor: colors.primary,
-    borderRadius: radius.lg,
-  },
-  ctaPrimaryText: {
-    ...typography.bodyBold,
-    color: colors.white,
-  },
-  ctaSecondary: {
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.lg,
-    justifyContent: 'center',
-  },
-  ctaSecondaryText: {
-    ...typography.bodyBold,
-    color: colors.error,
-  },
-  ctaJoin: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    paddingVertical: spacing.md,
-    backgroundColor: colors.primary,
-    borderRadius: radius.lg,
-  },
-  ctaJoinText: {
-    ...typography.bodyBold,
-    color: colors.white,
-  },
-  sectionTitle: {
-    ...typography.h4,
-    color: colors.text,
-    marginBottom: spacing.md,
-  },
-  activityRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: spacing.sm,
-  },
-  activityAvatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.primary + '20',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: spacing.md,
-  },
-  activityAvatarText: {
-    ...typography.bodyBold,
-    color: colors.primary,
-  },
-  activityContent: {flex: 1},
-  activityText: {
-    ...typography.body,
+    fontWeight: '700',
     color: colors.text,
   },
-  activityTime: {
+  statHint: {
     ...typography.caption,
     color: colors.textMuted,
     marginTop: 2,
   },
-  emptyActivity: {
-    alignItems: 'center',
-    padding: spacing.xl,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderStyle: 'dashed',
-  },
-  emptyActivityText: {
-    ...typography.body,
-    color: colors.text,
+  trainCta: {
     marginTop: spacing.sm,
+    marginBottom: spacing.xs,
   },
-  emptyChatHint: {
+  activeSessionCard: {
+    backgroundColor: colors.primary + '08',
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.primary + '28',
+    padding: spacing.md,
+    marginBottom: spacing.sm,
+  },
+  activeSessionTitle: {
+    ...typography.bodyBold,
+    color: colors.text,
+  },
+  activeSessionMeta: {
     ...typography.caption,
     color: colors.textSecondary,
-    marginBottom: spacing.md,
+    marginTop: 4,
   },
-  composerRow: {
+  activeSessionAvatars: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
-    marginTop: spacing.md,
-    gap: spacing.sm,
+    marginTop: spacing.sm,
+    marginBottom: spacing.xs,
   },
-  composerInput: {
-    flex: 1,
-    minHeight: 44,
-    maxHeight: 120,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.lg,
-    paddingHorizontal: spacing.md,
-    paddingVertical: Platform.OS === 'ios' ? spacing.md : spacing.sm,
-    ...typography.body,
-    color: colors.text,
+  activeSessionAvatar: {
+    marginRight: -6,
+    borderWidth: 2,
+    borderColor: colors.backgroundCard,
+    borderRadius: 14,
+  },
+  recentCard: {
     backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border + 'CC',
+    padding: spacing.md,
+    marginBottom: spacing.sm,
+    ...shadows.sm,
+    ...listCardShadow,
   },
-  composerSend: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: colors.primary,
+  recentGym: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  recentMeta: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  recentPeople: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: 4,
+  },
+  sectionTitle: {
+    ...typography.sectionCaps,
+    color: colors.textMuted,
+    marginTop: spacing.lg,
+    marginBottom: spacing.sm,
+  },
+  sectionTitleInline: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  membersHeader: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    marginTop: spacing.lg,
+    marginBottom: spacing.sm,
   },
-  composerSendDisabled: {
-    opacity: 0.5,
+  inviteLink: {
+    ...typography.small,
+    color: colors.primary,
+    fontWeight: '700',
   },
+  emptyCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border + 'CC',
+    padding: spacing.lg,
+    marginBottom: spacing.sm,
+    ...shadows.sm,
+    ...listCardShadow,
+  },
+  emptyCardText: {...typography.body, color: colors.textMuted},
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border + 'CC',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    marginBottom: spacing.sm,
+    ...shadows.sm,
+    ...listCardShadow,
+  },
+  rowPressed: {opacity: 0.92},
+  rowBody: {flex: 1, minWidth: 0},
+  rowTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+    flexShrink: 1,
+  },
+  rowSub: {...typography.caption, color: colors.textMuted, marginTop: 2},
+  adminPill: {
+    alignSelf: 'flex-start',
+    marginTop: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: radius.full,
+    backgroundColor: colors.primary + '14',
+  },
+  adminPillText: {
+    ...typography.caption,
+    color: colors.primary,
+    fontWeight: '700',
+  },
+  lbCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border + 'CC',
+    paddingVertical: spacing.xs,
+    marginBottom: spacing.sm,
+    ...shadows.sm,
+    ...listCardShadow,
+  },
+  lbRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+  },
+  lbRowBorder: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+  },
+  lbRowSelf: {
+    backgroundColor: colors.primary + '08',
+  },
+  rank: {width: 28, textAlign: 'center', fontSize: 16},
+  lbCount: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    fontWeight: '700',
+    marginLeft: 'auto',
+  },
+  menuBackdrop: {
+    flex: 1,
+    backgroundColor: colors.overlay,
+    justifyContent: 'flex-end',
+  },
+  menuSheet: {
+    backgroundColor: colors.backgroundCard,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    paddingBottom: spacing.xl,
+    paddingTop: spacing.sm,
+    ...shadows.sheet,
+  },
+  menuItem: {
+    paddingVertical: 16,
+    paddingHorizontal: spacing.lg,
+  },
+  menuItemText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  menuItemMuted: {
+    ...typography.body,
+    color: colors.textMuted,
+    textAlign: 'center',
+  },
+  danger: {color: colors.error},
   inviteModal: {
     flex: 1,
+    backgroundColor: colors.overlay,
+    justifyContent: 'flex-end',
+  },
+  inviteSheet: {
     backgroundColor: colors.background,
-    paddingTop: spacing.xl,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    maxHeight: '70%',
+    padding: spacing.lg,
   },
   inviteHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: spacing.lg,
-    marginBottom: spacing.sm,
-  },
-  inviteTitle: {
-    ...typography.h4,
-    color: colors.text,
-  },
-  inviteClose: {
-    ...typography.bodyBold,
-    color: colors.primary,
-  },
-  inviteSub: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    paddingHorizontal: spacing.lg,
     marginBottom: spacing.md,
   },
-  inviteEmpty: {padding: spacing.xl, alignItems: 'center'},
-  inviteList: {paddingHorizontal: spacing.lg, paddingBottom: spacing.xxxl},
-  inviteRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  inviteAvatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.primary + '22',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: spacing.md,
-  },
-  inviteAvatarText: {
-    ...typography.bodyBold,
-    color: colors.primary,
-  },
-  inviteName: {
-    ...typography.body,
-    color: colors.text,
-    flex: 1,
-  },
-  emptyActivitySubtext: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginTop: 4,
-  },
-  membersCard: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    overflow: 'hidden',
-  },
-  memberRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: spacing.md,
-  },
-  memberRowBorder: {
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  memberAvatar: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: colors.primary + '20',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: spacing.md,
-    position: 'relative',
-  },
-  memberAvatarImage: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-  },
-  memberAvatarText: {
-    ...typography.bodyBold,
-    color: colors.primary,
-  },
-  onlineDot: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: colors.success,
-    borderWidth: 2,
-    borderColor: colors.backgroundCard,
-  },
-  memberInfo: {flex: 1},
-  memberName: {
-    ...typography.bodyBold,
-    color: colors.text,
-  },
-  adminLabel: {
-    ...typography.small,
-    color: colors.warning,
-    fontWeight: '400',
-  },
-  memberStatus: {
-    ...typography.caption,
-    color: colors.textMuted,
-    marginTop: 2,
-  },
-  memberStatusOnline: {
-    color: colors.success,
-  },
-  metadata: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    paddingVertical: spacing.lg,
-  },
-  metadataText: {
-    ...typography.caption,
-    color: colors.textMuted,
-  },
+  inviteTitle: {...typography.h4, color: colors.text},
 });
 
 export default GroupDetailScreen;

@@ -1,0 +1,85 @@
+{
+  "country": "Slovakia",
+  "prefix": "sk_",
+  "generated_at": "2026-08-23T19:03:18.947688+00:00",
+  "production_total": 11217,
+  "unique_staged": 41,
+  "status_counts": {
+    "READY_TO_IMPORT": 32,
+    "NEEDS_COORDINATES": 5,
+    "NEEDS_REVIEW": 1,
+    "COMING_SOON": 3
+  },
+  "ready_count": 32,
+  "ready_by_brand": {
+    "FITINN": 3,
+    "Golem Club": 11,
+    "365 Fit&Co": 4,
+    "Form Factory": 14
+  },
+  "brand_counts": {
+    "FITINN": 3,
+    "Golem Club": 11,
+    "365 Fit&Co": 9,
+    "Form Factory": 18
+  },
+  "city_coverage": {
+    "Bratislava": true,
+    "Košice": true,
+    "Prešov": true,
+    "Žilina": true,
+    "Banská Bystrica": true,
+    "Nitra": true,
+    "Trnava": false,
+    "Trenčín": true,
+    "Martin": true,
+    "Poprad": true,
+    "Považská Bystrica": true,
+    "Spišská Nová Ves": true
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "production_collisions": 0,
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 11249,
+  "verdict": "SLOVAKIA PHASE 2 REQUIRED BEFORE MERGE",
+  "coverage_notes": {
+    "Golem Club": "Official VOP estate — 11 fitness clubs; physiotherapy excluded",
+    "Form Factory": "WP club CPT (~18) — growing; coming-soon clubs staged separately",
+    "FITINN": "fitinn.sk multi-country locator — SK filtered by PSČ 0/8/9",
+    "365 Fit&Co": "Homepage lists ~8 cities — dedicated pages incomplete; Phase 2 likely",
+    "EfectFit": "EXCLUDED — private personal-training specialty network",
+    "FitCamp": "REBRAND — absorbed into Form Factory FitCamp club",
+    "MultiSport": "EXCLUDED — pass aggregator"
+  },
+  "geocoded_this_run": 36,
+  "slovakia_live": 0,
+  "production_sha": "f31734acfd849b54f7cfeeb8d8f896980ed90fd975a87ae85f2aa1c6d1356854",
+  "would_cross_12500": false,
+  "global_stress_qa_required_if_merged": false,
+  "ready_city_coverage": {
+    "Bratislava": 20,
+    "Košice": 3,
+    "Prešov": 1,
+    "Žilina": 2,
+    "Banská Bystrica": 1,
+    "Nitra": 1,
+    "Trnava": 0,
+    "Trenčín": 1,
+    "Martin": 1,
+    "Poprad": 1
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "fallback_ready": 0,
+  "outside_gate": 0,
+  "invalid_postcodes": 0,
+  "notes": "All READY passed AL_POSTAL_RE + in_albania; no FALLBACK coord_source."
+}

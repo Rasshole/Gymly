@@ -1,0 +1,248 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:58:18Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4586603833,
+      "lat": 54.2196688,
+      "lon": 37.6246317,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Тонус Клуб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4586619193,
+      "lat": 54.1986705,
+      "lon": 37.6118152,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Norma Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5094600926,
+      "lat": 54.2123451,
+      "lon": 37.6641295,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Спарта",
+        "name:ru": "Спарта"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5094600933,
+      "lat": 54.1751905,
+      "lon": 37.6168068,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5094620124,
+      "lat": 54.204381,
+      "lon": 37.6839389,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Шейп",
+        "name:ru": "Шейп"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5750143725,
+      "lat": 54.2054955,
+      "lon": 37.6564268,
+      "tags": {
+        "email": "n-ergo@list.ru",
+        "leisure": "fitness_centre",
+        "name": "N-ergo",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+7 4872 418080",
+        "sport": "fitness;table_tennis;swimming;yoga",
+        "website": "http://www.wellness-tula.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6131325007,
+      "lat": 54.1749588,
+      "lon": 37.5742792,
+      "tags": {
+        "addr:city": "Тула",
+        "addr:housenumber": "94",
+        "addr:postcode": "300013",
+        "addr:street": "улица Болдина",
+        "leisure": "fitness_centre",
+        "name": "Андрей",
+        "sport": "bodybuilding"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6352463572,
+      "lat": 54.1953029,
+      "lon": 37.663696,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Legend"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6359216949,
+      "lat": 54.2056794,
+      "lon": 37.6223898,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Фитнес-клуб \"ФИТЗАЛ\"",
+        "opening_hours": "24/7",
+        "phone": "+74872520404",
+        "website": "https://tula.fitzalrussia.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7124087411,
+      "lat": 54.214035,
+      "lon": 37.6147215,
+      "tags": {
+        "contact:phone": "+7 4872 280509",
+        "contact:website": "http://tulavforme.ru",
+        "leisure": "fitness_centre",
+        "name": "#ВФорме",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10064087109,
+      "lat": 54.2011894,
+      "lon": 37.5966105,
+      "tags": {
+        "addr:city": "Тула",
+        "addr:housenumber": "24В",
+        "addr:postcode": "300041",
+        "addr:street": "улица Коминтерна",
+        "leisure": "fitness_centre",
+        "name": "VLASTELIN FITNESS",
+        "opening_hours": "Mo-Fr 06:30-23:00, Sat-Sun 9:00-22:00",
+        "phone": "+74872716363",
+        "sport": "fitness;crossfit;aerobics;beauty_salon;massage;cafe",
+        "website": "https://vlastelinfitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10670023029,
+      "lat": 54.175319,
+      "lon": 37.630571,
+      "tags": {
+        "brand": "Fitness House",
+        "brand:wikidata": "Q104213893",
+        "contact:email": "help@fhclub.ru",
+        "contact:phone": "+7 487 2740544;+7 800 5050606",
+        "contact:website": "https://www.fitnesshouse.ru/fh-v-tule.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11288663396,
+      "lat": 54.1952518,
+      "lon": 37.6113188,
+      "tags": {
+        "contact:phone": "+7 487 2526373",
+        "contact:website": "https://www.ddxfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Ddx",
+        "opening_hours": "Mo-Su 06:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443635,
+      "lat": 54.1611398,
+      "lon": 37.5856313,
+      "tags": {
+        "contact:phone": "+7 999 7754105",
+        "contact:website": "https://ladystretch.com/tula",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378229080,
+      "lat": 54.1897308,
+      "lon": 37.6222483,
+      "tags": {
+        "contact:phone": "+7 996 5236651",
+        "contact:website": "https://ladystretch.com/tula",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754230,
+      "lat": 54.2030702,
+      "lon": 37.6439399,
+      "tags": {
+        "contact:phone": "+7 487 2244600",
+        "contact:website": "https://tula.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13601922422,
+      "lat": 54.1988403,
+      "lon": 37.610828,
+      "tags": {
+        "contact:phone": "+7 996 5236651",
+        "contact:website": "https://ladystretch.com/tula",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 686439553,
+      "center": {
+        "lat": 54.2069235,
+        "lon": 37.6635678
+      },
+      "tags": {
+        "addr:city": "Тула",
+        "addr:country": "RU",
+        "addr:housenumber": "8",
+        "addr:street": "улица Немцова",
+        "building": "yes",
+        "contact:email": "fitnes_park@list.ru",
+        "contact:phone": "+7 487 2730077",
+        "contact:website": "https://tulafitpark.ru/",
+        "leisure": "fitness_centre",
+        "name": "Фитнес Парк",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-21:00"
+      }
+    }
+  ]
+}

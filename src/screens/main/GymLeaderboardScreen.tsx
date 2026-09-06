@@ -21,6 +21,7 @@ import colors from '@/theme/colors';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {LeaderboardEntry, LeaderboardPeriod} from '@/types/leaderboard.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {useTranslation} from '@/i18n';
 
 const PERIODS: LeaderboardPeriod[] = ['week', 'month', 'all'];
 
@@ -38,6 +39,7 @@ const LeaderboardItem = ({
   item: LeaderboardEntry;
   gym: DanishGym;
 }) => {
+  const {t} = useTranslation();
   const navigation = useNavigation<StackNavigationProp<any>>();
   const rankStyle = getRankStyle(item.rank);
 
@@ -75,17 +77,17 @@ const LeaderboardItem = ({
       <View style={styles.userInfo}>
         <View style={styles.nameRow}>
           <Text style={styles.name}>
-            {item.isCurrentUser ? 'Dig' : item.displayName}
+            {item.isCurrentUser ? t('common.you') : item.displayName}
           </Text>
           {item.isWeeklyChampion && (
             <View style={styles.championBadge}>
-              <Text style={styles.championBadgeText}>🏆 Ugens mester</Text>
+              <Text style={styles.championBadgeText}>🏆 {t('gymDetail.weeklyChampion')}</Text>
             </View>
           )}
           {item.isFriend && !item.isCurrentUser && (
             <View style={styles.friendBadge}>
               <Icon name="person" size={10} color="#fff" />
-              <Text style={styles.friendBadgeText}>Ven</Text>
+              <Text style={styles.friendBadgeText}>{t('common.friend')}</Text>
             </View>
           )}
         </View>
@@ -103,6 +105,7 @@ const LeaderboardItem = ({
 };
 
 const GymLeaderboardScreen = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<StackNavigationProp<any>>();
   const route = useRoute();
   const {gymId, gym} = (route.params as any) || {};
@@ -113,7 +116,7 @@ const GymLeaderboardScreen = () => {
   if (!gym) {
     return (
       <View style={styles.container}>
-        <Text>Gym ikke fundet</Text>
+        <Text>{t('phase2ui.gymNotFound')}</Text>
       </View>
     );
   }
@@ -134,7 +137,7 @@ const GymLeaderboardScreen = () => {
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Rangliste</Text>
+        <Text style={styles.headerTitle}>{t('leaderboard.listTitle')}</Text>
         <View style={styles.headerRight} />
       </View>
 
@@ -146,7 +149,7 @@ const GymLeaderboardScreen = () => {
           style={styles.gymLogo}
         />
         <Text style={styles.gymName}>{formatGymDisplayName(gym)}</Text>
-        <Text style={styles.gymSubtitle}>Flest besøg</Text>
+        <Text style={styles.gymSubtitle}>{t('phase2ui.mostVisits')}</Text>
         {weeklyChampion && (
           <View style={styles.weeklyChampionBanner}>
             <Text style={styles.weeklyChampionEmoji}>🏆</Text>

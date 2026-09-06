@@ -24,6 +24,7 @@ import {
   submitPostReport,
 } from '@/services/supabase/workoutPostService';
 import {isLikelyServerPostUuid, isLocalDemoPostId} from '@/utils/postIds';
+import {canShareWorkoutFromFeedPost} from '@/utils/shareWorkoutPrivacy';
 import {useTranslation} from '@/i18n';
 
 const SCREEN_H = Dimensions.get('window').height;
@@ -35,6 +36,7 @@ export type PostActionSheetPost = {
   caption?: string;
   photoUri?: string | null;
   workoutInfo?: string;
+  checkInId?: string | null;
 };
 
 export type PostActionBottomSheetProps = {
@@ -48,6 +50,7 @@ export type PostActionBottomSheetProps = {
    */
   variant?: 'workoutPost' | 'activity';
   onPostDeleted?: (postId: string) => void;
+  onShareWorkoutCard?: (sessionId: string) => void;
 };
 
 const springOpen = {
@@ -72,6 +75,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
   currentUserId,
   variant = 'workoutPost',
   onPostDeleted,
+  onShareWorkoutCard,
 }) => {
   const {t} = useTranslation();
   const insets = useSafeAreaInsets();
@@ -80,6 +84,12 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
 
   const isOwn =
     !!post?.userId && !!currentUserId && post.userId === currentUserId;
+
+  const canShareWorkoutCard =
+    canShareWorkoutFromFeedPost({
+      isOwn,
+      checkInId: post?.checkInId,
+    }) && !!onShareWorkoutCard;
 
   const canSaveImage = !!post?.photoUri?.trim();
 
@@ -149,22 +159,34 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
     });
   }, [post]);
 
+  const handleShareWorkoutCard = useCallback(() => {
+    const sessionId = post?.checkInId?.trim();
+    if (!sessionId || !onShareWorkoutCard) {
+      return;
+    }
+    runClose();
+    onShareWorkoutCard(sessionId);
+  }, [post?.checkInId, onShareWorkoutCard, runClose]);
+
   const handleReport = useCallback(() => {
     if (!post) {
       return;
     }
     Alert.alert(
-      'Rapportér opslag',
-      'Vil du anmelde dette opslag til Gymly?',
+      t('postActions.reportTitle'),
+      t('postActions.reportConfirmBody'),
       [
-        {text: 'Annuller', style: 'cancel'},
+        {text: t('common.cancel'), style: 'cancel'},
         {
-          text: 'Rapportér',
+          text: t('postActions.reportPost'),
           style: 'destructive',
           onPress: async () => {
             const res = await submitPostReport(post.id);
             if (res.ok) {
-              Alert.alert('Tak', 'Vi har modtaget din anmeldelse.');
+              Alert.alert(
+                t('postActions.reportThanksTitle'),
+                t('postActions.reportThanksBody'),
+              );
             } else {
               Alert.alert(
                 t('postActions.deleteWorkoutSorry'),
@@ -176,7 +198,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
         },
       ],
     );
-  }, [post, runClose]);
+  }, [post, runClose, t]);
 
   const handleDelete = useCallback(() => {
     const uid = post?.userId;
@@ -235,7 +257,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
           <View style={styles.handleWrap}>
             <View style={styles.handle} />
           </View>
-          <Text style={styles.title}>Handlinger</Text>
+          <Text style={styles.title}>{t('postActions.title')}</Text>
 
           {canSaveImage ? (
             <TouchableOpacity
@@ -245,7 +267,17 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
               }}
               activeOpacity={0.75}>
               <Icon name="download-outline" size={22} color={colors.text} />
-              <Text style={styles.rowLabel}>Gem billede</Text>
+              <Text style={styles.rowLabel}>{t('postActions.saveImage')}</Text>
+            </TouchableOpacity>
+          ) : null}
+
+          {canShareWorkoutCard ? (
+            <TouchableOpacity
+              style={styles.row}
+              onPress={handleShareWorkoutCard}
+              activeOpacity={0.75}>
+              <Icon name="share-outline" size={22} color={colors.text} />
+              <Text style={styles.rowLabel}>{t('postActions.shareWorkoutCard')}</Text>
             </TouchableOpacity>
           ) : null}
 
@@ -256,7 +288,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
             }}
             activeOpacity={0.75}>
             <Icon name="share-outline" size={22} color={colors.text} />
-            <Text style={styles.rowLabel}>Del opslag</Text>
+            <Text style={styles.rowLabel}>{t('postActions.sharePost')}</Text>
           </TouchableOpacity>
 
           {!isOwn ? (
@@ -265,7 +297,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
               onPress={handleReport}
               activeOpacity={0.75}>
               <Icon name="flag-outline" size={22} color={colors.text} />
-              <Text style={styles.rowLabel}>Rapportér opslag</Text>
+              <Text style={styles.rowLabel}>{t('postActions.reportPost')}</Text>
             </TouchableOpacity>
           ) : null}
 
@@ -286,7 +318,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
             style={[styles.cancelBtn, Platform.OS === 'ios' && styles.cancelBtnIos]}
             onPress={runClose}
             activeOpacity={0.8}>
-            <Text style={styles.cancelText}>Luk</Text>
+            <Text style={styles.cancelText}>{t('postActions.close')}</Text>
           </TouchableOpacity>
         </Animated.View>
       </View>

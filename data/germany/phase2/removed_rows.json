@@ -1,0 +1,426 @@
+{
+  "removed": [
+    {
+      "reason": "foreign_dubai",
+      "name": "EASYFITNESS Dubai",
+      "brand": "EASYFITNESS"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Aalen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Asemissen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Augsburg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Backnang"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bad Berka"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bad Boll"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bad Kreuznach"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bad Rappenau"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 15 x in Berlin: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Biberach"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Bielefeld: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bietigheim-Bissingen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Blieskastel"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Blomberg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bonn"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Braunschweig"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 3 x in Bremen: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bretten"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Bünde"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Cottbus"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Crailsheim"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 10 x in Darmstadt: Dein Training wartet direkt um die Ecke"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Datteln"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Detmold"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Dorsten"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Dortmund"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 3 x in Dresden: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 5 x in Düsseldorf: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Essen Kettwig"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 3 x in Esslingen: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Ettlingen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Fellbach"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 12 x in Frankfurt: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Freiburg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Fürth"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Geislingen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Gera"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Giengen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Gifhorn"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 3 x in Göppingen: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Göttingen: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Goslar"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Gräfenhausen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Griesheim"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 17 x in Hamburg: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Hamm"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Hannover: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Heidenheim Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Heilbronn"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Hildesheim"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Homburg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Horn"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Idar-Oberstein: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Ingolstadt"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Kaiserslautern"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Kassel"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Kirn"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 6 x in Köln: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Kornwestheim"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Laatzen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Laufenburg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Laupheim"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Leipzig: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Lemgo"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Ludwigsburg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Magdeburg: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Mainz"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 3 x in Mannheim Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Marl"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Merzig: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Mönchengladbach: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 8 x in München: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Münster: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Nordhausen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Nürnberg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Offenbach"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Pforzheim"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Pirmasens"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Plochingen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Potsdam"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Raunheim: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Ravensburg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Regensburg: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Rheinstetten"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Rostock Innenstadt"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Rottenburg"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Saarbrücken"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Saarlouis"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Sigmaringen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Singen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 4 x in Stuttgart: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Süßen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 3 x in Trier: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Uhingen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Wäschenbeuren"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Waiblingen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Wangen"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Wedel"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Wernigerode"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First 2 x in Wiesbaden: Entdecke dein Fitnessstudio"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Winnenden"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Wolfenbüttel City"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Würzburg Grombühl"
+    },
+    {
+      "reason": "replace_brand",
+      "name": "Fitness First Zweibrücken"
+    }
+  ],
+  "dedupe_events": []
+}

@@ -1,0 +1,32 @@
+{
+  "catalog": 11923,
+  "active": 11919,
+  "latvia": 33,
+  "json_size_mb": 3.53,
+  "parse_ms": 19,
+  "cold_index_ms": 2192,
+  "cached_index_ms": 0,
+  "typical_search_ms": 117.33,
+  "worst_search_ms": 10,
+  "nearest_ms": 1,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 0,
+  "map_markers_built": 33,
+  "architecture": "KEEP CLIENT-SIDE",
+  "latvia_merge_baseline": {
+    "catalog": 11648,
+    "json_size_mb": 3.42
+  },
+  "lithuania_qa_baseline": {
+    "catalog": 11509,
+    "json_size_mb": 3.41
+  },
+  "slovenia_qa_baseline": {
+    "catalog": 11448,
+    "json_size_mb": 3.39
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false
+}

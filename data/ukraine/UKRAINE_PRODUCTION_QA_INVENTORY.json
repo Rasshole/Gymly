@@ -1,0 +1,31 @@
+{
+  "keep_existing": 0,
+  "new_ready_to_import": 105,
+  "existing_review_required": 0,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "coming_soon": 6,
+  "excluded": 31,
+  "closed": 2,
+  "approved_for_production": 105,
+  "live_production": 105,
+  "four_way": {
+    "phase2_ready": 105,
+    "approved": 105,
+    "production": 105,
+    "a_equals_b": true,
+    "b_equals_c": true,
+    "phase2_ready_missing_from_approved": 0,
+    "approved_missing_from_production": 0,
+    "production_not_approved": 0,
+    "unauthorized_ukraine_production": 0
+  },
+  "merge_delta": {
+    "pre_ukraine": 0,
+    "authorized_new": 105,
+    "post_ukraine": 105,
+    "insertions": 105,
+    "updates": 0,
+    "removals": 0
+  }
+}

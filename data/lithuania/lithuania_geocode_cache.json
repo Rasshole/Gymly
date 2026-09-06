@@ -1,0 +1,509 @@
+{
+  "lt|ukmergės g. 308, 12110, vilnius, lithuania": {
+    "lat": 54.7393609,
+    "lng": 25.2253385,
+    "display_name": "Fitus, 308, Ukmergės g., Perkūnkiemis, Pašilaičių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 12110, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "12110",
+    "country_code": "lt"
+  },
+  "lt|mokslininkų g. 6a, vilnius, lithuania": {
+    "lat": 54.7515839,
+    "lng": 25.2649145,
+    "display_name": "6A, Mokslininkų g., Visoriai, Verkių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 08448, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "08448",
+    "country_code": "lt"
+  },
+  "lt|konstitucijos pr. 7a-1, vilnius, lithuania": {
+    "lat": 54.6956762,
+    "lng": 25.276438,
+    "display_name": "Konstitucijos pr., Piromontas, Šnipiškių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 09308, Lietuva",
+    "importance": 0.2574973608523206,
+    "postcode": "09308",
+    "country_code": "lt"
+  },
+  "lt|ožiarūčių g. 3, vilnius, lithuania": {
+    "lat": 54.7656229,
+    "lng": 25.1951953,
+    "display_name": "Urban Hub Vilnius, 3, Ožiarūčių g., Avižieniai, Avižienių seniūnija, Vilniaus rajono savivaldybė, Vilniaus apskritis, 14185, Lietuva",
+    "importance": 4.3298237582925424e-05,
+    "postcode": "14185",
+    "country_code": "lt"
+  },
+  "lt|ozo g. 18, vilnius, lithuania": {
+    "lat": 54.7139438,
+    "lng": 25.2726536,
+    "display_name": "Optikos pasaulis, 18, Ozo g., Ozas, Verkių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 08243, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "08243",
+    "country_code": "lt"
+  },
+  "lt|savanorių pr. 1, vilnius, lithuania": {
+    "lat": 54.6793418,
+    "lng": 25.2573276,
+    "display_name": "1, Savanorių pr., Naujamiestis, Naujamiesčio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 03103, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "03103",
+    "country_code": "lt"
+  },
+  "lt|pavilnionių g. 55, vilnius, lithuania": {
+    "lat": 54.736937,
+    "lng": 25.2117146,
+    "display_name": "Vynoteka, 55, Pavilnionių g., Perkūnkiemis, Pašilaičių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 06142, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "06142",
+    "country_code": "lt"
+  },
+  "lt|dariaus ir girėno g. 2, vilnius, lithuania": {
+    "lat": 54.6651687,
+    "lng": 25.2734766,
+    "display_name": "GymPlius, 2, Dariaus ir Girėno g., Naujininkai, Naujininkų seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 02153, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "02153",
+    "country_code": "lt"
+  },
+  "lt|gedimino pr. 9, vilnius, lithuania": {
+    "lat": 54.6873532,
+    "lng": 25.2817067,
+    "display_name": "G9, 9, Gedimino pr., Puškarnia, Senamiesčio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 01103, Lietuva",
+    "importance": 0.14389741120638372,
+    "postcode": "01103",
+    "country_code": "lt"
+  },
+  "lt|saltoniškių g. 9, vilnius, lithuania": {
+    "lat": 54.7004243,
+    "lng": 25.2575125,
+    "display_name": "PLC „Panorama“, 9, Saltoniškių g., Saltoniškės, Žvėryno seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 08105, Lietuva",
+    "importance": 0.13618373728802152,
+    "postcode": "08105",
+    "country_code": "lt"
+  },
+  "lt|kalvarijų g. 88, vilnius, lithuania": {
+    "lat": 54.7032123,
+    "lng": 25.282434,
+    "display_name": "88, Kalvarijų g., Šnipiškės, Šnipiškių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 09303, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "09303",
+    "country_code": "lt"
+  },
+  "lt|ukmergės g. 256, vilnius, lithuania": {
+    "lat": 54.7268256,
+    "lng": 25.2397731,
+    "display_name": "256, Ukmergės g., Fabijoniškės, Pašilaičių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 06120, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "06120",
+    "country_code": "lt"
+  },
+  "lt|priegliaus g. 1, vilnius, lithuania": {
+    "lat": 54.7099447,
+    "lng": 25.187429,
+    "display_name": "PC „Pupa“, 1, Priegliaus g., Pilaitė, Pilaitės seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 06269, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "06269",
+    "country_code": "lt"
+  },
+  "lt|vytauto pociūno g. 8, vilnius, lithuania": null,
+  "lt|žemaitės g. 22, vilnius, lithuania": {
+    "lat": 54.6719967,
+    "lng": 25.2574973,
+    "display_name": "Plus Plus Plus Gastrobaras, 22, Žemaitės g., Naujamiestis, Naujamiesčio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 03201, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "03201",
+    "country_code": "lt"
+  },
+  "lt|žirmūnų g. 68a, vilnius, lithuania": {
+    "lat": 54.7178692,
+    "lng": 25.3032219,
+    "display_name": "68A, Žirmūnų g., Žirmūnai, Žirmūnų seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 09124, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "09124",
+    "country_code": "lt"
+  },
+  "lt|lyderystės g. 8, kaunas, lithuania": {
+    "lat": 54.9345228,
+    "lng": 23.9886865,
+    "display_name": "8, Lyderystės g., Urban Hub, Biruliškės, Karmėlavos seniūnija, Kauno rajono savivaldybė, Kauno apskritis, 49184, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "49184",
+    "country_code": "lt"
+  },
+  "lt|savanorių pr. 194, kaunas, lithuania": {
+    "lat": 54.904974,
+    "lng": 23.9185114,
+    "display_name": "Savanorių pr., Žaliakalnis, Žaliakalnio seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 44147, Lietuva",
+    "importance": 0.053406693369954954,
+    "postcode": "44147",
+    "country_code": "lt"
+  },
+  "lt|islandijos pl. 32, kaunas, lithuania": {
+    "lat": 54.9400042,
+    "lng": 23.8924039,
+    "display_name": "Skonis, 32, Islandijos pl., Šilainiai, Šilainių seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 47446, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "47446",
+    "country_code": "lt"
+  },
+  "lt|baltų pr. 49f, kaunas, lithuania": {
+    "lat": 54.9278714,
+    "lng": 23.8816023,
+    "display_name": "49F, Baltų pr., Maironiškiai, Šilainių seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 48193, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "48193",
+    "country_code": "lt"
+  },
+  "lt|pramonės pr. 25, kaunas, lithuania": {
+    "lat": 54.9104619,
+    "lng": 23.9817814,
+    "display_name": "25, Pramonės pr., Gričiupis, Gričiupio seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 51286, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "51286",
+    "country_code": "lt"
+  },
+  "lt|v. krėvės pr. 13, kaunas, lithuania": {
+    "lat": 54.9161792,
+    "lng": 23.9608587,
+    "display_name": "13, V. Krėvės pr., Dainava, Dainavos seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 49488, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "49488",
+    "country_code": "lt"
+  },
+  "lt|bangų g. 2, klaipėda, lithuania": {
+    "lat": 55.7070953,
+    "lng": 21.1424094,
+    "display_name": "2, Bangų g., Jono kalnelis, Pelenynas, Klaipėda, Klaipėdos miesto savivaldybė, Klaipėdos apskritis, 91251, Lietuva",
+    "importance": 6.8043793392798e-05,
+    "postcode": "91251",
+    "country_code": "lt"
+  },
+  "lt|h. manto g. 21, klaipėda, lithuania": {
+    "lat": 55.7161568,
+    "lng": 21.1280914,
+    "display_name": "Mega Plaza, 21, H. Manto g., Lietuvninkai, Senamiestis, Klaipėda, Klaipėdos miesto savivaldybė, Klaipėdos apskritis, 92234, Lietuva",
+    "importance": 6.8043793392798e-05,
+    "postcode": "92234",
+    "country_code": "lt"
+  },
+  "lt|taikos pr. 61, klaipėda, lithuania": {
+    "lat": 55.6928318,
+    "lng": 21.1565701,
+    "display_name": "PLC „Akropolis“, 61, Taikos pr., Arena, Rumpiškė, Klaipėda, Klaipėdos miesto savivaldybė, Klaipėdos apskritis, 91182, Lietuva",
+    "importance": 0.12743869505990896,
+    "postcode": "91182",
+    "country_code": "lt"
+  },
+  "lt|taikos pr. 64, klaipėda, lithuania": {
+    "lat": 55.6868518,
+    "lng": 21.1562179,
+    "display_name": "PC „Arena“, 64, Taikos pr., Arena, Rumpiškė, Klaipėda, Klaipėdos miesto savivaldybė, Klaipėdos apskritis, 93226, Lietuva",
+    "importance": 6.8043793392798e-05,
+    "postcode": "93226",
+    "country_code": "lt"
+  },
+  "lt|vingio g. 31, klaipėda, lithuania": {
+    "lat": 55.6668119,
+    "lng": 21.1968118,
+    "display_name": "Rimi, 31, Vingio g., Šlapžemiai, Smeltė, Klaipėda, Klaipėdos miesto savivaldybė, Klaipėdos apskritis, 95203, Lietuva",
+    "importance": 6.8043793392798e-05,
+    "postcode": "95203",
+    "country_code": "lt"
+  },
+  "lt|vairo g. 2, šiauliai, lithuania": {
+    "lat": 55.9210467,
+    "lng": 23.2958221,
+    "display_name": "2, Vairo g., Žaliūkės, Šiauliai, Šiaulių miesto savivaldybė, Šiaulių apskritis, 78140, Lietuva",
+    "importance": 6.512474250395999e-05,
+    "postcode": "78140",
+    "country_code": "lt"
+  },
+  "lt|gardino g. 3, šiauliai, lithuania": {
+    "lat": 55.9127292,
+    "lng": 23.2719746,
+    "display_name": "3, Gardino g., Kamčiatka, Besarabija, Žaliūkės, Šiauliai, Šiaulių miesto savivaldybė, Šiaulių apskritis, 78230, Lietuva",
+    "importance": 6.512474250395999e-05,
+    "postcode": "78230",
+    "country_code": "lt"
+  },
+  "lt|gumbinės g. 33c, šiauliai, lithuania": {
+    "lat": 55.9307047,
+    "lng": 23.2962272,
+    "display_name": "Rezus, 33C, Gumbinės g., Užkirkis, Žaliūkės, Šiauliai, Šiaulių miesto savivaldybė, Šiaulių apskritis, 77171, Lietuva",
+    "importance": 6.512474250395999e-05,
+    "postcode": "77171",
+    "country_code": "lt"
+  },
+  "lt|smėlynės g. 85, panevėžys, lithuania": {
+    "lat": 55.7451027,
+    "lng": 24.3698661,
+    "display_name": "Norfa XL, 85, Smėlynės g., Senamiestis, Panevėžys, Panevėžio miesto savivaldybė, Panevėžio apskritis, 35110, Lietuva",
+    "importance": 6.414511329819208e-05,
+    "postcode": "35110",
+    "country_code": "lt"
+  },
+  "lt|klaipėdos g. 143a, panevėžys, lithuania": {
+    "lat": 55.7293434,
+    "lng": 24.3085579,
+    "display_name": "Molas, 143A, Klaipėdos g., Pagojys, Panevėžys, Panevėžio miesto savivaldybė, Panevėžio apskritis, 37189, Lietuva",
+    "importance": 0.09078915819201436,
+    "postcode": "37189",
+    "country_code": "lt"
+  },
+  "lt|ukmergės g. 18, panevėžys, lithuania": {
+    "lat": 55.7277775,
+    "lng": 24.3660706,
+    "display_name": "Iki Basanavičiaus, 18, Ukmergės g., Senamiestis, Panevėžys, Panevėžio miesto savivaldybė, Panevėžio apskritis, 35201, Lietuva",
+    "importance": 6.414511329819208e-05,
+    "postcode": "35201",
+    "country_code": "lt"
+  },
+  "lt|jazminų g. 3, alytus, lithuania": {
+    "lat": 54.4003506,
+    "lng": 24.0177584,
+    "display_name": "3, Jazminų g., Dainava, Alytus, Alytaus miesto savivaldybė, Alytaus apskritis, 63186, Lietuva",
+    "importance": 6.220569161512196e-05,
+    "postcode": "63186",
+    "country_code": "lt"
+  },
+  "lt|v. kudirkos g. 47a, marijampolė, lithuania": {
+    "lat": 54.5546939,
+    "lng": 23.3549696,
+    "display_name": "VS-Express gyms, 47A, V. Kudirkos g., Centras, Marijampolė, Marijampolės savivaldybė, Marijampolės apskritis, 68305, Lietuva",
+    "importance": 6.161669336990948e-05,
+    "postcode": "68305",
+    "country_code": "lt"
+  },
+  "lt|m. daukšos g. 26, mažeikiai, lithuania": {
+    "lat": 56.3038858,
+    "lng": 22.3484944,
+    "display_name": "26, M. Daukšos g., Senamiestis, Mažeikiai, Mažeikių seniūnija, Mažeikių rajono savivaldybė, Telšių apskritis, 89234, Lietuva",
+    "importance": 5.7100022888487335e-05,
+    "postcode": "89234",
+    "country_code": "lt"
+  },
+  "lt|j. basanavičiaus g. 80, kėdainiai, lithuania": {
+    "lat": 55.2799752,
+    "lng": 23.9633261,
+    "display_name": "Giraitės turgus, 80, J. Basanavičiaus g., Senamiestis, Kėdainiai, Kėdainių miesto seniūnija, Kėdainių rajono savivaldybė, Kauno apskritis, 57361, Lietuva",
+    "importance": 5.921492332336946e-05,
+    "postcode": "57361",
+    "country_code": "lt"
+  },
+  "lt|gėlių g. 2, telšiai, lithuania": {
+    "lat": 55.9129016,
+    "lng": 21.8044795,
+    "display_name": "2, Gėlių g., Plungė, Plungės miesto seniūnija, Plungės rajono savivaldybė, Telšių apskritis, 90170, Lietuva",
+    "importance": 5.613260090023678e-05,
+    "postcode": "90170",
+    "country_code": "lt"
+  },
+  "lt|taikos g. 68a, palanga, lithuania": {
+    "lat": 55.9194432,
+    "lng": 21.0807999,
+    "display_name": "68A, Taikos g., Vanagupė, Palanga, Palangos miesto savivaldybė, Klaipėdos apskritis, 00116, Lietuva",
+    "importance": 6.0337987334966316e-05,
+    "postcode": "00116",
+    "country_code": "lt"
+  },
+  "lt|raudondvario pl. 169b, kaunas, lithuania": {
+    "lat": 54.9181677,
+    "lng": 23.829884,
+    "display_name": "IKI, 169B, Raudondvario pl., Lampėdžiai, Vilijampolės seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 47167, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "47167",
+    "country_code": "lt"
+  },
+  "lt|aido g. 8, šiauliai, lithuania": {
+    "lat": 55.9076385,
+    "lng": 23.2607916,
+    "display_name": "PLC „Akropolis“, 8, Aido g., Senieji Dainai, Dainai, Žaliūkės, Šiauliai, Šiaulių miesto savivaldybė, Šiaulių apskritis, 78322, Lietuva",
+    "importance": 6.512474250395999e-05,
+    "postcode": "78322",
+    "country_code": "lt"
+  },
+  "lt|žalgirio g. 92, vilnius, lithuania": {
+    "lat": 54.7034689,
+    "lng": 25.2766774,
+    "display_name": "92, Žalgirio g., Šnipiškės, Šnipiškių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 09300, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "09300",
+    "country_code": "lt"
+  },
+  "lt|ozo g. 25, vilnius, lithuania": {
+    "lat": 54.7105139,
+    "lng": 25.2631365,
+    "display_name": "PLC „Akropolis“, 25, Ozo g., Šeškinė, Šeškinės seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 01402, Lietuva",
+    "importance": 0.1507975276546128,
+    "postcode": "01402",
+    "country_code": "lt"
+  },
+  "lt|ukmergės g. 221, vilnius, lithuania": {
+    "lat": 54.7148064,
+    "lng": 25.2489175,
+    "display_name": "PC Pikas, 221, Ukmergės g., Šeškinė, Šeškinės seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 07156, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "07156",
+    "country_code": "lt"
+  },
+  "lt|l. asanavičiūtės g. 15, vilnius, lithuania": {
+    "lat": 54.6891872,
+    "lng": 25.2100835,
+    "display_name": "Lemon Gym, 15, L. Asanavičiūtės g., Karoliniškės, Karoliniškių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 04315, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "04315",
+    "country_code": "lt"
+  },
+  "lt|pramonės pr. 16, kaunas, lithuania": {
+    "lat": 54.9157964,
+    "lng": 23.9867361,
+    "display_name": "Caffeine - Drive In, 16, Pramonės pr., Naujasodis, Petrašiūnų seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 51271, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "51271",
+    "country_code": "lt"
+  },
+  "lt|naugarduko g. 55a, vilnius, lithuania": {
+    "lat": 54.670785,
+    "lng": 25.2592542,
+    "display_name": "Skraja, 55A, Naugarduko g., Naujamiestis, Naujamiesčio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 03204, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "03204",
+    "country_code": "lt"
+  },
+  "lt|vienuolio g. 4, vilnius, lithuania": {
+    "lat": 54.688362,
+    "lng": 25.2765882,
+    "display_name": "Grand Casino World, 4, A. Vienuolio g., Lukiškės, Naujamiesčio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 01104, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "01104",
+    "country_code": "lt"
+  },
+  "lt|karaliaus mindaugo pr. 50, kaunas, lithuania": {
+    "lat": 54.8904082,
+    "lng": 23.9144444,
+    "display_name": "Žalgirio arena, 50, Karaliaus Mindaugo pr., Karmelitai, Centro seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 44334, Lietuva",
+    "importance": 0.44971912873784053,
+    "postcode": "44334",
+    "country_code": "lt"
+  },
+  "lt|savanorių pr. 168, kaunas, lithuania": {
+    "lat": 54.9074759,
+    "lng": 23.9263867,
+    "display_name": "168, Savanorių pr., Žaliakalnis, Žaliakalnio seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 50177, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "50177",
+    "country_code": "lt"
+  },
+  "lt|baltų pr. 16, kaunas, lithuania": {
+    "lat": 54.9301075,
+    "lng": 23.8841662,
+    "display_name": "Oazė, 16, Baltų pr., Šilainiai, Šilainių seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 48190, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "48190",
+    "country_code": "lt"
+  },
+  "lt|perkūnkiemio g. 4, vilnius, lithuania": {
+    "lat": 54.7414184,
+    "lng": 25.2233383,
+    "display_name": "4, Perkūnkiemio g., Perkūnkiemis, Pašilaičių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 12128, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "12128",
+    "country_code": "lt"
+  },
+  "lt|ateities g. 31b, vilnius, lithuania": {
+    "lat": 54.7344486,
+    "lng": 25.2530222,
+    "display_name": "Ateities Trio, 31B, Ateities g., Fabijoniškės, Fabijoniškių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 06329, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "06329",
+    "country_code": "lt"
+  },
+  "lt|antakalnio g. 37, vilnius, lithuania": {
+    "lat": 54.7037412,
+    "lng": 25.3107638,
+    "display_name": "37, Antakalnio g., Antakalnis, Antakalnio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 10312, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "10312",
+    "country_code": "lt"
+  },
+  "lt|p. lukšio g. 34, vilnius, lithuania": {
+    "lat": 54.7098966,
+    "lng": 25.2993034,
+    "display_name": "PC „Banginis“, 34, P. Lukšio g., Šiaurės miestelis, Žirmūnų seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 08235, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "08235",
+    "country_code": "lt"
+  },
+  "lt|vydūno g. 2, vilnius, lithuania": {
+    "lat": 54.7072909,
+    "lng": 25.1896787,
+    "display_name": "2, Vydūno g., Pilaitė, Pilaitės seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 06204, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "06204",
+    "country_code": "lt"
+  },
+  "lt|konstitucijos pr. 7a, vilnius, lithuania": {
+    "lat": 54.6961404,
+    "lng": 25.2778362,
+    "display_name": "Huracán Coffee, 7A, Konstitucijos pr., Piromontas, Šnipiškių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 09307, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "09307",
+    "country_code": "lt"
+  },
+  "lt|kareivių g. 14, vilnius, lithuania": {
+    "lat": 54.7197387,
+    "lng": 25.2995548,
+    "display_name": "Impuls Plius, 14, Kareivių g., Žirmūnai, Žirmūnų seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 09117, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "09117",
+    "country_code": "lt"
+  },
+  "lt|savanorių pr. 28, vilnius, lithuania": {
+    "lat": 54.6752528,
+    "lng": 25.2527363,
+    "display_name": "UAB LJB property, 28, Savanorių pr., Naujamiestis, Naujamiesčio seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 03501, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "03501",
+    "country_code": "lt"
+  },
+  "lt|fabijoniškių g. 97a, vilnius, lithuania": {
+    "lat": 54.730044,
+    "lng": 25.2463149,
+    "display_name": "Impuls, 97A, Fabijoniškių g., Fabijoniškės, Fabijoniškių seniūnija, Vilnius, Vilniaus miesto savivaldybė, Vilniaus apskritis, 07108, Lietuva",
+    "importance": 7.705729762717658e-05,
+    "postcode": "07108",
+    "country_code": "lt"
+  },
+  "lt|liepų g. 53a, klaipėda, lithuania": {
+    "lat": 55.7176269,
+    "lng": 21.1470093,
+    "display_name": "Impuls, 53A, Liepų g., Pelenynas, Klaipėda, Klaipėdos miesto savivaldybė, Klaipėdos apskritis, 92191, Lietuva",
+    "importance": 6.8043793392798e-05,
+    "postcode": "92191",
+    "country_code": "lt"
+  },
+  "lt|parko g. 14, panevėžys, lithuania": {
+    "lat": 55.7340462,
+    "lng": 24.3374233,
+    "display_name": "Impuls, 14, Parko g., Senamiestis, Panevėžys, Panevėžio miesto savivaldybė, Panevėžio apskritis, 37310, Lietuva",
+    "importance": 6.414511329819208e-05,
+    "postcode": "37310",
+    "country_code": "lt"
+  },
+  "lt|šiaurės pr. 8d, kaunas, lithuania": {
+    "lat": 54.9310726,
+    "lng": 23.9324244,
+    "display_name": "Maxima XX, 8D, Šiaurės pr., Eiguliai, Eigulių seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 49238, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "49238",
+    "country_code": "lt"
+  },
+  "lt|v. krėvės pr. 57, kaunas, lithuania": {
+    "lat": 54.9208039,
+    "lng": 23.9734784,
+    "display_name": "Iki, 57, V. Krėvės pr., Dainava, Dainavos seniūnija, Kaunas, Kauno miesto savivaldybė, Kauno apskritis, 50358, Lietuva",
+    "importance": 7.336003662160704e-05,
+    "postcode": "50358",
+    "country_code": "lt"
+  },
+  "lt|vs fitness legacy (acquired), vilnius, lithuania": null,
+  "lt|garliava (specialty club), garliava, lithuania": null
+}

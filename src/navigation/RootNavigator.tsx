@@ -9,7 +9,7 @@ import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
 
 import AuthNavigator from './AuthNavigator';
-import MainNavigator from './MainNavigator';
+import LazyMainNavigator from './LazyMainNavigator';
 import LoadingScreen from '@/screens/LoadingScreen';
 import ResetPasswordScreen from '@/screens/auth/ResetPasswordScreen';
 
@@ -37,7 +37,7 @@ const RootNavigator = () => {
         cardStyle: {flex: 1, backgroundColor: colors.background},
       }}>
       {isAuthenticated ? (
-        <Stack.Screen name="Main" component={MainNavigator} />
+        <Stack.Screen name="Main" component={LazyMainNavigator} />
       ) : (
         <>
           <Stack.Screen name="Auth" component={AuthNavigator} />

@@ -1,0 +1,11 @@
+{
+  "gymly": {
+    "affiliate": {
+      "buy_at_brand": "Kjøp hos {{ brand }}",
+      "sold_and_fulfilled_by_brand": "Solgt og levert av {{ brand }}.",
+      "final_price_confirmed_at_brand": "Endelig pris bekreftes hos {{ brand }}.",
+      "product_unavailable": "Dette produktet er ikke tilgjengelig akkurat nå.",
+      "buy_at_brand_a11y": "Kjøp hos {{ brand }}. Åpner merkevarens nettsted i en ny fane."
+    }
+  }
+}

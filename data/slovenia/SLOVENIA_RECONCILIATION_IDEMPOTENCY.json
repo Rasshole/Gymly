@@ -1,0 +1,25 @@
+{
+  "first_run": {
+    "insertions": 1,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11921,
+    "total_after": 11922,
+    "slovenia_before": 32,
+    "slovenia_after": 33,
+    "si_prefix_before": 32,
+    "si_prefix_after": 33
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11922,
+    "total_after": 11922,
+    "slovenia_before": 33,
+    "slovenia_after": 33,
+    "si_prefix_before": 33,
+    "si_prefix_after": 33
+  },
+  "idempotent": true
+}

@@ -1,0 +1,11 @@
+{
+  "ready_count": 32,
+  "same_brand": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": []
+  },
+  "different_brand_le_100m": []
+}

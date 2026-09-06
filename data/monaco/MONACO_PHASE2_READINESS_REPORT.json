@@ -1,0 +1,109 @@
+{
+  "country": "Monaco",
+  "phase": 2,
+  "verdict": "READY FOR MONACO MERGE",
+  "phase3_required": false,
+  "small_market_model": "INDEPENDENT_PHASE_EXECUTED",
+  "production_total": 11711,
+  "production_sha256": "bde8ba6b5ac7467078e971732e0deeb42e3fb338f5280f390d8395714792f02f",
+  "monaco_live": 0,
+  "andorra_live": 12,
+  "liechtenstein_live": 7,
+  "iceland_live": 27,
+  "unique_staged": 39,
+  "status_counts": {
+    "READY_TO_IMPORT": 4,
+    "EXCLUDED": 35
+  },
+  "ready_count": 4,
+  "phase1_needs_review_recovered": 4,
+  "phase1_promoted": 4,
+  "phase1_excluded_from_review": 0,
+  "new_legitimate_gyms_discovered": 0,
+  "class_a_chains": 0,
+  "class_a_locations_ready": 0,
+  "ready_by_eligibility": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 4
+  },
+  "municipal_identity": {
+    "hercule_id": "mc_cb57fc40d1",
+    "stade_louis_ii_id": "mc_2771a49489",
+    "classification": "A_DISTINCT_PUBLIC_GYMS",
+    "evidence": [
+      "Hercule: Quai Albert 1er / Stade Nautique Rainier III / Port Hercule / La Condamine / Mairie",
+      "Stade Louis II: 3 Avenue des Castelans / Fontvieille / Direction du Stade Louis II",
+      "Separate operators, pricing, premises (~1 km apart)",
+      "Public sources warn not to confuse Port Hercule with Fontvieille stadium"
+    ]
+  },
+  "district_coverage": {
+    "Monte-Carlo": "READY_present",
+    "La Condamine": "READY_present",
+    "Fontvieille": "READY_present",
+    "Larvotto": "READY_present",
+    "Monaco-Ville": "A_legitimate_no_gym_presence",
+    "Moneghetti": "A_legitimate_no_gym_presence",
+    "Jardin Exotique": "A_legitimate_no_gym_presence",
+    "La Rousse": "A_legitimate_no_gym_presence"
+  },
+  "unexplained_district_bd_gaps": 0,
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_fields": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "french_contamination": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "hard_duplicate_problems": 0,
+    "missing_eligibility_path": 0,
+    "hotel_spa_private_leakage": 0
+  },
+  "projected_catalog_if_merged": 11715,
+  "crossed_12500": false,
+  "global_stress_qa_required": false,
+  "check_in_radius_meters": 200,
+  "auto_checkout_meters": 200,
+  "architecture": "KEEP CLIENT-SIDE",
+  "live_inventory": [
+    {
+      "id": "mc_2771a49489",
+      "brand": "Stade Louis II",
+      "name": "Salle de Musculation Stade Louis II",
+      "city": "Fontvieille",
+      "district": "Fontvieille",
+      "postal_code": "98000",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_cb57fc40d1",
+      "brand": "Hercule Fitness Club",
+      "name": "Hercule Fitness Club Port Hercule",
+      "city": "La Condamine",
+      "district": "La Condamine",
+      "postal_code": "98000",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_4d51f17fbd",
+      "brand": "Fit Factory",
+      "name": "Fit Factory Larvotto",
+      "city": "Larvotto",
+      "district": "Larvotto",
+      "postal_code": "98000",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "mc_acfff20d6b",
+      "brand": "Eclub",
+      "name": "Eclub Monte-Carlo Gym",
+      "city": "Monte-Carlo",
+      "district": "Monte-Carlo",
+      "postal_code": "98000",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ]
+}

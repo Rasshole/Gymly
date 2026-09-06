@@ -1,0 +1,95 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside Bosnia and Herzegovina",
+  "qualifying_class_a_chains": 2,
+  "class_a_locations": 7,
+  "CLASS_A": true,
+  "operators": {
+    "ALL IN FITNESS": {
+      "discovered_units": 3,
+      "conventional_public_floors_verified": 3,
+      "ready_sites": 3,
+      "verdict": "CLASS_A",
+      "class_a": true,
+      "cities": [
+        "Sarajevo"
+      ],
+      "notes": "Malta Paromlinska + Ilidža + Bingo; directory aliases resolved Phase 2."
+    },
+    "Kron Fitness": {
+      "discovered_units": 4,
+      "conventional_public_floors_verified": 4,
+      "ready_sites": 4,
+      "verdict": "CLASS_A",
+      "class_a": true,
+      "cities": [
+        "Tuzla",
+        "Živinice",
+        "Srebrenik",
+        "Gračanica"
+      ],
+      "notes": "4-site Tuzla-canton regional operator; conventional public floors."
+    },
+    "Basic-Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "PureGym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "McFIT": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "JOHN REED": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Anytime Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Gold's Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "World Class": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitness Park": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FitActive": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Stay Fit Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "18GYM": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Ahilej": {
+      "verdict": "ABSENT",
+      "class_a": false,
+      "notes": "Serbia-only"
+    },
+    "XBody": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Clever Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitinn": {
+      "verdict": "ABSENT",
+      "class_a": false
+    }
+  },
+  "international_recheck": "ABSENT — Anytime/Basic-Fit/McFIT/PureGym/World Class/Ahilej/JOHN REED/Gold's Gym"
+}

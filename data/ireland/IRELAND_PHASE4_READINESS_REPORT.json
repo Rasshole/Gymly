@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-08-23T08:15:48.449762+00:00",
+  "production_total": 10878,
+  "production_ireland": 0,
+  "production_sha256_expected": "93283ab74cfb19bb197f6f09b7f833f3dfb56f1ff98a35c5aefa4c15ddb45b92",
+  "phase3_ready": 63,
+  "phase3_ready_preserved": 63,
+  "phase3_ready_demoted": [],
+  "recovered_to_ready_ids": [
+    "ie_36b8a305fe",
+    "ie_edd9fa4599"
+  ],
+  "net_new_ready_vs_phase3": 2,
+  "unique_staged": 82,
+  "ready_count": 65,
+  "status_counts": {
+    "READY_TO_IMPORT": 65,
+    "NEEDS_REVIEW": 13,
+    "EXCLUDED": 4
+  },
+  "ready_by_brand": {
+    "Anytime Fitness": 5,
+    "Aura Leisure": 4,
+    "Ben Dunne Gyms": 4,
+    "Energie Fitness": 16,
+    "FLYEfit": 17,
+    "Gym Plus": 7,
+    "Iconic Health Clubs": 4,
+    "Shoreline Leisure": 2,
+    "West Wood Club": 6
+  },
+  "chains": {
+    "FLYEfit": {
+      "official_current": 22,
+      "discovered": 22,
+      "ready": 17,
+      "unresolved": 5,
+      "excluded": 0,
+      "coverage_pct": 77.3,
+      "verdict": "NEAR-COMPLETE"
+    },
+    "Ben Dunne Gyms": {
+      "official_current": 5,
+      "discovered": 5,
+      "ready": 4,
+      "unresolved": 1,
+      "excluded": 0,
+      "coverage_pct": 80.0,
+      "verdict": "NEAR-COMPLETE"
+    },
+    "Anytime Fitness": {
+      "official_current": 6,
+      "discovered": 6,
+      "ready": 5,
+      "unresolved": 1,
+      "excluded": 0,
+      "coverage_pct": 83.3,
+      "verdict": "NEAR-COMPLETE"
+    },
+    "Energie Fitness": {
+      "official_current": 16,
+      "discovered": 16,
+      "ready": 16,
+      "unresolved": 0,
+      "excluded": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "West Wood Club": {
+      "official_current": 6,
+      "discovered": 6,
+      "ready": 6,
+      "unresolved": 0,
+      "excluded": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "Aura Leisure": {
+      "official_current": 11,
+      "discovered": 11,
+      "ready": 4,
+      "unresolved": 6,
+      "excluded": 1,
+      "coverage_pct": 36.4,
+      "verdict": "PARTIAL"
+    },
+    "Gym Plus": {
+      "official_current": 7,
+      "discovered": 7,
+      "ready": 7,
+      "unresolved": 0,
+      "excluded": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "Iconic Health Clubs": {
+      "official_current": 4,
+      "discovered": 4,
+      "ready": 4,
+      "unresolved": 0,
+      "excluded": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    "Shoreline Leisure": {
+      "official_current": 2,
+      "discovered": 2,
+      "ready": 2,
+      "unresolved": 0,
+      "excluded": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    }
+  },
+  "aura_gym_capable_ready": 4,
+  "aura_gym_capable_total": 10,
+  "data_quality": {
+    "duplicate_ids": 0,
+    "same_brand_le_25m": 0,
+    "same_brand_le_50m": 0,
+    "same_brand_le_100m": 0,
+    "same_brand_le_200m": 0,
+    "identical_coords": 0,
+    "invalid_eircodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_coords": 0,
+    "fallback_coords": 0,
+    "ni_contamination": 0,
+    "mojibake": 0
+  },
+  "duplicate_analysis_summary": {
+    "<=25m": 0,
+    "<=50m": 0,
+    "<=100m": 0,
+    "<=200m": 0,
+    "identical": 0,
+    "energie_tallaght_citywest": {
+      "distance_m": 3643.3,
+      "classification": "A_legitimate",
+      "tallaght": "ie_6930f99872",
+      "citywest": "ie_2574437176",
+      "tallaght_category": "READY_TO_IMPORT",
+      "citywest_category": "READY_TO_IMPORT"
+    }
+  },
+  "material_gaps": [],
+  "non_blocking_gaps": [
+    "FLYEfit residual Eircode debt (5) — official coords present; club pages omit Eircodes",
+    "Ben Dunne Cherrywood Building 10 — no public unit Eircode",
+    "Anytime Kilnamanagh — official page has Dublin 24 district only",
+    "De Paul / Perpetua / SportsCo / Swan EXCLUDED with concrete reasons",
+    "Aura Leisure gym-capable READY 4/10 — remaining centres omit Eircodes in all reachable public sources"
+  ],
+  "projected_catalog": 10943,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "verdict": "READY FOR IRELAND MERGE",
+  "phase5_required": false,
+  "anytime_roi_estate_note": "6 en-ie club pages staged/reconciled; no additional current ROI club confirmed this pass"
+}

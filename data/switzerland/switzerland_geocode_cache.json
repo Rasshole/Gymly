@@ -1,0 +1,1652 @@
+{
+  "Bahnhofplatz 3h, 5000, Aarau, Switzerland": {
+    "lat": 47.3919927,
+    "lng": 8.0533673,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Migros, 3h, Bahnhofplatz, Gönhard, Aarau, Bezirk Aarau, Aargau, 5000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rohrerstrasse 78, 5000, Aarau, Switzerland": {
+    "lat": 47.394919,
+    "lng": 8.0617116,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "78, Rohrerstrasse, Torfeld Nord, Rohr, Aarau, Bezirk Aarau, Aargau, 5000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue du Grand-Bureau 17, 1227, Carouge, Switzerland": {
+    "lat": 46.1887713,
+    "lng": 6.1372632,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rue du Grand-Bureau, Les Acacias, La Praille, Carouge, Genève, 1227, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Zürichstrasse 52, 8134, Adliswil, Switzerland": {
+    "lat": 47.3222138,
+    "lng": 8.5292925,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "52, Zürichstrasse, Grüt-Park, Adliswil, Bezirk Horgen, Zürich, 8134, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Obstgartenstrasse 1, 8910, Affoltern am Albis, Switzerland": {
+    "lat": 47.2741163,
+    "lng": 8.4427427,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Obstgartenstrasse, Zwillikon, Affoltern am Albis, Bezirk Affoltern, Zürich, 8910, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Allée Ferdi Kübler 2, 1860, Aigle, Switzerland": {
+    "lat": 46.3186462,
+    "lng": 6.9372836,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Allée Ferdi Kübler, Aigle, District d'Aigle, Vaud, 1860, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Neuland 12, 6460, Altdorf, Switzerland": {
+    "lat": 46.8645212,
+    "lng": 8.63582,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "12, Neuland, Reuss, Altdorf (UR), Uri, 6460, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kirchstrasse 9, 8580, Amriswil, Switzerland": {
+    "lat": 47.5470078,
+    "lng": 9.2982991,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9, Kirchstrasse, Im Oberfeld, Egg, Hagenwil b. Amriswil, Amriswil, Bezirk Arbon, Thurgau, 8580, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Stickereistrasse 4, 9320, Arbon, Switzerland": {
+    "lat": 47.5108247,
+    "lng": 9.4320976,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hamel, 4, Stickereistrasse, Hiltere, Arbon, Bezirk Arbon, Thurgau, 9320, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Langgasse 40, 6340, Baar, Switzerland": {
+    "lat": 47.196177,
+    "lng": 8.5367378,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "40, Langgasse, Deinikon, Inwil, Baar, Zug, 6340, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bahnhofstrasse 31, 5400, Baden, Switzerland": {
+    "lat": 47.4773638,
+    "lng": 8.3082936,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Activ Fitness, 31, Bahnhofstrasse, Baden, Bezirk Baden, Aargau, 5400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue Louis-Casaï 27, 1211, Genève, Switzerland": {
+    "lat": 46.21804,
+    "lng": 6.1149938,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "McDonald's, 27, Avenue Louis-Casaï, Le Bouchet, Quartier de l'Etang, Châtelaine, Vernier, Genève, 1211, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Viale Stazione 18, 6500, Bellinzona, Switzerland": {
+    "lat": 46.1936256,
+    "lng": 9.0263772,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "18, Viale Stazione, Daro, Carasso, Bellinzona, Circolo di Bellinzona, Distretto di Bellinzona, Ticino, 6500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Thunstrasse 110, 3006, Bern, Switzerland": {
+    "lat": 46.9413577,
+    "lng": 7.4658141,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Migros, 110, Thunstrasse, Brunnadern, Stadtteil IV, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3006, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Parkterrasse 14, 3012, Bern, Switzerland": {
+    "lat": 46.9491459,
+    "lng": 7.4378205,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "ACTIV FITNESS, 14, Parkterrasse, Länggasse, Stadtteil II, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3012, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Stefano Franscini 3, 6710, Biasca, Switzerland": {
+    "lat": 46.351657,
+    "lng": 8.972639,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Lidl, 3, Via Stefano Franscini, Biasca, Circolo della Riviera, Distretto di Riviera, Ticino, 6710, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Eckweg 8, 2504, Biel, Switzerland": {
+    "lat": 47.149124,
+    "lng": 7.2664582,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8, Chemin du Coin / Eckweg, Champagne, Biel/Bienne, Verwaltungskreis Biel/Bienne, Verwaltungsregion Seeland, Bern/Berne, 2504, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bahnhofstrasse 14, 2501, Biel, Switzerland": {
+    "lat": 47.1343906,
+    "lng": 7.2444579,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "14, Rue de la Gare / Bahnhofstrasse, Neustadt / Nouvelle ville, Biel/Bienne, Verwaltungskreis Biel/Bienne, Verwaltungsregion Seeland, Bern/Berne, 2501, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route de Coffrane 2, 2043, Boudevilliers, Switzerland": {
+    "lat": 47.0191293,
+    "lng": 6.8839696,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Route de Coffrane, Boudevilliers, Val-de-Ruz, Région Val-de-Ruz, Neuchâtel, 2043, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Belalpstrasse 3, 3900, Brig, Switzerland": {
+    "lat": 46.324618,
+    "lng": 7.9862064,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1;3, Belalpstrasse, Unner Moos, Naters, Brig, Oberwallis, Valais/Wallis, 3904, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Heldaustrasse 68, 9470, Buchs SG, Switzerland": {
+    "lat": 47.1641261,
+    "lng": 9.4785675,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "68, Heldaustrasse, Birkenau, Buchs (SG), Wahlkreis Werdenberg, St. Gallen, 9470, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Schaffhauserstr. 55, 8180, Bülach, Switzerland": {
+    "lat": 47.5209127,
+    "lng": 8.5419573,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "55, Schaffhauserstrasse, Bülach, Bezirk Bülach, Zürich, 8180, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de l‘ Europe 20, 1630, Bulle, Switzerland": {
+    "lat": 46.6256241,
+    "lng": 7.0559311,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "20, Rue de l'Europe, la Léchère, La Tour-de-Trême, Bulle, District de la Gruyère, Fribourg/Freiburg, 1630, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Sägegasse 20, 3400, Burgdorf, Switzerland": {
+    "lat": 47.0562523,
+    "lng": 7.6300558,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "20, Sägegasse, Oberstadt, Im Choser, Burgdorf, Verwaltungskreis Emmental, Verwaltungsregion Emmental-Oberaargau, Bern/Berne, 3400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Wiesentalstrasse 7, 7000, Chur, Switzerland": {
+    "lat": 46.8568575,
+    "lng": 9.530392,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Wiesentalstrasse, Wiesental, Altstadt, Chur, Plessur, Graubünden/Grischun/Grigioni, 7000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Place de la Gare 1b, 2035, Corcelles, Switzerland": null,
+  "Place de la Poste 8, 2800, Delsberg, Switzerland": {
+    "lat": 47.3620825,
+    "lng": 7.348411,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Place de la Poste, Delémont, District de Delémont, Jura, 2800, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kronenstrasse 10, 8157, Dielsdorf, Switzerland": {
+    "lat": 47.4833146,
+    "lng": 8.4555616,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Kronenstrasse, Rain, Dielsdorf, Bezirk Dielsdorf, Zürich, 8157, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Löwenstr. 17, 8953, Dietikon, Switzerland": {
+    "lat": 47.4054613,
+    "lng": 8.4027461,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Activ Fitness Dietikon, 17, Löwenstrasse, Vorstadt, Dietikon, Bezirk Dietikon, Zürich, 8953, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Wallisellenstr. 7a, 8600, Dübendorf, Switzerland": {
+    "lat": 47.3980018,
+    "lng": 8.6183619,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7a, Wallisellenstrasse, Unterdorf, Hermikon, Dübendorf, Bezirk Uster, Zürich, 8600, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Ebisquare-Strasse 2, 6030, Ebikon, Switzerland": {
+    "lat": 47.0923884,
+    "lng": 8.3574431,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mall of Switzerland Freizeitgebäude, 2, Ebisquare-Strasse, Ebikon, Luzern, 6030, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Oberhofstrasse 30, 6020, Emmenbrücke, Switzerland": {
+    "lat": 47.0758585,
+    "lng": 8.286696,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Activ Fitness, 30, Oberhofstrasse, Herdschwand, Emmenbrücke, Emmen-Dorf, Emmen, Luzern, 6020, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Schlossmühlestrasse 9, 8500, Frauenfeld, Switzerland": {
+    "lat": 47.5542482,
+    "lng": 8.8978368,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9, Schlossmühlestrasse, Vorstadt, Gerlikon, Frauenfeld, Neunforn, Bezirk Frauenfeld, Thurgau, 8500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue Louis-d`Affry 6, 1700, Fribourg, Switzerland": {
+    "lat": 46.8035829,
+    "lng": 7.1500151,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rue Louis-d'Affry, Beauregard, Les Charmettes, Pérolles, Fribourg - Freiburg, District de la Sarine, Fribourg/Freiburg, 1701, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue Thalberg 4, 1201, Genève, Switzerland": {
+    "lat": 46.209622,
+    "lng": 6.1472186,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Adagio Genève Mont-Blanc, 4, Rue Sigismond-Thalberg, Pâquis, Genève, 1201, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de Lyon 120, 1203, Genève, Switzerland": {
+    "lat": 46.2096396,
+    "lng": 6.1208892,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Quartet Q2, 120, Rue de Lyon, Les Charmilles, Les Ouches, Saint-Jean et Charmilles, Genève, 1203, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue de la Gare-des-Eaux-Vives 7, 1207, Genève, Switzerland": {
+    "lat": 46.2007674,
+    "lng": 6.1658618,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Avenue de la Gare-des-Eaux-Vives, Villereuse, Eaux-Vives, Genève, 1207, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route de Frontenex 39B, 1207, Genève, Switzerland": {
+    "lat": 46.2015343,
+    "lng": 6.1615595,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Route de Frontenex, Villereuse, Eaux-Vives, Genève, 1207, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue du Rhône 42, 1204, Genève, Switzerland": {
+    "lat": 46.2041891,
+    "lng": 6.1470323,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "rooftop°42, 42, Rue du Rhône, Vieille-Ville, Les Tranchées, Cité, Genève, 1204, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de Vermont 8, 1202, Genève, Switzerland": {
+    "lat": 46.215533,
+    "lng": 6.1347931,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8, Rue de Vermont, Grottes et Saint-Gervais, Genève, 1202, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Campagna 1, 6512, Giubiasco, Switzerland": {
+    "lat": 46.167706,
+    "lng": 9.0018469,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Via Campagna, Camorino, Bellinzona, Circolo di Bellinzona, Distretto di Bellinzona, Ticino, 6512, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hirschenstrasse 41, 9200, Gossau SG, Switzerland": {
+    "lat": 47.4158786,
+    "lng": 9.2551283,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hirschenstrasse, Muelt, Gossau (SG), Wahlkreis St. Gallen, St. Gallen, 9200, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bernstrasse 223, 3627, Heimberg, Switzerland": {
+    "lat": 46.7982996,
+    "lng": 7.6038638,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Bernstrasse, Untere Au, Heimberg, Horrenbach-Buchen, Verwaltungskreis Thun, Verwaltungsregion Oberland, Bern/Berne, 3627, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Gartenstrasse 2, 9100, Herisau, Switzerland": {
+    "lat": 47.3862897,
+    "lng": 9.2839541,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Denner, 2, Gartenstrasse, Herisau, Hinterland, Appenzell Ausserrhoden, 9100, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Industriestrasse 2b, 6280, Hochdorf, Switzerland": {
+    "lat": 47.1653109,
+    "lng": 8.2839713,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2b, Industriestrasse, Weidpark, Hochdorf, Luzern, 6280, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Seestr. 129, 8810, Horgen, Switzerland": {
+    "lat": 47.2610992,
+    "lng": 8.5962269,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "129, Seestrasse, Horgen, Bezirk Horgen, Zürich, 8810, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Feldlistrasse 9, 8645, Jona, Switzerland": {
+    "lat": 47.2284712,
+    "lng": 8.8488916,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Jona Center 2, 9, Feldlistrasse, Jona, Rapperswil-Jona, Wahlkreis See-Gaster, St. Gallen, 8645, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Marktgasse 5, 8302, Kloten, Switzerland": {
+    "lat": 47.4507766,
+    "lng": 8.5832244,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5, Marktgasse, Kloten, Bezirk Bülach, Zürich, 8302, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Sägestrasse 77, 3098, Köniz, Switzerland": {
+    "lat": 46.9240144,
+    "lng": 7.4140105,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "PTT-Archiv, 77, Sägestrasse, Blinzern, Köniz, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3098, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hauptstrasse 63, 8280, Kreuzlingen, Switzerland": {
+    "lat": 47.648143,
+    "lng": 9.1756879,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "ceha, 63, Hauptstrasse, Egelshofen, Bernrainzelg, Kreuzlingen, Bezirk Kreuzlingen, Thurgau, 8280, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Horwerstrasse 24a, 6010, Kriens, Switzerland": {
+    "lat": 47.030156,
+    "lng": 8.2873655,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "24a, Horwerstrasse, Roggern, Gabeldingen, Kriens, Luzern, 6010, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Fännring 2, 6403, Küssnacht, Switzerland": {
+    "lat": 47.1092467,
+    "lng": 8.4499867,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Fännring, Fänn Süd, Immensee, Küssnacht (SZ), Küssnacht, Schwyz, 6403, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue Léopold-Robert 56, 2300, La Chaux-de-Fonds, Switzerland": {
+    "lat": 47.1006861,
+    "lng": 6.8257652,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "56, Avenue Léopold-Robert, Quartier Corbusier, La Chaux-de-Fonds, Région Montagnes, Neuchâtel, 2300, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hintere Bahnhofstr.15, 8853, Lachen, Switzerland": {
+    "lat": 47.1907789,
+    "lng": 8.8510295,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "15, Hintere Bahnhofstrasse, Oberdorf, Lachen, March, Schwyz, 8853, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route du Grand-Lancy, 1212, Grand-Lancy, Switzerland": {
+    "lat": 46.1833847,
+    "lng": 6.1207314,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Route du Grand-Lancy, Grand-Lancy, Lancy, Genève, 1212, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Place Chauderon 16, 1003, Lausanne, Switzerland": {
+    "lat": 46.5239404,
+    "lng": 6.6253316,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Au Canard Pékinois, 16, Place Chauderon, Lausanne, District de Lausanne, Vaud, 1003, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue du Théâtre 1, 1005, Lausanne, Switzerland": {
+    "lat": 46.51848,
+    "lng": 6.6373358,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Avenue du Théâtre, Lausanne, District de Lausanne, Vaud, 1005, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via dei Pioppi 2A, 6616, Losone, Switzerland": {
+    "lat": 46.1665187,
+    "lng": 8.7733228,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2a, Via dei Pioppi, Losone, Circolo dell'Isole, Distretto di Locarno, Ticino, 6616, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Pretorio 15, 6900, Lugano, Switzerland": {
+    "lat": 46.00717,
+    "lng": 8.9518455,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "15, Via Pretorio, Quartiere Maghetti, Castagnola, Breganzona, Lugano, Circolo di Lugano ovest, Distretto di Lugano, Ticino, 6900, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bundesplatz 2a, 6003, Luzern, Switzerland": {
+    "lat": 47.0455652,
+    "lng": 8.309757,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Activ Fitness, 2a, Bundesplatz, Rösslimatt, Neustadt, Luzern, 6003, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Mettlenmatte 10, 6102, Malters, Switzerland": {
+    "lat": 47.0387847,
+    "lng": 8.1764968,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Activ Fitness, 10, Mettlenmatte, Schlegelhaus, Malters, Luzern, 6102, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue des Avouillons 1, 1920, Martigny, Switzerland": {
+    "lat": 46.105871,
+    "lng": 7.0865966,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Rue des Avouillons, Le Guercet, Martigny, Bas-Valais, Valais/Wallis, 1920, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Alte Bergstrasse 2, 8706, Meilen, Switzerland": {
+    "lat": 47.2669239,
+    "lng": 8.6502138,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Alte Bergstrasse, Fuchsloch, Obermeilen, Meilen, Bezirk Meilen, Zürich, 8706, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Luigi Lavizzari 2, 6850, Mendrisio, Switzerland": {
+    "lat": 45.8702131,
+    "lng": 8.9866621,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Via Luigi Lavizzari, Somazzo, Salorino, Mendrisio, Circolo di Mendrisio, Distretto di Mendrisio, Ticino, 6850, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de Venise 3, 1870, Monthey, Switzerland": {
+    "lat": 46.2513441,
+    "lng": 6.9490705,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3B, Rue de Venise, Choëx, Monthey, Bas-Valais, Valais/Wallis, 1870, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Grand Rue 3, 1820, Montreux, Switzerland": {
+    "lat": 46.4315743,
+    "lng": 6.9103014,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "ACTIV FITNESS Montreux, 3, Grand-Rue, Pallens, Chernex, Montreux, District de la Riviera-Pays-d'Enhaut, Vaud, 1820, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue Docteur Yersin 10, 1110, Morges, Switzerland": {
+    "lat": 46.5127753,
+    "lng": 6.4982159,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Rue Docteur Yersin, Morges, District de Morges, Vaud, 1110, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de l’Ecluse 30, 2000, Neuchâtel, Switzerland": {
+    "lat": 46.9928596,
+    "lng": 6.9256611,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "30, Rue de l'Ecluse, Neuchâtel, Région Littoral, Neuchâtel, 2000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route des Falaises 30, 2000, Neuchâtel, Switzerland": {
+    "lat": 46.9969904,
+    "lng": 6.9483882,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Route des Falaises, Neuchâtel, Région Littoral, Neuchâtel, 2001, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Gotenstrasse 84, 4125, Riehen, Switzerland": {
+    "lat": 47.5698251,
+    "lng": 7.6330456,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Migros Partner, 84, Gotenstrasse, Bäumlihof, Riehen, Basel-Stadt, 4125, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de la Morâche 13, 1260, Nyon, Switzerland": {
+    "lat": 46.3838972,
+    "lng": 6.2331757,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "ACTIV FITNESS Nyon Morâche, 13, Rue de la Morâche, Nyon, District de Nyon, Vaud, 1260, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Industriestrasse 78, 4600, Olten, Switzerland": {
+    "lat": 47.3609205,
+    "lng": 7.9126265,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "78, Industriestrasse, Olten, Bezirk Olten, Amtei Olten-Gösgen, Solothurn, 4600, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route de Chancy 48, 1213, Petit-Lancy, Switzerland": {
+    "lat": 46.1888054,
+    "lng": 6.1144692,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "48, Route de Chancy, Petit-Lancy, Lancy, Genève, 1213, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Centro Triangolo, 6595, Riazzino, Switzerland": null,
+  "Wahligenstrasse 4, 6023, Rothenburg, Switzerland": {
+    "lat": 47.0909212,
+    "lng": 8.2461597,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Auto Emmen Süd AG, 4, Wahligenstrasse, Oberwahligen, Rothenburg, Luzern, 6023, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Suurstoffi 8/10 (ab Blegistrasse, 6343, Rotkreuz, Switzerland": null,
+  "Im Shoppyland, 3321, Urtenen-Schönbühl, Switzerland": null,
+  "Strehlgasse 15, 6430, Schwyz, Switzerland": {
+    "lat": 47.0204511,
+    "lng": 8.6556816,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "15, Strehlgasse, Halteli, Hofmatt, Rickenbach bei Schwyz, Schwyz, 6430, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "c/o Shopping Center Serfontana, 6834, Morbio Inferiore, Switzerland": null,
+  "Rue de l’Industrie 19, 3960, Sierre, Switzerland": {
+    "lat": 46.2864051,
+    "lng": 7.5306904,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Oiken, 19, Rue de l'Industrie, Liddes, Noës, Sierre, Valais central, Valais/Wallis, 3960, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Wengistrasse 17, 4500, Solothurn, Switzerland": {
+    "lat": 47.2070057,
+    "lng": 7.5329616,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Confiserie Hofer, 17, Wengistrasse, Obach, Werkhof, Solothurn, Bezirk Solothurn, Amtei Solothurn-Lebern, Solothurn, 4500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Dornacherstrasse 28, 4500, Solothurn, Switzerland": {
+    "lat": 47.2040726,
+    "lng": 7.5409166,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "28, Dornacherstrasse, Sandmatt, Werkhof, Solothurn, Bezirk Solothurn, Amtei Solothurn-Lebern, Solothurn, 4501, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Riedenmatt 2, 6370, Stans, Switzerland": {
+    "lat": 46.9643888,
+    "lng": 8.3821733,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Riedenmatt, Stans, Nidwalden, 6370, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Allmendstrasse 6, 6210, Sursee, Switzerland": {
+    "lat": 47.1804372,
+    "lng": 8.1092134,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Activ Fitness, 6, Allmendstrasse, Sursee, Luzern, 6210, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Panoramastrasse, 3600, Thun, Switzerland": {
+    "lat": 46.7547783,
+    "lng": 7.6317982,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Panoramastrasse, Thun, Horrenbach-Buchen, Verwaltungskreis Thun, Verwaltungsregion Oberland, Bern/Berne, 3601, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Panorama Center, 3604, Thun, Switzerland": null,
+  "Wiesenthalstrasse 4, 8730, Uznach, Switzerland": null,
+  "Schlossfeldstrasse 5a, 6130, Willisau, Switzerland": {
+    "lat": 47.1161169,
+    "lng": 7.9896455,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5a, Schlossfeldstrasse, Schlossfeld, Willisau, Luzern, 6130, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hohlstrasse 600, 8048, Zürich, Switzerland": {
+    "lat": 47.3914824,
+    "lng": 8.4874575,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "600, Hohlstrasse, Werdwies, Altstetten, Kreis 9, Zürich, Bezirk Zürich, Zürich, 8048, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Theaterstrasse 12b, 8001, Zürich, Switzerland": {
+    "lat": 47.3674929,
+    "lng": 8.5452249,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Theaterstrasse, Hochschulen, Altstadt, Zürich, Bezirk Zürich, Zürich, 8024, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Badenerstrasse 120, 8004, Zürich, Switzerland": {
+    "lat": 47.374422,
+    "lng": 8.5239732,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Yuma, 120, Badenerstrasse, Langstrasse, Kreis 4, Zürich, Bezirk Zürich, Zürich, 8004, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Birmensdorferstrasse 320, 8055, Zürich, Switzerland": {
+    "lat": 47.3698629,
+    "lng": 8.5081664,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Müller, 320, Birmensdorferstrasse, Sihlfeld, Kreis 3, Zürich, Bezirk Zürich, Zürich, 8055, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hardstrasse 57, 4133, Pratteln, Switzerland": {
+    "lat": 47.5245612,
+    "lng": 7.6814552,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "57, Hardstrasse, Pratteln, Bezirk Liestal, Basel-Landschaft, 4133, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Christoffelgasse 6, 3011, Bern, Switzerland": {
+    "lat": 46.9467312,
+    "lng": 7.4414188,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Delegation der Europäischen Union, 6, Christoffelgasse, Rotes Quartier, Stadtteil I, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3011, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Thurgauerstrasse 106, 8152, Glattbrugg, Switzerland": {
+    "lat": 47.4210496,
+    "lng": 8.5579614,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitnesspark Glattpark, 106, Thurgauerstrasse, Glattpark, Glattbrugg, Opfikon, Bezirk Bülach, Zürich, 8152, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Staatsstrasse 34, 3653, Oberhofen am Thunersee, Switzerland": {
+    "lat": 46.7281182,
+    "lng": 7.6722362,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Hallen- und Freibad Oberhofen, 34, Staatsstrasse, Schloss, Längenschachen, Oberhofen am Thunersee, Horrenbach-Buchen, Verwaltungskreis Thun, Verwaltungsregion Oberland, Bern/Berne, 3653, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Zihlmattweg 46, 6005, Luzern, Switzerland": {
+    "lat": 47.0313468,
+    "lng": 8.3046528,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Migros, 46, Zihlmattweg, Luzern, 6005, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Haldenstrasse 23, 6006, Luzern, Switzerland": {
+    "lat": 47.0554395,
+    "lng": 8.3153476,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitness Park National, 23, Haldenstrasse, Dreilinden, Altstadt, Luzern, 6006, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Im Grossriet 1, 8606, Greifensee, Switzerland": {
+    "lat": 47.3766174,
+    "lng": 8.6722333,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Milandia, 1, Im Grossriet, Greifensee, Bezirk Uster, Zürich, 8606, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Im Zentrum 3, 8105, Regensdorf, Switzerland": null,
+  "Bernstrasse 114, 3072, Ostermundigen, Switzerland": {
+    "lat": 46.9568291,
+    "lng": 7.4960411,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Migros Center Ostermundigen, 114, Bernstrasse, Rüti, Ostermundigen, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3072, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Brown Boveri Platz 1, 5400, Baden, Switzerland": {
+    "lat": 47.478363,
+    "lng": 8.3052611,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Trafo, 1, Brown Boveri Platz, Allmend, Baden, Bezirk Baden, Aargau, 5400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Brunngasse 4, 8400, Winterthur, Switzerland": {
+    "lat": 47.5049138,
+    "lng": 8.7255472,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitnesspark, 4, Brunngasse, Äusseres Lind, Neuwiesen, Stadt, Winterthur, Bezirk Winterthur, Zürich, 8400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Giessereistrasse 18, 8005, Zürich, Switzerland": {
+    "lat": 47.390581,
+    "lng": 8.5174657,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Marmar, 18, Giessereistrasse, Escher Wyss, Industriequartier, Zürich, Bezirk Zürich, Zürich, 8005, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kalanderplatz 1, 8045, Zürich, Switzerland": {
+    "lat": 47.3575136,
+    "lng": 8.5231137,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Sihlcity, 1, Kalanderplatz, Sihlcity, Alt-Wiedikon, Kreis 3, Zürich, Bezirk Zürich, Zürich, 8045, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hufgasse 10, 8008, Zürich, Switzerland": {
+    "lat": 47.3650656,
+    "lng": 8.5489975,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Hufgasse, Mühlebach, Kreis 8, Zürich, Bezirk Zürich, Zürich, 8008, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Dreikönigstrasse 31A, 8002, Zürich, Switzerland": {
+    "lat": 47.3664344,
+    "lng": 8.5350676,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "31a, Dreikönigstrasse, Enge, Kreis 2, Zürich, Bezirk Zürich, Zürich, 8002, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Baarerstrasse 53, 6300, Zug, Switzerland": {
+    "lat": 47.1748579,
+    "lng": 8.5168962,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Subway, 53, Baarerstrasse, Neustadt, Zug, 6300, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Steinentorberg 8, 4051, Basel, Switzerland": {
+    "lat": 47.5504547,
+    "lng": 7.5872529,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8, Steinentorberg, Am Ring, Grossbasel, Basel, Basel-Stadt, 4051, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue du Grand-Pré 58, 1201, Genève, Switzerland": {
+    "lat": 46.2153986,
+    "lng": 6.1330054,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "58, Rue du Grand-Pré, La Servette, Petit-Saconnex et Servette, Genève, 1211, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue des Deux-Ponts 14, 1203, Genève, Switzerland": {
+    "lat": 46.2016497,
+    "lng": 6.1302499,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "14, Rue des Deux-Ponts, Jonction, La Queue-d'Arve, Genève, 1205, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route de Chancy 59, 1212, Petit-Lancy, Switzerland": {
+    "lat": 46.1877509,
+    "lng": 6.1129671,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "59, Route de Chancy, Petit-Lancy, Lancy, Genève, 1213, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue d'Ouchy 3, 1006, Lausanne, Switzerland": {
+    "lat": 46.5164762,
+    "lng": 6.6336209,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Avenue d'Ouchy, Lausanne, District de Lausanne, Vaud, 1006, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Chemin des Papillons 4, 1216, Cointrin, Switzerland": {
+    "lat": 46.2232639,
+    "lng": 6.0973801,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "NonStop Gym, 4, Chemin des Papillons, Cointrin, Meyrin, Genève, 1216, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue Cardinal-Mermillod 36, 1227, Carouge, Switzerland": {
+    "lat": 46.1855632,
+    "lng": 6.143435,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Alain Afflelou, 36, Avenue Cardinal-Mermillod, La Praille, Carouge, Genève, 1227, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Elias-Canetti-Strasse 2, 8050, Zürich, Switzerland": {
+    "lat": 47.4122786,
+    "lng": 8.541679,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Dino Center, 2, Elias-Canetti-Strasse, Oerlikon, Kreis 11, Zürich, Bezirk Zürich, Zürich, 8050, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de Jargonnant 2, 1207, Genève, Switzerland": {
+    "lat": 46.2010637,
+    "lng": 6.1598019,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Rue de Jargonnant, Villereuse, Eaux-Vives, Genève, 1207, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Boulevard de Pérolles 7, 1700, Fribourg, Switzerland": {
+    "lat": 46.8012026,
+    "lng": 7.1517479,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Boulevard de Pérolles, Beauregard, Les Charmettes, Pérolles, Fribourg - Freiburg, District de la Sarine, Fribourg/Freiburg, 1700, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Viaduktstrasse 20, 8005, Zürich, Switzerland": {
+    "lat": 47.3874752,
+    "lng": 8.5247262,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Stiftung St. Jakob, 20, Viaduktstrasse, Gewerbeschule, Industriequartier, Zürich, Bezirk Zürich, Zürich, 8005, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue du Chablais 3B, 1007, Lausanne, Switzerland": {
+    "lat": 46.5266255,
+    "lng": 6.6038169,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3b, Avenue du Chablais, Maison Olympique, Lausanne, District de Lausanne, Vaud, 1008, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bahnhofplatz 2, 2502, Biel/Bienne, Switzerland": {
+    "lat": 47.1338818,
+    "lng": 7.2423095,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Atomic Café, 2, Place de la Gare / Bahnhofplatz, Neustadt / Nouvelle ville, Biel/Bienne, Verwaltungskreis Biel/Bienne, Verwaltungsregion Seeland, Bern/Berne, 2502, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue Le Corbusier 22, 1208, Genève, Switzerland": {
+    "lat": 46.1934917,
+    "lng": 6.165859,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "22, Rue Le-Corbusier, Florissant, Champel, Genève, 1208, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Allée de la Petite Prairie 10, 1260, Nyon, Switzerland": {
+    "lat": 46.3908535,
+    "lng": 6.2224876,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Allée de la Petite Prairie, Nyon, District de Nyon, Vaud, 1260, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kanzleistrasse 18, 8004, Zürich, Switzerland": {
+    "lat": 47.3740332,
+    "lng": 8.527588,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "18, Kanzleistrasse, Langstrasse, Kreis 4, Zürich, Bezirk Zürich, Zürich, 8004, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de Lausanne 80, 1202, Genève, Switzerland": {
+    "lat": 46.2167065,
+    "lng": 6.1480928,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "NonStop Gym Pâquis, 80, Rue de Lausanne, Sécheron, Pâquis, Genève, 1202, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Chemin de la Gravière 3, 1225, Chêne-Bourg, Switzerland": {
+    "lat": 46.196222,
+    "lng": 6.1994487,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Chemin de la Gravière, Vieux-Chêne, Chêne-Bourg, Genève, 1226, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Chemin de la Croix Blanche, 1066, Epalinges, Switzerland": null,
+  "Passage de Montbrillant, 1201, Genève, Switzerland": {
+    "lat": 46.2098179,
+    "lng": 6.1413895,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Passage de Montbrillant, Les Grottes, Grottes et Saint-Gervais, Genève, 1201, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de la Borde 3b, 1018, Lausanne, Switzerland": {
+    "lat": 46.5271839,
+    "lng": 6.6330349,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Migros, 3B, Rue de la Borde, Lausanne, District de Lausanne, Vaud, 1018, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Zürcherstrasse 1, 8400, Winterthur, Switzerland": {
+    "lat": 47.4981166,
+    "lng": 8.7212023,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Kesselhaus, 1, Zürcherstrasse, Heiligberg, Neuwiesen, Stadt, Winterthur, Bezirk Winterthur, Zürich, 8400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route du Bois, 1024, Ecublens, Switzerland": {
+    "lat": 46.5312138,
+    "lng": 6.5658455,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Route du Bois, Ecublens, District de l'Ouest lausannois, Vaud, 1024, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kornhausstrasse 25, 9000, St. Gallen, Switzerland": {
+    "lat": 47.4220329,
+    "lng": 9.3722484,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "25, Kornhausstrasse, Rosenberg, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de Genève 8, 1003, Lausanne, Switzerland": {
+    "lat": 46.5218792,
+    "lng": 6.6287833,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Non Stop Gym, 8, Rue de Genève, Lausanne, District de Lausanne, Vaud, 1003, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Westfeld 2, 4055, Basel, Switzerland": {
+    "lat": 47.5652132,
+    "lng": 7.5666882,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Im Westfeld, Iselin, Grossbasel, Basel, Basel-Stadt, 4055, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue des Ormonts 18, 1860, Aigle, Switzerland": {
+    "lat": 46.3174281,
+    "lng": 6.9736477,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "16, 18, Avenue des Ormonts, Le Cloître, Drapel, Aigle, District d'Aigle, Vaud, 1860, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Z. A. La Pièce 4b, 1180, Rolle, Switzerland": null,
+  "Via della Posta 23, 6934, Bioggio, Switzerland": {
+    "lat": 46.0164993,
+    "lng": 8.9124108,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "23, Via della Posta, Bosco Luganese, Bioggio, Circolo d'Agno, Distretto di Lugano, Ticino, 6934, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Penate 7, 6850, Mendrisio, Switzerland": {
+    "lat": 45.8771549,
+    "lng": 8.9801381,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Via Penate, Somazzo, Salorino, Mendrisio, Circolo di Mendrisio, Distretto di Mendrisio, Ticino, 6850, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rte du Grand-Saint-Bernard 21, 1921, Martigny-Combe, Switzerland": {
+    "lat": 46.0832204,
+    "lng": 7.0534721,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "21, Route du Grand-Saint-Bernard, Martigny-Croix, Le Brocard, Martigny-Combe, Martigny, Bas-Valais, Valais/Wallis, 1921, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rte des Rottes 8, 1964, Conthey, Switzerland": {
+    "lat": 46.221822,
+    "lng": 7.2980549,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "David Fitness, 8, Route des Rottes, Bassin, Châteauneuf, Conthey, Valais central, Valais/Wallis, 1964, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rte d Italie 156, 1958, Uvrier, Switzerland": {
+    "lat": 46.2526492,
+    "lng": 7.4151919,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "156, Route d'Italie, Uvrier, Sion, Valais central, Valais/Wallis, 1958, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Clarastrasse 12, 4058, Basel, Switzerland": {
+    "lat": 47.5622964,
+    "lng": 7.5961253,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "non stop gym, 12, Clarastrasse, Clara, Kleinbasel, Basel, Basel-Stadt, 4058, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Chemin de Mochettaz 2, 1030, Bussigny, Switzerland": {
+    "lat": 46.5477873,
+    "lng": 6.5502101,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Coté Gare, 2, Chemin de Mochettaz, Cudrex, Bussigny, District de l'Ouest lausannois, Vaud, 1030, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Ferruccio Pelli 2, 6900, Lugano, Switzerland": {
+    "lat": 46.0072887,
+    "lng": 8.951194,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Via Ferruccio Pelli, Quartiere Maghetti, Pregassona, Breganzona, Lugano, Circolo di Lugano ovest, Distretto di Lugano, Ticino, 6900, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue de L'étang 55, 1219, Vernier, Switzerland": {
+    "lat": 46.2164255,
+    "lng": 6.1043396,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Lidl, 55, Avenue de l'Etang, Quartier de l'Etang, Châtelaine, Vernier, Genève, 1219, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bahnhofstrasse 21, 6300, Zug, Switzerland": {
+    "lat": 47.1697455,
+    "lng": 8.5156924,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "21, Bahnhofstrasse, Neustadt, Zug, 6300, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Chaussée de Treycovagnes 3c, 1400, Yverdon-les-Bains, Switzerland": {
+    "lat": 46.7783704,
+    "lng": 6.6255646,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3c, Chaussée de Treycovagnes, Yverdon-les-Bains, District du Jura-Nord vaudois, Vaud, 1400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bielstrasse 8, 3902, Glis, Switzerland": {
+    "lat": 46.3095648,
+    "lng": 7.9629501,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Bielstrasse, Gamsen, Brig-Glis, Brig, Oberwallis, Valais/Wallis, 3902, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bettlachstrasse 20, 2540, Grenchen, Switzerland": {
+    "lat": 47.192858,
+    "lng": 7.3978114,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "GLANDON Apartments «Grenchen», 20, Bettlachstrasse, Grenchen, Bezirk Lebern, Amtei Solothurn-Lebern, Solothurn, 2540, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via S. Gottardo 112, 6500, Bellinzona, Switzerland": {
+    "lat": 46.2078676,
+    "lng": 9.0385449,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "112, Via San Gottardo, Gorduno, Bellinzona, Circolo di Bellinzona, Distretto di Bellinzona, Ticino, 6500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rte des Fayards 280, 1290, Versoix, Switzerland": {
+    "lat": 46.272621,
+    "lng": 6.1417648,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Route des Fayards, Versoix, Genève, 1290, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Av. de Rossfeld 9, 3960, Sierre, Switzerland": {
+    "lat": 46.2860369,
+    "lng": 7.52024,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9, Avenue de Rossfeld, Liddes, Noës, Sierre, Valais central, Valais/Wallis, 3960, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Dammstrasse 26, 8810, Horgen, Switzerland": {
+    "lat": 47.2596555,
+    "lng": 8.5880099,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Dammstrasse, Vorder Maurimoos, Horgen, Bezirk Horgen, Zürich, 8810, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Riggenbachstrasse 6, 4600, Olten, Switzerland": {
+    "lat": 47.3468218,
+    "lng": 7.9085065,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "IUB Engineering AG, 6, Riggenbachstrasse, Olten, Bezirk Olten, Amtei Olten-Gösgen, Solothurn, 4600, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Zürcherstrasse 297, 8500, Frauenfeld, Switzerland": {
+    "lat": 47.5638012,
+    "lng": 8.9081891,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Thurgipark, 297, Zürcherstrasse, Hinderem Dorf, Vorstadt, Unterherten, Frauenfeld, Neunforn, Bezirk Frauenfeld, Thurgau, 8500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kirchstrasse 11, 8580, Amriswil, Switzerland": {
+    "lat": 47.5476537,
+    "lng": 9.2974904,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Amriville, 11, Kirchstrasse, Im Oberfeld, Egg, Hagenwil b. Amriswil, Amriswil, Bezirk Arbon, Thurgau, 8580, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue Gratta Paille 1, 1018, Lausanne, Switzerland": null,
+  "Rue du Nant 10, 1207, Genève, Switzerland": {
+    "lat": 46.2021602,
+    "lng": 6.1604444,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Rue du Nant, Villereuse, Eaux-Vives, Genève, 1207, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rte des Jeunes 10, 1212, Grand-Lancy, Switzerland": {
+    "lat": 46.1796749,
+    "lng": 6.1276498,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "La Praille, 10, Route des Jeunes, Grand-Lancy, Lancy, Genève, 1212, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Avenue du Grand-Salève 4, 1255, Veyrier, Switzerland": {
+    "lat": 46.1674148,
+    "lng": 6.1828789,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Avenue du Grand-Salève, Vessy, Veyrier, Genève, 1255, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rte de Pré-Bois 6, 1214, Vernier, Switzerland": {
+    "lat": 46.2213052,
+    "lng": 6.0973026,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "6, Route de Pré-Bois, Quartier de l'Etang, Châtelaine, Vernier, Genève, 1216, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de la Bergère 3A, 1217, Meyrin, Switzerland": {
+    "lat": 46.221926,
+    "lng": 6.0637879,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Rue de la Bergère, Meyrin, Genève, 1217, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Chem. des Ailes 35, 1216, Cointrin, Switzerland": null,
+  "Rue Jean-Charles Amat 12, 1202, Genève, Switzerland": {
+    "lat": 46.2144206,
+    "lng": 6.1484122,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "12, Rue Jean-Charles-Amat, Pâquis, Genève, 1202, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "20 rue de Lausanne, 1202, Genève, Switzerland": {
+    "lat": 46.2114679,
+    "lng": 6.1446076,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "20, Rue de Lausanne, Pâquis, Genève, 1201, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Ch. de la Scie 2, 1290, Versoix, Switzerland": {
+    "lat": 46.2750655,
+    "lng": 6.1673318,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Totem Versoix, 2, Chemin de la Scie, Versoix, Genève, 1290, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "La Crosette 4, 1026, Denges, Switzerland": {
+    "lat": 46.5271691,
+    "lng": 6.5428605,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitness Harmony, 4, Chemin de la Crosette, Denges, District de Morges, Vaud, 1026, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Route Suisse 35, 1196, Gland, Switzerland": {
+    "lat": 46.4159388,
+    "lng": 6.279201,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "O Bom Gosto, 35, Route Suisse, Résidences du Golf, Gland, District de Nyon, Vaud, 1196, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue des Fléchères 7A, 1274, Signy, Switzerland": {
+    "lat": 46.3972228,
+    "lng": 6.2052429,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7A, Rue des Fléchères, Avenex, Signy-Avenex, District de Nyon, Vaud, 1274, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Textilstrasse 5, 9320, Arbon, Switzerland": {
+    "lat": 47.5069558,
+    "lng": 9.4300935,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5, Textilstrasse, Hiltere, Arbon, Bezirk Arbon, Thurgau, 9320, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Dornacherstrasse 210, 4053, Basel, Switzerland": {
+    "lat": 47.5412855,
+    "lng": 7.5944857,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "210, Dornacherstrasse, Gundeldingen, Grossbasel, Basel, Basel-Stadt, 4053, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Ziegeleistrasse, 8572, Berg, Switzerland": {
+    "lat": 47.5838274,
+    "lng": 9.1697299,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Ziegeleistrasse, Ziegelei, Heimenlachen, Graltshausen, Berg (TG), Bezirk Weinfelden, Thurgau, 8572, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Feldstrasse 72, 8180, Bülach, Switzerland": {
+    "lat": 47.5096527,
+    "lng": 8.5376458,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "well come FIT ZHU AG 5. Etage, 72, Feldstrasse, Bülach, Bezirk Bülach, Zürich, 8180, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Riedwiesenstrasse 3, 8305, Dietlikon, Switzerland": {
+    "lat": 47.4121709,
+    "lng": 8.6242544,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Riedwiesenstrasse, Industrie Ägert, Dietlikon, Bezirk Bülach, Zürich, 8305, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Gewerbestrasse 1, 8500, Frauenfeld, Switzerland": {
+    "lat": 47.5565699,
+    "lng": 8.8790972,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Gewerbestrasse, Hasebüel, Kurzdorf, Frauenfeld, Neunforn, Bezirk Frauenfeld, Thurgau, 8500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Walzmühlestrasse 50, 8500, Frauenfeld, Switzerland": {
+    "lat": 47.5480224,
+    "lng": 8.8926146,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "50, Walzmühlestrasse, Ergarten-Talbach, Gerlikon, Frauenfeld, Neunforn, Bezirk Frauenfeld, Thurgau, 8500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Industriestrasse 28, 9100, Herisau, Switzerland": {
+    "lat": 47.3829858,
+    "lng": 9.2751129,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "28, Industriestrasse, Herisau, Hinterland, Appenzell Ausserrhoden, 9100, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Romanshornerstrasse 1, 8280, Kreuzlingen, Switzerland": {
+    "lat": 47.6431202,
+    "lng": 9.1842033,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Romanshornerstrasse, Bernrainzelg, Kreuzlingen, Bezirk Kreuzlingen, Thurgau, 8280, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Luzernerstrasse 93, 5630, Muri, Switzerland": {
+    "lat": 47.2661225,
+    "lng": 8.3490092,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "93, Luzernerstrasse, Muri, Bezirk Muri, Aargau, 5630, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "CENTRO 6, 8754, Netstal, Switzerland": {
+    "lat": 47.0690231,
+    "lng": 9.0562878,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Centro 6, 6, Centro, Breite, Netstal, Glarus, 8754, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Fabrikstrasse 2, 8867, Niederurnen, Switzerland": {
+    "lat": 47.1269387,
+    "lng": 9.0602804,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Fabrikstrasse, Espen, Niederurnen, Glarus Nord, Glarus, 8867, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Ottenbacherstrasse 23, 8912, Obfelden, Switzerland": {
+    "lat": 47.2668529,
+    "lng": 8.4241738,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Reuss-Center, 23, Ottenbacherstrasse, Bickwil, Obfelden, Bezirk Affoltern, Zürich, 8912, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Thurgauerstrasse 40, 8050, Zürich, Switzerland": {
+    "lat": 47.4147603,
+    "lng": 8.5522462,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Airgate, 40, Thurgauerstrasse, Seebach, Kreis 11, Zürich, Bezirk Zürich, Zürich, 8050, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Riedackerstrasse 5, 8422, Pfungen, Switzerland": {
+    "lat": 47.516198,
+    "lng": 8.6482948,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "5, Riedäckerstrasse, Pfungen, Bezirk Winterthur, Zürich, 8422, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Tösstalstrasse 102, 8486, Rikon im Tösstal, Switzerland": {
+    "lat": 47.4417405,
+    "lng": 8.8026603,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "102, Tösstalstrasse, Hinterrikon, Rikon, Zell (ZH), Bezirk Winterthur, Zürich, 8486, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hauptstrasse 2, 8762, Schwanden, Switzerland": {
+    "lat": 47.0004819,
+    "lng": 9.0766681,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Hauptstrasse, Wüeri, Schwanden, Glarus Süd, Glarus, 8762, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Walchistrasse 3, 9466, Sennwald, Switzerland": {
+    "lat": 47.2606361,
+    "lng": 9.5079753,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Walchistrasse, Widenfeld, Äugstisriet, Sennwald, Wahlkreis Werdenberg, St. Gallen, 9466, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Wilerstrasse 96, 8370, Sirnach, Switzerland": {
+    "lat": 47.4629708,
+    "lng": 9.0202985,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "96, Wilerstrasse, Hub, Gloten, Sirnach, Bezirk Münchwilen, Thurgau, 8370, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kapellenstrasse 1, 9000, St. Gallen, Switzerland": {
+    "lat": 47.4211643,
+    "lng": 9.3746283,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Kapellenstrasse, Linsebühl-Dreilinden, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Spinnereistrasse 8, 9008, St. Gallen, Switzerland": {
+    "lat": 47.4363353,
+    "lng": 9.3948888,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8, Spinnereistrasse, St. Fiden, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9008, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rittmeyerstrasse 15, 9014, St. Gallen, Switzerland": {
+    "lat": 47.4098286,
+    "lng": 9.3356724,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "15, Rittmeyerstrasse, Bruggen, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9014, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "im Feldbach 1c, 8266, Steckborn, Switzerland": {
+    "lat": 47.663578,
+    "lng": 8.976966,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1c, Im Feldbach, Walch, Steckborn, Neunforn, Bezirk Frauenfeld, Thurgau, 8266, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hammerweg 1, 8304, Wallisellen, Switzerland": {
+    "lat": 47.4126106,
+    "lng": 8.5893312,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Hammerweg, Wallisellen, Bezirk Bülach, Zürich, 8304, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Breitistrasse 21, 8623, Wetzikon, Switzerland": {
+    "lat": 47.3383093,
+    "lng": 8.8115953,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Fitness-Center, 21, Breitistrasse, Burg, Kempten, Wetzikon (ZH), Bezirk Hinwil, Zürich, 8623, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hofstrasse 106, 8620, Wetzikon, Switzerland": {
+    "lat": 47.310527,
+    "lng": 8.7948567,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "106, Hofstrasse, Unterwetzikon, Wetzikon (ZH), Bezirk Hinwil, Zürich, 8620, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Ringstrasse Stelz 31, 9500, Wil, Switzerland": null,
+  "Im Hölderli 10, 8405, Winterthur, Switzerland": {
+    "lat": 47.4926116,
+    "lng": 8.762046,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Im Hölderli, Wingertli, Waser, Seen, Winterthur, Bezirk Winterthur, Zürich, 8405, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Seit, 2017, begleiten wir dich auf deiner Fitnessreise und stehen dir mit unserer Expertise zur Seite. Hier bei update Fitness Altstätten wird Training mehr als nur physische Aktivität – es wird zu einem Weg, deine persönlichen Ziele zu erreichen und einen gesunden Lebensstil zu pflegen., Switzerland": null,
+  "Wittenwilerstrasse 12, 8355, Aadorf, Switzerland": {
+    "lat": 47.4940542,
+    "lng": 8.8997973,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8;12, Wittenwilerstrasse, Weiern, Ettenhausen TG, Aadorf, Bezirk Münchwilen, Thurgau, 8355, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Gysulastrasse 21, 5000, Aarau, Switzerland": {
+    "lat": 47.3985327,
+    "lng": 8.0428567,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "21b, Gysulastrasse, Herzbergsiedlung, Aarau, Bezirk Aarau, Aargau, 5000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Landstrasse 3, 3715, Adelboden, Switzerland": {
+    "lat": 46.4933776,
+    "lng": 7.5607977,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Landstrasse, Schlegeli, Adelboden, Verwaltungskreis Frutigen-Niedersimmental, Verwaltungsregion Oberland, Bern/Berne, 3715, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Nordring 2, 4147, Aesch, Switzerland": {
+    "lat": 47.4793749,
+    "lng": 7.5905404,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Landi, 2, Nordring, Aesch, Bezirk Arlesheim, Basel-Landschaft, 4147, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Paradiesrain 14, 4123, Allschwil, Switzerland": {
+    "lat": 47.5459957,
+    "lng": 7.5525068,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Body Move Allschwil, 14, Paradiesrain, Allschwil, Bezirk Arlesheim, Basel-Landschaft, 4123, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Höfligasse 11, 6460, Altdorf, Switzerland": {
+    "lat": 46.879061,
+    "lng": 8.6467912,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "ARGUS Augenpraxis, 11, Höfligasse, Plätzli, Vogelsang, Altdorf (UR), Uri, 6460, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Trogenerstrasse 34, 9450, Altstätten, Switzerland": {
+    "lat": 47.378768,
+    "lng": 9.5388793,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "34, Trogenerstrasse, Lüchingen, Altstätten, Wahlkreis Rheintal, St. Gallen, 9450, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Weinfelderstrasse 74, 8580, Amriswil, Switzerland": {
+    "lat": 47.5449765,
+    "lng": 9.285262,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "74, Weinfelderstrasse, Roor, Schocherswil, Amriswil, Bezirk Arbon, Thurgau, 8580, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rütistrasse 20, 9050, Appenzell, Switzerland": {
+    "lat": 47.3332723,
+    "lng": 9.3992193,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "update Fitness Appenzell, 20, Rütistrasse, Münz, Appenzell, Appenzell Innerrhoden, 9050, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Landquartstrasse 101, 9320, Arbon, Switzerland": {
+    "lat": 47.5019733,
+    "lng": 9.4256532,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "101, Landquartstrasse, Hiltere, Arbon, Bezirk Arbon, Thurgau, 9320, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Kurplatz 2, 5400, Baden, Switzerland": {
+    "lat": 47.4808631,
+    "lng": 8.3139198,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Kurplatz, Baden, Bezirk Baden, Aargau, 5400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Herrengasse 17, 4710, Balsthal, Switzerland": {
+    "lat": 47.3161657,
+    "lng": 7.6968443,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "17, Herrengasse, Balsthal, Bezirk Thal, Amtei Thal-Gäu, Solothurn, 4710, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Farnsburgerstrasse 37, 4052, Basel, Switzerland": {
+    "lat": 47.55521,
+    "lng": 7.6138463,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Coop, 37, Farnsburgerstrasse, Breite, Kleinbasel, Basel, Basel-Stadt, 4052, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Leimgrubenweg 4, 4053, Basel, Switzerland": {
+    "lat": 47.5369652,
+    "lng": 7.6073862,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4, Leimgrubenweg, Dreispitz, St. Alban, Grossbasel, Basel, Basel-Stadt, 4053, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Güterstrasse 211 / Tellplatz 6, 4053, Basel, Switzerland": null,
+  "Rebgasse 20, 4058, Basel, Switzerland": {
+    "lat": 47.5605996,
+    "lng": 7.5942134,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Lidl, 20, Rebgasse, Altstadt Kleinbasel, Grossbasel, Basel, Basel-Stadt, 4058, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Elisabethenanlage 11, 4051, Basel, Switzerland": {
+    "lat": 47.5485517,
+    "lng": 7.5889376,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "update Fitness, 11, Elisabethenanlage, St. Alban, Grossbasel, Basel, Basel-Stadt, 4051, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Gurzelenstrasse 14a, 4512, Bellach, Switzerland": {
+    "lat": 47.2095732,
+    "lng": 7.4967724,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "14a, Gurzelenstrasse, Franziskanerhof, Bellach, Bezirk Lebern, Amtei Solothurn-Lebern, Solothurn, 4512, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Brünnenstrasse 118, 3018, Bern, Switzerland": {
+    "lat": 46.9411819,
+    "lng": 7.3909914,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Poststelle 3018 Bern 18 Bümpliz, 118, Brünnenstrasse, Bümpliz Dorf, Bümpliz, Stadtteil VI, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3018, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Marktgasse 24, 3011, Bern, Switzerland": {
+    "lat": 46.948009,
+    "lng": 7.4460023,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "24, Marktgasse, Gelbes Quartier, Stadtteil I, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3011, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Sulgeneckstrasse 66, 3007, Bern, Switzerland": {
+    "lat": 46.9401559,
+    "lng": 7.4404217,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "66, Sulgeneckstrasse, Marzili, Sandrain, Stadtteil III, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3007, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Ostermundigenstrasse 95, 3006, Bern, Switzerland": {
+    "lat": 46.9550235,
+    "lng": 7.4745764,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "95, Ostermundigenstrasse, Beundenfeld, Stadtteil IV, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3006, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Viktoriastrasse 21, 3013, Bern, Switzerland": {
+    "lat": 46.953323,
+    "lng": 7.4576207,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "prizeotel Bern-City, 21, Viktoriastrasse, Spitalacker, Stadtteil V, Bern, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3013, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hauptstrasse 11, 4102, Binningen, Switzerland": {
+    "lat": 47.543007,
+    "lng": 7.5753903,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "11, Hauptstrasse, St. Margarethen, Binningen, Bezirk Arlesheim, Basel-Landschaft, 4102, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Poststrasse 16, 9220, Bischofszell, Switzerland": {
+    "lat": 47.4922979,
+    "lng": 9.2407477,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "16, Poststrasse, Bitzi, Bischofszell, Bezirk Weinfelden, Thurgau, 9220, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Churerstrasse 35, 9470, Buchs, Switzerland": {
+    "lat": 47.1597905,
+    "lng": 9.477104,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Atrium Buchs, 35, Churerstrasse, Buchs (SG), Wahlkreis Werdenberg, St. Gallen, 9470, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Ringstrasse 31, 7000, Chur, Switzerland": {
+    "lat": 46.8542095,
+    "lng": 9.5137686,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "31, Ringstrasse, Industriezone Industriestrasse, Pulvermühle, Altstadt, Araschgen, Chur, Plessur, Graubünden/Grischun/Grigioni, 7000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "General-Wille-Strasse 59, 8706, Feldmeilen, Switzerland": {
+    "lat": 47.2802064,
+    "lng": 8.6147919,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "59, General-Wille-Strasse, Feldmeilen, Meilen, Bezirk Meilen, Zürich, 8706, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Schützenstrasse 29, 8245, Feuerthalen, Switzerland": {
+    "lat": 47.6911102,
+    "lng": 8.6476024,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "29, Schützenstrasse, Langwiesen, Feuerthalen, Bezirk Andelfingen, Zürich, 8245, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Juchstrasse 16, 8500, Frauenfeld, Switzerland": {
+    "lat": 47.5670274,
+    "lng": 8.9063028,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Zubi Outlet Frauenfeld, 16, Juchstrasse, Hinderem Dorf, Langdorf, Unterherten, Frauenfeld, Neunforn, Bezirk Frauenfeld, Thurgau, 8500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rte du Château-d'Affry 6, 1762, Givisiez, Switzerland": {
+    "lat": 46.8118644,
+    "lng": 7.1348925,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Givisiez Centre, 6, Route du Château-d'Affry, Le Mont-Carmel, Givisiez, District de la Sarine, Fribourg/Freiburg, 1762, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Schulstrasse 53, 5070, Frick, Switzerland": {
+    "lat": 47.5030288,
+    "lng": 8.0112543,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "53, Schulstrasse, Rain, Frick, Bezirk Laufenburg, Aargau, 5070, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Neue Winterthurerstrasse 99, 8304, Wallisellen, Switzerland": {
+    "lat": 47.4082686,
+    "lng": 8.5958851,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Pandora, 99, Neue Winterthurerstrasse, Wallisellen, Bezirk Bülach, Zürich, 8304, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Santa Maria 68b, 6596, Gordola TI, Switzerland": {
+    "lat": 46.170033,
+    "lng": 8.865338,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "68b, Via Santa Maria, Gordemo, Gordola, Circolo della Navegna, Distretto di Locarno, Ticino, 6596, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Stadtbühlstrasse 12, 9200, Gossau SG, Switzerland": {
+    "lat": 47.4121286,
+    "lng": 9.2504137,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Update, 12, Stadtbühlstrasse, Berghof, Gossau (SG), Wahlkreis St. Gallen, St. Gallen, 9200, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bettlachstrasse 8, 2540, Grenchen, Switzerland": {
+    "lat": 47.1927845,
+    "lng": 7.396888,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8, Bettlachstrasse, Grenchen, Bezirk Lebern, Amtei Solothurn-Lebern, Solothurn, 2540, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bernstrasse 1, 3506, Grosshöchstetten, Switzerland": {
+    "lat": 46.9069538,
+    "lng": 7.637423,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Bernstrasse, Grosshöchstetten, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3506, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Marktstrasse 4, 9435, Heerbrugg, Switzerland": {
+    "lat": 47.4110065,
+    "lng": 9.6261646,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Am Markt, 4, Marktstrasse, Heerbrugg, Au (SG), Wahlkreis Rheintal, St. Gallen, 9435, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Oberdorfstrasse 62, 9100, Herisau, Switzerland": {
+    "lat": 47.3856554,
+    "lng": 9.2837411,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "62, Oberdorfstrasse, Herisau, Hinterland, Appenzell Ausserrhoden, 9100, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bösch 106, 6331, Hünenberg, Switzerland": {
+    "lat": 47.1613839,
+    "lng": 8.4338248,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "106, Bösch, Schlössli, Hünenberg, Zug, 6331, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Fabrikweg 1, 5502, Hunzenschwil AG, Switzerland": {
+    "lat": 47.3888194,
+    "lng": 8.1249539,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3.1, Fabrikweg, Hunzenschwil, Bezirk Lenzburg, Aargau, 5502, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bernstrasse 99, 3122, Kehrsatz, Switzerland": {
+    "lat": 46.9159063,
+    "lng": 7.4673822,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "99, Bernstrasse, Sandbühl, Breitägerten, Kehrsatz, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3122, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Sonnenstrasse 16, 8280, Kreuzlingen, Switzerland": {
+    "lat": 47.6505401,
+    "lng": 9.1726548,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Einkaufszentrum Karussell, 16, Sonnenstrasse, Bernrainzelg, Kreuzlingen, Bezirk Kreuzlingen, Thurgau, 8280, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Industriestrasse 10, 6010, Kriens, Switzerland": {
+    "lat": 47.0244192,
+    "lng": 8.2991135,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Industriestrasse, Kriens, Luzern, 6010, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rossriedstrasse 2, 7205, Zizers, Switzerland": {
+    "lat": 46.9534084,
+    "lng": 9.5576928,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Rossriedstrasse, Zizers, Landquart, Graubünden/Grischun/Grigioni, 7205, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bäreggsstrasse 10, 4900, Langenthal, Switzerland": null,
+  "Weststrasse 75, 4242, Laufen, Switzerland": {
+    "lat": 47.4189588,
+    "lng": 7.4956604,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "75, Weststrasse, Laufen, Bezirk Laufen, Basel-Landschaft, 4242, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue du Maupas 18, 1004, Lausanne, Switzerland": {
+    "lat": 46.5248977,
+    "lng": 6.6261683,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "18, Rue du Maupas, Lausanne, District de Lausanne, Vaud, 1004, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Boulevard de Grancy 37, 1006, Lausanne, Switzerland": {
+    "lat": 46.5158276,
+    "lng": 6.626488,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "37, Boulevard de Grancy, Lausanne, District de Lausanne, Vaud, 1006, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rue de Genève 46, 1004, Lausanne, Switzerland": {
+    "lat": 46.5235393,
+    "lng": 6.6208283,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "update Fitness, 46, Rue de Genève, Lausanne, District de Lausanne, Vaud, 1004, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rathausstrasse 45, 4410, Liestal, Switzerland": {
+    "lat": 47.483995,
+    "lng": 7.7352403,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "45, Rathausstrasse, Liestal, Bezirk Liestal, Basel-Landschaft, 4410, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Seidenhofstrasse 9, 6003, Luzern, Switzerland": {
+    "lat": 47.0499252,
+    "lng": 8.3077636,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Kardiologische Praxis LUKS, 9, Seidenhofstrasse, Altstadt, Luzern, 6003, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Metzerlenstrasse 1, 4115, Metzerlen-Mariastein, Switzerland": {
+    "lat": 47.4746473,
+    "lng": 7.4885543,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Metzerlenstrasse, Mariastein, Metzerlen-Mariastein, Bezirk Dorneck, Amtei Dorneck-Thierstein, Solothurn, 4115, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Weidenpark 1, 4313, Möhlin, Switzerland": {
+    "lat": 47.5605053,
+    "lng": 7.8405945,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Weidenpark, Riburg, Möhlin, Bezirk Rheinfelden, Aargau, 4313, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Jurastrasse 4, 4142, Münchenstein, Switzerland": {
+    "lat": 47.5223538,
+    "lng": 7.6063112,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Update Fitness, 4, Jurastrasse, Münchenstein, Bezirk Arlesheim, Basel-Landschaft, 4142, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Murgtalstrasse 20, 9542, Münchwilen, Switzerland": {
+    "lat": 47.4832346,
+    "lng": 8.9959358,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Zukunftsfabrik, 20, Murgtalstrasse, Industriegebiet Murgtal, Dohlenhof, St. Margarethen TG, Münchwilen (TG), Bezirk Münchwilen, Thurgau, 9542, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bernstrasse 15, 3280, Murten, Switzerland": {
+    "lat": 46.9307388,
+    "lng": 7.1225957,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "15, Bernstrasse, Murten, Seebezirk / District du Lac, Fribourg/Freiburg, 3280, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hofackerstrasse 40, 4132, Muttenz, Switzerland": {
+    "lat": 47.5353129,
+    "lng": 7.6402693,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "40, Hofackerstrasse, Muttenz, Bezirk Arlesheim, Basel-Landschaft, 4132, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Molliserstrasse 41, 8754, Netstal, Switzerland": {
+    "lat": 47.0668293,
+    "lng": 9.0584135,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Swisscom Shop, 41, Molliserstrasse, Netstal, Glarus, 8754, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Industrieplatz, 8212, Neuhausen am Rheinfall, Switzerland": {
+    "lat": 47.6795315,
+    "lng": 8.6182199,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Industrieplatz, Neuhausen am Rheinfall, Bezirk Schaffhausen, Schaffhausen, 8212, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Progressastrasse 33, 3414, Oberburg bei Burgdorf, Switzerland": null,
+  "Mühlemattstrasse 48, 4104, Oberwil, Switzerland": {
+    "lat": 47.5064446,
+    "lng": 7.5536405,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "48, Mühlemattstrasse, Oberwil, Bezirk Arlesheim, Basel-Landschaft, 4104, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Obere Stumpenbachstrasse 10, 5734, Reinach, Switzerland": {
+    "lat": 47.2514046,
+    "lng": 8.182247,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Interdiscount, 10, Obere Stumpenbachstrasse, Reinach, Bezirk Kulm, Aargau, 5734, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Platz 3, 6039, Root D4, Switzerland": {
+    "lat": 47.1033957,
+    "lng": 8.3750046,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Platz, D4, Root, Luzern, 6039, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Adolf-Gaudy-Weg 4a, 9400, Rorschach, Switzerland": {
+    "lat": 47.4745869,
+    "lng": 9.4842768,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "BZR Rorschach-Rheintal Filiale Alcan, 4a, Adolf-Gaudy-Weg, Rorschach, Wahlkreis Rorschach, St. Gallen, 9400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Werkstrasse 43, 8630, Rüti, Switzerland": {
+    "lat": 47.2538893,
+    "lng": 8.852986,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "43, Werkstrasse, Unter Moos, Rüti (ZH), Bezirk Hinwil, Zürich, 8630, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Thunstrasse 8+10, 3700, Spiez, Switzerland": {
+    "lat": 46.6918318,
+    "lng": 7.6671213,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Thunstrasse, Spiez, Verwaltungskreis Frutigen-Niedersimmental, Verwaltungsregion Oberland, Bern/Berne, 3700, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Güterstrasse 7, 8957, Spreitenbach, Switzerland": {
+    "lat": 47.4282427,
+    "lng": 8.3600671,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "7, Güterstrasse, Spreiti West, Rotzenbühl, Spreitenbach, Bezirk Baden, Aargau, 8957, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Merkurstrasse 2, 9000, St.Gallen, Switzerland": {
+    "lat": 47.4236334,
+    "lng": 9.3716621,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Merkurstrasse, Rosenberg, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Am Bohl 9, 9000, St.Gallen, Switzerland": null,
+  "Heiligkreuzstrasse 28, 9008, St. Gallen, Switzerland": {
+    "lat": 47.4386939,
+    "lng": 9.3955458,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "28, Heiligkreuzstrasse, Langgass-Heiligkreuz, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9008, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Favrestrasse 3, 9016, St. Gallen, Switzerland": {
+    "lat": 47.4372031,
+    "lng": 9.4142891,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Favrestrasse, Gewerbezone Schuppis, Neudorf, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9016, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Sternackerstrasse 3, 9000, St. Gallen, Switzerland": {
+    "lat": 47.4264073,
+    "lng": 9.3832958,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "3, Sternackerstrasse, Linsebühl-Dreilinden, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Fürstenlandstrasse 17, 9000, St. Gallen, Switzerland": {
+    "lat": 47.4149884,
+    "lng": 9.3536334,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "17, Fürstenlandstrasse, Lachen, St. Gallen, Wahlkreis St. Gallen, St. Gallen, 9000, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Via Serlas 23, 7500, St. Moritz, Switzerland": {
+    "lat": 46.4975401,
+    "lng": 9.8420729,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "23, Via Serlas, St. Moritz Bad, St. Moritz, Maloja, Graubünden/Grischun/Grigioni, 7500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Surentalstrasse 10, 6210, Sursee, Switzerland": {
+    "lat": 47.1780339,
+    "lng": 8.1104832,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "10, Surentalstrasse, Sursee, Luzern, 6210, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Landhaus 1, 9053, Teufen, Switzerland": {
+    "lat": 47.3893305,
+    "lng": 9.3918439,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Klink Teufen, 1, Landhausstrasse, Untere Grünau, Niederteufen, Teufen (AR), Mittelland, Appenzell Ausserrhoden, 9053, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Gewerbestrasse 6, 3600, Thun, Switzerland": {
+    "lat": 46.7593906,
+    "lng": 7.6246987,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "update Fitness, 6, Gewerbestrasse, Thun, Horrenbach-Buchen, Verwaltungskreis Thun, Verwaltungsregion Oberland, Bern/Berne, 3600, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Bahnhofstrasse 82, 9240, Uzwil, Switzerland": {
+    "lat": 47.4369331,
+    "lng": 9.1332079,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Mühlehof, 82, Bahnhofstrasse, Dammhalde, Niederuzwil, Uzwil, Wahlkreis Wil, St. Gallen, 9240, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Industriestrasse 2, 9630, Wattwil, Switzerland": {
+    "lat": 47.2950089,
+    "lng": 9.0935051,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "2, Industriestrasse, Tüetlisberg, Wattwil, Ulisbach, Wattwil, Wahlkreis Toggenburg, St. Gallen, 9630, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Rathausstrasse 17, 8570, Weinfelden, Switzerland": {
+    "lat": 47.5666508,
+    "lng": 9.1087339,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Neuroth, 17, Rathausstrasse, Weinfelden, Bezirk Weinfelden, Thurgau, 8570, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Amriswilerstrasse 57, 8570, Weinfelden, Switzerland": {
+    "lat": 47.5032116,
+    "lng": 9.2463172,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "57, Amriswilerstrasse, Epnet, Sitterdorf, Zihlschlacht-Sitterdorf, Bezirk Weinfelden, Thurgau, 8589, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Jurastrasse 42, 5430, Wettingen, Switzerland": {
+    "lat": 47.4586342,
+    "lng": 8.329732,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Gidor, 42, Jurastrasse, Wettingen, Bezirk Baden, Aargau, 5430, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Speerstrasse 11, 9500, Wil, Switzerland": {
+    "lat": 47.4613618,
+    "lng": 9.0464764,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "11, Speerstrasse, Industrie Speer, Flurhof, Lindenhof, Kreis Wil - Stadt (Wil), Wil (SG), Wahlkreis Wil, St. Gallen, 9500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Glärnischstrasse 1, 9500, Wil, Switzerland": {
+    "lat": 47.4610518,
+    "lng": 9.0439628,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "1, Glärnischstrasse, Titlis, Südquartier, Kreis Wil - Stadt (Wil), Wil (SG), Wahlkreis Wil, St. Gallen, 9500, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Archstrasse 8, 8400, Winterthur, Switzerland": {
+    "lat": 47.498059,
+    "lng": 8.7235509,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "8, Archstrasse, Heiligberg, Neuwiesen, Stadt, Winterthur, Bezirk Winterthur, Zürich, 8400, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Erlackerstrasse 14, 9300, Wittenbach, Switzerland": {
+    "lat": 47.4596547,
+    "lng": 9.3854281,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "14, Erlackerstrasse, Zil, Wittenbach, Wahlkreis St. Gallen, St. Gallen, 9300, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Neufeldstrasse 4, 3076, Worb, Switzerland": {
+    "lat": 46.9335578,
+    "lng": 7.5605042,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4, Neufeldstrasse, Rüfenacht BE, Richigen, Worb, Verwaltungskreis Bern-Mittelland, Verwaltungsregion Bern-Mittelland, Bern/Berne, 3076, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Aarburgerstrasse 4, 4800, Zofingen, Switzerland": {
+    "lat": 47.2922031,
+    "lng": 7.942613,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "4, Aarburgerstrasse, Zofingen, Bezirk Zofingen, Aargau, 4800, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Neumühlequai 32, 8006, Zürich, Switzerland": {
+    "lat": 47.3806352,
+    "lng": 8.5415998,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "32, Neumühlequai, Unterstrass, Kreis 6, Zürich, Bezirk Zürich, Zürich, 8006, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "Hauptstrasse 15, 4455, Zunzgen, Switzerland": {
+    "lat": 47.455955,
+    "lng": 7.8073748,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "15, Hauptstrasse, Zunzgen, Bezirk Sissach, Basel-Landschaft, 4455, Schweiz/Suisse/Svizzera/Svizra"
+  },
+  "St. Gallerstrasse 21, 9524, Zuzwil, Switzerland": {
+    "lat": 47.4700193,
+    "lng": 9.1046498,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "21, St. Gallerstrasse, Weieren, Züberwangen, Zuzwil (SG), Wahlkreis Wil, St. Gallen, 9524, Schweiz/Suisse/Svizzera/Svizra"
+  }
+}

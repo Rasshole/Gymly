@@ -1,0 +1,173 @@
+{
+  "generated": "2026-08-23T14:45:07.621963+00:00",
+  "production_total": 10943,
+  "production_czechia": 0,
+  "production_sha256_expected": "5790acc0a384eef02c40269dd55e72488555e29c4a7970ff27b231a3239f4a30",
+  "production_sha256_actual": "5790acc0a384eef02c40269dd55e72488555e29c4a7970ff27b231a3239f4a30",
+  "phase1_staged": 70,
+  "phase1_ready": 53,
+  "phase1_ready_preserved": 52,
+  "phase1_ready_dropped": 1,
+  "phase1_unresolved_recovered": 19,
+  "new_locations_discovered": 15,
+  "unique_staged": 85,
+  "ready_count": 70,
+  "status_counts": {
+    "READY_TO_IMPORT": 70,
+    "NEEDS_REVIEW": 8,
+    "NEEDS_COORDINATES": 7
+  },
+  "ready_by_brand": {
+    "FITINN": 1,
+    "Form Factory": 43,
+    "JOHN REED": 1,
+    "Max Fitness": 23,
+    "Oktagon Gym": 1,
+    "clever fit": 1
+  },
+  "chain_completeness": [
+    {
+      "brand": "Form Factory",
+      "official_current_estimate": 57,
+      "discovered": 57,
+      "ready": 43,
+      "unresolved": 14,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 75.4,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "Max Fitness",
+      "official_current_estimate": 24,
+      "discovered": 24,
+      "ready": 23,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 95.8,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Oktagon Gym",
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "ready": 1,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "FITINN",
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "ready": 1,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "clever fit",
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "ready": 1,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "JOHN REED",
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "ready": 1,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    }
+  ],
+  "other_chains": [
+    {
+      "brand": "McFIT",
+      "status": "E — EXCLUDED",
+      "discovered": 0,
+      "notes": "mcfit.com lists Czech Republic phone prefix only; no CZ studio locator or /cz/studios pages found"
+    },
+    {
+      "brand": "Next.Move",
+      "status": "E — EXCLUDED",
+      "discovered": 1,
+      "notes": "nextmove.cz exposes single HQ address (Dělnická 1324/9 Praha); not a >=3 location conventional gym chain"
+    },
+    {
+      "brand": "BBC Fitness",
+      "status": "D — BLOCKED",
+      "discovered": 0,
+      "notes": "Official site unreachable in Phase 2 probe"
+    },
+    {
+      "brand": "Factory Pro",
+      "status": "D — BLOCKED",
+      "discovered": 0,
+      "notes": "Official site unreachable in Phase 2 probe"
+    }
+  ],
+  "regional_coverage": {
+    "Praha": true,
+    "Brno": true,
+    "Ostrava": true,
+    "Plzeň": true,
+    "Liberec": true,
+    "Olomouc": true,
+    "České Budějovice": true,
+    "Hradec Králové": false,
+    "Pardubice": true,
+    "Zlín": true,
+    "Ústí nad Labem": true,
+    "Jihlava": false,
+    "Karlovy Vary": false,
+    "phase2_Olomouc": true,
+    "phase2_Hradec Králové": false,
+    "phase2_Zlín": true,
+    "phase2_Ústí nad Labem": true,
+    "phase2_Jihlava": false,
+    "phase2_Karlovy Vary": false
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_addresses": 0,
+    "missing_ready_cities": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "material_gaps": [
+    "Form Factory still missing 14 clubs vs official listing",
+    "8 rows still NEEDS_REVIEW after parser recovery"
+  ],
+  "nonblocking_gaps": [
+    "Hradec Králové / Jihlava / Karlovy Vary — no Form Factory or Max Fitness clubs in official listings",
+    "clever fit Czechia confirmed as single Kladno studio only",
+    "McFIT — no current Czech studio estate verified"
+  ],
+  "projected_catalog": 11013,
+  "crossed_12500": false,
+  "phase3_required": false,
+  "verdict": "READY FOR CZECHIA MERGE"
+}

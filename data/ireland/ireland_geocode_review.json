@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-23T08:15:48.449762+00:00",
+  "recovered_to_ready": [
+    "ie_36b8a305fe",
+    "ie_edd9fa4599"
+  ],
+  "aura_lucan": {
+    "eircode": "K78 H9V9",
+    "source": "https://accessmap.ie/service/aura-lucan-leisure-centre/"
+  },
+  "aura_navan": {
+    "eircode": "C15 N274",
+    "sources": [
+      "Datanyze company HQ Windtown Rd Navan C15N274",
+      "ie.sale-events.com Aura Navan listing Windtown Road C15N274"
+    ],
+    "coords_source": "ireland724.info Aura LeisureLink pin"
+  },
+  "rejected": [
+    "Letterkenny reverse F92 TP6C belonged to neighboring POI — not used",
+    "Airside Retail Park K67 FT22 is complex-level — not assigned to FLYEfit unit",
+    "Nominatim eircode-only queries returning National Library — rejected"
+  ],
+  "energie_tallaght_citywest": {
+    "distance_m": 3643.3,
+    "classification": "A_legitimate",
+    "tallaght": "ie_6930f99872",
+    "citywest": "ie_2574437176",
+    "tallaght_category": "READY_TO_IMPORT",
+    "citywest_category": "READY_TO_IMPORT"
+  }
+}

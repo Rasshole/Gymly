@@ -1,0 +1,30 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "croatia": 80,
+  "json_size_mb": 3.53,
+  "parse_ms": 22,
+  "cold_index_ms": 2106,
+  "cached_index_ms": 0,
+  "typical_search_ms": 117,
+  "worst_search_ms": 15,
+  "nearest_ms": 0,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 0,
+  "map_markers_built": 80,
+  "architecture": "KEEP CLIENT-SIDE",
+  "croatia_merge_benchmark": {
+    "catalog": 11648,
+    "json_size_mb": 3.38
+  },
+  "bulgaria_qa_baseline": {
+    "catalog": 11336,
+    "json_size_mb": 3.36
+  },
+  "slovakia_qa_baseline": {
+    "catalog": 11254
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED"
+}

@@ -16,9 +16,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 const PlannedWorkoutsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,7 +31,7 @@ const PlannedWorkoutsScreen = () => {
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Planlagte træninger</Text>
+        <Text style={styles.headerTitle}>{t('plannedWorkoutsList.title')}</Text>
         <View style={styles.headerRight} />
       </View>
 
@@ -41,10 +43,9 @@ const PlannedWorkoutsScreen = () => {
           <View style={styles.emptyIconContainer}>
             <Icon name="calendar-outline" size={80} color="#C7C7CC" />
           </View>
-          <Text style={styles.emptyTitle}>Ingen planlagte træninger</Text>
+          <Text style={styles.emptyTitle}>{t('plannedWorkoutsList.emptyTitle')}</Text>
           <Text style={styles.emptyText}>
-            Her kan du se dine kommende og planlagte træninger.{'\n'}
-            Denne funktion kommer snart!
+            {t('plannedWorkoutsList.emptyBody')}
           </Text>
         </View>
       </ScrollView>

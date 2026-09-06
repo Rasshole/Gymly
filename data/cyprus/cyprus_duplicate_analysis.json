@@ -1,0 +1,18 @@
+{
+  "phase": 2,
+  "ready_count": 17,
+  "duplicate_ids": [],
+  "proximity": {
+    "pairs": [],
+    "unresolved_hard_duplicates": [],
+    "proximity_raw": {
+      "lt25": [],
+      "lt50": [],
+      "lt100": [],
+      "lt200": [],
+      "identical": []
+    }
+  },
+  "unresolved_hard_duplicates": [],
+  "greek_english_note": "Display names kept English consumer-facing; aliases recorded where useful"
+}

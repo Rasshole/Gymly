@@ -1,0 +1,349 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "proximity_classifications": [],
+  "cross_production_same_brand_lte_25m": [],
+  "energie_tallaght_citywest": {
+    "tallaght": "ie_6930f99872",
+    "citywest": "ie_2574437176",
+    "distance_m": 3643.3,
+    "classification": "A_legitimate",
+    "action": "retain_both"
+  },
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "withheld": [],
+  "included": [
+    {
+      "id": "ie_9f6cc59610",
+      "name": "Anytime Fitness Ballincollig (Cork)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "ie_a9c859a877",
+      "name": "Anytime Fitness Clondalkin",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "ie_187651272b",
+      "name": "Anytime Fitness Dublin",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "ie_91052fda94",
+      "name": "Anytime Fitness Kilmainham",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "ie_ef7c4ce736",
+      "name": "Anytime Fitness Maynooth",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "ie_aac6d0e126",
+      "name": "Aura Leisure Dundalk",
+      "brand": "Aura Leisure"
+    },
+    {
+      "id": "ie_36b8a305fe",
+      "name": "Aura Leisure Lucan",
+      "brand": "Aura Leisure"
+    },
+    {
+      "id": "ie_edd9fa4599",
+      "name": "Aura Leisure Navan",
+      "brand": "Aura Leisure"
+    },
+    {
+      "id": "ie_470c031a08",
+      "name": "Aura Leisure Tullamore",
+      "brand": "Aura Leisure"
+    },
+    {
+      "id": "ie_d5f7d28fe1",
+      "name": "Ben Dunne Gyms Blanchardstown",
+      "brand": "Ben Dunne Gyms"
+    },
+    {
+      "id": "ie_24be2e56a2",
+      "name": "Ben Dunne Gyms Carlisle",
+      "brand": "Ben Dunne Gyms"
+    },
+    {
+      "id": "ie_f921b8f931",
+      "name": "Ben Dunne Gyms Northwood",
+      "brand": "Ben Dunne Gyms"
+    },
+    {
+      "id": "ie_bccb68d5cc",
+      "name": "Ben Dunne Gyms Portlaoise",
+      "brand": "Ben Dunne Gyms"
+    },
+    {
+      "id": "ie_bd54d5f41a",
+      "name": "Energie Fitness Balbriggan",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_fdde4a0e55",
+      "name": "Energie Fitness Ballincollig",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_843a62a82a",
+      "name": "Energie Fitness Carlow",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_2574437176",
+      "name": "Energie Fitness Citywest",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_9083565cde",
+      "name": "Energie Fitness Clarehall",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_0c574c4243",
+      "name": "Energie Fitness Drogheda",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_14776917c0",
+      "name": "Energie Fitness Dublin 8",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_1e0e3d9a95",
+      "name": "Energie Fitness Dundalk",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_fefc0897db",
+      "name": "Energie Fitness Dún Laoghaire",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_1022f18f92",
+      "name": "Energie Fitness Galway",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_f79236bac2",
+      "name": "Energie Fitness Limerick",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_2879864b87",
+      "name": "Energie Fitness Midleton",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_fbcd89cb84",
+      "name": "Energie Fitness Mullingar",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_3e5d5d8e23",
+      "name": "Energie Fitness Salthill",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_7f400892b8",
+      "name": "Energie Fitness Stepaside",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_6930f99872",
+      "name": "Energie Fitness Tallaght",
+      "brand": "Energie Fitness"
+    },
+    {
+      "id": "ie_d831af4dc0",
+      "name": "FLYEfit Baggot Street",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_845452ea09",
+      "name": "FLYEfit CHQ",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_32456939f3",
+      "name": "FLYEfit Cork City",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_b548a9acd6",
+      "name": "FLYEfit Drumcondra",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_57d0c95e08",
+      "name": "FLYEfit Dundrum",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_7e4d892909",
+      "name": "FLYEfit Finglas",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_f4e884f7b5",
+      "name": "FLYEfit Galway",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_f091bb3d1c",
+      "name": "FLYEfit Georges Street",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_bef6dabbc4",
+      "name": "FLYEfit Inchicore",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_5744d24d0b",
+      "name": "FLYEfit Jervis Street",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_4614d9b0bf",
+      "name": "FLYEfit Liffey Valley",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_916857bd31",
+      "name": "FLYEfit Macken Street",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_1234cbda66",
+      "name": "FLYEfit Portobello",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_31c093b46d",
+      "name": "FLYEfit Ranelagh",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_5d760460ba",
+      "name": "FLYEfit Sallynoggin",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_04b9b163f6",
+      "name": "FLYEfit Sandyford",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_502ff54c46",
+      "name": "FLYEfit Stillorgan",
+      "brand": "FLYEfit"
+    },
+    {
+      "id": "ie_e2d4f8135c",
+      "name": "Gym Plus Ashbourne",
+      "brand": "Gym Plus"
+    },
+    {
+      "id": "ie_ea723f5aa8",
+      "name": "Gym Plus Ballsbridge",
+      "brand": "Gym Plus"
+    },
+    {
+      "id": "ie_f49c0dc34b",
+      "name": "Gym Plus Cork",
+      "brand": "Gym Plus"
+    },
+    {
+      "id": "ie_1d81f349e3",
+      "name": "Gym Plus Drogheda",
+      "brand": "Gym Plus"
+    },
+    {
+      "id": "ie_26ec65de02",
+      "name": "Gym Plus Naas",
+      "brand": "Gym Plus"
+    },
+    {
+      "id": "ie_f64ad6adce",
+      "name": "Gym Plus Rathfarnham",
+      "brand": "Gym Plus"
+    },
+    {
+      "id": "ie_59513a59f0",
+      "name": "Gym Plus Swords",
+      "brand": "Gym Plus"
+    },
+    {
+      "id": "ie_7448978ec4",
+      "name": "Iconic Health Clubs Camden Street",
+      "brand": "Iconic Health Clubs"
+    },
+    {
+      "id": "ie_241577f236",
+      "name": "Iconic Health Clubs Dartry",
+      "brand": "Iconic Health Clubs"
+    },
+    {
+      "id": "ie_e90de52191",
+      "name": "Iconic Health Clubs IFSC",
+      "brand": "Iconic Health Clubs"
+    },
+    {
+      "id": "ie_42999953b2",
+      "name": "Iconic Health Clubs Smithfield",
+      "brand": "Iconic Health Clubs"
+    },
+    {
+      "id": "ie_473cfd314f",
+      "name": "Shoreline Leisure Bray",
+      "brand": "Shoreline Leisure"
+    },
+    {
+      "id": "ie_e7ced5aa52",
+      "name": "Shoreline Leisure Greystones",
+      "brand": "Shoreline Leisure"
+    },
+    {
+      "id": "ie_3225af54be",
+      "name": "West Wood Club Aston Quay",
+      "brand": "West Wood Club"
+    },
+    {
+      "id": "ie_f6926a1734",
+      "name": "West Wood Club Clontarf",
+      "brand": "West Wood Club"
+    },
+    {
+      "id": "ie_fff8f6c2e7",
+      "name": "West Wood Club Dún Laoghaire",
+      "brand": "West Wood Club"
+    },
+    {
+      "id": "ie_b9072fcf04",
+      "name": "West Wood Club Leopardstown",
+      "brand": "West Wood Club"
+    },
+    {
+      "id": "ie_6719049de4",
+      "name": "West Wood Club Sandymount",
+      "brand": "West Wood Club"
+    },
+    {
+      "id": "ie_3695d3f418",
+      "name": "West Wood Club Westmanstown",
+      "brand": "West Wood Club"
+    }
+  ]
+}

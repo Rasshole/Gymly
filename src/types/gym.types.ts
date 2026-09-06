@@ -35,16 +35,24 @@ export interface GymStats {
   totalRatings: number; // Number of ratings
 }
 
+export interface GymDayHours {
+  open: string;
+  close: string;
+  /** Staffed/reception hours — string for simple or complex schedules */
+  staffed?: string | null;
+}
+
 export interface GymHours {
   gymId: string;
-  monday?: {open: string; close: string}; // e.g., "06:00", "22:00"
-  tuesday?: {open: string; close: string};
-  wednesday?: {open: string; close: string};
-  thursday?: {open: string; close: string};
-  friday?: {open: string; close: string};
-  saturday?: {open: string; close: string};
-  sunday?: {open: string; close: string};
-  isOpen24Hours?: boolean; // Some gyms are open 24/7
+  monday?: GymDayHours;
+  tuesday?: GymDayHours;
+  wednesday?: GymDayHours;
+  thursday?: GymDayHours;
+  friday?: GymDayHours;
+  saturday?: GymDayHours;
+  sunday?: GymDayHours;
+  isOpen24Hours?: boolean;
+  notes?: string;
 }
 
 export interface GymStatus {

@@ -1,0 +1,62 @@
+{
+  "country": "San Marino",
+  "phase": 2,
+  "verdict": "READY FOR SAN MARINO MERGE",
+  "phase3_required": false,
+  "small_market_model": "INDEPENDENT_PHASE_EXECUTED",
+  "production_total": 11715,
+  "production_sha256": "0e21508d09f038bcd4d20d59f37f8b09d326faa9ecacf262e09db330852e0c28",
+  "san_marino_live": 0,
+  "monaco_live": 4,
+  "andorra_live": 12,
+  "liechtenstein_live": 7,
+  "iceland_live": 27,
+  "unique_staged": 50,
+  "ready_count": 6,
+  "needs_review_count": 0,
+  "needs_coordinates_count": 0,
+  "excluded_count": 44,
+  "status_counts": {
+    "READY_TO_IMPORT": 6,
+    "EXCLUDED": 43,
+    "CLOSED": 1
+  },
+  "phase1_needs_review_recovered": 6,
+  "phase1_promoted": 6,
+  "phase1_excluded_from_review": 0,
+  "class_a_chains": 0,
+  "class_a_locations_ready": 0,
+  "ready_by_eligibility": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 6
+  },
+  "new_legitimate_gyms_discovered": 0,
+  "castello_coverage": {
+    "San Marino": "READY_present",
+    "Borgo Maggiore": "READY_present",
+    "Serravalle": "READY_present",
+    "Domagnano": "READY_present",
+    "Fiorentino": "A_legitimate_no_local_gym",
+    "Acquaviva": "A_legitimate_no_local_gym",
+    "Faetano": "A_legitimate_no_local_gym",
+    "Chiesanuova": "A_legitimate_no_local_gym",
+    "Montegiardino": "A_legitimate_no_local_gym"
+  },
+  "unexplained_castello_bd_gaps": 0,
+  "fsbb_classification": "A_PUBLIC_CONVENTIONAL_GYM",
+  "energia_wellness_role": "ADDITIVE",
+  "multieventi_remains_excluded": true,
+  "dq_gates": {
+    "italian_contamination": 0,
+    "foreign_outliers": 0,
+    "fallback_coordinates": 0,
+    "duplicate_ids": 0,
+    "hard_duplicate_problems": 0,
+    "hotel_spa_private_leakage": 0,
+    "unresolved_rebrand_conflicts": 0
+  },
+  "projected_catalog_if_merged": 11721,
+  "crossed_12500_if_merged": false,
+  "global_stress_qa_required": false,
+  "architecture": "KEEP CLIENT-SIDE"
+}

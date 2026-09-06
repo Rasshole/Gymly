@@ -1,0 +1,26 @@
+{
+  "as_of": "2026-08-26",
+  "operator": "Fitness Factory / SPORTS BUSINESS FACTORY (S.B.F.) LTD",
+  "current_clubs": 1,
+  "class_a": false,
+  "discovery_gap_closed": true,
+  "claimed_multi_city_inflated": true,
+  "locations": [
+    {
+      "id": "cy_1e92561d3f",
+      "name": "Fitness Factory Nicosia Engomi",
+      "address": "Pindou 4",
+      "postal_code": "2409",
+      "city": "Engomi",
+      "lat": 35.1668109,
+      "lng": 33.3280729,
+      "status": "OPEN",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "verdict": "SINGLE_CLUB_INDEPENDENT_READY",
+  "sources": [
+    "https://www.fitnessfactory.cy/",
+    "https://i-cyprus.com/company/528356"
+  ]
+}

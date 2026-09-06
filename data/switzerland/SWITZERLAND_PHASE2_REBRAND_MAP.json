@@ -1,0 +1,22 @@
+{
+  "basefit.ch": {
+    "successor": "PureGym",
+    "year": 2022,
+    "action": "use PureGym identity only"
+  },
+  "ONE Training Center": {
+    "successor": "ACTIV FITNESS",
+    "year": 2022,
+    "action": "EXCLUDE separate import; merged into ACTIV"
+  },
+  "Silhouette Wellness": {
+    "successor": "ACTIV FITNESS",
+    "year": 2017,
+    "action": "EXCLUDE legacy brand"
+  },
+  "Only Fitness": {
+    "successor": "ACTIV FITNESS",
+    "year": 2022,
+    "action": "EXCLUDE legacy brand"
+  }
+}

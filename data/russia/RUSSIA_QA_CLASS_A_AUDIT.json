@@ -1,0 +1,20 @@
+{
+  "chain_count": 5,
+  "names": [
+    "World Class",
+    "X-Fit",
+    "Alex Fitness",
+    "DDxFitness",
+    "Spirit Fitness"
+  ],
+  "production": {
+    "World Class": 35,
+    "X-Fit": 31,
+    "Alex Fitness": 11,
+    "DDxFitness": 25,
+    "Spirit Fitness": 2
+  },
+  "estate_gaps": 0,
+  "missed_estate_gaps": 0,
+  "production_drift": []
+}

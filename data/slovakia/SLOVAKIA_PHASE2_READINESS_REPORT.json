@@ -1,0 +1,169 @@
+{
+  "country": "Slovakia",
+  "phase": 2,
+  "generated_at": "2026-08-24T17:05:35.090307+00:00",
+  "production_total": 11217,
+  "slovakia_live": 0,
+  "production_sha_before": "f31734acfd849b54f7cfeeb8d8f896980ed90fd975a87ae85f2aa1c6d1356854",
+  "production_sha_after": "f31734acfd849b54f7cfeeb8d8f896980ed90fd975a87ae85f2aa1c6d1356854",
+  "phase1_ready": 32,
+  "phase1_ready_preserved_in_phase2_ready": 32,
+  "recovered_unresolved": 5,
+  "unique_staged": 41,
+  "status_counts": {
+    "READY_TO_IMPORT": 37,
+    "CLOSED": 1,
+    "COMING_SOON": 3
+  },
+  "ready_count": 37,
+  "ready_by_brand": {
+    "FITINN": 3,
+    "Golem Club": 11,
+    "365 Fit&Co": 8,
+    "Form Factory": 15
+  },
+  "brands": {
+    "Golem Club": {
+      "discovered": 11,
+      "ready": 11,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "official_current": 11,
+      "verdict": "COMPLETE",
+      "coverage_pct": 100.0
+    },
+    "Form Factory": {
+      "discovered": 18,
+      "ready": 15,
+      "unresolved": 0,
+      "coming_soon": 3,
+      "closed": 0,
+      "official_current": 18,
+      "verdict": "COMPLETE",
+      "coverage_pct": 100.0
+    },
+    "365 Fit&Co": {
+      "discovered": 9,
+      "ready": 8,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 1,
+      "official_current": 8,
+      "verdict": "COMPLETE",
+      "coverage_pct": 100.0
+    },
+    "FITINN": {
+      "discovered": 3,
+      "ready": 3,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "official_current": 3,
+      "verdict": "COMPLETE",
+      "coverage_pct": 100.0
+    }
+  },
+  "fitinn_audit": {
+    "official_current": 3,
+    "official_slugs": [
+      "bratislava-prior",
+      "bratislava-nido",
+      "nitra"
+    ],
+    "secondary_mentions_not_on_official": [
+      {
+        "name": "FITINN VIVO / Polus",
+        "status": "NOT_ON_OFFICIAL_LOCATOR",
+        "http": 404,
+        "action": "do_not_import; treat secondary listings as stale/closed"
+      },
+      {
+        "name": "FITINN Petržalka Kopčianska",
+        "status": "NOT_ON_OFFICIAL_LOCATOR",
+        "http": 404,
+        "action": "do_not_import; treat secondary listings as stale/closed"
+      }
+    ],
+    "verdict": "COMPLETE",
+    "notes": "fitinn.sk multi-country index filtered to SK PSČ studios; only 3 live SK pages"
+  },
+  "golem_recheck": {
+    "official_estimate": 11,
+    "discovered": 11,
+    "ready": 11,
+    "physio_rows": 0,
+    "verdict": "COMPLETE",
+    "notes": "Phase 2 light recheck — VOP 11 fitness clubs; physiotherapy still excluded"
+  },
+  "regional_ready": {
+    "Bratislava": 21,
+    "Košice": 5,
+    "Prešov": 1,
+    "Žilina": 2,
+    "Banská Bystrica": 1,
+    "Nitra": 1,
+    "Trnava": 0,
+    "Trenčín": 2,
+    "Martin": 1,
+    "Poprad": 1,
+    "Spišská Nová Ves": 1,
+    "Považská Bystrica": 1,
+    "Other": 0
+  },
+  "trnava_gap": {
+    "classification": "A_legitimate_no_chain_presence",
+    "evidence": "No Golem/Form Factory/FITINN/365 Fit&Co current club in Trnava"
+  },
+  "missed_chain_check": [
+    {
+      "chain": "EfectFit",
+      "class": "C",
+      "action": "EXCLUDED",
+      "note": "private PT specialty"
+    },
+    {
+      "chain": "MultiSport",
+      "class": "B",
+      "action": "EXCLUDED",
+      "note": "pass aggregator"
+    },
+    {
+      "chain": "Mozolani / Maximus",
+      "class": "E",
+      "action": "EXCLUDED",
+      "note": "below threshold"
+    },
+    {
+      "chain": "FITINN VIVO/Petržalka secondary",
+      "class": "F",
+      "action": "EXCLUDED",
+      "note": "404 on official locator; not current estate"
+    }
+  ],
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "proximity": {
+    "same_brand": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 0,
+      "identical": 0
+    },
+    "different_brand_le_100m": 0
+  },
+  "projected_catalog": 11254,
+  "would_cross_12500": false,
+  "global_stress_qa_required_if_merged": false,
+  "material_blockers": [],
+  "phase3_required": false,
+  "verdict": "READY FOR SLOVAKIA MERGE"
+}

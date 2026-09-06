@@ -1,0 +1,37 @@
+{
+  "country": "Liechtenstein",
+  "phase": 2,
+  "cases": [
+    {
+      "id": "salutaris_lorez_schaan",
+      "classification": "A_current_successor",
+      "predecessor": "Salutaris Training Schaan",
+      "successor_candidate": "Lorez Gesundheitscenter Schaan",
+      "final": "Gesundheitscenter EXCLUDED as medical/health-training-led; Salutaris remains CLOSED; Power Center Bendern is conventional Lorez READY",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "blugym_purfitness_schaan",
+      "classification": "A_current_successor",
+      "predecessor": "fitnesshaus by blugym Schaan",
+      "successor": "purfitness Schaan",
+      "status": "RESOLVED",
+      "ready_id": "li_35eed72b39"
+    },
+    {
+      "id": "lorez_bendern_colocation",
+      "classification": "B_co_located_not_separate_club",
+      "units": "Lorez Power Center Bendern only (READY)",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "liefit_geoway_eschen",
+      "classification": "C_specialty_service_vs_conventional_gym",
+      "conventional_ready": "LieFit Vaduz",
+      "specialty_excluded": "GEOWAY Eschen",
+      "operators": "same (LieFit GmbH / Christof & Sabrin)",
+      "status": "RESOLVED"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

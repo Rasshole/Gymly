@@ -1,0 +1,23 @@
+{
+  "pairs": [
+    {
+      "a": "Adrenalin Orion Tiraspol",
+      "b": "directory Adrenalin Orion",
+      "classification": "SAME_CURRENT_PREMISES",
+      "notes": "Directory + operator site describe same TC Orion premises"
+    },
+    {
+      "a": "Energy Fitness Telecentru",
+      "b": "legacy Testemițanu listings",
+      "classification": "SAME_CURRENT_PREMISES",
+      "notes": "Address 29/5 consistent across efitness.md / STAR Card / Waze"
+    },
+    {
+      "a": "Unica Sport legacy Silueta+/Sport Line",
+      "b": "Unica Sport current brand",
+      "classification": "PREDECESSOR_SUCCESSOR",
+      "notes": "Historical shaping network renamed; EXCLUDED as women-only"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

@@ -1,0 +1,74 @@
+{
+  "duplicate_ids": [],
+  "unexplained_hard_duplicates": 0,
+  "pre_merge_proximity": {
+    "same_brand_lt25": [],
+    "same_brand_lt50": [],
+    "same_brand_lt100": [],
+    "same_brand_lt200": [],
+    "different_brand_lt25": [],
+    "different_brand_lt50": [],
+    "different_brand_lt100": [],
+    "different_brand_lt200": [],
+    "identical": [],
+    "sameAddr": []
+  },
+  "post_merge_proximity": {
+    "same_brand_lt25": [],
+    "same_brand_lt50": [],
+    "same_brand_lt100": [],
+    "same_brand_lt200": [],
+    "different_brand_lt25": [],
+    "different_brand_lt50": [],
+    "different_brand_lt100": [],
+    "different_brand_lt200": [],
+    "identical": [],
+    "sameAddr": []
+  },
+  "known_legitimate_proximity": [],
+  "included": [
+    {
+      "id": "sm_54007fb102",
+      "name": "Dynamic Fitness Center Dogana",
+      "brand": "Dynamic Fitness Center",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM"
+    },
+    {
+      "id": "sm_8e18d472a9",
+      "name": "Phisicol Fitness Club Borgo Maggiore",
+      "brand": "Phisicol",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM"
+    },
+    {
+      "id": "sm_cc1fd3ba1d",
+      "name": "Energia Wellness & Fitness Serravalle",
+      "brand": "Energia Wellness & Fitness",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM"
+    },
+    {
+      "id": "sm_3c035258fb",
+      "name": "MOVE Sala Pesi Città di San Marino",
+      "brand": "MOVE",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM"
+    },
+    {
+      "id": "sm_d1cb014d10",
+      "name": "FSBB Palestra Galazzano",
+      "brand": "Federazione Sammarinese Body Building",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_PUBLIC_CONVENTIONAL_GYM"
+    },
+    {
+      "id": "sm_a5d9743343",
+      "name": "FitLife San Marino Domagnano",
+      "brand": "FitLife",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM"
+    }
+  ],
+  "skipped_existing_id": []
+}

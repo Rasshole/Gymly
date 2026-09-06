@@ -1,0 +1,10 @@
+{
+  "global_stress_qa_verdict": "GLOBAL STRESS QA: PASS",
+  "global_scale_gate_12500": "PASSED",
+  "architecture_decision": "KEEP CLIENT-SIDE",
+  "recommended_next_global_stress_threshold": 15000,
+  "global_performance_baseline_valid": true,
+  "parse_median_ms": 18,
+  "search_median_ms": 120,
+  "nearest_median_ms": 25
+}

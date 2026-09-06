@@ -1,0 +1,9 @@
+{
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [],
+  "skipped_non_norway_id_collision": [],
+  "skipped_batch_dup_addr_brand": [],
+  "allowed_colocated_different_brand": [],
+  "included": []
+}

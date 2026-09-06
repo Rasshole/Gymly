@@ -1,0 +1,9 @@
+{
+  "real_global_regression": 0,
+  "stale_historical_baseline": [
+    "__tests__/global10kStressQa.test.ts",
+    "__tests__/russiaPhase1Staging.test.ts",
+    "__tests__/russiaPhase2Staging.test.ts"
+  ],
+  "other_test_debt": []
+}

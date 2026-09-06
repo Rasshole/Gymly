@@ -1,0 +1,253 @@
+{
+  "generated_at": "2026-08-29T21:41:20.300Z",
+  "catalog_total": 12850,
+  "global_country_count": 49,
+  "countries": [
+    {
+      "country": "France",
+      "prefix": "fr_",
+      "count": 1712
+    },
+    {
+      "country": "United Kingdom",
+      "prefix": "gb_",
+      "count": 1474
+    },
+    {
+      "country": "Germany",
+      "prefix": "de_",
+      "count": 1424
+    },
+    {
+      "country": "Spain",
+      "prefix": "es_",
+      "count": 976
+    },
+    {
+      "country": "Sweden",
+      "prefix": "se_",
+      "count": 639
+    },
+    {
+      "country": "Poland",
+      "prefix": "pl_",
+      "count": 621
+    },
+    {
+      "country": "Netherlands",
+      "prefix": "nl_",
+      "count": 600
+    },
+    {
+      "country": "Italy",
+      "prefix": "it_",
+      "count": 588
+    },
+    {
+      "country": "Norway",
+      "prefix": "no_",
+      "count": 535
+    },
+    {
+      "country": "Switzerland",
+      "prefix": "ch_",
+      "count": 475
+    },
+    {
+      "country": "Russia",
+      "prefix": "ru_",
+      "count": 465
+    },
+    {
+      "country": "Finland",
+      "prefix": "fi_",
+      "count": 429
+    },
+    {
+      "country": "Belgium",
+      "prefix": "be_",
+      "count": 363
+    },
+    {
+      "country": "Denmark",
+      "prefix": "unknown",
+      "count": 354
+    },
+    {
+      "country": "Austria",
+      "prefix": "at_",
+      "count": 335
+    },
+    {
+      "country": "Portugal",
+      "prefix": "pt_",
+      "count": 247
+    },
+    {
+      "country": "Turkey",
+      "prefix": "tr_",
+      "count": 198
+    },
+    {
+      "country": "Romania",
+      "prefix": "ro_",
+      "count": 154
+    },
+    {
+      "country": "Greece",
+      "prefix": "gr_",
+      "count": 106
+    },
+    {
+      "country": "Ukraine",
+      "prefix": "ua_",
+      "count": 105
+    },
+    {
+      "country": "Bulgaria",
+      "prefix": "bg_",
+      "count": 82
+    },
+    {
+      "country": "Croatia",
+      "prefix": "hr_",
+      "count": 80
+    },
+    {
+      "country": "Czechia",
+      "prefix": "cz_",
+      "count": 70
+    },
+    {
+      "country": "Estonia",
+      "prefix": "ee_",
+      "count": 69
+    },
+    {
+      "country": "Ireland",
+      "prefix": "unknown",
+      "count": 65
+    },
+    {
+      "country": "Serbia",
+      "prefix": "rs_",
+      "count": 63
+    },
+    {
+      "country": "Lithuania",
+      "prefix": "lt_",
+      "count": 61
+    },
+    {
+      "country": "Hungary",
+      "prefix": "hu_",
+      "count": 50
+    },
+    {
+      "country": "Belarus",
+      "prefix": "by_",
+      "count": 46
+    },
+    {
+      "country": "Azerbaijan",
+      "prefix": "az_",
+      "count": 46
+    },
+    {
+      "country": "Slovakia",
+      "prefix": "sk_",
+      "count": 37
+    },
+    {
+      "country": "Armenia",
+      "prefix": "am_",
+      "count": 36
+    },
+    {
+      "country": "Slovenia",
+      "prefix": "si_",
+      "count": 33
+    },
+    {
+      "country": "Latvia",
+      "prefix": "lv_",
+      "count": 33
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "prefix": "ba_",
+      "count": 31
+    },
+    {
+      "country": "Moldova",
+      "prefix": "md_",
+      "count": 28
+    },
+    {
+      "country": "Iceland",
+      "prefix": "is_",
+      "count": 27
+    },
+    {
+      "country": "Montenegro",
+      "prefix": "me_",
+      "count": 26
+    },
+    {
+      "country": "North Macedonia",
+      "prefix": "mk_",
+      "count": 25
+    },
+    {
+      "country": "Georgia",
+      "prefix": "ge_",
+      "count": 25
+    },
+    {
+      "country": "Malta",
+      "prefix": "mt_",
+      "count": 24
+    },
+    {
+      "country": "Luxembourg",
+      "prefix": "lu_",
+      "count": 20
+    },
+    {
+      "country": "Kosovo",
+      "prefix": "xk_",
+      "count": 18
+    },
+    {
+      "country": "Cyprus",
+      "prefix": "cy_",
+      "count": 17
+    },
+    {
+      "country": "Andorra",
+      "prefix": "ad_",
+      "count": 12
+    },
+    {
+      "country": "Albania",
+      "prefix": "al_",
+      "count": 9
+    },
+    {
+      "country": "Liechtenstein",
+      "prefix": "li_",
+      "count": 7
+    },
+    {
+      "country": "San Marino",
+      "prefix": "sm_",
+      "count": 6
+    },
+    {
+      "country": "Monaco",
+      "prefix": "mc_",
+      "count": 4
+    }
+  ],
+  "sum": 12850
+}

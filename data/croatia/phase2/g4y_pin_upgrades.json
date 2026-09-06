@@ -1,0 +1,122 @@
+[
+  {
+    "id": "hr_b66788cf76",
+    "name": "Gyms4you Karlovac Vladimira Nazora",
+    "old": [
+      45.4903064,
+      15.5497566,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      45.4903303,
+      15.5451808
+    ],
+    "delta_m": 357,
+    "label": "Gyms4you Karlovac Google place"
+  },
+  {
+    "id": "hr_0ca0078481",
+    "name": "Gyms4you Velimira Škorpika",
+    "old": [
+      43.7123812,
+      15.9132653,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      43.7126187,
+      15.9096833
+    ],
+    "delta_m": 289,
+    "label": "Gyms4you Sibenik Google place"
+  },
+  {
+    "id": "hr_84e357681f",
+    "name": "Gyms4you Put Murvice",
+    "old": [
+      44.1099529,
+      15.2425597,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      44.1103356,
+      15.2365352
+    ],
+    "delta_m": 483,
+    "label": "Gyms4you Zadar Google place"
+  },
+  {
+    "id": "hr_184f08ae2b",
+    "name": "Gyms4you Remiza",
+    "old": [
+      45.7961866,
+      15.9403093,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      45.7961716,
+      15.938063
+    ],
+    "delta_m": 174,
+    "label": "Gyms4you Remiza Google place"
+  },
+  {
+    "id": "hr_4de6622372",
+    "name": "Gyms4you Črnomerec",
+    "old": [
+      45.8110839,
+      15.9506829,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      45.8111435,
+      15.9506153
+    ],
+    "delta_m": 8,
+    "label": "Gyms4you Grada Mainza / Črnomerec"
+  },
+  {
+    "id": "hr_027ef1cdb6",
+    "name": "Gyms4you Dubrava Risnjačka",
+    "old": [
+      45.8411028,
+      16.0512845,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      45.8420819,
+      16.0527289
+    ],
+    "delta_m": 156,
+    "label": "Gyms4you Risnjačka street pin"
+  },
+  {
+    "id": "hr_c6281ff5fd",
+    "name": "Gyms4you Osijek Trg slobode",
+    "old": [
+      45.5595051,
+      18.6784846,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      45.5600622,
+      18.6759977
+    ],
+    "delta_m": 203,
+    "label": "Gyms4you Osijek Google place"
+  },
+  {
+    "id": "hr_7c9fb9de75",
+    "name": "Gyms4you Voltino",
+    "old": [
+      45.8073858,
+      15.93022,
+      "STRICT_ADDRESS_GEOCODE"
+    ],
+    "new": [
+      45.8072089,
+      15.9309389
+    ],
+    "delta_m": 59,
+    "label": "Gyms4you Dragutina Golika / Voltino"
+  }
+]

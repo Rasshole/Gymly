@@ -1,0 +1,155 @@
+[
+  {
+    "id": "at_1dbe412d80",
+    "brand": "MYGYM",
+    "address": "Waagstraße 2",
+    "postal_code": "5671",
+    "city": "Bruck/Glstr.",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "at_231c7db897",
+    "brand": "Mrs.Sporty",
+    "address": "Hauptstraße 81",
+    "postal_code": "5600",
+    "city": "St. Johann i. Pg.",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "at_46fdec1737",
+    "brand": "MYGYM",
+    "address": "K\\xf6stendorferstra\\xdfe 31",
+    "postal_code": "5204",
+    "city": "Stra\\xdfwalchen",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "at_47a272f629",
+    "brand": "MYGYM",
+    "address": "Josef-Lindner-Stra\\xdfe 8a",
+    "postal_code": "5071",
+    "city": "Wals bei Salzburg",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "at_5933130496",
+    "brand": "FITINN",
+    "address": "Pasching",
+    "postal_code": "4061",
+    "city": "PlusCity",
+    "status": "NEEDS_COORDINATES",
+    "notes": "slug=pasching-pluscity; geocode_reject"
+  },
+  {
+    "id": "at_a2731257df",
+    "brand": "MYGYM",
+    "address": "Waagstra\\xdfe 2",
+    "postal_code": "5671",
+    "city": "Bruck/Glstr.",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "at_a59f25d7db",
+    "brand": "MYGYM",
+    "address": "Josef-Lindner-Straße 8a",
+    "postal_code": "5071",
+    "city": "Wals bei Salzburg",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "at_b2ede0fcde",
+    "brand": "Speedfit",
+    "address": "dfe 10",
+    "postal_code": "9020",
+    "city": "Klagenfurt am W",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "at_e8ea60f875",
+    "brand": "FITINN",
+    "address": "SCS-Shoppping City Süd",
+    "postal_code": "2026",
+    "city": "SCS-Shoppping City Süd",
+    "status": "NEEDS_COORDINATES",
+    "notes": "slug=wiener-neudorf-scs; fitinn_phase2_gap; phase2_recovery"
+  },
+  {
+    "id": "at_07c56ad044",
+    "brand": "MYGYM",
+    "address": "F\\xfcrbergstra\\xdfe 18-20",
+    "postal_code": "5020",
+    "city": "Salzburg",
+    "status": "NEEDS_REVIEW",
+    "notes": "; geocode_reject; same_brand_lt50m_vs_at_1f4f981aab; same_brand_lt50m_vs_at_1f4f981aab"
+  },
+  {
+    "id": "at_1f4f981aab",
+    "brand": "MYGYM",
+    "address": "Alpenstra\\xdfe 95-97",
+    "postal_code": "5020",
+    "city": "Salzburg",
+    "status": "NEEDS_REVIEW",
+    "notes": "; geocode_reject; same_brand_lt50m_vs_at_07c56ad044; same_brand_lt50m_vs_at_07c56ad044"
+  },
+  {
+    "id": "at_6e271a66f1",
+    "brand": "MYGYM",
+    "address": "W\\xf6ltingerstraße 9",
+    "postal_code": "5580",
+    "city": "Tamsweg",
+    "status": "NEEDS_REVIEW",
+    "notes": "mygym_map_marker; addr=W\\xf6ltingerstraße 9, 5580 Tamsweg; phase2_recovery; same_brand_lt50m_vs_at_ec70c5a914; same_brand_lt50m_vs_at_ec70c5a914"
+  },
+  {
+    "id": "at_73de0265a4",
+    "brand": "McFIT",
+    "address": "Doningasse 12/2/8",
+    "postal_code": "1220",
+    "city": "Wien",
+    "status": "NEEDS_REVIEW",
+    "notes": "magicline_id=1869778900; tags=AT,McFIT,PK0,aktiv; same_brand_lt50m_vs_at_a9cc56c1a9; same_brand_lt50m_vs_at_a9cc56c1a9; same_brand_lt50m_vs_at_a9cc56c1a9"
+  },
+  {
+    "id": "at_93d7bb70c1",
+    "brand": "Mrs.Sporty",
+    "address": "",
+    "postal_code": "",
+    "city": "",
+    "status": "NEEDS_REVIEW",
+    "notes": "phase2_recovery; classify=missing_address,bad_postal,missing_city; classify=missing_address,bad_postal,missing_city"
+  },
+  {
+    "id": "at_9ad48bbba4",
+    "brand": "Speedfit",
+    "address": "",
+    "postal_code": "1230",
+    "city": "Wien",
+    "status": "NEEDS_REVIEW",
+    "notes": "classify=missing_address,missing_coords; classify=missing_address,missing_coords; classify=missing_address,missing_coords"
+  },
+  {
+    "id": "at_dcbfa00083",
+    "brand": "MYGYM",
+    "address": "Itzlinger Hauptstra\\xdfe 93a",
+    "postal_code": "5020",
+    "city": "Salzburg",
+    "status": "NEEDS_REVIEW",
+    "notes": "; geocode_reject; same_brand_lt50m_vs_at_07c56ad044; same_brand_lt50m_vs_at_07c56ad044"
+  },
+  {
+    "id": "at_ec70c5a914",
+    "brand": "MYGYM",
+    "address": "Wöltingerstraße 9",
+    "postal_code": "5580",
+    "city": "Tamsweg",
+    "status": "NEEDS_REVIEW",
+    "notes": "; same_brand_lt50m_vs_at_6e271a66f1; same_brand_lt50m_vs_at_6e271a66f1"
+  }
+]

@@ -1,0 +1,4890 @@
+{
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [],
+  "skipped_batch_dup": [],
+  "withheld_questionable": [],
+  "included": [
+    {
+      "id": "es_6fb1a76699",
+      "name": "Altafit Albacete Mariana Pineda",
+      "brand": "Altafit"
+    },
+    {
+      "id": "es_a56fdead23",
+      "name": "Altafit General Ricardos",
+      "brand": "Altafit"
+    },
+    {
+      "id": "es_8679583a18",
+      "name": "Altafit Las Rozas",
+      "brand": "Altafit"
+    },
+    {
+      "id": "es_954b7bfbdd",
+      "name": "Altafit Puerta de Toledo",
+      "brand": "Altafit"
+    },
+    {
+      "id": "es_b671e14d70",
+      "name": "Altafit Talavera",
+      "brand": "Altafit"
+    },
+    {
+      "id": "es_4ef3ac23ac",
+      "name": "Basic-Fit Gym A Coruña Avd. Salvador de Madariaga A Coruna",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_27c4c5b93d",
+      "name": "Basic-Fit Gym Rúa Alcalde Marchesi A Coruña",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_972bef600c",
+      "name": "Basic-Fit Gym Calle San Juan 33 Albacete",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_9a3d8ed170",
+      "name": "Basic-Fit Gym Calle Tesifonte Gallego Albacete",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_31b75e38af",
+      "name": "Basic-Fit Gym Conangla Albacete",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_80dad9dc20",
+      "name": "Basic-Fit Gym Federico Garcia Lorca C.C. Vialia Albacete",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f3bce1938d",
+      "name": "Basic-Fit Gym Paseo Circunvalación 75 Albacete",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_dd63a1e154",
+      "name": "Basic-Fit Gym Paseo Serra d'Espadá Alboraya",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_09381c827f",
+      "name": "Basic-Fit Gym Alcala de Henares C. Federico Garcia Lorca Alcalá de Henares",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_7daf60fe50",
+      "name": "Basic-Fit Gym Bretón Alcalá de Henares",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_adfcdaefa6",
+      "name": "Basic-Fit Gym Calle Azucena Alcalá de Henares",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ca7ba94c5e",
+      "name": "Basic-Fit Gym Salvador Allende 24/7 Alcobendas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2f6c8d8454",
+      "name": "Basic-Fit Gym Avenida Portugal Alcorcón",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fd4afb7a1e",
+      "name": "Basic-Fit Gym CC Tres Aguas Alcorcón",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2975180079",
+      "name": "Basic-Fit Gym Avenida Alameda Camilo Sesto 51 Alcoy",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0373a583ca",
+      "name": "Basic-Fit Gym Avenida Virgen del Carmen Algeciras",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_83876c8b41",
+      "name": "Basic-Fit Gym Basic-Fit Alicante Calle Alcalali",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ed0a7ea5ae",
+      "name": "Basic-Fit Gym Basic-Fit Alicante Calle Alonso Cano",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_dd3160cda4",
+      "name": "Basic-Fit Gym Basic-Fit Alicante Calle Padre Recaredo de Los Rios",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ad56afbf77",
+      "name": "Basic-Fit Gym Basic-Fit Almassora Avinguda de Castelló",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_a4a22170d9",
+      "name": "Basic-Fit Gym Basic-Fit Almería Avd. Federico Garcia Lorca",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_6487be8bc5",
+      "name": "Basic-Fit Gym Basic-Fit Almería Calle Freniche",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ca1c57c3b5",
+      "name": "Basic-Fit Gym Basic-Fit Alzira Avinguda Alcalde Francisco Blasco 2",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c67253e8ce",
+      "name": "Basic-Fit Gym Basic-Fit Arganda CC La Milla",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5627c8ca72",
+      "name": "Basic-Fit Gym Basic-Fit Armilla Av. Fernando de los Ríos 7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_752b045586",
+      "name": "Basic-Fit Gym Basic-Fit Ávila Calle Victimas del Terrorismo 30",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ddcbdb84ec",
+      "name": "Basic-Fit Gym Basic-Fit Avilés Avenida Telares",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_51b40063a5",
+      "name": "Basic-Fit Gym Basic-Fit Badalona Carrer de Moli de la Torre",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4f1b8992d5",
+      "name": "Basic-Fit Gym Basic-Fit Barakaldo C. Jose Vara",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fc35357b87",
+      "name": "Basic-Fit Gym Basic-Fit Barakaldo Mercado Municipal",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_3b56a72546",
+      "name": "Basic-Fit Gym Basic-Fit Barbera del Valles Carretera Barcelona N150 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_a423f2064a",
+      "name": "Basic-Fit Gym Basic-Fit Barcelona Avd. Josep Tarradellas 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_a6b24223d5",
+      "name": "Basic-Fit Gym Basic-Fit Barcelona Avinguda de Vallcarca 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_70f8f22d38",
+      "name": "Basic-Fit Gym Basic-Fit Barcelona C. Verdi 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0b190418df",
+      "name": "Basic-Fit Gym Basic-Fit Barcelona Carrer de Guipúscoa 183 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c60785b3a2",
+      "name": "Basic-Fit Gym Basic-Fit Barcelona Carrer de Sardenya",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_61840f3c9e",
+      "name": "Basic-Fit Gym Basic-Fit Barcelona Gran Via de las Cortes Catalanas 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_538dd779e2",
+      "name": "Basic-Fit Gym Basic-Fit Barcelona C. Mallorca",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_43a6c10029",
+      "name": "Basic-Fit Gym Basic-Fit Benalmádena Plaza Solymar",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_766b4881a0",
+      "name": "Basic-Fit Gym Basic-Fit Bilbao Iturriaga",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_02e8c861ee",
+      "name": "Basic-Fit Gym Basic-Fit Bilbao Juan de Garay Kalea",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_66429a48f1",
+      "name": "Basic-Fit Gym Basic-Fit Bilbao Rodríguez Arias",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_011c5a1acb",
+      "name": "Basic-Fit Gym Basic-Fit Burgos Calle Serramagna",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_583cc0e3c6",
+      "name": "Basic-Fit Gym Basic-Fit Burgos Calle Vitoria",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_3ed583ff51",
+      "name": "Basic-Fit Gym Basic-Fit Burjassot Avd. Ilustracion C.C. Parque Ademuz",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_b488b0b8de",
+      "name": "Basic-Fit Gym Basic-Fit Cádiz Avenida las Cortes de Cádiz",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ad8a64d6c0",
+      "name": "Basic-Fit Gym Basic-Fit Cartagena Avenida Colón",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1a4fb2db2c",
+      "name": "Basic-Fit Gym Basic-Fit Cartagena Paseo Alfonso XIII",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fdc4f7637b",
+      "name": "Basic-Fit Gym Basic-Fit Castellón de la Plana Avinguda de Barcelona",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_b6e195f9b3",
+      "name": "Basic-Fit Gym Basic-Fit Castellón de la Plana Gran Vía Tàrrega Monteblanco",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_dd0fe811d6",
+      "name": "Basic-Fit Gym Basic-Fit Chiclana de la Frontera Travesía Alameda de Solano",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e7c5a1704c",
+      "name": "Basic-Fit Gym Basic-Fit Ciudad Real Avenida de Valdepeñas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_3a19ae9cc4",
+      "name": "Basic-Fit Gym Basic-Fit Ciudad Real Ronda del Carmen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e9ccad7b8e",
+      "name": "Basic-Fit Gym Basic-Fit Córdoba Avenida de Cádiz",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_9f968ddcf5",
+      "name": "Basic-Fit Gym Basic-Fit Córdoba Avenida de los Almogávares",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_9f84687b41",
+      "name": "Basic-Fit Gym Basic-Fit Córdoba Calle Antonio Gaudí",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_97e5551d3c",
+      "name": "Basic-Fit Gym Basic-Fit Cornella de Llobregat C.Lasarte 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5131c5bf11",
+      "name": "Basic-Fit Gym Basic-Fit Cornella de Llobregat Carretera d'Esplugues",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_02fc81c0a6",
+      "name": "Basic-Fit Gym Basic-Fit Coslada Av. San Pablo",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_650b19a82f",
+      "name": "Basic-Fit Gym Basic-Fit Don Benito Calle Ayala",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_cd693a92bd",
+      "name": "Basic-Fit Gym Basic-Fit Dos Hermanas Avenida de Adolfo Suárez 39",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4b78bdbe9d",
+      "name": "Basic-Fit Gym Basic-Fit Dos Hermanas Calle Doctor Fleming",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_d6c4175625",
+      "name": "Basic-Fit Gym Basic-Fit El Ejido Bulevar del Ejido",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_83f72f5cb8",
+      "name": "Basic-Fit Gym Basic-Fit El Ejido Calle Fernando I 14",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_24fb366307",
+      "name": "Basic-Fit Gym Basic-Fit El Puerto de Santa María Calle Albareda",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fda8011d16",
+      "name": "Basic-Fit Gym Basic-Fit El Puerto de Santa María Calle Valdés",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_86caf93472",
+      "name": "Basic-Fit Gym Basic-Fit Elche Avinguda d'Alacant 132",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c523435920",
+      "name": "Basic-Fit Gym Basic-Fit Elche Calle José García Ferrández",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_cfbe4670b9",
+      "name": "Basic-Fit Gym Basic-Fit Elche Carrer Costa Rica",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_12281a655b",
+      "name": "Basic-Fit Gym Basic-Fit Estepona Avenida España 224",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1a281a7df0",
+      "name": "Basic-Fit Gym Basic-Fit Fuenlabrada Calle Brasil",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5603464565",
+      "name": "Basic-Fit Gym Basic-Fit Gandia Carrer de Benicanena",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5d7f2b45b4",
+      "name": "Basic-Fit Gym Basic-Fit Gasteiz Calle Portal De Arriaga",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_b3402591fa",
+      "name": "Basic-Fit Gym Basic-Fit Gavà Avinguda de l'Eramprunyà 4 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_058127b687",
+      "name": "Basic-Fit Gym Basic-Fit Getafe Av. Juan Carlos I",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_d8946c318f",
+      "name": "Basic-Fit Gym Basic-Fit Gijón Avenida de José Manuel Palacio Álvarez",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ed62370fc4",
+      "name": "Basic-Fit Gym Basic-Fit Gijón Avenida de Portugal",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_688ad065ed",
+      "name": "Basic-Fit Gym Basic-Fit Gijon Carlos Marx",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_aefbd3247c",
+      "name": "Basic-Fit Gym Basic-Fit Gijón CC Los Fresnos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_59c4d06237",
+      "name": "Basic-Fit Gym Basic-Fit Granada C. Arabial",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0f84d69ddc",
+      "name": "Basic-Fit Gym Basic-Fit Granada Camino de Ronda",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_02add29067",
+      "name": "Basic-Fit Gym Basic-Fit Granada Plaza del Guitarrista Manuel Cano",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_07f33c3a7c",
+      "name": "Basic-Fit Gym Basic-Fit Guadalajara Avenida Eduardo Guitián",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_359c1f4d4f",
+      "name": "Basic-Fit Gym Basic-Fit Hospitalet de Llobregat Avd Josep Tarradellas 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_85b79eed30",
+      "name": "Basic-Fit Gym Basic-Fit Huelva Plaza de las Monjas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fe52ab376e",
+      "name": "Basic-Fit Gym Basic-Fit Jaén Paseo de España",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_10a15eb31b",
+      "name": "Basic-Fit Gym Basic-Fit Jerez Centro Comercial Jerez Norte",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_6487f8cf69",
+      "name": "Basic-Fit Gym Basic-Fit Jerez de la Frontera Calle de las Ciencias 14",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_66b7fe760b",
+      "name": "Basic-Fit Gym Basic-Fit Jerez",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4ef3250fc3",
+      "name": "Basic-Fit Gym Basic-Fit La Línea de la Concepción CC Gran Sur",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_49b7db0893",
+      "name": "Basic-Fit Gym Basic-Fit Las Lagunas de Mijas Calle Dinamarca",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_03865e1e59",
+      "name": "Basic-Fit Gym Basic-Fit Leganés Calle de Mondragón",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_31668f95dd",
+      "name": "Basic-Fit Gym Basic-Fit Leganés Eduardo Torroja",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_de61bc6b9c",
+      "name": "Basic-Fit Gym Basic-Fit Leganés La Cubierta",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4ccbfb80dc",
+      "name": "Basic-Fit Gym Basic-Fit Leganés Avd. Puerta del Sol",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2d87f07d23",
+      "name": "Basic-Fit Gym Basic-Fit León Avenida de Universidad",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_bf1e9c5ec7",
+      "name": "Basic-Fit Gym Basic-Fit León Calle Ramón y Cajal 23",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_423e36a35a",
+      "name": "Basic-Fit Gym Basic-Fit León Centro Comercial Oalma",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_705024cfa0",
+      "name": "Basic-Fit Gym Basic-Fit Lloret de Mar Centre Comercial PortaLloret",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_51e08fb396",
+      "name": "Basic-Fit Gym Basic-Fit Logroño Calle Madre de Dios",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f3818916cc",
+      "name": "Basic-Fit Gym Basic-Fit Logroño Avd. Lobete",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_19dbc4c651",
+      "name": "Basic-Fit Gym Basic-Fit Logroño Marqués de Murrieta",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_374e59be4e",
+      "name": "Basic-Fit Gym Basic-Fit Lorca Avenida Europa",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_8ce03e386c",
+      "name": "Basic-Fit Gym Basic-Fit Madrid C. Alcala",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ce28c9667c",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Benjamín Palencia",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_446ca848b8",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Bravo Murillo",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e1ccd9e4d7",
+      "name": "Basic-Fit Gym Basic-Fit Madrid C./ Paseo de la Castellana",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e00be7373c",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Calle Alcalá",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_53ee1763be",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Calle Atocha",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0366481f65",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Calle Carpesa",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_be6685ea48",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Calle Fuencarral",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c8526b25f4",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Calle Juan Mieg 12",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0140f02110",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Calle Orense",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e0e5fb788f",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Calle Toledo",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_caaed65d2f",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Canillas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c2e5d5c4c7",
+      "name": "Basic-Fit Gym Basic-Fit Madrid CC Albufera",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_8390d8bf2e",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Condesa de Venadito",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_cee859a872",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Delicias",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c6d531ea4e",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Doctor Esquerdo Pacífico",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_6c494d2a45",
+      "name": "Basic-Fit Gym Basic-Fit Madrid General Ricardos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_27974d2a09",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Glorieta de Cádiz",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_62f3899968",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Goya",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_351c3ea283",
+      "name": "Basic-Fit Gym Basic-Fit Madrid María Tubau",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fac4400b32",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Mercado Villa de Vallecas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_be5fdccdce",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Moncloa",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_bfa8b5825c",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Monforte de Lemos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1f25bc08d7",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Núñez de Balboa",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2288e438e9",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Padre Xifré",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f96ce1facb",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Paseo de Ginebra",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_502002c0e7",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Paseo de la Florida",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_7642e23cfa",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Puente de Vallecas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4e8ee1680e",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Raimundo Fernández Villaverde",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e7be011e4a",
+      "name": "Basic-Fit Gym Basic-Fit Madrid San Romualdo",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_a63c855eac",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Paseo Santa Maria de la Cabeza",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_804623f8d3",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Santo Domingo de Silos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f03a528d34",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Sor Ángela de la Cruz",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ae8a0e2ed6",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Valcarlos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_22594454e5",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Vía Carpetana",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c8fb2f71c0",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Virgen de la Paz",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_751cdcc2da",
+      "name": "Basic-Fit Gym Basic-Fit Madrid Virgen del Carmen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_d3091b34d0",
+      "name": "Basic-Fit Gym Basic-Fit Málaga Armengual de la Mota",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0791102826",
+      "name": "Basic-Fit Gym Basic-Fit Málaga Avenida de Isaac Peral",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_d3f56e668b",
+      "name": "Basic-Fit Gym Basic-Fit Málaga Bulevar Louis Pasteur",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_672184d835",
+      "name": "Basic-Fit Gym Basic-Fit Málaga Calle Félix García Palacios",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fae452c648",
+      "name": "Basic-Fit Gym Basic-Fit Málaga Calle Héroe de Sostoa",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_7387635c4c",
+      "name": "Basic-Fit Gym Basic-Fit Málaga Calle Olmos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c63a945059",
+      "name": "Basic-Fit Gym Basic-Fit Málaga Avd. Andalucia C.C. Carrefour Alameda",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_019dfbb682",
+      "name": "Basic-Fit Gym Basic-Fit Marbella Avenida Ricardo Soriano",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5784c4a449",
+      "name": "Basic-Fit Gym Basic-Fit Mataró Avd. de Europa 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_370b0cd4a9",
+      "name": "Basic-Fit Gym Basic-Fit Mérida Avenida de Portugal 33",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_d7c8935bdc",
+      "name": "Basic-Fit Gym Basic-Fit Molina de Segura Calle Cuesta del Puente 98",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_16b4fbc1c6",
+      "name": "Basic-Fit Gym Basic-Fit Móstoles Av. de Portugal",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_d3bf42a212",
+      "name": "Basic-Fit Gym Basic-Fit Móstoles Calle Juan de la Cierva",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_b8e115c966",
+      "name": "Basic-Fit Gym Basic-Fit Móstoles Calle de Perseo 5",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c5447f81e2",
+      "name": "Basic-Fit Gym Basic-Fit Motril Ronda de Levante",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4bf80d5489",
+      "name": "Basic-Fit Gym Basic-Fit Murcia Calle Proclamación",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5998486c75",
+      "name": "Basic-Fit Gym Basic-Fit Murcia Camino de la Paloma 25",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f472db86cc",
+      "name": "Basic-Fit Gym Basic-Fit Murcia Avd. Juan Carlos I C.C. Zig Zag",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_6d6ee213f8",
+      "name": "Basic-Fit Gym Basic-Fit Murcia Ronda de Levante 44",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_89c9e8fdd2",
+      "name": "Basic-Fit Gym Basic-Fit Narón Estrada Castelao",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_7ebf1a7f84",
+      "name": "Basic-Fit Gym Basic-Fit Oviedo Calle Matemático Pedrayes 20",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2c6a7a7b7a",
+      "name": "Basic-Fit Gym Basic-Fit Oviedo Calle Monte Cerrau",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4f46e590ef",
+      "name": "Basic-Fit Gym Basic-Fit Palencia C. Andalucía 6",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ce016ac256",
+      "name": "Basic-Fit Gym Basic-Fit Palma de Mallorca Avd. Portugal",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_49a7fff379",
+      "name": "Basic-Fit Gym Basic-Fit Pamplona Calle del Río Queiles 3",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_a5471091cf",
+      "name": "Basic-Fit Gym Basic-Fit Parla Calle María Zambrano 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1e9ecc95b9",
+      "name": "Basic-Fit Gym Basic-Fit Ponferrada Avenida España",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_b37b0053b7",
+      "name": "Basic-Fit Gym Basic-Fit Rincón de la Victoria",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ed4eed4e91",
+      "name": "Basic-Fit Gym Basic-Fit Ripollet C. Tarragona 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f41f2eb50a",
+      "name": "Basic-Fit Gym Basic-Fit Rubí Carretera a Sant Cugat 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2618c79a05",
+      "name": "Basic-Fit Gym Basic-Fit Sagunto Parque Comercial VidaNova",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_682cdbbf5c",
+      "name": "Basic-Fit Gym Basic-Fit Salamanca Avenida de los Cipreses",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_475da4c5c2",
+      "name": "Basic-Fit Gym Basic-Fit San Fernando Calle Soldadores 22",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_618122315e",
+      "name": "Basic-Fit Gym Basic-Fit Madrid San Sebastián de los Reyes Avd. de Cataluña",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_7b5933a535",
+      "name": "Basic-Fit Gym Basic-Fit Santa Coloma Av. Francesc Macía 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_17010f5954",
+      "name": "Basic-Fit Gym Basic-Fit Santander CC Bahía Real",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2b0782302b",
+      "name": "Basic-Fit Gym Basic-Fit Santander C. Jose Gutierrez Solana",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c4799b8b75",
+      "name": "Basic-Fit Gym Basic-Fit Santander Marqués de la Hermida",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c6339e045c",
+      "name": "Basic-Fit Gym Basic-Fit Segovia Avenida del Obispo Quesada",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2bcb2b68b8",
+      "name": "Basic-Fit Gym Basic-Fit Sestao Juncal de Allende",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f00974d5b7",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Avenida de Hytasa 3",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f43fc19d2b",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Avenida de Jerez 53",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_bb03127112",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Avenida de Palmas Altas",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5a5b6cdb4f",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Avenida Juan Pablo II",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_bf08933534",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla C. Monte Tabor",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_72d0206953",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Calle Francos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_3be9b24c58",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Calle Pagés del Corro",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_749c16922a",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Calle Tarifa",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_6f730f9092",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla CC Vega del Rey",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ee15eb5806",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Luis Montoto",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_5b74251c59",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla Gta. Palacio de Congresos C.C. Zona Este",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_4e70ab6a11",
+      "name": "Basic-Fit Gym Basic-Fit Sevilla San Juan De Aznalfarache CC Cavaleri",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1b954223e1",
+      "name": "Basic-Fit Gym Basic-Fit Talavera de la Reina Avenida Francisco Aguirre",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_af438e7ce8",
+      "name": "Basic-Fit Gym Basic-Fit Talavera de la Reina Calle San Francisco",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0520b752ae",
+      "name": "Basic-Fit Gym Basic-Fit Terrasa Rambla d'Egara",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_054bec1713",
+      "name": "Basic-Fit Gym Basic-Fit Toledo Avenida de Madrid",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_8193f11361",
+      "name": "Basic-Fit Gym Basic-Fit Tomares Avd. del Manchón",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1c575bf258",
+      "name": "Basic-Fit Gym Basic-Fit Torre del Mar",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e63b9bc59a",
+      "name": "Basic-Fit Gym Basic-Fit Torrejón de Ardoz Avd. de la Constitución",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_90eec0f8f7",
+      "name": "Basic-Fit Gym Basic-Fit Torrejón de Ardoz Calle Hilados",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_384e721ea6",
+      "name": "Basic-Fit Gym Basic-Fit Torrejón de Ardoz Centro Comercial On Plaza",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_ff62b7c6c4",
+      "name": "Basic-Fit Gym Basic-Fit Torrelavega parque comercial Los Ochos",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_660ddc85bb",
+      "name": "Basic-Fit Gym Basic-Fit Torremolinos Av. Palma de Mallorca",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fa63a53971",
+      "name": "Basic-Fit Gym Basic-Fit Torremolinos Avenida Isabel Manoja 43",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fa895f7e52",
+      "name": "Basic-Fit Gym Basic-Fit Torrevieja Calle Apolo 95",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c686229498",
+      "name": "Basic-Fit Gym Basic-Fit Valdemoro Avenida Andalucía",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_b2d0f5c70e",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Av. Burjassot",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_260bde7f7c",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Av. Primer de Maig",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_96ebf7ad18",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Avingunda Seminari",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_10bd2097f5",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Avinguda d'Ada Lovelace",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_32cc738355",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Avinguda del Doctor Peset Aleixandre",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_812cff62ed",
+      "name": "Basic-Fit Gym Basic-Fit València Carrer de les Tres Forques 58",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_7c885f7784",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Carrer d’Eduard Boscà",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_48894c8554",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Carrer Sant Antoni",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_8f9dcb23da",
+      "name": "Basic-Fit Gym Basic-Fit Valencia C. Doctor Manuel Candela",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e38bc8cdd0",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Guillem de Castro",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_a4875a64c5",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Joaquín Costa",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_123be70994",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Mestre Rodrigo",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_b5f8c8da72",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Passeig de la Petxina",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2c9ad0fcc5",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Pintor Maella",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f46a5d2c37",
+      "name": "Basic-Fit Gym Basic-Fit Valencia Plaza de Fray Luis Colomer",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_fdbdad7d01",
+      "name": "Basic-Fit Gym Basic-Fit Valladolid Calle de Labradores",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e264069771",
+      "name": "Basic-Fit Gym Basic-Fit Valladolid C. Costa Brava C.C. Carrefour II",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_abed1ae51a",
+      "name": "Basic-Fit Gym Basic-Fit Valladolid P.º de Juan Carlos I",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_e2062291e2",
+      "name": "Basic-Fit Gym Basic-Fit Vigo C. Jenaro de la Fuente",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_8c7f1c1aeb",
+      "name": "Basic-Fit Gym Basic-Fit Viladecans Avda. Siglo XX C.C. Vilamarina 24/7",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_2eb8aec80e",
+      "name": "Basic-Fit Gym Basic-Fit Vilafranca del Penedès Avinguda de Barcelona 58",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_8ec90c27d1",
+      "name": "Basic-Fit Gym Basic-Fit Vitoria-Gasteiz San Anton Plaza 3 - ex Camp Base",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c4bad5ddde",
+      "name": "Basic-Fit Gym Basic-Fit Zamora Avenida Feria",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_3e2d420e8f",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Avenida San José",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_60d1ddf605",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza C Maria Zambrano CC Actur",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_f7bc07d1b8",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Calle Ángela Bravo Ortega",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1f57738642",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Calle de San Francisco de Borja",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_a4e84a3208",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Cesar Augusto",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_1f60d98545",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Colegiata Bolea",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_159c4b9256",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Avd. de Valencia",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_c45df7c5b7",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Pablo Gargallo",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_0f10048605",
+      "name": "Basic-Fit Gym Basic-Fit Zaragoza Palacio Ducal",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "es_9c4fa31241",
+      "name": "BDiR Alcudia",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_1eeaeef7bd",
+      "name": "BDiR Calvet",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_ebb09a98c8",
+      "name": "BDiR Granados",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_7ff181ca1a",
+      "name": "BDiR Lesseps",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_5395e5eb7d",
+      "name": "BDiR Llúria",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_8e8a766059",
+      "name": "BDiR Mallorca",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_fe5b4c93ee",
+      "name": "BDiR Putxet",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_9fe14b59bd",
+      "name": "DiR Av. Madrid",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_469e7dc302",
+      "name": "DiR Campus",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_d0f563007c",
+      "name": "DiR Castillejos",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_a6839cd693",
+      "name": "DiR Claret",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_253f3061af",
+      "name": "DiR Claris",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_61c11379b8",
+      "name": "DiR Gràcia",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_f4e5101616",
+      "name": "DiR Hispà",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_615db5633c",
+      "name": "DiR Maragall",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_348556bc43",
+      "name": "DiR Tarragona",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_b74502a71d",
+      "name": "Diagonal DiR",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_eff3e4e3fb",
+      "name": "Jambox Eixample",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_4b2e879d70",
+      "name": "Tres Torres DiR",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_0bfa23b540",
+      "name": "Tuset DiR",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_3e27a7fa26",
+      "name": "Up&Down DiR",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_0cdc11183c",
+      "name": "DiR Sant Cugat",
+      "brand": "DIR"
+    },
+    {
+      "id": "es_56d37e7f3f",
+      "name": "Synergym Mallorca Camp Serralta",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fe76b9dbc0",
+      "name": "Synergym Catarroja Universitat",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_f903474f79",
+      "name": "Synergym Ponferrada Castillo",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_af3874c2cf",
+      "name": "Synergym Andújar",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_3ff4fd8ffe",
+      "name": "Synergym Reus Carrillet",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_8ed236418f",
+      "name": "Synergym Reus Niloga",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_51ba2fcff5",
+      "name": "Synergym Tarragona Forum",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_18e9ec760b",
+      "name": "Synergym Alcobendas Gran Manzana",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_2fad56b7a9",
+      "name": "Synergym Getafe Buenavista",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_648449b05a",
+      "name": "Synergym Fuenlabrada",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_77046978d3",
+      "name": "Synergym Madrid Almagro",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_aca4fbbb11",
+      "name": "Synergym Madrid Prosperidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_18c72ab10f",
+      "name": "Synergym Madrid Retiro",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_401e26e022",
+      "name": "Synergym Torrejón Soto de Henares",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_7283d0fb93",
+      "name": "Synergym Alicante Benalúa",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_1dea05a6a2",
+      "name": "Synergym Benidorm Carrascos",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_54289c463b",
+      "name": "Synergym Elche Aljub",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_0d09e45445",
+      "name": "Synergym Elche Altabix",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_d0d9ee0924",
+      "name": "Synergym San Vicente Universidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_a4b853ecf0",
+      "name": "Synergym Castellón Parc Ribalta",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_6381ddb351",
+      "name": "Synergym Valencia Abastos",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_29d00e26a3",
+      "name": "Synergym Valencia Constitución",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_492a4bde69",
+      "name": "Synergym Valencia Gran Vía",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_b54f7b36b2",
+      "name": "Synergym Valencia Peset",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_8b8476e745",
+      "name": "Synergym Valencia Puerto",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fac11f80c0",
+      "name": "Synergym Benetússer",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_ceb3503c47",
+      "name": "Synergym A Coruña Riazor",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_992f13163c",
+      "name": "Synergym Ourense Universidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_a092a93a80",
+      "name": "Synergym Lugo Muralla",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_d7ba5c5547",
+      "name": "Synergym Vigo Torrecedeira",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fd59eb0818",
+      "name": "Synergym Logroño Ribera",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_e8f9e6e586",
+      "name": "Synergym Murcia Río Segura",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_32f3b204b3",
+      "name": "Synergym Lorca Juan Carlos I",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_36173751c5",
+      "name": "Synergym Cartagena Colón",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_6f48fe1f29",
+      "name": "Synergym Pamplona Ensanche",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_1d258ba15f",
+      "name": "Synergym Getxo",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_dd87188b81",
+      "name": "Synergym Almería Puerta de Purchena",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_7195a3f82f",
+      "name": "Synergym Granada Campus",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_938d487dfa",
+      "name": "Synergym Estepona",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_36a60f4b04",
+      "name": "Synergym Marbella",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_63d6a3b60e",
+      "name": "Synergym Sevilla Este",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_e31a1ca89b",
+      "name": "Synergym Sevilla Rosaleda",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_57e461a178",
+      "name": "Synergym Sevilla Nervión",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_2e20fa753c",
+      "name": "Synergym Sevilla Triana Salado",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_e62fbdb428",
+      "name": "Synergym Zaragoza El Pilar",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_e167962acd",
+      "name": "Synergym Zaragoza",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_37e760ef9e",
+      "name": "Synergym Zaragoza Universidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_3e10fd8f47",
+      "name": "Synergym Gijón Pumarín",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_1be2511007",
+      "name": "Synergym Oviedo la Lila",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_ca53296417",
+      "name": "Synergym Oviedo Montecerrao",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_a08c18bf47",
+      "name": "Synergym Oviedo San Miguel",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_8d6ca144ba",
+      "name": "Synergym Mallorca Escorxador",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_cb50829c45",
+      "name": "Synergym Mallorca Les Estacions",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_66a257a404",
+      "name": "Synergym Albacete la Cuba",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_3d4be172d1",
+      "name": "Synergym Albacete La Tamos",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_ffba6bd99d",
+      "name": "Synergym Albacete Universidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_f9446c1c76",
+      "name": "Synergym Guadalajara la Llanilla",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_3a032e0de9",
+      "name": "Synergym Burgos Gamonal",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_369f7cc0b5",
+      "name": "Synergym Leon Auditorio",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_49f7ebae54",
+      "name": "Synergym Leon Universidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_8072ca6486",
+      "name": "Synergym Barcelona las Arenas",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fcc492ccf5",
+      "name": "Synergym Barcelona Maragall",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_11a3d06feb",
+      "name": "Synergym Cornellà Centre",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_c019133b10",
+      "name": "Synergym Mataró Pepeta",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_a99fbbf296",
+      "name": "Synergym Sabadell Paddock",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_916bb2831e",
+      "name": "Synergym Girona Devesa",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_6cbe6a312d",
+      "name": "Synergym Lleida Castells",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_59cc38007e",
+      "name": "Synergym Lleida Clot",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_7dbe9a3124",
+      "name": "Synergym Torrevieja",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_f6f984a041",
+      "name": "Synergym Sabadell Parc Tauli",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_e2c2b9e37f",
+      "name": "Synergym Vitoria Borinbizkarra",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_09a4c863af",
+      "name": "Synergym Gijón Calzada",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_7468833f00",
+      "name": "Synergym Gáldar",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_689d50f270",
+      "name": "Synergym Valdepeñas",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_d1ff128598",
+      "name": "Synergym Roquetas de Mar",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_03118ef834",
+      "name": "Synergym Girona Migdia",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_8d0e6b59ae",
+      "name": "Synergym Valladolid",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_2a36835b49",
+      "name": "Synergym Ciudad Real Quijote",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_62086bc3a3",
+      "name": "Synergym Zamora Universidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_7ed0dbddda",
+      "name": "Synergym Las Palmas Tamaraceite",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_98f1d33bbe",
+      "name": "Synergym Valladolid",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fb8631155f",
+      "name": "Synergym Alcoy Nord",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_964cccf94c",
+      "name": "Synergym Miranda de Ebro",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_2d36242281",
+      "name": "Synergym Pontevedra Pasarela",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_0cba331fde",
+      "name": "Synergym Cáceres",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_5feefca6fa",
+      "name": "Synergym Soria Los Royales",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_be47bdda64",
+      "name": "Synergym Gijón Laviada",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_a4a1656fb0",
+      "name": "Synergym Castellón Universidad",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_23c09d4d76",
+      "name": "Synergym Palencia Catedral",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_4598964f3c",
+      "name": "Synergym Massanassa",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_0f0d700cb3",
+      "name": "Synergym Terrassa Sant Pere",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_9dd04fac6d",
+      "name": "Synergym Xirivella",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_aa4a00be4a",
+      "name": "Synergym Girona Sant Isidre",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_97d6feb8e4",
+      "name": "Synergym Burjassot",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_733bd33bcc",
+      "name": "Synergym Santiago Ensanche",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_4a10a14ae3",
+      "name": "Synergym Ripollet Can Mas",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_065a2e1250",
+      "name": "Synergym Murcia Ronda Sur",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_47976b6ab0",
+      "name": "Synergym El Prat Les Moreres",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_a0d6cb422e",
+      "name": "Synergym Ávila Sur",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_eea057e99e",
+      "name": "Synergym Córdoba Mediterráneo",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_4b800b824a",
+      "name": "Synergym Oviedo Buenavista",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_96bfb693ec",
+      "name": "Synergym Zaragoza La Jota",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_a966bbb288",
+      "name": "Synergym Manresa Vilomara",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_da9cfb32b0",
+      "name": "Synergym Burgos Torres de la Luz",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_ea7089d64d",
+      "name": "Synergym Alcoy Sur",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_bcc4a65197",
+      "name": "Synergym La Vall Parc Tavernes",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fe40356396",
+      "name": "Synergym Montcada",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_30624b559b",
+      "name": "Synergym Pamplona Barañain",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_efc47bd1ef",
+      "name": "Synergym Los Barrios",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_507bef9850",
+      "name": "Synergym Zaragoza Duquesa",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_1818a31361",
+      "name": "Synergym Sant Vicenç",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_c0a424e33d",
+      "name": "Synergym Vilafranca",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_b295217084",
+      "name": "Synergym Fuenlabrada Ferial",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fdeb917afe",
+      "name": "Synergym Madrid Santa Eugenia",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_b7a75c0139",
+      "name": "Synergym Sueca",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_46c0f9cde3",
+      "name": "Synergym Alcalá de Guadaíra Montecarmelo",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_f2b2b0655a",
+      "name": "Synergym Almendralejo",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_984fa96783",
+      "name": "Synergym Alicante La Florida",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_6ba7a2f07a",
+      "name": "Synergym Gandía Sur",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_dbe3d61658",
+      "name": "Synergym Albolote",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_3420f2dbe6",
+      "name": "Synergym Siete Palmas",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_c59de5103b",
+      "name": "Synergym Logroño Los Lirios",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_6a05f42bd3",
+      "name": "Synergym Icod de los Vinos",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_4c7f4d9087",
+      "name": "Synergym Alhaurín El Grande",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_43527e56db",
+      "name": "Synergym San Fernando Junquera",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_90a446207e",
+      "name": "Synergym Vila-Real Cedre",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_cf5aa37de5",
+      "name": "Synergym Puertollano",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fb869c3d9e",
+      "name": "Synergym Motril",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_d481be08e9",
+      "name": "Synergym Aldaia",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_eb958e221c",
+      "name": "Synergym Córdoba Libia",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_fa42aeed96",
+      "name": "Synergym Igualada",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_04d75fe5bc",
+      "name": "Synergym Cáceres Mejostilla",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_88cf8ffe85",
+      "name": "Synergym Estella",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_941591726b",
+      "name": "Synergym Arganda del Rey Quina",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_20cb4e3517",
+      "name": "Synergym Tàrrega",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_400934a700",
+      "name": "Synergym Algemesí",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_bfe3ed0710",
+      "name": "Synergym Tortosa",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_bb31b78879",
+      "name": "Synergym Foios",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_8d9594ccb2",
+      "name": "Synergym Sevilla-Hacienda El Rosario",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_b7bbb925a5",
+      "name": "Synergym Tomelloso",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_12dae60e4b",
+      "name": "Synergym Don Benito Canalejas",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_807de07900",
+      "name": "Synergym Almería Mediterraneo",
+      "brand": "Synergym"
+    },
+    {
+      "id": "es_c13a698fe1",
+      "name": "Anytime Fitness Mirasol (Sant Cugat del Vallés)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_2c21becd51",
+      "name": "Anytime Fitness Pedralbes Centre (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_3fdb61c26a",
+      "name": "Anytime Fitness Poblenou (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_1f35e6493e",
+      "name": "Anytime Fitness Rocafort (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d74e18ce79",
+      "name": "Anytime Fitness Barcelona (Ciutadella)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_ee89304c78",
+      "name": "Anytime Fitness Gandia (Valencia)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_a64e1ac6da",
+      "name": "Anytime Fitness Granollers",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_2697931523",
+      "name": "Anytime Fitness Les Corts (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d63f7487d2",
+      "name": "Anytime Fitness Esplugues de Llobregat (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_a214f940d7",
+      "name": "Anytime Fitness Abastos (Valencia)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d0b8a405fe",
+      "name": "Anytime Fitness Girona",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_95a4fdc1e4",
+      "name": "Anytime Fitness Terrassa",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_423aba080f",
+      "name": "Anytime Fitness Goya (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_88b9ccd91d",
+      "name": "Anytime Fitness Vilanova i la Geltrú (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d3361f29bc",
+      "name": "Anytime Fitness Vic (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_31c48c793c",
+      "name": "Anytime Fitness Palma de Mallorca",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d93c6ec8ca",
+      "name": "Anytime Fitness El Prat de Llobregat (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_604f2eb220",
+      "name": "Anytime Fitness Mislata (Valencia)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_50965d97f9",
+      "name": "Anytime Fitness Sabadell (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_92b838054d",
+      "name": "Anytime Fitness Hortaleza (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_a22e02b32d",
+      "name": "Anytime Fitness Bravo Murillo (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_512540d2e4",
+      "name": "Anytime Fitness Santa Susanna (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d10f241e1b",
+      "name": "Anytime Fitness Foners (Mallorca)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_cd9426d1b5",
+      "name": "Anytime Fitness Torrent (Valencia)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d914b84c19",
+      "name": "Anytime Fitness Lleida",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_b8eb98bcee",
+      "name": "Anytime Fitness Sabadell Nord (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_0ac6411512",
+      "name": "Anytime Fitness Ciudad Universitaria (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_171a849c74",
+      "name": "Anytime Fitness León",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_5b76dd307a",
+      "name": "Anytime Fitness Sant Feliu de Llobregat (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_59fdc04980",
+      "name": "Anytime Fitness Arganzuela (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_6c4dc7f15f",
+      "name": "Anytime Fitness Castelldefels (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_7840c09b30",
+      "name": "Anytime Fitness Viladecans (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_0dfba5a9a8",
+      "name": "Anytime Fitness Rubí (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_28397f3b2f",
+      "name": "Anytime Fitness Santander",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_fe7d12504e",
+      "name": "Anytime Fitness Castellón de la Plana (Castellón)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d98e1fa715",
+      "name": "Anytime Fitness Fortí (Mallorca)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_2c86879103",
+      "name": "Anytime Fitness Inca (Mallorca)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_98ad6af8e9",
+      "name": "Anytime Fitness Sant Adrià de Besòs (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_1366ea6714",
+      "name": "Anytime Fitness Badalona (Centre)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_f56f6e1bea",
+      "name": "Anytime Fitness Mataró (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_95ba85c1ca",
+      "name": "Anytime Fitness Igualada (Barcelona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_d7859e66a3",
+      "name": "Anytime Fitness Parc de l'Aigua (Lleida)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_a7d148a3bb",
+      "name": "Anytime Fitness Malaga",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_573d2bf00e",
+      "name": "Anytime Fitness Colmenar Viejo (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_6d5bbbfdce",
+      "name": "Anytime Fitness El Gorg (Badalona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_dcc1152253",
+      "name": "Anytime Fitness Imperial (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_45bca6ebd3",
+      "name": "Anytime Fitness Manresa (Manresa)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_0ec4123a6c",
+      "name": "Anytime Fitness Caldes de Montbui",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_8ef3d8eb16",
+      "name": "Anytime Fitness Boadilla del Monte (Madrid)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_ffc5b29303",
+      "name": "Anytime Fitness Sant Joan Despí",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_1490bc82c8",
+      "name": "Anytime Fitness Marina Port Premià",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_01e82dc4f7",
+      "name": "Anytime Fitness Vilafranca (Vilafranca)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_b7ec357de2",
+      "name": "Anytime Fitness L'Hospitalet de Llobregat",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_dc6ed697bf",
+      "name": "Anytime Fitness Molins de Rei",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_c01cacbea3",
+      "name": "Anytime Fitness Pereiro de Aguiar",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_dda2f63fb3",
+      "name": "Anytime Fitness Figueres (Girona)",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_c2bbafab2d",
+      "name": "Anytime Fitness Can Llong",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "es_fc5545eabc",
+      "name": "BeOne Cabezón",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_8204faf1cc",
+      "name": "BeOne Cayón",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_ae6e4df12c",
+      "name": "BeOne Granada",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_b98002f25d",
+      "name": "BeOne A Malata",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_460dc30921",
+      "name": "BeOne A Telleira",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_d5b39a3ce1",
+      "name": "BeOne Arteixo",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_ae050866ce",
+      "name": "BeOne Brion",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_f16f792acc",
+      "name": "BeOne Rianxo",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_a8199d5936",
+      "name": "BeOne Teo",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_6dead42fbb",
+      "name": "BeOne Lugo",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_093a44cc07",
+      "name": "BeOne Ribadeo",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_132b4fd163",
+      "name": "BeOne Boadilla",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_77803d2991",
+      "name": "BeOne Getafe",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_eadd857f70",
+      "name": "BeOne Leganés",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_36d41c08d1",
+      "name": "BeOne San Martín de la Vega",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_5c457d4258",
+      "name": "BeOne Santa Teresa",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_4339630efa",
+      "name": "BeOne Rincón de la Victoria",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_fd82b3c111",
+      "name": "BeOne As Lagoas",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_6c4a84308f",
+      "name": "BeOne Ourense",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_7b2885bb59",
+      "name": "BeOne Cambados",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_06714eec15",
+      "name": "BeOne Campolongo",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_5d697070ba",
+      "name": "BeOne Monterreal",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_8c03568e06",
+      "name": "BeOne El Espinar",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_9a547eff6a",
+      "name": "BeOne Albal",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_b313117d7a",
+      "name": "BeOne Llíria",
+      "brand": "BeOne"
+    },
+    {
+      "id": "es_f0651d1a5b",
+      "name": "Dreamfit | Gimnasio Alcorcón",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_99fd1baa08",
+      "name": "Dreamfit | Gimnasio Aluche",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_3953a50731",
+      "name": "Dreamfit | Gimnasio Barakaldo",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_02f223158e",
+      "name": "Dreamfit | Gimnasio Gijón",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_62d7255058",
+      "name": "Dreamfit | Gimnasio Las Palmas",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_09dccbb08b",
+      "name": "Dreamfit | Gimnasio Logroño",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_01e1641b3d",
+      "name": "Dreamfit | Gimnasio Zaragoza",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_2a9b82b71b",
+      "name": "Dreamfit | Gimnasio Moratalaz",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_f2f148d834",
+      "name": "Dreamfit | Gimnasio Móstoles",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_829afbb6e0",
+      "name": "Dreamfit | Gimnasio Segovia",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_9229f718d8",
+      "name": "Dreamfit | Gimnasio Oviedo",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_a1d097d5e3",
+      "name": "Dreamfit | Gimnasio Sanse",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_41f6424e03",
+      "name": "Dreamfit | Gimnasio Sant Boi",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_0b0b769bef",
+      "name": "Dreamfit | Gimnasio Santiago de Compostela",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_08937458dc",
+      "name": "Dreamfit - Gimnasio Sevilla",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_78e77dde26",
+      "name": "Dreamfit | Gimnasio Valdebernardo",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_e68c31fb19",
+      "name": "Dreamfit - Gimnasio Valencia",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_0887a7464b",
+      "name": "Dreamfit | Gimnasio Vallecas",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_a425f7a093",
+      "name": "Dreamfit | Gimnasio Ventas",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_1d979fd2f3",
+      "name": "Dreamfit | Gimnasio Vitoria",
+      "brand": "Dreamfit"
+    },
+    {
+      "id": "es_8652ce049e",
+      "name": "Eurofitness CEM Alella",
+      "brand": "Eurofitness"
+    },
+    {
+      "id": "es_998525c299",
+      "name": "Eurofitness CEM Arenys de Mar",
+      "brand": "Eurofitness"
+    },
+    {
+      "id": "es_0fe131cfd2",
+      "name": "Eurofitness Club Vall D'Hebron",
+      "brand": "Eurofitness"
+    },
+    {
+      "id": "es_56486b494d",
+      "name": "Fitness Park Valencia - Maritim",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_99544f598d",
+      "name": "Fitness Park A Coruña - Alfonso Molina",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_695c373d70",
+      "name": "Fitness Park A Coruña - Marineda City",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_77e7b680cd",
+      "name": "Fitness Park A Coruña - Torreiro",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_adadcda01e",
+      "name": "Fitness Park Albacete - Albacenter",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_f1d8061aff",
+      "name": "Fitness Park Alcalá de Guadaira - Silos",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_5cb5dbd781",
+      "name": "Fitness Park Alcobendas - Moraleja Green",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_01c52c4430",
+      "name": "Fitness Park Alcorcón - X-Madrid",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_bacaecbd94",
+      "name": "Fitness Park - Algeciras Plaza de la Constitución",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_aa5eb1a638",
+      "name": "Fitness Park Alicante - Gran Vía",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_947a982132",
+      "name": "Fitness Park Alicante - Luceros",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_84a7cf30a1",
+      "name": "Fitness Park Alicante - San Vicente del Raspeig",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_7030bea984",
+      "name": "Fitness Park Almería - Carretera de Ronda",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_1b15d54079",
+      "name": "Fitness Park Armilla - Nevada Shopping",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_2b32bee6fe",
+      "name": "Fitness Park Badajoz - El Faro",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_4db88af1d9",
+      "name": "Fitness Park Barakaldo - Megapark",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_37f28d29a5",
+      "name": "Fitness Park Barcelona - Balmes",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_fc6f3af596",
+      "name": "Fitness Park Barcelona - Berlin",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_612d8822d5",
+      "name": "Fitness Park Barcelona - Casanova",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_9a92fdf0b5",
+      "name": "Fitness Park Barcelona - Diagonal Mar",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_546ccac9ef",
+      "name": "Fitness Park Barcelona - El Triangle",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_add7f7d942",
+      "name": "Fitness Park Barcelona - Gran Vía",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_3f1621c201",
+      "name": "Fitness Park Barcelona - Independencia",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_079d88854d",
+      "name": "Fitness Park Barcelona - La Maquinista",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d55bbed818",
+      "name": "Fitness Park Barcelona - L'illa Diagonal",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_8f36852db8",
+      "name": "Fitness Park Barcelona - Rossello",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_2cfbab4f0b",
+      "name": "Fitness Park Barcelona - Sants",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_92ba45cd95",
+      "name": "Fitness Park Barcelona - Zona Franca",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_9d1b0df9ac",
+      "name": "Fitness Park Bilbao - Bolueta",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_9a880f550c",
+      "name": "Fitness Park Bilbao - Intermodal",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d0577ddf21",
+      "name": "Fitness Park Bilbao - Portugalete",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_1f3437cfaf",
+      "name": "Fitness Park Bilbao - Zubiarte",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_8a99034d6c",
+      "name": "Fitness Park Bormujos - Parque Universidad",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_463e6cf188",
+      "name": "Fitness Park Burgos – Parque Arlanzon",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_62dc364d75",
+      "name": "Fitness Park Cádiz - Trille",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_2a735fbb94",
+      "name": "Fitness Park Cartagena - Espacio Mediterraneo",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_2eb363e64d",
+      "name": "Fitness Park Cartagena - Plaza Juan XXIII",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_52a06591d6",
+      "name": "Fitness Park Castelldefels - Anec Blau",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_5759d1d08e",
+      "name": "Fitness Park Castellón – Vicente Altava",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_eb7d0360ca",
+      "name": "Fitness Park Colmenar - La Maquinilla",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_e7ac500a29",
+      "name": "Fitness Park Cordoba - El Arcangel",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_a3d6a67ce6",
+      "name": "Fitness Park Córdoba - La Sierra",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_2c951d6805",
+      "name": "Fitness Park Cuenca - Av. Mediterraneo",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_fdf199bc3b",
+      "name": "Fitness Park Écija - N4",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_3a7bc486dd",
+      "name": "Fitness Park Elche - Aljub",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_e087c7235e",
+      "name": "Fitness Park Esplugues - Finestrelles",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_7047458e02",
+      "name": "Fitness Park Estepona - Cristobal Ruíz Méndez",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_a98a751ffd",
+      "name": "Fitness Park Finestrat",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_f30028fd04",
+      "name": "Fitness Park Fuenlabrada - Móstoles",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_6775043258",
+      "name": "Fitness Park Gines - Avenida Europa",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_bbd7e343ec",
+      "name": "Fitness Park Gran Canaria - Tamaraceite",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d353d18517",
+      "name": "Fitness Park Huelva - La Hispanidad",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_4f747d9266",
+      "name": "Fitness Park León - Espacio León",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d341170a3e",
+      "name": "Fitness Park Lleida - Pere Cabrera",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_b2fd36dc36",
+      "name": "Fitness Park Lleida - Plaza Noguerola",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_3f8bd0250e",
+      "name": "Fitness Park Lugo - As Termas",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_59a148ac97",
+      "name": "Fitness Park Madrid - Calle Toledo",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_a41898bdc7",
+      "name": "Fitness Park Madrid - La Gavia",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_8d5ad76372",
+      "name": "Fitness Park Madrid - Matadero",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_4cf22c073d",
+      "name": "Fitness Park San Sebastián de los Reyes - Plaza norte 2",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_39736cb275",
+      "name": "Fitness Park Madrid - Principe Pio",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_decf5c5a5e",
+      "name": "Fitness Park Madrid - Valdebebas Shopping",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_2be98b434b",
+      "name": "Fitness Park Malaga - Bahía",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_118122c9e1",
+      "name": "Fitness Park Málaga - Velázquez",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_b31cfc737a",
+      "name": "Fitness Park Marbella - Marbell Center",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_20fe3a5137",
+      "name": "Fitness Park Mataró - Mataró Park",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_34dffb9b3c",
+      "name": "Fitness Park Molina de Segura - Estación",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_4f4a5aab99",
+      "name": "Fitness Park Murcia - Alameda Colón",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_a01c47b95a",
+      "name": "Fitness Park Murcia - Atalayas",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_7a8dda6957",
+      "name": "Fitness Park Murcia - Costera Sur",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d3564db080",
+      "name": "Fitness Park Oviedo - Salesas",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_65ef82d072",
+      "name": "Fitness Park Palma de Mallorca - Arago",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_6d431e9bd5",
+      "name": "Fitness Park Pamplona - Erripagaña",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_4192a32370",
+      "name": "Fitness Park Puerto de Sagunto - Av Hispanidad",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_a82827f40a",
+      "name": "Fitness Park Puerto Real - Parque Comercial Entrevías",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_a29a6b0154",
+      "name": "Fitness Park Reus - Daily Reus",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_78282b831f",
+      "name": "Fitness Park Reus - La Fira",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_3c2db0bb64",
+      "name": "Fitness Park Sabadell - Rambla D'iberia",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_6d37ad3bf0",
+      "name": "Fitness Park Sabadell - Sabadell Parc",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_7414830e6d",
+      "name": "Fitness Park Salamanca - Capuchinos",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_69eb4e1a81",
+      "name": "Fitness Park San Javier - Dos Mares",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_19dad882c7",
+      "name": "Fitness Park San Sebastian - La Bretxa",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_22d8fc41e3",
+      "name": "Fitness Park Usurbil - Urbil",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_ca188a876f",
+      "name": "Fitness Park Sant Boi - Parc Comercial",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_3d169c1197",
+      "name": "Fitness Park Sant Just Desvern - Carretera Reial",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_570f5f0a51",
+      "name": "Fitness Park Santander - El Alisal",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_b198f88803",
+      "name": "Fitness Park Santurtzi - Plaza del ayuntamiento",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_501c3818f1",
+      "name": "Fitness Park Sevilla - Sevilla Norte",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_54a802fae3",
+      "name": "Fitness Park Sevilla - Triana",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_49a116abe1",
+      "name": "Fitness Park Sevilla - Villalobos",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d7e0dff8c3",
+      "name": "Fitness Park Talavera de la Reina - Prado",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_7746539e53",
+      "name": "Fitness Park Tarragona - Family Park",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_422554fdbf",
+      "name": "Fitness Park Tarragona - Prat de la Riba",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_85dae99c9e",
+      "name": "Fitness Park Torrejón - Oasiz",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_aa7eb54019",
+      "name": "Fitness Park Torrelavega - Plaza Mayor",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_5984c94f81",
+      "name": "Fitness Park Utebo - CC La Torre Outlet",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d5973ec827",
+      "name": "Fitness Park Valencia - Aqua",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_a25f6c4d3a",
+      "name": "Fitness Park Valencia - Calixto",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_f031a23b73",
+      "name": "Fitness Park Valencia - Camí de Montcada",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_afc249dcff",
+      "name": "Fitness Park Valencia - Cid",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_f60558b8d5",
+      "name": "Fitness Park Valencia - L'Eliana",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_df046b1787",
+      "name": "Fitness Park Valencia - Nou Mestalla",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_cca50bd416",
+      "name": "Fitness Park Valencia - Peris y Valero",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_1cf80b8324",
+      "name": "Fitness Park Valencia - Ruzafa",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_1dadb42e47",
+      "name": "Fitness Park Valladolid - Isabel la Católica",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_4bb2e20a06",
+      "name": "Fitness Park Valladolid - VallSur",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_10550eff1c",
+      "name": "Fitness Park Vigo - Gran Vía de Vigo",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_84c5285409",
+      "name": "Fitness Park Vilafranca del Pendes - Av. Tarragona",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_d914baa5eb",
+      "name": "Fitness Park Vilanova - Parc Comercial Vilanova",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_5372dd6d0c",
+      "name": "Fitness Park Vitoria - Beato Tomás",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_2d8860e37b",
+      "name": "Fitness Park Vitoria - Boulevard",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_eb8377cf19",
+      "name": "Fitness Park Zaragoza - Actur",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_fa2f87c159",
+      "name": "Fitness Park Zaragoza - Las Fuentes",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_6fb673ace3",
+      "name": "Fitness Park Zaragoza - Puerto Venecia",
+      "brand": "Fitness Park"
+    },
+    {
+      "id": "es_122f02217a",
+      "name": "Forus Agra",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_c901b1c183",
+      "name": "Forus Elviña",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_911861b673",
+      "name": "Forus Sardiñeira",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_ffd86a1219",
+      "name": "Forus Elche",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_9c72e2a501",
+      "name": "Forus Gijón",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_a0e810c6c4",
+      "name": "Forus Badajoz",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_9152b1935c",
+      "name": "Forus Can Dragó",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_8b8ac546ba",
+      "name": "Forus Ca N'Arimon",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_a85b543d77",
+      "name": "Forus Les Corts",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_175f25cfd8",
+      "name": "Forus Picornell",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_b4e8d1019d",
+      "name": "Forus Sardenya",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_dd0fde425a",
+      "name": "Forus Sitges",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_befc2ae7fa",
+      "name": "Forus Cádiz",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_efd82a9891",
+      "name": "Forus Jerez",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_5ed63d5d7b",
+      "name": "Forus Córdoba",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_2ad7489572",
+      "name": "Forus Granada",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_0c38764e57",
+      "name": "Forus Huelva",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_3c7a262718",
+      "name": "Forus Baltavida",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_6a0dfa1a9a",
+      "name": "Forus Jaén",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_95090ec73d",
+      "name": "Forus Lugo",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_894f1ddaea",
+      "name": "Forus Alcalá Forjas",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_9b285fe659",
+      "name": "Forus Barceló",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_a8b1cb8f1b",
+      "name": "Forus Caja Mágica",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_6c43cc9d72",
+      "name": "Forus Capitán Haya",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_90956a8cbb",
+      "name": "Forus Chamartín",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_8e77569c25",
+      "name": "Forus Coslada",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_ecc62686a2",
+      "name": "Forus Embajadores",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_4e2503e84a",
+      "name": "Forus Fuenlabrada",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_5c726096c3",
+      "name": "Forus Getafe",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_98bbad262d",
+      "name": "Forus Las Rozas",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_bfd4d4eb17",
+      "name": "Forus Alcalá Magna",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_621a7ef68b",
+      "name": "Forus Valle de la Oliva",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_67c0e225ad",
+      "name": "Forus Las Rejas",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_abbaf86499",
+      "name": "Forus Móstoles",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_7739a530b0",
+      "name": "Forus Parla",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_ffdfc2f9be",
+      "name": "Forus Conde Guadalhorce",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_75021c1982",
+      "name": "Forus El Torcal",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_578b12e3fd",
+      "name": "Forus Trinidad",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_c63ff189d9",
+      "name": "Forus Murcia",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_350b4b1f27",
+      "name": "Forus Segovia",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_dfcdc28d7d",
+      "name": "Forus Alcalá de Guadaíra",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_e050d37bbd",
+      "name": "Forus Sevilla",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_104293fe26",
+      "name": "Forus Paterna",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_928970cd6a",
+      "name": "Forus Rambleta",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_b30b26a0d4",
+      "name": "Forus Aragonia",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_b4fad3e57e",
+      "name": "Forus Jose Garces",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_488d4d10e3",
+      "name": "Forus Siglo XXI",
+      "brand": "Forus"
+    },
+    {
+      "id": "es_9503fa049e",
+      "name": "GO fit Montecarmelo",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_b50872d46c",
+      "name": "GO fit Plaza Elíptica",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_8e7a6c1398",
+      "name": "GO fit Torrejón",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_0fbdf6db2d",
+      "name": "GO fit Fisico (Majadahonda)",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_3a4462783f",
+      "name": "GO fit Maracena",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_88a3985cc9",
+      "name": "GO fit Sevilla",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_ecd97a88c3",
+      "name": "GO fit Valladolid",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_23495677b0",
+      "name": "GO fit Vallehermoso",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_786aa36edd",
+      "name": "GO fit Las Palmas",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_15ef2c738b",
+      "name": "GO fit Oviedo",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_061b681bba",
+      "name": "GO fit Piscinas San Miguel",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_9703e98d60",
+      "name": "GO fit Peñagrande",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_0205bcedb5",
+      "name": "GO fit Alcalá de Henares",
+      "brand": "GO fit"
+    },
+    {
+      "id": "es_a3394a1054",
+      "name": "Holiday Gym Aguilera",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_6eb607cf65",
+      "name": "Holiday Gym Albufera",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_67b597b5e1",
+      "name": "Holiday Gym Aluche",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_60c586d4f6",
+      "name": "Holiday Gym Arturo Soria",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_80dba0ac4e",
+      "name": "Holiday Gym Benicarló",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_c8dcaf7b3d",
+      "name": "Holiday Gym Castellana",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_09f047d7db",
+      "name": "Holiday Gym Elche",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_2e9429084f",
+      "name": "Holiday Gym Fuenlabrada",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_66bbe64858",
+      "name": "Holiday Gym Galaxia",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_3beb32e34f",
+      "name": "Holiday Gym Goya",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_99d06e8110",
+      "name": "Holiday Gym Ibiza",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_04c91bbc6e",
+      "name": "Holiday Gym López de Hoyos",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_45f717fad3",
+      "name": "Holiday Gym Moncloa",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_ea8f07ec99",
+      "name": "Holiday Gym Panoramis",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_59f62ed0bb",
+      "name": "Holiday Gym Pozuelo",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_539519b535",
+      "name": "Holiday Gym Puerta de Alicante",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_3115971a8b",
+      "name": "Holiday Gym Toledo",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_8372f9a5b4",
+      "name": "Holiday Gym Tres Cantos",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_b06689cf50",
+      "name": "Holiday Gym Vergara",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_a61d1a0cc8",
+      "name": "Holiday Gym Villalba",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_9b80eb214c",
+      "name": "Holiday Gym Woman Sevilla",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_3010828876",
+      "name": "Holiday Gym Zaragoza",
+      "brand": "Holiday Gym"
+    },
+    {
+      "id": "es_71e6aa43c2",
+      "name": "Metropolitan Barcelona Carrer de Sant Miquel, 16",
+      "brand": "Metropolitan"
+    },
+    {
+      "id": "es_0acb9d5bc8",
+      "name": "Metropolitan Sant Just Desvern Carrer de Frederic Mompou, 1",
+      "brand": "Metropolitan"
+    },
+    {
+      "id": "es_80e487a88f",
+      "name": "O2 Don Ramon De La Cruz",
+      "brand": "O2 Centro Wellness"
+    },
+    {
+      "id": "es_765afb0fb3",
+      "name": "VivaGym Gimnasio en Aranbizkarra, Vitoria - VivaGym Aranbizkarra",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_7721f2721e",
+      "name": "VivaGym Gimnasio en la Calle Guridi, Vitoria - VivaGym Guridi",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6a5e9d3eb6",
+      "name": "VivaGym Gimnasio en Los Herrán, Vitoria - VivaGym Los Herrán",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_a93473b01a",
+      "name": "VivaGym Gimnasio en Padeleku, Vitoria - VivaGym Padeleku",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_7cc5489383",
+      "name": "VivaGym Gimnasio en C.C. Imaginalia, Albacete - VivaGym Imaginalia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c3bca53bae",
+      "name": "VivaGym Gimnasio en Parque Abelardo, Albacete - VivaGym parque Abelardo",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e42ef16a8e",
+      "name": "VivaGym Gimnasio en Av. de l'Aigüera, Benidorm - VivaGym Benidorm Avenida Aigüera",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c818a3ba4e",
+      "name": "VivaGym Gimnasio en Avinguda de Novelda, Alicante | VivaGym Carrús",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_adf5f876cb",
+      "name": "VivaGym Gimnasio en Conde de Lumiares, Alicante - VivaGym Conde Lumiares",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_69bdc7e6b0",
+      "name": "VivaGym Gimnasio en Plaza América, Alicante - VivaGym Plaza América",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_95788c425d",
+      "name": "VivaGym Gimnasio en Carrer de Santa Lucía, Elche - VivaGym Santa Lucia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c4f15b9d2b",
+      "name": "VivaGym Gimnasio en San Vicente del Raspeig - VivaGym San Vicente",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fee7f106d9",
+      "name": "VivaGym Gimnasio en San Vicente del Raspeig, Alicante | VivaGym Universidad Alicante",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f1e6e3d3a5",
+      "name": "VivaGym Gimnasio en Av. del Mediterráneo, Almería - VivaGym Av Mediterraneo",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_eb0a46c7b8",
+      "name": "VivaGym Gimnasio junto al Estadio, Almería - VivaGym Estadio",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_383f2e8423",
+      "name": "VivaGym Gimnasio en La Calzada, Gijón - VivaGym",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e6b023f4c8",
+      "name": "VivaGym Gimnasio en Natahoyo, Gijón - VivaGym",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1358eecb8b",
+      "name": "VivaGym Gimnasio en San Agustín, Gijón - VivaGym",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e41cc19bbc",
+      "name": "VivaGym Gimnasio en Asturias | VivaGym Corredoria",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_475ae4c0a5",
+      "name": "VivaGym Gimnasio en Oviedo | VivaGym Oviedo Centro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_5aeeacb9b7",
+      "name": "VivaGym Gimnasio en Pº de la Estación, Ávila - VivaGym Ávila Estación",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2b6ef8c2f4",
+      "name": "VivaGym Gimnasio en San Roque, Badajoz - VivaGym San Roque",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_a31d9bb08e",
+      "name": "VivaGym Gimnasio en Arc de Triomf, Barcelona | VivaGym Arc de Triomf",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_93e0363bfa",
+      "name": "VivaGym Gimnasio en Avenidade Roma, Barcelona | VivaGym Avenida Roma",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f67ce4bdf1",
+      "name": "VivaGym Gimnasio en Carrer de Berlín, Barcelona | VivaGym berlin",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bfc9477cad",
+      "name": "VivaGym Gimnasio en Barcelona | VivaGym Besós Mar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d8986db0ad",
+      "name": "VivaGym Gimnasio en Carrer del Bruc, Barcelona | VivaGym Bruc",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1ccbe84a5c",
+      "name": "VivaGym Gimnasio en la Diagonal, Barcelona | VivaGym Diagonal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_4bbd82d704",
+      "name": "VivaGym Gimnasio en Carrer d'Entença, Barcelona | VivaGym Entenca",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fb7e4b906a",
+      "name": "VivaGym Gimnasio en Glòries, Barcelona | VivaGym Glòries",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_45cb414288",
+      "name": "VivaGym Gimnasio en La Rotonda, Barcelona | VivaGym La Rotonda",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b4cdcaf2ae",
+      "name": "VivaGym Gimnasio en La Verneda, Barcelona | VivaGym La Verneda",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_9d42f1451f",
+      "name": "VivaGym Gimnasio en Carrer de Londres, Barcelona | VivaGym Londres",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_318c9dfc90",
+      "name": "VivaGym Gimnasio en La Magòria, Barcelona | VivaGym Magoria",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6251c1937c",
+      "name": "VivaGym Gimnasio en Carrer de Manso, Barcelona | VivaGym Manso",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2849c4896f",
+      "name": "VivaGym Gimnasio en Avinguda Meridiana, Barcelona | VivaGym Meridiana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_862e3998d4",
+      "name": "VivaGym Gimnasio en Barcelona | VivaGym Passeig de Sant Joan",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bcc7040f21",
+      "name": "VivaGym Gimnasio en Sagrada Familia, Barcelona | VivaGym Sagrada Familia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2e9f10c13a",
+      "name": "VivaGym Gimnasio en La Sagrera, Barcelona | VivaGym Sagrega",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bfd0296bdf",
+      "name": "VivaGym Gimnasio en Sant Antoni, Barcelona | VivaGym San Antoni",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e3023720fa",
+      "name": "VivaGym Gimnasio en Sants, Barcelona | VivaGym Sants",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_70a4f091cf",
+      "name": "VivaGym Gimnasio en Plaça Universitat, Barcelona | VivaGym Universitat",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_db802054fc",
+      "name": "VivaGym Gimnasio en Via Augusta, Barcelona | VivaGym Via Augusta",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_03251d179d",
+      "name": "VivaGym Gimnasio en Cornellá",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c4307cf41f",
+      "name": "VivaGym Gimnasio en C.C. Finestrelles, Esplugues | VivaGym finestrelles",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_84160df01a",
+      "name": "VivaGym Gimnasio en Gran Via, L'Hospitalet | VivaGym Gran Via – Hospitalet",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_aad9d773b4",
+      "name": "VivaGym Gimnasio en L'Hospitalet, Santa Eulalia | VivaGym Santa Eulalia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_5a5c0f7296",
+      "name": "VivaGym Gimnasio en Mollet del Vallès | VivaGym Mollet del Valles",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_aed1a15642",
+      "name": "VivaGym Gimnasio en Eix Macià, Sabadell | VivaGym Millenium",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_df8b40a880",
+      "name": "VivaGym Gimnasio en Sant Feliu de Llobregat | VivaGym Sant Feliu",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fe090b2aa3",
+      "name": "VivaGym Gimnasio en Calle Navarra, Terrassa | VivaGym Terrassa Plaça",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_aca6d35aa5",
+      "name": "VivaGym Gimnasio en Terrassa | VivaGym Terrassa",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d9110c2cfb",
+      "name": "VivaGym Gimnasio en Terrassa | VivaGym Terrassa Can Palet",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d6379c8ff0",
+      "name": "VivaGym Gimnasio en Vic | VivaGym Vic",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_88115fdc36",
+      "name": "VivaGym Gimnasio en Pentasa, Burgos - VivaGym Pentasa",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6dc3c56f9c",
+      "name": "VivaGym Gimnasio en Cáceres - VivaGym Cáceres",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e5033d24b5",
+      "name": "VivaGym Gimnasio en Loreto, Cádiz",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fe62d6377d",
+      "name": "VivaGym Gimnasio en Cádiz - VivaGym Varela",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_059954fa51",
+      "name": "VivaGym Gimnasio en C.C. Urbisur, Chiclana - VivaGym Chiclana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1237c1868b",
+      "name": "VivaGym Gimnasio en San Fernando - VivaGym Janer",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2759c99ff9",
+      "name": "VivaGym Gimnasio en Plaza del Rey, San Fernando - VivaGym San Fernando Plaza",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2588771e99",
+      "name": "VivaGym Gimnasio en Torrelavega - VivaGym Torrelavega",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_23659f6ed5",
+      "name": "VivaGym Gimnasio en Castellón | VivaGym Avenida Del Mar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2ea0a674b7",
+      "name": "VivaGym Gimnasio en Castellón | VivaGym Castellón Estaciones",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_20ac261543",
+      "name": "VivaGym Gimnasio en Doctor Marañón, Castellón - VivaGym Dr Marañon",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_4de67f6e73",
+      "name": "VivaGym Gimnasio en C.C. Salera, Castellón - VivaGym Salera",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d219fcf96e",
+      "name": "VivaGym Gimnasio en Villarreal, Castellón | VivaGym Villarreal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e3f8642649",
+      "name": "VivaGym Gimnasio en Gran Capitán, Córdoba - VivaGym Gran Capitán",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_72ecd34857",
+      "name": "VivaGym Gimnasio en Cordoba | VivaGym Tablero",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_02f22b3e89",
+      "name": "VivaGym Gimnasio en Girona Sud - VivaGym Girona Sur",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b7b9965ee1",
+      "name": "VivaGym Gimnasio en Castillo de Agüimes - VivaGym Castillo Aguimes",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_36418f0f41",
+      "name": "VivaGym Gimnasio en C.C. Alisios, Las Palmas - VivaGym las Palmas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_590d379fa3",
+      "name": "VivaGym Gimnasio en Juan XXIII, Las Palmas - VivaGym Juan XXII",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_3dad75857e",
+      "name": "VivaGym Gimnasio en C.C. La Ballena, Las Palmas - VivaGym La Ballena",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bb9dae0003",
+      "name": "VivaGym Gimnasio en C.C. Las Arenas, Las Palmas - VivaGym Las Arenas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_0fc125e197",
+      "name": "VivaGym Gimnasio en Vegueta, Las Palmas - VivaGym Vegueta",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_561d1b0794",
+      "name": "VivaGym Gimnasio en Vecindario - VivaGym Vecindario",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6393b946b9",
+      "name": "VivaGym Gimnasio en Fuentenueva, Granada - VivaGym Fuentenueva",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2c99dcbd5c",
+      "name": "VivaGym Gimnasio en C.C. Niessen, Rentería - VivaGym Niessen",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1b4b07540c",
+      "name": "VivaGym Gimnasio en Gros, San Sebastián - VivaGym Gros",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ad57a01044",
+      "name": "VivaGym Gimnasio en La Loma, Jaén | VivaGym La Loma",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_7c7c5fa642",
+      "name": "VivaGym Gimnasio en La Coruña, Galicia | VivaGym A Grela",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_117ddd4822",
+      "name": "VivaGym Gimnasio en Galicia | VivaGym Compostela",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c7ec111942",
+      "name": "VivaGym Gimnasio en C.C. Odeón, Narón - VivaGym Odeón",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ef31c572b5",
+      "name": "VivaGym Gimnasio en Marina Lanzarote, Arrecife - VivaGym Marina Arrecife",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2447394e73",
+      "name": "VivaGym Gimnasio en La Chantría, León - VivaGym Chantría",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_567dc8bb8a",
+      "name": "VivaGym Gimnasio en C.C. León Plaza - VivaGym León Plaza",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b4084275b0",
+      "name": "VivaGym Gimnasio en Santa Ana, Rivas | VivaGym Santa Ana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1ddf49e3b0",
+      "name": "VivaGym Gimnasio en C.C. El Rosal, Ponferrada - VivaGym El Rosal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ca18b8b3ce",
+      "name": "VivaGym Gimnasio en Lleida, Cataluña | VivaGym Templers",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_52b62398e9",
+      "name": "VivaGym Gimnasio en Logroño - VivaGym Logroño",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_14a5eea68e",
+      "name": "VivaGym Gimnasio en La Milagrosa, Lugo - VivaGym Milagrosa",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c269cfb0f3",
+      "name": "VivaGym Gimnasio en C.C. El Val, Alcalá de Henares | VivaGym Alcalá El Val",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d2b69c5555",
+      "name": "VivaGym Gimnasio en Ronda Fiscal, Alcalá de Henares | VivaGym Alcalá Ronda Fiscal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b9d1e433e6",
+      "name": "VivaGym Gimnasio en Alcobendas | VivaGym Alcobendas Rio Norte",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_562187ca4f",
+      "name": "VivaGym Gimnasio en Aranjuez | VivaGym Aranjuez",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1722368691",
+      "name": "VivaGym Gimnasio en OMO Arroyomolinos Park | VivaGym Arroyomolinos Park",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_302caa0d61",
+      "name": "VivaGym Gimnasio en Alberto Aguilera, Madrid | VivaGym Alberto Aguilera",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_8e273a2144",
+      "name": "VivaGym Gimnasio en Arturo Soria | VivaGym Arturo Soria",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6d0ad51689",
+      "name": "VivaGym Gimnasio en Barrio del Pilar, Madrid | VivaGym Barrio Del Pilar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_4acf877ad4",
+      "name": "VivaGym Gimnasio junto al Bernabéu, Madrid | VivaGym Bernabéu",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c0e07947c5",
+      "name": "VivaGym Gimnasio en Carabanchel, Madrid | VivaGym Carabanchel",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_0d6da82bad",
+      "name": "VivaGym Gimnasio en Paseo de la Castellana, Madrid | VivaGym La Castellana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_890c81864e",
+      "name": "VivaGym Gimnasio en Chamberí, Madrid | VivaGym Chamberí",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b96867b465",
+      "name": "VivaGym Gimnasio en Av. Ciudad de Barcelona, Madrid | VivaGym Ciudad de Barcelona",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_35c3e2405f",
+      "name": "VivaGym Gimnasio en Ciudad Lineal, Madrid | VivaGym Ciudad Lineal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_030dbe13af",
+      "name": "VivaGym Gimnasio en Ciudad Universitaria, Madrid | VivaGym Ciudad Universitaria",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_4df359744a",
+      "name": "VivaGym Gimnasio en Clara del Rey, Madrid | VivaGym Clara del Rey",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1ca868325e",
+      "name": "VivaGym Gimnasio en Conde de Casal, Madrid | VivaGym Conde Casal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_31a620f2d9",
+      "name": "VivaGym Gimnasio en Cuatro Caminos, Madrid | VivaGym Cuatro Caminos",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_33410ca4ae",
+      "name": "VivaGym Gimnasio en Cuzco, Madrid | VivaGym Cuzco",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_496dc7bdb9",
+      "name": "VivaGym Gimnasio en El Retiro, Madrid | VivaGym El Retiro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c52f12994e",
+      "name": "VivaGym Gimnasio en Embajadores, Madrid | VivaGym Embajadores",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_678788c631",
+      "name": "VivaGym Gimnasio en Serrano 127, Madrid | VivaGym Estudiantes",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_8e4b4ff98a",
+      "name": "VivaGym Gimnasio en Madrid | VivaGym Herrera Oria",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ab4108672b",
+      "name": "VivaGym Gimnasio en C.C. Islazul, Madrid | VivaGym Islazul",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_aa1fefa39c",
+      "name": "VivaGym Gimnasio en Julián Camarillo, Madrid | VivaGym Julian Camarillo",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b9d13de0b2",
+      "name": "VivaGym Gimnasio en La Concepción, Madrid | VivaGym La Concepcion",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b805dff77c",
+      "name": "VivaGym Gimnasio en Las Rosas, Madrid | VivaGym Las Rosas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d18b256b15",
+      "name": "VivaGym Gimnasio en Las Tablas Norte, Madrid | VivaGym Las Tablas Norte",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_58f13dcd87",
+      "name": "VivaGym Gimnasio en Las Tablas Sur, Madrid | VivaGym Las Tablas de Sur",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b0462a4efe",
+      "name": "VivaGym Gimnasio en Mercado de Numancia, Madrid | VivaGym Mercado Numancia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_7e6203828b",
+      "name": "VivaGym Gimnasio en Mercado de Villaverde, Madrid | VivaGym Mercado Villaverde",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bf32d172a0",
+      "name": "VivaGym Gimnasio en Mirasierra, Madrid | VivaGym Mirasierra",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_a824900a79",
+      "name": "VivaGym Gimnasio en Palacio Vistalegre, Madrid | VivaGym Palacio Vistalegre",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c97f9bbafd",
+      "name": "VivaGym Gimnasio en Parque Almansa, Madrid | VivaGym Parque Almansa",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b2a82e8ad4",
+      "name": "VivaGym Gimnasio en Paseo de la Habana, Madrid | VivaGym Paseo de la Habana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d5b4bb063e",
+      "name": "VivaGym Gimnasio en Paseo de las Delicias, Madrid | VivaGym Las Delicias",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ce866a49c6",
+      "name": "VivaGym Gimnasio en Plaza Mayor, Madrid | VivaGym Plaza Mayor",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_cc02aaf5c4",
+      "name": "VivaGym Gimnasio en Príncipe de Vergara, Madrid | VivaGym Principe de Vergara",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_77f67300e5",
+      "name": "VivaGym Gimnasio en Puerta del Sol, Madrid | VivaGym Puerta del Sol",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_5fc3317bf0",
+      "name": "VivaGym Gimnasio en Quintana | VivaGym Quintana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1235ae7f86",
+      "name": "VivaGym Gimnasio en Madrid Río | VivaGym Madrid Rio",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bfcb7ab632",
+      "name": "VivaGym Gimnasio en Santa Eugenia, Madrid | VivaGym Santa Eugenia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_a9c32e7d92",
+      "name": "VivaGym Gimnasio en Torre Picasso, Madrid | VivaGym Torre Picasso",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_887fddd7be",
+      "name": "VivaGym Gimnasio en Madrid - VivaGym Tres Cantos",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f54e5bc527",
+      "name": "VivaGym Gimnasio en Vallecas, Madrid | VivaGym Vallecas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c699e84400",
+      "name": "VivaGym Gimnasio en Las Ventas, Madrid | VivaGym Las ventas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1b0cc1b7dd",
+      "name": "VivaGym Gimnasio en C.C. Coslada Plaza | VivaGym Coslada Plaza",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_8d8bce6c0b",
+      "name": "VivaGym Gimnasio en Av. José Gárate, Coslada | VivaGym Coslada Jose Garate",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_171e0b79b1",
+      "name": "VivaGym Gimnasio en El Escorial | VivaGym El Escorial",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_0b38f72598",
+      "name": "VivaGym Gimnasio en Fuenlabrada Central | VivaGym Fuenlabrada Central",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bf6b3fd780",
+      "name": "VivaGym Gimnasio en C.C. Las Provincias, Fuenlabrada | VivaGym Fuenlabrada Las Provincias",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_16ef1405f3",
+      "name": "VivaGym Gimnasio en C.C. Loranca, Fuenlabrada | VivaGym Fuenlabrada Loranca",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_715532efad",
+      "name": "VivaGym Gimnasio en Nexum, Fuenlabrada | VivaGym Fuenlabrada Nexum",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_5f901ba81e",
+      "name": "VivaGym Gimnasio en Galapagar | VivaGym Galapagar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_7793cff708",
+      "name": "VivaGym Gimnasio en Getafe Universidad | VivaGym Getafe Universidad",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_26c15c3e1f",
+      "name": "VivaGym Gimnasio en El Burgo, Las Rozas | VivaGym Las Rozas Burgo",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_0aa0973196",
+      "name": "VivaGym Gimnasio en Leganés Centro | VivaGym Leganes Centro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_97bbf090b8",
+      "name": "VivaGym Gimnasio en Equinoccio Park, Majadahonda | VivaGym Equinoccio",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_4f4e6ca5bf",
+      "name": "VivaGym Gimnasio en Majadahonda Centro | VivaGym Majadahonda",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c6122835a4",
+      "name": "VivaGym Gimnasio en Móstoles | VivaGym Mostoles Dos de Mayo",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_871695537a",
+      "name": "VivaGym Gimnasio en Las Américas, Parla | VivaGym Las Americas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fdf5d53946",
+      "name": "VivaGym Gimnasio en Pinto | VivaGym Pinto",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_79de16a1c8",
+      "name": "VivaGym Gimnasio en Pozuelo Centro | VivaGym Pozuelo Centro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_85e767addd",
+      "name": "VivaGym Gimnasio en Pozuelo | VivaGym Pozuelo El Torreón",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_75a55ecc27",
+      "name": "VivaGym Gimnasio en C. Paco Rabal, 28521 Rivas-Vaciamadrid, Madrid | VivaGym Rivas Bulevar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1f85533654",
+      "name": "VivaGym Gimnasio en C.C. Rivas Futura | VivaGym Rivas Futura",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2006adeeed",
+      "name": "VivaGym Gimnasio en Rivas Centro | VivaGym Rivas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_9d46dad63d",
+      "name": "VivaGym Gimnasio en San Fernando | VivaGym San Fernando Henares",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ad1be64e58",
+      "name": "VivaGym Gimnasio en San Sebastián de los Reyes | VivaGym San Sebastian de los Reyes",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2b3b2d088a",
+      "name": "VivaGym Gimnasio en Circunvalación, Torrejón | VivaGym Circunvalación",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_a46eac5f14",
+      "name": "VivaGym Gimnasio en Villanueva de la Cañada | VivaGym Villanueva de la Cañada",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1029b65524",
+      "name": "VivaGym Gimnasio en Málaga Centro - VivaGym Málaga Centro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_0a5e3e0910",
+      "name": "VivaGym Gimnasio en Fuengirola - VivaGym Fuengirola",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fddf92c722",
+      "name": "VivaGym Gimnasio en C.C. El Ingenio, Vélez-Málaga - VivaGym El Ingenio",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_4b742e3293",
+      "name": "VivaGym Gimnasio en Nuredduna, Palma - VivaGym Nuredduna",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_7e2b25ef58",
+      "name": "VivaGym Gimnasio en C.C. Porto Pi, Palma - VivaGym Porto Pi",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f98534d048",
+      "name": "VivaGym Gimnasio en Santa Catalina, Palma - VivaGym Santa Catalina",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_addb30f83e",
+      "name": "VivaGym Gimnasio en Son Fuster, Palma - VivaGym Son Fuster",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f93ebf184a",
+      "name": "VivaGym Gimnasio en Plaza Circular, Murcia - VivaGym Plaza Circular",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_7b5886a99d",
+      "name": "VivaGym Gimnasio en Murcia | VivaGym Ronda Norte - Murcia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_71bc6c476f",
+      "name": "VivaGym Gimnasio en Murcia | VivaGym Ronda Sur",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6b68b3ec24",
+      "name": "VivaGym Gimnasio en Cartagena Centro - VivaGym Cartagena Centro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2fc414892f",
+      "name": "VivaGym Gimnasio en C.C. Mandarache | VivaGym Mandarache",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_8e1181b9e9",
+      "name": "VivaGym Gimnasio en C.C. Vega Plaza, Molina de Segura - VivaGym Vega Plaza",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ced522a69e",
+      "name": "VivaGym Gimnasio en Ansoáin - VivaGym Ansoaín",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d021a2c5f3",
+      "name": "VivaGym Gimnasio en Artika, Pamplona - VivaGym Artika",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fd9f229ed9",
+      "name": "VivaGym Gimnasio en Iturrama, Pamplona - VivaGym Iturrama",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_37c886ca41",
+      "name": "VivaGym Gimnasio en Ronda Norte, Pamplona - VivaGym Ronda Norte",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_255019d7ba",
+      "name": "VivaGym Gimnasio en Navarra | VivaGym Salesianos",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_09c80c1401",
+      "name": "VivaGym Gimnasio en Pontevedra | VivaGym A Barca",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_9557caf982",
+      "name": "VivaGym Gimnasio en C.C. Plaza Elíptica, Vigo - VivaGym Plaza Elíptica",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2b177b3d5a",
+      "name": "VivaGym Gimnasio en Vigo Centro - VivaGym Vigo Centro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_574121e703",
+      "name": "VivaGym Gimnasio en Vigo | VivaGym Travesía",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_297bdaa061",
+      "name": "VivaGym Gimnasio en Canalejas, Salamanca - VivaGym Canalejas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_814cb620c3",
+      "name": "VivaGym Gimnasio en C.C. Vialia, Salamanca - VivaGym Vialia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ae20925ca6",
+      "name": "VivaGym Gimnasio en C.C. Alcalá Plaza | VivaGym Alcalá Plaza",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_bb33e21a7a",
+      "name": "VivaGym Gimnasio en Camas | VivaGym Camas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_514172b9ab",
+      "name": "VivaGym Gimnasio en Sevilla Este | VivaGym Sevilla Este",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b376243c02",
+      "name": "VivaGym Gimnasio en Los Remedios, Sevilla | VivaGym los Remedios",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f8259e8aaf",
+      "name": "VivaGym Gimnasio en Nervión, Sevilla | VivaGym Nervión",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f1a0afdb12",
+      "name": "VivaGym Gimnasio en Dos Hermanas | VivaGym Dos Hermanas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_9d8cb2eb45",
+      "name": "VivaGym Gimnasio en Reus | Gimnasio Reus Centre",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_cfa023b171",
+      "name": "VivaGym Gimnasio en C.C. Alcampo, La Laguna - VivaGym CC Alcampo – La Laguna",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f32a5cf7cf",
+      "name": "VivaGym Gimnasio en La Laguna Centro - VivaGym San Benito – La Laguna",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_3ad3bd31ed",
+      "name": "VivaGym Gimnasio en Las Retamas, Santa Cruz - VivaGym Las Retamas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1b1c6570b7",
+      "name": "VivaGym Gimnasio en Tenerife - VivaGym Tomé Cano",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_da3a752eae",
+      "name": "VivaGym Gimnasio en Tres de Mayo, Santa Cruz - VivaGym Tres de Mayo",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_9bf1cf37f8",
+      "name": "VivaGym Gimnasio en Alfafar - VivaGym Alfafar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_31e8ce68f1",
+      "name": "VivaGym Gimnasio junto a Arena Multiespacio, Valencia | VivaGym Arena",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_87332acb51",
+      "name": "VivaGym Gimnasio en Av. Burjassot, Valencia | VivaGym Av. Burjassot",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6dbbdd5e1d",
+      "name": "VivaGym Gimnasio en Cardenal Benlloch, Valencia | VivaGym Benlloch",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_0ea482238d",
+      "name": "VivaGym Gimnasio en Campanar, Valencia | VivaGym Campanar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_803c5bcb6d",
+      "name": "VivaGym Gimnasio en Cánovas, Valencia | VivaGym Cánovas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_64709f3b9b",
+      "name": "VivaGym Gimnasio en Clariano, Valencia | VivaGym Clariano",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_534f8baf2a",
+      "name": "VivaGym Gimnasio en Calle Riu Escalona, Valencia | VivaGym Islas Canarias",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_86ca7a17b7",
+      "name": "VivaGym Gimnasio en Carrer de Leandro, Valencia | VivaGym Leandro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_d88829ae13",
+      "name": "VivaGym Gimnasio en Museros, Valencia | VivaGym Museros",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_143113777e",
+      "name": "VivaGym Gimnasio en Valencia - VivaGym Palleter",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_50353f8a08",
+      "name": "VivaGym Gimnasio en Parque Central, Valencia | VivaGym Parque Central",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_06ef3b2840",
+      "name": "VivaGym Gimnasio en Paterna, Valencia | VivaGym Paterna",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_f77920602e",
+      "name": "VivaGym Gimnasio en Patraix, Valencia | VivaGym Patraix",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_111fb38e30",
+      "name": "VivaGym Gimnasio en Pío XII, Valencia | VivaGym Pio XII",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e1c0fccf43",
+      "name": "VivaGym Gimnasio en Platero, Valencia | VivaGym Platero",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2e9694bf66",
+      "name": "VivaGym Gimnasio en Ruzafa, Valencia | VivaGym Ruzafa",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fd342024cc",
+      "name": "VivaGym Gimnasio en Patraix, Valencia | VivaGym Tres Cruces",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_eac709e189",
+      "name": "VivaGym Gimnasio en Tres Forques, Valencia | VivaGym Tres Forques",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6d3f984d03",
+      "name": "VivaGym Gimnasio en Calle Troya, Valencia | VivaGym Troya",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_5afd436885",
+      "name": "VivaGym Gimnasio en Av. Uruguay, Valencia | VivaGym Uruguay",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6ed91b4b44",
+      "name": "VivaGym Gimnasio en Godella | VivaGym Godella",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2024851a22",
+      "name": "VivaGym Gimnasio en Eliana | VivaGym Eliana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_4ebd555b2f",
+      "name": "VivaGym Gimnasio en Valencia | VivaGym Sagunt",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_fbe89c3024",
+      "name": "VivaGym Gimnasio en Valencia - VivaGym Torrent Avinguda",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_6a48c15641",
+      "name": "VivaGym Gimnasio en Torrent, Valencia | VivaGym Torrent Nord",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_15f0c7bc30",
+      "name": "VivaGym Xàtiva",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_a3181a50f3",
+      "name": "VivaGym Gimnasio en C.C. Bilbondo, Basauri | VivaGym Bilbondo",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_33f04611bf",
+      "name": "VivaGym Gimnasio en Abando, Bilbao | VivaGym Abando",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_5367a35a80",
+      "name": "VivaGym Gimnasio en Bilbao, Vizcaya - VivaGym Autonomía 53",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_c01530f0f7",
+      "name": "VivaGym Gimnasio en Bolueta, Bilbao | VivaGym Bolueta",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_335f9b739e",
+      "name": "VivaGym Gimnasio en Deusto, Bilbao | VivaGym Deusto",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_3e905b672c",
+      "name": "VivaGym Gimnasio en la Gran Vía de Bilbao | VivaGym Gran Via Bilbao",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_3cf0fe813e",
+      "name": "VivaGym Gimnasio en Miribilla, Bilbao | VivaGym Miribilla",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ba8217017e",
+      "name": "VivaGym Gimnasio en Sarriko, Bilbao | VivaGym Sarriko",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_0ba7a47045",
+      "name": "VivaGym Gimnasio en C.C. Artea, Leioa | VivaGym Artea",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_ba2c7d9a62",
+      "name": "VivaGym Gimnasio en Getxo | VivaGym Leioa",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_e954240dae",
+      "name": "VivaGym Gimnasio en C.C. Ballonti, Portugalete | VivaGym Ballonti",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b9670bfae2",
+      "name": "VivaGym Gimnasio en Actur, Zaragoza - VivaGym Actur",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_78d7995fa8",
+      "name": "VivaGym Gimnasio en Av. Cataluña, Zaragoza - VivaGym Av Cataluña",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_29effb107c",
+      "name": "VivaGym Gimnasio en C.C. Boston, Zaragoza - VivaGym Boston",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_dec63cb8b2",
+      "name": "VivaGym Gimnasio en Delicias, Zaragoza - VivaGym Delicias",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_3a60015aea",
+      "name": "VivaGym Gimnasio en Las Torres, Zaragoza - VivaGym las Torres",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_5a904336a8",
+      "name": "VivaGym Gimnasio en Zaragoza - VivaGym Los Enlaces",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_120a720514",
+      "name": "VivaGym Gimnasio en Parque Roma, Zaragoza - VivaGym Parque Roma",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_b598f3ac4d",
+      "name": "VivaGym Gimnasio en Puerta del Carmen, Zaragoza - VivaGym Puerta del Carmen",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_2afe4c1025",
+      "name": "VivaGym Gimnasio en La Romareda, Zaragoza - VivaGym Romareda",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "es_1a5f3175d7",
+      "name": "Enjoy! Altamira",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_e4213fba6d",
+      "name": "Enjoy! Getafe",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_af2b6b0b7f",
+      "name": "Enjoy! Carabanchel",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_ec7bd3a67d",
+      "name": "Enjoy! Móstoles",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_a61f68992a",
+      "name": "Enjoy! La Ribera",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_822c17d90b",
+      "name": "Enjoy! Samaranch",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_b3e6a8d98f",
+      "name": "Enjoy! Sanfer",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_6ff7d70591",
+      "name": "Enjoy! Jerez",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_99ff5464bf",
+      "name": "Enjoy! San Bernardo",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_bc7200fce5",
+      "name": "Enjoy! Murcia",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_3198fbe826",
+      "name": "Enjoy! Oviedo",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_104fdbd93d",
+      "name": "Enjoy! Aldehuela",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_84163e028a",
+      "name": "Enjoy! Multiusos",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_aa0721594d",
+      "name": "Enjoy! Mérida - Ciudad Deportiva de Mérida",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_281d1a5166",
+      "name": "Enjoy! Silos",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_5b7f31a499",
+      "name": "Enjoy! Málaga",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_201303b2df",
+      "name": "Enjoy! Albacete",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_a3ed993b40",
+      "name": "Enjoy! La Isla",
+      "brand": "Enjoy!"
+    },
+    {
+      "id": "es_80cc9909e9",
+      "name": "Metropolitan Bilbao",
+      "brand": "Metropolitan"
+    }
+  ],
+  "note": "FINAL 976 merge — zero dups withheld; superseded 978 set not used"
+}

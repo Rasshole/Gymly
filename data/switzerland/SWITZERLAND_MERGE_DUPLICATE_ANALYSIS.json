@@ -1,0 +1,2063 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [
+      {
+        "a_id": "ch_53e82ae848",
+        "a_name": "ACTIV FITNESS Aarau Industrie",
+        "b_id": "ch_2d35aeb0dd",
+        "b_name": "ACTIV FITNESS Küssnacht",
+        "brand": "ACTIV FITNESS",
+        "distance_m": 0,
+        "same_address": false
+      }
+    ],
+    "lt50": [
+      {
+        "a_id": "ch_53e82ae848",
+        "a_name": "ACTIV FITNESS Aarau Industrie",
+        "b_id": "ch_2d35aeb0dd",
+        "b_name": "ACTIV FITNESS Küssnacht",
+        "brand": "ACTIV FITNESS",
+        "distance_m": 0,
+        "same_address": false
+      }
+    ],
+    "lt100": [
+      {
+        "a_id": "ch_53e82ae848",
+        "a_name": "ACTIV FITNESS Aarau Industrie",
+        "b_id": "ch_2d35aeb0dd",
+        "b_name": "ACTIV FITNESS Küssnacht",
+        "brand": "ACTIV FITNESS",
+        "distance_m": 0,
+        "same_address": false
+      }
+    ],
+    "identical": [
+      {
+        "a_id": "ch_53e82ae848",
+        "b_id": "ch_2d35aeb0dd",
+        "brand": "ACTIV FITNESS",
+        "distance_m": 0
+      }
+    ],
+    "diffBrand": [
+      {
+        "a_id": "ch_d9bd0d80d2",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_ce17dbd24f",
+        "b_brand": "PureGym",
+        "distance_m": 83
+      },
+      {
+        "a_id": "ch_697d56f239",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_2935c74fa6",
+        "b_brand": "Kieser",
+        "distance_m": 84
+      },
+      {
+        "a_id": "ch_c61cc7b6b4",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_6ad4f89d1a",
+        "b_brand": "Kieser",
+        "distance_m": 85
+      },
+      {
+        "a_id": "ch_b633295792",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_f62d4d3324",
+        "b_brand": "NonStop Gym",
+        "distance_m": 100
+      },
+      {
+        "a_id": "ch_b633295792",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_b9bc787d31",
+        "b_brand": "Harmony",
+        "distance_m": 33
+      },
+      {
+        "a_id": "ch_e82738a1cb",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_79481fe859",
+        "b_brand": "NonStop Gym",
+        "distance_m": 26
+      },
+      {
+        "a_id": "ch_044d37062a",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_c5cc64d049",
+        "b_brand": "update Fitness",
+        "distance_m": 60
+      },
+      {
+        "a_id": "ch_626c462197",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_d322378080",
+        "b_brand": "Kieser",
+        "distance_m": 61
+      },
+      {
+        "a_id": "ch_d07e0ebe93",
+        "a_brand": "ACTIV FITNESS",
+        "b_id": "ch_b15e113b17",
+        "b_brand": "update Fitness",
+        "distance_m": 85
+      },
+      {
+        "a_id": "ch_7ce9c8b192",
+        "a_brand": "PureGym",
+        "b_id": "ch_271ce21818",
+        "b_brand": "clever fit",
+        "distance_m": 27
+      },
+      {
+        "a_id": "ch_41b07cbcb4",
+        "a_brand": "PureGym",
+        "b_id": "ch_88cdf0090a",
+        "b_brand": "update Fitness",
+        "distance_m": 43
+      },
+      {
+        "a_id": "ch_6e5c86e750",
+        "a_brand": "PureGym",
+        "b_id": "ch_dd6fe765fe",
+        "b_brand": "clever fit",
+        "distance_m": 37
+      },
+      {
+        "a_id": "ch_87207e0597",
+        "a_brand": "Let's Go Fitness",
+        "b_id": "ch_5ab20722e0",
+        "b_brand": "NonStop Gym",
+        "distance_m": 94
+      },
+      {
+        "a_id": "ch_825fdca033",
+        "a_brand": "Let's Go Fitness",
+        "b_id": "ch_afe745a8ff",
+        "b_brand": "Harmony",
+        "distance_m": 8
+      },
+      {
+        "a_id": "ch_aa07cd5043",
+        "a_brand": "NonStop Gym",
+        "b_id": "ch_20c13813f9",
+        "b_brand": "Kieser",
+        "distance_m": 92
+      },
+      {
+        "a_id": "ch_0fe4393edb",
+        "a_brand": "NonStop Gym",
+        "b_id": "ch_afe8ce9d83",
+        "b_brand": "update Fitness",
+        "distance_m": 70
+      }
+    ]
+  },
+  "skipped_existing_id": [
+    {
+      "id": "ch_d9bd0d80d2",
+      "name": "ACTIV FITNESS Aarau Bahnhof"
+    },
+    {
+      "id": "ch_53e82ae848",
+      "name": "ACTIV FITNESS Aarau Industrie"
+    },
+    {
+      "id": "ch_b8579b239a",
+      "name": "ACTIV FITNESS Abtwil SG Säntispark"
+    },
+    {
+      "id": "ch_dfec1e95d0",
+      "name": "ACTIV FITNESS Carouge Acacias"
+    },
+    {
+      "id": "ch_dfeb786c28",
+      "name": "ACTIV FITNESS Adliswil"
+    },
+    {
+      "id": "ch_5c9d26b269",
+      "name": "ACTIV FITNESS Affoltern a.A."
+    },
+    {
+      "id": "ch_fc9c3e7448",
+      "name": "ACTIV FITNESS Aigle"
+    },
+    {
+      "id": "ch_f687ade100",
+      "name": "ACTIV FITNESS Allschwil"
+    },
+    {
+      "id": "ch_f0b282872d",
+      "name": "ACTIV FITNESS Altdorf"
+    },
+    {
+      "id": "ch_a117843e40",
+      "name": "ACTIV FITNESS Amriswil"
+    },
+    {
+      "id": "ch_df0d0774c7",
+      "name": "ACTIV FITNESS Arbon"
+    },
+    {
+      "id": "ch_b96230b1cf",
+      "name": "ACTIV FITNESS Baar"
+    },
+    {
+      "id": "ch_fbb7c0531c",
+      "name": "ACTIV FITNESS Baden"
+    },
+    {
+      "id": "ch_d93397efcb",
+      "name": "ACTIV FITNESS Genf Balexert"
+    },
+    {
+      "id": "ch_4c79c6b2ae",
+      "name": "ACTIV FITNESS Basel Güterstrasse"
+    },
+    {
+      "id": "ch_2a36c3e720",
+      "name": "ACTIV FITNESS Bellinzona"
+    },
+    {
+      "id": "ch_227ad6bab7",
+      "name": "ACTIV FITNESS Bern Burgernziel"
+    },
+    {
+      "id": "ch_2ad583f033",
+      "name": "ACTIV FITNESS Bern Parkterrasse"
+    },
+    {
+      "id": "ch_7bf7b71339",
+      "name": "ACTIV FITNESS Biasca"
+    },
+    {
+      "id": "ch_b0644bfab1",
+      "name": "ACTIV FITNESS Biel Bözingen"
+    },
+    {
+      "id": "ch_697d56f239",
+      "name": "ACTIV FITNESS Biel Elite"
+    },
+    {
+      "id": "ch_8e6e70fe27",
+      "name": "ACTIV FITNESS Boudevilliers"
+    },
+    {
+      "id": "ch_1df4af540f",
+      "name": "ACTIV FITNESS Brig"
+    },
+    {
+      "id": "ch_2331124cb1",
+      "name": "ACTIV FITNESS Buchs SG"
+    },
+    {
+      "id": "ch_b57b5eb694",
+      "name": "ACTIV FITNESS Bülach"
+    },
+    {
+      "id": "ch_de86d203e1",
+      "name": "ACTIV FITNESS Bulle"
+    },
+    {
+      "id": "ch_a1cd94dbf6",
+      "name": "ACTIV FITNESS Burgdorf"
+    },
+    {
+      "id": "ch_7d5f23d8f6",
+      "name": "ACTIV FITNESS Chur"
+    },
+    {
+      "id": "ch_735f8c01fe",
+      "name": "ACTIV FITNESS Corcelles"
+    },
+    {
+      "id": "ch_bfacae8293",
+      "name": "ACTIV FITNESS Delémont"
+    },
+    {
+      "id": "ch_427508dbf5",
+      "name": "ACTIV FITNESS Dielsdorf"
+    },
+    {
+      "id": "ch_41cb9d4ded",
+      "name": "ACTIV FITNESS Dietikon"
+    },
+    {
+      "id": "ch_f02d80eed2",
+      "name": "ACTIV FITNESS Dübendorf"
+    },
+    {
+      "id": "ch_663011ae43",
+      "name": "ACTIV FITNESS Ebikon"
+    },
+    {
+      "id": "ch_568f4cd886",
+      "name": "ACTIV FITNESS Emmenbrücke"
+    },
+    {
+      "id": "ch_c1dc628c29",
+      "name": "ACTIV FITNESS Frauenfeld"
+    },
+    {
+      "id": "ch_c61cc7b6b4",
+      "name": "ACTIV FITNESS Frenkendorf"
+    },
+    {
+      "id": "ch_c32116efee",
+      "name": "ACTIV FITNESS Fribourg"
+    },
+    {
+      "id": "ch_56efad1cab",
+      "name": "ACTIV FITNESS Genf Alpes"
+    },
+    {
+      "id": "ch_d14ad67abb",
+      "name": "ACTIV FITNESS Genf Charmilles"
+    },
+    {
+      "id": "ch_61b1fc6e79",
+      "name": "ACTIV FITNESS Genf Eaux-Vives Gare"
+    },
+    {
+      "id": "ch_b633295792",
+      "name": "ACTIV FITNESS Genf Maunoir"
+    },
+    {
+      "id": "ch_b808098c84",
+      "name": "ACTIV FITNESS Genf Rhône"
+    },
+    {
+      "id": "ch_e82738a1cb",
+      "name": "ACTIV FITNESS Genf Vermont"
+    },
+    {
+      "id": "ch_e2e3d81f22",
+      "name": "ACTIV FITNESS Giubiasco"
+    },
+    {
+      "id": "ch_90d76485d4",
+      "name": "ACTIV FITNESS Gossau SG"
+    },
+    {
+      "id": "ch_6e7491118c",
+      "name": "ACTIV FITNESS Heimberg"
+    },
+    {
+      "id": "ch_044d37062a",
+      "name": "ACTIV FITNESS Herisau"
+    },
+    {
+      "id": "ch_c73305c539",
+      "name": "ACTIV FITNESS Hochdorf"
+    },
+    {
+      "id": "ch_838a82ca36",
+      "name": "ACTIV FITNESS Horgen"
+    },
+    {
+      "id": "ch_cf42a873f2",
+      "name": "ACTIV FITNESS Jona"
+    },
+    {
+      "id": "ch_ffbd500274",
+      "name": "ACTIV FITNESS Kloten"
+    },
+    {
+      "id": "ch_374fff694b",
+      "name": "ACTIV FITNESS Köniz"
+    },
+    {
+      "id": "ch_96f256edc6",
+      "name": "ACTIV FITNESS Kreuzlingen"
+    },
+    {
+      "id": "ch_61589e2e07",
+      "name": "ACTIV FITNESS Kriens"
+    },
+    {
+      "id": "ch_2d35aeb0dd",
+      "name": "ACTIV FITNESS Küssnacht"
+    },
+    {
+      "id": "ch_f2db41535e",
+      "name": "ACTIV FITNESS La Chaux-de-Fonds"
+    },
+    {
+      "id": "ch_baf569ffb7",
+      "name": "ACTIV FITNESS Lachen"
+    },
+    {
+      "id": "ch_61a5b2f61e",
+      "name": "ACTIV FITNESS Lancy Pont Rouge"
+    },
+    {
+      "id": "ch_f502066d28",
+      "name": "ACTIV FITNESS Lausanne Chauderon"
+    },
+    {
+      "id": "ch_a0eaea778d",
+      "name": "ACTIV FITNESS Lausanne Théâtre"
+    },
+    {
+      "id": "ch_2ec3c55d41",
+      "name": "ACTIV FITNESS Losone"
+    },
+    {
+      "id": "ch_08b3bdff86",
+      "name": "ACTIV FITNESS Lugano"
+    },
+    {
+      "id": "ch_af3f373d3b",
+      "name": "ACTIV FITNESS Luzern Bundesplatz"
+    },
+    {
+      "id": "ch_031d55cda4",
+      "name": "ACTIV FITNESS Malters"
+    },
+    {
+      "id": "ch_65a590c51b",
+      "name": "ACTIV FITNESS Martigny"
+    },
+    {
+      "id": "ch_2e98da7a1c",
+      "name": "ACTIV FITNESS Meilen"
+    },
+    {
+      "id": "ch_83550d0ce6",
+      "name": "ACTIV FITNESS Mendrisio"
+    },
+    {
+      "id": "ch_d713a1bd22",
+      "name": "ACTIV FITNESS Monthey"
+    },
+    {
+      "id": "ch_74a1abb19d",
+      "name": "ACTIV FITNESS Montreux"
+    },
+    {
+      "id": "ch_a86b84ae32",
+      "name": "ACTIV FITNESS Morges"
+    },
+    {
+      "id": "ch_2a78872720",
+      "name": "ACTIV FITNESS Neuchâtel City-Centre"
+    },
+    {
+      "id": "ch_a1c394f8ec",
+      "name": "ACTIV FITNESS Neuchâtel Nid-Du Crô"
+    },
+    {
+      "id": "ch_3f2d06e58d",
+      "name": "ACTIV FITNESS Riehen Niederholz"
+    },
+    {
+      "id": "ch_bd410e1922",
+      "name": "ACTIV FITNESS Nyon Morâche"
+    },
+    {
+      "id": "ch_bbf9ee1fa2",
+      "name": "ACTIV FITNESS Olten"
+    },
+    {
+      "id": "ch_a540d39089",
+      "name": "ACTIV FITNESS Petit-Lancy"
+    },
+    {
+      "id": "ch_fc3f8c8d20",
+      "name": "ACTIV FITNESS Plan-les-Ouates"
+    },
+    {
+      "id": "ch_b3d4b54ea3",
+      "name": "ACTIV FITNESS Renens"
+    },
+    {
+      "id": "ch_ea4084eebe",
+      "name": "ACTIV FITNESS Riazzino"
+    },
+    {
+      "id": "ch_5e31d98bce",
+      "name": "ACTIV FITNESS Rothenburg"
+    },
+    {
+      "id": "ch_fba86e0a6a",
+      "name": "ACTIV FITNESS Rotkreuz"
+    },
+    {
+      "id": "ch_de87308c61",
+      "name": "ACTIV FITNESS Rüti"
+    },
+    {
+      "id": "ch_2f24a152c2",
+      "name": "ACTIV FITNESS Samedan"
+    },
+    {
+      "id": "ch_1f09e4e8ef",
+      "name": "ACTIV FITNESS Schaffhausen"
+    },
+    {
+      "id": "ch_074fc02fe7",
+      "name": "ACTIV FITNESS Schlieren"
+    },
+    {
+      "id": "ch_e49a5fcf42",
+      "name": "ACTIV FITNESS Schönbühl"
+    },
+    {
+      "id": "ch_2d2af2486c",
+      "name": "ACTIV FITNESS Schwyz"
+    },
+    {
+      "id": "ch_eb56499a6c",
+      "name": "ACTIV FITNESS Sierre"
+    },
+    {
+      "id": "ch_a2c1fb77ce",
+      "name": "ACTIV FITNESS Sion Gare"
+    },
+    {
+      "id": "ch_65b9b77cca",
+      "name": "ACTIV FITNESS Sion Planta"
+    },
+    {
+      "id": "ch_403e583501",
+      "name": "ACTIV FITNESS Solothurn West"
+    },
+    {
+      "id": "ch_626c462197",
+      "name": "ACTIV FITNESS Solothurn Bahnhof"
+    },
+    {
+      "id": "ch_d4a9844587",
+      "name": "ACTIV FITNESS St. Gallen Silberturm"
+    },
+    {
+      "id": "ch_d6f338645c",
+      "name": "ACTIV FITNESS St. Moritz"
+    },
+    {
+      "id": "ch_330db29626",
+      "name": "ACTIV FITNESS Stäfa"
+    },
+    {
+      "id": "ch_2af1b21a7f",
+      "name": "ACTIV FITNESS Stans"
+    },
+    {
+      "id": "ch_5856608cb6",
+      "name": "ACTIV FITNESS Stettbach"
+    },
+    {
+      "id": "ch_33fbf582dc",
+      "name": "ACTIV FITNESS Sursee"
+    },
+    {
+      "id": "ch_e96e9b7357",
+      "name": "ACTIV FITNESS Thal"
+    },
+    {
+      "id": "ch_871b06557c",
+      "name": "ACTIV FITNESS Thun Bahnhof"
+    },
+    {
+      "id": "ch_f61ae0b0e3",
+      "name": "ACTIV FITNESS Thun Panorama-Center"
+    },
+    {
+      "id": "ch_460faa1e5b",
+      "name": "ACTIV FITNESS St. Gallen Unterer Graben"
+    },
+    {
+      "id": "ch_b4efc86444",
+      "name": "ACTIV FITNESS Uster"
+    },
+    {
+      "id": "ch_5fca285db1",
+      "name": "ACTIV FITNESS Uzwil"
+    },
+    {
+      "id": "ch_b532abc1af",
+      "name": "ACTIV FITNESS Vevey"
+    },
+    {
+      "id": "ch_0fd8772841",
+      "name": "ACTIV FITNESS Vezia"
+    },
+    {
+      "id": "ch_9b337e8240",
+      "name": "ACTIV FITNESS Volketswil"
+    },
+    {
+      "id": "ch_445aa6cc3f",
+      "name": "ACTIV FITNESS Wädenswil"
+    },
+    {
+      "id": "ch_95fd01051d",
+      "name": "ACTIV FITNESS Wetzikon"
+    },
+    {
+      "id": "ch_bb8d6d35b3",
+      "name": "ACTIV FITNESS Wil SG"
+    },
+    {
+      "id": "ch_28884794d9",
+      "name": "ACTIV FITNESS Willisau"
+    },
+    {
+      "id": "ch_d07e0ebe93",
+      "name": "ACTIV FITNESS Winterthur Archhöfe"
+    },
+    {
+      "id": "ch_f59a57446d",
+      "name": "ACTIV FITNESS Winterthur WIN4"
+    },
+    {
+      "id": "ch_1895149893",
+      "name": "ACTIV FITNESS Zofingen"
+    },
+    {
+      "id": "ch_eeb23e9ed2",
+      "name": "ACTIV FITNESS Zürich Altstetten"
+    },
+    {
+      "id": "ch_4af74187f0",
+      "name": "ACTIV FITNESS Zürich Bellevue"
+    },
+    {
+      "id": "ch_ffd396efe2",
+      "name": "ACTIV FITNESS Zürich Central"
+    },
+    {
+      "id": "ch_2c62ab2bc5",
+      "name": "ACTIV FITNESS Zürich Forum"
+    },
+    {
+      "id": "ch_95d97b4f11",
+      "name": "ACTIV FITNESS Zürich Kreuzplatz"
+    },
+    {
+      "id": "ch_f8225df16e",
+      "name": "ACTIV FITNESS Zürich Langstrasse"
+    },
+    {
+      "id": "ch_695d4a20c3",
+      "name": "ACTIV FITNESS Zürich Limmatplatz"
+    },
+    {
+      "id": "ch_5cb2616ff8",
+      "name": "ACTIV FITNESS Zürich Oerlikon"
+    },
+    {
+      "id": "ch_b8a82b6fac",
+      "name": "ACTIV FITNESS Zürich Stauffacher"
+    },
+    {
+      "id": "ch_5f8b5f2ab4",
+      "name": "ACTIV FITNESS Zürich Tiefenbrunnen"
+    },
+    {
+      "id": "ch_8a7740a777",
+      "name": "ACTIV FITNESS Zürich Wiedikon"
+    },
+    {
+      "id": "ch_757a871360",
+      "name": "ACTIV FITNESS Zürich Wipkingen"
+    },
+    {
+      "id": "ch_1dfb8c1589",
+      "name": "Fitnesspark Bern City"
+    },
+    {
+      "id": "ch_c9e43bde48",
+      "name": "Fitnesspark Zürich Glattpark"
+    },
+    {
+      "id": "ch_fb66457b57",
+      "name": "Fitnesspark Oberhofen"
+    },
+    {
+      "id": "ch_51e62aca40",
+      "name": "Fitnesspark Basel Heuwaage"
+    },
+    {
+      "id": "ch_18c5ffa63e",
+      "name": "Fitnesspark Luzern Allmend"
+    },
+    {
+      "id": "ch_a16ac96ae8",
+      "name": "Fitnesspark Luzern National"
+    },
+    {
+      "id": "ch_6a5154619f",
+      "name": "Fitnesspark Greifensee Milandia"
+    },
+    {
+      "id": "ch_0d58d5e59b",
+      "name": "Fitnesspark Ostermundigen Time-Out"
+    },
+    {
+      "id": "ch_e681580d09",
+      "name": "Fitnesspark Baden Trafo"
+    },
+    {
+      "id": "ch_f32474316a",
+      "name": "Fitnesspark Winterthur"
+    },
+    {
+      "id": "ch_f7bb5e1511",
+      "name": "Fitnesspark Zürich Puls 5"
+    },
+    {
+      "id": "ch_3f70bd3499",
+      "name": "Fitnesspark Zürich Sihlcity"
+    },
+    {
+      "id": "ch_50d8195ea0",
+      "name": "Fitnesspark Zürich Stadelhofen"
+    },
+    {
+      "id": "ch_c748d08a92",
+      "name": "Fitnesspark Zürich Stockerhof"
+    },
+    {
+      "id": "ch_14ffa2e003",
+      "name": "Fitnesspark Zug Eichstätte"
+    },
+    {
+      "id": "ch_67d59c00be",
+      "name": "ACTIV FITNESS Pratteln aquabasilea"
+    },
+    {
+      "id": "ch_ce17dbd24f",
+      "name": "PureGym Aarau"
+    },
+    {
+      "id": "ch_3fa8155ca0",
+      "name": "PureGym Adliswil"
+    },
+    {
+      "id": "ch_f7bd965987",
+      "name": "PureGym Altdorf"
+    },
+    {
+      "id": "ch_588fcfcf3e",
+      "name": "PureGym Baar"
+    },
+    {
+      "id": "ch_7ce9c8b192",
+      "name": "PureGym Bachenbülach"
+    },
+    {
+      "id": "ch_14492524f5",
+      "name": "PureGym Basel Clara Huus"
+    },
+    {
+      "id": "ch_41b07cbcb4",
+      "name": "PureGym Basel Dreispitz"
+    },
+    {
+      "id": "ch_48bd0dd431",
+      "name": "PureGym Basel Markthalle"
+    },
+    {
+      "id": "ch_8b095a3743",
+      "name": "PureGym Basel St. Johann"
+    },
+    {
+      "id": "ch_49c39df837",
+      "name": "PureGym Bellinzona"
+    },
+    {
+      "id": "ch_ca2789777d",
+      "name": "PureGym Bern Bümpliz"
+    },
+    {
+      "id": "ch_2f0a9930d5",
+      "name": "PureGym Bern Lorraine"
+    },
+    {
+      "id": "ch_c7825d401c",
+      "name": "PureGym Biel / Bienne"
+    },
+    {
+      "id": "ch_5d17bfd143",
+      "name": "PureGym Brugg"
+    },
+    {
+      "id": "ch_d3fd0883b7",
+      "name": "PureGym Cham"
+    },
+    {
+      "id": "ch_deaf5cc16b",
+      "name": "PureGym Chur"
+    },
+    {
+      "id": "ch_e46c4fc399",
+      "name": "PureGym Dietikon"
+    },
+    {
+      "id": "ch_29b232eec0",
+      "name": "PureGym Dübendorf"
+    },
+    {
+      "id": "ch_6e5c86e750",
+      "name": "PureGym Fribourg"
+    },
+    {
+      "id": "ch_e00fc78601",
+      "name": "PureGym Genf Le Bouchet"
+    },
+    {
+      "id": "ch_98a5f4b377",
+      "name": "PureGym Gossau"
+    },
+    {
+      "id": "ch_7e81b3b3df",
+      "name": "PureGym Horgen"
+    },
+    {
+      "id": "ch_d7a012c634",
+      "name": "PureGym Jona"
+    },
+    {
+      "id": "ch_c53c624e2d",
+      "name": "PureGym Kriens"
+    },
+    {
+      "id": "ch_37c19a5a07",
+      "name": "PureGym La Chaux-de-Fonds"
+    },
+    {
+      "id": "ch_2297e6ec6e",
+      "name": "PureGym Lenzburg"
+    },
+    {
+      "id": "ch_eb5312e81e",
+      "name": "PureGym Lyss"
+    },
+    {
+      "id": "ch_2df85a5343",
+      "name": "PureGym Martigny"
+    },
+    {
+      "id": "ch_0dbba44b7f",
+      "name": "PureGym Oftringen"
+    },
+    {
+      "id": "ch_be51912044",
+      "name": "PureGym Olten"
+    },
+    {
+      "id": "ch_14371d272e",
+      "name": "PureGym Pfäffikon"
+    },
+    {
+      "id": "ch_47454234ea",
+      "name": "PureGym Lausanne Prilly"
+    },
+    {
+      "id": "ch_7ffffbf944",
+      "name": "PureGym Rorschach"
+    },
+    {
+      "id": "ch_5e3072d8d6",
+      "name": "PureGym Schaffhausen"
+    },
+    {
+      "id": "ch_babc528af9",
+      "name": "PureGym Schlieren"
+    },
+    {
+      "id": "ch_e66499b33b",
+      "name": "PureGym Spreitenbach"
+    },
+    {
+      "id": "ch_d6f3f407a6",
+      "name": "PureGym Uster"
+    },
+    {
+      "id": "ch_83e68384cb",
+      "name": "PureGym Vevey"
+    },
+    {
+      "id": "ch_d39c9dc95e",
+      "name": "PureGym Volketswil"
+    },
+    {
+      "id": "ch_6cb45c972b",
+      "name": "PureGym Wettingen"
+    },
+    {
+      "id": "ch_05f113fe49",
+      "name": "PureGym Wetzikon"
+    },
+    {
+      "id": "ch_2a58a700b3",
+      "name": "PureGym Wil"
+    },
+    {
+      "id": "ch_2616c0f03e",
+      "name": "PureGym Winterthur Grüze"
+    },
+    {
+      "id": "ch_8c83715ef3",
+      "name": "PureGym Winterthur Töss"
+    },
+    {
+      "id": "ch_645a78b108",
+      "name": "PureGym Wohlen"
+    },
+    {
+      "id": "ch_61c4832f78",
+      "name": "PureGym Zürich Altstetten"
+    },
+    {
+      "id": "ch_b6f10e5812",
+      "name": "PureGym Zürich Lochergut"
+    },
+    {
+      "id": "ch_b1ba942c7d",
+      "name": "PureGym Zürich Oerlikon"
+    },
+    {
+      "id": "ch_bc6116fac7",
+      "name": "PureGym Zürich West"
+    },
+    {
+      "id": "ch_561b929b88",
+      "name": "clever fit Aarau"
+    },
+    {
+      "id": "ch_271ce21818",
+      "name": "clever fit Bachenbülach"
+    },
+    {
+      "id": "ch_da567076f2",
+      "name": "clever fit Basel"
+    },
+    {
+      "id": "ch_de45735ef6",
+      "name": "clever fit Bern-Muri"
+    },
+    {
+      "id": "ch_eb26654687",
+      "name": "clever fit Chur"
+    },
+    {
+      "id": "ch_7f31b8651b",
+      "name": "clever fit Dietlikon"
+    },
+    {
+      "id": "ch_c0a7e9f8ba",
+      "name": "clever fit Emmenbrücke"
+    },
+    {
+      "id": "ch_3489ea29af",
+      "name": "clever fit Frauenfeld"
+    },
+    {
+      "id": "ch_dd6fe765fe",
+      "name": "clever fit Fribourg"
+    },
+    {
+      "id": "ch_8e207c1add",
+      "name": "clever fit Goldach"
+    },
+    {
+      "id": "ch_678cc818d1",
+      "name": "clever fit Kreuzlingen"
+    },
+    {
+      "id": "ch_9e1e361a20",
+      "name": "clever fit Opfikon"
+    },
+    {
+      "id": "ch_d82f0507f4",
+      "name": "clever fit Ostermundigen"
+    },
+    {
+      "id": "ch_79ed8ed321",
+      "name": "clever fit Pfäffikon"
+    },
+    {
+      "id": "ch_47efe8cb16",
+      "name": "clever fit Regensdorf"
+    },
+    {
+      "id": "ch_8aafbb6b57",
+      "name": "clever fit Rümlang"
+    },
+    {
+      "id": "ch_23366124c1",
+      "name": "clever fit Schaffhausen"
+    },
+    {
+      "id": "ch_262a9b38c6",
+      "name": "clever fit Schlieren"
+    },
+    {
+      "id": "ch_c277e4de62",
+      "name": "clever fit St. Gallen"
+    },
+    {
+      "id": "ch_f2d35c6be2",
+      "name": "clever fit Steinhausen"
+    },
+    {
+      "id": "ch_30afaf0b4f",
+      "name": "clever fit Volketswil"
+    },
+    {
+      "id": "ch_1c5926a886",
+      "name": "clever fit Winterthur"
+    },
+    {
+      "id": "ch_bd60e2aa2a",
+      "name": "clever fit Zuchwil"
+    },
+    {
+      "id": "ch_3b959d510a",
+      "name": "Let's Go Fitness Chaux-de-Fonds (POD)"
+    },
+    {
+      "id": "ch_20b267a129",
+      "name": "Let's Go Fitness Saxon"
+    },
+    {
+      "id": "ch_dfdad56ad1",
+      "name": "Let's Go Fitness Sion (Grand-Champsec)"
+    },
+    {
+      "id": "ch_cb6a2c23e2",
+      "name": "Let's Go Fitness Le Locle"
+    },
+    {
+      "id": "ch_23a13b1afd",
+      "name": "Let's Go Fitness Neuchâtel (Terreaux)"
+    },
+    {
+      "id": "ch_29476c8a60",
+      "name": "Let's Go Fitness Cernier"
+    },
+    {
+      "id": "ch_5383738fa5",
+      "name": "Let's Go Fitness Nyon"
+    },
+    {
+      "id": "ch_457d404696",
+      "name": "Let's Go Fitness Rolle"
+    },
+    {
+      "id": "ch_a32c8b7d0c",
+      "name": "Let's Go Fitness Ecublens"
+    },
+    {
+      "id": "ch_fcb420ddc9",
+      "name": "Let's Go Fitness Yverdon (Remparts)"
+    },
+    {
+      "id": "ch_0b2e0df6de",
+      "name": "Let's Go Fitness Crissier"
+    },
+    {
+      "id": "ch_88356a7a0f",
+      "name": "Let's Go Fitness La Croix-sur-Lutry"
+    },
+    {
+      "id": "ch_e7c5c7da2a",
+      "name": "Let's Go Fitness Murten"
+    },
+    {
+      "id": "ch_7997cb2de9",
+      "name": "Let's Go Fitness Lausanne (St-François)"
+    },
+    {
+      "id": "ch_2bf2d2d9ca",
+      "name": "Let's Go Fitness Cortaillod"
+    },
+    {
+      "id": "ch_2b674f8729",
+      "name": "Let's Go Fitness Bulle (Verdel)"
+    },
+    {
+      "id": "ch_3f34511ca0",
+      "name": "Let's Go Fitness Martigny"
+    },
+    {
+      "id": "ch_a5e8f3b0e5",
+      "name": "Let's Go Fitness Epalinges"
+    },
+    {
+      "id": "ch_88de4c290f",
+      "name": "Let's Go Fitness Lausen"
+    },
+    {
+      "id": "ch_dfd1419b99",
+      "name": "Let's Go Fitness Etoy"
+    },
+    {
+      "id": "ch_7d0a0f97d5",
+      "name": "Let's Go Fitness Le Mont-sur-Lausanne"
+    },
+    {
+      "id": "ch_fd0ffa6bc1",
+      "name": "Let's Go Fitness Genève (Champel)"
+    },
+    {
+      "id": "ch_d7b4f587a0",
+      "name": "Let's Go Fitness Bienne (Gurzelen)"
+    },
+    {
+      "id": "ch_62629518cd",
+      "name": "Let's Go Fitness Bulle (Trois-trèfles)"
+    },
+    {
+      "id": "ch_732ab11de5",
+      "name": "Let's Go Fitness Plan-les-Ouates"
+    },
+    {
+      "id": "ch_83dcc4747f",
+      "name": "Let's Go Fitness Lausanne (Borde)"
+    },
+    {
+      "id": "ch_1b5a31baf6",
+      "name": "Let's Go Fitness Bern (Lady)"
+    },
+    {
+      "id": "ch_fb1e389f74",
+      "name": "Let's Go Fitness Dübendorf"
+    },
+    {
+      "id": "ch_7807ff324a",
+      "name": "Let's Go Fitness Payerne"
+    },
+    {
+      "id": "ch_c937f66b39",
+      "name": "Let's Go Fitness Lutry"
+    },
+    {
+      "id": "ch_6b203a24ca",
+      "name": "Let's Go Fitness Villeneuve"
+    },
+    {
+      "id": "ch_5ff141b13b",
+      "name": "Let's Go Fitness Lausanne (Falaises)"
+    },
+    {
+      "id": "ch_87207e0597",
+      "name": "Let's Go Fitness Lausanne (Flon)"
+    },
+    {
+      "id": "ch_d591ee97d9",
+      "name": "Let's Go Fitness Genève (Etang Vernier)"
+    },
+    {
+      "id": "ch_d53c38d15a",
+      "name": "Let's Go Fitness Echallens"
+    },
+    {
+      "id": "ch_740976997d",
+      "name": "Let's Go Fitness Bern (City)"
+    },
+    {
+      "id": "ch_11e0b59bec",
+      "name": "Let's Go Fitness Neuchâtel (Maladière)"
+    },
+    {
+      "id": "ch_00f56e0565",
+      "name": "Let's Go Fitness Oftringen"
+    },
+    {
+      "id": "ch_9727f60c47",
+      "name": "Let's Go Fitness Meyrin"
+    },
+    {
+      "id": "ch_ec236da20e",
+      "name": "Let's Go Fitness Bienne (Tissot Arena)"
+    },
+    {
+      "id": "ch_c74a9f039f",
+      "name": "Let's Go Fitness Lyssach"
+    },
+    {
+      "id": "ch_10cfae2459",
+      "name": "Let's Go Fitness Bern (Wankdorf)"
+    },
+    {
+      "id": "ch_f55170a6a9",
+      "name": "Let's Go Fitness Romont"
+    },
+    {
+      "id": "ch_8853f2e1a1",
+      "name": "Let's Go Fitness Granges-Paccot"
+    },
+    {
+      "id": "ch_5a023b5605",
+      "name": "Let's Go Fitness Morges"
+    },
+    {
+      "id": "ch_e9cbd8eaf8",
+      "name": "Let's Go Fitness Conthey"
+    },
+    {
+      "id": "ch_9c835149d2",
+      "name": "Let's Go Fitness Genève (Eaux-Vives)"
+    },
+    {
+      "id": "ch_96d334659d",
+      "name": "Let's Go Fitness Préverenges"
+    },
+    {
+      "id": "ch_df591d9c09",
+      "name": "Let's Go Fitness Versoix"
+    },
+    {
+      "id": "ch_c0204399b5",
+      "name": "Let's Go Fitness Collombey"
+    },
+    {
+      "id": "ch_c94bbfe337",
+      "name": "Let's Go Fitness Yverdon (Pêcheurs)"
+    },
+    {
+      "id": "ch_fbf249dd40",
+      "name": "Let's Go Fitness Genève (Nations)"
+    },
+    {
+      "id": "ch_9c4030ce5f",
+      "name": "Let's Go Fitness Gelterkinden"
+    },
+    {
+      "id": "ch_adf28b2c9a",
+      "name": "Let's Go Fitness Montreux"
+    },
+    {
+      "id": "ch_56320e851a",
+      "name": "Let's Go Fitness Basel (Freie Strasse)"
+    },
+    {
+      "id": "ch_7213551d67",
+      "name": "Let's Go Fitness Chaux-de-Fonds (Eplatures)"
+    },
+    {
+      "id": "ch_ffecbab7fe",
+      "name": "Let's Go Fitness Zürich (Limmattalstrasse)"
+    },
+    {
+      "id": "ch_6e5343b2de",
+      "name": "Let's Go Fitness Kaiseraugst"
+    },
+    {
+      "id": "ch_d92630e5a7",
+      "name": "Let's Go Fitness Uster"
+    },
+    {
+      "id": "ch_743a4992b0",
+      "name": "Let's Go Fitness Sion (Industrie)"
+    },
+    {
+      "id": "ch_be9cfc597a",
+      "name": "Let's Go Fitness Porrentruy"
+    },
+    {
+      "id": "ch_13f330cbe9",
+      "name": "Let's Go Fitness Villars-sur-Glâne"
+    },
+    {
+      "id": "ch_ba85c0c5af",
+      "name": "Let's Go Fitness Gland"
+    },
+    {
+      "id": "ch_fb5fda7d16",
+      "name": "Let's Go Fitness Prilly-Malley"
+    },
+    {
+      "id": "ch_f4e58d842d",
+      "name": "Let's Go Fitness Lausanne (Grancy)"
+    },
+    {
+      "id": "ch_825fdca033",
+      "name": "Let's Go Fitness Genève (Les Cygnes)"
+    },
+    {
+      "id": "ch_e8ee152442",
+      "name": "ACTIV FITNESS Serfontana"
+    },
+    {
+      "id": "ch_4c013f2598",
+      "name": "ACTIV FITNESS Uznach"
+    },
+    {
+      "id": "ch_79481fe859",
+      "name": "NonStop Gym Servette"
+    },
+    {
+      "id": "ch_dd1d3cfa79",
+      "name": "NonStop Gym Jonction"
+    },
+    {
+      "id": "ch_93f0ada29a",
+      "name": "NonStop Gym Lancy"
+    },
+    {
+      "id": "ch_9e3bab72e5",
+      "name": "NonStop Gym Lausanne Gare"
+    },
+    {
+      "id": "ch_74a34e306c",
+      "name": "NonStop Gym Blandonnet"
+    },
+    {
+      "id": "ch_4ad787bcf5",
+      "name": "NonStop Gym Carouge"
+    },
+    {
+      "id": "ch_aa07cd5043",
+      "name": "NonStop Gym Oerlikon"
+    },
+    {
+      "id": "ch_f62d4d3324",
+      "name": "NonStop Gym Eaux-Vives"
+    },
+    {
+      "id": "ch_292a0ebc17",
+      "name": "NonStop Gym Fribourg"
+    },
+    {
+      "id": "ch_c6649125cc",
+      "name": "NonStop Gym Viadukt"
+    },
+    {
+      "id": "ch_10fe929dc0",
+      "name": "NonStop Gym Malley"
+    },
+    {
+      "id": "ch_49b51cc26c",
+      "name": "NonStop Gym Bienne"
+    },
+    {
+      "id": "ch_41aaf34d49",
+      "name": "NonStop Gym Champel"
+    },
+    {
+      "id": "ch_563cb3d3c2",
+      "name": "NonStop Gym Nyon"
+    },
+    {
+      "id": "ch_7c1f43988e",
+      "name": "NonStop Gym Stauffacher"
+    },
+    {
+      "id": "ch_1916deddee",
+      "name": "NonStop Gym Paquis"
+    },
+    {
+      "id": "ch_43ff90af34",
+      "name": "NonStop Gym Chêne-Bourg"
+    },
+    {
+      "id": "ch_11195c47fe",
+      "name": "NonStop Gym Cornavin"
+    },
+    {
+      "id": "ch_f25950181a",
+      "name": "NonStop Gym Tunnel"
+    },
+    {
+      "id": "ch_6718d1d57c",
+      "name": "NonStop Gym Kesselhaus"
+    },
+    {
+      "id": "ch_7200854b6d",
+      "name": "NonStop Gym Ecublens"
+    },
+    {
+      "id": "ch_e7df68fd8a",
+      "name": "NonStop Gym St. Gallen"
+    },
+    {
+      "id": "ch_5ab20722e0",
+      "name": "NonStop Gym Flon"
+    },
+    {
+      "id": "ch_0904bf2556",
+      "name": "NonStop Gym Westfeld"
+    },
+    {
+      "id": "ch_1bf6b44f21",
+      "name": "NonStop Gym Aigle"
+    },
+    {
+      "id": "ch_fcbae60adf",
+      "name": "NonStop Gym Bioggio"
+    },
+    {
+      "id": "ch_ed05ac00d7",
+      "name": "NonStop Gym Mendrisio"
+    },
+    {
+      "id": "ch_96ee9c37d3",
+      "name": "NonStop Gym Martigny"
+    },
+    {
+      "id": "ch_6b06402252",
+      "name": "NonStop Gym Conthey"
+    },
+    {
+      "id": "ch_715309f162",
+      "name": "NonStop Gym Uvrier"
+    },
+    {
+      "id": "ch_dfd7b02436",
+      "name": "NonStop Gym Bale Clara"
+    },
+    {
+      "id": "ch_1da8aeda92",
+      "name": "NonStop Gym Bussigny"
+    },
+    {
+      "id": "ch_83bc078d7d",
+      "name": "NonStop Gym Lugano"
+    },
+    {
+      "id": "ch_9b03eac155",
+      "name": "NonStop Gym Etang"
+    },
+    {
+      "id": "ch_9046054dca",
+      "name": "NonStop Gym Zug"
+    },
+    {
+      "id": "ch_03b9b1e113",
+      "name": "NonStop Gym Yverdon"
+    },
+    {
+      "id": "ch_7c9d0db5fc",
+      "name": "NonStop Gym Brig"
+    },
+    {
+      "id": "ch_0fe4393edb",
+      "name": "NonStop Gym Grenchen"
+    },
+    {
+      "id": "ch_5373e07ab5",
+      "name": "NonStop Gym Bellinzona"
+    },
+    {
+      "id": "ch_268ee898e8",
+      "name": "NonStop Gym Versoix"
+    },
+    {
+      "id": "ch_2b0636098f",
+      "name": "NonStop Gym Sierre"
+    },
+    {
+      "id": "ch_8f512d41f2",
+      "name": "NonStop Gym Horgen"
+    },
+    {
+      "id": "ch_79299fec8a",
+      "name": "NonStop Gym Olten"
+    },
+    {
+      "id": "ch_4a3d367fb7",
+      "name": "NonStop Gym Frauenfeld"
+    },
+    {
+      "id": "ch_0cedfc7509",
+      "name": "NonStop Gym Amriswil"
+    },
+    {
+      "id": "ch_20a8181a5e",
+      "name": "Kieser Baden"
+    },
+    {
+      "id": "ch_e95b61df34",
+      "name": "Kieser Basel Steinenvorstadt"
+    },
+    {
+      "id": "ch_7bea913444",
+      "name": "Kieser Bern Monbijou"
+    },
+    {
+      "id": "ch_2935c74fa6",
+      "name": "Kieser Biel"
+    },
+    {
+      "id": "ch_4f1b4f7928",
+      "name": "Kieser Fribourg"
+    },
+    {
+      "id": "ch_6b6b57c661",
+      "name": "Kieser Horgen"
+    },
+    {
+      "id": "ch_0c02087365",
+      "name": "Kieser Kreuzlingen"
+    },
+    {
+      "id": "ch_48bae53c1f",
+      "name": "Kieser Luzern"
+    },
+    {
+      "id": "ch_6ad4f89d1a",
+      "name": "Kieser Frenkendorf"
+    },
+    {
+      "id": "ch_d74e81b6f6",
+      "name": "Kieser Schaffhausen"
+    },
+    {
+      "id": "ch_836826f568",
+      "name": "Kieser Schlieren"
+    },
+    {
+      "id": "ch_d322378080",
+      "name": "Kieser Solothurn"
+    },
+    {
+      "id": "ch_cecd71ed6d",
+      "name": "Kieser St. Gallen"
+    },
+    {
+      "id": "ch_4cfa90ceea",
+      "name": "Kieser Thun"
+    },
+    {
+      "id": "ch_477cd41b50",
+      "name": "Kieser Winterthur"
+    },
+    {
+      "id": "ch_a3a4543b56",
+      "name": "Kieser Zug"
+    },
+    {
+      "id": "ch_d45ec10564",
+      "name": "Kieser Zürich-Enge"
+    },
+    {
+      "id": "ch_20c13813f9",
+      "name": "Kieser Zürich-Oerlikon"
+    },
+    {
+      "id": "ch_07f32cb43e",
+      "name": "Kieser Zürich-Prime Tower"
+    },
+    {
+      "id": "ch_12ca822b76",
+      "name": "Kieser Zürich-Steinwies"
+    },
+    {
+      "id": "ch_9fa1b19210",
+      "name": "Kieser Zürich-Flughafen"
+    },
+    {
+      "id": "ch_b9bc787d31",
+      "name": "Harmony Eaux-Vives"
+    },
+    {
+      "id": "ch_db12ba2bcf",
+      "name": "Harmony La Praille"
+    },
+    {
+      "id": "ch_cf582015e2",
+      "name": "Harmony Veyrier"
+    },
+    {
+      "id": "ch_93b9e5f0be",
+      "name": "Harmony Blandonnet"
+    },
+    {
+      "id": "ch_3f2fca7aa4",
+      "name": "Harmony Meyrin"
+    },
+    {
+      "id": "ch_62e02835c3",
+      "name": "Harmony Pâquis MAA"
+    },
+    {
+      "id": "ch_afe745a8ff",
+      "name": "Harmony Pâquis Gym"
+    },
+    {
+      "id": "ch_a8071bd586",
+      "name": "Harmony Versoix"
+    },
+    {
+      "id": "ch_7d5ef2cb86",
+      "name": "Harmony Denges"
+    },
+    {
+      "id": "ch_545f344bfa",
+      "name": "Harmony Gland"
+    },
+    {
+      "id": "ch_c5075f4d69",
+      "name": "Harmony Signy"
+    },
+    {
+      "id": "ch_8fd6be3631",
+      "name": "well come FIT Arbon"
+    },
+    {
+      "id": "ch_c0337b6345",
+      "name": "well come FIT Basel"
+    },
+    {
+      "id": "ch_28ed4ab0db",
+      "name": "well come FIT Berg"
+    },
+    {
+      "id": "ch_52b2c17d76",
+      "name": "well come FIT Bülach"
+    },
+    {
+      "id": "ch_c588c7e1a0",
+      "name": "well come FIT Dietlikon"
+    },
+    {
+      "id": "ch_b8dbcfcc7a",
+      "name": "well come FIT Frauenfeld West"
+    },
+    {
+      "id": "ch_8a811cbb18",
+      "name": "well come FIT Frauenfeld Zentral"
+    },
+    {
+      "id": "ch_7c21f2c3f8",
+      "name": "well come FIT Herisau"
+    },
+    {
+      "id": "ch_acac10f6a7",
+      "name": "well come FIT Kreuzlingen"
+    },
+    {
+      "id": "ch_3e8440a5ff",
+      "name": "well come FIT Muri"
+    },
+    {
+      "id": "ch_77fe1e8609",
+      "name": "well come FIT Netstal"
+    },
+    {
+      "id": "ch_5f5e669207",
+      "name": "well come FIT Niederurnen"
+    },
+    {
+      "id": "ch_3cba34b2c2",
+      "name": "well come FIT Obfelden"
+    },
+    {
+      "id": "ch_930a4d0c63",
+      "name": "well come FIT Oerlikon"
+    },
+    {
+      "id": "ch_48fef4863a",
+      "name": "well come FIT Pfungen"
+    },
+    {
+      "id": "ch_8d444cfaaf",
+      "name": "well come FIT Rikon"
+    },
+    {
+      "id": "ch_ee04565e9d",
+      "name": "well come FIT Schwanden"
+    },
+    {
+      "id": "ch_d03ab5d87b",
+      "name": "well come FIT Sennwald"
+    },
+    {
+      "id": "ch_68703e413b",
+      "name": "well come FIT Sirnach"
+    },
+    {
+      "id": "ch_d34aafe6a5",
+      "name": "well come FIT St. Gallen Einstein"
+    },
+    {
+      "id": "ch_b7fa800710",
+      "name": "well come FIT St. Gallen Ost"
+    },
+    {
+      "id": "ch_58132fe38e",
+      "name": "well come FIT St. Gallen West"
+    },
+    {
+      "id": "ch_d1afb4cb3a",
+      "name": "well come FIT Steckborn"
+    },
+    {
+      "id": "ch_8e84e62e06",
+      "name": "well come FIT Wallisellen"
+    },
+    {
+      "id": "ch_c077c98fc3",
+      "name": "well come FIT Wetzikon Nord"
+    },
+    {
+      "id": "ch_f2b53de99f",
+      "name": "well come FIT Wetzikon Süd"
+    },
+    {
+      "id": "ch_76b8fca32b",
+      "name": "well come FIT Winterthur"
+    },
+    {
+      "id": "ch_3ba0f71885",
+      "name": "update Fitness Aadorf"
+    },
+    {
+      "id": "ch_6a21236b92",
+      "name": "update Fitness Aarau"
+    },
+    {
+      "id": "ch_68fc4b1348",
+      "name": "update Fitness Adelboden"
+    },
+    {
+      "id": "ch_95e86a364b",
+      "name": "update Fitness Aesch Bl"
+    },
+    {
+      "id": "ch_0377ed9206",
+      "name": "update Fitness Allschwil"
+    },
+    {
+      "id": "ch_34f2d94f0c",
+      "name": "update Fitness Altdorf"
+    },
+    {
+      "id": "ch_d6dcf188a6",
+      "name": "update Fitness Altstaetten"
+    },
+    {
+      "id": "ch_aaff81e676",
+      "name": "update Fitness Amriswil"
+    },
+    {
+      "id": "ch_f7d9597ff1",
+      "name": "update Fitness Appenzell"
+    },
+    {
+      "id": "ch_975adb1799",
+      "name": "update Fitness Arbon"
+    },
+    {
+      "id": "ch_73e4384092",
+      "name": "update Fitness Baden"
+    },
+    {
+      "id": "ch_e36bd906ac",
+      "name": "update Fitness Balsthal"
+    },
+    {
+      "id": "ch_09ad32fabb",
+      "name": "update Fitness Basel Breite"
+    },
+    {
+      "id": "ch_88cdf0090a",
+      "name": "update Fitness Basel Dreispitz"
+    },
+    {
+      "id": "ch_f8bdde2f2c",
+      "name": "update Fitness Basel Rebgasse"
+    },
+    {
+      "id": "ch_f7fc02fc21",
+      "name": "update Fitness Basel Sbb"
+    },
+    {
+      "id": "ch_f1cce77981",
+      "name": "update Fitness Bellach"
+    },
+    {
+      "id": "ch_1581cbc67a",
+      "name": "update Fitness Bern Buempliz"
+    },
+    {
+      "id": "ch_f9a0349eea",
+      "name": "update Fitness Bern Marktgasse"
+    },
+    {
+      "id": "ch_028b32df62",
+      "name": "update Fitness Bern Marzili"
+    },
+    {
+      "id": "ch_ee4a3c92e4",
+      "name": "update Fitness Bern Ostermundigen"
+    },
+    {
+      "id": "ch_235b3d57cb",
+      "name": "update Fitness Bern Schoenburg"
+    },
+    {
+      "id": "ch_c7f452448e",
+      "name": "update Fitness Binningen"
+    },
+    {
+      "id": "ch_db87f61830",
+      "name": "update Fitness Bischofszell"
+    },
+    {
+      "id": "ch_480fc086ae",
+      "name": "update Fitness Buchs"
+    },
+    {
+      "id": "ch_55eb52f4c5",
+      "name": "update Fitness Chur"
+    },
+    {
+      "id": "ch_fa7a4da0bd",
+      "name": "update Fitness Feldmeilen"
+    },
+    {
+      "id": "ch_0ac04d9679",
+      "name": "update Fitness Feuerthalen"
+    },
+    {
+      "id": "ch_6a784740a6",
+      "name": "update Fitness Frauenfeld"
+    },
+    {
+      "id": "ch_33cb35f0b0",
+      "name": "update Fitness Fribourg Givisiez"
+    },
+    {
+      "id": "ch_76a0151ec3",
+      "name": "update Fitness Frick"
+    },
+    {
+      "id": "ch_f1a9dbe952",
+      "name": "update Fitness Glattzentrum"
+    },
+    {
+      "id": "ch_8fd7ecf16f",
+      "name": "update Fitness Gordola"
+    },
+    {
+      "id": "ch_6f30f5f30d",
+      "name": "update Fitness Gossau"
+    },
+    {
+      "id": "ch_afe8ce9d83",
+      "name": "update Fitness Grenchen"
+    },
+    {
+      "id": "ch_f034f53405",
+      "name": "update Fitness Grosshoechstetten"
+    },
+    {
+      "id": "ch_af6c1edd36",
+      "name": "update Fitness Heerbrugg"
+    },
+    {
+      "id": "ch_c5cc64d049",
+      "name": "update Fitness Herisau"
+    },
+    {
+      "id": "ch_7813ebb972",
+      "name": "update Fitness Huenenberg"
+    },
+    {
+      "id": "ch_ab8f67cdbb",
+      "name": "update Fitness Hunzenschwil Ag"
+    },
+    {
+      "id": "ch_7a529d9cc1",
+      "name": "update Fitness Kehrsatz"
+    },
+    {
+      "id": "ch_70ca27568e",
+      "name": "update Fitness Kreuzlingen"
+    },
+    {
+      "id": "ch_4cb34330ff",
+      "name": "update Fitness Kriens"
+    },
+    {
+      "id": "ch_4f122d553d",
+      "name": "update Fitness Landquart"
+    },
+    {
+      "id": "ch_7c210c676f",
+      "name": "update Fitness Laufen Bl"
+    },
+    {
+      "id": "ch_9725bbc766",
+      "name": "update Fitness Lausanne Chauderon"
+    },
+    {
+      "id": "ch_c48198e669",
+      "name": "update Fitness Lausanne Grancy"
+    },
+    {
+      "id": "ch_405565b346",
+      "name": "update Fitness Lausanne Sevelin"
+    },
+    {
+      "id": "ch_876e7d37ca",
+      "name": "update Fitness Liestal"
+    },
+    {
+      "id": "ch_d1e49a5c7f",
+      "name": "update Fitness Luzern Bahnhof"
+    },
+    {
+      "id": "ch_094cdf3653",
+      "name": "update Fitness Mariastein"
+    },
+    {
+      "id": "ch_9f4297fb44",
+      "name": "update Fitness Moehlin"
+    },
+    {
+      "id": "ch_425983d794",
+      "name": "update Fitness Muenchenstein"
+    },
+    {
+      "id": "ch_6d1e833540",
+      "name": "update Fitness Muenchwilen"
+    },
+    {
+      "id": "ch_ca19d70073",
+      "name": "update Fitness Murten"
+    },
+    {
+      "id": "ch_30fbd41929",
+      "name": "update Fitness Muttenz"
+    },
+    {
+      "id": "ch_22dd543016",
+      "name": "update Fitness Netstal"
+    },
+    {
+      "id": "ch_8205e9db72",
+      "name": "update Fitness Neuhausen"
+    },
+    {
+      "id": "ch_454c556d33",
+      "name": "update Fitness Oberwil"
+    },
+    {
+      "id": "ch_8795a378a8",
+      "name": "update Fitness Reinach Ag"
+    },
+    {
+      "id": "ch_61a828966d",
+      "name": "update Fitness Root"
+    },
+    {
+      "id": "ch_d700600b5d",
+      "name": "update Fitness Rorschach"
+    },
+    {
+      "id": "ch_53ee6a15f4",
+      "name": "update Fitness Rueti Zh"
+    },
+    {
+      "id": "ch_2fd46b5837",
+      "name": "update Fitness Spiez"
+    },
+    {
+      "id": "ch_0ef4540c29",
+      "name": "update Fitness Spreitenbach"
+    },
+    {
+      "id": "ch_c61cea1f63",
+      "name": "update Fitness St Gallen Bahnhof"
+    },
+    {
+      "id": "ch_0f87f7bf6a",
+      "name": "update Fitness St Gallen Espenmoos"
+    },
+    {
+      "id": "ch_29f010c825",
+      "name": "update Fitness St Gallen Gallusmarkt"
+    },
+    {
+      "id": "ch_970007b77b",
+      "name": "update Fitness St Gallen Stadtpark"
+    },
+    {
+      "id": "ch_8029b9f296",
+      "name": "update Fitness St Gallen West"
+    },
+    {
+      "id": "ch_950814349b",
+      "name": "update Fitness St Moritz Dorf"
+    },
+    {
+      "id": "ch_95558d1e21",
+      "name": "update Fitness Sursee"
+    },
+    {
+      "id": "ch_18db9572c9",
+      "name": "update Fitness Teufen"
+    },
+    {
+      "id": "ch_8dd2247070",
+      "name": "update Fitness Thun"
+    },
+    {
+      "id": "ch_758e7a7d9d",
+      "name": "update Fitness Uzwil"
+    },
+    {
+      "id": "ch_79baed6e59",
+      "name": "update Fitness Wattwil"
+    },
+    {
+      "id": "ch_9aadb292bb",
+      "name": "update Fitness Weinfelden Central"
+    },
+    {
+      "id": "ch_f1a98488ac",
+      "name": "update Fitness Weinfelden Ost"
+    },
+    {
+      "id": "ch_1047e978d0",
+      "name": "update Fitness Wettingen"
+    },
+    {
+      "id": "ch_b54094ca02",
+      "name": "update Fitness Wil Glaswerk"
+    },
+    {
+      "id": "ch_64de4c1cf6",
+      "name": "update Fitness Wil Kraftwerk"
+    },
+    {
+      "id": "ch_b15e113b17",
+      "name": "update Fitness Winterthur"
+    },
+    {
+      "id": "ch_fbc53dc806",
+      "name": "update Fitness Wittenbach"
+    },
+    {
+      "id": "ch_feeb1ad4d8",
+      "name": "update Fitness Worb"
+    },
+    {
+      "id": "ch_6a499354ca",
+      "name": "update Fitness Zofingen"
+    },
+    {
+      "id": "ch_3da3953555",
+      "name": "update Fitness Zuerich Central"
+    },
+    {
+      "id": "ch_2e5cbd5328",
+      "name": "update Fitness Zunzgen Sissach"
+    },
+    {
+      "id": "ch_fce0b5ee73",
+      "name": "update Fitness Zuzwil"
+    }
+  ],
+  "skipped_same_addr_brand": [],
+  "included": []
+}

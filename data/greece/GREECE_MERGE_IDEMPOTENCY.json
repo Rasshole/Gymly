@@ -1,0 +1,7 @@
+{
+  "second_run_insertions": 0,
+  "final_catalog": 10878,
+  "greece": 106,
+  "pass": true,
+  "note": "Idempotency check must not overwrite GREECE_MERGE_REPORT.*"
+}

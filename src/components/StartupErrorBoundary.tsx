@@ -1,5 +1,6 @@
 import React, {Component, ErrorInfo, ReactNode} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {rt} from '@/i18n';
 
 type Props = {children: ReactNode};
 type State = {error: Error | null};
@@ -24,7 +25,7 @@ export class StartupErrorBoundary extends Component<Props, State> {
     if (this.state.error) {
       return (
         <View style={styles.root} testID="startup-error-boundary">
-          <Text style={styles.title}>Noget gik galt</Text>
+          <Text style={styles.title}>{rt('common.somethingWentWrong')}</Text>
           <ScrollView style={styles.scroll}>
             <Text style={styles.body}>{this.state.error.message}</Text>
           </ScrollView>

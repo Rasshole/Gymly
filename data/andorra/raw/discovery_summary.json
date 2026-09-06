@@ -1,0 +1,21 @@
+{
+  "country": "Andorra",
+  "phase": 1,
+  "production_sha256": "b4f155e2501d10af07eded1ca1342f06784f5f122f4e51bb081ebf943cdb0bbc",
+  "production_total": 11699,
+  "andorra_live": 0,
+  "liechtenstein_live": 7,
+  "candidate_rows": 53,
+  "independent_candidates": 7,
+  "municipal_candidates": 6,
+  "urban_anyospark_year_round": 3,
+  "urban_anyospark_seasonal": 1,
+  "class_a_assessment": {
+    "operator": "Urban Gym / AnyósPark",
+    "year_round_locations": 3,
+    "seasonal_locations": 1,
+    "meets_ge3_threshold": true,
+    "phase1_ready_promoted": false,
+    "reason": "INDEPENDENT_PHASE_RECOMMENDED — independents + municipal essential for coverage"
+  }
+}

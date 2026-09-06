@@ -1,0 +1,378 @@
+{
+  "chains": [
+    {
+      "brand": "MyFitness",
+      "official_open_active": 15,
+      "qualifying_active": 15,
+      "ready": 15,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "locations": [
+        {
+          "id": "lv_482c69e16b",
+          "name": "MyFitness Aleja",
+          "address": "Vienības gatve 194A",
+          "city": "Rīga",
+          "postal_code": "1058",
+          "lat": 56.8963564,
+          "lng": 24.0788844,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_00100556b1",
+          "name": "MyFitness Alfa",
+          "address": "Brīvības gatve 372",
+          "city": "Rīga",
+          "postal_code": "1006",
+          "lat": 56.9826538,
+          "lng": 24.2035652,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_c4985e5c94",
+          "name": "MyFitness Domina",
+          "address": "Ieriķu iela 3",
+          "city": "Rīga",
+          "postal_code": "1084",
+          "lat": 56.9665603,
+          "lng": 24.1659438,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_553900baf2",
+          "name": "MyFitness Dzelzava",
+          "address": "Dzelzavas iela 78",
+          "city": "Rīga",
+          "postal_code": "1082",
+          "lat": 56.9543543,
+          "lng": 24.2002215,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_9944f27897",
+          "name": "MyFitness Galerija Centrs",
+          "address": "Audēju iela 16",
+          "city": "Rīga",
+          "postal_code": "1050",
+          "lat": 56.948155,
+          "lng": 24.1122966,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_933fcf75a1",
+          "name": "MyFitness Galleria Rīga",
+          "address": "Dzirnavu iela 67",
+          "city": "Rīga",
+          "postal_code": "1011",
+          "lat": 56.9546607,
+          "lng": 24.1208409,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_b3e5e39619",
+          "name": "MyFitness Imanta",
+          "address": "Anniņmuižas bulvāris 40A",
+          "city": "Rīga",
+          "postal_code": "1067",
+          "lat": 56.960432,
+          "lng": 24.012464,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_f7b3a90fa8",
+          "name": "MyFitness Matīss",
+          "address": "Matīsa iela 25",
+          "city": "Rīga",
+          "postal_code": "1001",
+          "lat": 56.9571483,
+          "lng": 24.1342394,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_3d7a57f038",
+          "name": "MyFitness Pļavnieki",
+          "address": "Tīnūžu iela 2",
+          "city": "Rīga",
+          "postal_code": "1021",
+          "lat": 56.9347758,
+          "lng": 24.2036309,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_a0e6fa5985",
+          "name": "MyFitness Riga Plaza",
+          "address": "Mūkusalas iela 71",
+          "city": "Rīga",
+          "postal_code": "1004",
+          "lat": 56.9266608,
+          "lng": 24.1030713,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_5c8cffee8f",
+          "name": "MyFitness Sky & More",
+          "address": "Duntes iela 19A",
+          "city": "Rīga",
+          "postal_code": "1005",
+          "lat": 56.9868527,
+          "lng": 24.1321034,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_8d289fb8a1",
+          "name": "MyFitness Spice",
+          "address": "Jaunmoku iela 13",
+          "city": "Rīga",
+          "postal_code": "1046",
+          "lat": 56.9312515,
+          "lng": 24.0392871,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_1a0f184657",
+          "name": "MyFitness Sāga",
+          "address": "Biķeru iela 4",
+          "city": "Rīga",
+          "postal_code": "2130",
+          "lat": 56.9560286,
+          "lng": 24.2563579,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_d0c8689014",
+          "name": "MyFitness Teika Plaza",
+          "address": "Brīvības gatve 201",
+          "city": "Rīga",
+          "postal_code": "1039",
+          "lat": 56.9743172,
+          "lng": 24.161518,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_de8c7df71e",
+          "name": "MyFitness Upītis",
+          "address": "Ernesta Birznieka Upīša iela 21E",
+          "city": "Rīga",
+          "postal_code": "1011",
+          "lat": 56.950172,
+          "lng": 24.1294902,
+          "disposition": "OPEN_ACTIVE"
+        }
+      ]
+    },
+    {
+      "brand": "Lemon Gym",
+      "official_open_active": 8,
+      "qualifying_active": 8,
+      "ready": 8,
+      "coming_soon": 1,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "locations": [
+        {
+          "id": "lv_c3befe3f7f",
+          "name": "Lemon Gym Akropole",
+          "address": "Latgales iela 257",
+          "city": "Rīga",
+          "postal_code": "1019",
+          "lat": 56.9239706,
+          "lng": 24.1751577,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_3a2f2a4625",
+          "name": "Lemon Gym Imanta",
+          "address": "Slokas iela 161",
+          "city": "Rīga",
+          "postal_code": "1067",
+          "lat": 56.9602273,
+          "lng": 24.0338859,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_f9bb5b6450",
+          "name": "Lemon Gym Jugla",
+          "address": "Juglas krastmala 2",
+          "city": "Rīga",
+          "postal_code": "1024",
+          "lat": 56.9894098,
+          "lng": 24.2451218,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_a7854a3b19",
+          "name": "Lemon Gym Purvciems",
+          "address": "Dzelzavas iela 72",
+          "city": "Rīga",
+          "postal_code": "1082",
+          "lat": 56.9556834,
+          "lng": 24.1906435,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_2c843b109c",
+          "name": "Lemon Gym Pļavnieki",
+          "address": "Andreja Saharova iela 30",
+          "city": "Rīga",
+          "postal_code": "1021",
+          "lat": 56.94537,
+          "lng": 24.2088959,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_814dd2ac94",
+          "name": "Lemon Gym Skanste",
+          "address": "Grostonas iela 1",
+          "city": "Rīga",
+          "postal_code": "1013",
+          "lat": 56.9645568,
+          "lng": 24.1196595,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_e97e5cd222",
+          "name": "Lemon Gym Teika",
+          "address": "Gustava Zemgala gatve 71",
+          "city": "Rīga",
+          "postal_code": "1039",
+          "lat": 56.9714791,
+          "lng": 24.1656432,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_0e3eba9f8c",
+          "name": "Lemon Gym Ķengarags",
+          "address": "Latgales iela 264",
+          "city": "Rīga",
+          "postal_code": "1063",
+          "lat": 56.9082626,
+          "lng": 24.1825721,
+          "disposition": "OPEN_ACTIVE"
+        }
+      ]
+    },
+    {
+      "brand": "Gym!",
+      "official_open_active": 10,
+      "qualifying_active": 10,
+      "ready": 10,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "locations": [
+        {
+          "id": "lv_3b6472323b",
+          "name": "Gym! Barons",
+          "address": "Krišjāņa Barona iela 46",
+          "city": "Rīga",
+          "postal_code": "1011",
+          "lat": 56.9540919,
+          "lng": 24.1276816,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_e2b2c34717",
+          "name": "Gym! Daugava",
+          "address": "Augšiela 1",
+          "city": "Rīga",
+          "postal_code": "1009",
+          "lat": 56.9547093,
+          "lng": 24.1560588,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_0ab2d9fa6b",
+          "name": "Gym! Daugavpils",
+          "address": "Saules iela 64",
+          "city": "Daugavpils",
+          "postal_code": "5401",
+          "lat": 55.8728263,
+          "lng": 26.5260287,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_378dc8d996",
+          "name": "Gym! Dreiliņi",
+          "address": "Ulbrokas iela 34",
+          "city": "Rīga",
+          "postal_code": "1021",
+          "lat": 56.948507,
+          "lng": 24.2199938,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_63f56e7170",
+          "name": "Gym! Imanta",
+          "address": "Kurzemes prospekts 3",
+          "city": "Rīga",
+          "postal_code": "1067",
+          "lat": 56.956297,
+          "lng": 24.0367722,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_3bb2c336e8",
+          "name": "Gym! Imanta X",
+          "address": "Jūrmalas gatve 89",
+          "city": "Rīga",
+          "postal_code": "1069",
+          "lat": 56.9540911,
+          "lng": 24.004589,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_e644a6cbdf",
+          "name": "Gym! Olimpia",
+          "address": "Āzenes iela 5",
+          "city": "Rīga",
+          "postal_code": "1048",
+          "lat": 56.9497668,
+          "lng": 24.0823861,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_86cad25aff",
+          "name": "Gym! Origo",
+          "address": "Stacijas laukums 2",
+          "city": "Rīga",
+          "postal_code": "1050",
+          "lat": 56.947293,
+          "lng": 24.120073,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_19f5ee52f2",
+          "name": "Gym! Purvciems",
+          "address": "Vaidavas iela 9A",
+          "city": "Rīga",
+          "postal_code": "1084",
+          "lat": 56.9625308,
+          "lng": 24.176676,
+          "disposition": "OPEN_ACTIVE"
+        },
+        {
+          "id": "lv_111c1440e3",
+          "name": "Gym! Zolitūde",
+          "address": "Anniņmuižas iela 17",
+          "city": "Rīga",
+          "postal_code": "1029",
+          "lat": 56.9433858,
+          "lng": 24.018377,
+          "disposition": "OPEN_ACTIVE"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "final_class_a_chain_count": 3,
+    "final_class_a_ready_count": 33,
+    "chain_estate_gaps": 0
+  }
+}

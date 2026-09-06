@@ -33,10 +33,13 @@ export function GymlyPressable({
 }: Props) {
   const scale = useRef(new Animated.Value(1)).current;
 
+  // Keep transform on the wrapper; put layout styles on Pressable so padding /
+  // minHeight count toward the hit target (Buy now was easy to miss otherwise).
   return (
-    <Animated.View style={[{transform: [{scale}]}, style]}>
+    <Animated.View style={{transform: [{scale}]}}>
       <Pressable
         {...rest}
+        style={style}
         disabled={disabled}
         onPress={e => {
           if (haptic !== false && !disabled) {

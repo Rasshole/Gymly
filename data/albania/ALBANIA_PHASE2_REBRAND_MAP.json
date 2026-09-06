@@ -1,0 +1,85 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "B_SMI_ESTATE_BELOW_CLASS_A",
+      "entities": [
+        "Repeat Wilson Tirana",
+        "Repeat TEG Tirana"
+      ],
+      "notes": "Repeat 2 conventional public sites; Nobis EXCLUDED spa-primary; REPEAT_CLASS_A=False."
+    },
+    {
+      "type": "C_EXCLUDED_SPA_PRIMARY",
+      "entities": [
+        "Repeat Nobis Hotel Tirana"
+      ],
+      "notes": "Hotel-wellness/spa primary — not conventional-only public gym."
+    },
+    {
+      "type": "B_SMI_SINGLE_SITE",
+      "entities": [
+        "Flex Gym Tirana"
+      ],
+      "notes": "flexgym.al single conventional site; FLEX_CLASS_A=False."
+    },
+    {
+      "type": "D_REBRAND_RESOLVED",
+      "entities": [
+        "Premium Gym Tirana",
+        "Cheops Gym Tirana"
+      ],
+      "notes": "al_63db3f3a75 rebrand; no duplicate Cheops row created."
+    },
+    {
+      "type": "D_REBRAND_RESOLVED",
+      "entities": [
+        "Fitness Centar Shkodër",
+        "Fitness Center XXL Shkodër"
+      ],
+      "notes": "al_ee54d79fc0 rebrand to defended XXL premises."
+    },
+    {
+      "type": "D_REBRAND_RESOLVED",
+      "entities": [
+        "Fitness Centar Vlorë",
+        "Nirvana Fitness Club Vlorë"
+      ],
+      "notes": "al_33f34e6832 rebrand to Nirvana Fitness Club."
+    },
+    {
+      "type": "C_EXCLUDED_LOCAL_BRAND",
+      "entities": [
+        "Planet Fitness Tirana",
+        "Planet Fitness Korçë app"
+      ],
+      "notes": "Local Planet Fitness branding; insufficient conventional premises proof."
+    }
+  ],
+  "repeat_audit": {
+    "REPEAT_CONVENTIONAL_PUBLIC_SITES": 2,
+    "REPEAT_CLASS_A": false,
+    "ready_sites": [
+      "Wilson",
+      "TEG"
+    ],
+    "excluded_sites": [
+      "Nobis"
+    ],
+    "notes": "Only 2 conventional public sites; Class A threshold not met."
+  },
+  "flex_audit": {
+    "FLEX_CONVENTIONAL_SITES": 1,
+    "FLEX_CLASS_A": false,
+    "ready_sites": [
+      "Flex Gym Tirana"
+    ],
+    "website": "https://flexgym.al/"
+  },
+  "planet_fitness_audit": {
+    "PLANET_FITNESS_AL_ACTIVE_SITES": 0,
+    "verdict": "EXCLUDED_UNVERIFIED_LOCAL_BRAND",
+    "notes": "Tirana + Korçë app hits lack defended conventional premises."
+  },
+  "note": "Phase2 merge gate: 0 unresolved rebrand conflicts; Phase 1 holds resolved."
+}

@@ -1,0 +1,144 @@
+{
+  "country": "Bosnia and Herzegovina",
+  "dry_run": false,
+  "baseline_match": true,
+  "pre_merge_sha256": "6df5a27d1671a5b5721b63e04b2f4e891ed3c5058fa24ede7d370eaaeb1f5112",
+  "post_merge_sha256": "5ad0b727989bf00f9d72757a4a4d06eb29298a8951f4630e4a7eb5cc81c4dd4e",
+  "before": {
+    "total": 11800,
+    "bosnia_herzegovina": 0,
+    "ba_prefix": 0,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "phase2_ready": 31,
+  "approved": 31,
+  "validated": 31,
+  "inserted": 31,
+  "withheld": 0,
+  "after": {
+    "total": 11831,
+    "bosnia_herzegovina": 31,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "eligibility": {
+    "CHAIN_CLASS_A": 7,
+    "SMALL_MARKET_INDEPENDENT": 24
+  },
+  "all_in_fitness": {
+    "count": 3,
+    "ids": [
+      "ba_0ace57c4b2",
+      "ba_383806522f",
+      "ba_0bf4cc7be5"
+    ]
+  },
+  "kron_fitness": {
+    "count": 4,
+    "by_city": {
+      "Tuzla": "ba_4b2b262dac",
+      "Živinice": "ba_234269c33b",
+      "Srebrenik": "ba_fbb6ab9577",
+      "Gračanica": "ba_6e8f727eb6"
+    }
+  },
+  "sarajevo_ready": [
+    "ba_0ace57c4b2",
+    "ba_383806522f",
+    "ba_0bf4cc7be5",
+    "ba_fa6f3c8b99",
+    "ba_f63cafd3fe",
+    "ba_e6bae3c12c",
+    "ba_760fbe82ce",
+    "ba_d705f4fca7",
+    "ba_605d38b631",
+    "ba_5fd8cc9b20"
+  ],
+  "banja_luka_ready": [
+    "ba_1e88b67b77",
+    "ba_d10bc012e8",
+    "ba_446902cbcb"
+  ],
+  "mostar_ready": [
+    "ba_957417e083",
+    "ba_0116ad0cd5"
+  ],
+  "brands": {
+    "ALL IN FITNESS": 3,
+    "Kron Fitness": 4,
+    "Avalon Fitness": 1,
+    "BTC Fitness": 1,
+    "Body Art": 1,
+    "Fitness Centar Mojmilo": 1,
+    "Extreme Fitness": 1,
+    "Fitness Zone": 1,
+    "Olympic Gym": 1,
+    "Fitness Centar 4Life": 1,
+    "Xtreme Fit": 1,
+    "Fit Artemida": 1,
+    "Slavinovici Teretana": 1,
+    "Fitness Centar Mostar": 1,
+    "Iron Gym": 1,
+    "Fitness Centar Zenica": 1,
+    "Fitness Centar Bijeljina": 1,
+    "Fitness Bihać": 1,
+    "Teretana Prijedor": 1,
+    "Fitness Doboj": 1,
+    "Fitness Trebinje": 1,
+    "Fitness Travnik": 1,
+    "Fitness Goražde": 1,
+    "Fitness Istočno Sarajevo": 1,
+    "Fitness Cazin": 1,
+    "Fitness Brčko": 1
+  },
+  "reconciliation": {
+    "phase2_ready": 31,
+    "approved": 31,
+    "production_bosnia_herzegovina": 31,
+    "merged_staging": 31,
+    "invariant": "31 == 31 == 31 == 31",
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "exclusions": {
+    "municipal_leakage": 0,
+    "hotel_spa_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0,
+    "forbidden_excluded_ids_in_production": 0
+  },
+  "cross_border": {
+    "croatia_ready": 0,
+    "serbia_ready": 0,
+    "montenegro_ready": 0
+  },
+  "duplicates": {
+    "unexplained_hard_duplicates": 0
+  },
+  "rebrand_unresolved": 0,
+  "performance": {
+    "catalog": 11831,
+    "json_bytes": 3678730,
+    "parse_ms": 74
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200,
+  "verdict": "BOSNIA & HERZEGOVINA MERGE COMPLETE — WAITING FOR QA"
+}

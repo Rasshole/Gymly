@@ -7,28 +7,35 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '@/theme/colors';
 import {spacing, typography} from '@/theme/designTokens';
 import * as streak from '@/utils/streakUtils';
+import {getStreakStatusMessage, countWeeklyCheckIns} from '@/utils/streakStatusCopy';
+import type {ProfileCompletedSession} from '@/services/supabase/profileCheckInHistory';
+import {useTranslation} from '@/i18n';
 import {useAppFormat} from '@/i18n/useAppFormat';
 
 type StreakHighlightProps = {
   currentStreak: number;
   longestStreak?: number;
+  recentSessions?: ProfileCompletedSession[];
   onPress?: () => void;
 };
 
 export const StreakHighlight: React.FC<StreakHighlightProps> = ({
   currentStreak,
   longestStreak,
+  recentSessions = [],
   onPress,
 }) => {
-  const {streakLabel, daysUntil, recordLabel} = useAppFormat();
+  const {t} = useTranslation();
+  const {streakLabel, recordLabel} = useAppFormat();
   const icon = streak.getStreakIcon(currentStreak);
   const displayIcon = icon || '💪';
-  const next = streak.getNextMilestone(currentStreak);
   const emphasis = streak.getStreakEmphasisLevel(currentStreak);
-  const milestoneHint =
-    next && next.daysRemaining > 0
-      ? daysUntil(next.daysRemaining, next.emoji)
-      : null;
+  const weekCheckIns = countWeeklyCheckIns(recentSessions);
+  const statusMessage = getStreakStatusMessage({
+    currentStreak,
+    weekCheckIns,
+    t,
+  });
 
   return (
     <TouchableOpacity
@@ -41,14 +48,14 @@ export const StreakHighlight: React.FC<StreakHighlightProps> = ({
       activeOpacity={0.9}
       disabled={!onPress}>
       <View style={styles.emojiWrap}>
-        <Text style={styles.emojiLarge} accessibilityLabel="Streak milepæl">
+        <Text style={styles.emojiLarge} accessibilityLabel={t('a11y.streakMilestone')}>
           {displayIcon}
         </Text>
       </View>
       <View style={styles.content}>
         <Text style={styles.value}>{currentStreak}</Text>
         <Text style={styles.label}>{streakLabel(currentStreak)}</Text>
-        {milestoneHint ? <Text style={styles.milestone}>{milestoneHint}</Text> : null}
+        <Text style={styles.milestone}>{statusMessage}</Text>
         {longestStreak != null && longestStreak > 0 && (
           <Text style={styles.subtext}>
             {recordLabel(longestStreak)}

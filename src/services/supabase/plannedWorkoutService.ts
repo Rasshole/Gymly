@@ -6,10 +6,7 @@ import {supabase} from '@/services/supabase/supabaseClient';
 import {checkAndUnlockBadges} from '@/store/badgeStore';
 import type {WorkoutPlanEntry} from '@/store/workoutPlanStore';
 import {coerceMuscleGroup} from '@/utils/muscleGroupLabels';
-import {findGymById} from '@/utils/gymDisplay';
-import {getActiveDanishGyms} from '@/data/danishGyms';
-
-const SCHED_GYMS = getActiveDanishGyms();
+import {resolveGymOrStub} from '@/utils/gymDisplay';
 
 export type PlannedWorkoutRow = {
   id: string;
@@ -185,7 +182,7 @@ export function mapPlannedWorkoutBundleToEntry(
   workout: PlannedWorkoutRow,
   participants: PlannedParticipantRow[],
 ): WorkoutPlanEntry {
-  const g = findGymById(workout.center_id) ?? SCHED_GYMS[0]!;
+  const g = resolveGymOrStub(workout.center_id, workout.center_name);
   const invitees = participants.filter(p => p.role === 'invitee');
   const invitedFriends = invitees.map(p => p.user_id);
   const acceptedFriends = invitees

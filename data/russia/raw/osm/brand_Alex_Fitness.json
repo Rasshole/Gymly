@@ -1,0 +1,178 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:43:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1759578123,
+      "lat": 47.2240404,
+      "lon": 39.724031,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Alex Fitness",
+        "phone": "+7 (863) 300 00 09",
+        "website": "https://rostov.alexfitness.ru/chehova"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2906201921,
+      "lat": 60.0338124,
+      "lon": 30.4112984,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 09:00-22:00",
+        "phone": "+7 812 7770909",
+        "sport": "fitness",
+        "website": "https://www.alexfitness.ru/spb"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2924524379,
+      "lat": 54.9934274,
+      "lon": 73.2629251,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "sauna": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3146942929,
+      "lat": 55.6831659,
+      "lon": 37.6627347,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "opening_hours": "Mo-Fr 06:30-00:00; Sa-Su 08:30-22:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3175490431,
+      "lat": 59.9325802,
+      "lon": 30.3593533,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "level": "5",
+        "name": "Alex Fitness",
+        "phone": "+7 981 7186506",
+        "sport": "fitness",
+        "website": "https://spb.alexfitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4330530192,
+      "lat": 55.9909437,
+      "lon": 37.2192011,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "contact:facebook": "https://www.facebook.com/alexfitness.official/",
+        "contact:instagram": "https://www.instagram.com/alexfitness_official/",
+        "contact:phone": "+7 495 6041144",
+        "contact:vk": "https://vk.com/alexfitness",
+        "contact:website": "https://msk.alexfitness.ru/zelenograd/",
+        "contact:youtube": "https://www.youtube.com/channel/UC3LRkTbG7_MB6rFNJOMqpmQ",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "opening_hours": "Mo-Fr 06:30-24:00; Sa-Su 8:30-22:00",
+        "opening_hours:url": "https://msk.alexfitness.ru/zelenograd/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4551719889,
+      "lat": 55.6490598,
+      "lon": 37.7451957,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "name:en": "Alex Fitness",
+        "opening_hours": "Mo-Sa 07:00-23:00; Su 10:00-22:00",
+        "phone": "+7 495 6041144",
+        "website": "https://msk.alexfitness.ru/mariel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5369203694,
+      "lat": 59.9206319,
+      "lon": 30.356684,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "contact:vk": "https://vk.com/alexligovskiy",
+        "fixme": "уточнить расположение",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "website": "https://alexfitness.ru/ligovskiy/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6308382985,
+      "lat": 60.0845438,
+      "lon": 29.954748,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "name:en": "Alex - Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8767483500,
+      "lat": 51.6883352,
+      "lon": 39.1308506,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9038228517,
+      "lat": 48.7445749,
+      "lon": 44.5196166,
+      "tags": {
+        "addr:housenumber": "110Б",
+        "addr:street": "улица Землячки",
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "name:en": "Alex fitness",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 09:00-22:00",
+        "phone": "+7-8442-987838",
+        "website": "https://volgograd.alexfitness.ru/"
+      }
+    }
+  ]
+}

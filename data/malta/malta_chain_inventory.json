@@ -1,0 +1,113 @@
+{
+  "country": "Malta",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "production_total": 11923,
+  "malta_live": 18,
+  "mt_prefix_live": 18,
+  "existing_malta_production": true,
+  "market_model": "CHAIN_LED",
+  "postcode_model": "AAA NNNN (3-letter locality + 4 digits)",
+  "chains": [
+    {
+      "chain": "24/7 Fitness Club",
+      "classification": "A",
+      "open_active_production": 4,
+      "official_current_active": 4,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Best Gyms Malta",
+      "classification": "A",
+      "open_active_production": 10,
+      "official_current_active": 10,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Challenger Fitness",
+      "classification": "A",
+      "open_active_production": 4,
+      "official_current_active": 4,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "Best Gyms Malta",
+      "action": "CLASS_A_COMPLETE_OPEN",
+      "evidence": "10/10 open in production; Birgu COMING_SOON"
+    },
+    {
+      "chain": "24/7 Fitness Club",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "4/4 official clubs in production"
+    },
+    {
+      "chain": "Challenger Fitness",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "4/4 official clubs in production; Paceville legacy CLOSED"
+    },
+    {
+      "chain": "Fort Fitness",
+      "action": "EXCLUDED_CLASS_E",
+      "evidence": "2 sites — below ≥3 threshold"
+    },
+    {
+      "chain": "Kinetika Gozo",
+      "action": "EXCLUDED_CLASS_E",
+      "evidence": "2 Gozo sites — below threshold"
+    },
+    {
+      "chain": "Cynergi",
+      "action": "EXCLUDED_CLASS_E",
+      "evidence": "Single large club"
+    },
+    {
+      "chain": "ActiveZone",
+      "action": "EXCLUDED_CLASS_E",
+      "evidence": "Single location"
+    },
+    {
+      "chain": "Marion Mizzi Wellbeing",
+      "action": "EXCLUDED_WELLNESS",
+      "evidence": "Spa/hotel wellness network"
+    },
+    {
+      "chain": "Anytime/Snap/Basic-Fit/PureGym/McFIT/FITINN/clever fit/Gold's/World Class/Virgin Active",
+      "action": "ABSENT",
+      "evidence": "No Malta presence"
+    }
+  ],
+  "official_estate": {
+    "Best Gyms Malta": {
+      "open_active": 10,
+      "coming_soon": 1,
+      "source": "https://bestgymsmalta.com/our-gyms/"
+    },
+    "24/7 Fitness Club": {
+      "open_active": 4,
+      "source": "https://fitnessclub247.com/gyms-in-malta/"
+    },
+    "Challenger Fitness": {
+      "open_active": 4,
+      "source": "http://challengermalta.com/contact.php"
+    }
+  },
+  "final_missed_chain_sweep": {
+    "complete": true,
+    "new_class_a_found": false,
+    "notes": "No additional ≥3 conventional public gym operator beyond BGM / 24/7 / Challenger"
+  },
+  "final_missed_gym_sweep": {
+    "complete": true,
+    "new_candidates": 0,
+    "notes": "Nationwide gym/fitness/ġinnasju sweep confirms Class A triad complete for open clubs"
+  }
+}

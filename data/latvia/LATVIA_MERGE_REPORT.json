@@ -1,0 +1,300 @@
+{
+  "country": "Latvia",
+  "generated_at": "2026-08-25T13:51:29.516Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11509,
+    "latvia": 0,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "after": {
+    "total": 11542,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "inserted": 33,
+  "withheld": 0,
+  "pre_merge_sha256": "3ab2fb07f7f8748872f7345a57bc5f31c27bf7bc5709b16420cce33b73a85142",
+  "post_merge_sha256": "287c1c54ef1023fee08d23c9a65063ffc238edbd35c59b22cea09c146833d8ea",
+  "brand_breakdown": {
+    "Gym!": 10,
+    "Lemon Gym": 8,
+    "MyFitness": 15
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "bad_postal_format": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "excluded_brand": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0
+  },
+  "country_regression": {
+    "lithuania": {
+      "before": 61,
+      "after": 61,
+      "intact": true
+    },
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    },
+    "slovakia": {
+      "before": 37,
+      "after": 37,
+      "intact": true
+    },
+    "bulgaria": {
+      "before": 82,
+      "after": 82,
+      "intact": true
+    },
+    "croatia": {
+      "before": 80,
+      "after": 80,
+      "intact": true
+    },
+    "slovenia": {
+      "before": 32,
+      "after": 32,
+      "intact": true
+    }
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 33,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 0,
+    "COMING_SOON": 1,
+    "CLOSED": 0,
+    "EXCLUDED": 12,
+    "DUPLICATE_LEGACY": 0,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "approved_ids_match": true,
+    "phase2_ready_ids_match": true,
+    "metadata_drift": "NONE",
+    "reconciliation": "33 == 33 == 33 == 33"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  },
+  "myfitness": {
+    "live": 15,
+    "city_fitness_absent": true,
+    "people_fitness_absent": true
+  },
+  "lemon_gym": {
+    "live": 8,
+    "ziepniekkalns_id": "lv_eb2ad44f7d",
+    "ziepniekkalns_absent": true,
+    "ziepniekkalns_staging_coming_soon": true
+  },
+  "gym_bang": {
+    "live": 10,
+    "riga": 9,
+    "daugavpils": 1,
+    "gym_plus_absent": true
+  },
+  "rebrand": {
+    "people_fitness_live": 0,
+    "city_fitness_live": 0,
+    "myfitness_live": 15,
+    "gym_bang_distinct_from_gym_plus": true,
+    "no_lt_id_reuse": true
+  },
+  "exclusions": {
+    "coming_soon_ids_absent": true,
+    "excluded_ids_absent": true,
+    "excluded_brands_absent": true
+  },
+  "border_safety": {
+    "foreign_coords": 0,
+    "lithuania_text": 0,
+    "estonia_text": 0,
+    "russia_text": 0,
+    "belarus_text": 0,
+    "lt_prefix_reuse": 0
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous": 11509,
+    "new": 11542,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "LATVIA MERGE COMPLETE — WAITING FOR QA",
+  "performance": {
+    "catalog": 11542,
+    "active": 11538,
+    "json_size_mb": 3.42,
+    "parse_ms": 14,
+    "architecture": "KEEP CLIENT-SIDE"
+  }
+}

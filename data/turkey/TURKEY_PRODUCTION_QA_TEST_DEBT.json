@@ -1,0 +1,33 @@
+{
+  "exit_code": 1,
+  "suites_failed": 2,
+  "tests_failed": 3,
+  "failures": [
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/turkeyPhase2Staging.test.ts",
+      "test": "Turkey Deep Phase 2 staging (merge readiness, no production writes) production frozen at 12080 / Turkey 0 / BY 46 / UA 105 / MT 24 / SHA+bytes unchanged",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge baseline 12080 vs post-merge live 12278"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/turkeyPhase1Staging.test.ts",
+      "test": "Turkey Deep Phase 1 staging (no production merge) frozen production baseline intact",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge baseline 12080 vs post-merge live 12278"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/turkeyPhase1Staging.test.ts",
+      "test": "Turkey Deep Phase 1 staging (no production merge) staging buckets exist and each candidate has exactly one status",
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/turkeyPhase1Staging.test.ts Turkey Deep Phase 1 staging (no product"
+    }
+  ],
+  "summary": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 1,
+    "HISTORICAL_SUITES_FAILED": 2,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 3
+  }
+}

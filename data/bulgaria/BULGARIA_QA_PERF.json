@@ -1,0 +1,26 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "json_size_mb": 3.53,
+  "parse_ms": 46,
+  "cold_index_ms": 9829,
+  "cached_index_ms": 0,
+  "typical_search_ms": 743.67,
+  "worst_search_ms": 67,
+  "nearest_ms": 1,
+  "map_build_ms": 1,
+  "viewport_filter_ms": 0,
+  "map_markers_built": 82,
+  "merge_benchmark": {
+    "catalog": 11648,
+    "json_size_mb": 3.36
+  },
+  "slovakia_qa_baseline": {
+    "catalog": 11254,
+    "json_size_mb": 3.33
+  },
+  "romania_qa_baseline": {
+    "catalog": 11217,
+    "json_size_mb": 3.32
+  }
+}

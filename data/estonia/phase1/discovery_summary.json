@@ -1,0 +1,15 @@
+{
+  "country": "Estonia",
+  "phase": 1,
+  "candidates": 93,
+  "class_a_seed": {
+    "MyFitness": 19,
+    "24-7 Fitness": "31 open + 3 CS",
+    "Gym!": "15 open + 2 CS",
+    "Golden Club": 3
+  },
+  "class_e": {
+    "Lemon Gym": 2
+  },
+  "sha": "287c1c54ef1023fee08d23c9a65063ffc238edbd35c59b22cea09c146833d8ea"
+}

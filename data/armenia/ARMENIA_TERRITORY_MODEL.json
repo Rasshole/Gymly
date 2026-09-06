@@ -1,0 +1,39 @@
+{
+  "country": "Armenia",
+  "sovereign_territory": "Armenia (AM)",
+  "administrative_units": [
+    "Yerevan",
+    "Aragatsotn",
+    "Ararat",
+    "Armavir",
+    "Gegharkunik",
+    "Kotayk",
+    "Lori",
+    "Shirak",
+    "Syunik",
+    "Tavush",
+    "Vayots Dzor"
+  ],
+  "admin_unit_count": 11,
+  "conflict_regions": {
+    "Artsakh": {
+      "policy": "GEOGRAPHIC_HOLD",
+      "ready_without_strong_evidence": false,
+      "bbox_hint": "39.35<=lat<=40.65, 46.05<=lng<=47.05 (Nagorno-Karabakh)",
+      "aliases": [
+        "Nagorno-Karabakh",
+        "NKAO",
+        "Stepanakert",
+        "Khankendi"
+      ]
+    }
+  },
+  "cross_border_rejects": [
+    "GE",
+    "TR",
+    "AZ",
+    "IR"
+  ],
+  "foreign_contamination": "EXCLUDED — foreign/US/RU/TR probes",
+  "in_country_function": "in_armenia() in batch1_phase1_common.py"
+}

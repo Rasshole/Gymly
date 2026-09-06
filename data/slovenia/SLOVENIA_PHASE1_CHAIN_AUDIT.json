@@ -1,0 +1,39 @@
+{
+  "chains": [
+    {
+      "chain": "BODIFIT",
+      "open_active": 8,
+      "ready": 8,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true
+    },
+    {
+      "chain": "FITINN",
+      "open_active": 6,
+      "ready": 6,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true
+    },
+    {
+      "chain": "Shape House",
+      "open_active": 18,
+      "ready": 18,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true
+    }
+  ],
+  "summary": {
+    "final_class_a_chain_count": 3,
+    "final_class_a_ready_count": 32,
+    "chain_estate_gaps": 0
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "country": "Serbia",
+  "dry_run": false,
+  "baseline_match": true,
+  "pre_merge_sha256": "f32fd0af4b1efe26d3da5676264b9a08bdc47ed6bd0a472b8b3278578896f5c5",
+  "post_merge_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "before": {
+    "total": 11858,
+    "serbia": 0,
+    "rs_prefix": 0,
+    "kosovo": 18,
+    "albania": 9,
+    "bosnia_herzegovina": 31,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "phase2_ready": 63,
+  "approved": 63,
+  "validated": 63,
+  "inserted": 63,
+  "withheld": 0,
+  "after": {
+    "total": 11921,
+    "serbia": 63,
+    "rs_prefix": 63,
+    "kosovo": 18,
+    "albania": 9,
+    "bosnia_herzegovina": 31,
+    "north_macedonia": 25,
+    "montenegro": 26,
+    "moldova": 28,
+    "san_marino": 6,
+    "monaco": 4,
+    "andorra": 12,
+    "liechtenstein": 7,
+    "iceland": 27
+  },
+  "eligibility": {
+    "CHAIN_CLASS_A": 59,
+    "SMALL_MARKET_INDEPENDENT": 4
+  },
+  "classification": {
+    "A_CONVENTIONAL_PUBLIC_GYM": 61,
+    "WELLNESS_ADDITIVE": 2
+  },
+  "brands": {
+    "Ahilej": 33,
+    "Non Stop Fitness": 16,
+    "Mega Gym": 7,
+    "Sky Experience": 1,
+    "Centar X Fitness": 1,
+    "X Sport Gym": 1,
+    "ONE Wellness": 1,
+    "Gym Town": 3
+  },
+  "city_breakdown": {
+    "Belgrade": 53,
+    "Pančevo": 2,
+    "Novi Sad": 3,
+    "Smederevo": 1,
+    "Niš": 4
+  },
+  "reconciliation": {
+    "phase2_ready": 63,
+    "approved": 63,
+    "production_serbia": 63,
+    "merged_staging": 63,
+    "invariant": "63 == 63 == 63 == 63",
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "exclusions": {
+    "municipal_leakage": 0,
+    "original_unresolved_leakage": 0,
+    "excluded_leakage": 0,
+    "hotel_spa_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0
+  },
+  "cross_border": {
+    "kosovo": 0,
+    "bosnia": 0,
+    "montenegro": 0,
+    "north_macedonia": 0,
+    "bulgaria": 0,
+    "romania": 0,
+    "hungary": 0,
+    "croatia": 0,
+    "mitrovica_identity_collisions": 0
+  },
+  "duplicates": {
+    "unexplained_hard_duplicates": 0,
+    "multilingual_duplicate_conflicts": 0
+  },
+  "rebrand_unresolved": 0,
+  "performance": {
+    "catalog": 11921,
+    "json_bytes": 3705822,
+    "parse_ms": 204
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "global_stress_qa_run": false,
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200,
+  "serbia_specific_radius_override": 0,
+  "verdict": "SERBIA MERGE COMPLETE — WAITING FOR QA"
+}

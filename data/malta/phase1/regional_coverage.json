@@ -1,0 +1,71 @@
+{
+  "ready_by_city": {
+    "Sliema": 1,
+    "St Julian's": 1,
+    "Gżira": 1,
+    "Pembroke": 1,
+    "Birkirkara": 1,
+    "Mosta": 1,
+    "St Paul's Bay": 1,
+    "Mellieħa": 1,
+    "San Ġwann": 1,
+    "Attard": 1,
+    "Żebbuġ": 1,
+    "Qormi": 1,
+    "Valletta": 1,
+    "Marsaskala": 1
+  },
+  "zero_open_classifications": {
+    "Msida": "A_legitimate_no_chain_presence",
+    "Marsa": "D_unresolved",
+    "Birżebbuġa": "D_unresolved",
+    "Kirkop": "D_unresolved",
+    "Bormla": "D_unresolved",
+    "Birgu": "C_access/scope_exclusion",
+    "Victoria": "A_legitimate_no_chain_presence",
+    "Xewkija": "A_legitimate_no_chain_presence",
+    "Fgura": "A_legitimate_no_chain_presence",
+    "Naxxar": "A_legitimate_no_chain_presence",
+    "Żurrieq": "A_legitimate_no_chain_presence",
+    "Santa Venera": "A_legitimate_no_chain_presence",
+    "Swieqi": "A_legitimate_no_chain_presence"
+  },
+  "audited_localities": [
+    "Birkirkara",
+    "Sliema",
+    "St Julian's",
+    "Gżira",
+    "Msida",
+    "Mosta",
+    "Qormi",
+    "Pembroke",
+    "Mellieħa",
+    "San Ġwann",
+    "St Paul's Bay",
+    "Attard",
+    "Żebbuġ",
+    "Valletta",
+    "Marsa",
+    "Birżebbuġa",
+    "Kirkop",
+    "Marsaskala",
+    "Bormla",
+    "Birgu",
+    "Victoria",
+    "Xewkija",
+    "Fgura",
+    "Naxxar",
+    "Żurrieq",
+    "Santa Venera",
+    "Swieqi"
+  ],
+  "gozo": {
+    "class_a_presence": 0,
+    "notes": "Gozo has Class E Kinetika (2) only; no Class A chain — A_legitimate_no_chain_presence"
+  },
+  "notes": [
+    "Malta island Class A coverage is multi-region via BGM + 24/7 + Challenger",
+    "Gozo intentionally empty under chain threshold",
+    "Comino: no commercial gym expected"
+  ]
+}

@@ -18,6 +18,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Avatar from '@/components/ui/Avatar';
 import colors from '@/theme/colors';
 import {radius, spacing, typography} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 export type PlannedInviteParticipantLine = {
   userId: string;
@@ -64,19 +65,20 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
   onAccept,
   onDecline,
 }) => {
+  const {t} = useTranslation();
   const insets = useSafeAreaInsets();
 
   const statusLabel = (p: PlannedInviteParticipantLine) => {
     if (p.role === 'creator') {
-      return 'Vært';
+      return t('phase2ui.host');
     }
     if (p.responseStatus === 'accepted') {
-      return 'Deltager';
+      return t('phase2ui.participant');
     }
     if (p.responseStatus === 'declined') {
-      return 'Har afvist';
+      return t('phase2ui.hasDeclined');
     }
-    return 'Afventer svar';
+    return t('phase2ui.awaitingReply');
   };
 
   return (
@@ -87,7 +89,7 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
       onRequestClose={onClose}
       presentationStyle="overFullScreen">
       <View style={styles.overlay}>
-        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessibilityLabel="Luk" />
+        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessibilityLabel={t('a11y.close')} />
         <View
           style={[
             styles.card,
@@ -96,8 +98,8 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
             },
           ]}>
           <View style={styles.cardHeader}>
-            <Text style={styles.cardTitle}>Invitation</Text>
-            <TouchableOpacity onPress={onClose} hitSlop={12} accessibilityLabel="Luk">
+            <Text style={styles.cardTitle}>{t('phase2ui.invitation')}</Text>
+            <TouchableOpacity onPress={onClose} hitSlop={12} accessibilityLabel={t('a11y.close')}>
               <Icon name="close" size={26} color={colors.textSecondary} />
             </TouchableOpacity>
           </View>
@@ -105,7 +107,7 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
           {loading ? (
             <View style={styles.loadingBox}>
               <ActivityIndicator size="large" color={colors.primary} />
-              <Text style={styles.loadingText}>Henter detaljer…</Text>
+              <Text style={styles.loadingText}>{t('phase2ui.loadingDetails')}</Text>
             </View>
           ) : (
             <ScrollView
@@ -116,7 +118,7 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
               <View style={styles.inviterRow}>
                 <Avatar name={inviterName} imageUrl={inviterAvatarUrl} size="lg" />
                 <View style={styles.inviterTextCol}>
-                  <Text style={styles.inviterLabel}>Inviteret af</Text>
+                  <Text style={styles.inviterLabel}>{t('phase2ui.invitedBy')}</Text>
                   <Text style={styles.inviterName} numberOfLines={2}>
                     {inviterName}
                   </Text>
@@ -148,14 +150,14 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
 
               {noteLine ? (
                 <View style={styles.noteBox}>
-                  <Text style={styles.noteLabel}>Note</Text>
+                  <Text style={styles.noteLabel}>{t('phase2ui.note')}</Text>
                   <Text style={styles.noteText}>{noteLine}</Text>
                 </View>
               ) : null}
 
               {participants.length > 0 ? (
                 <View style={styles.participantsSection}>
-                  <Text style={styles.sectionTitle}>Deltagere</Text>
+                  <Text style={styles.sectionTitle}>{t('phase2ui.participants')}</Text>
                   {participants.map(p => (
                     <View key={p.userId} style={styles.participantRow}>
                       <Text style={styles.participantName} numberOfLines={1}>
@@ -176,7 +178,7 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
                 onPress={onDecline}
                 disabled={busy}
                 activeOpacity={0.85}>
-                <Text style={styles.btnMutedText}>Afvis</Text>
+                <Text style={styles.btnMutedText}>{t('groups.decline')}</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.btn, styles.btnPrimary]}
@@ -186,13 +188,13 @@ const PlannedSessionInviteDetailModal: React.FC<PlannedSessionInviteDetailModalP
                 {busy ? (
                   <ActivityIndicator color={colors.white} />
                 ) : (
-                  <Text style={styles.btnPrimaryText}>Deltag</Text>
+                  <Text style={styles.btnPrimaryText}>{t('phase2ui.join')}</Text>
                 )}
               </TouchableOpacity>
             </View>
           ) : !loading && !showRespondActions ? (
             <Text style={styles.closedHint}>
-              Invitationen er ikke længere aktiv — tjek Planlagte sessions.
+              {t('phase2ui.inviteNoLongerActive')}
             </Text>
           ) : null}
         </View>

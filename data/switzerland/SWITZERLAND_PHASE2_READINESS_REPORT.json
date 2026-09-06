@@ -1,0 +1,174 @@
+{
+  "generated": "2026-08-22T15:55:27.949456+00:00",
+  "phase1_staged": 290,
+  "phase1_ready": 281,
+  "production_total": 10050,
+  "switzerland_production": 0,
+  "phase1_ready_preserved": 281,
+  "phase2_new_ready": 194,
+  "unresolved_recovered": 2,
+  "new_locations_discovered": 202,
+  "coming_soon_promoted": 0,
+  "duplicates_removed": 1,
+  "unique_staged": 492,
+  "ready_to_import": 475,
+  "status_counts": {
+    "READY_TO_IMPORT": 475,
+    "COMING_SOON": 6,
+    "NEEDS_COORDINATES": 10,
+    "NEEDS_REVIEW": 1
+  },
+  "ready_by_brand": {
+    "ACTIV FITNESS": 130,
+    "Fitnesspark": 15,
+    "PureGym": 49,
+    "clever fit": 23,
+    "Let's Go Fitness": 66,
+    "NonStop Gym": 45,
+    "Kieser": 21,
+    "Harmony": 11,
+    "well come FIT": 27,
+    "update Fitness": 88
+  },
+  "regional_ready": {
+    "german": 319,
+    "french": 141,
+    "italian": 15
+  },
+  "projected_catalog": 10525,
+  "quality": {
+    "duplicate_ids": 0,
+    "missing_addresses": 0,
+    "missing_postcodes": 0,
+    "missing_cities": 0,
+    "missing_coordinates": 0,
+    "invalid_coordinates": 0,
+    "foreign_outliers": 0,
+    "fallback_coordinates": 0,
+    "mojibake": 0,
+    "liechtenstein_rows": 0
+  },
+  "chain_coverage": [
+    {
+      "chain": "ACTIV FITNESS",
+      "official_estimate": "~126",
+      "discovered": 131,
+      "ready": 130,
+      "unresolved": 0,
+      "coming_soon": 1,
+      "coverage_pct": 103.2,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Fitnesspark",
+      "official_estimate": "16",
+      "discovered": 16,
+      "ready": 15,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "coverage_pct": 93.8,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Harmony",
+      "official_estimate": "12",
+      "discovered": 12,
+      "ready": 11,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "coverage_pct": 91.7,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Kieser",
+      "official_estimate": "~21",
+      "discovered": 21,
+      "ready": 21,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Let's Go Fitness",
+      "official_estimate": "~66",
+      "discovered": 66,
+      "ready": 66,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "NonStop Gym",
+      "official_estimate": "48",
+      "discovered": 48,
+      "ready": 45,
+      "unresolved": 3,
+      "coming_soon": 0,
+      "coverage_pct": 93.8,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "PureGym",
+      "official_estimate": "~48",
+      "discovered": 54,
+      "ready": 49,
+      "unresolved": 0,
+      "coming_soon": 5,
+      "coverage_pct": 102.1,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "clever fit",
+      "official_estimate": "~23",
+      "discovered": 23,
+      "ready": 23,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "update Fitness",
+      "official_estimate": "85+",
+      "discovered": 93,
+      "ready": 88,
+      "unresolved": 5,
+      "coming_soon": 0,
+      "coverage_pct": 103.5,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "well come FIT",
+      "official_estimate": "~28",
+      "discovered": 28,
+      "ready": 27,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "coverage_pct": 96.4,
+      "verdict": "COMPLETE"
+    }
+  ],
+  "phase3_required": false,
+  "verdict": "READY FOR SWITZERLAND MERGE",
+  "excluded_chains": {
+    "ONE Training Center": "Rebranded to ACTIV FITNESS (2022); domain redirects to activfitness.ch",
+    "EVO Fitness": "No Swiss fitness chain; evo.ch is unrelated IT retailer",
+    "Silhouette Wellness": "Acquired by ACTIV FITNESS (2017)",
+    "ACTIFIT": "Single women-only Basel club; sub-threshold / niche"
+  },
+  "nonstop_summary": {
+    "official_estimate": 48,
+    "discovered": 48,
+    "ready": 45,
+    "unresolved": 3,
+    "coverage_pct": 93.8
+  },
+  "update_fitness_summary": {
+    "official_estimate": "85+",
+    "discovered": 93,
+    "ready": 88,
+    "unresolved": 5
+  }
+}

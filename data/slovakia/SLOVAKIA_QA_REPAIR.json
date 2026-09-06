@@ -1,0 +1,281 @@
+{
+  "generated_at": "2026-08-24T17:30:45.395770+00:00",
+  "reason": "Slovakia Production QA — proven Golem Club geocode/postal defects",
+  "repairs": [
+    {
+      "id": "sk_0ebf33c4c0",
+      "files": {
+        "src/data/centers.json": {
+          "before": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "071 01",
+            "city": "Košice",
+            "lat": 48.7578206,
+            "lng": 21.922098
+          },
+          "after": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "040 01",
+            "city": "Košice",
+            "lat": 48.7178377,
+            "lng": 21.2634328
+          }
+        },
+        "data/slovakia/slovakia_centers_staging.json": {
+          "before": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "071 01",
+            "city": "Košice",
+            "lat": 48.7578206,
+            "lng": 21.922098
+          },
+          "after": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "040 01",
+            "city": "Košice",
+            "lat": 48.7178377,
+            "lng": 21.2634328
+          }
+        },
+        "data/slovakia/SLOVAKIA_APPROVED_FOR_MERGE.json": {
+          "before": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "071 01",
+            "city": "Košice",
+            "lat": 48.7578206,
+            "lng": 21.922098
+          },
+          "after": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "040 01",
+            "city": "Košice",
+            "lat": 48.7178377,
+            "lng": 21.2634328
+          }
+        },
+        "data/slovakia/SLOVAKIA_PHASE2_READY_TO_IMPORT.json": {
+          "before": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "071 01",
+            "city": "Košice",
+            "lat": 48.7578206,
+            "lng": 21.922098
+          },
+          "after": {
+            "name": "Golem Club Aupark Košice",
+            "brand": "Golem Club",
+            "address": "Námestie Osloboditeľov 1",
+            "postal_code": "040 01",
+            "city": "Košice",
+            "lat": 48.7178377,
+            "lng": 21.2634328
+          }
+        }
+      },
+      "evidence": {
+        "official_url": "https://www.golemclub.sk/sk/kontakt/kosice",
+        "official_address": "Námestie Osloboditeľov 1, 040 01 Košice",
+        "coord_source": "NOMINATIM_AUPARK_KOSICE_MALL",
+        "nominatim_display": "Aupark, 3377, Námestie osloboditeľov, Košice, 040 01",
+        "defect": "Ambiguous street name geocoded to Michalovce (071 01) instead of Košice Aupark"
+      },
+      "name": "Golem Club Aupark Košice"
+    },
+    {
+      "id": "sk_7badf0792e",
+      "files": {
+        "src/data/centers.json": {
+          "before": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          },
+          "after": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "831 04",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          }
+        },
+        "data/slovakia/slovakia_centers_staging.json": {
+          "before": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          },
+          "after": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "831 04",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          }
+        },
+        "data/slovakia/SLOVAKIA_APPROVED_FOR_MERGE.json": {
+          "before": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          },
+          "after": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "831 04",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          }
+        },
+        "data/slovakia/SLOVAKIA_PHASE2_READY_TO_IMPORT.json": {
+          "before": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          },
+          "after": {
+            "name": "Golem Club Polus Bratislava",
+            "brand": "Golem Club",
+            "address": "Vajnorská 100",
+            "postal_code": "831 04",
+            "city": "Bratislava",
+            "lat": 48.1686279,
+            "lng": 17.1396851
+          }
+        }
+      },
+      "evidence": {
+        "official_url": "https://www.golemclub.sk/sk/kontakt/polus",
+        "official_address": "Vajnorská 100, 83104 Bratislava",
+        "defect": "Geocode postal 900 32 (Borinka) instead of official Polus PSČ 831 04"
+      },
+      "name": "Golem Club Polus Bratislava"
+    },
+    {
+      "id": "sk_8406d030d6",
+      "files": {
+        "src/data/centers.json": {
+          "before": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6683",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          },
+          "after": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6780",
+            "postal_code": "841 03",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          }
+        },
+        "data/slovakia/slovakia_centers_staging.json": {
+          "before": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6683",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          },
+          "after": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6780",
+            "postal_code": "841 03",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          }
+        },
+        "data/slovakia/SLOVAKIA_APPROVED_FOR_MERGE.json": {
+          "before": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6683",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          },
+          "after": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6780",
+            "postal_code": "841 03",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          }
+        },
+        "data/slovakia/SLOVAKIA_PHASE2_READY_TO_IMPORT.json": {
+          "before": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6683",
+            "postal_code": "900 32",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          },
+          "after": {
+            "name": "Golem Club Bory Mall Bratislava",
+            "brand": "Golem Club",
+            "address": "Lamač 6780",
+            "postal_code": "841 03",
+            "city": "Bratislava",
+            "lat": 48.1848775,
+            "lng": 17.0503034
+          }
+        }
+      },
+      "evidence": {
+        "official_url": "https://www.golemclub.sk/sk/kontakt/bory",
+        "official_address": "Lamač 6780, 841 03 Bratislava",
+        "defect": "Geocode postal 900 32 + house 6683; official is Lamač 6780 / 841 03"
+      },
+      "name": "Golem Club Bory Mall Bratislava"
+    }
+  ]
+}

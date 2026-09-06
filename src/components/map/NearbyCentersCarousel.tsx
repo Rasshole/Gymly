@@ -33,6 +33,8 @@ export interface NearbyCentersCarouselProps {
   onSelectCenter: (gym: DanishGym) => void;
   /** When any gym has active check-ins, show "Aktive centre" / "Active gyms". */
   hasActiveGyms?: boolean;
+  /** When browsing away from the user, prefer "In this area" over "Near you". */
+  browsingAway?: boolean;
 }
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.74;
@@ -118,6 +120,7 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
   selectedGymId,
   onSelectCenter,
   hasActiveGyms = false,
+  browsingAway = false,
 }) => {
   const {t} = useTranslation();
   const flatListRef = useRef<FlatList>(null);
@@ -138,11 +141,15 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
     return null;
   }
 
+  const sectionTitle = hasActiveGyms
+    ? t('map.activeGyms')
+    : browsingAway
+      ? t('map.inThisArea')
+      : t('map.nearYou');
+
   return (
     <View style={styles.container}>
-      <Text style={styles.sectionTitle}>
-        {hasActiveGyms ? t('map.activeGyms') : t('map.nearYou')}
-      </Text>
+      <Text style={styles.sectionTitle}>{sectionTitle}</Text>
       <FlatList
         ref={flatListRef}
         data={centers}

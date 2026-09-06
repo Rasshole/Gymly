@@ -31,7 +31,7 @@ export function shouldForceCheckoutInactivity(
 }
 
 /**
- * Afstand fra aktivt center: ≤200 m = hjem, >200 m = start/fortsæt ude-timer, checkout efter grace.
+ * Afstand fra aktivt center: inden for radius = hjem, uden for = start/fortsæt ude-timer, checkout efter grace.
  */
 export function decideGeofenceAutoCheckout(
   distanceMeters: number,

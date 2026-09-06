@@ -1,0 +1,1307 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:43:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 913748052,
+      "lat": 59.9249625,
+      "lon": 30.32248,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "check_date": "2025-01-31",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 812 3130000",
+        "contact:vk": "https://vk.com/worldclassclubs",
+        "contact:website": "https://www.worldclass.ru/clubs/sennaya/detail/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00; Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2045802138,
+      "lat": 46.772882,
+      "lon": 23.628007,
+      "tags": {
+        "addr:city": "Cluj-Napoca",
+        "addr:country": "RO",
+        "addr:housenumber": "53-55",
+        "addr:province": "Transilvania",
+        "addr:state": "CJ",
+        "addr:street": "Strada Alexandru Vaida Voievod",
+        "alt_name": "World Class Iulius Cluj",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "phone": "+40 264 555345",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2485986085,
+      "lat": 55.5869928,
+      "lon": 38.1215932,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:phone": "+7 495 2224033",
+        "contact:website": "https://zhukovsky.worldclass.ru",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2688264923,
+      "lat": 44.9471969,
+      "lon": 26.0325828,
+      "tags": {
+        "addr:city": "Ploiești",
+        "addr:housenumber": "2",
+        "addr:postcode": "100176",
+        "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+        "addr:street": "Strada Calomfirescu",
+        "branch": "Ploiești",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "World Class",
+        "website": "https://www.worldclass.ro/club/worldclass-ploiesti/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2950210933,
+      "lat": 46.7743896,
+      "lon": 23.5813331,
+      "tags": {
+        "addr:city": "Cluj-Napoca",
+        "addr:housenumber": "1",
+        "addr:street": "Strada Călărașilor",
+        "branch": "Belvedere",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa,Su 08:00-21:00",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3423365500,
+      "lat": 55.7743824,
+      "lon": 37.586159,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "check_date": "2026-08-22",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "http://www.worldclass.ru/",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4077053590,
+      "lat": 55.8032265,
+      "lon": 37.3908157,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "20 к1",
+        "addr:street": "улица Кулакова",
+        "branch": "Строгино",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00; Sa-Su 9:00-24:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4161831405,
+      "lat": 44.4779762,
+      "lon": 26.1156772,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "9-11",
+        "addr:postcode": "020339",
+        "addr:street": "Șoseaua Fabrica de Glucoză",
+        "branch": "Upground",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "check_date": "2025-10-30",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "sport": "fitness;swimming"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4458685389,
+      "lat": 43.120661,
+      "lon": 131.8786817,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+74232433212",
+        "swimming_pool": "yes",
+        "website": "http://worldclass.vl.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5014501523,
+      "lat": 44.4776111,
+      "lon": 26.1038142,
+      "tags": {
+        "addr:city": "București",
+        "addr:postcode": "014476",
+        "addr:street": "Calea Floreasca",
+        "branch": "Promenada",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "check_date:opening_hours": "2025-04-08",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "World Class",
+        "name:en": "World Class",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5518182497,
+      "lat": 55.7541611,
+      "lon": 37.6093434,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7279001",
+        "contact:website": "https://www.worldclass.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 00:00-01:00,07:00-24:00; Sa,Su 00:00-01:00,09:00-24:00",
+        "operator": "«Спорт Форум»"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5863435086,
+      "lat": 55.7734276,
+      "lon": 37.6065927,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6178256237,
+      "lat": 45.0257978,
+      "lon": 38.9590377,
+      "tags": {
+        "branch": "Lite",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6327994326,
+      "lat": 55.6643149,
+      "lon": 37.5120075,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "109",
+        "addr:postcode": "119421",
+        "addr:street": "Ленинский проспект",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "sport": "athletics;exercise;fitness;gymnastics;multi;table_tennis;yoga",
+        "start_date": "20.04.2018"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6327994327,
+      "lat": 55.8127673,
+      "lon": 37.6467365,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "14",
+        "addr:postcode": "129164",
+        "addr:street": "Маломосковская улица",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 09:00-24:00",
+        "operator": "«Спорт Форум»",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "sport": "athletics;exercise;fitness;gymnastics;multi;swimming;table_tennis;yoga",
+        "start_date": "сентябрь 2019"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6328020528,
+      "lat": 55.7608339,
+      "lon": 37.5489726,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "9 с5",
+        "addr:postcode": "123022",
+        "addr:street": "улица Сергея Макеева",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa,Su,PH 09:00-24:00",
+        "operator": "«Спорт Форум»",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "sport": "athletics;exercise;fitness;gymnastics;multi;swimming;table_tennis;yoga",
+        "start_date": "май 2019"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6328022404,
+      "lat": 43.5848926,
+      "lon": 39.7166758,
+      "tags": {
+        "addr:city": "Сочи",
+        "addr:housenumber": "1А",
+        "addr:postcode": "354000",
+        "addr:street": "Несебрская улица",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 09:00-23:00",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "phone": "+78622665501",
+        "sport": "fitness;multi;gymnastics;exercise;yoga;athletics",
+        "website": "https://www.worldclass.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6342032085,
+      "lat": 55.6220686,
+      "lon": 37.7141655,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "61 с2",
+        "addr:street": "Каширское шоссе",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "sport": "athletics;exercise;fitness;gymnastics;multi;swimming;yoga",
+        "start_date": "2018"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6342046801,
+      "lat": 55.8243611,
+      "lon": 37.4957461,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "16А с8",
+        "addr:postcode": "125171",
+        "addr:street": "Ленинградское шоссе",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "sport": "athletics;exercise;fitness;gymnastics;multi;swimming;yoga",
+        "start_date": "февраль 2017"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6357108072,
+      "lat": 55.6722564,
+      "lon": 37.5594903,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "31 к5",
+        "addr:postcode": "117418",
+        "addr:street": "Профсоюзная улица",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "fee": "yes",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-23:00;Sa-Su 9:00-23:00",
+        "operator": "«Спорт Форум»",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "sport": "athletics;exercise;fitness;gymnastics;multi;swimming;yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6362393601,
+      "lat": 46.7486628,
+      "lon": 23.5306122,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "World Class",
+        "website": "https://www.worldclass.ro"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6637001995,
+      "lat": 45.7658704,
+      "lon": 21.2272598,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6669803903,
+      "lat": 44.4415505,
+      "lon": 26.093436,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "61-63",
+        "addr:postcode": "010066",
+        "addr:street": "Calea Victoriei",
+        "branch": "DownTown",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-21:00",
+        "phone": "+40 727 730 418",
+        "sport": "swimming;fitness;yoga",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6703100298,
+      "lat": 45.774775,
+      "lon": 21.2130439,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6846383417,
+      "lat": 55.7978708,
+      "lon": 37.5198189,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6887077362,
+      "lat": 44.4645981,
+      "lon": 26.0833371,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "20-22",
+        "addr:postcode": "011441",
+        "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+        "addr:street": "Strada Alexandrina",
+        "branch": "Charles de Gaulle",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "name:ro": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009390826,
+      "lat": 44.4854001,
+      "lon": 26.0874116,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "20",
+        "addr:street": "Strada Aron Cotruș",
+        "branch": "Le Club",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "name:ro": "World Class",
+        "source:addr:housenumber": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009713491,
+      "lat": 44.5138397,
+      "lon": 26.1383267,
+      "tags": {
+        "addr:city": "Voluntari",
+        "addr:housenumber": "12",
+        "addr:postcode": "077191",
+        "addr:street": "Strada Erou Iancu Nicolae",
+        "branch": "Atlantis",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009713492,
+      "lat": 44.425633,
+      "lon": 26.0761231,
+      "tags": {
+        "addr:city": "București",
+        "addr:country": "RO",
+        "addr:housenumber": "90",
+        "addr:postcode": "050726",
+        "addr:street": "Calea 13 Septembrie",
+        "branch": "The Grand",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "name:ro": "World Class",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-21:00",
+        "phone": "+40 749 237 483",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009728956,
+      "lat": 44.4212011,
+      "lon": 26.1500669,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "4",
+        "addr:postcode": "031783",
+        "addr:street": "Strada Liviu Rebreanu",
+        "branch": "ParkLake",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-21:00",
+        "operator": "World Class Romania SA",
+        "phone": "+40 749 213 557",
+        "start_date": "2016",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009728957,
+      "lat": 44.4197623,
+      "lon": 26.1334652,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "188",
+        "addr:street": "Calea Dudești",
+        "branch": "InCity",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009728958,
+      "lat": 44.474886,
+      "lon": 26.1099261,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "162A",
+        "addr:street": "Strada Barbu Văcărescu",
+        "branch": "Caro",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009734608,
+      "lat": 44.4417276,
+      "lon": 26.1519295,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "3-5",
+        "addr:street": "Bulevardul Pierre de Coubertin",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800457,
+      "lat": 44.4524935,
+      "lon": 26.129827,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "23",
+        "addr:street": "Strada Ziduri Moși",
+        "branch": "Veranda",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-22:00",
+        "phone": "+40 744 612 704",
+        "start_date": "2016",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800459,
+      "lat": 44.4210638,
+      "lon": 26.1274405,
+      "tags": {
+        "addr:city": "București",
+        "addr:country": "RO",
+        "addr:housenumber": "55-59",
+        "addr:postcode": "031281",
+        "addr:street": "Calea Vitan",
+        "alt_name": "World Class Bucuresti Mall",
+        "branch": "Bucuresti Mall",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "facebook": "worldclass.romania",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00",
+        "phone": "+40 311 012 018",
+        "source:postcode": "survey",
+        "source:streetnumber": "survey",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800460,
+      "lat": 44.4306794,
+      "lon": 26.0501083,
+      "tags": {
+        "addr:city": "București",
+        "addr:country": "RO",
+        "addr:housenumber": "4",
+        "addr:postcode": "061346",
+        "addr:street": "Bulevardul General Paul Teodorescu",
+        "branch": "AFI Cotroceni",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "facebook": "worldclass.romania",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "World Class România SA",
+        "phone": "+40 758 555 565",
+        "source:addr:housenumber": "survey",
+        "source:addr:street": "survey",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800461,
+      "lat": 44.4525008,
+      "lon": 26.0817438,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "4-8",
+        "addr:postcode": "011131",
+        "addr:street": "Șoseaua Nicolae Titulescu",
+        "branch": "American House",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "check_date:opening_hours": "2026-06-14",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 08:00-20:00",
+        "phone": "+40 720 020 974",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800462,
+      "lat": 44.4330331,
+      "lon": 26.0357053,
+      "tags": {
+        "addr:city": "București",
+        "addr:country": "RO",
+        "addr:housenumber": "19",
+        "addr:postcode": "061076",
+        "addr:postcode:source": "survey",
+        "addr:street": "Bulevardul Iuliu Maniu",
+        "branch": "Lujerului",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "email": "receptie.lujerului@worldclass.ro",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-18:00",
+        "phone": "+40 749 696 696",
+        "source:addr:housenumber": "survey",
+        "source:addr:street": "survey",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800463,
+      "lat": 44.5141783,
+      "lon": 26.1150223,
+      "tags": {
+        "addr:city": "Voluntari",
+        "addr:housenumber": "103bis",
+        "addr:postcode": "077191",
+        "addr:street": "Strada Erou Iancu Nicolae",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800464,
+      "lat": 44.3935025,
+      "lon": 26.1197376,
+      "tags": {
+        "branch": "Sudului",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800465,
+      "lat": 44.4281624,
+      "lon": 26.0351093,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "26",
+        "addr:postcode": "061331",
+        "addr:street": "Bulevardul Timișoara",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "facebook": "worldclass.romania",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "operator": "World Class Romania",
+        "phone": "+40 730 188 613",
+        "source:addr:housenumber": "survey",
+        "source:addr:street": "survey",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009800466,
+      "lat": 44.4242602,
+      "lon": 26.1612529,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "6A",
+        "addr:street": "Strada Liviu Rebreanu",
+        "branch": "Titan Park",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "source:addr:housenumber": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7009825740,
+      "lat": 44.4803714,
+      "lon": 26.1068379,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "46-48",
+        "addr:street": "Șoseaua Pipera",
+        "branch": "Oregon Park",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7040344931,
+      "lat": 55.8091812,
+      "lon": 37.1265984,
+      "tags": {
+        "addr:city": "Новинки",
+        "addr:housenumber": "115 с9",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:website": "https://www.worldclass.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00; Sa-Su 9:00-23:00",
+        "operator": "«Спорт Форум»",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "phone": "+7 (495) 135-11-49",
+        "sport": "swimming;gymnastics;yoga;exercise;fitness",
+        "website": "https://special.worldclass.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7124646879,
+      "lat": 44.2043995,
+      "lon": 28.6306136,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7165875162,
+      "lat": 55.7618403,
+      "lon": 37.6582608,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "check_date": "2026-02-28",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7165875163,
+      "lat": 55.7476703,
+      "lon": 37.5812633,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:phone": "+7 495 7880000",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 7:00-24:00;Sa-Su 9:00-24:00",
+        "operator": "«Спорт Форум»"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7942476486,
+      "lat": 55.7741383,
+      "lon": 37.5864548,
+      "tags": {
+        "branch": "SPA",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "spa@worldclass.ru",
+        "contact:facebook": "https://www.facebook.com/beautyspabyworldclass",
+        "contact:instagram": "https://www.instagram.com/worldclass.spa/",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://spa.worldclass.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "«МедиСПА»",
+        "shop": "beauty"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7942487110,
+      "lat": 55.7315442,
+      "lon": 37.6163185,
+      "tags": {
+        "branch": "SPA",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "spa@worldclass.ru",
+        "contact:facebook": "https://www.facebook.com/beautyspabyworldclass",
+        "contact:instagram": "https://www.instagram.com/worldclass.spa/",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://spa.worldclass.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "«МедиСПА»",
+        "shop": "beauty"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7942487111,
+      "lat": 55.7609157,
+      "lon": 37.5486906,
+      "tags": {
+        "branch": "SPA",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "spa@worldclass.ru",
+        "contact:facebook": "https://www.facebook.com/beautyspabyworldclass",
+        "contact:instagram": "https://www.instagram.com/worldclass.spa/",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://spa.worldclass.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "operator": "«МедиСПА»",
+        "shop": "beauty"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8000518179,
+      "lat": 55.8542845,
+      "lon": 37.4990337,
+      "tags": {
+        "addr:city": "Москва",
+        "addr:housenumber": "2",
+        "addr:postcode": "125581",
+        "addr:street": "улица Ляпидевского",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 09:00-22:00; Sa-Su 10:00-22:00",
+        "phone": "+7 495 7880000",
+        "website": "https://special.worldclass.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8006902289,
+      "lat": 55.8540084,
+      "lon": 37.4964167,
+      "tags": {
+        "branch": "Речной",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "ya@worldclass.ru",
+        "contact:facebook": "https://fb.com/worldclassclubs",
+        "contact:instagram": "https://instagram.com/worldclassclubs",
+        "contact:phone": "+7 495 7880000",
+        "contact:vk": "https://vk.com/worldclassclubs",
+        "contact:website": "https://special.worldclass.ru/",
+        "contact:youtube": "https://www.youtube.com/channel/UCzUQ8fNzVYtSkLNxve8kUsA",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 09:00-22:00;Sa-Su 10:00-22:00",
+        "operator": "Спорт Форум"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8227784358,
+      "lat": 45.6507058,
+      "lon": 25.6106941,
+      "tags": {
+        "addr:city": "Brașov",
+        "addr:housenumber": "78",
+        "addr:postcode": "500097",
+        "addr:street": "Bulevardul 15 Noiembrie",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "check_date": "2024-08-08",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "World Class",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9498201917,
+      "lat": 56.035894,
+      "lon": 92.8977853,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "contact:email": "mail@wclass-krsk.ru",
+        "contact:phone": "+7 391 2737373;+7 391 9867728",
+        "contact:website": "https://wclass-krsk.ru",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-00:00, Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9641658417,
+      "lat": 44.4835844,
+      "lon": 26.0436756,
+      "tags": {
+        "addr:floor": "1",
+        "addr:housenumber": "8",
+        "addr:street": "Strada Jiului",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "check_date": "2025-02-07",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 08:00-20:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10687727237,
+      "lat": 45.7871086,
+      "lon": 21.2361608,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10940264287,
+      "lat": 55.9013742,
+      "lon": 37.7004459,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "construction:leisure": "fitness_centre",
+        "contact:phone": "+7 495 7880000",
+        "contact:website": "https://www.worldclass.ru",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11449154508,
+      "lat": 45.7594095,
+      "lon": 21.2434497,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11649774269,
+      "lat": 57.1182483,
+      "lon": 65.6210648,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "name:en": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11735052741,
+      "lat": 55.6735543,
+      "lon": 37.5199606,
+      "tags": {
+        "branch": "Удальцова",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 09:00-0:00",
+        "phone": "+7 495 7880000",
+        "sport": "fitness;swimming",
+        "website": "https://special.worldclass.ru/new/clubs/453"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11809204350,
+      "lat": 44.8760208,
+      "lon": 37.3437551,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12319355970,
+      "lat": 44.4357548,
+      "lon": 26.0529275,
+      "tags": {
+        "addr:city": "București",
+        "addr:country": "RO",
+        "addr:housenumber": "6P",
+        "addr:postcode": "061103",
+        "addr:street": "Bulevardul Iuliu Maniu",
+        "branch": "Campus 6",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-21:00",
+        "phone": "+40 753 250 669",
+        "source:addr:housenumber": "survey",
+        "source:addr:street": "survey",
+        "website": "https://www.worldclass.ro/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12343391892,
+      "lat": 52.6193931,
+      "lon": 39.592216,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "check_date": "2025-07-10",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12778454975,
+      "lat": 47.1674226,
+      "lon": 27.5160451,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13626353826,
+      "lat": 44.4254825,
+      "lon": 26.0637544,
+      "tags": {
+        "addr:city": "București",
+        "addr:housenumber": "44",
+        "addr:street": "Strada Sergent Ion Nuțu",
+        "branch": "One Cotroceni",
+        "brand": "World Class",
+        "brand:wikidata": "Q102350621",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-21:00",
+        "phone": "0740 078 771",
+        "website": "https://www.worldclass.ro/club/world-class-one-cotroceni/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13864686000,
+      "lat": 55.7710124,
+      "lon": 37.6436807,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "check_date": "2026-05-23",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    }
+  ]
+}

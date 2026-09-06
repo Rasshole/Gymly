@@ -1,0 +1,651 @@
+{
+  "rev|35.907312|14.510975": {
+    "display": "Nike, Pjazza Tigné, Tas-Sliema, Reġjun tal-Lvant, TPO 0001, Malta",
+    "postcode": "TPO 0001",
+    "road": "Pjazza Tigné",
+    "suburb": "",
+    "city": "Tas-Sliema",
+    "country_code": "mt"
+  },
+  "rev|35.885171|14.521196": {
+    "display": "Triq San Lawrenz, Bormla, Reġjun tal-Port, BRG 1810, Malta",
+    "postcode": "BRG 1810",
+    "road": "Triq San Lawrenz",
+    "suburb": "",
+    "city": "Bormla",
+    "country_code": "mt"
+  },
+  "rev|35.825742|14.530771": {
+    "display": "DistrictFive, Triq il-Bajja s-Sabiħa, Il-Qajjenza, Birżebbuġa, Reġjun tan-Nofsinhar, BBG 1758, Malta",
+    "postcode": "BBG 1758",
+    "road": "Triq il-Bajja s-Sabiħa",
+    "suburb": "",
+    "city": "Birżebbuġa",
+    "country_code": "mt"
+  },
+  "rev|35.876501|14.493171": {
+    "display": "Marsa Old Racing Track, Il-Marsa, Reġjun tan-Nofsinhar, MRS 3000, Malta",
+    "postcode": "MRS 3000",
+    "road": "Marsa Old Racing Track",
+    "suburb": "",
+    "city": "Il-Marsa",
+    "country_code": "mt"
+  },
+  "rev|35.894647|14.459193": {
+    "display": "Triq Xorrox, L-Imrieħel, Birkirkara, Reġjun tal-Lvant, BKR 1610, Malta",
+    "postcode": "BKR 1610",
+    "road": "Triq Xorrox",
+    "suburb": "L-Imrieħel",
+    "city": "Birkirkara",
+    "country_code": "mt"
+  },
+  "rev|35.949661|14.403840": {
+    "display": "Sirens ASC, Triq San Ġeraldu, Buġibba, San Pawl il-Baħar, Reġjun tat-Tramuntana, SPB 3310, Malta",
+    "postcode": "SPB 3310",
+    "road": "Triq San Ġeraldu",
+    "suburb": "",
+    "city": "San Pawl il-Baħar",
+    "country_code": "mt"
+  },
+  "rev|35.838617|14.485286": {
+    "display": "Triq Raffaele Caruana, Ħal Kirkop, Reġjun tal-Punent, ZRQ 1089, Malta",
+    "postcode": "ZRQ 1089",
+    "road": "Triq Raffaele Caruana",
+    "suburb": "",
+    "city": "Ħal Kirkop",
+    "country_code": "mt"
+  },
+  "rev|35.915301|14.424129": {
+    "display": "Triq il-Ballut, Ta' Redusa, Santa Margerita, Il-Mosta, Reġjun tat-Tramuntana, MST 9055, Malta",
+    "postcode": "MST 9055",
+    "road": "Triq il-Ballut",
+    "suburb": "Ta' Redusa",
+    "city": "Il-Mosta",
+    "country_code": "mt"
+  },
+  "rev|35.915402|14.493453": {
+    "display": "Klay, Triq Ċensu Tabone, San Ġiljan, Reġjun tal-Lvant, STJ 1089, Malta",
+    "postcode": "STJ 1089",
+    "road": "Triq Ċensu Tabone",
+    "suburb": "",
+    "city": "San Ġiljan",
+    "country_code": "mt"
+  },
+  "rev|35.924509|14.476937": {
+    "display": "Il-Park and Ride ta' Pembroke, Triq Dun Ġużepp Farrugia, Pembroke, Reġjun tal-Lvant, SWQ 2030, Malta",
+    "postcode": "SWQ 2030",
+    "road": "Triq Dun Ġużepp Farrugia",
+    "suburb": "",
+    "city": "Pembroke",
+    "country_code": "mt"
+  },
+  "rev|35.903819|14.488096": {
+    "display": "Skola Santa Monika Gżira, Triq Maria Teresa Spinelli, Il-Gżira, Reġjun tal-Lvant, GZR 1713, Malta",
+    "postcode": "GZR 1713",
+    "road": "Triq Maria Teresa Spinelli",
+    "suburb": "",
+    "city": "Il-Gżira",
+    "country_code": "mt"
+  },
+  "rev|35.956616|14.357029": {
+    "display": "Meadow Vale, 85-86, Triq l-Assedju l-Kbir 1565, Qasam Barrani, Il-Manikata, Il-Mellieħa, Reġjun tat-Tramuntana, MLH 1902, Malta",
+    "postcode": "MLH 1902",
+    "road": "Triq l-Assedju l-Kbir 1565",
+    "suburb": "",
+    "city": "Il-Manikata",
+    "country_code": "mt"
+  },
+  "rev|35.909152|14.474235": {
+    "display": "Skola Primarja San Ġwann, Vjal ir-Riħan, San Ġwann, Reġjun tat-Tramuntana, SGN 9018, Malta",
+    "postcode": "SGN 9018",
+    "road": "Vjal ir-Riħan",
+    "suburb": "",
+    "city": "San Ġwann",
+    "country_code": "mt"
+  },
+  "rev|35.894824|14.415646": {
+    "display": "Grawnd Nazzjonali Ta' Qali, Triq ta' Vnezja, Ta' Qali, Ħ'Attard, Reġjun tat-Tramuntana, ATD 4000, Malta",
+    "postcode": "ATD 4000",
+    "road": "Triq ta' Vnezja",
+    "suburb": "",
+    "city": "Ħ'Attard",
+    "country_code": "mt"
+  },
+  "rev|35.906500|14.510000": {
+    "display": "Ix-Xatt ta' Tigné, Tas-Sliema, Reġjun tal-Lvant, TPO 0001, Malta",
+    "postcode": "TPO 0001",
+    "road": "Ix-Xatt ta' Tigné",
+    "suburb": "",
+    "city": "Tas-Sliema",
+    "country_code": "mt"
+  },
+  "rev|35.893500|14.455000": {
+    "display": "Triq l-Imdina, Ħal Balzan, Reġjun tat-Tramuntana, BZN 1708, Malta",
+    "postcode": "BZN 1708",
+    "road": "Triq l-Imdina",
+    "suburb": "",
+    "city": "Ħal Balzan",
+    "country_code": "mt"
+  },
+  "rev|36.044400|14.241000": {
+    "display": "BonBon Gelateria, 54, Triq Putirjal, Rabat, Ir-Rabat, Reġjun Għawdex, VCT 1012, Malta",
+    "postcode": "VCT 1012",
+    "road": "Triq Putirjal",
+    "suburb": "",
+    "city": "Ir-Rabat",
+    "country_code": "mt"
+  },
+  "rev|36.032000|14.258000": {
+    "display": "Triq Santa Katerina, Sqaq Numru 1, Ix-Xewkija, Reġjun Għawdex, XWK 1028, Malta",
+    "postcode": "XWK 1028",
+    "road": "Triq Santa Katerina, Sqaq Numru 1",
+    "suburb": "",
+    "city": "Ix-Xewkija",
+    "country_code": "mt"
+  },
+  "rev|35.876000|14.472000": {
+    "display": "Triq Ġużè Galea, San Ġorġ, Tal-Ħandaq, Ħal Qormi, Reġjun tan-Nofsinhar, QRM 3613, Malta",
+    "postcode": "QRM 3613",
+    "road": "Triq Ġużè Galea",
+    "suburb": "Tal-Ħandaq",
+    "city": "Ħal Qormi",
+    "country_code": "mt"
+  },
+  "rev|35.898000|14.513000": {
+    "display": "Ellul, Triq it-Teżorerija, Il-Kamrata, Il-Belt Valletta, Reġjun tal-Port, VLT 1173, Malta",
+    "postcode": "VLT 1173",
+    "road": "Triq it-Teżorerija",
+    "suburb": "Il-Kamrata",
+    "city": "Il-Belt Valletta",
+    "country_code": "mt"
+  },
+  "rev|35.862000|14.567000": {
+    "display": "Triq il-Qawwara, Wied il-Għajn, Reġjun tan-Nofsinhar, MSK 3043, Malta",
+    "postcode": "MSK 3043",
+    "road": "Triq il-Qawwara",
+    "suburb": "",
+    "city": "Wied il-Għajn",
+    "country_code": "mt"
+  },
+  "rev|35.881000|14.521000": {
+    "display": "Collegiate Church of the Immaculate Conception, Triq il-Pellegrinaġġ, Bormla, Reġjun tal-Port, BML 2064, Malta",
+    "postcode": "BML 2064",
+    "road": "Triq il-Pellegrinaġġ",
+    "suburb": "",
+    "city": "Bormla",
+    "country_code": "mt"
+  },
+  "rev|35.924000|14.491000": {
+    "display": "Triq Paceville, San Ġiljan, Reġjun tal-Lvant, STJ 3070, Malta",
+    "postcode": "STJ 3070",
+    "road": "Triq Paceville",
+    "suburb": "",
+    "city": "San Ġiljan",
+    "country_code": "mt"
+  },
+  "_pins": {
+    "bgm_sliema": {
+      "lat": 35.907312012656334,
+      "lng": 14.51097539660994,
+      "display": "Nike, Pjazza Tigné, Tas-Sliema, Reġjun tal-Lvant, TPO 0001, Malta",
+      "postcode": "TPO 0001",
+      "road": "Pjazza Tigné",
+      "suburb": "",
+      "city": "Tas-Sliema",
+      "country_code": "mt"
+    },
+    "bgm_birgu_cs": {
+      "lat": 35.885171,
+      "lng": 14.521196,
+      "display": "Triq San Lawrenz, Bormla, Reġjun tal-Port, BRG 1810, Malta",
+      "postcode": "BRG 1810",
+      "road": "Triq San Lawrenz",
+      "suburb": "",
+      "city": "Bormla",
+      "country_code": "mt"
+    },
+    "bgm_birzebbuga": {
+      "lat": 35.825742184357566,
+      "lng": 14.530771255818989,
+      "display": "DistrictFive, Triq il-Bajja s-Sabiħa, Il-Qajjenza, Birżebbuġa, Reġjun tan-Nofsinhar, BBG 1758, Malta",
+      "postcode": "BBG 1758",
+      "road": "Triq il-Bajja s-Sabiħa",
+      "suburb": "",
+      "city": "Birżebbuġa",
+      "country_code": "mt"
+    },
+    "bgm_marsa": {
+      "lat": 35.876501,
+      "lng": 14.493171,
+      "display": "Marsa Old Racing Track, Il-Marsa, Reġjun tan-Nofsinhar, MRS 3000, Malta",
+      "postcode": "MRS 3000",
+      "road": "Marsa Old Racing Track",
+      "suburb": "",
+      "city": "Il-Marsa",
+      "country_code": "mt"
+    },
+    "bgm_birkirkara": {
+      "lat": 35.894646617727055,
+      "lng": 14.459193194765401,
+      "display": "Triq Xorrox, L-Imrieħel, Birkirkara, Reġjun tal-Lvant, BKR 1610, Malta",
+      "postcode": "BKR 1610",
+      "road": "Triq Xorrox",
+      "suburb": "L-Imrieħel",
+      "city": "Birkirkara",
+      "country_code": "mt"
+    },
+    "bgm_build": {
+      "lat": 35.94966135283006,
+      "lng": 14.403839567776476,
+      "display": "Sirens ASC, Triq San Ġeraldu, Buġibba, San Pawl il-Baħar, Reġjun tat-Tramuntana, SPB 3310, Malta",
+      "postcode": "SPB 3310",
+      "road": "Triq San Ġeraldu",
+      "suburb": "",
+      "city": "San Pawl il-Baħar",
+      "country_code": "mt"
+    },
+    "bgm_kirkop": {
+      "lat": 35.83861653083825,
+      "lng": 14.485285581268107,
+      "display": "Triq Raffaele Caruana, Ħal Kirkop, Reġjun tal-Punent, ZRQ 1089, Malta",
+      "postcode": "ZRQ 1089",
+      "road": "Triq Raffaele Caruana",
+      "suburb": "",
+      "city": "Ħal Kirkop",
+      "country_code": "mt"
+    },
+    "bgm_mosta": {
+      "lat": 35.915301120339365,
+      "lng": 14.424128996610273,
+      "display": "Triq il-Ballut, Ta' Redusa, Santa Margerita, Il-Mosta, Reġjun tat-Tramuntana, MST 9055, Malta",
+      "postcode": "MST 9055",
+      "road": "Triq il-Ballut",
+      "suburb": "Ta' Redusa",
+      "city": "Il-Mosta",
+      "country_code": "mt"
+    },
+    "bgm_neptunes": {
+      "lat": 35.91540246582352,
+      "lng": 14.49345285427998,
+      "display": "Klay, Triq Ċensu Tabone, San Ġiljan, Reġjun tal-Lvant, STJ 1089, Malta",
+      "postcode": "STJ 1089",
+      "road": "Triq Ċensu Tabone",
+      "suburb": "",
+      "city": "San Ġiljan",
+      "country_code": "mt"
+    },
+    "bgm_pembroke": {
+      "lat": 35.92450925868331,
+      "lng": 14.476937138940775,
+      "display": "Il-Park and Ride ta' Pembroke, Triq Dun Ġużepp Farrugia, Pembroke, Reġjun tal-Lvant, SWQ 2030, Malta",
+      "postcode": "SWQ 2030",
+      "road": "Triq Dun Ġużepp Farrugia",
+      "suburb": "",
+      "city": "Pembroke",
+      "country_code": "mt"
+    },
+    "bgm_talqroqq": {
+      "lat": 35.90381858040224,
+      "lng": 14.488096194179404,
+      "display": "Skola Santa Monika Gżira, Triq Maria Teresa Spinelli, Il-Gżira, Reġjun tal-Lvant, GZR 1713, Malta",
+      "postcode": "GZR 1713",
+      "road": "Triq Maria Teresa Spinelli",
+      "suburb": "",
+      "city": "Il-Gżira",
+      "country_code": "mt"
+    },
+    "f247_mellieha": {
+      "lat": 35.95661568013098,
+      "lng": 14.35702871570184,
+      "display": "Meadow Vale, 85-86, Triq l-Assedju l-Kbir 1565, Qasam Barrani, Il-Manikata, Il-Mellieħa, Reġjun tat-Tramuntana, MLH 1902, Malta",
+      "postcode": "MLH 1902",
+      "road": "Triq l-Assedju l-Kbir 1565",
+      "suburb": "",
+      "city": "Il-Manikata",
+      "country_code": "mt"
+    },
+    "f247_sangwann": {
+      "lat": 35.90915183200548,
+      "lng": 14.474235277458817,
+      "display": "Skola Primarja San Ġwann, Vjal ir-Riħan, San Ġwann, Reġjun tat-Tramuntana, SGN 9018, Malta",
+      "postcode": "SGN 9018",
+      "road": "Vjal ir-Riħan",
+      "suburb": "",
+      "city": "San Ġwann",
+      "country_code": "mt"
+    },
+    "f247_taqali": {
+      "lat": 35.894823821196134,
+      "lng": 14.415645560130647,
+      "display": "Grawnd Nazzjonali Ta' Qali, Triq ta' Vnezja, Ta' Qali, Ħ'Attard, Reġjun tat-Tramuntana, ATD 4000, Malta",
+      "postcode": "ATD 4000",
+      "road": "Triq ta' Vnezja",
+      "suburb": "",
+      "city": "Ħ'Attard",
+      "country_code": "mt"
+    },
+    "fort_sliema": {
+      "lat": 35.9065,
+      "lng": 14.51,
+      "display": "Ix-Xatt ta' Tigné, Tas-Sliema, Reġjun tal-Lvant, TPO 0001, Malta",
+      "postcode": "TPO 0001",
+      "road": "Ix-Xatt ta' Tigné",
+      "suburb": "",
+      "city": "Tas-Sliema",
+      "country_code": "mt"
+    },
+    "fort_mriehel": {
+      "lat": 35.8935,
+      "lng": 14.455,
+      "display": "Triq l-Imdina, Ħal Balzan, Reġjun tat-Tramuntana, BZN 1708, Malta",
+      "postcode": "BZN 1708",
+      "road": "Triq l-Imdina",
+      "suburb": "",
+      "city": "Ħal Balzan",
+      "country_code": "mt"
+    },
+    "kinetika_victoria": {
+      "lat": 36.0444,
+      "lng": 14.241,
+      "display": "BonBon Gelateria, 54, Triq Putirjal, Rabat, Ir-Rabat, Reġjun Għawdex, VCT 1012, Malta",
+      "postcode": "VCT 1012",
+      "road": "Triq Putirjal",
+      "suburb": "",
+      "city": "Ir-Rabat",
+      "country_code": "mt"
+    },
+    "kinetika_xewkija": {
+      "lat": 36.032,
+      "lng": 14.258,
+      "display": "Triq Santa Katerina, Sqaq Numru 1, Ix-Xewkija, Reġjun Għawdex, XWK 1028, Malta",
+      "postcode": "XWK 1028",
+      "road": "Triq Santa Katerina, Sqaq Numru 1",
+      "suburb": "",
+      "city": "Ix-Xewkija",
+      "country_code": "mt"
+    },
+    "challenger_qormi": {
+      "lat": 35.876,
+      "lng": 14.472,
+      "display": "Triq Ġużè Galea, San Ġorġ, Tal-Ħandaq, Ħal Qormi, Reġjun tan-Nofsinhar, QRM 3613, Malta",
+      "postcode": "QRM 3613",
+      "road": "Triq Ġużè Galea",
+      "suburb": "Tal-Ħandaq",
+      "city": "Ħal Qormi",
+      "country_code": "mt"
+    },
+    "challenger_valletta": {
+      "lat": 35.898,
+      "lng": 14.513,
+      "display": "Ellul, Triq it-Teżorerija, Il-Kamrata, Il-Belt Valletta, Reġjun tal-Port, VLT 1173, Malta",
+      "postcode": "VLT 1173",
+      "road": "Triq it-Teżorerija",
+      "suburb": "Il-Kamrata",
+      "city": "Il-Belt Valletta",
+      "country_code": "mt"
+    },
+    "challenger_marsaskala": {
+      "lat": 35.862,
+      "lng": 14.567,
+      "display": "Triq il-Qawwara, Wied il-Għajn, Reġjun tan-Nofsinhar, MSK 3043, Malta",
+      "postcode": "MSK 3043",
+      "road": "Triq il-Qawwara",
+      "suburb": "",
+      "city": "Wied il-Għajn",
+      "country_code": "mt"
+    },
+    "challenger_cottonera": {
+      "lat": 35.881,
+      "lng": 14.521,
+      "display": "Collegiate Church of the Immaculate Conception, Triq il-Pellegrinaġġ, Bormla, Reġjun tal-Port, BML 2064, Malta",
+      "postcode": "BML 2064",
+      "road": "Triq il-Pellegrinaġġ",
+      "suburb": "",
+      "city": "Bormla",
+      "country_code": "mt"
+    },
+    "cynergi": {
+      "lat": 35.924,
+      "lng": 14.491,
+      "display": "Triq Paceville, San Ġiljan, Reġjun tal-Lvant, STJ 3070, Malta",
+      "postcode": "STJ 3070",
+      "road": "Triq Paceville",
+      "suburb": "",
+      "city": "San Ġiljan",
+      "country_code": "mt"
+    }
+  },
+  "mt|triq edward camilleri, mellieha, malta": {
+    "lat": 35.9574817,
+    "lng": 14.360256,
+    "display": "Triq Edward Camilleri, Il-Manikata, Il-Mellieħa, Reġjun tat-Tramuntana, MLH 1107, Malta",
+    "postcode": "MLH 1107",
+    "road": "Triq Edward Camilleri",
+    "city": "Il-Manikata"
+  },
+  "mt|kampanella street, san gwann, malta": null,
+  "mt|vjal ir-rihan, san gwann, malta": {
+    "lat": 35.9085681,
+    "lng": 14.4757534,
+    "display": "Vjal ir-Riħan, San Ġwann, Reġjun tat-Tramuntana, SGN 2416, Malta",
+    "postcode": "SGN 2416",
+    "road": "Vjal ir-Riħan",
+    "city": "San Ġwann"
+  },
+  "mt|triq mro frank galea, zebbug, malta": null,
+  "mt|national stadium ta qali, attard, malta": {
+    "lat": 35.8948336,
+    "lng": 14.4152373,
+    "display": "Grawnd Nazzjonali Ta' Qali, Triq San Ġakbu, Ta' Qali, Ħ'Attard, Reġjun tat-Tramuntana, MST 9094, Malta",
+    "postcode": "MST 9094",
+    "road": "Triq San Ġakbu",
+    "city": "Ħ'Attard"
+  },
+  "mt|cannon road, qormi, malta": {
+    "lat": 35.8865533,
+    "lng": 14.4752835,
+    "display": "Triq il-Kanun, San Bastjan, Tal-Ħandaq, Ħal Qormi, Reġjun tan-Nofsinhar, QRM 9030, Malta",
+    "postcode": "QRM 9030",
+    "road": "Triq il-Kanun",
+    "city": "Ħal Qormi"
+  },
+  "mt|zachary street, valletta, malta": null,
+  "mt|cottonera sports complex, bormla, malta": {
+    "lat": 35.8805184,
+    "lng": 14.5274836,
+    "display": "Cottonera Sports Complex, Triq Kottonera, Bormla, Reġjun tal-Port, ZBR 9033, Malta",
+    "postcode": "ZBR 9033",
+    "road": "Triq Kottonera",
+    "city": "Bormla"
+  },
+  "mt|ta monita, marsaskala, malta": {
+    "lat": 35.8678317,
+    "lng": 14.5655914,
+    "display": "Triq ta' Monita, Wied il-Għajn, Reġjun tan-Nofsinhar, MSK 1015, Malta",
+    "postcode": "MSK 1015",
+    "road": "Triq ta' Monita",
+    "city": "Wied il-Għajn"
+  },
+  "mt|the quad central, mriehel, malta": null,
+  "mt|fort cambridge, tigne, sliema, malta": null,
+  "mt|pjazza 1902, pembroke, malta": {
+    "lat": 35.9244327,
+    "lng": 14.4764757,
+    "display": "Pjazza 1902, Triq Dun Ġużepp Farrugia, Pembroke, Reġjun tal-Lvant, SWQ 2030, Malta",
+    "postcode": "SWQ 2030",
+    "road": "Triq Dun Ġużepp Farrugia",
+    "city": "Pembroke"
+  },
+  "mt|st aloysius college, birkirkara, malta": {
+    "lat": 35.89498,
+    "lng": 14.4585831,
+    "display": "Kulleġġ San Alwiġi, Triq il-Kulleġġ, L-Imrieħel, Birkirkara, Reġjun tal-Lvant, BKR 1481, Malta",
+    "postcode": "BKR 1481",
+    "road": "Triq il-Kulleġġ",
+    "city": "Birkirkara"
+  },
+  "mt|kirkop sports complex, kirkop, malta": null,
+  "mt|neptunes waterpolo club, st julians, malta": null,
+  "mt|2nd floor the tower, triq fortunato, victoria gozo, malta": null,
+  "mt|triq jean de la valette, xewkija, malta": {
+    "lat": 36.0351249,
+    "lng": 14.2575693,
+    "display": "Triq Jean de la Valette, Ix-Xewkija, Reġjun Għawdex, XWK 1028, Malta",
+    "postcode": "XWK 1028",
+    "road": "Triq Jean de la Valette",
+    "city": "Ix-Xewkija"
+  },
+  "mt|cynergi, st georges bay, st julians, malta": null,
+  "mt|elite gym, birzebbuga, malta": null,
+  "mt|triq san zakkarija, valletta, malta": {
+    "lat": 35.8969204,
+    "lng": 14.5114501,
+    "display": "Triq San Żakkarija, Il-Kamrata, Il-Belt Valletta, Reġjun tal-Port, VLT 1111, Malta",
+    "postcode": "VLT 1111",
+    "road": "Triq San Żakkarija",
+    "city": "Il-Belt Valletta"
+  },
+  "mt|st zachary street, valletta, malta": null,
+  "mt|triq frank galea, zebbug malta": {
+    "lat": 35.8740872,
+    "lng": 14.4571502,
+    "display": "Triq il-Maestro Frank Galea, Ħal Mula, Ħaż-Żebbuġ, Reġjun tal-Punent, ZBG 9019, Malta",
+    "postcode": "ZBG 9019",
+    "road": "Triq il-Maestro Frank Galea",
+    "city": "Ħaż-Żebbuġ"
+  },
+  "mt|frank galea street, haz-zebbug, malta": null,
+  "mt|triq kampanella, san gwann, malta": {
+    "lat": 35.9101316,
+    "lng": 14.4743162,
+    "display": "Triq il-Kampanella, San Ġwann, Reġjun tat-Tramuntana, SGN 9018, Malta",
+    "postcode": "SGN 9018",
+    "road": "Triq il-Kampanella",
+    "city": "San Ġwann"
+  },
+  "mt|quad central, central business district, birkirkara, malta": null,
+  "mt|mriehel bypass, birkirkara, malta": {
+    "lat": 35.8885131,
+    "lng": 14.4633962,
+    "display": "Vjal ir-Royal Malta Artillery, San Ġorġ, Tal-Ħandaq, Ħal Qormi, Reġjun tan-Nofsinhar, CBD 1070, Malta",
+    "postcode": "CBD 1070",
+    "road": "Vjal ir-Royal Malta Artillery",
+    "city": "Ħal Qormi"
+  },
+  "mt|fort cambridge level -2, sliema, malta": null,
+  "mt|the point, tigne point, sliema, malta": null,
+  "mt|triq maria teresa spinelli, gzira, malta": {
+    "lat": 35.9039906,
+    "lng": 14.4891677,
+    "display": "Triq Maria Teresa Spinelli, Il-Gżira, Reġjun tal-Lvant, GZR 1713, Malta",
+    "postcode": "GZR 1713",
+    "road": "Triq Maria Teresa Spinelli",
+    "city": "Il-Gżira"
+  },
+  "mt|sirens asc, san pawl il-bahar, malta": {
+    "lat": 35.9495823,
+    "lng": 14.4040297,
+    "display": "Sirens ASC, Triq San Ġeraldu, Buġibba, San Pawl il-Baħar, Reġjun tat-Tramuntana, SPB 3310, Malta",
+    "postcode": "SPB 3310",
+    "road": "Triq San Ġeraldu",
+    "city": "San Pawl il-Baħar"
+  },
+  "mt|mosta football ground, mosta, malta": {
+    "lat": 35.9046869,
+    "lng": 14.4346099,
+    "display": "Il-Grawnd ta' Charles Abela, Triq il-Manwella, Tad-Daqqaq, Ta' Mlit, Il-Mosta, Reġjun tat-Tramuntana, MST 9017, Malta",
+    "postcode": "MST 9017",
+    "road": "Triq il-Manwella",
+    "city": "Il-Mosta"
+  },
+  "mt|marsa sports club, marsa, malta": {
+    "lat": 35.8757921,
+    "lng": 14.4870672,
+    "display": "Marsa Sports Club, Triq Emmanuele Luigi Galizia, Il-Marsa, Reġjun tan-Nofsinhar, MRS 9064, Malta",
+    "postcode": "MRS 9064",
+    "road": "Triq Emmanuele Luigi Galizia",
+    "city": "Il-Marsa"
+  },
+  "mt|the quad central, mrieħel by-pass, bkr 3000, mrieħel, malta": null,
+  "mt|59 triq il-parilja, sva 1930, santa venera, malta": {
+    "lat": 35.8940601,
+    "lng": 14.47555,
+    "display_name": "Triq il-Parilja, Santa Venera, Reġjun tan-Nofsinhar, BKR 9078, Malta",
+    "importance": 0.053390961318379455,
+    "postcode": "BKR 9078",
+    "country_code": "mt"
+  },
+  "mt|zabbar road, fgr 1012, fgura, malta": {
+    "lat": 35.8735571,
+    "lng": 14.5136615,
+    "display_name": "Triq Ħaż-Żabbar, Il-Fgura, Reġjun tal-Port, FGR 1691, Malta",
+    "importance": 0.05339056763561452,
+    "postcode": "FGR 1691",
+    "country_code": "mt"
+  },
+  "mt|ax palace hotel, high street, slm 1542, sliema, malta": null,
+  "mt|st george's bay, st julian's, malta": {
+    "lat": 35.9287656,
+    "lng": 14.490953,
+    "display_name": "Corinthia (Saint George's Bay), Ix-Xatt ta' San Ġorġ, San Ġiljan, Reġjun tal-Lvant, STJ 3301, Malta",
+    "importance": 4.5962462806088617e-05,
+    "postcode": "STJ 3301",
+    "country_code": "mt"
+  },
+  "mt|maritim antonine hotel & spa, george borg olivier street, mellieħa, malta": null,
+  "mt|warehouse basement / og, gżira, gżira, malta": null,
+  "mt|n/a, malta, malta": {
+    "lat": 35.8693367,
+    "lng": 14.4378254,
+    "display_name": "n/a, Triq il-Prinċep Bażiliku, Ħaż-Żebbuġ, Ħal Dwin, Ħaż-Żebbuġ, Reġjun tal-Punent, ZBG 1141, Malta",
+    "importance": 5.4800488288655187e-05,
+    "postcode": "ZBG 1141",
+    "country_code": "mt"
+  },
+  "mt|kirkop sports complex, triq raffaele caruana, kirkop, malta": null,
+  "mt|triq raffaele caruana, kirkop, malta": {
+    "lat": 35.838575,
+    "lng": 14.4853902,
+    "display": "Triq Raffaele Caruana, Ħal Kirkop, Reġjun tal-Punent, ZRQ 1089, Malta",
+    "postcode": "ZRQ 1089",
+    "road": "Triq Raffaele Caruana",
+    "city": "Ħal Kirkop"
+  },
+  "mt|cottonera sports complex, cottoner avenue, cospicua bml 9020, malta": null,
+  "mt|cottoner avenue, bormla, malta": null,
+  "mt|marsa sports complex, triq aldo moro, marsa mrs 9065, malta": null,
+  "mt|triq aldo moro, marsa, malta": {
+    "lat": 35.87752,
+    "lng": 14.4947196,
+    "display": "Triq Aldo Moro, Il-Marsa, Reġjun tan-Nofsinhar, HRS 9065, Malta",
+    "postcode": "HRS 9065",
+    "road": "Triq Aldo Moro",
+    "city": "Il-Marsa"
+  },
+  "mt|triq il-bajja s-sabiha, birzebbuga, malta": {
+    "lat": 35.8255022,
+    "lng": 14.528386,
+    "display": "Triq il-Bajja s-Sabiħa, Il-Qajjenza, Birżebbuġa, Reġjun tan-Nofsinhar, BBG 1758, Malta",
+    "postcode": "BBG 1758",
+    "road": "Triq il-Bajja s-Sabiħa",
+    "city": "Birżebbuġa"
+  },
+  "mt|birzebbuga aquatic sports club, malta": {
+    "lat": 35.8254835,
+    "lng": 14.5308871,
+    "display": "Birżebbuġa Aquatic Sports Club, Triq il-Bajja s-Sabiħa, Il-Qajjenza, Birżebbuġa, Reġjun tan-Nofsinhar, BBG 1758, Malta",
+    "postcode": "BBG 1758",
+    "road": "Triq il-Bajja s-Sabiħa",
+    "city": "Birżebbuġa"
+  },
+  "mt|annetto caruana road, st paul's bay, malta": null,
+  "mt|fitness cafe, st paul's bay, malta": null,
+  "mt|sirens asc, triq san geraldu, san pawl il-bahar, malta": {
+    "lat": 35.9495823,
+    "lng": 14.4040297,
+    "display": "Sirens ASC, Triq San Ġeraldu, Buġibba, San Pawl il-Baħar, Reġjun tat-Tramuntana, SPB 3310, Malta",
+    "postcode": "SPB 3310",
+    "road": "Triq San Ġeraldu",
+    "city": "San Pawl il-Baħar"
+  }
+}

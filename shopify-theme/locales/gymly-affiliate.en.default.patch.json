@@ -1,0 +1,11 @@
+{
+  "gymly": {
+    "affiliate": {
+      "buy_at_brand": "Buy at {{ brand }}",
+      "sold_and_fulfilled_by_brand": "Sold and fulfilled by {{ brand }}.",
+      "final_price_confirmed_at_brand": "Final price confirmed at {{ brand }}.",
+      "product_unavailable": "This product is currently unavailable.",
+      "buy_at_brand_a11y": "Buy at {{ brand }}. Opens the brand website in a new browser tab."
+    }
+  }
+}

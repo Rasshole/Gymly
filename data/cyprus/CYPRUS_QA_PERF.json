@@ -1,0 +1,32 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "cyprus": 17,
+  "json_size_bytes": 3705822,
+  "json_size_mb": 3.53,
+  "parse_ms": 56,
+  "cold_index_ms": 20349,
+  "cached_index_ms": 2,
+  "typical_search_ms": 543.8,
+  "worst_search_ms": 175,
+  "nearest_ms": 1,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 0,
+  "map_markers_built": 17,
+  "architecture": "KEEP CLIENT-SIDE",
+  "malta_qa_baseline": {
+    "catalog": 11692,
+    "json_size_mb": 3.46
+  },
+  "cyprus_merge_baseline": {
+    "catalog": 11692,
+    "json_size_bytes": 3625046
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false,
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "sha_after_qa": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "production_modified": false
+}

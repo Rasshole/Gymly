@@ -1,0 +1,2307 @@
+<!doctype html>
+<html lang="cs">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	  <script>
+    (function(){
+      // ---- Config ----
+      var BLOCK_RE = /(^|\/\/|\.)(analytics\.tiktok\.com)\//i;
+
+      // ---- Guard helpers ----
+      function shouldBlock(url){ try{ return !!String(url).match(BLOCK_RE); } catch(e){ return false; } }
+
+      // 3a) Patch script src setter & setAttribute
+      try {
+        var desc = Object.getOwnPropertyDescriptor(HTMLScriptElement.prototype, 'src');
+        if (desc && desc.set) {
+          var origSet = desc.set;
+          Object.defineProperty(HTMLScriptElement.prototype, 'src', {
+            configurable: true,
+            get: desc.get,
+            set: function(v){
+              if (shouldBlock(v)) { this.type = 'application/json'; return; }
+              return origSet.call(this, v);
+            }
+          });
+        }
+        var origSetAttr = Element.prototype.setAttribute;
+        Element.prototype.setAttribute = function(name, value){
+          if (this.tagName === 'SCRIPT' && name && name.toLowerCase() === 'src' && shouldBlock(value)) {
+            this.type = 'application/json';
+            return;
+          }
+          return origSetAttr.call(this, name, value);
+        };
+      } catch(e){}
+
+      // 3b) Patch appendChild / insertBefore to drop blocked <script> nodes
+      try {
+        var origAppend = Node.prototype.appendChild;
+        Node.prototype.appendChild = function(child){
+          try{
+            if (child && child.tagName === 'SCRIPT') {
+              var src = child.getAttribute('src') || '';
+              if (shouldBlock(src)) { return child; }
+            }
+          }catch(e){}
+          return origAppend.call(this, child);
+        };
+        var origInsert = Node.prototype.insertBefore;
+        Node.prototype.insertBefore = function(newNode, refNode){
+          try{
+            if (newNode && newNode.tagName === 'SCRIPT') {
+              var src = newNode.getAttribute('src') || '';
+              if (shouldBlock(src)) { return newNode; }
+            }
+          }catch(e){}
+          return origInsert.call(this, newNode, refNode);
+        };
+      } catch(e){}
+
+      // 3c) Patch fetch & XHR for any direct network pulls
+      try {
+        var origFetch = window.fetch;
+        window.fetch = function(input, init){
+          var url = (typeof input === 'string') ? input : (input && input.url);
+          if (shouldBlock(url)) return Promise.resolve(new Response('', {status: 204}));
+          return origFetch.apply(this, arguments);
+        };
+      } catch(e){}
+      try {
+        var origOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function(method, url){
+          if (shouldBlock(url)) { this.abort(); return; }
+          return origOpen.apply(this, arguments);
+        };
+      } catch(e){}
+
+      // 3d) Neutralize ttq so inline pixel calls don’t fire
+      try {
+        if (!window.ttq || typeof window.ttq !== 'object') window.ttq = {};
+        ['track','page','identify','instance','load','setUserProperties','debug'].forEach(function(m){
+          window.ttq[m] = function(){};
+        });
+      } catch(e){}
+    })();
+  </script>
+  <title>clever fit Fitnessstudio Kladno - Vaše tělocvična v Kladno</title>
+<link data-rocket-prefetch href="https://courseplan.noexcuse.io" rel="dns-prefetch">
+<link data-rocket-prefetch href="https://www.google.com" rel="dns-prefetch">
+<link rel="alternate" hreflang="cs-cz" href="https://www.clever-fit.com/cz/studios/kladno/" />
+<meta name="description" content="Chytrá fit tělocvična v Kladno vám nabízí ty nejlepší podmínky pro kondici, zdraví a životní styl. Trénujte s profesionálním tréninkovým plánem, moderním fitness vybavením a udržujte se v kondici.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.clever-fit.com/cz/studios/kladno/">
+<meta property="og:url" content="https://www.clever-fit.com/cz/studios/kladno/">
+<meta property="og:site_name" content="clever fit Fitnessstudio">
+<meta property="og:locale" content="cz">
+<meta property="og:type" content="article">
+<meta property="article:author" content="https://www.facebook.com/cleverfit">
+<meta property="article:publisher" content="https://www.facebook.com/cleverfit">
+<meta property="og:title" content="clever fit Fitnessstudio Kladno - Vaše tělocvična v Kladno">
+<meta property="og:description" content="Chytrá fit tělocvična v Kladno vám nabízí ty nejlepší podmínky pro kondici, zdraví a životní styl. Trénujte s profesionálním tréninkovým plánem, moderním fitness vybavením a udržujte se v kondici.">
+<meta property="og:image" content="https://www.clever-fit.com/app/uploads/2025/05/OG_clever-fit_Logo_red.jpg">
+<meta property="og:image:secure_url" content="https://www.clever-fit.com/app/uploads/2025/05/OG_clever-fit_Logo_red.jpg">
+<meta property="og:image:width" content="1644">
+<meta property="og:image:height" content="858">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="clever fit Fitnessstudio Kladno - Vaše tělocvična v Kladno">
+<meta name="twitter:description" content="Chytrá fit tělocvična v Kladno vám nabízí ty nejlepší podmínky pro kondici, zdraví a životní styl. Trénujte s profesionálním tréninkovým plánem, moderním fitness vybavením a udržujte se v kondici.">
+<meta name="twitter:image" content="https://www.clever-fit.com/app/uploads/2025/05/OG_clever-fit_Logo_red.jpg">
+
+<link rel="alternate" type="application/rss+xml" title="clever fit Fitnessstudio &raquo; Feed" href="https://www.clever-fit.com/cz/feed/" />
+<link rel="alternate" type="application/rss+xml" title="clever fit Fitnessstudio &raquo; Comments Feed" href="https://www.clever-fit.com/cz/comments/feed/" />
+<link rel="alternate" type="text/calendar" title="clever fit Fitnessstudio &raquo; iCal Feed" href="https://www.clever-fit.com/cz/events/?ical=1" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.clever-fit.com/cz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.clever-fit.com%2Fcz%2Fstudios%2Fkladno%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.clever-fit.com/cz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.clever-fit.com%2Fcz%2Fstudios%2Fkladno%2F&#038;format=xml" />
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SportsActivityLocation","@id":"https://www.clever-fit.com/cz/studios/kladno/#studio","name":"Kladno","url":"https://www.clever-fit.com/cz/studios/kladno/","parentOrganization":{"@id":"https://www.clever-fit.com/#organization"},"image":"https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-300x130.jpg","address":{"@type":"PostalAddress","streetAddress":"Milady Horakove 2725","postalCode":"27201","addressLocality":"Kladno","addressCountry":"CZ"},"geo":{"@type":"GeoCoordinates","latitude":50.12501040000001,"longitude":14.118252},"hasMap":"https://www.google.com/maps/search/?api=1&query=50.125010,14.118252","telephone":"+420703610566","email":"studio@kladno.clever-fit.cz","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"08:00","closes":"22:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"06:00","closes":"22:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"06:00","closes":"22:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"06:00","closes":"22:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"06:00","closes":"22:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"06:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"21:00"}],"sameAs":["https://www.facebook.com/cleverfitkladno","https://www.instagram.com/cleverfitkladno/"],"currenciesAccepted":"CZK"},{"@type":"Organization","@id":"https://www.clever-fit.com/#organization","name":"clever fit","url":"https://www.clever-fit.com/","logo":"https://www.clever-fit.com/app/themes/love-it/dist/assets/img/cle-logo-25_red.svg","sameAs":["https://www.facebook.com/cleverfit","https://www.instagram.com/cleverfit_official/","https://www.linkedin.com/company/clever-fit-gmbh/","https://www.youtube.com/@cleverfitgmbh","https://de.wikipedia.org/wiki/Clever_fit"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.clever-fit.com/cz/"},{"@type":"ListItem","position":2,"name":"Fitnessstudios","item":"https://www.clever-fit.com/cz/fitnessstudio/"},{"@type":"ListItem","position":3,"name":"Kladno"}]}]}</script>
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='tribe-events-pro-mini-calendar-block-styles-css' href='https://www.clever-fit.com/app/plugins/events-calendar-pro/build/css/tribe-events-pro-mini-calendar-block.css?ver=7.7.14' media='all' />
+<link rel='stylesheet' id='sbi_styles-css' href='https://www.clever-fit.com/app/plugins/instagram-feed/css/sbi-styles.min.css?ver=6.10.1' media='all' />
+<link rel='stylesheet' id='tec-variables-skeleton-css' href='https://www.clever-fit.com/app/plugins/the-events-calendar/common/build/css/variables-skeleton.css?ver=6.11.4' media='all' />
+<link rel='stylesheet' id='tec-variables-full-css' href='https://www.clever-fit.com/app/plugins/the-events-calendar/common/build/css/variables-full.css?ver=6.11.4' media='all' />
+<link rel='stylesheet' id='tribe-events-v2-virtual-single-block-css' href='https://www.clever-fit.com/app/plugins/events-calendar-pro/build/css/events-virtual-single-block.css?ver=7.7.14' media='all' />
+<link rel='stylesheet' id='tribe-events-v2-single-skeleton-css' href='https://www.clever-fit.com/app/plugins/the-events-calendar/build/css/tribe-events-single-skeleton.css?ver=6.16.4.1' media='all' />
+<link rel='stylesheet' id='tribe-events-v2-single-skeleton-full-css' href='https://www.clever-fit.com/app/plugins/the-events-calendar/build/css/tribe-events-single-full.css?ver=6.16.4.1' media='all' />
+<link rel='stylesheet' id='tec-events-elementor-widgets-base-styles-css' href='https://www.clever-fit.com/app/plugins/the-events-calendar/build/css/integrations/plugins/elementor/widgets/widget-base.css?ver=6.16.4.1' media='all' />
+<link rel='stylesheet' id='wpml-legacy-dropdown-0-css' href='https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/style.min.css?ver=1' media='all' />
+<link rel='stylesheet' id='parent-css' href='https://www.clever-fit.com/app/themes/hello-elementor/style.css?ver=7.0.4' media='all' />
+<link rel='stylesheet' id='style-css' href='https://www.clever-fit.com/app/themes/love-it/dist/styles.css?ver=1787056096' media='all' />
+<link rel='stylesheet' id='elementor-style-css' href='https://www.clever-fit.com/app/themes/love-it/dist/elementor-styles.css?ver=1787056096' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://www.clever-fit.com/app/themes/hello-elementor/assets/css/reset.css?ver=3.4.7' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://www.clever-fit.com/app/themes/hello-elementor/assets/css/theme.css?ver=3.4.7' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://www.clever-fit.com/app/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.7' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://www.clever-fit.com/app/uploads/elementor/css/custom-frontend.min.css?ver=1787453915' media='all' />
+<link rel='stylesheet' id='elementor-post-8-css' href='https://www.clever-fit.com/app/uploads/elementor/css/post-8.css?ver=1787453915' media='all' />
+<link rel='stylesheet' id='eael-general-css' href='https://www.clever-fit.com/app/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.min.css?ver=6.7.3' media='all' />
+<link rel='stylesheet' id='eael-326272-css' href='https://www.clever-fit.com/app/uploads/essential-addons-elementor/eael-326272.css?ver=1716199074' media='all' />
+<link rel='stylesheet' id='widget-spacer-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.2.3' media='all' />
+<link rel='stylesheet' id='widget-nav-menu-css' href='https://www.clever-fit.com/app/uploads/elementor/css/custom-pro-widget-nav-menu.min.css?ver=1787453915' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/css/widget-image.min.css?ver=4.2.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.53.0' media='all' />
+<style id="elementor-icons-inline-css">
+
+		.elementor-add-new-section .elementor-add-templately-promo-button{
+            background-color: #5d4fff !important;
+            background-image: url(https://www.clever-fit.com/app/plugins/essential-addons-for-elementor-lite/assets/admin/images/templately/logo-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+        }
+        
+		.elementor-add-new-section .elementor-add-templately-promo-button > i{
+            height: 12px;
+        }
+        
+        body .elementor-add-new-section .elementor-add-section-area-button {
+            margin-left: 0;
+        }
+
+		.elementor-add-new-section .elementor-add-templately-promo-button{
+            background-color: #5d4fff !important;
+            background-image: url(https://www.clever-fit.com/app/plugins/essential-addons-for-elementor-lite/assets/admin/images/templately/logo-icon.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+        }
+        
+		.elementor-add-new-section .elementor-add-templately-promo-button > i{
+            height: 12px;
+        }
+        
+        body .elementor-add-new-section .elementor-add-section-area-button {
+            margin-left: 0;
+        }
+/*# sourceURL=elementor-icons-inline-css */
+</style>
+<link rel='stylesheet' id='sbistyles-css' href='https://www.clever-fit.com/app/plugins/instagram-feed/css/sbi-styles.min.css?ver=6.10.1' media='all' />
+<link rel='stylesheet' id='elementor-post-326272-css' href='https://www.clever-fit.com/app/uploads/elementor/css/post-326272.css?ver=1787456566' media='all' />
+<link rel='stylesheet' id='elementor-post-63134-css' href='https://www.clever-fit.com/app/uploads/elementor/css/post-63134.css?ver=1787454079' media='all' />
+<link rel='stylesheet' id='media-library-organizer-gallery-block-css' href='https://www.clever-fit.com/app/plugins/media-library-organizer/assets/build/gallery/style-index.css?ver=2.1.0' media='all' />
+<link rel='stylesheet' id='borlabs-cookie-custom-css' href='https://www.clever-fit.com/app/cache/borlabs-cookie/1/borlabs-cookie-1-cz.css?ver=3.4-449' media='all' />
+<style id="hide_field_class_style-inline-css">
+.cfef-hidden {
+			display: none !important;
+	}
+/*# sourceURL=hide_field_class_style-inline-css */
+</style>
+<style id="elementor-pro-custom-fonts-inline-css">
+@font-face {
+	font-family: 'Podium';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2024/12/PODIUM-Soft-Regular.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2024/12/PODIUM-Soft-Regular.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2024/12/PODIUM-Soft-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-regular.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-regular.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-regular.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-regular.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-regular.ttf.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-regular.svg.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: normal;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-italic.ttf.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-italic.svg.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 200;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 300;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 500;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 700;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 800;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 900;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: 200;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200italic.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-200italic.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: 300;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300italic.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-300italic.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: 500;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic-1.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-500italic-1.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: 600;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600italic.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-600italic.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: 700;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-700italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800-1.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800-1.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: 800;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800italic.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-800italic.svg#Poppins') format('svg');
+}
+@font-face {
+	font-family: 'Poppins';
+	font-style: italic;
+	font-weight: 900;
+	font-display: auto;
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900italic.eot');
+	src: url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900italic.eot?#iefix') format('embedded-opentype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900italic.woff2') format('woff2'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900italic.woff') format('woff'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900italic.ttf') format('truetype'),
+		url('https://www.clever-fit.com/app/uploads/2022/09/poppins-v20-latin-900italic.svg#Poppins') format('svg');
+}
+
+/*# sourceURL=elementor-pro-custom-fonts-inline-css */
+</style>
+<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-brands-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3' media='all' />
+<script id="wpml-cookie-js-extra">
+var wpml_cookies = {"wp-wpml_current_language":{"value":"cz","expires":1,"path":"/"}};
+var wpml_cookies = {"wp-wpml_current_language":{"value":"cz","expires":1,"path":"/"}};
+//# sourceURL=wpml-cookie-js-extra
+</script>
+<script data-wp-strategy="defer" defer id="wpml-cookie-js" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookie.js?ver=492100"></script>
+<script id="wpml-legacy-dropdown-0-js" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/script.min.js?ver=1" defer="defer"></script>
+<script id="jquery-core-js" src="https://www.clever-fit.com/wp/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="bundle-js" src="https://www.clever-fit.com/app/themes/love-it/dist/bundle.js?ver=1787056096"></script>
+<script id="elementor-js" src="https://www.clever-fit.com/app/themes/love-it/dist/elementor.js?ver=1787056096" defer="defer"></script>
+<script data-no-optimize="1" data-no-minify="1" data-cfasync="false" nowprocket id="borlabs-cookie-config-js" src="https://www.clever-fit.com/app/cache/borlabs-cookie/1/borlabs-cookie-config-cz.json.js?ver=3.4-104" defer="defer"></script>
+<script data-no-optimize="1" data-no-minify="1" data-cfasync="false" nowprocket id="borlabs-cookie-prioritize-js" src="https://www.clever-fit.com/app/plugins/borlabs-cookie/assets/javascript/borlabs-cookie-prioritize.min.js?ver=3.4" defer="defer"></script>
+<link rel="https://api.w.org/" href="https://www.clever-fit.com/cz/wp-json/" /><link rel='shortlink' href='https://www.clever-fit.com/cz/?p=59626' />
+<meta name="generator" content="WPML ver:4.9.2.1 stt:68,22,70,1,3,44,69,71;" />
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://www.clever-fit.com/cz/"><link rel="alternate" href="https://www.clever-fit.com/cz/wp-json/tribe/events/v1/" /><script type="module" src="https://www.clever-fit.com/app/themes/love-it/modules/clever-app-26/app/dist/app-bundle.js?ver=1787056096"></script><script>window.dataLayer = window.dataLayer || [];</script><meta name="facebook-domain-verification" content="8ml0mjq5l97r7z5jsj8p403lw6xxku" /><meta name="google-site-verification" content="NkfW4A8mz39S5yIaCnuXESPbDR5cBgSC9iMYSENoBRo" /><meta name="theme-color" content="#ffffff"><meta name="generator" content="Elementor 4.2.3; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<script nowprocket data-borlabs-cookie-script-blocker-ignore>
+if ('0' === '1' && ('0' === '1' || '1' === '1')) {
+    window['gtag_enable_tcf_support'] = true;
+}
+window.dataLayer = window.dataLayer || [];
+if (typeof gtag !== 'function') {
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+}
+gtag('set', 'developer_id.dYjRjMm', true);
+if ('0' === '1' || '1' === '1') {
+    if (window.BorlabsCookieGoogleConsentModeDefaultSet !== true) {
+        let getCookieValue = function (name) {
+            return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '';
+        };
+        let cookieValue = getCookieValue('borlabs-cookie-gcs');
+        let consentsFromCookie = {};
+        if (cookieValue !== '') {
+            consentsFromCookie = JSON.parse(decodeURIComponent(cookieValue));
+        }
+        let defaultValues = {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'functionality_storage': 'denied',
+            'personalization_storage': 'denied',
+            'security_storage': 'denied',
+            'wait_for_update': 500,
+        };
+        gtag('consent', 'default', { ...defaultValues, ...consentsFromCookie });
+    }
+    window.BorlabsCookieGoogleConsentModeDefaultSet = true;
+    let borlabsCookieConsentChangeHandler = function () {
+        window.dataLayer = window.dataLayer || [];
+        if (typeof gtag !== 'function') { function gtag(){dataLayer.push(arguments);} }
+
+        let getCookieValue = function (name) {
+            return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '';
+        };
+        let cookieValue = getCookieValue('borlabs-cookie-gcs');
+        let consentsFromCookie = {};
+        if (cookieValue !== '') {
+            consentsFromCookie = JSON.parse(decodeURIComponent(cookieValue));
+        }
+
+        consentsFromCookie.analytics_storage = BorlabsCookie.Consents.hasConsent('google-analytics') ? 'granted' : 'denied';
+
+        BorlabsCookie.CookieLibrary.setCookie(
+            'borlabs-cookie-gcs',
+            JSON.stringify(consentsFromCookie),
+            BorlabsCookie.Settings.automaticCookieDomainAndPath.value ? '' : BorlabsCookie.Settings.cookieDomain.value,
+            BorlabsCookie.Settings.cookiePath.value,
+            BorlabsCookie.Cookie.getPluginCookie().expires,
+            BorlabsCookie.Settings.cookieSecure.value,
+            BorlabsCookie.Settings.cookieSameSite.value
+        );
+    }
+    document.addEventListener('borlabs-cookie-consent-saved', borlabsCookieConsentChangeHandler);
+    document.addEventListener('borlabs-cookie-handle-unblock', borlabsCookieConsentChangeHandler);
+}
+if ('0' === '1') {
+    gtag("js", new Date());
+    gtag("config", "G-C456MRXDGF", {"anonymize_ip": true});
+
+    (function (w, d, s, i) {
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s);
+        j.async = true;
+        j.src =
+            "https://www.googletagmanager.com/gtag/js?id=" + i;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "G-C456MRXDGF");
+}
+</script><script nowprocket data-no-optimize="1" data-no-minify="1" data-cfasync="false" data-borlabs-cookie-script-blocker-ignore>
+	if ('0' === '1' && '1' === '1') {
+		window['gtag_enable_tcf_support'] = true;
+	}
+	window.dataLayer = window.dataLayer || [];
+	if (typeof gtag !== 'function') { function gtag(){dataLayer.push(arguments);} }
+	gtag('set', 'developer_id.dYjRjMm', true);
+	if ('1' === '1') {
+		let getCookieValue = function (name) {
+			return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '';
+		};
+		let cookieValue = getCookieValue('borlabs-cookie-gcs');
+		let consentsFromCookie = {};
+		if (cookieValue !== '') {
+			 consentsFromCookie = JSON.parse(decodeURIComponent(cookieValue));
+		}
+		let defaultValues = {
+			'ad_storage': 'denied',
+			'ad_user_data': 'denied',
+			'ad_personalization': 'denied',
+			'analytics_storage': 'denied',
+			'functionality_storage': 'denied',
+			'personalization_storage': 'denied',
+			'security_storage': 'denied',
+			'wait_for_update': 500,
+		};
+		gtag('consent', 'default', { ...defaultValues, ...consentsFromCookie });
+		gtag('set', 'ads_data_redaction', true);
+	}
+
+	if('0' === '1') {
+		var url = new URL(window.location.href);
+
+		if ((url.searchParams.has('gtm_debug') && url.searchParams.get('gtm_debug') !== '') || document.cookie.indexOf('__TAG_ASSISTANT=') !== -1 || document.documentElement.hasAttribute('data-tag-assistant-present')) {
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-WD3375L");
+		} else {
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.clever-fit.com/app/uploads/borlabs-cookie/"+i+'.js?ver=not-set-yet';f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-WD3375L");
+		}
+  	}
+
+	(function () {
+		var borlabsCookieConsentChangeHandler = function () {
+			window.dataLayer = window.dataLayer || [];
+			if (typeof gtag !== 'function') { function gtag(){dataLayer.push(arguments);} }
+
+			let gtmConsents = {};
+			if ('1' === '1') {
+				if ('0' === '1') {
+					gtmConsents = {
+						'analytics_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('statistics') === true ? 'granted' : 'denied',
+						'functionality_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('statistics') === true ? 'granted' : 'denied',
+						'personalization_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('marketing') === true ? 'granted' : 'denied',
+						'security_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('statistics') === true ? 'granted' : 'denied',
+					};
+				} else {
+					gtmConsents = {
+						'ad_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('marketing') === true ? 'granted' : 'denied',
+						'ad_user_data': BorlabsCookie.Consents.hasConsentForServiceGroup('marketing') === true ? 'granted' : 'denied',
+						'ad_personalization': BorlabsCookie.Consents.hasConsentForServiceGroup('marketing') === true ? 'granted' : 'denied',
+						'analytics_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('statistics') === true ? 'granted' : 'denied',
+						'functionality_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('statistics') === true ? 'granted' : 'denied',
+						'personalization_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('marketing') === true ? 'granted' : 'denied',
+						'security_storage': BorlabsCookie.Consents.hasConsentForServiceGroup('statistics') === true ? 'granted' : 'denied',
+					};
+				}
+				BorlabsCookie.CookieLibrary.setCookie(
+					'borlabs-cookie-gcs',
+				  	JSON.stringify(gtmConsents),
+					BorlabsCookie.Settings.automaticCookieDomainAndPath.value ? '' : BorlabsCookie.Settings.cookieDomain.value,
+					BorlabsCookie.Settings.cookiePath.value,
+					BorlabsCookie.Cookie.getPluginCookie().expires,
+					BorlabsCookie.Settings.cookieSecure.value,
+					BorlabsCookie.Settings.cookieSameSite.value
+				);
+				gtag('consent', 'update', gtmConsents);
+			}
+
+			var consents = BorlabsCookie.Cookie.getPluginCookie().consents;
+			for (var serviceGroup in consents) {
+				for (var service of consents[serviceGroup]) {
+					if (!window.BorlabsCookieGtmPackageSentEvents.includes(service) && service !== 'borlabs-cookie') {
+						window.dataLayer.push({
+							event: 'borlabs-cookie-opt-in-'+service,
+						});
+						window.BorlabsCookieGtmPackageSentEvents.push(service);
+					}
+				}
+			}
+		  	var afterConsentsEvent = document.createEvent('Event');
+		    afterConsentsEvent.initEvent('borlabs-cookie-google-tag-manager-after-consents', true, true);
+		  	document.dispatchEvent(afterConsentsEvent);
+		};
+		window.BorlabsCookieGtmPackageSentEvents = [];
+		document.addEventListener('borlabs-cookie-consent-saved', borlabsCookieConsentChangeHandler);
+		document.addEventListener('borlabs-cookie-handle-unblock', borlabsCookieConsentChangeHandler);
+	})();
+</script><!-- Instagram Feed CSS -->
+<style type="text/css">
+#sb_instagram .sbi_follow_btn a {
+    background: #e30613!important;
+    color: #fff;
+}
+</style>
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://www.clever-fit.com/app/uploads/2025/09/clever-fit_Logo_red-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://www.clever-fit.com/app/uploads/2025/09/clever-fit_Logo_red.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.clever-fit.com/app/uploads/2025/09/clever-fit_Logo_red.png" />
+<meta name="msapplication-TileImage" content="https://www.clever-fit.com/app/uploads/2025/09/clever-fit_Logo_red.png" />
+<style id="wp-custom-css">
+.tribe-events.tribe-common .tribe-events-c-subscribe-dropdown__container .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button {
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 0;
+    color: #000;
+    display: flex;
+    margin: 0;
+    padding: 12px 24px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    visibility: hidden;
+}
+
+.cle-heading23__row-2,
+.cle-heading23__row-3  {
+	hyphens:none !important;
+}
+
+/*Home CH: Slider Vorteile*/
+.text-centered {
+   text-align: center;
+}
+
+@media (min-width: 1280px) {
+    .single-studio .studio__content-promo-section--wrapper {
+        font-size: 20px;
+        padding: 60px;
+    }
+}
+</style>
+<meta name="generator" content="WP Rocket 3.21.2" data-wpr-features="wpr_preconnect_external_domains" /></head>
+<body class="wp-singular studio-template-default single single-studio postid-59626 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-love-it tribe-no-js country-cz hello-elementor-default elementor-default elementor-kit-8 studio-scheme-light">
+
+
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header data-elementor-type="header" data-elementor-id="326272" class="elementor elementor-326272 elementor-322413 elementor-location-header" data-elementor-post-type="elementor_library">
+			<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-015550c e-flex e-con-boxed e-con e-parent" data-id="015550c" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;fixed&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<a data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-90d55f2 e-con-full e-flex e-con e-child" data-id="90d55f2" data-element_type="container" data-e-type="container" href="https://www.clever-fit.com/cz/">
+				<div class="elementor-element elementor-element-dd88ec9 elementor-widget__width-inherit elementor-widget elementor-widget-html" data-id="dd88ec9" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<svg id="cle-main-header-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.86 378.65">
+  <g>
+    <path
+      d="M80.01,109.22c-42.23,6.59-57.51,32.15-57.69,68.59l-.07,14.72L.23,195.96l-.23,47.02,22.03-3.44-.66,139.1,57.61-8.99.66-139.1,22.32-3.48.23-47.02-22.32,3.48.06-12.46c.05-11.09,3.1-16.53,13.81-18.21,2.94-.46,5.86-.66,8.58-.53l.21-44.28c-4.79-.51-13.66-.22-22.52,1.16Z"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <path
+      d="M32.63,82.68c3.48,1.49,7.58,1.86,12.31,1.11,4.07-.65,7.7-2,10.92-4.06,3.21-2.06,5.84-4.67,7.86-7.82,2.03-3.15,3.39-6.67,4.08-10.55l-15.51,2.46c-.72,1.69-1.73,3.07-3.04,4.16-1.31,1.08-2.8,1.76-4.48,2.03-2.47.39-4.42-.24-5.85-1.9-1.42-1.66-2.13-4.09-2.1-7.28.02-3.19.76-5.85,2.2-7.96,1.45-2.12,3.41-3.37,5.88-3.76,1.68-.27,3.17-.07,4.47.6,1.3.67,2.29,1.74,2.99,3.2l15.51-2.46c-.64-3.67-1.95-6.76-3.95-9.28-1.99-2.51-4.58-4.29-7.78-5.33-3.19-1.04-6.82-1.24-10.89-.59-4.73.75-8.85,2.43-12.35,5.03-3.51,2.6-6.21,5.89-8.11,9.88-1.9,3.99-2.87,8.34-2.9,13.06-.03,4.72.88,8.78,2.73,12.17,1.85,3.39,4.52,5.83,8,7.32Z"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <polygon
+      points="236.01 41.47 219.43 44.15 219.49 37.29 234.08 34.93 234.19 23.48 219.6 25.84 219.65 19.88 236.23 17.2 236.34 5.06 205.04 10.12 204.59 58.66 235.89 53.6 236.01 41.47"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <path
+      d="M259,32.65h.07s8.66,15.98,8.66,15.98l16.18-2.62-10.04-16.93c3.28-1.63,5.81-3.84,7.58-6.63,1.77-2.8,2.67-5.82,2.7-9.06.03-3.02-.62-5.62-1.95-7.8-1.33-2.18-3.33-3.75-6.02-4.71-2.68-.96-5.93-1.13-9.73-.51l-21.88,3.54-.45,48.54,14.72-2.38.16-17.41ZM259.17,14.27l5.84-.94c1.37-.22,2.42-.03,3.14.59.72.61,1.08,1.56,1.07,2.84-.01,1.42-.38,2.51-1.09,3.29-.71.78-1.78,1.28-3.19,1.51l-5.84.94.08-8.23Z"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <polygon
+      points="90.79 27.71 76.06 30.09 75.62 78.97 104.53 74.29 104.63 62.78 90.44 65.07 90.79 27.71"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <path
+      d="M297.73,291.39c-10.72,1.67-13.74-3.49-13.74-14.58l-.03-78.23,21.87-3.41-.35-46.93-21.53,3.36-.02-71.86-57.95,9.04.02,71.86-22.49,3.51.02,46.99,22.49-3.51.03,80.48c.01,36.41,15.19,57.89,57.42,51.31,8.62-1.34,17.19-3.73,22.08-5.7l.32-44.33c-2.6.9-5.35,1.58-8.13,2.01Z"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <polygon
+      points="173.5 48.39 164.13 16.23 148.48 18.76 163.81 65.08 182.84 62.01 199.07 10.58 183.42 13.11 173.5 48.39"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <polygon points="123.74 176.5 123.86 362.51 181.69 353.49 181.57 167.48 123.74 176.5"
+             class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <polygon
+      points="143.23 56.07 126.66 58.75 126.72 51.9 141.31 49.54 141.41 38.09 126.82 40.45 126.88 34.14 143.46 31.46 143.57 19.33 112.27 24.39 111.82 73.27 143.12 68.21 143.23 56.07"
+      class="cle-main-header-logo__path" fill="#1d1d1b"/>
+    <polygon points="123.75 104.87 123.86 151.99 181.69 142.97 181.58 95.84 123.75 104.87"
+             class="cle-main-header-logo__path" fill="#1d1d1b"/>
+  </g>
+</svg>				</div>
+				</div>
+				</a>
+				<div class="elementor-element elementor-element-fbdfd96 elementor-widget elementor-widget-cle-studio-search-switcher" data-id="fbdfd96" data-element_type="widget" data-e-type="widget" data-widget_type="cle-studio-search-switcher.default">
+				<div class="elementor-widget-container">
+					    <div class="studio-search-wrapper is-studio-page">
+              <div id="studio-current-view" class="studio-current-view" tabindex="0">
+          <span id="studio-current-title"
+                class="studio-current-title">Kladno</span>
+          <svg id="studio-search-icon" class="studio-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+          </svg>
+        </div>
+              <div class="studio-search-input-wrapper">
+        <label for="studio-search-input" style="display: none;">Hledání studia</label>
+        <input
+          type="text"
+          id="studio-search-input"
+          name="studio-search-input"
+          class="studio-search-input"
+          aria-label="Hledání studia"
+          placeholder="Hledat studio.."
+          style="display:none;"        />
+      </div>
+
+      <ul id="studio-suggestions" class="studio-suggestions"></ul>
+
+      <span
+        id="studio-search-icon-button"
+        class="studio-search-icon-button"
+        aria-hidden="true"
+        style="display:none;"      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+        </svg>
+      </span>
+
+      <button
+        type="button"
+        id="studio-search-clear"
+        class="studio-search-clear"
+        aria-label="Vymazat vyhledávání"
+        style="display:none;"
+        tabindex="-1"      >
+        ×
+      </button>
+    </div>
+
+    <script>
+      (function () {
+        const studios = [{"title":"Kladno","url":"https:\/\/www.clever-fit.com\/cz\/studios\/kladno\/"}];
+        const input = document.getElementById("studio-search-input");
+        const suggestionBox = document.getElementById("studio-suggestions");
+        const currentView = document.getElementById("studio-current-view");
+        const wrapper = document.querySelector(".studio-search-wrapper");
+        const clearButton = document.getElementById("studio-search-clear");
+        const searchIcon = document.getElementById("studio-search-icon-button");
+
+        if (currentView) {
+          currentView.addEventListener("click", () => {
+            currentView.style.display = "none";
+            input.style.display = "block";
+            searchIcon.style.display = input.value.length > 0 ? "none" : "flex";
+            clearButton.style.display = input.value.length > 0 ? "flex" : "none";
+            clearButton.tabIndex = 0; // Enable tab navigation when active
+            input.focus();
+          });
+
+          currentView.addEventListener("focus", () => {
+            currentView.style.display = "none";
+            input.style.display = "block";
+            searchIcon.style.display = input.value.length > 0 ? "none" : "flex";
+            clearButton.style.display = input.value.length > 0 ? "flex" : "none";
+            clearButton.tabIndex = 0; // Enable tab navigation when active
+            input.focus();
+          });
+
+          input.addEventListener("blur", () => {
+            setTimeout(() => {
+              if (!wrapper.contains(document.activeElement)) {
+                input.style.display = "none";
+                currentView.style.display = "flex";
+                suggestionBox.style.display = "none";
+                searchIcon.style.display = "none";
+                clearButton.style.display = "none";
+                clearButton.tabIndex = -1; // Disable tab navigation when hidden
+                input.value = "";
+              }
+            }, 200);
+          });
+        }
+
+        // Toggle between search icon and clear button based on input value
+        function toggleClearButton() {
+          if (input.value.length > 0) {
+            searchIcon.style.display = "none";
+            clearButton.style.display = "flex";
+          } else {
+            searchIcon.style.display = "flex";
+            clearButton.style.display = "none";
+          }
+        }
+
+        input.addEventListener("input", function () {
+          const query = this.value.toLowerCase().trim();
+          suggestionBox.innerHTML = "";
+
+          // Show/hide clear button
+          toggleClearButton();
+
+          if (!query) {
+            suggestionBox.style.display = "none";
+            return;
+          }
+
+          const matches = studios.filter(studio =>
+            studio.title.toLowerCase().startsWith(query)
+          );
+
+          if (matches.length === 0) {
+            suggestionBox.style.display = "none";
+            return;
+          }
+
+          matches.forEach(studio => {
+            const li = document.createElement("li");
+            li.classList.add("studio-suggestion-item");
+
+            // highlight the matching part
+            const lowerTitle = studio.title.toLowerCase();
+            const idx = lowerTitle.indexOf(query);
+            let displayTitle;
+            if (idx === 0) {
+              displayTitle = `<strong>${studio.title.substr(0, query.length)}</strong>${studio.title.substr(query.length)}`;
+            } else {
+              displayTitle = studio.title;
+            }
+
+            li.innerHTML = `<a href="${studio.url}" class="studio-suggestion-link">${displayTitle}</a>`;
+
+            // Add right arrow key navigation to clear button
+            const link = li.querySelector("a");
+            link.addEventListener("keydown", function (e) {
+              if (e.key === "ArrowRight") {
+                e.preventDefault();
+                clearButton.focus();
+              }
+            });
+
+            suggestionBox.appendChild(li);
+          });
+
+          // Fade in suggestion box
+          suggestionBox.style.opacity = 0;
+          suggestionBox.style.display = "block";
+          requestAnimationFrame(() => {
+            suggestionBox.style.transition = "opacity 0.2s ease";
+            suggestionBox.style.opacity = 1;
+          });
+        });
+
+        // Clear button functionality
+        clearButton.addEventListener("click", function () {
+          input.value = "";
+          suggestionBox.style.display = "none";
+          toggleClearButton();
+          input.focus();
+        });
+
+        clearButton.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            input.value = "";
+            suggestionBox.style.display = "none";
+            toggleClearButton();
+            input.focus();
+          }
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".studio-search-wrapper")) {
+            suggestionBox.style.display = "none";
+          }
+        });
+
+        // Initialize icon visibility on page load (only if input is visible, not on studio pages with prefilled view)
+        if (input.style.display !== "none") {
+          toggleClearButton();
+        }
+      })();
+    </script>
+    				</div>
+				</div>
+				<div class="elementor-element elementor-element-273f020 elementor-widget elementor-widget-spacer" data-id="273f020" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ea24b86 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-cle-studio-navigation" data-id="ea24b86" data-element_type="widget" data-e-type="widget" data-widget_type="cle-studio-navigation.default">
+				<div class="elementor-widget-container">
+					
+    <div class="studio__navigation">
+                <div id="studio__nav" class="studio__nav">
+                          <div class="studio__nav-item">
+                <a href="#courses">Kurzy</a>
+              </div>
+                            <div class="studio__nav-item">
+                <a href="#partners">Partneři</a>
+              </div>
+                    </div>
+    </div>
+    				</div>
+				</div>
+				<div class="elementor-element elementor-element-ec8a944 elementor-widget-mobile__width-initial cle-mobile-burger-button-container elementor-widget elementor-widget-eael-offcanvas" data-id="ec8a944" data-element_type="widget" data-e-type="widget" data-settings="{&quot;direction&quot;:&quot;right&quot;,&quot;content_transition&quot;:&quot;slide&quot;}" data-widget_type="eael-offcanvas.default">
+				<div class="elementor-widget-container">
+					        <div class="eael-offcanvas-content-wrap" data-settings="{&quot;content_id&quot;:&quot;ec8a944&quot;,&quot;direction&quot;:&quot;right&quot;,&quot;transition&quot;:&quot;slide&quot;,&quot;esc_close&quot;:&quot;yes&quot;,&quot;body_click_close&quot;:&quot;yes&quot;,&quot;open_offcanvas&quot;:&quot;no&quot;}">
+
+                        <div class="eael-offcanvas-toggle-wrap">
+                <div class="eael-offcanvas-toggle eael-offcanvas-toogle-ec8a944 elementor-button elementor-size-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="34" viewBox="0 0 46 34"><g id="burger_button" data-name="burger button" transform="translate(-1791 -74)"><rect fill="#ffffff" id="Rectangle_6" data-name="Rectangle 6" width="46" height="3" transform="translate(1791 74)"></rect><rect fill="#ffffff" id="Rectangle_7" data-name="Rectangle 7" width="46" height="3" transform="translate(1791 89)"></rect><rect fill="#ffffff" id="Rectangle_8" data-name="Rectangle 8" width="46" height="3" transform="translate(1791 105)"></rect></g></svg>                    <span class="eael-toggle-text">
+                        Menü                    </span>
+                </div>
+            </div>
+            
+            <div class="eael-offcanvas-content eael-offcanvas-content-ec8a944 eael-offcanvas-slide elementor-element-ec8a944 eael-offcanvas-content-right">
+                        <div class="eael-offcanvas-header">
+            <div class="eael-offcanvas-title" style="order: 1;">
+                            </div>
+            <div class="eael-offcanvas-close eael-offcanvas-close-ec8a944" role="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="34" viewBox="0 0 46 34"><g id="burger_button" data-name="burger button" transform="translate(-1785 -74)"><rect id="Rectangle_6" data-name="Rectangle 6" width="45" height="3" transform="translate(1793 74) rotate(45)"></rect><rect id="Rectangle_8" data-name="Rectangle 8" width="45" height="3" transform="translate(1791 106) rotate(-45)"></rect></g></svg>                            </div>
+        </div>
+                        <div class="eael-offcanvas-body">
+	                		<div data-elementor-type="container" data-elementor-id="408" class="elementor elementor-408" data-elementor-post-type="elementor_library">
+				<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-2ae9f56c e-flex e-con-boxed e-con e-parent" data-id="2ae9f56c" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-7a6b8ea3 elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="7a6b8ea3" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-7a6b8ea3" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63147"><a href="https://www.clever-fit.com/cz/studia/" class="elementor-item">Studia</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-7a6b8ea3" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63147"><a href="https://www.clever-fit.com/cz/studia/" class="elementor-item" tabindex="-1">Studia</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-5933240 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="5933240" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-7dc6408c elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="7dc6408c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-7dc6408c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79054"><a href="https://academy.clever-fit.com/" class="elementor-item">Academy</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-7dc6408c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79054"><a href="https://academy.clever-fit.com/" class="elementor-item" tabindex="-1">Academy</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-bef3ea3 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="bef3ea3" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-e0883ca elementor-align-center elementor-widget elementor-widget-button" data-id="e0883ca" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="/login/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">MEMBER LOGIN</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-646c123 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="646c123" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-52fb37e elementor-widget elementor-widget-shortcode" data-id="52fb37e" data-element_type="widget" data-e-type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode">
+<div
+	 role="navigation" aria-label="Language Switcher" class="wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-legacy-dropdown js-wpml-ls-legacy-dropdown">
+	<ul>
+		<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-cz wpml-ls-current-language wpml-ls-item-legacy-dropdown">
+			<a href="#" hreflang="" lang="" class="js-wpml-ls-item-toggle wpml-ls-item-toggle" aria-current="page" aria-expanded="false" aria-controls="wpml-ls-submenu-default" aria-label="Language switcher, press tab to navigate to other languages" title="Switch to Czech Republic">
+				                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/uploads/flags/cz.png"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">Czech Republic</span></a>
+
+			<ul id="wpml-ls-submenu-default" class="wpml-ls-sub-menu">
+				
+					<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-de wpml-ls-first-item">
+						<a href="https://www.clever-fit.com/de/" hreflang="de" lang="de" class="wpml-ls-link" aria-label="Switch to Germany" title="Switch to Germany">
+							                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/de.svg"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">Germany</span></a>
+					</li>
+
+				
+					<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-de-AT">
+						<a href="https://www.clever-fit.com/de-AT/" hreflang="de-AT" lang="de-AT" class="wpml-ls-link" aria-label="Switch to Austria" title="Switch to Austria">
+							                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/uploads/flags/at.png"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">Austria</span></a>
+					</li>
+
+				
+					<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-de-CH">
+						<a href="https://www.clever-fit.com/de-CH/" hreflang="de-CH" lang="de-CH" class="wpml-ls-link" aria-label="Switch to Schweiz (DE)" title="Switch to Schweiz (DE)">
+							                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/uploads/flags/ch.png"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">Schweiz (DE)</span></a>
+					</li>
+
+				
+					<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-fr-CH">
+						<a href="https://www.clever-fit.com/fr-CH/" hreflang="fr-CH" lang="fr-CH" class="wpml-ls-link" aria-label="Switch to Suisse (FR)" title="Switch to Suisse (FR)">
+							                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/uploads/flags/ch.png"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">Suisse (FR)</span></a>
+					</li>
+
+				
+					<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-ro">
+						<a href="https://www.clever-fit.com/ro/" hreflang="ro" lang="ro" class="wpml-ls-link" aria-label="Switch to Romania" title="Switch to Romania">
+							                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/ro.svg"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">Romania</span></a>
+					</li>
+
+				
+					<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-hr">
+						<a href="https://www.clever-fit.com/hr/" hreflang="hr" lang="hr" class="wpml-ls-link" aria-label="Switch to Croatia" title="Switch to Croatia">
+							                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/hr.svg"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">Croatia</span></a>
+					</li>
+
+				
+					<li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-en wpml-ls-last-item">
+						<a href="https://www.clever-fit.com/en/" hreflang="en" lang="en" class="wpml-ls-link" aria-label="Switch to English" title="Switch to English">
+							                                    <img
+            class="wpml-ls-flag"
+            src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/en.svg"
+            alt=""
+            loading="lazy"
+            width=18
+            height=12
+    /><span class="wpml-ls-native">English</span></a>
+					</li>
+
+							</ul>
+
+		</li>
+
+	</ul>
+</div>
+</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-bbecebc elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="bbecebc" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		                </div><!-- /.eael-offcanvas-body -->
+            </div>
+        </div>
+        				</div>
+				</div>
+					</div>
+				</div>
+		<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-20c48f1 elementor-hidden-widescreen elementor-hidden-desktop elementor-hidden-laptop e-flex e-con-boxed e-con e-parent" data-id="20c48f1" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3ffb52b elementor-widget elementor-widget-cle-studio-navigation" data-id="3ffb52b" data-element_type="widget" data-e-type="widget" data-widget_type="cle-studio-navigation.default">
+				<div class="elementor-widget-container">
+					
+    <div class="studio__navigation">
+            <div class="studio__nav-bar">
+        <div class="studio__nav-bar-container">
+          <h1 class="studio__nav-title">
+            <span class="studio__nav-title--pre-title">clever fit</span> <span
+              class="studio__nav-title--name">Kladno</span>
+          </h1>
+                    <div id="studio__nav" class="studio__nav">
+                          <div class="studio__nav-item">
+                <a href="#courses">Kurzy</a>
+              </div>
+                            <div class="studio__nav-item">
+                <a href="#partners">Partneři</a>
+              </div>
+                        </div>
+        </div>
+              </div>
+    </div>
+    				</div>
+				</div>
+					</div>
+				</div>
+				</header>
+		
+    <main id="content" class="studio">
+
+        <section
+        class="studio__start"
+        style="background-image: url('https://www.clever-fit.com/app/uploads/2022/11/clever-fit_slovenia_kranji-2.jpg'); background-position: 50.63% 19.82%;"
+        id="promotion">
+
+        <div class="studio__start-bg-image"
+         style="background-image: url('https://www.clever-fit.com/app/uploads/2022/11/clever-fit_slovenia_kranji-2.jpg'); background-position: 50.63% 19.82%;"></div>
+
+    <div class="studio__start--content">
+        
+                <h1>Kladno</h1>
+        
+        <div class="studio__start--button-container">
+            <div id="become-member-container" class="become-member-container disabled">
+                          <a target="_blank" href="http://www.cleverfitkladno.cz/" class="cle-button">NOVÝ WEB ZDE </a>
+                          <div class="loader-wrapper">
+                            <div class="loader"></div>
+                          </div>
+                      </div>
+                    </div>
+    </div>
+
+    <div class="studio__start--bg-overlay"></div>
+</section>
+        <div class="fixed-start-image-overlay-wrapper">
+            
+            
+            
+            
+                <section id="info" class="studio__section-custom-content">
+                            <div class="studio__section-custom-content--row default-content-row layout-one">
+                                                <div class="studio__section-custom-content--content-wrapper">
+                            <div class="studio__section-custom-content--content-heading">
+                                <h3>VÍTEJ V CLEVERFIT FITNESS STUDIU</h3>
+                            </div>
+
+                            <div class="studio__section-custom-content--image">
+                                                                    <div class="studio__section-custom-content--image-container">
+                                        <img width="800" height="800" src="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_web_PHOTO-2022-03-24-13-37-23-1024x1024.jpg" class="attachment-large size-large" alt="" decoding="async" fetchpriority="high" srcset="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_web_PHOTO-2022-03-24-13-37-23-1024x1024.jpg 1024w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_web_PHOTO-2022-03-24-13-37-23-300x300.jpg 300w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_web_PHOTO-2022-03-24-13-37-23-150x150.jpg 150w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_web_PHOTO-2022-03-24-13-37-23-768x768.jpg 768w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_web_PHOTO-2022-03-24-13-37-23.jpg 1200w" sizes="(max-width: 800px) 100vw, 800px" />                                    </div>
+                                                                </div>
+
+                            <div class="studio__section-custom-content--content">
+                                <div class="studio__section-custom-content--content-text">
+                                    <p><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit">Pokud chceš žít aktivně, chytré fit Kladno Ti nabízí ty nejlepší podmínky. </span></span></span></span></span></span></span><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit">Rádi Ti poskytneme profesionální tréninkový plán vytvořený na míru. </span></span></span></span></span></span></span><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit">Profesionální přístup našeho týmu je samozřejmostí.</span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit">Flexibilní otevírací doba, nejmodernější vybavení a vynikající trenéři dostávají Tvůj osobní úspěch.</span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit"><span style="vertical-align: inherit">Tak pojď do toho s námi!</span></span></span></span></span></span></span></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+                                </div>
+                                                            </div>
+                        </div>
+
+                    </div>
+                        </section>
+
+                        
+            
+            
+            
+            <section class="studio__section-courses" id="courses">
+    <div class="studio__section-courses--content-wrapper studio__container">
+
+        <div class="studio__section-courses--heading">
+            <h3>Our courses</h3>
+        </div>
+        <div class="studio__section-courses--body">
+            <div class="iframe-container"><!-- LIVE KURSPLAN start --><div id="ms-nox-widget-courseplan"></div><script type="text/javascript" src="https://courseplan.noexcuse.io/nox.min.js?Y2xldmVyLWZpdDoxNTU2OTQ3MzAw"></script><!-- LIVE KURSPLAN end -->
+</div>        </div>
+
+    </div>
+</section>
+
+            
+            
+            
+<section class="studio__section-partners" id="partners">
+    <div class="studio__section-partners--content-wrapper studio__container ">
+
+    <div class="studio__section-partners--heading">
+        <h3>Our partners</h3>
+          </div>
+
+    <div class="studio__section-partners--wrapper">
+      
+        <a class="studio__section-partners--partner cle-no-effect-link" href="https://top4fitness.cz/" target="_blank">
+                    <div class="studio__section-partners--partner-image">
+                <div><img width="300" height="300" src="https://www.clever-fit.com/app/uploads/2022/11/F4T-partner-300x300.png" class="attachment-medium size-medium" alt="Jak to funguje? Jednoduše! Zaregistruj se do Top4Fitness Club a užij si speciální slevu, která platí i na zlevněné produkty." decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/F4T-partner-300x300.png 300w, https://www.clever-fit.com/app/uploads/2022/11/F4T-partner-150x150.png 150w, https://www.clever-fit.com/app/uploads/2022/11/F4T-partner.png 628w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+            </div>
+          
+          <div class="studio__section-partners--partner-name">
+              TOP4FITNESS: NEJVĚTŠÍ E-SHOP SE SPORTOVNÍM OBLEČENÍM A DOPLŇKY          </div>
+
+                    <div class="studio__section-partners--partner-details">
+                <div>Užij si speciální slevu, která platí i na již zlevněné produkty. </div>
+            </div>
+          
+        </a>
+        
+        <a class="studio__section-partners--partner cle-no-effect-link" href="https://bbdomu.cz/shipping/courier" target="_blank">
+                    <div class="studio__section-partners--partner-image">
+                <div><img width="300" height="173" src="https://www.clever-fit.com/app/uploads/2022/11/BB-partner-300x173.jpg" class="attachment-medium size-medium" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/BB-partner-300x173.jpg 300w, https://www.clever-fit.com/app/uploads/2022/11/BB-partner-768x442.jpg 768w, https://www.clever-fit.com/app/uploads/2022/11/BB-partner.jpg 900w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+            </div>
+          
+          <div class="studio__section-partners--partner-name">
+              Bageterie Boulevard           </div>
+
+                    <div class="studio__section-partners--partner-details">
+                <div>Po předložení našeho identického náramku je sleva Vaše. Platné pouze v OC Central Kladno.</div>
+            </div>
+          
+        </a>
+        
+        <a class="studio__section-partners--partner cle-no-effect-link" href="https://www.nutritionpro.cz/krabickova-dieta-praha-a-okoli/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=brand_praha&amp;utm_term=nutritionpro&amp;utm_content=regio-praha&amp;utm_content=regio-praha&amp;gad=1&amp;gclid=CjwKCAjw-7OlBhB8EiwAnoOEk843AE-moioAOy_FHkgFldHY4SlI_4qjHQmbzKpX_FY6pPr1ept6YhoC4r8QAvD_BwE" target="_blank">
+                    <div class="studio__section-partners--partner-image">
+                <div><img width="300" height="300" src="https://www.clever-fit.com/app/uploads/2022/11/NP-partner.png" class="attachment-medium size-medium" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/NP-partner.png 300w, https://www.clever-fit.com/app/uploads/2022/11/NP-partner-150x150.png 150w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+            </div>
+          
+          <div class="studio__section-partners--partner-name">
+              NUTRITION PRO           </div>
+
+                    <div class="studio__section-partners--partner-details">
+                <div>Krabičková dieta nebyla nikdy jednodušší - promo kód XDHT1225
+
+Rozvoz Kladno i okolí. </div>
+            </div>
+          
+        </a>
+        
+        <a class="studio__section-partners--partner cle-no-effect-link" href="https://www.bagosport.cz/" target="_blank">
+                    <div class="studio__section-partners--partner-image">
+                <div><img width="300" height="128" src="https://www.clever-fit.com/app/uploads/2022/11/BS-partner-300x128.webp" class="attachment-medium size-medium" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/BS-partner-300x128.webp 300w, https://www.clever-fit.com/app/uploads/2022/11/BS-partner-1024x436.webp 1024w, https://www.clever-fit.com/app/uploads/2022/11/BS-partner-768x327.webp 768w, https://www.clever-fit.com/app/uploads/2022/11/BS-partner.webp 1080w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+            </div>
+          
+          <div class="studio__section-partners--partner-name">
+              Bago Sport - online obchod s oblečením a doplňky          </div>
+
+                    <div class="studio__section-partners--partner-details">
+                <div>Sleva pro členy Cleverfit Kladno 40% na vybrané produkty. </div>
+            </div>
+          
+        </a>
+        
+        <a class="studio__section-partners--partner cle-no-effect-link" href="https://www.minerskladno.cz/" target="_blank">
+                    <div class="studio__section-partners--partner-image">
+                <div><img width="212" height="300" src="https://www.clever-fit.com/app/uploads/2022/11/image0-2-212x300.jpeg" class="attachment-medium size-medium" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/image0-2-212x300.jpeg 212w, https://www.clever-fit.com/app/uploads/2022/11/image0-2-724x1024.jpeg 724w, https://www.clever-fit.com/app/uploads/2022/11/image0-2-768x1086.jpeg 768w, https://www.clever-fit.com/app/uploads/2022/11/image0-2-1086x1536.jpeg 1086w, https://www.clever-fit.com/app/uploads/2022/11/image0-2.jpeg 1240w" sizes="(max-width: 212px) 100vw, 212px" /></div>
+            </div>
+          
+          <div class="studio__section-partners--partner-name">
+              Baseballový a softballový klub Miners Kladno           </div>
+
+                    <div class="studio__section-partners--partner-details">
+                <div>Podporujeme sportovce v našem kraji. 
+Kladenský klub Miners Kladno trénuje s CleverFit Kladno - prvotřídní a profesionální podmínky třeba i pro Váš klub. </div>
+            </div>
+          
+        </a>
+            </div>
+
+    </div>
+</section>
+
+            
+            <section class="studio__info-bar" id="studio">
+    <div class="studio__info-bar--content-wrapper studio__container">
+
+        <div class="studio__info-bar--content">
+
+            <div class="studio__info-bar--studio-name">
+                <h2>clever fit<br>Kladno</h2>
+            </div>
+
+            <div class="studio__info-bar--info">
+                                    <div class="studio__info-bar--mail">
+
+                        <div class="icon"></div>
+                        <div class="content">
+                            <a href="mailto:studio@kladno.clever-fit.cz">
+                                studio@kladno.clever-fit.cz                            </a>
+                        </div>
+
+                    </div>
+                    
+                                            <div class="studio__info-bar--phone">
+
+                            <div class="icon"></div>
+                            <div class="content">
+                                <a href="tel:+420703610566">
+                                    +420 (0) 703610566                                </a>
+                            </div>
+
+                        </div>
+                        
+                                            <div class="studio__info-bar--address">
+
+                            <div class="icon"></div>
+                            <div class="content">
+                                <a target="_blank"
+                                   href="http://maps.google.com/?q=clever fit Milady Horakove 2725,27201 Kladno">
+                                    Milady Horakove 2725                                    <br>
+                                    27201 Kladno                                </a>
+                            </div>
+                        </div>
+                                                                    <div class="studio__info-bar--opening-times">
+                            <div class="icon"></div>
+
+                            <div class="content">
+
+                                <div class="opening-times__title">
+                                    Otevírací doba:
+                                </div>
+                                <table class="opening-times">
+                                                                            <tr>
+                                            <td class="opening-times__day">
+                                                Mo                                            </td>
+                                            <td class="opening-times__time">
+                                                06:00 -
+                                                22:00                                            </td>
+                                        </tr>
+                                                                                <tr>
+                                            <td class="opening-times__day">
+                                                Tu                                            </td>
+                                            <td class="opening-times__time">
+                                                06:00 -
+                                                22:00                                            </td>
+                                        </tr>
+                                                                                <tr>
+                                            <td class="opening-times__day">
+                                                We                                            </td>
+                                            <td class="opening-times__time">
+                                                06:00 -
+                                                22:00                                            </td>
+                                        </tr>
+                                                                                <tr>
+                                            <td class="opening-times__day">
+                                                Th                                            </td>
+                                            <td class="opening-times__time">
+                                                06:00 -
+                                                22:00                                            </td>
+                                        </tr>
+                                                                                <tr>
+                                            <td class="opening-times__day">
+                                                Fr                                            </td>
+                                            <td class="opening-times__time">
+                                                06:00 -
+                                                21:00                                            </td>
+                                        </tr>
+                                                                                <tr>
+                                            <td class="opening-times__day">
+                                                Sa                                            </td>
+                                            <td class="opening-times__time">
+                                                08:00 -
+                                                21:00                                            </td>
+                                        </tr>
+                                                                                <tr>
+                                            <td class="opening-times__day">
+                                                Su                                            </td>
+                                            <td class="opening-times__time">
+                                                08:00 -
+                                                22:00                                            </td>
+                                        </tr>
+                                                                        </table>
+
+                                
+                            </div>
+
+                        </div>
+                        
+                                    <div class="studio__info-bar--social-media">
+                        <div class="icon"></div>
+                        <div class="content">
+                            <div class="social-media__title">
+                                Social Media:
+                            </div>
+                            <div class="studio__info-bar--social-media-icons">
+                                    <a href="https://www.facebook.com/cleverfitkladno" target="_blank" class="social-media-icon cle-no-effect-link  facebook studio__info-bar--social-media-icon on-red"><span
+                style="display: none;">facebook</span></a>
+        <a href="https://www.instagram.com/cleverfitkladno/" target="_blank" class="social-media-icon cle-no-effect-link  instagram studio__info-bar--social-media-icon on-red"><span
+                style="display: none;">instagram</span></a>
+                                </div>
+                        </div>
+                    </div>
+                                </div>
+
+                    </div>
+
+        <div class="studio__info-bar--image">
+            <img width="800" height="347" src="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg" class="attachment-large size-large" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg 1024w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-300x130.jpg 300w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-768x333.jpg 768w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web.jpg 1200w" sizes="(max-width: 800px) 100vw, 800px" />        </div>
+
+    </div>
+</section>
+            
+<div class="studio__section-legal">
+            <div class="studio__container studio__section-legal--studio-info">
+
+            <div id="imprint" class="studio__section-legal--studio-info-column">
+                <div class="studio__section-legal--studio-info-heading">
+                    Právní upozornění                </div>
+                <p><span style="vertical-align: inherit"><span style="vertical-align: inherit">cf Kladno sro </span></span><br />
+<span style="vertical-align: inherit"><span style="vertical-align: inherit">Milady Horákové 2725 </span></span><br />
+<span style="vertical-align: inherit"><span style="vertical-align: inherit">27201 Kladno</span></span></p>
+<p><span style="vertical-align: inherit"><span style="vertical-align: inherit">Provozuje: Mgr.Jiří Pácal a Kateřina Faltis </span></span><br />
+<span style="vertical-align: inherit"><span style="vertical-align: inherit">IČO: 09047034 </span></span><br />
+<span style="vertical-align: inherit"><span style="vertical-align: inherit">DIČO: CZ09047034</span></span></p>
+<p><span style="vertical-align: inherit"><span style="vertical-align: inherit">GSM: +420 703 610 566 </span></span><br />
+<span style="vertical-align: inherit"><span style="vertical-align: inherit">E-mail:  </span></span><a href="mailto:studio@kladno.clever-fit.cz" data-cke-saved-href="mailto:studio@kladno.clever-fit.cz"><span style="vertical-align: inherit"><span style="vertical-align: inherit">studio@kladno.clever-fit.cz </span></span></a><br />
+<a href="https://www.facebook.com/cleverfitkladno" target="_blank" rel="noopener" data-cke-saved-href="https://www.facebook.com/cleverfitkladno"><span style="vertical-align: inherit"><span style="vertical-align: inherit">facebook</span></span></a><span style="vertical-align: inherit"><span style="vertical-align: inherit">  | </span></span><a href="https://www.instagram.com/cleverfitkladno/" target="_blank" rel="noopener" data-cke-saved-href="https://www.instagram.com/cleverfitkladno/"><span style="vertical-align: inherit"><span style="vertical-align: inherit">Instagram</span></span></a></p>
+            </div>
+
+            <div id="privacy" class="studio__section-legal--studio-info-column">
+                <div class="studio__section-legal--studio-info-heading">
+                    Ochrana dat                </div>
+                                <br><br>
+                                <a href="https://www.clever-fit.com/cz/studios/kladno/privacy/">Privacy infos of studio studio carrier</a>
+            </div>
+
+        </div>
+        </div>
+        </div>
+
+    </main>
+    <div id="job-application-popup" class="job-application-popup job-application-popup__wrapper">
+    <div class="job-application-popup__content">
+        <div class="job-application-popup__job-description"></div>
+        <div class="job-application-popup__job-title">Your job application for:            <span></span>
+        </div>
+        <div class="job-application-popup__studio-name"></div>
+
+        <div class="job-application-popup__form-heading">
+        </div>
+        		<div data-elementor-type="container" data-elementor-id="35602" class="elementor elementor-35602" data-elementor-post-type="elementor_library">
+				<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-9006991 e-flex e-con-boxed e-con e-parent" data-id="9006991" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+					</div>
+				</div>
+		<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-3c83193 e-flex e-con-boxed e-con e-parent" data-id="3c83193" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3345e44 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="3345e44" data-element_type="widget" data-e-type="widget" data-settings="{&quot;step_next_label&quot;:&quot;N\u00e4chster&quot;,&quot;step_previous_label&quot;:&quot;Voriger&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+					<textarea class="cfef_logic_data_js cfef-hidden"></textarea>		<form class="elementor-form" method="post" id="applicationForm" name="Bewerbung" aria-label="Bewerbung">
+			<input type="hidden" name="post_id" value="35602"/>
+			<input type="hidden" name="form_id" value="3345e44"/>
+			<input type="hidden" name="referer_title" value="Klagenfurt Zentrum" />
+
+							<input type="hidden" name="queried_id" value="77907"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-name" class="elementor-field-label">
+								Vorname							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Vorname" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_6d13dee elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_6d13dee" class="elementor-field-label">
+								Nachname							</label>
+														<input size="1" type="text" name="form_fields[field_6d13dee]" id="form-field-field_6d13dee" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Nachname" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_9712460 elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_9712460" class="elementor-field-label">
+								Straße und Hausnummer							</label>
+														<input size="1" type="text" name="form_fields[field_9712460]" id="form-field-field_9712460" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Straße und Hausnummer" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_27d3579 elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_27d3579" class="elementor-field-label">
+								PLZ							</label>
+														<input size="1" type="text" name="form_fields[field_27d3579]" id="form-field-field_27d3579" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="PLZ" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_7875ef9 elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_7875ef9" class="elementor-field-label">
+								Stadt							</label>
+														<input size="1" type="text" name="form_fields[field_7875ef9]" id="form-field-field_7875ef9" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Stadt" required="required">
+											</div>
+								<div class="elementor-field-type-date elementor-field-group elementor-column elementor-field-group-field_9797678 elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_9797678" class="elementor-field-label">
+								Geburtsdatum							</label>
+						
+		<input type="date" name="form_fields[field_9797678]" id="form-field-field_9797678" class="elementor-field elementor-size-md  elementor-field-textual elementor-date-field elementor-use-native" placeholder="01.01.1990" required="required" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" min="1910-01-01" max="2023-01-01">
+						</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-field_ba3da31 elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_ba3da31" class="elementor-field-label">
+								E-Mail							</label>
+														<input size="1" type="email" name="form_fields[field_ba3da31]" id="form-field-field_ba3da31" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="E-Mail" required="required">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_a102161 elementor-col-50 elementor-field-required elementor-mark-required">
+												<label for="form-field-field_a102161" class="elementor-field-label">
+								Telefon							</label>
+								<input size="1" type="tel" name="form_fields[field_a102161]" id="form-field-field_a102161" class="elementor-field elementor-size-md  elementor-field-textual" placeholder="Telefon" required="required" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+
+						</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
+												<label for="form-field-message" class="elementor-field-label">
+								Deine Nachricht							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-md" name="form_fields[message]" id="form-field-message" rows="4" placeholder="Deine Nachricht"></textarea>				</div>
+								<div class="elementor-field-type-html elementor-field-group elementor-column elementor-field-group-field_1e404d8 elementor-col-100">
+					Erlaubte Formate: .pdf / Maximale Größe: 5 MB / Maximal 3 Dokumente				</div>
+								<div class="elementor-field-type-upload elementor-field-group elementor-column elementor-field-group-field_7dcea81 elementor-col-33">
+												<label for="form-field-field_7dcea81" class="elementor-field-label">
+								PDF #1 (optional)							</label>
+								<input type="file" name="form_fields[field_7dcea81]" id="form-field-field_7dcea81" class="elementor-field elementor-size-md  elementor-upload-field" data-maxsize="5" data-maxsize-message="This file exceeds the maximum allowed size.">
+
+						</div>
+								<div class="elementor-field-type-upload elementor-field-group elementor-column elementor-field-group-field_a7cbf0a elementor-col-33">
+												<label for="form-field-field_a7cbf0a" class="elementor-field-label">
+								PDF #2 (optional)							</label>
+								<input type="file" name="form_fields[field_a7cbf0a]" id="form-field-field_a7cbf0a" class="elementor-field elementor-size-md  elementor-upload-field" data-maxsize="5" data-maxsize-message="This file exceeds the maximum allowed size.">
+
+						</div>
+								<div class="elementor-field-type-upload elementor-field-group elementor-column elementor-field-group-field_97954ab elementor-col-33">
+												<label for="form-field-field_97954ab" class="elementor-field-label">
+								PDF #3 (optional)							</label>
+								<input type="file" name="form_fields[field_97954ab]" id="form-field-field_97954ab" class="elementor-field elementor-size-md  elementor-upload-field" data-maxsize="5" data-maxsize-message="This file exceeds the maximum allowed size.">
+
+						</div>
+								<div class="elementor-field-type-hidden elementor-field-group elementor-column elementor-field-group-field_studio_id elementor-col-100">
+													<input size="1" type="hidden" name="form_fields[field_studio_id]" id="form-field-field_studio_id" class="elementor-field elementor-size-md  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-hidden elementor-field-group elementor-column elementor-field-group-field_studio_name elementor-col-100">
+													<input size="1" type="hidden" name="form_fields[field_studio_name]" id="form-field-field_studio_name" class="elementor-field elementor-size-md  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-hidden elementor-field-group elementor-column elementor-field-group-field_studio_location elementor-col-100">
+													<input size="1" type="hidden" name="form_fields[field_studio_location]" id="form-field-field_studio_location" class="elementor-field elementor-size-md  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-hidden elementor-field-group elementor-column elementor-field-group-field_job_id elementor-col-100">
+													<input size="1" type="hidden" name="form_fields[field_job_id]" id="form-field-field_job_id" class="elementor-field elementor-size-md  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-hidden elementor-field-group elementor-column elementor-field-group-field_job_title elementor-col-100">
+													<input size="1" type="hidden" name="form_fields[field_job_title]" id="form-field-field_job_title" class="elementor-field elementor-size-md  elementor-field-textual">
+											</div>
+								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-field_consent elementor-col-100 elementor-field-required elementor-mark-required">
+							<div class="elementor-field-subgroup">
+			<span class="elementor-field-option">
+				<input type="checkbox" name="form_fields[field_consent]" id="form-field-field_consent" class="elementor-field elementor-size-md  elementor-acceptance-field" required="required">
+				<label for="form-field-field_consent">Die <a href='/datenschutz/' target='_blank' >Datenschutzerklärung</a> habe ich zur Kenntnis genommen und bin damit einverstanden.*</label>			</span>
+		</div>
+						</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_749c288 elementor-col-100 recaptcha_v3-bottomright">
+					<div class="elementor-field" id="form-field-field_749c288"><div class="elementor-g-recaptcha" data-sitekey="6LcWhUYjAAAAAFWGx3QufhaZ9Y-2rgYbXUOAqrWb" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Senden</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+        <div id="close-job-application-popup" class="job-application-popup__close-button"></div>
+    </div>
+</div><div id="quick-menu">
+            <div class="quick-menu__content-item" data-quick-menu-id="contact">
+            <div class="quick-menu__close-content-item" data-quick-menu-id="contact"></div>
+            <img width="800" height="347" src="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg" class="attachment-large size-large" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg 1024w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-300x130.jpg 300w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-768x333.jpg 768w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web.jpg 1200w" sizes="(max-width: 800px) 100vw, 800px" />
+            <div class="quick-menu__content-item-content">
+                <div class="quick-menu__content-item-content--title">
+                    Studio contact:
+                </div>
+                <div>
+                    clever fit Kladno                </div>
+                                    <div class="quick-menu__mail">
+                        <a href="mailto:studio@kladno.clever-fit.cz">
+                            studio@kladno.clever-fit.cz                        </a>
+                    </div>
+                                                        <div class="quick-menu__phone">
+                        <a href="tel:+420703610566">
+                            +420 (0) 703610566                        </a>
+                    </div>
+                                </div>
+
+            
+<div class="quick-menu__content-item-footer">
+<div class="quick-menu__content-item-footer--logo"></div>
+<div class="quick-menu__content-item-footer--title">
+Kladno
+</div>
+</div>
+        </div>
+                <div class="quick-menu__content-item" data-quick-menu-id="address">
+            <div class="quick-menu__close-content-item" data-quick-menu-id="address"></div>
+            <iframe src="https://www.google.com/maps?q=clever fit Milady Horakove 2725,27201 Kladno&output=embed"></iframe>
+
+            <div class="quick-menu__content-item-content">
+                <div class="quick-menu__content-item-content--title">
+                    Studio address:
+                </div>
+                <div>
+                    clever fit Kladno                </div>
+                <a target="_blank"
+                   href="http://maps.google.com/?q=clever fit Milady Horakove 2725,27201 Kladno">
+                    Milady Horakove 2725                    <br>
+                    27201 Kladno                </a>
+            </div>
+
+            
+<div class="quick-menu__content-item-footer">
+<div class="quick-menu__content-item-footer--logo"></div>
+<div class="quick-menu__content-item-footer--title">
+Kladno
+</div>
+</div>
+        </div>
+                <div class="quick-menu__content-item" data-quick-menu-id="social">
+            <div class="quick-menu__close-content-item" data-quick-menu-id="social"></div>
+            <img width="800" height="347" src="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg" class="attachment-large size-large" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg 1024w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-300x130.jpg 300w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-768x333.jpg 768w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web.jpg 1200w" sizes="(max-width: 800px) 100vw, 800px" />
+            <div class="quick-menu__content-item-content">
+                <div class="quick-menu__content-item-content--title">
+                    Social Media:
+                </div>
+                <div class="quick-menu__social-icons">
+                                                    <a href="https://www.facebook.com/cleverfitkladno" target="_blank" class="social-media-icon cle-no-effect-link  facebook  on-red"><span
+                style="display: none;">facebook</span></a>
+                                                                <a href="https://www.instagram.com/cleverfitkladno/" target="_blank" class="social-media-icon cle-no-effect-link  instagram  on-red"><span
+                style="display: none;">instagram</span></a>
+                                                </div>
+            </div>
+
+            
+<div class="quick-menu__content-item-footer">
+<div class="quick-menu__content-item-footer--logo"></div>
+<div class="quick-menu__content-item-footer--title">
+Kladno
+</div>
+</div>
+        </div>
+                <div class="quick-menu__content-item" data-quick-menu-id="times">
+            <div class="quick-menu__close-content-item" data-quick-menu-id="times"></div>
+            <img width="800" height="347" src="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg" class="attachment-large size-large" alt="" decoding="async" srcset="https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-1024x444.jpg 1024w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-300x130.jpg 300w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web-768x333.jpg 768w, https://www.clever-fit.com/app/uploads/2022/11/220905_CZ_Kladno_Benefits_web.jpg 1200w" sizes="(max-width: 800px) 100vw, 800px" />
+            <div class="quick-menu__content-item-content">
+                <div class="quick-menu__content-item-content--title">
+                    Opening Times                </div>
+                <div class="quick-menu__opening-times">
+                                                <div class="quick-menu__opening-times--row">
+                                <div class="quick-menu__opening-times--day">
+                                    Mo                                </div>
+                                <div class="quick-menu__opening-times--time">
+                                    06:00 -
+                                    22:00                                </div>
+                            </div>
+                                                        <div class="quick-menu__opening-times--row">
+                                <div class="quick-menu__opening-times--day">
+                                    Tu                                </div>
+                                <div class="quick-menu__opening-times--time">
+                                    06:00 -
+                                    22:00                                </div>
+                            </div>
+                                                        <div class="quick-menu__opening-times--row">
+                                <div class="quick-menu__opening-times--day">
+                                    We                                </div>
+                                <div class="quick-menu__opening-times--time">
+                                    06:00 -
+                                    22:00                                </div>
+                            </div>
+                                                        <div class="quick-menu__opening-times--row">
+                                <div class="quick-menu__opening-times--day">
+                                    Th                                </div>
+                                <div class="quick-menu__opening-times--time">
+                                    06:00 -
+                                    22:00                                </div>
+                            </div>
+                                                        <div class="quick-menu__opening-times--row">
+                                <div class="quick-menu__opening-times--day">
+                                    Fr                                </div>
+                                <div class="quick-menu__opening-times--time">
+                                    06:00 -
+                                    21:00                                </div>
+                            </div>
+                                                        <div class="quick-menu__opening-times--row">
+                                <div class="quick-menu__opening-times--day">
+                                    Sa                                </div>
+                                <div class="quick-menu__opening-times--time">
+                                    08:00 -
+                                    21:00                                </div>
+                            </div>
+                                                        <div class="quick-menu__opening-times--row">
+                                <div class="quick-menu__opening-times--day">
+                                    Su                                </div>
+                                <div class="quick-menu__opening-times--time">
+                                    08:00 -
+                                    22:00                                </div>
+                            </div>
+                                            </div>
+
+                            </div>
+
+            
+<div class="quick-menu__content-item-footer">
+<div class="quick-menu__content-item-footer--logo"></div>
+<div class="quick-menu__content-item-footer--title">
+Kladno
+</div>
+</div>
+        </div>
+        
+
+    <ul class="quick-menu__nav collapsed">
+                    <li class="quick-menu__nav-item" data-quick-menu-id="contact">
+                <div class="quick-menu__nav-item--button">
+                    <div class="quick-menu__nav-icon contact"></div>
+                    <div class="quick-menu__nav-item--name">
+                        Contact                    </div>
+                </div>
+            </li>
+                        <li class="quick-menu__nav-item" data-quick-menu-id="address">
+                <div class="quick-menu__nav-item--button">
+                    <div class="quick-menu__nav-icon address"></div>
+                    <div class="quick-menu__nav-item--name">
+                        Address                    </div>
+                </div>
+            </li>
+                        <li class="quick-menu__nav-item" data-quick-menu-id="times">
+                <div class="quick-menu__nav-item--button">
+                    <div class="quick-menu__nav-icon time"></div>
+                    <div class="quick-menu__nav-item--name">
+                        Opening Times                    </div>
+                </div>
+            </li>
+                        <li class="quick-menu__nav-item" data-quick-menu-id="social">
+                <div class="quick-menu__nav-item--button">
+                    <div class="quick-menu__nav-icon social"></div>
+                    <div class="quick-menu__nav-item--name">
+                        Social                    </div>
+                </div>
+            </li>
+            
+        <li class="quick-menu__nav-item menu">
+            <div class="quick-menu__nav-item--button">
+                <div class="quick-menu__nav-icon menu"></div>
+                <div class="quick-menu__nav-item--name collapse">
+                    Collapse                </div>
+                <div class="quick-menu__nav-item--name activate">
+                    Quick Menu                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+    <script>
+      const resetData = {ecommerce: null};
+      console.log(resetData)
+      window.dataLayer.push(resetData);
+      const data = {
+        event: "view_item",
+        event_id: "e1c32e84-bc7d-4e02-9c23-64e97d17af0a",
+        ecommerce: {
+          currency: "CZK",
+          items: [
+            {
+              item_id: "59626",
+              item_name: "Kladno",
+              item_brand: "clever fit Czech Republic",
+              item_url: "https://www.clever-fit.com/cz/studios/kladno/",
+              item_inquiry_type: "contract_completion",
+            }
+          ]
+        }
+      };
+      console.log(data);
+      window.dataLayer.push(data);
+    </script>
+		<footer data-elementor-type="footer" data-elementor-id="63134" class="elementor elementor-63134 elementor-133 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-94bdbb0 e-con-full e-flex e-con e-parent" data-id="94bdbb0" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-f7b1d36 elementor-widget elementor-widget-spacer" data-id="f7b1d36" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+		<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-ba7495b e-flex e-con-boxed e-con e-child" data-id="ba7495b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-92f1a5b elementor-nav-menu__align-center elementor-nav-menu--dropdown-none elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-nav-menu" data-id="92f1a5b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menü" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-none">
+				<ul id="menu-1-92f1a5b" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a href="https://www.clever-fit.com/cz/o-nas/" class="elementor-item">O nás</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-469"><a href="https://www.clever-fit.com/cz/studia/" class="elementor-item">Studia</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-471"><a target="_blank" href="https://academy.clever-fit.com/" class="elementor-item">Academy</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-92f1a5b" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a href="https://www.clever-fit.com/cz/o-nas/" class="elementor-item" tabindex="-1">O nás</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-469"><a href="https://www.clever-fit.com/cz/studia/" class="elementor-item" tabindex="-1">Studia</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-471"><a target="_blank" href="https://academy.clever-fit.com/" class="elementor-item" tabindex="-1">Academy</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-f372c3b elementor-nav-menu__align-justify elementor-nav-menu--dropdown-none elementor-hidden-widescreen elementor-hidden-desktop elementor-hidden-laptop elementor-widget-mobile__width-inherit elementor-widget elementor-widget-nav-menu" data-id="f372c3b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menü" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-f372c3b" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a href="https://www.clever-fit.com/cz/o-nas/" class="elementor-item">O nás</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-469"><a href="https://www.clever-fit.com/cz/studia/" class="elementor-item">Studia</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-471"><a target="_blank" href="https://academy.clever-fit.com/" class="elementor-item">Academy</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-f372c3b" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-468"><a href="https://www.clever-fit.com/cz/o-nas/" class="elementor-item" tabindex="-1">O nás</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-469"><a href="https://www.clever-fit.com/cz/studia/" class="elementor-item" tabindex="-1">Studia</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-471"><a target="_blank" href="https://academy.clever-fit.com/" class="elementor-item" tabindex="-1">Academy</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-818591c elementor-widget elementor-widget-spacer" data-id="818591c" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+		<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-0ae872f e-flex e-con-boxed e-con e-child" data-id="0ae872f" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1965172 elementor-widget elementor-widget-image" data-id="1965172" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img src="https://www.clever-fit.com/app/uploads/elementor/thumbs/clever-fit_Logo_white-1-rg7yd7a7j6z1o5fujp26kl4j87cf5wk3cof1zemrug.png" title="clever-fit_Logo_white.png" alt="clever-fit_Logo_white.png" loading="lazy" />															</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-cd8e23b elementor-widget elementor-widget-spacer" data-id="cd8e23b" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+		<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-5f63531 e-flex e-con-boxed e-con e-child" data-id="5f63531" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3c65235 elementor-nav-menu__align-center elementor-nav-menu--dropdown-none elementor-hidden-mobile elementor-widget elementor-widget-nav-menu" data-id="3c65235" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menü" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-none">
+				<ul id="menu-1-3c65235" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a rel="privacy-policy" href="https://www.clever-fit.com/cz/ochrana-dat/" class="elementor-item">Ochrana dat</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="https://www.clever-fit.com/cz/pravni-upozorneni/" class="elementor-item">Právní upozornění</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341184"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item menu-item-wpml"><div class="wpml-ls-statics-shortcode_actions wpml-ls js-wpml-ls-dropdown"><ul class="wpml-ls-menu"><li tabindex="0" class="wpml-ls-item wpml-ls-current-language"><a href="#" class="js-wpml-ls-item-toggle wpml-ls-item-toggle" style="padding-right: 24px;"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/cz.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="cs">Czech Republic</span></a><ul class="wpml-ls-sub-menu"><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/de.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de">German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-AT/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/at.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-AT">Austria</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-CH">Switzerland German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/fr-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="fr-CH">Switzerland French</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/ro/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/ro.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="ro">Romanian</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/hr/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/hr.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="hr">Croatia</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/en/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/en.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="en">English</span></a></li></ul></li></ul></div></li></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-3c65235" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a rel="privacy-policy" href="https://www.clever-fit.com/cz/ochrana-dat/" class="elementor-item" tabindex="-1">Ochrana dat</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="https://www.clever-fit.com/cz/pravni-upozorneni/" class="elementor-item" tabindex="-1">Právní upozornění</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341184"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item menu-item-wpml"><div class="wpml-ls-statics-shortcode_actions wpml-ls js-wpml-ls-dropdown"><ul class="wpml-ls-menu"><li tabindex="0" class="wpml-ls-item wpml-ls-current-language"><a href="#" class="js-wpml-ls-item-toggle wpml-ls-item-toggle" style="padding-right: 24px;"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/cz.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="cs">Czech Republic</span></a><ul class="wpml-ls-sub-menu"><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/de.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de">German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-AT/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/at.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-AT">Austria</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-CH">Switzerland German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/fr-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="fr-CH">Switzerland French</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/ro/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/ro.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="ro">Romanian</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/hr/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/hr.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="hr">Croatia</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/en/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/en.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="en">English</span></a></li></ul></li></ul></div></li></li>
+</ul>			</nav>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ddbfc37 elementor-nav-menu__align-center elementor-nav-menu--dropdown-none elementor-hidden-widescreen elementor-hidden-desktop elementor-hidden-laptop elementor-hidden-tablet elementor-widget-mobile__width-inherit elementor-widget elementor-widget-nav-menu" data-id="ddbfc37" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot; aria-hidden=\&quot;true\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menü" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-ddbfc37" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a rel="privacy-policy" href="https://www.clever-fit.com/cz/ochrana-dat/" class="elementor-item">Ochrana dat</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="https://www.clever-fit.com/cz/pravni-upozorneni/" class="elementor-item">Právní upozornění</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341184"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item menu-item-wpml"><div class="wpml-ls-statics-shortcode_actions wpml-ls js-wpml-ls-dropdown"><ul class="wpml-ls-menu"><li tabindex="0" class="wpml-ls-item wpml-ls-current-language"><a href="#" class="js-wpml-ls-item-toggle wpml-ls-item-toggle" style="padding-right: 24px;"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/cz.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="cs">Czech Republic</span></a><ul class="wpml-ls-sub-menu"><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/de.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de">German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-AT/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/at.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-AT">Austria</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-CH">Switzerland German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/fr-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="fr-CH">Switzerland French</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/ro/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/ro.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="ro">Romanian</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/hr/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/hr.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="hr">Croatia</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/en/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/en.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="en">English</span></a></li></ul></li></ul></div></li></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-ddbfc37" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a rel="privacy-policy" href="https://www.clever-fit.com/cz/ochrana-dat/" class="elementor-item" tabindex="-1">Ochrana dat</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="https://www.clever-fit.com/cz/pravni-upozorneni/" class="elementor-item" tabindex="-1">Právní upozornění</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341184"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item menu-item-wpml"><div class="wpml-ls-statics-shortcode_actions wpml-ls js-wpml-ls-dropdown"><ul class="wpml-ls-menu"><li tabindex="0" class="wpml-ls-item wpml-ls-current-language"><a href="#" class="js-wpml-ls-item-toggle wpml-ls-item-toggle" style="padding-right: 24px;"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/cz.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="cs">Czech Republic</span></a><ul class="wpml-ls-sub-menu"><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/de.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de">German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-AT/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/at.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-AT">Austria</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/de-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="de-CH">Switzerland German</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/fr-CH/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/uploads/flags/ch.png" alt="" width="18" height="12"><span class="wpml-ls-native" lang="fr-CH">Switzerland French</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/ro/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/ro.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="ro">Romanian</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/hr/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/hr.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="hr">Croatia</span></a></li><li class="wpml-ls-item"><a href="https://www.clever-fit.com/en/" class="wpml-ls-link"><img class="wpml-ls-flag" src="https://www.clever-fit.com/app/plugins/sitepress-multilingual-cms/res/flags/en.svg" alt="" width="18" height="12"><span class="wpml-ls-native" lang="en">English</span></a></li></ul></li></ul></div></li></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-6943d68 elementor-widget elementor-widget-spacer" data-id="6943d68" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+		<div data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-element elementor-element-f170ced e-flex e-con-boxed e-con e-child" data-id="f170ced" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3918054 elementor-view-default elementor-widget elementor-widget-icon" data-id="3918054" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://de-de.facebook.com/cleverfit/" aria-label="Facebook">
+			<i aria-hidden="true" class="fab fa-facebook"></i>			</a>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-b3a24ef elementor-view-default elementor-widget elementor-widget-icon" data-id="b3a24ef" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.instagram.com/cleverfit/" aria-label="Instagram">
+			<i aria-hidden="true" class="fab fa-instagram"></i>			</a>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-b73e467 elementor-view-default elementor-widget elementor-widget-icon" data-id="b73e467" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://de.linkedin.com/company/clever-fit" aria-label="LinkedIn">
+			<i aria-hidden="true" class="fab fa-linkedin"></i>			</a>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-0b85901 elementor-view-default elementor-widget elementor-widget-icon" data-id="0b85901" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.youtube.com/channel/UCKcIxmYsprGAEH-XesrSMZQ" aria-label="YouTube">
+			<i aria-hidden="true" class="fab fa-youtube"></i>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+				<div class="elementor-element elementor-element-c4ac26f elementor-widget elementor-widget-spacer" data-id="c4ac26f" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/cz/*"},{"not":{"href_matches":["/wp/wp-*.php","/wp/wp-admin/*","/app/uploads/*","/app/*","/app/plugins/*","/app/themes/love-it/*","/app/themes/hello-elementor/*","/cz/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script data-cfasync="false" data-no-minify="1" data-no-optimize="1" id="borlabs-cookie-core-js-module" src="https://www.clever-fit.com/app/plugins/borlabs-cookie/assets/javascript/borlabs-cookie.min.js?ver=3.4" type="module"></script>
+<!--googleoff: all--><div data-nosnippet data-borlabs-cookie-consent-required='true' id='BorlabsCookieBox'></div><div id='BorlabsCookieWidget' class='brlbs-cmpnt-container'></div><!--googleon: all--><!-- Instagram Feed JS -->
+<script type="text/javascript">
+var sbiajaxurl = "https://www.clever-fit.com/wp/wp-admin/admin-ajax.php";
+</script>
+<script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesMin":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"}};/* ]]> */ </script>			<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<link rel='stylesheet' id='clever-app-26-css-css' href='https://www.clever-fit.com/app/themes/love-it/modules/clever-app-26/app/dist/styles.css?ver=1787056096' media='all' />
+<link rel='stylesheet' id='widget-divider-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/css/widget-divider.min.css?ver=4.2.3' media='all' />
+<link rel='stylesheet' id='elementor-post-35602-css' href='https://www.clever-fit.com/app/uploads/elementor/css/post-35602.css?ver=1787453917' media='all' />
+<link rel='stylesheet' id='widget-form-css' href='https://www.clever-fit.com/app/plugins/elementor-pro/assets/css/widget-form.min.css?ver=4.2.2' media='all' />
+<link rel='stylesheet' id='flatpickr-css' href='https://www.clever-fit.com/app/plugins/elementor/assets/lib/flatpickr/flatpickr.min.css?ver=4.6.13' media='all' />
+<script id="tec-user-agent-js" src="https://www.clever-fit.com/app/plugins/the-events-calendar/common/build/js/user-agent.js?ver=da75d0bdea6dde3898df" defer="defer"></script>
+<script id="hello-theme-frontend-js" src="https://www.clever-fit.com/app/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.7" defer="defer"></script>
+<script id="eael-general-js-extra">
+var localize = {"ajaxurl":"https://www.clever-fit.com/wp/wp-admin/admin-ajax.php","nonce":"85cf80f710","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https://www.clever-fit.com/cz/studios/kladno/","cart_redirectition":"","cart_page_url":"","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":768,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1280,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1400,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":1740,"default_value":2400,"direction":"min","is_enabled":true}},"ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http://wiki.lexisnexis.com/academic/images/f/fb/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_login_nonce":"1c1b403962","eael_register_nonce":"a82beac1ad","eael_lostpassword_nonce":"3802c4a38a","eael_resetpassword_nonce":"fe54470471"};
+//# sourceURL=eael-general-js-extra
+</script>
+<script id="eael-general-js" src="https://www.clever-fit.com/app/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=6.7.3" defer="defer"></script>
+<script id="eael-326272-js" src="https://www.clever-fit.com/app/uploads/essential-addons-elementor/eael-326272.js?ver=1716199074" defer="defer"></script>
+<script id="elementor-webpack-runtime-js" src="https://www.clever-fit.com/app/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.2.3" defer="defer"></script>
+<script id="elementor-frontend-modules-js-before">
+(function() {
+    const allFbWidgets = document.querySelectorAll('div.elementor-widget[data-widget_type^="facebook"]');
+    for (let fb of allFbWidgets) {
+        fb.dataset.widget_type = 'brlabs_' + fb.dataset.widget_type;
+    }
+})();
+(function() {
+    const allYtWidgets = document.querySelectorAll('div.elementor-widget-video[data-widget_type^="video."][data-settings*="youtube_url"]');
+    for (let yt of allYtWidgets) {
+        if (yt.dataset.brlbsUnblocked === 'true') {
+            continue;
+        }
+        yt.dataset.widget_type = 'brlbs_' + yt.dataset.widget_type;
+        yt.dataset.settings = yt.dataset.settings.replace('show_image_overlay', 'brlbs_dont_show_image_overlay');
+    }
+})();
+(function() {
+    window.addEventListener( 'elementor/frontend/init', function() {
+        let first = true;
+        elementorFrontend.hooks.addAction('frontend/element_ready/global', () => {
+            if (first === true) {
+                first = false;
+                const allYoutubeBgs = document.querySelectorAll('[data-brlbs-elementor-bg-video-vimeo="true"]');
+                if (allYoutubeBgs.length > 0) {
+                    const ytApiReadyOriginal = elementorFrontend.utils.youtube.onApiReady;
+                    let waitingYtCounter = 0;
+                    elementorFrontend.utils.youtube.onApiReady = (callback) => {
+                        document.addEventListener('brlbs_elementor_bgVideo_yt_unblocked', () => {
+                            ytApiReadyOriginal.call(elementorFrontend.utils.youtube, callback);
+                        });
+                        if (++waitingYtCounter === allYoutubeBgs.length) {
+                            elementorFrontend.utils.youtube.onApiReady = ytApiReadyOriginal;
+                            window.brlbsElementorBgVideoYtUnblockReady = { state: true };
+                        }
+                    }
+                }
+
+                const allVimeoBgs = document.querySelectorAll('[data-brlbs-elementor-bg-video-vimeo="true"]');
+                if (allVimeoBgs.length > 0) {
+                    const vimeoApiReadyOriginal = elementorFrontend.utils.vimeo.onApiReady;
+                    let waitingVimeoCounter = 0;
+                    elementorFrontend.utils.vimeo.onApiReady = (callback) => {
+                        document.addEventListener('brlbs_elementor_bgVideo_vimeo_unblocked', () => {
+                            vimeoApiReadyOriginal.call(elementorFrontend.utils.vimeo, callback);
+                        });
+                        if (++waitingVimeoCounter === allVimeoBgs.length) {
+                            elementorFrontend.utils.vimeo.onApiReady = vimeoApiReadyOriginal;
+                            window.brlbsElementorBgVideoVimeoUnblockReady = { state: true };
+                        }
+                    }
+                }
+            }
+        });
+    });
+})();
+//# sourceURL=elementor-frontend-modules-js-before
+</script>
+<script id="elementor-frontend-modules-js" src="https://www.clever-fit.com/app/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.2.3" defer="defer"></script>
+<script id="jquery-ui-core-js" src="https://www.clever-fit.com/wp/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" defer="defer"></script>
+<script id="elementor-frontend-js-extra">
+var EAELImageMaskingConfig = {"svg_dir_url":"https://www.clever-fit.com/app/plugins/essential-addons-for-elementor-lite/assets/front-end/img/image-masking/svg-shapes/"};
+//# sourceURL=elementor-frontend-js-extra
+</script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnX":"Share on X","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":769,"lg":1281,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":768,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1280,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1400,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":1740,"default_value":2400,"direction":"min","is_enabled":true}},
+"hasCustomBreakpoints":true},"version":"4.2.3","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"container":true,"e_panel_promotions":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"e_pro_atomic_form":true,"e_pro_collection_loop":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/www.clever-fit.com\/app\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.clever-fit.com\/wp\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.clever-fit.com\/app\/uploads"},"nonces":{"floatingButtonsClickTracking":"2b0f84ba00","atomicFormsSendForm":"426c74cea9"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop","viewport_widescreen"],"viewport_tablet":1280,"viewport_mobile":768,"viewport_laptop":1400,"viewport_widescreen":1740,"body_background_background":"classic","global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":59626,"title":"clever%20fit%20Fitnessstudio%20Kladno%20-%20Va%C5%A1e%20t%C4%9Blocvi%C4%8Dna%20v%20Kladno","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://www.clever-fit.com/app/plugins/elementor/assets/js/frontend.min.js?ver=4.2.3" defer="defer"></script>
+<script id="smartmenus-js" src="https://www.clever-fit.com/app/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" defer="defer"></script>
+<script id="media-library-organizer-gallery-block-frontend-js" src="https://www.clever-fit.com/app/plugins/media-library-organizer/assets/js/gallery-block.js?ver=2.1.0" defer="defer"></script>
+<script id="cfef_logic-js" src="https://www.clever-fit.com/app/themes/love-it/modules/elementor-forms/conditional-fields/assets/js/cfef_logic_frontend.js?ver=1" defer="defer"></script>
+<script id="tiktok-pixel-tracking-handle-header-js-after">
+!function (w, d, t) {
+		 w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{},ttq._partner=ttq._partner||"WordPress";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+		 ttq.load('CUREUPBC77U7JFDJ32EG');
+		 }(window, document, 'ttq');
+//# sourceURL=tiktok-pixel-tracking-handle-header-js-after
+</script>
+<script id="tiktok-tracking-handle-header-js-after">
+ttq.instance('CUREUPBC77U7JFDJ32EG').track('Pageview', {'event_id': '6a8abd9f5567d_tt4b_woocommerce_67b5e1b674f33'})
+ttq.instance('CUREUPBC77U7JFDJ32EG').identify({
+            
+            })
+//# sourceURL=tiktok-tracking-handle-header-js-after
+</script>
+<script id="flatpickr-js" src="https://www.clever-fit.com/app/plugins/elementor/assets/lib/flatpickr/flatpickr.min.js?ver=4.6.13" defer="defer"></script>
+<script data-borlabs-cookie-script-blocker-handle="elementor-recaptcha_v3-api" data-borlabs-cookie-script-blocker-id="elementor-recaptcha" type='text/template' id="elementor-recaptcha_v3-api-js" data-borlabs-cookie-script-blocker-src="https://www.google.com/recaptcha/api.js?render=explicit&#038;ver=4.2.2"></script><script id="elementor-pro-webpack-runtime-js" src="https://www.clever-fit.com/app/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.2.2" defer="defer"></script>
+<script id="wp-hooks-js" src="https://www.clever-fit.com/wp/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="https://www.clever-fit.com/wp/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.clever-fit.com\/wp\/wp-admin\/admin-ajax.php","nonce":"af53baca33","urls":{"assets":"https:\/\/www.clever-fit.com\/app\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.clever-fit.com\/cz\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},
+"facebook_sdk":{"lang":"cz","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.clever-fit.com\/app\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://www.clever-fit.com/app/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.2.2" defer="defer"></script>
+<script id="pro-elements-handlers-js" src="https://www.clever-fit.com/app/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.2.2" defer="defer"></script>
+        <script type="text/javascript">
+            /* <![CDATA[ */
+           document.querySelectorAll("ul.nav-menu").forEach(
+               ulist => { 
+                    if (ulist.querySelectorAll("li").length == 0) {
+                        ulist.style.display = "none";
+
+                                            } 
+                }
+           );
+            /* ]]> */
+        </script>
+        <template id="brlbs-cmpnt-cb-template-brevo">
+ <div class="brlbs-cmpnt-container brlbs-cmpnt-content-blocker brlbs-cmpnt-with-individual-styles" data-borlabs-cookie-content-blocker-id="brevo" data-borlabs-cookie-content=""><div class="brlbs-cmpnt-cb-preset-b brlbs-cmpnt-cb-brevo"> <div class="brlbs-cmpnt-cb-thumbnail" style="background-image: url('https://www.clever-fit.com/app/uploads/borlabs-cookie/1/bct-mailchimp-vanilla-main.png')"></div> <div class="brlbs-cmpnt-cb-main"> <div class="brlbs-cmpnt-cb-content"> <p class="brlbs-cmpnt-cb-description">You are currently viewing a placeholder content from <strong>Brevo</strong>. To access the actual content, click the button below. Please note that doing so will share data with third-party providers.</p> <a class="brlbs-cmpnt-cb-provider-toggle" href="#" data-borlabs-cookie-show-provider-information role="button">More Information</a> </div> <div class="brlbs-cmpnt-cb-buttons"> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-unblock role="button">Unblock content</a> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-accept-service role="button" style="display: inherit">Accept required service and unblock content</a> </div> </div> </div></div>
+</template>
+<script>
+(function() {
+    const template = document.querySelector("#brlbs-cmpnt-cb-template-brevo");
+    const divsToInsertBlocker = document.querySelectorAll('.sib-form');
+    for (const div of divsToInsertBlocker) {
+        const cb = template.content.cloneNode(true).querySelector('.brlbs-cmpnt-container');
+        cb.dataset.borlabsCookieContent = btoa(unescape(encodeURIComponent(div.outerHTML)));
+        div.replaceWith(cb);
+    }
+})()
+</script><template id="brlbs-cmpnt-cb-template-vimeo-content-blocker">
+ <div class="brlbs-cmpnt-container brlbs-cmpnt-content-blocker brlbs-cmpnt-with-individual-styles" data-borlabs-cookie-content-blocker-id="vimeo-content-blocker" data-borlabs-cookie-content=""><div class="brlbs-cmpnt-cb-preset-c brlbs-cmpnt-cb-vimeo"> <div class="brlbs-cmpnt-cb-thumbnail" style="background-image: url('https://www.clever-fit.com/app/uploads/borlabs-cookie/1/brlbs-cb-vimeo-main.png')"></div> <div class="brlbs-cmpnt-cb-main"> <div class="brlbs-cmpnt-cb-play-button"></div> <div class="brlbs-cmpnt-cb-content"> <p class="brlbs-cmpnt-cb-description">You are currently viewing a placeholder content from <strong>Vimeo</strong>. To access the actual content, click the button below. Please note that doing so will share data with third-party providers.</p> <a class="brlbs-cmpnt-cb-provider-toggle" href="#" data-borlabs-cookie-show-provider-information role="button">More Information</a> </div> <div class="brlbs-cmpnt-cb-buttons"> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-unblock role="button">Unblock content</a> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-accept-service role="button" style="display: inherit">Accept required service and unblock content</a> </div> </div> </div></div>
+</template>
+<script>
+(function () {
+    const allBackgroundContainerVimeo = document.querySelectorAll('[data-brlbs-elementor-bg-video-vimeo="true"]:not(:has(.brlbs-cmpnt-content-blocker))');
+
+    const getVimeoId = url => (url.match(/vimeo\.com\/(?:.*\/)?([0-9]+)/) || [])[1] || null;
+    const getThumbnailBackgroundImageUrl = (videoContainer) => {
+        const bgImageCss = window.getComputedStyle(videoContainer).backgroundImage;
+        if (bgImageCss != null && bgImageCss.startsWith('url(')) {
+            return bgImageCss;
+        }
+        if (true !== true) {
+            return null;
+        }
+        const settings = JSON.parse(videoContainer.dataset.settings)
+        if (settings == null || !settings.hasOwnProperty('background_video_link')) {
+            return null;
+        }
+        const vimeoId = getVimeoId(settings.background_video_link);
+        if (vimeoId == null) {
+            return null;
+        }
+        return 'url("https://www.clever-fit.com/app/uploads/borlabs-cookie/1/vimeo_' + vimeoId + '.jpg")';
+    };
+
+    const template = document.getElementById('brlbs-cmpnt-cb-template-vimeo-content-blocker');
+    for (let videoContainer of allBackgroundContainerVimeo) {
+        const id = videoContainer.dataset.id
+        if (videoContainer && template) {
+            const videoEmbed = videoContainer.querySelector('.elementor-background-video-embed');
+            const cb = template.content.cloneNode(true).querySelector('.brlbs-cmpnt-container');
+            cb.dataset.borlabsCookieContent = 'PHNjcmlwdD4KKGZ1bmN0aW9uKCkgewogICAgaWYgKHR5cGVvZiB3aW5kb3cuYnJsYnNFbGVtZW50b3JCZ1ZpZGVvVmltZW9VbmJsb2NrZWQgPT09ICd1bmRlZmluZWQnKSB7CiAgICAgICAgd2luZG93LmJybGJzRWxlbWVudG9yQmdWaWRlb1ZpbWVvVW5ibG9ja2VkID0gdHJ1ZTsKICAgICAgICBCb3JsYWJzQ29va2llLlRvb2xzLm9uRXhpc3QoJ2JybGJzRWxlbWVudG9yQmdWaWRlb1ZpbWVvVW5ibG9ja1JlYWR5JywgKCkgPT4gewogICAgICAgICAgICBkb2N1bWVudC5kaXNwYXRjaEV2ZW50KG5ldyBFdmVudCgnYnJsYnNfZWxlbWVudG9yX2JnVmlkZW9fdmltZW9fdW5ibG9ja2VkJykpOwogICAgICAgIH0pOwogICAgfQp9KSgpCjwvc2NyaXB0Pg==';
+            if (videoEmbed.nextSibling) {
+                videoEmbed.parentNode.insertBefore(cb, videoEmbed.nextSibling);
+            } else {
+                videoEmbed.parentNode.appendChild(cb);
+            }
+
+            const bgImageCss = getThumbnailBackgroundImageUrl(videoContainer);
+            const thumb = cb.querySelector('.brlbs-cmpnt-cb-thumbnail')
+            if (bgImageCss != null && thumb != null) {
+                thumb.style.backgroundImage = bgImageCss;
+            }
+        }
+    }
+})();
+</script><template id="brlbs-cmpnt-cb-template-youtube-content-blocker">
+ <div class="brlbs-cmpnt-container brlbs-cmpnt-content-blocker brlbs-cmpnt-with-individual-styles" data-borlabs-cookie-content-blocker-id="youtube-content-blocker" data-borlabs-cookie-content=""><div class="brlbs-cmpnt-cb-preset-c brlbs-cmpnt-cb-youtube"> <div class="brlbs-cmpnt-cb-thumbnail" style="background-image: url('https://www.clever-fit.com/app/uploads/borlabs-cookie/1/brlbs-cb-youtube-main.png')"></div> <div class="brlbs-cmpnt-cb-main"> <div class="brlbs-cmpnt-cb-play-button"></div> <div class="brlbs-cmpnt-cb-content"> <p class="brlbs-cmpnt-cb-description">You are currently viewing a placeholder content from <strong>YouTube</strong>. To access the actual content, click the button below. Please note that doing so will share data with third-party providers.</p> <a class="brlbs-cmpnt-cb-provider-toggle" href="#" data-borlabs-cookie-show-provider-information role="button">More Information</a> </div> <div class="brlbs-cmpnt-cb-buttons"> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-unblock role="button">Unblock content</a> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-accept-service role="button" style="display: inherit">Accept required service and unblock content</a> </div> </div> </div></div>
+</template>
+<script>
+(function () {
+    const allBackgroundContainerYt = document.querySelectorAll('[data-brlbs-elementor-bg-video-yt="true"]:not(:has(.brlbs-cmpnt-content-blocker))');
+
+    const getYouTubeId = url => (url.match(new RegExp("(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})")) || [])[1] || null;
+    const getThumbnailBackgroundImageUrl = (videoContainer) => {
+        const bgImageCss = window.getComputedStyle(videoContainer).backgroundImage;
+        if (bgImageCss != null && bgImageCss.startsWith('url(')) {
+            return bgImageCss;
+        }
+        const thumbnailQuality = 'hqdefault';
+        if (thumbnailQuality === 'none' || videoContainer.dataset.settings == null) {
+            return null;
+        }
+        const settings = JSON.parse(videoContainer.dataset.settings)
+        if (settings == null || !settings.hasOwnProperty('background_video_link')) {
+            return null;
+        }
+        const ytId = getYouTubeId(settings.background_video_link);
+        if (ytId == null) {
+            return null;
+        }
+        return 'url("https://www.clever-fit.com/app/uploads/borlabs-cookie/1/yt_' + ytId + '_' + thumbnailQuality + '.jpg")';
+    };
+
+    const template = document.getElementById('brlbs-cmpnt-cb-template-youtube-content-blocker');
+    for (let videoContainer of allBackgroundContainerYt) {
+        const id = videoContainer.dataset.id
+        if (videoContainer && template) {
+            const videoEmbed = videoContainer.querySelector('.elementor-background-video-embed');
+            const cb = template.content.cloneNode(true).querySelector('.brlbs-cmpnt-container');
+            cb.dataset.borlabsCookieContent = 'PHNjcmlwdD4KKGZ1bmN0aW9uKCkgewogICAgaWYgKHR5cGVvZiB3aW5kb3cuYnJsYnNFbGVtZW50b3JCZ1ZpZGVvWXRVbmJsb2NrZWQgPT09ICd1bmRlZmluZWQnKSB7CiAgICAgICAgd2luZG93LmJybGJzRWxlbWVudG9yQmdWaWRlb1l0VW5ibG9ja2VkID0gdHJ1ZTsKICAgICAgICBCb3JsYWJzQ29va2llLlRvb2xzLm9uRXhpc3QoJ2JybGJzRWxlbWVudG9yQmdWaWRlb1l0VW5ibG9ja1JlYWR5JywgKCkgPT4gewogICAgICAgICAgICBkb2N1bWVudC5kaXNwYXRjaEV2ZW50KG5ldyBFdmVudCgnYnJsYnNfZWxlbWVudG9yX2JnVmlkZW9feXRfdW5ibG9ja2VkJykpOwogICAgICAgIH0pOwogICAgfQp9KSgpCjwvc2NyaXB0Pg==';
+            if (videoEmbed.nextSibling) {
+                videoEmbed.parentNode.insertBefore(cb, videoEmbed.nextSibling);
+            } else {
+                videoEmbed.parentNode.appendChild(cb);
+            }
+
+            const bgImageCss = getThumbnailBackgroundImageUrl(videoContainer);
+            const thumb = cb.querySelector('.brlbs-cmpnt-cb-thumbnail')
+            if (bgImageCss != null && thumb != null) {
+                thumb.style.backgroundImage = bgImageCss;
+            }
+        }
+    }
+})();
+</script><template id="brlbs-cmpnt-cb-template-elementor-recaptcha">
+ <div class="brlbs-cmpnt-container brlbs-cmpnt-content-blocker brlbs-cmpnt-with-individual-styles" data-borlabs-cookie-content-blocker-id="elementor-recaptcha" data-borlabs-cookie-content="PHNjcmlwdD4KKGZ1bmN0aW9uKCkgewogICAgY29uc3QgZWxlbWVudG9yRm9ybSA9IGRvY3VtZW50LmN1cnJlbnRTY3JpcHQuY2xvc2VzdCgnZm9ybS5lbGVtZW50b3ItZm9ybScpOwogICAgaWYgKGVsZW1lbnRvckZvcm0gPT0gbnVsbCkgewogICAgICAgIHJldHVybjsKICAgIH0KICAgIGVsZW1lbnRvckZvcm0ucXVlcnlTZWxlY3RvckFsbCgnLmVsZW1lbnRvci1maWVsZC10eXBlLXN1Ym1pdCBidXR0b24nKS5mb3JFYWNoKGJ0biA9PiBidG4uZGlzYWJsZWQgPSBmYWxzZSk7Cn0pKCk7Cjwvc2NyaXB0Pg=="><div class="brlbs-cmpnt-cb-preset-b brlbs-cmpnt-cb-elementor-recaptcha"> <div class="brlbs-cmpnt-cb-thumbnail" style="background-image: url('https://www.clever-fit.com/app/uploads/borlabs-cookie/1/bct-google-recaptcha-main.png')"></div> <div class="brlbs-cmpnt-cb-main"> <div class="brlbs-cmpnt-cb-content"> <p class="brlbs-cmpnt-cb-description">You need to load content from <strong>reCAPTCHA</strong> to submit the form. Please note that doing so will share data with third-party providers.</p> <a class="brlbs-cmpnt-cb-provider-toggle" href="#" data-borlabs-cookie-show-provider-information role="button">More Information</a> </div> <div class="brlbs-cmpnt-cb-buttons"> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-unblock role="button">Unblock content</a> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-accept-service role="button" style="display: inherit">Accept required service and unblock content</a> </div> </div> </div></div>
+</template>
+<script>
+(function() {
+    const template = document.querySelector("#brlbs-cmpnt-cb-template-elementor-recaptcha");
+    const divsToInsertBlocker = document.querySelectorAll('.elementor-field-type-recaptcha_v3 .elementor-field,.elementor-field-type-recaptcha .elementor-field');
+    for (const div of divsToInsertBlocker) {
+        const cb = template.content.cloneNode(true).querySelector('.brlbs-cmpnt-container');
+        div.appendChild(cb);
+
+        const elementorForm = div.closest('form.elementor-form');
+        if (elementorForm != null) {
+            elementorForm.querySelectorAll('.elementor-field-type-submit button').forEach(btn => btn.disabled = true);
+        }
+    }
+})()
+</script><template id="brlbs-cmpnt-cb-template-facebook-content-blocker">
+ <div class="brlbs-cmpnt-container brlbs-cmpnt-content-blocker brlbs-cmpnt-with-individual-styles" data-borlabs-cookie-content-blocker-id="facebook-content-blocker" data-borlabs-cookie-content=""><div class="brlbs-cmpnt-cb-preset-b brlbs-cmpnt-cb-facebook"> <div class="brlbs-cmpnt-cb-thumbnail" style="background-image: url('https://www.clever-fit.com/app/uploads/borlabs-cookie/1/cb-facebook-main.png')"></div> <div class="brlbs-cmpnt-cb-main"> <div class="brlbs-cmpnt-cb-content"> <p class="brlbs-cmpnt-cb-description">You are currently viewing a placeholder content from <strong>Facebook</strong>. To access the actual content, click the button below. Please note that doing so will share data with third-party providers.</p> <a class="brlbs-cmpnt-cb-provider-toggle" href="#" data-borlabs-cookie-show-provider-information role="button">More Information</a> </div> <div class="brlbs-cmpnt-cb-buttons"> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-unblock role="button">Unblock content</a> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-accept-service role="button" style="display: inherit">Accept required service and unblock content</a> </div> </div> </div></div>
+</template>
+<script>
+(function() {
+        const template = document.querySelector("#brlbs-cmpnt-cb-template-facebook-content-blocker");
+        const divsToInsertBlocker = document.querySelectorAll('div.fb-video[data-href*="//www.facebook.com/"], div.fb-post[data-href*="//www.facebook.com/"]');
+        for (const div of divsToInsertBlocker) {
+            const blocked = template.content.cloneNode(true).querySelector('.brlbs-cmpnt-container');
+            blocked.dataset.borlabsCookieContent = btoa(unescape(encodeURIComponent(div.outerHTML)));
+            div.replaceWith(blocked);
+        }
+})()
+</script><template id="brlbs-cmpnt-cb-template-instagram-sb-feed">
+ <div class="brlbs-cmpnt-container brlbs-cmpnt-content-blocker brlbs-cmpnt-with-individual-styles" data-borlabs-cookie-content-blocker-id="instagram-sb-feed" data-borlabs-cookie-content=""><div class="brlbs-cmpnt-cb-preset-b brlbs-cmpnt-cb-sb-instagram"> <div class="brlbs-cmpnt-cb-thumbnail" style="background-image: url('https://www.clever-fit.com/app/uploads/borlabs-cookie/1/cb-instagram-(1)-main.png')"></div> <div class="brlbs-cmpnt-cb-main"> <div class="brlbs-cmpnt-cb-content"> <p class="brlbs-cmpnt-cb-description">You are currently viewing a placeholder content from <strong>Instagram</strong>. To access the actual content, click the button below. Please note that doing so will share data with third-party providers.</p> <a class="brlbs-cmpnt-cb-provider-toggle" href="#" data-borlabs-cookie-show-provider-information role="button">More Information</a> </div> <div class="brlbs-cmpnt-cb-buttons"> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-unblock role="button">Unblock content</a> <a class="brlbs-cmpnt-cb-btn" href="#" data-borlabs-cookie-accept-service role="button" style="display: inherit">Accept required service and unblock content</a> </div> </div> </div></div>
+</template>
+<script>
+(function() {
+    const template = document.querySelector("#brlbs-cmpnt-cb-template-instagram-sb-feed");
+    const divsToInsertBlocker = document.querySelectorAll('.sbi');
+    for (const div of divsToInsertBlocker) {
+        const cb = template.content.cloneNode(true).querySelector('.brlbs-cmpnt-container');
+        cb.dataset.borlabsCookieContent = btoa(unescape(encodeURIComponent(div.outerHTML)));
+        div.replaceWith(cb);
+    }
+})()
+</script><script>var localize ={"ajaxurl":"https:\/\/www.clever-fit.com\/wp\/wp-admin\/admin-ajax.php","nonce":"85cf80f710","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https:\/\/www.clever-fit.com\/cz\/studios\/kladno\/","cart_redirectition":false,"cart_page_url":"","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":768,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1280,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1400,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":1740,"default_value":2400,"direction":"min","is_enabled":true}},"ParticleThemesData":{"default":"{\"particles\":{\"number\":{\"value\":160,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":true,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"repulse\"},\"onclick\":{\"enable\":true,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nasa":"{\"particles\":{\"number\":{\"value\":250,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":1,\"random\":true,\"anim\":{\"enable\":true,\"speed\":1,\"opacity_min\":0,\"sync\":false}},\"size\":{\"value\":3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":4,\"size_min\":0.3,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":1,\"direction\":\"none\",\"random\":true,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":600}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":250,\"size\":0,\"duration\":2,\"opacity\":0,\"speed\":3},\"repulse\":{\"distance\":400,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","bubble":"{\"particles\":{\"number\":{\"value\":15,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#1b1e34\"},\"shape\":{\"type\":\"polygon\",\"stroke\":{\"width\":0,\"color\":\"#000\"},\"polygon\":{\"nb_sides\":6},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.3,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":50,\"random\":false,\"anim\":{\"enable\":true,\"speed\":10,\"size_min\":40,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":200,\"color\":\"#ffffff\",\"opacity\":1,\"width\":2},\"move\":{\"enable\":true,\"speed\":8,\"direction\":\"none\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":false,\"mode\":\"push\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","snow":"{\"particles\":{\"number\":{\"value\":450,\"density\":{\"enable\":true,\"value_area\":800}},\"color\":{\"value\":\"#fff\"},\"shape\":{\"type\":\"circle\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"img\/github.svg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":5,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":500,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":2},\"move\":{\"enable\":true,\"speed\":6,\"direction\":\"bottom\",\"random\":false,\"straight\":false,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":true,\"mode\":\"bubble\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":400,\"line_linked\":{\"opacity\":0.5}},\"bubble\":{\"distance\":400,\"size\":4,\"duration\":0.3,\"opacity\":1,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}","nyan_cat":"{\"particles\":{\"number\":{\"value\":150,\"density\":{\"enable\":false,\"value_area\":800}},\"color\":{\"value\":\"#ffffff\"},\"shape\":{\"type\":\"star\",\"stroke\":{\"width\":0,\"color\":\"#000000\"},\"polygon\":{\"nb_sides\":5},\"image\":{\"src\":\"http:\/\/wiki.lexisnexis.com\/academic\/images\/f\/fb\/Itunes_podcast_icon_300.jpg\",\"width\":100,\"height\":100}},\"opacity\":{\"value\":0.5,\"random\":false,\"anim\":{\"enable\":false,\"speed\":1,\"opacity_min\":0.1,\"sync\":false}},\"size\":{\"value\":4,\"random\":true,\"anim\":{\"enable\":false,\"speed\":40,\"size_min\":0.1,\"sync\":false}},\"line_linked\":{\"enable\":false,\"distance\":150,\"color\":\"#ffffff\",\"opacity\":0.4,\"width\":1},\"move\":{\"enable\":true,\"speed\":14,\"direction\":\"left\",\"random\":false,\"straight\":true,\"out_mode\":\"out\",\"bounce\":false,\"attract\":{\"enable\":false,\"rotateX\":600,\"rotateY\":1200}}},\"interactivity\":{\"detect_on\":\"canvas\",\"events\":{\"onhover\":{\"enable\":false,\"mode\":\"grab\"},\"onclick\":{\"enable\":true,\"mode\":\"repulse\"},\"resize\":true},\"modes\":{\"grab\":{\"distance\":200,\"line_linked\":{\"opacity\":1}},\"bubble\":{\"distance\":400,\"size\":40,\"duration\":2,\"opacity\":8,\"speed\":3},\"repulse\":{\"distance\":200,\"duration\":0.4},\"push\":{\"particles_nb\":4},\"remove\":{\"particles_nb\":2}}},\"retina_detect\":true}"},"eael_login_nonce":"1c1b403962","eael_register_nonce":"a82beac1ad","eael_lostpassword_nonce":"3802c4a38a","eael_resetpassword_nonce":"fe54470471"}</script><script id="eael-inline-js">window.addEventListener("scroll", function () {
+    if (window.innerWidth < 480) { return;}
+    const logo = document.getElementById("cle-main-header-logo");
+    if (!logo) return;
+
+    if (window.scrollY > 0) {
+      logo.style.height = "38px";
+    } else {
+      logo.style.height = "78px";
+    }
+  });;</script>
+<script>var rocket_beacon_data = {"ajax_url":"https:\/\/www.clever-fit.com\/wp\/wp-admin\/admin-ajax.php","nonce":"9d84d65020","url":"https:\/\/www.clever-fit.com\/cz\/studios\/kladno","is_mobile":false,"width_threshold":1600,"height_threshold":700,"delay":500,"debug":null,"status":{"lrc":false,"preload_fonts":true,"preconnect_external_domain":true},"lrc_threshold":1800,"preload_fonts_exclusions":["api.fontshare.com","cdn.fontshare.com"],"processed_extensions":["woff2","woff","ttf"],"external_font_exclusions":[],"preconnect_external_domain_elements":["link","script","iframe"],"preconnect_external_domain_exclusions":["static.cloudflareinsights.com","rel=\"profile\"","rel=\"preconnect\"","rel=\"dns-prefetch\"","rel=\"icon\""]}</script><script data-name="wpr-wpr-beacon" src='https://www.clever-fit.com/app/plugins/wp-rocket/assets/js/wpr-beacon.min.js' async></script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1787477409 -->

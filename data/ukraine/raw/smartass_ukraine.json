@@ -1,0 +1,72 @@
+[
+  {
+    "city": "Kyiv",
+    "address": "Zhylianska St, 41А",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Kyiv",
+    "address": "Obolonskyi Ave, 19",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Kyiv",
+    "address": "Verkhohliada St, 14A",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": true
+  },
+  {
+    "city": "Kyiv",
+    "address": "Korolenkivska St, 4",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Kyiv",
+    "address": "Mykoly Bazhana Ave, 10А",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Kyiv",
+    "address": "Mezhyhirska St, 82",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Lviv",
+    "address": "Shevchenka St, 120",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Lviv",
+    "address": "Panasa Myrnoho St, 24",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Lviv",
+    "address": "Akademika Pidstryhacha St, 1V",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  },
+  {
+    "city": "Kharkiv",
+    "address": "Universytetska St, 16",
+    "url": "/en/gym/default/change-branch",
+    "coming": false,
+    "girls_only": false
+  }
+]

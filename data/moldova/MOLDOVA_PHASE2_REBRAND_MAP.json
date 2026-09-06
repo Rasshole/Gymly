@@ -1,0 +1,29 @@
+{
+  "pairs": [
+    {
+      "a": "Adrenalin Bender Shevchenko directory",
+      "b": "Adrenalin Tiraspol Shevchenko / LifeStyle",
+      "classification": "DUPLICATE_DIRECTORY_ENTRY",
+      "notes": "Bender Shevchenko listing treated as directory confusion with Tiraspol LifeStyle"
+    },
+    {
+      "a": "Heracles Independenței 6 (Phase1 approx)",
+      "b": "Heracles Independenței 16/1",
+      "classification": "SAME_CURRENT_PREMISES",
+      "notes": "Address corrected; same Botanica club"
+    },
+    {
+      "a": "XTZ Phase1 independent probe",
+      "b": "XTZ Fitness 4-site Class A estate",
+      "classification": "PREDECESSOR_SUCCESSOR",
+      "notes": "Phase1 probe ID retained as Telecentru; estate completed in Phase2"
+    },
+    {
+      "a": "Energy Telecentru hospital Nominatim pin",
+      "b": "City Parking Center 29/5 floors 4–5",
+      "classification": "SAME_CURRENT_PREMISES",
+      "notes": "Coords corrected to CPC building"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

@@ -1,0 +1,706 @@
+{
+  "phase": 3,
+  "generated_at": "2026-08-16T18:30:21.640134+00:00",
+  "merge_status": "NOT_MERGED — awaiting explicit approval",
+  "centers_json_untouched": true,
+  "live_norway": 367,
+  "live_total": 1360,
+  "A_existing_135_unresolved": {
+    "starting_count": 135,
+    "starting_breakdown": {
+      "NEEDS_COORDINATES": 63,
+      "NEEDS_REVIEW": 33,
+      "SOFT_POSTAL_WITHHELD": 26,
+      "SKIP_INCOMPLETE": 13
+    },
+    "upgraded_to_READY": 50,
+    "still_unresolved": 84,
+    "closed": 0,
+    "duplicates_legacy_removed": 1,
+    "duplicate_detail": "Feel24 Feelgood Harstad → DUPLICATE_EXISTING (same address as live Feel24 Harstad Sentrum)",
+    "current_st_p2_categories": {
+      "NEEDS_REVIEW": 31,
+      "NEEDS_COORDINATES": 52,
+      "READY_TO_IMPORT": 50,
+      "SKIP_INCOMPLETE": 1,
+      "DUPLICATE_EXISTING": 1
+    }
+  },
+  "B_soft_postal": {
+    "reviewed": 26,
+    "approved_READY": 26,
+    "rejected_held": 0,
+    "hold_reasons": [],
+    "policy": "Physical street+house+coordinate preferred over postal text match; postal mismatches treated as OSM/boundary/shopping-center formatting.",
+    "names": [
+      "SATS Lillestrøm",
+      "SATS Linderud",
+      "SATS Nesttun",
+      "SATS Oasen",
+      "SATS Sandvika Panorama",
+      "SATS Vestkanten",
+      "SATS Yoga Aker Brygge",
+      "SATS Yoga Majorstuen",
+      "Fresh Fitness Manglerud",
+      "EVO Fitness Ålgård",
+      "EVO Fitness Bryne",
+      "EVO Fitness Heimdal",
+      "EVO Fitness Os",
+      "Feel24 Svolvaer Sentrum",
+      "Feel24 Sandnessjoen Lyngasen",
+      "Feel24 Skjervoy",
+      "Feel24 Stjordal",
+      "Feel24 Buran",
+      "Feel24 Vadso",
+      "3T-Treningssenter Moholt",
+      "MOVA Bergen Kronstad",
+      "MOVA Horten Hovedsenter",
+      "MOVA Kleppe",
+      "SKY Fitness Lisleby",
+      "SKY Fitness Moss Jeloy",
+      "SKY Fitness Randaberg"
+    ]
+  },
+  "C_missing_chains": {
+    "Sporty": {
+      "discovered": 86,
+      "verified_address": 86,
+      "geocoded": 73,
+      "READY": 73,
+      "unresolved": 13,
+      "by_category": {
+        "NEEDS_COORDINATES": 12,
+        "READY_TO_IMPORT": 73,
+        "NEEDS_REVIEW": 1
+      },
+      "official_approx": 103,
+      "notes": "Former Family Sports Club / Aktiv brands staged as brand=Sporty with legacy_brand when applicable. Studio/junk slugs skipped without address."
+    },
+    "Fitness24Seven": {
+      "discovered": 9,
+      "verified_address": 9,
+      "geocoded": 9,
+      "READY": 9,
+      "unresolved": 0,
+      "by_category": {
+        "READY_TO_IMPORT": 9
+      },
+      "official_approx": 9,
+      "notes": "Norwegian pages only; coords mostly from official Google Maps embeds."
+    },
+    "Impulse Treningssenter": {
+      "discovered": 13,
+      "verified_address": 13,
+      "geocoded": 11,
+      "READY": 11,
+      "unresolved": 2,
+      "by_category": {
+        "READY_TO_IMPORT": 11,
+        "NEEDS_COORDINATES": 2
+      },
+      "official_approx": 13,
+      "notes": "Full center-sitemap has 13 URLs; 11 READY, Hommelvik+Melhus unresolved on geocode road-overlap."
+    }
+  },
+  "D_existing_chain_gaps": {
+    "SATS": {
+      "live": 48,
+      "staged_total": 30,
+      "staged_ready": 15,
+      "additional_ready_found": 15,
+      "gap_vs_official_78": "No material new locations beyond soft-postal/unresolved recovery; ~15 still unresolved geocode.",
+      "additional_locations_found": false
+    },
+    "EVO Fitness": {
+      "live": 60,
+      "staged_total": 22,
+      "staged_ready": 16,
+      "additional_ready_found": 16,
+      "gap_vs_official_87": "Live+staged near complete; a few unresolved. No net new chain locations beyond recovery.",
+      "additional_locations_found": false
+    },
+    "Fresh Fitness": {
+      "live": 31,
+      "staged_total": 10,
+      "staged_ready": 4,
+      "additional_ready_found": 4,
+      "additional_locations_found": false
+    },
+    "Feel24": {
+      "live": 83,
+      "staged_total": 29,
+      "staged_ready": 6,
+      "additional_ready_found": 6,
+      "note": "Gymly live+staged count may exceed some official snapshots due to dual listings; 1 duplicate collapsed (Harstad).",
+      "additional_locations_found": false
+    },
+    "MUDO Gym": {
+      "live": 11,
+      "staged_total": 2,
+      "staged_ready": 2,
+      "additional_ready_found": 2,
+      "additional_locations_found": false
+    },
+    "3T-Treningssenter": {
+      "live": 11,
+      "staged_total": 6,
+      "staged_ready": 1,
+      "additional_ready_found": 1,
+      "official_approx": 18,
+      "note": "Live 11 + Moholt READY + 5 unresolved ≈ 17; Teknostallen+Lade already live. Residual gap ≤1, likely naming/count variance.",
+      "additional_locations_found": false
+    },
+    "MOVA": {
+      "live": 69,
+      "staged_total": 23,
+      "staged_ready": 3,
+      "additional_ready_found": 3,
+      "additional_locations_found": false
+    },
+    "SKY Fitness": {
+      "live": 37,
+      "staged_total": 8,
+      "staged_ready": 3,
+      "additional_ready_found": 3,
+      "additional_locations_found": false,
+      "coming_soon": "Moss/Ski autumn 2026 noted — not imported active"
+    },
+    "Spenst": {
+      "live": 17,
+      "staged_total": 4,
+      "staged_ready": 0,
+      "additional_ready_found": 0,
+      "additional_locations_found": false,
+      "coming_soon": "Fredrikstad 2027 noted — not imported active"
+    }
+  },
+  "E_additional_relevant_chains": [
+    {
+      "chain": "Fitnesspoint",
+      "approx_locations": 40,
+      "include_now": true,
+      "staged_geocoded_ready": 25,
+      "unresolved": 15,
+      "notes": "Self-service franchise chain; 40 addresses from fitnesspoint.no; 25 READY after strict geocode."
+    },
+    {
+      "chain": "Feelgood",
+      "approx_locations": 78,
+      "include_now": "Recommended for later phase — distinct folkehelse/motorized-machine concept, not traditional gym floor",
+      "staged_geocoded_ready": 0,
+      "notes": "feelgoodsenter.no; large footprint but different product vs SATS/EVO/Sporty. Not staged in Phase 3."
+    },
+    {
+      "chain": "NEXT",
+      "approx_locations": 22,
+      "include_now": false,
+      "notes": "Being acquired into Sporty Group; avoid double-import under NEXT if already Sporty. Not separately staged."
+    },
+    {
+      "chain": "Puls / Sparta / TrenHer / Sportica / Sport4you / Mer / Instinct / Atletico / Shapes",
+      "approx_locations": "4–7 each",
+      "include_now": "Optional later — regional/smaller; skip for Phase 3 national coverage priority",
+      "staged_geocoded_ready": 0
+    }
+  ],
+  "F_overall_norway_status": {
+    "current_live_norway": 367,
+    "new_READY_TO_IMPORT": 168,
+    "ready_breakdown": {
+      "SATS": 15,
+      "Fresh Fitness": 4,
+      "EVO Fitness": 16,
+      "MUDO Gym": 2,
+      "Feel24": 6,
+      "3T-Treningssenter": 1,
+      "MOVA": 3,
+      "SKY Fitness": 3,
+      "Fitness24Seven": 9,
+      "Impulse Treningssenter": 11,
+      "Sporty": 73,
+      "Fitnesspoint": 25
+    },
+    "unresolved_remaining": 114,
+    "unresolved_breakdown": {
+      "NEEDS_REVIEW": 36,
+      "NEEDS_COORDINATES": 77,
+      "SKIP_INCOMPLETE": 1
+    },
+    "closed_duplicate_removed": 1,
+    "expected_norway_total_after_phase3_merge": 535,
+    "expected_catalog_total_after_merge": 1528
+  },
+  "G_quality_flags": {
+    "soft_postal_approved_but_geocode_status_suspicious": [
+      {
+        "name": "SATS Lillestrøm",
+        "id": "no_89980ad534",
+        "staged_postal": "2000",
+        "lat": 59.952426,
+        "lng": 11.044605
+      },
+      {
+        "name": "SATS Linderud",
+        "id": "no_a134428847",
+        "staged_postal": "0517",
+        "lat": 59.943242,
+        "lng": 10.835473
+      },
+      {
+        "name": "SATS Nesttun",
+        "id": "no_b785822f13",
+        "staged_postal": "5223",
+        "lat": 60.311556,
+        "lng": 5.35447
+      },
+      {
+        "name": "SATS Oasen",
+        "id": "no_9727941eec",
+        "staged_postal": "5881",
+        "lat": 60.348956,
+        "lng": 5.291796
+      },
+      {
+        "name": "SATS Sandvika Panorama",
+        "id": "no_0da06a0f50",
+        "staged_postal": "1338",
+        "lat": 59.886853,
+        "lng": 10.521136
+      },
+      {
+        "name": "SATS Vestkanten",
+        "id": "no_c6985b40b2",
+        "staged_postal": "5881",
+        "lat": 60.36322,
+        "lng": 5.233628
+      },
+      {
+        "name": "SATS Yoga Aker Brygge",
+        "id": "no_6185a15658",
+        "staged_postal": "0520",
+        "lat": 59.910096,
+        "lng": 10.724639
+      },
+      {
+        "name": "SATS Yoga Majorstuen",
+        "id": "no_056002d0e7",
+        "staged_postal": "0368",
+        "lat": 59.9273,
+        "lng": 10.720182
+      },
+      {
+        "name": "Fresh Fitness Manglerud",
+        "id": "no_2274c9720c",
+        "staged_postal": "0612",
+        "lat": 59.89729,
+        "lng": 10.81286
+      },
+      {
+        "name": "EVO Fitness Ålgård",
+        "id": "no_8103a7fc38",
+        "staged_postal": "4330",
+        "lat": 58.770374,
+        "lng": 5.856035
+      },
+      {
+        "name": "EVO Fitness Bryne",
+        "id": "no_73c5b9fba0",
+        "staged_postal": "4340",
+        "lat": 58.734944,
+        "lng": 5.653032
+      },
+      {
+        "name": "EVO Fitness Heimdal",
+        "id": "no_e8ef59cb62",
+        "staged_postal": "7080",
+        "lat": 63.349952,
+        "lng": 10.359564
+      },
+      {
+        "name": "EVO Fitness Os",
+        "id": "no_632f94833e",
+        "staged_postal": "5200",
+        "lat": 60.20463,
+        "lng": 5.449656
+      },
+      {
+        "name": "Feel24 Svolvaer Sentrum",
+        "id": "no_7f16f3df9e",
+        "staged_postal": "8300",
+        "lat": 68.235655,
+        "lng": 14.563358
+      },
+      {
+        "name": "Feel24 Sandnessjoen Lyngasen",
+        "id": "no_9674abb772",
+        "staged_postal": "8800",
+        "lat": 66.008572,
+        "lng": 12.58112
+      },
+      {
+        "name": "Feel24 Skjervoy",
+        "id": "no_5498242b28",
+        "staged_postal": "9180",
+        "lat": 70.03066,
+        "lng": 20.970454
+      },
+      {
+        "name": "Feel24 Stjordal",
+        "id": "no_907fd70dd6",
+        "staged_postal": "7501",
+        "lat": 63.469112,
+        "lng": 10.923203
+      },
+      {
+        "name": "Feel24 Buran",
+        "id": "no_85e7a89f76",
+        "staged_postal": "7043",
+        "lat": 63.436084,
+        "lng": 10.423403
+      },
+      {
+        "name": "Feel24 Vadso",
+        "id": "no_eb069ea386",
+        "staged_postal": "9800",
+        "lat": 70.080882,
+        "lng": 29.701091
+      },
+      {
+        "name": "3T-Treningssenter Moholt",
+        "id": "no_78f9f6283e",
+        "staged_postal": "7048",
+        "lat": 63.410259,
+        "lng": 10.445038
+      },
+      {
+        "name": "MOVA Bergen Kronstad",
+        "id": "no_dfc6a8b93c",
+        "staged_postal": "5059",
+        "lat": 60.373091,
+        "lng": 5.340983
+      },
+      {
+        "name": "MOVA Horten Hovedsenter",
+        "id": "no_9f831866d8",
+        "staged_postal": "3186",
+        "lat": 59.400639,
+        "lng": 10.46085
+      },
+      {
+        "name": "MOVA Kleppe",
+        "id": "no_10b59f3e09",
+        "staged_postal": "4352",
+        "lat": 58.779313,
+        "lng": 5.626292
+      },
+      {
+        "name": "SKY Fitness Lisleby",
+        "id": "no_53f1e7151f",
+        "staged_postal": "1604",
+        "lat": 59.232352,
+        "lng": 10.977608
+      },
+      {
+        "name": "SKY Fitness Moss Jeloy",
+        "id": "no_92af241728",
+        "staged_postal": "1511",
+        "lat": 59.433994,
+        "lng": 10.648161
+      },
+      {
+        "name": "SKY Fitness Randaberg",
+        "id": "no_3c1dd36ce0",
+        "staged_postal": "4096",
+        "lat": 59.00379,
+        "lng": 5.631091
+      }
+    ],
+    "fitness24seven_haugenstua": {
+      "name": "Fitness24Seven Oslo Haugenstua",
+      "address": "Garver Ytteborgs vei 98",
+      "note": "Official F24 page + embedded Google Maps query use vei 98 / 0977 Oslo. House number looks unusual vs common 'vei 9' memory but matches official source; keep READY with awareness flag.",
+      "coord_source": "official_google_maps_query"
+    },
+    "same_address_multi_brand": [
+      {
+        "note": "SATS Triaden + MUDO Gym Lørenskog share Gamleveien 88 / same coords — co-located brands, both valid"
+      }
+    ],
+    "ambiguous_geocode_kept_out": [
+      {
+        "name": "SATS Bekkestua",
+        "brand": "SATS",
+        "address": "Gamle Ringeriksvei 34c",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "SATS Hellerud",
+        "brand": "SATS",
+        "address": "Tvetenveien 168-170",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "SATS Nydalen",
+        "brand": "SATS",
+        "address": "Sandakerveien 109-111",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "SATS Sandnes",
+        "brand": "SATS",
+        "address": "Vågsgata 16",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "SATS Vinderen",
+        "brand": "SATS",
+        "address": "Slemdalsveien 70",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Fresh Fitness Ås",
+        "brand": "Fresh Fitness",
+        "address": "Moerveien 8",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Fresh Fitness Jessheim",
+        "brand": "Fresh Fitness",
+        "address": "Trondheimsvegen 85",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Fresh Fitness Vågsbygd Lumber",
+        "brand": "Fresh Fitness",
+        "address": "Lumberveien 5-7",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "EVO Fitness Teisen",
+        "brand": "EVO Fitness",
+        "address": "Ole Deviks vei 6",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "EVO Fitness Gressvik",
+        "brand": "EVO Fitness",
+        "address": "Storveien 81",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "EVO Fitness Horten",
+        "brand": "EVO Fitness",
+        "address": "Strandparken 3-5",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 Tromsø Sportssenter",
+        "brand": "Feel24",
+        "address": "Stakkevollvegen 65B",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 Tromsø The Box",
+        "brand": "Feel24",
+        "address": "Stakkevollvegen 11",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 Bodø Olav V",
+        "brand": "Feel24",
+        "address": "Olav V gate 102",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 Bjerkvik",
+        "brand": "Feel24",
+        "address": "Trollvikveien 32",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 Narvik Sentrum",
+        "brand": "Feel24",
+        "address": "Kongens gate 52/54",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 TreningssenterFeel24 Skytta Gjelleråsen",
+        "brand": "Feel24",
+        "address": "Brennaveien 4",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 Brobekk Vollebekk",
+        "brand": "Feel24",
+        "address": "Brobekkveien 31",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Feel24 Okern Brobekk",
+        "brand": "Feel24",
+        "address": "Lundliveien 11",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "3T-Treningssenter Solsiden",
+        "brand": "3T-Treningssenter",
+        "address": "Dyre Halses gate 1",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "MOVA Agotnes Torg",
+        "brand": "MOVA",
+        "address": "Skjergardsvegen 1362",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "MOVA Moss Sentrum",
+        "brand": "MOVA",
+        "address": "Storgata 28",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "MOVA Raufoss Sentrum",
+        "brand": "MOVA",
+        "address": "Storgata 25",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "MOVA Sorumsand Park",
+        "brand": "MOVA",
+        "address": "Sørumsandvegen 66",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "SKY Fitness Greaker",
+        "brand": "SKY Fitness",
+        "address": "Greåkerveien 145-147",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "SKY Fitness Sarpsborg Borgenhaugen",
+        "brand": "SKY Fitness",
+        "address": "Skjebergveien 5",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "SKY Fitness Torp",
+        "brand": "SKY Fitness",
+        "address": "Torpegata 8A",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Spenst Halden",
+        "brand": "Spenst",
+        "address": "Walkers gate 10",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Spenst Kongsberg",
+        "brand": "Spenst",
+        "address": "Reins gate 2",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Sporty Molde Reknes",
+        "brand": "Sporty",
+        "address": "Julsundvegen 49",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Fitnesspoint Brenneriroa Løten",
+        "brand": "Fitnesspoint",
+        "address": "Budorvegen 2",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Fitnesspoint Råholt",
+        "brand": "Fitnesspoint",
+        "address": "Gladbakkvegen 2",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Fitnesspoint Skogn",
+        "brand": "Fitnesspoint",
+        "address": "Åsvegen 16",
+        "reason": "multiple_strong_candidates"
+      },
+      {
+        "name": "Fitnesspoint Sunndalsøra",
+        "brand": "Fitnesspoint",
+        "address": "Sunndalsvegen 16",
+        "reason": "multiple_strong_candidates"
+      }
+    ],
+    "weak_or_incomplete_addresses": [
+      {
+        "name": "EVO Fitness Sandnes",
+        "brand": "EVO Fitness",
+        "address": "Erling Skjalgssons gate 2a",
+        "category": "SKIP_INCOMPLETE"
+      },
+      {
+        "name": "Feel24 Tromsø Fløylia",
+        "brand": "Feel24",
+        "address": "",
+        "category": "NEEDS_REVIEW"
+      },
+      {
+        "name": "Feel24 Stormyra Panorama",
+        "brand": "Feel24",
+        "address": "",
+        "category": "NEEDS_REVIEW"
+      }
+    ],
+    "impulse_hommelvik_melhus": "Official street addresses found but Nominatim failed road-overlap checks (Havneveien/Havnevegen spelling; Melhusveien/Melhusvegen). Left unresolved rather than force coords.",
+    "sporty_coverage_gap": "Official/Sporty Group claim ~103–107 clubs; Phase 3 staged 86 with addresses (73 READY). Remaining ~17–21 not yet discovered or failed geocode — do not invent."
+  },
+  "H_files": {
+    "staging_updated": [
+      "data/norway/norway_centers_staging.json",
+      "data/norway/phase2_new_centers_staging.json",
+      "data/norway/phase3/phase3_new_centers_staging.json"
+    ],
+    "phase3_artifacts": [
+      "data/norway/phase3/chain_gap_audit.json",
+      "data/norway/phase3/coming_soon_notes.json",
+      "data/norway/phase3/discovery_run.log",
+      "data/norway/phase3/enrich_chains_run.log",
+      "data/norway/phase3/fitness24seven_norway.json",
+      "data/norway/phase3/fitness24seven_scrape.json",
+      "data/norway/phase3/fitnesspoint_norway.json",
+      "data/norway/phase3/followup_run.log",
+      "data/norway/phase3/geocode_run.log",
+      "data/norway/phase3/geocode_run2.log",
+      "data/norway/phase3/impulse_norway.json",
+      "data/norway/phase3/impulse_scrape.json",
+      "data/norway/phase3/inventory_NEEDS_COORDINATES.json",
+      "data/norway/phase3/inventory_NEEDS_REVIEW.json",
+      "data/norway/phase3/inventory_SKIP_INCOMPLETE.json",
+      "data/norway/phase3/inventory_SOFT_POSTAL_WITHHELD.json",
+      "data/norway/phase3/inventory_summary.json",
+      "data/norway/phase3/needs_review_classification.json",
+      "data/norway/phase3/phase3_address_fixes.json",
+      "data/norway/phase3/phase3_discovery_summary.json",
+      "data/norway/phase3/phase3_duplicate_analysis.json",
+      "data/norway/phase3/phase3_geocode_review.json",
+      "data/norway/phase3/phase3_new_centers_staging.json",
+      "data/norway/phase3/skip_incomplete_resolution.json",
+      "data/norway/phase3/soft_postal_decisions.json",
+      "data/norway/phase3/sporty_next_samples.json",
+      "data/norway/phase3/sporty_norway.json",
+      "data/norway/phase3/sporty_scrape.json"
+    ],
+    "scripts": [
+      "scripts/norway-phase3-inventory.py",
+      "scripts/norway-phase3-discover.py",
+      "scripts/norway-phase3-enrich-chains.py",
+      "scripts/norway-phase3-dedupe.py",
+      "scripts/norway-phase3-followup.py",
+      "scripts/import-norway-centers.mjs (--geocode-phase3)"
+    ],
+    "not_modified": [
+      "src/data/centers.json"
+    ]
+  }
+}

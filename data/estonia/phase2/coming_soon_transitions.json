@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ee_d6f5429ffa",
+    "name": "24-7 Fitness Pirita",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "24-7fitness.ee — Avame oktoober 2026; not yet open",
+    "decision_reason": "24-7fitness.ee — Avame oktoober 2026; not yet open"
+  },
+  {
+    "id": "ee_525d7cb043",
+    "name": "24-7 Fitness Annelinn",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "24-7fitness.ee — Avame sügis 2026; Annelinn branch not yet open",
+    "decision_reason": "24-7fitness.ee — Avame sügis 2026; Annelinn branch not yet open"
+  },
+  {
+    "id": "ee_5c173a5f8b",
+    "name": "24-7 Fitness Mai",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "24-7fitness.ee — Avame sügis 2026; Mai/Papiniidu branch not yet open",
+    "decision_reason": "24-7fitness.ee — Avame sügis 2026; Mai/Papiniidu branch not yet open"
+  },
+  {
+    "id": "ee_05114ce91a",
+    "name": "Gym! Viimsi",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "gymeesti.ee/klubid — Viimsi listed; autumn 2026 opening; not yet operational",
+    "decision_reason": "gymeesti.ee/klubid — Viimsi listed; autumn 2026 opening; not yet operational"
+  },
+  {
+    "id": "ee_cc255a409d",
+    "name": "Gym! Rakvere",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "gymeesti.ee/klubid — Rakvere listed; end-2026 opening; not yet operational",
+    "decision_reason": "gymeesti.ee/klubid — Rakvere listed; end-2026 opening; not yet operational"
+  }
+]

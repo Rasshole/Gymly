@@ -1,0 +1,2 @@
+OPEN 15 CS 2
+SOURCE https://gymeesti.ee/klubid/

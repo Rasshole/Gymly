@@ -1,0 +1,756 @@
+{
+  "country": "Malta",
+  "phase": 1,
+  "deep_phase": true,
+  "generated_at": "2026-08-29T14:07:14.135391+00:00",
+  "production_total": 11923,
+  "production_sha256": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "baseline_malta": 18,
+  "baseline_mt_prefix": 18,
+  "malta_live": 18,
+  "mt_prefix_live": 18,
+  "existing_malta_production": true,
+  "unique_staged": 101,
+  "status_counts": {
+    "READY_TO_IMPORT": 18,
+    "NEEDS_REVIEW": 40,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 1,
+    "EXCLUDED": 39,
+    "CLOSED": 3
+  },
+  "ready_count": 18,
+  "ready_already_in_production": 18,
+  "genuinely_new_ready": 0,
+  "ready_by_brand": {
+    "24/7 Fitness Club": 4,
+    "Best Gyms Malta": 10,
+    "Challenger Fitness": 4
+  },
+  "brand_counts": {
+    "24/7 Fitness Club": 6,
+    "ActiveZone": 1,
+    "Anytime Fitness": 1,
+    "Basic-Fit": 1,
+    "Best Gyms Malta": 12,
+    "Build Gym": 1,
+    "Challenger Fitness": 5,
+    "Cynergi": 1,
+    "Elite Gym": 1,
+    "FITINN": 1,
+    "Fitness Factory": 1,
+    "Fitness First": 1,
+    "Fitness Park": 1,
+    "Fitness Point": 1,
+    "Fitness24Seven": 1,
+    "Fort Fitness": 2,
+    "Gold's Gym": 1,
+    "Gym!": 1,
+    "Impuls": 1,
+    "JIMS": 1,
+    "JOHN REED": 1,
+    "Keep Cool": 1,
+    "Kinetika Gozo": 2,
+    "L'Orange Bleue": 1,
+    "Lemon Gym": 1,
+    "LivingWell": 1,
+    "Marion Mizzi Wellbeing": 3,
+    "McFIT": 1,
+    "Municipal audit": 39,
+    "MyFitness": 1,
+    "PureGym": 1,
+    "Snap Fitness": 1,
+    "Street Elements": 1,
+    "Tal-Qroqq Fitness Centre": 1,
+    "The Gym": 1,
+    "Virgin Active": 1,
+    "Warehouse Fitness": 1,
+    "World Class": 1,
+    "clever fit": 1
+  },
+  "market_model": "CHAIN_LED",
+  "postcode_model": "AAA NNNN (3-letter locality + 4 digits)",
+  "class_a_chain_count": 3,
+  "class_a_chain_names": [
+    "Best Gyms Malta",
+    "24/7 Fitness Club",
+    "Challenger Fitness"
+  ],
+  "existing_production_reconciliation": {
+    "existing_production_count": 18,
+    "phase1_ready_count": 18,
+    "exact_id_overlap": 18,
+    "ready_already_in_production": [
+      "mt_134787b308",
+      "mt_26579c8193",
+      "mt_26d7f37a30",
+      "mt_6175c7910d",
+      "mt_7e23dc11d2",
+      "mt_8d626df0f2",
+      "mt_963f710969",
+      "mt_9e7f8497b0",
+      "mt_aadaefb25f",
+      "mt_af9179a385",
+      "mt_b45a78a4f0",
+      "mt_b8747c67db",
+      "mt_cd0c2182e4",
+      "mt_ce1047cd1d",
+      "mt_d0c227df18",
+      "mt_e4b83e61b9",
+      "mt_e88a8cf7e9",
+      "mt_f0f72dec5a"
+    ],
+    "ready_missing_from_production": [],
+    "production_not_in_phase1_ready": [],
+    "material_metadata_drift": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "city_coverage": {
+    "cities": {
+      "Valletta": "A",
+      "Floriana": "B",
+      "Sliema": "A",
+      "St Julian's": "A",
+      "Gżira": "A",
+      "Msida": "B",
+      "Ta' Xbiex": "B",
+      "Pietà": "B",
+      "Birkirkara": "A",
+      "Swatar": "B",
+      "San Ġwann": "A",
+      "Pembroke": "A",
+      "Swieqi": "B",
+      "Iklin": "B",
+      "Lija": "B",
+      "Balzan": "B",
+      "Attard": "A",
+      "Mosta": "A",
+      "Naxxar": "B",
+      "Għargħur": "B",
+      "Mellieħa": "A",
+      "St Paul's Bay": "A",
+      "Rabat": "B",
+      "Mdina": "B",
+      "Żebbuġ": "A",
+      "Qormi": "A",
+      "Ħamrun": "B",
+      "Santa Venera": "B",
+      "Marsa": "A",
+      "Paola": "B",
+      "Tarxien": "B",
+      "Fgura": "B",
+      "Żabbar": "B",
+      "Żejtun": "B",
+      "Marsaskala": "A",
+      "Marsaxlokk": "B",
+      "Birgu": "B",
+      "Bormla": "A",
+      "Senglea": "B",
+      "Kalkara": "B",
+      "Luqa": "B",
+      "Gudja": "B",
+      "Żurrieq": "B",
+      "Safi": "B",
+      "Kirkop": "A",
+      "Mqabba": "B",
+      "Siġġiewi": "B",
+      "Birżebbuġa": "A",
+      "Victoria": "B",
+      "Xewkija": "B",
+      "Għajnsielem": "B",
+      "Nadur": "B",
+      "Qala": "B",
+      "Marsalforn": "B",
+      "Xagħra": "B",
+      "Xlendi": "B",
+      "Sannat": "B",
+      "Comino": "B"
+    },
+    "ready_by_city": {
+      "Mellieħa": 1,
+      "San Ġwann": 1,
+      "Attard": 1,
+      "Żebbuġ": 1,
+      "Sliema": 1,
+      "Birżebbuġa": 1,
+      "Marsa": 1,
+      "Birkirkara": 1,
+      "St Paul's Bay": 1,
+      "Kirkop": 1,
+      "Mosta": 1,
+      "St Julian's": 1,
+      "Pembroke": 1,
+      "Gżira": 1,
+      "Marsaskala": 1,
+      "Bormla": 1,
+      "Qormi": 1,
+      "Valletta": 1
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0,
+    "gozo_material_d_gaps": []
+  },
+  "chain_audit": {
+    "country": "Malta",
+    "phase": 1,
+    "market_model": "CHAIN_LED",
+    "chains": [
+      {
+        "brand": "Best Gyms Malta",
+        "official_open_active": 10,
+        "qualifying_active": 10,
+        "ready": 10,
+        "coming_soon": 1,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "mt_963f710969",
+            "name": "BGM Birżebbuġa Fitness",
+            "address": "Birżebbuġa Aquatic Sports Club, Triq il-Bajja s-Sabiħa",
+            "city": "Birżebbuġa",
+            "postal_code": "BBG 1758",
+            "lat": 35.825742184357566,
+            "lng": 14.530771255818989,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_af9179a385",
+            "name": "BGM Marsa Fitness Centre",
+            "address": "Marsa Sports Complex, Triq Aldo Moro",
+            "city": "Marsa",
+            "postal_code": "MRS 9065",
+            "lat": 35.876501,
+            "lng": 14.493171,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_e4b83e61b9",
+            "name": "Best Gyms Sliema",
+            "address": "The Point Shopping Mall, Tigné Point",
+            "city": "Sliema",
+            "postal_code": "TPO 0001",
+            "lat": 35.907312012656334,
+            "lng": 14.51097539660994,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_ce1047cd1d",
+            "name": "Birkirkara Fitness Centre",
+            "address": "St Aloysius' College, Triq Xorrox / Triq il-Kulleġġ",
+            "city": "Birkirkara",
+            "postal_code": "BKR 1610",
+            "lat": 35.894646617727055,
+            "lng": 14.459193194765401,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_b45a78a4f0",
+            "name": "Build Fitness Centre",
+            "address": "Sirens ASC, Triq San Ġeraldu",
+            "city": "St Paul's Bay",
+            "postal_code": "SPB 3310",
+            "lat": 35.94966135283006,
+            "lng": 14.403839567776476,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_b8747c67db",
+            "name": "Kirkop Fitness Centre",
+            "address": "Kirkop Sports Complex, Triq Raffaele Caruana",
+            "city": "Kirkop",
+            "postal_code": "KKP 1370",
+            "lat": 35.83861653083825,
+            "lng": 14.485285581268107,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_f0f72dec5a",
+            "name": "Mosta Fitness Centre",
+            "address": "Triq il-Ballut",
+            "city": "Mosta",
+            "postal_code": "MST 9055",
+            "lat": 35.915301120339365,
+            "lng": 14.424128996610273,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_9e7f8497b0",
+            "name": "Neptunes Fitness Centre",
+            "address": "Neptunes Waterpolo Complex, Triq Ċensu Tabone",
+            "city": "St Julian's",
+            "postal_code": "STJ 1089",
+            "lat": 35.91540246582352,
+            "lng": 14.49345285427998,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_aadaefb25f",
+            "name": "Pembroke Fitness Centre",
+            "address": "Pjazza 1902, Triq Dun Ġużepp Farrugia",
+            "city": "Pembroke",
+            "postal_code": "SWQ 2030",
+            "lat": 35.92450925868331,
+            "lng": 14.476937138940775,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_134787b308",
+            "name": "Tal-Qroqq Fitness Centre",
+            "address": "National Pool Complex, Triq Maria Teresa Spinelli",
+            "city": "Gżira",
+            "postal_code": "GZR 1713",
+            "lat": 35.90381858040224,
+            "lng": 14.488096194179404,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "24/7 Fitness Club",
+        "official_open_active": 4,
+        "qualifying_active": 4,
+        "ready": 4,
+        "coming_soon": 0,
+        "closed": 2,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "mt_e88a8cf7e9",
+            "name": "24/7 Fitness Club Mellieħa",
+            "address": "Triq Edward Camilleri",
+            "city": "Mellieħa",
+            "postal_code": "MLH 1107",
+            "lat": 35.9574817,
+            "lng": 14.360256,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_d0c227df18",
+            "name": "24/7 Fitness Club San Ġwann",
+            "address": "Triq il-Kampanella / Vjal ir-Riħan (next to San Ġwann football ground)",
+            "city": "San Ġwann",
+            "postal_code": "SGN 9018",
+            "lat": 35.90915183200548,
+            "lng": 14.474235277458817,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_8d626df0f2",
+            "name": "24/7 Fitness Club Ta' Qali",
+            "address": "National Stadium, Millennium Stand, Ta' Qali",
+            "city": "Attard",
+            "postal_code": "ATD 4000",
+            "lat": 35.894823821196134,
+            "lng": 14.415645560130647,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_7e23dc11d2",
+            "name": "24/7 Fitness Club Żebbuġ",
+            "address": "Triq il-Maestro Frank Galea (industrial area)",
+            "city": "Żebbuġ",
+            "postal_code": "ZBG 9019",
+            "lat": 35.8740872,
+            "lng": 14.4571502,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Challenger Fitness",
+        "official_open_active": 4,
+        "qualifying_active": 4,
+        "ready": 4,
+        "coming_soon": 0,
+        "closed": 1,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "mt_cd0c2182e4",
+            "name": "Challenger Elite Fitness Marsaskala",
+            "address": "Triq San Ġużepp / Ta' Monita Pjazza",
+            "city": "Marsaskala",
+            "postal_code": "MSK 1015",
+            "lat": 35.8678317,
+            "lng": 14.5655914,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_26579c8193",
+            "name": "Challenger Fitness Centre Cottonera",
+            "address": "Cottonera Sports Complex, Cottoner Avenue (Triq il-Kottonera)",
+            "city": "Bormla",
+            "postal_code": "BML 9020",
+            "lat": 35.8805184,
+            "lng": 14.5274836,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_6175c7910d",
+            "name": "Challenger Fitness Centre Qormi",
+            "address": "Triq il-Kanun (Cannon Road)",
+            "city": "Qormi",
+            "postal_code": "QRM 9030",
+            "lat": 35.8865533,
+            "lng": 14.4752835,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_26d7f37a30",
+            "name": "Challenger Fitness Centre Valletta",
+            "address": "Triq San Żakkarija (Zachary Street)",
+            "city": "Valletta",
+            "postal_code": "VLT 1111",
+            "lat": 35.8969204,
+            "lng": 14.5114501,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "probes_investigated": [
+      {
+        "chain": "Best Gyms Malta",
+        "action": "CLASS_A_COMPLETE_OPEN",
+        "evidence": "10/10 open in production; Birgu COMING_SOON"
+      },
+      {
+        "chain": "24/7 Fitness Club",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "4/4 official clubs in production"
+      },
+      {
+        "chain": "Challenger Fitness",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "4/4 official clubs in production; Paceville legacy CLOSED"
+      },
+      {
+        "chain": "Fort Fitness",
+        "action": "EXCLUDED_CLASS_E",
+        "evidence": "2 sites — below ≥3 threshold"
+      },
+      {
+        "chain": "Kinetika Gozo",
+        "action": "EXCLUDED_CLASS_E",
+        "evidence": "2 Gozo sites — below threshold"
+      },
+      {
+        "chain": "Cynergi",
+        "action": "EXCLUDED_CLASS_E",
+        "evidence": "Single large club"
+      },
+      {
+        "chain": "ActiveZone",
+        "action": "EXCLUDED_CLASS_E",
+        "evidence": "Single location"
+      },
+      {
+        "chain": "Marion Mizzi Wellbeing",
+        "action": "EXCLUDED_WELLNESS",
+        "evidence": "Spa/hotel wellness network"
+      },
+      {
+        "chain": "Anytime/Snap/Basic-Fit/PureGym/McFIT/FITINN/clever fit/Gold's/World Class/Virgin Active",
+        "action": "ABSENT",
+        "evidence": "No Malta presence"
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 3,
+      "final_class_a_ready_count": 18,
+      "chain_estate_gaps": 0
+    }
+  },
+  "chain_estate_audit": {
+    "chains": [
+      {
+        "brand": "Best Gyms Malta",
+        "official_open_active": 10,
+        "qualifying_active": 10,
+        "ready": 10,
+        "coming_soon": 1,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "mt_963f710969",
+            "name": "BGM Birżebbuġa Fitness",
+            "address": "Birżebbuġa Aquatic Sports Club, Triq il-Bajja s-Sabiħa",
+            "city": "Birżebbuġa",
+            "postal_code": "BBG 1758",
+            "lat": 35.825742184357566,
+            "lng": 14.530771255818989,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_af9179a385",
+            "name": "BGM Marsa Fitness Centre",
+            "address": "Marsa Sports Complex, Triq Aldo Moro",
+            "city": "Marsa",
+            "postal_code": "MRS 9065",
+            "lat": 35.876501,
+            "lng": 14.493171,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_e4b83e61b9",
+            "name": "Best Gyms Sliema",
+            "address": "The Point Shopping Mall, Tigné Point",
+            "city": "Sliema",
+            "postal_code": "TPO 0001",
+            "lat": 35.907312012656334,
+            "lng": 14.51097539660994,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_ce1047cd1d",
+            "name": "Birkirkara Fitness Centre",
+            "address": "St Aloysius' College, Triq Xorrox / Triq il-Kulleġġ",
+            "city": "Birkirkara",
+            "postal_code": "BKR 1610",
+            "lat": 35.894646617727055,
+            "lng": 14.459193194765401,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_b45a78a4f0",
+            "name": "Build Fitness Centre",
+            "address": "Sirens ASC, Triq San Ġeraldu",
+            "city": "St Paul's Bay",
+            "postal_code": "SPB 3310",
+            "lat": 35.94966135283006,
+            "lng": 14.403839567776476,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_b8747c67db",
+            "name": "Kirkop Fitness Centre",
+            "address": "Kirkop Sports Complex, Triq Raffaele Caruana",
+            "city": "Kirkop",
+            "postal_code": "KKP 1370",
+            "lat": 35.83861653083825,
+            "lng": 14.485285581268107,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_f0f72dec5a",
+            "name": "Mosta Fitness Centre",
+            "address": "Triq il-Ballut",
+            "city": "Mosta",
+            "postal_code": "MST 9055",
+            "lat": 35.915301120339365,
+            "lng": 14.424128996610273,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_9e7f8497b0",
+            "name": "Neptunes Fitness Centre",
+            "address": "Neptunes Waterpolo Complex, Triq Ċensu Tabone",
+            "city": "St Julian's",
+            "postal_code": "STJ 1089",
+            "lat": 35.91540246582352,
+            "lng": 14.49345285427998,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_aadaefb25f",
+            "name": "Pembroke Fitness Centre",
+            "address": "Pjazza 1902, Triq Dun Ġużepp Farrugia",
+            "city": "Pembroke",
+            "postal_code": "SWQ 2030",
+            "lat": 35.92450925868331,
+            "lng": 14.476937138940775,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_134787b308",
+            "name": "Tal-Qroqq Fitness Centre",
+            "address": "National Pool Complex, Triq Maria Teresa Spinelli",
+            "city": "Gżira",
+            "postal_code": "GZR 1713",
+            "lat": 35.90381858040224,
+            "lng": 14.488096194179404,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "24/7 Fitness Club",
+        "official_open_active": 4,
+        "qualifying_active": 4,
+        "ready": 4,
+        "coming_soon": 0,
+        "closed": 2,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "mt_e88a8cf7e9",
+            "name": "24/7 Fitness Club Mellieħa",
+            "address": "Triq Edward Camilleri",
+            "city": "Mellieħa",
+            "postal_code": "MLH 1107",
+            "lat": 35.9574817,
+            "lng": 14.360256,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_d0c227df18",
+            "name": "24/7 Fitness Club San Ġwann",
+            "address": "Triq il-Kampanella / Vjal ir-Riħan (next to San Ġwann football ground)",
+            "city": "San Ġwann",
+            "postal_code": "SGN 9018",
+            "lat": 35.90915183200548,
+            "lng": 14.474235277458817,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_8d626df0f2",
+            "name": "24/7 Fitness Club Ta' Qali",
+            "address": "National Stadium, Millennium Stand, Ta' Qali",
+            "city": "Attard",
+            "postal_code": "ATD 4000",
+            "lat": 35.894823821196134,
+            "lng": 14.415645560130647,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_7e23dc11d2",
+            "name": "24/7 Fitness Club Żebbuġ",
+            "address": "Triq il-Maestro Frank Galea (industrial area)",
+            "city": "Żebbuġ",
+            "postal_code": "ZBG 9019",
+            "lat": 35.8740872,
+            "lng": 14.4571502,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Challenger Fitness",
+        "official_open_active": 4,
+        "qualifying_active": 4,
+        "ready": 4,
+        "coming_soon": 0,
+        "closed": 1,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "estate_completeness": "COMPLETE",
+        "locations": [
+          {
+            "id": "mt_cd0c2182e4",
+            "name": "Challenger Elite Fitness Marsaskala",
+            "address": "Triq San Ġużepp / Ta' Monita Pjazza",
+            "city": "Marsaskala",
+            "postal_code": "MSK 1015",
+            "lat": 35.8678317,
+            "lng": 14.5655914,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_26579c8193",
+            "name": "Challenger Fitness Centre Cottonera",
+            "address": "Cottonera Sports Complex, Cottoner Avenue (Triq il-Kottonera)",
+            "city": "Bormla",
+            "postal_code": "BML 9020",
+            "lat": 35.8805184,
+            "lng": 14.5274836,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_6175c7910d",
+            "name": "Challenger Fitness Centre Qormi",
+            "address": "Triq il-Kanun (Cannon Road)",
+            "city": "Qormi",
+            "postal_code": "QRM 9030",
+            "lat": 35.8865533,
+            "lng": 14.4752835,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "mt_26d7f37a30",
+            "name": "Challenger Fitness Centre Valletta",
+            "address": "Triq San Żakkarija (Zachary Street)",
+            "city": "Valletta",
+            "postal_code": "VLT 1111",
+            "lat": 35.8969204,
+            "lng": 14.5114501,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 3,
+      "final_class_a_ready_count": 18,
+      "chain_estate_gaps": 0
+    }
+  },
+  "cross_border": {
+    "malta_ready_outliers": 0,
+    "italy_ready_outliers": 0,
+    "sicily_ready_outliers": 0,
+    "other_foreign_ready_outliers": 0
+  },
+  "geocode_audit": {
+    "premises_coords": 18,
+    "fallback_coords": 0,
+    "centroid_coords": 0,
+    "missing_coords": 0
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "identity_conflicts": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 0,
+      "identical": 0
+    }
+  },
+  "specialist_ready_leakage": 0,
+  "institutional_ready_leakage": 0,
+  "hotel_resort_ready_leakage": 0,
+  "invalid_wellness_additive": 0,
+  "new_candidates_from_final_sweep": 0,
+  "projected_catalog_after_future_merge": 11923,
+  "actual_potential_new_delta": 0,
+  "projected_remaining_headroom": 577,
+  "projected_crosses_12500": false,
+  "global_stress_qa_will_be_required_after_future_merge": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "malta_infrastructure_present": true,
+  "malta_infrastructure_gaps": [],
+  "phase2_required": true,
+  "unresolved_rebrand_conflicts": 1,
+  "verdict": "MALTA PHASE 2 REQUIRED — EXISTING PRODUCTION RECONCILIATION"
+}

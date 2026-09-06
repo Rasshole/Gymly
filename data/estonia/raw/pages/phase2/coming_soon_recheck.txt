@@ -1,0 +1,79 @@
+{
+  "checked_at": "2026-08-25T17:46:28.777328+00:00",
+  "phase1_cs_rechecked": [
+    {
+      "id": "ee_d6f5429ffa",
+      "name": "24-7 Fitness Pirita",
+      "promoted": false,
+      "status": "COMING_SOON",
+      "opening_label": "Avame sügis 2026!",
+      "address": "Merivälja tee 33"
+    },
+    {
+      "id": "ee_525d7cb043",
+      "name": "24-7 Fitness Annelinn",
+      "promoted": false,
+      "status": "COMING_SOON",
+      "opening_label": "Avame sügis 2026!",
+      "address": "Mõisavahe 33"
+    },
+    {
+      "id": "ee_5c173a5f8b",
+      "name": "24-7 Fitness Mai",
+      "promoted": false,
+      "status": "COMING_SOON",
+      "opening_label": "Avame sügis 2026!",
+      "address": "Papiniidu 50"
+    },
+    {
+      "id": "ee_05114ce91a",
+      "name": "Gym! Viimsi",
+      "promoted": false,
+      "status": "COMING_SOON",
+      "opening_label": "Avame juba 2026. aasta sügisel!",
+      "address": "Randvere tee 6"
+    },
+    {
+      "id": "ee_cc255a409d",
+      "name": "Gym! Rakvere",
+      "promoted": false,
+      "status": "COMING_SOON",
+      "opening_label": "Avame juba 2026. aasta lõpus!",
+      "address": "Võidu 99"
+    }
+  ],
+  "phase1_cs_promoted": 0,
+  "new_coming_soon_added": [
+    {
+      "id": "ee_204834f0ca",
+      "name": "24-7 Fitness Õismäe",
+      "opening_label": "Avame sügisel!"
+    },
+    {
+      "id": "ee_fd8bbdf6cb",
+      "name": "24-7 Fitness Kompassi",
+      "opening_label": "Avame jaanuaris!"
+    },
+    {
+      "id": "ee_e4aba62219",
+      "name": "24-7 Fitness Viimsi",
+      "opening_label": "Avame 2027 suvel!"
+    },
+    {
+      "id": "ee_31338a0b74",
+      "name": "24-7 Fitness Laagri",
+      "opening_label": "Avame 2027 detsembris!"
+    },
+    {
+      "id": "ee_16eaf19854",
+      "name": "24-7 Fitness Ilmatsalu",
+      "opening_label": "Avame jõusaali detsembris!"
+    },
+    {
+      "id": "ee_2344545426",
+      "name": "24-7 Fitness Rapla",
+      "opening_label": "Avame 2027 kevadel!"
+    }
+  ],
+  "verdict": "All Phase1 COMING_SOON remain future; 6 newly announced 24-7 CS staged"
+}

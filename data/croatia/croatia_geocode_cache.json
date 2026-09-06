@@ -1,0 +1,695 @@
+{
+  "hr|ulica matice hrvatske 15, 21000, split, 21000, split, croatia": null,
+  "hr|ozaljska ul. 95, 10000, zagreb, hrvatska, 10000, zagreb, croatia": null,
+  "hr|zavrtnica 17, 10000, zagreb, croatia": {
+    "lat": 45.8076169,
+    "lng": 15.9998805,
+    "display_name": "Objekat 7, 17, Zavrtnica, Mjesni odbor Kanal, Gradska četvrt Trnje, Zagreb, Grad Zagreb, 10240, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10240",
+    "country_code": "hr"
+  },
+  "hr|letovanićka ulica 25, 10000, zagreb, croatia": {
+    "lat": 45.7852075,
+    "lng": 16.007248,
+    "display_name": "Letovanićka ulica, Borovje, Mjesni odbor Savica Šanci, Gradska četvrt Peščenica - Žitnjak, Zagreb, Grad Zagreb, 10121, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10121",
+    "country_code": "hr"
+  },
+  "hr|ulica kneza branimira 29, mingle mall, 10000, zagreb, croatia": null,
+  "hr|gradišćanska ulica 36, 10000, zagreb, croatia": {
+    "lat": 45.8103522,
+    "lng": 15.9384043,
+    "display_name": "HERE maps, 36, Gradišćanska ulica, Mjesni odbor \"Bartol Kašić\", Gradska četvrt Črnomerec, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|dankovečka ulica 6-8, 10000, zagreb, croatia": {
+    "lat": 45.8300016,
+    "lng": 16.0558791,
+    "display_name": "Dankovečka ulica, Dubrava, Mjesni odbor Klaka, Gradska četvrt Gornja Dubrava, Zagreb, Grad Zagreb, 10141, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10141",
+    "country_code": "hr"
+  },
+  "hr|kuzminečka ulica 10a, 10000, zagreb, croatia": {
+    "lat": 45.7935609,
+    "lng": 15.9151415,
+    "display_name": "Kuzminečka ulica, Vrbani II, Mjesni odbor Vrbani, Gradska četvrt Trešnjevka - jug, Zagreb, Grad Zagreb, 10119, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10119",
+    "country_code": "hr"
+  },
+  "hr|radnička cesta 52, 10000, zagreb, croatia": {
+    "lat": 45.8019729,
+    "lng": 16.0020235,
+    "display_name": "1st coffee, 52, Radnička cesta, Zavrtnica, Mjesni odbor Kanal, Gradska četvrt Trnje, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|josipa marohnića 1, 10000, zagreb, croatia": {
+    "lat": 45.793309,
+    "lng": 15.970246,
+    "display_name": "The Fitness HoB, 1, Ulica Josipa Marohnića, Prisavlje, Mjesni odbor Cvjetno naselje, Gradska četvrt Trnje, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|nova ves 17, 10000, zagreb, croatia": {
+    "lat": 45.8202866,
+    "lng": 15.9772689,
+    "display_name": "Centar Kaptol, 17, Nova Ves, Mjesni odbor Nova Ves, Gradska četvrt Gornji grad - Medveščak, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|trg krešimira ćosića 9, 10000, zagreb, croatia": {
+    "lat": 45.8057009,
+    "lng": 15.9521003,
+    "display_name": "Zonar Zagreb, 9, Trg Krešimira Ćosića, Mjesni odbor \"Samoborček\", Gradska četvrt Trešnjevka - sjever, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|lazinska ulica 40, 10000, zagreb, croatia": {
+    "lat": 45.7949348,
+    "lng": 15.9319705,
+    "display_name": "40, Lazinska ulica, Mjesni odbor Ljubljanica, Gradska četvrt Trešnjevka - sjever, Zagreb, Grad Zagreb, 10110, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10110",
+    "country_code": "hr"
+  },
+  "hr|zagrebačka cesta 143a, 10000, zagreb, croatia": {
+    "lat": 45.8054869,
+    "lng": 15.9239053,
+    "display_name": "Gibi Gib Zagreb II, 143A, Zagrebačka cesta, Oranice, Mjesni odbor Vrapče - jug, Gradska četvrt Stenjevec, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|podravska ulica 14, 42000, varaždin, croatia": {
+    "lat": 46.3070846,
+    "lng": 16.3603415,
+    "display_name": "Gibi Gib, 14, Podravska ulica, Motičnjak, Ribnjak, Varaždin, Grad Varaždin, Varaždinska županija, 42104, Hrvatska",
+    "importance": 6.462577248793801e-05,
+    "postcode": "42104",
+    "country_code": "hr"
+  },
+  "hr|miroslava krleže 1a, 42000, varaždin, croatia": {
+    "lat": 46.2966545,
+    "lng": 16.3300173,
+    "display_name": "Ulica Miroslava Krleže, Jalkovečka, Grabanice, Biškupec, Varaždin, Grad Varaždin, Varaždinska županija, 42000, Hrvatska",
+    "importance": 0.053397959105821284,
+    "postcode": "42000",
+    "country_code": "hr"
+  },
+  "hr|put brodarice 6, 21000, split, croatia": {
+    "lat": 43.5201505,
+    "lng": 16.4466599,
+    "display_name": "Joker Mall, 6, Put Brodarice, Brodarica, Gradski kotar Lovret, Split, Grad Split, Splitsko-dalmatinska županija, 21000, Hrvatska",
+    "importance": 7.231631952387301e-05,
+    "postcode": "21000",
+    "country_code": "hr"
+  },
+  "hr|lovrinačka ulica 16, 21000, split, croatia": {
+    "lat": 43.5122125,
+    "lng": 16.489957,
+    "display_name": "Lovrinačka ulica, Dragovode, Gradski kotar Mejaši, Split, Grad Split, Splitsko-dalmatinska županija, 21115, Hrvatska",
+    "importance": 0.05340564965285722,
+    "postcode": "21115",
+    "country_code": "hr"
+  },
+  "hr|četvrt ribnjak, 21310, omiš, croatia": {
+    "lat": 43.442268,
+    "lng": 16.6838411,
+    "display_name": "Četvrt Ribnjak, Priko, Omiš, Grad Omiš, Splitsko-dalmatinska županija, 21253, Hrvatska",
+    "importance": 0.05339305943389025,
+    "postcode": "21253",
+    "country_code": "hr"
+  },
+  "hr|zoranićeva 16, 21210, solin, croatia": {
+    "lat": 43.5291978,
+    "lng": 16.4971697,
+    "display_name": "Zoranićeva, Japirko, Mjesni odbor Priko vode, Solin, Grad Solin, Splitsko-dalmatinska županija, 21210, Hrvatska",
+    "importance": 0.053391884489204205,
+    "postcode": "21210",
+    "country_code": "hr"
+  },
+  "hr|ulica bleiburških žrtava 1945/1, 10430, samobor, croatia": {
+    "lat": 45.8116182,
+    "lng": 15.711653,
+    "display_name": "Pevex, 1, Ulica Bleiburških žrtava 1945., Sveta Helena, Samobor, Grad Samobor, Zagrebačka županija, 10430, Hrvatska",
+    "importance": 5.9277485313145914e-05,
+    "postcode": "10430",
+    "country_code": "hr"
+  },
+  "hr|zagrebačka avenija 94, 10000, zagreb, croatia": {
+    "lat": 45.7964685,
+    "lng": 15.9101771,
+    "display_name": "Pablo, 94, Zagrebačka avenija, Mjesni odbor Rudeš, Gradska četvrt Trešnjevka - sjever, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|ulica bana josipa jelačića 24 c i d, zadar, zadar, croatia": null,
+  "hr|pećine 81a, janka polića kamova, rijeka, croatia": null,
+  "hr|ulica ante starčevića 24, zaprešić, croatia": {
+    "lat": 45.8586416,
+    "lng": 15.7982838,
+    "display_name": "Ulica Ante Starčevića, Gradska četvrt Zaprešić Centar, Zaprešić, Grad Zaprešić, Zagrebačka županija, 10290, Hrvatska",
+    "importance": 0.05339350194552526,
+    "postcode": "10290",
+    "country_code": "hr"
+  },
+  "hr|kuzminečka ulica 10, zagreb, croatia, zagreb, croatia": null,
+  "hr|ulica vilima korajca 37, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|ulica domovinskog rata 33, split, hrvatska, split, croatia": null,
+  "hr|samoborska cesta 102 a/b, zagreb, croatia, zagreb, croatia": null,
+  "hr|kolodvorska ulica 64/1, velika gorica, croatia, velika gorica, croatia": null,
+  "hr|maksimirska cesta 59, zagreb, croatia, zagreb, croatia": null,
+  "hr|dubrava 306/f, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|slavonska avenija 1c, zagreb, croatia, zagreb, croatia": null,
+  "hr|trg senjskih uskoka 7-8, zagreb, croatia, zagreb, croatia": null,
+  "hr|karlovačka cesta 95, zagreb, croatia, zagreb, croatia": null,
+  "hr|ulica grada mainza 21, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|risnjačka ulica 3, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|ulica dragutina golika 5, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|maksimirska cesta 8, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|miškinina 7, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|ulica kneza branimira 41, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|puljska ulica 3, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|kraljevićeva 26, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|heinzelova ulica 33, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|zagrebačka avenija 104, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|avenija dubrava 33, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|strojarska cesta 20, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|ulica damira tomljanovića 11, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|ulica vladimira nazora 7, karlovac, hrvatska, karlovac, croatia": null,
+  "hr|ulica velimira škorpika 23, šibenik, hrvatska, šibenik, croatia": null,
+  "hr|put murvice 1, zadar, croatia, zadar, croatia": null,
+  "hr|ul. matice hrvatske 1, split, croatia": null,
+  "hr|sisačka ulica 3, velika gorica, croatia": {
+    "lat": 45.71102,
+    "lng": 16.0805495,
+    "display_name": "3, Sisačka ulica, Mala Gorica, Gradska četvrt Stari grad, Velika Gorica, Grad Velika Gorica, Zagrebačka županija, 10410, Hrvatska",
+    "importance": 6.0928511482368466e-05,
+    "postcode": "10410",
+    "country_code": "hr"
+  },
+  "hr|ul. sedam kaštela, split, croatia": null,
+  "hr|ul. maksimilijana vrhovca 15, karlovac, croatia": null,
+  "hr|ul. j. j. strossmayera 26, slavonski brod, croatia": null,
+  "hr|maksimirska cesta 132, zagreb, zagreb, croatia": {
+    "lat": 45.8220768,
+    "lng": 16.0325696,
+    "display_name": "Sermonia, 132, Maksimirska cesta, Mjesni odbor Maksimirska naselja, Gradska četvrt Maksimir, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|obala stjepana radića 38, dubrovnik, croatia": {
+    "lat": 42.6586863,
+    "lng": 18.0870492,
+    "display_name": "Vagabundo Boat Tours, 38, Obala Stjepana Radića, Nuncijata, Gradski kotar Gruž, Dubrovnik, Grad Dubrovnik, Dubrovačko-neretvanska županija, 20000, Hrvatska",
+    "importance": 6.965819790946849e-05,
+    "postcode": "20000",
+    "country_code": "hr"
+  },
+  "hr|nova cesta 7, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|trg slobode 6, osijek, hrvatska, osijek, croatia": null,
+  "hr|krešimira filića 53b, varaždin, croatia": {
+    "lat": 46.3003147,
+    "lng": 16.3354251,
+    "display_name": "Ulica Krešimira Filića, Vidovski konec, Đurek, Centar, Varaždin, Grad Varaždin, Varaždinska županija, 42104, Hrvatska",
+    "importance": 0.053397959105821284,
+    "postcode": "42104",
+    "country_code": "hr"
+  },
+  "hr|vilka novaka, varaždin, croatia": {
+    "lat": 46.3010125,
+    "lng": 16.3461427,
+    "display_name": "Ulica Vilka Novaka, Kozarčeva, Poklečan, Varaždin, Grad Varaždin, Varaždinska županija, 42104, Hrvatska",
+    "importance": 0.053397959105821284,
+    "postcode": "42104",
+    "country_code": "hr"
+  },
+  "hr|josipa huttlera 31, osijek, hrvatska, osijek, croatia": null,
+  "hr|avenija dubrava 208-210, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|rijeka srdoči, rijeka, croatia": {
+    "lat": 45.3481935,
+    "lng": 14.3687624,
+    "display_name": "Rijeka zapad, A7, Martinkovac, Mjesni odbor Rubeši, Mjesni odbor Zamet, Rijeka, Grad Rijeka, Primorsko-goranska županija, 51114, Hrvatska",
+    "importance": 7.077058060573766e-05,
+    "postcode": "51114",
+    "country_code": "hr"
+  },
+  "hr|karlovačka cesta 9, zagreb, croatia, zagreb, croatia": null,
+  "hr|ilica 255-259, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|savska cesta 139, zagreb, croatia, zagreb, croatia": null,
+  "hr|horvaćanska cesta, zagreb, hrvatska, zagreb, croatia": null,
+  "hr|heinzelova x vukovarska (address pending on official locator), zagreb, croatia": null,
+  "hr|osječka ulica 1, dugo selo, croatia": {
+    "lat": 45.8063314,
+    "lng": 16.2326194,
+    "display_name": "1, Osječka ulica, Starjaki, Centar, Dugo Selo, Grad Dugo Selo, Zagrebačka županija, 10370, Hrvatska",
+    "importance": 5.88410772869004e-05,
+    "postcode": "10370",
+    "country_code": "hr"
+  },
+  "hr|ulica ljudevita šmidhena 2/1, samobor, croatia": {
+    "lat": 45.802352,
+    "lng": 15.7089588,
+    "display_name": "2/1, Ulica Ljudevita Šmidhena, Centar, Samobor, Grad Samobor, Zagrebačka županija, 10430, Hrvatska",
+    "importance": 5.9277485313145914e-05,
+    "postcode": "10430",
+    "country_code": "hr"
+  },
+  "hr|kolodvorska ulica 96, velika gorica, croatia": {
+    "lat": 45.7097659,
+    "lng": 16.0533603,
+    "display_name": "96, Kolodvorska ulica, Kromosovo naselje, Gradska četvrt Miljenko Granić, Velika Gorica, Grad Velika Gorica, Zagrebačka županija, 10410, Hrvatska",
+    "importance": 6.0928511482368466e-05,
+    "postcode": "10410",
+    "country_code": "hr"
+  },
+  "hr|slavonska avenija 3b, zagreb, croatia": {
+    "lat": 45.7981541,
+    "lng": 16.014285,
+    "display_name": "3B, Slavonska avenija, Mjesni odbor Sigečica, Gradska četvrt Trnje, Zagreb, Grad Zagreb, 10136, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10136",
+    "country_code": "hr"
+  },
+  "hr|ulica marijana čavića 2c, zagreb, croatia": {
+    "lat": 45.8019112,
+    "lng": 16.0320054,
+    "display_name": "Ulica Marijana Čavića, Borongaj, Mjesni odbor Borongaj - Lugovi, Gradska četvrt Peščenica - Žitnjak, Zagreb, Grad Zagreb, 10135, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10135",
+    "country_code": "hr"
+  },
+  "hr|ulica ive robića 2, zagreb, croatia": {
+    "lat": 45.7720345,
+    "lng": 15.947409,
+    "display_name": "Hotel Novi Zagreb, 2, Ulica Ive Robića, Mjesni odbor Lanište, Gradska četvrt Novi Zagreb - zapad, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|144. brigade hrvatske vojske, park & shop sesvete, zagreb, croatia": null,
+  "hr|ventilatorska cesta 24, zagreb, croatia": {
+    "lat": 45.7559418,
+    "lng": 15.8899435,
+    "display_name": "Ventilatorska cesta, Mjesni odbor Lučko, Gradska četvrt Novi Zagreb - zapad, Hrvatski Leskovac, Grad Zagreb, 10250, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10250",
+    "country_code": "hr"
+  },
+  "hr|božidara magovca 15, zagreb, croatia": {
+    "lat": 45.771833,
+    "lng": 15.9951811,
+    "display_name": "15, Ulica Božidara Magovca, Mjesni odbor Travno, Gradska četvrt Novi Zagreb - istok, Zagreb, Grad Zagreb, 10010, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10010",
+    "country_code": "hr"
+  },
+  "hr|stenjevečka ulica 1, zagreb, croatia": {
+    "lat": 45.8100961,
+    "lng": 15.8869636,
+    "display_name": "1, Stenjevečka ulica, Stenjevec, Mjesni odbor Stenjevec - jug, Gradska četvrt Stenjevec, Zagreb, Grad Zagreb, 10090, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10090",
+    "country_code": "hr"
+  },
+  "hr|ljubljanska avenija 2b, zagreb, croatia": {
+    "lat": 45.7987365,
+    "lng": 15.8885915,
+    "display_name": "Fjällräven, 2B, Ljubljanska avenija, Savska Opatovina, Mjesni odbor Stenjevec - jug, Gradska četvrt Stenjevec, Zagreb, Grad Zagreb, 10090, Hrvatska",
+    "importance": 0.32901661879114147,
+    "postcode": "10090",
+    "country_code": "hr"
+  },
+  "hr|trg hrvatskih redarstvenika 1, karlovac, croatia": {
+    "lat": 45.4903013,
+    "lng": 15.5404241,
+    "display_name": "1, Trg hrvatskih redarstvenika, Žorovica, Novi Centar, Dubovac, Karlovac, Grad Karlovac, Karlovačka županija, 47107, Hrvatska",
+    "importance": 6.379262989237838e-05,
+    "postcode": "47107",
+    "country_code": "hr"
+  },
+  "hr|(market audit — not imported), zagreb, croatia": null,
+  "hr|ulica bana josipa jelačića 24 c i d, zadar, croatia": null,
+  "hr|ulica bana josipa jelačića, zadar, croatia": {
+    "lat": 44.1158079,
+    "lng": 15.2327634,
+    "display_name": "Ulica bana Josipa Jelačića, Mjesni odbor Voštarnica, Zadar, Grad Zadar, Zadarska županija, 23104, Hrvatska",
+    "importance": 0.05340141985198745,
+    "postcode": "23104",
+    "country_code": "hr"
+  },
+  "hr|pećine 81a, janka polića kamova, croatia": null,
+  "hr|pećine, rijeka, croatia": {
+    "lat": 45.3176021,
+    "lng": 14.4674745,
+    "display_name": "Mjesni odbor Pećine, Rijeka, Grad Rijeka, Primorsko-goranska županija, Hrvatska",
+    "importance": 0.4215069254623829,
+    "postcode": "",
+    "country_code": "hr"
+  },
+  "hr|kuzminečka ulica 10, zagreb, zagreb, croatia": {
+    "lat": 45.7904611,
+    "lng": 15.9105033,
+    "display_name": "Studenac, 10, Kuzminečka ulica, Vrbani III, Mjesni odbor Vrbani, Gradska četvrt Trešnjevka - jug, Zagreb, Grad Zagreb, 10119, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10119",
+    "country_code": "hr"
+  },
+  "hr|ulica matice hrvatske 15, 21000, split, split, croatia": {
+    "lat": 43.5111883,
+    "lng": 16.4651834,
+    "display_name": "15, Ulica Matice hrvatske, Pisano Kame, Gradski kotar Split 3, Split, Grad Split, Splitsko-dalmatinska županija, 21000, Hrvatska",
+    "importance": 7.231631952387301e-05,
+    "postcode": "21000",
+    "country_code": "hr"
+  },
+  "hr|ulica vilima korajca 37, zagreb, zagreb, croatia": {
+    "lat": 45.803779,
+    "lng": 15.8832778,
+    "display_name": "Studenac, 37, Ulica Vilima Korajca, Mjesni odbor Špansko - sjever, Gradska četvrt Stenjevec, Zagreb, Grad Zagreb, 10158, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10158",
+    "country_code": "hr"
+  },
+  "hr|ulica domovinskog rata 33, split, split, croatia": {
+    "lat": 43.5173032,
+    "lng": 16.4460293,
+    "display_name": "Gyms4you, 33, Ulica Domovinskog rata, Brodarica, Gradski kotar Lovret, Split, Grad Split, Splitsko-dalmatinska županija, 21104, Hrvatska",
+    "importance": 7.231631952387301e-05,
+    "postcode": "21104",
+    "country_code": "hr"
+  },
+  "hr|samoborska cesta 102, zagreb, zagreb, croatia": {
+    "lat": 45.8124577,
+    "lng": 15.8835488,
+    "display_name": "Konzum, 102, Samoborska cesta, Stenjevec, Mjesni odbor Stenjevec - jug, Gradska četvrt Stenjevec, Zagreb, Grad Zagreb, 10090, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10090",
+    "country_code": "hr"
+  },
+  "hr|kolodvorska ulica 64/1, velika gorica, velika gorica, croatia": {
+    "lat": 45.7158385,
+    "lng": 16.0643898,
+    "display_name": "Kolodvorska ulica, Bratstvo, Kokotovo naselje, Gradska četvrt Miljenko Granić, Velika Gorica, Grad Velika Gorica, Zagrebačka županija, 10410, Hrvatska",
+    "importance": 0.05339426184481571,
+    "postcode": "10410",
+    "country_code": "hr"
+  },
+  "hr|maksimirska cesta 59, zagreb, zagreb, croatia": {
+    "lat": 45.8168391,
+    "lng": 16.0038715,
+    "display_name": "Bipa, 59, Maksimirska cesta, Mjesni odbor Ružmarinka, Gradska četvrt Maksimir, Zagreb, Grad Zagreb, 10142, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10142",
+    "country_code": "hr"
+  },
+  "hr|dubrava 306/f, zagreb, zagreb, croatia": {
+    "lat": 45.8295896,
+    "lng": 16.0556661,
+    "display_name": "Dubrava, Mjesni odbor Klaka, Gradska četvrt Gornja Dubrava, Zagreb, Grad Zagreb, 10141, Hrvatska",
+    "importance": 0.13341281071183336,
+    "postcode": "10141",
+    "country_code": "hr"
+  },
+  "hr|slavonska avenija 1c, zagreb, zagreb, croatia": {
+    "lat": 45.7972079,
+    "lng": 16.0125926,
+    "display_name": "Matrix Office Park 1, 1C, Slavonska avenija, Mjesni odbor Sigečica, Gradska četvrt Trnje, Zagreb, Grad Zagreb, 10136, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10136",
+    "country_code": "hr"
+  },
+  "hr|trg senjskih uskoka 7-8, zagreb, zagreb, croatia": {
+    "lat": 45.7761975,
+    "lng": 15.9743204,
+    "display_name": "Trg senjskih uskoka, Mjesni odbor Siget, Gradska četvrt Novi Zagreb - zapad, Zagreb, Grad Zagreb, 10160, Hrvatska",
+    "importance": 0.040079477378500025,
+    "postcode": "10160",
+    "country_code": "hr"
+  },
+  "hr|karlovačka cesta 95, zagreb, zagreb, croatia": {
+    "lat": 45.7650422,
+    "lng": 15.9276326,
+    "display_name": "95, Karlovačka cesta, Mjesni odbor Blato, Gradska četvrt Novi Zagreb - zapad, Zagreb, Grad Zagreb, 10020, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10020",
+    "country_code": "hr"
+  },
+  "hr|ulica grada mainza 21, zagreb, zagreb, croatia": {
+    "lat": 45.8110839,
+    "lng": 15.9506829,
+    "display_name": "Gyms4U, 21, Ulica grada Mainza, Mjesni odbor \"Ban Keglević\", Gradska četvrt Črnomerec, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|risnjačka ulica 3, zagreb, zagreb, croatia": {
+    "lat": 45.8411028,
+    "lng": 16.0512845,
+    "display_name": "3, Risnjačka ulica, Mjesni odbor Klaka, Gradska četvrt Gornja Dubrava, Zagreb, Grad Zagreb, 10128, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10128",
+    "country_code": "hr"
+  },
+  "hr|ulica dragutina golika 5, zagreb, zagreb, croatia": {
+    "lat": 45.8073858,
+    "lng": 15.93022,
+    "display_name": "5, Ulica Dragutina Golika, Pupinovo naselje, Mjesni odbor \"Dr. Ante Starčević\", Gradska četvrt Trešnjevka - sjever, Zagreb, Grad Zagreb, 10138, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10138",
+    "country_code": "hr"
+  },
+  "hr|maksimirska cesta 8, zagreb, zagreb, croatia": {
+    "lat": 45.8153142,
+    "lng": 15.9985843,
+    "display_name": "8, Maksimirska cesta, Kvatrić, Mjesni odbor \"Eugen Kvaternik\", Gradska četvrt Maksimir, Zagreb, Grad Zagreb, 10123, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10123",
+    "country_code": "hr"
+  },
+  "hr|miškinina 7, zagreb, zagreb, croatia": {
+    "lat": 45.7623155,
+    "lng": 15.9900415,
+    "display_name": "7, Miškinina ulica, Mjesni odbor Sloboština, Gradska četvrt Novi Zagreb - istok, Zagreb, Grad Zagreb, 10010, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10010",
+    "country_code": "hr"
+  },
+  "hr|ulica kneza branimira 41, zagreb, zagreb, croatia": {
+    "lat": 45.8058389,
+    "lng": 15.9872518,
+    "display_name": "41, Ulica kneza Branimira, Mjesni odbor \"Knez Mislav\", Gradska četvrt Donji grad, Zagreb, Grad Zagreb, 10151, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10151",
+    "country_code": "hr"
+  },
+  "hr|puljska ulica 3, zagreb, zagreb, croatia": {
+    "lat": 45.7961866,
+    "lng": 15.9403093,
+    "display_name": "3, Puljska ulica, Vurovčica, Mjesni odbor Pongračevo, Gradska četvrt Trešnjevka - sjever, Zagreb, Grad Zagreb, 10110, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10110",
+    "country_code": "hr"
+  },
+  "hr|kraljevićeva 26, zagreb, zagreb, croatia": {
+    "lat": 45.8196355,
+    "lng": 16.0108087,
+    "display_name": "Ulica Miroslava Kraljevića, Mjesni odbor Mašićeva, Gradska četvrt Maksimir, Zagreb, Grad Zagreb, 10142, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10142",
+    "country_code": "hr"
+  },
+  "hr|heinzelova ulica 33, zagreb, zagreb, croatia": {
+    "lat": 45.8107717,
+    "lng": 16.0019706,
+    "display_name": "33, Ulica Vjekoslava Heinzela, Mjesni odbor Peščenica, Gradska četvrt Peščenica - Žitnjak, Zagreb, Grad Zagreb, 10000, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10000",
+    "country_code": "hr"
+  },
+  "hr|zagrebačka avenija 104, zagreb, zagreb, croatia": {
+    "lat": 45.7975515,
+    "lng": 15.8962053,
+    "display_name": "Nova Galerija, 104, Zagrebačka avenija, Špansko, Mjesni odbor Špansko - jug, Gradska četvrt Stenjevec, Zagreb, Grad Zagreb, 10090, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10090",
+    "country_code": "hr"
+  },
+  "hr|avenija dubrava 33, zagreb, zagreb, croatia": {
+    "lat": 45.8263694,
+    "lng": 16.0436747,
+    "display_name": "Trgovački centar Dubrava, 33, Dubrava, Mjesni odbor Dubrava - središte, Gradska četvrt Gornja Dubrava, Zagreb, Grad Zagreb, 10040, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10040",
+    "country_code": "hr"
+  },
+  "hr|strojarska cesta 20, zagreb, zagreb, croatia": {
+    "lat": 45.8035175,
+    "lng": 15.9895036,
+    "display_name": "ASSA ABLOY Croatia, 20, Strojarska cesta, Kruge, Mjesni odbor \"Marin Držić\", Gradska četvrt Trnje, Zagreb, Grad Zagreb, 10151, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10151",
+    "country_code": "hr"
+  },
+  "hr|ulica damira tomljanovića 11, zagreb, zagreb, croatia": {
+    "lat": 45.7825005,
+    "lng": 15.9814996,
+    "display_name": "Nacionalni centar za vanjsko vrednovanje, 11, Ulica Damira Tomljanovića - Gavrana, Mjesni odbor Središće, Gradska četvrt Novi Zagreb - istok, Zagreb, Grad Zagreb, 10010, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10010",
+    "country_code": "hr"
+  },
+  "hr|ulica vladimira nazora 7, karlovac, karlovac, croatia": {
+    "lat": 45.4903064,
+    "lng": 15.5497566,
+    "display_name": "Gyms4you, 7, Ulica Vladimira Nazora, Novi Centar, Banija, Karlovac, Grad Karlovac, Karlovačka županija, 47000, Hrvatska",
+    "importance": 6.379262989237838e-05,
+    "postcode": "47000",
+    "country_code": "hr"
+  },
+  "hr|ulica velimira škorpika 23, šibenik, šibenik, croatia": {
+    "lat": 43.7123812,
+    "lng": 15.9132653,
+    "display_name": "Gold point, 23, Ulica Velimira Škorpika, Gradska četvrt Mandalina, Šibenik, Grad Šibenik, Šibensko-kninska županija, 22106, Hrvatska",
+    "importance": 6.450522621495411e-05,
+    "postcode": "22106",
+    "country_code": "hr"
+  },
+  "hr|put murvice 1, zadar, zadar, croatia": {
+    "lat": 44.1099529,
+    "lng": 15.2425597,
+    "display_name": "Put Murvice, Mjesni odbor Jazine II, Zadar, Grad Zadar, Zadarska županija, 23104, Hrvatska",
+    "importance": 0.05340141985198745,
+    "postcode": "23104",
+    "country_code": "hr"
+  },
+  "hr|ul. matice hrvatske 1, croatia": null,
+  "hr|ulica matice hrvatske 1, split, croatia": {
+    "lat": 43.508398,
+    "lng": 16.4516802,
+    "display_name": "Tommy, 1, Ulica Matice hrvatske, Plakaluša, Gradski kotar Gripe, Split, Grad Split, Splitsko-dalmatinska županija, 21000, Hrvatska",
+    "importance": 7.231631952387301e-05,
+    "postcode": "21000",
+    "country_code": "hr"
+  },
+  "hr|ul. sedam kaštela, croatia": null,
+  "hr|ulica sedam kaštela, split, croatia": null,
+  "hr|ul. maksimilijana vrhovca 15, croatia": null,
+  "hr|ulica maksimilijana vrhovca 15, karlovac, croatia": {
+    "lat": 45.4807252,
+    "lng": 15.5486221,
+    "display_name": "15, Ulica Maksimilijana Vrhovca, Donja Švarča, Grabrik, Švarča, Karlovac, Grad Karlovac, Karlovačka županija, 47000, Hrvatska",
+    "importance": 6.379262989237838e-05,
+    "postcode": "47000",
+    "country_code": "hr"
+  },
+  "hr|ul. j. j. strossmayera 26, croatia": null,
+  "hr|ulica j. j. strossmayera 26, slavonski brod, croatia": null,
+  "hr|ul. j. j. strossmayera, slavonski brod, croatia": null,
+  "hr|nova cesta 7, zagreb, zagreb, croatia": {
+    "lat": 45.807592,
+    "lng": 15.9544924,
+    "display_name": "7, Nova cesta, Mjesni odbor \"Samoborček\", Gradska četvrt Trešnjevka - sjever, Zagreb, Grad Zagreb, 10122, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10122",
+    "country_code": "hr"
+  },
+  "hr|trg slobode 6, osijek, osijek, croatia": {
+    "lat": 45.5595051,
+    "lng": 18.6784846,
+    "display_name": "Trg slobode, Gradska četvrt Gornji grad, Osijek, Grad Osijek, Osječko-baranjska županija, Hrvatska",
+    "importance": 0.06673402990768292,
+    "postcode": "",
+    "country_code": "hr"
+  },
+  "hr|josipa huttlera 31, osijek, osijek, croatia": {
+    "lat": 45.5529292,
+    "lng": 18.7151641,
+    "display_name": "Integra Dundović, 31, Ulica Josipa Huttlera, Naselje Miroslava Krleže, Gradska četvrt Jug II, Osijek, Grad Osijek, Osječko-baranjska županija, 31000, Hrvatska",
+    "importance": 6.736324101620535e-05,
+    "postcode": "31000",
+    "country_code": "hr"
+  },
+  "hr|avenija dubrava 208-210, zagreb, zagreb, croatia": {
+    "lat": 45.8275482,
+    "lng": 16.0774123,
+    "display_name": "Dubrava, Mjesni odbor Stari Retkovec, Retkovec, Gradska četvrt Donja Dubrava, Zagreb, Grad Zagreb, 10174, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10174",
+    "country_code": "hr"
+  },
+  "hr|ozaljska ul. 95, 10000, zagreb, zagreb, croatia": null,
+  "hr|ozaljska ul. 95, 10000, zagreb, croatia": null,
+  "hr|ozaljska ulica 95, 10000, zagreb, zagreb, croatia": {
+    "lat": 45.799869,
+    "lng": 15.9535234,
+    "display_name": "Ozaljska ulica, Stara Trešnjevka, Mjesni odbor Stara Trešnjevka, Gradska četvrt Trešnjevka - sjever, Zagreb, Grad Zagreb, 10122, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10122",
+    "country_code": "hr"
+  },
+  "hr|karlovačka cesta 9, zagreb, zagreb, croatia": {
+    "lat": 45.7665541,
+    "lng": 15.9407302,
+    "display_name": "Karlovačka cesta, Jaruščica, Mjesni odbor Remetinec, Gradska četvrt Novi Zagreb - zapad, Zagreb, Grad Zagreb, 10137, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10137",
+    "country_code": "hr"
+  },
+  "hr|ilica 255-259, zagreb, zagreb, croatia": {
+    "lat": 45.812569,
+    "lng": 15.9617783,
+    "display_name": "Ilica, Mjesni odbor Petar Zrinski, Gradska četvrt Donji grad, Zagreb, Grad Zagreb, 10115, Hrvatska",
+    "importance": 0.44446571818640085,
+    "postcode": "10115",
+    "country_code": "hr"
+  },
+  "hr|savska cesta 139, zagreb, zagreb, croatia": {
+    "lat": 45.7917279,
+    "lng": 15.9576468,
+    "display_name": "139, Savska cesta, Mjesni odbor Knežija, Gradska četvrt Trešnjevka - jug, Zagreb, Grad Zagreb, 10124, Hrvatska",
+    "importance": 7.947737849999263e-05,
+    "postcode": "10124",
+    "country_code": "hr"
+  },
+  "hr|horvaćanska cesta, zagreb, zagreb, croatia": {
+    "lat": 45.7880855,
+    "lng": 15.9493041,
+    "display_name": "Horvaćanska cesta, Stara Knežija, Mjesni odbor Knežija, Gradska četvrt Trešnjevka - jug, Zagreb, Grad Zagreb, 10124, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10124",
+    "country_code": "hr"
+  },
+  "hr|ulica kneza branimira 29, mingle mall, zagreb, croatia": null,
+  "hr|ulica kneza branimira 29, mingle mall, croatia": null,
+  "hr|ulica kneza branimira, zagreb, croatia": {
+    "lat": 45.8085285,
+    "lng": 16.000767,
+    "display_name": "Ulica kneza Branimira, Mjesni odbor \"Kralj Zvonimir\", Gradska četvrt Donji grad, Zagreb, Grad Zagreb, 10240, Hrvatska",
+    "importance": 0.05341281071183333,
+    "postcode": "10240",
+    "country_code": "hr"
+  },
+  "hr|144. brigade hrvatske vojske, park & shop sesvete, croatia": null,
+  "hr|ulica josipa jurja strossmayera 26, slavonski brod, croatia": {
+    "lat": 45.1532395,
+    "lng": 18.024078,
+    "display_name": "26, Ulica Josipa Jurja Strossmayera, Naselje kralja Tomislava, Mikrorajon, Bjeliš, Mjesni odbor Josip Juraj Strossmayer, Slavonski Brod, Grad Slavonski Brod, Brodsko-posavska županija, 35000, Hrvatska",
+    "importance": 6.137712672613134e-05,
+    "postcode": "35000",
+    "country_code": "hr"
+  },
+  "hr|park & shop jelkovec, sesvete, zagreb, croatia": null
+}

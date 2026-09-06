@@ -1,0 +1,291 @@
+{
+  "country": "Estonia",
+  "qa_type": "PRODUCTION_QA_FINAL",
+  "generated_at": "2026-08-29T13:14:06.494Z",
+  "read_only": true,
+  "production_modified": false,
+  "qa_sha_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "qa_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "catalog_total": 11923,
+  "estonia_live": 69,
+  "ee_prefix_live": 69,
+  "phase2_inputs": {
+    "keep_existing": 68,
+    "new_ready": 1,
+    "existing_review_required": 0,
+    "coming_soon": 5,
+    "excluded": 29,
+    "closed": 0
+  },
+  "four_way_reconciliation": {
+    "keep_ids": 68,
+    "new_ready_ids": 1,
+    "approved_ids": 69,
+    "production_ids": 69,
+    "approved_missing_from_production": [],
+    "production_not_approved": [],
+    "duplicate_approved_ids": 0,
+    "duplicate_production_ids": 0
+  },
+  "original_68": {
+    "present": 68,
+    "missing": [],
+    "material_metadata_drift": []
+  },
+  "fitlife": {
+    "production_count": 1,
+    "approved_count": 1,
+    "id_match": true,
+    "metadata_match": true,
+    "eligibility": "SMALL_MARKET_INDEPENDENT",
+    "classification": "A_CONVENTIONAL_PUBLIC_GYM",
+    "hard_duplicates": 0,
+    "rebrand_conflicts": 0,
+    "san_marino_separate": true
+  },
+  "brand_inventory": {
+    "24-7 Fitness": 31,
+    "Golden Club": 3,
+    "Gym!": 15,
+    "MyFitness": 19,
+    "FitLife": 1
+  },
+  "expected_brands": {
+    "MyFitness": 19,
+    "24-7 Fitness": 31,
+    "Gym!": 15,
+    "Golden Club": 3,
+    "FitLife": 1
+  },
+  "class_a": {
+    "chain_class_a": 68,
+    "myfitness": 19,
+    "24_7_fitness": 31,
+    "gym_bang": 15,
+    "golden_club": 3,
+    "small_market_independent": 1
+  },
+  "coming_soon": {
+    "authoritative_count": 5,
+    "production_leakage": []
+  },
+  "excluded": {
+    "authoritative_count": 29,
+    "production_leakage": []
+  },
+  "closed": {
+    "authoritative_count": 0,
+    "production_leakage": []
+  },
+  "safety": {
+    "hotel_resort_ready_leakage": 0,
+    "invalid_wellness_additive": 0,
+    "specialist_ready_leakage": 0,
+    "institutional_ready_leakage": 0
+  },
+  "cross_border": {
+    "latvia_ready_outliers": 0,
+    "russia_ready_outliers": 0,
+    "finland_ready_outliers": 0,
+    "valga_valka_identity_collisions": 0,
+    "narva_ivangorod_identity_collisions": 0,
+    "live_production": {
+      "latvia_outliers": 0,
+      "russia_outliers": 0,
+      "finland_outliers": 0,
+      "valga_valka_identity_collisions": 0,
+      "narva_ivangorod_identity_collisions": 0,
+      "live_outliers": []
+    }
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "estonia_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "exact_coordinate_conflicts": 0,
+    "near_coordinate_conflicts": 1,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0
+  },
+  "data_quality": {
+    "invalid_ee_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "reconciliation_confirmation": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "estonia_before": 69,
+    "estonia_after": 69,
+    "ee_prefix_before": 69,
+    "ee_prefix_after": 69
+  },
+  "idempotency": {
+    "first_run": {
+      "insertions": 1,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11922,
+      "total_after": 11923,
+      "estonia_before": 68,
+      "estonia_after": 69,
+      "ee_prefix_before": 68,
+      "ee_prefix_after": 69
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11923,
+      "total_after": 11923,
+      "estonia_before": 69,
+      "estonia_after": 69,
+      "ee_prefix_before": 69,
+      "ee_prefix_after": 69
+    },
+    "idempotent": true
+  },
+  "dry_run_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "prior_country_verification": {
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "prior_country_regressions": [],
+  "historical_test_debt": {
+    "TOTAL_HISTORICAL_SUITES_RUN": 4,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 21,
+    "HISTORICAL_SUITES_FAILED": 4,
+    "HISTORICAL_TESTS_FAILED": 21,
+    "STALE_GLOBAL_TOTAL_EXPECTATION": 2,
+    "STALE_COUNTRY_COUNT_EXPECTATION": 4,
+    "STALE_HISTORICAL_SHA_EXPECTATION": 2,
+    "STALE_PRE_RECONCILIATION_STATE_EXPECTATION": 4,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 9,
+    "STALE_TOTAL_FAILURES": 12,
+    "REAL_COUNTRY_REGRESSIONS": 0
+  },
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "authoritative_tests": {
+    "passed": 22,
+    "total": 22,
+    "suites_passed": 2,
+    "suites_total": 2
+  },
+  "performance": {
+    "catalog_total": 11923,
+    "centers_json_bytes": 3706426,
+    "parse_ms": 21.62,
+    "representative_search_ms": 2.46,
+    "architecture": "KEEP CLIENT-SIDE",
+    "assessment": "HEALTHY",
+    "headroom_to_12500": 577,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false
+  },
+  "gates": {
+    "production_modified": false,
+    "catalog_total": true,
+    "estonia_live": true,
+    "ee_prefix": true,
+    "sha_frozen": true,
+    "keep_68": true,
+    "new_ready_1": true,
+    "existing_review_0": true,
+    "approved_69": true,
+    "four_way_id_equality": true,
+    "original_68_present": true,
+    "original_68_material_drift": true,
+    "fitlife_exact": true,
+    "brand_inventory_match": true,
+    "class_a_estate_drift": true,
+    "coming_soon_leakage": true,
+    "excluded_leakage": true,
+    "closed_leakage": true,
+    "hotel_resort_leakage": true,
+    "specialist_leakage": true,
+    "institutional_leakage": true,
+    "cross_border_clean": true,
+    "valga_valka_collisions": true,
+    "narva_ivangorod_collisions": true,
+    "global_duplicate_ids": true,
+    "hard_duplicate_conflicts": true,
+    "rebrand_conflicts": true,
+    "data_quality_clean": true,
+    "qa_delta_zero": true,
+    "reconciliation_idempotent": true,
+    "prior_country_counts_unchanged": true,
+    "real_country_regressions": true,
+    "historical_real_regression": true,
+    "authoritative_qa_tests": true,
+    "crosses_12500": false,
+    "global_stress_qa_required": false
+  },
+  "bugs_found": [
+    {
+      "id": "QA-CB-001",
+      "component": "scripts/estonia-production-qa.mjs",
+      "issue": "Naive lng>28 heuristic flagged Narva border gyms as Russia outliers",
+      "severity": "QA_HARNESS",
+      "production_impact": "NONE"
+    },
+    {
+      "id": "QA-DR-001",
+      "component": "scripts/estonia-production-qa.mjs",
+      "issue": "Dry-run reconcile call overwrote reconciliation report delta artifact",
+      "severity": "QA_HARNESS",
+      "production_impact": "NONE"
+    }
+  ],
+  "bugs_fixed": [
+    {
+      "id": "QA-CB-001",
+      "fix": "Cross-border audit uses inEstonia() live_outliers only"
+    },
+    {
+      "id": "QA-DR-001",
+      "fix": "Idempotency gate reads ESTONIA_RECONCILIATION_IDEMPOTENCY.json instead of reconcile dry-run"
+    },
+    {
+      "id": "QA-TEST-001",
+      "fix": "Reconciliation test reads first_run delta from idempotency artifact"
+    }
+  ],
+  "phase2_verdict": "READY FOR ESTONIA PRODUCTION RECONCILIATION",
+  "reconciliation_verdict": "ESTONIA RECONCILIATION COMPLETE — WAITING FOR QA",
+  "verdict": "ESTONIA STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "qa_sha_after": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38"
+}

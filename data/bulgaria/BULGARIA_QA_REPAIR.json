@@ -1,0 +1,24 @@
+{
+  "country": "Bulgaria",
+  "generated_at": "2026-08-24",
+  "catalog_sha256_unchanged": "644fb590b8327a773d1a0bc60fbebfe7558d5b112ad3aa838bd291849523d4ec",
+  "production_centers_modified": false,
+  "repairs": [
+    {
+      "id": "bg_qa_search_cyrillic_city_aliases",
+      "type": "search_index_only",
+      "file": "src/services/gymSearch/gymSearchIndex.ts",
+      "defect": "Cyrillic city queries Перник / Свети Влас / Кърджали returned 0 bg_* hits because search-only Bulgarian city aliases covered major cities but not the remaining live production localities.",
+      "evidence": [
+        "Production cities stored as Latin: Pernik, Sveti Vlas, Kardzhali (official; unchanged)",
+        "Latin queries already resolved bg_*",
+        "София/Пловдив/Варна/Бургас/Стара Загора already aliased; gap was incomplete alias coverage",
+        "QA city matrix requires Cyrillic + Latin for all READY footprint cities"
+      ],
+      "before": "Перник / Свети Влас / Кърджали → 0 bg_* search hits",
+      "after": "Same queries resolve live bg_* via search-only haystack aliases; stored city/address unchanged",
+      "centers_json": "unchanged",
+      "staging_sync": "not required"
+    }
+  ]
+}

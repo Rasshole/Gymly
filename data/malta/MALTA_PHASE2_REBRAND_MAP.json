@@ -1,0 +1,43 @@
+{
+  "country": "Malta",
+  "phase": 2,
+  "relationships": [
+    {
+      "from": "Fitness Café San Pawl",
+      "to": "Build Fitness Centre (Best Gyms Malta)",
+      "class": "A_historical_predecessor",
+      "successor_production_id": "mt_b45a78a4f0",
+      "evidence": "Same Sirens ASC / Buġibba cluster; secondary blog name only",
+      "action": "excluded_predecessor"
+    },
+    {
+      "from": "Elite Gym Birżebbuġa",
+      "to": "BGM Birżebbuġa Fitness",
+      "class": "A_current_successor",
+      "successor_production_id": "mt_963f710969",
+      "action": "excluded_predecessor"
+    },
+    {
+      "from": "Build Gym / Sirens legacy name",
+      "to": "Build Fitness Centre",
+      "class": "A_current_successor",
+      "successor_production_id": "mt_b45a78a4f0",
+      "action": "excluded_predecessor"
+    },
+    {
+      "from": "Tal-Qroqq independent era",
+      "to": "Tal-Qroqq Fitness Centre (BGM)",
+      "class": "A_current_successor",
+      "successor_production_id": "mt_134787b308",
+      "action": "excluded_predecessor"
+    },
+    {
+      "from": "Challenger Paceville",
+      "to": null,
+      "class": "E_legacy_closed",
+      "action": "closed_legacy"
+    }
+  ],
+  "unresolved_conflicts": 0,
+  "fitness_cafe_resolved": true
+}

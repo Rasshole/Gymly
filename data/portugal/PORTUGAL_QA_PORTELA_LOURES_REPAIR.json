@@ -1,0 +1,23 @@
+{
+  "qa_repair": "PORTUGAL_PRODUCTION_QA",
+  "reason": "STRICT_ADDRESS_GEOCODE resolved Avenida da República Comp. Pisc to Colombo (~7km wrong); official club is at Complexo de Piscinas da Portela",
+  "before": {
+    "lat": 38.7549116,
+    "lng": -9.1890105,
+    "coord_source": "STRICT_ADDRESS_GEOCODE"
+  },
+  "after": {
+    "lat": 38.7834895,
+    "lng": -9.110755,
+    "coord_source": "QA_REPAIR_OSM_COMPLEXO_PISCINAS_PORTELA"
+  },
+  "osm": {
+    "name": "Complexo de Piscinas da Portela",
+    "display_name": "Complexo de Piscinas da Portela, Avenida da República, Moscavide e Portela, Loures, Lisboa, 2685-207, Portugal",
+    "lat": 38.7834895,
+    "lon": -9.110755,
+    "osm_id": 1575607357
+  },
+  "official_url": "https://www.fitnessup.pt/ginasio/portela-loures",
+  "official_address": "Avenida da República Comp. Pisc, Piso -1 2685-232 Lisboa"
+}

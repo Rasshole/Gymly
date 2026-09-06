@@ -1,0 +1,151 @@
+{
+  "generated_at": "2026-08-25T10:12:02.445512+00:00",
+  "phase1_ready_count": 21,
+  "phase1_ready_preserved_in_final_ready": 21,
+  "recoveries": [
+    {
+      "id": "si_021f737987",
+      "name": "Shape House Kranj",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_c55bd4763c",
+      "name": "Shape House Ljubljana Loberia",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_98079e395a",
+      "name": "Shape House Murska Sobota",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_4191b87a6e",
+      "name": "Shape House Domžale",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_2f5157cb18",
+      "name": "Shape House Grosuplje",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_95f6c33ba2",
+      "name": "Shape House Ljubljana Tiskarna",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_5dfb02ad9d",
+      "name": "Shape House Koper Istrska",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_8cdc4b9b69",
+      "name": "Shape House Celje",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_760f077cf3",
+      "name": "Shape House Novo mesto 2",
+      "phase1_status": "COMING_SOON",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "shape-house.com kontakt confirms open consumer studio",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_673eba29e0",
+      "name": "Shape House Ljubljana Situla",
+      "phase1_status": "READY_TO_IMPORT",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "consumer rebrand clever fit → Shape House",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_87aeb083b4",
+      "name": "Shape House Ljubljana Šiška",
+      "phase1_status": "READY_TO_IMPORT",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "consumer rebrand clever fit → Shape House",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_ae7796d56f",
+      "name": "Shape House Ljubljana Rudnik",
+      "phase1_status": "READY_TO_IMPORT",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "consumer rebrand clever fit → Shape House",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_cf31bee5f4",
+      "name": "Shape House Ljubljana Letališka",
+      "phase1_status": "READY_TO_IMPORT",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "consumer rebrand clever fit → Shape House",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_1e461b2ce1",
+      "name": "Shape House Maribor",
+      "phase1_status": "READY_TO_IMPORT",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "consumer rebrand clever fit → Shape House",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_c0ab7d90a3",
+      "name": "Shape House Novo mesto",
+      "phase1_status": "READY_TO_IMPORT",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "consumer rebrand clever fit → Shape House",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_812bd7056e",
+      "name": "Shape House Koper Planet Tuš",
+      "phase1_status": "READY_TO_IMPORT",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "consumer rebrand clever fit → Shape House",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_e0283b435e",
+      "name": "Shape House Ljubljana Metalka",
+      "phase1_status": "not_staged",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "new discovery on shape-house kontakt",
+      "evidence": "https://shape-house.com/kontakt/"
+    },
+    {
+      "id": "si_a795962ca4",
+      "name": "Shape House Jesenice",
+      "phase1_status": "not_staged",
+      "phase2_status": "READY_TO_IMPORT",
+      "reason": "new discovery on shape-house kontakt",
+      "evidence": "https://shape-house.com/kontakt/"
+    }
+  ]
+}

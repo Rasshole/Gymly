@@ -1,0 +1,84 @@
+{
+  "country": "Georgia",
+  "phase": 1,
+  "market_model": "CHAIN_LED_SMALL_MARKET",
+  "chains": [
+    {
+      "operator": "Oktopus Fitness",
+      "active_verified": 8,
+      "staged_total": 8,
+      "official_estimated": 8,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    },
+    {
+      "operator": "World Class Georgia",
+      "active_verified": 1,
+      "staged_total": 2,
+      "official_estimated": 1,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    },
+    {
+      "operator": "Snap Fitness",
+      "active_verified": 0,
+      "staged_total": 2,
+      "official_estimated": 1,
+      "class_a": true,
+      "estate_gaps": 1,
+      "estate_completeness": "GAP"
+    },
+    {
+      "operator": "Champion",
+      "active_verified": 3,
+      "staged_total": 12,
+      "official_estimated": 3,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    },
+    {
+      "operator": "Fitness House",
+      "active_verified": 2,
+      "staged_total": 116,
+      "official_estimated": 2,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    },
+    {
+      "operator": "Colosseum",
+      "active_verified": 1,
+      "staged_total": 3,
+      "official_estimated": 1,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    },
+    {
+      "operator": "Life Sport Club",
+      "active_verified": 1,
+      "staged_total": 1,
+      "official_estimated": 1,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    },
+    {
+      "operator": "Arena Sports Complex",
+      "active_verified": 1,
+      "staged_total": 1,
+      "official_estimated": 1,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_completeness": "COMPLETE"
+    }
+  ],
+  "summary": {
+    "class_a_chain_count": 8,
+    "final_class_a_ready_count": 17,
+    "chain_estate_gaps": 1
+  }
+}

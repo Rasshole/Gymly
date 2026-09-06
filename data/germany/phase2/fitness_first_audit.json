@@ -1,0 +1,20 @@
+{
+  "staged_count": 107,
+  "official_club_hrefs": 107,
+  "categories": {
+    "NEEDS_COORDINATES": 94,
+    "READY_TO_IMPORT": 9,
+    "NEEDS_REVIEW": 4
+  },
+  "coming_soon": 0,
+  "closed": 0,
+  "issues": [
+    {
+      "type": "coords_outside_de",
+      "name": "Fitness First Vösendorf",
+      "lat": 48.1175,
+      "lng": 16.3198
+    }
+  ],
+  "verdict": "INVESTIGATE"
+}

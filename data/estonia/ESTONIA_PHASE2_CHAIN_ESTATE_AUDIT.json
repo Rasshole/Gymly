@@ -1,0 +1,102 @@
+{
+  "MyFitness": {
+    "keep_existing": 19,
+    "new_ready": 0,
+    "coming_soon": 0,
+    "excluded": 0,
+    "closed": 0,
+    "official_current_active": 19,
+    "final_active_approved": 19,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0,
+    "cities": [
+      "Narva",
+      "Tallinn",
+      "Tartu",
+      "Viimsi",
+      "Viljandi"
+    ]
+  },
+  "24-7 Fitness": {
+    "keep_existing": 31,
+    "new_ready": 0,
+    "coming_soon": 3,
+    "excluded": 0,
+    "closed": 0,
+    "official_current_active": 31,
+    "final_active_approved": 31,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0,
+    "cities": [
+      "Järveküla",
+      "Jõgeva",
+      "Jõhvi",
+      "Keila",
+      "Kiili",
+      "Kuressaare",
+      "Luige",
+      "Narva",
+      "Peetri",
+      "Pärnu",
+      "Rakvere",
+      "Saue",
+      "Tabasalu",
+      "Tallinn",
+      "Tartu",
+      "Viljandi",
+      "Võru"
+    ]
+  },
+  "Gym!": {
+    "keep_existing": 15,
+    "new_ready": 0,
+    "coming_soon": 2,
+    "excluded": 0,
+    "closed": 0,
+    "official_current_active": 15,
+    "final_active_approved": 15,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0,
+    "cities": [
+      "Jõhvi",
+      "Narva",
+      "Pärnu",
+      "Tallinn",
+      "Tartu",
+      "Ülenurme"
+    ]
+  },
+  "Golden Club": {
+    "keep_existing": 3,
+    "new_ready": 0,
+    "coming_soon": 0,
+    "excluded": 0,
+    "closed": 0,
+    "official_current_active": 3,
+    "final_active_approved": 3,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0,
+    "cities": [
+      "Tallinn",
+      "Viimsi"
+    ]
+  },
+  "summary": {
+    "final_class_a_chain_count": 4,
+    "final_class_a_chain_names": [
+      "MyFitness",
+      "24-7 Fitness",
+      "Gym!",
+      "Golden Club"
+    ],
+    "final_class_a_keep_count": 68,
+    "final_class_a_new_ready_count": 0,
+    "chain_estate_gaps": 0,
+    "new_class_a_chains_found": 0,
+    "lemon_gym_final": "EXCLUDED_sub_threshold_2_sites"
+  }
+}

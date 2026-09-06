@@ -1,0 +1,97 @@
+{% comment %}
+  Gymly affiliate / Gymly-checkout purchase gate for Online Store product pages.
+  Metafield contract (custom.*): gymly_destination_type, gymly_affiliate_url,
+  gymly_affiliate_tracked, gymly_price_verified_at — same as the mobile app.
+
+  Usage (wrap your theme buy buttons on the product page):
+
+    {% capture gymly_buy_buttons %}
+      {% render 'buy-buttons', product: product, ... %}
+    {% endcapture %}
+    {% render 'gymly-affiliate-product', product: product, buy_buttons: gymly_buy_buttons %}
+
+  Product cards / collection links must keep pointing at the Gymly product URL —
+  do not outbound-redirect from cards.
+{% endcomment %}
+
+{% liquid
+  assign destination_type = product.metafields.custom.gymly_destination_type.value | default: product.metafields.custom.gymly_destination_type | default: 'gymly'
+  assign affiliate_url = product.metafields.custom.gymly_affiliate_url.value | default: product.metafields.custom.gymly_affiliate_url | default: ''
+  assign affiliate_tracked = product.metafields.custom.gymly_affiliate_tracked.value | default: product.metafields.custom.gymly_affiliate_tracked | default: ''
+  assign price_verified_at = product.metafields.custom.gymly_price_verified_at.value | default: product.metafields.custom.gymly_price_verified_at | default: ''
+  assign brand_name = product.vendor | default: 'Partner'
+  assign dest_l = destination_type | downcase | strip
+  assign is_affiliate = false
+  if dest_l == 'affiliate'
+    assign is_affiliate = true
+  endif
+%}
+
+{{ 'gymly-affiliate-outbound.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="gymly-affiliate-root"
+  data-gymly-affiliate-root
+  data-product-id="{{ product.id }}"
+  data-product-handle="{{ product.handle | escape }}"
+  data-brand="{{ brand_name | escape }}"
+  data-destination-type="{{ destination_type | escape }}"
+  data-affiliate-url="{{ affiliate_url | escape }}"
+  data-affiliate-tracked="{{ affiliate_tracked | escape }}"
+  data-price-verified-at="{{ price_verified_at | escape }}"
+  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+>
+  {% unless is_affiliate %}
+    <div data-gymly-cart-slot data-gymly-gymly-cart>
+      {{ buy_buttons }}
+    </div>
+  {% else %}
+    <div data-gymly-cart-slot data-gymly-gymly-cart hidden aria-hidden="true">
+      {% comment %} Affiliate products must never use Gymly cart/checkout. {% endcomment %}
+    </div>
+
+    <div class="gymly-affiliate-slot" data-gymly-affiliate-slot>
+      <p
+        class="gymly-affiliate-price-note"
+        data-gymly-price-note
+        data-template="{{ 'gymly.affiliate.final_price_confirmed_at_brand' | t | escape }}"
+      >
+        {{ 'gymly.affiliate.final_price_confirmed_at_brand' | t: brand: brand_name }}
+      </p>
+
+      <p
+        class="gymly-affiliate-fulfilment"
+        data-gymly-fulfilment
+        data-template="{{ 'gymly.affiliate.sold_and_fulfilled_by_brand' | t | escape }}"
+      >
+        {{ 'gymly.affiliate.sold_and_fulfilled_by_brand' | t: brand: brand_name }}
+      </p>
+
+      <a
+        class="gymly-affiliate-cta button"
+        data-gymly-affiliate-cta
+        role="link"
+        hidden
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        data-label-template="{{ 'gymly.affiliate.buy_at_brand' | t | escape }}"
+        data-a11y-template="{{ 'gymly.affiliate.buy_at_brand_a11y' | t | escape }}"
+        aria-label="{{ 'gymly.affiliate.buy_at_brand_a11y' | t: brand: brand_name }}"
+      >
+        {{ 'gymly.affiliate.buy_at_brand' | t: brand: brand_name }}
+      </a>
+
+      <p
+        class="gymly-affiliate-unavailable"
+        data-gymly-affiliate-unavailable
+        hidden
+        role="status"
+      >
+        {{ 'gymly.affiliate.product_unavailable' | t }}
+      </p>
+    </div>
+  {% endunless %}
+</div>
+
+<script src="{{ 'gymly-affiliate-outbound.js' | asset_url }}" defer></script>

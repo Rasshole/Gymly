@@ -1,0 +1,25 @@
+{
+  "country": "Slovenia",
+  "maps": [
+    {
+      "legacy_brand": "clever fit",
+      "current_brand": "Shape House",
+      "operator": "CF FITNESS d.o.o.",
+      "classification": "A_legitimate_rebrand",
+      "evidence": "Production uses Shape House branding; clever fit franchise predecessor",
+      "production_decision": "reconcile_as_shape_house"
+    },
+    {
+      "legacy_brand": "FITINN Maribor Maribox (prej Kolosej)",
+      "current_brand": "FITINN",
+      "classification": "A_legitimate_rebrand",
+      "evidence": "fitinn.si studio title retains Kolosej predecessor label"
+    }
+  ],
+  "unresolved_conflicts": 0,
+  "excluded_aggregators": [
+    "MultiSport",
+    "FitGang",
+    "Sported directory"
+  ]
+}

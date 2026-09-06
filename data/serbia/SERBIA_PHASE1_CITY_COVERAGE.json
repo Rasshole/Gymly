@@ -1,0 +1,30 @@
+{
+  "cities": {
+    "Belgrade": "chain_and_independent_present",
+    "Novi Sad": "chain_and_independent_present",
+    "Niš": "independent_present_candidate",
+    "Kragujevac": "independent_present_candidate",
+    "Subotica": "independent_present_candidate",
+    "Pančevo": "chain_and_independent_present",
+    "Čačak": "independent_present_candidate",
+    "Kraljevo": "independent_present_candidate",
+    "Novi Pazar": "independent_present_candidate",
+    "Kruševac": "independent_present_candidate",
+    "Leskovac": "independent_present_candidate",
+    "Užice": "independent_present_candidate",
+    "Zrenjanin": "independent_present_candidate",
+    "Smederevo": "chain_and_independent_present",
+    "Valjevo": "independent_present_candidate",
+    "Šabac": "independent_present_candidate",
+    "Sombor": "independent_present_candidate",
+    "Vranje": "independent_present_candidate",
+    "Bujanovac": "independent_present_candidate",
+    "Preševo": "independent_present_candidate",
+    "Pirot": "independent_present_candidate",
+    "Sremska Mitrovica": "independent_present_candidate"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [],
+  "phase1_justified_a_gaps": []
+}

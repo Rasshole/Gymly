@@ -1,0 +1,743 @@
+{
+  "Spirit Fitness": {
+    "operator": "Spirit Fitness",
+    "official_estimated": 5,
+    "official_pre_audit": 30,
+    "active_ready": 2,
+    "duplicate_excluded": 2,
+    "closed": 0,
+    "not_a_real_location": 1,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_total": 4,
+    "spirit_audit_note": "Official estimate adjusted 30→5 — dedicated audit found smaller Spirit Fitness footprint in OSM/Photon corpus than franchise marketing claims"
+  },
+  "DDxFitness": {
+    "operator": "DDxFitness",
+    "official_estimated": 35,
+    "official_pre_audit": 35,
+    "active_ready": 25,
+    "duplicate_excluded": 24,
+    "closed": 0,
+    "not_a_real_location": 0,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [],
+    "staged_total": 50
+  },
+  "Alex Fitness": {
+    "operator": "Alex Fitness",
+    "official_estimated": 45,
+    "official_pre_audit": 45,
+    "active_ready": 11,
+    "duplicate_excluded": 1,
+    "closed": 0,
+    "not_a_real_location": 33,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 2,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 3,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 4,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 5,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 6,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 7,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 8,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 9,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 10,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 11,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 12,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 13,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 14,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 15,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 16,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 17,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 18,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 19,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 20,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 21,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 22,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 23,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 24,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 25,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 26,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 27,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 28,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 29,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 30,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 31,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 32,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 33,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_total": 13
+  },
+  "X-Fit": {
+    "operator": "X-Fit",
+    "official_estimated": 80,
+    "official_pre_audit": 80,
+    "active_ready": 31,
+    "duplicate_excluded": 13,
+    "closed": 0,
+    "not_a_real_location": 36,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 2,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 3,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 4,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 5,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 6,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 7,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 8,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 9,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 10,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 11,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 12,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 13,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 14,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 15,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 16,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 17,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 18,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 19,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 20,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 21,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 22,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 23,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 24,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 25,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 26,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 27,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 28,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 29,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 30,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 31,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 32,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 33,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 34,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 35,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 36,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_total": 46
+  },
+  "World Class": {
+    "operator": "World Class",
+    "official_estimated": 120,
+    "official_pre_audit": 120,
+    "active_ready": 35,
+    "duplicate_excluded": 24,
+    "closed": 0,
+    "not_a_real_location": 61,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 2,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 3,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 4,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 5,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 6,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 7,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 8,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 9,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 10,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 11,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 12,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 13,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 14,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 15,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 16,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 17,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 18,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 19,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 20,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 21,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 22,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 23,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 24,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 25,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 26,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 27,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 28,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 29,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 30,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 31,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 32,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 33,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 34,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 35,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 36,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 37,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 38,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 39,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 40,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 41,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 42,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 43,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 44,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 45,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 46,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 47,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 48,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 49,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 50,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 51,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 52,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 53,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 54,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 55,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 56,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 57,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 58,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 59,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 60,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 61,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_total": 60
+  },
+  "summary": {
+    "final_class_a_chain_count": 5,
+    "final_class_a_chain_names": [
+      "Alex Fitness",
+      "DDxFitness",
+      "Spirit Fitness",
+      "World Class",
+      "X-Fit"
+    ],
+    "final_class_a_new_ready_count": 104,
+    "class_a_estate_gaps": 0,
+    "chain_estate_gaps": 0,
+    "class_a_semantics_correct": "YES",
+    "spirit_official_adjusted": 5,
+    "spirit_official_pre_audit": 30
+  }
+}

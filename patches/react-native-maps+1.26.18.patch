@@ -1,0 +1,322 @@
+diff --git a/node_modules/react-native-maps/android/build/generated/source/buildConfig/debug/com/rnmaps/maps/BuildConfig.java b/node_modules/react-native-maps/android/build/generated/source/buildConfig/debug/com/rnmaps/maps/BuildConfig.java
+new file mode 100644
+index 0000000..7f1620c
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/generated/source/buildConfig/debug/com/rnmaps/maps/BuildConfig.java
+@@ -0,0 +1,12 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package com.rnmaps.maps;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = Boolean.parseBoolean("true");
++  public static final String LIBRARY_PACKAGE_NAME = "com.rnmaps.maps";
++  public static final String BUILD_TYPE = "debug";
++  // Field from default config.
++  public static final boolean IS_NEW_ARCHITECTURE_ENABLED = true;
++}
+diff --git a/node_modules/react-native-maps/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml b/node_modules/react-native-maps/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+new file mode 100644
+index 0000000..07c618e
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.rnmaps.maps" >
++
++    <uses-sdk android:minSdkVersion="24" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-maps/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json b/node_modules/react-native-maps/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+new file mode 100644
+index 0000000..578d892
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+@@ -0,0 +1,18 @@
++{
++  "version": 3,
++  "artifactType": {
++    "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
++    "kind": "Directory"
++  },
++  "applicationId": "com.rnmaps.maps",
++  "variantName": "debug",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "attributes": [],
++      "outputFile": "AndroidManifest.xml"
++    }
++  ],
++  "elementType": "File"
++}
+\ No newline at end of file
+diff --git a/node_modules/react-native-maps/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties b/node_modules/react-native-maps/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+new file mode 100644
+index 0000000..1211b1e
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+@@ -0,0 +1,6 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
++coreLibraryDesugaringEnabled=false
+diff --git a/node_modules/react-native-maps/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json b/node_modules/react-native-maps/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+new file mode 100644
+index 0000000..9e26dfe
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+@@ -0,0 +1 @@
++{}
+\ No newline at end of file
+diff --git a/node_modules/react-native-maps/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/react-native-maps/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
+new file mode 100644
+index 0000000..588cd91
+Binary files /dev/null and b/node_modules/react-native-maps/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar differ
+diff --git a/node_modules/react-native-maps/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt b/node_modules/react-native-maps/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/react-native-maps/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/react-native-maps/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+new file mode 100644
+index 0000000..b52e556
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Wed Jun 24 23:50:24 CEST 2026
+diff --git a/node_modules/react-native-maps/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/react-native-maps/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+new file mode 100644
+index 0000000..36624ca
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-maps/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt b/node_modules/react-native-maps/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+new file mode 100644
+index 0000000..78ac5b8
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+@@ -0,0 +1,2 @@
++R_DEF: Internal format may change without notice
++local
+diff --git a/node_modules/react-native-maps/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt b/node_modules/react-native-maps/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+new file mode 100644
+index 0000000..c28d4ba
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+@@ -0,0 +1,7 @@
++1<?xml version="1.0" encoding="utf-8"?>
++2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++3    package="com.rnmaps.maps" >
++4
++5    <uses-sdk android:minSdkVersion="24" />
++6
++7</manifest>
+diff --git a/node_modules/react-native-maps/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml b/node_modules/react-native-maps/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+new file mode 100644
+index 0000000..07c618e
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.rnmaps.maps" >
++
++    <uses-sdk android:minSdkVersion="24" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-maps/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json b/node_modules/react-native-maps/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/react-native-maps/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt b/node_modules/react-native-maps/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+new file mode 100644
+index 0000000..08f4ebe
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+@@ -0,0 +1 @@
++0 Warning/Error
+\ No newline at end of file
+diff --git a/node_modules/react-native-maps/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/react-native-maps/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+new file mode 100644
+index 0000000..d2faa16
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+@@ -0,0 +1 @@
++com.rnmaps.maps
+diff --git a/node_modules/react-native-maps/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/react-native-maps/android/build/outputs/logs/manifest-merger-debug-report.txt
+new file mode 100644
+index 0000000..ce07603
+--- /dev/null
++++ b/node_modules/react-native-maps/android/build/outputs/logs/manifest-merger-debug-report.txt
+@@ -0,0 +1,16 @@
++-- Merging decision tree log ---
++manifest
++ADDED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml:1:1-2:12
++INJECTED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml:1:1-2:12
++	package
++		INJECTED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml
++	xmlns:android
++		ADDED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml:1:11-69
++uses-sdk
++INJECTED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml
++INJECTED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml
++	android:targetSdkVersion
++		INJECTED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml
++	android:minSdkVersion
++		INJECTED from /Users/patrickgarcia/Desktop/Gymly/Gymly-1/node_modules/react-native-maps/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCalloutManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCalloutManagerInterface.java
+index 9f454e8..96e6ac7 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCalloutManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCalloutManagerInterface.java
+@@ -10,9 +10,8 @@
+ package com.facebook.react.viewmanagers;
+ 
+ import android.view.View;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsCalloutManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsCalloutManagerInterface<T extends View> {
+   void setAlphaHitTest(T view, boolean value);
+   void setTooltip(T view, boolean value);
+ }
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCircleManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCircleManagerInterface.java
+index a75b883..9506bbd 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCircleManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsCircleManagerInterface.java
+@@ -12,9 +12,8 @@ package com.facebook.react.viewmanagers;
+ import android.view.View;
+ import androidx.annotation.Nullable;
+ import com.facebook.react.bridge.ReadableMap;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsCircleManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsCircleManagerInterface<T extends View> {
+   void setCenter(T view, @Nullable ReadableMap value);
+   void setFillColor(T view, @Nullable Integer value);
+   void setRadius(T view, double value);
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsGooglePolygonManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsGooglePolygonManagerInterface.java
+index 64aebbe..26d32fe 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsGooglePolygonManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsGooglePolygonManagerInterface.java
+@@ -12,9 +12,8 @@ package com.facebook.react.viewmanagers;
+ import android.view.View;
+ import androidx.annotation.Nullable;
+ import com.facebook.react.bridge.ReadableArray;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsGooglePolygonManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsGooglePolygonManagerInterface<T extends View> {
+   void setCoordinates(T view, @Nullable ReadableArray value);
+   void setFillColor(T view, @Nullable Integer value);
+   void setStrokeColor(T view, @Nullable Integer value);
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMapViewManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMapViewManagerInterface.java
+index 47771dc..2ba666b 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMapViewManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMapViewManagerInterface.java
+@@ -13,9 +13,8 @@ import android.view.View;
+ import androidx.annotation.Nullable;
+ import com.facebook.react.bridge.ReadableArray;
+ import com.facebook.react.bridge.ReadableMap;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsMapViewManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsMapViewManagerInterface<T extends View> {
+   void setCacheEnabled(T view, boolean value);
+   void setCamera(T view, @Nullable ReadableMap value);
+   void setCompassOffset(T view, @Nullable ReadableMap value);
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMarkerManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMarkerManagerInterface.java
+index 21e2de7..c75bf92 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMarkerManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsMarkerManagerInterface.java
+@@ -12,9 +12,8 @@ package com.facebook.react.viewmanagers;
+ import android.view.View;
+ import androidx.annotation.Nullable;
+ import com.facebook.react.bridge.ReadableMap;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsMarkerManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsMarkerManagerInterface<T extends View> {
+   void setAnchor(T view, @Nullable ReadableMap value);
+   void setCalloutAnchor(T view, @Nullable ReadableMap value);
+   void setImage(T view, @Nullable ReadableMap value);
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsOverlayManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsOverlayManagerInterface.java
+index a3ac91a..aea0ac3 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsOverlayManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsOverlayManagerInterface.java
+@@ -12,9 +12,8 @@ package com.facebook.react.viewmanagers;
+ import android.view.View;
+ import androidx.annotation.Nullable;
+ import com.facebook.react.bridge.ReadableMap;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsOverlayManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsOverlayManagerInterface<T extends View> {
+   void setBearing(T view, float value);
+   void setBounds(T view, @Nullable ReadableMap value);
+   void setImage(T view, @Nullable ReadableMap value);
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsPolylineManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsPolylineManagerInterface.java
+index 36bee28..a8ce494 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsPolylineManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsPolylineManagerInterface.java
+@@ -12,9 +12,8 @@ package com.facebook.react.viewmanagers;
+ import android.view.View;
+ import androidx.annotation.Nullable;
+ import com.facebook.react.bridge.ReadableArray;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsPolylineManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsPolylineManagerInterface<T extends View> {
+   void setCoordinates(T view, @Nullable ReadableArray value);
+   void setGeodesic(T view, boolean value);
+   void setLineCap(T view, @Nullable String value);
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsUrlTileManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsUrlTileManagerInterface.java
+index 33e02f5..120391f 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsUrlTileManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsUrlTileManagerInterface.java
+@@ -11,9 +11,8 @@ package com.facebook.react.viewmanagers;
+ 
+ import android.view.View;
+ import androidx.annotation.Nullable;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsUrlTileManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsUrlTileManagerInterface<T extends View> {
+   void setDoubleTileSize(T view, boolean value);
+   void setFlipY(T view, boolean value);
+   void setMaximumNativeZ(T view, int value);
+diff --git a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsWMSTileManagerInterface.java b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsWMSTileManagerInterface.java
+index 8420e8f..abdcd5a 100644
+--- a/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsWMSTileManagerInterface.java
++++ b/node_modules/react-native-maps/android/src/main/java/com/facebook/react/viewmanagers/RNMapsWMSTileManagerInterface.java
+@@ -11,9 +11,8 @@ package com.facebook.react.viewmanagers;
+ 
+ import android.view.View;
+ import androidx.annotation.Nullable;
+-import com.facebook.react.uimanager.ViewManagerWithGeneratedInterface;
+ 
+-public interface RNMapsWMSTileManagerInterface<T extends View> extends ViewManagerWithGeneratedInterface {
++public interface RNMapsWMSTileManagerInterface<T extends View> {
+   void setMaximumNativeZ(T view, int value);
+   void setMaximumZ(T view, int value);
+   void setMinimumZ(T view, int value);
+diff --git a/node_modules/react-native-maps/ios/AirMaps/RNMapsDefines.h b/node_modules/react-native-maps/ios/AirMaps/RNMapsDefines.h
+index e4fc048..91b6de5 100644
+--- a/node_modules/react-native-maps/ios/AirMaps/RNMapsDefines.h
++++ b/node_modules/react-native-maps/ios/AirMaps/RNMapsDefines.h
+@@ -1 +1 @@
+-#define HAVE_GOOGLE_MAPS 1
++#define HAVE_GOOGLE_MAPS 0

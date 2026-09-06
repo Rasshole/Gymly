@@ -1,0 +1,3491 @@
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=UTF-8 />
+
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+
+
+
+
+    <script>
+        (() => {
+            // Check if the back to checkout banner should be shown (reached at least step 2 and havent completed a succesful checkout yet)
+            const abandonedCartBanner = sessionStorage.getItem('abandoned-cart-banner') === '1' && sessionStorage.getItem('subscription-checkout-completed') !== '1';
+            document.documentElement.classList.toggle('abandoned-cart-active', abandonedCartBanner);
+        })();
+    </script>
+
+
+
+
+
+
+    <meta name="robots" content="index, follow" />
+
+
+
+    <script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"ItemList","numberOfItems":10,"itemListOrder":"ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"ExerciseGym","name":"Gym Avenue du Swing 24/7 Belvaux","address":{"@type":"PostalAddress","streetAddress":"Avenue du Swing 1","addressLocality":"Belvaux","postalCode":"4367","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-belval-avenue-du-swing-24-7-abbc775640cd45d391253913f8e4ad6e.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}},{"@type":"ListItem","position":2,"item":{"@type":"ExerciseGym","name":"Gym 24/7 Bereldange","address":{"@type":"PostalAddress","streetAddress":"Route de Luxembourg 111","addressLocality":"Bereldange","postalCode":"7241","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-bereldange-24-7-c9b6c7f552304bb6aefefc2a755ddc01.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}},{"@type":"ListItem","position":3,"item":{"@type":"ExerciseGym","name":"Gym Route de Luxembourg Bettembourg","address":{"@type":"PostalAddress","streetAddress":"Route de Luxembourg 235","addressLocality":"Bettembourg","postalCode":"3254","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-bettembourg-route-de-luxembourg-78bd67f052e0497fa9b320ab97ed537f.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"22:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"19:00"}]}},{"@type":"ListItem","position":4,"item":{"@type":"ExerciseGym","name":"Gym Ettelbruck 24/7 Ettelbruck","address":{"@type":"PostalAddress","streetAddress":"ZA et Commerciale 1","addressLocality":"Ettelbruck","postalCode":"9085","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-ettelbruck-24-7-0e42068edc4b498389d1c56bd415c2e6.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}},{"@type":"ListItem","position":5,"item":{"@type":"ExerciseGym","name":"Gym Rue du Brill 24/7 Foetz","address":{"@type":"PostalAddress","streetAddress":"Route de Brill 11","addressLocality":"Foetz","postalCode":"3898","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-foetz-rue-du-brill-24-7-6dfe04f93d9e4060b307774c5c022e20.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}},{"@type":"ListItem","position":6,"item":{"@type":"ExerciseGym","name":"Gym Rue Pere Raphael 24/7 Gasperich","address":{"@type":"PostalAddress","streetAddress":"Rue du Père Raphaël 18","addressLocality":"Gasperich","postalCode":"1349","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-gasperich-rue-pere-raphael-24-7-141e420d328c4ba8b0d0489ed5eca748.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}},{"@type":"ListItem","position":7,"item":{"@type":"ExerciseGym","name":"Gym Ville Rue Joseph Junck Luxembourg","address":{"@type":"PostalAddress","streetAddress":"Rue Joseph Junck 12","addressLocality":"Luxembourg","postalCode":"1839","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-ville-rue-joseph-junck-d7d2ee6fc2b745e5ba77d570617de4de.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"06:00","closes":"22:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"19:00"}]}},{"@type":"ListItem","position":8,"item":{"@type":"ExerciseGym","name":"Gym Sandweiler 24/7 Sandweiler","address":{"@type":"PostalAddress","streetAddress":"Rue de Luxembourg 11","addressLocality":"Sandweiler","postalCode":"5230","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-sandweiler-24-7-7685d187d3fb43f28e9e29f4ae9ea57f.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}},{"@type":"ListItem","position":9,"item":{"@type":"ExerciseGym","name":"Gym Rue du Cimetière 24/7 Strassen","address":{"@type":"PostalAddress","streetAddress":"Rue du Cimetière 150-152","addressLocality":"Strassen","postalCode":"8069","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-strassen-rue-du-cimetiere-24-7-dfe1313dc72241b5806b5cfdeb7079d1.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}},{"@type":"ListItem","position":10,"item":{"@type":"ExerciseGym","name":"Gym WINDHOF 24/7 Windhof","address":{"@type":"PostalAddress","streetAddress":"Route d’Arlon 5","addressLocality":"Windhof","postalCode":"8399","addressCountry":"LU"},"image":"https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380","url":"https://www.basic-fit.com/en-lu/clubs/basic-fit-windhof-24-7-9ccfa40858454840bd7221dde69e1932.html","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"24:00"}]}}]}
+</script>
+
+
+
+
+    <link rel="canonical" href="https://www.basic-fit.com/en-lu/club-finder" />
+
+
+
+<title>
+    Find a gym in Luxembourg! | Basic-Fit
+</title>
+
+<meta name="description" content="Looking for a gym near you? With over 1400 gyms there is always a club around the corner! Find your gym, become a member and start making fitness your basic!" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/en-lu/club-finder" hreflang="en-lu" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/nl-nl/sportscholen" hreflang="nl-nl" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/fr-fr/salles-de-sport" hreflang="fr-fr" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/de-de/club-finder" hreflang="de-de" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/en-nl/club-finder" hreflang="en-nl" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/en-de/club-finder" hreflang="en-de" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/en-be/club-finder" hreflang="en-be" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/en-es/club-finder" hreflang="en-es" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/nl-be/fitnessclubs" hreflang="nl-be" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/en-fr/club-finder" hreflang="en-fr" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/es-es/gimnasios" hreflang="es-es" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/fr-be/salles-de-fitness" hreflang="fr-be" />
+    
+
+    
+
+    
+        <link rel="alternate" href="https://www.basic-fit.com/fr-lu/salles-de-fitness" hreflang="fr-lu" />
+    
+
+
+
+
+
+<link rel="shortcut icon" href="/on/demandware.static/Sites-BFE-Site/-/default/dw7342467d/images/favicon.ico" />
+<link rel="icon" type="image/svg+xml" href="/on/demandware.static/Sites-BFE-Site/-/default/dw19f0e029/img/favicon.svg" />
+<link rel="icon" type="image/png" href="/on/demandware.static/Sites-BFE-Site/-/default/dwbefc366e/img/favicon-32x32.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/on/demandware.static/Sites-BFE-Site/-/default/dw831de75f/img/favicon-180x180.png" />
+
+
+<link rel="preload" href="/on/demandware.static/Sites-BFE-Site/-/default/dw7e43019e/fonts/icons.woff" as="font" type="font/woff" crossorigin="anonymous" />
+<link rel="preload" href="/on/demandware.static/Sites-BFE-Site/-/default/fonts/HeadingProTreble-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="/on/demandware.static/Sites-BFE-Site/-/default/fonts/HeadingProTreble-Heavy.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="/on/demandware.static/Sites-BFE-Site/-/default/fonts/HeadingProTreble-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+
+<style>
+    @font-face {
+        font-family: iconfont;
+        src: url(/on/demandware.static/Sites-BFE-Site/-/default/dw7e43019e/fonts/icons.woff) format("woff");
+        font-display: block;
+    }
+
+    @font-face {
+        font-family: HeadingProTreble-ExtraBold;
+        src: url('/on/demandware.static/Sites-BFE-Site/-/default/fonts/HeadingProTreble-ExtraBold.woff2') format('woff2');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: HeadingProTreble-Heavy;
+        src: url('/on/demandware.static/Sites-BFE-Site/-/default/fonts/HeadingProTreble-Heavy.woff2') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: HeadingProTreble-Regular;
+        src: url('/on/demandware.static/Sites-BFE-Site/-/default/fonts/HeadingProTreble-Regular.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+</style>
+
+<link rel="stylesheet" href="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/css/root/global.css" />
+
+
+    <link rel="stylesheet" href="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/css/pages/finder.css" />
+
+
+<style media="screen">
+    @media not all and (min-resolution:.001dpcm) {
+        @media {
+            .safari-only {
+                display: block;
+            }
+        }
+    }
+</style>
+
+
+
+
+
+<!-- loop all the ab tests -->
+
+
+
+
+
+
+
+    <meta property="og:title" content="Find a gym in Luxembourg! | Basic-Fit"/>
+
+
+
+    <meta property="og:description" content="Looking for a gym near you? With over 1400 gyms there is always a club around the corner! Find your gym, become a member and start making fitness your basic!"/>
+
+
+
+    <meta property="og:url" content="https://www.basic-fit.com/en-lu/club-finder" />
+
+
+
+    <meta property="og:type" content="website"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    var dataLayer = window.dataLayer = window.dataLayer || [];
+
+    // Google Consent Mode
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'granted',
+        ad_personalization: 'denied',
+        ad_user_data: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied'
+    });
+
+    dataLayer.push({
+            pageCountry: 'LU',
+            pageLanguage: 'EN',
+            internalTraffic: 'false',
+            eventId: '1706466661446839'
+    });
+    dataLayer.push({'event':'cookie.consent.system.page.init'});
+    dataLayer.push({ page: null });
+    dataLayer.push({"event":"data_ready","page":{"page_type":"club-finder","page_country":"LU","page_language":"EN"},"traffictype":{"platform":"web","ip_address":"158.64.18.35"}});
+</script>
+
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://sst.basic-fit.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PD6Q6J');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+
+
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="617f1858-ecb0-4c98-8ac5-383ed1c7ed56" async="async" fetchpriority="high"></script>
+
+
+
+<script>//common/scripts.isml</script>
+<script defer type="text/javascript" src="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/js/main.js"></script>
+
+    <script defer type="text/javascript" src="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/js/finder.js"
+        
+        >
+    </script>
+
+
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.17.0/mapbox-gl.js"></script>
+
+<link
+    rel="preload"
+    href="https://api.mapbox.com/mapbox-gl-js/v3.17.0/mapbox-gl.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+/>
+
+<noscript>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.17.0/mapbox-gl.css" />
+</noscript>
+
+
+</head>
+<body class="langloc-en_LU dark-body">
+<a href="#main-content" class="skip-to-main-link skip-link" aria-label="Skip to main content">Skip to main content</a>
+
+
+
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD6Q6J"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+<div class="page finder" data-action="Store-Finder" data-querystring="" data-trainerid="null">
+
+
+
+
+
+    <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"SiteNavigationElement","name":"Basic-Fit Navigation","hasPart":[{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/club-finder","name":"Find a club"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/price","name":"Prices"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/fitness/support","name":"Personal Training"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/fitness/support","name":"Physiotherapy"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/pt-intro","name":"Personal Training Intro"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/prices/yanga-sports-water","name":"Yanga Sportswater"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/membership-freeze","name":"Membership Freeze"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/massage","name":"Massage Chairs"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/club-services","name":"All club facilities"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/opening-hours-24-7-open","name":"24/7 clubs"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/basic-fit-day-pass","name":"Daypass"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/opening-hours","name":"Opening Hours"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/basic-fit-app","name":"App"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/gyms//luxembourg","name":"Gyms in Luxembourg"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/gyms/foetz","name":"Gyms in Foetz"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/gyms/gasperich","name":"Gyms in Gasperich"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/gyms/strassen","name":"Gyms in Strassen"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/cities","name":"See all cities"},{"@type":"WebPage","url":"","name":"Club & facilities"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/group-classes","name":"Group Classes"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/blog","name":"Blog"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/blog?categoryId=nutrition","name":"All about nutrition"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/blog?categoryId=training","name":"All about training"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/blog?categoryId=body%26mind","name":"All about body & mind"},{"@type":"WebPage","url":"https://www.basic-fit.com/en-lu/programs","name":"Training plans"},{"@type":"WebPage","url":"","name":"Training & advice"}]}
+    </script>
+
+
+<div class="sticky-header">
+    <header class="main-page-header">
+        
+
+        <div class="header-row-usp">
+            <div class="header-max-col">
+                
+
+
+    <div class="abandoned-cart-banner-wrapper">
+        <div class="abandoned-cart-banner">
+            <div class="title">
+                <div class="icon"></div>
+                <div class="text">
+                    You left something behind
+                </div>
+            </div>
+            <a href="/en-lu/checkout" class="link" title="Continue">
+                Continue
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="header-usp-swiper-container">
+        <div class="js-header-usp-swiper header-usp-swiper">
+            <div class="swiper-wrapper">
+                
+                    <div class="swiper-slide">
+                        <div class="title-wrapper">
+                            
+                                <span aria-hidden="true" class="icon icon-club-tt"></span>
+                                <span class="value">
+                                    1600+ Clubs
+                                </span>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <div class="title-wrapper">
+                            
+                                <span aria-hidden="true" class="icon icon-clock-24-tt"></span>
+                                <span class="value">
+                                    Work Out 24/7
+                                </span>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <div class="title-wrapper">
+                            
+                                <span aria-hidden="true" class="icon icon-kettlebell-tt"></span>
+                                <span class="value">
+                                    Best Equipment
+                                </span>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <div class="title-wrapper">
+                            
+                                <span aria-hidden="true" class="icon icon-clubs-tt"></span>
+                                <span class="value">
+                                    Access to all Clubs
+                                </span>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+
+        <div class="header-usp-navigation">
+            <div class="arrow-prev"></div>
+            <div class="arrow-next"></div>
+        </div>
+    </div>
+
+
+
+                <div class="js-service-menu service-menu desktop">
+                    
+                        <a
+                            href="https://my.basic-fit.com/"
+                            class="link-my-basicfit "
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <span>
+                                My Basic-Fit
+                            </span>
+                        </a>
+                    
+
+                    
+                        <a
+                            href="https://www.basic-fit.com/en-lu/faq"
+                            class="link-customer-service "
+                            target="_self"
+                            rel="noopener"
+                        >
+                            <span>
+                                Customer service
+                            </span>
+                        </a>
+                    
+
+                    
+                        <div
+                            class="country-selector js-country-header-selector"
+                            data-url="/on/demandware.store/Sites-BFE-Site/en_LU/Page-SetLocale"
+                            role="button"
+                            tabindex="0"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            aria-controls="countryMenu"
+                        >
+                            <span class="country-link" id="dropdownCountrySelectorHeader" data-toggle="dropdown">
+                                EN
+                            </span>
+
+                            <div id="countryMenuHeader" class="country-menu" aria-labelledby="dropdownCountrySelectorHeader">
+                                
+                                    <a
+                                        href="javascript:;"
+                                        class="dropdown-item"
+                                        data-locale="fr_LU"
+                                        data-currencycode="EUR"
+                                        tabindex="0"
+                                    >
+                                        français
+                                    </a>
+                                
+                                    <a
+                                        href="javascript:;"
+                                        class="dropdown-item active"
+                                        data-locale="en_LU"
+                                        data-currencycode="EUR"
+                                        tabindex="-1"
+                                    >
+                                        English
+                                    </a>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="header-row-navigation">
+            <div class="header-max-col">
+                <div class="bf-header-logo">
+                    <a href="/en-lu/home/home.html" class="logo-link">
+                        <img
+                            src="/on/demandware.static/Sites-BFE-Site/-/default/dw70fee1ab/img/svg/logo-bf-orange.svg"
+                            class="bf-header-logo"
+                            alt="Basic-Fit"
+                        />
+                    </a>
+                </div>
+
+                <button class="hamburger-toggle js-hamburger-toggle" aria-label="Open main menu"></button>
+
+                <div class="header-navigation" role="navigation">
+                    <div class="menu-popup-overlay js-hamburger-toggle"></div>
+                    <div class="main-header-menu-wrapper">
+                        <header class="touch-menu-header">
+                            <a href="/en-lu/home/home.html" class="touch-menu-logo">
+                                <img
+                                    src="/on/demandware.static/Sites-BFE-Site/-/default/dw70fee1ab/img/svg/logo-bf-orange.svg"
+                                    alt="Basic-Fit"
+                                />
+                            </a>
+                            <a class="btn btn--primary become-member js-become-member" href="/en-lu/checkout">
+                                Join
+                            </a>
+                            <button class="touch-menu-close js-hamburger-toggle"></button>
+                        </header>
+
+                        <div class="menu-body">
+                            <div class="scroll-wrapper">
+                                <ul class="main-header-menu">
+                                    
+                                        <li class="main-header-menu-item active">
+                                            <a
+                                                class="main-header-menu-link"
+                                                href="https://www.basic-fit.com/en-lu/club-finder"
+                                                aria-haspopup="false"
+                                            >
+                                                <span class="value">
+                                                    Find a club
+                                                </span>
+                                            </a>
+
+                                            
+                                        </li>
+                                    
+                                        <li class="main-header-menu-item ">
+                                            <a
+                                                class="main-header-menu-link"
+                                                href="https://www.basic-fit.com/en-lu/price"
+                                                aria-haspopup="false"
+                                            >
+                                                <span class="value">
+                                                    Prices
+                                                </span>
+                                            </a>
+
+                                            
+                                        </li>
+                                    
+                                        <li class="main-header-menu-item ">
+                                            <a
+                                                class="main-header-menu-link"
+                                                href="javascript:;"
+                                                aria-haspopup="true"
+                                            >
+                                                <span class="value">
+                                                    Club & facilities
+                                                </span>
+                                            </a>
+
+                                            
+                                                <div class="main-header-sub-menu-wrapper" aria-label="Submenu for Club &amp; facilities" aria-live="assertive">
+                                                    <div class="main-header-sub-menu-container">
+                                                        <div class="scroll-wrapper">
+                                                            <div class="touch-menu-sub-header">
+                                                                <button class="touch-menu-back js-touch-menu-back" tabindex="-1">
+                                                                    Back
+                                                                </button>
+                                                            </div>
+
+                                                            <ul class="main-header-sub-menu">
+                                                                
+                                                                    <li class="main-header-sub-menu-column">
+                                                                        <span class="main-header-sub-menu-column-title">
+                                                                            at the club
+                                                                        </span>
+
+                                                                        <ul class="main-header-sub-menu-list">
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/fitness/support">
+                                                                                        Personal Training
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/fitness/support">
+                                                                                        Physiotherapy
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/pt-intro">
+                                                                                        Personal Training Intro
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/prices/yanga-sports-water">
+                                                                                        Yanga Sportswater
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/membership-freeze">
+                                                                                        Membership Freeze
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/massage">
+                                                                                        Massage Chairs
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/club-services">
+                                                                                        All club facilities
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                        </ul>
+                                                                    </li>
+                                                                
+                                                                    <li class="main-header-sub-menu-column">
+                                                                        <span class="main-header-sub-menu-column-title">
+                                                                            about our clubs
+                                                                        </span>
+
+                                                                        <ul class="main-header-sub-menu-list">
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/opening-hours-24-7-open">
+                                                                                        24/7 clubs
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/basic-fit-day-pass">
+                                                                                        Daypass
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/opening-hours">
+                                                                                        Opening Hours
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/basic-fit-app">
+                                                                                        App
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                        </ul>
+                                                                    </li>
+                                                                
+                                                                    <li class="main-header-sub-menu-column">
+                                                                        <span class="main-header-sub-menu-column-title">
+                                                                            always a club nearby
+                                                                        </span>
+
+                                                                        <ul class="main-header-sub-menu-list">
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/gyms//luxembourg">
+                                                                                        Gyms in Luxembourg
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/gyms/foetz">
+                                                                                        Gyms in Foetz
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/gyms/gasperich">
+                                                                                        Gyms in Gasperich
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/gyms/strassen">
+                                                                                        Gyms in Strassen
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/cities">
+                                                                                        See all cities
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                        </ul>
+                                                                    </li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                        </li>
+                                    
+                                        <li class="main-header-menu-item ">
+                                            <a
+                                                class="main-header-menu-link"
+                                                href="https://www.basic-fit.com/en-lu/group-classes"
+                                                aria-haspopup="false"
+                                            >
+                                                <span class="value">
+                                                    Group Classes
+                                                </span>
+                                            </a>
+
+                                            
+                                        </li>
+                                    
+                                        <li class="main-header-menu-item ">
+                                            <a
+                                                class="main-header-menu-link"
+                                                href="javascript:;"
+                                                aria-haspopup="true"
+                                            >
+                                                <span class="value">
+                                                    Training & advice
+                                                </span>
+                                            </a>
+
+                                            
+                                                <div class="main-header-sub-menu-wrapper" aria-label="Submenu for Training &amp; advice" aria-live="assertive">
+                                                    <div class="main-header-sub-menu-container">
+                                                        <div class="scroll-wrapper">
+                                                            <div class="touch-menu-sub-header">
+                                                                <button class="touch-menu-back js-touch-menu-back" tabindex="-1">
+                                                                    Back
+                                                                </button>
+                                                            </div>
+
+                                                            <ul class="main-header-sub-menu">
+                                                                
+                                                                    <li class="main-header-sub-menu-column">
+                                                                        <span class="main-header-sub-menu-column-title">
+                                                                            training & advice
+                                                                        </span>
+
+                                                                        <ul class="main-header-sub-menu-list">
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/blog">
+                                                                                        Blog
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/blog?categoryId=nutrition">
+                                                                                        All about nutrition
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/blog?categoryId=training">
+                                                                                        All about training
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/blog?categoryId=body%26mind">
+                                                                                        All about body & mind
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                                <li class="main-header-sub-menu-list-item">
+                                                                                    <a href="https://www.basic-fit.com/en-lu/programs">
+                                                                                        Training plans
+                                                                                    </a>
+                                                                                </li>
+                                                                            
+                                                                        </ul>
+                                                                    </li>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                        </li>
+                                    
+                                </ul>
+
+                                <div class="service-menu touch">
+                                    
+                                        <a
+                                            href="https://my.basic-fit.com/"
+                                            class="link-my-basicfit "
+                                            target="_blank"
+                                            rel="noopener"
+                                        >
+                                            <span>
+                                                My Basic-Fit
+                                            </span>
+                                        </a>
+                                    
+
+                                    
+                                        <a
+                                            href="https://www.basic-fit.com/en-lu/faq"
+                                            class="link-customer-service "
+                                            target="_self"
+                                            rel="noopener"
+                                        >
+                                            <span>
+                                                Customer service
+                                            </span>
+                                        </a>
+                                    
+
+                                    
+                                        <div class="select-wrap">
+                                            <label for="language-selector" class="sr-only">undefined</label>
+                                            <select id="language-selector" class="language-selector-touch js-mobile-language-selector" data-url="/on/demandware.store/Sites-BFE-Site/en_LU/Page-SetLocale">
+                                                
+                                                    
+                                                        <option data-locale="fr_LU" data-currencycode="EUR">
+                                                            français
+                                                        </option>
+                                                    
+                                                
+                                                    
+                                                        <option selected>
+                                                            English
+                                                        </option>
+                                                    
+                                                
+                                            </select>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seamly-search-placeholder"></div>
+                <script>
+window.seamly = window.seamly || []
+window.seamly.push({
+action: "init",
+args: {
+faqPageUrl: "https://www.basic-fit.com/en-lu/faq",
+parentElement: document.querySelector('.seamly-search-placeholder'),
+layoutMode: 'search',
+locale: 'en-lu'}
+})
+</script>
+
+                <a class="btn btn--primary become-member js-become-member" href="/en-lu/checkout">
+                    Join
+                </a>
+            </div>
+        </div>
+    </header>
+</div>
+
+
+<main id="main-content" tabindex="-1" class="club-finder js-club-finder">
+<h1 class="sr-only" itemprop="name">
+Club Finder
+</h1>
+<div class="js-club-finder-search-wrapper club-finder-search-wrapper">
+<div class="mobile-suggestions-modal"></div>
+<div class="mobile-suggestions-modal-titlebar">
+<div class="title">
+Search a club
+</div>
+<button class="modal-close js-search-suggestions-modal-close">
+<span class="sr-only">
+Close Popup
+</span>
+</button>
+</div>
+<div class="form-wrapper">
+<nav aria-label="Skip links">
+    <ul id="skip-links" class="skip-links">
+        <li><a href="#store-list" class="skip-link js-skip-link-list">Skip Search</a></li>
+    </ul>
+</nav>
+
+<form action="/on/demandware.store/Sites-BFE-Site/en_LU/Store-FinderSearch" method="get" class="js-club-finder-search-form club-finder-search-form" data-suggestions-url="/on/demandware.store/Sites-BFE-Site/en_LU/Store-FinderSuggestions">
+<div class="search-form-rows" role="search">
+<div class="search-form-rows-first">
+<label class="sr-only" for="club-finder-page-search">search</label>
+<button
+class="club-finder-search-submit js-club-finder-search-submit icon icon-search"
+type="submit"
+disabled
+aria-label="search"
+aria-disabled="true"
+></button>
+<input
+class="js-club-finder-search-input club-finder-search-input"
+type="search"
+name="search"
+id="club-finder-page-search"
+placeholder="Search by place/postal code"
+autocomplete="off"
+value=""
+/>
+<button
+class="club-finder-search-clear js-club-finder-search-clear"
+type="button"
+aria-label="Close button"
+>
+<span class="icon icon-close">
+<span class="sr-only">Remove Text from Search</span>
+</span>
+</button>
+</div>
+<div class="search-form-rows-second">
+<div class="list-header-text">
+<span class="js-list-header-count-text">
+10 gyms found
+</span>
+</div>
+
+<button
+class="js-club-finder-filters club-finder-filters "
+type="button"
+aria-label="Filters button"
+>
+<span class="icon icon-filters js-icon-filters-count" aria-hidden="true" data-selected-filters-count=""></span>
+<span class="icon-filters-text">
+Filter
+</span>
+</button>
+</div>
+</div>
+</form>
+
+<div class="suggestions-flyout-scroll js-suggestions-flyout-scroll" tabindex="-1">
+<div class="suggestions-flyout-wrapper">
+<div class="js-club-finder-suggestions suggestions-flyout">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="store-list" class="club-finder-stores initial-load-height js-club-finder-stores club-finder-stores--active">
+<div class="js-club-finder-list-header club-finder-list-header">
+<div class="list-header-text">
+<span class="js-list-header-count-text">
+10 gyms found
+</span>
+</div>
+</div>
+<section class="club-finder-list-body js-club-finder-list">
+<div class="back-to-map-wrapper">
+<button class="back-to-map js-back-to-map btn btn--secondary" type="button">
+<span class="text">
+Map
+</span>
+</button>
+</div>
+<input type="hidden" class="add-subscription-url" value="/on/demandware.store/Sites-BFE-Site/en_LU/Subscription-AddProduct" />
+<input type="hidden" class="subscription-membership-url" value="/en-lu/checkout" />
+<ul
+class="js-club-finder-grid club-finder-grid js-club-list"
+role="list"
+data-more-url="/on/demandware.store/Sites-BFE-Site/en_LU/Store-FinderMore"
+data-page-start="10"
+data-page-size="12"
+data-page-complete="true"
+>
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="abbc775640cd45d391253913f8e4ad6e"
+    data-name="Basic-Fit Belval Avenue du Swing 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-abbc775640cd45d391253913f8e4ad6e-end"
+            aria-label="Skip club: Avenue du Swing 24/7, Belvaux"
+            >
+            skip club
+            Avenue du Swing 24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-abbc775640cd45d391253913f8e4ad6e">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="eager" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Belval Avenue du Swing 24/7"
+                                        title="Gym Avenue du Swing 1 Belvaux"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-abbc775640cd45d391253913f8e4ad6e store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-abbc775640cd45d391253913f8e4ad6e store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-abbc775640cd45d391253913f8e4ad6e store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-belval-avenue-du-swing-24-7-abbc775640cd45d391253913f8e4ad6e.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Avenue du Swing 1 Belvaux"
+                        tabindex="-1"
+                    >
+                        Avenue du Swing 24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Avenue du Swing 1,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Belvaux
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Open 24/7!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-belval-avenue-du-swing-24-7-abbc775640cd45d391253913f8e4ad6e.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Avenue du Swing 1 Belvaux"
+                    data-page-source="club_finder"
+                    data-club-id="abbc775640cd45d391253913f8e4ad6e"
+                    data-club-name="Basic-Fit Belval Avenue du Swing 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="parking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="24/7|RelaxAndRecover|PT|Accessibility|Yanga|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Avenue du Swing 1 Belvaux"
+                        data-membership-id="66adf9d0caaf47e495919c0da3f64cf5"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-abbc775640cd45d391253913f8e4ad6e-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="c9b6c7f552304bb6aefefc2a755ddc01"
+    data-name="Basic-Fit Bereldange 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-c9b6c7f552304bb6aefefc2a755ddc01-end"
+            aria-label="Skip club: 24/7, Bereldange"
+            >
+            skip club
+            24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-c9b6c7f552304bb6aefefc2a755ddc01">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="eager" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bereldange 24/7"
+                                        title="Gym Route de Luxembourg 111 Bereldange"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-c9b6c7f552304bb6aefefc2a755ddc01 store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-c9b6c7f552304bb6aefefc2a755ddc01 store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-c9b6c7f552304bb6aefefc2a755ddc01 store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-bereldange-24-7-c9b6c7f552304bb6aefefc2a755ddc01.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Route de Luxembourg 111 Bereldange"
+                        tabindex="-1"
+                    >
+                        24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Route de Luxembourg 111,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Bereldange
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>24/7 open!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-bereldange-24-7-c9b6c7f552304bb6aefefc2a755ddc01.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Route de Luxembourg 111 Bereldange"
+                    data-page-source="club_finder"
+                    data-club-id="c9b6c7f552304bb6aefefc2a755ddc01"
+                    data-club-name="Basic-Fit Bereldange 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="freeparking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="LiveGX|24/7|PT|Yanga|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Route de Luxembourg 111 Bereldange"
+                        data-membership-id="c661b7369c7e4b989791e0366f07dfe2"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-c9b6c7f552304bb6aefefc2a755ddc01-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="78bd67f052e0497fa9b320ab97ed537f"
+    data-name="Basic-Fit Bettembourg Route de Luxembourg"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-78bd67f052e0497fa9b320ab97ed537f-end"
+            aria-label="Skip club: Route de Luxembourg, Bettembourg"
+            >
+            skip club
+            Route de Luxembourg
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-78bd67f052e0497fa9b320ab97ed537f">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="eager" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Bettembourg Route de Luxembourg"
+                                        title="Gym Route de Luxembourg 235 Bettembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-78bd67f052e0497fa9b320ab97ed537f store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-78bd67f052e0497fa9b320ab97ed537f store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-78bd67f052e0497fa9b320ab97ed537f store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-bettembourg-route-de-luxembourg-78bd67f052e0497fa9b320ab97ed537f.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Route de Luxembourg 235 Bettembourg"
+                        tabindex="-1"
+                    >
+                        Route de Luxembourg
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Route de Luxembourg 235,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Bettembourg
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Mo - Fr: 07:00 - 22:00</li>
+                    
+                        <li>Sa and Su: 09:00 - 19:00</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-bettembourg-route-de-luxembourg-78bd67f052e0497fa9b320ab97ed537f.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Route de Luxembourg 235 Bettembourg"
+                    data-page-source="club_finder"
+                    data-club-id="78bd67f052e0497fa9b320ab97ed537f"
+                    data-club-name="Basic-Fit Bettembourg Route de Luxembourg"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="freeparking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="PT|Accessibility|Yanga"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Route de Luxembourg 235 Bettembourg"
+                        data-membership-id="86b428937afa4f9d90b43381760bcf51"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-78bd67f052e0497fa9b320ab97ed537f-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="0e42068edc4b498389d1c56bd415c2e6"
+    data-name="Basic-Fit Ettelbruck 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-0e42068edc4b498389d1c56bd415c2e6-end"
+            aria-label="Skip club: Ettelbruck 24/7, Ettelbruck"
+            >
+            skip club
+            Ettelbruck 24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-0e42068edc4b498389d1c56bd415c2e6">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="eager" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Ettelbruck 24/7"
+                                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-0e42068edc4b498389d1c56bd415c2e6 store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-0e42068edc4b498389d1c56bd415c2e6 store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-0e42068edc4b498389d1c56bd415c2e6 store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-ettelbruck-24-7-0e42068edc4b498389d1c56bd415c2e6.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                        tabindex="-1"
+                    >
+                        Ettelbruck 24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            ZA et Commerciale 1,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Ettelbruck
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Open 24/7!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-ettelbruck-24-7-0e42068edc4b498389d1c56bd415c2e6.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym ZA et Commerciale 1 Ettelbruck"
+                    data-page-source="club_finder"
+                    data-club-id="0e42068edc4b498389d1c56bd415c2e6"
+                    data-club-name="Basic-Fit Ettelbruck 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="freeparking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="24/7|PT|Accessibility|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym ZA et Commerciale 1 Ettelbruck"
+                        data-membership-id="a5a4989544594a5ca4d5d14b648ad2ca"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-0e42068edc4b498389d1c56bd415c2e6-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="6dfe04f93d9e4060b307774c5c022e20"
+    data-name="Basic-Fit Foetz Rue du Brill 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-6dfe04f93d9e4060b307774c5c022e20-end"
+            aria-label="Skip club: Rue du Brill 24/7, Foetz"
+            >
+            skip club
+            Rue du Brill 24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-6dfe04f93d9e4060b307774c5c022e20">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Foetz Rue du Brill 24/7"
+                                        title="Gym Route de Brill 11 Foetz"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-6dfe04f93d9e4060b307774c5c022e20 store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-6dfe04f93d9e4060b307774c5c022e20 store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-6dfe04f93d9e4060b307774c5c022e20 store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-foetz-rue-du-brill-24-7-6dfe04f93d9e4060b307774c5c022e20.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Route de Brill 11 Foetz"
+                        tabindex="-1"
+                    >
+                        Rue du Brill 24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Route de Brill 11,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Foetz
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Open 24/7!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-foetz-rue-du-brill-24-7-6dfe04f93d9e4060b307774c5c022e20.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Route de Brill 11 Foetz"
+                    data-page-source="club_finder"
+                    data-club-id="6dfe04f93d9e4060b307774c5c022e20"
+                    data-club-name="Basic-Fit Foetz Rue du Brill 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="freeparking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="LiveGX|24/7|PT|Yanga|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Route de Brill 11 Foetz"
+                        data-membership-id="b54ea2c8ae0643ee81ca69b75101ca94"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-6dfe04f93d9e4060b307774c5c022e20-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="141e420d328c4ba8b0d0489ed5eca748"
+    data-name="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-141e420d328c4ba8b0d0489ed5eca748-end"
+            aria-label="Skip club: Rue Pere Raphael 24/7, Gasperich"
+            >
+            skip club
+            Rue Pere Raphael 24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-141e420d328c4ba8b0d0489ed5eca748">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-141e420d328c4ba8b0d0489ed5eca748 store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-141e420d328c4ba8b0d0489ed5eca748 store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-141e420d328c4ba8b0d0489ed5eca748 store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-gasperich-rue-pere-raphael-24-7-141e420d328c4ba8b0d0489ed5eca748.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                        tabindex="-1"
+                    >
+                        Rue Pere Raphael 24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Rue du Père Raphaël 18,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Gasperich
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Open 24/7!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-gasperich-rue-pere-raphael-24-7-141e420d328c4ba8b0d0489ed5eca748.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                    data-page-source="club_finder"
+                    data-club-id="141e420d328c4ba8b0d0489ed5eca748"
+                    data-club-name="Basic-Fit Gasperich Rue Pere Raphael 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="parking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="24/7|PT|Accessibility|Yanga|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Rue du P&egrave;re Rapha&euml;l 18 Gasperich"
+                        data-membership-id="f7d2cf5e24294aa5950a532d52d799d8"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-141e420d328c4ba8b0d0489ed5eca748-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="d7d2ee6fc2b745e5ba77d570617de4de"
+    data-name="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-d7d2ee6fc2b745e5ba77d570617de4de-end"
+            aria-label="Skip club: Ville Rue Joseph Junck, Luxembourg"
+            >
+            skip club
+            Ville Rue Joseph Junck
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-d7d2ee6fc2b745e5ba77d570617de4de">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-d7d2ee6fc2b745e5ba77d570617de4de store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-d7d2ee6fc2b745e5ba77d570617de4de store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-d7d2ee6fc2b745e5ba77d570617de4de store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-ville-rue-joseph-junck-d7d2ee6fc2b745e5ba77d570617de4de.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                        tabindex="-1"
+                    >
+                        Ville Rue Joseph Junck
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Rue Joseph Junck 12,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Luxembourg
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Mo - Fr: 06:00 - 22:30</li>
+                    
+                        <li>Sa and Su: 09:00 - 19:00</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-ville-rue-joseph-junck-d7d2ee6fc2b745e5ba77d570617de4de.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Rue Joseph Junck 12 Luxembourg"
+                    data-page-source="club_finder"
+                    data-club-id="d7d2ee6fc2b745e5ba77d570617de4de"
+                    data-club-name="Basic-Fit Luxembourg Ville Rue Joseph Junck"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="parking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="PT|Accessibility|Yanga|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Rue Joseph Junck 12 Luxembourg"
+                        data-membership-id="512bd523bcdd41069a858677f28951cf"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-d7d2ee6fc2b745e5ba77d570617de4de-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="7685d187d3fb43f28e9e29f4ae9ea57f"
+    data-name="Basic-Fit Luxembourg Sandweiler 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-7685d187d3fb43f28e9e29f4ae9ea57f-end"
+            aria-label="Skip club: Sandweiler 24/7, Sandweiler"
+            >
+            skip club
+            Sandweiler 24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-7685d187d3fb43f28e9e29f4ae9ea57f">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Luxembourg Sandweiler 24/7"
+                                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-7685d187d3fb43f28e9e29f4ae9ea57f store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-7685d187d3fb43f28e9e29f4ae9ea57f store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-7685d187d3fb43f28e9e29f4ae9ea57f store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-sandweiler-24-7-7685d187d3fb43f28e9e29f4ae9ea57f.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                        tabindex="-1"
+                    >
+                        Sandweiler 24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Rue de Luxembourg 11,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Sandweiler
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Open 24/7!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-sandweiler-24-7-7685d187d3fb43f28e9e29f4ae9ea57f.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Rue de Luxembourg 11 Sandweiler"
+                    data-page-source="club_finder"
+                    data-club-id="7685d187d3fb43f28e9e29f4ae9ea57f"
+                    data-club-name="Basic-Fit Luxembourg Sandweiler 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="freeparking|lockers|dressingrooms|showers"
+                    data-club-services="LiveGX|24/7|PT|Accessibility|Yanga|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Rue de Luxembourg 11 Sandweiler"
+                        data-membership-id="bcba162cdbc64a35b8126e8002644ddb"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-7685d187d3fb43f28e9e29f4ae9ea57f-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="dfe1313dc72241b5806b5cfdeb7079d1"
+    data-name="Basic-Fit Strassen Rue du Cimetiere 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-dfe1313dc72241b5806b5cfdeb7079d1-end"
+            aria-label="Skip club: Rue du Cimeti&egrave;re 24/7, Strassen"
+            >
+            skip club
+            Rue du Cimetière 24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-dfe1313dc72241b5806b5cfdeb7079d1">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Social_corner/Social_corner?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Social_corner/Social_corner?io=transform:fit,width:380"
+                                        alt="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-dfe1313dc72241b5806b5cfdeb7079d1 store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-dfe1313dc72241b5806b5cfdeb7079d1 store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-dfe1313dc72241b5806b5cfdeb7079d1 store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-strassen-rue-du-cimetiere-24-7-dfe1313dc72241b5806b5cfdeb7079d1.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                        tabindex="-1"
+                    >
+                        Rue du Cimetière 24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Rue du Cimetière 150-152,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Strassen
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Open 24/7!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-strassen-rue-du-cimetiere-24-7-dfe1313dc72241b5806b5cfdeb7079d1.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                    data-page-source="club_finder"
+                    data-club-id="dfe1313dc72241b5806b5cfdeb7079d1"
+                    data-club-name="Basic-Fit Strassen Rue du Cimetiere 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="freeparking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="LiveGX|24/7|PT|Accessibility|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Rue du Cimeti&egrave;re 150-152 Strassen"
+                        data-membership-id="48c1caa744354ba68fadc120cb4d3c0f"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-dfe1313dc72241b5806b5cfdeb7079d1-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+<li
+    class="js-store-tile store-tile"
+    data-pid="9ccfa40858454840bd7221dde69e1932"
+    data-name="Basic-Fit Windhof 24/7"
+    data-lead-gen-url="https://www.basic-fit.com/en-lu/clubs/opening-clubs/details"
+    data-pre-sale-url="https://www.basic-fit.com/en-lu/clubs/presale-clubs"
+>
+    
+    
+        <button
+            class="skip-link js-tile-skip-link"
+            data-skip-target="store-9ccfa40858454840bd7221dde69e1932-end"
+            aria-label="Skip club: WINDHOF 24/7, Windhof"
+            >
+            skip club
+            WINDHOF 24/7
+        </button>
+    
+
+    
+    <div class="store-tile-details">
+        <div class="store-tile-badge-container">
+            
+            
+        </div>
+        <div class="store-tile-images">
+            
+                <div class="js-store-tile-swiper store-tile-swiper" id="store-tile-swiper-9ccfa40858454840bd7221dde69e1932">
+                    <div class="swiper-wrapper">
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Free_weight_zone_1/Free_weight_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Free_weight_zone_2/Free_weight_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Strength_zone_1/Strength_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Strength_zone_2/Strength_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Cardio_zone_1/Cardio_zone_1?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Cardio_zone_2/Cardio_zone_2?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                            <div class="store-tile-image-item swiper-slide">
+                                <picture>
+                                    <source
+                                        srcset="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:320"
+                                        media="(min-width: 767px)" />
+                                    <img class="store-tile-image"
+                                        src="https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Functional___Stretch_zone/Functional___Stretch_zone?io=transform:fit,width:380"
+                                        alt="Basic-Fit Windhof 24/7"
+                                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                                        loading="lazy" />
+                                </picture>
+                            </div>
+                        
+                    </div>
+                </div>
+
+                <div class="store-tile-swiper-navigation-wrapper">
+                    <button class="js-store-tile-swiper-prev-9ccfa40858454840bd7221dde69e1932 store-tile-slider-arrow-prev"></button>
+                    <div class="js-store-tile-swiper-pagination-9ccfa40858454840bd7221dde69e1932 store-tile-slider-pagination"></div>
+                    <button class="js-store-tile-swiper-next-9ccfa40858454840bd7221dde69e1932 store-tile-slider-arrow-next"></button>
+                </div>
+            
+        </div>
+        <div class="store-tile-content">
+            <div class="store-tile-wrap">
+                
+                    <a
+                        href="https://www.basic-fit.com/en-lu/clubs/basic-fit-windhof-24-7-9ccfa40858454840bd7221dde69e1932.html"
+                        class="store-tile-title js-store-tile-link  "
+                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                        tabindex="-1"
+                    >
+                        WINDHOF 24/7
+                    </a>
+                
+                
+            </div>
+            <div class="store-tile-city-wrap">
+                
+                    <span class="store-tile-street">
+                            Route d’Arlon 5,
+                    </span>
+                
+                
+                    <span class="store-tile-city">
+                        Windhof
+                    </span>
+                
+            </div>
+
+            
+                <ul class="store-tile-opening-hours">
+                    
+                        <li>Open 24/7!</li>
+                    
+                </ul>
+            
+
+            <div class="button-wrapper">
+                <a
+                    href="https://www.basic-fit.com/en-lu/clubs/basic-fit-windhof-24-7-9ccfa40858454840bd7221dde69e1932.html"
+                    class="btn btn--secondary  js-store-tile-link  "
+                    title="Gym Route d&rsquo;Arlon 5 Windhof"
+                    data-page-source="club_finder"
+                    data-club-id="9ccfa40858454840bd7221dde69e1932"
+                    data-club-name="Basic-Fit Windhof 24/7"
+                    data-club-visuals="images|360 tour"
+                    data-club-facilities="freeparking|lockers|dressingrooms|showers|seventrainingzones"
+                    data-club-services="LiveGX|24/7|PT|Accessibility|Yanga|GXR"
+                >
+                    View More
+                </a>
+
+                
+                    <button
+                        class="btn btn--primary js-join"
+                        title="Gym Route d&rsquo;Arlon 5 Windhof"
+                        data-membership-id="d4b47bb5c95244e2a0d99265d2a70825"
+                        data-duration="year"
+                    >
+                        Join Now
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <span id="store-9ccfa40858454840bd7221dde69e1932-end" tabindex="-1" aria-hidden="true"></span>
+</li>
+
+
+
+<li class="back-to-top-list-item js-back-to-top">
+    <button class="back-to-list-top btn btn--secondary" type="button">
+        Back to top
+    </button>
+</li>
+
+</ul>
+</section>
+</div>
+
+<div
+tabindex="-1"
+id="mapbox"
+class="club-finder-mapbox js-club-finder-mapbox"
+data-map-url="/on/demandware.store/Sites-BFE-Site/en_LU/Store-FinderMap"
+data-store-url="/on/demandware.store/Sites-BFE-Site/en_LU/Store-FinderStore"
+data-locale="en_LU"
+></div>
+
+<div class="club-finder-pagination-wrapper" aria-hidden="true">
+<ul class="club-finder-pagination">
+
+<li class="club-finder-pagination-item">
+<a href="https://www.basic-fit.com/en-lu/club-finder" title="Page 1">
+Page 1
+</a>
+</li>
+
+</ul>
+</div>
+</main>
+<script>
+window.resources = {"adyen.credit.card.label":"Cards","checkout.error.cancelled":"You cancelled the payment. Please continue with the desired payment method.","checkout.error.cancel":"You cancelled the payment. Please continue with the desired payment method.","checkout.error.error":"An Error occurred for the payment method. Sorry for the inconvenience , please try another payment method.","checkout.error.refused":"Your payment was not accepted, please try another payment method.","checkout.error.reload":"An Error occurred for the payment, the page will reload. Please try again, sorry for the inconvenience","promo.opening.details":"Basic Fit desires to give new members the opportunity for a lifelong* discount on their BASIC membership fee. This promotion will be valid for registration until the new club opens up. The Founding Member promotion is only applicable for an annual membership and not possible with the Flex-option.","promo.new.club.title":"New Club","remark.founding.members":"* The discount stays until the remaining contract period.","search.button.select":"Choose this club","slider.of.label":"of","slider.goto.slide.label":"Next slide","slider.current.slide.label":"Current Slide","slider.prev.slide.label":"previous slide","slider.next.slide.label":"Next slide","slider.first.slide.label":"First slide","slider.last.slide.label":"Last slide","store.details.about.read.more":"Read more","store.details.about.read.less":"Read less","store.details.find.us.read.more":"Read more about this clubs location","store.details.find.us.read.less":"Read less","store.details.group.lessons.hide.navigation":"store.details.group.lessons.hide.navigation","subscription.addons.seedetails":"See details","subscription.addons.hidedetails":"Hide details","presale.club.memberships.seedetails":"See details","presale.club.memberships.hidedetails":"Hide details"}
+</script>
+
+<div class="panel-modal from-side club-finder-filters-wrapper js-club-finder-filters-wrapper"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="filters-title"
+    aria-hidden="true">
+
+    <div class="panel-modal-content">
+        <div class="text-wrapper">
+            <div class="filter-bar">
+                <div class="title" id="filters-title">
+                    Filters
+                </div>
+                <button
+                    class="js-club-finder-filters-close modal-close club-finder-filters-close"
+                    type="button"
+                >
+                    <span class="sr-only">
+                        Close Popup
+                    </span>
+                </button>
+            </div>
+
+            <div class="filter-wrapper">
+                <ul class="club-search-filters">
+
+                    
+                        <li class="checkbox-row">
+                            <div class="check-wrapper">
+                                <input type="checkbox" class="js-club-finder-filter" id="24/7" name="24/7"  />
+                                <label class="form-check-label" for="24/7">
+                                    <span class="checkbox"></span>
+                                    <span>Open 24/7</span>
+                                </label>
+                            </div>
+                        </li>
+                    
+                        <li class="checkbox-row">
+                            <div class="check-wrapper">
+                                <input type="checkbox" class="js-club-finder-filter" id="Ladies" name="Ladies"  />
+                                <label class="form-check-label" for="Ladies">
+                                    <span class="checkbox"></span>
+                                    <span>Ladies Only</span>
+                                </label>
+                            </div>
+                        </li>
+                    
+                        <li class="checkbox-row">
+                            <div class="check-wrapper">
+                                <input type="checkbox" class="js-club-finder-filter" id="RelaxRecover" name="RelaxRecover"  />
+                                <label class="form-check-label" for="RelaxRecover">
+                                    <span class="checkbox"></span>
+                                    <span>Relax & Recover</span>
+                                </label>
+                            </div>
+                        </li>
+                    
+                        <li class="checkbox-row">
+                            <div class="check-wrapper">
+                                <input type="checkbox" class="js-club-finder-filter" id="LiveGX" name="LiveGX"  />
+                                <label class="form-check-label" for="LiveGX">
+                                    <span class="checkbox"></span>
+                                    <span>Group Classes</span>
+                                </label>
+                            </div>
+                        </li>
+                    
+                        <li class="checkbox-row">
+                            <div class="check-wrapper">
+                                <input type="checkbox" class="js-club-finder-filter" id="Presale" name="Presale"  />
+                                <label class="form-check-label" for="Presale">
+                                    <span class="checkbox"></span>
+                                    <span>New</span>
+                                </label>
+                            </div>
+                        </li>
+                    
+                        <li class="checkbox-row">
+                            <div class="check-wrapper">
+                                <input type="checkbox" class="js-club-finder-filter" id="Upcoming Clubs" name="Upcoming Clubs"  />
+                                <label class="form-check-label" for="Upcoming Clubs">
+                                    <span class="checkbox"></span>
+                                    <span>Upcoming Clubs</span>
+                                </label>
+                            </div>
+                        </li>
+                    
+                        <li class="checkbox-row">
+                            <div class="check-wrapper">
+                                <input type="checkbox" class="js-club-finder-filter" id="Accessibility" name="Accessibility"  />
+                                <label class="form-check-label" for="Accessibility">
+                                    <span class="checkbox"></span>
+                                    <span>Wheelchair accessible</span>
+                                </label>
+                            </div>
+                        </li>
+                    
+                </ul>
+            </div>
+
+            <div class="filter-buttons">
+                <button
+                    class="js-club-finder-filters-clear btn btn--tertiary"
+                    type="button"
+                    aria-label="Clear filters"
+                >
+                    <span>
+                        Clear all
+                    </span>
+                </button>
+                <button
+                    class="js-club-finder-filters-submit btn btn--primary club-finder-filters-submit"
+                    type="button"
+                    aria-label="search"
+                    
+                >
+                    <span>
+                        Show 10 gyms
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-modal-overlay js-filter-modal-overlay"></div>
+
+
+
+</div>
+<div class="error-messaging"></div>
+<div class="modal-background"></div>
+<!--[if lt IE 10]>
+<script>//common/scripts.isml</script>
+<script defer type="text/javascript" src="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/js/main.js"></script>
+
+    <script defer type="text/javascript" src="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/js/finder.js"
+        
+        >
+    </script>
+
+
+<![endif]-->
+
+
+
+
+<span class="api-true  tracking-consent" 
+    data-caOnline="true"
+    data-url="/on/demandware.store/Sites-BFE-Site/en_LU/ConsentTracking-GetContent?cid=tracking_hint"
+    data-reject="/on/demandware.store/Sites-BFE-Site/en_LU/ConsentTracking-SetSession?consent=false"
+    data-accept="/on/demandware.store/Sites-BFE-Site/en_LU/ConsentTracking-SetSession?consent=true"
+    data-acceptText="Yes"
+    data-rejectText="No"
+    data-heading="Tracking Consent"
+    ></span>
+
+
+<script>(function (d, t) {var src = "https://cdn.seamly-app.com/basicfit/client/v1/index.js";var g = d.createElement(t), s = d.getElementsByTagName(t)[0];g.src = src + "?v="+(+new Date);g.async = true;s.parentNode.insertBefore(g, s);} (document, "script"));</script>
+
+
+<script>(function (d, t) {var src = "https://cdn.seamly-app.com/basicfit/client/v1/faq.js";var g = d.createElement(t), s = d.getElementsByTagName(t)[0];g.src = src + "?v="+(+new Date);g.async = true;s.parentNode.insertBefore(g, s);} (document, "script"));</script>
+
+
+<!-- Demandware Analytics code 1.0 (body_end-analytics-tracking-asynch.js) -->
+<script type="text/javascript">//<!--
+/* <![CDATA[ */
+function trackPage() {
+    try{
+        var trackingUrl = "https://www.basic-fit.com/on/demandware.store/Sites-BFE-Site/en_LU/__Analytics-Start";
+        var dwAnalytics = dw.__dwAnalytics.getTracker(trackingUrl);
+        if (typeof dw.ac == "undefined") {
+            dwAnalytics.trackPageView();
+        } else {
+            dw.ac.setDWAnalytics(dwAnalytics);
+        }
+    }catch(err) {};
+}
+/* ]]> */
+// -->
+</script>
+<script type="text/javascript" src="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/internal/jscript/dwanalytics-22.2.js" async="async" onload="trackPage()"></script>
+<!-- Demandware Active Data (body_end-active_data.js) -->
+<script src="/on/demandware.static/Sites-BFE-Site/-/en_LU/v1787651875584/internal/jscript/dwac-21.7.js" type="text/javascript" async="async"></script><!-- CQuotient Activity Tracking (body_end-cquotient.js) -->
+<script src="https://cdn.cquotient.com/js/v2/gretel.min.js" type="text/javascript" async="async"></script>
+</body>
+</html>
+

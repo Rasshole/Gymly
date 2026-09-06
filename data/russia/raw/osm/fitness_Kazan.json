@@ -1,0 +1,1136 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4426053391,
+      "lat": 55.8359662,
+      "lon": 49.0927214,
+      "tags": {
+        "addr:housenumber": "18А",
+        "addr:street": "улица Восстания",
+        "check_date": "2022-05-11",
+        "leisure": "fitness_centre",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4450710589,
+      "lat": 55.8393583,
+      "lon": 49.0817077,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Ultra"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4574490996,
+      "lat": 55.7889815,
+      "lon": 49.1754555,
+      "tags": {
+        "addr:housenumber": "8",
+        "addr:street": "Волочаевская улица",
+        "contact:email": "mail@yogarazuma.ru",
+        "contact:phone": "+7 843 2495728",
+        "contact:website": "https://yogarazuma.ru",
+        "leisure": "fitness_centre",
+        "name": "Йога студия",
+        "name:en": "Yoga Razuma",
+        "name:ru": "Йога студия",
+        "opening_hours": "Mo-Su 07:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4849529621,
+      "lat": 55.7741092,
+      "lon": 49.1159127,
+      "tags": {
+        "check_date": "2023-04-09",
+        "contact:phone": "+7 843 2122233",
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "ФИЗ-Ра",
+        "name:en": "Fiz-ra"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4959582021,
+      "lat": 55.744876,
+      "lon": 49.1962848,
+      "tags": {
+        "addr:postcode": "420101",
+        "check_date": "2023-04-23",
+        "email": "info@fitness-tatarstan.ru",
+        "leisure": "fitness_centre",
+        "name": "Планета фитнес",
+        "name:en": "Planet Fitness",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "operator": "ООО \"Фитнес-оптима\"",
+        "phone": "+7 843 2007866",
+        "website": "http://www.fitness-tatarstan.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4988886021,
+      "lat": 55.773336,
+      "lon": 49.2304525,
+      "tags": {
+        "addr:housenumber": "9",
+        "addr:street": "Минская улица",
+        "email": "m.reception@fcmaximus.ru",
+        "leisure": "fitness_centre",
+        "name": "Максимус",
+        "name:en": "Maximus",
+        "opening_hours": "Mo-Su 06:00-01:00",
+        "phone": "+78435371515",
+        "website": "https://fcmaximus.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5531388870,
+      "lat": 55.8654383,
+      "lon": 49.081158,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Avia_Gym",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+7 939 3323523",
+        "sport": "fitness;gymnastics",
+        "website": "http://clubcsl.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6497854485,
+      "lat": 55.7937737,
+      "lon": 49.1496362,
+      "tags": {
+        "contact:email": "yoga@yogarazuma.ru",
+        "contact:phone": "+7 927 2495761",
+        "contact:website": "https://yogsrszuma.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Студия йоги \"ЙогаРазума\"",
+        "name:en": "Yoga class \"YogaRazuma\"",
+        "opening_hours": "Mo-Su 17:00-22:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7276528725,
+      "lat": 55.750642,
+      "lon": 49.2257715,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Фитнес клуб Горки"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7966582646,
+      "lat": 55.8119202,
+      "lon": 49.1358948,
+      "tags": {
+        "addr:city": "Казань",
+        "addr:housenumber": "1Г",
+        "addr:street": "улица Фатыха Амирхана",
+        "contact:phone": "+7 843 2123741",
+        "contact:website": "https://akbars.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit Ак Барс",
+        "opening_hours": "Mo-Fr 06:30-23:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7966585057,
+      "lat": 55.8208185,
+      "lon": 49.162321,
+      "tags": {
+        "addr:city": "Казань",
+        "addr:housenumber": "115А",
+        "addr:street": "проспект Ямашева",
+        "contact:phone": "+7 843 2448027",
+        "contact:website": "https://arena.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit Арена",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8288813617,
+      "lat": 55.7779384,
+      "lon": 49.1431372,
+      "tags": {
+        "check_date": "2022-05-25",
+        "leisure": "fitness_centre",
+        "name": "Fit extra",
+        "phone": "+7 843 2607878"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8567695118,
+      "lat": 55.7865962,
+      "lon": 49.1432816,
+      "tags": {
+        "addr:housenumber": "57",
+        "addr:street": "улица Волкова",
+        "contact:email": "info@shagi-class.ru",
+        "contact:phone": "+7 987 2117858",
+        "contact:website": "https://shagi-class.ru/",
+        "leisure": "fitness_centre",
+        "name": "Шаги, студия движения",
+        "name:en": "Shagi, morion studio",
+        "opening_hours": "Mo-Su 07:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377392,
+      "lat": 55.7686463,
+      "lon": 49.1502009,
+      "tags": {
+        "brand": "Fitness House",
+        "brand:wikidata": "Q104213893",
+        "check_date": "2023-03-22",
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 843 2060166",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-kazan-na-spartakovskoj.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "name:ru": "Фитнес хаус",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "ИП Григорьев С.А."
+      }
+    },
+    {
+      "type": "node",
+      "id": 8752547408,
+      "lat": 55.7389199,
+      "lon": 49.2021176,
+      "tags": {
+        "contact:email": "ria9@list.ru",
+        "contact:phone": "+7 927 4033337;+7 927 4513715;+7 986 9336065",
+        "contact:website": "https://n502241.yclients.com/",
+        "leisure": "fitness_centre",
+        "name": "Prosto",
+        "opening_hours": "Mo-Su 10:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242265,
+      "lat": 55.7539204,
+      "lon": 49.2422783,
+      "tags": {
+        "contact:phone": "+7 843 2270001",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9779934122,
+      "lat": 55.8166668,
+      "lon": 49.1081657,
+      "tags": {
+        "check_date": "2025-05-18",
+        "leisure": "fitness_centre",
+        "name": "Yogalena",
+        "phone": "+7 917 8757305",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9783893144,
+      "lat": 55.775472,
+      "lon": 49.1307686,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2022-05-30",
+        "description": "Студия гимнастики",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Вива",
+        "opening_hours": "Mo-Fr 15:00-20:00",
+        "operator": "ИП Ялалтынова Д. А.",
+        "phone": "+7 909 3090331",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9786812749,
+      "lat": 55.7868349,
+      "lon": 49.1099596,
+      "tags": {
+        "addr:housenumber": "48",
+        "addr:street": "Московская улица",
+        "check_date": "2023-12-04",
+        "leisure": "fitness_centre",
+        "name": "Alfa gym",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 07:00-22:00",
+        "operator": "ООО \"Альфа\"",
+        "phone": "+7 843 2334445",
+        "website": "https://alfa-gym.ru/",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9831601969,
+      "lat": 55.8188393,
+      "lon": 49.1114359,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2026-05-27",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Shapeme",
+        "opening_hours": "09:00-21:00",
+        "operator": "ООО \"НЛ континент\"",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9923021170,
+      "lat": 55.8099622,
+      "lon": 49.09687,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2022-07-31",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Zaytun",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-22:00",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10138229807,
+      "lat": 55.7879132,
+      "lon": 49.1193084,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Шаляпин"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10138229809,
+      "lat": 55.7859153,
+      "lon": 49.1252757,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Grand Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10153821535,
+      "lat": 55.7790575,
+      "lon": 49.1284243,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2024-09-13",
+        "description": "Студия функциональных тренировок",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Red Lockers"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10655436161,
+      "lat": 55.7862083,
+      "lon": 49.121595,
+      "tags": {
+        "check_date": "2026-04-16",
+        "contact:phone": "+7 843 2118000",
+        "contact:website": "https://www.ddxfitness.ru/clubs/ddx-kazan-pushkina/",
+        "leisure": "fitness_centre",
+        "name": "Ddx",
+        "opening_hours": "06:00-24:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10670023026,
+      "lat": 55.7996045,
+      "lon": 49.2084396,
+      "tags": {
+        "contact:email": "help@fhclub.ru",
+        "contact:phone": "+7 800 5050606",
+        "contact:website": "https://www.fitnesshouse.ru/fh-samara-v-tk-gudok.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10921280373,
+      "lat": 55.8063905,
+      "lon": 49.1950197,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11049872551,
+      "lat": 55.8201514,
+      "lon": 49.1271169,
+      "tags": {
+        "check_date": "2023-07-16",
+        "contact:instagram": "https://www.instagram.com/shavadana_yoga",
+        "contact:phone": "+7 995 0072629",
+        "leisure": "fitness_centre",
+        "name": "Шавасана",
+        "opening_hours": "07:00-21:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11062159564,
+      "lat": 55.7857321,
+      "lon": 49.1115413,
+      "tags": {
+        "addr:housenumber": "58/5",
+        "addr:street": "Московская улица",
+        "check_date": "2025-05-07",
+        "leisure": "fitness_centre",
+        "name": "Станция метро Ягодичная",
+        "name:ru": "Станция метро Ягодичная",
+        "opening_hours": "Mo-Fr 08:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11084085928,
+      "lat": 55.8173707,
+      "lon": 49.1378799,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2025-03-30",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Fmom",
+        "opening_hours": "09:00-21:00",
+        "operator": "ООО \"Ант групп\"",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11157820207,
+      "lat": 55.7864812,
+      "lon": 49.1184017,
+      "tags": {
+        "check_date": "2023-08-29",
+        "leisure": "fitness_centre",
+        "name": "Theflex"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11262030728,
+      "lat": 55.7874541,
+      "lon": 49.1383737,
+      "tags": {
+        "addr:floor": "0",
+        "check_date": "2025-08-02",
+        "contact:phone": "+7 966 2504306",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Аюрведа",
+        "opening_hours": "Mo-Fr 09:00-20:00",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11304092025,
+      "lat": 55.8385831,
+      "lon": 49.0411186,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Реформа"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11384245714,
+      "lat": 55.8312269,
+      "lon": 49.0858835,
+      "tags": {
+        "addr:floor": "1",
+        "addr:housenumber": "41",
+        "addr:street": "улица Тунакова",
+        "check_date": "2026-04-24",
+        "check_date:opening_hours": "2024-04-13",
+        "contact:phone": "+7 917 2566666",
+        "contact:website": "https://wa.me/message/IEVEAGDVEMMCL1?src=qr",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Тело мечты",
+        "name:ru": "Тело мечты",
+        "opening_hours:signed": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11414655086,
+      "lat": 55.8291762,
+      "lon": 49.0622645,
+      "tags": {
+        "check_date": "2026-08-21",
+        "contact:phone": "+7 495 2555000",
+        "contact:website": "https://www.ddxfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "DDX",
+        "opening_hours": "Mo-Su 06:00-24:00",
+        "operator": "ООО \"Илон\" ОП \"Казань Моки\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443627,
+      "lat": 55.7847208,
+      "lon": 49.1149684,
+      "tags": {
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458193,
+      "lat": 55.8555667,
+      "lon": 49.0837024,
+      "tags": {
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458194,
+      "lat": 55.8385587,
+      "lon": 49.1448128,
+      "tags": {
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458195,
+      "lat": 55.7916373,
+      "lon": 49.2223141,
+      "tags": {
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458196,
+      "lat": 55.7646201,
+      "lon": 49.2331551,
+      "tags": {
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458197,
+      "lat": 55.8187002,
+      "lon": 49.1161512,
+      "tags": {
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458198,
+      "lat": 55.8347387,
+      "lon": 49.0886095,
+      "tags": {
+        "addr:floor": "1",
+        "addr:housenumber": "28",
+        "addr:street": "улица Восстания",
+        "check_date": "2026-04-22",
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Lady Stretch",
+        "opening_hours": "09:00-21:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458199,
+      "lat": 55.7422022,
+      "lon": 49.2204854,
+      "tags": {
+        "contact:phone": "+7 843 5004341",
+        "contact:website": "https://ladystretch.com/kazan",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11601560531,
+      "lat": 55.7956957,
+      "lon": 49.1702892,
+      "tags": {
+        "addr:housenumber": "31В",
+        "addr:street": "улица Николая Ершова",
+        "check_date": "2024-02-09",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11807309577,
+      "lat": 55.8169974,
+      "lon": 49.1042819,
+      "tags": {
+        "check_date": "2024-04-10",
+        "leisure": "fitness_centre",
+        "name": "Нуга",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11819963040,
+      "lat": 55.7763912,
+      "lon": 49.218022,
+      "tags": {
+        "addr:floor": "2",
+        "check_date": "2024-04-14",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Step by step",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-21:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11840780835,
+      "lat": 55.8237703,
+      "lon": 49.0723278,
+      "tags": {
+        "check_date": "2025-08-07",
+        "contact:phone": "+7 965 6233328",
+        "leisure": "fitness_centre",
+        "name": "Dzen",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11862401452,
+      "lat": 55.8077769,
+      "lon": 49.0894943,
+      "tags": {
+        "check_date": "2024-04-23",
+        "contact:phone": "+7 965 603-43-59",
+        "leisure": "fitness_centre",
+        "name": "Ri_gym",
+        "opening_hours": "Mo-Sa 09:00-21:00",
+        "operator": "ИП Васильева М. О."
+      }
+    },
+    {
+      "type": "node",
+      "id": 11918732748,
+      "lat": 55.7569866,
+      "lon": 49.1947603,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Звёздный"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12010352364,
+      "lat": 55.831716,
+      "lon": 49.0730079,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2026-07-26",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Кызлар",
+        "opening_hours": "09:00-21:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12040525951,
+      "lat": 55.8013734,
+      "lon": 48.9524082,
+      "tags": {
+        "check_date": "2024-07-07",
+        "leisure": "fitness_centre",
+        "name": "Vita"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12047659837,
+      "lat": 55.8186179,
+      "lon": 49.0805399,
+      "tags": {
+        "check_date": "2025-09-29",
+        "leisure": "fitness_centre",
+        "name": "Legend"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12047748131,
+      "lat": 55.8339723,
+      "lon": 49.0747958,
+      "tags": {
+        "addr:floor": "0",
+        "check_date": "2025-08-28",
+        "contact:phone": "+7 917 237-97-79",
+        "contact:website": "https://yogaheart.ru/",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Сердце йоги",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12053679864,
+      "lat": 55.8198045,
+      "lon": 49.0659015,
+      "tags": {
+        "addr:floor": "2",
+        "check_date": "2024-07-14",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Maximus",
+        "opening_hours": "Mo-Fr 00:00-00:30,06:30-24:00; Sa-Su 07:00-23:00",
+        "operator": "ООО \"Фитнесспорт\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 12112382439,
+      "lat": 55.7936202,
+      "lon": 49.2288995,
+      "tags": {
+        "contact:phone": "+7 966 2604114",
+        "leisure": "fitness_centre",
+        "name": "Wellness Time",
+        "opening_hours": "Mo-Fr 09:00-22:00; Sa 09:00-17:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12136615436,
+      "lat": 55.7421232,
+      "lon": 49.2060572,
+      "tags": {
+        "check_date": "2024-08-25",
+        "leisure": "fitness_centre",
+        "name": "Гамак"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12356532779,
+      "lat": 55.8262761,
+      "lon": 49.1257813,
+      "tags": {
+        "addr:housenumber": "51Б",
+        "addr:street": "проспект Ямашева",
+        "check_date": "2024-11-16",
+        "leisure": "fitness_centre",
+        "name": "Iron club"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12356532780,
+      "lat": 55.825081,
+      "lon": 49.1519557,
+      "tags": {
+        "check_date": "2024-11-16",
+        "fixme": "position",
+        "leisure": "fitness_centre",
+        "name": "Spirit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12544193073,
+      "lat": 55.7660903,
+      "lon": 49.2206115,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Keyfit - EMS",
+        "opening_hours": "Mo-Sa 08:00-21:00",
+        "phone": "+7 917 3991020",
+        "website": "https://vk.com/keyfit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12714521734,
+      "lat": 55.8156291,
+      "lon": 49.1304686,
+      "tags": {
+        "check_date": "2026-06-21",
+        "leisure": "fitness_centre",
+        "name": "Планета фитнес",
+        "opening_hours": "Mo-Sa 06:30-24:00; Su,PH 09:00-23:00",
+        "operator": "ООО \"Фитнес-альянс\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 12714521751,
+      "lat": 55.816797,
+      "lon": 49.1362525,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2025-03-30",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Йога студия Резеды Сафиной",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa 10:00-14:00; Su 10:00-13:00",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12728192327,
+      "lat": 55.7228586,
+      "lon": 49.3282435,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12762042625,
+      "lat": 55.796025,
+      "lon": 49.1761808,
+      "tags": {
+        "addr:housenumber": "62Б",
+        "addr:street": "улица Николая Ершова",
+        "check_date": "2025-04-17",
+        "contact:website": "https://www.ddxfitness.ru/clubs/ddx-kazan-art/",
+        "leisure": "fitness_centre",
+        "name": "DDX",
+        "opening_hours": "06:00-24:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12863010223,
+      "lat": 55.8168859,
+      "lon": 49.1078977,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2025-05-18",
+        "contact:instagram": "https://www.instagram.com/da_studio.kzn",
+        "contact:telegram": "https://t.me/da_studio_kzn",
+        "contact:vk": "https://vk.com/da.studio_kzn",
+        "contact:website": "http://dastudiokzn.ru/",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "LN stretch",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12960032984,
+      "lat": 55.7473964,
+      "lon": 49.2109692,
+      "tags": {
+        "check_date": "2025-06-28",
+        "leisure": "fitness_centre",
+        "name": "Атлант"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12986616617,
+      "lat": 55.7903453,
+      "lon": 49.135115,
+      "tags": {
+        "check_date": "2025-07-07",
+        "contact:phone": "+7 987 7181111",
+        "contact:telegram": "https://t.me/alga_fighting",
+        "description": "Школа единоборств",
+        "leisure": "fitness_centre",
+        "name": "Alga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13002498709,
+      "lat": 55.7926529,
+      "lon": 49.1261965,
+      "tags": {
+        "addr:floor": "2",
+        "check_date": "2025-07-15",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Paradigma",
+        "opening_hours": "10:00-20:00",
+        "operator": "ИП Гордеева Екатерина Дмитриевна",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13030181823,
+      "lat": 55.7824041,
+      "lon": 49.1369346,
+      "tags": {
+        "check_date": "2025-07-27",
+        "leisure": "fitness_centre",
+        "name": "Go yoga",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13112863677,
+      "lat": 55.783806,
+      "lon": 49.1258943,
+      "tags": {
+        "check_date": "2025-10-31",
+        "contact:instagram": "https://www.instagram.com/bad5club",
+        "leisure": "fitness_centre",
+        "name": "Badfive",
+        "opening_hours": "Mo-Fr 09:00-21:00; Sa-Su 10:00-16:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13175474093,
+      "lat": 55.8198248,
+      "lon": 49.1318763,
+      "tags": {
+        "check_date": "2025-09-27",
+        "leisure": "fitness_centre",
+        "name": "С понедельника"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13175474099,
+      "lat": 55.8321337,
+      "lon": 49.1329597,
+      "tags": {
+        "check_date": "2025-09-27",
+        "contact:phone": "+7 987 2252530",
+        "leisure": "fitness_centre",
+        "name": "Sports hall",
+        "opening_hours": "09:00-21:00",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13175474100,
+      "lat": 55.8321468,
+      "lon": 49.1327163,
+      "tags": {
+        "check_date": "2025-09-27",
+        "leisure": "fitness_centre",
+        "name": "Lotos",
+        "operator": "ИП Великих А. Ю.",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13391230409,
+      "lat": 55.786933,
+      "lon": 49.1240366,
+      "tags": {
+        "addr:floor": "4",
+        "check_date": "2025-12-14",
+        "leisure": "fitness_centre",
+        "level": "3",
+        "name": "Spirit",
+        "opening_hours": "off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13650117476,
+      "lat": 55.7340655,
+      "lon": 49.1728826,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13760359286,
+      "lat": 55.8161015,
+      "lon": 49.0851394,
+      "tags": {
+        "addr:housenumber": "33",
+        "addr:street": "Горсоветская улица",
+        "check_date": "2026-04-25",
+        "leisure": "fitness_centre",
+        "name": "FitFight"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13914673099,
+      "lat": 55.7391298,
+      "lon": 49.1509788,
+      "tags": {
+        "addr:floor": "1",
+        "check_date": "2026-06-06",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Ам.фит"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14024847936,
+      "lat": 55.850875,
+      "lon": 49.0613756,
+      "tags": {
+        "check_date": "2026-07-18",
+        "leisure": "fitness_centre",
+        "name": "Лефитнес",
+        "opening_hours": "08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14118698150,
+      "lat": 55.7282865,
+      "lon": 49.1729133,
+      "tags": {
+        "check_date": "2026-08-23",
+        "leisure": "fitness_centre",
+        "name": "My fitness",
+        "opening_hours": "07:00-22:00",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14118698151,
+      "lat": 55.7282014,
+      "lon": 49.1730565,
+      "tags": {
+        "check_date": "2026-08-23",
+        "leisure": "fitness_centre",
+        "name": "Девушка с ковриком",
+        "opening_hours": "09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14118698159,
+      "lat": 55.7242383,
+      "lon": 49.1700058,
+      "tags": {
+        "check_date": "2026-08-23",
+        "leisure": "fitness_centre",
+        "name": "Ufit",
+        "opening_hours": "Mo-Fr 09:00-20:00; Sa-Su 09:00-18:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 168485080,
+      "center": {
+        "lat": 55.8337264,
+        "lon": 49.1199495
+      },
+      "tags": {
+        "addr:housenumber": "39",
+        "addr:street": "улица Мусина",
+        "building": "sports_centre",
+        "building:levels": "3",
+        "check_date": "2022-05-08",
+        "leisure": "fitness_centre",
+        "name": "Планета Фитнес",
+        "name:ru": "Планета Фитнес",
+        "official_name": "Планета Фитнес",
+        "opening_hours": "Mo-Sa 06:30-23:00; Su 09:00-23:00",
+        "operator": "ООО \"Фитнес-компания\"",
+        "wheelchair": "limited"
+      }
+    }
+  ]
+}

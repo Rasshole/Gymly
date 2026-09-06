@@ -16,6 +16,8 @@ import {useSessionStore} from '@/store/sessionStore';
 import {useCheckInUIStore} from '@/store/checkInUIStore';
 import {useDemoModeStore} from '@/demo/demoModeStore';
 import {clearDemoStoresAfterDisable} from '@/demo/seedDemoStores';
+import {useTrainingStatsStore} from '@/store/trainingStatsStore';
+import {useSavedShopProductsStore} from '@/store/savedShopProductsStore';
 
 /** Hard reset to Login — user cannot navigate back into Main. */
 export function resetNavigationToLogin(): void {
@@ -58,6 +60,8 @@ export function clearAllUserStores(previousUserId?: string | null): void {
     plannedWorkouts: [],
     completedWorkouts: [],
   });
+  useTrainingStatsStore.getState().clear();
+  useSavedShopProductsStore.getState().resetForLogout();
 
   if (__DEV__ && previousUserId) {
     void useDemoModeStore

@@ -1,0 +1,68 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "D_REBRAND_RESOLVED",
+      "entities": [
+        "Pallati i Rinisë candidate (xk_500cfd9387)",
+        "Fitness Gym Prishtina"
+      ],
+      "notes": "Phase1 municipal/youth-palace candidate reclassified as Fitness Gym Prishtina conventional public READY; fitness-prishtina.com."
+    },
+    {
+      "type": "D_ESTATE_AUDIT_RESOLVED",
+      "entities": [
+        "Fitness Zone City Mall (xk_a7af40e3fe)",
+        "Fitness Zone Dardania (xk_29fa84ecf0)",
+        "Fitness Zone Haxhi Zeka 25 (phase2 new)"
+      ],
+      "notes": "Phase2 audit: claimed 2-site estate not defended; ARBK Haxhi Zeka 25 single conventional site READY; phase1 mall units EXCLUDED."
+    },
+    {
+      "type": "C_EXCLUDED_LOCAL_BRAND",
+      "entities": [
+        "Planet Fitness Prishtina (local)",
+        "International Planet Fitness probe"
+      ],
+      "notes": "Local Planet Fitness branding EXCLUDED unverified; distinct from US chain."
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Five Star Fitness",
+        "Lets Go Gym"
+      ],
+      "notes": "Two qualifying Class A chains; distinct operators and estates."
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "PowerGym Mati 1",
+        "Power Gym Prishtina placeholder"
+      ],
+      "notes": "Phase2 PowerGym READY; phase1 Power Gym placeholder EXCLUDED."
+    }
+  ],
+  "fitness_zone_audit": {
+    "claimed": 2,
+    "active": 1,
+    "conventional_public": 1,
+    "ready": 1,
+    "excluded": 2,
+    "excluded_phase1_ids": [
+      "xk_a7af40e3fe",
+      "xk_29fa84ecf0"
+    ],
+    "ready_site": "Haxhi Zeka Nr. 25",
+    "class_a": false,
+    "estate_complete": true,
+    "notes": "ARBK registration Haxhi Zeka 25 only; City Mall/Dardania not defended."
+  },
+  "planet_fitness_audit": {
+    "PLANET_FITNESS_XK_ACTIVE_SITES": 0,
+    "verdict": "EXCLUDED_UNVERIFIED_LOCAL_BRAND",
+    "phase1_id": "xk_61859b084f",
+    "notes": "Rebrand hold resolved — local brand unverified."
+  },
+  "note": "Phase2 merge gate: 0 unresolved rebrand conflicts."
+}

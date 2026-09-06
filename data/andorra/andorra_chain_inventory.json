@@ -1,0 +1,110 @@
+{
+  "country": "Andorra",
+  "phase": 2,
+  "production_total": 11699,
+  "production_sha256": "b4f155e2501d10af07eded1ca1342f06784f5f122f4e51bb081ebf943cdb0bbc",
+  "andorra_live": 0,
+  "class_a_decision": {
+    "operator_group": "AnyósPark / Urban Gym",
+    "shared_membership": true,
+    "year_round_clear_urban_anyos_sites": 2,
+    "canillo_reclassified": "Palau de Gel gym (municipal/sports-complex operated; historically Urban-branded)",
+    "arinsal": "seasonal Dec–Apr/May — EXCLUDED_SEASONAL",
+    "qualifies_class_a": false,
+    "reason": "Only AnyósPark La Massana + Urban Gym Andorra la Vella have clear year-round Urban/AnyósPark consumer membership products. Canillo gym is currently sold and operated as Palau de Gel gimnàs (Perecaus temporary during remodel). Arinsal seasonal. 2 < 3 Class A threshold."
+  },
+  "ready_count": 12,
+  "ready_by_brand": {
+    "AnyósPark": 1,
+    "Urban Gym": 1,
+    "Palau de Gel": 1,
+    "Duplex Sport Club": 1,
+    "NEXT Sports Club": 1,
+    "Princiesport": 1,
+    "Serradells": 1,
+    "Centre Esportiu Escaldes-Engordany": 1,
+    "CEO Ordino": 1,
+    "Complex Esportiu Encamp": 1,
+    "Centre Esportiu Pas de la Casa": 1,
+    "LAUesport": 1
+  },
+  "ready_by_eligibility": {
+    "SMALL_MARKET_INDEPENDENT": 12
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 12,
+    "EXCLUDED": 42
+  },
+  "seasonal_policy": {
+    "verdict": "EXCLUDED_SEASONAL",
+    "open_months": "December–April/May",
+    "policy": "C_EXCLUDED_SEASONAL"
+  },
+  "decisions": {
+    "ad_8989e7b07f": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_488e241114": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_1fb5491cda": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT",
+      "rebrand": "Urban Gym Canillo → Palau de Gel"
+    },
+    "ad_9447826d36": {
+      "verdict": "EXCLUDED_SEASONAL",
+      "open_months": "December–April/May",
+      "policy": "C_EXCLUDED_SEASONAL"
+    },
+    "ad_6fc179f949": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_2594f0bd4f": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_be0d30a1f0": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_2759cd904a": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_cfb6dcda5e": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_918cf36646": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_8e838a1d13": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_886040e59f": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "ad_ae9200b719": {
+      "verdict": "READY",
+      "path": "SMALL_MARKET_INDEPENDENT"
+    }
+  },
+  "parish_coverage": {
+    "Andorra la Vella": "READY_present",
+    "Escaldes-Engordany": "READY_present",
+    "La Massana": "READY_present",
+    "Canillo": "READY_present",
+    "Ordino": "READY_present",
+    "Encamp": "READY_present",
+    "Sant Julià de Lòria": "READY_present"
+  },
+  "new_legitimate_gyms_discovered": 0,
+  "new_exclusions_from_sweep": 1
+}

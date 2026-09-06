@@ -4,6 +4,7 @@
  */
 
 import type {ActivityEvent, ActivityEventType} from '@/types/activity.types';
+import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
 
 export type ActivityCardType =
   | 'check_in'
@@ -33,7 +34,9 @@ export function buildSecondaryInfo(item: ActivityEvent): string | undefined {
   if (item.secondaryInfo) parts.push(item.secondaryInfo);
   if (item.gymName && item.type === 'check_in') parts.push(item.gymName);
   if (item.groupName && item.type === 'joined_group') parts.push(item.groupName);
-  if (item.minutes && item.type === 'workout_completed') parts.push(`${item.minutes} min`);
+  if (item.minutes && item.type === 'workout_completed') {
+    parts.push(formatWorkoutDuration(item.minutes));
+  }
   if (item.rank && item.type === 'leaderboard_movement') parts.push(`#${item.rank}`);
   if ((item.gym || item.city) && item.type !== 'check_in' && item.type !== 'online_now') {
     parts.push([item.gym || item.gymName, item.city].filter(Boolean).join(' • '));

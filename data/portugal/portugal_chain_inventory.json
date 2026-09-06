@@ -1,0 +1,156 @@
+{
+  "generated_at": "2026-08-22T19:20:05.947440+00:00",
+  "production": {
+    "total": 10525,
+    "portugal": 0,
+    "pt_ids": 0,
+    "sha256_16": "e7e3848d4ac3efd1"
+  },
+  "rebrands": {
+    "Fitness Hut": {
+      "status": "rebranded",
+      "successor": "VivaGym",
+      "notes": "Fitness Hut Portugal unified under VivaGym (from late 2024). Stage as VivaGym only. Official: vivagym.com/pt-pt/"
+    },
+    "Pump Fitness Spirit": {
+      "status": "rebranded",
+      "successor": "Solinca Light",
+      "notes": "Pump clubs rebranded to Solinca Light (~2020). Stage as Solinca Light only."
+    },
+    "Virgin Active Portugal": {
+      "status": "rebranded",
+      "successor": "Holmes Place",
+      "notes": "Virgin Active Iberia acquired by Holmes Place (2019)."
+    }
+  },
+  "chains": [
+    {
+      "brand": "VivaGym",
+      "status": "active",
+      "official_estimate": "40+",
+      "discovered": 46,
+      "ready": 46,
+      "source": "https://www.vivagym.com/pt-pt/ginasios/",
+      "notes": "ex Fitness Hut; PT locale only"
+    },
+    {
+      "brand": "Solinca",
+      "status": "active",
+      "official_estimate": "~35 sitemap",
+      "discovered": 35,
+      "ready": 35,
+      "source": "https://www.solinca.pt/gym-sitemap.xml",
+      "notes": "Classic + Light preserved as separate brands"
+    },
+    {
+      "brand": "Fitness UP",
+      "status": "active",
+      "official_estimate": "70+",
+      "discovered": 74,
+      "ready": 39,
+      "source": "https://www.fitnessup.pt/ginasio/*"
+    },
+    {
+      "brand": "Element",
+      "status": "active",
+      "official_estimate": "~50+",
+      "discovered": 28,
+      "ready": 23,
+      "source": "https://elementgyms.pt/gym-sitemap.xml",
+      "notes": "Azores: Angra do Heroísmo"
+    },
+    {
+      "brand": "Fitness Factory",
+      "status": "active",
+      "official_estimate": "~49",
+      "discovered": 49,
+      "ready": 1,
+      "source": "https://www.fitnessfactory.pt/clubes",
+      "notes": "Madeira + Azores present on locator"
+    },
+    {
+      "brand": "Be-Fit",
+      "status": "active",
+      "official_estimate": "18-21",
+      "discovered": 22,
+      "ready": 8,
+      "source": "https://be-fit.pt/befit/clubes",
+      "notes": "Madeira presence"
+    },
+    {
+      "brand": "Holmes Place",
+      "status": "active",
+      "official_estimate": "~12",
+      "discovered": 12,
+      "ready": 12,
+      "source": "https://www.holmesplace.com/pt/pt/clubes"
+    },
+    {
+      "brand": "Supera",
+      "status": "active",
+      "official_estimate": 6,
+      "discovered": 5,
+      "ready": 0,
+      "source": "https://centrosupera.pt/",
+      "notes": "Include consumer fitness complexes; exclude ES centrosupera.com"
+    },
+    {
+      "brand": "Anytime Fitness",
+      "status": "absent",
+      "official_estimate": 0,
+      "discovered": 0,
+      "ready": 0,
+      "notes": "No Portugal in global locator"
+    },
+    {
+      "brand": "Kalorias",
+      "status": "active_incomplete",
+      "official_estimate": "~7",
+      "discovered": 0,
+      "ready": 0,
+      "notes": "Phase 2 — Wix/JS-heavy locator"
+    },
+    {
+      "brand": "Go Gym",
+      "status": "active_incomplete",
+      "official_estimate": "~7",
+      "discovered": 0,
+      "ready": 0,
+      "notes": "Phase 2 — gated site"
+    },
+    {
+      "brand": "Pump Fitness Spirit",
+      "status": "legacy",
+      "official_estimate": 0,
+      "discovered": 0,
+      "ready": 0,
+      "notes": "Rebranded to Solinca Light"
+    },
+    {
+      "brand": "Fitness Hut",
+      "status": "legacy",
+      "official_estimate": 0,
+      "discovered": 0,
+      "ready": 0,
+      "notes": "Rebranded to VivaGym"
+    }
+  ],
+  "status_counts": {
+    "READY_TO_IMPORT": 164,
+    "NEEDS_REVIEW": 58,
+    "CLOSED": 2,
+    "NEEDS_COORDINATES": 42,
+    "DUPLICATE": 5
+  },
+  "ready_count": 164,
+  "regional_ready": {
+    "Algarve": 8,
+    "North": 24,
+    "Central": 10,
+    "Porto metro": 42,
+    "Lisbon metro": 62,
+    "Alentejo": 16,
+    "Madeira": 1,
+    "Azores": 1
+  }
+}

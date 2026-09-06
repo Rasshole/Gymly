@@ -1,0 +1,33 @@
+{
+  "exit_code": 1,
+  "suites_failed": 3,
+  "tests_failed": 3,
+  "failures": [
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/armeniaPhase2Staging.test.ts",
+      "test": "Armenia Deep Phase 2 staging (merge readiness, no production writes) production frozen at 12303 / Armenia 0 / GE 25 / TR 198 / BY 46 / UA 105 / MT 24 / SHA+bytes unchanged",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge baseline 12303 vs post-merge live 12339"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/armeniaPhase1Staging.test.ts",
+      "test": "Armenia Deep Phase 1 staging (no production merge) frozen production baseline intact",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge baseline 12303 vs post-merge live 12339"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/armeniaPhase1Staging.test.ts",
+      "test": "Armenia Deep Phase 1 staging (no production merge) staging buckets exist and each candidate has exactly one status",
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/armeniaPhase1Staging.test.ts Armenia Deep Phase 1 staging (no produ"
+    }
+  ],
+  "summary": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 1,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 3
+  }
+}

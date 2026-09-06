@@ -1,0 +1,955 @@
+{
+  "decisions": [
+    {
+      "id": "xk_033e410a0b",
+      "name": "Hard Rock Gym Prishtina",
+      "brand": "Hard Rock Gym",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Hard Rock Gym Prishtina EXCLUDED — unverified conventional premises.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Hard Rock Gym Prishtina EXCLUDED — unverified conventional premises."
+    },
+    {
+      "id": "xk_0623d1f425",
+      "name": "Pallati i Sportit Prizren municipal candidate",
+      "brand": "Sporti Pallati",
+      "city": "Prizren",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "C_SPORTS_COMPLEX",
+      "DECISION_REASON": "Phase2: Pallati i Sportit Prizren EXCLUDED — no verified public conventional gym floor.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_SPORTS_COMPLEX",
+      "notes": "Phase2: Pallati i Sportit Prizren EXCLUDED — no verified public conventional gym floor."
+    },
+    {
+      "id": "xk_06c3adbe83",
+      "name": "Fitness Centar Prizren",
+      "brand": "Fitness Prizren",
+      "city": "Prizren",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Prizren EXCLUDED — generic placeholder; Five Star + Lets Go Prizren READY.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Prizren EXCLUDED — generic placeholder; Five Star + Lets Go Prizren READY."
+    },
+    {
+      "id": "xk_0bf7af5a22",
+      "name": "Iron Gym Prishtina",
+      "brand": "Iron Gym",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Iron Gym Prishtina EXCLUDED — directory hit without defended street unit.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Iron Gym Prishtina EXCLUDED — directory hit without defended street unit."
+    },
+    {
+      "id": "xk_0d6f34290b",
+      "name": "Fitness Centar Deçan",
+      "brand": "Fitness Deçan",
+      "city": "Deçan",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Deçan EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Deçan EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_14234f354e",
+      "name": "Fitness Centar Vushtrri",
+      "brand": "Fitness Vushtrri",
+      "city": "Vushtrri",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Vushtrri EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Vushtrri EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_144b359826",
+      "name": "Fitness Centar Gjakovë",
+      "brand": "Fitness Gjakovë",
+      "city": "Gjakovë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Gjakovë EXCLUDED — no defended conventional; Five Star coming-soon only.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Gjakovë EXCLUDED — no defended conventional; Five Star coming-soon only."
+    },
+    {
+      "id": "xk_27e1efefd8",
+      "name": "Premium Gym Prishtina",
+      "brand": "Premium Gym",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Premium Gym Prishtina EXCLUDED — premises not defended.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Premium Gym Prishtina EXCLUDED — premises not defended."
+    },
+    {
+      "id": "xk_29fa84ecf0",
+      "name": "Fitness Zone Kosovo Prishtina Dardania",
+      "brand": "Fitness Zone Kosovo",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Fitness Zone Dardania EXCLUDED — no defended unit; ARBK Haxhi Zeka 25 single-site audit supersedes claimed 2-site estate.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fitness Zone Dardania EXCLUDED — no defended unit; ARBK Haxhi Zeka 25 single-site audit supersedes claimed 2-site estate."
+    },
+    {
+      "id": "xk_2abb4ca7f5",
+      "name": "Pro-Fit Prishtina",
+      "brand": "Pro-Fit",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "C_SPECIALIST",
+      "DECISION_REASON": "Phase2: Pro-Fit Prishtina EXCLUDED — CrossFit/specialist risk; not ordinary conventional public gym product.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_SPECIALIST",
+      "notes": "Phase2: Pro-Fit Prishtina EXCLUDED — CrossFit/specialist risk; not ordinary conventional public gym product."
+    },
+    {
+      "id": "xk_3479f002e4",
+      "name": "Fitness Centar Malishevë",
+      "brand": "Fitness Malishevë",
+      "city": "Malishevë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Malishevë EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Malishevë EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_37bd73f3c8",
+      "name": "Fitness Centar Mitrovicë",
+      "brand": "Fitness Mitrovicë",
+      "city": "Mitrovicë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Mitrovicë EXCLUDED — no defended conventional; Five Star coming-soon only.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Mitrovicë EXCLUDED — no defended conventional; Five Star coming-soon only."
+    },
+    {
+      "id": "xk_3f13600113",
+      "name": "Fitnes centar Leposaviq candidate",
+      "brand": "Fitnes Leposaviq",
+      "city": "Leposaviq",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Leposaviq fitnes candidate EXCLUDED — North Kosovo deep sweep.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Leposaviq fitnes candidate EXCLUDED — North Kosovo deep sweep."
+    },
+    {
+      "id": "xk_46be901f09",
+      "name": "Fitness Centar Lipjan",
+      "brand": "Fitness Lipjan",
+      "city": "Lipjan",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Lipjan EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Lipjan EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_4d08845385",
+      "name": "Power Gym Prishtina",
+      "brand": "Power Gym",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Power Gym Prishtina EXCLUDED — generic directory candidate; distinct from Phase2 PowerGym Mati 1 READY.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Power Gym Prishtina EXCLUDED — generic directory candidate; distinct from Phase2 PowerGym Mati 1 READY."
+    },
+    {
+      "id": "xk_500cfd9387",
+      "name": "Fitness Gym Prishtina",
+      "brand": "Fitness Gym Prishtina",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "READY_TO_IMPORT",
+      "FINAL_ELIGIBILITY": "SMALL_MARKET_INDEPENDENT",
+      "FINAL_CLASSIFICATION": "A_CONVENTIONAL_PUBLIC_GYM",
+      "DECISION_REASON": "Phase2: Fitness Gym Prishtina conventional public floor at Pallati i Rinisë; fitness-prishtina.com verified; NOT municipal sports-complex amenity.",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "notes": "Phase2: Fitness Gym Prishtina conventional public floor at Pallati i Rinisë; fitness-prishtina.com verified; NOT municipal sports-complex amenity."
+    },
+    {
+      "id": "xk_5426e41277",
+      "name": "Fitness Centar Suharekë",
+      "brand": "Fitness Suharekë",
+      "city": "Suharekë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Suharekë EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Suharekë EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_5edfafded8",
+      "name": "Fitness Centar Ferizaj",
+      "brand": "Fitness Ferizaj",
+      "city": "Ferizaj",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Ferizaj EXCLUDED — generic placeholder; Five Star Ferizaj READY supersedes.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Ferizaj EXCLUDED — generic placeholder; Five Star Ferizaj READY supersedes."
+    },
+    {
+      "id": "xk_61859b084f",
+      "name": "Planet Fitness Prishtina (local)",
+      "brand": "Planet Fitness",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "C_UNVERIFIED_LOCAL_BRAND",
+      "DECISION_REASON": "Phase2: Planet Fitness Prishtina EXCLUDED — local brand unverified; distinct from US chain probe; insufficient conventional premises proof.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_UNVERIFIED_LOCAL_BRAND",
+      "notes": "Phase2: Planet Fitness Prishtina EXCLUDED — local brand unverified; distinct from US chain probe; insufficient conventional premises proof."
+    },
+    {
+      "id": "xk_62392a923b",
+      "name": "Teretana / fitnes centar Zvečan candidate",
+      "brand": "Teretana Zvečan",
+      "city": "Zvečan",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Zvečan teretana candidate EXCLUDED — North Kosovo deep sweep.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Zvečan teretana candidate EXCLUDED — North Kosovo deep sweep."
+    },
+    {
+      "id": "xk_63fa84b599",
+      "name": "Arena Fitness Prishtina",
+      "brand": "Arena Fitness",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Arena Fitness Prishtina EXCLUDED — no defended address/coords.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Arena Fitness Prishtina EXCLUDED — no defended address/coords."
+    },
+    {
+      "id": "xk_67cfbf7311",
+      "name": "Olympic Gym Prishtina",
+      "brand": "Olympic Gym",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Olympic Gym Prishtina EXCLUDED — generic directory hit.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Olympic Gym Prishtina EXCLUDED — generic directory hit."
+    },
+    {
+      "id": "xk_7ba7521d48",
+      "name": "Fitness Centar Istog",
+      "brand": "Fitness Istog",
+      "city": "Istog",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Istog EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Istog EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_7cc55dd104",
+      "name": "Fitness Centar Kaçanik",
+      "brand": "Fitness Kaçanik",
+      "city": "Kaçanik",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Kaçanik EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Kaçanik EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_7db00f25ff",
+      "name": "Fitness Centar Gjilan",
+      "brand": "Fitness Gjilan",
+      "city": "Gjilan",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Gjilan EXCLUDED — generic placeholder; Five Star Gjilan READY supersedes.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Gjilan EXCLUDED — generic placeholder; Five Star Gjilan READY supersedes."
+    },
+    {
+      "id": "xk_829689576d",
+      "name": "Max Gym Prishtina",
+      "brand": "Max Gym",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Max Gym Prishtina EXCLUDED — no-coord directory noise.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Max Gym Prishtina EXCLUDED — no-coord directory noise."
+    },
+    {
+      "id": "xk_83f4d2d38e",
+      "name": "Teretana Zubin Potok candidate",
+      "brand": "Teretana Zubin Potok",
+      "city": "Zubin Potok",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Teretana Zubin Potok EXCLUDED — North Kosovo deep sweep.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Teretana Zubin Potok EXCLUDED — North Kosovo deep sweep."
+    },
+    {
+      "id": "xk_8637ff3a68",
+      "name": "Fitnes Centar Fushë Kosovë",
+      "brand": "Fitnes Centar",
+      "city": "Fushë Kosovë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Fitnes Centar Fushë Kosovë EXCLUDED — generic placeholder; Five Star Fushë Kosovë READY supersedes.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fitnes Centar Fushë Kosovë EXCLUDED — generic placeholder; Five Star Fushë Kosovë READY supersedes."
+    },
+    {
+      "id": "xk_8b6a4744f8",
+      "name": "Fitness Centar Drenas",
+      "brand": "Fitness Drenas",
+      "city": "Drenas",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Drenas EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Drenas EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_8b6e61ef88",
+      "name": "Forma Plus Prishtina",
+      "brand": "Forma Plus",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "B_SPECIALIST_AEROBICS",
+      "DECISION_REASON": "Phase2: Forma Plus Prishtina EXCLUDED — aerobics/specialist; not conventional public gym floor.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_SPECIALIST_AEROBICS",
+      "notes": "Phase2: Forma Plus Prishtina EXCLUDED — aerobics/specialist; not conventional public gym floor."
+    },
+    {
+      "id": "xk_8b9ad920fe",
+      "name": "Body Center Prishtina",
+      "brand": "Body Center",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Body Center Prishtina EXCLUDED — premises not defended.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Body Center Prishtina EXCLUDED — premises not defended."
+    },
+    {
+      "id": "xk_a6a0b6674b",
+      "name": "Fitness Centar Skenderaj",
+      "brand": "Fitness Skenderaj",
+      "city": "Skenderaj",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Skenderaj EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Skenderaj EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_a7af40e3fe",
+      "name": "Fitness Zone Kosovo Prishtina City Mall",
+      "brand": "Fitness Zone Kosovo",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Fitness Zone City Mall EXCLUDED — no defended conventional premises; ARBK registration Haxhi Zeka 25 only.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fitness Zone City Mall EXCLUDED — no defended conventional premises; ARBK registration Haxhi Zeka 25 only."
+    },
+    {
+      "id": "xk_ac4eeb29b4",
+      "name": "Teretana North Mitrovica candidate",
+      "brand": "Teretana Sever",
+      "city": "North Mitrovica",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: North Mitrovica teretana candidate EXCLUDED — no defended conventional public gym after Serbian-language audit.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: North Mitrovica teretana candidate EXCLUDED — no defended conventional public gym after Serbian-language audit."
+    },
+    {
+      "id": "xk_b0cdb882c9",
+      "name": "Fitness Centar Klina",
+      "brand": "Fitness Klina",
+      "city": "Klina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Klina EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Klina EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_b17f13e6b7",
+      "name": "Active Life Fitness Prishtina",
+      "brand": "Active Life",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Active Life Fitness Prishtina EXCLUDED — no-coord directory noise.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Active Life Fitness Prishtina EXCLUDED — no-coord directory noise."
+    },
+    {
+      "id": "xk_b3d703c870",
+      "name": "Centro Sport Prishtina",
+      "brand": "Centro Sport",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Centro Sport Prishtina EXCLUDED — generic directory hit.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Centro Sport Prishtina EXCLUDED — generic directory hit."
+    },
+    {
+      "id": "xk_beffb63254",
+      "name": "Fitness Centar Dragash",
+      "brand": "Fitness Dragash",
+      "city": "Dragash",
+      "PHASE1_STATUS": "NEEDS_COORDINATES",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Dragash EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Dragash EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_c6f32ebfe1",
+      "name": "Fit Club Prishtina",
+      "brand": "Fit Club",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Fit Club Prishtina EXCLUDED — premises not defended.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fit Club Prishtina EXCLUDED — premises not defended."
+    },
+    {
+      "id": "xk_c7448eeb75",
+      "name": "Fitness Centar Podujevë",
+      "brand": "Fitness Podujevë",
+      "city": "Podujevë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Podujevë EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Podujevë EXCLUDED — secondary municipality; no defended gym."
+    },
+    {
+      "id": "xk_d46f26dde1",
+      "name": "Extreme Fitness Prishtina",
+      "brand": "Extreme Fitness",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Extreme Fitness Prishtina EXCLUDED — premises not defended.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Extreme Fitness Prishtina EXCLUDED — premises not defended."
+    },
+    {
+      "id": "xk_d719b183a5",
+      "name": "Fitness Centar Pejë",
+      "brand": "Fitness Pejë",
+      "city": "Pejë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Pejë EXCLUDED — no defended conventional; Five Star coming-soon only.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Pejë EXCLUDED — no defended conventional; Five Star coming-soon only."
+    },
+    {
+      "id": "xk_dba9745fcd",
+      "name": "Gym Plus Prishtina",
+      "brand": "Gym Plus",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Gym Plus Prishtina EXCLUDED — placeholder independent; premises not defended.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Gym Plus Prishtina EXCLUDED — placeholder independent; premises not defended."
+    },
+    {
+      "id": "xk_de9890c36f",
+      "name": "Body Fit Prishtina",
+      "brand": "Body Fit",
+      "city": "Prishtina",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Body Fit Prishtina EXCLUDED — premises not defended Phase 2.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Body Fit Prishtina EXCLUDED — premises not defended Phase 2."
+    },
+    {
+      "id": "xk_e936944d75",
+      "name": "Power Gym Fushë Kosovë",
+      "brand": "Power Gym",
+      "city": "Fushë Kosovë",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "D_INSUFFICIENT_EVIDENCE",
+      "DECISION_REASON": "Phase2: Power Gym Fushë Kosovë EXCLUDED — unverified placeholder.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Power Gym Fushë Kosovë EXCLUDED — unverified placeholder."
+    },
+    {
+      "id": "xk_f07244fce8",
+      "name": "Fitness Centar Rahovec",
+      "brand": "Fitness Rahovec",
+      "city": "Rahovec",
+      "PHASE1_STATUS": "NEEDS_REVIEW",
+      "FINAL_STATUS": "EXCLUDED",
+      "FINAL_ELIGIBILITY": "EXCLUDED",
+      "FINAL_CLASSIFICATION": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "DECISION_REASON": "Phase2: Fitness Centar Rahovec EXCLUDED — secondary municipality; no defended gym.",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Rahovec EXCLUDED — secondary municipality; no defended gym."
+    }
+  ],
+  "decision_map": {
+    "xk_500cfd9387": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Luan Haradinaj, Pallati i Rinisë dhe Sporteve, Prishtina",
+      "postal_code": "10000",
+      "city": "Prishtina",
+      "lat": 42.662,
+      "lng": 21.166,
+      "coord_source": "official_fitness_gym_prishtina_pallati",
+      "website": "https://www.fitness-prishtina.com/",
+      "name": "Fitness Gym Prishtina",
+      "brand": "Fitness Gym Prishtina",
+      "chain_key": "fitness_gym_prishtina",
+      "notes": "Phase2: Fitness Gym Prishtina conventional public floor at Pallati i Rinisë; fitness-prishtina.com verified; NOT municipal sports-complex amenity."
+    },
+    "xk_a7af40e3fe": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fitness Zone City Mall EXCLUDED — no defended conventional premises; ARBK registration Haxhi Zeka 25 only."
+    },
+    "xk_29fa84ecf0": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fitness Zone Dardania EXCLUDED — no defended unit; ARBK Haxhi Zeka 25 single-site audit supersedes claimed 2-site estate."
+    },
+    "xk_61859b084f": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_UNVERIFIED_LOCAL_BRAND",
+      "notes": "Phase2: Planet Fitness Prishtina EXCLUDED — local brand unverified; distinct from US chain probe; insufficient conventional premises proof."
+    },
+    "xk_2abb4ca7f5": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_SPECIALIST",
+      "notes": "Phase2: Pro-Fit Prishtina EXCLUDED — CrossFit/specialist risk; not ordinary conventional public gym product."
+    },
+    "xk_8b6e61ef88": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_SPECIALIST_AEROBICS",
+      "notes": "Phase2: Forma Plus Prishtina EXCLUDED — aerobics/specialist; not conventional public gym floor."
+    },
+    "xk_0623d1f425": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_SPORTS_COMPLEX",
+      "notes": "Phase2: Pallati i Sportit Prizren EXCLUDED — no verified public conventional gym floor."
+    },
+    "xk_dba9745fcd": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Gym Plus Prishtina EXCLUDED — placeholder independent; premises not defended."
+    },
+    "xk_0bf7af5a22": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Iron Gym Prishtina EXCLUDED — directory hit without defended street unit."
+    },
+    "xk_de9890c36f": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Body Fit Prishtina EXCLUDED — premises not defended Phase 2."
+    },
+    "xk_63fa84b599": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Arena Fitness Prishtina EXCLUDED — no defended address/coords."
+    },
+    "xk_4d08845385": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Power Gym Prishtina EXCLUDED — generic directory candidate; distinct from Phase2 PowerGym Mati 1 READY."
+    },
+    "xk_b17f13e6b7": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Active Life Fitness Prishtina EXCLUDED — no-coord directory noise."
+    },
+    "xk_d46f26dde1": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Extreme Fitness Prishtina EXCLUDED — premises not defended."
+    },
+    "xk_67cfbf7311": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Olympic Gym Prishtina EXCLUDED — generic directory hit."
+    },
+    "xk_27e1efefd8": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Premium Gym Prishtina EXCLUDED — premises not defended."
+    },
+    "xk_033e410a0b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Hard Rock Gym Prishtina EXCLUDED — unverified conventional premises."
+    },
+    "xk_b3d703c870": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Centro Sport Prishtina EXCLUDED — generic directory hit."
+    },
+    "xk_829689576d": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Max Gym Prishtina EXCLUDED — no-coord directory noise."
+    },
+    "xk_c6f32ebfe1": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fit Club Prishtina EXCLUDED — premises not defended."
+    },
+    "xk_8b9ad920fe": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Body Center Prishtina EXCLUDED — premises not defended."
+    },
+    "xk_8637ff3a68": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Fitnes Centar Fushë Kosovë EXCLUDED — generic placeholder; Five Star Fushë Kosovë READY supersedes."
+    },
+    "xk_e936944d75": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "D_INSUFFICIENT_EVIDENCE",
+      "notes": "Phase2: Power Gym Fushë Kosovë EXCLUDED — unverified placeholder."
+    },
+    "xk_06c3adbe83": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Prizren EXCLUDED — generic placeholder; Five Star + Lets Go Prizren READY."
+    },
+    "xk_d719b183a5": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Pejë EXCLUDED — no defended conventional; Five Star coming-soon only."
+    },
+    "xk_144b359826": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Gjakovë EXCLUDED — no defended conventional; Five Star coming-soon only."
+    },
+    "xk_5edfafded8": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Ferizaj EXCLUDED — generic placeholder; Five Star Ferizaj READY supersedes."
+    },
+    "xk_7db00f25ff": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Gjilan EXCLUDED — generic placeholder; Five Star Gjilan READY supersedes."
+    },
+    "xk_37bd73f3c8": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Mitrovicë EXCLUDED — no defended conventional; Five Star coming-soon only."
+    },
+    "xk_ac4eeb29b4": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: North Mitrovica teretana candidate EXCLUDED — no defended conventional public gym after Serbian-language audit."
+    },
+    "xk_62392a923b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Zvečan teretana candidate EXCLUDED — North Kosovo deep sweep."
+    },
+    "xk_3f13600113": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Leposaviq fitnes candidate EXCLUDED — North Kosovo deep sweep."
+    },
+    "xk_83f4d2d38e": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Teretana Zubin Potok EXCLUDED — North Kosovo deep sweep."
+    },
+    "xk_14234f354e": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Vushtrri EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_c7448eeb75": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Podujevë EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_46be901f09": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Lipjan EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_8b6a4744f8": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Drenas EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_a6a0b6674b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Skenderaj EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_f07244fce8": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Rahovec EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_3479f002e4": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Malishevë EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_5426e41277": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Suharekë EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_7cc55dd104": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Kaçanik EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_b0cdb882c9": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Klina EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_0d6f34290b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Deçan EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_7ba7521d48": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Istog EXCLUDED — secondary municipality; no defended gym."
+    },
+    "xk_beffb63254": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "A_LEGITIMATE_NO_LOCAL_GYM",
+      "notes": "Phase2: Fitness Centar Dragash EXCLUDED — secondary municipality; no defended gym."
+    }
+  },
+  "new_ready_ids": [
+    "xk_4d98941de0",
+    "xk_97a7085d4d",
+    "xk_c701eda0ff",
+    "xk_1d7af5ff10",
+    "xk_d722f14213",
+    "xk_db35d316aa",
+    "xk_87bda6987b",
+    "xk_fc7b6a8c67",
+    "xk_da9309622a",
+    "xk_e06cd03b2e",
+    "xk_4ac1e78ed4",
+    "xk_9374a45e65",
+    "xk_ae58d8d928",
+    "xk_bda33fc345",
+    "xk_b434775de1",
+    "xk_b3ba8d5cb9",
+    "xk_d2868682b1"
+  ]
+}

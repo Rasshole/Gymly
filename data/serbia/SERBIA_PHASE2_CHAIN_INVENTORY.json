@@ -1,0 +1,98 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside Serbia",
+  "qualifying_class_a_chains": 4,
+  "class_a_locations": 59,
+  "CLASS_A": true,
+  "market": "MIXED_CHAIN_INDEPENDENT",
+  "chain_estate_gaps": 0,
+  "operators": {
+    "Ahilej": {
+      "claimed_locations": 33,
+      "active_locations": 33,
+      "conventional_public_locations": 33,
+      "ready": 33,
+      "excluded": 0,
+      "closed": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "website": "https://ahilej.com/lokacije",
+      "new_discoveries": 0
+    },
+    "Non Stop Fitness": {
+      "claimed_locations": 16,
+      "active_locations": 16,
+      "conventional_public_locations": 16,
+      "ready": 16,
+      "excluded": 0,
+      "closed": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "website": "https://nonstopfitness.rs/",
+      "new_discoveries": 0
+    },
+    "Mega Gym": {
+      "claimed_locations": 7,
+      "active_locations": 7,
+      "conventional_public_locations": 7,
+      "ready": 7,
+      "excluded": 0,
+      "closed": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "website": "https://megagym.rs/",
+      "new_discoveries": 0
+    },
+    "Gym Town": {
+      "claimed_locations": 3,
+      "active_locations": 3,
+      "conventional_public_locations": 3,
+      "ready": 3,
+      "excluded": 0,
+      "closed": 0,
+      "class_a": true,
+      "estate_complete": true,
+      "website": "https://gymtown.rs/",
+      "new_discoveries": 3,
+      "notes": "Phase2 Class A discovery — 3 Niš sites."
+    }
+  },
+  "probed_not_class_a": {
+    "Sky Experience": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "Athletic's Gym": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "Iron Republic": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "X-Fit": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "Fit Complete": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "Kočović": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "Star Fitness": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "City Fitness": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    },
+    "Olympic Gym": {
+      "verdict": "NOT_CLASS_A",
+      "notes": "Phase2 sweep — below ≥3 threshold or unrelated"
+    }
+  },
+  "international_recheck": "ABSENT in Serbia — Basic-Fit/PureGym/McFIT/World Class/Fitness Park not verified ≥3 RS sites"
+}

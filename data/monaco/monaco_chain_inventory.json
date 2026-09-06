@@ -1,0 +1,17 @@
+{
+  "country": "Monaco",
+  "phase": 2,
+  "class_a_chains": 0,
+  "class_a_locations": 0,
+  "small_market": {
+    "recommended_model": "INDEPENDENT_PHASE_EXECUTED",
+    "ready_count": 4,
+    "eligibility": "SMALL_MARKET_INDEPENDENT"
+  },
+  "ready_brands": {
+    "Fit Factory": 1,
+    "Eclub": 1,
+    "Hercule Fitness Club": 1,
+    "Stade Louis II": 1
+  }
+}

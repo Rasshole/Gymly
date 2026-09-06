@@ -1,0 +1,9 @@
+{
+  "second_run_insertions": 0,
+  "final_catalog": 11921,
+  "north_macedonia": 25,
+  "mk_prefix": 25,
+  "expected_catalog": 11921,
+  "expected_north_macedonia": 25,
+  "result": "PASS"
+}

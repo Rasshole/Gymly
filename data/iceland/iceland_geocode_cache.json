@@ -1,0 +1,18 @@
+{
+  "is|ásbrú, 262, reykjanesbær, iceland": {
+    "lat": 63.9715967,
+    "lng": -22.5734288,
+    "display_name": "Ásbrú, Njarðvík, Reykjanesbær, Suðurnes, 262, Ísland",
+    "importance": 0.1570394422394589,
+    "postcode": "262",
+    "country_code": "is"
+  },
+  "is|bugðusíða 1, 603, akureyri, iceland": {
+    "lat": 65.6939132,
+    "lng": -18.1316963,
+    "display_name": "Bjarg, 1, Bugðusíða, Síðuhverfi, Akureyrarbær, Norðurland eystra, 603, Ísland",
+    "importance": 5.9691004806546384e-05,
+    "postcode": "603",
+    "country_code": "is"
+  }
+}

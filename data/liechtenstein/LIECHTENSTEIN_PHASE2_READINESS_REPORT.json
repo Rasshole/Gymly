@@ -1,0 +1,198 @@
+{
+  "country": "Liechtenstein",
+  "phase": 2,
+  "verdict": "READY FOR LIECHTENSTEIN MERGE",
+  "small_market_model": "INDEPENDENT_PHASE_EXECUTED",
+  "production_total": 11692,
+  "production_sha256": "ff19dfaae9f99984ae5c6a73765b3e585263b61050d8c927fc45a38037dfa3dc",
+  "liechtenstein_live": 0,
+  "iceland_live": 27,
+  "production_modified": false,
+  "status_counts": {
+    "READY_TO_IMPORT": 7,
+    "EXCLUDED": 43,
+    "CLOSED": 2
+  },
+  "ready_count": 7,
+  "ready_by_brand": {
+    "update Fitness": 1,
+    "LieFit": 1,
+    "purfitness": 1,
+    "Lorez": 1,
+    "flexigym": 1,
+    "In Motion": 1,
+    "KOKON Fitness": 1
+  },
+  "ready_inventory": [
+    {
+      "id": "li_f02192ce76",
+      "brand": "flexigym",
+      "name": "flexigym Balzers",
+      "address": "Landstrasse 25",
+      "city": "Balzers",
+      "postal_code": "9496",
+      "lat": 47.0767349,
+      "lng": 9.5121186,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "li_688dc73ac2",
+      "brand": "Lorez",
+      "name": "Lorez Power Center Bendern",
+      "address": "Industriestrasse 16",
+      "city": "Bendern",
+      "postal_code": "9487",
+      "lat": 47.2056244,
+      "lng": 9.5035504,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "li_740e149c77",
+      "brand": "In Motion",
+      "name": "In Motion Eschen",
+      "address": "Wirtschaftspark 25",
+      "city": "Eschen",
+      "postal_code": "9492",
+      "lat": 47.2077115,
+      "lng": 9.5340621,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "li_9b66d0aa5e",
+      "brand": "KOKON Fitness",
+      "name": "KOKON Fitness & Spa Ruggell",
+      "address": "Industriering 3",
+      "city": "Ruggell",
+      "postal_code": "9491",
+      "lat": 47.2494755,
+      "lng": 9.5269321,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "li_35eed72b39",
+      "brand": "purfitness",
+      "name": "purfitness Schaan",
+      "address": "Im alten Riet 22",
+      "city": "Schaan",
+      "postal_code": "9494",
+      "lat": 47.1747102,
+      "lng": 9.5121756,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "li_9514fe2df2",
+      "brand": "LieFit",
+      "name": "LieFit Vaduz",
+      "address": "Wuhrstrasse 7",
+      "city": "Vaduz",
+      "postal_code": "9490",
+      "lat": 47.1354865,
+      "lng": 9.5141048,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "li_9fdb1d933f",
+      "brand": "update Fitness",
+      "name": "update Fitness Vaduz",
+      "address": "Landstrasse 117",
+      "city": "Vaduz",
+      "postal_code": "9490",
+      "lat": 47.1546705,
+      "lng": 9.5099197,
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "phase1_candidates_recovered": 8,
+  "phase1_promoted": 6,
+  "phase1_excluded": 2,
+  "new_locations_discovered": 3,
+  "new_ready": 1,
+  "small_market_independent_ready": 7,
+  "class_a_chains": 0,
+  "phase3_required": false,
+  "phase3_reasons": [],
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_territorial_outliers": 0,
+    "mojibake": 0,
+    "missing_eligibility_path": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "hard_duplicate_problems": 0
+  },
+  "territorial_safety": "CLEAN",
+  "ready_foreign_outliers": 0,
+  "unexplained_municipality_bd_gaps": 0,
+  "municipality_coverage": {
+    "Vaduz": "READY_present",
+    "Schaan": "READY_present",
+    "Balzers": "READY_present",
+    "Eschen": "READY_present",
+    "Bendern": "READY_present",
+    "Ruggell": "READY_present",
+    "Triesen": "C_scope_exclusion",
+    "Mauren": "A_legitimate_no_local_gym",
+    "Triesenberg": "A_legitimate_no_local_gym",
+    "Schellenberg": "A_legitimate_no_local_gym",
+    "Planken": "A_legitimate_no_local_gym",
+    "Nendeln": "C_scope_exclusion",
+    "Gamprin": "READY_present"
+  },
+  "projected_catalog_if_merged": 11699,
+  "crossed_12500_if_merged": false,
+  "global_stress_qa_required_now": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "decisions": {
+    "update_fitness": {
+      "id": "li_9fdb1d933f",
+      "verdict": "READY",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "li_estate": 1
+    },
+    "liefit_vaduz": {
+      "id": "li_9514fe2df2",
+      "verdict": "READY",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    "liefit_geoway_eschen": {
+      "id": "li_7f2d2a5ed7",
+      "verdict": "EXCLUDED",
+      "relationship": "GEOWAY_specialty_studio_same_operators_as_LieFit",
+      "import_units": "LieFit Vaduz only (conventional); GEOWAY Eschen excluded"
+    },
+    "purfitness": {
+      "id": "li_35eed72b39",
+      "verdict": "READY",
+      "successor_of": "fitnesshaus by blugym Schaan"
+    },
+    "lorez_gesundheitscenter": {
+      "id": "li_3ff9b2a62c",
+      "verdict": "EXCLUDED",
+      "classification": "B_PUBLIC_BUT_MEDICAL_REHAB_LED"
+    },
+    "lorez_power_center": {
+      "id": "li_688dc73ac2",
+      "verdict": "READY",
+      "units": 1,
+      "co_located_health_training": "not_separate_club"
+    },
+    "flexigym": {
+      "id": "li_f02192ce76",
+      "verdict": "READY"
+    },
+    "in_motion": {
+      "id": "li_740e149c77",
+      "verdict": "READY",
+      "classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "not": "B_PUBLIC_BUT_MEDICAL_REHAB_LED"
+    },
+    "kokon": {
+      "id": "li_9b66d0aa5e",
+      "verdict": "READY",
+      "phase2_new": true
+    }
+  }
+}

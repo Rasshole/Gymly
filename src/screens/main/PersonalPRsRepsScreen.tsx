@@ -10,42 +10,47 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Image,
   Alert,
+  SafeAreaView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {SafeAreaView} from 'react-native';
 import {usePRStore} from '@/store/prStore';
-import {useAppStore} from '@/store/appStore';
-import {PersonalRecord, RepRecord, ExerciseType} from '@/types/pr.types';
+import {PersonalRecord, RepRecord} from '@/types/pr.types';
 import colors from '@/theme/colors';
-
-const exercises: ExerciseType[] = [
-  'Bænkpres',
-  'Dødløft',
-  'Benpres',
-  'Squads',
-  'Incline Dumbell',
-  'Pull-Down',
-  'Shoulder Pres Dumbell',
-];
+import {useTranslation, getExerciseDisplayName} from '@/i18n';
 
 const PersonalPRsRepsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const {user} = useAppStore();
   const {getAllPRs, getAllRepRecords} = usePRStore();
   const [activeTab, setActiveTab] = useState<'pr' | 'reps'>('pr');
+  const {t, language, intlLocale} = useTranslation();
 
   const allPRs = getAllPRs();
   const allRepRecords = getAllRepRecords();
+
+  const formatDate = (date: Date | string) =>
+    new Date(date instanceof Date ? date : new Date(date)).toLocaleDateString(
+      intlLocale,
+      {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      },
+    );
 
   const renderPRCard = (pr: PersonalRecord) => {
     return (
       <View key={pr.id} style={styles.card}>
         <View style={styles.cardHeader}>
-          <Text style={styles.exerciseName}>{pr.exercise}</Text>
+          <Text style={styles.exerciseName}>
+            {getExerciseDisplayName({
+              exerciseId: null,
+              fallbackName: pr.exercise,
+              language,
+            })}
+          </Text>
         </View>
         <View style={styles.prContent}>
           <View style={styles.weightContainer}>
@@ -57,26 +62,21 @@ const PersonalPRsRepsScreen = () => {
               style={styles.videoContainer}
               onPress={() => {
                 // TODO: Open video player
-                Alert.alert('Video', 'Video afspiller åbnes her');
+                Alert.alert(t('prReps.videoAlertTitle'), t('prReps.videoAlertBody'));
               }}
               activeOpacity={0.8}>
               <View style={styles.videoThumbnail}>
                 <Icon name="play-circle" size={48} color="#007AFF" />
-                <Text style={styles.videoText}>Se video</Text>
+                <Text style={styles.videoText}>{t('prReps.seeVideo')}</Text>
               </View>
             </TouchableOpacity>
           ) : (
             <View style={styles.noVideoContainer}>
               <Icon name="videocam-off-outline" size={32} color="#8E8E93" />
-              <Text style={styles.noVideoText}>Ingen video</Text>
             </View>
           )}
           <Text style={styles.dateText}>
-            Sat {new Date(pr.date instanceof Date ? pr.date : new Date(pr.date)).toLocaleDateString('da-DK', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
+            {t('prReps.setOn', {date: formatDate(pr.date)})}
           </Text>
         </View>
       </View>
@@ -87,7 +87,13 @@ const PersonalPRsRepsScreen = () => {
     return (
       <View key={rep.id} style={styles.card}>
         <View style={styles.cardHeader}>
-          <Text style={styles.exerciseName}>{rep.exercise}</Text>
+          <Text style={styles.exerciseName}>
+            {getExerciseDisplayName({
+              exerciseId: null,
+              fallbackName: rep.exercise,
+              language,
+            })}
+          </Text>
         </View>
         <View style={styles.repContent}>
           <View style={styles.weightContainer}>
@@ -95,11 +101,7 @@ const PersonalPRsRepsScreen = () => {
             <Text style={styles.weightUnit}>kg</Text>
           </View>
           <Text style={styles.dateText}>
-            Opdateret {new Date(rep.date instanceof Date ? rep.date : new Date(rep.date)).toLocaleDateString('da-DK', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
+            {t('prReps.updatedOn', {date: formatDate(rep.date)})}
           </Text>
         </View>
       </View>
@@ -115,7 +117,7 @@ const PersonalPRsRepsScreen = () => {
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Dine PR's og Reps</Text>
+        <Text style={styles.headerTitle}>{t('prReps.personalTitle')}</Text>
         <View style={styles.headerRight} />
       </View>
 
@@ -167,9 +169,9 @@ const PersonalPRsRepsScreen = () => {
           ) : (
             <View style={styles.emptyContainer}>
               <Icon name="trophy-outline" size={80} color="#C7C7CC" />
-              <Text style={styles.emptyTitle}>Ingen PR's endnu</Text>
+              <Text style={styles.emptyTitle}>{t('prReps.emptyPrPersonalTitle')}</Text>
               <Text style={styles.emptyText}>
-                Du har ikke sat nogen personlige rekorder endnu.
+                {t('prReps.emptyPrPersonalBody')}
               </Text>
             </View>
           )
@@ -178,9 +180,9 @@ const PersonalPRsRepsScreen = () => {
         ) : (
           <View style={styles.emptyContainer}>
             <Icon name="barbell-outline" size={80} color="#C7C7CC" />
-            <Text style={styles.emptyTitle}>Ingen Reps registreret</Text>
+            <Text style={styles.emptyTitle}>{t('prReps.emptyRepsPersonalTitle')}</Text>
             <Text style={styles.emptyText}>
-              Du har ikke registreret nogen rep records endnu.
+              {t('prReps.emptyRepsPersonalBody')}
             </Text>
           </View>
         )}
@@ -348,4 +350,3 @@ const styles = StyleSheet.create({
 });
 
 export default PersonalPRsRepsScreen;
-

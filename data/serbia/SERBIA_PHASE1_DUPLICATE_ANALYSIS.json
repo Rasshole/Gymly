@@ -1,0 +1,52 @@
+{
+  "identical_coordinates": [],
+  "same_brand": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 2
+  },
+  "different_brand": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 1
+  },
+  "same_brand_pairs": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "rs_3d36bc5b45",
+        "b_id": "rs_5ef979e138",
+        "a_brand": "Ahilej",
+        "b_brand": "Ahilej",
+        "distance_m": 193.1
+      },
+      {
+        "a_id": "rs_3c7aec5473",
+        "b_id": "rs_58d720a04f",
+        "a_brand": "Ahilej",
+        "b_brand": "Ahilej",
+        "distance_m": 193.0
+      }
+    ]
+  },
+  "different_brand_pairs": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "rs_ecdec69778",
+        "b_id": "rs_efbb875eff",
+        "a_brand": "Ahilej",
+        "b_brand": "Extreme Fitness",
+        "distance_m": 111.2
+      }
+    ]
+  },
+  "pair_classifications": [],
+  "hard_duplicate_conflicts": 0
+}

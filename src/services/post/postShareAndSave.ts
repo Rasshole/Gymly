@@ -1,7 +1,6 @@
 import {Alert, Platform, Share} from 'react-native';
 import {CameraRoll} from '@react-native-camera-roll/camera-roll';
-
-const FALLBACK_SHARE = 'Jeg har lige trænet på Gymly 💜';
+import {rt} from '@/i18n';
 
 export type ShareablePostPayload = {
   caption?: string;
@@ -13,7 +12,7 @@ export function buildWorkoutPostShareMessage(post: ShareablePostPayload): string
   if (parts.length) {
     return parts.join('\n\n');
   }
-  return FALLBACK_SHARE;
+  return rt('mediaSave.shareFallback');
 }
 
 export async function shareWorkoutPost(post: ShareablePostPayload & {photoUri?: string | null}): Promise<void> {
@@ -45,16 +44,13 @@ export async function saveWorkoutPostImageToLibrary(uri: string | null | undefin
       !trimmed.startsWith('content') &&
       !trimmed.startsWith('ph://'))
   ) {
-    Alert.alert('Intet billede', 'Dette opslag har intet billede at gemme.');
+    Alert.alert(rt('mediaSave.noImageTitle'), rt('mediaSave.noImageBody'));
     return;
   }
   try {
     await CameraRoll.saveAsset(trimmed, {type: 'photo'});
-    Alert.alert('Gemt', 'Billedet er gemt i Fotos.');
+    Alert.alert(rt('mediaSave.savedTitle'), rt('mediaSave.savedBody'));
   } catch {
-    Alert.alert(
-      'Kunne ikke gemme',
-      'Tjek at Gymly har adgang til Fotos under Indstillinger.',
-    );
+    Alert.alert(rt('mediaSave.saveFailedTitle'), rt('mediaSave.saveFailedBody'));
   }
 }

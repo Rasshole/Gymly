@@ -1,0 +1,27 @@
+{
+  "policy": "INCLUDE_AS_MOLDOVA_TERRITORIAL",
+  "phase1_policy": "TERRITORIALLY_HELD_NEEDS_REVIEW",
+  "summary": "Adrenalin Tiraspol×2 + Bender×1 included as Moldova catalog entries (md_*, country=Moldova). Coordinates inside internationally recognized borders. Search aliases for Tiraspol/Bender/Rîbnița already wired. No separate country prefix. Rîbnița sports complex excluded. Dubăsari: A_legitimate_no_local_gym.",
+  "technical_gates": {
+    "coords_inside_md_recognized_territory": true,
+    "country_resolution_supports": true,
+    "search_display_aliases": true,
+    "map_checkin_without_special_runtime": true,
+    "addresses_usable": true,
+    "coords_defensible": true,
+    "public_conventional_gyms": true,
+    "incorrect_country_labels_risk": false,
+    "geocoder_incompatibility_blocker": false
+  },
+  "settlements": {
+    "Tiraspol": "READY_present",
+    "Bender": "READY_present",
+    "Rîbnița": "C_scope_exclusion",
+    "Dubăsari": "A_legitimate_no_local_gym"
+  },
+  "ready_count": 3,
+  "adrenalin_active_clubs": 3,
+  "adrenalin_class_a": true,
+  "separate_country_prefix": false,
+  "phase2_required_followup": false
+}

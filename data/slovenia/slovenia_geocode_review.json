@@ -1,0 +1,352 @@
+[
+  {
+    "id": "si_3146650ae8",
+    "name": "FITINN Ljubljana BTC City",
+    "brand": "FITINN",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 46.068995,
+    "lng": 14.543699,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_688dfb3d45",
+    "name": "FITINN Ljubljana Šiška",
+    "brand": "FITINN",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 46.08738,
+    "lng": 14.47455,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_d6c37de6b9",
+    "name": "FITINN Maribor Maribox",
+    "brand": "FITINN",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 46.556746,
+    "lng": 15.652791,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "2000"
+  },
+  {
+    "id": "si_c381f7120f",
+    "name": "FITINN Maribor Tabor",
+    "brand": "FITINN",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 46.53627,
+    "lng": 15.64422,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "2000"
+  },
+  {
+    "id": "si_da8b0ba8a8",
+    "name": "FITINN Celje",
+    "brand": "FITINN",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 46.248617,
+    "lng": 15.281221,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "3000"
+  },
+  {
+    "id": "si_e1cb5eec31",
+    "name": "FITINN Kranj",
+    "brand": "FITINN",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "lat": 46.24307,
+    "lng": 14.3781,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "4000"
+  },
+  {
+    "id": "si_3b3d2f4612",
+    "name": "BODIFIT Ljubljana",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0622994,
+    "lng": 14.5087967,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_172b769bc9",
+    "name": "BODIFIT Maribor",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.5233802,
+    "lng": 15.6497774,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "2000"
+  },
+  {
+    "id": "si_6810506253",
+    "name": "BODIFIT Maribor Studenci",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.5526981,
+    "lng": 15.626316,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "2000"
+  },
+  {
+    "id": "si_23c2f453f3",
+    "name": "BODIFIT Maribor City",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.556983,
+    "lng": 15.6505351,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "2000"
+  },
+  {
+    "id": "si_a50f92f6e9",
+    "name": "BODIFIT Celje",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.2474674,
+    "lng": 15.2794946,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "3000"
+  },
+  {
+    "id": "si_a6b3661756",
+    "name": "BODIFIT Kamnik",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.2240064,
+    "lng": 14.6126016,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1241"
+  },
+  {
+    "id": "si_21050d1b89",
+    "name": "BODIFIT Mengeš",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.1567833,
+    "lng": 14.5696076,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1234"
+  },
+  {
+    "id": "si_564d63c631",
+    "name": "BODIFIT Murska Sobota",
+    "brand": "BODIFIT",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.6695878,
+    "lng": 16.1772139,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "9000"
+  },
+  {
+    "id": "si_673eba29e0",
+    "name": "Shape House Ljubljana Situla",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0596624,
+    "lng": 14.518406,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_87aeb083b4",
+    "name": "Shape House Ljubljana Šiška",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0838187,
+    "lng": 14.4809938,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_ae7796d56f",
+    "name": "Shape House Ljubljana Rudnik",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0185002,
+    "lng": 14.5303647,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_cf31bee5f4",
+    "name": "Shape House Ljubljana Letališka",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0614018,
+    "lng": 14.5406456,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_1e461b2ce1",
+    "name": "Shape House Maribor",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.5524633,
+    "lng": 15.628327,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "2000"
+  },
+  {
+    "id": "si_c0ab7d90a3",
+    "name": "Shape House Novo mesto",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 45.8175477,
+    "lng": 15.1555452,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "8000"
+  },
+  {
+    "id": "si_812bd7056e",
+    "name": "Shape House Koper Planet Tuš",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 45.5393761,
+    "lng": 13.7353778,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "6000"
+  },
+  {
+    "id": "si_021f737987",
+    "name": "Shape House Kranj",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.2365982,
+    "lng": 14.3732832,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "4000"
+  },
+  {
+    "id": "si_c55bd4763c",
+    "name": "Shape House Ljubljana Loberia",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.1068966,
+    "lng": 14.4524596,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1210"
+  },
+  {
+    "id": "si_98079e395a",
+    "name": "Shape House Murska Sobota",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.6667057,
+    "lng": 16.1685418,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "9000"
+  },
+  {
+    "id": "si_4191b87a6e",
+    "name": "Shape House Domžale",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.1464931,
+    "lng": 14.5971529,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1230"
+  },
+  {
+    "id": "si_2f5157cb18",
+    "name": "Shape House Grosuplje",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 45.953542,
+    "lng": 14.653672,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1290"
+  },
+  {
+    "id": "si_95f6c33ba2",
+    "name": "Shape House Ljubljana Tiskarna",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0758118,
+    "lng": 14.5104061,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_5dfb02ad9d",
+    "name": "Shape House Koper Istrska",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 45.5456769,
+    "lng": 13.7103849,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "6000"
+  },
+  {
+    "id": "si_8cdc4b9b69",
+    "name": "Shape House Celje",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.2433845,
+    "lng": 15.2789135,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "3000"
+  },
+  {
+    "id": "si_760f077cf3",
+    "name": "Shape House Novo mesto 2",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 45.7964266,
+    "lng": 15.1817198,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "8000"
+  },
+  {
+    "id": "si_17d20208a0",
+    "name": "ŠUS Eurofitness Ljubljana",
+    "brand": "ŠUS Eurofitness",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0712004,
+    "lng": 14.4777132,
+    "category": "EXCLUDED",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_5a769d4c7c",
+    "name": "4P Fitness Ljubljana Stegne",
+    "brand": "4P Fitness",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0841509,
+    "lng": 14.4850044,
+    "category": "EXCLUDED",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_9b758920d5",
+    "name": "4P Fitness Novo mesto",
+    "brand": "4P Fitness",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 45.8118892,
+    "lng": 15.1519076,
+    "category": "EXCLUDED",
+    "postal_code": "8000"
+  },
+  {
+    "id": "si_e0283b435e",
+    "name": "Shape House Ljubljana Metalka",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.0540246,
+    "lng": 14.5059549,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "1000"
+  },
+  {
+    "id": "si_a795962ca4",
+    "name": "Shape House Jesenice",
+    "brand": "Shape House",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 46.4326952,
+    "lng": 14.0588079,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "4270"
+  }
+]

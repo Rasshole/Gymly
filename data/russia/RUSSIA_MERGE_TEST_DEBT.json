@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-08-29T21:35:00.000Z",
+  "production_merge_test": {
+    "file": "__tests__/russiaProductionMerge.test.ts",
+    "status": "PASS",
+    "tests_passed": 9,
+    "tests_failed": 0
+  },
+  "historical_staging_tests": [
+    {
+      "file": "__tests__/russiaPhase2Staging.test.ts",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Freezes pre-merge CATALOG_TOTAL=12385, RUSSIA=0, SHA=1f711c07..., bytes=3858778",
+      "failed_tests": [
+        "production frozen at 12385 / Russia 0 / AZ 46 / AM 36 / GE 25 / SHA+bytes unchanged"
+      ],
+      "passed_tests": 12
+    },
+    {
+      "file": "__tests__/russiaPhase1Staging.test.ts",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Freezes pre-merge production baseline and Phase 1 import_category buckets",
+      "failed_tests": [
+        "frozen production baseline intact",
+        "staging buckets exist and each candidate has exactly one status"
+      ],
+      "passed_tests": 8
+    }
+  ],
+  "other_test_debt": [],
+  "real_country_regression": 0,
+  "summary": {
+    "merge_test_pass": true,
+    "stale_historical_failures": 3,
+    "other_failures": 0,
+    "real_country_regression": 0
+  }
+}

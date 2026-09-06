@@ -1,0 +1,191 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:56:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4439514904,
+      "lat": 54.7125764,
+      "lon": 20.5820603,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Геркулес",
+        "name:ru": "Геркулес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5351086024,
+      "lat": 54.7202779,
+      "lon": 20.5417869,
+      "tags": {
+        "addr:postcode": "236038",
+        "leisure": "fitness_centre",
+        "name": "Адреналин",
+        "opening_hours": "Sa-Su 08:30-21:30; Mo-Fr 07:30-22:30",
+        "phone": "+7 4012 988177"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7038286186,
+      "lat": 54.7177065,
+      "lon": 20.4970972,
+      "tags": {
+        "email": "6kubikov.studio@gmail.com",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Шесть Кубиков, фитнес студия для девушек",
+        "name:en": "6kubikov",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "phone": "+79114549009",
+        "website": "http://6kubikov.online/start"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9985802217,
+      "lat": 54.7161072,
+      "lon": 20.454474,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Workout place",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11662896672,
+      "lat": 54.7151422,
+      "lon": 20.4862929,
+      "tags": {
+        "check_date": "2026-08-15",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa,Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11958552765,
+      "lat": 54.738944,
+      "lon": 20.5085467,
+      "tags": {
+        "contact:phone": "+7 911 4591082",
+        "contact:website": "https://lady-stretch.online/kaliningrad",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13375532601,
+      "lat": 54.7219528,
+      "lon": 20.4534853,
+      "tags": {
+        "addr:housenumber": "46",
+        "addr:street": "Бассейная улица",
+        "check_date": "2026-08-07",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "X-Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13601915170,
+      "lat": 54.7351473,
+      "lon": 20.5533627,
+      "tags": {
+        "contact:phone": "+7 921 2666565",
+        "contact:website": "https://ladystretching.com/kaliningrad",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13806143715,
+      "lat": 54.6749171,
+      "lon": 20.5136166,
+      "tags": {
+        "addr:housenumber": "11",
+        "addr:postcode": "236011",
+        "addr:street": "улица Олега Кошевого",
+        "contact:vk": "39chuvstvo",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "39 чувство",
+        "opening_hours": "Mo-Su 10:00-20:00",
+        "phone": "+79051983999",
+        "sport": "yoga",
+        "website": "https://39chuvstvo.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13806168701,
+      "lat": 54.6755137,
+      "lon": 20.5151152,
+      "tags": {
+        "addr:housenumber": "11",
+        "addr:postcode": "226011",
+        "addr:street": "улица Олега Кошевого",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "ФККО",
+        "opening_hours": "Mo-Sa 16:00-21:00",
+        "phone": "+79062137144",
+        "sport": "karate"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13888074782,
+      "lat": 54.709305,
+      "lon": 20.5024736,
+      "tags": {
+        "check_date": "2026-05-26",
+        "leisure": "fitness_centre",
+        "name": "Титан"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14102397511,
+      "lat": 54.6707735,
+      "lon": 20.5133234,
+      "tags": {
+        "check_date": "2026-08-16",
+        "leisure": "fitness_centre",
+        "name": "Viva"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14108466401,
+      "lat": 54.7218361,
+      "lon": 20.4700909,
+      "tags": {
+        "addr:floor": "4",
+        "addr:housenumber": "4",
+        "addr:street": "Коммунальная улица",
+        "check_date": "2026-08-20",
+        "leisure": "fitness_centre",
+        "name": "Студия йоги и медитации",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    }
+  ]
+}

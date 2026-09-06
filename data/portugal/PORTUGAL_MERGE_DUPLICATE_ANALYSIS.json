@@ -1,0 +1,1275 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "pt_c7293231c5",
+        "a_name": "Fitness UP Carcavelos",
+        "b_id": "pt_33927a6b65",
+        "b_name": "Fitness UP Parede",
+        "brand": "Fitness UP",
+        "distance_m": 103,
+        "same_address": false
+      }
+    ],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "pt_88f14f9770",
+        "a_brand": "VivaGym",
+        "b_id": "pt_c81da3a8bf",
+        "b_brand": "Fitness UP",
+        "distance_m": 76
+      },
+      {
+        "a_id": "pt_e9644e220f",
+        "a_brand": "Solinca",
+        "b_id": "pt_030a7b76ff",
+        "b_brand": "Fitness UP",
+        "distance_m": 46
+      }
+    ]
+  },
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "withheld": [],
+  "included": [
+    {
+      "id": "pt_4f72e6a894",
+      "name": "VivaGym Faro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_e4bfdf02c3",
+      "name": "VivaGym Loulé",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_66f91b0264",
+      "name": "VivaGym Olhão",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_98ea32f884",
+      "name": "VivaGym Portimão",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_8760cb8ee3",
+      "name": "VivaGym Tavira",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_4d97713179",
+      "name": "VivaGym Aveiro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_9ae1c64cda",
+      "name": "VivaGym Braga",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_f8422a4c97",
+      "name": "VivaGym Coimbra",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_f6fc704caa",
+      "name": "VivaGym Leiria",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_0a00562df7",
+      "name": "VivaGym Almirante Reis",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_e9747b05a3",
+      "name": "VivaGym Amoreiras",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_1c379ef6cc",
+      "name": "VivaGym Arco do Cego",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_1868f4b804",
+      "name": "VivaGym Ginásio em Lisboa centro | VivaGym Benfica",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_2a5226a40f",
+      "name": "VivaGym Campo Pequeno",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_69401b6c84",
+      "name": "VivaGym Lumiar",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_c4f55bf256",
+      "name": "VivaGym Marquês de Pombal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_ad6432690b",
+      "name": "VivaGym Olivais",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_bb8d9def41",
+      "name": "VivaGym Parque das Nações",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_88f14f9770",
+      "name": "VivaGym Picoas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_822ff5ab76",
+      "name": "VivaGym Roma – Areeiro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_99f873b010",
+      "name": "VivaGym Santos",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_39a00598d0",
+      "name": "VivaGym Carcavelos",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_a92d9afa52",
+      "name": "VivaGym Cascais",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_34b3ec0f1f",
+      "name": "VivaGym São Domingos de Rana",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_44ce8c184d",
+      "name": "VivaGym Linda-a-Velha",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_af8a3d52fb",
+      "name": "VivaGym Oeiras",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_a878058380",
+      "name": "VivaGym Alfragide Norte",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_a9848fc980",
+      "name": "VivaGym Alfragide Zona Comercial",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_e4803c1a00",
+      "name": "VivaGym Amadora",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_c9774cccb1",
+      "name": "VivaGym Cacém",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_de8a793d97",
+      "name": "VivaGym Massamá",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_470d3c0d28",
+      "name": "VivaGym Sintra",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_bf961e92d3",
+      "name": "VivaGym Alverca",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_7e3bbc4aa9",
+      "name": "VivaGym Loures",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_26b054b9b3",
+      "name": "VivaGym Odivelas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_bab94f79af",
+      "name": "VivaGym Sacavém",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_d91039cc55",
+      "name": "VivaGym Antas",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_6c411f09d9",
+      "name": "VivaGym Shopping Cidade do Porto",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_e1bad98e11",
+      "name": "VivaGym Trindade",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_681a104948",
+      "name": "VivaGym Maia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_364ed74cce",
+      "name": "VivaGym Matosinhos",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_1950661748",
+      "name": "VivaGym Vila Nova de Gaia",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_530a35d24f",
+      "name": "VivaGym Almada",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_1707a7c3d3",
+      "name": "VivaGym Barreiro",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_39179eb5a0",
+      "name": "VivaGym Setúbal",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_555cee9b1d",
+      "name": "VivaGym Viseu",
+      "brand": "VivaGym"
+    },
+    {
+      "id": "pt_34b3993ca1",
+      "name": "Holmes Place Alvalade",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_4acf9ba0b8",
+      "name": "Holmes Place Amoreiras",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_bbc1a676be",
+      "name": "Holmes Place Boavista",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_bd7026ae4f",
+      "name": "Holmes Place Braga",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_b7afb86e5f",
+      "name": "Holmes Place Cascais",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_3c27ea1e8a",
+      "name": "Holmes Place Miraflores",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_768d1abf8a",
+      "name": "Holmes Place Oeiras",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_6338c52b57",
+      "name": "Holmes Place Palácio SottoMayor",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_b385d23901",
+      "name": "Holmes Place Quinta da Beloura",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_9772d3b721",
+      "name": "Holmes Place Quinta da Fonte",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_6aab3983c7",
+      "name": "Holmes Place Tejo",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_f63866bdbf",
+      "name": "Holmes Place Vila Nova de Gaia",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "pt_5edd1d71fb",
+      "name": "Solinca Light Almada Classic",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_cf77b2dcc2",
+      "name": "Solinca Solinca Gaia",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_8800305731",
+      "name": "Solinca Light Saldanha",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_d19842f434",
+      "name": "Solinca Light Barreiro",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_3a1875494f",
+      "name": "Solinca Viana Do Castelo",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_4a032ab6de",
+      "name": "Solinca Light Ginasio Solinca Vasco Da Gama Lisboa",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_c5574a5e5a",
+      "name": "Solinca Light Sassoeiros",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_ad1d03b179",
+      "name": "Solinca Rio Tinto",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_70a27881c8",
+      "name": "Solinca Light Quinta Do Conde",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_892c5eb5ce",
+      "name": "Solinca Solinca Porto Palacio Hotel",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_086065c049",
+      "name": "Solinca Light Ginasio Solinca Oeiras",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_260323a1ff",
+      "name": "Solinca Norteshopping",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_ad792792f4",
+      "name": "Solinca Ginasio Matosinhos",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_debe2798b3",
+      "name": "Solinca Light Maia",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_59150085b5",
+      "name": "Solinca Ginasio Solinca Lumiar Lisboa",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_17a3a5c409",
+      "name": "Solinca Loures",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_cb37d61fd9",
+      "name": "Solinca Light Linda A Velha",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_f0c6f792f5",
+      "name": "Solinca Ginasio Solinca Laranjeiras Lisboa",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_18269d5206",
+      "name": "Solinca Light Ginasio Solinca Lagoas",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_31ef0eb1a0",
+      "name": "Solinca Guimaraes",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_a3ed535ccb",
+      "name": "Solinca Ginasio Foz Porto",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_6d59076b7a",
+      "name": "Solinca Ermesinde",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_5893e0bc9f",
+      "name": "Solinca Dragao Porto",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_31c708784f",
+      "name": "Solinca Defensores De Chaves",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_cdaa3fec19",
+      "name": "Solinca Ginasio Solinca Constituicao Porto",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_e9644e220f",
+      "name": "Solinca Solinca Colombo Ginasio Lisboa",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_d7c72c3214",
+      "name": "Solinca Coimbra",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_a3d2ac9871",
+      "name": "Solinca Light Braga",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_469dadebef",
+      "name": "Solinca Arrabida",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_f815e97df4",
+      "name": "Solinca Alfragide",
+      "brand": "Solinca"
+    },
+    {
+      "id": "pt_e50116dfb5",
+      "name": "Solinca Light Amadora",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_d7cd6487a7",
+      "name": "Solinca Light Almada",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_b422416da9",
+      "name": "Solinca Light Estoril",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_f4117f0b9f",
+      "name": "Solinca Light Solinca Ginasio Seixal",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_aab80493db",
+      "name": "Solinca Light Maia Light",
+      "brand": "Solinca Light"
+    },
+    {
+      "id": "pt_131f5ccdf0",
+      "name": "Be-Fit Alverca",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_3291630670",
+      "name": "Be-Fit Barreiro / Moita",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_d8d87c4bb0",
+      "name": "Be-Fit Braga",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_d1573ba977",
+      "name": "Be-Fit CentroMar Funchal 3",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_078eda3941",
+      "name": "Be-Fit Famalicão",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_89bd47f662",
+      "name": "Be-Fit Ovar",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_ae22b4c51e",
+      "name": "Be-Fit Portimão",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_7cd90d0515",
+      "name": "Be-Fit Torres Novas",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_29c4345c7d",
+      "name": "Fitness UP Almada",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_dfef74848e",
+      "name": "Fitness UP Almirante Reis",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_10d46d8b56",
+      "name": "Fitness UP Antas",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_1bd22f6e28",
+      "name": "Fitness UP Benfica",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_8b1dd5cf8c",
+      "name": "Fitness UP Braga Centro",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_0670b3b4d8",
+      "name": "Fitness UP Braga Parque",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_341c2ad210",
+      "name": "Fitness UP Caldas Da Rainha",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_8c4a7e06a2",
+      "name": "Fitness UP Castelo Branco",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_8e8b6abb08",
+      "name": "Fitness UP Coimbra",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_5d9132d49f",
+      "name": "Fitness UP Corroios",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_39e413c772",
+      "name": "Fitness UP Estefania",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_11d4f3c0a0",
+      "name": "Fitness UP Fanzeres",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_d10b1748ce",
+      "name": "Fitness UP Faro",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_2723165843",
+      "name": "Fitness UP Gaia",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_4bd8e30415",
+      "name": "Fitness UP Guimaraes",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_052198e4e3",
+      "name": "Fitness UP Leiria",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_36950da88a",
+      "name": "Fitness UP Lx Avenida Do Brasil",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_e487aa0c09",
+      "name": "Fitness UP Lx Penha De Franca",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_c81da3a8bf",
+      "name": "Fitness UP Lx Picoas",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_d624e67801",
+      "name": "Fitness UP Miraflores",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_a868b100cb",
+      "name": "Fitness UP Odivelas",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_18e6ccb502",
+      "name": "Fitness UP Pacos De Ferreira",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_8119100082",
+      "name": "Fitness UP Parque Nascente",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_cce871046a",
+      "name": "Fitness UP Porto Alegria",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_8e31b4a0d4",
+      "name": "Fitness UP Porto Constituicao",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_35ceee7037",
+      "name": "Fitness UP Porto Foz",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_3a9d85ff34",
+      "name": "Fitness UP Porto Monte Dos Burgos",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_ddb6dede07",
+      "name": "Fitness UP Porto Sao Joao Amial",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_f83b518e4d",
+      "name": "Fitness UP Porto Sao Mamede",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_267e12025d",
+      "name": "Fitness UP Porto Zona Industrial",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_530bfaaab0",
+      "name": "Fitness UP Praca Galiza",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_17698dd878",
+      "name": "Fitness UP Sao Joao",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_8b8e9200ed",
+      "name": "Fitness UP Sao Joao Da Madeira",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_b38859b4c9",
+      "name": "Fitness UP Sao Sebastiao",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_2dca7942f0",
+      "name": "Fitness UP Sto Antonio Dos Cavaleiros",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_0c577af991",
+      "name": "Fitness UP Tavira",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_bf353575e0",
+      "name": "Fitness UP Torres Novas",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_2430ed29b8",
+      "name": "Fitness UP Vila Real",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_9df83be65d",
+      "name": "Fitness UP Vn Gaia Rechousa",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_e748b6004a",
+      "name": "Element Alvalade",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_34bec26868",
+      "name": "Element Angra do Heroísmo",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_87852cc4b7",
+      "name": "Element Areosa",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_b35aa8f28d",
+      "name": "Element Rio Tinto",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_09c7408ceb",
+      "name": "Element Aveiro",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_2adf5339fb",
+      "name": "Element Cascais",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_c199618a3e",
+      "name": "Element Cedofeita",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_aba9a53cd8",
+      "name": "Element Gondomar",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_a9f22e914e",
+      "name": "Element Leça do Balio",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_ccbc763f1b",
+      "name": "Element Marco de Canaveses",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_470539a657",
+      "name": "Element Mem Martins",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_39155196fc",
+      "name": "Element Trofa",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_c54992bfc0",
+      "name": "Element Barcelos",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_afa2a222f0",
+      "name": "Element Bragança",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_aebab7aaec",
+      "name": "Element Tapada das Mercês",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_060acff689",
+      "name": "Element Mafra",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_19a75538bd",
+      "name": "Element Coimbra Arcos",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_8154cbecfd",
+      "name": "Element Covilhã",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_5b55731227",
+      "name": "Element Loures",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_5f05e5da3d",
+      "name": "Element Campo Pequeno",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_37b342484f",
+      "name": "Element TagusPark",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_b6c6ac6c60",
+      "name": "Element Castelo Branco",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_df7b622298",
+      "name": "Element Canidelo",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_1a1eb278d4",
+      "name": "Element Braga Centro",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_ff998a2bf9",
+      "name": "Element Oliveira de Azeméis",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_bb69d34096",
+      "name": "Element Maia",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_1bb6b7e948",
+      "name": "Element Coimbra Solum",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_93e08d8f41",
+      "name": "Element Montijo",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_5ccd450165",
+      "name": "Element Telheiras",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_b2eda72434",
+      "name": "Element Bobadela",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_aa640c4c4d",
+      "name": "Element Viseu Centro",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_30f69ff61f",
+      "name": "Element Viseu Repeses",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_7ac7086db6",
+      "name": "Element Miraflores",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_ef27a588f0",
+      "name": "Element Fitares",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_9627d1e37e",
+      "name": "Element Foz",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_9bc37a7d00",
+      "name": "Element Ramalde",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_6480ca59a1",
+      "name": "Element Odivelas",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_9f0392e9a1",
+      "name": "Element Ermesinde",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_b662b6a513",
+      "name": "Element Reboleira",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_3bca2322d5",
+      "name": "Element Faro",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_2bc35e56ec",
+      "name": "Element Leça da Palmeira",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_22bd5612a7",
+      "name": "Element Queluz",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_a6ffb9d21b",
+      "name": "Element Gaia Centro",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_96abafa872",
+      "name": "Element Parque das Nações",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_b03b17d5fd",
+      "name": "Element Matosinhos",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_f0458f5c2c",
+      "name": "Element Tercena",
+      "brand": "Element"
+    },
+    {
+      "id": "pt_116359417e",
+      "name": "Fitness Factory Alcobaça",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_2cc35a60b7",
+      "name": "Fitness Factory Alcochete",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_0e9cc2e4ae",
+      "name": "Fitness Factory Almeirim",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_ce237bbc2e",
+      "name": "Fitness Factory Lisboa",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_65fdcae9db",
+      "name": "Fitness Factory Alverca do Ribatejo",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_c2966eccde",
+      "name": "Fitness Factory Arruda dos Vinhos",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_2e1ae32194",
+      "name": "Fitness Factory Barcelos",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_f3b2726a6f",
+      "name": "Fitness Factory Lisboa",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_f91d2d7d88",
+      "name": "Fitness Factory Braga",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_7429e33708",
+      "name": "Fitness Factory Caldas da Rainha",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_0ed3aa6000",
+      "name": "Fitness Factory Caniço",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_2a8b27a18a",
+      "name": "Fitness Factory Carcavelos",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_63404f985a",
+      "name": "Fitness Factory Cartaxo",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_0c5c45baf7",
+      "name": "Fitness Factory Cascais",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_c8a1581c93",
+      "name": "Fitness Factory Castelo Branco",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_738e383b70",
+      "name": "Fitness Factory Coimbra",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_700da18f9e",
+      "name": "Fitness Factory Covilhã",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_4f9f4874af",
+      "name": "Fitness Factory Esmoriz",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_f45a622ba1",
+      "name": "Fitness Factory Espinho",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_5a105e6077",
+      "name": "Fitness Factory Esposende",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_bf8ad41bcb",
+      "name": "Fitness Factory Évora",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_8e9361add0",
+      "name": "Fitness Factory Funchal",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_fac8e137e7",
+      "name": "Fitness Factory Grijó",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_b7cf5fa9e9",
+      "name": "Fitness Factory Lamego",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_0f853854ae",
+      "name": "Fitness Factory Leiria",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_6307efe5a5",
+      "name": "Fitness Factory Marco",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_31cc4fcae5",
+      "name": "Fitness Factory Marinha Grande",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_aa234c7bf6",
+      "name": "Fitness Factory Matosinhos",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_9963ee67a7",
+      "name": "Fitness Factory Oliveira do Hospital",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_0671c69997",
+      "name": "Fitness Factory Pombal",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_7d40ef811b",
+      "name": "Fitness Factory Arrifes",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_6dc0b18450",
+      "name": "Fitness Factory Portalegre",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_be133beb18",
+      "name": "Fitness Factory Samora Correia",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_85362f3903",
+      "name": "Fitness Factory Porto",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_90e3659a81",
+      "name": "Fitness Factory Santarém",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_8e90dd7bf2",
+      "name": "Fitness Factory Santiago do Cacém",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_2c594cd30b",
+      "name": "Fitness Factory Santo António",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_05ee5ccff9",
+      "name": "Fitness Factory Setúbal",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_931b8091c1",
+      "name": "Fitness Factory Sines",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_50a73d59cd",
+      "name": "Fitness Factory Torres Vedras",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_08473424d3",
+      "name": "Fitness Factory Trancoso",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_edd2180e36",
+      "name": "Fitness Factory Valongo",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_849bf77699",
+      "name": "Fitness Factory Venda do Pinheiro",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_671baa0ad5",
+      "name": "Fitness Factory Vila Nova de Gaia",
+      "brand": "Fitness Factory"
+    },
+    {
+      "id": "pt_1ad94b3f85",
+      "name": "Fitness UP Avenida Da Republica",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_3167a73243",
+      "name": "Fitness UP Barcelos",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_c7293231c5",
+      "name": "Fitness UP Carcavelos",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_c19bca5206",
+      "name": "Fitness UP Joane",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_2eb8cc7d99",
+      "name": "Fitness UP Lx Arco Do Cego",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_0e61127d2b",
+      "name": "Fitness UP Moreira Da Maia",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_33927a6b65",
+      "name": "Fitness UP Parede",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_030a7b76ff",
+      "name": "Fitness UP Portela Loures",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_a9af888f2e",
+      "name": "Fitness UP Quinta Do Conde",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_c1cbb23401",
+      "name": "Fitness UP Sao Joao De Ver",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_d50ff892da",
+      "name": "Fitness UP Viana Do Castelo",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_95f3b48e07",
+      "name": "Fitness UP Vila Do Conde",
+      "brand": "Fitness UP"
+    },
+    {
+      "id": "pt_532415ebbc",
+      "name": "Be-Fit Plaza Madeira",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_7fbc94df4c",
+      "name": "Be-Fit P.Varzim / V.Conde",
+      "brand": "Be-Fit"
+    },
+    {
+      "id": "pt_e945867ff5",
+      "name": "Lemonfit",
+      "brand": "Lemonfit"
+    },
+    {
+      "id": "pt_92c843572f",
+      "name": "Balance Aveiro",
+      "brand": "Balance"
+    },
+    {
+      "id": "pt_833e38d316",
+      "name": "Balance Lumiar",
+      "brand": "Balance"
+    }
+  ]
+}

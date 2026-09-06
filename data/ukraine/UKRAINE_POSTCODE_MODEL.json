@@ -1,0 +1,17 @@
+{
+  "country": "Ukraine",
+  "canonical_format": "NNNNN",
+  "storage_format": "5 digits without separator",
+  "regex": "^\\d{5}$",
+  "whitespace_normalization": "strip spaces; optional UA- prefix removed",
+  "uppercase_rules": "digits only",
+  "locality_code_in_postcode": false,
+  "examples": [
+    "01001",
+    "79000",
+    "65000",
+    "49000"
+  ],
+  "source": "Ukrposhta; aligned with src/utils/gymCountry.ts UKRAINE_POSTAL_RE",
+  "validation_function": "format_ua_postal() in batch1_phase1_common.py"
+}

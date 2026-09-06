@@ -1,0 +1,29 @@
+Adrenalin Minsk Petra Mstislavtsa|ул. Петра Мстиславца 9|Minsk
+Adrenalin Minsk Bogdanovicha|ул. Богдановича 66|Minsk
+Adrenalin Minsk Tolbukhina|ул. Толбухина 4|Minsk
+Adrenalin Minsk Zheleznodorozhnaya|ул. Железнодорожная 138|Minsk
+Adrenalin Minsk Kuprevicha|ул. Купревича 18|Minsk
+Adrenalin Minsk Kalvariyskaya|ул. Кальварийская 33|Minsk
+Adrenalin Minsk Kabushkina|ул. Кабушкина 86а|Minsk
+Adrenalin Minsk Mayakovskogo|ул. Маяковского 115|Minsk
+Adrenalin Minsk Olesheva|ул. Олешева 1|Minsk
+Adrenalin Minsk Nemanskaya|ул. Неманская 67|Minsk
+Adrenalin Borovlyany Beryozovaya Roscha|ул. Березовая роща 108|Borovlyany
+Adrenalin Minsk Bobruyskaya|ул. Бобруйская 6|Minsk
+Adrenalin Minsk Pobediteley|пр-т Победителей 129|Minsk
+Adrenalin Minsk Nezavisimosti|пр-т Независимости 3-2|Minsk
+Adrenalin Minsk Lopatina|ул. Лопатина 7а|Minsk
+Adrenalin Minsk Surganova|ул. Сурганова 57б|Minsk
+Adrenalin Minsk Goshkevicha|ул. Гошкевича 3|Minsk
+Adrenalin Minsk Belinskogo|ул. Белинского 23|Minsk
+Adrenalin Minsk Bratskaya|ул. Братская 14|Minsk
+Adrenalin Minsk Very Khoruzhey|ул. Веры Хоружей 25|Minsk
+Adrenalin Minsk Dzerzhinskogo|ул. Дзержинского 30|Minsk
+Adrenalin Minsk Nalibokskaya|ул. Налибокская 2|Minsk
+Adrenalin Gomel Gagarina|ул. Гагарина 65|Gomel
+Adrenalin Gomel Rechitsky|ул. Речицкий 80|Gomel
+Adrenalin Pinsk Brestskaya|ул. Брестская 72В|Pinsk
+Adrenalin Pinsk Gaydaenko|ул. Гайдаенко 7-2|Pinsk
+Adrenalin Luninets Zapadnaya|ул. Западная 9|Luninets
+Adrenalin Orsha Flerova|ул. Флерова 11а|Orsha
+Adrenalin Pruzhany Oktyabrskaya|ул. Октябрьская 104|Pruzhany

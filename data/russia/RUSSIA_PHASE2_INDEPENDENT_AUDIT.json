@@ -1,0 +1,310 @@
+{
+  "independent_candidates_reviewed": 0,
+  "new_ready_independents": 361,
+  "independents_promoted_to_ready": 256,
+  "phase2_nr_promoted_independents": 256,
+  "phase2_nr_promoted_osm": 204,
+  "phase2_nr_promoted_metro": 52,
+  "locations": [
+    {
+      "id": "ru_46ebf30a25",
+      "brand": "Parislife",
+      "name": "Parislife",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_891110ce4f",
+      "brand": "Мисс фитнес",
+      "name": "Мисс фитнес",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_d9b078cffa",
+      "brand": "Кимберли Лэнд",
+      "name": "Кимберли Лэнд",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_0e410c45b0",
+      "brand": "Спорт-Пульс",
+      "name": "Спорт-Пульс",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_da82932696",
+      "brand": "Классика",
+      "name": "Классика",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_9afbc95b37",
+      "brand": "Планета фитнес",
+      "name": "Планета фитнес",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_26e7f14a78",
+      "brand": "SkyGYM",
+      "name": "SkyGYM",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_cd263502c2",
+      "brand": "ReStart",
+      "name": "ReStart",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_7ccd638223",
+      "brand": "Союз",
+      "name": "Союз",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_d9f48719a5",
+      "brand": "Dr. Loder",
+      "name": "Dr. Loder",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_8b0287f84a",
+      "brand": "СпортЛэнд",
+      "name": "СпортЛэнд",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_7d0d7d2461",
+      "brand": "Фабрика Фитнеса",
+      "name": "Фабрика Фитнеса",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_50b5413334",
+      "brand": "Зебра",
+      "name": "Зебра",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_261ff7520f",
+      "brand": "Титаниум",
+      "name": "Титаниум",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_d252cc6bdf",
+      "brand": "Else",
+      "name": "Else",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_7b9bb7f0ef",
+      "brand": "Формула успеха",
+      "name": "Формула успеха",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_0492773180",
+      "brand": "Fitness Time",
+      "name": "Fitness Time",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_923adcd9b9",
+      "brand": "Sculpt",
+      "name": "Sculpt",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_0be67fd992",
+      "brand": "ФитнесМания",
+      "name": "ФитнесМания",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_4f6184dc3f",
+      "brand": "Притяжение",
+      "name": "Притяжение",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_1a3bad3a62",
+      "brand": "Территория фитнеса",
+      "name": "Территория фитнеса",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_b7f3263194",
+      "brand": "Капитан",
+      "name": "Капитан",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_7119a23ce0",
+      "brand": "Оранж Фитнес",
+      "name": "Оранж Фитнес",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_8a60744151",
+      "brand": "Rock the Cycle",
+      "name": "Rock the Cycle",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_63614a74db",
+      "brand": "FitLife",
+      "name": "FitLife",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_f0a64e7c14",
+      "brand": "Megapolis",
+      "name": "Megapolis",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_82da008c61",
+      "brand": "Альфа-фитнес",
+      "name": "Альфа-фитнес",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_25967ac34b",
+      "brand": "СССР",
+      "name": "СССР",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_e8eee19216",
+      "brand": "Kenga",
+      "name": "Kenga",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_f30f9d9e07",
+      "brand": "Пируэт",
+      "name": "Пируэт",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_74340070f8",
+      "brand": "MD",
+      "name": "MD",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_51c5e742ed",
+      "brand": "Fit Fashion",
+      "name": "Fit Fashion",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_e77ee18bbb",
+      "brand": "Ананас",
+      "name": "Ананас",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_b65a05422e",
+      "brand": "DorFit",
+      "name": "DorFit",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_1526683d21",
+      "brand": "Ленин",
+      "name": "Ленин",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_7b5b1f04d5",
+      "brand": "Come on gym",
+      "name": "Come on gym",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_5b06558675",
+      "brand": "Ideal Fitness",
+      "name": "Ideal Fitness",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_06740690b0",
+      "brand": "Спортзал",
+      "name": "Спортзал",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_b19561f053",
+      "brand": "Амазония",
+      "name": "Амазония",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_4ede4af752",
+      "brand": "Атлант",
+      "name": "Атлант",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_a7f6d18377",
+      "brand": "Сафранс",
+      "name": "Сафранс",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_b9118cba28",
+      "brand": "Lifestyle",
+      "name": "Lifestyle",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_4958804cb0",
+      "brand": "Корона",
+      "name": "Корона",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_b98f0efbc7",
+      "brand": "Kreativ",
+      "name": "Kreativ",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_a1e4f96070",
+      "brand": "Dolphin",
+      "name": "Dolphin",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_9ee3bf077a",
+      "brand": "Papa Smith",
+      "name": "Papa Smith",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_def00b5aaf",
+      "brand": "Los Island",
+      "name": "Los Island",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_9cc832bf2b",
+      "brand": "Paris Life",
+      "name": "Paris Life",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_0c4317d5ba",
+      "brand": "Палестра",
+      "name": "Палестра",
+      "city": "Moscow"
+    },
+    {
+      "id": "ru_e7e8efe156",
+      "brand": "Византий",
+      "name": "Византий",
+      "city": "Moscow"
+    }
+  ]
+}

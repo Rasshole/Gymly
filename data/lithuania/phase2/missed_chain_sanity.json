@@ -1,0 +1,41 @@
+{
+  "probes": [
+    {
+      "chain": "Gym+",
+      "action": "COMPLETE",
+      "active": 38,
+      "coming_soon": 1
+    },
+    {
+      "chain": "Lemon Gym",
+      "action": "COMPLETE",
+      "active": 18,
+      "coming_soon": 2
+    },
+    {
+      "chain": "Impuls",
+      "action": "COMPLETE",
+      "active": 5,
+      "coming_soon": 0
+    },
+    {
+      "chain": "FitClub",
+      "action": "EXCLUDED",
+      "sites": 2
+    },
+    {
+      "chain": "Gym!",
+      "action": "ABSENT",
+      "note": "NOT Gym+ Lithuania"
+    },
+    {
+      "chain": "MyFitness",
+      "action": "ABSENT_LT_BRAND"
+    },
+    {
+      "chain": "Basic-Fit/McFIT/FITINN/clever fit",
+      "action": "ABSENT"
+    }
+  ],
+  "new_class_a_found": 0
+}

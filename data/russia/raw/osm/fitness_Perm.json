@@ -1,0 +1,451 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:48:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 3141549177,
+      "lat": 58.0142633,
+      "lon": 56.25674,
+      "tags": {
+        "contact:vk": "https://vk.com/club30282549",
+        "leisure": "fitness_centre",
+        "name": "Be Woman"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3631680784,
+      "lat": 58.0117309,
+      "lon": 56.2597006,
+      "tags": {
+        "branch": "KAMA",
+        "brand": "CrossFit",
+        "brand:wikidata": "Q2072840",
+        "leisure": "fitness_centre",
+        "name": "CrossFit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4403224693,
+      "lat": 57.9987789,
+      "lon": 56.2150164,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Olymp Gym",
+        "name:ru": "Olymp Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4681272691,
+      "lat": 57.9818113,
+      "lon": 56.2861655,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Пермские медведи",
+        "name:ru": "Пермские медведи"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5031039621,
+      "lat": 57.9751855,
+      "lon": 56.2049569,
+      "tags": {
+        "contact:instagram": "https://www.instagram.com/energy_fitness_perm/",
+        "leisure": "fitness_centre",
+        "name": "Энерджи Фитнес",
+        "name:en": "Energy Fitness",
+        "name:ru": "Энерджи Фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5031039721,
+      "lat": 58.0627963,
+      "lon": 56.3558869,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Энерджи Фитнес",
+        "name:en": "Energy Fitness",
+        "name:ru": "Энерджи Фитнес",
+        "phone": "+7 342 2882281",
+        "website": "https://energy59.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5486054321,
+      "lat": 58.0084243,
+      "lon": 56.2279965,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Энерджи фитнес",
+        "name:en": "Energy fitness",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 10:00-20:00",
+        "phone": "+7 342 2775567",
+        "website": "https://energy59.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6696580589,
+      "lat": 58.1022606,
+      "lon": 56.293944,
+      "tags": {
+        "addr:housenumber": "2",
+        "addr:street": "Севанская улица",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Таэко-клуб Гайва",
+        "name:en": "Taekwondo Gaiva ITF",
+        "opening_hours": "Mo-Th 11:00-22:15; Fr 11:00-21:15",
+        "phone": "+7 906 8880808",
+        "website": "https://www.taekoclub-perm.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6809843487,
+      "lat": 58.1027884,
+      "lon": 56.2956974,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Перемена",
+        "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6809846490,
+      "lat": 58.1092894,
+      "lon": 56.3075344,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6809846585,
+      "lat": 58.1010445,
+      "lon": 56.2963894,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Fit line"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6965599109,
+      "lat": 58.0060083,
+      "lon": 56.3217856,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7238602686,
+      "lat": 58.0091517,
+      "lon": 56.2305725,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ИНГРА",
+        "phone": "+7 342 2021020"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7365335991,
+      "lat": 58.0057652,
+      "lon": 56.2551324,
+      "tags": {
+        "addr:city": "Пермь",
+        "addr:housenumber": "21",
+        "addr:postcode": "614007",
+        "addr:street": "улица Революции",
+        "description": "Бокс, растяжка, йога, триатлон, спортзал, normatec, theragun",
+        "email": "sportclub40@mail.ru",
+        "leisure": "fitness_centre",
+        "name": "Спортивный клуб 40",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "payment:apple_pay": "yes",
+        "payment:bank_transfer": "yes",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:google_pay": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:nfc": "yes",
+        "payment:telephone_cards": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "phone": "+7 922 3704427",
+        "sport": "boxing;yoga;multi;skiing;fitness",
+        "website": "https://sportclub40.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7704993594,
+      "lat": 58.0072074,
+      "lon": 56.2489438,
+      "tags": {
+        "brand": "NS Fitness",
+        "description": "Фитнес-центр в самом центре города, зал для тренировок; современное оборудование; персональные программы.",
+        "ele": "10",
+        "email": "nsfitness.perm@gmail.com",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "НС фитнес",
+        "name:en": "NS Fitness Club",
+        "opening_hours": "Mo-Fr 10:00-22:00; Sa-Su 10:00-17:00",
+        "opening_hours:covid19": "off",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:electronic_purses": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "+79028094614",
+        "source": "local knowledge",
+        "sport": "fitness;tennis;yoga;gymnastics;bodybuilding",
+        "website": "https://www.instagram.com/ns_fitness_perm"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7966412722,
+      "lat": 58.0019226,
+      "lon": 56.2540283,
+      "tags": {
+        "addr:city": "Пермь",
+        "addr:housenumber": "46 с1",
+        "addr:street": "улица Газеты Звезда",
+        "contact:phone": "+7 342 2015230",
+        "contact:website": "https://zhemchuzhina.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit Жемчужина",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8752464305,
+      "lat": 57.989118,
+      "lon": 56.206806,
+      "tags": {
+        "branch": "Pobeda",
+        "brand": "CrossFit",
+        "brand:wikidata": "Q2072840",
+        "contact:email": "info@crossfitpobeda.ru",
+        "contact:phone": "+7 342 2046629",
+        "contact:website": "https://crossfitpobeda.ru/",
+        "leisure": "fitness_centre",
+        "name": "CrossFit",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 10:00-16:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9662708917,
+      "lat": 58.107598,
+      "lon": 56.3074745,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Воздух"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11295744878,
+      "lat": 57.9860933,
+      "lon": 56.2828027,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Pulse"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11299474242,
+      "lat": 58.1330196,
+      "lon": 56.4008877,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Alex хаус",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa,Su 10:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11368542804,
+      "lat": 57.9998975,
+      "lon": 56.2735551,
+      "tags": {
+        "contact:phone": "+7 342 2008815-1;+7 342 2008815-2",
+        "contact:website": "https://fitanitperm.ru/",
+        "leisure": "fitness_centre",
+        "name": "Фитанит",
+        "opening_hours": "Mo-Fr 08:00-22:30; Sa-Su 09:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11545703057,
+      "lat": 57.9789424,
+      "lon": 56.1944938,
+      "tags": {
+        "contact:phone": "+7 982 2508080",
+        "contact:website": "https://ladystretch.com/perm",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11891644469,
+      "lat": 58.0257341,
+      "lon": 56.333587,
+      "tags": {
+        "addr:housenumber": "143 (этаж 2)",
+        "addr:postcode": "614014",
+        "email": "Sergeevanatalya2018@yandex.ru",
+        "leisure": "fitness_centre",
+        "name": "Пермская крепость",
+        "name:be": "Пермская крэпасць",
+        "name:en": "Perm fortress",
+        "name:kk": "Пермь бекiнiсi",
+        "opening_hours": "Su-Sa 09:00-23:00",
+        "phone": "+79526562245",
+        "website": "https://vk.com/sportko11ao"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11891689969,
+      "lat": 58.0257208,
+      "lon": 56.333586,
+      "tags": {
+        "addr:postcode": "614014",
+        "email": "Sergeevanatalya2018@yandex.ru",
+        "leisure": "fitness_centre",
+        "name": "Пермская крепость",
+        "name:be": "Пермская крэпасць",
+        "name:en": "Perm fortress",
+        "name:kk": "Пермь бекiнiсi",
+        "opening_hours": "Su-Sa 09:00-23:00",
+        "phone": "+79526562245",
+        "website": "https://vk.com/sportko11ao"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12059116976,
+      "lat": 58.011379,
+      "lon": 56.2372997,
+      "tags": {
+        "contact:phone": "+7 495 2555000",
+        "contact:website": "https://www.ddxfitness.ru/clubs/ddx-perm-tsum",
+        "leisure": "fitness_centre",
+        "name": "DDX Fitness",
+        "opening_hours": "Mo-Su 06:00-24:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12905482573,
+      "lat": 58.0137772,
+      "lon": 56.2513251,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12951200327,
+      "lat": 58.0057331,
+      "lon": 56.2837181,
+      "tags": {
+        "contact:email": "perm@yobodyfitness.ru",
+        "contact:phone": "+7 342 2599825",
+        "contact:website": "https://yobodyfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "YoBody",
+        "opening_hours": "Mo-Fr 07:00-00:00, Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13206237582,
+      "lat": 57.9675066,
+      "lon": 56.1456799,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Фитнес-клуб «Движение»",
+        "sport": "fitness",
+        "website": "https://vk.com/club231872902"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13915192289,
+      "lat": 58.0057466,
+      "lon": 56.3042004,
+      "tags": {
+        "addr:housenumber": "8а",
+        "addr:street": "Уинская",
+        "leisure": "fitness_centre",
+        "name": "Bodyboom",
+        "opening_hours": "Mo-Fr 07:00-22:30; Sa, Su 09:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13915200785,
+      "lat": 58.0020709,
+      "lon": 56.3061142,
+      "tags": {
+        "addr:housenumber": "79",
+        "addr:street": "Пономарева",
+        "leisure": "fitness_centre",
+        "name": "Акула 79"
+      }
+    },
+    {
+      "type": "way",
+      "id": 935382971,
+      "center": {
+        "lat": 58.0153499,
+        "lon": 56.214742
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1488756186,
+      "center": {
+        "lat": 57.9634755,
+        "lon": 56.3697024
+      },
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

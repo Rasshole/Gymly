@@ -1,0 +1,47 @@
+{
+  "ready_by_city": {
+    "Tallinn": 31,
+    "Viimsi": 2,
+    "Tartu": 8,
+    "Viljandi": 2,
+    "Peetri": 1,
+    "Järveküla": 1,
+    "Luige": 1,
+    "Kiili": 1,
+    "Keila": 1,
+    "Saue": 1,
+    "Pärnu": 2,
+    "Kuressaare": 1,
+    "Jõhvi": 2,
+    "Ülenurme": 1,
+    "Narva": 2
+  },
+  "zero_open_classifications": {
+    "Kohtla-Järve": "A_legitimate_no_chain_presence",
+    "Maardu": "A_legitimate_no_chain_presence",
+    "Sillamäe": "A_legitimate_no_chain_presence",
+    "Valga": "A_legitimate_no_chain_presence",
+    "Haapsalu": "A_legitimate_no_chain_presence",
+    "Paide": "A_legitimate_no_chain_presence",
+    "Rakvere": "B_discovery_gap — 24-7 Fitness discovered but NEEDS_REVIEW (postal/geocode); Gym! COMING_SOON",
+    "Võru": "B_discovery_gap — 24-7 Fitness discovered but NEEDS_REVIEW (postal/geocode)"
+  },
+  "audited_cities": [
+    "Tallinn",
+    "Tartu",
+    "Narva",
+    "Pärnu",
+    "Kohtla-Järve",
+    "Viljandi",
+    "Rakvere",
+    "Maardu",
+    "Kuressaare",
+    "Sillamäe",
+    "Võru",
+    "Valga",
+    "Jõhvi",
+    "Haapsalu",
+    "Paide"
+  ],
+  "notes": "READY zeroes only; unresolved Class A clubs listed as B_discovery_gap"
+}

@@ -1,0 +1,144 @@
+exercise_id,exercise_name,primary_muscle,equipment,classification,existing_candidate_asset,existing_candidate_exercise_id,existing_candidate_exercise_name,safe_reuse_reason,new_asset_filename_recommended,priority,notes
+ex-assisted-pull-up,Assisted Pull-Up,back,machine,NEEDS_NEW_ASSET,,,,,pull_up_assisted.webp,P1,No existing exact asset suitable for safe reuse
+ex-back-extension,Back Extension,back,machine,NEEDS_NEW_ASSET,,,,,back_extension.webp,P2,No existing exact asset suitable for safe reuse
+ex-chest-supported-dumbbell-row,Chest Supported Dumbbell Row,back,dumbbell,NEEDS_NEW_ASSET,,,,,dumbbell_row_chest_supported.webp,P1,No existing exact asset suitable for safe reuse
+ex-chest-supported-t-bar-row,Chest Supported T-Bar Row,back,machine,NEEDS_NEW_ASSET,,,,,t_bar_row_chest_supported.webp,P1,No existing exact asset suitable for safe reuse
+ex-chin-up,Chin-Up,back,bodyweight,NEEDS_NEW_ASSET,,,,,chin_up.webp,P1,No existing exact asset suitable for safe reuse
+ex-conventional-deadlift,Conventional Deadlift,back,barbell,NEEDS_NEW_ASSET,,,,,deadlift_conventional.webp,P1,No existing exact asset suitable for safe reuse
+ex-dumbbell-pullover,Dumbbell Pullover,back,dumbbell,NEEDS_NEW_ASSET,,,,,pullover_dumbbell.webp,P2,No existing exact asset suitable for safe reuse
+ex-high-row-machine,High Row Machine,back,machine,NEEDS_NEW_ASSET,,,,,machine_row_high.webp,P1,No existing exact asset suitable for safe reuse
+ex-machine-back-extension,Machine Back Extension,back,machine,NEEDS_NEW_ASSET,,,,,back_extension_machine.webp,P1,No existing exact asset suitable for safe reuse
+ex-meadows-row,Meadows Row,back,barbell,NEEDS_NEW_ASSET,,,,,meadows_row.webp,P1,No existing exact asset suitable for safe reuse
+ex-rack-pull,Rack Pull,back,barbell,NEEDS_NEW_ASSET,,,,,deadlift_rack_pull.webp,P3,No existing exact asset suitable for safe reuse
+ex-single-arm-lat-pulldown,Single Arm Lat Pulldown,back,cable,NEEDS_NEW_ASSET,,,,,lat_pulldown_single_arm.webp,P2,No existing exact asset suitable for safe reuse
+ex-alternating-dumbbell-curl,Alternating Dumbbell Curl,biceps,dumbbell,NEEDS_NEW_ASSET,curl_dumbbell.webp,ex-biceps-curl,Biceps Curl,,curl_dumbbell_alternating.webp,P1,Filename curl_dumbbell.webp already used by different movement Biceps Curl
+ex-cross-body-hammer-curl,Cross Body Hammer Curl,biceps,dumbbell,REVIEW_REQUIRED,curl_hammer.webp,ex-hammer-curl,Hammer Curl,,curl_hammer_cross_body.webp,P1,Filename matches existing CORRECT ex-hammer-curl; names similar but not in explicit SAFE_RULES — human review
+ex-dumbbell-curl,Dumbbell Curl,biceps,dumbbell,NEEDS_NEW_ASSET,curl_dumbbell.webp,ex-biceps-curl,Biceps Curl,,curl_dumbbell_standard.webp,P1,Filename curl_dumbbell.webp already used by different movement Biceps Curl
+ex-dumbbell-preacher-curl,Dumbbell Preacher Curl,biceps,dumbbell,NEEDS_NEW_ASSET,curl_preacher.webp,ex-preacher-curl,Preacher Curl,,curl_preacher_dumbbell.webp,P1,Existing curl_preacher.webp owned by ex-preacher-curl (Preacher Curl) but not safe: conflicts=equipment
+ex-ez-bar-curl,EZ Bar Curl,biceps,barbell,NEEDS_NEW_ASSET,curl_barbell.webp,ex-barbell-curl,Barbell Curl,,curl_ez_bar.webp,P1,Filename curl_barbell.webp already used by different movement Barbell Curl
+ex-ez-bar-preacher-curl,EZ Bar Preacher Curl,biceps,barbell,REVIEW_REQUIRED,curl_preacher.webp,ex-preacher-curl,Preacher Curl,,curl_preacher_ez.webp,P1,Filename matches existing CORRECT ex-preacher-curl; names similar but not in explicit SAFE_RULES — human review
+ex-machine-preacher-curl,Machine Preacher Curl,biceps,machine,NEEDS_NEW_ASSET,,,,,curl_preacher_machine.webp,P1,No existing exact asset suitable for safe reuse
+ex-rope-hammer-curl,Rope Hammer Curl,biceps,cable,NEEDS_NEW_ASSET,curl_cable.webp,ex-cable-curl,Cable Curl,,curl_hammer_rope.webp,P1,"Existing curl_cable.webp owned by ex-cable-curl (Cable Curl) but not safe: conflicts=['rope', 'hammer']"
+ex-straight-bar-cable-curl,Straight Bar Cable Curl,biceps,cable,NEEDS_NEW_ASSET,curl_cable.webp,ex-cable-curl,Cable Curl,,curl_cable_straight_bar.webp,P1,Existing curl_cable.webp owned by ex-cable-curl (Cable Curl) but not safe: conflicts=['straight']
+ex-donkey-calf-raise,Donkey Calf Raise,calves,machine,NEEDS_NEW_ASSET,,,,,calf_raise_donkey.webp,P3,No existing exact asset suitable for safe reuse
+ex-leg-press-calf-raise,Leg Press Calf Raise,calves,machine,NEEDS_NEW_ASSET,,,,,calf_raise_leg_press.webp,P1,No existing exact asset suitable for safe reuse
+ex-machine-seated-calf-raise,Machine Seated Calf Raise,calves,machine,REVIEW_REQUIRED,calf_raise_seated.webp,ex-seated-calf-raise,Seated Calf Raise,,calf_raise_seated_machine.webp,P1,Filename matches existing CORRECT ex-seated-calf-raise; names similar but not in explicit SAFE_RULES — human review
+ex-machine-standing-calf-raise,Machine Standing Calf Raise,calves,machine,NEEDS_NEW_ASSET,calf_raise_standing.webp,ex-calf,Calf Raise,,calf_raise_standing_machine.webp,P1,Existing calf_raise_standing.webp owned by ex-calf (Calf Raise) but not safe: conflicts=['standing']
+ex-single-leg-calf-raise,Single Leg Calf Raise,calves,bodyweight,NEEDS_NEW_ASSET,calf_raise_standing.webp,ex-calf,Calf Raise,,calf_raise_single_leg.webp,P2,Existing calf_raise_standing.webp owned by ex-calf (Calf Raise) but not safe: conflicts=['single']
+ex-smith-machine-calf-raise,Smith Machine Calf Raise,calves,smith,NEEDS_NEW_ASSET,calf_raise_standing.webp,ex-calf,Calf Raise,,calf_raise_smith.webp,P1,Existing calf_raise_standing.webp owned by ex-calf (Calf Raise) but not safe: conflicts=['smith']
+ex-standing-calf-raise,Standing Calf Raise,calves,machine,NEEDS_NEW_ASSET,calf_raise_standing.webp,ex-calf,Calf Raise,,calf_raise_standing_loaded.webp,P2,Existing calf_raise_standing.webp owned by ex-calf (Calf Raise) but not safe: conflicts=['standing']
+ex-assault-bike,Assault Bike,cardio,cardio_machine,NEEDS_NEW_ASSET,,,,,bike_assault.webp,P3,No existing exact asset suitable for safe reuse
+ex-elliptical,Elliptical,cardio,cardio_machine,NEEDS_NEW_ASSET,,,,,elliptical.webp,P3,No existing exact asset suitable for safe reuse
+ex-jump-rope,Jump Rope,cardio,other,NEEDS_NEW_ASSET,,,,,jump_rope.webp,P2,No existing exact asset suitable for safe reuse
+ex-outdoor-walking,Outdoor Walking,cardio,other,NEEDS_NEW_ASSET,,,,,walking_outdoor.webp,P1,No existing exact asset suitable for safe reuse
+ex-skierg,SkiErg,cardio,cardio_machine,NEEDS_NEW_ASSET,,,,,skierg.webp,P3,No existing exact asset suitable for safe reuse
+ex-spinning-bike,Spinning Bike,cardio,cardio_machine,NEEDS_NEW_ASSET,bike_stationary.webp,ex-cycling,Cycling,,bike_spinning.webp,P3,Filename bike_stationary.webp already used by different movement Cycling
+ex-swimming,Swimming,cardio,other,NEEDS_NEW_ASSET,,,,,swimming.webp,P2,No existing exact asset suitable for safe reuse
+ex-treadmill-walking,Treadmill Walking,cardio,cardio_machine,NEEDS_NEW_ASSET,,,,,walking_treadmill.webp,P1,No existing exact asset suitable for safe reuse
+ex-chest-dip,Chest Dip,chest,bodyweight,NEEDS_NEW_ASSET,,,,,dip_chest.webp,P2,No existing exact asset suitable for safe reuse
+ex-decline-chest-press-machine,Decline Chest Press Machine,chest,machine,NEEDS_NEW_ASSET,,,,,chest_press_machine_decline.webp,P1,No existing exact asset suitable for safe reuse
+ex-high-to-low-cable-fly,High to Low Cable Fly,chest,cable,NEEDS_NEW_ASSET,,,,,chest_fly_cable_high_to_low.webp,P2,No existing exact asset suitable for safe reuse
+ex-incline-chest-press-machine,Incline Chest Press Machine,chest,machine,NEEDS_NEW_ASSET,,,,,chest_press_machine_incline.webp,P1,No existing exact asset suitable for safe reuse
+ex-low-to-high-cable-fly,Low to High Cable Fly,chest,cable,NEEDS_NEW_ASSET,,,,,chest_fly_cable_low_to_high.webp,P2,No existing exact asset suitable for safe reuse
+ex-pec-deck,Pec Deck,chest,machine,NEEDS_NEW_ASSET,,,,,pec_deck.webp,P2,No existing exact asset suitable for safe reuse
+ex-push-up,Push-Up,chest,bodyweight,NEEDS_NEW_ASSET,,,,,push_up.webp,P1,No existing exact asset suitable for safe reuse
+ex-smith-machine-incline-bench-press,Smith Machine Incline Bench Press,chest,smith,NEEDS_NEW_ASSET,,,,,bench_press_smith_incline.webp,P1,No existing exact asset suitable for safe reuse
+ex-weighted-push-up,Weighted Push-Up,chest,bodyweight,NEEDS_NEW_ASSET,,,,,push_up_weighted.webp,P1,No existing exact asset suitable for safe reuse
+ex-ab-crunch,Ab Crunch,core,bodyweight,NEEDS_NEW_ASSET,,,,,crunch.webp,P1,No existing exact asset suitable for safe reuse
+ex-bicycle-crunch,Bicycle Crunch,core,bodyweight,NEEDS_NEW_ASSET,,,,,crunch_bicycle.webp,P1,No existing exact asset suitable for safe reuse
+ex-cable-woodchop,Cable Woodchop,core,cable,NEEDS_NEW_ASSET,,,,,woodchop_cable.webp,P3,No existing exact asset suitable for safe reuse
+ex-captain-s-chair-leg-raise,Captain's Chair Leg Raise,core,machine,NEEDS_NEW_ASSET,,,,,leg_raise_captains_chair.webp,P3,No existing exact asset suitable for safe reuse
+ex-dead-bug,Dead Bug,core,bodyweight,NEEDS_NEW_ASSET,,,,,dead_bug.webp,P3,No existing exact asset suitable for safe reuse
+ex-decline-sit-up,Decline Sit-Up,core,bodyweight,NEEDS_NEW_ASSET,,,,,sit_up_decline.webp,P2,No existing exact asset suitable for safe reuse
+ex-hanging-knee-raise,Hanging Knee Raise,core,bodyweight,NEEDS_NEW_ASSET,,,,,leg_raise_hanging_knee.webp,P2,No existing exact asset suitable for safe reuse
+ex-hanging-leg-raise,Hanging Leg Raise,core,bodyweight,NEEDS_NEW_ASSET,,,,,leg_raise_hanging.webp,P2,No existing exact asset suitable for safe reuse
+ex-pallof-press,Pallof Press,core,cable,NEEDS_NEW_ASSET,,,,,pallof_press.webp,P1,No existing exact asset suitable for safe reuse
+ex-reverse-crunch,Reverse Crunch,core,bodyweight,NEEDS_NEW_ASSET,,,,,crunch_reverse.webp,P1,No existing exact asset suitable for safe reuse
+ex-russian-twist,Russian Twist,core,bodyweight,NEEDS_NEW_ASSET,,,,,russian_twist.webp,P2,No existing exact asset suitable for safe reuse
+ex-side-plank,Side Plank,core,bodyweight,NEEDS_NEW_ASSET,,,,,plank_side.webp,P1,No existing exact asset suitable for safe reuse
+ex-sit-up,Sit-Up,core,bodyweight,NEEDS_NEW_ASSET,,,,,sit_up.webp,P2,No existing exact asset suitable for safe reuse
+ex-toe-touch,Toe Touch,core,bodyweight,NEEDS_NEW_ASSET,,,,,toe_touch.webp,P3,No existing exact asset suitable for safe reuse
+ex-v-up,V-Up,core,bodyweight,NEEDS_NEW_ASSET,,,,,v_up.webp,P3,No existing exact asset suitable for safe reuse
+ex-weighted-crunch,Weighted Crunch,core,other,NEEDS_NEW_ASSET,,,,,crunch_weighted.webp,P1,No existing exact asset suitable for safe reuse
+ex-weighted-plank,Weighted Plank,core,other,NEEDS_NEW_ASSET,plank.webp,ex-plank,Plank,,plank_weighted.webp,P1,Existing plank.webp owned by ex-plank (Plank) but not safe: conflicts=['weighted']
+ex-weighted-sit-up,Weighted Sit-Up,core,other,NEEDS_NEW_ASSET,,,,,sit_up_weighted.webp,P2,No existing exact asset suitable for safe reuse
+ex-barbell-thruster,Barbell Thruster,full_body,barbell,NEEDS_NEW_ASSET,,,,,thruster_barbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-burpee,Burpee,full_body,bodyweight,NEEDS_NEW_ASSET,,,,,burpee.webp,P1,No existing exact asset suitable for safe reuse
+ex-clean,Clean,full_body,barbell,NEEDS_NEW_ASSET,,,,,olympic_clean.webp,P1,No existing exact asset suitable for safe reuse
+ex-clean-and-jerk,Clean and Jerk,full_body,barbell,NEEDS_NEW_ASSET,,,,,olympic_clean_and_jerk.webp,P1,No existing exact asset suitable for safe reuse
+ex-dumbbell-farmer-s-walk,Dumbbell Farmer's Walk,full_body,dumbbell,NEEDS_NEW_ASSET,,,,,farmers_walk_dumbbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-dumbbell-thruster,Dumbbell Thruster,full_body,dumbbell,NEEDS_NEW_ASSET,,,,,thruster_dumbbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-farmer-s-walk,Farmer's Walk,full_body,other,NEEDS_NEW_ASSET,,,,,farmers_walk.webp,P1,No existing exact asset suitable for safe reuse
+ex-kettlebell-farmer-s-walk,Kettlebell Farmer's Walk,full_body,kettlebell,NEEDS_NEW_ASSET,,,,,farmers_walk_kettlebell.webp,P1,No existing exact asset suitable for safe reuse
+ex-kettlebell-swing,Kettlebell Swing,full_body,kettlebell,NEEDS_NEW_ASSET,,,,,kettlebell_swing.webp,P1,No existing exact asset suitable for safe reuse
+ex-power-clean,Power Clean,full_body,barbell,NEEDS_NEW_ASSET,,,,,olympic_power_clean.webp,P1,No existing exact asset suitable for safe reuse
+ex-snatch,Snatch,full_body,barbell,NEEDS_NEW_ASSET,,,,,olympic_snatch.webp,P1,No existing exact asset suitable for safe reuse
+ex-barbell-glute-bridge,Barbell Glute Bridge,glutes,barbell,NEEDS_NEW_ASSET,glute_bridge.webp,ex-glute-bridge,Glute Bridge,,glute_bridge_barbell.webp,P2,Existing glute_bridge.webp owned by ex-glute-bridge (Glute Bridge) but not safe: conflicts=equipment
+ex-cable-hip-abduction,Cable Hip Abduction,glutes,cable,NEEDS_NEW_ASSET,,,,,hip_abduction_cable.webp,P2,No existing exact asset suitable for safe reuse
+ex-dumbbell-hip-thrust,Dumbbell Hip Thrust,glutes,dumbbell,NEEDS_NEW_ASSET,,,,,hip_thrust_dumbbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-frog-pump,Frog Pump,glutes,bodyweight,NEEDS_NEW_ASSET,,,,,frog_pump.webp,P3,No existing exact asset suitable for safe reuse
+ex-machine-glute-kickback,Machine Glute Kickback,glutes,machine,NEEDS_NEW_ASSET,glute_kickback.webp,ex-cable-kickback,Cable Kickback,,glute_kickback_machine.webp,P1,Existing glute_kickback.webp owned by ex-cable-kickback (Cable Kickback) but not safe: conflicts=equipment
+ex-machine-hip-thrust,Machine Hip Thrust,glutes,machine,NEEDS_NEW_ASSET,,,,,hip_thrust_machine.webp,P1,No existing exact asset suitable for safe reuse
+ex-smith-machine-hip-thrust,Smith Machine Hip Thrust,glutes,smith,NEEDS_NEW_ASSET,,,,,hip_thrust_smith.webp,P1,No existing exact asset suitable for safe reuse
+ex-standing-hip-abduction,Standing Hip Abduction,glutes,cable,NEEDS_NEW_ASSET,,,,,hip_abduction_cable_standing.webp,P2,No existing exact asset suitable for safe reuse
+ex-sumo-deadlift,Sumo Deadlift,glutes,barbell,NEEDS_NEW_ASSET,,,,,deadlift_sumo.webp,P1,No existing exact asset suitable for safe reuse
+ex-sumo-squat,Sumo Squat,glutes,dumbbell,NEEDS_NEW_ASSET,,,,,squat_sumo.webp,P1,No existing exact asset suitable for safe reuse
+ex-barbell-good-morning,Barbell Good Morning,hamstrings,barbell,NEEDS_NEW_ASSET,,,,,good_morning_barbell.webp,P2,No existing exact asset suitable for safe reuse
+ex-barbell-romanian-deadlift,Barbell Romanian Deadlift,hamstrings,barbell,SAFE_REUSE,rdl_barbell.webp,ex-rdl,Romanian Deadlift,Same barbell Romanian deadlift movement; library has parallel ID for Barbell RDL while ex-rdl already maps to rdl_barbell.webp,,P1,
+ex-cable-pull-through,Cable Pull Through,hamstrings,cable,NEEDS_NEW_ASSET,,,,,cable_pull_through.webp,P2,No existing exact asset suitable for safe reuse
+ex-dumbbell-romanian-deadlift,Dumbbell Romanian Deadlift,hamstrings,dumbbell,NEEDS_NEW_ASSET,,,,,rdl_dumbbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-dumbbell-single-leg-romanian-deadlift,Dumbbell Single Leg Romanian Deadlift,hamstrings,dumbbell,NEEDS_NEW_ASSET,,,,,rdl_single_leg.webp,P1,No existing exact asset suitable for safe reuse
+ex-glute-ham-raise,Glute Ham Raise,hamstrings,machine,NEEDS_NEW_ASSET,,,,,glute_ham_raise.webp,P2,No existing exact asset suitable for safe reuse
+ex-good-morning,Good Morning,hamstrings,barbell,NEEDS_NEW_ASSET,,,,,good_morning.webp,P2,No existing exact asset suitable for safe reuse
+ex-lying-leg-curl,Lying Leg Curl,hamstrings,machine,SAFE_REUSE,leg_curl_lying.webp,ex-leg-curl,Leg Curl,Same lying machine leg curl pattern; ex-leg-curl already uses leg_curl_lying.webp,,P1,
+ex-nordic-hamstring-curl,Nordic Hamstring Curl,hamstrings,bodyweight,NEEDS_NEW_ASSET,,,,,nordic_curl.webp,P1,No existing exact asset suitable for safe reuse
+ex-single-leg-curl,Single Leg Curl,hamstrings,machine,NEEDS_NEW_ASSET,leg_curl_lying.webp,ex-leg-curl,Leg Curl,,leg_curl_single_leg.webp,P1,Existing leg_curl_lying.webp owned by ex-leg-curl (Leg Curl) but not safe: conflicts=['single']
+ex-single-leg-romanian-deadlift,Single Leg Romanian Deadlift,hamstrings,dumbbell,NEEDS_NEW_ASSET,,,,,rdl_single_leg.webp,P1,No existing exact asset suitable for safe reuse
+ex-smith-machine-romanian-deadlift,Smith Machine Romanian Deadlift,hamstrings,smith,NEEDS_NEW_ASSET,,,,,rdl_smith.webp,P1,No existing exact asset suitable for safe reuse
+ex-standing-leg-curl,Standing Leg Curl,hamstrings,machine,NEEDS_NEW_ASSET,,,,,leg_curl_standing.webp,P1,No existing exact asset suitable for safe reuse
+ex-45-degree-leg-press,45 Degree Leg Press,quads,machine,REVIEW_REQUIRED,leg_press.webp,ex-leg-press,Leg Press,,leg_press_45.webp,P1,Filename matches existing CORRECT ex-leg-press; names similar but not in explicit SAFE_RULES — human review
+ex-barbell-front-squat,Barbell Front Squat,quads,barbell,NEEDS_NEW_ASSET,,,,,squat_front_barbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-belt-squat,Belt Squat,quads,machine,NEEDS_NEW_ASSET,,,,,squat_belt.webp,P1,No existing exact asset suitable for safe reuse
+ex-dumbbell-bulgarian-split-squat,Dumbbell Bulgarian Split Squat,quads,dumbbell,SAFE_REUSE,bulgarian_split_squat.webp,ex-bulgarian,Bulgarian Split Squat,Same dumbbell Bulgarian split squat; ex-bulgarian equipment=dumbbell and maps to bulgarian_split_squat.webp,,P1,
+ex-dumbbell-step-up,Dumbbell Step-Up,quads,dumbbell,NEEDS_NEW_ASSET,,,,,step_up_dumbbell.webp,P2,No existing exact asset suitable for safe reuse
+ex-dumbbell-walking-lunge,Dumbbell Walking Lunge,quads,dumbbell,NEEDS_NEW_ASSET,,,,,lunge_walking_dumbbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-forward-lunge,Forward Lunge,quads,dumbbell,NEEDS_NEW_ASSET,,,,,lunge_forward.webp,P1,No existing exact asset suitable for safe reuse
+ex-goblet-squat,Goblet Squat,quads,dumbbell,NEEDS_NEW_ASSET,,,,,squat_goblet.webp,P1,No existing exact asset suitable for safe reuse
+ex-hack-squat,Hack Squat,quads,machine,NEEDS_NEW_ASSET,,,,,squat_hack.webp,P1,No existing exact asset suitable for safe reuse
+ex-high-bar-squat,High Bar Squat,quads,barbell,NEEDS_NEW_ASSET,,,,,squat_high_bar.webp,P1,No existing exact asset suitable for safe reuse
+ex-horizontal-leg-press,Horizontal Leg Press,quads,machine,NEEDS_NEW_ASSET,,,,,leg_press_horizontal.webp,P1,No existing exact asset suitable for safe reuse
+ex-low-bar-squat,Low Bar Squat,quads,barbell,NEEDS_NEW_ASSET,,,,,squat_low_bar.webp,P1,No existing exact asset suitable for safe reuse
+ex-pendulum-squat,Pendulum Squat,quads,machine,NEEDS_NEW_ASSET,,,,,squat_pendulum.webp,P1,No existing exact asset suitable for safe reuse
+ex-reverse-lunge,Reverse Lunge,quads,dumbbell,NEEDS_NEW_ASSET,,,,,lunge_reverse.webp,P1,No existing exact asset suitable for safe reuse
+ex-single-leg-extension,Single Leg Extension,quads,machine,NEEDS_NEW_ASSET,leg_extension.webp,ex-leg-ext,Leg Extension,,leg_extension_single_leg.webp,P1,Existing leg_extension.webp owned by ex-leg-ext (Leg Extension) but not safe: conflicts=['single']
+ex-single-leg-press,Single Leg Press,quads,machine,NEEDS_NEW_ASSET,leg_press.webp,ex-leg-press,Leg Press,,leg_press_single_leg.webp,P1,Existing leg_press.webp owned by ex-leg-press (Leg Press) but not safe: conflicts=['single']
+ex-sissy-squat,Sissy Squat,quads,bodyweight,NEEDS_NEW_ASSET,,,,,squat_sissy.webp,P1,No existing exact asset suitable for safe reuse
+ex-smith-machine-bulgarian-split-squat,Smith Machine Bulgarian Split Squat,quads,smith,NEEDS_NEW_ASSET,bulgarian_split_squat.webp,ex-bulgarian,Bulgarian Split Squat,,bulgarian_split_squat_smith.webp,P1,Existing bulgarian_split_squat.webp owned by ex-bulgarian (Bulgarian Split Squat) but not safe: conflicts=['smith']
+ex-smith-machine-lunge,Smith Machine Lunge,quads,smith,NEEDS_NEW_ASSET,,,,,lunge_smith.webp,P1,No existing exact asset suitable for safe reuse
+ex-smith-machine-squat,Smith Machine Squat,quads,smith,NEEDS_NEW_ASSET,,,,,squat_smith.webp,P1,No existing exact asset suitable for safe reuse
+ex-squat,Squat,quads,barbell,NEEDS_NEW_ASSET,,,,,squat_back_barbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-step-up,Step-Up,quads,dumbbell,NEEDS_NEW_ASSET,,,,,step_up.webp,P2,No existing exact asset suitable for safe reuse
+ex-walking-lunge,Walking Lunge,quads,dumbbell,NEEDS_NEW_ASSET,,,,,lunge_walking.webp,P1,No existing exact asset suitable for safe reuse
+ex-arnold-press,Arnold Press,shoulders,dumbbell,NEEDS_NEW_ASSET,,,,,arnold_press.webp,P1,No existing exact asset suitable for safe reuse
+ex-cable-front-raise,Cable Front Raise,shoulders,cable,NEEDS_NEW_ASSET,,,,,front_raise_cable.webp,P2,No existing exact asset suitable for safe reuse
+ex-cable-lateral-raise,Cable Lateral Raise,shoulders,cable,NEEDS_NEW_ASSET,,,,,lateral_raise_cable.webp,P1,No existing exact asset suitable for safe reuse
+ex-dumbbell-front-raise,Dumbbell Front Raise,shoulders,dumbbell,NEEDS_NEW_ASSET,,,,,front_raise_dumbbell.webp,P2,No existing exact asset suitable for safe reuse
+ex-dumbbell-upright-row,Dumbbell Upright Row,shoulders,dumbbell,NEEDS_NEW_ASSET,upright_row.webp,ex-upright-row,Upright Row,,upright_row_dumbbell.webp,P1,Existing upright_row.webp owned by ex-upright-row (Upright Row) but not safe: conflicts=equipment
+ex-face-pull,Face Pull,shoulders,cable,NEEDS_NEW_ASSET,,,,,face_pull.webp,P2,No existing exact asset suitable for safe reuse
+ex-lateral-raise,Lateral Raise,shoulders,dumbbell,NEEDS_NEW_ASSET,,,,,lateral_raise_dumbbell.webp,P1,No existing exact asset suitable for safe reuse
+ex-plate-front-raise,Plate Front Raise,shoulders,other,NEEDS_NEW_ASSET,,,,,front_raise_plate.webp,P3,No existing exact asset suitable for safe reuse
+ex-seated-barbell-shoulder-press,Seated Barbell Shoulder Press,shoulders,barbell,NEEDS_NEW_ASSET,shoulder_press_barbell.webp,ex-barbell-overhead-press,Barbell Overhead Press,,shoulder_press_barbell_seated.webp,P1,"Existing shoulder_press_barbell.webp owned by ex-barbell-overhead-press (Barbell Overhead Press) but not safe: conflicts=['seated', 'overhead']"
+ex-seated-dumbbell-shoulder-press,Seated Dumbbell Shoulder Press,shoulders,dumbbell,NEEDS_NEW_ASSET,shoulder_press_dumbbell.webp,ex-dumbbell-shoulder-press,Dumbbell Shoulder Press,,shoulder_press_dumbbell_seated.webp,P1,Existing shoulder_press_dumbbell.webp owned by ex-dumbbell-shoulder-press (Dumbbell Shoulder Press) but not safe: conflicts=['seated']
+ex-shoulder-press,Shoulder Press,shoulders,dumbbell,SAFE_REUSE,shoulder_press_dumbbell.webp,ex-dumbbell-shoulder-press,Dumbbell Shoulder Press,Generic Shoulder Press is dumbbell equipment with OHP aliases; existing dumbbell shoulder press art is accurate,,P1,
+ex-single-arm-cable-lateral-raise,Single Arm Cable Lateral Raise,shoulders,cable,NEEDS_NEW_ASSET,,,,,lateral_raise_cable_single_arm.webp,P1,No existing exact asset suitable for safe reuse
+ex-dumbbell-skull-crusher,Dumbbell Skull Crusher,triceps,dumbbell,NEEDS_NEW_ASSET,,,,,skull_crusher_dumbbell.webp,P2,No existing exact asset suitable for safe reuse
+ex-ez-bar-skull-crusher,EZ Bar Skull Crusher,triceps,barbell,REVIEW_REQUIRED,skull_crusher.webp,ex-skull-crusher,Skull Crusher,,skull_crusher_ez.webp,P2,Filename matches existing CORRECT ex-skull-crusher; names similar but not in explicit SAFE_RULES — human review
+ex-lying-tricep-extension,Lying Tricep Extension,triceps,barbell,NEEDS_NEW_ASSET,skull_crusher.webp,ex-skull-crusher,Skull Crusher,,tricep_extension_lying.webp,P2,Filename skull_crusher.webp already used by different movement Skull Crusher
+ex-reverse-grip-tricep-pushdown,Reverse Grip Tricep Pushdown,triceps,cable,NEEDS_NEW_ASSET,tricep_pushdown.webp,ex-triceps-pushdown,Triceps Pushdown,,tricep_pushdown_reverse_grip.webp,P1,Existing tricep_pushdown.webp owned by ex-triceps-pushdown (Triceps Pushdown) but not safe: conflicts=['reverse']
+ex-rope-overhead-tricep-extension,Rope Overhead Tricep Extension,triceps,cable,NEEDS_NEW_ASSET,tricep_overhead_cable.webp,ex-overhead-cable-tricep-extension,Overhead Cable Tricep Extension,,tricep_overhead_cable_rope.webp,P2,Existing tricep_overhead_cable.webp owned by ex-overhead-cable-tricep-extension (Overhead Cable Tricep Extension) but not safe: conflicts=['rope']
+ex-rope-tricep-pushdown,Rope Tricep Pushdown,triceps,cable,NEEDS_NEW_ASSET,tricep_pushdown.webp,ex-triceps-pushdown,Triceps Pushdown,,tricep_pushdown_rope.webp,P1,Existing tricep_pushdown.webp owned by ex-triceps-pushdown (Triceps Pushdown) but not safe: conflicts=['rope']
+ex-single-arm-dumbbell-tricep-extension,Single Arm Dumbbell Tricep Extension,triceps,dumbbell,NEEDS_NEW_ASSET,tricep_overhead_dumbbell.webp,ex-dumbbell-overhead-tricep-extension,Dumbbell Overhead Tricep Extension,,tricep_overhead_dumbbell_single_arm.webp,P2,"Existing tricep_overhead_dumbbell.webp owned by ex-dumbbell-overhead-tricep-extension (Dumbbell Overhead Tricep Extension) but not safe: conflicts=['single', 'overhead']"
+ex-single-arm-tricep-pushdown,Single Arm Tricep Pushdown,triceps,cable,NEEDS_NEW_ASSET,tricep_pushdown.webp,ex-triceps-pushdown,Triceps Pushdown,,tricep_pushdown_single_arm.webp,P1,Existing tricep_pushdown.webp owned by ex-triceps-pushdown (Triceps Pushdown) but not safe: conflicts=['single']
+ex-straight-bar-tricep-pushdown,Straight Bar Tricep Pushdown,triceps,cable,NEEDS_NEW_ASSET,tricep_pushdown.webp,ex-triceps-pushdown,Triceps Pushdown,,tricep_pushdown_straight_bar.webp,P1,Existing tricep_pushdown.webp owned by ex-triceps-pushdown (Triceps Pushdown) but not safe: conflicts=['straight']
+ex-tricep-extension-machine,Tricep Extension Machine,triceps,machine,NEEDS_NEW_ASSET,,,,,tricep_extension_machine.webp,P1,No existing exact asset suitable for safe reuse
+ex-v-bar-tricep-pushdown,V-Bar Tricep Pushdown,triceps,cable,NEEDS_NEW_ASSET,tricep_pushdown.webp,ex-triceps-pushdown,Triceps Pushdown,,tricep_pushdown_vbar.webp,P1,Existing tricep_pushdown.webp owned by ex-triceps-pushdown (Triceps Pushdown) but not safe: conflicts=['v-bar']

@@ -1,0 +1,364 @@
+{
+  "cz|gen. píky 430/26, 160 00 praha 6, 160 00, praha, czechia": null,
+  "cz|oc forum pardubice, palackého třída 2748, 530 02, pardubice, czechia": null,
+  "cz|so-ho rezidence holešovice, v háji 10, 170 00, praha, czechia": null,
+  "cz|metropole zličín, řevnická 1, 155 21, praha, czechia": null,
+  "cz|form factory bily dum, praha, czechia": null,
+  "cz|form factory botanicka, praha, czechia": null,
+  "cz|form factory breda, praha, czechia": null,
+  "cz|form factory centrum cerny most, praha, czechia": null,
+  "cz|form factory cerny most, praha, czechia": null,
+  "cz|form factory fenix, praha, czechia": null,
+  "cz|form factory fugnerova, praha, czechia": null,
+  "cz|form factory karolina, praha, czechia": null,
+  "cz|form factory ladvi, praha, czechia": null,
+  "cz|form factory na knizeci, praha, czechia": null,
+  "cz|form factory ostrava avion, praha, czechia": null,
+  "cz|form factory pankrac, praha, czechia": {
+    "lat": 50.0509367,
+    "lng": 14.4361589,
+    "display_name": "Form Factory Fitness Pankrác, 2A, Hvězdova, Pankrác, Praha 4, obvod Praha 4, Praha, 140 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "140 00",
+    "country_code": "cz"
+  },
+  "cz|form factory pruvan, praha, czechia": null,
+  "cz|oc nový smíchov, , plzeňská 8, 150 00, praha, czechia": {
+    "lat": 50.0726733,
+    "lng": 14.4028278,
+    "display_name": "OC Nový Smíchov, 8, Plzeňská, Smíchov, Praha 5, obvod Praha 5, Praha, 150 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "150 00",
+    "country_code": "cz"
+  },
+  "cz|vyskočilova 1410/1, 140 00, praha, czechia": {
+    "lat": 50.0482235,
+    "lng": 14.4532788,
+    "display_name": "1410/1, Vyskočilova, Michle, Praha 4, obvod Praha 4, Praha, 140 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "140 00",
+    "country_code": "cz"
+  },
+  "cz|palachovo náměstí, 726/2, 625 00, brno, czechia": {
+    "lat": 49.1755535,
+    "lng": 16.5665498,
+    "display_name": "726/2, Palachovo náměstí, Starý Lískovec, Brno-Starý Lískovec, Brno, okres Brno-město, Jihomoravský kraj, 625 00, Česko",
+    "importance": 7.446021210035886e-05,
+    "postcode": "625 00",
+    "country_code": "cz"
+  },
+  "cz|form factory forum pardubice, pardubice, czechia": {
+    "lat": 50.0337805,
+    "lng": 15.7524184,
+    "display_name": "Form Factory, 2748, Palackého třída, Zelené Předměstí, Pardubice I, Pardubice, okres Pardubice, Pardubický kraj, 530 02, Česko",
+    "importance": 6.654993514911143e-05,
+    "postcode": "530 02",
+    "country_code": "cz"
+  },
+  "cz|krmelínská 646/22, 720 00, ostrava, czechia": {
+    "lat": 49.7764813,
+    "lng": 18.2648305,
+    "display_name": "Krmelínská, Hrabová, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 720 00, Česko",
+    "importance": 0.05340413290608068,
+    "postcode": "720 00",
+    "country_code": "cz"
+  },
+  "cz|ke karlovu 1349/11, 301 00, plzeň, czechia": {
+    "lat": 49.7313868,
+    "lng": 13.3363783,
+    "display_name": "1349/11, Ke Karlovu, Průmyslová zóna Borská pole, Plzeň 3, Plzeň, okres Plzeň-město, Plzeňský kraj, Jihozápad, 301 00, Česko",
+    "importance": 6.940794995036267e-05,
+    "postcode": "301 00",
+    "country_code": "cz"
+  },
+  "cz|kolbenova 886/92, 190 00, praha, czechia": null,
+  "cz|form factory kolbenova, praha, czechia": null,
+  "cz|lannova třída 204/18, 370 01, české budějovice, czechia": {
+    "lat": 48.9744793,
+    "lng": 14.4789254,
+    "display_name": "Lannova třída, Územní skupina 1, České Budějovice 6, České Budějovice, okres České Budějovice, Jihočeský kraj, Jihozápad, 370 59, Česko",
+    "importance": 0.05340069962615393,
+    "postcode": "370 59",
+    "country_code": "cz"
+  },
+  "cz|masarykovo nám. 15, 702 00, ostrava, czechia": {
+    "lat": 49.8365518,
+    "lng": 18.2927402,
+    "display_name": "3090/15, Masarykovo náměstí, Moravská Ostrava a Přívoz, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 702 00, Česko",
+    "importance": 7.079957274734139e-05,
+    "postcode": "702 00",
+    "country_code": "cz"
+  },
+  "cz|obchodní centrum letňany, 199 00, praha, czechia": {
+    "lat": 50.1358211,
+    "lng": 14.5027464,
+    "display_name": "Obchodní centrum Letňany, 663, Veselská, U Střížkova, Letňany, Praha 18, obvod Praha 9, Praha, 199 00, Česko",
+    "importance": 0.22052600253021823,
+    "postcode": "199 00",
+    "country_code": "cz"
+  },
+  "cz|poděbradská 1069/36, 190 00, praha, czechia": {
+    "lat": 50.1020268,
+    "lng": 14.5150643,
+    "display_name": "1069/36, Poděbradská, Vysočany, Praha 9, obvod Praha 9, Praha, 190 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "190 00",
+    "country_code": "cz"
+  },
+  "cz|dr. milady horákové 82/12, 460 07, liberec, czechia": {
+    "lat": 50.7537493,
+    "lng": 15.0549671,
+    "display_name": "FormFactory, 82/12, Dr. Milady Horákové, U Nisy, Horní Růžodol, Liberec, okres Liberec, Liberecký kraj, 460 07, Česko",
+    "importance": 6.833524071102491e-05,
+    "postcode": "460 07",
+    "country_code": "cz"
+  },
+  "cz|form factory so ho, praha, czechia": null,
+  "cz|kutnohorská 641, 109 00, praha, czechia": {
+    "lat": 50.0664169,
+    "lng": 14.5496522,
+    "display_name": "Kärcher, 641, Kutnohorská, Praha-Dolní Měcholupy, obvod Praha 10, Praha, 109 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "109 00",
+    "country_code": "cz"
+  },
+  "cz|štúrova 1284/20, 142 00, praha, czechia": {
+    "lat": 50.026019,
+    "lng": 14.4515822,
+    "display_name": "Thajské masáže Ramai, 1284/20, Štúrova, Jalový Dvůr, Praha 4, obvod Praha 4, Praha, 142 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "142 00",
+    "country_code": "cz"
+  },
+  "cz|vlněna 526/7 (budova d), 602 00, brno, czechia": null,
+  "cz|form factory vlnena, brno, czechia": null,
+  "cz|form factory zlicin, praha, czechia": null,
+  "cz|max fitness fitness centrum dejvice, praha, czechia": null,
+  "cz|sauna, kolbenova 886/92, 190 00, praha, czechia": null,
+  "cz|sauna, vlněna 526/7 (budova d), 602 00, brno, czechia": null,
+  "cz|oc nový smíchov, 2. patro, 150 00, praha, czechia": null,
+  "cz|e. f. buriana 869/4a, 736 01, havířov, czechia": {
+    "lat": 49.7778038,
+    "lng": 18.4376475,
+    "display_name": "869/4a, E. F. Buriana, Havířov-Město, Město, Havířov, okres Karviná, Moravskoslezský kraj, 736 01, Česko",
+    "importance": 5.9312581063508315e-05,
+    "postcode": "736 01",
+    "country_code": "cz"
+  },
+  "cz|u fortny 49, 746 01, opava, czechia": {
+    "lat": 49.941139,
+    "lng": 17.9001201,
+    "display_name": "49/10, U Fortny, Město, Opava, okres Opava, Moravskoslezský kraj, 746 01, Česko",
+    "importance": 6.455558098721321e-05,
+    "postcode": "746 01",
+    "country_code": "cz"
+  },
+  "cz|oc forum pardubice, 530 02, pardubice, czechia": {
+    "lat": 50.0337805,
+    "lng": 15.7524184,
+    "display_name": "Form Factory, 2748, Palackého třída, Zelené Předměstí, Pardubice I, Pardubice, okres Pardubice, Pardubický kraj, 530 02, Česko",
+    "importance": 6.654993514911143e-05,
+    "postcode": "530 02",
+    "country_code": "cz"
+  },
+  "cz|forum nová karolina, 702 00, ostrava, czechia": {
+    "lat": 49.8308181,
+    "lng": 18.285286,
+    "display_name": "Forum Nová Karolina, 3344/4, Jantarová, Moravská Ostrava a Přívoz, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 702 00, Česko",
+    "importance": 0.1507975276546128,
+    "postcode": "702 00",
+    "country_code": "cz"
+  },
+  "cz|ostrovského 464/6, 150 00, praha, czechia": {
+    "lat": 50.0693141,
+    "lng": 14.4048815,
+    "display_name": "464/6, Ostrovského, Smíchov, Praha 5, obvod Praha 5, Praha, 150 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "150 00",
+    "country_code": "cz"
+  },
+  "cz|so-ho rezidence holešovice, 170 00, praha, czechia": {
+    "lat": 50.1023667,
+    "lng": 14.4544734,
+    "display_name": "SO-HO Rezidence, Tusarova, Holešovice, Praha 7, obvod Praha 7, Praha, 170 04, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "170 04",
+    "country_code": "cz"
+  },
+  "cz|štúrova 1284/20,, 142 00, praha, czechia": {
+    "lat": 50.0260962,
+    "lng": 14.4516511,
+    "display_name": "Azfishing.cz, 1284/20, Štúrova, Jalový Dvůr, Praha 4, obvod Praha 4, Praha, 142 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "142 00",
+    "country_code": "cz"
+  },
+  "cz|metropole zličín, 155 21, praha, czechia": {
+    "lat": 50.0534639,
+    "lng": 14.2863929,
+    "display_name": "Metropole Zličín, U Zličína, Metropole Zličín, Sobín, Praha-Zličín, obvod Praha 5, Praha, 155 21, Česko",
+    "importance": 0.17283327415591612,
+    "postcode": "155 21",
+    "country_code": "cz"
+  },
+  "cz|argentinská 1610/4, 170 00, praha, czechia": {
+    "lat": 50.1013246,
+    "lng": 14.4436031,
+    "display_name": "Triexpert, 1610/4, Argentinská, Holešovice, Praha 7, obvod Praha 7, Praha, 170 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "170 00",
+    "country_code": "cz"
+  },
+  "cz|petržílkova 2583, 158 00, praha, czechia": {
+    "lat": 50.0508648,
+    "lng": 14.3451948,
+    "display_name": "2583/13, Petržílkova, Nové Butovice, Praha 13, obvod Praha 5, Praha, 158 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "158 00",
+    "country_code": "cz"
+  },
+  "cz|k radotínu 15, 156 00, praha, czechia": {
+    "lat": 49.9692922,
+    "lng": 14.3734709,
+    "display_name": "15, K Radotínu, Žabovřesky, Praha-Zbraslav, obvod Praha 5, Praha, 156 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "156 00",
+    "country_code": "cz"
+  },
+  "cz|špitálské nám. 3517, 400 01, ústí nad labem, czechia": {
+    "lat": 50.6628392,
+    "lng": 14.0330198,
+    "display_name": "3517/1a, Špitálské náměstí, Ústí nad Labem-u západního nádraží, Ústí nad Labem-centrum, Ústí nad Labem-město, Ústí nad Labem, okres Ústí nad Labem, Ústecký kraj, 400 01, Česko",
+    "importance": 6.42092011901582e-05,
+    "postcode": "400 01",
+    "country_code": "cz"
+  },
+  "cz|28. října 3346/91, 702 00, ostrava, czechia": {
+    "lat": 49.8306631,
+    "lng": 18.2779171,
+    "display_name": "3346/91, 28. října, Moravská Ostrava a Přívoz, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 702 00, Česko",
+    "importance": 7.079957274734139e-05,
+    "postcode": "702 00",
+    "country_code": "cz"
+  },
+  "cz|pražská 255/41, 779 00, olomouc, czechia": {
+    "lat": 49.6022837,
+    "lng": 17.2207896,
+    "display_name": "255/41, Pražská, Řepčín, Olomouc, okres Olomouc, Olomoucký kraj, 779 00, Česko",
+    "importance": 6.98535133897462e-05,
+    "postcode": "779 00",
+    "country_code": "cz"
+  },
+  "cz|hlavní tř. 707/72, 708 00, ostrava, czechia": {
+    "lat": 49.8291431,
+    "lng": 18.1732234,
+    "display_name": "707/72, Hlavní třída, Poruba, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 708 00, Česko",
+    "importance": 7.079957274734139e-05,
+    "postcode": "708 00",
+    "country_code": "cz"
+  },
+  "cz|přímá 671, 760 01, zlín, czechia": {
+    "lat": 49.2209953,
+    "lng": 17.6413766,
+    "display_name": "671, Přímá, Prštné, Zlín, okres Zlín, Zlínský kraj, 760 01, Česko",
+    "importance": 6.493400473025128e-05,
+    "postcode": "760 01",
+    "country_code": "cz"
+  },
+  "cz|veveří 2581/102, 625 00, 625 00, brno, czechia": null,
+  "cz|mezi vodami 2416, 143 00, praha, czechia": {
+    "lat": 50.0161921,
+    "lng": 14.4010742,
+    "display_name": "2416/35, Mezi Vodami, Modřany, Praha 12, obvod Praha 4, Praha, 143 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "143 00",
+    "country_code": "cz"
+  },
+  "cz|karlovo náměstí 2097/10, 120 00, praha, czechia": {
+    "lat": 50.0754039,
+    "lng": 14.4187784,
+    "display_name": "2097/10, Karlovo náměstí, Vyšehrad, obvod Praha 2, Praha, 120 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "120 00",
+    "country_code": "cz"
+  },
+  "cz|oc nový smíchov, 2. patro, plzeňská 8, 150 00, praha, czechia": null,
+  "cz|sauna, e. f. buriana 869/4a, 736 01, havířov, czechia": null,
+  "cz|sauna, u fortny 49, 746 01, opava, czechia": null,
+  "cz|forum nová karolina, jantarová 3344/4, 702 00, ostrava, czechia": {
+    "lat": 49.8308181,
+    "lng": 18.285286,
+    "display_name": "Forum Nová Karolina, 3344/4, Jantarová, Moravská Ostrava a Přívoz, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 702 00, Česko",
+    "importance": 0.1507975276546128,
+    "postcode": "702 00",
+    "country_code": "cz"
+  },
+  "cz|solarium, ostrovského 464/6, 150 00, praha, czechia": null,
+  "cz|analýza těla, argentinská 1610/4, 170 00, praha, czechia": null,
+  "cz|fitness, petržílkova 2583, 158 00, praha, czechia": null,
+  "cz|fitness, k radotínu 15, 156 00, praha, czechia": null,
+  "cz|sauna, špitálské nám. 3517, 400 01, ústí nad labem, czechia": null,
+  "cz|analýza těla, 28. října 3346/91, 702 00, ostrava, czechia": null,
+  "cz|fitness, pražská 255/41, 779 00, olomouc, czechia": null,
+  "cz|analýza těla, hlavní tř. 707/72, 708 00, ostrava, czechia": null,
+  "cz|fitness, přímá 671, 760 01, zlín, czechia": null,
+  "cz|fitness, mezi vodami 2416, 143 00, praha, czechia": null,
+  "cz|form factory botanická, 602 00, brno, czechia": {
+    "lat": 49.2114453,
+    "lng": 16.597538,
+    "display_name": "Form Factory, 598/72, Botanická, Ponava, Brno-Královo Pole, Brno, okres Brno-město, Jihomoravský kraj, 602 00, Česko",
+    "importance": 7.446021210035886e-05,
+    "postcode": "602 00",
+    "country_code": "cz"
+  },
+  "cz|forum nová karolina, jantarová 3344/4, 334 44, ostrava, czechia": {
+    "lat": 49.8308181,
+    "lng": 18.285286,
+    "display_name": "Forum Nová Karolina, 3344/4, Jantarová, Moravská Ostrava a Přívoz, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 702 00, Česko",
+    "importance": 0.1507975276546128,
+    "postcode": "702 00",
+    "country_code": "cz"
+  },
+  "cz|argentinská 1610/4, 161 04, praha, czechia": {
+    "lat": 50.1013246,
+    "lng": 14.4436031,
+    "display_name": "Triexpert, 1610/4, Argentinská, Holešovice, Praha 7, obvod Praha 7, Praha, 170 00, Česko",
+    "importance": 8.434958419160781e-05,
+    "postcode": "170 00",
+    "country_code": "cz"
+  },
+  "cz|form factory cubex, 209 76, praha, czechia": null,
+  "cz|form factory hradčanská, 116 10, praha, czechia": null,
+  "cz|28. října 3346/91, 334 69, ostrava, czechia": {
+    "lat": 49.8306631,
+    "lng": 18.2779171,
+    "display_name": "3346/91, 28. října, Moravská Ostrava a Přívoz, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 702 00, Česko",
+    "importance": 7.079957274734139e-05,
+    "postcode": "702 00",
+    "country_code": "cz"
+  },
+  "cz|pražská 255/41, 255 41, olomouc, czechia": {
+    "lat": 49.6022837,
+    "lng": 17.2207896,
+    "display_name": "255/41, Pražská, Řepčín, Olomouc, okres Olomouc, Olomoucký kraj, 779 00, Česko",
+    "importance": 6.98535133897462e-05,
+    "postcode": "779 00",
+    "country_code": "cz"
+  },
+  "cz|hlavní tř. 707/72, 707 72, ostrava, czechia": {
+    "lat": 49.8291431,
+    "lng": 18.1732234,
+    "display_name": "707/72, Hlavní třída, Poruba, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 708 00, Česko",
+    "importance": 7.079957274734139e-05,
+    "postcode": "708 00",
+    "country_code": "cz"
+  },
+  "cz|form factory veveří, 258 11, brno, czechia": {
+    "lat": 49.2101683,
+    "lng": 16.5898033,
+    "display_name": "Form Factory Veveří, Šumavská, Brno-Žabovřesky, Brno-střed, Brno, okres Brno-město, Jihomoravský kraj, 611 80, Česko",
+    "importance": 7.446021210035886e-05,
+    "postcode": "611 80",
+    "country_code": "cz"
+  }
+}

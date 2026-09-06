@@ -1,0 +1,22 @@
+{
+  "phase1_total": 1159,
+  "phase1_ready": 1097,
+  "by_brand": {
+    "McFIT": 181,
+    "JOHN REED": 34,
+    "Gold's Gym": 5,
+    "FitX": 43,
+    "all inclusive Fitness": 183,
+    "PRIME TIME fitness": 22,
+    "EASYFITNESS": 202,
+    "clever fit": 382,
+    "Fitness First": 107
+  },
+  "by_category": {
+    "READY_TO_IMPORT": 1097,
+    "CLOSED": 6,
+    "COMING_SOON": 15,
+    "NEEDS_COORDINATES": 37,
+    "NEEDS_REVIEW": 4
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "lv_eb2ad44f7d",
+    "name": "Lemon Gym Ziepniekkalns",
+    "brand": "Lemon Gym",
+    "chain_key": "lemon_gym",
+    "address": "Valdeķu iela 39",
+    "postal_code": "",
+    "city": "Rīga",
+    "country": "Latvia",
+    "lat": null,
+    "lng": null,
+    "website": "https://www.lemongym.lv/en/clubs/",
+    "source_url": "https://www.lemongym.lv/en/clubs/",
+    "coord_source": null,
+    "notes": "Official lemongym.lv — FROM 02.09 COMING_SOON; not open at Phase 1 audit; phase2_revalidated: lemongym.lv Aug 2026 — Ziepniekkalns still marked FROM 02.09 / NO SEPTEMBRA; opening 2026-09-02 not yet reached at Phase 2 audit; not operating",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://www.lemongym.lv/en/clubs/"
+    },
+    "phase2_disposition": "COMING_SOON"
+  }
+]

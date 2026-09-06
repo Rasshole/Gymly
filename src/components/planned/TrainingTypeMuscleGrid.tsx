@@ -9,6 +9,7 @@ import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import colors from '@/theme/colors';
 import {spacing, radius} from '@/theme/designTokens';
 import {useTranslation} from '@/i18n';
+import {toggleCheckInMuscleGroup} from '@/utils/muscleGroupLabels';
 
 const MUSCLE_GROUP_KEYS: MuscleGroup[] = [
   'bryst',
@@ -40,8 +41,8 @@ const MUSCLE_LABEL_KEYS: Record<MuscleGroup, string> = {
 const CARD_GAP = spacing.lg;
 
 export type TrainingTypeMuscleGridProps = {
-  value: MuscleGroup;
-  onChange: (group: MuscleGroup) => void;
+  value: MuscleGroup[];
+  onChange: (groups: MuscleGroup[]) => void;
 };
 
 const TrainingTypeMuscleGrid: React.FC<TrainingTypeMuscleGridProps> = ({
@@ -53,7 +54,7 @@ const TrainingTypeMuscleGrid: React.FC<TrainingTypeMuscleGridProps> = ({
     <View style={styles.grid}>
       {MUSCLE_GROUP_KEYS.map(key => {
         const label = t(MUSCLE_LABEL_KEYS[key]);
-        const isActive = value === key;
+        const isActive = value.includes(key);
         return (
           <View key={key} style={styles.cellOuter}>
             <TouchableOpacity
@@ -61,12 +62,12 @@ const TrainingTypeMuscleGrid: React.FC<TrainingTypeMuscleGridProps> = ({
               accessibilityRole="button"
               accessibilityState={{selected: isActive}}
               accessibilityLabel={label}
-              onPress={() => onChange(key)}
+              onPress={() => onChange(toggleCheckInMuscleGroup(value, key))}
               style={[styles.cell, isActive && styles.cellActive]}>
               <MuscleGroupTileIcon
+                key={`${key}-${isActive ? 'selected' : 'default'}`}
                 group={key}
                 size={40}
-                color={isActive ? '#fff' : colors.textMuted}
                 tintColor={isActive ? '#fff' : undefined}
               />
               <Text

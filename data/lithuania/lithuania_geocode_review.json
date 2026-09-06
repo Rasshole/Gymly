@@ -1,0 +1,702 @@
+[
+  {
+    "id": "lt_599d49215c",
+    "name": "Gym+ Vilnius Mokslininkų",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7515839,
+    "lng": 25.2649145,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "08448"
+  },
+  {
+    "id": "lt_e7e904234e",
+    "name": "Gym+ Vilnius PC Europa",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6956762,
+    "lng": 25.276438,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "09308"
+  },
+  {
+    "id": "lt_688d913f05",
+    "name": "Gym+ Vilnius URBAN HUB",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7656229,
+    "lng": 25.1951953,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "14185"
+  },
+  {
+    "id": "lt_5e91d3e3b7",
+    "name": "Gym+ Vilnius Ozo",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7139438,
+    "lng": 25.2726536,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "08243"
+  },
+  {
+    "id": "lt_bc598810fc",
+    "name": "Gym+ Vilnius Savanorių",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6793418,
+    "lng": 25.2573276,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "03103"
+  },
+  {
+    "id": "lt_b3e748e109",
+    "name": "Gym+ Vilnius Pavilnionių",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.736937,
+    "lng": 25.2117146,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "06142"
+  },
+  {
+    "id": "lt_05508dc595",
+    "name": "Gym+ Vilnius Dariaus ir Girėno",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6651687,
+    "lng": 25.2734766,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "02153"
+  },
+  {
+    "id": "lt_70c41d18a7",
+    "name": "Gym+ Vilnius Gedimino",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6873532,
+    "lng": 25.2817067,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "01103"
+  },
+  {
+    "id": "lt_7906e643a2",
+    "name": "Gym+ Vilnius Saltoniškių",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7004243,
+    "lng": 25.2575125,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "08105"
+  },
+  {
+    "id": "lt_b4dcd88872",
+    "name": "Gym+ Vilnius Kalvarijų",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7032123,
+    "lng": 25.282434,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "09303"
+  },
+  {
+    "id": "lt_52241d6b06",
+    "name": "Gym+ Vilnius Ukmergės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7268256,
+    "lng": 25.2397731,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "06120"
+  },
+  {
+    "id": "lt_038c37554c",
+    "name": "Gym+ Vilnius Priegliaus",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7099447,
+    "lng": 25.187429,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "06269"
+  },
+  {
+    "id": "lt_6ddca417a2",
+    "name": "Gym+ Vilnius Vytauto Pociūno",
+    "brand": "Gym+",
+    "coord_source": "VERIFIED_PREMISES_PIN",
+    "lat": 54.7026293,
+    "lng": 25.2060967,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "06264"
+  },
+  {
+    "id": "lt_11c7800655",
+    "name": "Gym+ Vilnius Žemaitės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6719967,
+    "lng": 25.2574973,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "03201"
+  },
+  {
+    "id": "lt_469dbe56a5",
+    "name": "Gym+ Vilnius Žirmūnų",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7178692,
+    "lng": 25.3032219,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "09124"
+  },
+  {
+    "id": "lt_b17e0562bf",
+    "name": "Gym+ Kaunas Lyderystės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9345228,
+    "lng": 23.9886865,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "49184"
+  },
+  {
+    "id": "lt_5e1bdb00d1",
+    "name": "Gym+ Kaunas Savanorių",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.904974,
+    "lng": 23.9185114,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "44147"
+  },
+  {
+    "id": "lt_2bc6b027e4",
+    "name": "Gym+ Kaunas Islandijos",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9400042,
+    "lng": 23.8924039,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "47446"
+  },
+  {
+    "id": "lt_767591bc25",
+    "name": "Gym+ Kaunas Baltų",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9278714,
+    "lng": 23.8816023,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "48193"
+  },
+  {
+    "id": "lt_c99c69835a",
+    "name": "Gym+ Kaunas Pramonės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9104619,
+    "lng": 23.9817814,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "51286"
+  },
+  {
+    "id": "lt_c0c3b3ba5e",
+    "name": "Gym+ Kaunas V. Krėvės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9161792,
+    "lng": 23.9608587,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "49488"
+  },
+  {
+    "id": "lt_aa6a3966e6",
+    "name": "Gym+ Klaipėda Bangų",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.7070953,
+    "lng": 21.1424094,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "91251"
+  },
+  {
+    "id": "lt_00c95cd280",
+    "name": "Gym+ Klaipėda H. Manto",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.7161568,
+    "lng": 21.1280914,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "92234"
+  },
+  {
+    "id": "lt_315bd35664",
+    "name": "Gym+ Klaipėda Akropolis",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.6928318,
+    "lng": 21.1565701,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "91182"
+  },
+  {
+    "id": "lt_4f9b9568d4",
+    "name": "Gym+ Klaipėda Arena",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.6868518,
+    "lng": 21.1562179,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "93226"
+  },
+  {
+    "id": "lt_783964bbc1",
+    "name": "Gym+ Klaipėda Vingio",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.6668119,
+    "lng": 21.1968118,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "95203"
+  },
+  {
+    "id": "lt_0aa89de8a5",
+    "name": "Gym+ Šiauliai Vairo",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.9210467,
+    "lng": 23.2958221,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "78140"
+  },
+  {
+    "id": "lt_5b1f24ce40",
+    "name": "Gym+ Šiauliai Gardino",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.9127292,
+    "lng": 23.2719746,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "78230"
+  },
+  {
+    "id": "lt_d9955aa280",
+    "name": "Gym+ Šiauliai Gumbinės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.9307047,
+    "lng": 23.2962272,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "77171"
+  },
+  {
+    "id": "lt_67bc5da2ce",
+    "name": "Gym+ Panevėžys Smėlynės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.7451027,
+    "lng": 24.3698661,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "35110"
+  },
+  {
+    "id": "lt_211bd0913a",
+    "name": "Gym+ Panevėžys Klaipėdos",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.7293434,
+    "lng": 24.3085579,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "37189"
+  },
+  {
+    "id": "lt_ad2adac4ef",
+    "name": "Gym+ Panevėžys Ukmergės",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.7277775,
+    "lng": 24.3660706,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "35201"
+  },
+  {
+    "id": "lt_5b02033f34",
+    "name": "Gym+ Alytus",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.4003506,
+    "lng": 24.0177584,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "63186"
+  },
+  {
+    "id": "lt_3874589af2",
+    "name": "Gym+ Marijampolė",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.5546939,
+    "lng": 23.3549696,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "68305"
+  },
+  {
+    "id": "lt_ac04c2ee6c",
+    "name": "Gym+ Mažeikiai",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 56.3038858,
+    "lng": 22.3484944,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "89234"
+  },
+  {
+    "id": "lt_85466a49c0",
+    "name": "Gym+ Kėdainiai",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.2799752,
+    "lng": 23.9633261,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "57361"
+  },
+  {
+    "id": "lt_f39f98eb03",
+    "name": "Gym+ Telšiai",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.9129016,
+    "lng": 21.8044795,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "90170"
+  },
+  {
+    "id": "lt_1e498c2e4f",
+    "name": "Gym+ Palanga",
+    "brand": "Gym+",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.9194432,
+    "lng": 21.0807999,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "00116"
+  },
+  {
+    "id": "lt_bc21f9653f",
+    "name": "Gym+ Vilnius Viršuliškių",
+    "brand": "Gym+",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "lt_eb655bb80e",
+    "name": "Lemon Gym Raudondvaris",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9181677,
+    "lng": 23.829884,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "47167"
+  },
+  {
+    "id": "lt_5d27655261",
+    "name": "Lemon Gym Šiaulių Akropolis",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.9076385,
+    "lng": 23.2607916,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "78322"
+  },
+  {
+    "id": "lt_723fd904a3",
+    "name": "Lemon Gym Vilniaus Žalgiris",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7034689,
+    "lng": 25.2766774,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "09300"
+  },
+  {
+    "id": "lt_b2b8ac4a64",
+    "name": "Lemon Gym Vilniaus Akropolis",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7105139,
+    "lng": 25.2631365,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "01402"
+  },
+  {
+    "id": "lt_7e6f007f43",
+    "name": "Lemon Gym Pikas",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7148064,
+    "lng": 25.2489175,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "07156"
+  },
+  {
+    "id": "lt_98dac4e739",
+    "name": "Lemon Gym Asanavičiūtė",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6891872,
+    "lng": 25.2100835,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "04315"
+  },
+  {
+    "id": "lt_561aafd381",
+    "name": "Lemon Gym Urmas",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9157964,
+    "lng": 23.9867361,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "51271"
+  },
+  {
+    "id": "lt_dcee389cb7",
+    "name": "Lemon Gym Skraja",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.670785,
+    "lng": 25.2592542,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "03204"
+  },
+  {
+    "id": "lt_1b9b31a01f",
+    "name": "Lemon Gym Vienuolis",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.688362,
+    "lng": 25.2765882,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "01104"
+  },
+  {
+    "id": "lt_3963b9131f",
+    "name": "Lemon Gym Kauno Žalgirio arena",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.8904082,
+    "lng": 23.9144444,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "44334"
+  },
+  {
+    "id": "lt_585ac8405d",
+    "name": "Lemon Gym Savanoriai",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9074759,
+    "lng": 23.9263867,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "50177"
+  },
+  {
+    "id": "lt_9d642a49f1",
+    "name": "Lemon Gym Šilainiai",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9301075,
+    "lng": 23.8841662,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "48190"
+  },
+  {
+    "id": "lt_459f3fcf45",
+    "name": "Lemon Gym Perkūnkiemis",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7414184,
+    "lng": 25.2233383,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "12128"
+  },
+  {
+    "id": "lt_1a0be783f8",
+    "name": "Lemon Gym Ateities",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7344486,
+    "lng": 25.2530222,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "06329"
+  },
+  {
+    "id": "lt_bd4f45a9ac",
+    "name": "Lemon Gym Antakalnis",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7037412,
+    "lng": 25.3107638,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10312"
+  },
+  {
+    "id": "lt_e3b03fe2fe",
+    "name": "Lemon Gym Banginis",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7098966,
+    "lng": 25.2993034,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "08235"
+  },
+  {
+    "id": "lt_ae46c595a4",
+    "name": "Lemon Gym Pilaitė",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7072909,
+    "lng": 25.1896787,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "06204"
+  },
+  {
+    "id": "lt_7352842442",
+    "name": "Lemon Gym Europa",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6961404,
+    "lng": 25.2778362,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "09307"
+  },
+  {
+    "id": "lt_4decf7f80b",
+    "name": "Lemon Gym Riešė",
+    "brand": "Lemon Gym",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7819792,
+    "lng": 25.2736668,
+    "category": "COMING_SOON",
+    "postal_code": "14262"
+  },
+  {
+    "id": "lt_c3d4f6ba00",
+    "name": "Lemon Gym Jonava (announced)",
+    "brand": "Lemon Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "lt_92cb16bf9d",
+    "name": "Impuls Vilnius Kareivių",
+    "brand": "Impuls",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7197387,
+    "lng": 25.2995548,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "09117"
+  },
+  {
+    "id": "lt_b49edd5919",
+    "name": "Impuls Vilnius Savanorių",
+    "brand": "Impuls",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.6752528,
+    "lng": 25.2527363,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "03501"
+  },
+  {
+    "id": "lt_f446893edd",
+    "name": "Impuls Vilnius Fabijoniškių",
+    "brand": "Impuls",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.730044,
+    "lng": 25.2463149,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "07108"
+  },
+  {
+    "id": "lt_73a259f27f",
+    "name": "Impuls Klaipėda",
+    "brand": "Impuls",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.7176269,
+    "lng": 21.1470093,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "92191"
+  },
+  {
+    "id": "lt_45641da581",
+    "name": "Impuls Panevėžys",
+    "brand": "Impuls",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 55.7340462,
+    "lng": 24.3374233,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "37310"
+  },
+  {
+    "id": "lt_94e5c84009",
+    "name": "FitClub Kaunas Šiaurės",
+    "brand": "FitClub",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9310726,
+    "lng": 23.9324244,
+    "category": "EXCLUDED",
+    "postal_code": "49238"
+  },
+  {
+    "id": "lt_cba61866ae",
+    "name": "FitClub Kaunas V. Krėvės",
+    "brand": "FitClub",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.9208039,
+    "lng": 23.9734784,
+    "category": "EXCLUDED",
+    "postal_code": "50358"
+  },
+  {
+    "id": "lt_ddceeb547a",
+    "name": "Fitus Vilnius Ukmergės",
+    "brand": "Fitus",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7393609,
+    "lng": 25.2253385,
+    "category": "EXCLUDED",
+    "postal_code": "12110"
+  },
+  {
+    "id": "lt_5f628ee472",
+    "name": "People Fitness Vilnius (legacy)",
+    "brand": "People Fitness",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 54.7004243,
+    "lng": 25.2575125,
+    "category": "EXCLUDED",
+    "postal_code": "08105"
+  },
+  {
+    "id": "lt_6dacc49d13",
+    "name": "VS Fitness (legacy brand)",
+    "brand": "VS Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "lt_3fae1cd240",
+    "name": "Fitness Factory Gym Garliava",
+    "brand": "Fitness Factory Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  }
+]

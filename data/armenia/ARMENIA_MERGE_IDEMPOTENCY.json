@@ -1,0 +1,23 @@
+{
+  "first_run": {
+    "insertions": 36,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12303,
+    "total_after": 12339,
+    "armenia_before": 0,
+    "armenia_after": 36
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12339,
+    "total_after": 12339,
+    "armenia_before": 36,
+    "armenia_after": 36,
+    "am_prefix_before": 36,
+    "am_prefix_after": 36
+  },
+  "idempotent": true
+}

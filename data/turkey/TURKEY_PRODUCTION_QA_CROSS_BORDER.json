@@ -1,0 +1,14 @@
+{
+  "invalid_ids": 0,
+  "invalid_countries": 0,
+  "invalid_postcodes": 0,
+  "missing_postcodes": 0,
+  "invalid_coordinates": 0,
+  "fallback_coordinates": 0,
+  "centroid_coordinates": 0,
+  "missing_fields": 0,
+  "mojibake": 0,
+  "raw_id_names": 0,
+  "cross_border": 0,
+  "cyprus_conflicts": 0
+}

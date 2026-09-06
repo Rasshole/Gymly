@@ -1,0 +1,43 @@
+{
+  "country": "Monaco",
+  "phase": 2,
+  "cases": [
+    {
+      "id": "monte_carlo_gym_eclub",
+      "classification": "A_current_successor",
+      "predecessor": "Monte-Carlo GYM",
+      "successor": "Eclub Monte-Carlo Gym",
+      "status": "RESOLVED",
+      "notes": "One current import unit: mc_acfff20d6b Eclub"
+    },
+    {
+      "id": "larvotto_gym_center_fit_factory",
+      "classification": "A_current_successor",
+      "predecessor": "Larvotto Gym Center (closed 2019 remodel)",
+      "successor": "Fit Factory Larvotto",
+      "status": "RESOLVED",
+      "notes": "One current import unit: mc_4d51f17fbd Fit Factory"
+    },
+    {
+      "id": "hercule_vs_stade_louis_ii",
+      "classification": "B_distinct_current_clubs",
+      "status": "RESOLVED",
+      "relationship": "A_DISTINCT_PUBLIC_GYMS",
+      "notes": "Port Hercule Mairie gym vs Fontvieille Stade Louis II weight room — both READY"
+    },
+    {
+      "id": "world_class_monaco_branding",
+      "classification": "C_name_confusion",
+      "identity": "World Class Cap-d'Ail",
+      "status": "RESOLVED",
+      "notes": "France 06320 — remains EXCLUDED FOREIGN_NEAR_BORDER"
+    },
+    {
+      "id": "fairmont_thermes_39",
+      "classification": "C_name_confusion",
+      "status": "RESOLVED",
+      "notes": "Hotel/spa/private members remain EXCLUDED"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

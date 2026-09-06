@@ -1,0 +1,354 @@
+{
+  "decisions": {
+    "al_2002d5b349": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "WELLNESS_ADDITIVE",
+      "address": "Rr. Ymer Kurti Wilson Square, Tirana",
+      "lat": 41.335,
+      "lng": 19.82,
+      "coord_source": "official_repeat_al_wilson_square",
+      "chain_key": "repeat",
+      "name": "Repeat Wilson Tirana",
+      "brand": "Repeat",
+      "website": "https://repeat.al/",
+      "notes": "Phase2: Repeat Wilson SMI WELLNESS_ADDITIVE; repeat.al verified conventional gym floor."
+    },
+    "al_4c11873a38": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Rr. Seit Teqja TEG Lundër, Tirana",
+      "lat": 41.365,
+      "lng": 19.72,
+      "coord_source": "official_repeat_al_teg_lunder",
+      "chain_key": "repeat",
+      "name": "Repeat TEG Tirana",
+      "brand": "Repeat",
+      "website": "https://repeat.al/",
+      "notes": "Phase2: Repeat TEG conventional public floor; Repeat estate 2/2 conventional (Nobis excluded)."
+    },
+    "al_fddc0d9db6": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_SPA_PRIMARY_HOTEL_WELLNESS",
+      "notes": "Phase2: Repeat Nobis EXCLUDED spa-primary/hotel-wellness (pool/spa primary, not conventional-only)."
+    },
+    "al_36c04c3f26": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Komuna e Parisit, Tirana",
+      "lat": 41.3285,
+      "lng": 19.812,
+      "coord_source": "official_flexgym_al_komuna_parisit",
+      "chain_key": "flex_gym",
+      "name": "Flex Gym Tirana",
+      "brand": "Flex Gym",
+      "website": "https://flexgym.al/",
+      "notes": "Phase2: Flex Gym Tirana conventional public floor; flexgym.al; FLEX_CLASS_A=False (1 site)."
+    },
+    "al_97da7476ce": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_UNVERIFIED_LOCAL_BRAND",
+      "notes": "Phase2: Planet Fitness Tirana EXCLUDED C_unverified_local_brand (insufficient premises proof Phase 2)."
+    },
+    "al_5125e8c161": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_UNVERIFIED_LOCAL_BRAND",
+      "notes": "Phase2: Fitness Centar Korçë EXCLUDED generic placeholder; Planet Fitness Korçë app platform not verified conventional premises."
+    },
+    "al_9ccb45b0ac": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Rruga Ali Baushi, Tirana",
+      "lat": 41.3295,
+      "lng": 19.808,
+      "coord_source": "directory_fitness_zone_ali_baushi",
+      "name": "Fitness Zone Tirana",
+      "brand": "Fitness Zone",
+      "notes": "Phase2: Fitness Zone Rruga Ali Baushi; defended conventional public floor."
+    },
+    "al_63db3f3a75": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Kristal Center Kati 1, Tirana",
+      "lat": 41.345,
+      "lng": 19.785,
+      "coord_source": "official_cheops_gym_kristal_center",
+      "name": "Cheops Gym Tirana",
+      "brand": "Cheops Gym",
+      "chain_key": "cheops_gym",
+      "notes": "Phase2: rebrand Premium Gym → Cheops Gym Kristal Center Kati 1; no duplicate created."
+    },
+    "al_a153565f54": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Rruga Dalip Peza Pallati 14/1 Kati 13, Durrës",
+      "postal_code": "4001",
+      "city": "Durrës",
+      "lat": 41.31897,
+      "lng": 19.4581,
+      "coord_source": "official_illyrian_fitness_dalip_peza_14_durres",
+      "name": "Illyrian Fitness Durrës",
+      "brand": "Illyrian Fitness",
+      "website": "https://illyrianfitness.al/",
+      "notes": "Phase2: Illyrian Fitness Durrës rooftop conventional gym; illyrianfitness.al verified."
+    },
+    "al_9cf7944b63": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Rruga Bajram Tusha, Durrës",
+      "lat": 41.318,
+      "lng": 19.452,
+      "coord_source": "directory_nandos_gym_bajram_tusha_durres",
+      "name": "Nandos Gym Durrës",
+      "brand": "Nandos Gym",
+      "notes": "Phase2: Nandos Gym Rruga Bajram Tusha Durrës; conventional public floor."
+    },
+    "al_ee54d79fc0": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Rruga At Gjergj Fishta, Shkodër",
+      "postal_code": "4001",
+      "lat": 42.0683,
+      "lng": 19.5126,
+      "coord_source": "directory_fitness_center_xxl_shkoder",
+      "name": "Fitness Center XXL Shkodër",
+      "brand": "Fitness Center XXL",
+      "chain_key": "fitness_center_xxl",
+      "notes": "Phase2: rebrand Fitness Centar Shkodër → Fitness Center XXL Rruga At Gjergj Fishta."
+    },
+    "al_33f34e6832": {
+      "status": "READY_TO_IMPORT",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "phase2_classification": "A_CONVENTIONAL_PUBLIC_GYM",
+      "address": "Rruga Sadik Zotaj, Vlorë",
+      "lat": 40.4667,
+      "lng": 19.4897,
+      "coord_source": "directory_nirvana_fitness_club_vlore",
+      "name": "Nirvana Fitness Club Vlorë",
+      "brand": "Nirvana Fitness Club",
+      "chain_key": "nirvana_fitness_club",
+      "notes": "Phase2: rebrand Fitness Centar Vlorë → Nirvana Fitness Club Rruga Sadik Zotaj."
+    },
+    "al_b7ea5d2aed": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Hard Rock Gym Tirana EXCLUDED — unverified conventional premises."
+    },
+    "al_9f00e1407b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Olympic Gym Tirana EXCLUDED — generic directory hit without defended premises."
+    },
+    "al_3c469a48c2": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Body Center Tirana EXCLUDED — premises not defended."
+    },
+    "al_271a5c98d9": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Arena Fitness Tirana EXCLUDED — no-coord/no-address directory noise."
+    },
+    "al_38791206d2": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Power Gym Tirana EXCLUDED — premises not defended."
+    },
+    "al_0cb916e01d": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Active Life Fitness Tirana EXCLUDED — no-coord directory noise."
+    },
+    "al_a1d2fcd224": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Iron Gym Tirana EXCLUDED — generic directory hit."
+    },
+    "al_74be039864": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_CROSSFIT_SPECIALIST",
+      "notes": "Phase2: Pro-Fit Tirana EXCLUDED — CrossFit/specialist risk."
+    },
+    "al_1f1dd66080": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Extreme Fitness Tirana EXCLUDED — premises not defended."
+    },
+    "al_29624d469b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_SPECIALIST_AEROBICS",
+      "notes": "Phase2: Forma Plus Tirana EXCLUDED — aerobics/specialist."
+    },
+    "al_dec0965f5e": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Kashar EXCLUDED — generic placeholder."
+    },
+    "al_ce0d993af0": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Blloku Active Fitness EXCLUDED — premises not defended."
+    },
+    "al_cf819586a8": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Centro Sport Tirana EXCLUDED — generic directory hit."
+    },
+    "al_dd630e4f17": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Max Gym Tirana EXCLUDED — no-coord directory noise."
+    },
+    "al_61dca99977": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "C_SPORTS_COMPLEX",
+      "notes": "Phase2: Pallati i Sportit / Sporti Pallati EXCLUDED C_SPORTS_COMPLEX institutional municipal."
+    },
+    "al_cd82bbcd2e": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Elbasan EXCLUDED — generic placeholder without defended premises."
+    },
+    "al_158c6b2054": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Fier EXCLUDED — generic placeholder."
+    },
+    "al_308485e69c": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Berat EXCLUDED — generic placeholder."
+    },
+    "al_05d95d21f5": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Lushnjë EXCLUDED — generic placeholder."
+    },
+    "al_bec40239b7": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Pogradec EXCLUDED — generic placeholder."
+    },
+    "al_fcbf72919b": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Kavajë EXCLUDED — generic placeholder."
+    },
+    "al_6d7f1b5900": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Gjirokastër EXCLUDED — generic placeholder."
+    },
+    "al_732e51b2b0": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Sarandë EXCLUDED — generic placeholder."
+    },
+    "al_7366a9a592": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Lezhë EXCLUDED — generic placeholder."
+    },
+    "al_94957484e2": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Kukës EXCLUDED — generic placeholder."
+    },
+    "al_8deab02dcd": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Peshkopi EXCLUDED — generic placeholder."
+    },
+    "al_e79659bec9": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Kamëz EXCLUDED — generic placeholder."
+    },
+    "al_c4405b1b3d": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Krujë EXCLUDED — generic placeholder."
+    },
+    "al_84b5ff1200": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Patos EXCLUDED — generic placeholder."
+    },
+    "al_6bbcd24508": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Kuçovë EXCLUDED — generic placeholder."
+    },
+    "al_1d3ecf3888": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Laç EXCLUDED — generic placeholder."
+    },
+    "al_15db0d4060": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Burrel EXCLUDED — generic placeholder."
+    },
+    "al_5224452e13": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Librazhd EXCLUDED — generic placeholder."
+    },
+    "al_ae1e02eb99": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Gramsh EXCLUDED — no-coord directory noise."
+    },
+    "al_5d547309b6": {
+      "status": "EXCLUDED",
+      "eligibility_path": "EXCLUDED",
+      "phase2_classification": "B_UNVERIFIED_PREMISES",
+      "notes": "Phase2: Fitness Centar Tepelenë EXCLUDED — generic placeholder."
+    }
+  },
+  "new_ready_ids": []
+}

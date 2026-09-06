@@ -1,0 +1,20 @@
+{
+  "regions": {
+    "Tbilisi": "A",
+    "Adjara": "A",
+    "Imereti": "B",
+    "Kvemo Kartli": "B",
+    "Shida Kartli": "B",
+    "Samegrelo-Zemo Svaneti": "B",
+    "Kakheti": "B",
+    "Abkhazia": "B",
+    "South Ossetia": "B",
+    "Other": "B"
+  },
+  "ready_by_region": {
+    "Tbilisi": 23,
+    "Adjara": 2
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0
+}

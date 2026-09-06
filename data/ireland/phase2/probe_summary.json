@@ -1,0 +1,149 @@
+[
+  {
+    "name": "flyefit_gyms",
+    "url": "https://www.flyefit.ie/gyms/",
+    "ok": true,
+    "bytes": 102871
+  },
+  {
+    "name": "flyefit_sm",
+    "url": "https://www.flyefit.ie/sitemap.xml",
+    "ok": true,
+    "bytes": 1148
+  },
+  {
+    "name": "flyefit_robots",
+    "url": "https://www.flyefit.ie/robots.txt",
+    "ok": true,
+    "bytes": 172
+  },
+  {
+    "name": "bdgyms",
+    "url": "https://bdgyms.com/",
+    "ok": true,
+    "bytes": 315544
+  },
+  {
+    "name": "bdgyms_loc",
+    "url": "https://bdgyms.com/locations/",
+    "ok": false
+  },
+  {
+    "name": "bdgyms_sm",
+    "url": "https://bdgyms.com/sitemap.xml",
+    "ok": true,
+    "bytes": 392
+  },
+  {
+    "name": "anytime_ie",
+    "url": "https://www.anytimefitness.ie/",
+    "ok": true,
+    "bytes": 144598
+  },
+  {
+    "name": "anytime_find",
+    "url": "https://www.anytimefitness.ie/find-gym/",
+    "ok": true,
+    "bytes": 88512
+  },
+  {
+    "name": "anytime_sm",
+    "url": "https://www.anytimefitness.ie/sitemap.xml",
+    "ok": true,
+    "bytes": 5616
+  },
+  {
+    "name": "anytime_robots",
+    "url": "https://www.anytimefitness.ie/robots.txt",
+    "ok": false
+  },
+  {
+    "name": "energie_ie",
+    "url": "https://www.energiefitness.ie/",
+    "ok": false
+  },
+  {
+    "name": "energie_clubs",
+    "url": "https://www.energiefitness.ie/clubs/",
+    "ok": false
+  },
+  {
+    "name": "energie_sm",
+    "url": "https://www.energiefitness.ie/sitemap_index.xml",
+    "ok": false
+  },
+  {
+    "name": "westwood",
+    "url": "https://www.westwood.ie/",
+    "ok": true,
+    "bytes": 720724
+  },
+  {
+    "name": "westwood_clubs",
+    "url": "https://www.westwood.ie/clubs/",
+    "ok": true,
+    "bytes": 454937
+  },
+  {
+    "name": "aura",
+    "url": "https://www.auralc.ie/",
+    "ok": false
+  },
+  {
+    "name": "aura_centres",
+    "url": "https://www.auralc.ie/centres/",
+    "ok": false
+  },
+  {
+    "name": "gymplus",
+    "url": "https://www.gymplus.ie/",
+    "ok": true,
+    "bytes": 188237
+  },
+  {
+    "name": "iconic",
+    "url": "https://www.iconichealthclubs.ie/",
+    "ok": true,
+    "bytes": 273597
+  },
+  {
+    "name": "rawgyms",
+    "url": "https://www.rawgyms.ie/",
+    "ok": false
+  },
+  {
+    "name": "perpetua",
+    "url": "https://perpetua.ie/",
+    "ok": true,
+    "bytes": 134073
+  },
+  {
+    "name": "swan",
+    "url": "https://www.swanleisure.ie/",
+    "ok": true,
+    "bytes": 36550
+  },
+  {
+    "name": "sportsco",
+    "url": "https://www.sportsco.ie/",
+    "ok": true,
+    "bytes": 60870
+  },
+  {
+    "name": "shoreline",
+    "url": "https://www.shorelineleisure.ie/",
+    "ok": true,
+    "bytes": 1705621
+  },
+  {
+    "name": "kingfisher",
+    "url": "https://www.kingfisherclub.com/",
+    "ok": false
+  },
+  {
+    "name": "oneescape",
+    "url": "https://www.oneescape.ie/",
+    "ok": true,
+    "bytes": 154616
+  }
+]

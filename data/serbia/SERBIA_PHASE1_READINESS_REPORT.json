@@ -1,0 +1,183 @@
+{
+  "country": "Serbia",
+  "phase": 1,
+  "market": "MIXED_CHAIN_INDEPENDENT",
+  "production_total": 11858,
+  "production_sha256": "f32fd0af4b1efe26d3da5676264b9a08bdc47ed6bd0a472b8b3278578896f5c5",
+  "serbia_live": 0,
+  "rs_prefix_live": 0,
+  "staging_total": 126,
+  "status_counts": {
+    "READY_TO_IMPORT": 56,
+    "EXCLUDED": 30,
+    "NEEDS_REVIEW": 34,
+    "NEEDS_COORDINATES": 6
+  },
+  "ready_to_import": 56,
+  "needs_review": 34,
+  "needs_coordinates": 6,
+  "excluded": 30,
+  "closed": 0,
+  "qualifying_class_a_chains": 3,
+  "class_a_locations": 56,
+  "class_a_estates_complete": true,
+  "plausible_independents": 38,
+  "municipal_candidates": 2,
+  "city_coverage": {
+    "Belgrade": "chain_and_independent_present",
+    "Novi Sad": "chain_and_independent_present",
+    "Niš": "independent_present_candidate",
+    "Kragujevac": "independent_present_candidate",
+    "Subotica": "independent_present_candidate",
+    "Pančevo": "chain_and_independent_present",
+    "Čačak": "independent_present_candidate",
+    "Kraljevo": "independent_present_candidate",
+    "Novi Pazar": "independent_present_candidate",
+    "Kruševac": "independent_present_candidate",
+    "Leskovac": "independent_present_candidate",
+    "Užice": "independent_present_candidate",
+    "Zrenjanin": "independent_present_candidate",
+    "Smederevo": "chain_and_independent_present",
+    "Valjevo": "independent_present_candidate",
+    "Šabac": "independent_present_candidate",
+    "Sombor": "independent_present_candidate",
+    "Vranje": "independent_present_candidate",
+    "Bujanovac": "independent_present_candidate",
+    "Preševo": "independent_present_candidate",
+    "Pirot": "independent_present_candidate",
+    "Sremska Mitrovica": "independent_present_candidate"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [],
+  "phase1_justified_a_gaps": [],
+  "data_quality": {
+    "invalid_postcodes_ready_review": [],
+    "mojibake": [],
+    "foreign_ready": [],
+    "fallback_ready": [],
+    "hotel_spa_leakage_ready": 0,
+    "kosovo_ready_leakage": 0,
+    "hard_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts_for_merge": 0
+  },
+  "cross_border": {
+    "hungary_ready": 0,
+    "romania_ready": 0,
+    "mk_ready": 0,
+    "ba_ready": 0,
+    "kosovo_ready": 0,
+    "foreign_probes_staged": 6,
+    "foreign_probes_excluded": 6,
+    "mitrovica_identity_gate": {
+      "sremska_mitrovica_serbia": true,
+      "kosovo_mitrovica_excluded": true,
+      "notes": "Sremska Mitrovica staged as Serbia; Kosovo Mitrovica probe EXCLUDED"
+    },
+    "probes": [
+      {
+        "name": "Szeged HU border probe",
+        "city": "Szeged",
+        "territory": "Hungary",
+        "import_category": "EXCLUDED",
+        "in_rs_gate": false
+      },
+      {
+        "name": "Skopje MK gym probe",
+        "city": "Skopje",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_rs_gate": false
+      },
+      {
+        "name": "Bijeljina BA gym probe",
+        "city": "Bijeljina",
+        "territory": "Bosnia and Herzegovina",
+        "import_category": "EXCLUDED",
+        "in_rs_gate": false
+      },
+      {
+        "name": "Timișoara RO border probe",
+        "city": "Timișoara",
+        "territory": "Romania",
+        "import_category": "EXCLUDED",
+        "in_rs_gate": false
+      },
+      {
+        "name": "Prishtina Kosovo false positive as Serbia",
+        "city": "Prishtina",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_rs_gate": false
+      },
+      {
+        "name": "Kosovo Mitrovica gym probe — NOT Sremska Mitrovica",
+        "city": "Mitrovica",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_rs_gate": false
+      }
+    ]
+  },
+  "language_alias_audit": {
+    "performed": true,
+    "languages": [
+      "Serbian",
+      "Latin",
+      "Cyrillic"
+    ],
+    "serbian_terms_used": [
+      "teretana",
+      "fitnes",
+      "fitnes centar",
+      "sportska sala",
+      "фитнес",
+      "teretana",
+      "gym"
+    ],
+    "cities_audited": [
+      "Belgrade",
+      "Novi Sad",
+      "Niš",
+      "Kragujevac",
+      "Subotica",
+      "Pančevo",
+      "Čačak",
+      "Kraljevo",
+      "Novi Pazar",
+      "Kruševac",
+      "Leskovac",
+      "Užice",
+      "Zrenjanin",
+      "Smederevo",
+      "Valjevo",
+      "Šabac",
+      "Sombor",
+      "Vranje",
+      "Bujanovac",
+      "Preševo",
+      "Pirot",
+      "Sremska Mitrovica"
+    ],
+    "independent_candidates": 38,
+    "notes": "Serbian-language discovery covers Belgrade capital cluster and regional cities; Mitrovica identity gate separates Sremska Mitrovica (Serbia) from Kosovo Mitrovica."
+  },
+  "hotel_spa_audit": {
+    "performed": true,
+    "hotel_spa_excluded": true,
+    "hotel_spa_leakage_ready": 0,
+    "notes": "Swiss Diamond style hotel amenities and mountain resort probes staged EXCLUDED."
+  },
+  "small_market_assessment": "MIXED_CHAIN_INDEPENDENT",
+  "phase2_required": true,
+  "merge_ready": false,
+  "projected_catalog": 11914,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "verdict": "SERBIA PHASE 2 REQUIRED BEFORE MERGE",
+  "ready_by_brand": {
+    "Ahilej": 33,
+    "Non Stop Fitness": 16,
+    "Mega Gym": 7
+  }
+}

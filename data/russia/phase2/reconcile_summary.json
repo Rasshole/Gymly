@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-08-29T21:24:50.788976+00:00",
+  "phase1_recovered": 1656,
+  "transitions": 1656,
+  "new_ready": 465,
+  "coming_soon": 0,
+  "excluded": 1191,
+  "closed": 0,
+  "status_counts": {
+    "EXCLUDED": 1191,
+    "NEW_READY_TO_IMPORT": 465
+  },
+  "class_a_estate_gaps": 0,
+  "material_city_audit": {
+    "Voronezh": {
+      "osm_elements_reviewed": 34,
+      "osm_candidates_reviewed": 0,
+      "promoted_to_ready": 0,
+      "audit_grade": "B",
+      "material_d_closed": "YES",
+      "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+      "promotions": []
+    },
+    "Krasnodar": {
+      "osm_elements_reviewed": 39,
+      "osm_candidates_reviewed": 0,
+      "promoted_to_ready": 0,
+      "audit_grade": "B",
+      "material_d_closed": "YES",
+      "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+      "promotions": []
+    },
+    "Khabarovsk": {
+      "osm_elements_reviewed": 17,
+      "osm_candidates_reviewed": 0,
+      "promoted_to_ready": 0,
+      "audit_grade": "B",
+      "material_d_closed": "YES",
+      "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+      "promotions": []
+    },
+    "Vladivostok": {
+      "osm_elements_reviewed": 25,
+      "osm_candidates_reviewed": 0,
+      "promoted_to_ready": 0,
+      "audit_grade": "B",
+      "material_d_closed": "YES",
+      "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+      "promotions": []
+    },
+    "Kursk": {
+      "osm_elements_reviewed": 10,
+      "osm_candidates_reviewed": 0,
+      "promoted_to_ready": 0,
+      "audit_grade": "B",
+      "material_d_closed": "YES",
+      "audit_note": "Phase 2 dedicated audit — raw OSM corpus reviewed; grade B closure when no production-grade independent promoted",
+      "promotions": []
+    }
+  },
+  "production_sha_unchanged": true
+}

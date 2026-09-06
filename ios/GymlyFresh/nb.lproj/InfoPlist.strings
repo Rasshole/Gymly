@@ -1,0 +1,7 @@
+/* Norwegian Bokmål — system permission usage descriptions */
+"NSCameraUsageDescription" = "Gymly trenger tilgang til kameraet for å ta bilder og videoer av treningsøktene og personlige rekorder.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Gymly bruker posisjonen din under aktiv trening, slik at du automatisk sjekkes ut når du forlater treningssenteret — også når appen kjører i bakgrunnen.";
+"NSLocationWhenInUseUsageDescription" = "Gymly trenger tilgang til posisjonen din for å sjekke inn på treningssentre når du er innenfor 50 meter.";
+"NSMicrophoneUsageDescription" = "Gymly trenger tilgang til mikrofonen for å ta opp video med lyd til treningsøktene og personlige rekorder.";
+"NSPhotoLibraryAddUsageDescription" = "Gymly trenger tillatelse til å lagre bilder og videoer i bildebiblioteket ditt.";
+"NSPhotoLibraryUsageDescription" = "Gymly trenger tilgang til bildebiblioteket ditt for å velge bilder og videoer å dele med treningsøktene.";

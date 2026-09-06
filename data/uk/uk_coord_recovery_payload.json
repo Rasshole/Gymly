@@ -1,0 +1,406 @@
+{
+  "start": {
+    "READY_TO_IMPORT": 1373,
+    "NEEDS_COORDINATES": 266,
+    "NEEDS_REVIEW": 13,
+    "COMING_SOON": 65,
+    "CLOSED": 0
+  },
+  "final": {
+    "READY_TO_IMPORT": 1474,
+    "COMING_SOON": 71,
+    "NEEDS_COORDINATES": 166,
+    "NEEDS_REVIEW": 5,
+    "CLOSED": 1
+  },
+  "recovered_nc": 100,
+  "recovered_nr": 1,
+  "n_rows": 1717,
+  "chains": [
+    {
+      "chain": "Anytime Fitness",
+      "before_ready": 110,
+      "recovered": 27,
+      "final_ready": 137,
+      "unresolved": 44
+    },
+    {
+      "chain": "JD Gyms",
+      "before_ready": 58,
+      "recovered": 20,
+      "final_ready": 78,
+      "unresolved": 27
+    },
+    {
+      "chain": "Snap Fitness",
+      "before_ready": 56,
+      "recovered": 15,
+      "final_ready": 71,
+      "unresolved": 31
+    },
+    {
+      "chain": "Everlast Gyms",
+      "before_ready": 32,
+      "recovered": 12,
+      "final_ready": 44,
+      "unresolved": 17
+    },
+    {
+      "chain": "Bannatyne",
+      "before_ready": 42,
+      "recovered": 6,
+      "final_ready": 48,
+      "unresolved": 15
+    },
+    {
+      "chain": "énergie Fitness",
+      "before_ready": 29,
+      "recovered": 5,
+      "final_ready": 34,
+      "unresolved": 13
+    },
+    {
+      "chain": "The Gym Group",
+      "before_ready": 252,
+      "recovered": 4,
+      "final_ready": 256,
+      "unresolved": 7
+    },
+    {
+      "chain": "Total Fitness",
+      "before_ready": 8,
+      "recovered": 3,
+      "final_ready": 11,
+      "unresolved": 4
+    },
+    {
+      "chain": "Virgin Active",
+      "before_ready": 24,
+      "recovered": 2,
+      "final_ready": 26,
+      "unresolved": 5
+    },
+    {
+      "chain": "David Lloyd",
+      "before_ready": 109,
+      "recovered": 3,
+      "final_ready": 112,
+      "unresolved": 1
+    },
+    {
+      "chain": "Nuffield Health",
+      "before_ready": 107,
+      "recovered": 3,
+      "final_ready": 110,
+      "unresolved": 0
+    },
+    {
+      "chain": "Fitness4Less / easyGym",
+      "before_ready": 5,
+      "recovered": 1,
+      "final_ready": 6,
+      "unresolved": 2
+    },
+    {
+      "chain": "Buzz Gym",
+      "before_ready": 6,
+      "recovered": 0,
+      "final_ready": 6,
+      "unresolved": 2
+    },
+    {
+      "chain": "Gymbox",
+      "before_ready": 8,
+      "recovered": -1,
+      "final_ready": 7,
+      "unresolved": 3
+    },
+    {
+      "chain": "Third Space",
+      "before_ready": 14,
+      "recovered": 1,
+      "final_ready": 15,
+      "unresolved": 0
+    }
+  ],
+  "suspicious": 14,
+  "ambiguous": 10,
+  "postcode_mismatches": 24,
+  "staging_collapses": 0,
+  "dup_extra": {
+    "same_id": [],
+    "same_brand_address_postcode": [],
+    "same_coords_same_brand": [],
+    "same_address_different_brand": [
+      {
+        "address": "stirling road",
+        "postal_code": "YO30 4TU",
+        "brands": [
+          "Everlast Gyms",
+          "PureGym"
+        ],
+        "names": [
+          "Everlast Gyms York",
+          "PureGym York Gym"
+        ]
+      },
+      {
+        "address": "greenbridge retail park",
+        "postal_code": "SN3 3SQ",
+        "brands": [
+          "Nuffield Health",
+          "The Gym Group"
+        ],
+        "names": [
+          "Nuffield Health Swindon Fitness & Wellbeing Gym",
+          "The Gym Group Swindon"
+        ]
+      }
+    ],
+    "legacy_rebrand_pairs": [
+      {
+        "names": [
+          "Everlast Gyms York",
+          "PureGym York Gym"
+        ],
+        "brands": [
+          "Everlast Gyms",
+          "PureGym"
+        ]
+      }
+    ]
+  },
+  "reclass": [
+    "Anytime Fitness London: NEEDS_REVIEW",
+    "JD Gyms Aberdeen: COMING_SOON",
+    "JD Gyms Basildon: COMING_SOON",
+    "JD Gyms Dunfermline: COMING_SOON",
+    "JD Gyms Newtownabbey: COMING_SOON",
+    "JD Gyms Wakefield: COMING_SOON",
+    "JD Gyms Watford: COMING_SOON",
+    "Nuffield Health Barrow: CLOSED"
+  ],
+  "left": [
+    "Anytime Fitness London — official test placeholder (Test 100 Lane / SW1A 1AA)",
+    "Virgin Active Chiswick Riverside — Nominatim hits Chiswick Park; not the Riverside club",
+    "Virgin Active Cannon Street (Walbrook) — no page cache; no new scrape",
+    "Virgin Active Clearview/Brentwood — no page cache; no new scrape",
+    "Energie Fitness Brentford — JSON-LD postcode truncated (TW8 0G); not invented",
+    "Snap Fitness Bristol (Filton) — official JSON-LD postalCode empty",
+    "Buzz Gym Oxford / Harrow — shopping-centre names only; no building-level OSM pin",
+    "Gymbox Elephant & Castle / Finsbury Park — unit addresses remained ambiguous",
+    "David Lloyd Northwood — official address did not resolve to a building pin",
+    "Nuffield remaining unresolved kept if official JSON-LD pin failed reverse locality check",
+    "Wrong-town Nominatim hits were demoted rather than imported"
+  ],
+  "demoted": [
+    "Anytime Fitness Basingstoke RG21 7SY -> SS6 7HQ",
+    "Anytime Fitness Birmingham (Hagley Road) B68 0LH -> WS3 2EY",
+    "Anytime Fitness Hemel Hempstead HP1 1BT -> HD9 3AZ",
+    "Anytime Fitness London EC4 6DE -> WA7 3FT",
+    "Bannatyne Ashford Health Club TN25 4BN -> TN24 8XH",
+    "JD Gyms Aintree L30 6TQ -> L25 2XE",
+    "JD Gyms Halifax HX3 5HZ -> S6 1JY",
+    "JD Gyms London Charlton SE7 8LU -> IP1 2EJ",
+    "JD Gyms Sheffield North S6 1NN -> B69 2BD",
+    "Snap Fitness Blackwood NP12 1AU -> OX11 7LQ",
+    "Snap Fitness Leeds (Oakwood POI)",
+    "Snap Fitness Retford DN22 6DS -> NR6 5DH",
+    "The Gym Group Norwich Sweet Briar NR6 5DH -> NR3 2AT",
+    "Third Space The Whiteley W2 4YN -> PO15 7LB",
+    "Fitness4Less New Malden KT3 4AH -> SE13 7HL",
+    "Bannatyne Belfast Health Club BT18 9QY -> BT8 7BP"
+  ],
+  "restored": [
+    "JD Gyms Liverpool Edge Lane",
+    "JD Gyms Oldbury READY",
+    "Gymbox Holborn",
+    "Snap Fitness Leeds Oakwood READY"
+  ],
+  "official": [
+    "Nuffield Health Letchworth Garden City",
+    "Nuffield Health Surbiton",
+    "Nuffield Health Tunbridge Wells",
+    "Third Space The Whiteley"
+  ],
+  "pc_mismatch_rows": [
+    {
+      "name": "Anytime Fitness Aldridge",
+      "official": "WS9 8QR",
+      "osm": "WS9 8QP"
+    },
+    {
+      "name": "Anytime Fitness Bristol (Yate)",
+      "official": "BS37 4AP",
+      "osm": "BS37 4AS"
+    },
+    {
+      "name": "Anytime Fitness Feltham",
+      "official": "TW13 4AH",
+      "osm": "TW13 4AE"
+    },
+    {
+      "name": "Anytime Fitness Hereford",
+      "official": "HR1 2DT",
+      "osm": "HR1 2DA"
+    },
+    {
+      "name": "Anytime Fitness London Acton",
+      "official": "W3 9DJ",
+      "osm": "W3 9NH"
+    },
+    {
+      "name": "Anytime Fitness London Fulham Hurlingham",
+      "official": "SW6 3EF",
+      "osm": "SW6 3EB"
+    },
+    {
+      "name": "Bannatyne Milton Keynes Health Club",
+      "official": "MK9 2EA",
+      "osm": "MK9 3DB"
+    },
+    {
+      "name": "Energie Fitness Archway",
+      "official": "N19 3NU",
+      "osm": "N19 4BT"
+    },
+    {
+      "name": "Energie Fitness Borough",
+      "official": "SE1 0FN",
+      "osm": "SE1 0BJ"
+    },
+    {
+      "name": "Energie Fitness Chingford",
+      "official": "E4 8LU",
+      "osm": "E4 8LT"
+    },
+    {
+      "name": "Energie Fitness Eltham",
+      "official": "SE9 6SU",
+      "osm": "SE9 6SW"
+    },
+    {
+      "name": "Everlast Gyms Keighley",
+      "official": "BD21 3RB",
+      "osm": "BD21 3RW"
+    },
+    {
+      "name": "Everlast Gyms St Helens Milverny",
+      "official": "WA9 5EE",
+      "osm": "WA9 1JF"
+    },
+    {
+      "name": "JD Gyms Birmingham",
+      "official": "B6 4NF",
+      "osm": "B6 4PE"
+    },
+    {
+      "name": "JD Gyms Brierley Hill",
+      "official": "DY5 3EU",
+      "osm": "DY5 3AA"
+    },
+    {
+      "name": "JD Gyms Preston",
+      "official": "PR2 2YQ",
+      "osm": "PR2 2PR"
+    },
+    {
+      "name": "JD Gyms Rugby",
+      "official": "CV21 2YX",
+      "osm": "CV21 2QS"
+    },
+    {
+      "name": "JD Gyms Salford",
+      "official": "M5 3TP",
+      "osm": "M5 4TN"
+    },
+    {
+      "name": "Snap Fitness Trowbridge",
+      "official": "BA14 8AT",
+      "osm": "BA14 8XR"
+    },
+    {
+      "name": "The Gym Group Lowestoft",
+      "official": "NR33 7NR",
+      "osm": "NR33 7NG"
+    },
+    {
+      "name": "Third Space The Whiteley",
+      "official": "W2 4YN",
+      "osm": "PO15 7LB"
+    },
+    {
+      "name": "Virgin Active Mayfair",
+      "official": "W1K 7DA",
+      "osm": "W1K 7JG"
+    },
+    {
+      "name": "Total Fitness Wrexham",
+      "official": "LL11 2BU",
+      "osm": "LL11 2NL"
+    },
+    {
+      "name": "JD Gyms Oldbury",
+      "official": "B69 4RJ",
+      "osm": "B69 2BD"
+    }
+  ],
+  "suspicious_rows": [
+    {
+      "name": "Anytime Fitness Bristol (Yate)",
+      "display": "Anytime Fitness, 17, East Walk, Yate, South Gloucestershire, West of England, England, BS37 4AS, United Kingdom"
+    },
+    {
+      "name": "Anytime Fitness Feltham",
+      "display": "Anytime Fitness, High Street, Sparrow Farm, Feltham, London Borough of Hounslow, Greater London, England, TW13 4AE, United Kingdom"
+    },
+    {
+      "name": "Anytime Fitness London Acton",
+      "display": "Anytime Fitness, High Street, London Borough of Ealing, Greater London, England, W3 9NH, United Kingdom"
+    },
+    {
+      "name": "Bannatyne Milton Keynes Health Club",
+      "display": "Bannatyne Health Club, 477-488, Midsummer Boulevard, Central Milton Keynes, Wolverton, Milton Keynes, City of Milton Keynes, England, MK9 3DB, United Kingdom"
+    },
+    {
+      "name": "Energie Fitness Archway",
+      "display": "énergie Fitness, Holloway Road, Tufnell Park, London Borough of Islington, Greater London, England, N19 4BT, United Kingdom"
+    },
+    {
+      "name": "Energie Fitness Chingford",
+      "display": "Energie Fitness, Chingford Mount Road, Royston Parade, Highams Park, London Borough of Waltham Forest, Greater London, England, E4 8LT, United Kingdom"
+    },
+    {
+      "name": "Energie Fitness Eltham",
+      "display": "énergie Fitness, Odeon Parade, Eltham Park, Well Hall, Royal Borough of Greenwich, Greater London, England, SE9 6SW, United Kingdom"
+    },
+    {
+      "name": "Everlast Gyms St Helens Milverny",
+      "display": "Evans Cycles & Gym, 5A, Milverny Way, Ravenhead Retail Park, Ravenhead, St Helens, Liverpool City Region, England, WA9 1JF, United Kingdom"
+    },
+    {
+      "name": "JD Gyms Birmingham",
+      "display": "JD Gyms, Elkington Street, Newtown, Aston, Birmingham, West Midlands, England, B6 4PE, United Kingdom"
+    },
+    {
+      "name": "JD Gyms Brierley Hill",
+      "display": "JD Gyms, Bell Street South, Church Hill, Brierley Hill, Dudley, West Midlands, England, DY5 3AA, United Kingdom"
+    },
+    {
+      "name": "JD Gyms Rugby",
+      "display": "JD Gyms, Wood Street, New Bilton, Newbold on Avon, Rugby, Warwickshire, England, CV21 2QS, United Kingdom"
+    },
+    {
+      "name": "The Gym Group Lowestoft",
+      "display": "The Gym Group, Unit 2, Gateway Retail Park, Gisleham, East Suffolk, Suffolk, England, NR33 7NG, United Kingdom"
+    },
+    {
+      "name": "Total Fitness Wrexham",
+      "display": "Total Fitness, Shellbark Close, Croes Eneurys, Rhosddu, Stansty, Wrexham, Cymru / Wales, LL11 2NL, United Kingdom"
+    },
+    {
+      "name": "JD Gyms Oldbury",
+      "display": "JD Gyms, Birchley Island Retail Park, Birchfield, Langley Village, Sandwell, West Midlands, England, B69 2BD, United Kingdom"
+    }
+  ]
+}

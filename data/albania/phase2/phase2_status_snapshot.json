@@ -1,0 +1,13 @@
+{
+  "status_counts": {
+    "EXCLUDED": 81,
+    "READY_TO_IMPORT": 9
+  },
+  "ready": 9,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "small_market_independent_ready": 9,
+  "projected_catalog": 11840,
+  "verdict": "READY FOR ALBANIA MERGE",
+  "sha": "5ad0b727989bf00f9d72757a4a4d06eb29298a8951f4630e4a7eb5cc81c4dd4e"
+}

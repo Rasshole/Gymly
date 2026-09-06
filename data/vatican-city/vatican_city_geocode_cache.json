@@ -1,0 +1,74 @@
+{
+  "va_c625ff43fa": {
+    "lat": 41.9038,
+    "lng": 12.4515,
+    "inside_vatican_gate": true,
+    "coord_source": "DIRECTORY"
+  },
+  "va_de8c261d87": {
+    "lat": 41.9042,
+    "lng": 12.4495,
+    "inside_vatican_gate": true,
+    "coord_source": "DIRECTORY"
+  },
+  "va_f58ea6ec15": {
+    "lat": 41.9028,
+    "lng": 12.4565,
+    "inside_vatican_gate": true,
+    "coord_source": "DIRECTORY"
+  },
+  "va_aa1b5d066e": {
+    "lat": 41.8892,
+    "lng": 12.4705,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_67ef1d1e2c": {
+    "lat": 41.903,
+    "lng": 12.4608,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_57a26c995f": {
+    "lat": 41.8969,
+    "lng": 12.4464,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_9cce34d4e4": {
+    "lat": 41.9105,
+    "lng": 12.462,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_bb9c40133d": {
+    "lat": 41.9088,
+    "lng": 12.4655,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_b7d7f783ef": {
+    "lat": 41.8985,
+    "lng": 12.4405,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_d811b1aa02": {
+    "lat": 41.91,
+    "lng": 12.48,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_ef777729ca": {
+    "lat": 41.912,
+    "lng": 12.49,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  },
+  "va_41a44687a0": {
+    "lat": 41.9025,
+    "lng": 12.461,
+    "inside_vatican_gate": false,
+    "coord_source": "DIRECTORY"
+  }
+}

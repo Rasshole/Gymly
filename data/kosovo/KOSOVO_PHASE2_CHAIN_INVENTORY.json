@@ -1,0 +1,127 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside Kosovo",
+  "qualifying_class_a_chains": 2,
+  "class_a_locations": 12,
+  "CLASS_A": true,
+  "market": "MIXED_CHAIN_INDEPENDENT_PHASE_EXECUTED",
+  "operators": {
+    "Five Star Fitness": {
+      "discovered_units": 7,
+      "conventional_public_floors_verified": 7,
+      "ready_sites": 7,
+      "verdict": "CLASS_A",
+      "class_a": true,
+      "website": "https://fivestarfitness.eu/",
+      "cities": [
+        "Prishtina",
+        "Fushë Kosovë",
+        "Prizren",
+        "Gjilan",
+        "Ferizaj"
+      ],
+      "notes": "7-site verified estate; Grand Hotel WELLNESS_ADDITIVE."
+    },
+    "Lets Go Gym": {
+      "discovered_units": 5,
+      "conventional_public_floors_verified": 5,
+      "ready_sites": 5,
+      "verdict": "CLASS_A",
+      "class_a": true,
+      "website": "https://letsgogym-ks.com/",
+      "cities": [
+        "Prishtina",
+        "Prizren"
+      ],
+      "notes": "5-site verified estate; letsgogym-ks.com."
+    },
+    "Fitness Zone": {
+      "claimed": 2,
+      "active": 1,
+      "conventional_public": 1,
+      "ready": 1,
+      "excluded": 2,
+      "excluded_phase1_ids": [
+        "xk_a7af40e3fe",
+        "xk_29fa84ecf0"
+      ],
+      "verdict": "SMI_SINGLE_SITE",
+      "class_a": false,
+      "estate_complete": true,
+      "notes": "Haxhi Zeka 25 only; below Class A threshold."
+    },
+    "Fitness Gym Prishtina": {
+      "discovered_units": 1,
+      "ready_sites": 1,
+      "verdict": "SMI_SINGLE_SITE",
+      "class_a": false,
+      "website": "https://www.fitness-prishtina.com/"
+    },
+    "Planet Fitness (local XK)": {
+      "PLANET_FITNESS_XK_ACTIVE_SITES": 0,
+      "verdict": "EXCLUDED_UNVERIFIED_LOCAL_BRAND",
+      "class_a": false
+    },
+    "Basic-Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "PureGym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "McFIT": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "JOHN REED": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Anytime Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Gold's Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "World Class": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitness Park": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FitActive": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Stay Fit Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "18GYM": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Ahilej": {
+      "verdict": "ABSENT",
+      "class_a": false,
+      "notes": "Serbia-only"
+    },
+    "XBody": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Clever Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FITINN": {
+      "verdict": "ABSENT",
+      "class_a": false
+    }
+  },
+  "international_recheck": "ABSENT — Anytime/Basic-Fit/McFIT/PureGym/World Class/Ahilej/JOHN REED/Gold's Gym"
+}

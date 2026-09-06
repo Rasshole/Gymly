@@ -46,7 +46,14 @@ if metro_ready; then
 fi
 
 echo "[Metro] Starting bundler (log: $LOG_FILE)..."
-nohup npx react-native start >> "$LOG_FILE" 2>&1 &
+RN_BIN="$ROOT/node_modules/.bin/react-native"
+if [ -x "$RN_BIN" ]; then
+  nohup "$RN_BIN" start >> "$LOG_FILE" 2>&1 &
+elif [ -n "${NODE_BINARY:-}" ] && [ -x "${NODE_BINARY}" ]; then
+  nohup "${NODE_BINARY}" "$ROOT/node_modules/react-native/cli.js" start >> "$LOG_FILE" 2>&1 &
+else
+  nohup npx react-native start >> "$LOG_FILE" 2>&1 &
+fi
 
 if wait_for_metro; then
   echo "[Metro] Ready on http://127.0.0.1:8081"

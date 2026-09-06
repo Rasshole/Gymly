@@ -24,7 +24,8 @@ import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useFormatRelativeTime} from '@/hooks/useFormatRelativeTime';
 import {formatRelativeTime as formatRelativeTimeUtil} from '@/utils/formatRelativeTime';
-import {getRuntimeLanguage, rt, useTranslation} from '@/i18n';
+import {getRuntimeLanguage, rt, useTranslation, badgeDisplayName} from '@/i18n';
+import type {TranslateFn} from '@/i18n';
 import {labelForMuscleToken} from '@/utils/muscleGroupLabels';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
@@ -123,8 +124,15 @@ function resolveBadgeDefinition(item: Notification): BadgeDefinition | undefined
   return BADGE_BY_ID[id];
 }
 
-function badgeUnlockDisplayName(item: Notification, def?: BadgeDefinition): string {
-  return def?.name || item.badgeName || (item.dataPayload?.badgeName as string) || 'Badge';
+function badgeUnlockDisplayName(
+  item: Notification,
+  def: BadgeDefinition | undefined,
+  t: TranslateFn,
+): string {
+  if (def) {
+    return badgeDisplayName(t, def);
+  }
+  return item.badgeName || (item.dataPayload?.badgeName as string) || 'Badge';
 }
 
 function friendCheckinMetaLine(item: Notification): string {
@@ -133,7 +141,7 @@ function friendCheckinMetaLine(item: Notification): string {
     const start = new Date(startedRaw);
     if (!Number.isNaN(start.getTime())) {
       const mins = Math.max(0, Math.floor((Date.now() - start.getTime()) / 60000));
-      return `${mins} min i gang`;
+      return rt('activeSession.minutesInProgress', {count: mins});
     }
   }
   return formatRelativeTimeUtil(item.timestamp, getRuntimeLanguage());
@@ -1066,7 +1074,7 @@ const NotificationsScreenInner = () => {
                 </Text>
                 <Text style={styles.message} numberOfLines={2} ellipsizeMode="tail">
                   {t('notifications.badgeUnlocked', {
-                    name: badgeUnlockDisplayName(item, badgeDefRow),
+                    name: badgeUnlockDisplayName(item, badgeDefRow, t),
                   })}
                 </Text>
                 <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
@@ -1109,20 +1117,20 @@ const NotificationsScreenInner = () => {
               disabled={friendReqBusyId === item.friendRequestId}
               style={[styles.friendReqBtn, styles.friendReqBtnMuted]}
               activeOpacity={0.8}>
-              <Text style={styles.friendReqBtnTextMuted}>Afvis</Text>
+              <Text style={styles.friendReqBtnTextMuted}>{t('groups.decline')}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => handleAcceptFriendRequest(item)}
               disabled={friendReqBusyId === item.friendRequestId}
               style={[styles.friendReqBtn, styles.friendReqBtnPrimary]}
               activeOpacity={0.8}>
-              <Text style={styles.friendReqBtnTextPrimary}>Acceptér</Text>
+              <Text style={styles.friendReqBtnTextPrimary}>{t('groups.accept')}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => handleDismissNotification(item)}
               style={styles.dismissIconBtn}
               hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
-              accessibilityLabel="Fjern notifikation"
+              accessibilityLabel={t('a11y.removeNotification')}
               activeOpacity={0.7}>
               <Icon name="close" size={22} color={colors.textMuted} />
             </TouchableOpacity>
@@ -1147,7 +1155,7 @@ const NotificationsScreenInner = () => {
                       sent && styles.checkinIconBtnSent,
                     ]}
                     activeOpacity={0.8}
-                    accessibilityLabel="Send biceps"
+                    accessibilityLabel={t('a11y.sendBiceps')}
                     accessibilityState={{disabled: sent || busy || !ck || !fid}}>
                     {busy ? (
                       <ActivityIndicator size="small" color={colors.primary} />
@@ -1168,7 +1176,7 @@ const NotificationsScreenInner = () => {
                     onPress={() => void handleFriendCheckinMessage(item)}
                     style={styles.checkinIconBtn}
                     activeOpacity={0.8}
-                    accessibilityLabel="Send besked">
+                    accessibilityLabel={t('a11y.sendMessage')}>
                     <Icon name="chatbubble-outline" size={20} color={colors.primary} />
                   </TouchableOpacity>
                 </>
@@ -1178,7 +1186,7 @@ const NotificationsScreenInner = () => {
               onPress={() => handleDismissNotification(item)}
               style={styles.dismissIconBtnTight}
               hitSlop={{top: 10, bottom: 10, left: 8, right: 8}}
-              accessibilityLabel="Fjern notifikation"
+              accessibilityLabel={t('a11y.removeNotification')}
               activeOpacity={0.7}>
               <Icon name="close" size={20} color={colors.textMuted} />
             </TouchableOpacity>
@@ -1198,7 +1206,7 @@ const NotificationsScreenInner = () => {
               onPress={() => handleDismissNotification(item)}
               style={styles.dismissIconBtn}
               hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
-              accessibilityLabel="Fjern notifikation"
+              accessibilityLabel={t('a11y.removeNotification')}
               activeOpacity={0.7}>
               <Icon name="close" size={22} color={colors.textMuted} />
             </TouchableOpacity>
@@ -1208,7 +1216,7 @@ const NotificationsScreenInner = () => {
             onPress={() => handleDismissNotification(item)}
             style={styles.dismissIconBtn}
             hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
-            accessibilityLabel="Fjern notifikation"
+            accessibilityLabel={t('a11y.removeNotification')}
             activeOpacity={0.7}>
             <Icon name="close" size={22} color={colors.textMuted} />
           </TouchableOpacity>

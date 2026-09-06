@@ -2,12 +2,14 @@ import {
   completeActiveTrainingSession,
   getActiveCheckInForUser,
 } from '@/services/supabase/checkInService';
+import {completeGymlyGroupParticipant} from '@/services/supabase/gymlyGroupSessionService';
 import {deleteMyLiveWorkoutSession} from '@/services/supabase/liveWorkoutSessionService';
 import {cleanupAllGymlyLiveActivities} from '@/services/ios/workoutLiveActivity';
 import {notifyCheckInsPresenceSubscribers} from '@/realtime/checkInsPresenceSubscription';
 import {useSessionStore} from '@/store/sessionStore';
 import {useCheckInUIStore} from '@/store/checkInUIStore';
 import {useTrainingStatsStore} from '@/store/trainingStatsStore';
+import {useWorkoutLogStore} from '@/store/workoutLogStore';
 import {
   requestUserTrainingStatsRefresh,
   applyOptimisticCompletedTraining,
@@ -85,6 +87,11 @@ export async function completeWorkoutSession(params: {
           syncLocalWorkoutHistoryFromCompleted(userId, completed);
         }
       }
+      try {
+        await completeGymlyGroupParticipant(resolvedCheckInId);
+      } catch {
+        /* group session optional */
+      }
     }
   }
 
@@ -93,6 +100,7 @@ export async function completeWorkoutSession(params: {
 
   useSessionStore.getState().endSession();
   useCheckInUIStore.getState().setShowAwayZoneWarning(false);
+  useWorkoutLogStore.getState().reset();
   notifyCheckInsPresenceSubscribers();
   requestUserTrainingStatsRefresh(userId);
 

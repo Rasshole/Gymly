@@ -1,0 +1,61 @@
+{
+  "country": "Monaco",
+  "phase": 1,
+  "verdict": "MONACO PHASE 2 REQUIRED BEFORE MERGE",
+  "phase2_required": true,
+  "small_market_model": "INDEPENDENT_PHASE_RECOMMENDED",
+  "production_total": 11711,
+  "production_sha256": "bde8ba6b5ac7467078e971732e0deeb42e3fb338f5280f390d8395714792f02f",
+  "monaco_live": 0,
+  "andorra_live": 12,
+  "liechtenstein_live": 7,
+  "iceland_live": 27,
+  "unique_staged": 39,
+  "status_counts": {
+    "NEEDS_REVIEW": 4,
+    "EXCLUDED": 35
+  },
+  "ready_count": 0,
+  "independent_candidate_count": 2,
+  "municipal_candidate_count": 2,
+  "class_a_chains": 0,
+  "class_a_locations": 0,
+  "district_coverage": {
+    "Monte-Carlo": "independent_present_candidate",
+    "La Condamine": "municipal_candidate",
+    "Fontvieille": "municipal_candidate",
+    "Larvotto": "independent_present_candidate",
+    "Monaco-Ville": "A_legitimate_no_gym_presence",
+    "Moneghetti": "A_legitimate_no_gym_presence",
+    "Jardin Exotique": "A_legitimate_no_gym_presence",
+    "La Rousse": "A_legitimate_no_gym_presence"
+  },
+  "unexplained_district_bd_gaps": 0,
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_fields": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_territorial_outliers": 0,
+    "french_contamination": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "details": {
+      "duplicate_ids": [],
+      "invalid_postcodes": [],
+      "missing_fields": [],
+      "invalid_coordinates": [],
+      "fallback_coordinates": [],
+      "foreign_outliers": [],
+      "french_contamination": [],
+      "mojibake": []
+    }
+  },
+  "projected_catalog_if_merged": 11711,
+  "crossed_12500": false,
+  "global_stress_qa_required": false,
+  "check_in_radius_meters": 200,
+  "auto_checkout_meters": 200,
+  "architecture": "KEEP CLIENT-SIDE"
+}

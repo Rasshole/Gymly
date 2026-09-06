@@ -1,0 +1,788 @@
+[
+  {
+    "id": "no_2d944dc95b",
+    "name": "Feel24 Alstad",
+    "brand": "Feel24",
+    "address": "Notveien 17",
+    "postal_code": "8013",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/alstad",
+    "legacy_brand": null,
+    "center_name": "alstad",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_4c04c19d18",
+        "name": "Feel24 Alstad"
+      }
+    ]
+  },
+  {
+    "id": "no_3cea5509a7",
+    "name": "Feel24 Treningssenter Feel24 Balanse",
+    "brand": "Feel24",
+    "address": "Sjøgata 6",
+    "postal_code": "8006",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/balanse",
+    "legacy_brand": null,
+    "center_name": "balanse",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_3ea80249f8",
+        "name": "Feel24 Balanse"
+      }
+    ]
+  },
+  {
+    "id": "no_bc29e32265",
+    "name": "Feel24 Bodo Performance",
+    "brand": "Feel24",
+    "address": "Nordstrandveien 41",
+    "postal_code": "8012",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/bodo-performance",
+    "legacy_brand": null,
+    "center_name": "bodo-performance",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_521966d012",
+        "name": "Feel24 Bodø Performance"
+      }
+    ]
+  },
+  {
+    "id": "no_f8833ab8ff",
+    "name": "Feel24 Bodo Sentrum",
+    "brand": "Feel24",
+    "address": "Dronningens gate 56",
+    "postal_code": "8006",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/bodo-sentrum",
+    "legacy_brand": null,
+    "center_name": "bodo-sentrum",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_1e59ef1166",
+        "name": "Feel24 Bodø Sentrum"
+      }
+    ]
+  },
+  {
+    "id": "no_3a4749e409",
+    "name": "Feel24 Bodo Tverlandet",
+    "brand": "Feel24",
+    "address": "Kvilut 24",
+    "postal_code": "8050",
+    "city": "Tverlandet",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/bodo-tverlandet",
+    "legacy_brand": null,
+    "center_name": "bodo-tverlandet",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_f3a7362c82",
+        "name": "Feel24 Bodø Tverlandet"
+      }
+    ]
+  },
+  {
+    "id": "no_f8b081de32",
+    "name": "Feel24 Misvaer",
+    "brand": "Feel24",
+    "address": "Kulturveien 3576",
+    "postal_code": "8100",
+    "city": "Misvær",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/misvaer",
+    "legacy_brand": null,
+    "center_name": "misvaer",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_7fb03354b5",
+        "name": "Feel24 Misvær"
+      }
+    ]
+  },
+  {
+    "id": "no_e5b61cbe17",
+    "name": "Feel24 Morkved",
+    "brand": "Feel24",
+    "address": "Kongsdatterveien 26/28",
+    "postal_code": "8028",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/morkved",
+    "legacy_brand": null,
+    "center_name": "morkved",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_dfe9d5dcce",
+        "name": "Feel24 Bodø Mørkved"
+      }
+    ]
+  },
+  {
+    "id": "no_8914604ff1",
+    "name": "Feel24 Olav V",
+    "brand": "Feel24",
+    "address": "Olav V gate 102",
+    "postal_code": "8004",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/olav-v",
+    "legacy_brand": null,
+    "center_name": "olav-v",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_ffb4f24c2a",
+        "name": "Feel24 Bodø Olav V"
+      }
+    ]
+  },
+  {
+    "id": "no_41cf88ab8d",
+    "name": "Feel24 Ronvika",
+    "brand": "Feel24",
+    "address": "Dreyfushammarn 17",
+    "postal_code": "8012",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/ronvika",
+    "legacy_brand": null,
+    "center_name": "ronvika",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_2620268436",
+        "name": "Feel24 Rønvika"
+      }
+    ]
+  },
+  {
+    "id": "no_1118e08319",
+    "name": "Feel24 Vestbyen",
+    "brand": "Feel24",
+    "address": "General Fleischers gate 11",
+    "postal_code": "8003",
+    "city": "Bodø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-bodo/vestbyen",
+    "legacy_brand": null,
+    "center_name": "vestbyen",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_2deb34ac09",
+        "name": "Feel24 Bodø Vestbyen"
+      }
+    ]
+  },
+  {
+    "id": "no_5b4a148aad",
+    "name": "Feel24 Feelgood Harstad",
+    "brand": "Feel24",
+    "address": "Hans Egedes gate 6",
+    "postal_code": "9405",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/feelgood-harstad",
+    "legacy_brand": null,
+    "center_name": "feelgood-harstad",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_live",
+    "matched": [
+      {
+        "id": "no_6178a477c9",
+        "name": "Feel24 Harstad Sentrum",
+        "brand": "Feel24"
+      }
+    ]
+  },
+  {
+    "id": "no_25595dcc6e",
+    "name": "Feel24 Harstad Grottebadet",
+    "brand": "Feel24",
+    "address": "Håkons gate 7",
+    "postal_code": "9405",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-grottebadet",
+    "legacy_brand": null,
+    "center_name": "harstad-grottebadet",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_82de7bbbbc",
+        "name": "Feel24 Harstad Grottebadet"
+      }
+    ]
+  },
+  {
+    "id": "no_d0d0d452ae",
+    "name": "Feel24 Harstad Medkila",
+    "brand": "Feel24",
+    "address": "Mølnholtet 8",
+    "postal_code": "9414",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-medkila",
+    "legacy_brand": null,
+    "center_name": "harstad-medkila",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_e12a08c3de",
+        "name": "Feel24 Harstad Medkila"
+      }
+    ]
+  },
+  {
+    "id": "no_acaac8268b",
+    "name": "Feel24 Harstad Sama",
+    "brand": "Feel24",
+    "address": "Flåtenveien 2",
+    "postal_code": "9404",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-sama",
+    "legacy_brand": null,
+    "center_name": "harstad-sama",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_92c0b711e4",
+        "name": "Feel24 Harstad Sama"
+      }
+    ]
+  },
+  {
+    "id": "no_12b5aedc89",
+    "name": "Feel24 Harstad Seljestad",
+    "brand": "Feel24",
+    "address": "Tunneset 8",
+    "postal_code": "9407",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-seljestad",
+    "legacy_brand": null,
+    "center_name": "harstad-seljestad",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_live",
+    "matched": [
+      {
+        "id": "no_aeba10cb0f",
+        "name": "Feel24 Harstad Seljestad",
+        "brand": "Feel24"
+      }
+    ]
+  },
+  {
+    "id": "no_4215f697a3",
+    "name": "Feel24 Harstad Sentrum",
+    "brand": "Feel24",
+    "address": "Hans Egedes gate 6",
+    "postal_code": "9405",
+    "city": "Harstad",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-harstad/harstad-sentrum",
+    "legacy_brand": null,
+    "center_name": "harstad-sentrum",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_live",
+    "matched": [
+      {
+        "id": "no_6178a477c9",
+        "name": "Feel24 Harstad Sentrum",
+        "brand": "Feel24"
+      }
+    ]
+  },
+  {
+    "id": "no_dd080b9747",
+    "name": "Feel24 Feel24 Eidkjosen",
+    "brand": "Feel24",
+    "address": "Fjordvegen 12",
+    "postal_code": "9107",
+    "city": "Kvaløya",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/feel24-eidkjosen",
+    "legacy_brand": null,
+    "center_name": "feel24-eidkjosen",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_2fcd289264",
+        "name": "Feel24 Eidkjosen"
+      }
+    ]
+  },
+  {
+    "id": "no_d6bd79a196",
+    "name": "Feel24 Tromso Fagereng",
+    "brand": "Feel24",
+    "address": "Kvaløyvegen 103",
+    "postal_code": "9013",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-fagereng",
+    "legacy_brand": null,
+    "center_name": "tromso-fagereng",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_d0685e1a04",
+        "name": "Feel24 Tromsø Fagereng"
+      }
+    ]
+  },
+  {
+    "id": "no_4bd2553727",
+    "name": "Feel24 Tromso Hapet",
+    "brand": "Feel24",
+    "address": "Ørnevegen 110",
+    "postal_code": "9015",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-hapet",
+    "legacy_brand": null,
+    "center_name": "tromso-hapet",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_4d593d7289",
+        "name": "Feel24 Tromsø Håpet"
+      }
+    ]
+  },
+  {
+    "id": "no_368bfe5a8c",
+    "name": "Feel24 Tromso Isrenna",
+    "brand": "Feel24",
+    "address": "Stakkevollvegen 333",
+    "postal_code": "9019",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-isrenna",
+    "legacy_brand": null,
+    "center_name": "tromso-isrenna",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_018f98b224",
+        "name": "Feel24 Tromsø Isrenna"
+      }
+    ]
+  },
+  {
+    "id": "no_7630a4e3ad",
+    "name": "Feel24 Tromso Skippergata",
+    "brand": "Feel24",
+    "address": "Skippergata 7A",
+    "postal_code": "9008",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-skippergata",
+    "legacy_brand": null,
+    "center_name": "tromso-skippergata",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_e957f82e0e",
+        "name": "Feel24 Tromsø Skippergata"
+      }
+    ]
+  },
+  {
+    "id": "no_a9d6dd591b",
+    "name": "Feel24 Tromso Sportssenter",
+    "brand": "Feel24",
+    "address": "Stakkevollvegen 65B",
+    "postal_code": "9010",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-sportssenter",
+    "legacy_brand": null,
+    "center_name": "tromso-sportssenter",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_3be165cf87",
+        "name": "Feel24 Tromsø Sportssenter"
+      }
+    ]
+  },
+  {
+    "id": "no_6a792fbae2",
+    "name": "Feel24 Tromso Strandgata",
+    "brand": "Feel24",
+    "address": "Strandgata 5/7",
+    "postal_code": "9008",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-strandgata",
+    "legacy_brand": null,
+    "center_name": "tromso-strandgata",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_4f1f93cc08",
+        "name": "Feel24 Tromsø Strandgata"
+      }
+    ]
+  },
+  {
+    "id": "no_1600bb84ad",
+    "name": "Feel24 Tromso The Box",
+    "brand": "Feel24",
+    "address": "Stakkevollvegen 11",
+    "postal_code": "9010",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-the-box",
+    "legacy_brand": null,
+    "center_name": "tromso-the-box",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_1089e87edb",
+        "name": "Feel24 Tromsø The Box"
+      }
+    ]
+  },
+  {
+    "id": "no_36c33446e7",
+    "name": "Feel24 Tromso Tomasjord",
+    "brand": "Feel24",
+    "address": "Evjenvegen 144",
+    "postal_code": "9024",
+    "city": "Tomasjord",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-tomasjord",
+    "legacy_brand": null,
+    "center_name": "tromso-tomasjord",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_61c331f57a",
+        "name": "Feel24 Tromsø Tomasjord"
+      }
+    ]
+  },
+  {
+    "id": "no_c903c252be",
+    "name": "Feel24 Tromso Treningssenter",
+    "brand": "Feel24",
+    "address": "Dramsveien 206",
+    "postal_code": "9010",
+    "city": "Tromsø",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-treningssenter",
+    "legacy_brand": null,
+    "center_name": "tromso-treningssenter",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_a214fbb72c",
+        "name": "Feel24 Tromsø Treningssenter"
+      }
+    ]
+  },
+  {
+    "id": "no_a3c2a00609",
+    "name": "Feel24 Tromso Tromsdalen",
+    "brand": "Feel24",
+    "address": "Solstrandvegen 25",
+    "postal_code": "9020",
+    "city": "Tromsdalen",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-tromso/tromso-tromsdalen",
+    "legacy_brand": null,
+    "center_name": "tromso-tromsdalen",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_32a1fcf9b7",
+        "name": "Feel24 Tromsø Tromsdalen"
+      }
+    ]
+  },
+  {
+    "id": "no_c2ea0c352f",
+    "name": "3T-Treningssenter Leangen",
+    "brand": "3T-Treningssenter",
+    "address": "Leangenveien 10",
+    "postal_code": "7044",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.3t.no/treningssenter/3t-leangen",
+    "legacy_brand": null,
+    "center_name": "3t-leangen",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_d1775cf8dc",
+        "name": "3T-Treningssenter Leangen"
+      }
+    ]
+  },
+  {
+    "id": "no_efb87694da",
+    "name": "3T-Treningssenter Ranheim",
+    "brand": "3T-Treningssenter",
+    "address": "Ranheimsvegen 174",
+    "postal_code": "7055",
+    "city": "Ranheim",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.3t.no/treningssenter/3t-ranheim",
+    "legacy_brand": null,
+    "center_name": "3t-ranheim",
+    "import_category": "READY_TO_GEOCODE",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "dup_reason": "same_address_same_brand_as_staging",
+    "matched": [
+      {
+        "id": "no_e36244dc22",
+        "name": "3T-Treningssenter Ranheim"
+      }
+    ]
+  }
+]

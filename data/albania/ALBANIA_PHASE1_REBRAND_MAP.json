@@ -1,0 +1,38 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "F_unresolved",
+      "entities": [
+        "Repeat Tirana estate (Wilson, Nobis, TEG)"
+      ],
+      "notes": "Confirm 3 Tirana floors are conventional public vs mall-wellness — Phase 2 Class A audit",
+      "phase2": true
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Planet Fitness Tirana (local)",
+        "International Planet Fitness probe"
+      ],
+      "notes": "Local Planet Fitness branding — verify distinct from US chain Phase 2"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Flex Gym Tirana",
+        "Flex Classes CrossFit Tirana"
+      ],
+      "notes": "Flex conventional vs CrossFit specialist — distinct entities; CrossFit EXCLUDED"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Hard Rock Gym Tirana",
+        "Olympic Gym Tirana"
+      ],
+      "notes": "Distinct Tirana independents pending Phase 2 premises proof"
+    }
+  ],
+  "note": "Phase 1 allows Phase 2 holds; merge gate requires 0 unresolved before merge."
+}

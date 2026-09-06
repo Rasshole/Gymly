@@ -1,0 +1,371 @@
+[
+  {
+    "id": "sk_7cb58f08b2",
+    "name": "FITINN Bratislava-Nido.",
+    "brand": "FITINN",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.165087,
+    "lng": 17.1488237,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_a21f5556ce",
+    "name": "FITINN Bratislava-Prior",
+    "brand": "FITINN",
+    "coord_source": "OFFICIAL_PAGE_EMBED",
+    "lat": 48.1450429,
+    "lng": 17.1133893,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_3c9e2902a5",
+    "name": "FITINN NITRA",
+    "brand": "FITINN",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.3088921,
+    "lng": 18.0853405,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_8da8ec898e",
+    "name": "Golem Club Aupark Bratislava",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.132411,
+    "lng": 17.1076755,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_75e20b1a12",
+    "name": "Golem Club Avion Bratislava",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1655848,
+    "lng": 17.1806614,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_d74cb69f14",
+    "name": "Golem Club Central Bratislava",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1577369,
+    "lng": 17.1298836,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_8406d030d6",
+    "name": "Golem Club Bory Mall Bratislava",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1848775,
+    "lng": 17.0503034,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_8e4b2176f1",
+    "name": "Golem Club Tower 115 Bratislava",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1413495,
+    "lng": 17.1274644,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_7badf0792e",
+    "name": "Golem Club Polus Bratislava",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1686279,
+    "lng": 17.1396851,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_108c817843",
+    "name": "Golem Club Relaxx Bratislava",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1308641,
+    "lng": 17.1156631,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_14940068f0",
+    "name": "Golem Club Aupark Žilina",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 49.2204991,
+    "lng": 18.7405046,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_0ebf33c4c0",
+    "name": "Golem Club Aupark Košice",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.7578206,
+    "lng": 21.922098,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_03897b040f",
+    "name": "Golem Club Forum Poprad",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 49.0535304,
+    "lng": 20.2989736,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_5606441214",
+    "name": "Golem Club Tulip Martin",
+    "brand": "Golem Club",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 49.0848176,
+    "lng": 18.9242559,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_f07f2a0ec8",
+    "name": "365 Fit&Co Banská Bystrica",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.7133741,
+    "lng": 19.1364486,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_472af3e9c0",
+    "name": "365 Fit&Co Bratislava Eurovea",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1402211,
+    "lng": 17.122985,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_e620afdd52",
+    "name": "365 Fit&Co Košice Hypertesco",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.740973,
+    "lng": 21.267226,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_33f6b218d7",
+    "name": "365 Fit&Co Bratislava Lamač",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1770911,
+    "lng": 17.0649412,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_e2e731c634",
+    "name": "365 Fit&Co Prešov OC Eperia",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.9892505,
+    "lng": 21.2622013,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_488e99ae6f",
+    "name": "365 Fit&Co Košice ROCA",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.697532,
+    "lng": 21.263506,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_4e3566cb09",
+    "name": "365 Fit&Co Spišská Nová Ves",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.94807,
+    "lng": 20.549443,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_6468c441e9",
+    "name": "365 Fit&Co Trenčín Južanka",
+    "brand": "365 Fit&Co",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.87465,
+    "lng": 18.045163,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_f8e794db12",
+    "name": "365 Fit&Co Bratislava Digital Park",
+    "brand": "365 Fit&Co",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "CLOSED"
+  },
+  {
+    "id": "sk_45b2a09ddc",
+    "name": "Form Factory Fitness Budatínska",
+    "brand": "Form Factory",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON"
+  },
+  {
+    "id": "sk_acf5a3324d",
+    "name": "Form Factory Fitness Europa BC",
+    "brand": "Form Factory",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON"
+  },
+  {
+    "id": "sk_44e18ed683",
+    "name": "Form Factory Fitness PUMP",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1232938,
+    "lng": 17.1337359,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_1fcfae9981",
+    "name": "Form Factory Fitness Cassovia",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.6960267,
+    "lng": 21.2514881,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_64c8490eb4",
+    "name": "Form Factory Fitness Slnečnice",
+    "brand": "Form Factory",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON"
+  },
+  {
+    "id": "sk_96cbd3675f",
+    "name": "Form Factory Fitness Mirage",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 49.2247079,
+    "lng": 18.7400367,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_d0ba09c20a",
+    "name": "Form Factory Fitness Cassovar",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.7181878,
+    "lng": 21.2460419,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_b5820680bb",
+    "name": "Form Factory Fitness BPark",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 49.1040257,
+    "lng": 18.4614422,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_a1448fd7f2",
+    "name": "Form Factory Fitness OC MAX",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.8906828,
+    "lng": 18.0566796,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_e7a3d537a0",
+    "name": "Form Factory Fitness Farského",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1276482,
+    "lng": 17.1142726,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_b2624684bf",
+    "name": "Form Factory Fitness FitCamp",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1609354,
+    "lng": 17.152452,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_56c49e44c3",
+    "name": "Form Factory Fitness Rínok Rača",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.2071098,
+    "lng": 17.1496831,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_7fe16e63ed",
+    "name": "Form Factory Fitness Spilka",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1561832,
+    "lng": 17.1229728,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_88749ab3cd",
+    "name": "Form Factory Fitness Sky Park",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1433404,
+    "lng": 17.1261656,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_c95aed1484",
+    "name": "Form Factory Fitness Sliačska",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.17204,
+    "lng": 17.1265011,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_9d04c12276",
+    "name": "Form Factory Fitness BBC5",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1447136,
+    "lng": 17.1429492,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_a717e7a7d7",
+    "name": "Form Factory Fitness Sport House",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1626632,
+    "lng": 17.1424297,
+    "category": "READY_TO_IMPORT"
+  },
+  {
+    "id": "sk_bdc447a598",
+    "name": "Form Factory Fitness Nivy",
+    "brand": "Form Factory",
+    "coord_source": "STRICT_ADDRESS_GEOCODE",
+    "lat": 48.1466322,
+    "lng": 17.128235,
+    "category": "READY_TO_IMPORT"
+  }
+]

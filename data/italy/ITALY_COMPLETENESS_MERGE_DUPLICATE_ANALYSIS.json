@@ -1,0 +1,404 @@
+{
+  "skipped_existing_id": [
+    {
+      "id": "it_559c5997a5",
+      "name": "FITINN Milano Corso Sempione"
+    },
+    {
+      "id": "it_51147f707d",
+      "name": "FITINN Milano Via Airolo"
+    },
+    {
+      "id": "it_b08e235022",
+      "name": "FITINN Milano Via Bergamo"
+    },
+    {
+      "id": "it_1a69052676",
+      "name": "FITINN Prato"
+    },
+    {
+      "id": "it_8605c37094",
+      "name": "FITINN Bologna Meraville"
+    },
+    {
+      "id": "it_8e936943e1",
+      "name": "FITINN Bologna Centro Borgo"
+    },
+    {
+      "id": "it_c6d9db9846",
+      "name": "FITINN Brescia"
+    },
+    {
+      "id": "it_9bcf96ec3f",
+      "name": "Dabliu Roma Colli d'Oro"
+    },
+    {
+      "id": "it_1f89ccc5cc",
+      "name": "Dabliu Roma Eur"
+    },
+    {
+      "id": "it_139aaafa7b",
+      "name": "Dabliu Roma Margherita"
+    },
+    {
+      "id": "it_b48257592c",
+      "name": "Dabliu Roma Parioli"
+    },
+    {
+      "id": "it_a920dd523f",
+      "name": "Dabliu Roma Prati"
+    },
+    {
+      "id": "it_83593e7a1a",
+      "name": "GetFIT Milano Via Ravizza"
+    },
+    {
+      "id": "it_aa07bcc9ee",
+      "name": "GetFIT Milano Via Meda"
+    },
+    {
+      "id": "it_f9d69fd730",
+      "name": "GetFIT Milano Viale Stelvio"
+    },
+    {
+      "id": "it_a29269c921",
+      "name": "GetFIT Milano Via Cenisio"
+    },
+    {
+      "id": "it_9a9eac6a7f",
+      "name": "GetFIT Milano Via Piranesi"
+    },
+    {
+      "id": "it_e2a8be2f20",
+      "name": "GetFIT Milano Via Vico"
+    },
+    {
+      "id": "it_7990e336b2",
+      "name": "GetFIT Milano Via Piacenza"
+    },
+    {
+      "id": "it_9d5e5deac2",
+      "name": "GetFIT Milano Via Pinerolo"
+    },
+    {
+      "id": "it_5916976467",
+      "name": "Fit Express Milano Missaglia"
+    },
+    {
+      "id": "it_fb3e64696e",
+      "name": "Fit Express Siena Toselli"
+    },
+    {
+      "id": "it_0177de6896",
+      "name": "Fit Express Lucca San Concordio"
+    },
+    {
+      "id": "it_e4db5df599",
+      "name": "Fit Express Rivoli"
+    },
+    {
+      "id": "it_28e74b261a",
+      "name": "Fit Express Acqui Terme"
+    },
+    {
+      "id": "it_86ba142f40",
+      "name": "Fit Express Pioltello"
+    },
+    {
+      "id": "it_4db490308e",
+      "name": "Fit Express Palazzolo sull’Oglio"
+    },
+    {
+      "id": "it_08df8dabd2",
+      "name": "Fit Express Milano Isola"
+    },
+    {
+      "id": "it_c74f8603c2",
+      "name": "Fit Express Milano Fiordaliso"
+    },
+    {
+      "id": "it_8d44492550",
+      "name": "Fit Express Rimini Malatesta"
+    },
+    {
+      "id": "it_903887ca03",
+      "name": "ICON Palestre Latina Via Ezio"
+    },
+    {
+      "id": "it_023f6dc134",
+      "name": "ICON Palestre Messina"
+    },
+    {
+      "id": "it_124b4dbe3c",
+      "name": "ICON Palestre Ferrara"
+    },
+    {
+      "id": "it_874833617d",
+      "name": "ICON Palestre Roma Portuense"
+    },
+    {
+      "id": "it_a40782f2dd",
+      "name": "ICON Palestre Rimini"
+    },
+    {
+      "id": "it_457b8104b1",
+      "name": "FITINN Milano Viale Monza"
+    }
+  ],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [],
+  "skipped_batch_dup": [],
+  "inspected_proximity_lt50": [],
+  "inspected_proximity_lt100": [],
+  "different_brand_colocations_kept": [],
+  "withheld_neighbour_geocode": [
+    {
+      "id": "it_ccb19385b7",
+      "name": "FITINN Milano Bicocca",
+      "reason": "neighbour_suburb_geocode",
+      "best": "Via Fulvio Testi, Cascina Pariana, Pessano con Bornago, Rodano, Milano, Lombardia, 20042, Italia",
+      "note": "OSM best match is outside Comune di Milano"
+    },
+    {
+      "id": "it_4ca03e5086",
+      "name": "FITINN Milano Viale Abruzzi",
+      "reason": "neighbour_suburb_geocode",
+      "best": "38, Viale Abruzzi, San Felicino, San Bovio, Peschiera Borromeo, Rodano, Milano, Lombardia, 20068, Italia",
+      "note": "OSM best match is outside Comune di Milano"
+    }
+  ],
+  "withheld_questionable": [
+    {
+      "id": "it_ccb19385b7",
+      "name": "FITINN Milano Bicocca",
+      "reason": "neighbour_suburb_geocode",
+      "best": "Via Fulvio Testi, Cascina Pariana, Pessano con Bornago, Rodano, Milano, Lombardia, 20042, Italia",
+      "note": "OSM best match is outside Comune di Milano"
+    },
+    {
+      "id": "it_4ca03e5086",
+      "name": "FITINN Milano Viale Abruzzi",
+      "reason": "neighbour_suburb_geocode",
+      "best": "38, Viale Abruzzi, San Felicino, San Bovio, Peschiera Borromeo, Rodano, Milano, Lombardia, 20068, Italia",
+      "note": "OSM best match is outside Comune di Milano"
+    }
+  ],
+  "included": [
+    {
+      "id": "it_559c5997a5",
+      "name": "FITINN Milano Corso Sempione",
+      "brand": "FITINN",
+      "city": "Milano"
+    },
+    {
+      "id": "it_51147f707d",
+      "name": "FITINN Milano Via Airolo",
+      "brand": "FITINN",
+      "city": "Milano"
+    },
+    {
+      "id": "it_b08e235022",
+      "name": "FITINN Milano Via Bergamo",
+      "brand": "FITINN",
+      "city": "Milano"
+    },
+    {
+      "id": "it_1a69052676",
+      "name": "FITINN Prato",
+      "brand": "FITINN",
+      "city": "Prato"
+    },
+    {
+      "id": "it_8605c37094",
+      "name": "FITINN Bologna Meraville",
+      "brand": "FITINN",
+      "city": "Bologna"
+    },
+    {
+      "id": "it_8e936943e1",
+      "name": "FITINN Bologna Centro Borgo",
+      "brand": "FITINN",
+      "city": "Bologna"
+    },
+    {
+      "id": "it_c6d9db9846",
+      "name": "FITINN Brescia",
+      "brand": "FITINN",
+      "city": "Brescia"
+    },
+    {
+      "id": "it_9bcf96ec3f",
+      "name": "Dabliu Roma Colli d'Oro",
+      "brand": "Dabliu",
+      "city": "Roma"
+    },
+    {
+      "id": "it_1f89ccc5cc",
+      "name": "Dabliu Roma Eur",
+      "brand": "Dabliu",
+      "city": "Roma"
+    },
+    {
+      "id": "it_139aaafa7b",
+      "name": "Dabliu Roma Margherita",
+      "brand": "Dabliu",
+      "city": "Roma"
+    },
+    {
+      "id": "it_b48257592c",
+      "name": "Dabliu Roma Parioli",
+      "brand": "Dabliu",
+      "city": "Roma"
+    },
+    {
+      "id": "it_a920dd523f",
+      "name": "Dabliu Roma Prati",
+      "brand": "Dabliu",
+      "city": "Roma"
+    },
+    {
+      "id": "it_83593e7a1a",
+      "name": "GetFIT Milano Via Ravizza",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_aa07bcc9ee",
+      "name": "GetFIT Milano Via Meda",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_f9d69fd730",
+      "name": "GetFIT Milano Viale Stelvio",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_a29269c921",
+      "name": "GetFIT Milano Via Cenisio",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_9a9eac6a7f",
+      "name": "GetFIT Milano Via Piranesi",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_e2a8be2f20",
+      "name": "GetFIT Milano Via Vico",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_7990e336b2",
+      "name": "GetFIT Milano Via Piacenza",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_9d5e5deac2",
+      "name": "GetFIT Milano Via Pinerolo",
+      "brand": "GetFIT",
+      "city": "Milano"
+    },
+    {
+      "id": "it_5916976467",
+      "name": "Fit Express Milano Missaglia",
+      "brand": "Fit Express",
+      "city": "Milano"
+    },
+    {
+      "id": "it_fb3e64696e",
+      "name": "Fit Express Siena Toselli",
+      "brand": "Fit Express",
+      "city": "Siena"
+    },
+    {
+      "id": "it_0177de6896",
+      "name": "Fit Express Lucca San Concordio",
+      "brand": "Fit Express",
+      "city": "Lucca"
+    },
+    {
+      "id": "it_e4db5df599",
+      "name": "Fit Express Rivoli",
+      "brand": "Fit Express",
+      "city": "Rivoli"
+    },
+    {
+      "id": "it_28e74b261a",
+      "name": "Fit Express Acqui Terme",
+      "brand": "Fit Express",
+      "city": "Acqui Terme"
+    },
+    {
+      "id": "it_86ba142f40",
+      "name": "Fit Express Pioltello",
+      "brand": "Fit Express",
+      "city": "Pioltello"
+    },
+    {
+      "id": "it_4db490308e",
+      "name": "Fit Express Palazzolo sull’Oglio",
+      "brand": "Fit Express",
+      "city": "Palazzolo sull'Oglio"
+    },
+    {
+      "id": "it_08df8dabd2",
+      "name": "Fit Express Milano Isola",
+      "brand": "Fit Express",
+      "city": "Milano"
+    },
+    {
+      "id": "it_c74f8603c2",
+      "name": "Fit Express Milano Fiordaliso",
+      "brand": "Fit Express",
+      "city": "Rozzano"
+    },
+    {
+      "id": "it_8d44492550",
+      "name": "Fit Express Rimini Malatesta",
+      "brand": "Fit Express",
+      "city": "Rimini"
+    },
+    {
+      "id": "it_903887ca03",
+      "name": "ICON Palestre Latina Via Ezio",
+      "brand": "Icon Palestre",
+      "city": "Latina"
+    },
+    {
+      "id": "it_023f6dc134",
+      "name": "ICON Palestre Messina",
+      "brand": "Icon Palestre",
+      "city": "Messina"
+    },
+    {
+      "id": "it_124b4dbe3c",
+      "name": "ICON Palestre Ferrara",
+      "brand": "Icon Palestre",
+      "city": "Ferrara"
+    },
+    {
+      "id": "it_874833617d",
+      "name": "ICON Palestre Roma Portuense",
+      "brand": "Icon Palestre",
+      "city": "Roma"
+    },
+    {
+      "id": "it_a40782f2dd",
+      "name": "ICON Palestre Rimini",
+      "brand": "Icon Palestre",
+      "city": "Rimini"
+    },
+    {
+      "id": "it_457b8104b1",
+      "name": "FITINN Milano Viale Monza",
+      "brand": "FITINN",
+      "city": "Milano"
+    }
+  ]
+}

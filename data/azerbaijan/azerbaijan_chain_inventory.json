@@ -1,0 +1,505 @@
+{
+  "country": "Azerbaijan",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "7ddc9977a7273668b3fcc6edb68b9a490b873e478bccd1e51b9f31710a2585e7",
+  "production_bytes_before": 3844273,
+  "production_total": 12339,
+  "azerbaijan_live": 0,
+  "az_prefix_live": 0,
+  "azerbaijan_country_live": 0,
+  "existing_azerbaijan_production": false,
+  "baseline_armenia": 36,
+  "baseline_georgia": 25,
+  "baseline_turkey": 198,
+  "baseline_belarus": 46,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "market_model": "CHAIN_LED_SMALL_MARKET",
+  "postcode_model": "AZ NNNN (4 digits)",
+  "fetch_summary": {
+    "curated_operators": 16,
+    "baku_district_audit": 176,
+    "nakhchivan_dedicated": 54,
+    "osm_azerbaijan": 71,
+    "photon_grid": 214,
+    "total_candidates": 434
+  },
+  "official_estate": {
+    "FS Club Network": {
+      "open_active_estimated": 3,
+      "class_a": true
+    }
+  },
+  "curated_non_class_a": [
+    "World Class Azerbaijan",
+    "1st Fitness",
+    "FitClub",
+    "Fit Way",
+    "Pulse",
+    "Gold's Gym",
+    "Sport Life",
+    "Dream Body"
+  ],
+  "conflict_regions_tracked": [
+    "Karabakh"
+  ],
+  "discover_default_category": "NEEDS_REVIEW",
+  "chains": [
+    {
+      "chain": "1st Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Abordaj Fitness Zalı",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Alik fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Angels’ Embassy",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Askod MMC (Epilife estetik merkez)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Atletika Fitnes",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Aura Sağlamlıq Mərkəzi",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Ay Sport Klub",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "CH Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Cobra",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Conflict region probe",
+      "classification": "B",
+      "staged": 4,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Dream Body",
+      "classification": "B",
+      "staged": 3,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "FS Club",
+      "classification": "B",
+      "staged": 4,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "FS Club Network",
+      "classification": "A",
+      "staged": 3,
+      "official_current_active_estimated": 3,
+      "class_a": true
+    },
+    {
+      "chain": "Fit House",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fit Lady",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fit Way",
+      "classification": "B",
+      "staged": 44,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "FitClub",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fitnes Spa Mərkəzi",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fitnes Trenajor",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fitnes zalı",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "GYM Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gartal Fitnes",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Go",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gold's Gym",
+      "classification": "B",
+      "staged": 15,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Golds Trenajor",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gorgud Wellness Center",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gunesh",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Güləş məktəbi",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Herkules",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent",
+      "classification": "B",
+      "staged": 210,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Ganja)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Lankaran)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Mingachevir)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Nakhchivan)",
+      "classification": "B",
+      "staged": 51,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Shaki)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Sumqayit)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Iron Man",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Just 4 Fit",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Karol Fitnes",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Lion Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Lokomotiv",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Modern İdman Məktəbi",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Modern İdman Əyləncə",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Olimpiya",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Premium Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Pulse",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Sparta",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Sparta Fitnes",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Sport Life",
+      "classification": "B",
+      "staged": 13,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Taekvando kursu",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Trenajor",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Trenajor zalı",
+      "classification": "B",
+      "staged": 4,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Viking",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Wolf Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "World Class",
+      "classification": "B",
+      "staged": 11,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "World Class Azerbaijan",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "X Fitnes Klub",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Çempion Fitnes",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "İBM Trenajor",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "İdman",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "İdman Məktəbi",
+      "classification": "B",
+      "staged": 2,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "İdman zalı",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Şəki Qartal Arena",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "regions": {
+    "NICOSIA_METRO": {
+      "ready": [
+        "cy_ef187d966a",
+        "cy_f070c42b8f",
+        "cy_07ec6774f1",
+        "cy_3139b5350e",
+        "cy_1e92561d3f",
+        "cy_6900220ba1",
+        "cy_f0e9563965",
+        "cy_b0c60e91df"
+      ],
+      "zero_class": "COVERED"
+    },
+    "LIMASSOL": {
+      "ready": [
+        "cy_dae41db6c3",
+        "cy_4b27323ec8"
+      ],
+      "zero_class": "COVERED",
+      "needs_coordinates": [
+        "cy_34d6f81192",
+        "cy_cd15f4d2ad"
+      ]
+    },
+    "LARNACA": {
+      "ready": [
+        "cy_56b48cbccc",
+        "cy_82f02545a6",
+        "cy_ea14f2e4e0"
+      ],
+      "zero_class": "COVERED",
+      "needs_coordinates": [
+        "cy_8713fecd49",
+        "cy_df58defb47",
+        "cy_cf3ac99b32"
+      ]
+    },
+    "PAPHOS": {
+      "ready": [
+        "cy_71a5e356d0",
+        "cy_230b74b170",
+        "cy_2acc7f6e95"
+      ],
+      "zero_class": "COVERED"
+    },
+    "FAMAGUSTA_ROC": {
+      "ready": [
+        "cy_40845af810"
+      ],
+      "zero_class": "COVERED"
+    }
+  },
+  "unexplained_b_d_gaps": {},
+  "needs_coordinates_ids": [
+    "cy_8713fecd49",
+    "cy_34d6f81192",
+    "cy_cd15f4d2ad",
+    "cy_df58defb47",
+    "cy_cf3ac99b32"
+  ]
+}

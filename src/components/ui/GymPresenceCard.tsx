@@ -58,7 +58,7 @@ export const GymPresenceCard: React.FC<GymPresenceCardProps> = ({
           </View>
         ))}
       </View>
-      <Text style={styles.cta}>Se hvem</Text>
+      <Text style={styles.cta}>{t('phase2ui.seeWho')}</Text>
     </Pressable>
   );
 };

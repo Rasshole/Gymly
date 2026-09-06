@@ -1,0 +1,1887 @@
+{
+  "encoding_duplicate_withheld": [
+    {
+      "id": "at_02365a369d",
+      "name": "MYGYM Eberstalzell",
+      "brand": "MYGYM",
+      "address": "Solarstra\\xdfe 6",
+      "kept_id": "at_b0b146f3ce",
+      "kept_name": "MYGYM PRIME Eberstalzell",
+      "reason": "same_brand_same_address_superseded",
+      "key": "solarstra e 6|4653|eberstalzell|mygym"
+    },
+    {
+      "id": "at_6aa9766fa2",
+      "name": "MYGYM Spittal an der Drau",
+      "brand": "MYGYM",
+      "address": "Bahnhofstra\\xdfe 7",
+      "kept_id": "at_0c57613519",
+      "kept_name": "MYGYM Spittal an der Drau",
+      "reason": "same_brand_same_address_superseded",
+      "key": "bahnhofstra e 7|9800|spittal an der drau|mygym"
+    },
+    {
+      "id": "at_d2e2ea65bb",
+      "name": "MYGYM Matrei",
+      "brand": "MYGYM",
+      "address": "Alban-Bichler-Stra\\xdfe 3",
+      "kept_id": "at_10b6016a8f",
+      "kept_name": "MYGYM Matrei",
+      "reason": "same_brand_same_address_superseded",
+      "key": "alban bichler stra e 3|9971|matrei|mygym"
+    },
+    {
+      "id": "at_deeee6654e",
+      "name": "MYGYM Eugendorf",
+      "brand": "MYGYM",
+      "address": "Wiener Stra\\xdfe 2-4",
+      "kept_id": "at_1817177c1b",
+      "kept_name": "MYGYM Eugendorf",
+      "reason": "same_brand_same_address_superseded",
+      "key": "wiener stra e 2 4|5301|eugendorf|mygym"
+    },
+    {
+      "id": "at_1c9ce361e6",
+      "name": "MYGYM Lienz",
+      "brand": "MYGYM",
+      "address": "Amlacher Stra\\xdfe 12",
+      "kept_id": "at_9ecce890ed",
+      "kept_name": "MYGYM PRIME Lienz",
+      "reason": "same_brand_same_address_superseded",
+      "key": "amlacher stra e 12|9900|lienz|mygym"
+    },
+    {
+      "id": "at_206f4cc375",
+      "name": "MYGYM Salzburg",
+      "brand": "MYGYM",
+      "address": "Fürbergstraße 18-20",
+      "kept_id": "at_fad38fce91",
+      "kept_name": "MYGYM Salzburg ZIB",
+      "reason": "same_brand_same_address_superseded",
+      "key": "f rbergstra e 18 20|5020|salzburg|mygym"
+    },
+    {
+      "id": "at_a481167d21",
+      "name": "MYGYM St. Michael",
+      "brand": "MYGYM",
+      "address": "Kaltbachstraße 668/3",
+      "kept_id": "at_3e2201d686",
+      "kept_name": "MYGYM St. Michael",
+      "reason": "same_brand_same_address_superseded",
+      "key": "kaltbachstra e 668 3|5582|st michael|mygym"
+    },
+    {
+      "id": "at_c9d918814a",
+      "name": "MYGYM Saalfelden",
+      "brand": "MYGYM",
+      "address": "Leopold-Luger-Stra\\xdfe 1",
+      "kept_id": "at_577ed9bcf9",
+      "kept_name": "MYGYM Saalfelden",
+      "reason": "same_brand_same_address_superseded",
+      "key": "leopold luger stra e 1|5760|saalfelden|mygym"
+    },
+    {
+      "id": "at_7777e1a077",
+      "name": "MYGYM Mondsee",
+      "brand": "MYGYM",
+      "address": "Prielhofstra\\xdfe 4",
+      "kept_id": "at_716037f312",
+      "kept_name": "MYGYM PRIME Mondsee",
+      "reason": "same_brand_same_address_superseded",
+      "key": "prielhofstra e 4|5310|mondsee|mygym"
+    },
+    {
+      "id": "at_ad1845c8e3",
+      "name": "MYGYM Hermagor",
+      "brand": "MYGYM",
+      "address": "Hauptstra\\xdfe 26",
+      "kept_id": "at_8465e82a4d",
+      "kept_name": "MYGYM Hermagor",
+      "reason": "same_brand_same_address_superseded",
+      "key": "hauptstra e 26|9620|hermagor|mygym"
+    },
+    {
+      "id": "at_9594d79342",
+      "name": "MYGYM Obertrum",
+      "brand": "MYGYM",
+      "address": "Jakobistraße 13",
+      "kept_id": "at_8fd64779d3",
+      "kept_name": "MYGYM Obertrum",
+      "reason": "same_brand_same_address_superseded",
+      "key": "jakobistra e 13|5162|obertrum|mygym"
+    },
+    {
+      "id": "at_c973bf7eb3",
+      "name": "MYGYM Wals",
+      "brand": "MYGYM",
+      "address": "Franz Br\\xf6tzner Stra\\xdfe 9",
+      "kept_id": "at_959d0e99f7",
+      "kept_name": "MYGYM PRIME Salzburg West",
+      "reason": "same_brand_same_address_superseded",
+      "key": "franz br tzner stra e 9|5071|wals|mygym"
+    },
+    {
+      "id": "at_c77dc4aa25",
+      "name": "MYGYM Obertauern",
+      "brand": "MYGYM",
+      "address": "Ringstra\\xdfe 37",
+      "kept_id": "at_b92343f96f",
+      "kept_name": "MYGYM Obertauern",
+      "reason": "same_brand_same_address_superseded",
+      "key": "ringstra e 37|5562|obertauern|mygym"
+    },
+    {
+      "id": "at_eaab28be91",
+      "name": "MYGYM St. Johann",
+      "brand": "MYGYM",
+      "address": "Bundesstra\\xdfe 31",
+      "kept_id": "at_c61f6181c0",
+      "kept_name": "MYGYM St. Johann",
+      "reason": "same_brand_same_address_superseded",
+      "key": "bundesstra e 31|5600|st johann|mygym"
+    }
+  ],
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "different_brand_colocations_kept": [
+    {
+      "a_id": "at_fad38fce91",
+      "a_name": "MYGYM Salzburg ZIB",
+      "a_brand": "MYGYM",
+      "b_id": "at_af355944dd",
+      "b_name": "clever fit Salzburg PREMIUM",
+      "b_brand": "clever fit",
+      "distance_m": 0,
+      "note": "different_brand_kept"
+    },
+    {
+      "a_id": "at_52ab6ef0a4",
+      "a_name": "Speedfit Klosterneuburg - Fitnessstudio & Modernes Gym bei Wien",
+      "a_brand": "Speedfit",
+      "b_id": "at_6c7827f57e",
+      "b_name": "Mrs.Sporty Home - Mrs.Sporty Club Klosterneuburg",
+      "b_brand": "Mrs.Sporty",
+      "distance_m": 42,
+      "note": "different_brand_kept"
+    },
+    {
+      "a_id": "at_d991465dc8",
+      "a_name": "INJOY Tulln",
+      "a_brand": "INJOY",
+      "b_id": "at_e1c391c05f",
+      "b_name": "Mrs.Sporty Home - Mrs.Sporty Club Tulln",
+      "b_brand": "Mrs.Sporty",
+      "distance_m": 47,
+      "note": "different_brand_kept"
+    }
+  ],
+  "retained_close_pairs_same_brand": [
+    {
+      "a_id": "at_281d63e434",
+      "a_brand": "John Harris Fitness",
+      "a_name": "John Harris Schillerplatz",
+      "a_address": "Nibelungengasse 5",
+      "b_id": "at_37f49e7937",
+      "b_brand": "John Harris Fitness",
+      "b_name": "John Harris Medical Center",
+      "b_address": "Getreidemarkt 8",
+      "distance_m": 60,
+      "same_normalized_address": false
+    }
+  ],
+  "same_brand_pre_merge": {
+    "lt50": [],
+    "lt100": [
+      {
+        "a_id": "at_281d63e434",
+        "a_brand": "John Harris Fitness",
+        "a_name": "John Harris Schillerplatz",
+        "a_address": "Nibelungengasse 5",
+        "b_id": "at_37f49e7937",
+        "b_brand": "John Harris Fitness",
+        "b_name": "John Harris Medical Center",
+        "b_address": "Getreidemarkt 8",
+        "distance_m": 60,
+        "same_normalized_address": false
+      }
+    ]
+  },
+  "withheld_questionable": [],
+  "included": [
+    {
+      "id": "at_001ff9cee0",
+      "name": "clever fit Linz-Wegscheid PREMIUM",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_b0b146f3ce",
+      "name": "MYGYM PRIME Eberstalzell",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_02c8392f4b",
+      "name": "McFIT Klagenfurt",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_032f566dd6",
+      "name": "Holmes Place Hütteldorf",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "at_03d27cb855",
+      "name": "John Harris DC Tower",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_056a3e8953",
+      "name": "Fitness First Wien - Liesing",
+      "brand": "Fitness First"
+    },
+    {
+      "id": "at_06bb4516f0",
+      "name": "FITINN Innsbruck Hunoldstraße",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_082086b350",
+      "name": "Speedfit Schwechat - Modernes Fitnessstudio & GYM bei Wien",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_08b917312f",
+      "name": "INJOY Lady Villach",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_0907b9b646",
+      "name": "FITINN Feldkirch Feldkirch",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_09d45a4e32",
+      "name": "JOHN REED Wien Schwedenplatz",
+      "brand": "JOHN REED"
+    },
+    {
+      "id": "at_0a589c4402",
+      "name": "HappyFit Vöcklabruck",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_0a68af2291",
+      "name": "FITINN Wien Keplerplatz",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_0b0887df32",
+      "name": "FITINN Graz Jakominiplatz",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_0be2f49019",
+      "name": "Fit Fabrik Plus Hutteldorf",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_0bf2fb644e",
+      "name": "INJOY Kaprun",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_0c57613519",
+      "name": "MYGYM Spittal an der Drau",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_0ce5c2594e",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Neulengbach",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_0d400740d9",
+      "name": "clever fit Wien-Simmering",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_0ea099890f",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Alterlaa",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_0ec46e6446",
+      "name": "FITINN Wien Hofmühlgasse",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_0fce27f2f2",
+      "name": "INJOY Bregenz",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_1016740f60",
+      "name": "HappyFit Steyregg",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_10b6016a8f",
+      "name": "MYGYM Matrei",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_115433ef91",
+      "name": "FITINN Wien Favoritenstraße",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_125d3cc9b2",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Hietzing",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_12f9938c9f",
+      "name": "Speedfit Wien 22 - Fitnessstudio & Modernes Gym in Donaustadt",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_1346a9fe94",
+      "name": "Speedfit Wien 19 - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_16e19a0233",
+      "name": "INJOY Kirchdorf",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_1817177c1b",
+      "name": "MYGYM Eugendorf",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_19461c1924",
+      "name": "clever fit Innsbruck-Rum",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_1aacfc3a49",
+      "name": "FITINN Wien Gasometer",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_1bab211bcb",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Eisenstadt",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_1bbfbfc864",
+      "name": "MYGYM Murau",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_1bec973d96",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club St. Pölten Süd",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_1c5c1c2416",
+      "name": "INJOY Gmünd",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_1c83da9c55",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wels",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_9ecce890ed",
+      "name": "MYGYM PRIME Lienz",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_1e11bdad96",
+      "name": "HappyFit Kremsmünster",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_1f64160271",
+      "name": "clever fit Wiener Neustadt",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_200ad5d198",
+      "name": "FITINN Graz Bahnhof",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_fad38fce91",
+      "name": "MYGYM Salzburg ZIB",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_20bfeb4d9a",
+      "name": "FITINN Klagenfurt Südring",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_2113cda3b3",
+      "name": "Speedfit Korneuburg - Modernes Fitnessstudio & GYM bei Wien",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_242181b096",
+      "name": "FITINN Wien Gewerbepark Stadlau",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_2530bb1ce0",
+      "name": "FITINN Wien Donau Zentrum",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_281d63e434",
+      "name": "John Harris Schillerplatz",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_282a028d2b",
+      "name": "INJOY Wien 3",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_282e45918c",
+      "name": "HappyFit Krems",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_2afe7550f7",
+      "name": "Speedfit Linz - Modernes Fitnessstudio und Gym in Linz",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_2c5864af21",
+      "name": "INJOY XPRESS Klagenfurt",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_2e1621c6a1",
+      "name": "clever fit Linz-Zentrum",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_2ffca86478",
+      "name": "clever fit Wien-Floridsdorf",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_3024326105",
+      "name": "Fit Fabrik Plus Messecarree",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_309655b78e",
+      "name": "FITINN Wien Dietrichgasse 25",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_32a09abfcb",
+      "name": "MYGYM Salzburg",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_3386f88bd4",
+      "name": "Speedfit Wien - Moderne Fitnessstudios & GYMs in Vienna",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_33f4e1087f",
+      "name": "MYGYM PRIME Salzburg Süd",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_3555e3c12c",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Fernitz",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_360e19e018",
+      "name": "clever fit Graz-Puntigam",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_367710b9b5",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Meidling",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_368a100430",
+      "name": "INJOY Ried",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_37ad0d81ab",
+      "name": "FITINN Wels SCW",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_37f49e7937",
+      "name": "John Harris Medical Center",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_3926ca181b",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Amstetten",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_397a9a9f62",
+      "name": "HappyFit Wels",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_3b705a16d1",
+      "name": "clever fit Wien-Keplerplatz",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_3c770f3284",
+      "name": "INJOY Schwechat",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_3ca9298b85",
+      "name": "clever fit Graz-Europaplatz",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_3d01859cdf",
+      "name": "INJOY med Graz Süd",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_3d42971117",
+      "name": "Speedfit Klosterneuburg - Modernes Fitnessstudio & GYM bei Wien",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_3dea5328f8",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Mödling",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_3e2201d686",
+      "name": "MYGYM St. Michael",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_3e9d76c5ab",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Perchtoldsdorf-Zentrum",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_3ee5df88d9",
+      "name": "McFIT Wien-Simmering",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_3f23c1b6e4",
+      "name": "FITINN Wien Johnstraße",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_3f2a466892",
+      "name": "FITINN Graz Seiersberg",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_4138aabd58",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Schwendermarkt",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_41685174dc",
+      "name": "FITINN Graz Liebenau",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_42752265a7",
+      "name": "INJOY Klagenfurt",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_43dec76b50",
+      "name": "INJOY Station Liezen",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_44afeb1668",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wolkersdorf",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_45e674a5c6",
+      "name": "clever fit Wolfsberg",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_474195ba9c",
+      "name": "John Harris Sofiensäle",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_49369e7221",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Leopoldstadt",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_49edbf20cb",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Langenzersdorf",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_4b6c1ecc1c",
+      "name": "clever fit Graz-Wetzelsdorf",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_4c16888d42",
+      "name": "John Harris Donaupark",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_4d65e4c532",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Traiskirchen",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_4d8c9bcd39",
+      "name": "HappyFit Perg Holz",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_515111c630",
+      "name": "INJOY Hallwang",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_51f5c09cb9",
+      "name": "FITINN Linz Bulgariplatz 11",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_520f69b255",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Mistelbach",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_52ab6ef0a4",
+      "name": "Speedfit Klosterneuburg - Fitnessstudio & Modernes Gym bei Wien",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_54ea637fd1",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Hollabrunn",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_551257e81a",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Margareten",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_5601995330",
+      "name": "clever fit Traun",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_577ed9bcf9",
+      "name": "MYGYM Saalfelden",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_585bcf6fac",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Döbling",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_58f5084715",
+      "name": "clever fit Wien-Liesing",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_594a737120",
+      "name": "clever fit Wien-Penzing",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_5c235ab10c",
+      "name": "INJOY Amstetten",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_5d390e78dd",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Linz-Zentrum",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_5f7767d521",
+      "name": "FITINN Klagenfurt Klagenfurt",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_5fb1c61241",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Stockerau",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_601e82e0c0",
+      "name": "INJOY Graz Nord",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_60e9f46efb",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Gänserndorf",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_613e878b8c",
+      "name": "INJOY Eferding",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_64abd00712",
+      "name": "clever fit Straßhof",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_64c1f8acaf",
+      "name": "FITINN Wien Rathausplatz",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_64cc3a8e4c",
+      "name": "INJOY Zwettl",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_6524c8c8a3",
+      "name": "clever fit Wien-Favoriten",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_654677d2d4",
+      "name": "clever fit Deutschlandsberg",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_659fe8c86a",
+      "name": "MYGYM Imst",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_667378d600",
+      "name": "John Harris Salzburg Medicent",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_66d92dafde",
+      "name": "FITINN Wien Schwedenplatz",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_672276930e",
+      "name": "FITINN Linz Infra Center",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_676ebd6c59",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Brigittenau",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_69a1e77b4e",
+      "name": "clever fit Wien-Leopoldstadt",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_69b5405579",
+      "name": "INJOY Walding",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_6a305b11de",
+      "name": "clever fit Wien-Neubau",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_6b94b84136",
+      "name": "JOHN REED Wien-Oper",
+      "brand": "JOHN REED"
+    },
+    {
+      "id": "at_6c7827f57e",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Klosterneuburg",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_6c784b7240",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wiener Neustadt",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_6c843dad12",
+      "name": "HappyFit Wilhelmsburg",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_6ddb56e7c6",
+      "name": "FITINN Wien Alser Strasse",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_6e4de1c049",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Baden",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_6e8f48a6f1",
+      "name": "FITINN Dornbirn Dornbirn",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_6fe81ab7a5",
+      "name": "FITINN Wien Wehlistrasse 65",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_7028578403",
+      "name": "FITINN Salzburg Hauptbahnhof",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_7064d8e13d",
+      "name": "clever fit Wien-Stadlau",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_716037f312",
+      "name": "MYGYM PRIME Mondsee",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_71806c63a4",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Traun",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_71b0c4161c",
+      "name": "clever fit Brunn am Gebirge",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_7227e7b94a",
+      "name": "FITINN Wien Stadion Center",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_725667ccad",
+      "name": "McFIT Wien-Neubau",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_728eb76bac",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Bruck an der Leitha",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_7327aee2ed",
+      "name": "Speedfit Traiskirchen - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_73299912bc",
+      "name": "Speedfit Leoben Fitnessstudio - Modernes GYM & Training",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_7405c34d77",
+      "name": "Gold's Gym Wien",
+      "brand": "Gold's Gym"
+    },
+    {
+      "id": "at_743c478414",
+      "name": "Fitness First Wien – Landstraße",
+      "brand": "Fitness First"
+    },
+    {
+      "id": "at_74a22ab2eb",
+      "name": "clever fit Mistelbach",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_74be68a052",
+      "name": "McFIT Graz-Gries",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_74f7f7b40a",
+      "name": "Fit Fabrik Plus Stadlau",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_7642dc9994",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Hernals",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_768301f28a",
+      "name": "Speedfit Graz - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_78071479b9",
+      "name": "HappyFit Ried",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_787f087952",
+      "name": "Speedfit Leoben - Modernes Fitnessstudio & GYM in der Steiermark",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_7ab405d9a5",
+      "name": "clever fit Klagenfurt-Ost",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_7ae6427e10",
+      "name": "Fit Fabrik Plus Handelskai",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_7ce1aeccbb",
+      "name": "FITINN Wien K1 Kagraner Platz",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_7d3595cd46",
+      "name": "Speedfit St. Pölten Nord - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_7ea8afb4ac",
+      "name": "HappyFit Linz Dornach",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_7ee494c91c",
+      "name": "clever fit Imst",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_800c028079",
+      "name": "FITINN Wien Floridsdorf",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_805d1692a2",
+      "name": "Speedfit Klagenfurt Nord - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_8290440489",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Favoriten II",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_83f5f6cc1c",
+      "name": "HappyFit Linz Zentrum",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_840bc05f82",
+      "name": "FITINN Wien Kreilplatz 1/4",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_8465e82a4d",
+      "name": "MYGYM Hermagor",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_85e377807b",
+      "name": "FITINN Wien Wien-Mitte",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_864a384497",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Vöcklabruck",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_8668f283e1",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Marchtrenk",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_86ac12a2e9",
+      "name": "FITINN St. Pölten Mariazellerstrasse 75",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_87bcae352b",
+      "name": "HappyFit Sierning",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_88fb1f5e1b",
+      "name": "clever fit Stockerau",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_8b34c48ff7",
+      "name": "HappyFit Freistadt",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_8bd69ee8d4",
+      "name": "FITINN Innsbruck Greif Center",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_8cf0faac61",
+      "name": "FITINN Wien Sagedergasse",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_8cfef39918",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Korneuburg",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_8dd8f04edf",
+      "name": "Speedfit Schwechat - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_8df3bfd3e6",
+      "name": "FITINN Wien U4 Center Meidling",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_8e75481df7",
+      "name": "clever fit Krems",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_8fd64779d3",
+      "name": "MYGYM Obertrum",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_90004b3bc1",
+      "name": "FITINN Wien Friedensbrücke",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_900167d6a7",
+      "name": "clever fit Steyr",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_90a4840827",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Gmünd",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_915284add7",
+      "name": "Speedfit Korneuburg - Fitnessstudio & Modernes Gym bei Wien",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_936189d4d7",
+      "name": "John Harris UNIQA Tower",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_9361e5d412",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Enns",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_959d0e99f7",
+      "name": "MYGYM PRIME Salzburg West",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_961ad3e569",
+      "name": "FITINN Wien Hütteldorf",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_9747bf8733",
+      "name": "clever fit Melk",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_98703d2714",
+      "name": "McFIT Wien-Meidling",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_987156e7d6",
+      "name": "HappyFit Walding",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_98f827fdb7",
+      "name": "INJOY XPRESS Saalfelden",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_999b188403",
+      "name": "INJOY St. Pölten",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_9afa3be721",
+      "name": "JOHN REED Wien Schottentor",
+      "brand": "JOHN REED"
+    },
+    {
+      "id": "at_9b3c22f0d1",
+      "name": "McFIT Wien-Lugnercity",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_9b5d826b1a",
+      "name": "clever fit Spittal",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_9ba4cbad4d",
+      "name": "INJOY Perg",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_9c5f3e0d56",
+      "name": "HappyFit Amstetten",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_9d81edd9da",
+      "name": "HappyFit Braunau",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_9d96071fe5",
+      "name": "Fit Fabrik Plus St Polten",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_9daf03519a",
+      "name": "HappyFit Leonding",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_a032e8c6c5",
+      "name": "Fitness First Wien - Floridsdorf",
+      "brand": "Fitness First"
+    },
+    {
+      "id": "at_a0db4a3289",
+      "name": "FITINN Linz Urfahr",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_a4ff9f4223",
+      "name": "HappyFit St. Konrad",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_a5b3b90ce6",
+      "name": "McFIT Wien-Wienerberg",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_a6132d0135",
+      "name": "INJOY Wipptal",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_a62a2f1148",
+      "name": "McFIT Linz-Innenstadt",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_a69478a4ff",
+      "name": "clever fit Wien-Landstrasse",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_a6f5406da4",
+      "name": "McFIT Wien-Leopoldstadt",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_a791e937c1",
+      "name": "Speedfit Villach - Fitnessstudio & Modernes Gym in Österreich",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_a7b2b63d40",
+      "name": "clever fit Leoben",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_a866970b27",
+      "name": "Speedfit Neunkirchen - Modernes Fitnessstudio & GYM in Niederösterreich",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_a911829c26",
+      "name": "Speedfit Sankt Pölten - Modernes Fitnessstudio & GYM in Niederösterreich",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_aa6ab83422",
+      "name": "McFIT Wien-Floridsdorf",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_aab2ad9083",
+      "name": "FITINN Wien SCN",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_ab48ae0aa2",
+      "name": "clever fit Klagenfurt Zentrum",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_acdd2ab48d",
+      "name": "MYGYM Ried im Innkreis",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_ad8a1112ee",
+      "name": "FITINN Wien Kendlerstraße-Ottakring",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_ae5cfd8091",
+      "name": "clever fit Zwettl",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_af355944dd",
+      "name": "clever fit Salzburg PREMIUM",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_afe6cdcf1f",
+      "name": "INJOY F10 Linz",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_b25da1e447",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Simmering",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_b42ec8488c",
+      "name": "Fit Fabrik Maculangasse",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_b4e1adf769",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Landstrasse II",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_b4f60f5ff9",
+      "name": "FITINN Wien Hansson-Zentrum",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_b52cfc578d",
+      "name": "HappyFit Haid",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_b673f1472b",
+      "name": "McFIT Wien Vio Plaza",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_b70589ef0e",
+      "name": "McFIT Wien Jägerstraße",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_b75e2a88c6",
+      "name": "FITINN Wien Mariahilferstrasse",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_b8389533b0",
+      "name": "INJOY Feldkirchen",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_b9214db91e",
+      "name": "JOHN REED Linz Lenaupark",
+      "brand": "JOHN REED"
+    },
+    {
+      "id": "at_b92343f96f",
+      "name": "MYGYM Obertauern",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_b9675fc8c6",
+      "name": "HappyFit Haag",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_b9c60778b5",
+      "name": "Holmes Place Börseplatz",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "at_bb62ae301c",
+      "name": "John Harris Executive Club",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_bb6ec56c1e",
+      "name": "Speedfit Graz - Moderne Fitnessstudios & GYMs in der Stadt",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_bc88c8f970",
+      "name": "clever fit Wien-Brigittenau",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_bce6a3d3a2",
+      "name": "John Harris Hauptbahnhof",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_bdd9baf4de",
+      "name": "INJOY Köflach",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_c031f9203a",
+      "name": "Speedfit Wörgl - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_c0b5d3cc1c",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Horn",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_c14a860c55",
+      "name": "clever fit Wien-Mariahilfer-Strasse",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_c3cab60ee5",
+      "name": "FITINN Wien Hartmanngasse",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_c4d818a907",
+      "name": "FITINN St. Pölten Traisencenter",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_c53d75e0ef",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Purkersdorf",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_c61f6181c0",
+      "name": "MYGYM St. Johann",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_c74a0e0981",
+      "name": "Wien Riverside",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_c7bc15ea7d",
+      "name": "JOHN REED Wien Donau Zentrum",
+      "brand": "JOHN REED"
+    },
+    {
+      "id": "at_c92be8cae4",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Waidhofen an der Thaya",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_c9ec6d26e1",
+      "name": "FITINN Innsbruck EKZ west",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_cbbcb2bcf5",
+      "name": "MYGYM Unken",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_cce1771403",
+      "name": "FITINN Wien Alterlaa",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_ce80ebe313",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Krems-Stadtkern",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_ceaa5c63ac",
+      "name": "INJOY Hopfgarten",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_ceb510c0b6",
+      "name": "HappyFit Aigen-Schlägl",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_cf7b15c7fa",
+      "name": "McFIT Wien-Favoriten",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_cf9ae9f3ef",
+      "name": "clever fit Villach",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_d0ed5e01ff",
+      "name": "MYGYM Tamsweg",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_d1d310ec29",
+      "name": "Speedfit Neunkirchen - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_d2158fa21f",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Alsergrund",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_d232760859",
+      "name": "MYGYM PRIME Straßwalchen",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_d3aed16566",
+      "name": "HappyFit Perg",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_d409701db0",
+      "name": "FITINN Bürs Bürs",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_d4347d4261",
+      "name": "HappyFit Steyr Citypoint",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_d6ceac0d04",
+      "name": "HappyFit Ybbs",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_d7443d7686",
+      "name": "MYGYM Hollabrunn",
+      "brand": "MYGYM"
+    },
+    {
+      "id": "at_d902cf1c9f",
+      "name": "Fit Fabrik Plus Ternitz",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_d991465dc8",
+      "name": "INJOY Tulln",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_da376082f4",
+      "name": "INJOY Leibnitz",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_db1fa3320c",
+      "name": "Fit Fabrik Plus Gerasdorf",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_ddcf160aca",
+      "name": "HappyFit Stadtgut Steyr",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_df36111667",
+      "name": "FITINN Villach V-Center",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_df8c51464c",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Aspern",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_e1a6c0cac8",
+      "name": "Holmes Place Millennium",
+      "brand": "Holmes Place"
+    },
+    {
+      "id": "at_e1c391c05f",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Tulln",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_e34d0ed05b",
+      "name": "FITINN Linz Rainerstraße 6-8",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_e3b69cd16e",
+      "name": "INJOY St. Veit/Glan",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_e41b50331d",
+      "name": "Speedfit Wien 14 - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_e44e264970",
+      "name": "Fit Fabrik Plus Doebling",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_e5055f3b8c",
+      "name": "John Harris Atrium",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_e50954aa8d",
+      "name": "HappyFit Linz Kleinmünchen",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_e6fee6cf45",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Innsbruck Altstadt",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_e7a1d0435e",
+      "name": "JOHN REED Salzburg",
+      "brand": "JOHN REED"
+    },
+    {
+      "id": "at_e7c483fbd6",
+      "name": "Fit Fabrik Plus Parndorf",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_e7c4f747fb",
+      "name": "McFIT Innsbruck",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_e7f361d672",
+      "name": "Speedfit Linz - Fitnessstudios mit modernem Training",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_e86098dc6f",
+      "name": "HappyFit Pregarten",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_e972072b01",
+      "name": "FITINN Wien Ottakringer Str.-Hernals",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_ea1e6cee48",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Penzing",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_ea65756e86",
+      "name": "Fit Fabrik Plus Poysdorf",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_ebb1df0500",
+      "name": "Speedfit Wörgl - Modernes Fitnessstudio & GYM in Tirol",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_ece776380d",
+      "name": "clever fit Knittelfeld",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_ed38561fc2",
+      "name": "FITINN Wien Edelsinnstraße",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_ed829ed2ce",
+      "name": "FITINN Wiener Neustadt",
+      "brand": "FITINN"
+    },
+    {
+      "id": "at_eedc321fb4",
+      "name": "HappyFit Enns",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_efc8eb5123",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Kottingbrunn",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_f037a810a5",
+      "name": "Speedfit Wien 21 Citygate - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_f044eb83bc",
+      "name": "Speedfit Wien 23 - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_f153637146",
+      "name": "John Harris Thalia",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_f165e1cb7c",
+      "name": "clever fit Bregenz",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_f1934685ef",
+      "name": "McFIT Graz-Center West",
+      "brand": "McFIT"
+    },
+    {
+      "id": "at_f1f1cf40ea",
+      "name": "Speedfit Wiener Neustadt - Modernes Fitnessstudio & GYM in Niederösterreich",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_f22bf11ac4",
+      "name": "JOHN REED Graz",
+      "brand": "JOHN REED"
+    },
+    {
+      "id": "at_f53f49198b",
+      "name": "INJOY Steyr",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_f542d5fb04",
+      "name": "Speedfit Linz - Fitnessstudios mit modernem Training",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_f64419fedc",
+      "name": "clever fit Wien-Döbling",
+      "brand": "clever fit"
+    },
+    {
+      "id": "at_f6692c42e6",
+      "name": "HappyFit Grieskirchen",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_f941009411",
+      "name": "Fitness First Vösendorf",
+      "brand": "Fitness First"
+    },
+    {
+      "id": "at_f953cc425b",
+      "name": "INJOY Villach",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_fa33025c45",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Zwettl",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_fa416d4515",
+      "name": "Fit Fabrik Plus Flughafen",
+      "brand": "Fit Fabrik"
+    },
+    {
+      "id": "at_fab26ccd17",
+      "name": "INJOY Knittelfeld",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_fb98ec39c1",
+      "name": "HappyFit Marchtrenk",
+      "brand": "HappyFit"
+    },
+    {
+      "id": "at_fc63488b4d",
+      "name": "Speedfit Wiener Neustadt - Fitnessstudio & Modernes Gym",
+      "brand": "Speedfit"
+    },
+    {
+      "id": "at_fc93e6add7",
+      "name": "INJOY Krems",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_fcfbb6d5cd",
+      "name": "John Harris Margaretenplatz",
+      "brand": "John Harris Fitness"
+    },
+    {
+      "id": "at_fd2bf7dfb9",
+      "name": "INJOY Graz Ost",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_ff2ea15fd9",
+      "name": "INJOY Saalfelden",
+      "brand": "INJOY"
+    },
+    {
+      "id": "at_ffaa81c265",
+      "name": "Mrs.Sporty Home - Mrs.Sporty Club Wien-Donaufeld",
+      "brand": "Mrs.Sporty"
+    },
+    {
+      "id": "at_0362c1513b",
+      "name": "Anytime Fitness Edt bei Lambach",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_09579e84bc",
+      "name": "Anytime Fitness Vorchdorf",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_0f0daa4ae3",
+      "name": "Anytime Fitness Ried im Innkreis",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_1612323ebf",
+      "name": "Anytime Fitness St. Valentin",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_332a98b2cd",
+      "name": "Anytime Fitness Schwanenstadt",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_34b509b0f5",
+      "name": "Anytime Fitness Vocklabruck",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_443353a907",
+      "name": "Anytime Fitness Gallneukirchen",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_4c12f55a3e",
+      "name": "Anytime Fitness Vöcklabruck",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_4fa891f6bc",
+      "name": "Anytime Fitness Freistadt",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_4ff666f739",
+      "name": "Anytime Fitness Vöcklamarkt",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_5b3e8fd2d9",
+      "name": "Anytime Fitness Linz",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_5eac577edd",
+      "name": "Anytime Fitness Wels",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_6f0f20ac6d",
+      "name": "Anytime Fitness St Georgen i. A",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_aa1d9a9987",
+      "name": "Anytime Fitness Salzburg",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_b423e0dc23",
+      "name": "Anytime Fitness Wien",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_b8c922e311",
+      "name": "Anytime Fitness Schladming",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_c018753159",
+      "name": "Anytime Fitness Bad Ischl",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_c43653ae92",
+      "name": "Anytime Fitness Regau",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_c69085632f",
+      "name": "Anytime Fitness Gmunden",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_d6d417d297",
+      "name": "Anytime Fitness Andorf",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_d8d5cb953a",
+      "name": "Anytime Fitness Wels",
+      "brand": "Anytime Fitness"
+    },
+    {
+      "id": "at_fbaca8e23f",
+      "name": "Anytime Fitness Bad Leonfelden",
+      "brand": "Anytime Fitness"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "country": "Hungary",
+  "prefix": "hu_",
+  "generated_at": "2026-08-22T20:54:11.612025+00:00",
+  "production_total": 10772,
+  "unique_staged": 7,
+  "status_counts": {
+    "READY_TO_IMPORT": 7
+  },
+  "ready_count": 7,
+  "ready_by_brand": {
+    "Life1 Fitness": 7
+  },
+  "brand_counts": {
+    "Life1 Fitness": 7
+  },
+  "city_coverage": {
+    "Budapest": true,
+    "Debrecen": false,
+    "Szeged": false,
+    "Miskolc": false,
+    "Pécs": false,
+    "Győr": false,
+    "Nyíregyháza": false,
+    "Kecskemét": false,
+    "Székesfehérvár": false,
+    "Szombathely": false,
+    "Érd": false,
+    "Veszprém": false,
+    "Zalaegerszeg": false
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0
+  },
+  "production_collisions": 0,
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 10779,
+  "verdict": "HUNGARY PHASE 2 REQUIRED BEFORE MERGE",
+  "coverage_notes": {
+    "Life1 Fitness": "Major Budapest network — official data-pos pins from life1.hu",
+    "Cutler Gym": "Partial Phase 1 probe — Phase 2 for multi-site estate",
+    "4% / Chili / regional": "Budapest-heavy — Phase 2 required for national coverage",
+    "Secondary brands": "Scitec Gold / Gilda Max / Oxygen etc. deferred to Phase 2"
+  },
+  "geocoded_this_run": 0
+}

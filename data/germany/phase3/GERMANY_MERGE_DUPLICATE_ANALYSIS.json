@@ -1,0 +1,10 @@
+{
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [],
+  "skipped_batch_dup_addr_brand": [],
+  "skipped_non_germany_id_collision": [],
+  "allowed_colocated_different_brand": [],
+  "bbox_outliers_excluded": [],
+  "included": []
+}

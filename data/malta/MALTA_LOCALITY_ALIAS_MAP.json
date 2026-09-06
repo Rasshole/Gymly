@@ -1,0 +1,137 @@
+{
+  "country": "Malta",
+  "aliases": [
+    {
+      "canonical": "St Julian's",
+      "variants": [
+        "San Ġiljan",
+        "San Giljan",
+        "St Julians",
+        "Paceville"
+      ]
+    },
+    {
+      "canonical": "St Paul's Bay",
+      "variants": [
+        "San Pawl il-Baħar",
+        "San Pawl il-Bahar",
+        "Buġibba",
+        "Bugibba",
+        "Qawra"
+      ]
+    },
+    {
+      "canonical": "Victoria",
+      "variants": [
+        "Rabat (Gozo)",
+        "Ir-Rabat Għawdex",
+        "Victoria Gozo"
+      ]
+    },
+    {
+      "canonical": "Birgu",
+      "variants": [
+        "Vittoriosa",
+        "Città Vittoriosa"
+      ]
+    },
+    {
+      "canonical": "Bormla",
+      "variants": [
+        "Cospicua",
+        "Cottonera"
+      ]
+    },
+    {
+      "canonical": "Senglea",
+      "variants": [
+        "Isla",
+        "L-Isla"
+      ]
+    },
+    {
+      "canonical": "Gżira",
+      "variants": [
+        "Gzira",
+        "Il-Gżira"
+      ]
+    },
+    {
+      "canonical": "Żebbuġ",
+      "variants": [
+        "Zebbug",
+        "Ħaż-Żebbuġ"
+      ]
+    },
+    {
+      "canonical": "Żabbar",
+      "variants": [
+        "Zabbar",
+        "Ħaż-Żabbar"
+      ]
+    },
+    {
+      "canonical": "Żejtun",
+      "variants": [
+        "Zejtun",
+        "Iż-Żejtun"
+      ]
+    },
+    {
+      "canonical": "Żurrieq",
+      "variants": [
+        "Zurrieq",
+        "Ħaż-Żurrieq"
+      ]
+    },
+    {
+      "canonical": "Siġġiewi",
+      "variants": [
+        "Siggiewi",
+        "Is-Siġġiewi"
+      ]
+    },
+    {
+      "canonical": "Għargħur",
+      "variants": [
+        "Gharghur",
+        "Ħal Għargħur"
+      ]
+    },
+    {
+      "canonical": "Għajnsielem",
+      "variants": [
+        "Ghajnsielem"
+      ]
+    },
+    {
+      "canonical": "Xagħra",
+      "variants": [
+        "Xaghra",
+        "Iż-Żaghra"
+      ]
+    },
+    {
+      "canonical": "Mellieħa",
+      "variants": [
+        "Mellieha",
+        "Il-Mellieħa"
+      ]
+    },
+    {
+      "canonical": "Attard",
+      "variants": [
+        "Ħ'Attard",
+        "Ta' Qali"
+      ]
+    },
+    {
+      "canonical": "Marsaskala",
+      "variants": [
+        "Marsascala",
+        "Wied il-Għajn"
+      ]
+    }
+  ],
+  "notes": "Gozo is part of Malta country; Comino is part of Malta; do not treat as separate countries"
+}

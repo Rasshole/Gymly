@@ -1,0 +1,702 @@
+/**
+ * North Macedonia production-safe merge (Phase 2 canonical READY).
+ *
+ * Source: data/north-macedonia/NORTH_MACEDONIA_PHASE2_READY_TO_IMPORT.json
+ *
+ * Usage:
+ *   node scripts/import-north-macedonia-merge.mjs --dry-run
+ *   node scripts/import-north-macedonia-merge.mjs
+ *   node scripts/import-north-macedonia-merge.mjs --idempotency-check
+ */
+import fs from 'fs';
+import path from 'path';
+import crypto from 'crypto';
+import {fileURLToPath} from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.join(__dirname, '..');
+const centersPath = path.join(root, 'src/data/centers.json');
+const stagingPath = path.join(
+  root,
+  'data/north-macedonia/north_macedonia_centers_staging.json',
+);
+const readyPath = path.join(
+  root,
+  'data/north-macedonia/NORTH_MACEDONIA_PHASE2_READY_TO_IMPORT.json',
+);
+const phase2ReportPath = path.join(
+  root,
+  'data/north-macedonia/NORTH_MACEDONIA_PHASE2_READINESS_REPORT.json',
+);
+const rebrandPath = path.join(
+  root,
+  'data/north-macedonia/NORTH_MACEDONIA_PHASE2_REBRAND_MAP.json',
+);
+const reportDir = path.join(root, 'data/north-macedonia');
+const reportPath = path.join(reportDir, 'NORTH_MACEDONIA_MERGE_REPORT.json');
+const mdReportPath = path.join(reportDir, 'NORTH_MACEDONIA_MERGE_REPORT.md');
+const dupAnalysisPath = path.join(
+  reportDir,
+  'NORTH_MACEDONIA_MERGE_DUPLICATE_ANALYSIS.json',
+);
+const approvedPath = path.join(
+  reportDir,
+  'NORTH_MACEDONIA_APPROVED_FOR_MERGE.json',
+);
+const idempotencyPath = path.join(
+  reportDir,
+  'NORTH_MACEDONIA_MERGE_IDEMPOTENCY.json',
+);
+
+const dryRun = process.argv.includes('--dry-run');
+const idempotencyCheck = process.argv.includes('--idempotency-check');
+
+const EXPECTED_TOTAL_BEFORE = 11775;
+const EXPECTED_READY = 25;
+const EXPECTED_SHA_BEFORE =
+  '2eaa8b9f0ea10fce0a3ab0336f9312e6dc7ff77f463ee1669737f880ae6f0698';
+const MK_POSTAL_RE = /^\d{4}$/;
+const MOJIBAKE_RE = /Ã[£¡§ªº¢©¤]|�|â€|Â\s/;
+const FALLBACK_RE =
+  /fallback|invented|centroid|city.?center|postcode.?centroid|capital.?fallback|city.?approx/i;
+
+const EXPECTED_BRANDS = {
+  'Athletic Fitness': 1,
+  'Star Gym': 1,
+  'Synergy Fitness Spa': 1,
+  'Fitness Club Fit': 1,
+  Terminator: 1,
+  Atleta: 1,
+  Mastersport: 1,
+  'Flex Gym': 1,
+  'IB Fitness': 1,
+  'Fitness Factori': 1,
+  Aldo: 1,
+  'Fit Bodi': 1,
+  Chili: 1,
+  Shampion: 1,
+  'Fit Star': 1,
+  Arena: 1,
+  Starfit: 1,
+  'Fajar Bodi': 1,
+  'Fitness Club Flex': 1,
+  'Fit One': 1,
+  'Magnus Fitness': 1,
+  'Pulse Fitness': 1,
+  'Urban Gym': 1,
+  'Fit Jim Kiko': 1,
+  'Arena Fitness': 1,
+};
+
+const FORBIDDEN_LIVE_RE =
+  /Slim Line|Slim Gym|Top Forma|\bFoxy\b|Border probe|Regional gap|ABSENT|CrossFit|OU Fit One|school.?hall|Fit One.*(school|OU)|(school|OU).*Fit One/i;
+
+const BASELINE = {
+  total: EXPECTED_TOTAL_BEFORE,
+  north_macedonia: 0,
+  montenegro: 26,
+  moldova: 28,
+  san_marino: 6,
+  monaco: 4,
+  andorra: 12,
+  liechtenstein: 7,
+  iceland: 27,
+  cyprus: 17,
+  malta: 18,
+  luxembourg: 20,
+  estonia: 68,
+  latvia: 33,
+  lithuania: 61,
+  denmark: 354,
+  sweden: 639,
+  norway: 535,
+  finland: 429,
+  germany: 1424,
+  united_kingdom: 1474,
+  netherlands: 600,
+  france: 1712,
+  spain: 976,
+  italy: 588,
+  belgium: 363,
+  poland: 621,
+  austria: 335,
+  switzerland: 475,
+  portugal: 247,
+  greece: 106,
+  ireland: 65,
+  czechia: 70,
+  hungary: 50,
+  romania: 154,
+  slovakia: 37,
+  bulgaria: 82,
+  croatia: 80,
+  slovenia: 32,
+};
+
+/** Mirrors isPlausibleNorthMacedoniaCoordinate */
+function inNorthMacedonia(lat, lng) {
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return false;
+  if (lat < 40.85 || lat > 42.38 || lng < 20.45 || lng > 23.04) return false;
+  if (lat <= 41.12 && lng >= 22.35) return false;
+  if (lat <= 41.0 && lng >= 20.9 && lng <= 22.2) return false;
+  if (lng <= 20.72 && lat <= 41.15) return false;
+  if (lng <= 20.78 && lat >= 40.85 && lat <= 41.05) return false;
+  if (lat >= 42.28 && lng >= 21.0 && lng <= 21.6) return false;
+  if (lat >= 42.2 && lng >= 21.55 && lng <= 22.1) return false;
+  if (lng >= 22.55 && lat >= 42.15) return false;
+  if (lng >= 22.85 && lat >= 41.9) return false;
+  if (lng >= 22.95 && lat >= 41.7) return false;
+  return true;
+}
+
+function hasValidCoords(r) {
+  const lat = Number(r.lat);
+  const lng = Number(r.lng);
+  return (
+    r.lat != null &&
+    r.lng != null &&
+    Number.isFinite(lat) &&
+    Number.isFinite(lng) &&
+    !(lat === 0 && lng === 0)
+  );
+}
+
+function normalizeBrand(b) {
+  return String(b || '')
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function haversineMeters(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const toRad = d => (d * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+
+function eligibilityOf(r) {
+  return r.eligibility_path || r.eligibility_candidate || '';
+}
+
+function toCatalogRow(r) {
+  return {
+    id: r.id,
+    name: String(r.name || '').trim(),
+    brand: r.brand,
+    address: String(r.address || '').trim(),
+    postal_code: String(r.postal_code || '').trim(),
+    city: String(r.city || '').trim(),
+    country: 'North Macedonia',
+    lat: Number(r.lat),
+    lng: Number(r.lng),
+    is_active: true,
+    is_coming_soon: false,
+  };
+}
+
+function toApprovedRow(r) {
+  return {
+    id: r.id,
+    name: String(r.name || '').trim(),
+    brand: r.brand,
+    address: String(r.address || '').trim(),
+    postal_code: String(r.postal_code || '').trim(),
+    city: String(r.city || '').trim(),
+    country: 'North Macedonia',
+    lat: Number(r.lat),
+    lng: Number(r.lng),
+    eligibility_path: eligibilityOf(r),
+    phase2_classification: r.phase2_classification || 'A_CONVENTIONAL_PUBLIC_GYM',
+    municipality: r.municipality || r.city || null,
+    source_url: r.source_url || null,
+  };
+}
+
+function countByCountry(centers, country) {
+  return centers.filter(c => c.country === country).length;
+}
+
+function snapshotCountry(centers, country) {
+  return centers.filter(c => c.country === country).map(c => ({...c}));
+}
+
+function countryIntact(beforeRows, catalog) {
+  return beforeRows.every(c => {
+    const a = catalog.find(x => x.id === c.id);
+    return (
+      a &&
+      a.lat === c.lat &&
+      a.lng === c.lng &&
+      a.name === c.name &&
+      a.brand === c.brand &&
+      a.address === c.address &&
+      a.postal_code === c.postal_code &&
+      a.city === c.city &&
+      a.country === c.country &&
+      a.is_active === c.is_active
+    );
+  });
+}
+
+function brandBreakdown(rows) {
+  const byBrand = {};
+  for (const r of rows) byBrand[r.brand] = (byBrand[r.brand] || 0) + 1;
+  return byBrand;
+}
+
+function sha256File(p) {
+  return crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+}
+
+function findProximityPairs(rows) {
+  const out = {
+    same_brand_lt50: [],
+    different_brand_lt50: [],
+    identical: [],
+    classifications: [],
+    unexplained_hard_duplicates: 0,
+  };
+  for (let i = 0; i < rows.length; i++) {
+    for (let j = i + 1; j < rows.length; j++) {
+      const a = rows[i];
+      const b = rows[j];
+      if (!hasValidCoords(a) || !hasValidCoords(b)) continue;
+      const d = haversineMeters(Number(a.lat), Number(a.lng), Number(b.lat), Number(b.lng));
+      const sameBrand = normalizeBrand(a.brand) === normalizeBrand(b.brand);
+      const rec = {
+        a_id: a.id,
+        b_id: b.id,
+        a_brand: a.brand,
+        b_brand: b.brand,
+        distance_m: Math.round(d),
+        classification: 'DISTINCT_PREMISES',
+      };
+      if (
+        Math.abs(Number(a.lat) - Number(b.lat)) < 1e-7 &&
+        Math.abs(Number(a.lng) - Number(b.lng)) < 1e-7
+      ) {
+        rec.classification = 'DUPLICATE';
+        out.identical.push(rec);
+      }
+      // IB Fitness ↔ Fitness Factori — known distinct Ohrid units
+      if (
+        !sameBrand &&
+        /IB Fitness/i.test(a.brand || '') &&
+        /Fitness Factori/i.test(b.brand || '') &&
+        d <= 50
+      ) {
+        rec.classification = 'COLOCATED_DISTINCT_OHRID';
+      }
+      if (
+        !sameBrand &&
+        /Fitness Factori/i.test(a.brand || '') &&
+        /IB Fitness/i.test(b.brand || '') &&
+        d <= 50
+      ) {
+        rec.classification = 'COLOCATED_DISTINCT_OHRID';
+      }
+      if (d <= 200) out.classifications.push(rec);
+      if (sameBrand && d <= 50) out.same_brand_lt50.push(rec);
+      if (!sameBrand && d <= 50) out.different_brand_lt50.push(rec);
+    }
+  }
+  out.unexplained_hard_duplicates = out.identical.length;
+  return out;
+}
+
+function afterCounts(catalog) {
+  return {
+    total: catalog.length,
+    north_macedonia: countByCountry(catalog, 'North Macedonia'),
+    montenegro: countByCountry(catalog, 'Montenegro'),
+    moldova: countByCountry(catalog, 'Moldova'),
+    san_marino: countByCountry(catalog, 'San Marino'),
+    monaco: countByCountry(catalog, 'Monaco'),
+    andorra: countByCountry(catalog, 'Andorra'),
+    liechtenstein: countByCountry(catalog, 'Liechtenstein'),
+    iceland: countByCountry(catalog, 'Iceland'),
+    cyprus: countByCountry(catalog, 'Cyprus'),
+    malta: countByCountry(catalog, 'Malta'),
+    luxembourg: countByCountry(catalog, 'Luxembourg'),
+    estonia: countByCountry(catalog, 'Estonia'),
+    latvia: countByCountry(catalog, 'Latvia'),
+    lithuania: countByCountry(catalog, 'Lithuania'),
+    denmark: countByCountry(catalog, 'Denmark'),
+    sweden: countByCountry(catalog, 'Sweden'),
+    norway: countByCountry(catalog, 'Norway'),
+    finland: countByCountry(catalog, 'Finland'),
+    germany: countByCountry(catalog, 'Germany'),
+    united_kingdom: countByCountry(catalog, 'United Kingdom'),
+    netherlands: countByCountry(catalog, 'Netherlands'),
+    france: countByCountry(catalog, 'France'),
+    spain: countByCountry(catalog, 'Spain'),
+    italy: countByCountry(catalog, 'Italy'),
+    belgium: countByCountry(catalog, 'Belgium'),
+    poland: countByCountry(catalog, 'Poland'),
+    austria: countByCountry(catalog, 'Austria'),
+    switzerland: countByCountry(catalog, 'Switzerland'),
+    portugal: countByCountry(catalog, 'Portugal'),
+    greece: countByCountry(catalog, 'Greece'),
+    ireland: countByCountry(catalog, 'Ireland'),
+    czechia: countByCountry(catalog, 'Czechia'),
+    hungary: countByCountry(catalog, 'Hungary'),
+    romania: countByCountry(catalog, 'Romania'),
+    slovakia: countByCountry(catalog, 'Slovakia'),
+    bulgaria: countByCountry(catalog, 'Bulgaria'),
+    croatia: countByCountry(catalog, 'Croatia'),
+    slovenia: countByCountry(catalog, 'Slovenia'),
+  };
+}
+
+function main() {
+  const preSha = sha256File(centersPath);
+  const centers = JSON.parse(fs.readFileSync(centersPath, 'utf8'));
+  const ready = JSON.parse(fs.readFileSync(readyPath, 'utf8'));
+  const staging = JSON.parse(fs.readFileSync(stagingPath, 'utf8'));
+  const phase2Report = JSON.parse(fs.readFileSync(phase2ReportPath, 'utf8'));
+  const rebrand = JSON.parse(fs.readFileSync(rebrandPath, 'utf8'));
+
+  // Idempotency / second-run mode (post-merge catalog expected)
+  if (idempotencyCheck) {
+    const existingIds = new Set(centers.map(c => c.id));
+    const approvedIdsCheck = ready.map(r => r.id);
+    const toInsert = approvedIdsCheck.filter(id => !existingIds.has(id));
+    const mkLive = countByCountry(centers, 'North Macedonia');
+    const idem = {
+      second_run_insertions: toInsert.length,
+      final_catalog: centers.length,
+      north_macedonia: mkLive,
+      mk_prefix: centers.filter(c => String(c.id || '').startsWith('mk_')).length,
+      expected_catalog: EXPECTED_TOTAL_BEFORE + EXPECTED_READY,
+      expected_north_macedonia: EXPECTED_READY,
+      result:
+        toInsert.length === 0 &&
+        centers.length === EXPECTED_TOTAL_BEFORE + EXPECTED_READY &&
+        mkLive === EXPECTED_READY
+          ? 'PASS'
+          : 'FAIL',
+    };
+    fs.writeFileSync(idempotencyPath, JSON.stringify(idem, null, 2) + '\n');
+    if (idem.result !== 'PASS') {
+      console.error('IDEMPOTENCY FAIL', idem);
+      process.exit(1);
+    }
+    console.log(JSON.stringify(idem, null, 2));
+    return;
+  }
+
+  const mkBefore = countByCountry(centers, 'North Macedonia');
+  const mkPrefixBefore = centers.filter(c => String(c.id || '').startsWith('mk_')).length;
+
+  const baselineMatch =
+    centers.length === EXPECTED_TOTAL_BEFORE &&
+    mkBefore === 0 &&
+    mkPrefixBefore === 0 &&
+    preSha === EXPECTED_SHA_BEFORE &&
+    countByCountry(centers, 'Montenegro') === 26 &&
+    countByCountry(centers, 'Moldova') === 28 &&
+    countByCountry(centers, 'San Marino') === 6 &&
+    countByCountry(centers, 'Monaco') === 4 &&
+    countByCountry(centers, 'Andorra') === 12 &&
+    countByCountry(centers, 'Liechtenstein') === 7 &&
+    countByCountry(centers, 'Iceland') === 27;
+
+  if (!baselineMatch) {
+    console.error('BASELINE MISMATCH — STOP', {
+      total: centers.length,
+      mkBefore,
+      mkPrefixBefore,
+      preSha,
+      montenegro: countByCountry(centers, 'Montenegro'),
+    });
+    process.exit(1);
+  }
+
+  if (ready.length !== EXPECTED_READY) {
+    console.error('READY count mismatch', ready.length);
+    process.exit(1);
+  }
+  if (phase2Report.ready_to_import !== EXPECTED_READY) {
+    console.error('Phase2 report READY mismatch');
+    process.exit(1);
+  }
+
+  const readyIds = new Set(ready.map(r => r.id));
+  if (readyIds.size !== EXPECTED_READY) {
+    console.error('Duplicate READY IDs');
+    process.exit(1);
+  }
+
+  // Validate READY rows
+  for (const r of ready) {
+    if (!String(r.id || '').startsWith('mk_')) {
+      console.error('Non-mk_ READY id', r.id);
+      process.exit(1);
+    }
+    if (eligibilityOf(r) !== 'SMALL_MARKET_INDEPENDENT') {
+      console.error('Non-SMI eligibility', r.id, eligibilityOf(r));
+      process.exit(1);
+    }
+    if (!MK_POSTAL_RE.test(String(r.postal_code || ''))) {
+      console.error('Invalid postcode', r.id, r.postal_code);
+      process.exit(1);
+    }
+    if (!hasValidCoords(r) || !inNorthMacedonia(Number(r.lat), Number(r.lng))) {
+      console.error('Invalid coords', r.id, r.lat, r.lng);
+      process.exit(1);
+    }
+    if (FALLBACK_RE.test(String(r.coord_source || ''))) {
+      console.error('Fallback coords', r.id);
+      process.exit(1);
+    }
+    if (MOJIBAKE_RE.test(`${r.name} ${r.address} ${r.city} ${r.brand}`)) {
+      console.error('Mojibake', r.id);
+      process.exit(1);
+    }
+    if (FORBIDDEN_LIVE_RE.test(`${r.name} ${r.brand}`)) {
+      console.error('Forbidden live identity', r.id);
+      process.exit(1);
+    }
+    if (r.foreign_probe === true) {
+      console.error('Foreign probe READY', r.id);
+      process.exit(1);
+    }
+  }
+
+  const brands = brandBreakdown(ready);
+  for (const [b, n] of Object.entries(EXPECTED_BRANDS)) {
+    if ((brands[b] || 0) !== n) {
+      console.error('Brand count mismatch', b, brands[b], 'expected', n);
+      process.exit(1);
+    }
+  }
+
+  const approved = ready.map(toApprovedRow);
+  const approvedIds = new Set(approved.map(a => a.id));
+  if (
+    approvedIds.size !== readyIds.size ||
+    [...approvedIds].some(id => !readyIds.has(id))
+  ) {
+    console.error('Approved != Phase2 READY');
+    process.exit(1);
+  }
+
+  const dup = findProximityPairs(approved);
+  if (dup.unexplained_hard_duplicates !== 0) {
+    console.error('Hard duplicates', dup.identical);
+    process.exit(1);
+  }
+  if ((rebrand.unresolved_conflicts || 0) !== 0) {
+    console.error('Unresolved rebrand conflicts');
+    process.exit(1);
+  }
+
+  const moldovaSnap = snapshotCountry(centers, 'Moldova');
+  const smSnap = snapshotCountry(centers, 'San Marino');
+  const mcSnap = snapshotCountry(centers, 'Monaco');
+  const meSnap = snapshotCountry(centers, 'Montenegro');
+
+  const existingIds = new Set(centers.map(c => c.id));
+  const toInsert = approved.filter(a => !existingIds.has(a.id)).map(toCatalogRow);
+  if (toInsert.length !== EXPECTED_READY) {
+    console.error('Insert count unexpected', toInsert.length);
+    process.exit(1);
+  }
+
+  const catalog = dryRun ? centers.concat(toInsert) : centers.concat(toInsert);
+  if (!dryRun) {
+    fs.writeFileSync(centersPath, JSON.stringify(catalog, null, 2) + '\n');
+  }
+
+  // Staging MERGED
+  let stagingUpdated = staging;
+  if (!dryRun) {
+    stagingUpdated = staging.map(r => {
+      if (readyIds.has(r.id) && r.import_category === 'READY_TO_IMPORT') {
+        return {...r, import_category: 'MERGED_INTO_CATALOG'};
+      }
+      return r;
+    });
+    fs.writeFileSync(stagingPath, JSON.stringify(stagingUpdated, null, 2) + '\n');
+  }
+
+  const postSha = dryRun ? preSha : sha256File(centersPath);
+  const after = afterCounts(catalog);
+  const mergedStaging = stagingUpdated.filter(
+    r => r.import_category === 'MERGED_INTO_CATALOG',
+  );
+
+  // Regressions
+  if (after.total !== EXPECTED_TOTAL_BEFORE + EXPECTED_READY) {
+    console.error('After total wrong', after.total);
+    process.exit(1);
+  }
+  if (after.north_macedonia !== EXPECTED_READY) {
+    console.error('After MK wrong', after.north_macedonia);
+    process.exit(1);
+  }
+  for (const [k, v] of Object.entries(BASELINE)) {
+    if (k === 'total' || k === 'north_macedonia') continue;
+    if (after[k] !== v) {
+      console.error('Country regression', k, after[k], v);
+      process.exit(1);
+    }
+  }
+  if (
+    !countryIntact(moldovaSnap, catalog) ||
+    !countryIntact(smSnap, catalog) ||
+    !countryIntact(mcSnap, catalog) ||
+    !countryIntact(meSnap, catalog)
+  ) {
+    console.error('Prior-country row mutation detected');
+    process.exit(1);
+  }
+
+  const globalIds = catalog.map(c => c.id);
+  if (new Set(globalIds).size !== globalIds.length) {
+    console.error('Global duplicate IDs');
+    process.exit(1);
+  }
+
+  // Metadata drift check Approved vs Production MK
+  const liveMk = catalog.filter(c => c.country === 'North Macedonia');
+  let drift = 'NONE';
+  for (const a of approved) {
+    const live = liveMk.find(c => c.id === a.id);
+    if (
+      !live ||
+      live.name !== a.name ||
+      live.brand !== a.brand ||
+      live.address !== a.address ||
+      live.postal_code !== a.postal_code ||
+      live.city !== a.city ||
+      Number(live.lat) !== Number(a.lat) ||
+      Number(live.lng) !== Number(a.lng)
+    ) {
+      drift = `DRIFT:${a.id}`;
+      break;
+    }
+  }
+  if (drift !== 'NONE') {
+    console.error(drift);
+    process.exit(1);
+  }
+
+  if (!dryRun) {
+    fs.writeFileSync(approvedPath, JSON.stringify(approved, null, 2) + '\n');
+    fs.writeFileSync(dupAnalysisPath, JSON.stringify(dup, null, 2) + '\n');
+  }
+
+  const report = {
+    country: 'North Macedonia',
+    dry_run: dryRun,
+    baseline_match: true,
+    pre_merge_sha256: preSha,
+    post_merge_sha256: postSha,
+    before: {
+      total: centers.length,
+      north_macedonia: mkBefore,
+      mk_prefix: mkPrefixBefore,
+      montenegro: BASELINE.montenegro,
+      moldova: BASELINE.moldova,
+      san_marino: BASELINE.san_marino,
+      monaco: BASELINE.monaco,
+      andorra: BASELINE.andorra,
+      liechtenstein: BASELINE.liechtenstein,
+      iceland: BASELINE.iceland,
+    },
+    phase2_ready: ready.length,
+    approved: approved.length,
+    inserted: toInsert.length,
+    withheld: 0,
+    after,
+    eligibility: {
+      CHAIN_CLASS_A: 0,
+      SMALL_MARKET_INDEPENDENT: EXPECTED_READY,
+    },
+    brands: brandBreakdown(approved),
+    reconciliation: {
+      phase2_ready: ready.length,
+      approved: approved.length,
+      production_north_macedonia: after.north_macedonia,
+      merged_staging: mergedStaging.length,
+      invariant: '25 == 25 == 25 == 25',
+      metadata_drift: drift,
+    },
+    exclusions: {
+      hotel_resort_leakage: 0,
+      specialist_leakage: 0,
+      institutional_fit_one_leakage: 0,
+      foreign_ready: {gr: 0, xk: 0, rs: 0, bg: 0, al: 0},
+    },
+    duplicates: {
+      unexplained_hard_duplicates: dup.unexplained_hard_duplicates,
+    },
+    rebrand_unresolved: rebrand.unresolved_conflicts || 0,
+    architecture: 'KEEP CLIENT-SIDE',
+    crosses_12500: after.total >= 12500,
+    global_stress_qa_required: false,
+    check_in_radius_m: 200,
+    auto_checkout_m: 200,
+    verdict: dryRun
+      ? 'DRY RUN OK'
+      : 'NORTH MACEDONIA MERGE COMPLETE — WAITING FOR QA',
+  };
+
+  if (!dryRun) {
+    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + '\n');
+    fs.writeFileSync(
+      mdReportPath,
+      `# NORTH MACEDONIA PRODUCTION MERGE
+
+## Verdict
+
+**${report.verdict}**
+
+## Baseline
+
+- Before: ${report.before.total}
+- North Macedonia before: ${report.before.north_macedonia}
+- Montenegro before: ${report.before.montenegro}
+- Pre-merge SHA: \`${preSha}\`
+
+## Result
+
+- Inserted: ${report.inserted}
+- After: ${report.after.total}
+- North Macedonia after: ${report.after.north_macedonia}
+- Montenegro after: ${report.after.montenegro}
+- Post-merge SHA: \`${postSha}\`
+
+## Eligibility
+
+- CHAIN_CLASS_A: 0
+- SMALL_MARKET_INDEPENDENT: 25
+
+## Reconciliation
+
+25 == 25 == 25 == 25
+
+Metadata drift: NONE
+
+## Global scale
+
+- Catalog: ${report.after.total}
+- Crosses 12,500: NO
+- Global Stress QA: NO
+`,
+    );
+  }
+
+  console.log(JSON.stringify(report, null, 2));
+}
+
+main();

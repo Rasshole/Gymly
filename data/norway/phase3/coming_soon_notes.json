@@ -1,0 +1,14 @@
+[
+  {
+    "chain": "Spenst",
+    "name": "Spenst Fredrikstad",
+    "note": "Reported opening 2027 — do not import as active",
+    "category": "COMING_SOON"
+  },
+  {
+    "chain": "SKY Fitness",
+    "name": "SKY Moss / SKY Ski",
+    "note": "Reported autumn 2026 openings — verify before import; keep COMING_SOON",
+    "category": "COMING_SOON"
+  }
+]

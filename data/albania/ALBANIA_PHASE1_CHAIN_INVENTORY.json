@@ -1,0 +1,100 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside Albania",
+  "qualifying_class_a_chains": 0,
+  "potential_class_a_operators": 1,
+  "class_a_locations": 0,
+  "international_chains": "ABSENT",
+  "operators": {
+    "Repeat": {
+      "discovered_units": 3,
+      "conventional_public_floors_verified": 0,
+      "verdict": "POTENTIAL_CLASS_A",
+      "class_a": false,
+      "phase1_status": "NEEDS_REVIEW",
+      "cities": [
+        "Tirana"
+      ],
+      "notes": "3 Tirana sites (Wilson, Nobis, TEG) — wellness/spa risk flagged; all NEEDS_REVIEW Phase 1"
+    },
+    "Flex Gym": {
+      "discovered_units": 1,
+      "conventional_public_floors_verified": 0,
+      "verdict": "INDEPENDENT",
+      "class_a": false,
+      "phase1_status": "NEEDS_REVIEW",
+      "cities": [
+        "Tirana"
+      ],
+      "notes": "Tirana conventional unit staged; Flex Classes CrossFit and Green Coast resort EXCLUDED"
+    },
+    "Basic-Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "PureGym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "McFIT": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "JOHN REED": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Anytime Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Gold's Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "World Class": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitness Park": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FitActive": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Stay Fit Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "18GYM": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Ahilej": {
+      "verdict": "ABSENT",
+      "class_a": false,
+      "notes": "Serbia-only"
+    },
+    "Clever Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "FITINN": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "XBody": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Snap Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Curves": {
+      "verdict": "ABSENT",
+      "class_a": false
+    }
+  }
+}

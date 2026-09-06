@@ -1,0 +1,218 @@
+{
+  "country": "Andorra",
+  "phase": 2,
+  "generated_at": "2026-08-27T07:36:53.432543+00:00",
+  "verdict": "READY FOR ANDORRA MERGE",
+  "small_market_model": "INDEPENDENT_PHASE_EXECUTED",
+  "production_total": 11699,
+  "production_sha256": "b4f155e2501d10af07eded1ca1342f06784f5f122f4e51bb081ebf943cdb0bbc",
+  "andorra_live": 0,
+  "liechtenstein_live": 7,
+  "iceland_live": 27,
+  "production_modified": false,
+  "phase1_needs_review_recovered": 13,
+  "new_legitimate_gyms_discovered": 0,
+  "unique_staged": 54,
+  "status_counts": {
+    "READY_TO_IMPORT": 12,
+    "EXCLUDED": 42
+  },
+  "ready_count": 12,
+  "ready_by_brand": {
+    "AnyósPark": 1,
+    "Urban Gym": 1,
+    "Palau de Gel": 1,
+    "Duplex Sport Club": 1,
+    "NEXT Sports Club": 1,
+    "Princiesport": 1,
+    "Serradells": 1,
+    "Centre Esportiu Escaldes-Engordany": 1,
+    "CEO Ordino": 1,
+    "Complex Esportiu Encamp": 1,
+    "Centre Esportiu Pas de la Casa": 1,
+    "LAUesport": 1
+  },
+  "ready_by_eligibility": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 12
+  },
+  "class_a_chains": 0,
+  "class_a_locations_ready": 0,
+  "class_a_decision": {
+    "operator_group": "AnyósPark / Urban Gym",
+    "shared_membership": true,
+    "year_round_clear_urban_anyos_sites": 2,
+    "canillo_reclassified": "Palau de Gel gym (municipal/sports-complex operated; historically Urban-branded)",
+    "arinsal": "seasonal Dec–Apr/May — EXCLUDED_SEASONAL",
+    "qualifies_class_a": false,
+    "reason": "Only AnyósPark La Massana + Urban Gym Andorra la Vella have clear year-round Urban/AnyósPark consumer membership products. Canillo gym is currently sold and operated as Palau de Gel gimnàs (Perecaus temporary during remodel). Arinsal seasonal. 2 < 3 Class A threshold."
+  },
+  "seasonal_arinsal": {
+    "verdict": "EXCLUDED_SEASONAL",
+    "open_months": "December–April/May",
+    "policy": "C_EXCLUDED_SEASONAL"
+  },
+  "phase3_required": false,
+  "phase3_reasons": [],
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_fields": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "spanish_contamination": 0,
+    "french_contamination": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "hard_duplicate_problems": 0
+  },
+  "parish_coverage": {
+    "Andorra la Vella": "READY_present",
+    "Escaldes-Engordany": "READY_present",
+    "La Massana": "READY_present",
+    "Canillo": "READY_present",
+    "Ordino": "READY_present",
+    "Encamp": "READY_present",
+    "Sant Julià de Lòria": "READY_present"
+  },
+  "unexplained_parish_bd_gaps": 0,
+  "projected_catalog_if_merged": 11711,
+  "crossed_12500_if_merged": false,
+  "global_stress_qa_required_now": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "ready_inventory": [
+    {
+      "id": "ad_2759cd904a",
+      "brand": "Serradells",
+      "name": "Centre Esportiu dels Serradells",
+      "city": "Andorra la Vella",
+      "parish": "Andorra la Vella",
+      "postal_code": "AD500",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.499808,
+      "lng": 1.518729
+    },
+    {
+      "id": "ad_6fc179f949",
+      "brand": "Duplex Sport Club",
+      "name": "Duplex Sport Club Andorra la Vella",
+      "city": "Andorra la Vella",
+      "parish": "Andorra la Vella",
+      "postal_code": "AD500",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.5074,
+      "lng": 1.5219
+    },
+    {
+      "id": "ad_488e241114",
+      "brand": "Urban Gym",
+      "name": "Urban Gym Andorra la Vella",
+      "city": "Andorra la Vella",
+      "parish": "Andorra la Vella",
+      "postal_code": "AD500",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.50685,
+      "lng": 1.52135
+    },
+    {
+      "id": "ad_1fb5491cda",
+      "brand": "Palau de Gel",
+      "name": "Gimnàs Palau de Gel Canillo",
+      "city": "Canillo",
+      "parish": "Canillo",
+      "postal_code": "AD100",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.5665,
+      "lng": 1.5975
+    },
+    {
+      "id": "ad_8e838a1d13",
+      "brand": "Complex Esportiu Encamp",
+      "name": "Complex Esportiu i Sociocultural d'Encamp",
+      "city": "Encamp",
+      "parish": "Encamp",
+      "postal_code": "AD200",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.536,
+      "lng": 1.5828
+    },
+    {
+      "id": "ad_cfb6dcda5e",
+      "brand": "Centre Esportiu Escaldes-Engordany",
+      "name": "Centre Esportiu Comunal Escaldes-Engordany",
+      "city": "Escaldes-Engordany",
+      "parish": "Escaldes-Engordany",
+      "postal_code": "AD700",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.5095,
+      "lng": 1.536
+    },
+    {
+      "id": "ad_2594f0bd4f",
+      "brand": "NEXT Sports Club",
+      "name": "NEXT Sports Club Illa Carlemany",
+      "city": "Escaldes-Engordany",
+      "parish": "Escaldes-Engordany",
+      "postal_code": "AD700",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.5088,
+      "lng": 1.5345
+    },
+    {
+      "id": "ad_8989e7b07f",
+      "brand": "AnyósPark",
+      "name": "AnyósPark Club La Massana",
+      "city": "La Massana",
+      "parish": "La Massana",
+      "postal_code": "AD400",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.53193,
+      "lng": 1.5241
+    },
+    {
+      "id": "ad_918cf36646",
+      "brand": "CEO Ordino",
+      "name": "Centre Esportiu d'Ordino",
+      "city": "Ordino",
+      "parish": "Ordino",
+      "postal_code": "AD300",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.5558,
+      "lng": 1.5332
+    },
+    {
+      "id": "ad_886040e59f",
+      "brand": "Centre Esportiu Pas de la Casa",
+      "name": "Centre Esportiu del Pas de la Casa",
+      "city": "Pas de la Casa",
+      "parish": "Encamp",
+      "postal_code": "AD200",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.5425,
+      "lng": 1.7335
+    },
+    {
+      "id": "ad_ae9200b719",
+      "brand": "LAUesport",
+      "name": "LAUesport Sant Julià de Lòria",
+      "city": "Sant Julià de Lòria",
+      "parish": "Sant Julià de Lòria",
+      "postal_code": "AD600",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.4638,
+      "lng": 1.4915
+    },
+    {
+      "id": "ad_be0d30a1f0",
+      "brand": "Princiesport",
+      "name": "Princiesport Santa Coloma",
+      "city": "Santa Coloma",
+      "parish": "Andorra la Vella",
+      "postal_code": "AD500",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+      "lat": 42.4945,
+      "lng": 1.498
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "hot_path_global_scan": "YES",
+  "note": "findNearestGym performs O(n) linear scan; measured latency acceptable at 12,850",
+  "distance_full_scan_min_ms": 30,
+  "distance_full_scan_median_ms": 37,
+  "distance_full_scan_p95_ms": 61,
+  "distance_full_scan_max_ms": 61
+}

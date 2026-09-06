@@ -1,0 +1,7 @@
+/* English — system permission usage descriptions */
+"NSCameraUsageDescription" = "Gymly needs access to your camera to take photos and videos of your workouts and personal records.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Gymly uses your location during an active workout so you can be checked out automatically when you leave the gym — including when the app is in the background.";
+"NSLocationWhenInUseUsageDescription" = "Gymly needs access to your location to check in at fitness centers when you are within 50 meters.";
+"NSMicrophoneUsageDescription" = "Gymly needs access to your microphone to record videos with sound for your workouts and personal records.";
+"NSPhotoLibraryAddUsageDescription" = "Gymly needs permission to save photos and videos to your photo library.";
+"NSPhotoLibraryUsageDescription" = "Gymly needs access to your photo library to select photos and videos to share with your workouts.";

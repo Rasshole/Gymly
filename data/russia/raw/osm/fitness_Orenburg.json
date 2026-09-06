@@ -1,0 +1,257 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:54:11Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4427057912,
+      "lat": 51.8260842,
+      "lon": 55.1578893,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Тонус-Клуб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5154297222,
+      "lat": 51.8123758,
+      "lon": 55.1800367,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Extreme gym",
+        "phone": "613155",
+        "website": "https://vk.com/club101963297"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5598917561,
+      "lat": 51.7654197,
+      "lon": 55.130055,
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "39/1",
+        "addr:street": "улица Чкалова",
+        "leisure": "fitness_centre",
+        "name": "Броско фитнес для женщин",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5886798478,
+      "lat": 51.7814326,
+      "lon": 55.1466792,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Эра-спорт"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5894251884,
+      "lat": 51.7685954,
+      "lon": 55.1169926,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Талия Клуб",
+        "opening_hours": "Mo-Fr 07:00-22:30; Sa,Su 08:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5896662849,
+      "lat": 51.7712124,
+      "lon": 55.1134086,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Премьер-клуб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5898486051,
+      "lat": 51.7774614,
+      "lon": 55.1069627,
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "13 к2",
+        "addr:street": "проспект Победы",
+        "leisure": "fitness_centre",
+        "name": "Спортзал № 2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5898498015,
+      "lat": 51.7775242,
+      "lon": 55.1078977,
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "13 к3",
+        "addr:street": "проспект Победы",
+        "leisure": "fitness_centre",
+        "name": "Спортзал № 3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5899095756,
+      "lat": 51.8136972,
+      "lon": 55.099942,
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "43/2",
+        "addr:street": "Ноябрьская улица",
+        "leisure": "fitness_centre",
+        "name": "Lotus"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5905764472,
+      "lat": 51.7210133,
+      "lon": 55.1129592,
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "1/2",
+        "addr:street": "Центральная улица",
+        "leisure": "fitness_centre",
+        "name": "Зодиак"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5912096194,
+      "lat": 51.8070489,
+      "lon": 55.1551549,
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "12Г",
+        "addr:street": "проезд Автоматики",
+        "leisure": "fitness_centre",
+        "name": "Волейфитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7883730785,
+      "lat": 51.8176714,
+      "lon": 55.171206,
+      "tags": {
+        "addr:postcode": "460060",
+        "leisure": "fitness_centre",
+        "name": "Студия йоги Алексея Лиханова",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "website": "https://orenyoga.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8709633817,
+      "lat": 51.8500887,
+      "lon": 55.1191597,
+      "tags": {
+        "addr:housenumber": "7",
+        "addr:street": "Техническая улица",
+        "leisure": "fitness_centre",
+        "name": "Центр Сила Притяжения",
+        "phone": "8(3532)455-433"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9924671911,
+      "lat": 51.8217125,
+      "lon": 55.1667895,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Силуэт",
+        "sport": "fitness;dancing"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11075636067,
+      "lat": 51.8262747,
+      "lon": 55.1673296,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Территория фитнеса",
+        "sport": "fitness;swimming"
+      }
+    },
+    {
+      "type": "way",
+      "id": 43683761,
+      "center": {
+        "lat": 51.7914265,
+        "lon": 55.126432
+      },
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "122А",
+        "addr:street": "проспект Победы",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Студия фитнеса Реформа"
+      }
+    },
+    {
+      "type": "way",
+      "id": 109733755,
+      "center": {
+        "lat": 51.777797,
+        "lon": 55.1073102
+      },
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:postcode": "460018",
+        "addr:street": "проспект Победы",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ФОЗ"
+      }
+    },
+    {
+      "type": "way",
+      "id": 148180542,
+      "center": {
+        "lat": 51.7802607,
+        "lon": 55.0842261
+      },
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "61/1",
+        "addr:street": "улица Цвиллинга",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Top Gym"
+      }
+    },
+    {
+      "type": "way",
+      "id": 372204260,
+      "center": {
+        "lat": 51.7910356,
+        "lon": 55.1587932
+      },
+      "tags": {
+        "addr:city": "Оренбург",
+        "addr:housenumber": "13",
+        "addr:street": "Лесозащитная улица",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Lime Fitness",
+        "sport": "fitness;swimming",
+        "swimming_pool": "yes"
+      }
+    }
+  ]
+}

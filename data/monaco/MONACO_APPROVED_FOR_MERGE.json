@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mc_cb57fc40d1",
+    "brand": "Hercule Fitness Club",
+    "name": "Hercule Fitness Club Port Hercule",
+    "address": "Quai Albert 1er (Stade Nautique Rainier III)",
+    "postal_code": "98000",
+    "city": "La Condamine",
+    "district": "La Condamine",
+    "country": "Monaco",
+    "lat": 43.7349,
+    "lng": 7.4218,
+    "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+    "source_url": "https://www.mairie.mc/hercule-fitness-club",
+    "coord_source": "OFFICIAL_MAP_PIN"
+  },
+  {
+    "id": "mc_2771a49489",
+    "brand": "Stade Louis II",
+    "name": "Salle de Musculation Stade Louis II",
+    "address": "3 Avenue des Castelans",
+    "postal_code": "98000",
+    "city": "Fontvieille",
+    "district": "Fontvieille",
+    "country": "Monaco",
+    "lat": 43.7276,
+    "lng": 7.4154,
+    "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+    "source_url": "https://www.stadelouis2.mc/informations-pratiques",
+    "coord_source": "OFFICIAL_MAP_PIN"
+  },
+  {
+    "id": "mc_4d51f17fbd",
+    "brand": "Fit Factory",
+    "name": "Fit Factory Larvotto",
+    "address": "Promenade inférieure du Larvotto, Avenue Princesse Grace",
+    "postal_code": "98000",
+    "city": "Larvotto",
+    "district": "Larvotto",
+    "country": "Monaco",
+    "lat": 43.7462,
+    "lng": 7.4348,
+    "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+    "source_url": "https://fitfactory.mc/",
+    "coord_source": "OFFICIAL_MAP_PIN"
+  },
+  {
+    "id": "mc_acfff20d6b",
+    "brand": "Eclub",
+    "name": "Eclub Monte-Carlo Gym",
+    "address": "Le Montaigne, 6 Boulevard des Moulins (2ème niveau)",
+    "postal_code": "98000",
+    "city": "Monte-Carlo",
+    "district": "Monte-Carlo",
+    "country": "Monaco",
+    "lat": 43.7405,
+    "lng": 7.4268,
+    "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+    "source_url": "https://www.montecarlogym.com/",
+    "coord_source": "OFFICIAL_MAP_PIN"
+  }
+]

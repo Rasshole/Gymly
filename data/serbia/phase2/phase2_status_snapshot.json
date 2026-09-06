@@ -1,0 +1,14 @@
+{
+  "status_counts": {
+    "READY_TO_IMPORT": 63,
+    "EXCLUDED": 70
+  },
+  "ready": 63,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "chain_class_a_ready": 59,
+  "small_market_independent_ready": 4,
+  "projected_catalog": 11921,
+  "verdict": "READY FOR SERBIA MERGE",
+  "sha": "f32fd0af4b1efe26d3da5676264b9a08bdc47ed6bd0a472b8b3278578896f5c5"
+}

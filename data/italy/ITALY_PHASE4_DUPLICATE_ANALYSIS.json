@@ -1,0 +1,20 @@
+{
+  "same_id_vs_italy": 0,
+  "same_id_vs_catalog": 0,
+  "same_id_vs_phase3_ready": 0,
+  "same_brand_proximity_50m": 0,
+  "same_brand_proximity_100m": 0,
+  "cross_brand_proximity_50m": 0,
+  "internal_dupes": 0,
+  "vs_phase3_unresolved_notes": 0,
+  "details": {
+    "same_id_vs_italy": [],
+    "same_id_vs_catalog": [],
+    "same_id_vs_phase3_ready": [],
+    "same_brand_proximity_50m": [],
+    "same_brand_proximity_100m": [],
+    "cross_brand_proximity_50m": [],
+    "internal_dupes": [],
+    "vs_phase3_unresolved_notes": []
+  }
+}

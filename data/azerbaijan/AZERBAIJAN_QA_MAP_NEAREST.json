@@ -1,0 +1,77 @@
+{
+  "nearest_qa": "PLAUSIBLE",
+  "probes": {
+    "Baku central": {
+      "id": "az_8253b1289d",
+      "city": "Baku",
+      "distance_m": 88,
+      "local_coverage": true
+    },
+    "Baku Nasimi": {
+      "id": "az_365366f61d",
+      "city": "Baku",
+      "distance_m": 569,
+      "local_coverage": true
+    },
+    "Baku Nizami": {
+      "id": "az_74b25de0ef",
+      "city": "Baku",
+      "distance_m": 254,
+      "local_coverage": true
+    },
+    "Baku Yasamal": {
+      "id": "az_a4cd84ee2a",
+      "city": "Baku",
+      "distance_m": 1032,
+      "local_coverage": true
+    },
+    "Baku Khatai": {
+      "id": "az_96901c65b0",
+      "city": "Baku",
+      "distance_m": 476,
+      "local_coverage": true
+    },
+    "Sumqayit": {
+      "id": "az_4d32196111",
+      "city": "Sumqayit",
+      "distance_m": 577,
+      "local_coverage": true
+    },
+    "Ganja": {
+      "id": "az_d764929bfb",
+      "city": "Ganja",
+      "distance_m": 570,
+      "local_coverage": true
+    },
+    "Mingachevir": {
+      "id": "az_9549f944aa",
+      "city": "Mingachevir",
+      "distance_m": 772,
+      "local_coverage": true
+    },
+    "Lankaran": {
+      "id": "az_af7f4be71e",
+      "city": "Lankaran",
+      "distance_m": 400,
+      "local_coverage": true
+    },
+    "Masazır": {
+      "id": "az_72e54b6848",
+      "city": "Masazır",
+      "distance_m": 2633,
+      "local_coverage": true
+    },
+    "Baku Ganjlik": {
+      "id": "az_691bc37c21",
+      "city": "Baku",
+      "distance_m": 254,
+      "local_coverage": true
+    },
+    "Baku Port": {
+      "id": "az_d164c1f55e",
+      "city": "Baku",
+      "distance_m": 215,
+      "local_coverage": true
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:52:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4479755422,
+      "lat": 48.4766908,
+      "lon": 135.1337665,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ВорлдКласс",
+        "name:ru": "ВорлдКласс"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4498382089,
+      "lat": 48.3933769,
+      "lon": 135.0976194,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Apollo",
+        "name:ru": "Apollo"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4807521922,
+      "lat": 48.4936337,
+      "lon": 135.0618105,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Скалодром \"Феррум\"",
+        "name:en": "Climbing wall \"Ferrum\"",
+        "name:ru": "Скалодром \"Феррум\"",
+        "opening_hours": "Mo-Fr 19:00-21:00",
+        "phone": "+7 924 2166258",
+        "website": "https://vk.com/ferrumfamily"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5025713391,
+      "lat": 48.4678602,
+      "lon": 135.0873815,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5235011021,
+      "lat": 48.4574025,
+      "lon": 135.1813062,
+      "tags": {
+        "addr:postcode": "680052",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Наутилус-Загородный",
+        "name:en": "Nautilus",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 08:00-23:00",
+        "phone": "+7 4212 929701",
+        "website": "https://nautilus-fitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5555826723,
+      "lat": 48.5017689,
+      "lon": 135.1002292,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Скай",
+        "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5555835122,
+      "lat": 48.495481,
+      "lon": 135.0980681,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "URBAN210",
+        "opening_hours": "Mo-Fr 06:30-23:30, Sa-Su 07:30-22:30",
+        "phone": "+7 421 246-55-55",
+        "sport": "fitness",
+        "website": "https://urban210.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8356628717,
+      "lat": 48.4781503,
+      "lon": 135.0856985,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Багира",
+        "opening_hours": "Mo-Fr 10:00-19:00,10:00-18:00; Su off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8356642917,
+      "lat": 48.4747217,
+      "lon": 135.0845358,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Юниклаб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8379737017,
+      "lat": 48.4744465,
+      "lon": 135.0847897,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Юниклаб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9954450373,
+      "lat": 48.4816696,
+      "lon": 135.0620291,
+      "tags": {
+        "check_date": "2022-08-15",
+        "leisure": "fitness_centre",
+        "name": "Magma yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11958560257,
+      "lat": 48.4833325,
+      "lon": 135.0922063,
+      "tags": {
+        "contact:phone": "+7 914 4212929",
+        "contact:website": "https://lady-stretch.online/khabarovsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378249784,
+      "lat": 48.4024266,
+      "lon": 135.1015881,
+      "tags": {
+        "contact:phone": "+7 924 4122929",
+        "contact:website": "https://ladystretch.com/khabarovsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14069710582,
+      "lat": 48.4799518,
+      "lon": 135.0444754,
+      "tags": {
+        "addr:city": "Хабаровск",
+        "addr:housenumber": "1 к4",
+        "addr:street": "Советская улица",
+        "leisure": "fitness_centre",
+        "name": "River Club"
+      }
+    },
+    {
+      "type": "way",
+      "id": 67805025,
+      "center": {
+        "lat": 48.4568422,
+        "lon": 135.1136356
+      },
+      "tags": {
+        "addr:city": "Хабаровск",
+        "addr:housenumber": "4Г",
+        "addr:postcode": "680045",
+        "addr:street": "улица Королёва",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 90555640,
+      "center": {
+        "lat": 48.4560366,
+        "lon": 135.1131036
+      },
+      "tags": {
+        "addr:city": "Хабаровск",
+        "addr:housenumber": "4Б",
+        "addr:street": "улица Королёва",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 528275122,
+      "center": {
+        "lat": 48.4560875,
+        "lon": 135.1125784
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "sport": "basketball"
+      }
+    }
+  ]
+}

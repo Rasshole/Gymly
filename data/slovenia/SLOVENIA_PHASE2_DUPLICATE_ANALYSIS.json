@@ -1,0 +1,14 @@
+{
+  "hard_duplicate_conflicts": 0,
+  "diacritic_duplicate_conflicts": 0,
+  "global_id_duplicates": 0,
+  "phase2_same_brand_buckets": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": []
+  },
+  "rebrand_conflicts": 0,
+  "legacy_duplicate_conflicts": 0
+}

@@ -1,0 +1,509 @@
+{
+  "country": "Armenia",
+  "phase": "production_qa",
+  "generated_at": "2026-08-29T20:00:42.867Z",
+  "frozen_baseline": {
+    "catalog_total": 12339,
+    "armenia_live": 36,
+    "am_prefix_live": 36,
+    "georgia": 25,
+    "turkey": 198,
+    "belarus": 46,
+    "ukraine": 105,
+    "malta": 24,
+    "sha256": "7ddc9977a7273668b3fcc6edb68b9a490b873e478bccd1e51b9f31710a2585e7",
+    "bytes": 3844273,
+    "headroom": 161,
+    "architecture": "KEEP CLIENT-SIDE"
+  },
+  "inventory": {
+    "phase2_approved": 36,
+    "frozen_approved": 36,
+    "live_production": 36,
+    "sets_equal": true,
+    "approved_missing_from_production": 0,
+    "production_not_approved": 0,
+    "unauthorized_armenia": 0,
+    "authorized_material_drift": 0,
+    "phase1_recovered": 312,
+    "phase1_ready": 11,
+    "phase1_nr": 293,
+    "phase1_nr_resolved": 293,
+    "phase2_buckets": {
+      "NEW_READY_TO_IMPORT": 36,
+      "NEEDS_REVIEW": 0,
+      "NEEDS_COORDINATES": 0,
+      "COMING_SOON": 0,
+      "EXCLUDED": 276,
+      "CLOSED": 0,
+      "TOTAL_FINAL_STAGING": 312
+    }
+  },
+  "merge_delta": {
+    "pre_total": 12303,
+    "pre_armenia": 0,
+    "authorized_insertions": 36,
+    "authorized_updates": 0,
+    "authorized_removals": 0,
+    "post_total": 12339,
+    "post_armenia": 36,
+    "pre_sha": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+    "post_sha": "7ddc9977a7273668b3fcc6edb68b9a490b873e478bccd1e51b9f31710a2585e7",
+    "reconstruction": "PASS"
+  },
+  "operators": {
+    "production": {
+      "Independent (Abovyan)": 1,
+      "Progress ֆիզիկական զարգացման կենտրոն": 1,
+      "Energy Fitness": 1,
+      "Independent (Armavir)": 1,
+      "Dreambody": 1,
+      "Oxylife": 1,
+      "Gold's Gym": 1,
+      "Orange Fitness": 6,
+      "Lady Zone": 1,
+      "Independent (Vanadzor)": 1,
+      "Allegro": 1,
+      "Star Gym": 1,
+      "Reebok Sports Club Armenia": 1,
+      "Independent (Gyumri)": 1,
+      "jamm fit": 1,
+      "Grig fitness club": 1,
+      "MASGym": 1,
+      "World Gym Armenia": 1,
+      "Independent (Hrazdan)": 1,
+      "Թի-էյջ": 1,
+      "Independent (Kapan)": 1,
+      "Delta": 1,
+      "Gym Unity": 1,
+      "Ketrin": 1,
+      "Panorama Fitness": 1,
+      "Grand Sport Club": 1,
+      "Sparta": 1,
+      "Independent (Goris)": 1,
+      "Davis' gym": 1,
+      "Fitness Zone": 1,
+      "Մուլտի ուելնես կենտրոն": 1
+    },
+    "approved": {
+      "Orange Fitness": 6,
+      "Energy Fitness": 1,
+      "Gold's Gym": 1,
+      "World Gym Armenia": 1,
+      "Panorama Fitness": 1,
+      "Grand Sport Club": 1,
+      "Independent (Abovyan)": 1,
+      "Progress ֆիզիկական զարգացման կենտրոն": 1,
+      "Independent (Armavir)": 1,
+      "Dreambody": 1,
+      "Oxylife": 1,
+      "Lady Zone": 1,
+      "Independent (Vanadzor)": 1,
+      "Allegro": 1,
+      "Star Gym": 1,
+      "Reebok Sports Club Armenia": 1,
+      "Independent (Gyumri)": 1,
+      "jamm fit": 1,
+      "Grig fitness club": 1,
+      "MASGym": 1,
+      "Independent (Hrazdan)": 1,
+      "Թի-էյջ": 1,
+      "Independent (Kapan)": 1,
+      "Delta": 1,
+      "Gym Unity": 1,
+      "Ketrin": 1,
+      "Sparta": 1,
+      "Independent (Goris)": 1,
+      "Davis' gym": 1,
+      "Fitness Zone": 1,
+      "Մուլտի ուելնես կենտրոն": 1
+    },
+    "class_a": {
+      "Orange Fitness": 6
+    },
+    "curated": {
+      "Gold's Gym": 1,
+      "Panorama Fitness": 1,
+      "World Gym Armenia": 1,
+      "Energy Fitness": 1,
+      "Grand Sport Club": 1
+    },
+    "other_approved_total": 25,
+    "total": 36,
+    "drift": 0
+  },
+  "class_a": {
+    "chain_count": 1,
+    "names": [
+      "Orange Fitness"
+    ],
+    "approved_total": 6,
+    "orange_fitness": 6,
+    "estate_gaps": 0,
+    "production_drift": [],
+    "semantics_correct": "YES"
+  },
+  "curated_operators": {
+    "counts": {
+      "Gold's Gym": 1,
+      "Panorama Fitness": 1,
+      "World Gym Armenia": 1,
+      "Energy Fitness": 1,
+      "Grand Sport Club": 1
+    },
+    "production": {
+      "Gold's Gym": 1,
+      "Panorama Fitness": 1,
+      "World Gym Armenia": 1,
+      "Energy Fitness": 1,
+      "Grand Sport Club": 1
+    },
+    "drift": [],
+    "class_a": false
+  },
+  "geography": {
+    "cities": {
+      "Abovyan": 1,
+      "Yerevan": 27,
+      "Armavir": 1,
+      "Vanadzor": 2,
+      "Gyumri": 1,
+      "Մասիս": 1,
+      "Hrazdan": 1,
+      "Kapan": 1,
+      "Goris": 1
+    },
+    "approved_cities": {
+      "Yerevan": 27,
+      "Abovyan": 1,
+      "Armavir": 1,
+      "Vanadzor": 2,
+      "Gyumri": 1,
+      "Մասիս": 1,
+      "Hrazdan": 1,
+      "Kapan": 1,
+      "Goris": 1
+    },
+    "expected_cities": {
+      "Yerevan": 27,
+      "Vanadzor": 2,
+      "Gyumri": 1,
+      "Abovyan": 1,
+      "Hrazdan": 1,
+      "Kapan": 1,
+      "Armavir": 1,
+      "Goris": 1,
+      "Մասիս": 1
+    },
+    "city_drift": 0,
+    "region_drift": 0
+  },
+  "regional_coverage": {
+    "regions": {
+      "Yerevan": "A",
+      "Aragatsotn": "B",
+      "Ararat": "A",
+      "Armavir": "A",
+      "Gegharkunik": "D",
+      "Kotayk": "A",
+      "Lori": "A",
+      "Shirak": "A",
+      "Syunik": "A",
+      "Tavush": "B",
+      "Vayots Dzor": "D",
+      "Artsakh": "B",
+      "Other": "B"
+    },
+    "grade_a": 7,
+    "grade_b": 4,
+    "grade_c": 0,
+    "grade_d": 2,
+    "material_d_gaps": 0
+  },
+  "dilijan": {
+    "production": 0,
+    "unauthorized": 0,
+    "material_d": "NO"
+  },
+  "conflict_region": {
+    "candidates": 8,
+    "production": 0,
+    "leakage": 0,
+    "operation_unverified_ready": 0
+  },
+  "safety": {
+    "coming_soon_leakage": [],
+    "excluded_leakage": [],
+    "closed_leakage": [],
+    "needs_review_leakage": [],
+    "hotel_leakage": [],
+    "specialist_leakage": [],
+    "institutional_leakage": []
+  },
+  "duplicates": {
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "armenian_transliteration_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "phase2_hard_duplicates": 0
+  },
+  "cross_border": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_names": 0,
+    "cross_border": 0,
+    "operation_unverified": 0,
+    "stale_only": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_names": 0,
+    "cross_border": 0,
+    "operation_unverified": 0,
+    "stale_only": 0
+  },
+  "search_map": {
+    "search_display_qa": "PASS",
+    "raw_ids_surfaced": 0,
+    "queries": {
+      "Armenia": 36,
+      "Հայաստան": 36,
+      "Hayastan": 36,
+      "Yerevan": 27,
+      "Երևան": 27,
+      "Erevan": 27,
+      "Gyumri": 1,
+      "Գյումրի": 1,
+      "Vanadzor": 2,
+      "Վանաձոր": 2,
+      "Abovyan": 1,
+      "Hrazdan": 1,
+      "Kapan": 1,
+      "Armavir": 1,
+      "Goris": 1,
+      "Masis": 1,
+      "Orange Fitness": 6,
+      "Gold's Gym": 1,
+      "Panorama Fitness": 1,
+      "World Gym Armenia": 1,
+      "Energy Fitness": 1,
+      "Grand Sport Club": 1,
+      "Star Gym": 1,
+      "Reebok Sports Club Armenia": 1,
+      "Sparta": 1
+    },
+    "active_map_markers": 36,
+    "needs_review_map_markers": 0,
+    "needs_coordinates_map_markers": 0,
+    "coming_soon_map_markers": 0,
+    "excluded_map_markers": 0,
+    "closed_map_markers": 0,
+    "foreign_map_markers": 0
+  },
+  "nearest": {
+    "nearest_qa": "PLAUSIBLE",
+    "probes": {
+      "Yerevan central": {
+        "id": "am_5b26cefdf9",
+        "city": "Yerevan",
+        "distance_m": 0,
+        "local_coverage": true
+      },
+      "Yerevan Arabkir": {
+        "id": "am_4be62b7252",
+        "city": "Yerevan",
+        "distance_m": 56,
+        "local_coverage": true
+      },
+      "Yerevan Nor Nork": {
+        "id": "am_b434afb728",
+        "city": "Yerevan",
+        "distance_m": 1247,
+        "local_coverage": true
+      },
+      "Yerevan Shengavit": {
+        "id": "am_e381190ac5",
+        "city": "Yerevan",
+        "distance_m": 0,
+        "local_coverage": true
+      },
+      "Vanadzor": {
+        "id": "am_511afad14c",
+        "city": "Vanadzor",
+        "distance_m": 92,
+        "local_coverage": true
+      },
+      "Gyumri": {
+        "id": "am_59a231b372",
+        "city": "Gyumri",
+        "distance_m": 61,
+        "local_coverage": true
+      },
+      "Abovyan": {
+        "id": "am_045c20e5e4",
+        "city": "Abovyan",
+        "distance_m": 636,
+        "local_coverage": true
+      },
+      "Hrazdan": {
+        "id": "am_8758b54ad0",
+        "city": "Hrazdan",
+        "distance_m": 389,
+        "local_coverage": true
+      },
+      "Kapan": {
+        "id": "am_906dca9825",
+        "city": "Kapan",
+        "distance_m": 89,
+        "local_coverage": true
+      },
+      "Armavir": {
+        "id": "am_1aba19e385",
+        "city": "Armavir",
+        "distance_m": 58,
+        "local_coverage": true
+      },
+      "Goris": {
+        "id": "am_e37fde58c7",
+        "city": "Goris",
+        "distance_m": 14,
+        "local_coverage": true
+      },
+      "Masis": {
+        "id": "am_f1fc60831e",
+        "city": "Yerevan",
+        "distance_m": 607,
+        "local_coverage": true
+      }
+    }
+  },
+  "infrastructure": {
+    "gaps": [],
+    "runtime_hacks": 0,
+    "infrastructure_gaps": 0
+  },
+  "check_in": {
+    "radius_meters": 200,
+    "allow_199": true,
+    "allow_200": true,
+    "block_201": true
+  },
+  "auto_checkout": {
+    "distance_meters": 200,
+    "armenia_override": 0
+  },
+  "scale": {
+    "catalog_total": 12339,
+    "headroom": 161,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false,
+    "architecture": "KEEP CLIENT-SIDE"
+  },
+  "merge_idempotency": {
+    "stdout": "DRY RUN: insertions=0 updates=0 removals=0 projected=12339\nArmenia merge dry-run: ARMENIA MERGE COMPLETE — WAITING FOR QA delta=0/0/0",
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "idempotent": true
+  },
+  "merge_report_verdict": "ARMENIA MERGE COMPLETE — WAITING FOR QA",
+  "idempotency_record": {
+    "first_run": {
+      "insertions": 36,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12303,
+      "total_after": 12339,
+      "armenia_before": 0,
+      "armenia_after": 36
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12339,
+      "total_after": 12339,
+      "armenia_before": 36,
+      "armenia_after": 36,
+      "am_prefix_before": 36,
+      "am_prefix_after": 36
+    },
+    "idempotent": true
+  },
+  "historical_test_debt": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 1,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 3
+  },
+  "performance": {
+    "bytes": 3844273,
+    "expected_bytes": 3844273,
+    "json_parse_ms": 16,
+    "representative_search_ms": 1,
+    "status": "HEALTHY"
+  },
+  "gates": {
+    "inventory_reconciles": true,
+    "authorized_material_drift": 0,
+    "brand_inventory_drift": 0,
+    "city_inventory_drift": 0,
+    "class_a_estate_gaps": 0,
+    "missed_class_a_estate_gaps": 0,
+    "material_d_gaps": 0,
+    "dilijan_production": 0,
+    "dilijan_material_d": "NO",
+    "conflict_region_production": 0,
+    "coming_soon_leakage": 0,
+    "excluded_leakage": 0,
+    "closed_leakage": 0,
+    "needs_review_leakage": 0,
+    "hotel_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0,
+    "hard_duplicates": 0,
+    "translit_conflicts": 0,
+    "cross_border": 0,
+    "merge_idempotent": true,
+    "prior_regressions": 0,
+    "global_duplicate_ids": 0,
+    "armenia_duplicate_ids": 0,
+    "other_approved_total": 25,
+    "other_approved_missing": 0,
+    "curated_drift": 0,
+    "class_a_production_drift": 0
+  },
+  "qa_immutability": {
+    "sha_before": "7ddc9977a7273668b3fcc6edb68b9a490b873e478bccd1e51b9f31710a2585e7",
+    "sha_after": "7ddc9977a7273668b3fcc6edb68b9a490b873e478bccd1e51b9f31710a2585e7",
+    "bytes_before": 3844273,
+    "bytes_after": 3844273,
+    "delta_insertions": 0,
+    "delta_updates": 0,
+    "delta_removals": 0
+  },
+  "prior_country_regressions": [],
+  "REAL_COUNTRY_REGRESSION": 0,
+  "verdict": "ARMENIA STATUS: READY",
+  "country_expansion": "UNLOCKED"
+}

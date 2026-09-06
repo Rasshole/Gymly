@@ -1,0 +1,229 @@
+{
+  "generated_at": "2026-08-22T19:45:49.350865+00:00",
+  "verdict": "READY FOR PORTUGAL MERGE",
+  "phase3_required": false,
+  "phase3_reasons": [],
+  "production": {
+    "total": 10525,
+    "portugal": 0,
+    "pt_ids": 0,
+    "sha256_16": "e7e3848d4ac3efd1"
+  },
+  "phase1": {
+    "unique_staged": 271,
+    "READY_TO_IMPORT": 164,
+    "NEEDS_COORDINATES": 42,
+    "NEEDS_REVIEW": 58,
+    "CLOSED": 2,
+    "DUPLICATE": 5,
+    "ready_preserved_non_rebuilt": 140,
+    "ready_from_rebuilt_brands_phase1_count": 24,
+    "note": "Element/Fitness Factory/Supera estates rebuilt from stronger Phase 2 sources; other Phase 1 READY preserved by id"
+  },
+  "phase2": {
+    "unique_staged": 316,
+    "status_counts": {
+      "READY_TO_IMPORT": 247,
+      "NEEDS_COORDINATES": 36,
+      "NEEDS_REVIEW": 26,
+      "CLOSED": 2,
+      "DUPLICATE": 5
+    },
+    "ready_count": 247,
+    "brand_ready": {
+      "VivaGym": 46,
+      "Holmes Place": 12,
+      "Solinca Light": 16,
+      "Solinca": 19,
+      "Be-Fit": 10,
+      "Fitness UP": 51,
+      "Element": 46,
+      "Fitness Factory": 44,
+      "Lemonfit": 1,
+      "Balance": 2
+    },
+    "brand_all": {
+      "VivaGym": 46,
+      "Holmes Place": 12,
+      "Solinca Light": 16,
+      "Solinca": 19,
+      "Be-Fit": 22,
+      "Fitness UP": 74,
+      "Element": 53,
+      "Fitness Factory": 49,
+      "Supera": 6,
+      "Lemonfit": 1,
+      "Phive": 2,
+      "Balance": 3,
+      "Vivafit": 13
+    },
+    "regional_ready": {
+      "Algarve": 9,
+      "North": 52,
+      "Central": 29,
+      "Lisbon metro": 71,
+      "Alentejo": 36,
+      "Porto metro": 43,
+      "Madeira": 5,
+      "Azores": 2
+    }
+  },
+  "chain_table": [
+    {
+      "brand": "VivaGym",
+      "estimate": 46,
+      "discovered": 46,
+      "ready": 46,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "Complete"
+    },
+    {
+      "brand": "Solinca",
+      "estimate": 19,
+      "discovered": 19,
+      "ready": 19,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "Complete"
+    },
+    {
+      "brand": "Solinca Light",
+      "estimate": 16,
+      "discovered": 16,
+      "ready": 16,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "Complete"
+    },
+    {
+      "brand": "Holmes Place",
+      "estimate": 12,
+      "discovered": 12,
+      "ready": 12,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "Complete"
+    },
+    {
+      "brand": "Fitness UP",
+      "estimate": 74,
+      "discovered": 74,
+      "ready": 51,
+      "unresolved": 18,
+      "coverage_pct": 68.9,
+      "verdict": "Partial-nonblocking"
+    },
+    {
+      "brand": "Element",
+      "estimate": 53,
+      "discovered": 53,
+      "ready": 46,
+      "unresolved": 7,
+      "coverage_pct": 86.8,
+      "verdict": "Complete"
+    },
+    {
+      "brand": "Fitness Factory",
+      "estimate": 49,
+      "discovered": 49,
+      "ready": 44,
+      "unresolved": 3,
+      "coverage_pct": 89.8,
+      "verdict": "Complete"
+    },
+    {
+      "brand": "Be-Fit",
+      "estimate": 22,
+      "discovered": 22,
+      "ready": 10,
+      "unresolved": 12,
+      "coverage_pct": 45.5,
+      "verdict": "Partial"
+    },
+    {
+      "brand": "Supera",
+      "estimate": 6,
+      "discovered": 6,
+      "ready": 0,
+      "unresolved": 6,
+      "coverage_pct": 0.0,
+      "verdict": "INCOMPLETE_ADDRESSES"
+    },
+    {
+      "brand": "Lemonfit",
+      "estimate": 6,
+      "discovered": 1,
+      "ready": 1,
+      "unresolved": 0,
+      "coverage_pct": 16.7,
+      "verdict": "Partial"
+    },
+    {
+      "brand": "Phive",
+      "estimate": 5,
+      "discovered": 2,
+      "ready": 0,
+      "unresolved": 2,
+      "coverage_pct": 0.0,
+      "verdict": "Partial"
+    },
+    {
+      "brand": "Balance",
+      "estimate": 6,
+      "discovered": 3,
+      "ready": 2,
+      "unresolved": 1,
+      "coverage_pct": 33.3,
+      "verdict": "Partial"
+    },
+    {
+      "brand": "Go Gym",
+      "estimate": 6,
+      "discovered": 0,
+      "ready": 0,
+      "unresolved": 0,
+      "coverage_pct": 0.0,
+      "verdict": "BLOCKED_SCRAPE"
+    },
+    {
+      "brand": "Vivafit",
+      "estimate": 12,
+      "discovered": 13,
+      "ready": 0,
+      "unresolved": 13,
+      "coverage_pct": 0.0,
+      "verdict": "DEFERRED_NAME_ONLY"
+    },
+    {
+      "brand": "Kalorias",
+      "estimate": 0,
+      "discovered": 0,
+      "ready": 0,
+      "unresolved": 0,
+      "coverage_pct": 0.0,
+      "verdict": "EXCLUDED_SITE_404"
+    }
+  ],
+  "projected_catalog": 10772,
+  "architecture": {
+    "keep_client_side": true,
+    "inside_comfort_zone": true,
+    "global_10k_qa_rerun_required_now": false
+  },
+  "qa": {
+    "duplicate_ids": 0,
+    "invalid_postcodes_ready": 0,
+    "missing_addresses_ready": 0,
+    "missing_cities_ready": 0,
+    "invalid_coordinates_ready": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 2,
+    "mojibake": 0
+  },
+  "madeira_azores": {
+    "madeira_ready": 5,
+    "azores_ready": 2
+  },
+  "rebrand_map_file": "PORTUGAL_PHASE2_REBRAND_MAP.json"
+}

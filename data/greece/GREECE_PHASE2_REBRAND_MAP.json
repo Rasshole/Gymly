@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-08-22T21:46:35.884817+00:00",
+  "rebrands": [
+    {
+      "legacy": "YAVA sitemap/query-param locations returning 404",
+      "successor": "Current YAVA /content/* menu estate",
+      "sites_affected": "legacy_404_slugs",
+      "notes": "Sitemap and form gym= params include closed/legacy clubs; live menu + HTTP 200 content pages define current estate"
+    }
+  ],
+  "excluded_brands": [
+    {
+      "brand": "Fitness House",
+      "reason": "equipment retailer, not gym chain"
+    },
+    {
+      "brand": "Athlesis",
+      "reason": "appears single-studio; below multi-site threshold"
+    },
+    {
+      "brand": "Curves Greece",
+      "reason": "women-only 30-min circuit; locator incomplete in Phase 2; deferred"
+    },
+    {
+      "brand": "Top Fitness",
+      "reason": "Thessaloniki regional; estate not fully extracted; Phase 3"
+    },
+    {
+      "brand": "Golden Gym",
+      "reason": "few confirmed pages; Phase 3 expansion"
+    }
+  ],
+  "phase1_ready_dropped": [
+    {
+      "id": "gr_c266f21daf",
+      "name": "Holmes Place Glyfada",
+      "superseded": false
+    },
+    {
+      "id": "gr_2e9ac7eaa7",
+      "name": "Holmes Place Athens",
+      "superseded": false
+    }
+  ],
+  "phase1_ready_preserved_count": 66
+}

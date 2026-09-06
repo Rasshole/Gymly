@@ -1,0 +1,23 @@
+{
+  "search_display_qa": "PASS",
+  "raw_ids_surfaced": 0,
+  "queries": {
+    "Russia": 465,
+    "Россия": 465,
+    "Moscow": 361,
+    "Москва": 361,
+    "Saint Petersburg": 23,
+    "Санкт-Петербург": 23,
+    "World Class": 35,
+    "X-Fit": 34,
+    "Alex Fitness": 11,
+    "DDxFitness": 25,
+    "Spirit Fitness": 2,
+    "Novosibirsk": 8,
+    "Yekaterinburg": 5,
+    "Kazan": 2,
+    "Vladivostok": 0,
+    "Khabarovsk": 0
+  },
+  "active_russia_map_markers": 465
+}

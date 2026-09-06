@@ -1,0 +1,47 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "san_marino": 6,
+  "sm_prefix": 6,
+  "json_size_bytes": 3705822,
+  "json_size_mb": 3.53,
+  "parse_ms": 99,
+  "cold_index_ms": 19308,
+  "cached_index_ms": 0,
+  "typical_search_ms": 718.14,
+  "worst_search_ms": 57,
+  "nearest_ms": 0,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 1,
+  "map_markers_built": 6,
+  "architecture": "KEEP CLIENT-SIDE",
+  "monaco_qa_baseline": {
+    "catalog": 11715,
+    "json_size_mb": 3.47,
+    "json_size_bytes": 3641079,
+    "parse_ms": 38,
+    "cold_index_ms": 6300,
+    "cached_index_ms": 0,
+    "typical_search_ms": 218
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false,
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "sha_after_qa": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "production_modified": false,
+  "reconciliation": "6 == 6 == 6 == 6",
+  "eligibility": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 6
+  },
+  "classifications": {
+    "A_CONVENTIONAL_PUBLIC_GYM": 5,
+    "A_PUBLIC_CONVENTIONAL_GYM": 1
+  },
+  "hard_duplicates": 0,
+  "excluded_leakage": 0,
+  "italian_contamination": 0,
+  "bugs_found": "NONE"
+}

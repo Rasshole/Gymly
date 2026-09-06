@@ -1,0 +1,53 @@
+{
+  "generated": "2026-08-23",
+  "repairs": [
+    {
+      "id": "gr_aa357c70a8",
+      "before": {
+        "address": "22210 77 658",
+        "postal_code": "222 10",
+        "city": "Χαλκίδα"
+      },
+      "after": {
+        "address": "Αρεθούσης 38, Χαλκίδα",
+        "postal_code": "341 00",
+        "city": "Χαλκίδα"
+      },
+      "lat": 38.460517974335914,
+      "lng": 23.595508429092007,
+      "evidence": "planetfitness.gr/gymnastiria/chalkida/ Διεύθυνση + map embed; phone was misparsed as address"
+    },
+    {
+      "id": "gr_e53450042b",
+      "before": {
+        "address": "Σουλίου, 4η Κοινότητα Πειραιά, Πειραιάς",
+        "postal_code": "185 42",
+        "city": "Πειραιάς"
+      },
+      "after": {
+        "address": "Θηβών 41, Πειραιάς",
+        "postal_code": "185 43",
+        "city": "Πειραιάς"
+      },
+      "lat": 37.957539,
+      "lng": 23.651601,
+      "evidence": "planetfitness.gr/gymnastiria/piraeus/ Διεύθυνση + map embed; OSM-style community label was incomplete"
+    },
+    {
+      "id": "gr_df2945b81f",
+      "before": {
+        "address": "Εθνάρχου Μακαρίου, Κοινότητα Σαλαμίνας, Δημοτική Ενότητα Σαλαμίνας",
+        "postal_code": "189 01",
+        "city": "Δημοτική Ενότητα Σαλαμίνας"
+      },
+      "after": {
+        "address": "Εθνάρχου Μακαρίου 23, Σαλαμίνα",
+        "postal_code": "189 00",
+        "city": "Σαλαμίνα"
+      },
+      "lat": 37.965022128754896,
+      "lng": 23.51027135819027,
+      "evidence": "planetfitness.gr/gymnastiria/salamina/ Διεύθυνση Εθνάρχου Μακαρίου 23 + 18900 on page"
+    }
+  ]
+}

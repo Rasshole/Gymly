@@ -104,7 +104,7 @@ const ForgotPasswordScreen = () => {
           <View style={styles.successIcon}>
             <Icon name="checkmark-circle" size={80} color="#34C759" />
           </View>
-          <Text style={styles.successTitle}>Email sendt!</Text>
+          <Text style={styles.successTitle}>{t('forgotPasswordScreen.emailSentTitle')}</Text>
           <Text style={styles.successText}>
             Vi har sendt instruktioner til at nulstille din adgangskode til {email}
           </Text>
@@ -160,7 +160,7 @@ const ForgotPasswordScreen = () => {
             }}>
             <GymlyLogo size={72} />
           </Animated.View>
-          <Text style={styles.title}>Nulstil adgangskode</Text>
+          <Text style={styles.title}>{t('forgotPasswordScreen.resetTitle')}</Text>
           <Text style={styles.subtitle}>
             Indtast din email, og vi sender dig instruktioner
           </Text>
@@ -170,7 +170,7 @@ const ForgotPasswordScreen = () => {
         <View style={[styles.form, styles.maxWidth, styles.card, shadows.sm]}>
           <TextInput
             style={styles.input}
-            placeholder="Email"
+            placeholder={t('forgotPasswordScreen.emailPlaceholder')}
             value={email}
             onChangeText={setEmail}
             autoCapitalize="none"
@@ -194,7 +194,9 @@ const ForgotPasswordScreen = () => {
               {isLoading ? (
                 <ActivityIndicator color="#fff" />
               ) : (
-                <Text style={styles.resetButtonText}>Send email</Text>
+                <Text style={styles.resetButtonText}>
+                  {t('forgotPasswordScreen.sendEmail')}
+                </Text>
               )}
             </Animated.View>
           </TouchableOpacity>

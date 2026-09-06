@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {getActiveDanishGyms} from '@/data/danishGyms';
 import type {DanishGym} from '@/data/danishGyms';
 import {gymSearchMatchesTokens} from '@/utils/gymSearch';
+import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 
 const PICKER_GYMS = getActiveDanishGyms();
@@ -87,17 +88,10 @@ export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
     if (!showGymSuggestions || activeGymIndex === null || trimmed.length === 0) {
       return [];
     }
-    const filtered = PICKER_GYMS.filter(option => {
-      const haystack = [
-        option.name,
-        option.city ?? '',
-        option.region,
-        option.address ?? '',
-        option.brand ?? '',
-      ].join(' ');
-      return gymSearchMatchesTokens(haystack, trimmed);
-    });
-    return filtered.slice(0, 10);
+    const filtered = searchGyms(trimmed, {gyms: PICKER_GYMS, limit: 10}).map(
+      h => h.gym,
+    );
+    return filtered;
   }, [favoriteGymLabels, showGymSuggestions, activeGymIndex]);
 
   const handleSelectGymSuggestion = (gym: DanishGym) => {

@@ -14,14 +14,17 @@ import {
   Modal,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+import {getActiveGyms, type DanishGym} from '@/data/gymCatalog';
+import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
+import {pickBrowseGyms} from '@/utils/pickBrowseGyms';
 
-const FAV_PICKER = getActiveDanishGyms();
+const FAV_PICKER = getActiveGyms();
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
 import GymLogoView from '@/components/ui/GymLogoView';
-import {gymSearchMatchesTokens} from '@/utils/gymSearch';
+import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
+import {useTranslation} from '@/i18n';
 
 interface FavoriteGymsSelectorProps {
   visible: boolean;
@@ -29,6 +32,8 @@ interface FavoriteGymsSelectorProps {
 }
 
 const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => {
+  const {t} = useTranslation();
+  const userCoords = useOptionalUserCoords();
   const {user, setFavoriteGyms} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedGyms, setSelectedGyms] = useState<string[]>(
@@ -36,11 +41,16 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
   );
 
   const filteredGyms = useMemo(() => {
-    return FAV_PICKER.filter(gym => {
-      const haystack = [gym.name, gym.city ?? '', gym.address ?? '', gym.brand ?? ''].join(' ');
-      return gymSearchMatchesTokens(haystack, searchQuery);
+    const q = searchQuery.trim();
+    if (q) {
+      return searchGyms(q, {gyms: FAV_PICKER, limit: 80}).map(h => h.gym);
+    }
+    return pickBrowseGyms({
+      gyms: FAV_PICKER,
+      userLocation: userCoords,
+      cap: 100,
     });
-  }, [searchQuery]);
+  }, [searchQuery, userCoords]);
 
   const toggleGym = (gymId: string) => {
     setSelectedGyms(prev => {
@@ -126,7 +136,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
           <TouchableOpacity onPress={onClose} style={styles.closeButton}>
             <Icon name="close" size={24} color="#000" />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Vælg lokale centre</Text>
+          <Text style={styles.headerTitle}>{t('phase2ui.selectLocalCenters')}</Text>
           <TouchableOpacity
             onPress={handleSave}
             style={styles.saveButton}
@@ -136,7 +146,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
                 styles.saveButtonText,
                 selectedGyms.length === 0 && styles.saveButtonTextDisabled,
               ]}>
-              Gem
+              {t('common.save')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -145,7 +155,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
         <View style={styles.infoContainer}>
           <Icon name="information-circle" size={20} color="#fff" />
           <Text style={styles.infoText}>
-            Vælg op til 3 lokale træningscentre. Disse vil vises først i listen.
+            {t('phase2ui.selectLocalCentersHint')}
           </Text>
         </View>
 
@@ -153,7 +163,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
         {selectedGyms.length > 0 && (
           <View style={styles.selectedContainer}>
             <Text style={styles.selectedText}>
-              {selectedGyms.length} / 3 valgt
+              {t('phase2ui.selectedOf3', {count: selectedGyms.length})}
             </Text>
           </View>
         )}
@@ -163,7 +173,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
           <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
           <TextInput
             style={styles.searchInput}
-            placeholder="Søg efter centre..."
+            placeholder={t('searchCenters.placeholder')}
             placeholderTextColor="#8E8E93"
             value={searchQuery}
             onChangeText={setSearchQuery}

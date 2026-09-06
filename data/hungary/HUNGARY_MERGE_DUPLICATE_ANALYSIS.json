@@ -1,0 +1,762 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [
+      {
+        "a_id": "hu_26049334fe",
+        "a_name": "4% GARDEN",
+        "a_address": "Erkel utca 18. (Garden 24/7)",
+        "a_postal": "1092",
+        "b_id": "hu_a10dd9e7d1",
+        "b_name": "4% ONLYGIRLS",
+        "b_address": "Erkel utca 18. (OnlyGirls)",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 0,
+        "same_address": true
+      }
+    ],
+    "lt50": [
+      {
+        "a_id": "hu_26049334fe",
+        "a_name": "4% GARDEN",
+        "a_address": "Erkel utca 18. (Garden 24/7)",
+        "a_postal": "1092",
+        "b_id": "hu_a10dd9e7d1",
+        "b_name": "4% ONLYGIRLS",
+        "b_address": "Erkel utca 18. (OnlyGirls)",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 0,
+        "same_address": true
+      }
+    ],
+    "lt100": [
+      {
+        "a_id": "hu_66d884b838",
+        "a_name": "4% CANDY",
+        "a_address": "Rákóczi út 47.",
+        "a_postal": "1088",
+        "b_id": "hu_2bc587797d",
+        "b_name": "4% CANDYLAND",
+        "b_address": "Rákóczi út 60.",
+        "b_postal": "1074",
+        "brand": "4% Fitness",
+        "distance_m": 93,
+        "same_address": false
+      },
+      {
+        "a_id": "hu_26049334fe",
+        "a_name": "4% GARDEN",
+        "a_address": "Erkel utca 18. (Garden 24/7)",
+        "a_postal": "1092",
+        "b_id": "hu_781bc0caec",
+        "b_name": "4% GYM",
+        "b_address": "Ráday utca 16.",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 58,
+        "same_address": false
+      },
+      {
+        "a_id": "hu_26049334fe",
+        "a_name": "4% GARDEN",
+        "a_address": "Erkel utca 18. (Garden 24/7)",
+        "a_postal": "1092",
+        "b_id": "hu_a10dd9e7d1",
+        "b_name": "4% ONLYGIRLS",
+        "b_address": "Erkel utca 18. (OnlyGirls)",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 0,
+        "same_address": true
+      },
+      {
+        "a_id": "hu_781bc0caec",
+        "a_name": "4% GYM",
+        "a_address": "Ráday utca 16.",
+        "a_postal": "1092",
+        "b_id": "hu_a10dd9e7d1",
+        "b_name": "4% ONLYGIRLS",
+        "b_address": "Erkel utca 18. (OnlyGirls)",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 58,
+        "same_address": false
+      }
+    ],
+    "lt200": [
+      {
+        "a_id": "hu_66d884b838",
+        "a_name": "4% CANDY",
+        "a_address": "Rákóczi út 47.",
+        "a_postal": "1088",
+        "b_id": "hu_2bc587797d",
+        "b_name": "4% CANDYLAND",
+        "b_address": "Rákóczi út 60.",
+        "b_postal": "1074",
+        "brand": "4% Fitness",
+        "distance_m": 93,
+        "same_address": false
+      },
+      {
+        "a_id": "hu_26049334fe",
+        "a_name": "4% GARDEN",
+        "a_address": "Erkel utca 18. (Garden 24/7)",
+        "a_postal": "1092",
+        "b_id": "hu_781bc0caec",
+        "b_name": "4% GYM",
+        "b_address": "Ráday utca 16.",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 58,
+        "same_address": false
+      },
+      {
+        "a_id": "hu_26049334fe",
+        "a_name": "4% GARDEN",
+        "a_address": "Erkel utca 18. (Garden 24/7)",
+        "a_postal": "1092",
+        "b_id": "hu_a10dd9e7d1",
+        "b_name": "4% ONLYGIRLS",
+        "b_address": "Erkel utca 18. (OnlyGirls)",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 0,
+        "same_address": true
+      },
+      {
+        "a_id": "hu_781bc0caec",
+        "a_name": "4% GYM",
+        "a_address": "Ráday utca 16.",
+        "a_postal": "1092",
+        "b_id": "hu_a10dd9e7d1",
+        "b_name": "4% ONLYGIRLS",
+        "b_address": "Erkel utca 18. (OnlyGirls)",
+        "b_postal": "1092",
+        "brand": "4% Fitness",
+        "distance_m": 58,
+        "same_address": false
+      }
+    ],
+    "identical": [
+      {
+        "a_id": "hu_26049334fe",
+        "b_id": "hu_a10dd9e7d1",
+        "a_brand": "4% Fitness",
+        "b_brand": "4% Fitness",
+        "a_name": "4% GARDEN",
+        "b_name": "4% ONLYGIRLS",
+        "distance_m": 0
+      },
+      {
+        "a_id": "hu_3b8b7317ed",
+        "b_id": "hu_8b266bdb04",
+        "a_brand": "Fitness5",
+        "b_brand": "Thor Gym",
+        "a_name": "Fitness5 Savoya",
+        "b_name": "Thor Gym Savoya",
+        "distance_m": 0
+      }
+    ],
+    "diffBrand": [
+      {
+        "a_id": "hu_3b8b7317ed",
+        "a_brand": "Fitness5",
+        "a_name": "Fitness5 Savoya",
+        "b_id": "hu_8b266bdb04",
+        "b_brand": "Thor Gym",
+        "b_name": "Thor Gym Savoya",
+        "distance_m": 0,
+        "classification": "A_legitimate_different_brand_colocation"
+      }
+    ]
+  },
+  "proximity_classifications": [
+    {
+      "a_id": "hu_66d884b838",
+      "a_name": "4% CANDY",
+      "a_address": "Rákóczi út 47.",
+      "a_postal": "1088",
+      "b_id": "hu_2bc587797d",
+      "b_name": "4% CANDYLAND",
+      "b_address": "Rákóczi út 60.",
+      "b_postal": "1074",
+      "brand": "4% Fitness",
+      "distance_m": 93,
+      "same_address": false,
+      "classification": "A",
+      "action": "retain_both",
+      "evidence": "Different addresses — dense urban retention"
+    },
+    {
+      "a_id": "hu_26049334fe",
+      "a_name": "4% GARDEN",
+      "a_address": "Erkel utca 18. (Garden 24/7)",
+      "a_postal": "1092",
+      "b_id": "hu_781bc0caec",
+      "b_name": "4% GYM",
+      "b_address": "Ráday utca 16.",
+      "b_postal": "1092",
+      "brand": "4% Fitness",
+      "distance_m": 58,
+      "same_address": false,
+      "classification": "A",
+      "action": "retain_both",
+      "evidence": "Different addresses — dense urban retention"
+    },
+    {
+      "a_id": "hu_26049334fe",
+      "a_name": "4% GARDEN",
+      "a_address": "Erkel utca 18. (Garden 24/7)",
+      "a_postal": "1092",
+      "b_id": "hu_a10dd9e7d1",
+      "b_name": "4% ONLYGIRLS",
+      "b_address": "Erkel utca 18. (OnlyGirls)",
+      "b_postal": "1092",
+      "brand": "4% Fitness",
+      "distance_m": 0,
+      "same_address": true,
+      "classification": "A_legitimate",
+      "action": "retain_both",
+      "evidence": "4% GARDEN + ONLYGIRLS same building / product co-location (Phase 2)"
+    },
+    {
+      "a_id": "hu_781bc0caec",
+      "a_name": "4% GYM",
+      "a_address": "Ráday utca 16.",
+      "a_postal": "1092",
+      "b_id": "hu_a10dd9e7d1",
+      "b_name": "4% ONLYGIRLS",
+      "b_address": "Erkel utca 18. (OnlyGirls)",
+      "b_postal": "1092",
+      "brand": "4% Fitness",
+      "distance_m": 58,
+      "same_address": false,
+      "classification": "A",
+      "action": "retain_both",
+      "evidence": "Different addresses — dense urban retention"
+    }
+  ],
+  "known_legitimate": {
+    "garden_onlygirls": "A_legitimate",
+    "fitness5_thor_savoya": "A_legitimate_different_brand_colocation"
+  },
+  "cross_production_same_brand_lte_25m": [
+    {
+      "hu_id": "hu_66d884b838",
+      "prod_id": "hu_66d884b838",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_2bc587797d",
+      "prod_id": "hu_2bc587797d",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_5ba59aa925",
+      "prod_id": "hu_5ba59aa925",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_26049334fe",
+      "prod_id": "hu_26049334fe",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_26049334fe",
+      "prod_id": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_781bc0caec",
+      "prod_id": "hu_781bc0caec",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_a10dd9e7d1",
+      "prod_id": "hu_26049334fe",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_a10dd9e7d1",
+      "prod_id": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_9d8661b123",
+      "prod_id": "hu_9d8661b123",
+      "brand": "4% Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_6f3dac8c88",
+      "prod_id": "hu_6f3dac8c88",
+      "brand": "Chili Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_3b769ac753",
+      "prod_id": "hu_3b769ac753",
+      "brand": "Chili Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_1bdf08188c",
+      "prod_id": "hu_1bdf08188c",
+      "brand": "Chili Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_b30b55c045",
+      "prod_id": "hu_b30b55c045",
+      "brand": "Chili Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_46d6f40578",
+      "prod_id": "hu_46d6f40578",
+      "brand": "Chili Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_60d4fa43e9",
+      "prod_id": "hu_60d4fa43e9",
+      "brand": "Cutler Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_964d97d996",
+      "prod_id": "hu_964d97d996",
+      "brand": "Cutler Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_0d020c3035",
+      "prod_id": "hu_0d020c3035",
+      "brand": "Cutler Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_d9af446e48",
+      "prod_id": "hu_d9af446e48",
+      "brand": "Cutler Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_bf964e760b",
+      "prod_id": "hu_bf964e760b",
+      "brand": "Cutler Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_3a9b38b121",
+      "prod_id": "hu_3a9b38b121",
+      "brand": "Cutler Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_e98eda3758",
+      "prod_id": "hu_e98eda3758",
+      "brand": "Cutler Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_bb648a4fb4",
+      "prod_id": "hu_bb648a4fb4",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_b830083f43",
+      "prod_id": "hu_b830083f43",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_51387e3952",
+      "prod_id": "hu_51387e3952",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_846fe0d713",
+      "prod_id": "hu_846fe0d713",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_bae581d58d",
+      "prod_id": "hu_bae581d58d",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_92f115bd5a",
+      "prod_id": "hu_92f115bd5a",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_fd01ce74d5",
+      "prod_id": "hu_fd01ce74d5",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_500c6f4520",
+      "prod_id": "hu_500c6f4520",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_7dc1ce0cca",
+      "prod_id": "hu_7dc1ce0cca",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_a56cb55b9e",
+      "prod_id": "hu_a56cb55b9e",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_e762125127",
+      "prod_id": "hu_e762125127",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_3b8b7317ed",
+      "prod_id": "hu_3b8b7317ed",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_636f293a9f",
+      "prod_id": "hu_636f293a9f",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_72b7f1aaef",
+      "prod_id": "hu_72b7f1aaef",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_1521b3b472",
+      "prod_id": "hu_1521b3b472",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_c4a1d65e79",
+      "prod_id": "hu_c4a1d65e79",
+      "brand": "Fitness5",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_9364053391",
+      "prod_id": "hu_9364053391",
+      "brand": "Life1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_371365b575",
+      "prod_id": "hu_371365b575",
+      "brand": "Life1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_a0126964e9",
+      "prod_id": "hu_a0126964e9",
+      "brand": "Life1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_9eb805b69a",
+      "prod_id": "hu_9eb805b69a",
+      "brand": "Life1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_70f4487b7f",
+      "prod_id": "hu_70f4487b7f",
+      "brand": "Life1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_3dd7ed353f",
+      "prod_id": "hu_3dd7ed353f",
+      "brand": "Life1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_443fc52cc7",
+      "prod_id": "hu_443fc52cc7",
+      "brand": "Nr1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_252aa3a3c1",
+      "prod_id": "hu_252aa3a3c1",
+      "brand": "Nr1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_7dee925bf1",
+      "prod_id": "hu_7dee925bf1",
+      "brand": "Nr1 Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_c9304c4364",
+      "prod_id": "hu_c9304c4364",
+      "brand": "Oxygen Wellness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_cb9223a0d5",
+      "prod_id": "hu_cb9223a0d5",
+      "brand": "Prestige Fitness",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_8b266bdb04",
+      "prod_id": "hu_8b266bdb04",
+      "brand": "Thor Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_ba25e8fc66",
+      "prod_id": "hu_ba25e8fc66",
+      "brand": "Thor Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_fee7e81046",
+      "prod_id": "hu_fee7e81046",
+      "brand": "Thor Gym",
+      "distance_m": 0
+    },
+    {
+      "hu_id": "hu_3176a1cfef",
+      "prod_id": "hu_3176a1cfef",
+      "brand": "Thor Gym",
+      "distance_m": 0
+    }
+  ],
+  "skipped_existing_id": [
+    {
+      "id": "hu_66d884b838",
+      "name": "4% CANDY"
+    },
+    {
+      "id": "hu_2bc587797d",
+      "name": "4% CANDYLAND"
+    },
+    {
+      "id": "hu_5ba59aa925",
+      "name": "4% CORNER"
+    },
+    {
+      "id": "hu_26049334fe",
+      "name": "4% GARDEN"
+    },
+    {
+      "id": "hu_781bc0caec",
+      "name": "4% GYM"
+    },
+    {
+      "id": "hu_a10dd9e7d1",
+      "name": "4% ONLYGIRLS"
+    },
+    {
+      "id": "hu_9d8661b123",
+      "name": "4% SPIRIT"
+    },
+    {
+      "id": "hu_6f3dac8c88",
+      "name": "Chili Fitness Angyalföld"
+    },
+    {
+      "id": "hu_3b769ac753",
+      "name": "Chili Fitness Bikás park"
+    },
+    {
+      "id": "hu_1bdf08188c",
+      "name": "Chili Fitness Csepel"
+    },
+    {
+      "id": "hu_b30b55c045",
+      "name": "Chili Fitness Debrecen"
+    },
+    {
+      "id": "hu_46d6f40578",
+      "name": "Chili Fitness Újbuda"
+    },
+    {
+      "id": "hu_60d4fa43e9",
+      "name": "Cutler Gym Győr"
+    },
+    {
+      "id": "hu_964d97d996",
+      "name": "Cutler Gym Gödöllő"
+    },
+    {
+      "id": "hu_0d020c3035",
+      "name": "Cutler Gym Kecskemét"
+    },
+    {
+      "id": "hu_d9af446e48",
+      "name": "Cutler Gym Nyíregyháza"
+    },
+    {
+      "id": "hu_bf964e760b",
+      "name": "Cutler Gym Pécs"
+    },
+    {
+      "id": "hu_3a9b38b121",
+      "name": "Cutler Gym Sopron"
+    },
+    {
+      "id": "hu_e98eda3758",
+      "name": "Cutler Gym Székesfehérvár"
+    },
+    {
+      "id": "hu_bb648a4fb4",
+      "name": "Fitness5 Bank Center"
+    },
+    {
+      "id": "hu_b830083f43",
+      "name": "Fitness5 City Market Dunakeszi"
+    },
+    {
+      "id": "hu_51387e3952",
+      "name": "Fitness5 Dunaújváros"
+    },
+    {
+      "id": "hu_846fe0d713",
+      "name": "Fitness5 Home Center"
+    },
+    {
+      "id": "hu_bae581d58d",
+      "name": "Fitness5 Kecskemét"
+    },
+    {
+      "id": "hu_92f115bd5a",
+      "name": "Fitness5 Kispest"
+    },
+    {
+      "id": "hu_fd01ce74d5",
+      "name": "Fitness5 KÖKI"
+    },
+    {
+      "id": "hu_500c6f4520",
+      "name": "Fitness5 Kőbánya"
+    },
+    {
+      "id": "hu_7dc1ce0cca",
+      "name": "Fitness5 Nagykanizsa"
+    },
+    {
+      "id": "hu_a56cb55b9e",
+      "name": "Fitness5 Pólus Center"
+    },
+    {
+      "id": "hu_e762125127",
+      "name": "Fitness5 Sallai"
+    },
+    {
+      "id": "hu_3b8b7317ed",
+      "name": "Fitness5 Savoya"
+    },
+    {
+      "id": "hu_636f293a9f",
+      "name": "Fitness5 Siófok"
+    },
+    {
+      "id": "hu_72b7f1aaef",
+      "name": "Fitness5 Székesfehérvár"
+    },
+    {
+      "id": "hu_1521b3b472",
+      "name": "Fitness5 Váci Greens"
+    },
+    {
+      "id": "hu_c4a1d65e79",
+      "name": "Fitness5 Örs Vezér tér"
+    },
+    {
+      "id": "hu_9364053391",
+      "name": "Life1 Allee"
+    },
+    {
+      "id": "hu_371365b575",
+      "name": "Life1 Corvin"
+    },
+    {
+      "id": "hu_a0126964e9",
+      "name": "Life1 Etele"
+    },
+    {
+      "id": "hu_9eb805b69a",
+      "name": "Life1 Mammut"
+    },
+    {
+      "id": "hu_70f4487b7f",
+      "name": "Life1 Nyugati"
+    },
+    {
+      "id": "hu_3dd7ed353f",
+      "name": "Life1 Váci"
+    },
+    {
+      "id": "hu_443fc52cc7",
+      "name": "Nr1 Fitness Kálvin"
+    },
+    {
+      "id": "hu_252aa3a3c1",
+      "name": "Nr1 Fitness Oktogon"
+    },
+    {
+      "id": "hu_7dee925bf1",
+      "name": "Nr1 Fitness Óbuda"
+    },
+    {
+      "id": "hu_c9304c4364",
+      "name": "Oxygen Wellness Naphegy"
+    },
+    {
+      "id": "hu_cb9223a0d5",
+      "name": "Prestige Fitness Fáy"
+    },
+    {
+      "id": "hu_8b266bdb04",
+      "name": "Thor Gym Savoya"
+    },
+    {
+      "id": "hu_ba25e8fc66",
+      "name": "Thor Gym Zugló"
+    },
+    {
+      "id": "hu_fee7e81046",
+      "name": "Thor Gym Óbuda"
+    },
+    {
+      "id": "hu_3176a1cfef",
+      "name": "Thor Gym Újbuda"
+    }
+  ],
+  "withheld": [],
+  "included": []
+}

@@ -1,0 +1,20 @@
+{
+  "cities": {
+    "Yerevan": "A",
+    "Gyumri": "B",
+    "Vanadzor": "B",
+    "Abovyan": "B",
+    "Hrazdan": "B",
+    "Kapan": "B",
+    "Armavir": "B",
+    "Goris": "B",
+    "Dilijan": "D"
+  },
+  "ready_by_city": {
+    "Yerevan": 11
+  },
+  "material_d_gaps": [
+    "Dilijan"
+  ],
+  "material_d_gaps_count": 1
+}

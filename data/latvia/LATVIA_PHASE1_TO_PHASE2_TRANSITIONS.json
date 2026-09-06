@@ -1,0 +1,742 @@
+[
+  {
+    "id": "lv_3b6472323b",
+    "brand": "Gym!",
+    "name": "Gym! Barons",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_e2b2c34717",
+    "brand": "Gym!",
+    "name": "Gym! Daugava",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_0ab2d9fa6b",
+    "brand": "Gym!",
+    "name": "Gym! Daugavpils",
+    "city": "Daugavpils",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_378dc8d996",
+    "brand": "Gym!",
+    "name": "Gym! Dreiliņi",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_63f56e7170",
+    "brand": "Gym!",
+    "name": "Gym! Imanta",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_3bb2c336e8",
+    "brand": "Gym!",
+    "name": "Gym! Imanta X",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_e644a6cbdf",
+    "brand": "Gym!",
+    "name": "Gym! Olimpia",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_86cad25aff",
+    "brand": "Gym!",
+    "name": "Gym! Origo",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_19f5ee52f2",
+    "brand": "Gym!",
+    "name": "Gym! Purvciems",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_111c1440e3",
+    "brand": "Gym!",
+    "name": "Gym! Zolitūde",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_c3befe3f7f",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Akropole",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_3a2f2a4625",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Imanta",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_f9bb5b6450",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Jugla",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_0e3eba9f8c",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Ķengarags",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_2c843b109c",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Pļavnieki",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_a7854a3b19",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Purvciems",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_814dd2ac94",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Skanste",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_e97e5cd222",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Teika",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_482c69e16b",
+    "brand": "MyFitness",
+    "name": "MyFitness Aleja",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_00100556b1",
+    "brand": "MyFitness",
+    "name": "MyFitness Alfa",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_c4985e5c94",
+    "brand": "MyFitness",
+    "name": "MyFitness Domina",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_553900baf2",
+    "brand": "MyFitness",
+    "name": "MyFitness Dzelzava",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_9944f27897",
+    "brand": "MyFitness",
+    "name": "MyFitness Galerija Centrs",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_933fcf75a1",
+    "brand": "MyFitness",
+    "name": "MyFitness Galleria Rīga",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_b3e5e39619",
+    "brand": "MyFitness",
+    "name": "MyFitness Imanta",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_f7b3a90fa8",
+    "brand": "MyFitness",
+    "name": "MyFitness Matīss",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_3d7a57f038",
+    "brand": "MyFitness",
+    "name": "MyFitness Pļavnieki",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_a0e6fa5985",
+    "brand": "MyFitness",
+    "name": "MyFitness Riga Plaza",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_1a0f184657",
+    "brand": "MyFitness",
+    "name": "MyFitness Sāga",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_5c8cffee8f",
+    "brand": "MyFitness",
+    "name": "MyFitness Sky & More",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_8d289fb8a1",
+    "brand": "MyFitness",
+    "name": "MyFitness Spice",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_d0c8689014",
+    "brand": "MyFitness",
+    "name": "MyFitness Teika Plaza",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_de8c7df71e",
+    "brand": "MyFitness",
+    "name": "MyFitness Upītis",
+    "city": "Rīga",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "decision_reason": "existing_production_reconciled_33_of_33",
+    "in_production": true
+  },
+  {
+    "id": "lv_eb2ad44f7d",
+    "brand": "Lemon Gym",
+    "name": "Lemon Gym Ziepniekkalns",
+    "city": "Rīga",
+    "phase1_category": "COMING_SOON",
+    "phase2_disposition": "COMING_SOON",
+    "decision_reason": "lemongym.lv Aug 2026 — Ziepniekkalns still marked FROM 02.09 / NO SEPTEMBRA; opening 2026-09-02 not yet reached at Phase 2 audit; not operating",
+    "in_production": false
+  },
+  {
+    "id": "lv_b106c26e7d",
+    "brand": "People Fitness",
+    "name": "People Fitness (legacy LV)",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_4816ee3d2a",
+    "brand": "Global Fitness",
+    "name": "Global Fitness (hotel)",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_e09f8013d9",
+    "brand": "Best Fit",
+    "name": "Best Fit Daugavpils",
+    "city": "Daugavpils",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_9ba6f913d1",
+    "brand": "Gym Lāčplēsis",
+    "name": "Gym Lāčplēsis Liepāja",
+    "city": "Liepāja",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_c021514459",
+    "brand": "City Fitness",
+    "name": "City Fitness (legacy name)",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_19bbef5255",
+    "brand": "Gym+",
+    "name": "Gym+ Latvia probe",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_d21bf3f7e5",
+    "brand": "Impuls",
+    "name": "Impuls Latvia probe",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_a50729cbfc",
+    "brand": "Basic-Fit",
+    "name": "Basic-Fit Latvia probe",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_c858ee54e6",
+    "brand": "McFIT",
+    "name": "McFIT Latvia probe",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_a3db18b4f2",
+    "brand": "Anytime Fitness",
+    "name": "Anytime Fitness Latvia probe",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_2ddbc642b0",
+    "brand": "FITINN",
+    "name": "FITINN Latvia probe",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_bc0089a647",
+    "brand": "clever fit",
+    "name": "clever fit Latvia probe",
+    "city": "Rīga",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "phase1_excluded_reaffirmed",
+    "in_production": false
+  },
+  {
+    "id": "lv_f4c8338a32",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Liepāja",
+    "city": "Liepāja",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Liepāja Phase 2 sweep — Gym Lāčplēsis single-site excluded; no Class A chain; no verified conventional public gym for READY",
+    "in_production": false
+  },
+  {
+    "id": "lv_4e7ddb4bf9",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Jelgava",
+    "city": "Jelgava",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Jelgava Phase 2 sweep — no MyFitness/Lemon/Gym! estate; no verified conventional public Class A gym",
+    "in_production": false
+  },
+  {
+    "id": "lv_1973760fd7",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Jūrmala",
+    "city": "Jūrmala",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Jūrmala Phase 2 sweep — tourism/hotel false-positive control; no verified conventional public Class A gym",
+    "in_production": false
+  },
+  {
+    "id": "lv_e6060c1dfb",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Ventspils",
+    "city": "Ventspils",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Ventspils Phase 2 sweep — no Class A chain; municipal sports centers not qualifying",
+    "in_production": false
+  },
+  {
+    "id": "lv_b12f63c3f8",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Rēzekne",
+    "city": "Rēzekne",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Rēzekne Phase 2 multilingual sweep — no Class A chain; no verified conventional public gym",
+    "in_production": false
+  },
+  {
+    "id": "lv_468a5ec140",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Valmiera",
+    "city": "Valmiera",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Valmiera Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_347c19b564",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Jēkabpils",
+    "city": "Jēkabpils",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Jēkabpils Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_de9bd2e3f3",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Ogre",
+    "city": "Ogre",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Ogre Phase 2 sweep — Rīga orbit; no separate Class A chain beyond Rīga estate",
+    "in_production": false
+  },
+  {
+    "id": "lv_24c61613da",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Tukums",
+    "city": "Tukums",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Tukums Phase 2 sweep — no qualifying conventional public gym",
+    "in_production": false
+  },
+  {
+    "id": "lv_940a23952b",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Cēsis",
+    "city": "Cēsis",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Cēsis Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_80bc24ef76",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Sigulda",
+    "city": "Sigulda",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Sigulda Phase 2 sweep — tourism/wellness false-positive control; no Class A chain",
+    "in_production": false
+  },
+  {
+    "id": "lv_af0b6d18bd",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Kuldīga",
+    "city": "Kuldīga",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Kuldīga Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_7b3265b74c",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Saldus",
+    "city": "Saldus",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Saldus Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_306ad52953",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Bauska",
+    "city": "Bauska",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Bauska Phase 2 sweep — Lithuania border safety; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_ecc44aa569",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Madona",
+    "city": "Madona",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Madona Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_2f4ac6c967",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Limbaži",
+    "city": "Limbaži",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Limbaži Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_6dfc01721b",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Gulbene",
+    "city": "Gulbene",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Gulbene Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_2a2157603e",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Alūksne",
+    "city": "Alūksne",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Alūksne Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_9ca3c7f5af",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Krāslava",
+    "city": "Krāslava",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Krāslava Phase 2 sweep — Belarus border scrutiny; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_8178ee662c",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Ludza",
+    "city": "Ludza",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Ludza Phase 2 sweep — Russia border scrutiny; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_df9ccb0947",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Preiļi",
+    "city": "Preiļi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Preiļi Phase 2 sweep — Latgale; no Class A chain verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_2a031689ee",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Dobele",
+    "city": "Dobele",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Dobele Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_364428f807",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Aizkraukle",
+    "city": "Aizkraukle",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Aizkraukle Phase 2 sweep — no Class A chain presence verified",
+    "in_production": false
+  },
+  {
+    "id": "lv_24355d4a82",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Valka",
+    "city": "Valka",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Valka Phase 2 sweep — Valka=Latvia; Valga=Estonia; no Class A chain; border identity verified; no Valga collision",
+    "in_production": false
+  },
+  {
+    "id": "lv_06431ab3f7",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Mārupe",
+    "city": "Mārupe",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Mārupe Rīga metro sweep — no separate Class A beyond Rīga estate",
+    "in_production": false
+  },
+  {
+    "id": "lv_e1ef254fe5",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Salaspils",
+    "city": "Salaspils",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Salaspils Rīga metro sweep — no separate Class A beyond Rīga estate",
+    "in_production": false
+  },
+  {
+    "id": "lv_50cfd373af",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Ikšķile",
+    "city": "Ikšķile",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Ikšķile Rīga metro sweep — no separate Class A beyond Rīga estate",
+    "in_production": false
+  },
+  {
+    "id": "lv_9cd8c2415f",
+    "brand": "Municipal audit",
+    "name": "Latvia Phase 1 municipal audit — Ādaži",
+    "city": "Ādaži",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Ādaži Rīga metro sweep — no separate Class A beyond Rīga estate",
+    "in_production": false
+  }
+]

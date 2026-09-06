@@ -44,8 +44,9 @@ function distanceMeters(
 }
 
 function tokenMatches(entry: GymSearchIndexEntry, token: string): boolean {
-  const t = normalizeGymSearchValue(token);
-  const tc = compactGymSearchValue(token);
+  // `token` is already passed through tokenizeGymQuery / normalizeGymSearchValue.
+  const t = token;
+  const tc = token.replace(/\s+/g, '');
   if (!t) {
     return true;
   }
@@ -59,7 +60,19 @@ function tokenMatches(entry: GymSearchIndexEntry, token: string): boolean {
     entry.brandCompact.includes(tc) ||
     entry.cityNorm.includes(t) ||
     entry.streetNorm.includes(t) ||
-    entry.addressNorm.includes(t)
+    entry.addressNorm.includes(t) ||
+    entry.postalNorm.includes(t)
+  ) {
+    return true;
+  }
+
+  const postalCompact = entry.postalNorm.replace(/\s+/g, '');
+  if (
+    tc.length >= 2 &&
+    postalCompact &&
+    (postalCompact === tc ||
+      postalCompact.startsWith(tc) ||
+      (tc.length >= 5 && postalCompact.includes(tc)))
   ) {
     return true;
   }
@@ -69,10 +82,22 @@ function tokenMatches(entry: GymSearchIndexEntry, token: string): boolean {
   }
 
   if (t.length >= 4) {
-    if (entry.words.some(w => levenshtein(w, t) <= 1)) {
+    if (
+      entry.words.some(
+        w =>
+          Math.abs(w.length - t.length) <= 1 &&
+          w.charAt(0) === t.charAt(0) &&
+          levenshtein(w, t) <= 1,
+      )
+    ) {
       return true;
     }
-    if (tc.length >= 5 && levenshtein(entry.nameCompact, tc) <= 2) {
+    if (
+      tc.length >= 5 &&
+      Math.abs(entry.nameCompact.length - tc.length) <= 2 &&
+      entry.nameCompact.charAt(0) === tc.charAt(0) &&
+      levenshtein(entry.nameCompact, tc) <= 2
+    ) {
       return true;
     }
   }
@@ -102,6 +127,15 @@ function scoreEntry(
     } else if (entry.haystackCompact.includes(queryCompact)) {
       score += 75;
     }
+
+    const postalCompact = entry.postalNorm.replace(/\s+/g, '');
+    if (postalCompact && queryCompact.length >= 2) {
+      if (postalCompact === queryCompact) {
+        score += 110;
+      } else if (postalCompact.startsWith(queryCompact)) {
+        score += 70;
+      }
+    }
   }
 
   for (const token of tokens) {
@@ -121,11 +155,30 @@ function scoreEntry(
       score += 38;
     } else if (entry.addressNorm.includes(token)) {
       score += 30;
+    } else if (
+      entry.postalNorm === token ||
+      entry.postalNorm.replace(/\s+/g, '') === token.replace(/\s+/g, '')
+    ) {
+      score += 70;
+    } else if (
+      token.length >= 2 &&
+      (entry.postalNorm.startsWith(token) ||
+        entry.postalNorm.replace(/\s+/g, '').startsWith(token.replace(/\s+/g, '')))
+    ) {
+      score += 50;
     } else if (entry.haystack.includes(token)) {
       score += 22;
     } else if (entry.words.some(w => w.startsWith(token))) {
       score += 18;
-    } else if (token.length >= 4 && entry.words.some(w => levenshtein(w, token) <= 1)) {
+    } else if (
+      token.length >= 4 &&
+      entry.words.some(
+        w =>
+          Math.abs(w.length - token.length) <= 1 &&
+          w.charAt(0) === token.charAt(0) &&
+          levenshtein(w, token) <= 1,
+      )
+    ) {
       score += 12;
     }
   }
@@ -201,11 +254,19 @@ export function searchGyms(
     const partialMatch = matchedTokens.length > 0;
 
     if (!allTokensMatch && !partialMatch) {
+      const nameSlice = entry.nameCompact.slice(
+        0,
+        Math.min(entry.nameCompact.length, queryCompact.length + 2),
+      );
+      const plausibleTypo =
+        queryCompact.length >= 3 &&
+        Math.abs(nameSlice.length - queryCompact.length) <= 2 &&
+        nameSlice.charAt(0) === queryCompact.charAt(0);
       const loose =
         queryNorm.length >= 3 &&
         (entry.haystack.includes(queryNorm) ||
           entry.haystackCompact.includes(queryCompact) ||
-          levenshtein(entry.nameCompact.slice(0, Math.min(entry.nameCompact.length, queryCompact.length + 2)), queryCompact) <= 2);
+          (plausibleTypo && levenshtein(nameSlice, queryCompact) <= 2));
       if (!loose) {
         continue;
       }

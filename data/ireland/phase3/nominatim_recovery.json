@@ -1,0 +1,258 @@
+{
+  "aura_drogheda": {
+    "query": "Aura Leisure Centre Marley's Lane Drogheda Ireland",
+    "error": "none"
+  },
+  "aura_drogheda2": {
+    "query": "Marley's Lane Drogheda Co Louth Ireland",
+    "lat": 53.7095944,
+    "lng": -6.3748843,
+    "postcode": "",
+    "display_name": "Marley's Lane, St. Mary's ED, The Borough District of Drogheda, County Louth, Leinster, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "aura_dundalk": {
+    "query": "Aura Leisure Centre St Alphonsus Road Dundalk Ireland",
+    "error": "none"
+  },
+  "aura_dundalk_eir": {
+    "query": "A91 YW90 Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "aura_grove": {
+    "query": "Aura Grove Island Leisure Centre Corbally Limerick",
+    "error": "none"
+  },
+  "aura_leitrim": {
+    "query": "Aura Leitrim Leisure Centre Attifinlay Carrick-on-Shannon",
+    "error": "none"
+  },
+  "aura_letterkenny": {
+    "query": "Aura Letterkenny Complex Sallaghagrane Letterkenny",
+    "error": "none"
+  },
+  "aura_lucan": {
+    "query": "Aura Lucan Leisure Centre Griffeen Valley Park Lucan",
+    "error": "none"
+  },
+  "aura_navan": {
+    "query": "Aura Leisurelink Navan Windtown Road Navan",
+    "error": "none"
+  },
+  "aura_trim": {
+    "query": "Aura Trim Leisure Centre Newhaggard Road Trim",
+    "error": "none"
+  },
+  "aura_tullamore": {
+    "query": "Aura Tullamore Leisure Centre Hophill Road R35 A594",
+    "error": "none"
+  },
+  "aura_youghal": {
+    "query": "Aura Youghal Leisure Centre Claycastle Youghal",
+    "error": "none"
+  },
+  "ww_clontarf": {
+    "query": "West Wood Club Clontarf Road Dublin 3 D03 T6T3",
+    "lat": 53.3632123,
+    "lng": -6.2290091,
+    "postcode": "",
+    "display_name": "West Wood Club, Clontarf Road, Marino, Clontarf West D Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "ww_leopardstown": {
+    "query": "West Wood Club Leopardstown Race Course Foxrock D18 C9V6",
+    "error": "none"
+  },
+  "ww_sandymount": {
+    "query": "West Wood Club 1a St Johns Road Sandymount D04 H3K2",
+    "error": "none"
+  },
+  "ww_westmanstown": {
+    "query": "West Wood Club Westmanstown Clonsilla D15 T447",
+    "error": "none"
+  },
+  "bd_northwood": {
+    "query": "Ben Dunne Gyms Northwood Business Park D09 PX36",
+    "error": "none"
+  },
+  "bd_northwood2": {
+    "query": "D09 PX36 Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "bd_portlaoise": {
+    "query": "Ben Dunne Gyms Lisamard Business Park Portlaoise R32 PT9K",
+    "error": "none"
+  },
+  "bd_portlaoise2": {
+    "query": "R32 PT9K Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "bd_cherrywood": {
+    "query": "Ben Dunne Gyms Cherrywood Business Park Dublin 18",
+    "error": "none"
+  },
+  "bd_cherrywood2": {
+    "query": "BD Gyms Cherrywood Park Cherrywood Dublin",
+    "error": "none"
+  },
+  "af_kilmainham": {
+    "query": "Anytime Fitness Heuston South Quarter St Johns Road West Dublin",
+    "error": "none"
+  },
+  "af_kilmainham2": {
+    "query": "Anytime Fitness Kilmainham Sancton Wood Dublin",
+    "error": "none"
+  },
+  "af_kilnamanagh": {
+    "query": "Anytime Fitness Kilnamanagh Shopping Centre Treepark Road",
+    "error": "none"
+  },
+  "flye_blanch": {
+    "query": "FLYEfit Coolmine Business Park Blanchardstown",
+    "error": "none"
+  },
+  "flye_crumlin": {
+    "query": "FLYEfit Ashleaf Shopping Centre Cromwellsfort Road",
+    "error": "none"
+  },
+  "flye_northside": {
+    "query": "FLYEfit Northside Shopping Centre Oscar Traynor Road",
+    "error": "none"
+  },
+  "flye_swords": {
+    "query": "FLYEfit Airside Retail Park Nevinstown Lane Swords",
+    "error": "none"
+  },
+  "flye_tallaght": {
+    "query": "FLYEfit Crosswest Tallaght",
+    "error": "none"
+  },
+  "ef_clarehall": {
+    "query": "Energie Fitness Clarehall Retail Park D17 X462",
+    "error": "none"
+  },
+  "ef_clarehall2": {
+    "query": "D17 X462 Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "ef_limerick": {
+    "query": "Energie Fitness Abbey River Court Island Road Limerick V94 42V0",
+    "error": "none"
+  },
+  "ef_limerick2": {
+    "query": "V94 42V0 Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "ef_tallaght": {
+    "query": "Energie Fitness Plaza Hotel Belgard Road Tallaght D24 X2FC",
+    "error": "none"
+  },
+  "ef_tallaght2": {
+    "query": "D24 X2FC Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "ef_citywest": {
+    "query": "Energie Fitness Citywest Shopping Centre D24 TD81",
+    "error": "none"
+  },
+  "ef_citywest2": {
+    "query": "D24 TD81 Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "iconic_dartry": {
+    "query": "Iconic Health Club Dartry Dublin",
+    "error": "none"
+  },
+  "iconic_ifsc": {
+    "query": "Iconic Health Club IFSC Dublin",
+    "error": "none"
+  },
+  "iconic_smithfield": {
+    "query": "Iconic Health Club Smithfield Dublin",
+    "error": "none"
+  },
+  "iconic_oneescape": {
+    "query": "One Escape Health Club Smithfield Dublin",
+    "error": "none"
+  },
+  "sl_bray": {
+    "query": "Shoreline Leisure Bray Southern Cross Road A98 F585",
+    "lat": 53.1832231,
+    "lng": -6.1238784,
+    "postcode": "",
+    "display_name": "Shoreline Leisure Bray, Southern Cross Road, Ballywaltrim, Kilmacanoge ED, The Municipal District of Bray, County Wicklow, Leinster, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "sl_bray2": {
+    "query": "A98 F585 Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  },
+  "sl_grey": {
+    "query": "Shoreline Leisure Greystones 69 Mill Road A63 HD25",
+    "error": "none"
+  },
+  "sl_grey2": {
+    "query": "A63 HD25 Ireland",
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "postcode": "D02 P638",
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "osm_type": null,
+    "class": null,
+    "country_code": "ie"
+  }
+}

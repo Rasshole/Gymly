@@ -1,0 +1,52 @@
+{
+  "ready_by_city": {
+    "Belvaux": 1,
+    "Bereldange": 1,
+    "Bettembourg": 1,
+    "Ettelbruck": 1,
+    "Foetz": 1,
+    "Luxembourg": 7,
+    "Sandweiler": 1,
+    "Strassen": 1,
+    "Windhof": 1,
+    "Mersch": 2,
+    "Bertrange": 1,
+    "Esch-sur-Alzette": 1,
+    "Junglinster": 1
+  },
+  "zero_open_classifications": {
+    "Differdange": "A_legitimate_no_chain_presence",
+    "Dudelange": "A_legitimate_no_chain_presence",
+    "Pétange": "A_legitimate_no_chain_presence",
+    "Sanem": "A_legitimate_no_chain_presence",
+    "Hesperange": "A_legitimate_no_chain_presence",
+    "Mamer": "A_legitimate_no_chain_presence",
+    "Diekirch": "A_legitimate_no_chain_presence",
+    "Wiltz": "A_legitimate_no_chain_presence",
+    "Grevenmacher": "A_legitimate_no_chain_presence",
+    "Remich": "A_legitimate_no_chain_presence"
+  },
+  "audited_cities": [
+    "Luxembourg",
+    "Esch-sur-Alzette",
+    "Differdange",
+    "Dudelange",
+    "Pétange",
+    "Sanem",
+    "Hesperange",
+    "Bettembourg",
+    "Strassen",
+    "Bertrange",
+    "Mamer",
+    "Mersch",
+    "Ettelbruck",
+    "Diekirch",
+    "Wiltz",
+    "Grevenmacher",
+    "Remich"
+  ],
+  "notes": [
+    "Belvaux/Foetz/Sandweiler/Bereldange/Windhof/Junglinster covered as satellites of audited markets",
+    "Border towns audited for BE/FR/DE contamination"
+  ]
+}

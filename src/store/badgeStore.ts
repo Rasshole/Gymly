@@ -431,6 +431,8 @@ export function getBadgeProgressList(userId: string) {
     planned_workouts_completed_valid: 0,
     early_check_ins: 0,
     late_check_ins: 0,
+    total_logged_sets: 0,
+    total_pr_events: 0,
   };
   return BADGE_DEFINITIONS.map(def => {
     const unlocked = store.isUnlocked(userId, def.id);

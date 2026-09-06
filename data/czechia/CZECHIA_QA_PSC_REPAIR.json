@@ -1,0 +1,163 @@
+{
+  "repaired_at": "2026-08-23T15:37:03.185965+00:00",
+  "backup": "data/czechia/backups/centers.json.pre_czechia_psc_qa_20260823T153314Z",
+  "sha256_before": "1dd13d7ae69cc6741ec21a285a42d785356370ae2e723b2cc12b0b48656d5ebb",
+  "sha256_after": "df5068aa041383bdd4e6a239ef4153b0c3483b167051a615966b6b86f56f6516",
+  "count": 19,
+  "applied": [
+    {
+      "id": "cz_e0c9747ab1",
+      "name": "Form Factory Argentinská",
+      "old": "161 04",
+      "new": "170 00",
+      "city": "Praha",
+      "evidence": "Argentinská 1610/4 | 170 00 Praha 7"
+    },
+    {
+      "id": "cz_97f7e2b422",
+      "name": "Form Factory Brumlovka",
+      "old": "141 01",
+      "new": "140 00",
+      "city": "Praha",
+      "evidence": "Vyskočilova 1410/1 | 140 00, Praha 4"
+    },
+    {
+      "id": "cz_f75412b2f2",
+      "name": "Form Factory Chodov",
+      "old": "232 11",
+      "new": "148 00",
+      "city": "Praha",
+      "evidence": "Westfield Chodov | Roztylská 2321/19 | 148 00 Praha 11-Chodov"
+    },
+    {
+      "id": "cz_1d8169d15a",
+      "name": "Form Factory Harfa",
+      "old": "242 01",
+      "new": "190 00",
+      "city": "Praha",
+      "evidence": "Galerie Harfa | Českomoravská 2420/15a | 190 00 Praha 9"
+    },
+    {
+      "id": "cz_58991f72bc",
+      "name": "Form Factory Hostivař",
+      "old": "139 13",
+      "new": "102 00",
+      "city": "Praha",
+      "evidence": "VIVO! Hostivař | Švehlova 1391/32 | 102 00 Praha 15"
+    },
+    {
+      "id": "cz_803d467370",
+      "name": "Form Factory Hrabová",
+      "old": "646 22",
+      "new": "720 00",
+      "city": "Ostrava",
+      "evidence": "Krmelínská 646/22 | 720 00 Ostrava 20"
+    },
+    {
+      "id": "cz_ab15162d09",
+      "name": "Form Factory I. P. Pavlova",
+      "old": "222 12",
+      "new": "120 00",
+      "city": "Praha",
+      "evidence": "Bělehradská 222/128 | 120 00, Praha 2"
+    },
+    {
+      "id": "cz_82b85c5668",
+      "name": "Form Factory Karolina",
+      "old": "334 44",
+      "new": "702 00",
+      "city": "Ostrava",
+      "evidence": "Forum Nová Karolina | Jantarová 3344/4 | Ostrava 2, 702 00"
+    },
+    {
+      "id": "cz_3fe18c02d2",
+      "name": "Form Factory Kasárny",
+      "old": "134 91",
+      "new": "301 00",
+      "city": "Plzeň",
+      "evidence": "Ke Karlovu 1349/11 | 301 00, Plzeň – Skvrňany | (zastávka MHD U Panasonicu)"
+    },
+    {
+      "id": "cz_838a66b77f",
+      "name": "Form Factory Lannova",
+      "old": "204 18",
+      "new": "370 01",
+      "city": "České Budějovice",
+      "evidence": "Lannova třída 204/18 | 370 01 České Budějovice"
+    },
+    {
+      "id": "cz_bcc47a6551",
+      "name": "Form Factory Náměstí Republiky",
+      "old": "334 69",
+      "new": "702 00",
+      "city": "Ostrava",
+      "evidence": "28. října 3346/91 | 702 00 Moravská Ostrava a Přívoz"
+    },
+    {
+      "id": "cz_a6cff1a290",
+      "name": "Form Factory Olomouc City",
+      "old": "255 41",
+      "new": "779 00",
+      "city": "Olomouc",
+      "evidence": "Pražská 255/41 | 779 00 Olomouc 9-Řepčín"
+    },
+    {
+      "id": "cz_d24938be53",
+      "name": "Form Factory Palladium",
+      "old": "107 91",
+      "new": "110 00",
+      "city": "Praha",
+      "evidence": "OC PALLADIUM | Náměstí Republiky 1079/1a | 110 00 Praha 1"
+    },
+    {
+      "id": "cz_eab248e2b5",
+      "name": "Form Factory Podkovářská",
+      "old": "106 93",
+      "new": "190 00",
+      "city": "Praha",
+      "evidence": "Poděbradská 1069/36 | 190 00, Praha 9 – Vysočany"
+    },
+    {
+      "id": "cz_165c0ec0e9",
+      "name": "Form Factory Porubská",
+      "old": "707 72",
+      "new": "708 00",
+      "city": "Ostrava",
+      "evidence": "Hlavní tř. 707/72 | 708 00 Ostrava"
+    },
+    {
+      "id": "cz_cecc8b180b",
+      "name": "Form Factory Stodůlky",
+      "old": "271 74",
+      "new": "155 00",
+      "city": "Praha",
+      "evidence": "City West B1 | Siemensova 2717/4 | 155 00 Praha 13 – Stodůlky"
+    },
+    {
+      "id": "cz_25717c7644",
+      "name": "Form Factory Vršovická",
+      "old": "152 51",
+      "new": "101 00",
+      "city": "Praha",
+      "evidence": "Vršovická 1525/1B | 101 00 Praha 10"
+    },
+    {
+      "id": "cz_76559e4be7",
+      "name": "Form Factory Štúrova",
+      "old": "128 42",
+      "new": "142 00",
+      "city": "Praha",
+      "evidence": "Štúrova 1284/20, | 142 00 Praha"
+    },
+    {
+      "id": "cz_bf61e700bf",
+      "name": "Form Factory Veveří",
+      "old": "258 11",
+      "new": "625 00",
+      "city": "Brno",
+      "evidence": "Veveří 2581/102, 625 00 Brno – Žabovřesky"
+    }
+  ],
+  "production_total": 11013,
+  "czechia": 70
+}

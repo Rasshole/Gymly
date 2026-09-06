@@ -1,0 +1,504 @@
+{
+  "country": "Iceland",
+  "generated_at": "2026-08-26T22:01:52.549Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11665,
+    "iceland": 0,
+    "cyprus": 17,
+    "malta": 18,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "after": {
+    "total": 11692,
+    "iceland": 27,
+    "cyprus": 17,
+    "malta": 18,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "inserted": 27,
+  "withheld": 0,
+  "pre_merge_sha256": "caf838b1ce733fd20fb724306429bcc48ddee49d684a8efbe70c0cd9b1e46944",
+  "post_merge_sha256": "ff19dfaae9f99984ae5c6a73765b3e585263b61050d8c927fc45a38037dfa3dc",
+  "brand_breakdown": {
+    "Katla Fitness": 7,
+    "World Class": 20
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "bad_postal_format": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "foreign_coords": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "forbidden_id": 0
+  },
+  "country_regression": {
+    "malta": {
+      "before": 18,
+      "after": 18,
+      "intact": true
+    },
+    "luxembourg": {
+      "before": 20,
+      "after": 20,
+      "intact": true
+    },
+    "estonia": {
+      "before": 68,
+      "after": 68,
+      "intact": true
+    },
+    "latvia": {
+      "before": 33,
+      "after": 33,
+      "intact": true
+    },
+    "lithuania": {
+      "before": 61,
+      "after": 61,
+      "intact": true
+    },
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    },
+    "slovakia": {
+      "before": 37,
+      "after": 37,
+      "intact": true
+    },
+    "bulgaria": {
+      "before": 82,
+      "after": 82,
+      "intact": true
+    },
+    "croatia": {
+      "before": 80,
+      "after": 80,
+      "intact": true
+    },
+    "slovenia": {
+      "before": 32,
+      "after": 32,
+      "intact": true
+    },
+    "cyprus": {
+      "before": 17,
+      "after": 17,
+      "intact": true
+    }
+  },
+  "rebrand_validation": {
+    "vatnsmyri_successor": true,
+    "legacy_bjarg_absent": true,
+    "reebok_predecessor_absent": true,
+    "kringlan_distinct": true,
+    "gamla_kringlan_distinct": true,
+    "tjarnarvellir_coexistence": true,
+    "holtagardar_address": "Holtagarðar 2",
+    "result": "PASS"
+  },
+  "excluded_leakage": {
+    "forbidden_ids_in_production": [],
+    "staging_closed_excluded_in_production": 0,
+    "result": "PASS"
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 27,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 0,
+    "COMING_SOON": 0,
+    "CLOSED": 2,
+    "EXCLUDED": 29,
+    "unique_staged": 58,
+    "reconciliation": "27 == 27 == 27 == 27",
+    "metadata_drift": "NONE"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0,
+    "normalized_same_addresses": 0
+  },
+  "territorial_safety": {
+    "iceland_plausible": 27,
+    "foreign": 0,
+    "result": "CLEAN"
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "performance": {
+    "catalog": 11692,
+    "active": 11688,
+    "json_size_bytes": 3633457,
+    "json_size_mb": 3.47,
+    "json_parse_ms": 18.94
+  },
+  "global_scale": {
+    "previous_production": 11665,
+    "new_production": 11692,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "inventory": [
+    {
+      "id": "is_1d130c0197",
+      "brand": "Katla Fitness",
+      "name": "Katla Fitness Faxafen",
+      "city": "Reykjavík",
+      "postal_code": "108"
+    },
+    {
+      "id": "is_bece47bcec",
+      "brand": "Katla Fitness",
+      "name": "Katla Fitness Holtagarðar",
+      "city": "Reykjavík",
+      "postal_code": "104"
+    },
+    {
+      "id": "is_31dded1371",
+      "brand": "Katla Fitness",
+      "name": "Katla Fitness Kópavogslaug",
+      "city": "Kópavogur",
+      "postal_code": "200"
+    },
+    {
+      "id": "is_df6449ee85",
+      "brand": "Katla Fitness",
+      "name": "Katla Fitness Lambhagi",
+      "city": "Reykjavík",
+      "postal_code": "113"
+    },
+    {
+      "id": "is_e36f4d62b2",
+      "brand": "Katla Fitness",
+      "name": "Katla Fitness Salalaug",
+      "city": "Kópavogur",
+      "postal_code": "201"
+    },
+    {
+      "id": "is_3c1b16259b",
+      "brand": "Katla Fitness",
+      "name": "Katla Fitness Tjarnarvellir",
+      "city": "Hafnarfjörður",
+      "postal_code": "221"
+    },
+    {
+      "id": "is_87beb5bac0",
+      "brand": "Katla Fitness",
+      "name": "Katla Fitness Urðarhvarf",
+      "city": "Kópavogur",
+      "postal_code": "203"
+    },
+    {
+      "id": "is_d2bae462dd",
+      "brand": "World Class",
+      "name": "World Class Akranes",
+      "city": "Akranes",
+      "postal_code": "300"
+    },
+    {
+      "id": "is_be8006d4f1",
+      "brand": "World Class",
+      "name": "World Class Árbær",
+      "city": "Reykjavík",
+      "postal_code": "110"
+    },
+    {
+      "id": "is_5e1b98a2dd",
+      "brand": "World Class",
+      "name": "World Class Breiðholt",
+      "city": "Reykjavík",
+      "postal_code": "111"
+    },
+    {
+      "id": "is_e6b7170863",
+      "brand": "World Class",
+      "name": "World Class Dalshraun",
+      "city": "Hafnarfjörður",
+      "postal_code": "220"
+    },
+    {
+      "id": "is_d51273caa3",
+      "brand": "World Class",
+      "name": "World Class Egilshöll",
+      "city": "Reykjavík",
+      "postal_code": "112"
+    },
+    {
+      "id": "is_48dceefaa5",
+      "brand": "World Class",
+      "name": "World Class Gamla Kringlan",
+      "city": "Reykjavík",
+      "postal_code": "103"
+    },
+    {
+      "id": "is_96374deb5c",
+      "brand": "World Class",
+      "name": "World Class Hella",
+      "city": "Hella",
+      "postal_code": "850"
+    },
+    {
+      "id": "is_8965d0054f",
+      "brand": "World Class",
+      "name": "World Class HR",
+      "city": "Reykjavík",
+      "postal_code": "102"
+    },
+    {
+      "id": "is_7511719617",
+      "brand": "World Class",
+      "name": "World Class Kringlan",
+      "city": "Reykjavík",
+      "postal_code": "103"
+    },
+    {
+      "id": "is_fa25e94b31",
+      "brand": "World Class",
+      "name": "World Class Laugar",
+      "city": "Reykjavík",
+      "postal_code": "105"
+    },
+    {
+      "id": "is_2d37413632",
+      "brand": "World Class",
+      "name": "World Class Mosfellsbær",
+      "city": "Mosfellsbær",
+      "postal_code": "270"
+    },
+    {
+      "id": "is_5d81077bc1",
+      "brand": "World Class",
+      "name": "World Class Ögurhvarf",
+      "city": "Kópavogur",
+      "postal_code": "203"
+    },
+    {
+      "id": "is_37c5b3de3c",
+      "brand": "World Class",
+      "name": "World Class Selfoss",
+      "city": "Selfoss",
+      "postal_code": "800"
+    },
+    {
+      "id": "is_bfa65dd42f",
+      "brand": "World Class",
+      "name": "World Class Seltjarnarnes",
+      "city": "Seltjarnarnes",
+      "postal_code": "170"
+    },
+    {
+      "id": "is_06bbf1b677",
+      "brand": "World Class",
+      "name": "World Class Skólastígur",
+      "city": "Akureyri",
+      "postal_code": "600"
+    },
+    {
+      "id": "is_822280d124",
+      "brand": "World Class",
+      "name": "World Class Smáralind",
+      "city": "Kópavogur",
+      "postal_code": "201"
+    },
+    {
+      "id": "is_93ac745cab",
+      "brand": "World Class",
+      "name": "World Class Strandgata",
+      "city": "Akureyri",
+      "postal_code": "600"
+    },
+    {
+      "id": "is_271c199e79",
+      "brand": "World Class",
+      "name": "World Class Tjarnarvellir",
+      "city": "Hafnarfjörður",
+      "postal_code": "221"
+    },
+    {
+      "id": "is_b39588e5e0",
+      "brand": "World Class",
+      "name": "World Class Vatnsmýri",
+      "city": "Reykjavík",
+      "postal_code": "102"
+    },
+    {
+      "id": "is_bc68af1d1f",
+      "brand": "World Class",
+      "name": "World Class Vestmannaeyjar",
+      "city": "Vestmannaeyjar",
+      "postal_code": "900"
+    }
+  ],
+  "verdict": "ICELAND MERGE COMPLETE — WAITING FOR QA"
+}

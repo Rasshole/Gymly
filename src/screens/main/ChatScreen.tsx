@@ -34,9 +34,13 @@ import {format} from 'date-fns';
 import {useTranslation, rt, getRuntimeLanguage} from '@/i18n';
 import {labelForMuscleToken} from '@/utils/muscleGroupLabels';
 import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
-import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+import {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
-import {formatGymDisplayName, findGymById, findGymByIdRelaxed} from '@/utils/gymDisplay';
+import {
+  formatGymDisplayName,
+  findGymByIdRelaxed,
+  resolveGymOrStub,
+} from '@/utils/gymDisplay';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {
   createTrainingInvitation,
@@ -81,8 +85,6 @@ import {safeDisplayName, isUuidLike} from '@/utils/displayName';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 
-const FALLBACK_PLAN_INVITE_GYMS = getActiveDanishGyms();
-
 type ChatScreenProps = {
   route: {
     params: {
@@ -123,6 +125,7 @@ const CHAT_MEDIA_SHEET = {
 const CHAT_IMAGE_MAX_H = 320;
 
 const TypingDotsInline = () => {
+  const {t} = useTranslation();
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     const loop = Animated.loop(
@@ -138,7 +141,7 @@ const TypingDotsInline = () => {
   }, [anim]);
   return (
     <View style={styles.typingInline}>
-      <Text style={styles.typingInlineLabel}>Skriver</Text>
+      <Text style={styles.typingInlineLabel}>{t('phase2ui.typing')}</Text>
       {[0, 1, 2].map(i => (
         <Animated.Text
           key={i}
@@ -195,6 +198,7 @@ type DmChatMessageImageProps = {
 };
 
 const DmChatMessageImage = ({uri, maxWidth, onPress}: DmChatMessageImageProps) => {
+  const {t} = useTranslation();
   const [natural, setNatural] = useState<{w: number; h: number} | null>(null);
 
   useEffect(() => {
@@ -245,7 +249,7 @@ const DmChatMessageImage = ({uri, maxWidth, onPress}: DmChatMessageImageProps) =
         source={{uri}}
         style={[styles.messageImageContent, {width: w, height: h}]}
         resizeMode="cover"
-        accessibilityLabel="Billede"
+        accessibilityLabel={t('a11y.image')}
         accessibilityRole="image"
       />
     </Pressable>
@@ -265,7 +269,7 @@ function mapServerPlanToChatPlan(r: {
   participants: PlannedParticipantRow[];
 }): ChatPlan {
   const w = r.workout;
-  const gym = findGymById(w.center_id) ?? getActiveDanishGyms()[0]!;
+  const gym = resolveGymOrStub(w.center_id, w.center_name);
   const invitee = r.participants.find(p => p.role === 'invitee');
   const muscles = (w.training_types || []) as MuscleGroup[];
   const inviteeId = invitee?.user_id;
@@ -290,7 +294,8 @@ function mapServerPlanToChatPlan(r: {
 }
 
 const ChatScreen = ({route, navigation}: ChatScreenProps) => {
-  const {t, dateFnsLocale} = useTranslation();
+  const {t, dateFnsLocale, intlLocale} = useTranslation();
+  const pickerLocale = intlLocale.replace('-', '_');
   const {chatId, friendId, friendName, initialMessage, participants: routeParticipants} = route.params;
   const updateChatLastMessage = useChatStore(state => state.updateChatLastMessage);
   const initializeChatMessages = useChatStore(state => state.initializeChatMessages);
@@ -402,7 +407,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
   const [planInviteDate, setPlanInviteDate] = useState(() => defaultScheduleParts().date);
   const [planInviteTime, setPlanInviteTime] = useState(() => defaultScheduleParts().time);
-  const [planInviteMuscle, setPlanInviteMuscle] = useState<MuscleGroup>('bryst');
+  const [planInviteMuscles, setPlanInviteMuscles] = useState<MuscleGroup[]>(['bryst']);
   const [showPlanInviteDatePicker, setShowPlanInviteDatePicker] = useState(false);
   const [showPlanInviteTimeSheet, setShowPlanInviteTimeSheet] = useState(false);
   const [selectedImageUri, setSelectedImageUri] = useState<string | null>(null);
@@ -1140,10 +1145,10 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     const {date, time} = defaultScheduleParts();
     setPlanInviteDate(date);
     setPlanInviteTime(time);
-    setPlanInviteMuscle('bryst');
+    setPlanInviteMuscles(['bryst']);
     const primaryId = planInviteUser?.favoriteGyms?.[0];
     const fromProfile = primaryId ? findGymByIdRelaxed(primaryId) : null;
-    setPlanSelectedGym(fromProfile ?? FALLBACK_PLAN_INVITE_GYMS[0] ?? null);
+    setPlanSelectedGym(fromProfile ?? null);
     setShowPlanInviteDatePicker(false);
     setShowPlanInviteTimeSheet(false);
     setPlanModalVisible(true);
@@ -1216,7 +1221,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           centerId: planSelectedGym.id,
           centerName: formatGymDisplayName(planSelectedGym),
           scheduledAt,
-          trainingTypes: [String(planInviteMuscle)],
+          trainingTypes: planInviteMuscles.map(m => String(m)),
           note: null,
           inviteeIds,
           threadId: chatId,
@@ -1523,7 +1528,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             </View>
           ) : showSeenLegacy ? (
             <Animated.View style={styles.seenRow}>
-              <Text style={styles.seenText}>Set</Text>
+              <Text style={styles.seenText}>{t('phase2ui.seen')}</Text>
             </Animated.View>
           ) : null}
         </View>
@@ -1644,7 +1649,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                 }}
                 hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}
                 accessibilityRole="button"
-                accessibilityLabel="Skjul invitation">
+                accessibilityLabel={t('a11y.hideInvite')}>
                 <View style={styles.planBannerCloseCircle}>
                   <Icon name="close" size={18} color={colors.white} />
                 </View>
@@ -1712,7 +1717,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                           <Text style={styles.planBannerPending}>{pendingText}</Text>
                         ) : null}
                         {useServer ? (
-                          <Text style={styles.planBannerHint}>Langt tryk → kalender</Text>
+                          <Text style={styles.planBannerHint}>{t('phase2ui.longPressCalendar')}</Text>
                         ) : null}
                       </View>
                     );
@@ -1730,7 +1735,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                             onPress={handleDeclineServerPlan}
                             disabled={planActionBusy}
                             activeOpacity={0.9}>
-                            <Text style={styles.planBannerDeclineText}>Afvis</Text>
+                            <Text style={styles.planBannerDeclineText}>{t('groups.decline')}</Text>
                           </TouchableOpacity>
                           <TouchableOpacity
                             style={styles.planBannerJoin}
@@ -1740,7 +1745,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                             {planActionBusy ? (
                               <ActivityIndicator color={colors.primary} size="small" />
                             ) : (
-                              <Text style={styles.planBannerJoinText}>Accepter</Text>
+                              <Text style={styles.planBannerJoinText}>{t('friendProfile.accept')}</Text>
                             )}
                           </TouchableOpacity>
                         </View>
@@ -1749,7 +1754,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                     if (useServer && isCreator) {
                       return (
                         <View style={styles.planBannerCreatorBadge}>
-                          <Text style={styles.planBannerJoinTextAnmodet}>Inviteret</Text>
+                          <Text style={styles.planBannerJoinTextAnmodet}>{t('plannedSessions.invited')}</Text>
                         </View>
                       );
                     }
@@ -1869,8 +1874,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               scheduledPreview={scheduledPlanInvitePreview}
               planSelectedGym={planSelectedGym}
               onGymChange={setPlanSelectedGym}
-              planMuscle={planInviteMuscle}
-              onMuscleChange={setPlanInviteMuscle}
+              planMuscles={planInviteMuscles}
+              onMusclesChange={setPlanInviteMuscles}
               onSubmit={handleCreatePlan}
               submitLabel="Send invitation"
               saving={planActionBusy}
@@ -1896,13 +1901,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                   <Pressable
                     onPress={() => setShowPlanInviteDatePicker(false)}
                     style={styles.planInvitePickerHeaderBtn}>
-                    <Text style={styles.planInvitePickerCancel}>Annuller</Text>
+                    <Text style={styles.planInvitePickerCancel}>{t('inviteWorkout.cancel')}</Text>
                   </Pressable>
-                  <Text style={styles.planInvitePickerTitle}>Dato</Text>
+                  <Text style={styles.planInvitePickerTitle}>{t('inviteWorkout.date')}</Text>
                   <Pressable
                     onPress={() => setShowPlanInviteDatePicker(false)}
                     style={styles.planInvitePickerHeaderBtn}>
-                    <Text style={styles.planInvitePickerOk}>OK</Text>
+                    <Text style={styles.planInvitePickerOk}>{t('inviteWorkout.ok')}</Text>
                   </Pressable>
                 </View>
                 <DateTimePicker
@@ -1911,7 +1916,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                   display="spinner"
                   onChange={handlePlanInviteDateChange}
                   minimumDate={new Date()}
-                  locale="da_DK"
+                  locale={pickerLocale}
                   themeVariant={planInviteColorScheme === 'dark' ? 'dark' : 'light'}
                   textColor={planInviteColorScheme === 'dark' ? '#F9FAFB' : '#111827'}
                   style={styles.planInvitePicker}
@@ -1983,7 +1988,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             <TouchableOpacity
               style={[styles.planModalButton, styles.planModalCancel, {marginTop: 16}]}
               onPress={() => setPlanDetailVisible(false)}>
-              <Text style={styles.planModalCancelText}>Luk</Text>
+              <Text style={styles.planModalCancelText}>{t('common.close')}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -2017,7 +2022,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                     color={CHAT_MEDIA_SHEET.icon}
                     style={styles.imagePickerIcon}
                   />
-                  <Text style={styles.imagePickerLabel}>Kamera</Text>
+                  <Text style={styles.imagePickerLabel}>{t('phase2ui.camera')}</Text>
                 </Pressable>
                 <Pressable
                   style={({pressed}) => [
@@ -2032,7 +2037,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                     color={CHAT_MEDIA_SHEET.icon}
                     style={styles.imagePickerIcon}
                   />
-                  <Text style={styles.imagePickerLabel}>Fotos</Text>
+                  <Text style={styles.imagePickerLabel}>{t('phase2ui.photos')}</Text>
                 </Pressable>
               </View>
             ) : null}
@@ -2070,7 +2075,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                   }}
                   style={styles.removeImageButton}
                   disabled={isSendingImage}
-                  accessibilityLabel="Fjern billede">
+                  accessibilityLabel={t('a11y.removeImage')}>
                   <Icon name="close-circle" size={20} color="#fff" />
                 </TouchableOpacity>
               </View>
@@ -2092,7 +2097,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               style={[styles.sendButton, isSendingImage && styles.sendButtonDisabled]}
               activeOpacity={0.8}
               disabled={isSendingImage}
-              accessibilityLabel="Send besked">
+              accessibilityLabel={t('a11y.sendMessage')}>
               {isSendingImage ? (
                 <ActivityIndicator color={colors.white} size="small" />
               ) : (
@@ -2115,7 +2120,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               onPress={() => setLightboxUri(null)}
               style={styles.lightboxClose}
               hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
-              accessibilityLabel="Luk">
+              accessibilityLabel={t('a11y.close')}>
               <Icon name="close" size={28} color={colors.white} />
             </TouchableOpacity>
           </View>

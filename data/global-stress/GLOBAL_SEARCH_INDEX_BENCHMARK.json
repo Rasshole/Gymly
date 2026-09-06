@@ -1,0 +1,11 @@
+{
+  "search_index_center_count": 12846,
+  "search_index_exclusions": 4,
+  "search_index_exclusion_reason": "4 intentional inactive Denmark rows",
+  "runs": 5,
+  "min_ms": 0,
+  "median_ms": 0,
+  "p95_ms": 19624,
+  "max_ms": 19624,
+  "mean_ms": 3924.8
+}

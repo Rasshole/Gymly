@@ -26,6 +26,7 @@ import {
 } from '@/store/badgeStore';
 import {BADGE_DEFINITIONS} from '@/config/badgeDefinitions';
 import {useTranslation, progressLabelT, rt} from '@/i18n';
+import {badgeDisplayDescription, badgeDisplayName} from '@/i18n/badgeDisplay';
 import type {BadgeCategory, BadgeRarity} from '@/types/badge.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
@@ -36,6 +37,7 @@ const SECTION_ORDER: BadgeCategory[] = [
   'checkin',
   'streak',
   'sessions',
+  'records',
   'time',
   'messaging',
   'social',
@@ -53,7 +55,7 @@ const SECTION_TITLE_KEY: Record<BadgeCategory, string> = {
   social: 'badges.sectionSocial',
   planned: 'badges.sectionPlanned',
   habits: 'badges.sectionHabits',
-  records: 'badges.sectionSessions',
+  records: 'badges.sectionRecords',
   exploration: 'badges.sectionSocial',
   elite: 'badges.sectionElite',
 };
@@ -237,7 +239,7 @@ export default function BadgesScreen() {
         <View style={styles.nextBadgeCard}>
           <Text style={styles.nextBadgeTitle}>{t('badges.nextBadge')}</Text>
           <Text style={styles.nextBadgeName} numberOfLines={1}>
-            {nextBadge.def.emoji} {nextBadge.def.name}
+            {nextBadge.def.emoji} {badgeDisplayName(t, nextBadge.def)}
           </Text>
           <Text style={styles.nextBadgeHint}>
             {t('badges.onlyLeft', {
@@ -262,7 +264,7 @@ export default function BadgesScreen() {
               <BadgeCard
                 key={def.id}
                 emoji={def.emoji}
-                name={def.name}
+                name={badgeDisplayName(t, def)}
                 rarity={def.rarity}
                 progressText={progressLabelT(t, def, progress)}
                 progressPercent={progress.percent}
@@ -291,7 +293,7 @@ export default function BadgesScreen() {
                 <BadgeCard
                   key={def.id}
                   emoji={def.emoji}
-                  name={def.name}
+                  name={badgeDisplayName(t, def)}
                   rarity={def.rarity}
                   progressText={progressLabelT(t, def, progress)}
                   progressPercent={progress.percent}
@@ -321,8 +323,12 @@ export default function BadgesScreen() {
                       {t(RARITY_KEY[detail.def.rarity])}
                     </Text>
                   </View>
-                  <Text style={styles.modalName}>{detail.def.name}</Text>
-                  <Text style={styles.modalDesc}>{detail.def.description}</Text>
+                  <Text style={styles.modalName}>
+                    {badgeDisplayName(t, detail.def)}
+                  </Text>
+                  <Text style={styles.modalDesc}>
+                    {badgeDisplayDescription(t, detail.def)}
+                  </Text>
                   <Text style={styles.modalMeta}>
                     {progressLabelT(t, detail.def, detail.progress)}
                   </Text>

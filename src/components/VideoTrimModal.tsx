@@ -6,6 +6,7 @@
 
 import React, {useEffect, useRef} from 'react';
 import {Alert, NativeEventEmitter, NativeModules} from 'react-native';
+import {useTranslation} from '@/i18n';
 
 // Optional native module - may not be linked or available
 let showEditor: ((path: string, config: object) => void) | null = null;
@@ -33,6 +34,7 @@ const VideoTrimModal: React.FC<VideoTrimModalProps> = ({
   onCancel,
   maxDuration = 30000, // 30 seconds default
 }) => {
+  const {t} = useTranslation();
   const hasShownEditor = useRef(false);
 
   useEffect(() => {
@@ -59,7 +61,7 @@ const VideoTrimModal: React.FC<VideoTrimModalProps> = ({
     // Get the native module
     const VideoTrimModule = NativeModules.VideoTrim;
     if (!VideoTrimModule) {
-      Alert.alert('Fejl', 'Video trimming modul ikke tilgængelig');
+      Alert.alert(t('videoTrim.errorTitle'), t('videoTrim.moduleUnavailable'));
       onCancel();
       hasShownEditor.current = false;
       return;
@@ -67,7 +69,7 @@ const VideoTrimModal: React.FC<VideoTrimModalProps> = ({
 
     // Set up event listeners
     const eventEmitter = new NativeEventEmitter(VideoTrimModule);
-    
+
     const onFinishSubscription = eventEmitter.addListener('onFinishTrimming', (event: {
       outputPath: string;
       startTime: number;
@@ -93,7 +95,7 @@ const VideoTrimModal: React.FC<VideoTrimModalProps> = ({
       message: string;
       errorCode: string;
     }) => {
-      Alert.alert('Fejl', event.message || 'Kunne ikke trimme videoen');
+      Alert.alert(t('videoTrim.errorTitle'), event.message || t('videoTrim.trimFailed'));
       onCancel();
       hasShownEditor.current = false;
     });
@@ -103,14 +105,14 @@ const VideoTrimModal: React.FC<VideoTrimModalProps> = ({
       showEditor!(videoUri, {
         maxDuration: maxDuration / 1000, // Convert to seconds
         minDuration: 1, // Minimum 1 second
-        saveButtonText: 'Gem',
-        cancelButtonText: 'Annuller',
-        trimmingText: 'Trimmer video...',
+        saveButtonText: t('videoTrim.save'),
+        cancelButtonText: t('videoTrim.cancel'),
+        trimmingText: t('videoTrim.trimming'),
         enableCancelDialog: true,
-        cancelDialogTitle: 'Advarsel!',
-        cancelDialogMessage: 'Er du sikker på at du vil annullere?',
-        cancelDialogCancelText: 'Luk',
-        cancelDialogConfirmText: 'Fortsæt',
+        cancelDialogTitle: t('videoTrim.warning'),
+        cancelDialogMessage: t('videoTrim.cancelTitle'),
+        cancelDialogCancelText: t('a11y.close'),
+        cancelDialogConfirmText: t('videoTrim.cancelConfirm'),
         enableSaveDialog: false,
         closeWhenFinish: true,
         fullScreenModalIOS: true,
@@ -119,7 +121,7 @@ const VideoTrimModal: React.FC<VideoTrimModalProps> = ({
         outputExt: 'mp4',
       });
     } catch (error) {
-      Alert.alert('Fejl', 'Kunne ikke åbne video editor');
+      Alert.alert(t('videoTrim.errorTitle'), t('videoTrim.openEditorFailed'));
       onCancel();
       hasShownEditor.current = false;
     }
@@ -134,7 +136,7 @@ const VideoTrimModal: React.FC<VideoTrimModalProps> = ({
         hasShownEditor.current = false;
       }
     };
-  }, [visible, videoUri, maxDuration, onTrimComplete, onCancel]);
+  }, [visible, videoUri, maxDuration, onTrimComplete, onCancel, t]);
 
   // This component doesn't render anything - it uses native modal
   return null;

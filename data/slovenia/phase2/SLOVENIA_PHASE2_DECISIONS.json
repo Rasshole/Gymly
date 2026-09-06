@@ -1,0 +1,306 @@
+[
+  {
+    "id": "si_a50f92f6e9",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Celje",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_a6b3661756",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Kamnik",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_3b3d2f4612",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Ljubljana",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_172b769bc9",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Maribor",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_23c2f453f3",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Maribor City",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_6810506253",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Maribor Studenci",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_21050d1b89",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Mengeš",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_564d63c631",
+    "brand": "BODIFIT",
+    "name": "BODIFIT Murska Sobota",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_da8b0ba8a8",
+    "brand": "FITINN",
+    "name": "FITINN Celje",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_e1cb5eec31",
+    "brand": "FITINN",
+    "name": "FITINN Kranj",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_3146650ae8",
+    "brand": "FITINN",
+    "name": "FITINN Ljubljana BTC City",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_688dfb3d45",
+    "brand": "FITINN",
+    "name": "FITINN Ljubljana Šiška",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_d6c37de6b9",
+    "brand": "FITINN",
+    "name": "FITINN Maribor Maribox",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_c381f7120f",
+    "brand": "FITINN",
+    "name": "FITINN Maribor Tabor",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_8cdc4b9b69",
+    "brand": "Shape House",
+    "name": "Shape House Celje",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_4191b87a6e",
+    "brand": "Shape House",
+    "name": "Shape House Domžale",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_2f5157cb18",
+    "brand": "Shape House",
+    "name": "Shape House Grosuplje",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_a795962ca4",
+    "brand": "Shape House",
+    "name": "Shape House Jesenice",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_5dfb02ad9d",
+    "brand": "Shape House",
+    "name": "Shape House Koper Istrska",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_812bd7056e",
+    "brand": "Shape House",
+    "name": "Shape House Koper Planet Tuš",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_021f737987",
+    "brand": "Shape House",
+    "name": "Shape House Kranj",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_cf31bee5f4",
+    "brand": "Shape House",
+    "name": "Shape House Ljubljana Letališka",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_c55bd4763c",
+    "brand": "Shape House",
+    "name": "Shape House Ljubljana Loberia",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_e0283b435e",
+    "brand": "Shape House",
+    "name": "Shape House Ljubljana Metalka",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_ae7796d56f",
+    "brand": "Shape House",
+    "name": "Shape House Ljubljana Rudnik",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_673eba29e0",
+    "brand": "Shape House",
+    "name": "Shape House Ljubljana Situla",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_87aeb083b4",
+    "brand": "Shape House",
+    "name": "Shape House Ljubljana Šiška",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_95f6c33ba2",
+    "brand": "Shape House",
+    "name": "Shape House Ljubljana Tiskarna",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_1e461b2ce1",
+    "brand": "Shape House",
+    "name": "Shape House Maribor",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_98079e395a",
+    "brand": "Shape House",
+    "name": "Shape House Murska Sobota",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_c0ab7d90a3",
+    "brand": "Shape House",
+    "name": "Shape House Novo mesto",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_760f077cf3",
+    "brand": "Shape House",
+    "name": "Shape House Novo mesto 2",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "KEEP_EXISTING",
+    "in_production": true
+  },
+  {
+    "id": "si_17d20208a0",
+    "brand": "ŠUS Eurofitness",
+    "name": "ŠUS Eurofitness Ljubljana",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "si_5a769d4c7c",
+    "brand": "4P Fitness",
+    "name": "4P Fitness Ljubljana Stegne",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "si_9b758920d5",
+    "brand": "4P Fitness",
+    "name": "4P Fitness Novo mesto",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "si_c516823c91",
+    "brand": "Alfa Gym",
+    "name": "Alfa Gym Ljubljana",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "in_production": false
+  },
+  {
+    "id": "si_6fc5e9a842",
+    "brand": "Fit13",
+    "name": "Fit13 Ljubljana Brnčičeva",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  },
+  {
+    "id": "si_2c004d273b",
+    "brand": "Foreign Probe",
+    "name": "Gorizia Italy Border Probe",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "in_production": false
+  }
+]

@@ -1,0 +1,195 @@
+{
+  "country": "Albania",
+  "phase": 1,
+  "market": "INDEPENDENT_PHASE_RECOMMENDED",
+  "production_total": 11831,
+  "production_sha256": "5ad0b727989bf00f9d72757a4a4d06eb29298a8951f4630e4a7eb5cc81c4dd4e",
+  "albania_live": 0,
+  "al_prefix_live": 0,
+  "staging_total": 90,
+  "status_counts": {
+    "EXCLUDED": 43,
+    "NEEDS_REVIEW": 40,
+    "NEEDS_COORDINATES": 7
+  },
+  "ready_to_import": 0,
+  "needs_review": 40,
+  "needs_coordinates": 7,
+  "excluded": 43,
+  "closed": 0,
+  "qualifying_class_a_chains": 0,
+  "potential_class_a_operators": 1,
+  "class_a_locations": 0,
+  "class_a_estates_complete": true,
+  "plausible_independents": 46,
+  "municipal_candidates": 1,
+  "city_coverage": {
+    "Tirana": "independent_present_candidate",
+    "Durrës": "independent_present_candidate",
+    "Vlorë": "independent_present_candidate",
+    "Shkodër": "independent_present_candidate",
+    "Elbasan": "independent_present_candidate",
+    "Fier": "independent_present_candidate",
+    "Korçë": "independent_present_candidate",
+    "Berat": "independent_present_candidate",
+    "Lushnjë": "independent_present_candidate",
+    "Pogradec": "independent_present_candidate",
+    "Kavajë": "independent_present_candidate",
+    "Gjirokastër": "independent_present_candidate",
+    "Sarandë": "independent_present_candidate",
+    "Lezhë": "independent_present_candidate",
+    "Kukës": "independent_present_candidate",
+    "Peshkopi": "independent_present_candidate",
+    "Kamëz": "independent_present_candidate",
+    "Krujë": "independent_present_candidate",
+    "Patos": "independent_present_candidate",
+    "Kuçovë": "independent_present_candidate",
+    "Laç": "independent_present_candidate",
+    "Burrel": "independent_present_candidate",
+    "Librazhd": "independent_present_candidate",
+    "Gramsh": "independent_present_candidate",
+    "Tepelenë": "independent_present_candidate",
+    "Golem": "A_legitimate_no_local_gym",
+    "Konispol": "A_legitimate_no_local_gym",
+    "Ksamil": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [],
+  "phase1_justified_a_gaps": [
+    "Golem",
+    "Konispol",
+    "Ksamil"
+  ],
+  "data_quality": {
+    "invalid_postcodes_ready_review": [],
+    "mojibake": [],
+    "foreign_ready": [],
+    "fallback_ready": [],
+    "hotel_spa_leakage_ready": 0,
+    "hard_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts_for_merge": 0,
+    "phase2_rebrand_holds": 1
+  },
+  "cross_border": {
+    "montenegro_ready": 0,
+    "kosovo_ready": 0,
+    "mk_ready": 0,
+    "greece_ready": 0,
+    "foreign_probes_staged": 14,
+    "foreign_probes_excluded": 14,
+    "probes": [
+      {
+        "name": "Ulcinj ME border probe",
+        "city": "Ulcinj",
+        "territory": "Montenegro",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Podgorica ME gym probe",
+        "city": "Podgorica",
+        "territory": "Montenegro",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Prizren Kosovo gym probe",
+        "city": "Prizren",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Gjakovë Kosovo gym probe",
+        "city": "Gjakovë",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Pejë Kosovo gym probe",
+        "city": "Pejë",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Prishtina Kosovo gym probe",
+        "city": "Prishtina",
+        "territory": "Kosovo",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Debar MK border probe",
+        "city": "Debar",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Ohrid MK gym probe",
+        "city": "Ohrid",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Struga MK gym probe",
+        "city": "Struga",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Ioannina GR border probe",
+        "city": "Ioannina",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Kastoria GR gym probe",
+        "city": "Kastoria",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Florina GR gym probe",
+        "city": "Florina",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Corfu GR gym probe",
+        "city": "Corfu",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      },
+      {
+        "name": "Igoumenitsa GR border probe",
+        "city": "Igoumenitsa",
+        "territory": "Greece",
+        "import_category": "EXCLUDED",
+        "in_al_gate": false
+      }
+    ]
+  },
+  "hotel_spa_audit": {
+    "performed": true,
+    "hotel_spa_excluded": true,
+    "hotel_spa_leakage_ready": 0,
+    "notes": "Repeat Nobis, Durrës hotel/resort amenities, Golem and Green Coast resort staged EXCLUDED or flagged."
+  },
+  "small_market_assessment": "INDEPENDENT_PHASE_RECOMMENDED",
+  "phase2_required": true,
+  "merge_ready": false,
+  "projected_catalog": 11831,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "verdict": "ALBANIA PHASE 2 REQUIRED BEFORE MERGE"
+}

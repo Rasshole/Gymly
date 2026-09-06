@@ -1,0 +1,510 @@
+{
+  "production_sha": "91ffadd49497614f96eaf11f9d01edbdb127df2a6d8ce87bb7d7ad4443717840",
+  "phase2_ready": 67,
+  "phase2_status_counts": {
+    "READY_TO_IMPORT": 67,
+    "NEEDS_REVIEW": 13,
+    "NEEDS_COORDINATES": 5,
+    "EXCLUDED": 20
+  },
+  "unresolved_eligible_count": 18,
+  "rows": [
+    {
+      "id": "bg_b8b7eb6c41",
+      "brand": "Athletic Fitness",
+      "name": "Athletic Nikolai Kopernik",
+      "status": "NEEDS_REVIEW",
+      "address": "21 Nikolai Kopernik Str.",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode",
+      "existing_evidence": {
+        "notes": "official_athletic_bg_listing",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://athletic.bg/athletic/"
+      },
+      "phase2_source_urls": [
+        "https://athletic.bg/athletic/",
+        "https://athletic.bg/athletic/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_1eb791b2fd",
+      "brand": "Flais Fitness",
+      "name": "Flais Alera",
+      "status": "NEEDS_COORDINATES",
+      "address": "in Ovcha Kupel 1, next to the Mizia metro station (761st Street) , this gym will offer a first-class environment for everyone who wants to i",
+      "city": "Sofia",
+      "postcode": "1600",
+      "lat": 42.68406253707246,
+      "lng": 23.256975476817836,
+      "missing_fields": [],
+      "blocking_reason": "NEEDS_COORDINATES",
+      "existing_evidence": {
+        "notes": "official_location_page; address incomplete — Phase 2; p2_flais_address",
+        "coord_source": "OFFICIAL_GOOGLE_MAPS_EMBED_P2",
+        "discovery_class": "national_chain",
+        "website": "https://www.flaisfitness.bg/en/premium-fitness-alera/"
+      },
+      "phase2_source_urls": [
+        "https://www.flaisfitness.bg/en/premium-fitness-alera/",
+        "https://www.flaisfitness.bg/en/premium-fitness-alera/"
+      ],
+      "coordinate_provenance": "OFFICIAL_GOOGLE_MAPS_EMBED_P2",
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_2fe399a8c4",
+      "brand": "Flais Fitness",
+      "name": "Flais Central Park",
+      "status": "NEEDS_REVIEW",
+      "address": "Central Park club, Sofia",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates",
+        "address_quality"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode;thin_or_missing_address",
+      "existing_evidence": {
+        "notes": "official_location_page; address incomplete — Phase 2",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://www.flaisfitness.bg/en/premium-fitness-central-park/"
+      },
+      "phase2_source_urls": [
+        "https://www.flaisfitness.bg/en/premium-fitness-central-park/",
+        "https://www.flaisfitness.bg/en/premium-fitness-central-park/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_163e7c5e53",
+      "brand": "Flais Fitness",
+      "name": "Flais Mladost",
+      "status": "NEEDS_COORDINATES",
+      "address": "at Business Park Mladost on the second floor of the Sport Depot’s building",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": 42.624684292658806,
+      "lng": 23.37985773755415,
+      "missing_fields": [
+        "postal_code"
+      ],
+      "blocking_reason": "missing_or_invalid_postcode",
+      "existing_evidence": {
+        "notes": "official_flais_location_page; p2_flais_address; cleared_mismatched_postal",
+        "coord_source": "OFFICIAL_GOOGLE_MAPS_EMBED_P2",
+        "discovery_class": "national_chain",
+        "website": "https://www.flaisfitness.bg/en/fitnes-mladost/"
+      },
+      "phase2_source_urls": [
+        "https://www.flaisfitness.bg/en/fitnes-mladost/",
+        "https://www.flaisfitness.bg/en/fitnes-mladost/"
+      ],
+      "coordinate_provenance": "OFFICIAL_GOOGLE_MAPS_EMBED_P2",
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_1d4b8086db",
+      "brand": "Flais Fitness",
+      "name": "Flais Veslec",
+      "status": "NEEDS_COORDINATES",
+      "address": "at top location in the center of Sofia, at Veslets 18 Str",
+      "city": "Sofia",
+      "postcode": "1600",
+      "lat": 42.69985844309133,
+      "lng": 23.325603906210443,
+      "missing_fields": [],
+      "blocking_reason": "NEEDS_COORDINATES",
+      "existing_evidence": {
+        "notes": "official_flais_location_page; p2_flais_address",
+        "coord_source": "OFFICIAL_GOOGLE_MAPS_EMBED_P2",
+        "discovery_class": "national_chain",
+        "website": "https://www.flaisfitness.bg/en/premium-fitnes-veslec/"
+      },
+      "phase2_source_urls": [
+        "https://www.flaisfitness.bg/en/premium-fitnes-veslec/",
+        "https://www.flaisfitness.bg/en/premium-fitnes-veslec/"
+      ],
+      "coordinate_provenance": "OFFICIAL_GOOGLE_MAPS_EMBED_P2",
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_fe05b50ec9",
+      "brand": "Hammer Gym",
+      "name": "Hammer Gym Beli Brezi",
+      "status": "NEEDS_REVIEW",
+      "address": "76 Nishava str.",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode",
+      "existing_evidence": {
+        "notes": "official_hammergym_eu_gyms",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://hammergym.eu/gyms/"
+      },
+      "phase2_source_urls": [
+        "https://hammergym.eu/gyms/",
+        "https://hammergym.eu/gyms/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_8badbd1c73",
+      "brand": "Hammer Gym",
+      "name": "Hammer Gym Ovcha Kupel",
+      "status": "NEEDS_REVIEW",
+      "address": "Ovcha Kupel",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates",
+        "address_quality"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode;thin_or_missing_address",
+      "existing_evidence": {
+        "notes": "official_hammergym_eu_gyms; thin_address_needs_page_enrichment",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://hammergym.eu/gyms/"
+      },
+      "phase2_source_urls": [
+        "https://hammergym.eu/gyms/",
+        "https://hammergym.eu/gyms/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_3ee4262945",
+      "brand": "Hammer Gym",
+      "name": "Hammer Gym Platinum",
+      "status": "NEEDS_REVIEW",
+      "address": "4 George Washington str.",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode",
+      "existing_evidence": {
+        "notes": "official_hammergym_eu_gyms",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://hammergym.eu/gyms/"
+      },
+      "phase2_source_urls": [
+        "https://hammergym.eu/gyms/",
+        "https://hammergym.eu/gyms/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_bcfa812f4e",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Downtown",
+      "status": "NEEDS_REVIEW",
+      "address": "8 Sveta Sofia Street in the very center of",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-downtown/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-downtown/",
+        "https://pulsefit.bg/en/klubove/pulse-downtown/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_561d8f98bc",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Drujba",
+      "status": "NEEDS_REVIEW",
+      "address": "Drujba",
+      "city": "Sofia",
+      "postcode": "1584",
+      "lat": 42.6563382,
+      "lng": 23.4063446,
+      "missing_fields": [
+        "address_quality"
+      ],
+      "blocking_reason": "thin_or_missing_address",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing; thin_address_needs_page_enrichment; postal_from_geocode; demoted_thin_address_not_gym_level; p2_thin_address_block",
+        "coord_source": "STRICT_ADDRESS_GEOCODE",
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-drujba/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-drujba/",
+        "https://pulsefit.bg/en/klubove/pulse-drujba/"
+      ],
+      "coordinate_provenance": "STRICT_ADDRESS_GEOCODE",
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_6502b58e83",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Kardzhali",
+      "status": "NEEDS_REVIEW",
+      "address": "r zone A huge variety of first-class equipment. This is the strength zone of Pulse Fitness",
+      "city": "Kardzhali",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates",
+        "address_quality"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode;thin_or_missing_address",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-kardzhali/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-kardzhali/",
+        "https://pulsefit.bg/en/klubove/pulse-kardzhali/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_c8b76e84ec",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Kim Center Burgas",
+      "status": "NEEDS_COORDINATES",
+      "address": "Baba Ganka Street",
+      "city": "Burgas",
+      "postcode": "8000",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-kim-centre-burgas/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-kim-centre-burgas/",
+        "https://pulsefit.bg/en/klubove/pulse-kim-centre-burgas/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_b05cd8d08e",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Lyulin",
+      "status": "NEEDS_REVIEW",
+      "address": "Blvd. Tsaritsa Ioana, bl 276",
+      "city": "Sofia",
+      "postcode": "1324",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;proximity_demotion_vs_west_park",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing; demoted_proximity_vs_west_park",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-lyulin/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-lyulin/",
+        "https://pulsefit.bg/en/klubove/pulse-lyulin/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_11eed9439a",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Ovcha Kupel",
+      "status": "NEEDS_REVIEW",
+      "address": "Ovcha Kupel",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates",
+        "address_quality"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode;thin_or_missing_address",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing; thin_address_needs_page_enrichment",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-ovcha-kupel/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-ovcha-kupel/",
+        "https://pulsefit.bg/en/klubove/pulse-ovcha-kupel/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_5ff29203ad",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Platinum",
+      "status": "NEEDS_REVIEW",
+      "address": "47 Rezbarska Street",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode;identity_conflict",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-platinum/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-platinum/",
+        "https://pulsefit.bg/en/klubove/pulse-platinum/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_a3caffaf56",
+      "brand": "Pulse Fitness",
+      "name": "Pulse Stara Zagora",
+      "status": "NEEDS_COORDINATES",
+      "address": "28 Prince Alexander Battenberg Blvd.",
+      "city": "Stara Zagora",
+      "postcode": "6002",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords",
+      "existing_evidence": {
+        "notes": "official_pulsefit_clubs_listing",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://pulsefit.bg/en/klubove/pulse-stara-zagora/"
+      },
+      "phase2_source_urls": [
+        "https://pulsefit.bg/en/klubove/pulse-stara-zagora/",
+        "https://pulsefit.bg/en/klubove/pulse-stara-zagora/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_116a6dbe83",
+      "brand": "Titanium Fitness",
+      "name": "Titanium Slatina",
+      "status": "NEEDS_REVIEW",
+      "address": "ул. Даскал Никита 2Б, Христо Смирненски",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode",
+      "existing_evidence": {
+        "notes": "official_club_nav; street address incomplete — Phase 2",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://fitnesstitanium.bg/klubove/titanium-fitness-слатина/"
+      },
+      "phase2_source_urls": [
+        "https://fitnesstitanium.bg/klubove/titanium-fitness-слатина/",
+        "https://fitnesstitanium.bg/klubove/titanium-fitness-слатина/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    },
+    {
+      "id": "bg_900362e749",
+      "brand": "Titanium Fitness",
+      "name": "Titanium Studentski Grad",
+      "status": "NEEDS_REVIEW",
+      "address": "Studentski Grad, Sofia",
+      "city": "Sofia",
+      "postcode": "",
+      "lat": null,
+      "lng": null,
+      "missing_fields": [
+        "postal_code",
+        "coordinates"
+      ],
+      "blocking_reason": "missing_coords;missing_or_invalid_postcode",
+      "existing_evidence": {
+        "notes": "official_club_nav; street address incomplete — Phase 2",
+        "coord_source": null,
+        "discovery_class": "national_chain",
+        "website": "https://fitnesstitanium.bg/klubove/titanium-fitness-студентски-град/"
+      },
+      "phase2_source_urls": [
+        "https://fitnesstitanium.bg/klubove/titanium-fitness-студентски-град/",
+        "https://fitnesstitanium.bg/klubove/titanium-fitness-студентски-град/"
+      ],
+      "coordinate_provenance": null,
+      "postcode_provenance": null
+    }
+  ]
+}

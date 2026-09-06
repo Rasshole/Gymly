@@ -1,0 +1,352 @@
+{
+  "generated_at": "2026-08-20 18:02 UTC",
+  "status": "PHASE 3 DONE — PHASE 4 STILL NEEDED BEFORE MERGE.",
+  "baseline_phase2": {
+    "unique_staged": 1097,
+    "READY_TO_IMPORT": 867,
+    "NEEDS_COORDINATES": 227,
+    "NEEDS_REVIEW": 3,
+    "COMING_SOON": 0,
+    "CLOSED": 0,
+    "DUPLICATE": 20
+  },
+  "phase3_stats": {
+    "enjoy_open_discovered": 18,
+    "enjoy_ready": 18,
+    "enjoy_coming_soon": 4,
+    "synergym_ready_gain": 27,
+    "fitness_park_ready_gain": 27,
+    "dreamfit_ready": 20,
+    "net_ready_gain_vs_phase2": 87,
+    "duplicates_marked": 60,
+    "preserved_phase2_ready_floor": 867
+  },
+  "overall": {
+    "unique_staged_excl_duplicates": 1080,
+    "READY_TO_IMPORT": 954,
+    "NEEDS_COORDINATES": 120,
+    "NEEDS_REVIEW": 2,
+    "COMING_SOON": 4,
+    "CLOSED": 0,
+    "DUPLICATE": 60
+  },
+  "ready_by_brand": {
+    "VivaGym": 246,
+    "Basic-Fit": 238,
+    "Synergym": 126,
+    "Fitness Park": 107,
+    "Anytime Fitness": 57,
+    "Forus": 48,
+    "BeOne": 25,
+    "DIR": 22,
+    "Holiday Gym": 22,
+    "Dreamfit": 20,
+    "Enjoy!": 18,
+    "GO fit": 13,
+    "Altafit": 5,
+    "Eurofitness": 3,
+    "Metropolitan": 3,
+    "O2 Centro Wellness": 1
+  },
+  "completeness": [
+    {
+      "brand": "Basic-Fit",
+      "estimate": "~246 (incl. former McFIT)",
+      "discovered": 239,
+      "ready": 238,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "VivaGym",
+      "estimate": "~250+",
+      "discovered": 246,
+      "ready": 246,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Altafit",
+      "estimate": "~5 remaining after VivaGym rebrand",
+      "discovered": 5,
+      "ready": 5,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Synergym",
+      "estimate": "~180-240 (own brand under VivaGym group)",
+      "discovered": 197,
+      "ready": 126,
+      "unresolved": 71,
+      "coming_soon": 0,
+      "verdict": "MATERIAL GAP"
+    },
+    {
+      "brand": "Dreamfit",
+      "estimate": "~22-25",
+      "discovered": 22,
+      "ready": 20,
+      "unresolved": 2,
+      "coming_soon": 0,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "Metropolitan",
+      "estimate": "~10-20 premium Spain",
+      "discovered": 3,
+      "ready": 3,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "MATERIAL GAP"
+    },
+    {
+      "brand": "DIR",
+      "estimate": "~20 Barcelona area",
+      "discovered": 22,
+      "ready": 22,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Forus",
+      "estimate": "~15-50",
+      "discovered": 49,
+      "ready": 48,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "GO fit",
+      "estimate": "~13-20",
+      "discovered": 13,
+      "ready": 13,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "Anytime Fitness",
+      "estimate": "~60+",
+      "discovered": 57,
+      "ready": 57,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Fitness Park",
+      "estimate": "~150-165 Spain",
+      "discovered": 150,
+      "ready": 107,
+      "unresolved": 43,
+      "coming_soon": 0,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "McFIT",
+      "estimate": "N/A — sold to Basic-Fit 2024",
+      "discovered": 0,
+      "ready": 0,
+      "unresolved": 0,
+      "verdict": "COMPLETE",
+      "notes": "COMPLETE_VIA_BASIC_FIT — Magicline ES returned 0 McFIT studios"
+    },
+    {
+      "brand": "Supera",
+      "estimate": "~5+",
+      "discovered": 1,
+      "ready": 0,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "verdict": "MATERIAL GAP"
+    },
+    {
+      "brand": "Enjoy!",
+      "estimate": "~18 open + 4 coming soon",
+      "discovered": 22,
+      "ready": 18,
+      "unresolved": 0,
+      "coming_soon": 4,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "BeOne",
+      "estimate": "~20-25 gym floors",
+      "discovered": 26,
+      "ready": 25,
+      "unresolved": 1,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Holiday Gym",
+      "estimate": "~22",
+      "discovered": 22,
+      "ready": 22,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "O2 Centro Wellness",
+      "estimate": "~8-12",
+      "discovered": 3,
+      "ready": 1,
+      "unresolved": 2,
+      "coming_soon": 0,
+      "verdict": "MATERIAL GAP"
+    },
+    {
+      "brand": "Eurofitness",
+      "estimate": "~20 Catalonia",
+      "discovered": 3,
+      "ready": 3,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "verdict": "MATERIAL GAP"
+    }
+  ],
+  "cities": [
+    {
+      "city": "Madrid",
+      "discovered": 134,
+      "ready": 132
+    },
+    {
+      "city": "Barcelona",
+      "discovered": 95,
+      "ready": 91
+    },
+    {
+      "city": "Valencia",
+      "discovered": 52,
+      "ready": 51
+    },
+    {
+      "city": "Sevilla",
+      "discovered": 29,
+      "ready": 27
+    },
+    {
+      "city": "Zaragoza",
+      "discovered": 35,
+      "ready": 32
+    },
+    {
+      "city": "Málaga",
+      "discovered": 16,
+      "ready": 16
+    },
+    {
+      "city": "Murcia",
+      "discovered": 17,
+      "ready": 13
+    },
+    {
+      "city": "Palma",
+      "discovered": 24,
+      "ready": 23
+    },
+    {
+      "city": "Las Palmas",
+      "discovered": 11,
+      "ready": 11
+    },
+    {
+      "city": "Bilbao",
+      "discovered": 14,
+      "ready": 12
+    },
+    {
+      "city": "Alicante",
+      "discovered": 15,
+      "ready": 13
+    },
+    {
+      "city": "Córdoba",
+      "discovered": 8,
+      "ready": 7
+    },
+    {
+      "city": "Valladolid",
+      "discovered": 9,
+      "ready": 5
+    },
+    {
+      "city": "Vigo",
+      "discovered": 8,
+      "ready": 6
+    },
+    {
+      "city": "Gijón",
+      "discovered": 12,
+      "ready": 12
+    },
+    {
+      "city": "Granada",
+      "discovered": 11,
+      "ready": 9
+    },
+    {
+      "city": "A Coruña",
+      "discovered": 11,
+      "ready": 10
+    }
+  ],
+  "islands": {
+    "balearic_ready": 14,
+    "canary_ready": 23,
+    "ceuta_ready": 0,
+    "melilla_ready": 0
+  },
+  "data_quality": {
+    "missing_addresses": 6,
+    "missing_postal_codes": 121,
+    "missing_cities": 1,
+    "missing_coordinates": 126
+  },
+  "enjoy": {
+    "discovered": 22,
+    "ready": 18,
+    "unresolved": 0,
+    "coming_soon": 4,
+    "closed": 0
+  },
+  "synergym": {
+    "discovered": 197,
+    "ready": 126,
+    "unresolved": 71,
+    "coming_soon": 0,
+    "closed": 0,
+    "total_rows_incl_duplicates": 221
+  },
+  "fitness_park": {
+    "discovered": 150,
+    "ready": 107,
+    "unresolved": 43,
+    "coming_soon": 0,
+    "closed": 0,
+    "total_rows_incl_duplicates": 163
+  },
+  "mcfit_note": "McFIT Spain was sold to Basic-Fit in 2024. Phase 2/3 Magicline-style checks and mcfit_spain_p2.json are empty (0 studios). No McFIT rows invented; no German data reused. Coverage is COMPLETE via Basic-Fit.",
+  "altafit_note": "5 remaining Altafit READY; no new Altafit created; VivaGym-proximity rebrand filter retained.",
+  "gap_audit": {
+    "conventional_chains_10plus_completely_absent": [],
+    "notes": "Enjoy! was the only Phase-2 completely absent conventional chain; now recovered. Eurofitness/Supera/O2/Metropolitan remain thin but were already partially staged. No new 10+ conventional chain found completely absent."
+  },
+  "phase4_worthwhile": true,
+  "phase4_rationale": "Synergym still has ~70 OPEN clubs with street addresses but no trusted coords (official site Incapsula-blocked). Fitness Park still has ~43 Spain clubs with address+postcode that Nominatim/Photon could not strictly resolve. These are material and realistically recoverable in Phase 4 via deeper official/API/OSM work — not a handful of low-confidence leftovers.",
+  "proposed_safe_merge_ready": 954,
+  "expected_catalog_after_merge": 8121,
+  "live_catalog_count": 7167,
+  "checkpoint_10k": false,
+  "headroom_to_10k": 1879,
+  "recommendation": "PHASE 4 REQUIRED BEFORE MERGE",
+  "centers_json_note": "During Phase 3 an accidental git checkout reset centers.json to HEAD (354 DK). It was reconstructed from country MERGED_INTO_CATALOG / approved merge sources to 7167 rows (target was 7167). Spain was NOT merged into centers.json."
+}

@@ -1,0 +1,592 @@
+{
+  "rev|40.306564|49.812242": {
+    "lat": 40.3062281,
+    "lng": 49.8121968,
+    "display_name": "Baku Oil Service, Şıxov - Badamdar yolu, Badamdar Massiv 3 \\ Dağ Massivi, Badamdar, Bakı, 1023, Azərbaycan",
+    "postcode": "1023",
+    "country_code": "az",
+    "road": "Şıxov - Badamdar yolu",
+    "city": "Bakı"
+  },
+  "rev|40.43574|50.030532": {
+    "lat": 40.4359119,
+    "lng": 50.0304903,
+    "display_name": "Heydər Əliyev prospekti, Bülbülə, Suraxanı rayonu, 1128, Azərbaycan",
+    "postcode": "1128",
+    "country_code": "az",
+    "road": "Heydər Əliyev prospekti",
+    "city": "Suraxanı rayonu"
+  },
+  "rev|40.370293|50.023051": {
+    "lat": 40.369462,
+    "lng": 50.0244194,
+    "display_name": "Zığ - Aeroport yolu, Zığ, Suraxanı rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Zığ - Aeroport yolu",
+    "city": "Suraxanı rayonu"
+  },
+  "rev|40.412995|49.79098": {
+    "lat": 40.4129951,
+    "lng": 49.7909799,
+    "display_name": "Bakı Atıcılıq Mərkəzi, 3D, Motodrom döngə 3, Motodrom YS, Xocəsən, Bakı, Binəqədi rayonu, 1117, Azərbaycan",
+    "postcode": "1117",
+    "country_code": "az",
+    "road": "Motodrom döngə 3",
+    "city": "Bakı"
+  },
+  "rev|40.563386|49.698847": {
+    "lat": 40.5633862,
+    "lng": 49.6988471,
+    "display_name": "Iron Man, Niyazi, Sumqayıt, 5009, Azərbaycan",
+    "postcode": "5009",
+    "country_code": "az",
+    "road": "Niyazi",
+    "city": "Sumqayıt"
+  },
+  "rev|40.383105|49.974938": {
+    "lat": 40.3831054,
+    "lng": 49.9749377,
+    "display_name": "Gunesh, Abbas Fətullayev küçəsi, AB yaşayış massivi, Yeni Günəşli, Bakı, 1133, Azərbaycan",
+    "postcode": "1133",
+    "country_code": "az",
+    "road": "Abbas Fətullayev küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.401266|49.975722": {
+    "lat": 40.4012655,
+    "lng": 49.9757224,
+    "display_name": "Atletika Fitnes, Zaur Şərifov küç., Qaraçuxur, Bakı, 1047, Azərbaycan",
+    "postcode": "1047",
+    "country_code": "az",
+    "road": "Zaur Şərifov küç.",
+    "city": "Bakı"
+  },
+  "rev|41.20221|47.180689": {
+    "lat": 41.20221,
+    "lng": 47.1806895,
+    "display_name": "Herkules, Axundov küç., Şəki, 5506, Azərbaycan",
+    "postcode": "5506",
+    "country_code": "az",
+    "road": "Axundov küç.",
+    "city": "Şəki"
+  },
+  "rev|40.420549|49.928268": {
+    "lat": 40.420549,
+    "lng": 49.9282677,
+    "display_name": "Lokomotiv, 65А, Tofiq Abbasov küç., Nizami rayonu, Bakı, 1002, Azərbaycan",
+    "postcode": "1002",
+    "country_code": "az",
+    "road": "Tofiq Abbasov küç.",
+    "city": "Bakı"
+  },
+  "rev|40.370409|49.954034": {
+    "lat": 40.3704085,
+    "lng": 49.9540336,
+    "display_name": "Wolf Fitness, İlqar Zülfüqarov küç, Əhmədli, Bakı, 1126, Azərbaycan",
+    "postcode": "1126",
+    "country_code": "az",
+    "road": "İlqar Zülfüqarov küç",
+    "city": "Bakı"
+  },
+  "rev|40.387579|49.856191": {
+    "lat": 40.3875794,
+    "lng": 49.856191,
+    "display_name": "Gorgud Wellness Center, 15, Xətai prospekti, Nəsimi rayonu, Bakı, 1008, Azərbaycan",
+    "postcode": "1008",
+    "country_code": "az",
+    "road": "Xətai prospekti",
+    "city": "Bakı"
+  },
+  "rev|40.374312|49.949655": {
+    "lat": 40.3743118,
+    "lng": 49.9496548,
+    "display_name": "Modern İdman Əyləncə, Xudu Məmmədov küçəsi, Əhmədli, Bakı, 1129, Azərbaycan",
+    "postcode": "1129",
+    "country_code": "az",
+    "road": "Xudu Məmmədov küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.382617|49.962892": {
+    "lat": 40.3826166,
+    "lng": 49.9628917,
+    "display_name": "Gartal Fitnes, 27, Neapol küçəsi, Əhmədli, Bakı, 1149, Azərbaycan",
+    "postcode": "1149",
+    "country_code": "az",
+    "road": "Neapol küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.392803|49.956088": {
+    "lat": 40.3928029,
+    "lng": 49.9560877,
+    "display_name": "Cobra, 1B, Seyid Əzim Şirvani küçəsi, Əhmədli, Bakı, 1142, Azərbaycan",
+    "postcode": "1142",
+    "country_code": "az",
+    "road": "Seyid Əzim Şirvani küçəsi",
+    "city": "Bakı"
+  },
+  "rev|41.362652|48.503678": {
+    "lat": 41.3626516,
+    "lng": 48.5036777,
+    "display_name": "Trenajor zalı, Qasım İsmayılov küç., Quba, Quba rayonu, 4000, Azərbaycan",
+    "postcode": "4000",
+    "country_code": "az",
+    "road": "Qasım İsmayılov küç.",
+    "city": "Quba"
+  },
+  "rev|40.400055|49.868905": {
+    "lat": 40.4000549,
+    "lng": 49.8689053,
+    "display_name": "Askod MMC (Epilife estetik merkez), 7, Aşıq Molla Cümə küçəsi, Nərimanov rayonu, Bakı, 1033, Azərbaycan",
+    "postcode": "1033",
+    "country_code": "az",
+    "road": "Aşıq Molla Cümə küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.372408|49.945812": {
+    "lat": 40.3724082,
+    "lng": 49.9458117,
+    "display_name": "Modern İdman Məktəbi, Xudu Məmmədov küçəsi, Əhmədli, Bakı, 1129, Azərbaycan",
+    "postcode": "1129",
+    "country_code": "az",
+    "road": "Xudu Məmmədov küçəsi",
+    "city": "Bakı"
+  },
+  "rev|41.710106|46.269983": {
+    "lat": 41.7101064,
+    "lng": 46.2699826,
+    "display_name": "Trenajor zalı, Həmzət Xəlilov küç., Qabaqçöl, Balakən rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Həmzət Xəlilov küç.",
+    "city": ""
+  },
+  "rev|41.009861|45.614595": {
+    "lat": 41.009861,
+    "lng": 45.6145949,
+    "display_name": "Lion Fitness, Heydər Əliyev küç., Tovuz, Tovuz rayonu, 6000, Azərbaycan",
+    "postcode": "6000",
+    "country_code": "az",
+    "road": "Heydər Əliyev küç.",
+    "city": "Tovuz"
+  },
+  "rev|40.432287|49.817049": {
+    "lat": 40.4322872,
+    "lng": 49.8170493,
+    "display_name": "Abordaj Fitness Zalı, Yəhya Hüseynov küç., Biləcəri, Binəqədi, Binəqədi rayonu, 1107, Azərbaycan",
+    "postcode": "1107",
+    "country_code": "az",
+    "road": "Yəhya Hüseynov küç.",
+    "city": "Binəqədi"
+  },
+  "rev|41.661082|48.501694": {
+    "lat": 41.6610822,
+    "lng": 48.5016936,
+    "display_name": "İdman, Y38-04, Aşağı İmamqulukənd, Şirvanlı, Qusar rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Y38-04",
+    "city": ""
+  },
+  "rev|41.181634|48.128456": {
+    "lat": 41.1816336,
+    "lng": 48.1284562,
+    "display_name": "İdman Məktəbi, Xınalıq yolu, Xınalıq, Quba rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Xınalıq yolu",
+    "city": ""
+  },
+  "rev|41.16604|47.151468": {
+    "lat": 41.1660397,
+    "lng": 47.1514684,
+    "display_name": "Şəki Qartal Arena, Salman Mümtaz küç., Şəki İnzibati Ərazisi, 5506, Azərbaycan",
+    "postcode": "5506",
+    "country_code": "az",
+    "road": "Salman Mümtaz küç.",
+    "city": "Şəki İnzibati Ərazisi"
+  },
+  "rev|40.409136|49.966907": {
+    "lat": 40.4091358,
+    "lng": 49.9669066,
+    "display_name": "İBM Trenajor, Gənclik küçəsi, Bakıxanov, Nizami rayonu, Sabunçu rayonu, 1035, Azərbaycan",
+    "postcode": "1035",
+    "country_code": "az",
+    "road": "Gənclik küçəsi",
+    "city": "Sabunçu rayonu"
+  },
+  "rev|41.418791|48.417369": {
+    "lat": 41.4187907,
+    "lng": 48.4173694,
+    "display_name": "Sparta Fitnes, Heydər Əliyev küç., Qusar, Qusar rayonu, 3800, Azərbaycan",
+    "postcode": "3800",
+    "country_code": "az",
+    "road": "Heydər Əliyev küç.",
+    "city": "Qusar"
+  },
+  "rev|40.509042|49.942241": {
+    "lat": 40.5090417,
+    "lng": 49.942241,
+    "display_name": "X Fitnes Klub, Kürdəxanı şosesi, Yeni Kürdəxanı, Sabunçu rayonu, 1104, Azərbaycan",
+    "postcode": "1104",
+    "country_code": "az",
+    "road": "Kürdəxanı şosesi",
+    "city": "Sabunçu rayonu"
+  },
+  "rev|40.502403|49.856762": {
+    "lat": 40.5024034,
+    "lng": 49.8567617,
+    "display_name": "Fitnes Trenajor, 28 May küç., Mehdiabad, Abşeron rayonu, 0118, Azərbaycan",
+    "postcode": "0118",
+    "country_code": "az",
+    "road": "28 May küç.",
+    "city": ""
+  },
+  "rev|40.453077|49.784732": {
+    "lat": 40.4530775,
+    "lng": 49.7847323,
+    "display_name": "Golds Trenajor, Xırdalan - Binəqədi yolu, Binəqədi, Binəqədi rayonu, 1117, Azərbaycan",
+    "postcode": "1117",
+    "country_code": "az",
+    "road": "Xırdalan - Binəqədi yolu",
+    "city": ""
+  },
+  "rev|40.480808|49.755077": {
+    "lat": 40.4808078,
+    "lng": 49.7550765,
+    "display_name": "Fitnes Spa Mərkəzi, Əliağa Vahid küç., Masazır, Abşeron rayonu, 0116, Azərbaycan",
+    "postcode": "0116",
+    "country_code": "az",
+    "road": "Əliağa Vahid küç.",
+    "city": ""
+  },
+  "rev|40.523346|50.100454": {
+    "lat": 40.5233458,
+    "lng": 50.1004545,
+    "display_name": "CH Fitness, Güloğlan Məmmədov küç., Xəzər rayonu, 1090, Azərbaycan",
+    "postcode": "1090",
+    "country_code": "az",
+    "road": "Güloğlan Məmmədov küç.",
+    "city": "Xəzər rayonu"
+  },
+  "rev|40.453799|49.739611": {
+    "lat": 40.453799,
+    "lng": 49.7396108,
+    "display_name": "Çempion Fitnes, Heydər Əliyev pr., Xırdalan, Abşeron rayonu, 0102, Azərbaycan",
+    "postcode": "0102",
+    "country_code": "az",
+    "road": "Heydər Əliyev pr.",
+    "city": "Xırdalan"
+  },
+  "rev|40.454668|49.742757": {
+    "lat": 40.4546684,
+    "lng": 49.7427571,
+    "display_name": "Karol Fitnes, Mehdi Hüseynzadə küç., Xırdalan, Abşeron rayonu, 0102, Azərbaycan",
+    "postcode": "0102",
+    "country_code": "az",
+    "road": "Mehdi Hüseynzadə küç.",
+    "city": "Xırdalan"
+  },
+  "rev|40.682616|46.355939": {
+    "lat": 40.6826163,
+    "lng": 46.3559395,
+    "display_name": "Fit House, Qəmbər Hüseynli, Nizami rayonu, Gəncə İnzibati Ərazisi, 2003, Azərbaycan",
+    "postcode": "2003",
+    "country_code": "az",
+    "road": "Qəmbər Hüseynli",
+    "city": "Gəncə İnzibati Ərazisi"
+  },
+  "rev|40.697348|46.363368": {
+    "lat": 40.6973478,
+    "lng": 46.3633678,
+    "display_name": "Viking, Şah İsmayıl Xətai, Sadıllı, Kəpəz rayonu, Gəncə, 2010, Azərbaycan",
+    "postcode": "2010",
+    "country_code": "az",
+    "road": "Şah İsmayıl Xətai",
+    "city": "Gəncə"
+  },
+  "rev|40.421455|49.816512": {
+    "lat": 40.421455,
+    "lng": 49.8165117,
+    "display_name": "Sparta, 51, Cavad Xan küçəsi, Binəqədi 2 siəd, Bakı, Binəqədi rayonu, 1147, Azərbaycan",
+    "postcode": "1147",
+    "country_code": "az",
+    "road": "Cavad Xan küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.366225|49.944629": {
+    "lat": 40.366225,
+    "lng": 49.9446285,
+    "display_name": "Just 4 Fit, Q. Məmmədov küçəsi, Əhmədli, Bakı, 1123, Azərbaycan",
+    "postcode": "1123",
+    "country_code": "az",
+    "road": "Q. Məmmədov küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.394805|49.828288": {
+    "lat": 40.3948055,
+    "lng": 49.8282882,
+    "display_name": "Angels’ Embassy, Cəlil Məmmədquluzadə küçəsi, Nəsimi rayonu, Bakı, 1078, Azərbaycan",
+    "postcode": "1078",
+    "country_code": "az",
+    "road": "Cəlil Məmmədquluzadə küçəsi",
+    "city": "Bakı"
+  },
+  "rev|39.965864|48.950116": {
+    "lat": 39.9658639,
+    "lng": 48.950116,
+    "display_name": "GYM Fitness, Rəsulzadə küç., Şirvan, Şirvan İnzibati Ərazisi, 1800, Azərbaycan",
+    "postcode": "1800",
+    "country_code": "az",
+    "road": "Rəsulzadə küç.",
+    "city": "Şirvan"
+  },
+  "rev|40.457384|49.7477": {
+    "lat": 40.4573836,
+    "lng": 49.7476996,
+    "display_name": "Alik fitness, Nizami küç., Xırdalan, Abşeron rayonu, 0102, Azərbaycan",
+    "postcode": "0102",
+    "country_code": "az",
+    "road": "Nizami küç.",
+    "city": "Xırdalan"
+  },
+  "rev|40.424428|49.822018": {
+    "lat": 40.4244281,
+    "lng": 49.8220185,
+    "display_name": "Go, 5N, Həmzə Babaşov küçəsi, Binəqədi 2 siəd, Bakı, Binəqədi rayonu, 1107, Azərbaycan",
+    "postcode": "1107",
+    "country_code": "az",
+    "road": "Həmzə Babaşov küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.594302|49.682581": {
+    "lat": 40.5943021,
+    "lng": 49.6825814,
+    "display_name": "Premium Fitness, Bulvar küç., Sumqayıt, 5004, Azərbaycan",
+    "postcode": "5004",
+    "country_code": "az",
+    "road": "Bulvar küç.",
+    "city": "Sumqayıt"
+  },
+  "rev|40.046545|46.546258": {
+    "lat": 40.0465446,
+    "lng": 46.5462575,
+    "display_name": "Trenajor zalı, Vəngli, Ağdərə rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "",
+    "city": ""
+  },
+  "rev|40.391807|49.869045": {
+    "lat": 40.3918135,
+    "lng": 49.8690569,
+    "display_name": "Aura Sağlamlıq Mərkəzi, Heydər Əliyev prospekti, Nərimanov rayonu, Bakı, 1154, Azərbaycan",
+    "postcode": "1154",
+    "country_code": "az",
+    "road": "Heydər Əliyev prospekti",
+    "city": "Bakı"
+  },
+  "rev|39.822977|46.748806": {
+    "lat": 39.8229765,
+    "lng": 46.7488058,
+    "display_name": "Taekvando kursu, 9, Mirzə Fətəli Axundzadə Küçəsi, 20-ci məh. (köh.Dvadsatıy), Kərkicahan, Xankəndi, 2600, Azərbaycan",
+    "postcode": "2600",
+    "country_code": "az",
+    "road": "Mirzə Fətəli Axundzadə Küçəsi",
+    "city": "Xankəndi"
+  },
+  "rev|39.793544|47.113355": {
+    "lat": 39.7935265,
+    "lng": 47.1134111,
+    "display_name": "İdman Məktəbi, Qaçaq Nəbi küçəsi, Xocavənd, Xocavənd rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Qaçaq Nəbi küçəsi",
+    "city": "Xocavənd"
+  },
+  "rev|40.602354|49.678959": {
+    "lat": 40.6023725,
+    "lng": 49.6789561,
+    "display_name": "Fitness, Bulvar küç., Sumqayıt, 5004, Azərbaycan",
+    "postcode": "5004",
+    "country_code": "az",
+    "road": "Bulvar küç.",
+    "city": "Sumqayıt"
+  },
+  "rev|40.671514|46.369761": {
+    "lat": 40.6715384,
+    "lng": 46.3697449,
+    "display_name": "Olimpiya, Əziz Əliyev, Cavadxan, Nizami rayonu, Gəncə, 2013, Azərbaycan",
+    "postcode": "2013",
+    "country_code": "az",
+    "road": "Əziz Əliyev",
+    "city": "Gəncə"
+  },
+  "rev|40.214891|46.709232": {
+    "lat": 40.2149057,
+    "lng": 46.7092266,
+    "display_name": "İdman zalı, Ulu Garabey road, Ulu Qarabəy, Ağdərə rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Ulu Garabey road",
+    "city": ""
+  },
+  "rev|39.940059|46.834612": {
+    "lat": 39.9400523,
+    "lng": 46.8346076,
+    "display_name": "Trenajor, Azərbaycan küçəsi, Yeni massiv, Əsgəran, Xocalı rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Azərbaycan küçəsi",
+    "city": "Əsgəran"
+  },
+  "rev|40.387154|49.960699": {
+    "lat": 40.387162,
+    "lng": 49.9606977,
+    "display_name": "Ay Sport Klub, Sarayevo küçəsi, Əhmədli, Bakı, 1149, Azərbaycan",
+    "postcode": "1149",
+    "country_code": "az",
+    "road": "Sarayevo küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.326607|49.776603": {
+    "lat": 40.3266986,
+    "lng": 49.7765706,
+    "display_name": "Sədərək Ticarət Mərkəzi, Bakı, Qaradağ rayonu, 1063, Azərbaycan",
+    "postcode": "1063",
+    "country_code": "az",
+    "road": "",
+    "city": "Bakı"
+  },
+  "rev|40.408153|49.807949": {
+    "lat": 40.408375,
+    "lng": 49.8077134,
+    "display_name": "Bilik Açarı, 33b, Asif Məhərrəmov küçəsi, 4-cü Mikrorayon, Nəsimi rayonu, Bakı, 1134, Azərbaycan",
+    "postcode": "1134",
+    "country_code": "az",
+    "road": "Asif Məhərrəmov küçəsi",
+    "city": "Bakı"
+  },
+  "rev|40.589734|49.674088": {
+    "lat": 40.5893165,
+    "lng": 49.6738928,
+    "display_name": "Cavid Ticarət Mərkəzi, Sülh küçəsi, Sumqayıt, 5004, Azərbaycan",
+    "postcode": "5004",
+    "country_code": "az",
+    "road": "Sülh küçəsi",
+    "city": "Sumqayıt"
+  },
+  "rev|40.598688|49.671942": {
+    "lat": 40.598999,
+    "lng": 49.6715761,
+    "display_name": "Mehdi Hüseynzadə, Sumqayıt, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Mehdi Hüseynzadə",
+    "city": "Sumqayıt"
+  },
+  "rev|40.688203|46.373108": {
+    "lat": 40.6882058,
+    "lng": 46.373113,
+    "display_name": "1-ci mikrorayon, Sadıllı, Nizami rayonu, Gəncə İnzibati Ərazisi, 2013, Azərbaycan",
+    "postcode": "2013",
+    "country_code": "az",
+    "road": "",
+    "city": "Gəncə İnzibati Ərazisi"
+  },
+  "rev|40.65094|46.268594": {
+    "lat": 40.6509402,
+    "lng": 46.2685942,
+    "display_name": "Zəlimxan Yaqubov, Kəpəz rayonu, Gəncə İnzibati Ərazisi, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Zəlimxan Yaqubov",
+    "city": "Gəncə İnzibati Ərazisi"
+  },
+  "rev|40.217287|46.828303": {
+    "lat": 40.2172872,
+    "lng": 46.8283026,
+    "display_name": "Trenajor zalı, Nizami Gəncəvi küçəsi, Ağdərə, Ağdərə rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Nizami Gəncəvi küçəsi",
+    "city": "Ağdərə"
+  },
+  "rev|40.758602|47.071352": {
+    "lat": 40.758355,
+    "lng": 47.0714056,
+    "display_name": "Şüşə Lifi Zavodu, Nəsimi küç., Mingəçevir İnzibati Ərazisi, 4502, Azərbaycan",
+    "postcode": "4502",
+    "country_code": "az",
+    "road": "Nəsimi küç.",
+    "city": "Mingəçevir İnzibati Ərazisi"
+  },
+  "rev|41.183937|47.242242": {
+    "lat": 41.1839372,
+    "lng": 47.2422421,
+    "display_name": "Zəlimxan Yaqub küç., Baş Zəyzid, Şəki rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Zəlimxan Yaqub küç.",
+    "city": ""
+  },
+  "rev|39.875859|46.782475": {
+    "lat": 39.8758595,
+    "lng": 46.7824755,
+    "display_name": "Klub, Yevlax-Xocalı-Laçın, Həsənabad, Qaladərəsi, Xocalı rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Yevlax-Xocalı-Laçın",
+    "city": ""
+  },
+  "rev|39.942997|46.838363": {
+    "lat": 39.9429967,
+    "lng": 46.8383634,
+    "display_name": "Ovçu-balıqçı klubu, Yevlax-Xocalı-Laçın, Əsgəran, Xocalı rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Yevlax-Xocalı-Laçın",
+    "city": "Əsgəran"
+  },
+  "rev|39.815|46.752": {
+    "lat": 39.8150524,
+    "lng": 46.7523705,
+    "display_name": "Mərkəzi Poçt, 30, İsmət Qayıbov küç., Mərkəzşəhər, Kərkicahan, Xankəndi, 2600, Azərbaycan",
+    "postcode": "2600",
+    "country_code": "az",
+    "road": "İsmət Qayıbov küç.",
+    "city": "Xankəndi"
+  },
+  "rev|39.76|46.756": {
+    "lat": 39.7604654,
+    "lng": 46.7561705,
+    "display_name": "Cəfər Cabbarlı, Şuşa, Şuşa rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Cəfər Cabbarlı",
+    "city": "Şuşa"
+  },
+  "rev|39.99|46.93": {
+    "lat": 39.9902246,
+    "lng": 46.9302888,
+    "display_name": "Xudu Məmmədov küçəsi, Ağdam, Ağdam rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "Xudu Məmmədov küçəsi",
+    "city": "Ağdam"
+  },
+  "rev|39.6|47.15": {
+    "lat": 39.6000102,
+    "lng": 47.1499616,
+    "display_name": "Füzuli, Füzuli rayonu, Azərbaycan",
+    "postcode": "",
+    "country_code": "az",
+    "road": "",
+    "city": "Füzuli"
+  },
+  "az|fitness centre, sumqayit, azerbaijan": null,
+  "az|fitness centre, ganja, azerbaijan": null,
+  "az|fitness centre, mingachevir, azerbaijan": null,
+  "az|fitness centre, lankaran, azerbaijan": null,
+  "az|fitness centre, shaki, azerbaijan": null
+}

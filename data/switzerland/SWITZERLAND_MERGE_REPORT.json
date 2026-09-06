@@ -1,0 +1,62 @@
+{
+  "generated": "2026-08-22T16:05:00.000Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "pre_merge_sha256": "109ffde46db3a12a917122ee2e3d8e109e46216cfbd289895539c11e06e825b6",
+  "post_merge_sha256": "e60ba4150f67ca6b793d062f27219f70c5a1c41128222e99b4fe0d5060a3e753",
+  "baseline": {
+    "total": 10050,
+    "switzerland": 0
+  },
+  "approved_candidates": 475,
+  "inserted": 475,
+  "after": {
+    "total": 10525,
+    "switzerland": 475,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335
+  },
+  "duplicate_ids": [],
+  "brand_breakdown_production": {
+    "ACTIV FITNESS": 130,
+    "Fitnesspark": 15,
+    "PureGym": 49,
+    "clever fit": 23,
+    "Let's Go Fitness": 66,
+    "NonStop Gym": 45,
+    "Kieser": 21,
+    "Harmony": 11,
+    "well come FIT": 27,
+    "update Fitness": 88
+  },
+  "pre_merge_validation": {
+    "result": "PASS"
+  },
+  "post_merge": {
+    "switzerland_rows": 475,
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 1,
+    "same_brand_lte_50m": 1,
+    "same_brand_lte_100m": 1,
+    "identical_coordinate_clusters": 1,
+    "different_brand_colocations": 16
+  },
+  "staging": {
+    "MERGED_INTO_CATALOG": 475,
+    "NEEDS_COORDINATES": 10,
+    "NEEDS_REVIEW": 1,
+    "COMING_SOON": 6
+  },
+  "verdict": "SWITZERLAND MERGE COMPLETE \u2014 WAITING FOR QA"
+}

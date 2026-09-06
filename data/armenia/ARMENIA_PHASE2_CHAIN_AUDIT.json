@@ -1,0 +1,294 @@
+{
+  "Orange Fitness": {
+    "active_approved": 6,
+    "excluded": 2,
+    "total_accounted": 8,
+    "official_current": 6,
+    "class_a": true,
+    "curated_single_site": false,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "am_7878973e26",
+        "name": "Orange Fitness Komitas",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_4be62b7252",
+        "name": "Orange Fitness Arabkir",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_d0d7229cd3",
+        "name": "Orange Fitness Davtashen",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_64802e03bf",
+        "name": "Orange Fitness Malatia",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_e381190ac5",
+        "name": "Orange Fitness Shengavit",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_5b26cefdf9",
+        "name": "Orange Fitness Kentron",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_6e539c270f",
+        "name": "Orange",
+        "city": "Vanadzor",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_10738b14c4",
+        "name": "Orange Elephant",
+        "city": "Vanadzor",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "Gold's Gym": {
+    "active_approved": 1,
+    "excluded": 5,
+    "total_accounted": 6,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "am_479a56e570",
+        "name": "Gold's Gym Yerevan",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_0fd6a5e618",
+        "name": "Gold's Gym",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_90e11673a8",
+        "name": "Gold's Gym",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_a13ff237ef",
+        "name": "Gold's Gym Gyumri",
+        "city": "Gyumri",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_cdbccb638a",
+        "name": "Капанский ГОК Deno Gold",
+        "city": "Կապան",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_c2dd7095ad",
+        "name": "Dilijan Gold Resort",
+        "city": "Դիլիջան",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "Panorama Fitness": {
+    "active_approved": 1,
+    "excluded": 3,
+    "total_accounted": 4,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "am_c76cb0ba57",
+        "name": "Panorama Fitness Club Yerevan",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_889e65d2f1",
+        "name": "Տեսարան ռեստորան",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_7aeb818594",
+        "name": "Պանորամա",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_a01cf49dde",
+        "name": "Panorama Dilijan",
+        "city": "Դիլիջան",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "World Gym Armenia": {
+    "active_approved": 1,
+    "excluded": 0,
+    "total_accounted": 1,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "am_818c480981",
+        "name": "World Gym Yerevan",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "Energy Fitness": {
+    "active_approved": 1,
+    "excluded": 11,
+    "total_accounted": 12,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "am_11ae441734",
+        "name": "Energy Fitness Yerevan",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "am_9b6103277d",
+        "name": "Energy",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_efd6f255fb",
+        "name": "Team Energy",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_a9b95b2c5b",
+        "name": "Team Energy",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_e00f77ca19",
+        "name": "Էներգակարգաբերում",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_b9774266f4",
+        "name": "ՕՀՄ ԷՆԵՐՋԻ",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_85b63698cc",
+        "name": "Թիմ էներջի",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_16d24afb5d",
+        "name": "Թիմ էներջի",
+        "city": "Yerevan",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_d67d645293",
+        "name": "Energy",
+        "city": "Գորիս",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_294d9a668e",
+        "name": "Թիմ էներջի",
+        "city": "Դիլիջան",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_22b9b116f7",
+        "name": "Թիմ էներջի",
+        "city": "Դիլիջան",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "am_00c78665e9",
+        "name": "Թիմ էներջի",
+        "city": "Գեղարքունիք",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "Grand Sport Club": {
+    "active_approved": 1,
+    "excluded": 0,
+    "total_accounted": 1,
+    "official_current": 1,
+    "class_a": false,
+    "curated_single_site": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "am_d134df34a4",
+        "name": "Grand Sport Club Yerevan",
+        "city": "Yerevan",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "summary": {
+    "curated_operator_count": 5,
+    "curated_operator_names": [
+      "Energy Fitness",
+      "Gold's Gym",
+      "Grand Sport Club",
+      "Panorama Fitness",
+      "World Gym Armenia"
+    ],
+    "final_class_a_chain_count": 1,
+    "final_class_a_chain_names": [
+      "Orange Fitness"
+    ],
+    "final_class_a_new_ready_count": 6,
+    "final_curated_new_ready_count": 5,
+    "chain_estate_gaps": 0,
+    "class_a_estate_gaps": 0,
+    "curated_operator_estate_gaps": 0,
+    "orange_fitness_estate_gaps": 0,
+    "golds_gym_estate_gaps": 0,
+    "panorama_fitness_estate_gaps": 0,
+    "world_gym_armenia_estate_gaps": 0,
+    "energy_fitness_estate_gaps": 0,
+    "grand_sport_club_estate_gaps": 0,
+    "missed_class_a_chains_found": 0,
+    "missed_class_a_estate_gaps": 0,
+    "class_a_semantics_correct": "YES"
+  }
+}

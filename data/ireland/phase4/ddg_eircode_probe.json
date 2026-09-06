@@ -1,0 +1,83 @@
+{
+  "Aura Drogheda Leisure Centre Marley Eircode": {
+    "eirs": [
+      "A92 TW98"
+    ],
+    "ctx": [
+      "ne Town DROGHEDA County Co Louth Country Ireland Postcode A92 TW98 ATC Mother"
+    ]
+  },
+  "Aura Leisurelink Navan Windtown Eircode": {
+    "eirs": [
+      "C15 N274"
+    ],
+    "ctx": [
+      "own Town Navan County Co. Meath Country Ireland Postcode C15 N274 ATC Mother",
+      "own Town Navan County Co. Meath Country Ireland Postcode C15 N274 ATC Mother"
+    ]
+  },
+  "Aura Trim Leisure Centre Newhaggard Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Aura Letterkenny Sallaghagrane Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Aura Youghal Claycastle Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Aura Leitrim Attifinlay Carrick Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Aura Grove Island Corbally Limerick Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Aura Lucan Griffeen K78": {
+    "eirs": [],
+    "ctx": []
+  },
+  "FLYEfit Coolmine Business Park Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "FLYEfit Ashleaf Shopping Centre Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "FLYEfit Northside Shopping Centre Oscar Traynor Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "FLYEfit Airside Retail Park Swords Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "FLYEfit Tallaght Crosswest Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Ben Dunne Gym Building 10 Cherrywood Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Anytime Fitness Kilnamanagh Treepark Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Kilnamanagh Shopping Centre Treepark Road Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Ashleaf Shopping Centre Cromwellsfort Eircode": {
+    "eirs": [],
+    "ctx": []
+  },
+  "Northside Shopping Centre Coolock Eircode": {
+    "eirs": [],
+    "ctx": []
+  }
+}

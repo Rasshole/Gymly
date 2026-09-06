@@ -1,0 +1,21 @@
+{
+  "country": "Malta",
+  "canonical_format": "AAA NNNN",
+  "storage_format": "3 uppercase locality letters, single space, 4 digits",
+  "regex": "^[A-Z]{3} \\d{4}$",
+  "whitespace_normalization": "single ASCII space between code and digits",
+  "uppercase_rules": "locality code uppercase; digits as-is",
+  "locality_code_in_postcode": true,
+  "legitimate_variants": [
+    "Some premises reverse-geocode to adjacent locality codes (e.g. SWQ for Pembroke, ZRQ near Kirkop border)"
+  ],
+  "examples": [
+    "SLM 3175",
+    "BKR 1610",
+    "VCT 2571",
+    "TPO 0001",
+    "MLH 1107"
+  ],
+  "source": "MaltaPost addressing; aligned with src/utils/gymCountry.ts MALTA_POSTAL_RE",
+  "validation_function": "format_mt_postal() in batch1_phase1_common.py"
+}

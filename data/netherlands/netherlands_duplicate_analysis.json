@@ -1,0 +1,1000 @@
+{
+  "vs_live": {
+    "live_catalog_total": 4855,
+    "existing_netherlands_in_catalog": 0,
+    "id_collisions": [],
+    "nl_prefix_already_used": []
+  },
+  "vs_staging": {
+    "skipped_duplicates_phase2": [
+      {
+        "name": "SportCity Alkmaar Bergerweg",
+        "reason": "id_exists",
+        "id": "nl_cddf274caa"
+      },
+      {
+        "name": "SportCity Alkmaar Ringersplein",
+        "reason": "id_exists",
+        "id": "nl_d87db4fead"
+      },
+      {
+        "name": "SportCity Alkmaar Vondelstraat",
+        "reason": "id_exists",
+        "id": "nl_359f3b498f"
+      },
+      {
+        "name": "SportCity Almere Randstad",
+        "reason": "id_exists",
+        "id": "nl_c83440b809"
+      },
+      {
+        "name": "SportCity Alphen aan den Rijn",
+        "reason": "id_exists",
+        "id": "nl_49f8ba2e54"
+      },
+      {
+        "name": "SportCity Amersfoort Amsterdamseweg",
+        "reason": "id_exists",
+        "id": "nl_3b87762382"
+      },
+      {
+        "name": "SportCity Amersfoort Centrum",
+        "reason": "id_exists",
+        "id": "nl_d2bded10a0"
+      },
+      {
+        "name": "SportCity Amersfoort Noord",
+        "reason": "id_exists",
+        "id": "nl_4747e2d2da"
+      },
+      {
+        "name": "SportCity Amstelveen",
+        "reason": "id_exists",
+        "id": "nl_6a1eed06ce"
+      },
+      {
+        "name": "SportCity Amsterdam Arena",
+        "reason": "id_exists",
+        "id": "nl_12f08bedcf"
+      },
+      {
+        "name": "SportCity Amsterdam Buikslotermeerplein",
+        "reason": "id_exists",
+        "id": "nl_cd80ba12b2"
+      },
+      {
+        "name": "SportCity Amsterdam Cornelis Schuytstraat",
+        "reason": "id_exists",
+        "id": "nl_28e8171961"
+      },
+      {
+        "name": "SportCity Amsterdam Haarlemmer Houttuinen",
+        "reason": "id_exists",
+        "id": "nl_65fe5353a5"
+      },
+      {
+        "name": "SportCity Amsterdam Karspeldreef",
+        "reason": "id_exists",
+        "id": "nl_d70573a02c"
+      },
+      {
+        "name": "SportCity Amsterdam Lijnbaansgracht",
+        "reason": "id_exists",
+        "id": "nl_e3395ceae5"
+      },
+      {
+        "name": "SportCity Amsterdam Linnaeushof",
+        "reason": "id_exists",
+        "id": "nl_13a40e0ac2"
+      },
+      {
+        "name": "SportCity Amsterdam Looiersgracht",
+        "reason": "id_exists",
+        "id": "nl_b56c7ed80c"
+      },
+      {
+        "name": "SportCity Amsterdam Olympisch Stadion",
+        "reason": "id_exists",
+        "id": "nl_25a89256bf"
+      },
+      {
+        "name": "SportCity Amsterdam Osdorp",
+        "reason": "id_exists",
+        "id": "nl_27c2c97a6c"
+      },
+      {
+        "name": "SportCity Amsterdam RAI",
+        "reason": "id_exists",
+        "id": "nl_db435fda82"
+      },
+      {
+        "name": "SportCity Amsterdam Shape all-in",
+        "reason": "id_exists",
+        "id": "nl_b8ca4c6546"
+      },
+      {
+        "name": "SportCity Amsterdam Singel",
+        "reason": "id_exists",
+        "id": "nl_e4fbf8ae05"
+      },
+      {
+        "name": "SportCity Amsterdam Valkenburgerstraat",
+        "reason": "id_exists",
+        "id": "nl_4366194421"
+      },
+      {
+        "name": "SportCity Amsterdam Waterlooplein",
+        "reason": "id_exists",
+        "id": "nl_27cb981a79"
+      },
+      {
+        "name": "SportCity Amsterdam Weteringdwarsstraat",
+        "reason": "id_exists",
+        "id": "nl_eb5d88c52c"
+      },
+      {
+        "name": "SportCity Amsterdam Wibautstraat",
+        "reason": "id_exists",
+        "id": "nl_c3990e72d5"
+      },
+      {
+        "name": "SportCity Amsterdam Willem de Zwijgerlaan",
+        "reason": "id_exists",
+        "id": "nl_3bfc3b66b4"
+      },
+      {
+        "name": "SportCity Apeldoorn",
+        "reason": "id_exists",
+        "id": "nl_f5b0bbc3c5"
+      },
+      {
+        "name": "SportCity Arnhem Overmaat",
+        "reason": "id_exists",
+        "id": "nl_000fcb0d5f"
+      },
+      {
+        "name": "SportCity Arnhem Tivolilaan",
+        "reason": "id_exists",
+        "id": "nl_7ecb4029de"
+      },
+      {
+        "name": "SportCity Assen",
+        "reason": "id_exists",
+        "id": "nl_7c60664fce"
+      },
+      {
+        "name": "SportCity Baarn",
+        "reason": "id_exists",
+        "id": "nl_9db06e6fbd"
+      },
+      {
+        "name": "SportCity Barendrecht",
+        "reason": "id_exists",
+        "id": "nl_3fe73e3b93"
+      },
+      {
+        "name": "SportCity Bergen op Zoom",
+        "reason": "id_exists",
+        "id": "nl_9ad039b8b7"
+      },
+      {
+        "name": "SportCity Bewegingscentrum Drachten",
+        "reason": "id_exists",
+        "id": "nl_f99db19d63"
+      },
+      {
+        "name": "SportCity Bilthoven",
+        "reason": "id_exists",
+        "id": "nl_e31c6ced72"
+      },
+      {
+        "name": "SportCity Breda Franse Akker",
+        "reason": "id_exists",
+        "id": "nl_57dfdcaee9"
+      },
+      {
+        "name": "SportCity Breda Tramsingel",
+        "reason": "id_exists",
+        "id": "nl_44650a680f"
+      },
+      {
+        "name": "SportCity Capelle a/d IJssel",
+        "reason": "id_exists",
+        "id": "nl_d51e239830"
+      },
+      {
+        "name": "SportCity Delft",
+        "reason": "id_exists",
+        "id": "nl_387e6a7374"
+      },
+      {
+        "name": "SportCity Den Bosch Brederostraat",
+        "reason": "id_exists",
+        "id": "nl_2921428bf7"
+      },
+      {
+        "name": "SportCity Den Bosch Gruttostraat",
+        "reason": "id_exists",
+        "id": "nl_8f40cc3672"
+      },
+      {
+        "name": "SportCity Den Haag ADO",
+        "reason": "id_exists",
+        "id": "nl_2c9bd76873"
+      },
+      {
+        "name": "SportCity Den Haag De Uithof",
+        "reason": "id_exists",
+        "id": "nl_508e9bbf67"
+      },
+      {
+        "name": "SportCity Den Haag Hollands Spoor",
+        "reason": "id_exists",
+        "id": "nl_823c0d66e3"
+      },
+      {
+        "name": "SportCity Den Haag Houtrust",
+        "reason": "id_exists",
+        "id": "nl_c6d4970b31"
+      },
+      {
+        "name": "SportCity Den Haag Leidschenveen",
+        "reason": "id_exists",
+        "id": "nl_1acfa106a7"
+      },
+      {
+        "name": "SportCity Den Haag Loosduinseweg",
+        "reason": "id_exists",
+        "id": "nl_6e4b635227"
+      },
+      {
+        "name": "SportCity Den Haag Mariahoeve",
+        "reason": "id_exists",
+        "id": "nl_097bd9b092"
+      },
+      {
+        "name": "SportCity Den Haag New Babylon",
+        "reason": "id_exists",
+        "id": "nl_46a12063fc"
+      },
+      {
+        "name": "SportCity Den Haag Verheeskade",
+        "reason": "id_exists",
+        "id": "nl_ad188c8f78"
+      },
+      {
+        "name": "SportCity Deventer",
+        "reason": "id_exists",
+        "id": "nl_14b69107fa"
+      },
+      {
+        "name": "SportCity Doetinchem",
+        "reason": "id_exists",
+        "id": "nl_41931df6c8"
+      },
+      {
+        "name": "SportCity Dordrecht Sportboulevard",
+        "reason": "id_exists",
+        "id": "nl_66fbccd3e1"
+      },
+      {
+        "name": "SportCity Dordrecht Vissersdijk",
+        "reason": "id_exists",
+        "id": "nl_cc69cfbb29"
+      },
+      {
+        "name": "SportCity Ede",
+        "reason": "id_exists",
+        "id": "nl_450e88d000"
+      },
+      {
+        "name": "SportCity Eindhoven Bisschop Bekkerslaan",
+        "reason": "id_exists",
+        "id": "nl_cde79012e1"
+      },
+      {
+        "name": "SportCity Eindhoven Gerarduskerk",
+        "reason": "id_exists",
+        "id": "nl_a9471ff73c"
+      },
+      {
+        "name": "SportCity Eindhoven Mecklenburgstraat",
+        "reason": "id_exists",
+        "id": "nl_8bda2e3075"
+      },
+      {
+        "name": "SportCity Emmen",
+        "reason": "id_exists",
+        "id": "nl_0af1e918f5"
+      },
+      {
+        "name": "SportCity Enschede Boulevard",
+        "reason": "id_exists",
+        "id": "nl_ccf0dd70c4"
+      },
+      {
+        "name": "SportCity Geleen",
+        "reason": "id_exists",
+        "id": "nl_e21f49e8df"
+      },
+      {
+        "name": "SportCity Gorinchem Living Well",
+        "reason": "id_exists",
+        "id": "nl_ee6c21a0a6"
+      },
+      {
+        "name": "SportCity Gouda",
+        "reason": "id_exists",
+        "id": "nl_21f06a0b98"
+      },
+      {
+        "name": "SportCity Groningen Atoomweg",
+        "reason": "id_exists",
+        "id": "nl_c5f63b8ebc"
+      },
+      {
+        "name": "SportCity Groningen Melisseweg",
+        "reason": "id_exists",
+        "id": "nl_5d84022dec"
+      },
+      {
+        "name": "SportCity Haarlem Raaks",
+        "reason": "id_exists",
+        "id": "nl_97d716ea38"
+      },
+      {
+        "name": "SportCity Haarlem Schalkwijk",
+        "reason": "id_exists",
+        "id": "nl_07c1852bd9"
+      },
+      {
+        "name": "SportCity Haarlem Spaarneboog",
+        "reason": "id_exists",
+        "id": "nl_b1eec31751"
+      },
+      {
+        "name": "SportCity Haarlem Westergracht",
+        "reason": "id_exists",
+        "id": "nl_f16ea761db"
+      },
+      {
+        "name": "SportCity Heerenveen",
+        "reason": "id_exists",
+        "id": "nl_5a8c48f76a"
+      },
+      {
+        "name": "SportCity Heerlen",
+        "reason": "id_exists",
+        "id": "nl_4d36d9129e"
+      },
+      {
+        "name": "SportCity Helmond",
+        "reason": "id_exists",
+        "id": "nl_f1b1bdef0b"
+      },
+      {
+        "name": "SportCity Hendrik Ido Ambacht",
+        "reason": "id_exists",
+        "id": "nl_ac245518c5"
+      },
+      {
+        "name": "SportCity Hengelo",
+        "reason": "id_exists",
+        "id": "nl_3805a6d5f0"
+      },
+      {
+        "name": "SportCity Hilversum",
+        "reason": "id_exists",
+        "id": "nl_c89ac23f1b"
+      },
+      {
+        "name": "SportCity Hoorn",
+        "reason": "id_exists",
+        "id": "nl_ef63976b0f"
+      },
+      {
+        "name": "SportCity Kampen",
+        "reason": "id_exists",
+        "id": "nl_a9b8a2cbe3"
+      },
+      {
+        "name": "SportCity Leeuwarden",
+        "reason": "id_exists",
+        "id": "nl_a416a92467"
+      },
+      {
+        "name": "SportCity Leiden Anthony Fokkerweg",
+        "reason": "id_exists",
+        "id": "nl_2db92d9dda"
+      },
+      {
+        "name": "SportCity Leiden Breestraat",
+        "reason": "id_exists",
+        "id": "nl_d94974d6f4"
+      },
+      {
+        "name": "SportCity Leiden Groenoord",
+        "reason": "id_exists",
+        "id": "nl_91076bd59e"
+      },
+      {
+        "name": "SportCity Leiden Lammenschans",
+        "reason": "id_exists",
+        "id": "nl_ffcacb5be3"
+      },
+      {
+        "name": "SportCity Leiden Steenschuur",
+        "reason": "id_exists",
+        "id": "nl_afc129bc78"
+      },
+      {
+        "name": "SportCity Leiden Vlietlijn",
+        "reason": "id_exists",
+        "id": "nl_4669a7deef"
+      },
+      {
+        "name": "SportCity Leiderdorp Vlasbaan",
+        "reason": "id_exists",
+        "id": "nl_8f36a3c5f8"
+      },
+      {
+        "name": "SportCity Leiderdorp Winkelhof",
+        "reason": "id_exists",
+        "id": "nl_51543bffcf"
+      },
+      {
+        "name": "SportCity Lelystad",
+        "reason": "id_exists",
+        "id": "nl_0b540018c2"
+      },
+      {
+        "name": "SportCity Maastricht",
+        "reason": "id_exists",
+        "id": "nl_4bad9e3094"
+      },
+      {
+        "name": "SportCity Middelburg",
+        "reason": "id_exists",
+        "id": "nl_46e738a2c6"
+      },
+      {
+        "name": "SportCity Nieuwegein",
+        "reason": "id_exists",
+        "id": "nl_e14082385f"
+      },
+      {
+        "name": "SportCity Nijkerk",
+        "reason": "id_exists",
+        "id": "nl_db8e4abc3e"
+      },
+      {
+        "name": "SportCity Nijmegen",
+        "reason": "id_exists",
+        "id": "nl_6a4b39bf0a"
+      },
+      {
+        "name": "SportCity Purmerend",
+        "reason": "id_exists",
+        "id": "nl_45ac7f3cb0"
+      },
+      {
+        "name": "SportCity Rijswijk",
+        "reason": "id_exists",
+        "id": "nl_9fd7c10534"
+      },
+      {
+        "name": "SportCity Roosendaal Laan van Limburg",
+        "reason": "id_exists",
+        "id": "nl_1091bb6591"
+      },
+      {
+        "name": "SportCity Roosendaal Vijfhuizenberg",
+        "reason": "id_exists",
+        "id": "nl_2590520bcd"
+      },
+      {
+        "name": "SportCity Rotterdam Blijdorp",
+        "reason": "id_exists",
+        "id": "nl_9c702787d1"
+      },
+      {
+        "name": "SportCity Rotterdam Ceintuurbaan",
+        "reason": "id_exists",
+        "id": "nl_daa05fee3c"
+      },
+      {
+        "name": "SportCity Rotterdam Conradstraat",
+        "reason": "id_exists",
+        "id": "nl_a4e342ff0b"
+      },
+      {
+        "name": "SportCity Rotterdam Coolsingel",
+        "reason": "id_exists",
+        "id": "nl_221d0d8194"
+      },
+      {
+        "name": "SportCity Rotterdam De Kuip",
+        "reason": "id_exists",
+        "id": "nl_c8ce35adec"
+      },
+      {
+        "name": "SportCity Rotterdam Goudsesingel",
+        "reason": "id_exists",
+        "id": "nl_28fb403fb3"
+      },
+      {
+        "name": "SportCity Rotterdam Lijnbaan",
+        "reason": "id_exists",
+        "id": "nl_7624958d4b"
+      },
+      {
+        "name": "SportCity Rotterdam Maashaven",
+        "reason": "id_exists",
+        "id": "nl_dde0d85bf9"
+      },
+      {
+        "name": "SportCity Rotterdam Ommoord",
+        "reason": "id_exists",
+        "id": "nl_a32b567554"
+      },
+      {
+        "name": "SportCity Rotterdam Zomerhofstraat",
+        "reason": "id_exists",
+        "id": "nl_1ef44cbc51"
+      },
+      {
+        "name": "SportCity Rotterdam Zuidplein",
+        "reason": "id_exists",
+        "id": "nl_4df096ceef"
+      },
+      {
+        "name": "SportCity Schiedam",
+        "reason": "id_exists",
+        "id": "nl_702fc04acc"
+      },
+      {
+        "name": "SportCity Soest",
+        "reason": "id_exists",
+        "id": "nl_a8c4e9f70d"
+      },
+      {
+        "name": "SportCity Spijkenisse",
+        "reason": "id_exists",
+        "id": "nl_2703901ef1"
+      },
+      {
+        "name": "SportCity Tilburg Brokxlaan",
+        "reason": "id_exists",
+        "id": "nl_ac264382a3"
+      },
+      {
+        "name": "SportCity Tilburg Stappegoor",
+        "reason": "id_exists",
+        "id": "nl_6a1b2d6184"
+      },
+      {
+        "name": "SportCity Utrecht Kanaleneiland",
+        "reason": "id_exists",
+        "id": "nl_d806b8e721"
+      },
+      {
+        "name": "SportCity Utrecht Leidsche Rijn Centrum",
+        "reason": "id_exists",
+        "id": "nl_fb8af222fb"
+      },
+      {
+        "name": "SportCity Utrecht Leidsche Rijn Sportpark",
+        "reason": "id_exists",
+        "id": "nl_7a987f8541"
+      },
+      {
+        "name": "SportCity Utrecht Overvecht",
+        "reason": "id_exists",
+        "id": "nl_857a1134a5"
+      },
+      {
+        "name": "SportCity Utrecht Westerdijk",
+        "reason": "id_exists",
+        "id": "nl_6b08cd976b"
+      },
+      {
+        "name": "SportCity Utrecht Wonderwoods",
+        "reason": "id_exists",
+        "id": "nl_ccc9169643"
+      },
+      {
+        "name": "SportCity Veenendaal",
+        "reason": "id_exists",
+        "id": "nl_60dd4f432f"
+      },
+      {
+        "name": "SportCity Wateringen",
+        "reason": "id_exists",
+        "id": "nl_99d39af60d"
+      },
+      {
+        "name": "SportCity Woerden",
+        "reason": "id_exists",
+        "id": "nl_88c01d115a"
+      },
+      {
+        "name": "SportCity Zaandam",
+        "reason": "id_exists",
+        "id": "nl_c798dae19e"
+      },
+      {
+        "name": "SportCity Zeist Godfried van Seijstlaan",
+        "reason": "id_exists",
+        "id": "nl_7791b6a882"
+      },
+      {
+        "name": "SportCity Zeist Huis ter Heideweg",
+        "reason": "id_exists",
+        "id": "nl_6bb3c03700"
+      },
+      {
+        "name": "SportCity Zoetermeer Meerzicht",
+        "reason": "id_exists",
+        "id": "nl_57f0f20b87"
+      },
+      {
+        "name": "SportCity Zoetermeer Scheglaan",
+        "reason": "id_exists",
+        "id": "nl_762cec50d2"
+      },
+      {
+        "name": "SportCity Zwijndrecht",
+        "reason": "id_exists",
+        "id": "nl_7a8888be3a"
+      },
+      {
+        "name": "SportCity Zwolle",
+        "reason": "id_exists",
+        "id": "nl_27d323f1ac"
+      },
+      {
+        "name": "TrainMore Amsterdam Amstelveenseweg",
+        "reason": "id_exists",
+        "id": "nl_443e0a3175"
+      },
+      {
+        "name": "TrainMore Amsterdam Beethovenstraat",
+        "reason": "id_exists",
+        "id": "nl_7f90c0822f"
+      },
+      {
+        "name": "TrainMore Amsterdam Bos en Lommer",
+        "reason": "id_exists",
+        "id": "nl_de38c07f30"
+      },
+      {
+        "name": "TrainMore Amsterdam Buitenveldert",
+        "reason": "id_exists",
+        "id": "nl_06281082a2"
+      },
+      {
+        "name": "TrainMore Amsterdam de Pijp",
+        "reason": "id_exists",
+        "id": "nl_41e2815398"
+      },
+      {
+        "name": "TrainMore Amsterdam Holendrecht",
+        "reason": "id_exists",
+        "id": "nl_d95c5f8caa"
+      },
+      {
+        "name": "TrainMore Amsterdam IJburg",
+        "reason": "id_exists",
+        "id": "nl_835b3dce26"
+      },
+      {
+        "name": "TrainMore Amsterdam Javaplein",
+        "reason": "id_exists",
+        "id": "nl_e967faf0ab"
+      },
+      {
+        "name": "TrainMore Amsterdam Koninginneweg",
+        "reason": "id_exists",
+        "id": "nl_f3a18fd2a7"
+      },
+      {
+        "name": "TrainMore Amsterdam Koningin Wilhelminaplein",
+        "reason": "id_exists",
+        "id": "nl_f36237d184"
+      },
+      {
+        "name": "TrainMore Amsterdam Kraanspoor",
+        "reason": "id_exists",
+        "id": "nl_8eaf9de302"
+      },
+      {
+        "name": "TrainMore Amsterdam Noord",
+        "reason": "id_exists",
+        "id": "nl_6918e35bca"
+      },
+      {
+        "name": "TrainMore Amsterdam Noordermarkt",
+        "reason": "id_exists",
+        "id": "nl_1688374ee7"
+      },
+      {
+        "name": "TrainMore Amsterdam Oosterdok",
+        "reason": "id_exists",
+        "id": "nl_47ad32af8b"
+      },
+      {
+        "name": "TrainMore Amsterdam Oost",
+        "reason": "id_exists",
+        "id": "nl_0aae5d68c1"
+      },
+      {
+        "name": "TrainMore Amsterdam Papaverweg",
+        "reason": "id_exists",
+        "id": "nl_48f02c69d3"
+      },
+      {
+        "name": "TrainMore Amsterdam Parnassusweg",
+        "reason": "id_exists",
+        "id": "nl_5c22044552"
+      },
+      {
+        "name": "TrainMore Amsterdam Piet Heinkade",
+        "reason": "id_exists",
+        "id": "nl_9e181edeb2"
+      },
+      {
+        "name": "TrainMore Amsterdam Plantage",
+        "reason": "id_exists",
+        "id": "nl_55529e2409"
+      },
+      {
+        "name": "TrainMore Amsterdam Rembrandtpark",
+        "reason": "id_exists",
+        "id": "nl_5f32c65e1f"
+      },
+      {
+        "name": "TrainMore Amsterdam Roelof Hartplein",
+        "reason": "id_exists",
+        "id": "nl_1361604cfe"
+      },
+      {
+        "name": "TrainMore Amsterdam Rozengracht",
+        "reason": "id_exists",
+        "id": "nl_9abc6445c9"
+      },
+      {
+        "name": "TrainMore Amsterdam Scheldeplein",
+        "reason": "id_exists",
+        "id": "nl_b2747e5b7d"
+      },
+      {
+        "name": "TrainMore Amsterdam Singel",
+        "reason": "id_exists",
+        "id": "nl_bde97c9beb"
+      },
+      {
+        "name": "TrainMore Amsterdam Sloterdijk",
+        "reason": "id_exists",
+        "id": "nl_d6e62259ac"
+      },
+      {
+        "name": "TrainMore Amsterdam Slotervaart",
+        "reason": "id_exists",
+        "id": "nl_9eaf405a1b"
+      },
+      {
+        "name": "TrainMore Amsterdam Van Wou",
+        "reason": "id_exists",
+        "id": "nl_dea6547d1c"
+      },
+      {
+        "name": "TrainMore Amsterdam West Ladies",
+        "reason": "id_exists",
+        "id": "nl_52fd99e701"
+      },
+      {
+        "name": "TrainMore Amsterdam Westerpark",
+        "reason": "id_exists",
+        "id": "nl_f8ddec1dfd"
+      },
+      {
+        "name": "TrainMore Amsterdam Weteringschans",
+        "reason": "id_exists",
+        "id": "nl_9641ed983f"
+      },
+      {
+        "name": "TrainMore Amsterdam Zeilstraat",
+        "reason": "id_exists",
+        "id": "nl_5049dbbc14"
+      },
+      {
+        "name": "TrainMore Rotterdam Blaak",
+        "reason": "id_exists",
+        "id": "nl_12975e48a2"
+      },
+      {
+        "name": "TrainMore Rotterdam Coolsingel",
+        "reason": "id_exists",
+        "id": "nl_a4ac033b71"
+      },
+      {
+        "name": "TrainMore Rotterdam Delftse Poort",
+        "reason": "id_exists",
+        "id": "nl_d74ffbe674"
+      },
+      {
+        "name": "TrainMore Rotterdam Meent",
+        "reason": "id_exists",
+        "id": "nl_88586f1b1e"
+      },
+      {
+        "name": "TrainMore Rotterdam Middellandstraat",
+        "reason": "id_exists",
+        "id": "nl_20cbfb33b8"
+      },
+      {
+        "name": "TrainMore Rotterdam Rijnhaven",
+        "reason": "id_exists",
+        "id": "nl_8956a677ef"
+      },
+      {
+        "name": "TrainMore Rotterdam Wijnhaven",
+        "reason": "id_exists",
+        "id": "nl_0c4f5ac55e"
+      },
+      {
+        "name": "TrainMore Den Haag Dagelijkse Groenmarkt",
+        "reason": "id_exists",
+        "id": "nl_f33bceb983"
+      },
+      {
+        "name": "TrainMore Den Haag Laan van NOI",
+        "reason": "id_exists",
+        "id": "nl_41f08c3859"
+      },
+      {
+        "name": "TrainMore Den Haag Savornin",
+        "reason": "id_exists",
+        "id": "nl_59df569aba"
+      },
+      {
+        "name": "TrainMore Utrecht Janskerkhof",
+        "reason": "id_exists",
+        "id": "nl_adfba8a8d9"
+      },
+      {
+        "name": "TrainMore Utrecht Oog in Al",
+        "reason": "id_exists",
+        "id": "nl_bb0af59d8c"
+      },
+      {
+        "name": "TrainMore Utrecht Stationsplein",
+        "reason": "id_exists",
+        "id": "nl_56b14b82ef"
+      },
+      {
+        "name": "TrainMore Eindhoven Lichttoren",
+        "reason": "id_exists",
+        "id": "nl_d90ed53e19"
+      },
+      {
+        "name": "TrainMore Eindhoven Strijp-S",
+        "reason": "id_exists",
+        "id": "nl_bc4af166bf"
+      },
+      {
+        "name": "TrainMore Groningen Munnekeholm",
+        "reason": "id_exists",
+        "id": "nl_d74e367216"
+      },
+      {
+        "name": "TrainMore Groningen Oude Ebbinge",
+        "reason": "id_exists",
+        "id": "nl_cad4b71b06"
+      },
+      {
+        "name": "TrainMore Haarlem Hortusplein",
+        "reason": "id_exists",
+        "id": "nl_a54fabdb8b"
+      },
+      {
+        "name": "TrainMore Bilthoven Leyenseweg",
+        "reason": "id_exists",
+        "id": "nl_3ad9022b5e"
+      },
+      {
+        "name": "TrainMore Bussum Landstraat",
+        "reason": "id_exists",
+        "id": "nl_314e817101"
+      },
+      {
+        "name": "TrainMore Leiden Breestraat",
+        "reason": "id_exists",
+        "id": "nl_e93223214c"
+      },
+      {
+        "name": "TrainMore Leusden Maximaplein",
+        "reason": "id_exists",
+        "id": "nl_9c0f38f6ca"
+      },
+      {
+        "name": "BigGym Alkmaar",
+        "reason": "id_exists",
+        "id": "nl_7dd2e74b01"
+      },
+      {
+        "name": "BigGym Almelo",
+        "reason": "id_exists",
+        "id": "nl_03492c2880"
+      },
+      {
+        "name": "BigGym Amsterdam",
+        "reason": "id_exists",
+        "id": "nl_48edbdc57d"
+      },
+      {
+        "name": "BigGym Deventer",
+        "reason": "id_exists",
+        "id": "nl_db1a00edde"
+      },
+      {
+        "name": "BigGym Enschede",
+        "reason": "id_exists",
+        "id": "nl_f59a8c3bc2"
+      },
+      {
+        "name": "BigGym Groningen",
+        "reason": "id_exists",
+        "id": "nl_59c61adfea"
+      },
+      {
+        "name": "BigGym Hengelo",
+        "reason": "id_exists",
+        "id": "nl_4bbaececa7"
+      },
+      {
+        "name": "BigGym Hoogeveen",
+        "reason": "id_exists",
+        "id": "nl_7a7609149c"
+      },
+      {
+        "name": "BigGym Leeuwarden",
+        "reason": "id_exists",
+        "id": "nl_e11aead3cb"
+      },
+      {
+        "name": "BigGym Nijmegen",
+        "reason": "id_exists",
+        "id": "nl_832192260b"
+      },
+      {
+        "name": "BigGym Roosendaal",
+        "reason": "id_exists",
+        "id": "nl_d9a10a0252"
+      },
+      {
+        "name": "BigGym Rotterdam",
+        "reason": "id_exists",
+        "id": "nl_ccce509c91"
+      },
+      {
+        "name": "BigGym Tilburg",
+        "reason": "id_exists",
+        "id": "nl_ac206fef67"
+      },
+      {
+        "name": "BigGym Utrecht",
+        "reason": "id_exists",
+        "id": "nl_e052c27fe9"
+      },
+      {
+        "name": "BigGym Zwolle",
+        "reason": "id_exists",
+        "id": "nl_c90b0b8fac"
+      }
+    ]
+  },
+  "sportcity_fitforfree": {
+    "note": "Fit For Free fully rebranded to SportCity Oct 2022. All NL clubs staged as SportCity with legacy_brand='Fit For Free'."
+  }
+}

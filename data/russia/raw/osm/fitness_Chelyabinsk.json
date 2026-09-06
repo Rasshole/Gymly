@@ -1,0 +1,554 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4428518493,
+      "lat": 55.1588912,
+      "lon": 61.4091882,
+      "tags": {
+        "addr:postcode": "454091",
+        "leisure": "fitness_centre",
+        "name": "Ювента",
+        "name:en": "Ювента",
+        "name:ru": "Ювента",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa 09:00-19:00; Su 09:00-17:00",
+        "phone": "+73512646963",
+        "website": "http://www.uventa74.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4456396490,
+      "lat": 55.1794394,
+      "lon": 61.3660022,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Strong & smart",
+        "name:ru": "Strong & smart"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4483279091,
+      "lat": 55.1712546,
+      "lon": 61.4009126,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Норма",
+        "name:ru": "Норма",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 08:00-23:00",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4959830424,
+      "lat": 55.1569134,
+      "lon": 61.4047423,
+      "tags": {
+        "addr:door": "20",
+        "addr:housenumber": "5",
+        "addr:postcode": "454091",
+        "addr:street": "площадь Революции",
+        "leisure": "fitness_centre",
+        "level": "4",
+        "name": "Лечебная гимнастика ЛФК",
+        "name:en": "Medical gymnastics",
+        "name:ru": "ЛФК Лечебная Гимнастика",
+        "opening_hours": "Tu, Th 19:00-20:00",
+        "phone": "+79227025165"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4959999921,
+      "lat": 55.1528292,
+      "lon": 61.3980039,
+      "tags": {
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Велнес Клуб МЕЛИОТ",
+        "name:en": "Welnes Club MELIOT",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "phone": "+7 3512251101",
+        "website": "http://welness.meliot.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5055318922,
+      "lat": 55.1552505,
+      "lon": 61.3954993,
+      "tags": {
+        "addr:postcode": "454092",
+        "email": "greenclubchel@mail.ru",
+        "leisure": "fitness_centre",
+        "name": "Green club",
+        "opening_hours": "Mo-Fr 09:00-20:00; Sa-Su 00:00-24:00",
+        "phone": "+73512720898",
+        "website": "http://greenclub74.com"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5069558422,
+      "lat": 55.1575425,
+      "lon": 61.3686486,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Олимпия",
+        "name:ru": "Олимпия"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5499674022,
+      "lat": 55.1699576,
+      "lon": 61.5193274,
+      "tags": {
+        "addr:postcode": "454079",
+        "email": "admin@pikformi.ru",
+        "leisure": "fitness_centre",
+        "name": "Пик формы",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "phone": "+73512489816",
+        "website": "http://pikformi.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5640082521,
+      "lat": 55.1620583,
+      "lon": 61.2960652,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Gym Hall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5682409721,
+      "lat": 55.1112586,
+      "lon": 61.3318375,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Fit-Boom"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5688297925,
+      "lat": 55.1602449,
+      "lon": 61.2939385,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Тополинка фит"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5688299821,
+      "lat": 55.1626598,
+      "lon": 61.2889626,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Фит студио"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5688357322,
+      "lat": 55.1605942,
+      "lon": 61.29722,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Динамика"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5782807404,
+      "lat": 55.1182091,
+      "lon": 61.2876177,
+      "tags": {
+        "contact:website": "https://www.crowdfitnessclub.com",
+        "leisure": "fitness_centre",
+        "name": "Crowd fitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5791234257,
+      "lat": 55.1854548,
+      "lon": 61.331006,
+      "tags": {
+        "check_date:opening_hours": "2024-09-26",
+        "leisure": "fitness_centre",
+        "name": "VOLT",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa,Su 10:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5791234359,
+      "lat": 55.1804539,
+      "lon": 61.3334572,
+      "tags": {
+        "contact:email": "chelyabinsk@metrofitness.ru",
+        "contact:phone": "+7 351 7230700",
+        "contact:website": "https://chelyabinsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Метро-фитнес",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5828608187,
+      "lat": 55.1788045,
+      "lon": 61.387995,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Колизей"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6353500407,
+      "lat": 55.1589919,
+      "lon": 61.3636275,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Метро-фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6433168383,
+      "lat": 55.1174651,
+      "lon": 61.3593507,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Бомбер"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7945627035,
+      "lat": 55.1236986,
+      "lon": 61.4351714,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ZebraGym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8063982122,
+      "lat": 55.1735588,
+      "lon": 61.3848102,
+      "tags": {
+        "contact:email": "olimp.chel174@yandex.ru",
+        "contact:facebook": "https://www.facebook.com/olimpfitness74",
+        "contact:instagram": "https://www.instagram.com/olimpfitness74",
+        "contact:phone": "+7 351 2720403",
+        "contact:vk": "https://vk.com/olimpfitness74",
+        "contact:website": "https://olimpfitness74.ru",
+        "leisure": "fitness_centre",
+        "name": "Олимп",
+        "opening_hours": "Mo-Fr 06:30-23:00; Sa,Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8154393603,
+      "lat": 55.174396,
+      "lon": 61.305109,
+      "tags": {
+        "contact:email": "tonus_chel@mail.ru",
+        "contact:facebook": "https://facebook.com/mytonusclub",
+        "contact:instagram": "https://instagram.com/tonusclub",
+        "contact:ok": "https://ok.ru/mytonusclub",
+        "contact:phone": "+7 351 2205316;+7 919 1236455",
+        "contact:twitter": "https://twitter.com/@tonusclub",
+        "contact:vk": "https://vk.com/tonus_club",
+        "contact:website": "https://www.tonusclub.ru/",
+        "leisure": "fitness_centre",
+        "name": "Тонус-клуб",
+        "opening_hours": "Mo-Fr 07:30-22:00; Sa-Su 08:00-21:00",
+        "operator": "Тонус-клуб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8154393604,
+      "lat": 55.163051,
+      "lon": 61.417737,
+      "tags": {
+        "contact:email": "tonus_chel@mail.ru",
+        "contact:facebook": "https://facebook.com/mytonusclub",
+        "contact:instagram": "https://instagram.com/tonusclub",
+        "contact:ok": "https://ok.ru/mytonusclub",
+        "contact:phone": "+7 351 2453575;+7 919 1230455",
+        "contact:twitter": "https://twitter.com/@tonusclub",
+        "contact:vk": "https://vk.com/tonus_club",
+        "contact:website": "https://www.tonusclub.ru/",
+        "leisure": "fitness_centre",
+        "name": "Тонус-клуб",
+        "opening_hours": "Mo-Fr 07:30-22:00;Sa-Su 08:00-21:00",
+        "operator": "Тонус-клуб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8224431468,
+      "lat": 55.1950012,
+      "lon": 61.2985504,
+      "tags": {
+        "contact:email": "info@citrusfitness.ru",
+        "contact:phone": "+7 351 2203333",
+        "contact:website": "https://citrusfitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Citrus Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8839210546,
+      "lat": 55.1507087,
+      "lon": 61.3612631,
+      "tags": {
+        "contact:email": "arhitekturatelo@gmail.com",
+        "contact:phone": "+7 932 2321020",
+        "leisure": "fitness_centre",
+        "name": "Архитектура.Тело",
+        "opening_hours": "Mo-Fr 08:00-21:00;Sa-Su 09:00-18:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9529242266,
+      "lat": 55.162605,
+      "lon": 61.2891331,
+      "tags": {
+        "contact:phone": "+7 351 2160501",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9637678400,
+      "lat": 55.2090759,
+      "lon": 61.3030973,
+      "tags": {
+        "addr:city": "Челябинск",
+        "addr:housenumber": "14А",
+        "addr:street": "Краснопольский проспект",
+        "contact:email": "fkformula@mail.ru",
+        "contact:phone": "+7 982 3114149",
+        "contact:website": "https://formulafitness.ru/",
+        "leisure": "fitness_centre",
+        "name": "Formula",
+        "opening_hours": "Mo-Fr 08:00-23:00; Sa-Su 10:00-18:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9671683725,
+      "lat": 55.0591045,
+      "lon": 61.5270648,
+      "tags": {
+        "contact:vk": "https://vk.com/body_gym74",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Body Gym",
+        "opening_hours": "Mo-Fr 09:00-22:00; Sa 10:00-20:00; Su 10:00-16:00",
+        "phone": "+7 (351) 776-70-75"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10697216796,
+      "lat": 55.1193112,
+      "lon": 61.4356545,
+      "tags": {
+        "contact:email": "t_varavina@mail.ru",
+        "contact:phone": "+7 351 2150029;+7 351 2500029;+7 912 4057954;+7 982 3284073",
+        "contact:website": "https://garmoniya-fitness.ru",
+        "leisure": "fitness_centre",
+        "name": "Гармония",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 08:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10697233813,
+      "lat": 55.1526812,
+      "lon": 61.3653749,
+      "tags": {
+        "contact:email": "profilaktikafitness@gmail.com",
+        "contact:phone": "+7 351 7008060",
+        "contact:website": "https://profilaktika.me",
+        "leisure": "fitness_centre",
+        "name": "Profilaktika",
+        "opening_hours": "Mo-Fr 06:30-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11782559028,
+      "lat": 55.1132987,
+      "lon": 61.3664478,
+      "tags": {
+        "contact:email": "h2o.fitness@mail.ru",
+        "contact:phone": "+7 351 2209690-1;+7 351 2209690-2;+7 351 2209690-3",
+        "contact:website": "https://h2ofitness74.ru",
+        "leisure": "fitness_centre",
+        "name": "H2O",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873851641,
+      "lat": 55.1069071,
+      "lon": 61.2529206,
+      "tags": {
+        "contact:phone": "+7 351 2165550",
+        "contact:website": "https://www.брайтфит.рф",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12638659516,
+      "lat": 55.1609487,
+      "lon": 61.387235,
+      "tags": {
+        "contact:phone": "+7 351 2100262",
+        "contact:website": "https://www.брайтфит.рф",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754220,
+      "lat": 55.1835188,
+      "lon": 61.2922498,
+      "tags": {
+        "contact:phone": "+7 351 7230700;+7 950 7450750",
+        "contact:website": "https://chelyabinsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754222,
+      "lat": 55.1696572,
+      "lon": 61.4444412,
+      "tags": {
+        "contact:phone": "+7 351 7230700",
+        "contact:website": "https://chelyabinsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "Mo-Su 08:00-22:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754223,
+      "lat": 55.1367084,
+      "lon": 61.4487057,
+      "tags": {
+        "contact:phone": "+7 351 7230700;+7 922 7501944",
+        "contact:website": "https://chelyabinsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14002837830,
+      "lat": 55.1604834,
+      "lon": 61.3868349,
+      "tags": {
+        "contact:phone": "+7 351 2100262",
+        "contact:telegram": "https://t.me/s/bitafit",
+        "contact:vk": "https://vk.com/brightfit",
+        "contact:website": "https://brightfit.ru/chl/bf-aloe-pole/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 60201706,
+      "center": {
+        "lat": 55.1797092,
+        "lon": 61.3687537
+      },
+      "tags": {
+        "addr:housenumber": "54А",
+        "addr:street": "улица Братьев Кашириных",
+        "building": "commercial",
+        "building:levels": "4",
+        "leisure": "fitness_centre",
+        "name": "Школа фитнеса"
+      }
+    },
+    {
+      "type": "way",
+      "id": 130514752,
+      "center": {
+        "lat": 55.0793654,
+        "lon": 61.4029237
+      },
+      "tags": {
+        "addr:housenumber": "118",
+        "addr:street": "улица Чапаева",
+        "building": "commercial",
+        "contact:email": "fitness@berezka74.ru",
+        "contact:facebook": "https://www.facebook.com/fitnessberezka",
+        "contact:instagram": "https://www.instagram.com/fitnessberezka",
+        "contact:phone": "+7 351 2673400",
+        "contact:vk": "https://vk.com/club80047343",
+        "contact:website": "https://www.fitness-berezka.ru",
+        "leisure": "fitness_centre",
+        "name": "Фитнес-центр"
+      }
+    },
+    {
+      "type": "way",
+      "id": 155320513,
+      "center": {
+        "lat": 55.1592617,
+        "lon": 61.3598681
+      },
+      "tags": {
+        "leisure": "fitness_centre",
+        "lit": "yes",
+        "name": "Work out",
+        "sport": "fitness",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}

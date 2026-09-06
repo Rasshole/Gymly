@@ -1,0 +1,332 @@
+{
+  "buckets": {
+    "CURRENT_FIRST_PARTY": 11,
+    "CURRENT_MULTI_SOURCE": 35
+  },
+  "stale_only_ready": 0,
+  "operation_unverified_ready": 0,
+  "rows": [
+    {
+      "id": "az_4571004e69",
+      "brand": "FS Club Network",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_691bc37c21",
+      "brand": "FS Club Network",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_8253b1289d",
+      "brand": "FS Club Network",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_5de1f9f62e",
+      "brand": "Fit Way",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_74b25de0ef",
+      "brand": "1st Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_8335114bac",
+      "brand": "Sport Life",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_96901c65b0",
+      "brand": "Dream Body",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_a4cd84ee2a",
+      "brand": "Pulse",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_a79d8cbc40",
+      "brand": "Gold's Gym",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_b13671a73e",
+      "brand": "FitClub",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_d164c1f55e",
+      "brand": "World Class Azerbaijan",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_1a085424fe",
+      "brand": "Viking",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_1f709208dd",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_26a8843c4b",
+      "brand": "Independent (Ganja)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_27ad51cf1d",
+      "brand": "Çempion Fitnes",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_365366f61d",
+      "brand": "Angels’ Embassy",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_4d32196111",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_4eac2532e1",
+      "brand": "Sparta",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_515e6eedf5",
+      "brand": "Atletika Fitnes",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_5fc5cab60b",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_62bdf16ad9",
+      "brand": "Independent (Ganja)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_6a771c9edf",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_6fb26b86b5",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_72e54b6848",
+      "brand": "Fitnes Spa Mərkəzi",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_73152a5315",
+      "brand": "Independent (Lankaran)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_748e557ca4",
+      "brand": "Fit Lady",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_761493d203",
+      "brand": "Independent (Ganja)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_8800b19cc1",
+      "brand": "Lokomotiv",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_8d2b363738",
+      "brand": "Independent (Ganja)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_8dc8ebc4fb",
+      "brand": "Independent (Ganja)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_9434802ec3",
+      "brand": "Go",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_9549f944aa",
+      "brand": "Independent (Mingachevir)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_99d9e1ef1b",
+      "brand": "Golds Trenajor",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_9bc632c9d0",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_a77fb625b0",
+      "brand": "Karol Fitnes",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_af7f4be71e",
+      "brand": "Independent (Lankaran)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_b2fbce3271",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_beed325959",
+      "brand": "Independent (Ganja)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_ce6b3ad029",
+      "brand": "Independent (Mingachevir)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_d32127398c",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_d764929bfb",
+      "brand": "Independent (Ganja)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_d86de04d03",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_e474d994ad",
+      "brand": "Wolf Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_ef0dbc4e63",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_fc0bcafc13",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "az_fc4fa728e7",
+      "brand": "Independent (Sumqayit)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    }
+  ]
+}

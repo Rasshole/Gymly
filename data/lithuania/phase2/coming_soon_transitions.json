@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lt_bc21f9653f",
+    "name": "Gym+ Vilnius Viršuliškių",
+    "brand": "Gym+",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "gymplius.lt Aug 2026 — Viršuliškių club page still under construction / COMING_SOON; not operating at Phase 2 audit",
+    "decision_reason": "gymplius.lt Aug 2026 — Viršuliškių club page still under construction / COMING_SOON; not operating at Phase 2 audit",
+    "opened": false
+  },
+  {
+    "id": "lt_4decf7f80b",
+    "name": "Lemon Gym Riešė",
+    "brand": "Lemon Gym",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "lemongym.lt Aug 2026 — Riešė location still marked coming soon; not operating at Phase 2 audit",
+    "decision_reason": "lemongym.lt Aug 2026 — Riešė location still marked coming soon; not operating at Phase 2 audit",
+    "opened": false
+  },
+  {
+    "id": "lt_c3d4f6ba00",
+    "name": "Lemon Gym Jonava (announced)",
+    "brand": "Lemon Gym",
+    "phase1_status": "COMING_SOON",
+    "phase2_status": "COMING_SOON",
+    "current_evidence": "lemongym.lt Aug 2026 — Jonava announced with Žemaitės g. 45; still pre-opening / COMING_SOON at Phase 2 audit",
+    "decision_reason": "lemongym.lt Aug 2026 — Jonava announced with Žemaitės g. 45; still pre-opening / COMING_SOON at Phase 2 audit",
+    "opened": false
+  }
+]

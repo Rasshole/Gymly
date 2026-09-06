@@ -3,8 +3,7 @@ import {View, Text, Image, StyleSheet, StyleProp, ViewStyle} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import type {PublicProfile} from '@/services/supabase/friendService';
 import colors from '@/theme/colors';
-
-const UNKNOWN = 'Ukendt bruger';
+import {rt, useTranslation} from '@/i18n';
 
 export function getPublicProfileInitials(p: PublicProfile | undefined): string {
   const name = p?.displayName?.trim() || p?.username?.trim();
@@ -25,7 +24,7 @@ function displayNameFor(p: PublicProfile | undefined): string {
   if (p?.username?.trim()) {
     return p.username.trim();
   }
-  return UNKNOWN;
+  return rt('common.unknownUser');
 }
 
 export type PlannedRowRight =
@@ -68,12 +67,13 @@ export function PlannedParticipantRow({profile, right, style}: Props) {
 }
 
 function PlannedRowRightContent({right}: {right: PlannedRowRight}) {
+  const {t} = useTranslation();
   if (right.mode === 'plan_status') {
     if (right.status === 'accepted') {
       return (
         <View style={styles.statusRow}>
           <Ionicons name="checkmark-circle" size={16} color={colors.success} />
-          <Text style={styles.statusAccepted}>Accepteret</Text>
+          <Text style={styles.statusAccepted}>{t('chat.accepted')}</Text>
         </View>
       );
     }
@@ -81,14 +81,14 @@ function PlannedRowRightContent({right}: {right: PlannedRowRight}) {
       return (
         <View style={styles.statusRow}>
           <Ionicons name="close-circle" size={16} color={colors.textTertiary} />
-          <Text style={styles.statusDeclined}>Afvist</Text>
+          <Text style={styles.statusDeclined}>{t('chat.declined')}</Text>
         </View>
       );
     }
     return (
       <View style={styles.statusRow}>
         <Ionicons name="time-outline" size={16} color={colors.warning} />
-        <Text style={styles.statusPending}>Venter</Text>
+        <Text style={styles.statusPending}>{t('phase2ui.statusPending')}</Text>
       </View>
     );
   }
@@ -96,14 +96,14 @@ function PlannedRowRightContent({right}: {right: PlannedRowRight}) {
     return (
       <View style={styles.statusRow}>
         <Ionicons name="fitness" size={16} color={colors.error} />
-        <Text style={styles.statusCompleted}>Trænede med</Text>
+        <Text style={styles.statusCompleted}>{t('phase2ui.statusTrainedWith')}</Text>
       </View>
     );
   }
   return (
     <View style={styles.statusRow}>
       <Ionicons name="close-circle" size={16} color={colors.textTertiary} />
-      <Text style={styles.statusDeclined}>Deltog ikke</Text>
+      <Text style={styles.statusDeclined}>{t('phase2ui.statusDidNotAttend')}</Text>
     </View>
   );
 }

@@ -1,0 +1,37 @@
+{
+  "catalog": 11921,
+  "active": 11917,
+  "liechtenstein": 7,
+  "li_prefix": 7,
+  "json_size_bytes": 3705822,
+  "json_size_mb": 3.53,
+  "parse_ms": 83,
+  "cold_index_ms": 20332,
+  "cached_index_ms": 0,
+  "typical_search_ms": 564,
+  "worst_search_ms": 74,
+  "nearest_ms": 0,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 1,
+  "map_markers_built": 7,
+  "architecture": "KEEP CLIENT-SIDE",
+  "iceland_qa_baseline": {
+    "catalog": 11692,
+    "json_size_mb": 3.47
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false,
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "sha_after_qa": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "production_modified": false,
+  "reconciliation": "7 == 7 == 7 == 7",
+  "eligibility": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 7
+  },
+  "hard_duplicates": 0,
+  "excluded_closed_leakage": 0,
+  "swiss_austrian_contamination": 0
+}

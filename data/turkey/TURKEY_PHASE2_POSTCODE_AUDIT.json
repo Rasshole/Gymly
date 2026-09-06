@@ -1,0 +1,7 @@
+{
+  "model": "NNNNN (5 digits)",
+  "regex": "^\\d{5}$",
+  "invalid_ready_postcodes": 0,
+  "missing_ready_postcodes": 0,
+  "non_canonical_ready_postcodes": 0
+}

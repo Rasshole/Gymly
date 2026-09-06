@@ -1,0 +1,471 @@
+{
+  "country": "Cyprus",
+  "generated_at": "2026-08-26T18:49:42.214Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11648,
+    "cyprus": 0,
+    "malta": 18,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "after": {
+    "total": 11665,
+    "cyprus": 17,
+    "malta": 18,
+    "luxembourg": 20,
+    "estonia": 68,
+    "latvia": 33,
+    "lithuania": 61,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82,
+    "croatia": 80,
+    "slovenia": 32
+  },
+  "inserted": 17,
+  "withheld": 0,
+  "pre_merge_sha256": "e039707d7c419d727b5297acf26b17bc1f885217ca997d3b75f21ff54f60a7f4",
+  "post_merge_sha256": "caf838b1ce733fd20fb724306429bcc48ddee49d684a8efbe70c0cd9b1e46944",
+  "brand_breakdown": {
+    "Aesthetics Gym": 2,
+    "ALTERLIFE": 1,
+    "Curves": 2,
+    "Eleftheriou Lifestyle Fitness": 1,
+    "Evolve Fitness": 1,
+    "Figure8Gym": 1,
+    "Fitness Factory": 1,
+    "G Gym": 1,
+    "Machallekide Fitness": 1,
+    "New Body Gym": 1,
+    "New Life Health Center": 1,
+    "Platinum Sports": 1,
+    "Pumping Iron Gym": 1,
+    "Reflex Gym": 1,
+    "Tower Fitness Center": 1
+  },
+  "eligibility_breakdown": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 17,
+    "TOTAL": 17
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "bad_postal_format": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "bad_eligibility": 0
+  },
+  "country_regression": {
+    "malta": {
+      "before": 18,
+      "after": 18,
+      "intact": true
+    },
+    "luxembourg": {
+      "before": 20,
+      "after": 20,
+      "intact": true
+    },
+    "estonia": {
+      "before": 68,
+      "after": 68,
+      "intact": true
+    },
+    "latvia": {
+      "before": 33,
+      "after": 33,
+      "intact": true
+    },
+    "lithuania": {
+      "before": 61,
+      "after": 61,
+      "intact": true
+    },
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    },
+    "slovakia": {
+      "before": 37,
+      "after": 37,
+      "intact": true
+    },
+    "bulgaria": {
+      "before": 82,
+      "after": 82,
+      "intact": true
+    },
+    "croatia": {
+      "before": 80,
+      "after": 80,
+      "intact": true
+    },
+    "slovenia": {
+      "before": 32,
+      "after": 32,
+      "intact": true
+    }
+  },
+  "sanctum": {
+    "marina": 0,
+    "icon": 0,
+    "sunset": 0,
+    "total": 0,
+    "result": "PASS"
+  },
+  "fitness_factory": {
+    "count": 1,
+    "engomi_only": true,
+    "result": "PASS"
+  },
+  "fitness_one": {
+    "count": 0,
+    "result": "PASS"
+  },
+  "curves": {
+    "count": 2,
+    "result": "PASS"
+  },
+  "alterlife": {
+    "count": 1,
+    "greece_gr_ids": 72,
+    "result": "PASS"
+  },
+  "needs_coordinates_exclusion": {
+    "staging_needs_coordinates": 5,
+    "production_from_needs_coord": 0,
+    "result": "PASS"
+  },
+  "closed_excluded": {
+    "closed_staging": 8,
+    "excluded_staging": 37,
+    "production_from_closed_excluded_ids": 0,
+    "result": "PASS"
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 17,
+    "NEEDS_COORDINATES": 5,
+    "NEEDS_REVIEW": 0,
+    "COMING_SOON": 0,
+    "CLOSED": 8,
+    "EXCLUDED": 37,
+    "unique_staged": 67,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "approved_ids_match": true,
+    "phase2_ready_ids_match": true,
+    "metadata_drift": "NONE",
+    "reconciliation": "17 == 17 == 17 == 17"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0,
+    "different_brand_details": []
+  },
+  "territorial_safety": {
+    "republic_controlled": 17,
+    "northern_cyprus": 0,
+    "foreign": 0,
+    "result": "CLEAN"
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "performance": {
+    "catalog": 11665,
+    "active": 11661,
+    "json_size_bytes": 3625046,
+    "json_size_mb": 3.46
+  },
+  "global_scale": {
+    "previous_production": 11648,
+    "new_production": 11665,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "inventory": [
+    {
+      "id": "cy_71a5e356d0",
+      "brand": "Aesthetics Gym",
+      "name": "Aesthetics Arc Uptown Paphos",
+      "city": "Paphos",
+      "postal_code": "8016"
+    },
+    {
+      "id": "cy_230b74b170",
+      "brand": "Aesthetics Gym",
+      "name": "Aesthetics Gold Downtown Paphos",
+      "city": "Paphos",
+      "postal_code": "8036"
+    },
+    {
+      "id": "cy_ef187d966a",
+      "brand": "ALTERLIFE",
+      "name": "ALTERLIFE Nicosia",
+      "city": "Strovolos",
+      "postal_code": "2048"
+    },
+    {
+      "id": "cy_f070c42b8f",
+      "brand": "Curves",
+      "name": "Curves Aglantzia",
+      "city": "Aglantzia",
+      "postal_code": "2103"
+    },
+    {
+      "id": "cy_56b48cbccc",
+      "brand": "Curves",
+      "name": "Curves Larnaca",
+      "city": "Larnaca",
+      "postal_code": "6037"
+    },
+    {
+      "id": "cy_dae41db6c3",
+      "brand": "Eleftheriou Lifestyle Fitness",
+      "name": "Eleftheriou Lifestyle Fitness Club",
+      "city": "Kato Polemidia",
+      "postal_code": "4152"
+    },
+    {
+      "id": "cy_07ec6774f1",
+      "brand": "Evolve Fitness",
+      "name": "Evolve Fitness and Wellness Lakatamia",
+      "city": "Lakatamia",
+      "postal_code": "2311"
+    },
+    {
+      "id": "cy_3139b5350e",
+      "brand": "Figure8Gym",
+      "name": "Figure8Gym Pallouriotissa",
+      "city": "Pallouriotissa",
+      "postal_code": "1035"
+    },
+    {
+      "id": "cy_1e92561d3f",
+      "brand": "Fitness Factory",
+      "name": "Fitness Factory Nicosia Engomi",
+      "city": "Engomi",
+      "postal_code": "2409"
+    },
+    {
+      "id": "cy_40845af810",
+      "brand": "G Gym",
+      "name": "G Gym Paralimni",
+      "city": "Paralimni",
+      "postal_code": "5291"
+    },
+    {
+      "id": "cy_4b27323ec8",
+      "brand": "Machallekide Fitness",
+      "name": "Machallekide Fitness and Dance",
+      "city": "Limassol",
+      "postal_code": "3116"
+    },
+    {
+      "id": "cy_6900220ba1",
+      "brand": "New Body Gym",
+      "name": "New Body Gym Strovolos",
+      "city": "Strovolos",
+      "postal_code": "2040"
+    },
+    {
+      "id": "cy_f0e9563965",
+      "brand": "New Life Health Center",
+      "name": "New Life Health Center Strovolos",
+      "city": "Strovolos",
+      "postal_code": "2058"
+    },
+    {
+      "id": "cy_82f02545a6",
+      "brand": "Platinum Sports",
+      "name": "Platinum Sports Center Larnaca",
+      "city": "Larnaca",
+      "postal_code": "6021"
+    },
+    {
+      "id": "cy_b0c60e91df",
+      "brand": "Pumping Iron Gym",
+      "name": "Pumping Iron Gym Strovolos",
+      "city": "Strovolos",
+      "postal_code": "2042"
+    },
+    {
+      "id": "cy_ea14f2e4e0",
+      "brand": "Reflex Gym",
+      "name": "Reflex Gym Larnaca",
+      "city": "Larnaca",
+      "postal_code": "6042"
+    },
+    {
+      "id": "cy_2acc7f6e95",
+      "brand": "Tower Fitness Center",
+      "name": "Tower Fitness Center Peyia",
+      "city": "Peyia",
+      "postal_code": "8560"
+    }
+  ],
+  "verdict": "CYPRUS MERGE COMPLETE — WAITING FOR QA"
+}

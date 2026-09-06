@@ -1,0 +1,101 @@
+[
+  {
+    "id": "ch_de8d31dc18",
+    "brand": "Fitnesspark",
+    "address": "Im Zentrum 3",
+    "postal_code": "8105",
+    "city": "Regensdorf",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject; geocode_reject; geocode_reject; geocode_reject"
+  },
+  {
+    "id": "ch_8ecf1cacbb",
+    "brand": "NonStop Gym",
+    "address": "Chemin de la Croix Blanche",
+    "postal_code": "1066",
+    "city": "Epalinges",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_33d08a0bbf",
+    "brand": "NonStop Gym",
+    "address": "Z. A. La Pièce 4b",
+    "postal_code": "1180",
+    "city": "Rolle",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_b4ed529d39",
+    "brand": "NonStop Gym",
+    "address": "Avenue Gratta Paille 1",
+    "postal_code": "1018",
+    "city": "Lausanne",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_1d32f376a1",
+    "brand": "Harmony",
+    "address": "Chem. des Ailes 35",
+    "postal_code": "1216",
+    "city": "Cointrin",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_c1926cc196",
+    "brand": "well come FIT",
+    "address": "Ringstrasse Stelz 31",
+    "postal_code": "9500",
+    "city": "Wil",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_63bd16830f",
+    "brand": "update Fitness",
+    "address": "Güterstrasse 211 / Tellplatz 6",
+    "postal_code": "4053",
+    "city": "Basel",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_e572377c77",
+    "brand": "update Fitness",
+    "address": "Bäreggsstrasse 10",
+    "postal_code": "4900",
+    "city": "Langenthal",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_d623bb2ff2",
+    "brand": "update Fitness",
+    "address": "Progressastrasse 33",
+    "postal_code": "3414",
+    "city": "Oberburg bei Burgdorf",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_bce3e4cd08",
+    "brand": "update Fitness",
+    "address": "Am Bohl 9",
+    "postal_code": "9000",
+    "city": "St.Gallen",
+    "status": "NEEDS_COORDINATES",
+    "notes": "; geocode_reject"
+  },
+  {
+    "id": "ch_3b0f6c104b",
+    "brand": "update Fitness",
+    "address": "Landstrasse 117",
+    "postal_code": "9490",
+    "city": "Vaduz",
+    "status": "NEEDS_REVIEW",
+    "notes": "liechtenstein_excluded"
+  }
+]

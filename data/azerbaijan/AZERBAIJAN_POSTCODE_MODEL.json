@@ -1,0 +1,14 @@
+{
+  "country": "Azerbaijan",
+  "format": "AZ NNNN (4 digits)",
+  "regex": "^\\d{4}$",
+  "examples": [
+    "1010",
+    "1065",
+    "2000",
+    "7000"
+  ],
+  "validation_function": "format_az_postal() in batch1_phase1_common.py",
+  "source": "Azərpoçt / UPU; aligned with AZ_POSTAL_RE",
+  "verified_independently": true
+}

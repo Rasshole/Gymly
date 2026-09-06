@@ -1,0 +1,81 @@
+{
+  "class_a_threshold": "≥3 conventional public locations inside Serbia (excl. Kosovo)",
+  "qualifying_class_a_chains": 3,
+  "class_a_locations": 56,
+  "international_chains": "ABSENT",
+  "operators": {
+    "Ahilej": {
+      "discovered_units": 33,
+      "conventional_public_floors_verified": 33,
+      "verdict": "CHAIN_CLASS_A",
+      "class_a": true,
+      "phase1_status": "READY_TO_IMPORT",
+      "cities": [
+        "Belgrade",
+        "Pančevo",
+        "Novi Sad"
+      ],
+      "source": "https://ahilej.com/lokacije",
+      "estate_fully_reconciled": true
+    },
+    "Non Stop Fitness": {
+      "discovered_units": 16,
+      "conventional_public_floors_verified": 16,
+      "verdict": "CHAIN_CLASS_A",
+      "class_a": true,
+      "phase1_status": "READY_TO_IMPORT",
+      "cities": [
+        "Belgrade",
+        "Pančevo"
+      ],
+      "source": "https://nonstopfitness.rs/lokacije/",
+      "estate_fully_reconciled": true
+    },
+    "Mega Gym": {
+      "discovered_units": 7,
+      "conventional_public_floors_verified": 7,
+      "verdict": "CHAIN_CLASS_A",
+      "class_a": true,
+      "phase1_status": "READY_TO_IMPORT",
+      "cities": [
+        "Belgrade",
+        "Novi Sad",
+        "Smederevo"
+      ],
+      "source": "https://megagym.rs/",
+      "estate_fully_reconciled": true
+    },
+    "Basic-Fit": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "PureGym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "McFIT": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "JOHN REED": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Anytime Fitness": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Gold's Gym": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "World Class": {
+      "verdict": "ABSENT",
+      "class_a": false
+    },
+    "Fitness Park": {
+      "verdict": "ABSENT",
+      "class_a": false
+    }
+  }
+}

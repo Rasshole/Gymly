@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-08-23T17:41:33.863774+00:00",
+  "mappings": [
+    {
+      "from": "World Class acquired/legacy club brands",
+      "to": "World Class",
+      "action": "current_identity_only"
+    },
+    {
+      "from": "Stay Fit Phase 1 city-hub parser noise",
+      "to": "Stay Fit Gym club pages + CPT centru-sfg",
+      "action": "rebuild_canonical_estate"
+    },
+    {
+      "from": "ESX partner gyms",
+      "to": "N/A",
+      "action": "exclude_aggregator"
+    },
+    {
+      "from": "18GYM coming-soon (Lujerului, Otopeni, Cluj Edgar Quinet/Era/Via)",
+      "to": "excluded until open",
+      "action": "keep_COMING_SOON"
+    }
+  ]
+}

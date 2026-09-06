@@ -1,0 +1,53 @@
+{
+  "official_directory": "https://www.lemongym.lv/en/clubs/",
+  "official_open_claimed": 8,
+  "ready": 8,
+  "coming_soon": 1,
+  "coming_soon_ids": [
+    "lv_eb2ad44f7d"
+  ],
+  "clubs": [
+    {
+      "club": "Imanta",
+      "id": "lv_3a2f2a4625",
+      "present": true
+    },
+    {
+      "club": "Ķengarags",
+      "id": "lv_0e3eba9f8c",
+      "present": true
+    },
+    {
+      "club": "Jugla",
+      "id": "lv_f9bb5b6450",
+      "present": true
+    },
+    {
+      "club": "Purvciems",
+      "id": "lv_a7854a3b19",
+      "present": true
+    },
+    {
+      "club": "Teika",
+      "id": "lv_e97e5cd222",
+      "present": true
+    },
+    {
+      "club": "Akropole",
+      "id": "lv_c3befe3f7f",
+      "present": true
+    },
+    {
+      "club": "Pļavnieki",
+      "id": "lv_2c843b109c",
+      "present": true
+    },
+    {
+      "club": "Skanste",
+      "id": "lv_814dd2ac94",
+      "present": true
+    }
+  ],
+  "missing": [],
+  "verdict": "COMPLETE"
+}

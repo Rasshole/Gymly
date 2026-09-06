@@ -108,8 +108,7 @@ const RegisterScreen = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState(defaultOnboardingBirthDate);
-  /** iOS: spinner opdaterer kun kladden; «Vælg» skriver til dateOfBirth (pålideligt bekræftelsesflow). */
-  const [dobPickerDraft, setDobPickerDraft] = useState(defaultOnboardingBirthDate);
+  /** Android: system date dialog visibility */
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [favoriteGyms, setFavoriteGyms] = useState<(DanishGym | null)[]>([null, null, null]);
   const [favoriteGymLabels, setFavoriteGymLabels] = useState<string[]>(['', '', '']);
@@ -699,42 +698,15 @@ const RegisterScreen = () => {
           />
         </View>
         <Text style={styles.blockTitleSmall}>{t('register.birthDate')}</Text>
-        <TouchableOpacity
-          style={[styles.input, styles.dobButton]}
-          onPress={() => {
-            setDobPickerDraft(new Date(dateOfBirth.getTime()));
-            setShowDatePicker(true);
-          }}
-          activeOpacity={0.85}>
-          <Text style={styles.dobButtonText}>
-            {formatBirthDateLabel(
-              showDatePicker && Platform.OS === 'ios' ? dobPickerDraft : dateOfBirth,
-            )}
-          </Text>
-          <Icon name="calendar-outline" size={22} color={colors.textMuted} />
-        </TouchableOpacity>
-        <Text style={[styles.helperMuted, styles.helperBelowDob]}>
-          {t('register.birthDateRequired')}
-        </Text>
-        {showDatePicker && (
-          <>
+        {Platform.OS === 'ios' ? (
+          <View style={[styles.input, styles.dobButton]}>
             <DateTimePicker
-              value={Platform.OS === 'ios' ? dobPickerDraft : dateOfBirth}
+              value={dateOfBirth}
               mode="date"
-              display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-              onChange={(event, selectedDate) => {
-                if (Platform.OS === 'android') {
-                  setShowDatePicker(false);
-                  if (event.type === 'set' && selectedDate) {
-                    setDateOfBirth(selectedDate);
-                  }
-                  return;
-                }
-                if (event.type === 'dismissed') {
-                  return;
-                }
+              display="compact"
+              onChange={(_event, selectedDate) => {
                 if (selectedDate) {
-                  setDobPickerDraft(selectedDate);
+                  setDateOfBirth(selectedDate);
                 }
               }}
               minimumDate={(() => {
@@ -744,20 +716,25 @@ const RegisterScreen = () => {
               })()}
               maximumDate={new Date()}
               locale={getIntlLocale(language)}
+              themeVariant="light"
+              style={styles.dobCompactPicker}
             />
-            {Platform.OS === 'ios' && (
-              <TouchableOpacity
-                style={styles.datePickerDone}
-                onPress={() => {
-                  setDateOfBirth(new Date(dobPickerDraft.getTime()));
-                  setShowDatePicker(false);
-                }}
-                activeOpacity={0.85}>
-                <Text style={styles.datePickerDoneText}>{t('register.birthDatePick')}</Text>
-              </TouchableOpacity>
-            )}
-          </>
+            <Icon name="calendar-outline" size={22} color={colors.textMuted} />
+          </View>
+        ) : (
+          <TouchableOpacity
+            style={[styles.input, styles.dobButton]}
+            onPress={() => setShowDatePicker(true)}
+            activeOpacity={0.85}>
+            <Text style={styles.dobButtonText}>
+              {formatBirthDateLabel(dateOfBirth)}
+            </Text>
+            <Icon name="calendar-outline" size={22} color={colors.textMuted} />
+          </TouchableOpacity>
         )}
+        <Text style={[styles.helperMuted, styles.helperBelowDob]}>
+          {t('register.birthDateRequired')}
+        </Text>
         <TextInput
           style={[
             styles.input,
@@ -1102,6 +1079,26 @@ const RegisterScreen = () => {
           </Animated.View>
         </ScrollView>
       </KeyboardAvoidingView>
+
+      {showDatePicker && Platform.OS === 'android' ? (
+        <DateTimePicker
+          value={dateOfBirth}
+          mode="date"
+          display="default"
+          onChange={(event, selectedDate) => {
+            setShowDatePicker(false);
+            if (event.type === 'set' && selectedDate) {
+              setDateOfBirth(selectedDate);
+            }
+          }}
+          minimumDate={(() => {
+            const x = new Date();
+            x.setFullYear(x.getFullYear() - 120);
+            return x;
+          })()}
+          maximumDate={new Date()}
+        />
+      ) : null}
     </View>
   );
 };
@@ -1206,8 +1203,9 @@ const styles = StyleSheet.create({
     backgroundColor: ONBOARDING.inputBg,
     borderRadius: ONBOARDING.inputRadius,
     paddingHorizontal: spacing.lg,
-    paddingVertical: 16,
+    paddingVertical: Platform.OS === 'ios' ? 14 : 16,
     fontSize: 16,
+    lineHeight: 20,
     fontWeight: '500',
     color: colors.text,
     borderWidth: 1,
@@ -1219,7 +1217,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.04,
         shadowRadius: 8,
       },
-      android: {elevation: 1},
+      android: {elevation: 1, includeFontPadding: false, textAlignVertical: 'center'},
     }),
   },
   inputUsernameOk: {
@@ -1351,19 +1349,9 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontWeight: '600',
   },
-  datePickerDone: {
-    alignSelf: 'center',
-    marginTop: spacing.sm,
-    marginBottom: spacing.xs,
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.xl,
-    backgroundColor: colors.primary,
-    borderRadius: radius.md,
-  },
-  datePickerDoneText: {
-    color: colors.white,
-    fontWeight: '700',
-    fontSize: 16,
+  dobCompactPicker: {
+    marginLeft: -8,
+    flex: 1,
   },
   helperBelowDob: {marginBottom: spacing.sm},
   sectionMiniTitle: {

@@ -1,0 +1,39 @@
+{
+  "unresolved_conflicts": 0,
+  "legacy_ready_leakage": 0,
+  "relationships": [
+    {
+      "type": "A_DISTINCT",
+      "entities": [
+        "Centar X Fitness Zahumska 40",
+        "Centar X Kubanska alias"
+      ],
+      "notes": "Zahumska 40 defended READY; Kubanska listing treated as alias not imported."
+    },
+    {
+      "type": "A_DISTINCT",
+      "entities": [
+        "X Sport Gym Ćirpanova",
+        "X Sport supplement shops"
+      ],
+      "notes": "Gym premises distinct from retail shops."
+    },
+    {
+      "type": "A_DISTINCT",
+      "entities": [
+        "Sremska Mitrovica candidate",
+        "Kosovo Mitrovicë"
+      ],
+      "notes": "Mitrovica identity gate — Kosovo rows remain xk_* only."
+    },
+    {
+      "type": "C_EXCLUDED_PLACEHOLDER",
+      "entities": [
+        "Belgrade directory probes (17)",
+        "Verified Class A + Phase2 SMI"
+      ],
+      "notes": "Generic Belgrade placeholders excluded; no rebrand conflict."
+    }
+  ],
+  "note": "Phase2 merge gate: 0 unresolved rebrand conflicts."
+}

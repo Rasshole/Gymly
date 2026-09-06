@@ -677,7 +677,7 @@ const EditProfileScreen = () => {
                   }
                 }}
                 maximumDate={new Date()}
-                locale="da-DK"
+                locale={intlLocale.replace('-', '_')}
               />
               {Platform.OS === 'ios' && (
                 <View style={styles.datePickerButtonContainer}>

@@ -1,0 +1,19 @@
+{
+  "cities": {
+    "Tbilisi": "A",
+    "Batumi": "A",
+    "Kutaisi": "B",
+    "Rustavi": "B",
+    "Gori": "B",
+    "Zugdidi": "B",
+    "Poti": "B",
+    "Telavi": "B",
+    "Kobuleti": "B"
+  },
+  "approved_by_city": {
+    "Tbilisi": 23,
+    "Batumi": 2
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0
+}

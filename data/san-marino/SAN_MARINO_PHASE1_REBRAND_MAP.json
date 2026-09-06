@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "legacy": "Piletas Fitness Center",
+      "current": "FitLife San Marino Domagnano",
+      "relationship": "A_current_successor",
+      "production_eligibility": "Phase 2 — current FitLife only"
+    },
+    {
+      "legacy": "Palestra Odon (directory alias at Montecchio)",
+      "current": "MOVE Sala Pesi",
+      "relationship": "C_name_confusion",
+      "note": "Directory 'Palestra Odon' at Strada di Montecchio appears to be stale naming; Odon SM today is a dental polyclinic at Domagnano. Current gym identity is MOVE.",
+      "production_eligibility": "Phase 2 — MOVE only"
+    },
+    {
+      "legacy": null,
+      "current": "Federazione Sammarinese Body Building Galazzano",
+      "relationship": "B_distinct_current_clubs",
+      "note": "Federation brand but public abbonamenti — treat as distinct consumer gym candidate vs Multieventi",
+      "production_eligibility": "Phase 2 NEEDS_REVIEW"
+    },
+    {
+      "legacy": null,
+      "current": "Multieventi Sport Domus",
+      "relationship": "B_co_located_not_separate_club",
+      "note": "Sports complex / CONS — EXCLUDED as conventional gym",
+      "production_eligibility": "EXCLUDED"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

@@ -1,0 +1,151 @@
+{
+  "country": "Estonia",
+  "phase": 1,
+  "chains": [
+    {
+      "brand": "MyFitness",
+      "evidence": "production_hydrate + official locator (19 open)",
+      "apparent_locations": 19,
+      "qualifying_active": 19,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "reason": "COMPLETE"
+    },
+    {
+      "brand": "24-7 Fitness",
+      "evidence": "production_hydrate + official locator (31 open)",
+      "apparent_locations": 31,
+      "qualifying_active": 31,
+      "coming_soon": 3,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "reason": "COMPLETE"
+    },
+    {
+      "brand": "Gym!",
+      "evidence": "production_hydrate + official locator (15 open)",
+      "apparent_locations": 15,
+      "qualifying_active": 15,
+      "coming_soon": 2,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "reason": "COMPLETE"
+    },
+    {
+      "brand": "Golden Club",
+      "evidence": "production_hydrate + official locator (3 open)",
+      "apparent_locations": 3,
+      "qualifying_active": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "unresolved": 0,
+      "class_a": true,
+      "reason": "COMPLETE"
+    }
+  ],
+  "probes_investigated": [
+    {
+      "chain": "Lemon Gym",
+      "action": "BELOW_THRESHOLD",
+      "evidence": "2 EE sites — Class E"
+    },
+    {
+      "chain": "Reval-Sport",
+      "action": "EXCLUDED",
+      "evidence": "Spa/sports complex not conventional chain"
+    },
+    {
+      "chain": "Sparta",
+      "action": "BELOW_THRESHOLD",
+      "evidence": "Single Tallinn site"
+    },
+    {
+      "chain": "Fitness24Seven",
+      "action": "ABSENT",
+      "evidence": "No EE conventional chain estate"
+    },
+    {
+      "chain": "Basic-Fit",
+      "action": "ABSENT",
+      "evidence": "No EE presence"
+    },
+    {
+      "chain": "PureGym",
+      "action": "ABSENT",
+      "evidence": "No EE presence"
+    },
+    {
+      "chain": "McFIT",
+      "action": "ABSENT",
+      "evidence": "No EE presence"
+    },
+    {
+      "chain": "Anytime Fitness",
+      "action": "ABSENT",
+      "evidence": "No verified EE clubs"
+    },
+    {
+      "chain": "Gold's Gym",
+      "action": "ABSENT",
+      "evidence": "No multi-site EE chain"
+    },
+    {
+      "chain": "World Class",
+      "action": "ABSENT",
+      "evidence": "No conventional EE chain"
+    },
+    {
+      "chain": "FITINN",
+      "action": "ABSENT",
+      "evidence": "No EE presence"
+    },
+    {
+      "chain": "clever fit",
+      "action": "ABSENT",
+      "evidence": "No EE presence"
+    },
+    {
+      "chain": "JOHN REED",
+      "action": "ABSENT",
+      "evidence": "No verified EE estate"
+    },
+    {
+      "chain": "Gym+",
+      "action": "ABSENT",
+      "evidence": "Lithuanian brand only"
+    },
+    {
+      "chain": "Impuls",
+      "action": "ABSENT",
+      "evidence": "Lithuanian brand only"
+    },
+    {
+      "chain": "People Fitness",
+      "action": "ABSENT",
+      "evidence": "No current EE Class A estate"
+    },
+    {
+      "chain": "Arigato",
+      "action": "UNRESOLVED",
+      "evidence": "No >=3 conventional EE evidence"
+    },
+    {
+      "chain": "Ring Sport",
+      "action": "UNRESOLVED",
+      "evidence": "Specialist/martial — excluded from Class A"
+    }
+  ],
+  "summary": {
+    "final_class_a_chain_count": 4,
+    "final_class_a_ready_count": 68,
+    "chain_estate_gaps": 0
+  }
+}

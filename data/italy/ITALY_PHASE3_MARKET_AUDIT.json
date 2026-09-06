@@ -1,0 +1,226 @@
+{
+  "live_brands": {
+    "FitActive": {
+      "production_count": 193,
+      "official_estate_estimate": 172,
+      "missing_vs_estimate": 0,
+      "coverage_pct": 112.2,
+      "status": "COMPLETE",
+      "note": "CIWAS 2026: 172 Italy (187 EU+BR); site estate matches production"
+    },
+    "FitUP": {
+      "production_count": 80,
+      "official_estate_estimate": 83,
+      "missing_vs_estimate": 3,
+      "coverage_pct": 96.4,
+      "status": "COMPLETE",
+      "note": "Site ~80–84; target 100; 4 NEEDS_REVIEW address blanks"
+    },
+    "Anytime Fitness": {
+      "production_count": 68,
+      "official_estate_estimate": 66,
+      "missing_vs_estimate": 0,
+      "coverage_pct": 103.0,
+      "status": "COMPLETE",
+      "note": "CIWAS: 66 open Italy; API status=3 → 68 LIVE + 13 coming"
+    },
+    "Fit Express": {
+      "production_count": 45,
+      "official_estate_estimate": 70,
+      "missing_vs_estimate": 25,
+      "coverage_pct": 64.3,
+      "status": "MATERIAL GAP",
+      "note": "~70 claimed; 45 READY + 24 unresolved geocode leftovers"
+    },
+    "McFIT": {
+      "production_count": 42,
+      "official_estate_estimate": 45,
+      "missing_vs_estimate": 3,
+      "coverage_pct": 93.3,
+      "status": "NEAR-COMPLETE",
+      "note": "RSG/CIWAS ~45 Italy incl brands; Magicline 42 open +1 coming"
+    },
+    "Virgin Active": {
+      "production_count": 42,
+      "official_estate_estimate": 42,
+      "missing_vs_estimate": 0,
+      "coverage_pct": 100.0,
+      "status": "COMPLETE",
+      "note": "CIWAS/official: 42 Italy premium"
+    },
+    "Icon Palestre": {
+      "production_count": 31,
+      "official_estate_estimate": 47,
+      "missing_vs_estimate": 16,
+      "coverage_pct": 66.0,
+      "status": "MATERIAL GAP",
+      "note": "Sitemap ~47 pages; 31 READY + 16 unresolved"
+    },
+    "Orange": {
+      "production_count": 23,
+      "official_estate_estimate": 33,
+      "missing_vs_estimate": 10,
+      "coverage_pct": 69.7,
+      "status": "MATERIAL GAP",
+      "note": "Site 23 open; press Jul 2026 → 33 after GetFIT 6 (not yet on locator)"
+    },
+    "WebFit": {
+      "production_count": 16,
+      "official_estate_estimate": 16,
+      "missing_vs_estimate": 0,
+      "coverage_pct": 100.0,
+      "status": "COMPLETE",
+      "note": "Official site ~16"
+    },
+    "20Hours": {
+      "production_count": 7,
+      "official_estate_estimate": 7,
+      "missing_vs_estimate": 0,
+      "coverage_pct": 100.0,
+      "status": "COMPLETE",
+      "note": "Milan-area 7 clubs"
+    },
+    "Gold's Gym": {
+      "production_count": 2,
+      "official_estate_estimate": 2,
+      "missing_vs_estimate": 0,
+      "coverage_pct": 100.0,
+      "status": "COMPLETE",
+      "note": "RSG Italy ~2"
+    },
+    "JOHN REED": {
+      "production_count": 1,
+      "official_estate_estimate": 2,
+      "missing_vs_estimate": 1,
+      "coverage_pct": 50.0,
+      "status": "NEAR-COMPLETE",
+      "note": "RSG ~1–2 Italy (1 live + 1 Trieste COMING_SOON)"
+    }
+  },
+  "missing_chains": {
+    "FITINN": {
+      "decision": "NEW_CHAIN",
+      "estate": 10,
+      "note": "Austrian low-cost; ex-YouFit Milan + Prato/Bologna/Brescia; official locator"
+    },
+    "GetFIT": {
+      "decision": "NEW_CHAIN_PARTIAL",
+      "estate": 8,
+      "note": "6→Orange Jul 2026 (not on Orange site yet); 2 founder-retained; site 403; Wayback pins"
+    },
+    "Dabliu": {
+      "decision": "NEW_CHAIN",
+      "estate": 5,
+      "note": "5 Rome conventional fitness clubs with shared membership"
+    },
+    "Fitness Park": {
+      "decision": "NEW_OR_RECOVER",
+      "estate": 1,
+      "note": "RomaEst open; further IT expansion planned; was NEEDS_COORDINATES in staging"
+    },
+    "Palestre Italiane": {
+      "decision": "ALREADY_LIVE_UNDER_ORANGE",
+      "estate": 0,
+      "note": "Brand under Orange/Gym Nation; locator redirects to Orange 23 clubs"
+    },
+    "Prime Fitness": {
+      "decision": "EXCLUDE_BELOW_THRESHOLD",
+      "estate": 2,
+      "note": "2 Bologna clubs only (<5)"
+    },
+    "Happy Fit": {
+      "decision": "EXCLUDE_ABSORBED",
+      "estate": 0,
+      "note": "14 clubs → McFIT in 2014"
+    },
+    "Zero10": {
+      "decision": "EXCLUDE_SINGLE",
+      "estate": 1,
+      "note": "Single Padova SSD"
+    },
+    "Tonic": {
+      "decision": "EXCLUDE_NOT_FOUND",
+      "estate": 0,
+      "note": "No verifiable multi-site conventional estate"
+    },
+    "Fit And Go": {
+      "decision": "EXCLUDE_EMS",
+      "estate": 0,
+      "note": "EMS/Vacufit boutique"
+    },
+    "Heaven": {
+      "decision": "EXCLUDE_NOT_FOUND",
+      "estate": 0,
+      "note": "No independent 5+ conventional chain verified"
+    },
+    "Forum Sport Center": {
+      "decision": "EXCLUDE_SINGLE_COMPLEX",
+      "estate": 1,
+      "note": "Single Rome multi-sport complex (forumroma.it)"
+    },
+    "Basic-Fit": {
+      "decision": "EXCLUDE_NO_ITALY",
+      "estate": 0,
+      "note": "No Italy club list"
+    },
+    "WebFit": {
+      "decision": "ALREADY_LIVE",
+      "estate": 16,
+      "note": "Production complete"
+    },
+    "20Hours": {
+      "decision": "ALREADY_LIVE",
+      "estate": 7,
+      "note": "Production complete"
+    },
+    "Fit Express": {
+      "decision": "ALREADY_LIVE_NEAR_COMPLETE",
+      "estate": 70,
+      "note": "45 live; geocode leftovers"
+    },
+    "Icon Palestre": {
+      "decision": "ALREADY_LIVE_NEAR_COMPLETE",
+      "estate": 47,
+      "note": "31 live; page leftovers"
+    }
+  },
+  "generated_at": "2026-08-21T13:53:12.999991+00:00",
+  "new_phase3_brands": {
+    "Dabliu": {
+      "discovered": 5,
+      "ready": 5,
+      "needs_coordinates": 0,
+      "needs_review": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "duplicate": 0
+    },
+    "FITINN": {
+      "discovered": 10,
+      "ready": 9,
+      "needs_coordinates": 1,
+      "needs_review": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "duplicate": 0
+    },
+    "Fitness Park": {
+      "discovered": 1,
+      "ready": 0,
+      "needs_coordinates": 1,
+      "needs_review": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "duplicate": 0
+    },
+    "GetFIT": {
+      "discovered": 9,
+      "ready": 8,
+      "needs_coordinates": 0,
+      "needs_review": 0,
+      "coming_soon": 0,
+      "closed": 1,
+      "duplicate": 0
+    }
+  }
+}

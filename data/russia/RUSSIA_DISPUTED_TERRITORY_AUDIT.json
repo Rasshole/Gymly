@@ -1,0 +1,12 @@
+{
+  "country": "Russia",
+  "phase": 1,
+  "generated_at": "2026-08-29T21:15:11.554731+00:00",
+  "disputed_territory_staged": 27,
+  "disputed_territory_ready": 0,
+  "crimea_probes": 2,
+  "donetsk_luhansk_probes": 2,
+  "hold_policy": "Disputed Ukraine territory excluded from READY unless HIGH official evidence",
+  "disputed_territory_ready_leakage": 0,
+  "policy": "Internationally disputed Ukrainian territories held/excluded from standard Russia READY"
+}

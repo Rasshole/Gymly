@@ -1,0 +1,233 @@
+[
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Andrespol",
+    "address": "ul. Rokicińska 125",
+    "city": "Andrespol",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Andrespol"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Dąbrowa",
+    "address": "ul. Dąbrowskiego 207/225",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Dąbrowa"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Franciszkańska",
+    "address": "ul. Franciszkańska 99",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Franciszkańska"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Galeria Retkińska",
+    "address": "al. Kard. Stefana Wyszyńskiego 29",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Galeria Retkińska"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Hetmańska",
+    "address": "al. Hetmańska 18",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Hetmańska"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Kilińskiego",
+    "address": "ul. Kilińskiego 122/128",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Kilińskiego"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Konstantynów Łódzki",
+    "address": "ul. Jana Pawła II 11/13",
+    "city": "Konstantynów Łódzki",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Konstantynów Łódzki"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Manufaktura",
+    "address": "ul. Drewnowska 58",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Manufaktura"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Matejki",
+    "address": "ul. Matejki 3/5",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Matejki"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Nowosolna",
+    "address": "ul. Byszewska 3a",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Nowosolna"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Piotrków Trybunalski",
+    "address": "ul. Juliusza Słowackiego 123",
+    "city": "Piotrków Trybunalski",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Piotrków Trybunalski"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Port Łódź",
+    "address": "ul. Pabianicka 245",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Port Łódź"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Rewolucji",
+    "address": "ul. Rewolucji 1905 r nr 44",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Rewolucji"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Strażacka",
+    "address": "ul. Strażacka 5",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Strażacka"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Sukcesja",
+    "address": "al. Politechniki 1",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Sukcesja"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Teofilów",
+    "address": "ul. Aleksandrowska 38",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Teofilów"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Tomaszów Mazowiecki",
+    "address": "ul. Warszawska 1",
+    "city": "Tomaszów Mazowiecki",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Tomaszów Mazowiecki"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Widzewska Manufaktura",
+    "address": "ul. Piłsudskiego 135",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Widzewska Manufaktura"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Zatoka Sportu",
+    "address": "al. Politechniki 10",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Zatoka Sportu"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Zgierska",
+    "address": "ul. Zgierska 211",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Zgierska"
+  },
+  {
+    "brand": "Fit Fabric",
+    "name": "Fit Fabric Zielona",
+    "address": "al. 1 Maja 119/121",
+    "city": "Łódź",
+    "coming_soon": false,
+    "physio_tag": false,
+    "women_only": false,
+    "legacy_brand": null,
+    "raw_name": "Zielona"
+  }
+]

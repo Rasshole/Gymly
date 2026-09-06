@@ -1,0 +1,131 @@
+{
+  "bg_11eed9439a": {
+    "classification": "COMING_SOON",
+    "reason": "coming_soon_2025"
+  },
+  "bg_561d8f98bc": {
+    "classification": "COMING_SOON",
+    "reason": "announced_2026_not_open"
+  },
+  "bg_5448ddd9dd": {
+    "recovered": true,
+    "address": "Блок 386, ж.к. Младост 3",
+    "postal": "1712",
+    "lat": 42.63907024279782,
+    "lng": 23.384639940475445,
+    "coord_source": "OFFICIAL_TITANIUM_CMS_P3",
+    "notes": "corrected_identity"
+  },
+  "bg_900362e749": {
+    "recovered": true,
+    "address": "бул. Симеоновско шосе 77",
+    "postal": "1734",
+    "lat": 42.6436,
+    "lng": 23.33436,
+    "coord_source": "OFFICIAL_TITANIUM_CMS_P3",
+    "notes": "studentski"
+  },
+  "bg_116a6dbe83": {
+    "recovered": true,
+    "address": "ул. Даскал Никита 2Б, ж.к. Христо Смирненски",
+    "postal": "1547",
+    "lat": 42.67904,
+    "lng": 23.37532,
+    "coord_source": "OFFICIAL_TITANIUM_CMS_P3",
+    "notes": "slatina"
+  },
+  "bg_5ff29203ad": {
+    "recovered": true,
+    "address": "47 Rezbarska Street",
+    "postal": "1517",
+    "lat": 42.7094491,
+    "lng": 23.3658159,
+    "coord_source": "STRICT_ADDRESS_GEOCODE_PULSE_P3",
+    "notes": "A_current_Pulse"
+  },
+  "bg_bcfa812f4e": {
+    "recovered": true,
+    "address": "8 Sveta Sofia Street",
+    "postal": "1000",
+    "lat": 42.6963746,
+    "lng": 23.3197753,
+    "coord_source": "STRICT_ADDRESS_GEOCODE_PULSE_P3",
+    "notes": ""
+  },
+  "bg_b05cd8d08e": {
+    "recovered": true,
+    "address": "Blvd. Tsaritsa Ioana, bl 276",
+    "postal": "1335",
+    "lat": 42.7112673,
+    "lng": 23.2702626,
+    "coord_source": "STRICT_ADDRESS_GEOCODE_PULSE_P3",
+    "notes": "distinct_from_west_park"
+  },
+  "bg_c8b76e84ec": {
+    "recovered": true,
+    "address": "Baba Ganka Street",
+    "postal": "8000",
+    "lat": 42.4973094,
+    "lng": 27.4731417,
+    "coord_source": "STRICT_ADDRESS_GEOCODE_PULSE_P3",
+    "notes": ""
+  },
+  "bg_a3caffaf56": {
+    "recovered": true,
+    "address": "28 Prince Alexander Battenberg Blvd.",
+    "postal": "6002",
+    "lat": 42.4249047,
+    "lng": 25.6165611,
+    "coord_source": "STRICT_ADDRESS_GEOCODE_PULSE_P3",
+    "notes": ""
+  },
+  "bg_6502b58e83": {
+    "recovered": true,
+    "address": "ул. Републиканска 46",
+    "postal": "6621",
+    "lat": 41.6324863,
+    "lng": 25.4297444,
+    "coord_source": "STRICT_ADDRESS_GEOCODE_PULSE_P3",
+    "notes": ""
+  },
+  "pulse_westpark_lyulin": {
+    "distance_m": 1081,
+    "classification": "A_legitimate"
+  },
+  "bg_1eb791b2fd": {
+    "recovered": true,
+    "address": "761st Street, Ovcha Kupel 1 (near Mizia metro)",
+    "postal": "1632",
+    "lat": 42.68406253707246,
+    "lng": 23.256975476817836,
+    "coord_source": "OFFICIAL_GOOGLE_MAPS_EMBED_P3",
+    "notes": "alera"
+  },
+  "bg_1d4b8086db": {
+    "recovered": true,
+    "address": "Veslec 18 str., Sofia Center",
+    "postal": "1000",
+    "lat": 42.69985844309133,
+    "lng": 23.325603906210443,
+    "coord_source": "OFFICIAL_GOOGLE_MAPS_EMBED_P3",
+    "notes": "veslec"
+  },
+  "bg_163e7c5e53": {
+    "recovered": true,
+    "address": "Business Park Mladost, Sport Depot building, fl. 2",
+    "postal": "1715",
+    "lat": 42.624684292658806,
+    "lng": 23.37985773755415,
+    "coord_source": "OFFICIAL_GOOGLE_MAPS_EMBED_P3",
+    "notes": "mladost_bps"
+  },
+  "bg_2fe399a8c4": {
+    "recovered": true,
+    "address": "ul. Skopie 3, g.k. Banishora",
+    "postal": "1233",
+    "lat": 42.71229214111831,
+    "lng": 23.30451888131301,
+    "coord_source": "OFFICIAL_GOOGLE_MAPS_EMBED_P3",
+    "notes": "official_contacts"
+  }
+}

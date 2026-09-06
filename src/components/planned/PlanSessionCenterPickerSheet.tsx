@@ -17,7 +17,8 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {getActiveDanishGyms, type DanishGym} from '@/data/danishGyms';
+import {getActiveGyms, type DanishGym} from '@/data/gymCatalog';
+import {NEARBY_CENTRES_LIST_CAP} from '@/utils/nearbyCentersRanking';
 import {useAppStore} from '@/store/appStore';
 import {useGymStore} from '@/store/gymStore';
 import GymLogoView from '@/components/ui/GymLogoView';
@@ -25,8 +26,9 @@ import {
   formatGymDisplayName,
   findGymById,
   findGymByIdRelaxed,
-  normalizeGymBrand,
 } from '@/utils/gymDisplay';
+import {gymPickerLocationLine} from '@/utils/gymCountryLabel';
+import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 import colors from '@/theme/colors';
 import {radius, spacing, typography} from '@/theme/designTokens';
 import {useActiveCentersRealtime} from '@/hooks/useActiveCentersRealtime';
@@ -34,7 +36,7 @@ import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 import type {ActiveCenter} from '@/types/activeCenter.types';
 import {useTranslation, rt} from '@/i18n';
 
-const ALL_ACTIVE = getActiveDanishGyms();
+const ALL_ACTIVE = getActiveGyms();
 
 type LiveStats = {total: number; friends: number};
 
@@ -91,18 +93,6 @@ function formatDistanceMeters(distanceM: number): string {
   return `${(distanceM / 1000).toFixed(1)} km`;
 }
 
-function gymSearchHaystack(gym: DanishGym): string {
-  const brandNorm = normalizeGymBrand(gym.brand);
-  const rawBrand = (gym.brand ?? '').trim();
-  return `${gym.name} ${rawBrand} ${brandNorm} ${gym.city ?? ''} ${gym.address ?? ''} ${gym.postalCode ?? ''} ${gym.region ?? ''}`
-    .toLowerCase()
-    .replace(/,/g, ' ');
-}
-
-function tokensMatch(haystack: string, tokens: string[]): boolean {
-  return tokens.every(t => haystack.includes(t));
-}
-
 function OpenClosedChip({isOpen}: {isOpen: boolean}) {
   return (
     <View style={[styles.statusChip, isOpen ? styles.statusChipOpen : styles.statusChipClosed]}>
@@ -150,7 +140,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
   onClose,
   onSelect,
 }) => {
-  const {t} = useTranslation();
+  const {t, intlLocale} = useTranslation();
   const insets = useSafeAreaInsets();
   const {height: windowHeight} = useWindowDimensions();
   const sheetHeight = Math.round(windowHeight * (Platform.OS === 'ios' ? 0.88 : 0.92));
@@ -192,8 +182,8 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
   );
 
   const sections = useMemo((): GymSection[] => {
-    const raw = query.trim().toLowerCase();
-    const tokens = raw.split(/\s+/).filter(Boolean);
+    const raw = query.trim();
+    const tokens = raw.length > 0;
 
     const sortByDistanceOpenName = (gyms: DanishGym[]) =>
       gyms
@@ -227,12 +217,20 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
               return ra - rb;
             }
           }
-          return formatGymDisplayName(a.gym).localeCompare(formatGymDisplayName(b.gym), 'da');
+          return formatGymDisplayName(a.gym).localeCompare(
+            formatGymDisplayName(b.gym),
+            intlLocale,
+          );
         })
         .map(x => x.gym);
 
-    if (tokens.length > 0) {
-      const filtered = ALL_ACTIVE.filter(gym => tokensMatch(gymSearchHaystack(gym), tokens));
+    if (tokens) {
+      const filtered = searchGyms(raw, {
+        gyms: ALL_ACTIVE,
+        limit: 80,
+        userLat: userCoords?.latitude,
+        userLng: userCoords?.longitude,
+      }).map(h => h.gym);
       const sorted = filtered
         .map(gym => {
           const status = getGymStatus(gym.id);
@@ -251,7 +249,10 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
           if (da !== db) {
             return da - db;
           }
-          return formatGymDisplayName(a.gym).localeCompare(formatGymDisplayName(b.gym), 'da');
+          return formatGymDisplayName(a.gym).localeCompare(
+            formatGymDisplayName(b.gym),
+            intlLocale,
+          );
         })
         .map(x => x.gym);
       if (sorted.length === 0) {
@@ -269,7 +270,10 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
     if (favorites.length > 0) {
       out.push({title: t('centerPicker.yourCentres'), data: favorites});
     }
-    out.push({title: t('centerPicker.nearbySection'), data: nearbySorted});
+    out.push({
+      title: t('centerPicker.nearbySection'),
+      data: nearbySorted.slice(0, NEARBY_CENTRES_LIST_CAP),
+    });
     return out;
   }, [
     query,
@@ -280,6 +284,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
     liveByGymId,
     getActiveUsersCount,
     t,
+    intlLocale,
   ]);
 
   const renderRow = useCallback(
@@ -310,7 +315,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
                 ) : null}
               </View>
               <Text style={styles.subLine} numberOfLines={1}>
-                {[item.city, item.region].filter(Boolean).join(' · ') || item.region}
+                {gymPickerLocationLine(item, t) || item.region}
                 {distanceText ? ` · ${distanceText}` : ''}
               </Text>
               {item.address ? (
@@ -350,7 +355,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
       presentationStyle="overFullScreen"
       statusBarTranslucent={Platform.OS === 'android'}>
       <View style={styles.overlay}>
-        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessibilityLabel="Luk" />
+        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessibilityLabel={t('a11y.close')} />
         <View
           style={[
             styles.sheet,
@@ -363,7 +368,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
           <View style={styles.sheetGrab} accessibilityElementsHidden />
           <View style={styles.sheetHeader}>
             <Text style={styles.sheetTitle}>{t('centerPicker.selectCenter')}</Text>
-            <TouchableOpacity onPress={onClose} hitSlop={12} accessibilityLabel="Luk">
+            <TouchableOpacity onPress={onClose} hitSlop={12} accessibilityLabel={t('a11y.close')}>
               <Ionicons name="close" size={26} color={colors.textSecondary} />
             </TouchableOpacity>
           </View>
@@ -398,7 +403,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
               ListEmptyComponent={
                 <View style={styles.emptyWrap}>
                   <Text style={styles.emptyText}>{t('checkIn.noCentersFound')}</Text>
-                  <Text style={styles.emptyHint}>Prøv et andet søgeord, kæde eller by</Text>
+                  <Text style={styles.emptyHint}>{t('phase2ui.emptySearchHint')}</Text>
                 </View>
               }
               ItemSeparatorComponent={PlanCenterListSeparator}

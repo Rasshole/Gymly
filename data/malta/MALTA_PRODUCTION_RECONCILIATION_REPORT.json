@@ -1,0 +1,147 @@
+{
+  "country": "Malta",
+  "reconciliation_type": "PRESERVE_18_INSERT_6",
+  "generated_at": "2026-08-29T14:15:44.181Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "production_total_before": 11923,
+  "production_total_after": 11929,
+  "production_sha256_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "production_sha256_after": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "production_bytes_before": 3706426,
+  "production_bytes_after": 3708345,
+  "malta_before": 18,
+  "malta_after": 24,
+  "phase2_inputs": {
+    "keep_existing": 18,
+    "new_ready_to_import": 6,
+    "existing_review_required": 0,
+    "coming_soon": 1,
+    "excluded": 73,
+    "closed": 3,
+    "final_approved_malta": 24
+  },
+  "authorized_insertion_ids": [
+    "mt_2f5b8d74db",
+    "mt_56d27e8f31",
+    "mt_69e8de5961",
+    "mt_77de3a4365",
+    "mt_decf1d09bc",
+    "mt_e99920262f"
+  ],
+  "approved_for_production": 24,
+  "id_reconciliation": {
+    "keep_existing_ids": 18,
+    "new_ready_ids": 6,
+    "approved_ids": 24,
+    "production_malta_ids": 24,
+    "exact_keep_match": 18,
+    "missing_from_production": [],
+    "unexpected_in_production": [],
+    "approved_missing_from_production": [],
+    "production_not_in_approved": []
+  },
+  "metadata": {
+    "material_metadata_drift_count": 0,
+    "material_metadata_drift": [],
+    "existing_rows_changed": 0,
+    "original_18_present_after": 18,
+    "original_18_changed": 0
+  },
+  "brand_inventory": {
+    "24/7 Fitness Club": 4,
+    "Best Gyms Malta": 10,
+    "Challenger Fitness": 4,
+    "Fort Fitness": 2,
+    "Cynergi": 1,
+    "Kinetika Gozo": 2,
+    "ActiveZone": 1
+  },
+  "expected_brands": {
+    "Best Gyms Malta": 10,
+    "24/7 Fitness Club": 4,
+    "Challenger Fitness": 4,
+    "Fort Fitness": 2,
+    "Cynergi": 1,
+    "ActiveZone": 1,
+    "Kinetika Gozo": 2
+  },
+  "classification": {
+    "chain_class_a": 18,
+    "small_market_independent": 6
+  },
+  "coming_soon": {
+    "coming_soon_production_leakage": [],
+    "bgm_birgu_in_production": 0
+  },
+  "excluded": {
+    "excluded_production_leakage": [],
+    "fitness_cafe_active_identities": 0
+  },
+  "closed": {
+    "closed_production_leakage": []
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "malta_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0
+  },
+  "cross_border": {
+    "italy_outliers": 0,
+    "sicily_outliers": 0,
+    "other_foreign_outliers": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "delta": {
+    "insertions": 6,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11929,
+    "malta_before": 18,
+    "malta_after": 24,
+    "mt_prefix_before": 18,
+    "mt_prefix_after": 24
+  },
+  "projected_catalog_after_reconciliation": 11929,
+  "remaining_headroom": 571,
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "global_stress_qa_run": false,
+  "prior_country_counts": {
+    "Lithuania": 61,
+    "Latvia": 33,
+    "Estonia": 69,
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "phase2_verdict": "READY FOR MALTA PRODUCTION RECONCILIATION",
+  "verdict": "MALTA RECONCILIATION COMPLETE — WAITING FOR QA"
+}

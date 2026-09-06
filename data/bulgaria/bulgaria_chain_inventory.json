@@ -1,0 +1,159 @@
+{
+  "phase": "3",
+  "chains": {
+    "Next Level Fitness": {
+      "official_current_estimate": 29,
+      "discovered": 29,
+      "READY": 29,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "29/29",
+      "verdict": "COMPLETE"
+    },
+    "Pulse Fitness": {
+      "official_current_estimate": 21,
+      "discovered": 26,
+      "READY": 19,
+      "unresolved": 0,
+      "EXCLUDED": 5,
+      "COMING_SOON": 2,
+      "coverage": "19/19 open (2 coming_soon, 5 excluded)",
+      "verdict": "COMPLETE"
+    },
+    "Athletic Fitness": {
+      "official_current_estimate": 10,
+      "discovered": 10,
+      "READY": 9,
+      "unresolved": 1,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "9/10",
+      "verdict": "NEAR_COMPLETE"
+    },
+    "Flais Fitness": {
+      "official_current_estimate": 14,
+      "discovered": 14,
+      "READY": 14,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "14/14",
+      "verdict": "COMPLETE"
+    },
+    "Titanium Fitness": {
+      "official_current_estimate": 6,
+      "discovered": 6,
+      "READY": 6,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "6/6",
+      "verdict": "COMPLETE"
+    },
+    "Hammer Gym": {
+      "official_current_estimate": 5,
+      "discovered": 5,
+      "READY": 5,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "5/5",
+      "verdict": "COMPLETE"
+    }
+  },
+  "regional_coverage": {
+    "Sofia": {
+      "ready": 65,
+      "staged_non_excluded": 68,
+      "gap_classification": "covered"
+    },
+    "Plovdiv": {
+      "ready": 6,
+      "staged_non_excluded": 6,
+      "gap_classification": "covered"
+    },
+    "Varna": {
+      "ready": 2,
+      "staged_non_excluded": 2,
+      "gap_classification": "covered"
+    },
+    "Burgas": {
+      "ready": 4,
+      "staged_non_excluded": 4,
+      "gap_classification": "covered"
+    },
+    "Stara Zagora": {
+      "ready": 2,
+      "staged_non_excluded": 2,
+      "gap_classification": "covered"
+    },
+    "Pernik": {
+      "ready": 1,
+      "staged_non_excluded": 1,
+      "gap_classification": "covered"
+    },
+    "Sveti Vlas": {
+      "ready": 1,
+      "staged_non_excluded": 1,
+      "gap_classification": "covered"
+    },
+    "Ruse": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Pleven": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Sliven": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Dobrich": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Shumen": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Haskovo": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Yambol": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Veliko Tarnovo": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Blagoevgrad": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    }
+  },
+  "staged_unique": 105,
+  "ready": 82,
+  "international_recheck": {
+    "Fitness First": "no_verified_BG_estate",
+    "Anytime Fitness": "no_verified_BG_estate",
+    "clever fit": "no_verified_BG_estate",
+    "FITINN": "no_verified_BG_estate",
+    "McFIT": "no_verified_BG_estate",
+    "JOHN REED": "no_verified_BG_estate",
+    "Gold's Gym": "no_verified_BG_estate",
+    "World Class": "no_verified_BG_estate"
+  }
+}

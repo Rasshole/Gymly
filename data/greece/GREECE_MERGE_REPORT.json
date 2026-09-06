@@ -1,0 +1,326 @@
+{
+  "generated": "2026-08-22T21:58:15.865Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "pre_merge_sha256": "5d3d11602d6b882599eb74933a2cfd248baefb816bfc8dfbacba8ee151d19703",
+  "baseline": {
+    "total": 10772,
+    "greece": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247
+  },
+  "approved_candidates": 106,
+  "validated_safe": 106,
+  "inserted": 106,
+  "withheld": 0,
+  "withheld_details": [],
+  "after": {
+    "total": 10878,
+    "greece": 106,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247
+  },
+  "duplicate_ids": [],
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "foreign_coords": 0,
+    "cyprus": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "yava_legacy": 0,
+    "holmes_foreign": 0
+  },
+  "brand_breakdown_canonical": {
+    "Yava": 22,
+    "Holmes Place": 3,
+    "Planet Fitness Greece": 5,
+    "Mega Gym": 4,
+    "Alterlife": 72
+  },
+  "brand_breakdown_production": {
+    "Alterlife": 72,
+    "Holmes Place": 3,
+    "Mega Gym": 4,
+    "Planet Fitness Greece": 5,
+    "Yava": 22
+  },
+  "yava_validation": {
+    "current_estate_expected": 22,
+    "merged": 22,
+    "legacy_rows_merged": 0,
+    "all_content_urls": true,
+    "result": "PASS"
+  },
+  "holmes_validation": {
+    "expected": 3,
+    "merged": 3,
+    "clubs": [
+      {
+        "id": "gr_98fb2e4f0e",
+        "name": "Holmes Place Athens",
+        "city": "Athens"
+      },
+      {
+        "id": "gr_29853f4256",
+        "name": "Holmes Place Glyfada",
+        "city": "Glyfada"
+      },
+      {
+        "id": "gr_c6a1f4ad64",
+        "name": "Holmes Place Maroussi",
+        "city": "Maroussi"
+      }
+    ],
+    "result": "PASS"
+  },
+  "alterlife_dense_pair": {
+    "a_id": "gr_f92effe0b0",
+    "a_name": "Alterlife ΓΑΛΑΤΣΙ – ΒΕΪΚΟΥ",
+    "a_address": "Λ. Βεΐκου 117-119, Γαλάτσι 11146",
+    "a_postal": "111 46",
+    "b_id": "gr_0fc7dfed4c",
+    "b_name": "Alterlife ΓΑΛΑΤΣΙ – Λ. ΓΑΛΑΤΣΙΟΥ",
+    "b_address": "Λεωφόρο Γαλατσίου 33 και Μαρκορά , Γαλάτσι 11141",
+    "b_postal": "111 41",
+    "brand": "Alterlife",
+    "distance_m": 14,
+    "same_address": false,
+    "classification": "A",
+    "action": "retain_both",
+    "evidence": "Separate Alterlife club pages (galatsi-veikou vs galatsi-galatsiou-ave); different street addresses and postcodes (111 46 vs 111 41)"
+  },
+  "pre_merge_validation": {
+    "candidate_count": 106,
+    "gr_prefix": true,
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "cyprus_contamination": 0,
+    "mojibake": 0,
+    "rebrand_conflicts": 0,
+    "staging_exclusions": 0,
+    "result": "PASS_ALL"
+  },
+  "post_merge": {
+    "greece_rows": 106,
+    "gr_prefix": true,
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 1,
+    "same_brand_lte_50m": 1,
+    "same_brand_lte_100m": 1,
+    "same_brand_lte_200m": 1,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  },
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    }
+  },
+  "staging": {
+    "MERGED_INTO_CATALOG": 106,
+    "NEEDS_COORDINATES": 15,
+    "NEEDS_REVIEW": 3,
+    "COMING_SOON": 0,
+    "CLOSED": 0,
+    "DUPLICATE": 1,
+    "DUPLICATE_LEGACY": 1
+  },
+  "rebrand_map": {
+    "generated_at": "2026-08-22T21:46:35.884817+00:00",
+    "rebrands": [
+      {
+        "legacy": "YAVA sitemap/query-param locations returning 404",
+        "successor": "Current YAVA /content/* menu estate",
+        "sites_affected": "legacy_404_slugs",
+        "notes": "Sitemap and form gym= params include closed/legacy clubs; live menu + HTTP 200 content pages define current estate"
+      }
+    ],
+    "excluded_brands": [
+      {
+        "brand": "Fitness House",
+        "reason": "equipment retailer, not gym chain"
+      },
+      {
+        "brand": "Athlesis",
+        "reason": "appears single-studio; below multi-site threshold"
+      },
+      {
+        "brand": "Curves Greece",
+        "reason": "women-only 30-min circuit; locator incomplete in Phase 2; deferred"
+      },
+      {
+        "brand": "Top Fitness",
+        "reason": "Thessaloniki regional; estate not fully extracted; Phase 3"
+      },
+      {
+        "brand": "Golden Gym",
+        "reason": "few confirmed pages; Phase 3 expansion"
+      }
+    ],
+    "phase1_ready_dropped": [
+      {
+        "id": "gr_c266f21daf",
+        "name": "Holmes Place Glyfada",
+        "superseded": false
+      },
+      {
+        "id": "gr_2e9ac7eaa7",
+        "name": "Holmes Place Athens",
+        "superseded": false
+      }
+    ],
+    "phase1_ready_preserved_count": 66
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous_production": 10772,
+    "new_production": 10878,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "GREECE MERGE COMPLETE — WAITING FOR QA",
+  "post_merge_sha256": "cda6b1040d4031953fa63c0bc868214fb502826277aa19e0a37e9009fef08220",
+  "staging_reconciliation": {
+    "production_gr_ids": 106,
+    "staging_merged_ids": 106,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "performance": {
+    "catalog": 10878,
+    "active": 10873,
+    "json_size_mb": 3.21,
+    "parse_ms": 14.1,
+    "cold_index_ms": 0.9,
+    "cached_index_ms": 0,
+    "typical_search_ms": 2.6,
+    "worst_search_ms": 0.2,
+    "nearest_ms": 2.1,
+    "map_build_ms": 0.9,
+    "viewport_filter_ms": 0.4,
+    "assessment": "GOOD"
+  }
+}

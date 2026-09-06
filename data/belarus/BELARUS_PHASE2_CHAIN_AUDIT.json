@@ -1,0 +1,67 @@
+{
+  "Adrenalin": {
+    "new_ready": 29,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 0,
+    "official_current_active": 29,
+    "final_active_approved": 29,
+    "final_estate_accounted": 29,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "Lifestyle": {
+    "new_ready": 3,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 0,
+    "official_current_active": 3,
+    "final_active_approved": 3,
+    "final_estate_accounted": 3,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "Fox Club": {
+    "new_ready": 5,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 0,
+    "official_current_active": 5,
+    "final_active_approved": 5,
+    "final_estate_accounted": 5,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "Olympic": {
+    "new_ready": 4,
+    "coming_soon": 1,
+    "closed": 0,
+    "excluded": 0,
+    "official_current_active": 4,
+    "final_active_approved": 4,
+    "final_estate_accounted": 5,
+    "class_a": true,
+    "estate_complete": true,
+    "estate_gaps": 0
+  },
+  "independents": {
+    "count": 4,
+    "small_market_independent": 5
+  },
+  "summary": {
+    "final_class_a_chain_count": 4,
+    "final_class_a_chain_names": [
+      "Adrenalin",
+      "Lifestyle",
+      "Fox Club",
+      "Olympic"
+    ],
+    "final_class_a_new_ready_count": 41,
+    "chain_estate_gaps": 0,
+    "independent_new_ready_count": 4,
+    "missed_class_a_chains_found": 0
+  }
+}

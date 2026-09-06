@@ -310,14 +310,11 @@ const LoginScreen = () => {
           </Animated.View>
 
           <Animated.Text style={[styles.legal, {opacity: fadeIn}]}>
-            Ved at logge ind accepterer du Gymlys{' '}
-            <Text style={styles.legalLink} onPress={() => navigation.navigate('Terms')}>
-              servicevilkår
-            </Text>{' '}
-            og{' '}
-            <Text style={styles.legalLink} onPress={() => navigation.navigate('PrivacyPolicy')}>
-              privatlivspolitik
-            </Text>
+            {t('phase2ui.loginLegalPrefix')}{' '}
+            <Text style={styles.legalLink} onPress={() => navigation.navigate('Terms')}>{t('register.consentTerms')}</Text>
+            {' '}
+            {t('phase2ui.loginLegalAnd')}{' '}
+            <Text style={styles.legalLink} onPress={() => navigation.navigate('PrivacyPolicy')}>{t('register.consentPrivacy')}</Text>
             .
           </Animated.Text>
         </ScrollView>

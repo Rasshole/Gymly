@@ -6,6 +6,7 @@
 import {create} from 'zustand';
 import {GymActivity, GymCheckIn, GymRating, GymStats, GymHours, GymStatus} from '@/types/gym.types';
 import danishGyms from '@/data/danishGyms';
+import gymHoursData from '@/data/gymHours.json';
 import {onCheckIn as onLeaderboardCheckIn} from '@/services/leaderboard/leaderboardStatsUpdater';
 
 interface GymState {
@@ -31,7 +32,7 @@ const mockActivities: GymActivity[] = [];
 const mockCheckIns: GymCheckIn[] = [];
 const mockRatings: GymRating[] = [];
 
-const mockHours: GymHours[] = [];
+const mockHours: GymHours[] = gymHoursData as GymHours[];
 
 // Helper function to get default hours based on brand
 const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
@@ -53,6 +54,13 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   
   // PureGym is typically 24/7
   if (brandLower.includes('puregym') || brandLower.includes('pure gym')) {
+    return {
+      gymId: '',
+      isOpen24Hours: true,
+    };
+  }
+
+  if (brandLower.includes('fitness24seven') || brandLower.includes('fitness 24')) {
     return {
       gymId: '',
       isOpen24Hours: true,
@@ -187,8 +195,11 @@ const checkGymStatus = (hours: GymHours | undefined, brand?: string): GymStatus 
     return {isOpen: false};
   }
 
-  const openTime = parseInt(todayHours.open.replace(':', ''));
-  const closeTime = parseInt(todayHours.close.replace(':', ''));
+  const openTime = parseInt(todayHours.open.replace(':', ''), 10);
+  let closeTime = parseInt(todayHours.close.replace(':', ''), 10);
+  if (closeTime <= openTime && todayHours.close.startsWith('24')) {
+    closeTime = 2400;
+  }
 
   const isOpen = currentTime >= openTime && currentTime < closeTime;
 

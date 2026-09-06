@@ -1,6 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type {AppLanguage} from './types';
-import {LANGUAGE_STORAGE_KEY, SUPPORTED_LANGUAGES} from './types';
+import {
+  LANGUAGE_STORAGE_KEY,
+  SUPPORTED_LANGUAGES,
+  coerceToSelectableLanguage,
+} from './types';
 
 export async function loadStoredLanguage(): Promise<AppLanguage | null> {
   try {
@@ -14,6 +18,10 @@ export async function loadStoredLanguage(): Promise<AppLanguage | null> {
   return null;
 }
 
+/** Persist only selectable (ready) languages so partial packs are not sticky in the picker. */
 export async function persistLanguage(lang: AppLanguage): Promise<void> {
-  await AsyncStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+  await AsyncStorage.setItem(
+    LANGUAGE_STORAGE_KEY,
+    coerceToSelectableLanguage(lang),
+  );
 }

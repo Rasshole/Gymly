@@ -52,6 +52,7 @@ function RecipientChip({
   avatarUrl?: string | null;
   onRemove: () => void;
 }) {
+  const {t} = useTranslation();
   const gradId = useId().replace(/:/g, '');
   const initial = label.trim().charAt(0).toUpperCase() || '?';
   const [size, setSize] = useState({w: 1, h: 40});
@@ -98,7 +99,7 @@ function RecipientChip({
             onPress={onRemove}
             hitSlop={8}
             style={chipStyles.removeHit}
-            accessibilityLabel="Fjern modtager">
+            accessibilityLabel={t('a11y.removeRecipient')}>
             <View style={chipStyles.removeCircle}>
               <Icon name="close" size={14} color={colors.white} />
             </View>
@@ -463,7 +464,7 @@ const NewMessageScreen = ({navigation}: any) => {
           onPress={() => navigation.goBack()}
           style={styles.backButton}
           hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
-          accessibilityLabel="Tilbage">
+          accessibilityLabel={t('common.back')}>
           <Icon name="chevron-back" size={26} color={colors.text} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{t('newMessage.title')}</Text>
@@ -649,7 +650,7 @@ const NewMessageScreen = ({navigation}: any) => {
                   canSend ? styles.sendButtonEnabled : styles.sendButtonDisabled,
                 ]}
                 activeOpacity={0.85}
-                accessibilityLabel="Send besked">
+                accessibilityLabel={t('a11y.sendMessage')}>
                 <Icon
                   name="paper-plane"
                   size={18}

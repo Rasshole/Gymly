@@ -1,0 +1,500 @@
+{
+  "centers": [
+    {
+      "brand": "SKY Fitness",
+      "center_name": "alstad",
+      "name": "SKY Fitness Alstad",
+      "source_url": "https://skyfitness.no/sentere/alstad/",
+      "parsed": {
+        "address": "Trålveien 50",
+        "postal_code": "8013",
+        "city": "Bodø"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "asane",
+      "name": "SKY Fitness Asane",
+      "source_url": "https://skyfitness.no/sentere/asane/",
+      "parsed": {
+        "address": "Liavegen 1",
+        "postal_code": "5132",
+        "city": "Nyborg"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "bodo",
+      "name": "SKY Fitness Bodo",
+      "source_url": "https://skyfitness.no/sentere/bodo/",
+      "parsed": {
+        "address": "Storgata 13-15",
+        "postal_code": "8006",
+        "city": "Bodø"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "bomlo",
+      "name": "SKY Fitness Bomlo",
+      "source_url": "https://skyfitness.no/sentere/bomlo/",
+      "parsed": {
+        "address": "Hollundsdalen 2",
+        "postal_code": "5430",
+        "city": "Bremnes"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "byfjordparken",
+      "name": "SKY Fitness Byfjordparken",
+      "source_url": "https://skyfitness.no/sentere/byfjordparken/",
+      "parsed": {
+        "address": "Byfjordparken 13",
+        "postal_code": "4007",
+        "city": "Stavanger&nbsp;"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "dikeveien",
+      "name": "SKY Fitness Dikeveien",
+      "source_url": "https://skyfitness.no/sentere/dikeveien/",
+      "parsed": {
+        "address": "Dikeveien 48",
+        "postal_code": "1661",
+        "city": "Rolvsøy"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "drammen",
+      "name": "SKY Fitness Drammen",
+      "source_url": "https://skyfitness.no/sentere/drammen/",
+      "parsed": {
+        "address": "Betzy Kjelsbergs vei 263",
+        "postal_code": "3028",
+        "city": "Drammen"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "drotningsvik",
+      "name": "SKY Fitness Drotningsvik",
+      "source_url": "https://skyfitness.no/sentere/drotningsvik/",
+      "parsed": {
+        "address": "Drotningsvikveien 132",
+        "postal_code": "5179",
+        "city": "Godvik"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "fauske",
+      "name": "SKY Fitness Fauske",
+      "source_url": "https://skyfitness.no/sentere/fauske/",
+      "parsed": {
+        "address": "Sjøgata 65",
+        "postal_code": "8200",
+        "city": "Fauske"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "flatasen",
+      "name": "SKY Fitness Flatasen",
+      "source_url": "https://skyfitness.no/sentere/flatasen/",
+      "parsed": {
+        "address": "Øvre Flatåsveg 4D",
+        "postal_code": "7079",
+        "city": "Flatåsen"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "fredrikstad-sentrum",
+      "name": "SKY Fitness Fredrikstad Sentrum",
+      "source_url": "https://skyfitness.no/sentere/fredrikstad-sentrum/",
+      "parsed": {
+        "address": "Bryggeriveien 2-4",
+        "postal_code": "1603",
+        "city": "Fredrikstad"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "fredrikstad",
+      "name": "SKY Fitness Fredrikstad",
+      "source_url": "https://skyfitness.no/sentere/fredrikstad/",
+      "parsed": {
+        "address": "Stadion 3",
+        "postal_code": "1671",
+        "city": "Fredrikstad"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "fyllingsdalen",
+      "name": "SKY Fitness Fyllingsdalen",
+      "source_url": "https://skyfitness.no/sentere/fyllingsdalen/",
+      "parsed": {
+        "address": "Spelhaugen 6",
+        "postal_code": "5147",
+        "city": "Fyllingsdalen"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "geilo",
+      "name": "SKY Fitness Geilo",
+      "source_url": "https://skyfitness.no/sentere/geilo/",
+      "parsed": {
+        "address": "Geilovegen 30",
+        "postal_code": "3580",
+        "city": "Geilo"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "greaker",
+      "name": "SKY Fitness Greaker",
+      "source_url": "https://skyfitness.no/sentere/greaker/",
+      "parsed": {
+        "address": "Greåkerveien 145-147",
+        "postal_code": "1718",
+        "city": "Greåker"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "gressvik",
+      "name": "SKY Fitness Gressvik",
+      "source_url": "https://skyfitness.no/sentere/gressvik/",
+      "parsed": {
+        "address": "Mosseveien 109",
+        "postal_code": "1624",
+        "city": "Gressvik"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "grimstad",
+      "name": "SKY Fitness Grimstad",
+      "source_url": "https://skyfitness.no/sentere/grimstad/",
+      "parsed": {
+        "address": "Storgaten 35",
+        "postal_code": "4876",
+        "city": "Grimstad"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "halden",
+      "name": "SKY Fitness Halden",
+      "source_url": "https://skyfitness.no/sentere/halden/",
+      "parsed": {
+        "address": "Storgata 14",
+        "postal_code": "1776",
+        "city": "Halden (Holm Olsen-bygget)"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "husnes",
+      "name": "SKY Fitness Husnes",
+      "source_url": "https://skyfitness.no/sentere/husnes/",
+      "parsed": {
+        "address": "Onarheimsvegen 4",
+        "postal_code": "5460",
+        "city": "Husnes"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "ilaveien",
+      "name": "SKY Fitness Ilaveien",
+      "source_url": "https://skyfitness.no/sentere/ilaveien/",
+      "parsed": {
+        "address": "Ilaveien 28",
+        "postal_code": "1605",
+        "city": "Fredrikstad"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "kongsvinger",
+      "name": "SKY Fitness Kongsvinger",
+      "source_url": "https://skyfitness.no/sentere/kongsvinger/",
+      "parsed": {
+        "address": "Jernbanegata 6",
+        "postal_code": "2211",
+        "city": "Kongsvinger"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "kopervik",
+      "name": "SKY Fitness Kopervik",
+      "source_url": "https://skyfitness.no/sentere/kopervik/",
+      "parsed": {
+        "address": "Karmsundsgata 9",
+        "postal_code": "4250",
+        "city": "Kopervik"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "langhus",
+      "name": "SKY Fitness Langhus",
+      "source_url": "https://skyfitness.no/sentere/langhus/",
+      "parsed": {
+        "address": "Håndverksveien 2",
+        "postal_code": "1405",
+        "city": "Langhus"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "larvik",
+      "name": "SKY Fitness Larvik",
+      "source_url": "https://skyfitness.no/sentere/larvik/",
+      "parsed": {
+        "address": "Oskars gate 4",
+        "postal_code": "3256",
+        "city": "Larvik"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "lillesand",
+      "name": "SKY Fitness Lillesand",
+      "source_url": "https://skyfitness.no/sentere/lillesand/",
+      "parsed": {
+        "address": "Stykkene 2A",
+        "postal_code": "4790",
+        "city": "Lillesand"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "lisleby",
+      "name": "SKY Fitness Lisleby",
+      "source_url": "https://skyfitness.no/sentere/lisleby/",
+      "parsed": {
+        "address": "Lislebyveien 191",
+        "postal_code": "1604",
+        "city": "Fredrikstad"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "moss-jeloy",
+      "name": "SKY Fitness Moss Jeloy",
+      "source_url": "https://skyfitness.no/sentere/moss-jeloy/",
+      "parsed": {
+        "address": "Helgerødgata 11",
+        "postal_code": "1511",
+        "city": "Moss"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "moss-sentrum",
+      "name": "SKY Fitness Moss Sentrum",
+      "source_url": "https://skyfitness.no/sentere/moss-sentrum/",
+      "parsed": {
+        "address": "Kongens gate 38",
+        "postal_code": "1530",
+        "city": "Moss"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "rade",
+      "name": "SKY Fitness Rade",
+      "source_url": "https://skyfitness.no/sentere/rade/",
+      "parsed": {
+        "address": "Mosseveien 20",
+        "postal_code": "1640",
+        "city": "Råde"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "randaberg",
+      "name": "SKY Fitness Randaberg",
+      "source_url": "https://skyfitness.no/sentere/randaberg/",
+      "parsed": {
+        "address": "Torvmyrveien 26",
+        "postal_code": "4096",
+        "city": "Randaberg"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "rissa",
+      "name": "SKY Fitness Rissa",
+      "source_url": "https://skyfitness.no/sentere/rissa/",
+      "parsed": {
+        "address": "Leiraveien 4",
+        "postal_code": "7100",
+        "city": "Rissa"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "ronvika",
+      "name": "SKY Fitness Ronvika",
+      "source_url": "https://skyfitness.no/sentere/ronvika/",
+      "parsed": {
+        "address": "Nordstrandveien 63",
+        "postal_code": "8012",
+        "city": "Bodø"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "rygge",
+      "name": "SKY Fitness Rygge",
+      "source_url": "https://skyfitness.no/sentere/rygge/",
+      "parsed": {
+        "address": "Ryggeraet 49",
+        "postal_code": "1580",
+        "city": "Ryggebyen"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "sarpsborg-borgenhaugen",
+      "name": "SKY Fitness Sarpsborg Borgenhaugen",
+      "source_url": "https://skyfitness.no/sentere/sarpsborg-borgenhaugen/",
+      "parsed": {
+        "address": "Skjebergveien 5",
+        "postal_code": "1738",
+        "city": "Borgenhaugen"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "sarpsborg-gralum",
+      "name": "SKY Fitness Sarpsborg Gralum",
+      "source_url": "https://skyfitness.no/sentere/sarpsborg-gralum/",
+      "parsed": {
+        "address": "Gamle Kongevei 21",
+        "postal_code": "1712",
+        "city": "Grålum"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "sarpsborg",
+      "name": "SKY Fitness Sarpsborg",
+      "source_url": "https://skyfitness.no/sentere/sarpsborg/",
+      "parsed": {
+        "address": "Pellygata 42",
+        "postal_code": "1706",
+        "city": "Sarpsborg"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "ski-sentrum",
+      "name": "SKY Fitness Ski Sentrum",
+      "source_url": "https://skyfitness.no/sentere/ski-sentrum/",
+      "parsed": {
+        "address": "Torgveien 2",
+        "postal_code": "1400",
+        "city": "Ski"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "ski",
+      "name": "SKY Fitness Ski",
+      "source_url": "https://skyfitness.no/sentere/ski/",
+      "parsed": {
+        "address": "Grenseveien 10",
+        "postal_code": "1406",
+        "city": "Ski"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "stord",
+      "name": "SKY Fitness Stord",
+      "source_url": "https://skyfitness.no/sentere/stord/",
+      "parsed": {
+        "address": "Osen 2",
+        "postal_code": "5411",
+        "city": "Stord"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "tinnheia",
+      "name": "SKY Fitness Tinnheia",
+      "source_url": "https://skyfitness.no/sentere/tinnheia/",
+      "parsed": {
+        "address": "Tinnheiveien 16",
+        "postal_code": "4629",
+        "city": "Kristiansand"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "tjolling",
+      "name": "SKY Fitness Tjolling",
+      "source_url": "https://skyfitness.no/sentere/tjolling/",
+      "parsed": {
+        "address": "Tjøllingveien 620",
+        "postal_code": "3280",
+        "city": "Tjodalyng"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "torp",
+      "name": "SKY Fitness Torp",
+      "source_url": "https://skyfitness.no/sentere/torp/",
+      "parsed": {
+        "address": "Torpegata 8A",
+        "postal_code": "1658",
+        "city": "Torp"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "trondheim-fossegrenda",
+      "name": "SKY Fitness Trondheim Fossegrenda",
+      "source_url": "https://skyfitness.no/sentere/trondheim-fossegrenda/",
+      "parsed": {
+        "address": "Fossegrenda 44",
+        "postal_code": "7038",
+        "city": "Trondheim"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "ulefoss",
+      "name": "SKY Fitness Ulefoss",
+      "source_url": "https://skyfitness.no/sentere/ulefoss/",
+      "parsed": {
+        "address": "Stårrvegen 14",
+        "postal_code": "3830",
+        "city": "Ulefoss"
+      }
+    },
+    {
+      "brand": "SKY Fitness",
+      "center_name": "voss",
+      "name": "SKY Fitness Voss",
+      "source_url": "https://skyfitness.no/sentere/voss/",
+      "parsed": {
+        "address": "Uttrågata 33",
+        "postal_code": "5700",
+        "city": "Voss"
+      }
+    }
+  ],
+  "coming_notes": []
+}

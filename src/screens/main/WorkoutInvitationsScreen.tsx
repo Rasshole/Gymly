@@ -17,28 +17,18 @@ import EmptyState from '@/components/ui/EmptyState';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {format} from 'date-fns';
-import {da} from 'date-fns/locale';
 import colors from '@/theme/colors';
-
-const MUSCLE_GROUP_LABELS: Record<string, string> = {
-  bryst: 'Bryst',
-  triceps: 'Triceps',
-  skulder: 'Skulder',
-  ben: 'Ben',
-  biceps: 'Biceps',
-  mave: 'Mave',
-  ryg: 'Ryg',
-  cardio: 'Cardio',
-};
+import {useTranslation, useMuscleLabel} from '@/i18n';
 
 const WorkoutInvitationsScreen = () => {
   const {user} = useAppStore();
   const {
-    invitations,
     getPendingInvitations,
     acceptInvitation,
     declineInvitation,
   } = useWorkoutInvitationStore();
+  const {t, dateFnsLocale} = useTranslation();
+  const muscleLabel = useMuscleLabel();
 
   const pendingInvitations = user
     ? getPendingInvitations(user.id)
@@ -46,20 +36,20 @@ const WorkoutInvitationsScreen = () => {
 
   const handleAccept = (invitationId: string) => {
     Alert.alert(
-      'Accepter invitation',
-      'Vil du acceptere denne træningsinvitation?',
+      t('workoutInvitations.acceptTitle'),
+      t('workoutInvitations.acceptBody'),
       [
         {
-          text: 'Annuller',
+          text: t('common.cancel'),
           style: 'cancel',
         },
         {
-          text: 'Accepter',
+          text: t('workoutInvitations.acceptConfirm'),
           onPress: () => {
             acceptInvitation(invitationId);
             Alert.alert(
-              'Invitation accepteret',
-              'I har nu oprettet en gruppe træning sammen!'
+              t('workoutInvitations.acceptedTitle'),
+              t('workoutInvitations.acceptedBody'),
             );
           },
         },
@@ -69,15 +59,15 @@ const WorkoutInvitationsScreen = () => {
 
   const handleDecline = (invitationId: string) => {
     Alert.alert(
-      'Afvis invitation',
-      'Er du sikker på, at du vil afvise denne invitation?',
+      t('workoutInvitations.declineTitle'),
+      t('workoutInvitations.declineBody'),
       [
         {
-          text: 'Annuller',
+          text: t('common.cancel'),
           style: 'cancel',
         },
         {
-          text: 'Afvis',
+          text: t('workoutInvitations.declineConfirm'),
           style: 'destructive',
           onPress: () => {
             declineInvitation(invitationId);
@@ -88,14 +78,16 @@ const WorkoutInvitationsScreen = () => {
   };
 
   const formatDateTime = (date: Date) => {
-    return format(date, "EEEE d. MMMM 'kl.' HH:mm", {locale: da});
+    const dayPart = format(date, 'EEEE d. MMMM', {locale: dateFnsLocale});
+    const timePart = format(date, 'HH:mm', {locale: dateFnsLocale});
+    return `${dayPart} ${t('workoutInvitations.atTime', {time: timePart})}`;
   };
 
   const renderEmptyState = () => (
     <EmptyState
       icon="mail-outline"
-      title="Ingen invitationer"
-      message="Du har ingen ventende træningsinvitationer"
+      title={t('workoutInvitations.emptyTitle')}
+      message={t('workoutInvitations.emptyBody')}
     />
   );
 
@@ -110,7 +102,9 @@ const WorkoutInvitationsScreen = () => {
           </View>
           <View>
             <Text style={styles.inviterName}>{item.fromUserName}</Text>
-            <Text style={styles.invitationLabel}>har inviteret dig til træning</Text>
+            <Text style={styles.invitationLabel}>
+              {t('workoutInvitations.invitedYou')}
+            </Text>
           </View>
         </View>
       </View>
@@ -129,7 +123,7 @@ const WorkoutInvitationsScreen = () => {
             {item.muscleGroups.map((group: string, index: number) => (
               <View key={index} style={styles.muscleGroupTag}>
                 <Text style={styles.muscleGroupTagText}>
-                  {MUSCLE_GROUP_LABELS[group] || group}
+                  {muscleLabel(group)}
                 </Text>
               </View>
             ))}
@@ -142,13 +136,17 @@ const WorkoutInvitationsScreen = () => {
           style={styles.declineButton}
           onPress={() => handleDecline(item.id)}
           activeOpacity={0.7}>
-          <Text style={styles.declineButtonText}>Afvis</Text>
+          <Text style={styles.declineButtonText}>
+            {t('workoutInvitations.declineConfirm')}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.acceptButton}
           onPress={() => handleAccept(item.id)}
           activeOpacity={0.7}>
-          <Text style={styles.acceptButtonText}>Accepter</Text>
+          <Text style={styles.acceptButtonText}>
+            {t('workoutInvitations.acceptConfirm')}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -289,4 +287,3 @@ const styles = StyleSheet.create({
 });
 
 export default WorkoutInvitationsScreen;
-

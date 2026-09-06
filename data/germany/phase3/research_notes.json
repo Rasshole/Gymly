@@ -1,0 +1,15 @@
+{
+  "fitnessloft": {
+    "current_brand": "Fitness First",
+    "include_as_fitnessloft": false,
+    "reason": "fitnessloft.de redirects to fitnessfirst.de. LifeFit Group acquired FitnessLOFT (2023) and rebranded locations to Fitness First from 1 Oct 2023 (also smile X / In Shape). Stage under current brand Fitness First only."
+  },
+  "wellyou": {
+    "include_attempted": true,
+    "official_count_est": 41,
+    "extraction": "INCOMPLETE",
+    "reason": "wellyou.de currently redirects to wellyou-shop.de (no studio directory). Basic-Fit completed acquisition of wellyou (41 clubs) on 2026-08-12 and intends to rebrand to Basic-Fit in coming months. Locations still operate as wellyou until rebrand; official locator was not extractable this pass."
+  },
+  "basic_fit_vs_clever_fit": "Basic-Fit acquired clever fit (franchise) in Nov 2025 but clever fit remains the current operating brand at those locations. Own-brand Basic-Fit clubs are staged separately. Do not collapse the two brands.",
+  "elements_com_confusion": "https://www.elements.com/de/ redirected to a detox microsite. Fitness brand is ELEMENTS Fitness & Wellness at https://www.elements.com/studios/ (7 clubs)."
+}

@@ -1,0 +1,37 @@
+{
+  "country": "Lithuania",
+  "phase": 1,
+  "maps": [
+    {
+      "legacy_brand": "VS Fitness",
+      "current_brand": "Gym+",
+      "classification": "A_current_successor",
+      "evidence": "My Fitness AS / Gym+ acquired VS Fitness Apr 2024"
+    },
+    {
+      "legacy_brand": "People Fitness",
+      "current_brand": "Gym+",
+      "classification": "A_current_successor",
+      "evidence": "Saltoniškių g. 9 on Gym+ directory"
+    },
+    {
+      "legacy_brand": "Gym+",
+      "current_brand": "Gym!",
+      "classification": "B_distinct_national_estate",
+      "evidence": "Gym+ Lithuania ≠ Gym! Latvia/Estonia — punctuation/materially different brand"
+    },
+    {
+      "legacy_brand": "Lemon Gym",
+      "current_brand": "Impuls",
+      "classification": "B_distinct_current_clubs",
+      "evidence": "Same ownership group; distinct consumer brands and estates"
+    },
+    {
+      "legacy_brand": "MyFitness AS",
+      "current_brand": "Gym+",
+      "classification": "C_name_confusion",
+      "evidence": "Parent company; LT consumer brand is Gym+"
+    }
+  ],
+  "unresolved_conflicts": 0
+}

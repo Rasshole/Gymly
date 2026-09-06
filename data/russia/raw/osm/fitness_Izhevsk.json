@@ -1,0 +1,800 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:49:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1436225337,
+      "lat": 56.828609,
+      "lon": 53.1296724,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Три кита"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4032635702,
+      "lat": 56.8205649,
+      "lon": 53.1735866,
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "3",
+        "addr:street": "Заводская улица",
+        "leisure": "fitness_centre",
+        "name": "Афины",
+        "sport": "multi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4301821790,
+      "lat": 56.8664081,
+      "lon": 53.2892221,
+      "tags": {
+        "addr:housenumber": "74А/1",
+        "addr:street": "улица Татьяны Барамзиной",
+        "email": "marketing@platformasport.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Платформа",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "phone": "+7 (3412) 600-601",
+        "website": "https://platformasport.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4391730998,
+      "lat": 56.8367534,
+      "lon": 53.2174223,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Платформа",
+        "name:ru": "Платформа",
+        "opening_hours": "Mo-Su 06:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5361250704,
+      "lat": 56.856984,
+      "lon": 53.198171,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Детский хоккейный центр Заря"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7846226985,
+      "lat": 56.8718105,
+      "lon": 53.297735,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Актив"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8504657241,
+      "lat": 56.878303,
+      "lon": 53.2561027,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Платформа"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377388,
+      "lat": 56.872808,
+      "lon": 53.214587,
+      "tags": {
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 341 2260466;+7 800 5050606",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-10-let-oktyabrya.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "Веселов Д.В."
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377390,
+      "lat": 56.832943,
+      "lon": 53.124226,
+      "tags": {
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 341 2260466;+7 800 5050606",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-izhevsk-matrica.html/",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 08:00-22:00",
+        "operator": "ИП Веселов Д.В."
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377393,
+      "lat": 56.8539337,
+      "lon": 53.2937604,
+      "tags": {
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 341 2260466;+7 800 5050606",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-izhevsk-molodezhnaya.html/",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 08:00-22:00",
+        "operator": "ИП Шкуратова С.А."
+      }
+    },
+    {
+      "type": "node",
+      "id": 10735603470,
+      "lat": 56.851717,
+      "lon": 53.2063859,
+      "tags": {
+        "addr:floor": "3",
+        "check_date": "2023-03-14",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Just fitness",
+        "opening_hours": "Mo-Fr 09:00-23:00; Sa-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458203,
+      "lat": 56.8315764,
+      "lon": 53.1500632,
+      "tags": {
+        "contact:phone": "+7 982 8230707;+7 987 2270505",
+        "contact:website": "https://ladystretch.com/izhevsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458204,
+      "lat": 56.841731,
+      "lon": 53.207595,
+      "tags": {
+        "contact:phone": "+7 982 1190707;+7 987 2270505",
+        "contact:website": "http://lady-stretch.online/izhevsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873851640,
+      "lat": 56.8785448,
+      "lon": 53.2552815,
+      "tags": {
+        "contact:phone": "+7 341 2325515",
+        "contact:website": "https://www.брайтфит.рф",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12600176084,
+      "lat": 56.8105165,
+      "lon": 53.1917852,
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "2Г",
+        "addr:street": "улица Гагарина",
+        "leisure": "fitness_centre",
+        "name": "Локомотив"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12600775983,
+      "lat": 56.8622647,
+      "lon": 53.1983701,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Спортивный зал ИМТ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12600775989,
+      "lat": 56.8595308,
+      "lon": 53.1907875,
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "19",
+        "addr:street": "улица 50 лет Пионерии",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12603382912,
+      "lat": 56.8690126,
+      "lon": 53.1905656,
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "44",
+        "addr:street": "Нижняя улица",
+        "leisure": "fitness_centre",
+        "name": "ФОК Спортивный квартал",
+        "sport": "swimming"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12988059091,
+      "lat": 56.8631334,
+      "lon": 53.2192867,
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "146",
+        "addr:postcode": "426008",
+        "addr:street": "улица Кирова",
+        "leisure": "fitness_centre",
+        "name": "DDX",
+        "opening_hours": "Mo-Su 06:00-00:00",
+        "phone": "+73412650878",
+        "sport": "fitness;yoga",
+        "website": "https://www.ddxfitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13288328233,
+      "lat": 56.8503456,
+      "lon": 53.2331627,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Hub Fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13298705228,
+      "lat": 56.8712177,
+      "lon": 53.2298226,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Омега-Фитнесс"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13414179039,
+      "lat": 56.8531088,
+      "lon": 53.2011784,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Flight",
+        "sport": "fitness;swimming"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13478933701,
+      "lat": 56.8645532,
+      "lon": 53.2101656,
+      "tags": {
+        "addr:housenumber": "270",
+        "addr:street": "Пушкинская улица",
+        "leisure": "fitness_centre",
+        "name": "4Friends"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13508424704,
+      "lat": 56.8328898,
+      "lon": 53.2335953,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Go Fit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13807574345,
+      "lat": 56.872499,
+      "lon": 53.2655958,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13807574346,
+      "lat": 56.872545,
+      "lon": 53.2655991,
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "gymnastics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13879037176,
+      "lat": 56.796426,
+      "lon": 53.1804969,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Namaste",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14081668051,
+      "lat": 56.839878,
+      "lon": 53.2400808,
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "way",
+      "id": 35309987,
+      "center": {
+        "lat": 56.8521342,
+        "lon": 53.2901741
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "42",
+        "addr:street": "Молодёжная улица",
+        "building": "yes",
+        "building:levels": "1",
+        "leisure": "fitness_centre",
+        "name": "Забияка 2",
+        "sport": "multi;boxing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 35309989,
+      "center": {
+        "lat": 56.8521427,
+        "lon": 53.2907081
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "42А",
+        "addr:street": "Молодёжная улица",
+        "building": "yes",
+        "building:levels": "1",
+        "leisure": "fitness_centre",
+        "name": "Забияка 1",
+        "sport": "boxing;multi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 39691116,
+      "center": {
+        "lat": 56.8767884,
+        "lon": 53.2943942
+      },
+      "tags": {
+        "addr:street": "улица Сабурова",
+        "building": "school",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "Спорт-школа \"Нефтяник\""
+      }
+    },
+    {
+      "type": "way",
+      "id": 49359018,
+      "center": {
+        "lat": 56.8718899,
+        "lon": 53.1718961
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Спортивный зал УдГАУ"
+      }
+    },
+    {
+      "type": "way",
+      "id": 49359063,
+      "center": {
+        "lat": 56.8711654,
+        "lon": 53.1796417
+      },
+      "tags": {
+        "addr:housenumber": "42",
+        "addr:street": "Студенческая улица",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Спортивный зал ИжГТУ",
+        "sport": "multi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 49853073,
+      "center": {
+        "lat": 56.841261,
+        "lon": 53.2305951
+      },
+      "tags": {
+        "addr:housenumber": "48",
+        "addr:street": "улица Владимира Краева",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Аванта-Инвест"
+      }
+    },
+    {
+      "type": "way",
+      "id": 56018673,
+      "center": {
+        "lat": 56.8516846,
+        "lon": 53.222594
+      },
+      "tags": {
+        "addr:housenumber": "1 к5",
+        "addr:street": "Университетская улица",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Дворец спорта УдГУ, 5 корпус",
+        "sport": "swimming"
+      }
+    },
+    {
+      "type": "way",
+      "id": 56019599,
+      "center": {
+        "lat": 56.851038,
+        "lon": 53.2017133
+      },
+      "tags": {
+        "addr:housenumber": "219В",
+        "addr:street": "улица Карла Маркса",
+        "building": "yes",
+        "building:levels": "3",
+        "check_date": "2022-06-12",
+        "leisure": "fitness_centre",
+        "name": "ФОК \"Аксион\"",
+        "sport": "multi;swimming"
+      }
+    },
+    {
+      "type": "way",
+      "id": 78554443,
+      "center": {
+        "lat": 56.8315755,
+        "lon": 53.1323374
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "58А",
+        "addr:street": "Клубная улица",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ФОК Пчёлка",
+        "opening_hours": "PH,Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 80117223,
+      "center": {
+        "lat": 56.8577279,
+        "lon": 53.1743002
+      },
+      "tags": {
+        "addr:housenumber": "3",
+        "addr:street": "Береговая улица",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Купол"
+      }
+    },
+    {
+      "type": "way",
+      "id": 83337985,
+      "center": {
+        "lat": 56.8508321,
+        "lon": 53.277084
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "101/1",
+        "addr:street": "улица Ленина",
+        "building": "yes",
+        "disused": "yes",
+        "leisure": "fitness_centre",
+        "name": "Клуб единоборств Эверест"
+      }
+    },
+    {
+      "type": "way",
+      "id": 157895181,
+      "center": {
+        "lat": 56.8406598,
+        "lon": 53.2375173
+      },
+      "tags": {
+        "addr:housenumber": "20",
+        "addr:street": "Восточная улица",
+        "building": "school",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "ДЮСШ Металлист"
+      }
+    },
+    {
+      "type": "way",
+      "id": 293284036,
+      "center": {
+        "lat": 56.8571452,
+        "lon": 53.2874676
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "15",
+        "addr:street": "проспект им. Конструктора Калашникова М.Т.",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Ледовый дворец \"Молодёжный\""
+      }
+    },
+    {
+      "type": "way",
+      "id": 301876876,
+      "center": {
+        "lat": 56.8315165,
+        "lon": 53.1222971
+      },
+      "tags": {
+        "addr:housenumber": "2",
+        "addr:street": "улица Олега Кошевого",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Arena Stars",
+        "sport": "tennis"
+      }
+    },
+    {
+      "type": "way",
+      "id": 389761405,
+      "center": {
+        "lat": 56.8463175,
+        "lon": 53.2733976
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "132 к2",
+        "addr:street": "улица Ленина",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ФОК Сосновый"
+      }
+    },
+    {
+      "type": "way",
+      "id": 390423001,
+      "center": {
+        "lat": 56.898732,
+        "lon": 53.3015545
+      },
+      "tags": {
+        "addr:city": "Хохряковское сельское поселение",
+        "addr:housenumber": "117",
+        "addr:street": "Воткинское шоссе",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ФОК \"СпортПаркСемья\"",
+        "sport": "multi;swimming"
+      }
+    },
+    {
+      "type": "way",
+      "id": 431532854,
+      "center": {
+        "lat": 56.8506203,
+        "lon": 53.2017096
+      },
+      "tags": {
+        "addr:housenumber": "219Б",
+        "addr:street": "улица Карла Маркса",
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 453561073,
+      "center": {
+        "lat": 56.8497132,
+        "lon": 53.2169291
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "281 к3",
+        "addr:street": "улица Коммунаров",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Спортивный зал ИГМУ"
+      }
+    },
+    {
+      "type": "way",
+      "id": 455516925,
+      "center": {
+        "lat": 56.8805981,
+        "lon": 53.2497359
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "231А",
+        "addr:street": "улица 9 Января",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "СК Торпедо"
+      }
+    },
+    {
+      "type": "way",
+      "id": 591657284,
+      "center": {
+        "lat": 56.8535436,
+        "lon": 53.204078
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "246",
+        "addr:street": "улица Карла Маркса",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Спарта"
+      }
+    },
+    {
+      "type": "way",
+      "id": 649195126,
+      "center": {
+        "lat": 56.8572642,
+        "lon": 53.2886546
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "13",
+        "addr:street": "проспект им. Конструктора Калашникова М.Т.",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "ФОК Созвездие"
+      }
+    },
+    {
+      "type": "way",
+      "id": 663588271,
+      "center": {
+        "lat": 56.8495899,
+        "lon": 53.2344821
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "54",
+        "addr:street": "Красногеройская улица",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Арена",
+        "sport": "multi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 744384703,
+      "center": {
+        "lat": 56.8347423,
+        "lon": 53.2610046
+      },
+      "tags": {
+        "addr:housenumber": "1Б",
+        "addr:street": "улица Орджоникидзе",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 785894388,
+      "center": {
+        "lat": 56.8395532,
+        "lon": 53.2513943
+      },
+      "tags": {
+        "addr:housenumber": "23Б",
+        "addr:street": "улица Орджоникидзе",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Чемпион",
+        "sport": "tennis"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1015341149,
+      "center": {
+        "lat": 56.8464805,
+        "lon": 53.2786362
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "29",
+        "addr:street": "улица Ухтомского",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Баскетдом"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1152248068,
+      "center": {
+        "lat": 56.8575429,
+        "lon": 53.2841373
+      },
+      "tags": {
+        "addr:city": "Ижевск",
+        "addr:housenumber": "88А",
+        "addr:street": "улица Труда",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "LONDON арена"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1152248069,
+      "center": {
+        "lat": 56.8575807,
+        "lon": 53.284607
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1307533973,
+      "center": {
+        "lat": 56.8576306,
+        "lon": 53.2896164
+      },
+      "tags": {
+        "addr:housenumber": "13/1",
+        "addr:street": "проспект им. Конструктора Калашникова М.Т.",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Дворец единоборств"
+      }
+    }
+  ]
+}

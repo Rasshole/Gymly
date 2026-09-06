@@ -1,0 +1,125 @@
+{
+  "date": "2026-08-21",
+  "chains": [
+    {
+      "brand": "Basic-Fit",
+      "estimate": "~243 BE clubs (official club-finder '243 gyms found')",
+      "source": "https://www.basic-fit.com/en-be/club-finder",
+      "decision": "INCLUDE",
+      "notes": "CRITICAL — en-be locale only; reject NL/FR/LU/ES/DE locales"
+    },
+    {
+      "brand": "JIMS",
+      "estimate": "~84 BE clubs (jims.be); ~6 LU on jims.lu — excluded",
+      "source": "https://www.jims.be/nl/clubs + Colruyt Group (84 BE + 6 LU, 31 Mar 2026)",
+      "decision": "INCLUDE",
+      "notes": "CRITICAL — LU bleed watch; NRG Fitness BE acquired by JIMS end-2024"
+    },
+    {
+      "brand": "Anytime Fitness",
+      "estimate": "~10 BE clubs on anytimefitness.be club_db (NL host bleed rejected)",
+      "source": "https://www.anytimefitness.be/club_db-sitemap.xml",
+      "decision": "INCLUDE",
+      "notes": "Filter .be host; 4-digit BE postcodes only"
+    },
+    {
+      "brand": "LAGO Club",
+      "estimate": "~8 boutique fitness clubs (distinct from LAGO swim parks)",
+      "source": "https://www.lagoclub.be/nl/clubs",
+      "decision": "INCLUDE",
+      "notes": "Fitness floors only via lagoclub.be — not pool-only lago.be complexes"
+    },
+    {
+      "brand": "Sportoase",
+      "estimate": "~20 centres; ~13 advertise Fitness on homepage filter",
+      "source": "https://sportoase.be/",
+      "decision": "INCLUDE (fitness-advertised only) / NEEDS_REVIEW",
+      "notes": "PPS sports complexes — include only where Fitness is advertised (genuine gym floor). Pool-only / swim / wellness-only excluded."
+    },
+    {
+      "brand": "Stadium / Stadium Fitness",
+      "estimate": "1–2 Brussels (Schaerbeek/Molenbeek) independents",
+      "source": "market research",
+      "decision": "LATER",
+      "notes": "Below multi-location 5+ regional threshold; revisit Phase 2"
+    },
+    {
+      "brand": "NRG Fitness",
+      "estimate": "0 remaining BE brand (40+ clubs sold to JIMS end-2024)",
+      "source": "https://pegroup.be/portfolio/nrg-fitness/",
+      "decision": "EXCLUDE",
+      "notes": "Legacy brand — locations operate as JIMS; NL Premium remains separate"
+    },
+    {
+      "brand": "Fit-Out",
+      "estimate": "2 clubs (Destelbergen, Lochristi)",
+      "source": "https://fit-out.be/",
+      "decision": "INCLUDE",
+      "notes": "Commercial strength/cardio gyms with official addresses"
+    },
+    {
+      "brand": "i-fitness",
+      "estimate": "8 clubs",
+      "source": "https://i-fitness.be/ / https://www.i-fitness.be/",
+      "decision": "INCLUDE",
+      "notes": "Flanders + Brussels (Ukkel, Sint-Gillis, Berchem, etc.)"
+    },
+    {
+      "brand": "Aspria",
+      "estimate": "3 Brussels clubs",
+      "source": "https://www.aspria.com/en/brussels",
+      "decision": "INCLUDE",
+      "notes": "Premium clubs with large gym floors (not hotel/class-only)"
+    },
+    {
+      "brand": "David Lloyd",
+      "estimate": "2 Brussels-area clubs (Uccle, Sterrebeek)",
+      "source": "https://www.davidlloyd.be/",
+      "decision": "INCLUDE",
+      "notes": "Conventional gym floor + pools; BE only"
+    },
+    {
+      "brand": "Mix Brussels",
+      "estimate": "unclear / boutique",
+      "source": "market research",
+      "decision": "LATER",
+      "notes": "No reliable multi-location official locator found in Phase 1"
+    },
+    {
+      "brand": "World Class",
+      "estimate": "1 Brussels (Ixelles)",
+      "source": "https://worldclassfitness.be/",
+      "decision": "LATER",
+      "notes": "Single location — below regional multi-location threshold"
+    },
+    {
+      "brand": "HealthCity",
+      "estimate": "0 (legacy; healthcity.be unreachable)",
+      "source": "DNS / site down 2026-08-21",
+      "decision": "EXCLUDE",
+      "notes": "Legacy brand; do not invent successor mapping without official source"
+    },
+    {
+      "brand": "Snap Fitness",
+      "estimate": "≥1 BE (Ingelmunster); Benelux expanding",
+      "source": "https://www.snapfitness.com/be/locaties",
+      "decision": "INCLUDE",
+      "notes": "Official BE locaties; reject NL franchise news pages"
+    },
+    {
+      "brand": "Release (Antwerp)",
+      "estimate": "3–4 Antwerp boutique",
+      "source": "https://release.be/",
+      "decision": "LATER",
+      "notes": "<5 multi-location threshold; one site yoga/pilates-focused"
+    },
+    {
+      "brand": "Club Sterker",
+      "estimate": "3–4 Kempen PT/private gyms",
+      "source": "https://clubsterker.be/",
+      "decision": "EXCLUDE",
+      "notes": "Personal-training / private gym model — out of include scope"
+    }
+  ],
+  "regional_notes": "Flanders / Wallonia / Brussels-Capital all covered via Basic-Fit + JIMS. German-speaking community covered via LAGO Eupen swim complex (pool) — fitness via national chains (Basic-Fit/JIMS) where present."
+}

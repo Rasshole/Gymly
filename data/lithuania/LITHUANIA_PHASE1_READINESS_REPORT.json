@@ -1,0 +1,998 @@
+{
+  "country": "Lithuania",
+  "phase": 1,
+  "deep_phase": true,
+  "generated_at": "2026-08-29T13:49:54.147529+00:00",
+  "production_total": 11923,
+  "production_sha256": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "baseline_lithuania": 61,
+  "baseline_lt_prefix": 61,
+  "lithuania_live": 61,
+  "lt_prefix_live": 61,
+  "existing_lithuania_production": true,
+  "unique_staged": 103,
+  "status_counts": {
+    "READY_TO_IMPORT": 61,
+    "NEEDS_REVIEW": 24,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 3,
+    "EXCLUDED": 15,
+    "CLOSED": 0
+  },
+  "ready_count": 61,
+  "ready_by_brand": {
+    "Gym+": 38,
+    "Impuls": 5,
+    "Lemon Gym": 18
+  },
+  "brand_counts": {
+    "Anytime Fitness": 1,
+    "Basic-Fit": 1,
+    "FITINN": 1,
+    "FitClub": 2,
+    "Fitness Factory Gym": 1,
+    "Fitus": 1,
+    "Gold's Gym": 1,
+    "Gym!": 1,
+    "Gym+": 39,
+    "Impuls": 5,
+    "Lemon Gym": 20,
+    "McFIT": 1,
+    "Municipal audit": 24,
+    "MyFitness": 1,
+    "People Fitness": 1,
+    "VS Fitness": 1,
+    "World Class": 1,
+    "clever fit": 1
+  },
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNN (5-digit string; LT- prefix stripped in storage)",
+  "class_a_chain_count": 3,
+  "class_a_chain_names": [
+    "Gym+",
+    "Lemon Gym",
+    "Impuls"
+  ],
+  "existing_production_reconciliation": {
+    "existing_production_count": 61,
+    "phase1_ready_count": 61,
+    "exact_id_overlap": 61,
+    "ready_already_in_production": [
+      "lt_00c95cd280",
+      "lt_038c37554c",
+      "lt_05508dc595",
+      "lt_0aa89de8a5",
+      "lt_11c7800655",
+      "lt_1a0be783f8",
+      "lt_1b9b31a01f",
+      "lt_1e498c2e4f",
+      "lt_211bd0913a",
+      "lt_2bc6b027e4",
+      "lt_315bd35664",
+      "lt_3874589af2",
+      "lt_3963b9131f",
+      "lt_45641da581",
+      "lt_459f3fcf45",
+      "lt_469dbe56a5",
+      "lt_4f9b9568d4",
+      "lt_52241d6b06",
+      "lt_561aafd381",
+      "lt_585ac8405d",
+      "lt_599d49215c",
+      "lt_5b02033f34",
+      "lt_5b1f24ce40",
+      "lt_5d27655261",
+      "lt_5e1bdb00d1",
+      "lt_5e91d3e3b7",
+      "lt_67bc5da2ce",
+      "lt_688d913f05",
+      "lt_6ddca417a2",
+      "lt_70c41d18a7",
+      "lt_723fd904a3",
+      "lt_7352842442",
+      "lt_73a259f27f",
+      "lt_767591bc25",
+      "lt_783964bbc1",
+      "lt_7906e643a2",
+      "lt_7e6f007f43",
+      "lt_85466a49c0",
+      "lt_92cb16bf9d",
+      "lt_98dac4e739",
+      "lt_9d642a49f1",
+      "lt_aa6a3966e6",
+      "lt_ac04c2ee6c",
+      "lt_ad2adac4ef",
+      "lt_ae46c595a4",
+      "lt_b17e0562bf",
+      "lt_b2b8ac4a64",
+      "lt_b3e748e109",
+      "lt_b49edd5919",
+      "lt_b4dcd88872",
+      "lt_bc598810fc",
+      "lt_bd4f45a9ac",
+      "lt_c0c3b3ba5e",
+      "lt_c99c69835a",
+      "lt_d9955aa280",
+      "lt_dcee389cb7",
+      "lt_e3b03fe2fe",
+      "lt_e7e904234e",
+      "lt_eb655bb80e",
+      "lt_f39f98eb03",
+      "lt_f446893edd"
+    ],
+    "ready_missing_from_production": [],
+    "production_not_in_phase1_ready": [],
+    "material_metadata_drift": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "city_coverage": {
+    "cities": {
+      "Vilnius": "A",
+      "Kaunas": "A",
+      "Klaipėda": "A",
+      "Šiauliai": "A",
+      "Panevėžys": "A",
+      "Alytus": "A",
+      "Marijampolė": "A",
+      "Mažeikiai": "A",
+      "Jonava": "B",
+      "Utena": "B",
+      "Kėdainiai": "A",
+      "Tauragė": "B",
+      "Telšiai": "A",
+      "Ukmergė": "B",
+      "Visaginas": "B",
+      "Palanga": "A",
+      "Druskininkai": "B",
+      "Plungė": "B",
+      "Kretinga": "B",
+      "Gargždai": "B",
+      "Raseiniai": "B",
+      "Radviliškis": "B",
+      "Vilkaviškis": "B",
+      "Šilutė": "B",
+      "Joniškis": "B",
+      "Rokiškis": "B",
+      "Kuršėnai": "B",
+      "Biržai": "B",
+      "Anykščiai": "B",
+      "Elektrėnai": "B",
+      "Garliava": "B",
+      "Šalčininkai": "B",
+      "Zarasai": "B",
+      "Neringa": "B",
+      "Didžioji Riešė": "B"
+    },
+    "ready_by_city": {
+      "Alytus": 1,
+      "Kaunas": 11,
+      "Kėdainiai": 1,
+      "Klaipėda": 6,
+      "Marijampolė": 1,
+      "Mažeikiai": 1,
+      "Palanga": 1,
+      "Panevėžys": 4,
+      "Šiauliai": 4,
+      "Telšiai": 1,
+      "Vilnius": 30
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0,
+    "secondary_municipality_gaps": []
+  },
+  "chain_audit": {
+    "country": "Lithuania",
+    "phase": 1,
+    "chains": [
+      {
+        "brand": "Gym+",
+        "evidence": "production_hydrate + official locator (38 open)",
+        "apparent_locations": 38,
+        "qualifying_active": 38,
+        "coming_soon": 1,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "reason": "COMPLETE"
+      },
+      {
+        "brand": "Lemon Gym",
+        "evidence": "production_hydrate + official locator (18 open)",
+        "apparent_locations": 18,
+        "qualifying_active": 18,
+        "coming_soon": 2,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "reason": "COMPLETE"
+      },
+      {
+        "brand": "Impuls",
+        "evidence": "production_hydrate + official locator (5 open)",
+        "apparent_locations": 5,
+        "qualifying_active": 5,
+        "coming_soon": 0,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "reason": "COMPLETE"
+      }
+    ],
+    "probes_investigated": [
+      {
+        "chain": "Gym+",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "38/38 open in production; Viršuliškių COMING_SOON"
+      },
+      {
+        "chain": "Lemon Gym",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "18/18 open in production; Riešė + Jonava COMING_SOON"
+      },
+      {
+        "chain": "Impuls",
+        "action": "CLASS_A_COMPLETE",
+        "evidence": "5/5 official impuls.lt clubs in production"
+      },
+      {
+        "chain": "VS Fitness",
+        "action": "EXCLUDED",
+        "evidence": "Acquired by Gym+ 2024"
+      },
+      {
+        "chain": "People Fitness",
+        "action": "EXCLUDED",
+        "evidence": "Legacy; site now Gym+"
+      },
+      {
+        "chain": "FitClub",
+        "action": "EXCLUDED",
+        "evidence": "2 Kaunas sites — below threshold"
+      },
+      {
+        "chain": "Fitus",
+        "action": "EXCLUDED",
+        "evidence": "Single-site spa/gym"
+      },
+      {
+        "chain": "Gym!",
+        "action": "ABSENT",
+        "evidence": "Latvian/Estonian brand — NOT Gym+ Lithuania"
+      },
+      {
+        "chain": "MyFitness",
+        "action": "ABSENT_LT_BRAND",
+        "evidence": "EE parent; LT consumer brand is Gym+"
+      },
+      {
+        "chain": "Basic-Fit/McFIT/FITINN/clever fit/Gold's/World Class",
+        "action": "ABSENT",
+        "evidence": "No LT presence"
+      },
+      {
+        "chain": "SportGates/SkyGym/Active Gym/City Gym",
+        "action": "ABSENT",
+        "evidence": "No >=3 site Class A evidence"
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 3,
+      "final_class_a_ready_count": 61,
+      "chain_estate_gaps": 0
+    },
+    "gym_plus_gym_exclamation_identity_collisions": 0
+  },
+  "chain_estate_audit": {
+    "chains": [
+      {
+        "brand": "Gym+",
+        "official_open_active": 38,
+        "qualifying_active": 38,
+        "ready": 38,
+        "coming_soon": 1,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "locations": [
+          {
+            "id": "lt_5b02033f34",
+            "name": "Gym+ Alytus",
+            "address": "Jazminų g. 3",
+            "city": "Alytus",
+            "postal_code": "63186",
+            "lat": 54.4003506,
+            "lng": 24.0177584,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_767591bc25",
+            "name": "Gym+ Kaunas Baltų",
+            "address": "Baltų pr. 49F",
+            "city": "Kaunas",
+            "postal_code": "48193",
+            "lat": 54.9278714,
+            "lng": 23.8816023,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_2bc6b027e4",
+            "name": "Gym+ Kaunas Islandijos",
+            "address": "Islandijos pl. 32",
+            "city": "Kaunas",
+            "postal_code": "47446",
+            "lat": 54.9400042,
+            "lng": 23.8924039,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_b17e0562bf",
+            "name": "Gym+ Kaunas Lyderystės",
+            "address": "Lyderystės g. 8",
+            "city": "Kaunas",
+            "postal_code": "49184",
+            "lat": 54.9345228,
+            "lng": 23.9886865,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_c99c69835a",
+            "name": "Gym+ Kaunas Pramonės",
+            "address": "Pramonės pr. 25",
+            "city": "Kaunas",
+            "postal_code": "51286",
+            "lat": 54.9104619,
+            "lng": 23.9817814,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_5e1bdb00d1",
+            "name": "Gym+ Kaunas Savanorių",
+            "address": "Savanorių pr. 194",
+            "city": "Kaunas",
+            "postal_code": "44147",
+            "lat": 54.904974,
+            "lng": 23.9185114,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_c0c3b3ba5e",
+            "name": "Gym+ Kaunas V. Krėvės",
+            "address": "V. Krėvės pr. 13",
+            "city": "Kaunas",
+            "postal_code": "49488",
+            "lat": 54.9161792,
+            "lng": 23.9608587,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_315bd35664",
+            "name": "Gym+ Klaipėda Akropolis",
+            "address": "Taikos pr. 61",
+            "city": "Klaipėda",
+            "postal_code": "91182",
+            "lat": 55.6928318,
+            "lng": 21.1565701,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_4f9b9568d4",
+            "name": "Gym+ Klaipėda Arena",
+            "address": "Taikos pr. 64",
+            "city": "Klaipėda",
+            "postal_code": "93226",
+            "lat": 55.6868518,
+            "lng": 21.1562179,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_aa6a3966e6",
+            "name": "Gym+ Klaipėda Bangų",
+            "address": "Bangų g. 2",
+            "city": "Klaipėda",
+            "postal_code": "91251",
+            "lat": 55.7070953,
+            "lng": 21.1424094,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_00c95cd280",
+            "name": "Gym+ Klaipėda H. Manto",
+            "address": "H. Manto g. 21",
+            "city": "Klaipėda",
+            "postal_code": "92234",
+            "lat": 55.7161568,
+            "lng": 21.1280914,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_783964bbc1",
+            "name": "Gym+ Klaipėda Vingio",
+            "address": "Vingio g. 31",
+            "city": "Klaipėda",
+            "postal_code": "95203",
+            "lat": 55.6668119,
+            "lng": 21.1968118,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_85466a49c0",
+            "name": "Gym+ Kėdainiai",
+            "address": "J. Basanavičiaus g. 80",
+            "city": "Kėdainiai",
+            "postal_code": "57361",
+            "lat": 55.2799752,
+            "lng": 23.9633261,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_3874589af2",
+            "name": "Gym+ Marijampolė",
+            "address": "V. Kudirkos g. 47A",
+            "city": "Marijampolė",
+            "postal_code": "68305",
+            "lat": 54.5546939,
+            "lng": 23.3549696,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_ac04c2ee6c",
+            "name": "Gym+ Mažeikiai",
+            "address": "M. Daukšos g. 26",
+            "city": "Mažeikiai",
+            "postal_code": "89234",
+            "lat": 56.3038858,
+            "lng": 22.3484944,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_1e498c2e4f",
+            "name": "Gym+ Palanga",
+            "address": "Taikos g. 68A",
+            "city": "Palanga",
+            "postal_code": "00116",
+            "lat": 55.9194432,
+            "lng": 21.0807999,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_211bd0913a",
+            "name": "Gym+ Panevėžys Klaipėdos",
+            "address": "Klaipėdos g. 143A",
+            "city": "Panevėžys",
+            "postal_code": "37189",
+            "lat": 55.7293434,
+            "lng": 24.3085579,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_67bc5da2ce",
+            "name": "Gym+ Panevėžys Smėlynės",
+            "address": "Smėlynės g. 85",
+            "city": "Panevėžys",
+            "postal_code": "35110",
+            "lat": 55.7451027,
+            "lng": 24.3698661,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_ad2adac4ef",
+            "name": "Gym+ Panevėžys Ukmergės",
+            "address": "Ukmergės g. 18",
+            "city": "Panevėžys",
+            "postal_code": "35201",
+            "lat": 55.7277775,
+            "lng": 24.3660706,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_f39f98eb03",
+            "name": "Gym+ Telšiai",
+            "address": "Gėlių g. 2",
+            "city": "Telšiai",
+            "postal_code": "90170",
+            "lat": 55.9129016,
+            "lng": 21.8044795,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_05508dc595",
+            "name": "Gym+ Vilnius Dariaus ir Girėno",
+            "address": "Dariaus ir Girėno g. 2",
+            "city": "Vilnius",
+            "postal_code": "02153",
+            "lat": 54.6651687,
+            "lng": 25.2734766,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_70c41d18a7",
+            "name": "Gym+ Vilnius Gedimino",
+            "address": "Gedimino pr. 9",
+            "city": "Vilnius",
+            "postal_code": "01103",
+            "lat": 54.6873532,
+            "lng": 25.2817067,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_b4dcd88872",
+            "name": "Gym+ Vilnius Kalvarijų",
+            "address": "Kalvarijų g. 88",
+            "city": "Vilnius",
+            "postal_code": "09303",
+            "lat": 54.7032123,
+            "lng": 25.282434,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_599d49215c",
+            "name": "Gym+ Vilnius Mokslininkų",
+            "address": "Mokslininkų g. 6A",
+            "city": "Vilnius",
+            "postal_code": "08448",
+            "lat": 54.7515839,
+            "lng": 25.2649145,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_5e91d3e3b7",
+            "name": "Gym+ Vilnius Ozo",
+            "address": "Ozo g. 18",
+            "city": "Vilnius",
+            "postal_code": "08243",
+            "lat": 54.7139438,
+            "lng": 25.2726536,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_e7e904234e",
+            "name": "Gym+ Vilnius PC Europa",
+            "address": "Konstitucijos pr. 7A-1",
+            "city": "Vilnius",
+            "postal_code": "09308",
+            "lat": 54.6956762,
+            "lng": 25.276438,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_b3e748e109",
+            "name": "Gym+ Vilnius Pavilnionių",
+            "address": "Pavilnionių g. 55",
+            "city": "Vilnius",
+            "postal_code": "06142",
+            "lat": 54.736937,
+            "lng": 25.2117146,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_038c37554c",
+            "name": "Gym+ Vilnius Priegliaus",
+            "address": "Priegliaus g. 1",
+            "city": "Vilnius",
+            "postal_code": "06269",
+            "lat": 54.7099447,
+            "lng": 25.187429,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_7906e643a2",
+            "name": "Gym+ Vilnius Saltoniškių",
+            "address": "Saltoniškių g. 9",
+            "city": "Vilnius",
+            "postal_code": "08105",
+            "lat": 54.7004243,
+            "lng": 25.2575125,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_bc598810fc",
+            "name": "Gym+ Vilnius Savanorių",
+            "address": "Savanorių pr. 1",
+            "city": "Vilnius",
+            "postal_code": "03103",
+            "lat": 54.6793418,
+            "lng": 25.2573276,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_688d913f05",
+            "name": "Gym+ Vilnius URBAN HUB",
+            "address": "Ožiarūčių g. 3",
+            "city": "Vilnius",
+            "postal_code": "14185",
+            "lat": 54.7656229,
+            "lng": 25.1951953,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_52241d6b06",
+            "name": "Gym+ Vilnius Ukmergės",
+            "address": "Ukmergės g. 256",
+            "city": "Vilnius",
+            "postal_code": "06120",
+            "lat": 54.7268256,
+            "lng": 25.2397731,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_6ddca417a2",
+            "name": "Gym+ Vilnius Vytauto Pociūno",
+            "address": "Vytauto Pociūno g. 8",
+            "city": "Vilnius",
+            "postal_code": "06264",
+            "lat": 54.7026293,
+            "lng": 25.2060967,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_11c7800655",
+            "name": "Gym+ Vilnius Žemaitės",
+            "address": "Žemaitės g. 22",
+            "city": "Vilnius",
+            "postal_code": "03201",
+            "lat": 54.6719967,
+            "lng": 25.2574973,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_469dbe56a5",
+            "name": "Gym+ Vilnius Žirmūnų",
+            "address": "Žirmūnų g. 68A",
+            "city": "Vilnius",
+            "postal_code": "09124",
+            "lat": 54.7178692,
+            "lng": 25.3032219,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_5b1f24ce40",
+            "name": "Gym+ Šiauliai Gardino",
+            "address": "Gardino g. 3",
+            "city": "Šiauliai",
+            "postal_code": "78230",
+            "lat": 55.9127292,
+            "lng": 23.2719746,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_d9955aa280",
+            "name": "Gym+ Šiauliai Gumbinės",
+            "address": "Gumbinės g. 33C",
+            "city": "Šiauliai",
+            "postal_code": "77171",
+            "lat": 55.9307047,
+            "lng": 23.2962272,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_0aa89de8a5",
+            "name": "Gym+ Šiauliai Vairo",
+            "address": "Vairo g. 2",
+            "city": "Šiauliai",
+            "postal_code": "78140",
+            "lat": 55.9210467,
+            "lng": 23.2958221,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Lemon Gym",
+        "official_open_active": 18,
+        "qualifying_active": 18,
+        "ready": 18,
+        "coming_soon": 2,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "locations": [
+          {
+            "id": "lt_bd4f45a9ac",
+            "name": "Lemon Gym Antakalnis",
+            "address": "Antakalnio g. 37",
+            "city": "Vilnius",
+            "postal_code": "10312",
+            "lat": 54.7037412,
+            "lng": 25.3107638,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_98dac4e739",
+            "name": "Lemon Gym Asanavičiūtė",
+            "address": "L. Asanavičiūtės g. 15",
+            "city": "Vilnius",
+            "postal_code": "04315",
+            "lat": 54.6891872,
+            "lng": 25.2100835,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_1a0be783f8",
+            "name": "Lemon Gym Ateities",
+            "address": "Ateities g. 31b",
+            "city": "Vilnius",
+            "postal_code": "06329",
+            "lat": 54.7344486,
+            "lng": 25.2530222,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_e3b03fe2fe",
+            "name": "Lemon Gym Banginis",
+            "address": "P. Lukšio g. 34",
+            "city": "Vilnius",
+            "postal_code": "08235",
+            "lat": 54.7098966,
+            "lng": 25.2993034,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_7352842442",
+            "name": "Lemon Gym Europa",
+            "address": "Konstitucijos pr. 7A",
+            "city": "Vilnius",
+            "postal_code": "09307",
+            "lat": 54.6961404,
+            "lng": 25.2778362,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_3963b9131f",
+            "name": "Lemon Gym Kauno Žalgirio arena",
+            "address": "Karaliaus Mindaugo pr. 50",
+            "city": "Kaunas",
+            "postal_code": "44334",
+            "lat": 54.8904082,
+            "lng": 23.9144444,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_459f3fcf45",
+            "name": "Lemon Gym Perkūnkiemis",
+            "address": "Perkūnkiemio g. 4",
+            "city": "Vilnius",
+            "postal_code": "12128",
+            "lat": 54.7414184,
+            "lng": 25.2233383,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_7e6f007f43",
+            "name": "Lemon Gym Pikas",
+            "address": "Ukmergės g. 221",
+            "city": "Vilnius",
+            "postal_code": "07156",
+            "lat": 54.7148064,
+            "lng": 25.2489175,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_ae46c595a4",
+            "name": "Lemon Gym Pilaitė",
+            "address": "Vydūno g. 2",
+            "city": "Vilnius",
+            "postal_code": "06204",
+            "lat": 54.7072909,
+            "lng": 25.1896787,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_eb655bb80e",
+            "name": "Lemon Gym Raudondvaris",
+            "address": "Raudondvario pl. 169b",
+            "city": "Kaunas",
+            "postal_code": "47167",
+            "lat": 54.9181677,
+            "lng": 23.829884,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_585ac8405d",
+            "name": "Lemon Gym Savanoriai",
+            "address": "Savanorių pr. 168",
+            "city": "Kaunas",
+            "postal_code": "50177",
+            "lat": 54.9074759,
+            "lng": 23.9263867,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_dcee389cb7",
+            "name": "Lemon Gym Skraja",
+            "address": "Naugarduko g. 55a",
+            "city": "Vilnius",
+            "postal_code": "03204",
+            "lat": 54.670785,
+            "lng": 25.2592542,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_561aafd381",
+            "name": "Lemon Gym Urmas",
+            "address": "Pramonės pr. 16",
+            "city": "Kaunas",
+            "postal_code": "51271",
+            "lat": 54.9157964,
+            "lng": 23.9867361,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_1b9b31a01f",
+            "name": "Lemon Gym Vienuolis",
+            "address": "Vienuolio g. 4",
+            "city": "Vilnius",
+            "postal_code": "01104",
+            "lat": 54.688362,
+            "lng": 25.2765882,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_b2b8ac4a64",
+            "name": "Lemon Gym Vilniaus Akropolis",
+            "address": "Ozo g. 25",
+            "city": "Vilnius",
+            "postal_code": "01402",
+            "lat": 54.7105139,
+            "lng": 25.2631365,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_723fd904a3",
+            "name": "Lemon Gym Vilniaus Žalgiris",
+            "address": "Žalgirio g. 92",
+            "city": "Vilnius",
+            "postal_code": "09300",
+            "lat": 54.7034689,
+            "lng": 25.2766774,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_5d27655261",
+            "name": "Lemon Gym Šiaulių Akropolis",
+            "address": "Aido g. 8",
+            "city": "Šiauliai",
+            "postal_code": "78322",
+            "lat": 55.9076385,
+            "lng": 23.2607916,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_9d642a49f1",
+            "name": "Lemon Gym Šilainiai",
+            "address": "Baltų pr. 16",
+            "city": "Kaunas",
+            "postal_code": "48190",
+            "lat": 54.9301075,
+            "lng": 23.8841662,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      },
+      {
+        "brand": "Impuls",
+        "official_open_active": 5,
+        "qualifying_active": 5,
+        "ready": 5,
+        "coming_soon": 0,
+        "closed": 0,
+        "excluded": 0,
+        "unresolved": 0,
+        "class_a": true,
+        "locations": [
+          {
+            "id": "lt_73a259f27f",
+            "name": "Impuls Klaipėda",
+            "address": "Liepų g. 53a",
+            "city": "Klaipėda",
+            "postal_code": "92191",
+            "lat": 55.7176269,
+            "lng": 21.1470093,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_45641da581",
+            "name": "Impuls Panevėžys",
+            "address": "Parko g. 14",
+            "city": "Panevėžys",
+            "postal_code": "37310",
+            "lat": 55.7340462,
+            "lng": 24.3374233,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_f446893edd",
+            "name": "Impuls Vilnius Fabijoniškių",
+            "address": "Fabijoniškių g. 97a",
+            "city": "Vilnius",
+            "postal_code": "07108",
+            "lat": 54.730044,
+            "lng": 25.2463149,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_92cb16bf9d",
+            "name": "Impuls Vilnius Kareivių",
+            "address": "Kareivių g. 14",
+            "city": "Vilnius",
+            "postal_code": "09117",
+            "lat": 54.7197387,
+            "lng": 25.2995548,
+            "disposition": "OPEN_ACTIVE"
+          },
+          {
+            "id": "lt_b49edd5919",
+            "name": "Impuls Vilnius Savanorių",
+            "address": "Savanorių pr. 28",
+            "city": "Vilnius",
+            "postal_code": "03501",
+            "lat": 54.6752528,
+            "lng": 25.2527363,
+            "disposition": "OPEN_ACTIVE"
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "final_class_a_chain_count": 3,
+      "final_class_a_ready_count": 61,
+      "chain_estate_gaps": 0
+    }
+  },
+  "cross_border": {
+    "lithuania_ready_outliers": 0,
+    "latvia_ready_outliers": 0,
+    "poland_ready_outliers": 0,
+    "belarus_ready_outliers": 0,
+    "russia_kaliningrad_ready_outliers": 0,
+    "gym_plus_gym_exclamation_collisions": 0
+  },
+  "geocode_audit": {
+    "premises_coords": 61,
+    "fallback_coords": 0,
+    "centroid_coords": 0,
+    "missing_coords": 0
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "identity_conflicts": 0,
+    "gym_plus_gym_exclamation_collisions": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 2,
+      "identical": 0
+    }
+  },
+  "specialist_ready_leakage": 0,
+  "institutional_ready_leakage": 0,
+  "hotel_resort_ready_leakage": 0,
+  "gym_plus_gym_exclamation_identity_collisions": 0,
+  "new_candidates_from_final_sweep": 0,
+  "projected_catalog_after_future_merge": 11923,
+  "actual_potential_new_delta": 0,
+  "genuinely_new_ready": 0,
+  "projected_remaining_headroom": 577,
+  "projected_crosses_12500": false,
+  "global_stress_qa_will_be_required_after_future_merge": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "phase2_required": true,
+  "verdict": "LITHUANIA PHASE 2 REQUIRED — EXISTING PRODUCTION RECONCILIATION"
+}

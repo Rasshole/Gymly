@@ -15,6 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
 import {upcomingBadgeHintT} from '@/i18n/badgeLabels';
+import {badgeDisplayName} from '@/i18n/badgeDisplay';
 import type {BadgeDefinition, BadgeProgress} from '@/types/badge.types';
 import {getBadgeProgressList, useBadgeStore} from '@/store/badgeStore';
 import colors from '@/theme/colors';
@@ -51,12 +52,12 @@ const ROW_V_PADDING = 10;
 const EDGE_FADE_WIDTH = 28;
 const CENTER_MAX_COUNT = 3;
 
-function formatEarnedAt(iso: string): string {
+function formatEarnedAt(iso: string, intlLocale: string): string {
   if (!iso) {
     return '';
   }
   try {
-    return new Date(iso).toLocaleDateString('da-DK', {
+    return new Date(iso).toLocaleDateString(intlLocale, {
       day: 'numeric',
       month: 'short',
       year: 'numeric',
@@ -109,6 +110,7 @@ function ProfileBadgeCell({
   onPress: () => void;
   entranceEpoch: number;
 }) {
+  const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
   const pulseRef = useRef<Animated.CompositeAnimation | null>(null);
   const isUpcoming = item.kind === 'upcoming';
@@ -150,9 +152,9 @@ function ProfileBadgeCell({
 
     if (entranceEpoch === 0) {
       scale.setValue(1.06);
-      const t = setTimeout(startPulse, 500);
+      const pulseTimer = setTimeout(startPulse, 500);
       return () => {
-        clearTimeout(t);
+        clearTimeout(pulseTimer);
         stopAll();
       };
     }
@@ -199,8 +201,8 @@ function ProfileBadgeCell({
       accessibilityRole="button"
       accessibilityLabel={
         isUpcoming
-          ? `Kommende badge ${item.def.name}`
-          : `Badge ${item.def.name} optjent`
+          ? t('badgesA11y.upcoming', {name: badgeDisplayName(t, item.def)})
+          : t('badgesA11y.earned', {name: badgeDisplayName(t, item.def)})
       }>
       <Animated.View style={[tileStyle, {transform: [{scale}]}]}>
         <Text style={[styles.badgeEmoji, isUpcoming && styles.badgeEmojiMuted]}>
@@ -212,7 +214,7 @@ function ProfileBadgeCell({
           </Text>
         ) : (
           <Text style={styles.badgeName} numberOfLines={2}>
-            {item.def.name}
+            {badgeDisplayName(t, item.def)}
           </Text>
         )}
       </Animated.View>
@@ -226,7 +228,7 @@ export function ProfileBadgeStrip({
   viewingOtherUser = false,
   otherUserDisplayName = '',
 }: Props) {
-  const {t} = useTranslation();
+  const {t, intlLocale} = useTranslation();
   const navigation = useNavigation<any>();
   const unlockSnap = useBadgeStore(s => s.unlockedByUser[userId]);
   const statsSnap = useBadgeStore(s => s.statsByUser[userId]);
@@ -365,15 +367,15 @@ export function ProfileBadgeStrip({
   }, [userId, unlockSnap, statsSnap]);
 
   if (rowCount === 0) {
-    const name = (otherUserDisplayName || 'Brugeren').trim();
+    const name = (otherUserDisplayName || t('phase2ui.userFallback')).trim();
     const sub = viewingOtherUser
-      ? `${name} har ikke delt badges på profilen`
-      : 'Tjek ind og byg streak — se alle under Badges';
+      ? t('phase2ui.noBadgesShared', {name})
+      : t('phase2ui.noBadgesHint');
     const content = (
       <>
         <Text style={styles.emptyEmoji}>🏅</Text>
         <View style={styles.emptyBody}>
-          <Text style={styles.emptyTitle}>Ingen badges endnu</Text>
+          <Text style={styles.emptyTitle}>{t('phase2ui.noBadgesYet')}</Text>
           <Text style={styles.emptySub}>{sub}</Text>
         </View>
         {viewingOtherUser ? null : <Text style={styles.emptyChev}>›</Text>}
@@ -415,7 +417,7 @@ export function ProfileBadgeStrip({
     <View style={styles.wrap}>
       <View style={styles.headerRow}>
         <View style={styles.titleBlock}>
-          <Text style={styles.title}>Badges</Text>
+          <Text style={styles.title}>{t('tabs.badges')}</Text>
           {showUpcomingFallback ? (
             <Text style={styles.titleSub}>{t('profile.nextMilestones')}</Text>
           ) : null}
@@ -482,16 +484,22 @@ export function ProfileBadgeStrip({
             {detail ? (
               <>
                 <Text style={styles.modalEmoji}>{detail.def.emoji}</Text>
-                <Text style={styles.modalName}>{detail.def.name}</Text>
+                <Text style={styles.modalName}>
+                  {badgeDisplayName(t, detail.def)}
+                </Text>
                 <Text style={styles.modalDesc}>{detail.def.description}</Text>
                 {detail.kind === 'unlocked' ? (
                   <>
                     {detail.unlockedAt ? (
                       <Text style={styles.modalEarned}>
-                        Optjent {formatEarnedAt(detail.unlockedAt)}
+                        {t('phase2ui.earnedAt', {
+                          date: formatEarnedAt(detail.unlockedAt, intlLocale),
+                        })}
                       </Text>
                     ) : viewingOtherUser ? (
-                      <Text style={styles.modalHintMuted}>Fremhævet på profilen</Text>
+                      <Text style={styles.modalHintMuted}>
+                        {t('phase2ui.featuredOnProfile')}
+                      </Text>
                     ) : null}
                   </>
                 ) : !viewingOtherUser && badgeProgressById[detail.def.id] ? (
@@ -512,7 +520,7 @@ export function ProfileBadgeStrip({
                   </>
                 ) : null}
                 <TouchableOpacity onPress={() => setDetail(null)} style={styles.modalBtn}>
-                  <Text style={styles.modalBtnText}>OK</Text>
+                  <Text style={styles.modalBtnText}>{t('common.ok')}</Text>
                 </TouchableOpacity>
               </>
             ) : null}

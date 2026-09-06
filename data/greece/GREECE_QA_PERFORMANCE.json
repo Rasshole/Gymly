@@ -1,0 +1,16 @@
+{
+  "catalog": 10878,
+  "active": 10873,
+  "json_size_mb": 3.21,
+  "parse_ms": 17.0,
+  "cold_index_ms": 2.8,
+  "cached_index_ms": 0.002,
+  "typical_search_ms": 3.0,
+  "worst_scan_ms": 0.0,
+  "nearest_ms": 13.8,
+  "map_build_ms": 6.5,
+  "viewport_filter_ms": 1.5,
+  "assessment": "GOOD",
+  "post_qa_sha256": "93283ab74cfb19bb197f6f09b7f833f3dfb56f1ff98a35c5aefa4c15ddb45b92",
+  "pre_qa_sha256": "cda6b1040d4031953fa63c0bc868214fb502826277aa19e0a37e9009fef08220"
+}

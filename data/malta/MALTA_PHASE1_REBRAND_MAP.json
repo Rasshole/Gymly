@@ -1,0 +1,49 @@
+{
+  "country": "Malta",
+  "phase": 1,
+  "relationships": [
+    {
+      "from": "Elite Gym / Elite Fitness Birżebbuġa",
+      "to": "BGM Birżebbuġa Fitness",
+      "class": "A_current_successor",
+      "evidence": "Official BGM directions still label Elite Gym",
+      "action": "exclude_predecessor"
+    },
+    {
+      "from": "Tal-Qroqq Fitness Centre (independent era)",
+      "to": "Best Gyms Malta Tal-Qroqq",
+      "class": "A_current_successor",
+      "evidence": "Facility name retained under BGM all-access network",
+      "action": "stage_current_bgm_only"
+    },
+    {
+      "from": "Build Gym / Sirens ASC gym",
+      "to": "Build Fitness Centre (Best Gyms Malta)",
+      "class": "A_current_successor",
+      "evidence": "Build branding retained as BGM club name",
+      "action": "stage_current_bgm_only"
+    },
+    {
+      "from": "Challenger Paceville / St George's Park",
+      "to": null,
+      "class": "E_legacy_closed",
+      "evidence": "Absent from current official Challenger contact list",
+      "action": "closed_legacy"
+    },
+    {
+      "from": "Fitness Café San Pawl (secondary blog)",
+      "to": "Build Fitness Centre",
+      "class": "F_unresolved",
+      "evidence": "May be same Sirens cluster or distinct — Phase 2 name clarification",
+      "action": "phase2_review"
+    },
+    {
+      "from": "24/7 Santa Luċija / St Paul's Bay blog listings",
+      "to": null,
+      "class": "E_legacy_closed",
+      "evidence": "Not on official 4-club locator",
+      "action": "closed_legacy"
+    }
+  ],
+  "unresolved_conflicts": 1
+}

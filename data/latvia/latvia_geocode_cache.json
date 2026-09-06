@@ -1,0 +1,306 @@
+{
+  "lv|vienības gatve 194a, 1058, rīga, latvia": {
+    "lat": 56.8963564,
+    "lng": 24.0788844,
+    "display_name": "Aleja, 194A, Vienības gatve, Ozolciems, Ziepniekkalns, Āgenskalna apkaime, Rīga, LV-1058, Latvija",
+    "importance": 4.5001144426596745e-05,
+    "postcode": "LV-1058",
+    "country_code": "lv"
+  },
+  "lv|brīvības gatve 372, 1006, rīga, latvia": {
+    "lat": 56.9826538,
+    "lng": 24.2035652,
+    "display_name": "Akropole Alfa, 372, Brīvības gatve, Teika, Teikas apkaime, Rīga, LV-1006, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1006",
+    "country_code": "lv"
+  },
+  "lv|dzelzavas iela 78, 1082, rīga, latvia": {
+    "lat": 56.9543543,
+    "lng": 24.2002215,
+    "display_name": "78, Dzelzavas iela, Purvciems, Teikas apkaime, Rīga, LV-1082, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1082",
+    "country_code": "lv"
+  },
+  "lv|ieriķu iela 3, 1084, rīga, latvia": {
+    "lat": 56.9665603,
+    "lng": 24.1659438,
+    "display_name": "Spars, 3, Ieriķu iela, Teika, Teikas apkaime, Rīga, LV-1084, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1084",
+    "country_code": "lv"
+  },
+  "lv|audēju iela 16, 1050, rīga, latvia": {
+    "lat": 56.948155,
+    "lng": 24.1122966,
+    "display_name": "Udrop, 16, Audēju iela, Vecrīga, Latgales apkaime, Rīga, LV-1050, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1050",
+    "country_code": "lv"
+  },
+  "lv|dzirnavu iela 67, 1011, rīga, latvia": {
+    "lat": 56.9546607,
+    "lng": 24.1208409,
+    "display_name": "Galerija Rīga, 67, Dzirnavu iela, Centra rajons, Centrs, Centra apkaime, Rīga, LV-1011, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1011",
+    "country_code": "lv"
+  },
+  "lv|anniņmuižas bulvāris 40a, 1067, rīga, latvia": {
+    "lat": 56.960432,
+    "lng": 24.012464,
+    "display_name": "40A, Anniņmuižas bulvāris, Imanta-4, Imanta, Imantas apkaime, Rīga, LV-1069, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1069",
+    "country_code": "lv"
+  },
+  "lv|matīsa iela 25, 1001, rīga, latvia": {
+    "lat": 56.9571483,
+    "lng": 24.1342394,
+    "display_name": "Bērnu pasaule, 25, Matīsa iela, Centrs, Centra apkaime, Rīga, LV-1001, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1001",
+    "country_code": "lv"
+  },
+  "lv|tīnūžu iela 2, 1021, rīga, latvia": {
+    "lat": 56.9347758,
+    "lng": 24.2036309,
+    "display_name": "Mars, 2, Tīnūžu iela, Pļavnieki, Latgales apkaime, Rīga, LV-1021, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1021",
+    "country_code": "lv"
+  },
+  "lv|mūkusalas iela 71, 1004, rīga, latvia": {
+    "lat": 56.9266608,
+    "lng": 24.1030713,
+    "display_name": "Rīga Plaza, 71, Mūkusalas iela, Bieķensala, Torņakalns, Āgenskalna apkaime, Rīga, LV-1004, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1004",
+    "country_code": "lv"
+  },
+  "lv|biķeru iela 4, 2130, rīga, latvia": {
+    "lat": 56.9560286,
+    "lng": 24.2563579,
+    "display_name": "Biķeru iela, Dreiliņi, Ulbroka, Stopiņu pagasts, Ropažu novads, LV-1079, Latvija",
+    "importance": 0.05340999389639121,
+    "postcode": "LV-1079",
+    "country_code": "lv"
+  },
+  "lv|duntes iela 19a, 1005, rīga, latvia": {
+    "lat": 56.9868527,
+    "lng": 24.1321034,
+    "display_name": "Sky and more, 19A, Duntes iela, Sarkandaugava, Centra apkaime, Rīga, LV-1005, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1005",
+    "country_code": "lv"
+  },
+  "lv|jaunmoku iela 13, 1046, rīga, latvia": {
+    "lat": 56.9312515,
+    "lng": 24.0392871,
+    "display_name": "Spice Life, 13, Jaunmoku iela, Pleskodāle, Imantas apkaime, Rīga, LV-1046, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1046",
+    "country_code": "lv"
+  },
+  "lv|brīvības gatve 201, 1039, rīga, latvia": {
+    "lat": 56.9743172,
+    "lng": 24.161518,
+    "display_name": "201, Brīvības gatve, Teika, Teikas apkaime, Rīga, LV-1039, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1039",
+    "country_code": "lv"
+  },
+  "lv|ernesta birznieka upīša iela 21e, 1011, rīga, latvia": {
+    "lat": 56.950172,
+    "lng": 24.1294902,
+    "display_name": "21E, Ernesta Birznieka-Upīša iela, Avoti, Centra apkaime, Rīga, LV-1011, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1011",
+    "country_code": "lv"
+  },
+  "lv|slokas iela 161, 1067, rīga, latvia": {
+    "lat": 56.9602273,
+    "lng": 24.0338859,
+    "display_name": "161, Slokas iela, Imanta-2, Imanta, Imantas apkaime, Rīga, LV-1067, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1067",
+    "country_code": "lv"
+  },
+  "lv|ernesta birznieka-upīša iela 21a, 1011, rīga, latvia": {
+    "lat": 56.9498447,
+    "lng": 24.129052,
+    "display_name": "21A, Ernesta Birznieka-Upīša iela, Avoti, Centra apkaime, Rīga, LV-1011, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1011",
+    "country_code": "lv"
+  },
+  "lv|tērbatas iela 73, 1001, rīga, latvia": {
+    "lat": 56.9596549,
+    "lng": 24.1327273,
+    "display_name": "73, Tērbatas iela, Centrs, Centra apkaime, Rīga, LV-1001, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1001",
+    "country_code": "lv"
+  },
+  "lv|brīvības iela 23a, 3401, liepāja, latvia": {
+    "lat": 56.5171029,
+    "lng": 21.0174475,
+    "display_name": "23A, Brīvības iela, Jaunliepāja, Liepāja, LV-3401, Latvija",
+    "importance": 6.572594796668983e-05,
+    "postcode": "LV-3401",
+    "country_code": "lv"
+  },
+  "lv|latgales iela 264, rīga, latvia": {
+    "lat": 56.9082626,
+    "lng": 24.1825721,
+    "display_name": "Ščecina, 264, Latgales iela, Ķengarags, Latgales apkaime, Rīga, LV-1063, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1063",
+    "country_code": "lv"
+  },
+  "lv|juglas krastmala 2, rīga, latvia": {
+    "lat": 56.9894098,
+    "lng": 24.2451218,
+    "display_name": "Juglas centrs, 2, Juglas krastmala, Jugla, Teikas apkaime, Rīga, LV-1024, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1024",
+    "country_code": "lv"
+  },
+  "lv|dzelzavas iela 72, rīga, latvia": {
+    "lat": 56.9556834,
+    "lng": 24.1906435,
+    "display_name": "Mēbeļu nams, 72, Dzelzavas iela, Purvciems, Teikas apkaime, Rīga, LV-1082, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1082",
+    "country_code": "lv"
+  },
+  "lv|gustava zemgala gatve 71, rīga, latvia": {
+    "lat": 56.9714791,
+    "lng": 24.1656432,
+    "display_name": "5. korpuss, 71, Gustava Zemgala gatve, Teika, Teikas apkaime, Rīga, LV-1039, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1039",
+    "country_code": "lv"
+  },
+  "lv|latgales iela 257, rīga, latvia": {
+    "lat": 56.9239706,
+    "lng": 24.1751577,
+    "display_name": "Akropole Rīga, 257, Latgales iela, Ķengarags, Latgales apkaime, Rīga, LV-1019, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1019",
+    "country_code": "lv"
+  },
+  "lv|andreja saharova iela 30, rīga, latvia": {
+    "lat": 56.94537,
+    "lng": 24.2088959,
+    "display_name": "Augusts, 30, Andreja Saharova iela, Pļavnieki, Latgales apkaime, Rīga, LV-1021, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1021",
+    "country_code": "lv"
+  },
+  "lv|grostonas iela 1, rīga, latvia": {
+    "lat": 56.9645568,
+    "lng": 24.1196595,
+    "display_name": "Maxima XXX, 1, Grostonas iela, Skanste, Centra apkaime, Rīga, LV-1013, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1013",
+    "country_code": "lv"
+  },
+  "lv|stacijas laukums 2, rīga, latvia": {
+    "lat": 56.947293,
+    "lng": 24.120073,
+    "display_name": "Stacijas laukums, Centrs, Centra apkaime, Rīga, LV-1050, Latvija",
+    "importance": 0.06674332722972456,
+    "postcode": "LV-1050",
+    "country_code": "lv"
+  },
+  "lv|kurzemes prospekts 3, rīga, latvia": {
+    "lat": 56.956297,
+    "lng": 24.0367722,
+    "display_name": "K3 Mall of Imanta, 3, Kurzemes prospekts, Imanta-1, Imanta, Imantas apkaime, Rīga, LV-1067, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1067",
+    "country_code": "lv"
+  },
+  "lv|āzenes iela 5, rīga, latvia": {
+    "lat": 56.9497668,
+    "lng": 24.0823861,
+    "display_name": "Olimpia, 5, Āzenes iela, Ķīpsala, Rīga, LV-1048, Latvija",
+    "importance": 0.36366628930239936,
+    "postcode": "LV-1048",
+    "country_code": "lv"
+  },
+  "lv|krišjāņa barona iela 46, rīga, latvia": {
+    "lat": 56.9540919,
+    "lng": 24.1276816,
+    "display_name": "Barona centrs, 46, Krišjāņa Barona iela, Centrs, Centra apkaime, Rīga, LV-1011, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1011",
+    "country_code": "lv"
+  },
+  "lv|augšiela 1, rīga, latvia": {
+    "lat": 56.9547093,
+    "lng": 24.1560588,
+    "display_name": "1, Augšiela, Grīziņkalns, Centra apkaime, Rīga, LV-1009, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1009",
+    "country_code": "lv"
+  },
+  "lv|anniņmuižas iela 17, rīga, latvia": {
+    "lat": 56.9433858,
+    "lng": 24.018377,
+    "display_name": "Ixo centrs, 17, Anniņmuižas iela, Zolitūde-2, Zolitūde, Imantas apkaime, Rīga, LV-1029, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1029",
+    "country_code": "lv"
+  },
+  "lv|ulbrokas iela 34, rīga, latvia": {
+    "lat": 56.948507,
+    "lng": 24.2199938,
+    "display_name": "34, Ulbrokas iela, Dreiliņi, Teikas apkaime, Rīga, LV-1021, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1021",
+    "country_code": "lv"
+  },
+  "lv|saules iela 64, daugavpils, latvia": {
+    "lat": 55.8728263,
+    "lng": 26.5260287,
+    "display_name": "64, Saules iela, Centrs, Daugavpils, LV-5401, Latvija",
+    "importance": 6.577325093456957e-05,
+    "postcode": "LV-5401",
+    "country_code": "lv"
+  },
+  "lv|vaidavas iela 9a, rīga, latvia": {
+    "lat": 56.9625308,
+    "lng": 24.176676,
+    "display_name": "9A, Vaidavas iela, Purvciems, Teikas apkaime, Rīga, LV-1084, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1084",
+    "country_code": "lv"
+  },
+  "lv|jūrmalas gatve 89, rīga, latvia": {
+    "lat": 56.9540911,
+    "lng": 24.004589,
+    "display_name": "89, Jūrmalas gatve, Imanta-5, Imanta, Imantas apkaime, Rīga, LV-1069, Latvija",
+    "importance": 7.666056305786248e-05,
+    "postcode": "LV-1069",
+    "country_code": "lv"
+  },
+  "lv|daugavpils, daugavpils, latvia": {
+    "lat": 55.8746957,
+    "lng": 26.5283553,
+    "display_name": "Daugavpils, Stacijas iela, Esplanāde, Daugavpils, LV-5422, Latvija",
+    "importance": 0.36664364446418835,
+    "postcode": "LV-5422",
+    "country_code": "lv"
+  },
+  "lv|rīga, rīga, latvia": {
+    "lat": 56.9410379,
+    "lng": 24.0967724,
+    "display_name": "Latvijas Nacionālā bibliotēka, 3, Mūkusalas iela, Torņakalns, Āgenskalna apkaime, Rīga, LV-1048, Latvija",
+    "importance": 0.7788155872410654,
+    "postcode": "LV-1048",
+    "country_code": "lv"
+  }
+}

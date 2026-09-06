@@ -46,6 +46,10 @@ function statForRequirement(
       return stats.early_check_ins;
     case 'late_check_ins':
       return stats.late_check_ins;
+    case 'total_logged_sets':
+      return stats.total_logged_sets;
+    case 'total_pr_events':
+      return stats.total_pr_events;
     default:
       return 0;
   }
@@ -156,6 +160,12 @@ export function progressLabel(
   }
   if (requirement_type === 'late_check_ins') {
     return `${Math.min(progress.current, progress.target)}/${progress.target} sene`;
+  }
+  if (requirement_type === 'total_logged_sets') {
+    return `${Math.min(progress.current, progress.target)}/${progress.target} sæt`;
+  }
+  if (requirement_type === 'total_pr_events') {
+    return `${Math.min(progress.current, progress.target)}/${progress.target} PRs`;
   }
   return `${progress.percent}%`;
 }

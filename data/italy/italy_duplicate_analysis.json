@@ -1,0 +1,30 @@
+{
+  "live": {
+    "existing_italy_in_catalog": 0,
+    "live_catalog_total": 8143,
+    "id_collisions": [],
+    "same_brand_address_matches": [],
+    "proximity_same_brand": [],
+    "it_prefix_already_used": []
+  },
+  "staging": {
+    "duplicate_ids": [],
+    "same_brand_address": [],
+    "proximity_same_brand_80m": [
+      {
+        "a": "FitUP Vicenza",
+        "b": "FitUP Vicenza",
+        "distance_m": 0
+      }
+    ]
+  },
+  "collapsed": [],
+  "merge_stats": {
+    "phase1_in": 465,
+    "phase2_in": 329,
+    "preserved_phase1_ready": 338,
+    "enriched": 0,
+    "new_added": 254,
+    "replaced_unresolved": 109
+  }
+}

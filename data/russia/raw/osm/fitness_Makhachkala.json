@@ -1,0 +1,289 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:54:11Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 2480708067,
+      "lat": 42.9758309,
+      "lon": 47.5099856,
+      "tags": {
+        "addr:city": "Махачкала",
+        "addr:country": "RU",
+        "addr:housenumber": "49",
+        "addr:postcode": "367000",
+        "addr:street": "улица Сулеймана Стальского",
+        "leisure": "fitness_centre",
+        "name": "Шелт",
+        "sport": "multi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3694805053,
+      "lat": 42.9801968,
+      "lon": 47.4692487,
+      "tags": {
+        "addr:city": "Махачкала",
+        "addr:housenumber": "7В",
+        "addr:street": "улица Абдулхакима Исмаилова",
+        "leisure": "fitness_centre",
+        "name": "Стелс - Спортклуб"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4441786158,
+      "lat": 42.9508557,
+      "lon": 47.5640289,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4442288490,
+      "lat": 42.9564444,
+      "lon": 47.5543429,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Ниагара"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4465508389,
+      "lat": 42.9504626,
+      "lon": 47.5636439,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Арт спорт",
+        "name:ru": "Арт спорт"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4504321791,
+      "lat": 42.9501972,
+      "lon": 47.5162549,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Скорпион",
+        "name:ru": "Скорпион"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4531486695,
+      "lat": 42.9835576,
+      "lon": 47.4984959,
+      "tags": {
+        "addr:street": "улица Толстого",
+        "leisure": "fitness_centre",
+        "name": "Центр здорового питания CORAL CLUB",
+        "name:ru": "Центр здорового питания CORAL CLUB",
+        "opening_hours": "Mo-Sa 11:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4603129589,
+      "lat": 42.9799701,
+      "lon": 47.5009432,
+      "tags": {
+        "description": "Студия фитнеса OLIMPIA_FIT",
+        "leisure": "fitness_centre",
+        "name": "Olimpia Fit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4607342490,
+      "lat": 42.9690425,
+      "lon": 47.4885486,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Rich club",
+        "opening_hours": "Mo-Sa 08:00-22:00",
+        "phone": "+7 8722 914091"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4607349990,
+      "lat": 42.9687314,
+      "lon": 47.4890202,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Universal"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4697393089,
+      "lat": 42.9961053,
+      "lon": 47.458104,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Академия единоборств Fight Nights",
+        "name:ru": "Академия единоборств Fight Nights"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4706095289,
+      "lat": 42.9784644,
+      "lon": 47.4988182,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Спорткомплекс им.Абдулрашида Садулаева",
+        "name:ru": "Спорткомплекс им.Абдулрашида Садулаева"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4706095389,
+      "lat": 42.9783108,
+      "lon": 47.4988221,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ГБУ ДО РД \"ДЮСШ\"",
+        "name:ru": "ГБУ ДО РД \"ДЮСШ\""
+      }
+    },
+    {
+      "type": "node",
+      "id": 4706474434,
+      "lat": 42.9756366,
+      "lon": 47.4352416,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Multipower woman",
+        "name:ru": "Multipower woman"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4707951159,
+      "lat": 42.9687688,
+      "lon": 47.4818483,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Гармония",
+        "name:ru": "Гармония",
+        "opening_hours": "Mo-Su 08:00-21:00",
+        "phone": "+7 909 4783186"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4770469622,
+      "lat": 42.9714221,
+      "lon": 47.4093719,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5185487121,
+      "lat": 42.9664859,
+      "lon": 47.5033237,
+      "tags": {
+        "addr:street": "улица Ярагского",
+        "leisure": "fitness_centre",
+        "level:ref": "4",
+        "name": "Lady sport style"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5372685836,
+      "lat": 42.9542019,
+      "lon": 47.5117354,
+      "tags": {
+        "addr:housenumber": "68А",
+        "addr:street": "улица Гайдара",
+        "leisure": "fitness_centre",
+        "name": "Тренажерный зал качалка N1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5925917785,
+      "lat": 42.9573885,
+      "lon": 47.495106,
+      "tags": {
+        "addr:housenumber": "1Б",
+        "addr:street": "улица Омарова",
+        "leisure": "fitness_centre",
+        "name": "Спорт клуб Pride Fighter"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6237959085,
+      "lat": 42.9441782,
+      "lon": 47.5112764,
+      "tags": {
+        "addr:street": "Декоративная улица",
+        "leisure": "fitness_centre",
+        "name": "ГБУ ДО РД ДЮСШ по Дзюдо г. Махачкала им. Джафарова"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6361115896,
+      "lat": 42.9707956,
+      "lon": 47.416901,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "LadyFit",
+        "phone": "+7 (988) 787-63-33"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10599106804,
+      "lat": 43.0090352,
+      "lon": 47.414799,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Тренажерный зал \"Спарта\""
+      }
+    },
+    {
+      "type": "way",
+      "id": 611962521,
+      "center": {
+        "lat": 42.9031203,
+        "lon": 47.5601637
+      },
+      "tags": {
+        "addr:city": "Новый Хушет",
+        "addr:housenumber": "59",
+        "addr:street": "улица Казбекова",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "САРТАН"
+      }
+    },
+    {
+      "type": "way",
+      "id": 765451009,
+      "center": {
+        "lat": 43.0760263,
+        "lon": 47.4571482
+      },
+      "tags": {
+        "addr:city": "Новолак",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

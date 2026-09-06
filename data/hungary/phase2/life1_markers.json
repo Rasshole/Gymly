@@ -1,0 +1,44 @@
+[
+  {
+    "location": "1117 Budapest, Október Huszonharmadika u. 8-10.",
+    "lat": 47.4750348,
+    "lng": 19.0489799,
+    "link": "/allee"
+  },
+  {
+    "location": "1139 Budapest, Fáy utca 45.",
+    "lat": 47.5357397,
+    "lng": 19.0772082,
+    "link": "/prestige"
+  },
+  {
+    "location": "1024 Budapest Lövőház u. 2-6.",
+    "lat": 47.5089793,
+    "lng": 19.0245791,
+    "link": "/mammut"
+  },
+  {
+    "location": "1082 Budapest, Futó u. 48-50.",
+    "lat": 47.4853511,
+    "lng": 19.0748192,
+    "link": "/corvin"
+  },
+  {
+    "location": "1115 Budapest, Etele út 68. (Etele Pláza III. emelet)",
+    "lat": 47.4642954,
+    "lng": 19.0258247,
+    "link": "/etele"
+  },
+  {
+    "location": "1066 Budapest, Nyugati tér 1-2. (II.-III. emelet)",
+    "lat": 47.5098654,
+    "lng": 19.0556393,
+    "link": "/nyugati"
+  },
+  {
+    "location": "1134 Budapest, Váci út 35.",
+    "lat": 47.5258939,
+    "lng": 19.0616161,
+    "link": "/vaci35"
+  }
+]

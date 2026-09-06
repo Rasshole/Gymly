@@ -1,0 +1,7 @@
+{
+  "model": "NNNN (4 digits)",
+  "regex": "^\\d{4}$",
+  "invalid_ready_postcodes": 0,
+  "missing_ready_postcodes": 0,
+  "non_canonical_ready_postcodes": 0
+}

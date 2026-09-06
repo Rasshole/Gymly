@@ -13,6 +13,7 @@ import {
   Animated,
   Easing,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {useSessionStore} from '@/store/sessionStore';
 import {useCheckInUIStore} from '@/store/checkInUIStore';
 import {useGymPresence} from '@/hooks/useGymPresence';
@@ -175,6 +176,9 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           workoutType: u.workoutType ?? activeSession?.workoutType ?? undefined,
           centerName: activeSession?.gymName,
           startedAt: u.lastActivity?.toISOString?.() ?? undefined,
+          liveExerciseName: u.liveExerciseName,
+          liveSetCount: u.liveSetCount,
+          liveExerciseCount: u.liveExerciseCount,
         }))
       : [];
 
@@ -229,7 +233,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
         <View style={styles.heroHeader}>
-          <Text style={styles.heroTitle}>Tjekket ind 🔥</Text>
+          <Text style={styles.heroTitle}>{t('workoutSummary.checkedIn')}</Text>
           <Text style={styles.heroCenter} numberOfLines={1}>
             {centerNameShort}
           </Text>
@@ -250,9 +254,23 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           ) : null}
           <View style={styles.timerMain}>
             <Text style={styles.timerMainValue}>{formatElapsed(elapsed)}</Text>
-            <Text style={styles.timerMainSub}>Session i gang</Text>
+            <Text style={styles.timerMainSub}>{t('workoutSummary.sessionInProgress')}</Text>
           </View>
         </Animated.View>
+
+        <TouchableOpacity
+          style={styles.logWorkoutButton}
+          onPress={() => navigation.navigate('LiveWorkout')}
+          activeOpacity={0.88}
+          accessibilityRole="button"
+          accessibilityLabel={t('checkIn.logWorkout')}>
+          <Text style={styles.logWorkoutEmoji}>🏋️</Text>
+          <View style={styles.logWorkoutTextWrap}>
+            <Text style={styles.logWorkoutTitle}>{t('checkIn.logWorkout')}</Text>
+            <Text style={styles.logWorkoutSub}>{t('workoutLog.title')}</Text>
+          </View>
+          <Icon name="chevron-forward" size={20} color={colors.primaryDark} />
+        </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.endButton}
@@ -368,6 +386,37 @@ const styles = StyleSheet.create({
     ...typography.caption,
     color: colors.white,
     lineHeight: 18,
+  },
+  logWorkoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    minHeight: 72,
+    marginBottom: spacing.md,
+    paddingHorizontal: spacing.lg,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 24,
+    borderWidth: 1.5,
+    borderColor: colors.primary + '40',
+    ...shadows.sm,
+  },
+  logWorkoutEmoji: {
+    fontSize: 28,
+    marginRight: spacing.md,
+  },
+  logWorkoutTextWrap: {
+    flex: 1,
+    marginRight: spacing.sm,
+  },
+  logWorkoutTitle: {
+    ...typography.bodyBold,
+    color: colors.text,
+    fontSize: 17,
+  },
+  logWorkoutSub: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+    fontWeight: '600',
   },
   endButton: {
     height: 64,

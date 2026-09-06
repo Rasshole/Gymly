@@ -1,0 +1,40 @@
+{
+  "country": "Armenia",
+  "search_normalization": "normalize_armenian_search() — Armenian script to Latin for dedup only",
+  "aliases": [
+    {
+      "canonical": "Yerevan",
+      "variants": [
+        "yerevan",
+        "երևան",
+        "Erevan"
+      ]
+    },
+    {
+      "canonical": "Gyumri",
+      "variants": [
+        "gyumri",
+        "գյումրի",
+        "Leninakan"
+      ]
+    },
+    {
+      "canonical": "Vanadzor",
+      "variants": [
+        "vanadzor",
+        "վանաձոր",
+        "Kirovakan"
+      ]
+    },
+    {
+      "canonical": "Armenia",
+      "variants": [
+        "Հայաստան",
+        "AM",
+        "Hayastan",
+        "Hayastani"
+      ]
+    }
+  ],
+  "notes": "Canonical Latin/Armenian local names preserved in storage; transliteration for search only"
+}

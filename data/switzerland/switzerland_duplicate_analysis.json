@@ -1,0 +1,12 @@
+[
+  {
+    "a": "ch_53e82ae848",
+    "b": "ch_2d35aeb0dd",
+    "brand": "ACTIV FITNESS",
+    "distance_m": 0.0,
+    "address_a": "Rohrerstrasse 78",
+    "address_b": "Fännring 2",
+    "reason": "same_brand_proximity",
+    "decision": "same_building_cluster"
+  }
+]

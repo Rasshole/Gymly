@@ -1,0 +1,17 @@
+{
+  "identical_coordinates": [],
+  "same_normalized_address": [],
+  "same_brand": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": []
+  },
+  "different_brand": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": []
+  },
+  "unexplained_hard_duplicates": 0
+}

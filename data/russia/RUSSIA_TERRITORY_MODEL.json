@@ -1,0 +1,79 @@
+{
+  "country": "Russia",
+  "phase": 1,
+  "generated_at": "2026-08-29T21:15:11.554731+00:00",
+  "federal_districts": {
+    "Central": {
+      "grade": "A",
+      "major_cities": [
+        "Moscow",
+        "Tula",
+        "Kaluga",
+        "Vladimir"
+      ]
+    },
+    "Northwestern": {
+      "grade": "A",
+      "major_cities": [
+        "Saint Petersburg",
+        "Kaliningrad"
+      ]
+    },
+    "Southern": {
+      "grade": "B",
+      "major_cities": [
+        "Krasnodar",
+        "Rostov-on-Don",
+        "Sochi"
+      ]
+    },
+    "North Caucasian": {
+      "grade": "B",
+      "major_cities": [
+        "Makhachkala"
+      ]
+    },
+    "Volga": {
+      "grade": "A",
+      "major_cities": [
+        "Kazan",
+        "Nizhny Novgorod",
+        "Samara",
+        "Saratov",
+        "Ufa",
+        "Perm",
+        "Volgograd"
+      ]
+    },
+    "Ural": {
+      "grade": "A",
+      "major_cities": [
+        "Yekaterinburg",
+        "Chelyabinsk",
+        "Tyumen",
+        "Orenburg"
+      ]
+    },
+    "Siberian": {
+      "grade": "A",
+      "major_cities": [
+        "Novosibirsk",
+        "Omsk",
+        "Krasnoyarsk",
+        "Irkutsk",
+        "Tomsk",
+        "Barnaul",
+        "Kemerovo"
+      ]
+    },
+    "Far Eastern": {
+      "grade": "D",
+      "major_cities": [
+        "Vladivostok",
+        "Khabarovsk",
+        "Yakutsk"
+      ]
+    }
+  },
+  "disputed_hold_region": "Disputed"
+}

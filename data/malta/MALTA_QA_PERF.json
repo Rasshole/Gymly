@@ -1,0 +1,33 @@
+{
+  "catalog": 11929,
+  "active": 11925,
+  "malta": 24,
+  "json_size_bytes": 3708345,
+  "json_size_mb": 3.54,
+  "parse_ms": 17,
+  "cold_index_ms": 4119,
+  "cached_index_ms": 0,
+  "typical_search_ms": 156.2,
+  "worst_search_ms": 20,
+  "nearest_ms": 1,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 1,
+  "map_markers_built": 24,
+  "architecture": "KEEP CLIENT-SIDE",
+  "luxembourg_qa_baseline": {
+    "catalog": 11630,
+    "json_size_mb": 3.45
+  },
+  "malta_merge_baseline": {
+    "catalog": 11648,
+    "json_size_bytes": 3619609,
+    "parse_ms_approx": 31
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false,
+  "production_sha256": "ff19dfaae9f99984ae5c6a73765b3e585263b61050d8c927fc45a38037dfa3dc",
+  "sha_after_qa": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "production_modified": true
+}

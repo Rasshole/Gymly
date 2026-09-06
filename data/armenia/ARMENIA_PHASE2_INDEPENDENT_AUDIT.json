@@ -1,0 +1,189 @@
+{
+  "independent_candidates_reviewed": 166,
+  "independent_brands": [
+    "Allegro",
+    "Davis' gym",
+    "Delta",
+    "Dreambody",
+    "Fitness Zone",
+    "Grig fitness club",
+    "Gym Unity",
+    "Independent (Abovyan)",
+    "Independent (Armavir)",
+    "Independent (Goris)",
+    "Independent (Gyumri)",
+    "Independent (Hrazdan)",
+    "Independent (Kapan)",
+    "Independent (Vanadzor)",
+    "Ketrin",
+    "Lady Zone",
+    "MASGym",
+    "Oxylife",
+    "Progress ֆիզիկական զարգացման կենտրոն",
+    "Reebok Sports Club Armenia",
+    "Sparta",
+    "Star Gym",
+    "jamm fit",
+    "Թի-էյջ",
+    "Մուլտի ուելնես կենտրոն"
+  ],
+  "new_ready_independents": 25,
+  "independents_promoted_to_ready": 25,
+  "independents_excluded": 159,
+  "independents_closed": 0,
+  "phase2_nr_promoted_independents": 25,
+  "phase2_nr_promoted_osm": 18,
+  "phase2_nr_promoted_regional": 7,
+  "locations": [
+    {
+      "id": "am_59a231b372",
+      "brand": "Independent (Gyumri)",
+      "name": "Gyumri Fitness Centre",
+      "city": "Gyumri"
+    },
+    {
+      "id": "am_511afad14c",
+      "brand": "Independent (Vanadzor)",
+      "name": "Vanadzor Sports Club",
+      "city": "Vanadzor"
+    },
+    {
+      "id": "am_045c20e5e4",
+      "brand": "Independent (Abovyan)",
+      "name": "Abovyan Gym",
+      "city": "Abovyan"
+    },
+    {
+      "id": "am_8758b54ad0",
+      "brand": "Independent (Hrazdan)",
+      "name": "Hrazdan Fitness",
+      "city": "Hrazdan"
+    },
+    {
+      "id": "am_906dca9825",
+      "brand": "Independent (Kapan)",
+      "name": "Kapan Sports Club",
+      "city": "Kapan"
+    },
+    {
+      "id": "am_1aba19e385",
+      "brand": "Independent (Armavir)",
+      "name": "Armavir Fitness",
+      "city": "Armavir"
+    },
+    {
+      "id": "am_e37fde58c7",
+      "brand": "Independent (Goris)",
+      "name": "Goris Gym",
+      "city": "Goris"
+    },
+    {
+      "id": "am_070a05f85b",
+      "brand": "Progress ֆիզիկական զարգացման կենտրոն",
+      "name": "Progress ֆիզիկական զարգացման կենտրոն",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_e5dd3ae42d",
+      "brand": "Davis' gym",
+      "name": "Davis' gym",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_f6a5febe43",
+      "brand": "Մուլտի ուելնես կենտրոն",
+      "name": "Մուլտի ուելնես կենտրոն",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_55ef0d75b4",
+      "brand": "Star Gym",
+      "name": "Սթար Ջիմ Պրեմիեր",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_5ef92e0c7a",
+      "brand": "Grig fitness club",
+      "name": "Grig fitness club",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_566cdcee60",
+      "brand": "Reebok Sports Club Armenia",
+      "name": "Reebok Sports Club Armenia",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_8c7f92c2e9",
+      "brand": "Թի-էյջ",
+      "name": "Թի-էյջ",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_43d12efb9f",
+      "brand": "Oxylife",
+      "name": "Oxylife",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_5db22c1887",
+      "brand": "jamm fit",
+      "name": "jamm fit",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_90e3844ca0",
+      "brand": "Delta",
+      "name": "Delta",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_f1fc60831e",
+      "brand": "Fitness Zone",
+      "name": "Fitness Zone",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_4cda657d75",
+      "brand": "Lady Zone",
+      "name": "Lady Zone",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_655f99a9e3",
+      "brand": "MASGym",
+      "name": "MASGym",
+      "city": "Մասիս"
+    },
+    {
+      "id": "am_3ee6bd0963",
+      "brand": "Dreambody",
+      "name": "Dreambody",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_525edbb005",
+      "brand": "Allegro",
+      "name": "Allegro",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_912df09b01",
+      "brand": "Gym Unity",
+      "name": "Gym Unity",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_b434afb728",
+      "brand": "Ketrin",
+      "name": "Ketrin",
+      "city": "Yerevan"
+    },
+    {
+      "id": "am_e321de5b21",
+      "brand": "Sparta",
+      "name": "Sparta",
+      "city": "Vanadzor"
+    }
+  ]
+}

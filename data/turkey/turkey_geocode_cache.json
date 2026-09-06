@@ -1,0 +1,427 @@
+{
+  "tr|15 temmuz mahallesi bahar caddesi no:45-1b-14b güneşli bağcılar / i̇stanbul, i̇stanbul, turkey": null,
+  "tr|beştelsiz mahallesi prof. muammer aksoy caddesi no:30 zeytinburnu/i̇stanbul, i̇stanbul, turkey": null,
+  "tr|kartaltepe mahallesi ataköy 7-8-9-10. kısım karanfil sokak 1/148 d:1.kat bakırköy/i̇stanbul, i̇stanbul, turkey": null,
+  "tr|soğanlık yeni, soğanlık d-100 kuzey yan yol marmara anatolium avm no:72 / 218 kat:2 kartal/i̇stanbul, i̇stanbul, turkey": null,
+  "tr|pınartepe mahallesi akyurt caddesi no:1a büyükçekmece/i̇stanbul, i̇stanbul, turkey": null,
+  "tr|karadeniz mahallesi eski edirne asfaltı caddesi no: 408f, z001 gaziosmanpaşa/i̇stanbul, i̇stanbul, turkey": null,
+  "tr|osmaniye mahallesi altay caddesi no:2 i̇negöl / bursa, bursa, turkey": null,
+  "tr|çınar 4 kapı yanı korupark evleri sedir otoparkı osmangazi̇ / bursa, bursa, turkey": null,
+  "tr|çamlıca mahallesi gülperi sokak no:1 kat:3 tepebaşı / eski̇şehi̇r, eskişehir, turkey": null,
+  "tr|i̇stiklal mahallesi i̇ki eylül caddesi çınar sokak no:1/a odunpazarı / eskişehir, eskişehir, turkey": null,
+  "tr|i̇smet i̇nönü caddesi no: 71/2 tepebaşı / eski̇şehi̇r, eskişehir, turkey": null,
+  "tr|cumhuriye mahallesi otopark sokak no:8 tepebaşı / eski̇şehi̇r, eskişehir, turkey": null,
+  "tr|hoşnudiye mahallesi şahin bulvarı ayşen sokak no:4/h tepebaşı / eski̇şehi̇r, eskişehir, turkey": null,
+  "tr|hasköy mahallesi volkan caddesi no:1 subayevleri - keçiören / ankara, ankara, turkey": null,
+  "tr|tunahan mahallesi dumlupınar 30 ağustos caddesi no:2 etimesgut/ankara, ankara, turkey": null,
+  "tr|ayvalı mahallesi halil sezai erkut caddesi no:1/a keçiören/ankara, ankara, turkey": null,
+  "tr|kızılırmak mahallesi ufuk üniversitesi caddesi no:4/1 çankaya / ankara, ankara, turkey": null,
+  "tr|ehlibeyt mahallesi i̇şçi blokları mevlana bulvarı no:190 d:157 çankaya/ankara, ankara, turkey": null,
+  "tr|i̇nönü mahallesi 1729. sokak no: 4/12-123 yenimahalle/ankara, ankara, turkey": null,
+  "tr|bedir mahallesi ataseven caddesi kat : 3 selçuklu / konya, konya, turkey": null,
+  "tr|47 sokak, kemer, turkey": {
+    "lat": 36.669093,
+    "lng": 30.5490818,
+    "display_name": "47 Sokak, Göynük, Kemer, Antalya, Akdeniz Bölgesi, Türkiye",
+    "importance": 0.05338277027542531,
+    "postcode": "",
+    "country_code": "tr"
+  },
+  "tr|antalya b-fit, manavgat, turkey": null,
+  "rev|41.0431|28.7878": {
+    "lat": 41.0433571,
+    "lng": 28.7879974,
+    "display_name": "C2-5, 223. Cadde, Atakent Mahallesi, Küçükçekmece, İstanbul, Marmara Bölgesi, 34307, Türkiye",
+    "postcode": "34307",
+    "country_code": "tr",
+    "road": "223. Cadde",
+    "city": "Küçükçekmece"
+  },
+  "rev|41.0072|28.9028": {
+    "lat": 41.0071095,
+    "lng": 28.9028029,
+    "display_name": "Ambarlar, Seyitnizam Mahallesi, Zeytinburnu, İstanbul, Marmara Bölgesi, 34015, Türkiye",
+    "postcode": "34015",
+    "country_code": "tr",
+    "road": "",
+    "city": "Zeytinburnu"
+  },
+  "rev|40.9792|28.8696": {
+    "lat": 40.9791503,
+    "lng": 28.8696059,
+    "display_name": "Fazılpaşa Sokağı, Zeytinlik Mahallesi, Bakırköy, İstanbul, Marmara Bölgesi, 34140, Türkiye",
+    "postcode": "34140",
+    "country_code": "tr",
+    "road": "Fazılpaşa Sokağı",
+    "city": "Bakırköy"
+  },
+  "rev|41.002|28.995": {
+    "lat": 41.0038998,
+    "lng": 28.9885095,
+    "display_name": "Avrasya Tüneli, Mimar Mehmet Ağa Caddesi, Sultan Ahmet Mahallesi, İstanbul, Fatih, İstanbul, Marmara Bölgesi, 34122, Türkiye",
+    "postcode": "34122",
+    "country_code": "tr",
+    "road": "Mimar Mehmet Ağa Caddesi",
+    "city": "İstanbul"
+  },
+  "rev|41.012869|28.621746": {
+    "lat": 41.012345,
+    "lng": 28.6217118,
+    "display_name": "World Point Spor Merkezi , Akyurt Caddesi, Beykent, Pınartepe Mahallesi, Büyükçekmece, İstanbul, Marmara Bölgesi, 34500, Türkiye",
+    "postcode": "34500",
+    "country_code": "tr",
+    "road": "Akyurt Caddesi",
+    "city": "Büyükçekmece"
+  },
+  "rev|41.12|28.75": {
+    "lat": 41.1200994,
+    "lng": 28.7500291,
+    "display_name": "Şamlar Mahallesi, Başakşehir, İstanbul, Marmara Bölgesi, 34494, Türkiye",
+    "postcode": "34494",
+    "country_code": "tr",
+    "road": "",
+    "city": "Başakşehir"
+  },
+  "rev|40.0779|29.5137": {
+    "lat": 40.0777866,
+    "lng": 29.5137458,
+    "display_name": "Yenice Mahallesi, İnegöl, Bursa, Marmara Bölgesi, 16400, Türkiye",
+    "postcode": "16400",
+    "country_code": "tr",
+    "road": "",
+    "city": "İnegöl"
+  },
+  "rev|40.2235|28.9901": {
+    "lat": 40.2232598,
+    "lng": 28.990218,
+    "display_name": "Esentepe Mahallesi, Nilüfer, Bursa, Marmara Bölgesi, 16160, Türkiye",
+    "postcode": "16160",
+    "country_code": "tr",
+    "road": "",
+    "city": "Nilüfer"
+  },
+  "rev|39.7731|30.4922": {
+    "lat": 39.7731065,
+    "lng": 30.4926873,
+    "display_name": "TÜLOMSAŞ Lojmanları, 134, Basın Şehitleri Caddesi, Osmangazi Mahallesi, Eskişehir, Odunpazarı, Eskişehir, İç Anadolu Bölgesi, 26140, Türkiye",
+    "postcode": "26140",
+    "country_code": "tr",
+    "road": "Basın Şehitleri Caddesi",
+    "city": "Eskişehir"
+  },
+  "rev|39.7665|30.538": {
+    "lat": 39.7668583,
+    "lng": 30.5380501,
+    "display_name": "Gazi Caddesi, Alanönü Mahallesi, Eskişehir, Odunpazarı, Eskişehir, İç Anadolu Bölgesi, 26026, Türkiye",
+    "postcode": "26026",
+    "country_code": "tr",
+    "road": "Gazi Caddesi",
+    "city": "Eskişehir"
+  },
+  "rev|39.7767|30.5206": {
+    "lat": 39.7766646,
+    "lng": 30.5207735,
+    "display_name": "Ferahiye Sokak, Hacı Ali Bey Mahallesi, Tepebaşı, Eskişehir, İç Anadolu Bölgesi, 26120, Türkiye",
+    "postcode": "26120",
+    "country_code": "tr",
+    "road": "Ferahiye Sokak",
+    "city": "Tepebaşı"
+  },
+  "rev|39.7589|30.4684": {
+    "lat": 39.7587211,
+    "lng": 30.4683495,
+    "display_name": "Ziraat Caddesi, Orhangazi Mahallesi, Eskişehir, Odunpazarı, Eskişehir, İç Anadolu Bölgesi, 26480, Türkiye",
+    "postcode": "26480",
+    "country_code": "tr",
+    "road": "Ziraat Caddesi",
+    "city": "Eskişehir"
+  },
+  "rev|39.7772|30.5154": {
+    "lat": 39.7770841,
+    "lng": 30.5153125,
+    "display_name": "Başarı Sokak, İstiklal Mahallesi, Eskişehir, Odunpazarı, Eskişehir, İç Anadolu Bölgesi, 26010, Türkiye",
+    "postcode": "26010",
+    "country_code": "tr",
+    "road": "Başarı Sokak",
+    "city": "Eskişehir"
+  },
+  "rev|39.9134|32.75": {
+    "lat": 39.9134293,
+    "lng": 32.7499907,
+    "display_name": "Mustafa Kemal Mahallesi, Ankara, Çankaya, Ankara, İç Anadolu Bölgesi, 06530, Türkiye",
+    "postcode": "06530",
+    "country_code": "tr",
+    "road": "",
+    "city": "Ankara"
+  },
+  "rev|39.942|32.84": {
+    "lat": 39.9410556,
+    "lng": 32.8399064,
+    "display_name": "Sıfır Atık Merkezi, Hipodrom Caddesi, Zübeyde Hanım Mahallesi, Altındağ, Ankara, İç Anadolu Bölgesi, 06070, Türkiye",
+    "postcode": "06070",
+    "country_code": "tr",
+    "road": "Hipodrom Caddesi",
+    "city": "Altındağ"
+  },
+  "rev|39.9792|32.8653": {
+    "lat": 39.9792807,
+    "lng": 32.8648207,
+    "display_name": "Bilal Yaşar Ortaokulu, 23, Beyşehir Sokak, Kalaba Mahallesi, Keçiören, Ankara, İç Anadolu Bölgesi, 06120, Türkiye",
+    "postcode": "06120",
+    "country_code": "tr",
+    "road": "Beyşehir Sokak",
+    "city": "Keçiören"
+  },
+  "rev|39.9103|32.86": {
+    "lat": 39.9102482,
+    "lng": 32.8599431,
+    "display_name": "29, Beykoz Sokağı, Kavaklıdere Mahallesi, Ankara, Çankaya, Ankara, İç Anadolu Bölgesi, 06680, Türkiye",
+    "postcode": "06680",
+    "country_code": "tr",
+    "road": "Beykoz Sokağı",
+    "city": "Ankara"
+  },
+  "rev|39.896|32.798": {
+    "lat": 39.8960194,
+    "lng": 32.7981034,
+    "display_name": "100. Yıl Taksi, 1533. Cadde, 100. Yıl, İşçi Blokları Mahallesi, Ankara, Çankaya, Ankara, İç Anadolu Bölgesi, 06530, Türkiye",
+    "postcode": "06530",
+    "country_code": "tr",
+    "road": "1533. Cadde",
+    "city": "Ankara"
+  },
+  "rev|39.8855|32.694": {
+    "lat": 39.8855529,
+    "lng": 32.6939829,
+    "display_name": "Doğan Taşdelen Bulvarı, Çayyolu Mahallesi, Ankara, Çankaya, Ankara, İç Anadolu Bölgesi, 06810, Türkiye",
+    "postcode": "06810",
+    "country_code": "tr",
+    "road": "Doğan Taşdelen Bulvarı",
+    "city": "Ankara"
+  },
+  "rev|37.8762|32.493": {
+    "lat": 37.8761578,
+    "lng": 32.4929634,
+    "display_name": "Atatürk Anadolu Lisesi, 2, Kılıçarslan Şehir Meydanı, Ferhuniye Mahallesi, Konya, Selçuklu, Konya, İç Anadolu Bölgesi, 42200, Türkiye",
+    "postcode": "42200",
+    "country_code": "tr",
+    "road": "Kılıçarslan Şehir Meydanı",
+    "city": "Konya"
+  },
+  "rev|36.669486|30.548671": {
+    "lat": 36.6694856,
+    "lng": 30.5486709,
+    "display_name": "Fit arena, 47 Sokak, Göynük, Kemer, Antalya, Akdeniz Bölgesi, Türkiye",
+    "postcode": "",
+    "country_code": "tr",
+    "road": "47 Sokak",
+    "city": "Kemer"
+  },
+  "rev|36.728056|31.523069": {
+    "lat": 36.7283099,
+    "lng": 31.5234369,
+    "display_name": "Amphitheatre, Antalya - Mersin Yolu, Kızılağaç, Manavgat, Antalya, Akdeniz Bölgesi, Türkiye",
+    "postcode": "",
+    "country_code": "tr",
+    "road": "Antalya - Mersin Yolu",
+    "city": "Manavgat"
+  },
+  "tr|yenişehir 56. sokak, şanlıurfa, turkey": {
+    "lat": 37.7445576,
+    "lng": 39.3308888,
+    "display_name": "Yenişehir 56. Sokak, Yenişehir Mahallesi, Siverek, Şanlıurfa, Güneydoğu Anadolu Bölgesi, Türkiye",
+    "importance": 0.05338279011215378,
+    "postcode": "",
+    "country_code": "tr"
+  },
+  "Yenişehir 56. Sokak|Şanlıurfa|Turkey": {
+    "lat": 37.7445576,
+    "lng": 39.3308888,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|37.744558|39.330889": {
+    "lat": 37.7445576,
+    "lng": 39.3308888,
+    "display_name": "Yenişehir 56. Sokak, Yenişehir Mahallesi, Siverek, Şanlıurfa, Güneydoğu Anadolu Bölgesi, Türkiye",
+    "postcode": "",
+    "country_code": "tr",
+    "road": "Yenişehir 56. Sokak",
+    "city": "Siverek"
+  },
+  "tr|spor salonu, gercüş, turkey": {
+    "lat": 37.5701532,
+    "lng": 41.3904858,
+    "display_name": "Spor Salonu, 72-29, Bağlarbaşı Mahallesi, Gercüş, Batman, Güneydoğu Anadolu Bölgesi, Türkiye",
+    "importance": 4.5001144426596745e-05,
+    "postcode": "",
+    "country_code": "tr"
+  },
+  "Spor Salonu|Gercüş|Turkey": {
+    "lat": 37.5701532,
+    "lng": 41.3904858,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|37.570153|41.390486": {
+    "lat": 37.5701532,
+    "lng": 41.3904858,
+    "display_name": "Spor Salonu, 72-29, Bağlarbaşı Mahallesi, Gercüş, Batman, Güneydoğu Anadolu Bölgesi, Türkiye",
+    "postcode": "",
+    "country_code": "tr",
+    "road": "72-29",
+    "city": "Gercüş"
+  },
+  "tr|üniversites i̇çi yolu, batman, turkey": {
+    "lat": 37.7843517,
+    "lng": 41.0621808,
+    "display_name": "Üniversites İçi Yolu, Batman Merkez, Batman, Güneydoğu Anadolu Bölgesi, Türkiye",
+    "importance": 0.053389557488364964,
+    "postcode": "",
+    "country_code": "tr"
+  },
+  "Üniversites İçi Yolu|Batman|Turkey": {
+    "lat": 37.7843517,
+    "lng": 41.0621808,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|37.784352|41.062181": {
+    "lat": 37.7823643,
+    "lng": 41.0688285,
+    "display_name": "Batman Üniversitesi Batı Raman Yerleşkesi, Üniversite Yolu, Batman Merkez, Batman, Güneydoğu Anadolu Bölgesi, Türkiye",
+    "postcode": "",
+    "country_code": "tr",
+    "road": "Üniversite Yolu",
+    "city": "Batman Merkez"
+  },
+  "tr|337. sokak, batman, turkey": {
+    "lat": 37.8710169,
+    "lng": 41.1238008,
+    "display_name": "337. Sokak, Karşıyaka Mahallesi, Batman Merkez, Batman, Güneydoğu Anadolu Bölgesi, 72040, Türkiye",
+    "importance": 0.053389557488364964,
+    "postcode": "72040",
+    "country_code": "tr"
+  },
+  "337. Sokak|Batman|Turkey": {
+    "lat": 37.8710169,
+    "lng": 41.1238008,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|37.871017|41.123801": {
+    "lat": 37.8709058,
+    "lng": 41.1235764,
+    "display_name": "15, 337. Sokak, Karşıyaka Mahallesi, Batman Merkez, Batman, Güneydoğu Anadolu Bölgesi, 72040, Türkiye",
+    "postcode": "72040",
+    "country_code": "tr",
+    "road": "337. Sokak",
+    "city": "Batman Merkez"
+  },
+  "tr|αιγαίου, κως, turkey": null,
+  "rev|36.897533|27.246197": {
+    "lat": 36.8975334,
+    "lng": 27.2461973,
+    "display_name": "Gym, Αιγαίου, Κως, Δήμος Κω, Περιφερειακή Ενότητα Κω, Περιφέρεια Νοτίου Αιγαίου, Αποκεντρωμένη Διοίκηση Αιγαίου, 853 00, Ελλάς",
+    "postcode": "853 00",
+    "country_code": "gr",
+    "road": "Αιγαίου",
+    "city": "Κως"
+  },
+  "tr|i̇nci sokağı, derinkuyu, turkey": {
+    "lat": 38.371726,
+    "lng": 34.7374264,
+    "display_name": "İnci Sokağı, Bayramlı, Derinkuyu İlçe Merkezi, Derinkuyu, Nevşehir, İç Anadolu Bölgesi, Türkiye",
+    "importance": 0.053383334859235486,
+    "postcode": "",
+    "country_code": "tr"
+  },
+  "İnci Sokağı|Derinkuyu|Turkey": {
+    "lat": 38.371726,
+    "lng": 34.7374264,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|38.371726|34.737426": {
+    "error": "<urlopen error timed out>"
+  },
+  "tr|31ης μαρτιου, μαρμάρι, turkey": null,
+  "rev|36.873966|27.137554": {
+    "lat": 36.8739657,
+    "lng": 27.1375542,
+    "display_name": "Gym, 31ης Μαρτιου, Μαρμάρι, Δήμος Κω, Περιφερειακή Ενότητα Κω, Περιφέρεια Νοτίου Αιγαίου, Αποκεντρωμένη Διοίκηση Αιγαίου, 853 00, Ελλάς",
+    "postcode": "853 00",
+    "country_code": "gr",
+    "road": "31ης Μαρτιου",
+    "city": ""
+  },
+  "tr|i̇lkokul, gülnar, turkey": {
+    "lat": 36.3383768,
+    "lng": 33.4036095,
+    "display_name": "İlkokul, Saray, Gülnar, Mersin, Akdeniz Bölgesi, Türkiye",
+    "importance": 0.0533826985580224,
+    "postcode": "",
+    "country_code": "tr"
+  },
+  "İlkokul|Gülnar|Turkey": {
+    "lat": 36.3383768,
+    "lng": 33.4036095,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|36.338377|33.40361": {
+    "lat": 36.3383768,
+    "lng": 33.4036095,
+    "display_name": "İlkokul, Saray, Gülnar, Mersin, Akdeniz Bölgesi, Türkiye",
+    "postcode": "",
+    "country_code": "tr",
+    "road": "İlkokul",
+    "city": "Gülnar"
+  },
+  "tr|rasathane caddesi, i̇stanbul, turkey": {
+    "lat": 41.0715237,
+    "lng": 29.0677666,
+    "display_name": "Rasathane Caddesi, Küçüksu Mahallesi, Üsküdar, İstanbul, Marmara Bölgesi, 34684, Türkiye",
+    "importance": 0.05341481116960399,
+    "postcode": "34684",
+    "country_code": "tr"
+  },
+  "Rasathane Caddesi|İstanbul|Turkey": {
+    "lat": 41.0715237,
+    "lng": 29.0677666,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|41.071524|29.067767": {
+    "lat": 41.0715237,
+    "lng": 29.0677666,
+    "display_name": "Rasathane Caddesi, Küçüksu Mahallesi, Üsküdar, İstanbul, Marmara Bölgesi, 34684, Türkiye",
+    "postcode": "34684",
+    "country_code": "tr",
+    "road": "Rasathane Caddesi",
+    "city": "Üsküdar"
+  },
+  "tr|ispartakule lisesi spor salonu yapımı, avcılar, turkey": {
+    "lat": 41.0667809,
+    "lng": 28.704912,
+    "display_name": "Ispartakule Lisesi Spor Salonu Yapımı, Ispartakule, Tahtakale Mahallesi, Avcılar, İstanbul, Marmara Bölgesi, Türkiye",
+    "importance": 0.0800510437170977,
+    "postcode": "",
+    "country_code": "tr"
+  },
+  "Ispartakule Lisesi Spor Salonu Yapımı|Avcılar|Turkey": {
+    "lat": 41.0667809,
+    "lng": 28.704912,
+    "postal_code": "",
+    "coord_source": "PHOTON_PREMISES"
+  },
+  "rev|41.066781|28.704912": {
+    "lat": 41.066665,
+    "lng": 28.7050283,
+    "display_name": "Ispartakule, Tahtakale Mahallesi, Avcılar, İstanbul, Marmara Bölgesi, 34325, Türkiye",
+    "postcode": "34325",
+    "country_code": "tr",
+    "road": "",
+    "city": "Avcılar"
+  }
+}

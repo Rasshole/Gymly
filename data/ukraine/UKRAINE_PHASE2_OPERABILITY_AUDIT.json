@@ -1,0 +1,88 @@
+{
+  "phase": 2,
+  "conflict_area_resolutions": [
+    {
+      "id": "ua_130b470d75",
+      "brand": "Sport Life",
+      "name": "Sport Life Donetsk (unverified)",
+      "city": "Donetsk",
+      "phase1_category": "NEEDS_REVIEW",
+      "phase2_disposition": "EXCLUDED",
+      "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+      "in_production": false
+    },
+    {
+      "id": "ua_34ab8f6d94",
+      "brand": "Sport Life",
+      "name": "Sport Life Mariupol (unverified)",
+      "city": "Mariupol",
+      "phase1_category": "NEEDS_REVIEW",
+      "phase2_disposition": "EXCLUDED",
+      "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+      "in_production": false
+    },
+    {
+      "id": "ua_f5dbc50cac",
+      "brand": "Apollo Next",
+      "name": "Apollo Next Zaporizhzhia probe",
+      "city": "Zaporizhzhia",
+      "phase1_category": "NEEDS_REVIEW",
+      "phase2_disposition": "EXCLUDED",
+      "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+      "in_production": false
+    },
+    {
+      "id": "ua_87b06b2368",
+      "brand": "Total Fitness",
+      "name": "Total Fitness Kherson probe",
+      "city": "Kherson",
+      "phase1_category": "NEEDS_REVIEW",
+      "phase2_disposition": "EXCLUDED",
+      "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+      "in_production": false
+    },
+    {
+      "id": "ua_6a9cf02eb2",
+      "brand": "Energy Fitness",
+      "name": "Energy Fitness Luhansk probe",
+      "city": "Luhansk",
+      "phase1_category": "NEEDS_REVIEW",
+      "phase2_disposition": "EXCLUDED",
+      "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+      "in_production": false
+    },
+    {
+      "id": "ua_146ddd858f",
+      "brand": "Grafit",
+      "name": "Grafit Sevastopol probe",
+      "city": "Sevastopol",
+      "phase1_category": "NEEDS_REVIEW",
+      "phase2_disposition": "EXCLUDED",
+      "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+      "in_production": false
+    },
+    {
+      "id": "ua_7cd17f0cfc",
+      "brand": "Independent",
+      "name": "Crimea Yalta municipal gym probe",
+      "city": "Crimea",
+      "phase1_category": "NEEDS_REVIEW",
+      "phase2_disposition": "EXCLUDED",
+      "decision_reason": "Phase 2 terminal — no current verified operation in conflict territory",
+      "in_production": false
+    }
+  ],
+  "operation_unverified_ready": 0,
+  "crimea_final": {
+    "ready": 0,
+    "needs_review": 0,
+    "excluded": 2,
+    "closed": 0
+  },
+  "sevastopol_final": {
+    "ready": 0,
+    "needs_review": 0,
+    "excluded": 1,
+    "closed": 0
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "hr_096e0c854b",
+    "name": "Gyms4you Split 3",
+    "phase1_status": "COMING_SOON",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_locator_OPENING_SOON"
+  },
+  {
+    "id": "hr_3c82eb55d7",
+    "name": "THE Fitness Samobor STOP SHOP",
+    "phase1_status": "COMING_SOON",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_data_keys_coming_soon"
+  },
+  {
+    "id": "hr_6c2849e74b",
+    "name": "THE Fitness Donje Svetice",
+    "phase1_status": "COMING_SOON",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_data_keys_coming_soon"
+  },
+  {
+    "id": "hr_ce961ae600",
+    "name": "Gyms4you Heinzelova x Vukovarska",
+    "phase1_status": "NEEDS_REVIEW",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_heinzelova_x_vukovarska_uskoro"
+  },
+  {
+    "id": "hr_d7d57e7e6b",
+    "name": "Gyms4you Spinut",
+    "phase1_status": "NEEDS_REVIEW",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_spinut_early_2027"
+  },
+  {
+    "id": "hr_ee18805422",
+    "name": "Gyms4you Split Trstenik",
+    "phase1_status": "COMING_SOON",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_page_uskoro_otvoreno"
+  },
+  {
+    "id": "hr_eff3e7d13c",
+    "name": "Gyms4you Jurišićeva",
+    "phase1_status": "COMING_SOON",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_page_uskoro_otvoreno_2026"
+  },
+  {
+    "id": "hr_f3f2371e7f",
+    "name": "Gyms4you Split Visoka",
+    "phase1_status": "COMING_SOON",
+    "final_disposition": "COMING_SOON",
+    "evidence": "official_page_otvorenje_proljece_2026"
+  }
+]

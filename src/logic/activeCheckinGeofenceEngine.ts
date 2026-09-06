@@ -5,7 +5,7 @@ import {
   MAX_DISTANCE_SAMPLES,
 } from '@/config/activeCheckinGeofenceConfig';
 
-/** 1 = inden for center (≤200 m), 2 = uden for (>200 m) */
+/** 1 = inden for center (≤ radius), 2 = uden for */
 export type GeofenceZone = 1 | 2;
 
 export function classifyGeofenceZone(distanceMeters: number): GeofenceZone {

@@ -1,0 +1,27 @@
+{
+  "phase1_candidates_recovered": 8,
+  "phase1_promoted": 6,
+  "phase1_excluded": 2,
+  "new_locations_discovered": 3,
+  "new_locations": [
+    {
+      "id": "li_9b66d0aa5e",
+      "name": "KOKON Fitness & Spa Ruggell",
+      "verdict": "READY",
+      "municipality": "Ruggell"
+    },
+    {
+      "id": "li_38b1a364b8",
+      "name": "AKA GYM Nendeln / Schaanwald",
+      "verdict": "EXCLUDED",
+      "municipality": "Nendeln"
+    },
+    {
+      "id": "li_07d5142b96",
+      "name": "Luxe Private Fitness Lounge Triesen",
+      "verdict": "EXCLUDED",
+      "municipality": "Triesen"
+    }
+  ],
+  "new_ready": 1
+}

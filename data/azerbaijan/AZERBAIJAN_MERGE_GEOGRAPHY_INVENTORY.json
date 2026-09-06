@@ -1,0 +1,19 @@
+{
+  "production_cities": {
+    "Ganja": 8,
+    "Sumqayit": 12,
+    "Baku": 21,
+    "Masazır": 1,
+    "Lankaran": 2,
+    "Mingachevir": 2
+  },
+  "approved_cities": {
+    "Baku": 21,
+    "Ganja": 8,
+    "Sumqayit": 12,
+    "Masazır": 1,
+    "Lankaran": 2,
+    "Mingachevir": 2
+  },
+  "production_total": 46
+}

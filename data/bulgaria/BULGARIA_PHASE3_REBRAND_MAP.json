@@ -1,0 +1,54 @@
+{
+  "Pulse_Platinum": {
+    "classification": "A_current_Pulse",
+    "evidence": [
+      "Official pulsefit.bg page /en/klubove/pulse-platinum/ exists and is live",
+      "Official aria-label address: София, ул. \"Резбарска\" 47",
+      "Consumer-facing brand on page is Pulse Platinum (Pulse Fitness)",
+      "Distinct from Hammer Gym Platinum at 4 George Washington str.",
+      "Geocoded READY at Rezbarska 47; ~1246m from Next Level Hadzhi Dimitar (Rezbarska 5) — A_legitimate"
+    ],
+    "production_identity_decision": "Stage as Pulse Fitness / Pulse Platinum only. Do not stage separate Platinum Health Club identity.",
+    "hammer_gym_platinum": "DISTINCT_OPERATOR at 4 George Washington str."
+  },
+  "Pulse_WestPark_Lyulin": {
+    "classification": "A_legitimate",
+    "distance_m": 1081,
+    "west_park": {
+      "address": "60 Petar Dertliev Blvd.",
+      "postal": "1805",
+      "lat": 42.7096227,
+      "lng": 23.2572209,
+      "status": "READY_TO_IMPORT"
+    },
+    "lyulin": {
+      "address": "Blvd. Tsaritsa Ioana, bl 276",
+      "postal": "1335",
+      "lat": 42.7112673,
+      "lng": 23.2702626,
+      "status": "READY_TO_IMPORT"
+    },
+    "evidence": "Distinct official addresses (Petar Dertliev 60 vs Tsaritsa Ioana bl 276); geocodes ~1.08km apart"
+  },
+  "Pulse_hotel_foreign": {
+    "status": "EXCLUDED",
+    "items": [
+      "Pulse Therme",
+      "Pulse Therme Bansko",
+      "Pulse Royal Hotel Plovdiv",
+      "Pulse Royal Hotel Velingrad",
+      "Pulse Atlantis Strumica"
+    ]
+  },
+  "Pulse_coming_soon": {
+    "Pulse Ovcha Kupel": "COMING_SOON — official page Coming soon / planned 2025 President Lincoln Blvd",
+    "Pulse Drujba": "COMING_SOON — 2026 expansion announcement; page lacks open club address"
+  },
+  "Hammer_Gym_Platinum": {
+    "status": "DISTINCT_FROM_PULSE_PLATINUM",
+    "address": "4 George Washington str."
+  },
+  "Titanium_Mladost3_Studentski_correction": {
+    "note": "Phase 2 misassigned Simeonovsko 77 to Mladost 3; Phase 3 corrected: Studentski Grad=Simeonovsko 77, Mladost 3=Blok 386"
+  }
+}

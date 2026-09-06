@@ -1,0 +1,138 @@
+{
+  "country": "Greece",
+  "generated_at": "2026-08-22T21:50:42.023308+00:00",
+  "production_total": 10772,
+  "production_greece": 0,
+  "phase1_staged": 91,
+  "phase1_ready": 68,
+  "unique_staged": 125,
+  "status_counts": {
+    "READY_TO_IMPORT": 106,
+    "NEEDS_REVIEW": 3,
+    "NEEDS_COORDINATES": 15,
+    "DUPLICATE": 1
+  },
+  "ready_count": 106,
+  "ready_by_brand": {
+    "Yava": 22,
+    "Holmes Place": 3,
+    "Planet Fitness Greece": 5,
+    "Mega Gym": 4,
+    "Alterlife": 72
+  },
+  "brand_counts": {
+    "Yava": 22,
+    "Holmes Place": 3,
+    "Planet Fitness Greece": 5,
+    "Mega Gym": 7,
+    "Alterlife": 88
+  },
+  "chain_completeness": [
+    {
+      "brand": "Yava",
+      "official_current_estimate": 22,
+      "discovered": 22,
+      "ready": 22,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Alterlife",
+      "official_current_estimate": 88,
+      "discovered": 88,
+      "ready": 72,
+      "unresolved": 15,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 81.8,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "brand": "Holmes Place",
+      "official_current_estimate": 3,
+      "discovered": 3,
+      "ready": 3,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Planet Fitness Greece",
+      "official_current_estimate": 5,
+      "discovered": 5,
+      "ready": 5,
+      "unresolved": 0,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "brand": "Mega Gym",
+      "official_current_estimate": 7,
+      "discovered": 7,
+      "ready": 4,
+      "unresolved": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "coverage_pct": 57.1,
+      "verdict": "PARTIAL"
+    }
+  ],
+  "regional_coverage": {
+    "Athens/Attica": true,
+    "Thessaloniki": true,
+    "Northern Greece": true,
+    "Central Greece": true,
+    "Peloponnese": true,
+    "Western Greece": true,
+    "Crete": true,
+    "Other islands": true
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "missing_ready_fields": 0,
+    "invalid_ready_coords": 0,
+    "fallback_coords": 0,
+    "foreign_outliers": 0,
+    "cyprus": 0,
+    "mojibake": 0
+  },
+  "proximity_summary": {
+    "lt25": 1,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 0,
+    "identical": 0
+  },
+  "production_collisions": 0,
+  "phase1_ready_preserved": 66,
+  "phase1_ready_dropped": 2,
+  "projected_catalog": 10878,
+  "crosses_12500": false,
+  "material_gaps": [],
+  "verdict": "READY FOR GREECE MERGE",
+  "yava": {
+    "official_current": 22,
+    "discovered": 22,
+    "ready": 22,
+    "legacy_404": 21,
+    "sources": [
+      "yava.gr sitemap.xml gym= params",
+      "yava.gr/gymnastiria/ menu content links",
+      "yava.gr/content/* club pages (Διεύθυνση + Google Maps embed)"
+    ],
+    "verdict": "COMPLETE"
+  },
+  "nonblocking_gaps": [
+    "Mega Gym residual (4/7 READY)",
+    "Alterlife unresolved edge cases (15)",
+    "Top Fitness / Golden Gym / Curves deferred"
+  ]
+}

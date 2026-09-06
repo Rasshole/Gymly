@@ -1,0 +1,1252 @@
+[
+  {
+    "id": "hr_531f4f1847",
+    "name": "Gyms4you Zadar – Voštarnica",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 44.1158079,
+    "lng": 15.2327634,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "23104"
+  },
+  {
+    "id": "hr_f3f2371e7f",
+    "name": "Gyms4you Split Visoka",
+    "brand": "Gyms4you",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_65f37e31a4",
+    "name": "Gyms4you Tower centar Rijeka",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.3176021,
+    "lng": 14.4674745,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "51000"
+  },
+  {
+    "id": "hr_d45eb0c6b5",
+    "name": "Gyms4you Zaprešić",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8586416,
+    "lng": 15.7982838,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10290"
+  },
+  {
+    "id": "hr_7ceff61556",
+    "name": "Gyms4you Vrbani",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7904611,
+    "lng": 15.9105033,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10119"
+  },
+  {
+    "id": "hr_23e290626d",
+    "name": "Gyms4you Split Kampus",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5111883,
+    "lng": 16.4651834,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "21000"
+  },
+  {
+    "id": "hr_4e90ae8d35",
+    "name": "Gyms4you Špansko",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.803779,
+    "lng": 15.8832778,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10158"
+  },
+  {
+    "id": "hr_8d98ff97a2",
+    "name": "Gyms4you Split Lovret",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5173032,
+    "lng": 16.4460293,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "21104"
+  },
+  {
+    "id": "hr_58fcbe3db0",
+    "name": "Gyms4you Stenjevec",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8124577,
+    "lng": 15.8835488,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10090"
+  },
+  {
+    "id": "hr_da20a6af84",
+    "name": "Gyms4you Velika Gorica",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7158385,
+    "lng": 16.0643898,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10410"
+  },
+  {
+    "id": "hr_6eade4805d",
+    "name": "Gyms4you Maksimir 2",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8168391,
+    "lng": 16.0038715,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10142"
+  },
+  {
+    "id": "hr_1156235f67",
+    "name": "Gyms4you Dubec",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8295896,
+    "lng": 16.0556661,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10141"
+  },
+  {
+    "id": "hr_828baca7aa",
+    "name": "Gyms4you Matrix",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7972079,
+    "lng": 16.0125926,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10136"
+  },
+  {
+    "id": "hr_6683a9bafc",
+    "name": "Gyms4you Siget",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7761975,
+    "lng": 15.9743204,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10160"
+  },
+  {
+    "id": "hr_8e6426a328",
+    "name": "Gyms4you Blato",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7650422,
+    "lng": 15.9276326,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10020"
+  },
+  {
+    "id": "hr_4de6622372",
+    "name": "Gyms4you Črnomerec",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8111435,
+    "lng": 15.9506153,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_027ef1cdb6",
+    "name": "Gyms4you Dubrava Risnjačka",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8420819,
+    "lng": 16.0527289,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10128"
+  },
+  {
+    "id": "hr_7c9fb9de75",
+    "name": "Gyms4you Voltino",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8072089,
+    "lng": 15.9309389,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10138"
+  },
+  {
+    "id": "hr_b9d7bed9cd",
+    "name": "Gyms4you Kvaternik Plaza",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8153142,
+    "lng": 15.9985843,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10123"
+  },
+  {
+    "id": "hr_6c27f9083b",
+    "name": "Gyms4you Sloboština",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7623155,
+    "lng": 15.9900415,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10010"
+  },
+  {
+    "id": "hr_658ceb32d7",
+    "name": "Gyms4you Park Kneževa",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8058389,
+    "lng": 15.9872518,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10151"
+  },
+  {
+    "id": "hr_184f08ae2b",
+    "name": "Gyms4you Remiza",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7961716,
+    "lng": 15.938063,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10110"
+  },
+  {
+    "id": "hr_312869cdd8",
+    "name": "Gyms4you Maksimir",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8196355,
+    "lng": 16.0108087,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10142"
+  },
+  {
+    "id": "hr_b7e6171fe4",
+    "name": "Gyms4you Heinzelova",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8107717,
+    "lng": 16.0019706,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_16f20a0868",
+    "name": "Gyms4you Nova Galerija",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7975515,
+    "lng": 15.8962053,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10090"
+  },
+  {
+    "id": "hr_99d5434c36",
+    "name": "Gyms4you Dubrava",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8263694,
+    "lng": 16.0436747,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10040"
+  },
+  {
+    "id": "hr_7e7415dbe5",
+    "name": "Gyms4you VMD",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8035175,
+    "lng": 15.9895036,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10151"
+  },
+  {
+    "id": "hr_e458262bee",
+    "name": "Gyms4you Bundek",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7825005,
+    "lng": 15.9814996,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10010"
+  },
+  {
+    "id": "hr_b66788cf76",
+    "name": "Gyms4you Karlovac Vladimira Nazora",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.4903303,
+    "lng": 15.5451808,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "47000"
+  },
+  {
+    "id": "hr_0ca0078481",
+    "name": "Gyms4you Velimira Škorpika",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.7126187,
+    "lng": 15.9096833,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "22106"
+  },
+  {
+    "id": "hr_84e357681f",
+    "name": "Gyms4you Put Murvice",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 44.1103356,
+    "lng": 15.2365352,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "23104"
+  },
+  {
+    "id": "hr_858cb170a0",
+    "name": "Gyms4you Split – Gripe",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.508398,
+    "lng": 16.4516802,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "21000"
+  },
+  {
+    "id": "hr_f3652fa11f",
+    "name": "Gyms4you Velika Gorica Centar",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.71102,
+    "lng": 16.0805495,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10410"
+  },
+  {
+    "id": "hr_d7d57e7e6b",
+    "name": "Gyms4you Spinut",
+    "brand": "Gyms4you",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_fae56a35ca",
+    "name": "Gyms4you Karlovac Grabrik",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.4807252,
+    "lng": 15.5486221,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "47000"
+  },
+  {
+    "id": "hr_f43e3aa015",
+    "name": "Gyms4you Slavonski Brod",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.1532395,
+    "lng": 18.024078,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "35000"
+  },
+  {
+    "id": "hr_1fac95ad76",
+    "name": "Gyms4you Zagreb – Ravnice",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8220768,
+    "lng": 16.0325696,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_1bb0b2df35",
+    "name": "Gyms4you Dubrovnik",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 42.6586863,
+    "lng": 18.0870492,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "20000"
+  },
+  {
+    "id": "hr_905f19b579",
+    "name": "Gyms4you Nova cesta",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.807592,
+    "lng": 15.9544924,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10122"
+  },
+  {
+    "id": "hr_c6281ff5fd",
+    "name": "Gyms4you Osijek Trg slobode",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.5600622,
+    "lng": 18.6759977,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "31000"
+  },
+  {
+    "id": "hr_d772ccd49a",
+    "name": "Gyms4you Varaždin Đurek",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.3003147,
+    "lng": 16.3354251,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "42104"
+  },
+  {
+    "id": "hr_97270042fd",
+    "name": "Gyms4you Varaždin Istok",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.3010125,
+    "lng": 16.3461427,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "42104"
+  },
+  {
+    "id": "hr_01f97443ea",
+    "name": "Gyms4you Osijek Donji Grad",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.5529292,
+    "lng": 18.7151641,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "31000"
+  },
+  {
+    "id": "hr_26f74acfdc",
+    "name": "Gyms4you Dubrava Čulinečka",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8275482,
+    "lng": 16.0774123,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10174"
+  },
+  {
+    "id": "hr_c422cb89ff",
+    "name": "Gyms4you Ozaljska",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.799869,
+    "lng": 15.9535234,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_d4025dd0f1",
+    "name": "Gyms4you Rijeka",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.3481935,
+    "lng": 14.3687624,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "51114"
+  },
+  {
+    "id": "hr_1b43ef6a03",
+    "name": "Gyms4you Jaruščica",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7665541,
+    "lng": 15.9407302,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10137"
+  },
+  {
+    "id": "hr_2db3d9d79f",
+    "name": "Gyms4you Ilica",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.812569,
+    "lng": 15.9617783,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10115"
+  },
+  {
+    "id": "hr_e220acc0f2",
+    "name": "Gyms4you Prisavlje",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7917279,
+    "lng": 15.9576468,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10124"
+  },
+  {
+    "id": "hr_ee18805422",
+    "name": "Gyms4you Split Trstenik",
+    "brand": "Gyms4you",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_38813ae297",
+    "name": "Gyms4you Knežija",
+    "brand": "Gyms4you",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7880855,
+    "lng": 15.9493041,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10124"
+  },
+  {
+    "id": "hr_096e0c854b",
+    "name": "Gyms4you Split 3",
+    "brand": "Gyms4you",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_eff3e7d13c",
+    "name": "Gyms4you Jurišićeva",
+    "brand": "Gyms4you",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_ce961ae600",
+    "name": "Gyms4you Heinzelova x Vukovarska",
+    "brand": "Gyms4you",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "NEEDS_REVIEW",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_04d608aabd",
+    "name": "THE Fitness Dugo Selo",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8063314,
+    "lng": 16.2326194,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10370"
+  },
+  {
+    "id": "hr_3c82eb55d7",
+    "name": "THE Fitness Samobor STOP SHOP",
+    "brand": "THE Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_e8feaadf2a",
+    "name": "THE Fitness Samobor Centar",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.802352,
+    "lng": 15.7089588,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10430"
+  },
+  {
+    "id": "hr_4803390d6f",
+    "name": "THE Fitness Velika Gorica",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7097659,
+    "lng": 16.0533603,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10410"
+  },
+  {
+    "id": "hr_31f66c7a1f",
+    "name": "THE Fitness Zavrtnica",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8076169,
+    "lng": 15.9998805,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_735c904be3",
+    "name": "THE Fitness Hala",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7981541,
+    "lng": 16.014285,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10136"
+  },
+  {
+    "id": "hr_d77a2aec10",
+    "name": "THE Fitness Borongaj",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8019112,
+    "lng": 16.0320054,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10135"
+  },
+  {
+    "id": "hr_f764385842",
+    "name": "THE Fitness Borovje",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7852075,
+    "lng": 16.007248,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_ca7a172b54",
+    "name": "THE Fitness Branimir",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8085285,
+    "lng": 16.000767,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_765f4e908a",
+    "name": "THE Fitness Črnomerec",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8103522,
+    "lng": 15.9384043,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_6c2849e74b",
+    "name": "THE Fitness Donje Svetice",
+    "brand": "THE Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "COMING_SOON",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_e86685f75d",
+    "name": "THE Fitness Dubrava",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8300016,
+    "lng": 16.0558791,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_d963ed9417",
+    "name": "THE Fitness Dvorana Vrbani III",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7935609,
+    "lng": 15.9151415,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_036861a783",
+    "name": "THE Fitness Green Gold",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8019729,
+    "lng": 16.0020235,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_c9eb6ff3b3",
+    "name": "THE Fitness HoB",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.793309,
+    "lng": 15.970246,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_e99d3d2a6c",
+    "name": "THE Fitness Hotel Novi Zagreb",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7720345,
+    "lng": 15.947409,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_130c7050f0",
+    "name": "THE Fitness Jelkovec",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.813479,
+    "lng": 16.1036797,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10360"
+  },
+  {
+    "id": "hr_96bab24e46",
+    "name": "THE Fitness Kaptol",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8202866,
+    "lng": 15.9772689,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_af1a9eecc8",
+    "name": "THE Fitness Lučko",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7559418,
+    "lng": 15.8899435,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10250"
+  },
+  {
+    "id": "hr_3d1efcbd8c",
+    "name": "THE Fitness Mamutica",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.771833,
+    "lng": 15.9951811,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10010"
+  },
+  {
+    "id": "hr_933ff33727",
+    "name": "THE Fitness Stenjevec",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8100961,
+    "lng": 15.8869636,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10090"
+  },
+  {
+    "id": "hr_8aa56a987c",
+    "name": "THE Fitness ZCentar",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7987365,
+    "lng": 15.8885915,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10090"
+  },
+  {
+    "id": "hr_a0ec1a2c32",
+    "name": "THE Fitness Zonar",
+    "brand": "THE Fitness",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8057009,
+    "lng": 15.9521003,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_b0b6f04fa5",
+    "name": "Gibi Gib Zagreb Voltino",
+    "brand": "Gibi Gib",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7949348,
+    "lng": 15.9319705,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_eb89f1acde",
+    "name": "Gibi Gib Zagreb Rudeš",
+    "brand": "Gibi Gib",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8054869,
+    "lng": 15.9239053,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_51e7c33064",
+    "name": "Gibi Gib Varaždin Istok",
+    "brand": "Gibi Gib",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.3070846,
+    "lng": 16.3603415,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "42000"
+  },
+  {
+    "id": "hr_9d4a1f57fa",
+    "name": "Gibi Gib Varaždin Centar",
+    "brand": "Gibi Gib",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 46.2966545,
+    "lng": 16.3300173,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "42000"
+  },
+  {
+    "id": "hr_2dd927c58a",
+    "name": "Fitness Centar Joker Split Brodarice",
+    "brand": "Fitness Centar Joker",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5201505,
+    "lng": 16.4466599,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "21000"
+  },
+  {
+    "id": "hr_d38c920e25",
+    "name": "Fitness Centar Joker Split Mejaši",
+    "brand": "Fitness Centar Joker",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5122125,
+    "lng": 16.489957,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "21000"
+  },
+  {
+    "id": "hr_d225dc7c62",
+    "name": "Fitness Centar Joker Omiš",
+    "brand": "Fitness Centar Joker",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.442268,
+    "lng": 16.6838411,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "21310"
+  },
+  {
+    "id": "hr_05840eab80",
+    "name": "Fitness Centar Joker Solin",
+    "brand": "Fitness Centar Joker",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 43.5291978,
+    "lng": 16.4971697,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "21210"
+  },
+  {
+    "id": "hr_f253f40958",
+    "name": "Multihealth Samobor",
+    "brand": "Multihealth",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.8116182,
+    "lng": 15.711653,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10430"
+  },
+  {
+    "id": "hr_35051fecb9",
+    "name": "Multihealth Karlovac",
+    "brand": "Multihealth",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.4903013,
+    "lng": 15.5404241,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "47107"
+  },
+  {
+    "id": "hr_73c4f54110",
+    "name": "Multihealth Zagreb Rudeš",
+    "brand": "Multihealth",
+    "coord_source": "KNOWN_PREMISES_HYDRATE",
+    "lat": 45.7964685,
+    "lng": 15.9101771,
+    "category": "READY_TO_IMPORT",
+    "postal_code": "10000"
+  },
+  {
+    "id": "hr_b75e732fcd",
+    "name": "OrlandoFit (legacy)",
+    "brand": "OrlandoFit",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_932607a989",
+    "name": "Play Fitness Zagreb (legacy)",
+    "brand": "Play Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_7f3f13ea28",
+    "name": "XXL Fitness (market audit)",
+    "brand": "XXL Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_930241fc7b",
+    "name": "Sparta Gym (market audit)",
+    "brand": "Sparta Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_2d8d241d05",
+    "name": "Fitness centar Forma (market audit)",
+    "brand": "Fitness centar Forma",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_2a63bdb0d9",
+    "name": "MoFit (market audit)",
+    "brand": "MoFit",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_9f0269952d",
+    "name": "Jump Fitness (market audit)",
+    "brand": "Jump Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_539189d889",
+    "name": "Core Gym (market audit)",
+    "brand": "Core Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_58a16a343b",
+    "name": "Basic Gym One (market audit)",
+    "brand": "Basic Gym One",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_f463fc8203",
+    "name": "Invictus Fitness (market audit)",
+    "brand": "Invictus Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_0964f6e5d5",
+    "name": "Blue Gym (market audit)",
+    "brand": "Blue Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_b05553a68c",
+    "name": "Olympic Fitness (market audit)",
+    "brand": "Olympic Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_3fe191b40a",
+    "name": "Fitness Studio Energy (market audit)",
+    "brand": "Fitness Studio Energy",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_bce6a832d6",
+    "name": "Anytime Fitness (market audit)",
+    "brand": "Anytime Fitness",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_987fa87b10",
+    "name": "clever fit Zagreb Miramarska (market audit)",
+    "brand": "clever fit",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_e8570d5807",
+    "name": "FITINN (market audit)",
+    "brand": "FITINN",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_ab1ae77d12",
+    "name": "McFIT (market audit)",
+    "brand": "McFIT",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_2b833f4743",
+    "name": "JOHN REED (market audit)",
+    "brand": "JOHN REED",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_514b4fa31f",
+    "name": "Gold's Gym (market audit)",
+    "brand": "Gold's Gym",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_be7edc9754",
+    "name": "World Class Croatia (market audit)",
+    "brand": "World Class",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_cb7d142aa7",
+    "name": "Fitness First (market audit)",
+    "brand": "Fitness First",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_123ebe8479",
+    "name": "MultiSport (market audit)",
+    "brand": "MultiSport",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_76e07fdd58",
+    "name": "PassSport (market audit)",
+    "brand": "PassSport",
+    "coord_source": null,
+    "lat": null,
+    "lng": null,
+    "category": "EXCLUDED",
+    "postal_code": ""
+  },
+  {
+    "id": "hr_cff72b6bbe",
+    "name": "Slovenia probe Ljubljana",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 46.0569,
+    "lng": 14.5058,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_f9f7454560",
+    "name": "Slovenia probe Koper",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.5481,
+    "lng": 13.7302,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_c9e1a49a99",
+    "name": "Slovenia probe Maribor",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 46.5547,
+    "lng": 15.6467,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_17b16a077d",
+    "name": "Bosnia probe Mostar",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 43.3438,
+    "lng": 17.8078,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_114dc34394",
+    "name": "Bosnia probe Neum",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.9236,
+    "lng": 17.6156,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_83004a5459",
+    "name": "Bosnia probe Banja Luka",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 44.7722,
+    "lng": 17.191,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_febf8585f8",
+    "name": "Bosnia probe Bosanski Brod",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.1553,
+    "lng": 17.9936,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_62d3554e9c",
+    "name": "Bosnia probe Trebinje",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.712,
+    "lng": 18.3444,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_2e6cf2abe3",
+    "name": "Serbia probe Novi Sad",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.2671,
+    "lng": 19.8335,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_d040375312",
+    "name": "Serbia probe Sombor",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.7742,
+    "lng": 19.1122,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_4a88b985c3",
+    "name": "Montenegro probe Herceg Novi",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.4531,
+    "lng": 18.5375,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_341dfd3afd",
+    "name": "Montenegro probe Igalo",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 42.4572,
+    "lng": 18.5044,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_72c9740066",
+    "name": "Hungary probe southern border",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.9614,
+    "lng": 17.4636,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  },
+  {
+    "id": "hr_b78514d8f7",
+    "name": "Italy probe Trieste",
+    "brand": "Border probe",
+    "coord_source": "FOREIGN_PROBE",
+    "lat": 45.6495,
+    "lng": 13.7768,
+    "category": "EXCLUDED",
+    "postal_code": "00000"
+  }
+]

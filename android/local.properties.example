@@ -1,0 +1,9 @@
+# Copy to `local.properties` (gitignored). Android Studio creates sdk.dir automatically.
+#
+# sdk.dir=/Users/YOU/Library/Android/sdk
+#
+# Google Maps — required for react-native-maps on Android:
+# GOOGLE_MAPS_API_KEY=your_maps_api_key
+
+sdk.dir=REPLACE_WITH_ANDROID_SDK_PATH
+GOOGLE_MAPS_API_KEY=

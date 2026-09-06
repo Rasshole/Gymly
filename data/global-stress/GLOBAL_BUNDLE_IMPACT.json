@@ -1,0 +1,8 @@
+{
+  "raw_catalog_bytes": 4014884,
+  "raw_catalog_mb": 3.829,
+  "compressed_catalog_bytes": null,
+  "compressed_catalog_mb": null,
+  "catalog_bundle_mode": "bundled static JSON via centerRegistry import",
+  "note": "Compressed size not measured — Metro bundler gzip not invoked in QA script"
+}

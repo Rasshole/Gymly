@@ -1,0 +1,22 @@
+YAVA EXCLUSIVE ΑΜΑΡΟΥΣΙΟΥ	https://www.yava.gr/content/exclusive-amarousiou-2/
+YAVA ΑΓ. ΑΝΑΡΓΥΡΟΙ	https://www.yava.gr/content/ag-anarguroi/
+YAVA ΑΓΙΑ ΠΑΡΑΣΚΕΥΗ	https://www.yava.gr/content/agia-paraskevi-1/
+YAVA ΑΓΙΟΣ ΔΗΜΗΤΡΙΟΣ	https://www.yava.gr/content/ag-dimitrios/
+YAVA ΑΙΓΑΛΕΩ	https://www.yava.gr/content/aigaleo/
+YAVA ΓΛΥΦΑΔΑ	https://www.yava.gr/content/glyfada/
+YAVA ΖΩΓΡΑΦΟΥ	https://www.yava.gr/content/zografou/
+YAVA ΗΡΑΚΛΕΙΟ ΚΡΗΤΗΣ	https://www.yava.gr/content/irakleio-kritis/
+YAVA ΘΕΣΣΑΛΟΝΙΚΗ (Εύοσμος)	https://www.yava.gr/content/thessaloniki-eyosmos/
+YAVA ΘΕΣΣΑΛΟΝΙΚΗ (Κάτω Τούμπα)	https://www.yava.gr/content/thessaloniki-kato-toumpa/
+YAVA ΘΡΑΚΟΜΑΚΕΔΟΝΕΣ	https://www.yava.gr/content/thrakomakedones/
+YAVA ΙΠΠΟΚΡΑΤΟΥΣ	https://www.yava.gr/content/ippokratous/
+YAVA ΚΑΛΛΙΘΕΑ	https://www.yava.gr/content/kallithea/
+YAVA ΚΟΡΥΔΑΛΛΟΣ	https://www.yava.gr/content/korydallos_/
+YAVA ΚΟΡΩΠΙ	https://www.yava.gr/content/koropi/
+YAVA ΛΥΚΟΒΡΥΣΗ	https://www.yava.gr/content/lykovrysi/
+YAVA ΝΕΟ ΨΥΧΙΚΟ	https://www.yava.gr/content/neo-psychiko/
+YAVA ΠΑΤΡΑ	https://www.yava.gr/content/patra/
+YAVA ΠΕΙΡΑΙΑΣ	https://www.yava.gr/content/peiraias/
+YAVA ΠΕΤΡΟΥΠΟΛΗ	https://www.yava.gr/content/petroupoli/
+YAVA ΡΟΔΟΣ	https://www.yava.gr/content/rodos/
+YAVA ΧΑΝΙΑ	https://www.yava.gr/content/chania/

@@ -1,0 +1,564 @@
+[
+  {
+    "name": "EASYFITNESS Bad Nenndorf",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Piepmühle 11",
+      "postal": "31542",
+      "city": "Bad Nenndorf"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "EASYFITNESS Bösel",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Am Steinkamp 2",
+      "postal": "26219",
+      "city": "Bösel"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "EASYFITNESS Bremen-Vahr",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_COORDINATES",
+      "addr": "Berliner Freiheit 9A, 9B",
+      "postal": "28327",
+      "city": "Bremen"
+    },
+    "after_cat": "NEEDS_COORDINATES",
+    "geocode": "failed"
+  },
+  {
+    "name": "EASYFITNESS Dresden Weißig",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_COORDINATES",
+      "addr": "An der Prießnitzaue 1-3 / Hochlandcenter",
+      "postal": "01328",
+      "city": "Dresden"
+    },
+    "after_cat": "NEEDS_COORDINATES",
+    "geocode": "failed"
+  },
+  {
+    "name": "EASYFITNESS EMS Bad Hersfeld",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Badestube 7",
+      "postal": "36251",
+      "city": "Bad Hersfeld"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Bad Pyrmont",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Kirchstraße 19",
+      "postal": "31812",
+      "city": "Bad Pyrmont"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Barsinghausen",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Egestorfer Str. 4",
+      "postal": "30890",
+      "city": "Barsinghausen"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Bielefeld",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Hillegosser Straße 10",
+      "postal": "33719",
+      "city": "Bielefeld"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Braunschweig",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Packhof Braunschweig, Schild 11",
+      "postal": "38100",
+      "city": "Braunschweig"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Bückeburg",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Obertorstr. 14",
+      "postal": "31675",
+      "city": "Bückeburg"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Burgdorf",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Poststraße 12",
+      "postal": "31303",
+      "city": "Burgdorf"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Celle",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Bergstraße 51",
+      "postal": "29221",
+      "city": "Celle"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Garbsen",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Asternstr.1",
+      "postal": "30827",
+      "city": "Garbsen"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Großburgwedel",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Von-Alten-Straße 21",
+      "postal": "30938",
+      "city": "Burgwedel"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Hannover Marktkirche",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Schmiedestrasse 6",
+      "postal": "30159",
+      "city": "Hannover"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Hannover-Podbi",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Podbielskistraße 138",
+      "postal": "30177",
+      "city": "Hannover"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Hannover-Süd",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Marienstr. 54",
+      "postal": "30171",
+      "city": "Hannover"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Hildesheim",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Schuhstr. 7",
+      "postal": "31134",
+      "city": "Hildesheim"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Hockenheim",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Karlsruher Str. 17",
+      "postal": "68766",
+      "city": "Hockenheim"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Kirchrode",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Großer Hillen 4",
+      "postal": "30559",
+      "city": "Hannover"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Langenhagen",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Walsroderstr. 128a",
+      "postal": "30853",
+      "city": "Langenhagen"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Lister Meile",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Celler Str. 79",
+      "postal": "30161",
+      "city": "Hannover"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Minden",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Hufschmiede 3",
+      "postal": "32423",
+      "city": "Minden"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Neustadt am Rübenberge",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Mittelstraße 19",
+      "postal": "31535",
+      "city": "Neustadt am Rübenberge"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Ricklingen",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Pfarrstraße 45",
+      "postal": "30459",
+      "city": "Hannover"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Ronnenberg",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Lange Reihe 11",
+      "postal": "30952",
+      "city": "Ronnenberg"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Wolfsburg",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Steimker Promenade 6a",
+      "postal": "38446",
+      "city": "Wolfsburg"
+    }
+  },
+  {
+    "name": "EASYFITNESS EMS Wunstorf",
+    "action": "ems_excluded",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Hagenburger Str. 1",
+      "postal": "31515",
+      "city": "Wunstorf"
+    }
+  },
+  {
+    "name": "EASYFITNESS Gnarrenburg -The Smart Gym-",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Hindenburgstraße 78",
+      "postal": "27442",
+      "city": "Gnarrenburg"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "EASYFITNESS Mühlhausen",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Altenburgstr. 7",
+      "postal": "99974",
+      "city": "Mühlhausen"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "EASYFITNESS Schöllkrippen -The Smart Gym-",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Aschaffenburger Str. 50",
+      "postal": "63825",
+      "city": "Schöllkrippen"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "EASYFITNESS Uelzen",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Bahnhofstraße 2 b",
+      "postal": "29525",
+      "city": "Uelzen"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "INJOY Schwandorf",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Schwimmbadstr. 9",
+      "postal": "92421",
+      "city": "Schwandorf"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "Fitness First Berlin Hellersdorf",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "",
+      "city": ""
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "Fitness First Berlin Lichterfelde",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "",
+      "city": ""
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "Fitness First Berlin Prager Platz",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "",
+      "city": ""
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "Fitness First {{ queryHeadline }}",
+    "action": "hub_not_club",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "",
+      "city": ""
+    }
+  },
+  {
+    "name": "Fitness First München Moosach",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "",
+      "city": "München"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "Fitness First Paderborn Kernstadt",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Frankfurter Weg 30 a+b",
+      "postal": "33106",
+      "city": "Paderborn"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "VeniceBeach Plus Mannheim Wohlgelegen",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "68167",
+      "city": "Mannheim"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Supreme Heidelberg Carre",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Poststraße 1-3",
+      "postal": "69115",
+      "city": "Heidelberg"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "VeniceBeach Germersheim",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "76726",
+      "city": "Germersheim"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Hassloch",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "Anilinstraße 75",
+      "postal": "67454",
+      "city": "Haßloch"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": "ambiguous"
+  },
+  {
+    "name": "VeniceBeach Heidelberg Bahnstadt",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "69115",
+      "city": "Heidelberg"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Heidelberg Pfaffengrund",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "69115",
+      "city": "Heidelberg"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Heidelberg West",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "69123",
+      "city": "Heidelberg"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Ketsch",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "68775",
+      "city": "Ketsch"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Mannheim City P7",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "68161",
+      "city": "Mannheim"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Mannheim Kaefertal",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "68309",
+      "city": "Mannheim"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Schwetzingen",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "68723",
+      "city": "Schwetzingen"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  },
+  {
+    "name": "VeniceBeach Worms",
+    "action": "retry",
+    "before": {
+      "cat": "NEEDS_REVIEW",
+      "addr": "",
+      "postal": "67547",
+      "city": "Worms"
+    },
+    "after_cat": "NEEDS_REVIEW",
+    "geocode": null
+  }
+]

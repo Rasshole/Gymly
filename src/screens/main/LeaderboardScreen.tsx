@@ -24,7 +24,6 @@ import ScreenHeader from '@/components/ui/ScreenHeader';
 import {Card} from '@/components/ui/Card';
 import {EmptyState} from '@/components/ui/EmptyState';
 import {LeaderboardRow} from '@/components/ui/LeaderboardRow';
-import {getActiveDanishGyms} from '@/data/danishGyms';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {useAppStore} from '@/store/appStore';
@@ -34,6 +33,7 @@ import {fetchGymLiveSessionTotals} from '@/services/supabase/liveWorkoutSessionS
 import {fetchGymlyLeaderboard} from '@/services/supabase/gymlyLeaderboardService';
 import {getHomeLeaderboardCenterIdForUser} from '@/utils/leaderboardCenterFromGym';
 import {findGymById} from '@/utils/gymDisplay';
+import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 import type {LeaderboardEntry} from '@/types/leaderboard.types';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import {useTranslation, rt} from '@/i18n';
@@ -442,17 +442,11 @@ const LeaderboardScreen = () => {
   }, [homeCenterId]);
 
   const filteredCenters = useMemo(() => {
-    const q = centerSearchQuery.trim().toLowerCase();
-    let list = getActiveDanishGyms();
-    if (q) {
-      list = getActiveDanishGyms().filter(c => {
-        const name = c.name.toLowerCase();
-        const city = (c.city ?? '').toLowerCase();
-        const brand = (c.brand ?? '').toLowerCase();
-        return name.includes(q) || city.includes(q) || brand.includes(q);
-      });
+    const q = centerSearchQuery.trim();
+    if (!q) {
+      return [];
     }
-    return list.slice(0, 200);
+    return searchGyms(q, {limit: 80}).map(h => h.gym);
   }, [centerSearchQuery]);
 
   const selectedCenter = useMemo(() => {

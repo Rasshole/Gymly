@@ -1,0 +1,336 @@
+[
+  {
+    "id": "it_ccb19385b7",
+    "name": "FITINN Milano Bicocca",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "FITINN, Via Fulvio Testi 282, 20162 Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "FITINN Milano, Via Fulvio Testi 282, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Fulvio Testi 282, 20162 Milano, Italy",
+        "n": 3
+      },
+      {
+        "q": "Via Fulvio Testi 282, 20162, Italy",
+        "n": 4
+      },
+      {
+        "q": "Via Fulvio Testi 282, Milano, Italy",
+        "n": 3
+      }
+    ],
+    "best": "Via Fulvio Testi, Cascina Pariana, Pessano con Bornago, Rodano, Milano, Lombardia, 20042, Italia"
+  },
+  {
+    "id": "it_b08e235022",
+    "name": "FITINN Milano Via Bergamo",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "FITINN, Via Bergamo 4, 20135 Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "FITINN Milano, Via Bergamo 4, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Bergamo 4, 20135 Milano, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Bergamo 4, 20135, Italy",
+        "n": 5
+      },
+      {
+        "q": "Via Bergamo 4, Milano, Italy",
+        "n": 5
+      }
+    ],
+    "best": "YouFit, 4, Via Bergamo, XXII Marzo, Municipio 4, Milano, Rodano, Milano, Lombardia, 20135, Italia"
+  },
+  {
+    "id": "it_4ca03e5086",
+    "name": "FITINN Milano Viale Abruzzi",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "FITINN, Viale Abruzzi 38, 20131 Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "FITINN Milano, Viale Abruzzi 38, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Abruzzi 38, 20131 Milano, Italy",
+        "n": 1
+      },
+      {
+        "q": "Viale Abruzzi 38, 20131, Italy",
+        "n": 1
+      },
+      {
+        "q": "Viale Abruzzi 38, Milano, Italy",
+        "n": 1
+      }
+    ],
+    "best": "38, Viale Abruzzi, San Felicino, San Bovio, Peschiera Borromeo, Rodano, Milano, Lombardia, 20068, Italia"
+  },
+  {
+    "id": "it_457b8104b1",
+    "name": "FITINN Milano Viale Monza",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "FITINN, Via Privata Giovanni Livraghi 1, 20126 Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "FITINN Milano, Via Privata Giovanni Livraghi 1, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Privata Giovanni Livraghi 1, 20126 Milano, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Privata Giovanni Livraghi 1, 20126, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Privata Giovanni Livraghi 1, Milano, Italy",
+        "n": 0
+      }
+    ]
+  },
+  {
+    "id": "it_8e936943e1",
+    "name": "FITINN Bologna Centro Borgo",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "FITINN, Via Marco Emilio Lepido 186, 40132 Bologna, Italy",
+        "n": 1
+      },
+      {
+        "q": "FITINN Bologna, Via Marco Emilio Lepido 186, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Marco Emilio Lepido 186, 40132 Bologna, Italy",
+        "n": 4
+      },
+      {
+        "q": "Via Marco Emilio Lepido 186, 40132, Italy",
+        "n": 4
+      },
+      {
+        "q": "Via Marco Emilio Lepido 186, Bologna, Italy",
+        "n": 4
+      }
+    ],
+    "best": "FITINN, 186, Via Marco Emilio Lepido, Borgo Panigale, Borgo Panigale-Reno, Casteldebole, Bologna, Emilia-Romagna, 40132, Italia"
+  },
+  {
+    "id": "it_c6d9db9846",
+    "name": "FITINN Brescia",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "FITINN, Via Pusterla 3, 25128 Brescia, Italy",
+        "n": 0
+      },
+      {
+        "q": "FITINN Brescia, Via Pusterla 3, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Pusterla 3, 25128 Brescia, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Pusterla 3, 25128, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Pusterla 3, Brescia, Italy",
+        "n": 1
+      }
+    ],
+    "best": "3, Via Pusterla, Crocifissa di Rosa, Zona Centro, Brescia, Lombardia, 25122, Italia"
+  },
+  {
+    "id": "it_9bcf96ec3f",
+    "name": "Dabliu Roma Colli d'Oro",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Dabliu, Via Busto Arsizio, 31, 00188 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Dabliu Roma, Via Busto Arsizio, 31, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Busto Arsizio, 31, 00188 Roma, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Busto Arsizio, 31, 00188, Italy",
+        "n": 1
+      },
+      {
+        "q": "Via Busto Arsizio, 31, Roma, Italy",
+        "n": 2
+      }
+    ],
+    "best": "Via Busto Arsizio, Labaro, Municipio Roma XV, Casale Prima Porta, Roma, Roma Capitale, Lazio, 00188, Italia"
+  },
+  {
+    "id": "it_1f89ccc5cc",
+    "name": "Dabliu Roma Eur",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Dabliu, Viale Egeo, 98, 00144 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Dabliu Roma, Viale Egeo, 98, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Egeo, 98, 00144 Roma, Italy",
+        "n": 2
+      },
+      {
+        "q": "Viale Egeo, 98, 00144, Italy",
+        "n": 3
+      },
+      {
+        "q": "Viale Egeo, 98, Roma, Italy",
+        "n": 2
+      }
+    ],
+    "best": "Viale Egeo, E.U.R., Municipio Roma IX, Roma, Roma Capitale, Lazio, 00144, Italia"
+  },
+  {
+    "id": "it_139aaafa7b",
+    "name": "Dabliu Roma Margherita",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Dabliu, Viale Regina Margherita, 210, 00198 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Dabliu Roma, Viale Regina Margherita, 210, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Regina Margherita, 210, 00198 Roma, Italy",
+        "n": 5
+      },
+      {
+        "q": "Viale Regina Margherita, 210, 00198, Italy",
+        "n": 5
+      },
+      {
+        "q": "Viale Regina Margherita, 210, Roma, Italy",
+        "n": 5
+      }
+    ],
+    "best": "Viale Regina Margherita, Trieste, Municipio Roma II, Roma, Roma Capitale, Lazio, 00198, Italia"
+  },
+  {
+    "id": "it_b48257592c",
+    "name": "Dabliu Roma Parioli",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Dabliu, Viale Romania, 22, 00197 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Dabliu Roma, Viale Romania, 22, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Romania, 22, 00197 Roma, Italy",
+        "n": 2
+      },
+      {
+        "q": "Viale Romania, 22, 00197, Italy",
+        "n": 2
+      },
+      {
+        "q": "Viale Romania, 22, Roma, Italy",
+        "n": 2
+      }
+    ],
+    "best": "Viale Romania, Parioli, Municipio Roma II, Roma, Roma Capitale, Lazio, 00197, Italia"
+  },
+  {
+    "id": "it_a920dd523f",
+    "name": "Dabliu Roma Prati",
+    "status": "READY_TO_IMPORT",
+    "tried": [
+      {
+        "q": "Dabliu, Viale Giulio Cesare, 43, 00192 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Dabliu Roma, Viale Giulio Cesare, 43, Italy",
+        "n": 0
+      },
+      {
+        "q": "Viale Giulio Cesare, 43, 00192 Roma, Italy",
+        "n": 3
+      },
+      {
+        "q": "Viale Giulio Cesare, 43, 00192, Italy",
+        "n": 2
+      },
+      {
+        "q": "Viale Giulio Cesare, 43, Roma, Italy",
+        "n": 5
+      }
+    ],
+    "best": "Viale Giulio Cesare, Prati, Municipio Roma I, Roma, Roma Capitale, Lazio, 00192, Italia"
+  },
+  {
+    "id": "it_ffa20b11d5",
+    "name": "Fitness Park RomaEst",
+    "status": "NEEDS_COORDINATES",
+    "tried": [
+      {
+        "q": "Fitness Park, Via Collatina (Centro commerciale RomaEst), 00132 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Fitness Park Roma, Via Collatina (Centro commerciale RomaEst), Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Collatina (Centro commerciale RomaEst), 00132 Roma, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Collatina (Centro commerciale RomaEst), 00132, Italy",
+        "n": 0
+      },
+      {
+        "q": "Via Collatina (Centro commerciale RomaEst), Roma, Italy",
+        "n": 0
+      }
+    ]
+  }
+]

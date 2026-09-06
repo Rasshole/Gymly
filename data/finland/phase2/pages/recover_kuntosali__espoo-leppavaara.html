@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="fi" class="no-js">
+<head>
+  <meta charset="UTF-8">
+<script>
+var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="https://gmpg.org/xfn/11">
+
+  <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-ND3CFCC');</script>
+    <!-- End Google Tag Manager --><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<meta name="uri-translation" content="on" />    <!-- Start VWO Common Smartcode -->
+    <script data-cfasync="false" nowprocket data-jetpack-boost="ignore" type='text/javascript'>
+        var _vwo_clicks = 10;
+    </script>
+    <!-- End VWO Common Smartcode -->
+        <!-- Start VWO Async SmartCode -->
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
+    <script data-cfasync="false" nowprocket data-jetpack-boost="ignore" type='text/javascript' id='vwoCode'>
+        /* Fix: wp-rocket (application/ld+json) */
+        window._vwo_code || (function () {
+            var w=window,
+            d=document;
+            var account_id=963792,
+            version=2.2,
+            settings_tolerance=2000,
+            library_tolerance=2500,
+            use_existing_jquery=false,
+            platform='web',
+            hide_element='body',
+            hide_element_style='opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important';
+            /* DO NOT EDIT BELOW THIS LINE */
+            if(f=!1,v=d.querySelector('#vwoCode'),cc={},-1<d.URL.indexOf('__vwo_disable__')||w._vwo_code)return;try{var e=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=e&&'object'==typeof e?e:{}}catch(e){}function r(t){try{return decodeURIComponent(t)}catch(e){return t}}var s=function(){var e={combination:[],combinationChoose:[],split:[],exclude:[],uuid:null,consent:null,optOut:null},t=d.cookie||'';if(!t)return e;for(var n,i,o=/(?:^|;\s*)(?:(_vis_opt_exp_(\d+)_combi=([^;]*))|(_vis_opt_exp_(\d+)_combi_choose=([^;]*))|(_vis_opt_exp_(\d+)_split=([^:;]*))|(_vis_opt_exp_(\d+)_exclude=[^;]*)|(_vis_opt_out=([^;]*))|(_vwo_global_opt_out=[^;]*)|(_vwo_uuid=([^;]*))|(_vwo_consent=([^;]*)))/g;null!==(n=o.exec(t));)try{n[1]?e.combination.push({id:n[2],value:r(n[3])}):n[4]?e.combinationChoose.push({id:n[5],value:r(n[6])}):n[7]?e.split.push({id:n[8],value:r(n[9])}):n[10]?e.exclude.push({id:n[11]}):n[12]?e.optOut=r(n[13]):n[14]?e.optOut=!0:n[15]?e.uuid=r(n[16]):n[17]&&(i=r(n[18]),e.consent=i&&3<=i.length?i.substring(0,3):null)}catch(e){}return e}();function i(){var e=function(){if(w.VWO&&Array.isArray(w.VWO))for(var e=0;e<w.VWO.length;e++){var t=w.VWO[e];if(Array.isArray(t)&&('setVisitorId'===t[0]||'setSessionId'===t[0]))return!0}return!1}(),t='a='+account_id+'&u='+encodeURIComponent(w._vis_opt_url||d.URL)+'&vn='+version+'&ph=1'+('undefined'!=typeof platform?'&p='+platform:'')+'&st='+w.performance.now();e||((n=function(){var e,t=[],n={},i=w.VWO&&w.VWO.appliedCampaigns||{};for(e in i){var o=i[e]&&i[e].v;o&&(t.push(e+'-'+o+'-1'),n[e]=!0)}if(s&&s.combination)for(var r=0;r<s.combination.length;r++){var a=s.combination[r];n[a.id]||t.push(a.id+'-'+a.value)}return t.join('|')}())&&(t+='&c='+n),(n=function(){var e=[],t={};if(s&&s.combinationChoose)for(var n=0;n<s.combinationChoose.length;n++){var i=s.combinationChoose[n];e.push(i.id+'-'+i.value),t[i.id]=!0}if(s&&s.split)for(var o=0;o<s.split.length;o++)t[(i=s.split[o]).id]||e.push(i.id+'-'+i.value);return e.join('|')}())&&(t+='&cc='+n),(n=function(){var e={},t=[];if(w.VWO&&Array.isArray(w.VWO))for(var n=0;n<w.VWO.length;n++){var i=w.VWO[n];if(Array.isArray(i)&&'setVariation'===i[0]&&i[1]&&Array.isArray(i[1]))for(var o=0;o<i[1].length;o++){var r,a=i[1][o];a&&'object'==typeof a&&(r=a.e,a=a.v,r&&a&&(e[r]=a))}}for(r in e)t.push(r+'-'+e[r]);return t.join('|')}())&&(t+='&sv='+n)),s&&s.optOut&&(t+='&o='+s.optOut);var n=function(){var e=[],t={};if(s&&s.exclude)for(var n=0;n<s.exclude.length;n++){var i=s.exclude[n];t[i.id]||(e.push(i.id),t[i.id]=!0)}return e.join('|')}();return n&&(t+='&e='+n),s&&s.uuid&&(t+='&id='+s.uuid),s&&s.consent&&(t+='&consent='+s.consent),w.name&&-1<w.name.indexOf('_vis_preview')&&(t+='&pM=true'),w.VWO&&w.VWO.ed&&(t+='&ed='+w.VWO.ed),t}code={nonce:v&&v.nonce,use_existing_jquery:function(){return'undefined'!=typeof use_existing_jquery?use_existing_jquery:void 0},library_tolerance:function(){return'undefined'!=typeof library_tolerance?library_tolerance:void 0},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){return performance.getEntriesByName('first-contentful-paint')[0]?'':'string'==typeof cc.hE?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){var t;f||(f=!0,(t=d.getElementById('_vis_opt_path_hides'))&&t.parentNode.removeChild(t),e&&((new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e))},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript',e.src?t.src=e.src:t.text=e.text,v&&t.setAttribute('nonce',v.nonce),d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){t=t||{};var n=new XMLHttpRequest;n.open('GET',e,!0),n.withCredentials=!t.dSC,n.responseType=t.responseType||'text',n.onload=function(){if(t.onloadCb)return t.onloadCb(n,e);200===n.status?_vwo_code.addScript({text:n.responseText}):_vwo_code.finish('&e=loading_failure:'+e)},n.onerror=function(){if(t.onerrorCb)return t.onerrorCb(e);_vwo_code.finish('&e=loading_failure:'+e)},n.send()},init:function(){var e,t=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish()},t),'body'!==this.hide_element()?(n=d.createElement('style'),e=(t=this.hide_element())?t+this.hide_element_style():'',t=d.getElementsByTagName('head')[0],n.setAttribute('id','_vis_opt_path_hides'),v&&n.setAttribute('nonce',v.nonce),n.setAttribute('type','text/css'),n.styleSheet?n.styleSheet.cssText=e:n.appendChild(d.createTextNode(e)),t.appendChild(n)):(n=d.getElementsByTagName('head')[0],(e=d.createElement('div')).style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;',e.setAttribute('id','_vis_opt_path_hides'),e.classList.add('_vis_hide_layer'),n.parentNode.insertBefore(e,n.nextSibling));var n='https://dev.visualwebsiteoptimizer.com/j.php?'+i();-1!==w.location.search.indexOf('_vwo_xhr')?this.addScript({src:n}):this.load(n+'&x=true',{l:1})}};w._vwo_code=code;code.init();})();
+    </script>
+    <!-- End VWO Async SmartCode -->
+    
+	<!-- This site is optimized with the Yoast SEO Premium plugin v23.3 (Yoast SEO v26.9) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Liikku Espoo Leppävaara &#8211; Kuntokeskus Liikku</title>
+	<link rel="canonical" href="https://www.liikku.fi/kuntosali/espoo-leppavaara/" />
+	<meta property="og:locale" content="fi_FI" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Liikku Espoo Leppävaara" />
+	<meta property="og:description" content="Tällainen on Kuntokeskus Liikku" />
+	<meta property="og:url" content="https://www.liikku.fi/kuntosali/espoo-leppavaara/" />
+	<meta property="og:site_name" content="Kuntokeskus Liikku" />
+	<meta property="article:publisher" content="https://www.facebook.com/liikku/" />
+	<meta property="article:modified_time" content="2026-05-18T09:24:56+00:00" />
+	<meta property="og:image" content="https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49-800x560.jpg" />
+	<meta property="og:image:width" content="800" />
+	<meta property="og:image:height" content="560" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@liikku_fi" />
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="3 minuuttia" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.liikku.fi/kuntosali/espoo-leppavaara/","url":"https://www.liikku.fi/kuntosali/espoo-leppavaara/","name":"Liikku Espoo Leppävaara &#8211; Kuntokeskus Liikku","isPartOf":{"@id":"https://www.liikku.fi/#website"},"primaryImageOfPage":{"@id":"https://www.liikku.fi/kuntosali/espoo-leppavaara/#primaryimage"},"image":{"@id":"https://www.liikku.fi/kuntosali/espoo-leppavaara/#primaryimage"},"thumbnailUrl":"https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49.jpg","datePublished":"2026-03-25T10:31:29+00:00","dateModified":"2026-05-18T09:24:56+00:00","breadcrumb":{"@id":"https://www.liikku.fi/kuntosali/espoo-leppavaara/#breadcrumb"},"inLanguage":"fi","potentialAction":[{"@type":"ReadAction","target":["https://www.liikku.fi/kuntosali/espoo-leppavaara/"]}]},{"@type":"ImageObject","inLanguage":"fi","@id":"https://www.liikku.fi/kuntosali/espoo-leppavaara/#primaryimage","url":"https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49.jpg","contentUrl":"https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49.jpg","width":1800,"height":1261},{"@type":"BreadcrumbList","@id":"https://www.liikku.fi/kuntosali/espoo-leppavaara/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.liikku.fi/"},{"@type":"ListItem","position":2,"name":"Liikku Espoo Leppävaara"}]},{"@type":"WebSite","@id":"https://www.liikku.fi/#website","url":"https://www.liikku.fi/","name":"Liikku.fi","description":"Kuntokeskus, jossa ihmisillä on väliä","publisher":{"@id":"https://www.liikku.fi/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.liikku.fi/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"fi"},{"@type":"Organization","@id":"https://www.liikku.fi/#organization","name":"Kuntokeskus Liikku","url":"https://www.liikku.fi/","logo":{"@type":"ImageObject","inLanguage":"fi","@id":"https://www.liikku.fi/#/schema/logo/image/","url":"https://www.liikku.fi/wp-content/uploads/2024/02/liikku-logo.png","contentUrl":"https://www.liikku.fi/wp-content/uploads/2024/02/liikku-logo.png","width":1200,"height":1200,"caption":"Kuntokeskus Liikku"},"image":{"@id":"https://www.liikku.fi/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/liikku/","https://x.com/liikku_fi","https://www.tiktok.com/@liikkukuntokeskus","https://www.youtube.com/c/KuntokeskusLiikku","https://www.instagram.com/kuntokeskusliikku/"]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.liikku.fi/wp-includes/css/dist/block-library/style.min.css?ver=6.9.7' media='all' />
+
+<style id='wp-block-gallery-inline-css'>
+.blocks-gallery-grid:not(.has-nested-images),.wp-block-gallery:not(.has-nested-images){display:flex;flex-wrap:wrap;list-style-type:none;margin:0;padding:0}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item{display:flex;flex-direction:column;flex-grow:1;justify-content:center;margin:0 1em 1em 0;position:relative;width:calc(50% - 1em)}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image:nth-of-type(2n),.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item:nth-of-type(2n){margin-right:0}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image figure,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item figure,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image figure,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item figure{align-items:flex-end;display:flex;height:100%;justify-content:flex-start;margin:0}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image img,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item img{display:block;height:auto;max-width:100%;width:auto}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image figcaption,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item figcaption,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image figcaption,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item figcaption{background:linear-gradient(0deg,#000000b3,#0000004d 70%,#0000);bottom:0;box-sizing:border-box;color:#fff;font-size:.8em;margin:0;max-height:100%;overflow:auto;padding:3em .77em .7em;position:absolute;text-align:center;width:100%;z-index:2}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image figcaption img,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item figcaption img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image figcaption img,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item figcaption img{display:inline}.blocks-gallery-grid:not(.has-nested-images) figcaption,.wp-block-gallery:not(.has-nested-images) figcaption{flex-grow:1}.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-image a,.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-image img,.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-item a,.blocks-gallery-grid:not(.has-nested-images).is-cropped .blocks-gallery-item img,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-image a,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-image img,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-item a,.wp-block-gallery:not(.has-nested-images).is-cropped .blocks-gallery-item img{flex:1;height:100%;object-fit:cover;width:100%}.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-item{margin-right:0;width:100%}@media (min-width:600px){.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-item{margin-right:1em;width:calc(33.33333% - .66667em)}.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-item{margin-right:1em;width:calc(25% - .75em)}.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-item{margin-right:1em;width:calc(20% - .8em)}.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-item{margin-right:1em;width:calc(16.66667% - .83333em)}.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-item{margin-right:1em;width:calc(14.28571% - .85714em)}.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-image,.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-item,.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-image,.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-item{margin-right:1em;width:calc(12.5% - .875em)}.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-image:nth-of-type(1n),.blocks-gallery-grid:not(.has-nested-images).columns-1 .blocks-gallery-item:nth-of-type(1n),.blocks-gallery-grid:not(.has-nested-images).columns-2 .blocks-gallery-image:nth-of-type(2n),.blocks-gallery-grid:not(.has-nested-images).columns-2 .blocks-gallery-item:nth-of-type(2n),.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-image:nth-of-type(3n),.blocks-gallery-grid:not(.has-nested-images).columns-3 .blocks-gallery-item:nth-of-type(3n),.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-image:nth-of-type(4n),.blocks-gallery-grid:not(.has-nested-images).columns-4 .blocks-gallery-item:nth-of-type(4n),.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-image:nth-of-type(5n),.blocks-gallery-grid:not(.has-nested-images).columns-5 .blocks-gallery-item:nth-of-type(5n),.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-image:nth-of-type(6n),.blocks-gallery-grid:not(.has-nested-images).columns-6 .blocks-gallery-item:nth-of-type(6n),.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-image:nth-of-type(7n),.blocks-gallery-grid:not(.has-nested-images).columns-7 .blocks-gallery-item:nth-of-type(7n),.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-image:nth-of-type(8n),.blocks-gallery-grid:not(.has-nested-images).columns-8 .blocks-gallery-item:nth-of-type(8n),.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-image:nth-of-type(1n),.wp-block-gallery:not(.has-nested-images).columns-1 .blocks-gallery-item:nth-of-type(1n),.wp-block-gallery:not(.has-nested-images).columns-2 .blocks-gallery-image:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images).columns-2 .blocks-gallery-item:nth-of-type(2n),.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-image:nth-of-type(3n),.wp-block-gallery:not(.has-nested-images).columns-3 .blocks-gallery-item:nth-of-type(3n),.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-image:nth-of-type(4n),.wp-block-gallery:not(.has-nested-images).columns-4 .blocks-gallery-item:nth-of-type(4n),.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-image:nth-of-type(5n),.wp-block-gallery:not(.has-nested-images).columns-5 .blocks-gallery-item:nth-of-type(5n),.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-image:nth-of-type(6n),.wp-block-gallery:not(.has-nested-images).columns-6 .blocks-gallery-item:nth-of-type(6n),.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-image:nth-of-type(7n),.wp-block-gallery:not(.has-nested-images).columns-7 .blocks-gallery-item:nth-of-type(7n),.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-image:nth-of-type(8n),.wp-block-gallery:not(.has-nested-images).columns-8 .blocks-gallery-item:nth-of-type(8n){margin-right:0}}.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-image:last-child,.blocks-gallery-grid:not(.has-nested-images) .blocks-gallery-item:last-child,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-image:last-child,.wp-block-gallery:not(.has-nested-images) .blocks-gallery-item:last-child{margin-right:0}.blocks-gallery-grid:not(.has-nested-images).alignleft,.blocks-gallery-grid:not(.has-nested-images).alignright,.wp-block-gallery:not(.has-nested-images).alignleft,.wp-block-gallery:not(.has-nested-images).alignright{max-width:420px;width:100%}.blocks-gallery-grid:not(.has-nested-images).aligncenter .blocks-gallery-item figure,.wp-block-gallery:not(.has-nested-images).aligncenter .blocks-gallery-item figure{justify-content:center}.wp-block-gallery:not(.is-cropped) .blocks-gallery-item{align-self:flex-start}figure.wp-block-gallery.has-nested-images{align-items:normal}.wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image){margin:0;width:calc(50% - var(--wp--style--unstable-gallery-gap, 16px)/2)}.wp-block-gallery.has-nested-images figure.wp-block-image{box-sizing:border-box;display:flex;flex-direction:column;flex-grow:1;justify-content:center;max-width:100%;position:relative}.wp-block-gallery.has-nested-images figure.wp-block-image>a,.wp-block-gallery.has-nested-images figure.wp-block-image>div{flex-direction:column;flex-grow:1;margin:0}.wp-block-gallery.has-nested-images figure.wp-block-image img{display:block;height:auto;max-width:100%!important;width:auto}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption,.wp-block-gallery.has-nested-images figure.wp-block-image:has(figcaption):before{bottom:0;left:0;max-height:100%;position:absolute;right:0}.wp-block-gallery.has-nested-images figure.wp-block-image:has(figcaption):before{backdrop-filter:blur(3px);content:"";height:100%;-webkit-mask-image:linear-gradient(0deg,#000 20%,#0000);mask-image:linear-gradient(0deg,#000 20%,#0000);max-height:40%;pointer-events:none}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{box-sizing:border-box;color:#fff;font-size:13px;margin:0;overflow:auto;padding:1em;text-align:center;text-shadow:0 0 1.5px #000}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption::-webkit-scrollbar{height:12px;width:12px}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption::-webkit-scrollbar-track{background-color:initial}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:initial;border:3px solid #0000;border-radius:8px}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus-within::-webkit-scrollbar-thumb,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus::-webkit-scrollbar-thumb,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:hover::-webkit-scrollbar-thumb{background-color:#fffc}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{scrollbar-color:#0000 #0000;scrollbar-gutter:stable both-edges;scrollbar-width:thin}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:focus-within,.wp-block-gallery.has-nested-images figure.wp-block-image figcaption:hover{scrollbar-color:#fffc #0000}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{will-change:transform}@media (hover:none){.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{scrollbar-color:#fffc #0000}}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption{background:linear-gradient(0deg,#0006,#0000)}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption img{display:inline}.wp-block-gallery.has-nested-images figure.wp-block-image figcaption a{color:inherit}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border>a,.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border>div,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded>a,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded>div{flex:1 1 auto}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border figcaption,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded figcaption{background:none;color:inherit;flex:initial;margin:0;padding:10px 10px 9px;position:relative;text-shadow:none}.wp-block-gallery.has-nested-images figure.wp-block-image.has-custom-border:before,.wp-block-gallery.has-nested-images figure.wp-block-image.is-style-rounded:before{content:none}.wp-block-gallery.has-nested-images figcaption{flex-basis:100%;flex-grow:1;text-align:center}.wp-block-gallery.has-nested-images:not(.is-cropped) figure.wp-block-image:not(#individual-image){margin-bottom:auto;margin-top:0}.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image){align-self:inherit}.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image)>a,.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image)>div:not(.components-drop-zone){display:flex}.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image) a,.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image) img{flex:1 0 0%;height:100%;object-fit:cover;width:100%}.wp-block-gallery.has-nested-images.columns-1 figure.wp-block-image:not(#individual-image){width:100%}@media (min-width:600px){.wp-block-gallery.has-nested-images.columns-3 figure.wp-block-image:not(#individual-image){width:calc(33.33333% - var(--wp--style--unstable-gallery-gap, 16px)*.66667)}.wp-block-gallery.has-nested-images.columns-4 figure.wp-block-image:not(#individual-image){width:calc(25% - var(--wp--style--unstable-gallery-gap, 16px)*.75)}.wp-block-gallery.has-nested-images.columns-5 figure.wp-block-image:not(#individual-image){width:calc(20% - var(--wp--style--unstable-gallery-gap, 16px)*.8)}.wp-block-gallery.has-nested-images.columns-6 figure.wp-block-image:not(#individual-image){width:calc(16.66667% - var(--wp--style--unstable-gallery-gap, 16px)*.83333)}.wp-block-gallery.has-nested-images.columns-7 figure.wp-block-image:not(#individual-image){width:calc(14.28571% - var(--wp--style--unstable-gallery-gap, 16px)*.85714)}.wp-block-gallery.has-nested-images.columns-8 figure.wp-block-image:not(#individual-image){width:calc(12.5% - var(--wp--style--unstable-gallery-gap, 16px)*.875)}.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image){width:calc(33.33% - var(--wp--style--unstable-gallery-gap, 16px)*.66667)}.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image):first-child:nth-last-child(2),.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image):first-child:nth-last-child(2)~figure.wp-block-image:not(#individual-image){width:calc(50% - var(--wp--style--unstable-gallery-gap, 16px)*.5)}.wp-block-gallery.has-nested-images.columns-default figure.wp-block-image:not(#individual-image):first-child:last-child{width:100%}}.wp-block-gallery.has-nested-images.alignleft,.wp-block-gallery.has-nested-images.alignright{max-width:420px;width:100%}.wp-block-gallery.has-nested-images.aligncenter{justify-content:center}
+/*# sourceURL=https://www.liikku.fi/wp-includes/blocks/gallery/style.min.css */
+</style>
+<style id='wp-block-image-inline-css'>
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .close-button{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px;padding:0;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .close-button:focus,.wp-lightbox-overlay .close-button:hover,.wp-lightbox-overlay .close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:9999999999}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://www.liikku.fi/wp-includes/blocks/image/style.min.css */
+</style>
+<style id='wp-block-embed-inline-css'>
+.wp-block-embed.alignleft,.wp-block-embed.alignright,.wp-block[data-align=left]>[data-type="core/embed"],.wp-block[data-align=right]>[data-type="core/embed"]{max-width:360px;width:100%}.wp-block-embed.alignleft .wp-block-embed__wrapper,.wp-block-embed.alignright .wp-block-embed__wrapper,.wp-block[data-align=left]>[data-type="core/embed"] .wp-block-embed__wrapper,.wp-block[data-align=right]>[data-type="core/embed"] .wp-block-embed__wrapper{min-width:280px}.wp-block-cover .wp-block-embed{min-height:240px;min-width:320px}.wp-block-embed{overflow-wrap:break-word}.wp-block-embed :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-embed iframe{max-width:100%}.wp-block-embed__wrapper{position:relative}.wp-embed-responsive .wp-has-aspect-ratio .wp-block-embed__wrapper:before{content:"";display:block;padding-top:50%}.wp-embed-responsive .wp-has-aspect-ratio iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.wp-embed-responsive .wp-embed-aspect-21-9 .wp-block-embed__wrapper:before{padding-top:42.85%}.wp-embed-responsive .wp-embed-aspect-18-9 .wp-block-embed__wrapper:before{padding-top:50%}.wp-embed-responsive .wp-embed-aspect-16-9 .wp-block-embed__wrapper:before{padding-top:56.25%}.wp-embed-responsive .wp-embed-aspect-4-3 .wp-block-embed__wrapper:before{padding-top:75%}.wp-embed-responsive .wp-embed-aspect-1-1 .wp-block-embed__wrapper:before{padding-top:100%}.wp-embed-responsive .wp-embed-aspect-9-16 .wp-block-embed__wrapper:before{padding-top:177.77%}.wp-embed-responsive .wp-embed-aspect-1-2 .wp-block-embed__wrapper:before{padding-top:200%}
+/*# sourceURL=https://www.liikku.fi/wp-includes/blocks/embed/style.min.css */
+</style>
+
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: var(--color-black);--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--green: var(--color-green);--wp--preset--color--blue: var(--color-accent);--wp--preset--color--neutral-200: var(--color--neutral-neutral-200);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='campaign-css-css' href='https://www.liikku.fi/wp-content/plugins/liikku-campaign-engine/build/screen.css?ver=96a24f00cbedc6338c7d' media='all' />
+<link rel='stylesheet' id='liikku-gravityforms-survey-css-css' href='https://www.liikku.fi/wp-content/plugins/liikku-gravityforms-survey/build/screen.css?ver=87536b145665ec1862ae' media='all' />
+<link rel='stylesheet' id='registration-css-css' href='https://www.liikku.fi/wp-content/plugins/liikku-registration-engine/build/screen.css?ver=ccae2156bfb497990755' media='all' />
+<link rel='stylesheet' id='x-style-css' href='https://www.liikku.fi/wp-content/themes/liikku/dist/styles/main.css?ver=1786351073804' media='all' />
+<style id='x-style-inline-css'>
+.background-color.background-color--default{background: transparent;}.background-color.background-color--light{background: hsl(0, 0%, 95%);}
+/*# sourceURL=x-style-inline-css */
+</style>
+<link rel='stylesheet' id='gwreadonly-css' href='https://www.liikku.fi/wp-content/plugins/gwreadonly/css/gwreadonly.css?ver=1.9.29' media='all' />
+<link rel='stylesheet' id='gform_basic-css' href='https://www.liikku.fi/wp-content/plugins/gravityforms/assets/css/dist/basic.min.css?ver=2.9.23.2' media='all' />
+<link rel='stylesheet' id='gform_theme_components-css' href='https://www.liikku.fi/wp-content/plugins/gravityforms/assets/css/dist/theme-components.min.css?ver=2.9.23.2' media='all' />
+<link rel='stylesheet' id='gform_theme-css' href='https://www.liikku.fi/wp-content/plugins/gravityforms/assets/css/dist/theme.min.css?ver=2.9.23.2' media='all' />
+<link rel='stylesheet' id='wp-block-heading-css' href='https://www.liikku.fi/wp-includes/blocks/heading/style.min.css?ver=6.9.7' media='all' />
+<link rel='stylesheet' id='wp-block-paragraph-css' href='https://www.liikku.fi/wp-includes/blocks/paragraph/style.min.css?ver=6.9.7' media='all' />
+<script src="https://www.liikku.fi/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://www.liikku.fi/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script defer='defer' src="https://www.liikku.fi/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.9.23.2" id="gform_json-js"></script>
+<script id="gform_gravityforms-js-extra">
+var gf_global = {"gf_currency_config":{"name":"Euro","symbol_left":"","symbol_right":"&#8364;","symbol_padding":" ","thousand_separator":".","decimal_separator":",","decimals":2,"code":"EUR"},"base_url":"https://www.liikku.fi/wp-content/plugins/gravityforms","number_formats":[],"spinnerUrl":"https://www.liikku.fi/wp-content/plugins/gravityforms/images/spinner.svg","version_hash":"33c0df7550a7b7530f4aeb476fc44514","strings":{"newRowAdded":"Uusi rivi lis\u00e4tty.","rowRemoved":"Rivi poistettu","formSaved":"Lomake on tallennettu. Sis\u00e4lt\u00f6 sis\u00e4lt\u00e4\u00e4 linkin palataksesi ja t\u00e4ytt\u00e4\u00e4ksesi lomakkeen."}};
+var gform_i18n = {"datepicker":{"days":{"monday":"Ma","tuesday":"Ti","wednesday":"Ke","thursday":"To","friday":"Pe","saturday":"La","sunday":"Su"},"months":{"january":"Tammikuu","february":"Helmikuu","march":"Maaliskuu","april":"Huhtikuu","may":"Toukokuu","june":"Kes\u00e4kuu","july":"Hein\u00e4kuu","august":"Elokuu","september":"Syyskuu","october":"Lokakuu","november":"Marraskuu","december":"Joulukuu"},"firstDay":1,"iconText":"Valitse p\u00e4iv\u00e4"}};
+var gf_legacy_multi = {"27":""};
+var gform_gravityforms = {"strings":{"invalid_file_extension":"T\u00e4m\u00e4n tyyppinen tiedosto ei ole sallittu. Sen pit\u00e4\u00e4 olla yksi seuraavista:","delete_file":"Poista t\u00e4m\u00e4 tiedosto","in_progress":"k\u00e4ynniss\u00e4","file_exceeds_limit":"Tiedoston koko ylitt\u00e4\u00e4 enimm\u00e4israjan","illegal_extension":"T\u00e4m\u00e4n tyyppinen tiedosto ei ole sallittu.","max_reached":"Tiedostoja on enimm\u00e4ism\u00e4\u00e4r\u00e4","unknown_error":"Tiedoston tallentaminen palvelimelle ep\u00e4onnistui","currently_uploading":"Odota kunnes lataus on valmis","cancel":"Peruuta","cancel_upload":"Peruuta lataus","cancelled":"Peruutettu","error":"Virhe","message":"Viesti"},"vars":{"images_url":"https://www.liikku.fi/wp-content/plugins/gravityforms/images"}};
+//# sourceURL=gform_gravityforms-js-extra
+</script>
+<script id="gform_gravityforms-js-before">
+
+//# sourceURL=gform_gravityforms-js-before
+</script>
+<script defer='defer' src="https://www.liikku.fi/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.9.23.2" id="gform_gravityforms-js"></script>
+<script defer='defer' src="https://www.liikku.fi/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=380b7a5ec0757c78876bc8a59488f2f3" id="gform_gravityforms_utils-js"></script>
+
+<link rel='shortlink' href='https://www.liikku.fi/?p=7567' />
+<script>(function(d){d.className = d.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css' integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=' crossorigin=''/><script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js' integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=' crossorigin=''></script><meta name="upkeep-monitor-uuid" content="70cf4583-c05d-4c4f-81f4-05c736be2fcb" />
+<script>(()=>{var o=[],i={};["on","off","toggle","show"].forEach((l=>{i[l]=function(){o.push([l,arguments])}})),window.Boxzilla=i,window.boxzilla_queue=o})();</script><style id='core-block-supports-inline-css'>
+.wp-block-gallery.wp-block-gallery-1{--wp--style--unstable-gallery-gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+
+</head>
+
+<body class="wp-singular gym-template-default single single-gym postid-7567 wp-theme-liikku" itemscope itemtype="https://schema.org/WebPage">
+
+
+    <div class="mobile-menu js-mobile-menu">
+      <div class="mobile-menu__nav" role="dialog">
+        
+    <svg class="menu-logo icon icon-logo" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-logo"></use>
+    </svg>
+
+    
+    <button class="js-menu-toggle menu-toggle">
+
+      <span class="menu-toggle__icon">
+        
+    <svg aria-hidden="true" class="icon icon-menu">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-menu"></use>
+    </svg>
+
+            
+    <svg aria-hidden="true" class="icon icon-close">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-close"></use>
+    </svg>
+
+          </span>
+
+      
+      <span class="menu-toggle__label-open">
+        Avaa valikko      </span>
+
+      <span class="menu-toggle__label-close">
+        Sulje valikko      </span>
+
+    </button>
+
+            <div class="mobile-menu__nav__inner">
+          
+    <nav class="js-navigation primary-navigation header-navigation" aria-label="Päävalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-paavalikko" class="primary-navigation__items"><li id="menu-item-61" class="menu-item-has-children menu-item-gym-localities menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/">Kuntosalit</a><button class="menu-item__caret js-menu-caret">
+    <svg class="menu-item__caret__icon menu-item__caret__icon--desktop menu-item__caret__icon--arrow icon icon-caret-down" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-caret-down"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--open icon icon-plus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-plus"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--close icon icon-minus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-minus"></use>
+    </svg>
+
+    <span class="menu-item__caret__text-open">Avaa alavalikko</span><span class="menu-item__caret__text-close">Sulje alavalikko</span></button></span><ul class="sub-menu" aria-hidden="true"><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/espoo">Espoo</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/forssa/">Forssa</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/haukipudas/">Haukipudas</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/helsinki">Helsinki</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/hollola/">Hollola</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/hameenlinna">Hämeenlinna</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/imatra/">Imatra</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/joensuu">Joensuu</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/jyvaskyla">Jyväskylä</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kaarina/">Kaarina</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kajaani/">Kajaani</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kangasala/">Kangasala</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kemi/">Kemi</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kokkola/">Kokkola</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kotka/">Kotka</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kouvola/">Kouvola</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kuopio/">Kuopio</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/lahti">Lahti</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/lappeenranta/">Lappeenranta</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/lohja/">Lohja</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/mikkeli/">Mikkeli</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/mantsala/">Mäntsälä</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/oulu">Oulu</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/pori">Pori</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/raisio/">Raisio</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/rauma/">Rauma</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/riihimaki/">Riihimäki</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/rovaniemi">Rovaniemi</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/salo/">Salo</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/seinajoki">Seinäjoki</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/tampere">Tampere</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/turku">Turku</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/tuusula/">Tuusula</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/vaasa/">Vaasa</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/vantaa">Vantaa</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/varkaus/">Varkaus</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/ylivieska/">Ylivieska</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/ylojarvi/">Ylöjärvi</a></span></li></ul></li>
+<li id="menu-item-1581" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1581"><span class="menu-item__link"><a href="https://www.liikku.fi/henkilokohtaiset-valmennukset/">Valmennus</a><button class="menu-item__caret js-menu-caret">
+    <svg class="menu-item__caret__icon menu-item__caret__icon--desktop menu-item__caret__icon--arrow icon icon-caret-down" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-caret-down"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--open icon icon-plus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-plus"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--close icon icon-minus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-minus"></use>
+    </svg>
+
+    <span class="menu-item__caret__text-open">Avaa alavalikko</span><span class="menu-item__caret__text-close">Sulje alavalikko</span></button></span>
+<ul class="sub-menu">
+	<li id="menu-item-5460" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5460"><span class="menu-item__link"><a href="https://www.liikku.fi/henkilokohtaiset-valmennukset/">Valmentajat</a></span></li>
+	<li id="menu-item-5895" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5895"><span class="menu-item__link"><a href="https://www.liikku.fi/valmennukset/">Valmennukset</a></span></li>
+	<li id="menu-item-3992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3992"><span class="menu-item__link"><a href="https://www.liikku.fi/valmentajaksi-liikkuun/">Valmentajaksi Liikkuun</a></span></li>
+</ul>
+</li>
+<li id="menu-item-5451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5451"><span class="menu-item__link"><a href="https://www.liikku.fi/kertakaynti/">Osta kertakäynti</a></span></li>
+<li id="menu-item-1234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1234"><span class="menu-item__link"><a href="https://www.liikku.fi/osta-lahjakortti/">Osta lahjakortti</a></span></li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><span class="menu-item__link"><a href="https://www.liikku.fi/usein-kysytyt-kysymykset/">UKK</a></span></li>
+<li id="menu-item-105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105"><span class="menu-item__link"><a href="https://www.liikku.fi/blogi/">Blogi</a></span></li>
+</ul>
+    </nav>
+
+    
+    <nav class="js-navigation additional-navigation header-navigation" aria-label="Lisävalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-lisavalikko" class="additional-navigation__items"><li id="menu-item-4364" class="join-omaliikku menu-item menu-item-type-custom menu-item-object-custom menu-item-4364 menu-item--type-solid"><span class="menu-item__link"><a href="/kuntosalit/">Liity jäseneksi</a></span></li>
+<li id="menu-item-194" class="nturl 123 menu-item menu-item-type-post_type menu-item-object-omaliikku menu-item-194 menu-item--type-solid"><span class="menu-item__link"><a href="https://www.liikku.fi/omaliikku/">OmaLiikku</a></span></li>
+</ul>
+    </nav>
+
+    
+    <nav class="js-navigation language-navigation header-navigation" aria-label="Kielivalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <div class="menu-kielivalikko-container"><ul id="menu-kielivalikko" class="language-navigation__items"><li id="menu-item-180" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-180"><span class="menu-item__link"><a href="/">FIN</a></span></li>
+<li id="menu-item-181" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><span class="menu-item__link"><a href="https://www.liikku.fi/english/">EN</a></span></li>
+<li id="menu-item-209" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-209"><span class="menu-item__link"><a href="https://www.liikku.fi/svenska/">SVE</a></span></li>
+</ul></div>
+    </nav>
+
+            </div>
+      </div>
+      <div class="mobile-menu__overlay" data-a11y-dialog-hide tabindex="-1"></div>
+    </div>
+
+    
+<div id="page" class="site js-page">
+
+  <a class="skip-to-content" href="#content">Siirry sisältöön</a>
+
+      <header class="site-header js-site-header" id="masthead" itemscope itemtype="https://schema.org/WPHeader">
+
+      <div class="site-header__inner">
+
+        <div class="site-header__branding">
+          <a href="https://www.liikku.fi/" class="site-header__title" rel="home" itemprop="headline" aria-label="Etusivulle">
+            
+    <svg class="site-header__logo icon icon-logo" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-logo"></use>
+    </svg>
+
+              </a>
+        </div>
+
+        <div class="site-header__button-wrap">
+          <a id="mobile-header-button" class="site-header__button" href="https://www.liikku.fi/kuntosalit/">
+            Liity
+          </a>
+        </div>
+
+        
+    <button class="js-menu-toggle menu-toggle">
+
+      <span class="menu-toggle__icon">
+        
+    <svg aria-hidden="true" class="icon icon-menu">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-menu"></use>
+    </svg>
+
+            
+    <svg aria-hidden="true" class="icon icon-close">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-close"></use>
+    </svg>
+
+          </span>
+
+      
+      <span class="menu-toggle__label-open">
+        Avaa valikko      </span>
+
+      <span class="menu-toggle__label-close">
+        Sulje valikko      </span>
+
+    </button>
+
+    
+                  
+    <nav class="site-header__main desktop-menu js-navigation primary-navigation header-navigation" aria-label="Päävalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-paavalikko-1" class="primary-navigation__items"><li class="menu-item-has-children menu-item-gym-localities menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/">Kuntosalit</a><button class="menu-item__caret js-menu-caret">
+    <svg class="menu-item__caret__icon menu-item__caret__icon--desktop menu-item__caret__icon--arrow icon icon-caret-down" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-caret-down"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--open icon icon-plus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-plus"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--close icon icon-minus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-minus"></use>
+    </svg>
+
+    <span class="menu-item__caret__text-open">Avaa alavalikko</span><span class="menu-item__caret__text-close">Sulje alavalikko</span></button></span><ul class="sub-menu" aria-hidden="true"><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/espoo">Espoo</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/forssa/">Forssa</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/haukipudas/">Haukipudas</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/helsinki">Helsinki</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/hollola/">Hollola</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/hameenlinna">Hämeenlinna</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/imatra/">Imatra</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/joensuu">Joensuu</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/jyvaskyla">Jyväskylä</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kaarina/">Kaarina</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kajaani/">Kajaani</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kangasala/">Kangasala</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kemi/">Kemi</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kokkola/">Kokkola</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kotka/">Kotka</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kouvola/">Kouvola</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/kuopio/">Kuopio</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/lahti">Lahti</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/lappeenranta/">Lappeenranta</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/lohja/">Lohja</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/mikkeli/">Mikkeli</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/mantsala/">Mäntsälä</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/oulu">Oulu</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/pori">Pori</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/raisio/">Raisio</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/rauma/">Rauma</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/riihimaki/">Riihimäki</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/rovaniemi">Rovaniemi</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/salo/">Salo</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/seinajoki">Seinäjoki</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/tampere">Tampere</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/turku">Turku</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/tuusula/">Tuusula</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/vaasa/">Vaasa</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/vantaa">Vantaa</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/varkaus/">Varkaus</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/ylivieska/">Ylivieska</a></span></li><li class="menu-item menu-item-type-post_type menu-item-object-page"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosali/ylojarvi/">Ylöjärvi</a></span></li></ul></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1581"><span class="menu-item__link"><a href="https://www.liikku.fi/henkilokohtaiset-valmennukset/">Valmennus</a><button class="menu-item__caret js-menu-caret">
+    <svg class="menu-item__caret__icon menu-item__caret__icon--desktop menu-item__caret__icon--arrow icon icon-caret-down" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-caret-down"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--open icon icon-plus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-plus"></use>
+    </svg>
+
+    
+    <svg class="menu-item__caret__icon menu-item__caret__icon--mobile menu-item__caret__icon--close icon icon-minus" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-minus"></use>
+    </svg>
+
+    <span class="menu-item__caret__text-open">Avaa alavalikko</span><span class="menu-item__caret__text-close">Sulje alavalikko</span></button></span>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5460"><span class="menu-item__link"><a href="https://www.liikku.fi/henkilokohtaiset-valmennukset/">Valmentajat</a></span></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5895"><span class="menu-item__link"><a href="https://www.liikku.fi/valmennukset/">Valmennukset</a></span></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3992"><span class="menu-item__link"><a href="https://www.liikku.fi/valmentajaksi-liikkuun/">Valmentajaksi Liikkuun</a></span></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5451"><span class="menu-item__link"><a href="https://www.liikku.fi/kertakaynti/">Osta kertakäynti</a></span></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1234"><span class="menu-item__link"><a href="https://www.liikku.fi/osta-lahjakortti/">Osta lahjakortti</a></span></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><span class="menu-item__link"><a href="https://www.liikku.fi/usein-kysytyt-kysymykset/">UKK</a></span></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105"><span class="menu-item__link"><a href="https://www.liikku.fi/blogi/">Blogi</a></span></li>
+</ul>
+    </nav>
+
+    
+    <nav class="site-header__language desktop-menu js-navigation language-navigation header-navigation" aria-label="Kielivalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <div class="menu-kielivalikko-container"><ul id="menu-kielivalikko-1" class="language-navigation__items"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-180"><span class="menu-item__link"><a href="/">FIN</a></span></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><span class="menu-item__link"><a href="https://www.liikku.fi/english/">EN</a></span></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-209"><span class="menu-item__link"><a href="https://www.liikku.fi/svenska/">SVE</a></span></li>
+</ul></div>
+    </nav>
+
+    
+    <nav class="site-header__additional desktop-menu js-navigation additional-navigation header-navigation" aria-label="Lisävalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-lisavalikko-1" class="additional-navigation__items"><li class="join-omaliikku menu-item menu-item-type-custom menu-item-object-custom menu-item-4364 menu-item--type-solid"><span class="menu-item__link"><a href="/kuntosalit/">Liity jäseneksi</a></span></li>
+<li class="nturl 123 menu-item menu-item-type-post_type menu-item-object-omaliikku menu-item-194 menu-item--type-solid"><span class="menu-item__link"><a href="https://www.liikku.fi/omaliikku/">OmaLiikku</a></span></li>
+</ul>
+    </nav>
+
+            
+      </div>
+
+    </header>
+    
+                    <main id="content" class="site-content" itemscope itemprop="mainContentOfPage">
+
+  
+
+    <div class="hero--has-mask hero hero--post-type-gym hero--layout-half hero--has-media">
+
+                <nav class="breadcrumb--desktop breadcrumb" aria-label="Murupolku">
+      <ol class="breadcrumb__container">
+        <li><a href="https://www.liikku.fi">Etusivu</a></li><li><a href="https://www.liikku.fi/kuntosalit/">Kuntosalit</a></li><li>Liikku Espoo Leppävaara</li>      </ol>
+    </nav>
+
+                        <div class="hero__media">
+            <div class="hero__media__image">
+                                                
+    <img src="https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49-800x560.jpg" width="800" height="560" srcset="https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49.jpg 1800w, https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49-800x560.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/12/LIIKKU-johannarontu49-400x280.jpg 400w" sizes="(max-width: 50vw) 50vw, 100vw" alt="" loading="lazy" />
+
+                                  
+                                                <div class="hero__media__image__thing">
+                    
+    <svg aria-hidden="true" class="icon icon-thing6">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-thing6"></use>
+    </svg>
+
+                      </div>
+                              
+            </div>
+        </div>
+      
+      <div class="hero__container">
+        <div class="hero__container__inner">
+                          <nav class="breadcrumb--mobile breadcrumb" aria-label="Murupolku">
+      <ol class="breadcrumb__container">
+        <li><a href="https://www.liikku.fi">Etusivu</a></li><li><a href="https://www.liikku.fi/kuntosalit/">Kuntosalit</a></li><li>Liikku Espoo Leppävaara</li>      </ol>
+    </nav>
+
+                                    <h1>Liikku Espoo Leppävaara</h1>
+
+                        
+            
+                          <div class="hero__description"><p style="text-align: left;">Liikku Espoo Leppävaara avataan alkuvuodesta 2027 osoitteeseen Bertel Jungin aukio 9! Liikku on elämäniloinen, avara ja raikas kuntosali, jossa ihmisillä on väliä. Tilaa ilmoitus sähköpostiisi, kun myynti alkaa!</p>
+</div>
+                      
+          
+                  </div>
+      </div>
+
+          </div>
+    
+  <div id="primary" class="primary primary--gym">
+
+          
+      <article id="post-7567" class="entry entry--gym post-7567 gym type-gym status-publish has-post-thumbnail hentry">
+
+        <div class="entry__content blocks">
+
+          <div class="gym-information">
+            
+    <article class="teaser teaser--gym" aria-label="Liikku Espoo Leppävaara">
+
+      
+      
+      <div class="teaser__card">
+
+        
+        <div class="teaser__content">
+
+          <header class="teaser__header">
+                        <h2 class="teaser__title notranslate">
+              <a href="https://www.liikku.fi/kuntosali/espoo-leppavaara/">
+                Liikku Espoo Leppävaara              </a>
+            </h2>
+          </header>
+
+                                  <div class="teaser__summary">
+              <p class="teaser__address notranslate">Bertel Jungin aukio  9, <br>Espoo 02600</p>
+              <a class="teaser__directions" href="https://www.google.fi/maps/dir//Liikku+Espoo+Lepp%C3%A4vaara+Bertel+Jungin+aukio++9%2C+%3Cbr%3EEspoo+02600" target="_blank">Reittiohjeet</a>
+              <p class="teaser__opening-hours">Avataan alkuvuodesta 2027!</p>
+            </div>
+          
+        </div>
+
+                  <div class="teaser__footer">
+            <a href="https://www.liikku.fi/kuntosali/espoo-leppavaara/" class="teaser__read-more">Tutustu kuntosaliin</a>
+                                  </div>
+        
+      </div>
+
+    </article>
+
+    
+            
+            
+              <div id="map"></div>
+              <script>
+                var map = L.map('map').setView([60.2190474, 24.8146623], 15);
+
+                var greenIcon = L.icon({
+                    iconUrl: '/wp-content/themes/liikku/assets/images/liikku-karttamerkki.png',
+                    shadowUrl: '/wp-content/themes/liikku/assets/images/liikku-karttamerkki-shadow.png',
+
+                    iconSize:     [50, 69.5], // size of the icon
+                    shadowSize:   [50, 64], // size of the shadow
+                    iconAnchor:   [25, 64], // point of the icon which will correspond to marker's location
+                    shadowAnchor: [0, 64],  // the same for the shadow
+                    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+                });
+
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                L.marker([60.2170474, 24.8146623],{icon: greenIcon}).addTo(map)
+                    .bindPopup('<h5> Liikku Espoo Leppävaara </h5><p>Bertel Jungin aukio 9, 02600 Espoo, Suomi</p><p><a target="_blank" href="https://www.google.fi/maps/dir//Liikku+Espoo+Lepp%C3%A4vaara+Bertel+Jungin+aukio+9%2C+02600+Espoo%2C+Suomi">Reittiohjeet</p>')
+                    .openPopup();
+              </script>
+
+            
+
+
+          </div>
+
+              <div class="wp-block-acf-spacer spacer spacer--size-m">
+          </div>
+    
+
+
+                <div class='gf_browser_chrome gform_wrapper gravity-theme gform-theme--no-framework' data-form-theme='gravity-theme' data-form-index='0' id='gform_wrapper_27' ><div id='gf_27' class='gform_anchor' tabindex='-1'></div>
+                        <div class='gform_heading'>
+                            <h2 class="gform_title">Varmista paikkasi ja tilaa ilmoitus, kun avajaismyynti alkaa!</h2>
+                            <p class='gform_description'></p>
+							<p class='gform_required_legend'></p>
+                        </div><form method='post' enctype='multipart/form-data'  id='gform_27'  action='/kuntosali/espoo-leppavaara/#gf_27' data-formid='27' novalidate>
+                        <div class='gform-body gform_body'><div id='gform_fields_27' class='gform_fields top_label form_sublabel_below description_below validation_below'><div id="field_27_22" class="gfield gfield--type-honeypot gform_validation_container field_sublabel_below gfield--has-description field_description_below field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_27_22'>URL</label><div class='ginput_container'><input name='input_22' id='input_27_22' type='text' value='' autocomplete='new-password'/></div><div class='gfield_description' id='gfield_description_27_22'>Kenttä on validointitarkoituksiin ja tulee jättää koskemattomaksi.</div></div><div id="field_27_1" class="gfield gfield--type-text gfield--width-third gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_27_1'>Nimi<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class='ginput_container ginput_container_text'><input name='input_1' id='input_27_1' type='text' value='' class='large'     aria-required="true" aria-invalid="false"   /></div></div><div id="field_27_17" class="gfield gfield--type-email gfield--width-third gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_27_17'>Sähköposti<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class='ginput_container ginput_container_email'>
+                            <input name='input_17' id='input_27_17' type='email' value='' class='large'    aria-required="true" aria-invalid="false"  autocomplete="email"/>
+                        </div></div><div id="field_27_11" class="gfield gfield--type-text gfield--width-third field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_27_11'>Puhelinnumero</label><div class='ginput_container ginput_container_text'><input name='input_11' id='input_27_11' type='text' value='' class='large'      aria-invalid="false"   /></div></div><fieldset id="field_27_20" class="gfield gfield--type-checkbox gfield--type-choice gfield--width-third gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><legend class='gfield_label gform-field-label gfield_label_before_complex' >Sähköpostilupa<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></legend><div class='ginput_container ginput_container_checkbox'><div class='gfield_checkbox ' id='input_27_20'><div class='gchoice gchoice_27_20_1'>
+								<input class='gfield-choice-input' name='input_20.1' type='checkbox'  value='Kyllä, haluan vastaanottaa sähköposteja avattavaan keskukseen liittyen'  id='choice_27_20_1'   />
+								<label for='choice_27_20_1' id='label_27_20_1' class='gform-field-label gform-field-label--type-inline'>Kyllä, haluan vastaanottaa sähköposteja avattavaan keskukseen liittyen</label>
+							</div></div></div></fieldset><fieldset id="field_27_19" class="gfield gfield--type-checkbox gfield--type-choice gfield--width-third field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><legend class='gfield_label gform-field-label gfield_label_before_complex' >Tekstiviestilupa</legend><div class='ginput_container ginput_container_checkbox'><div class='gfield_checkbox ' id='input_27_19'><div class='gchoice gchoice_27_19_1'>
+								<input class='gfield-choice-input' name='input_19.1' type='checkbox'  value='Kyllä, haluan saada muistutuksia avajaisista tekstiviestillä'  id='choice_27_19_1'   />
+								<label for='choice_27_19_1' id='label_27_19_1' class='gform-field-label gform-field-label--type-inline'>Kyllä, haluan saada muistutuksia avajaisista tekstiviestillä</label>
+							</div></div></div></fieldset><fieldset id="field_27_21" class="gfield gfield--type-checkbox gfield--type-choice gfield--width-third gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><legend class='gfield_label gform-field-label gfield_label_before_complex' >Tietosuoja<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></legend><div class='ginput_container ginput_container_checkbox'><div class='gfield_checkbox ' id='input_27_21'><div class='gchoice gchoice_27_21_1'>
+								<input class='gfield-choice-input' name='input_21.1' type='checkbox'  value='Olen lukenut tietosuojaselosteen (liikku.fi/liikku-tietosuojaseloste) ja hyväksyn ehdot'  id='choice_27_21_1'   />
+								<label for='choice_27_21_1' id='label_27_21_1' class='gform-field-label gform-field-label--type-inline'>Olen lukenut tietosuojaselosteen (liikku.fi/liikku-tietosuojaseloste) ja hyväksyn ehdot</label>
+							</div></div></div></fieldset></div></div>
+        <div class='gform-footer gform_footer top_label'> <input type='submit' id='gform_submit_button_27' class='gform_button button' onclick='gform.submission.handleButtonClick(this);' data-submission-type='submit' value='Lähetä'  /> 
+            <input type='hidden' class='gform_hidden' name='gform_submission_method' data-js='gform_submission_method_27' value='postback' />
+            <input type='hidden' class='gform_hidden' name='gform_theme' data-js='gform_theme_27' id='gform_theme_27' value='gravity-theme' />
+            <input type='hidden' class='gform_hidden' name='gform_style_settings' data-js='gform_style_settings_27' id='gform_style_settings_27' value='{&quot;inputPrimaryColor&quot;:&quot;#204ce5&quot;}' />
+            <input type='hidden' class='gform_hidden' name='is_submit_27' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='27' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
+            <input type='hidden' class='gform_hidden' name='state_27' value='WyJ7XCIyMC4xXCI6XCJiZjJhZDRhZDljYmE2NzQ3YjMyZTRiZGJlNGUxMzA2M1wiLFwiMTkuMVwiOlwiNTIyZWYwZTFkNmU5ZDkzOTA2NGU4NzI3MTM3YTZiOWJcIixcIjIxLjFcIjpcIjg1YzU5OGRiNGI5NjhiZTY4MzA4MDJlMGRiMzAwZTA3XCJ9IiwiYzNkMGZmMmVhMWE4MzFmYzBmMzRlOTU2Y2NkNzBmNjYiXQ==' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_target_page_number_27' id='gform_target_page_number_27' value='0' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_source_page_number_27' id='gform_source_page_number_27' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            
+        </div>
+                        </form>
+                        </div><script>
+gform.initializeOnLoaded( function() {gformInitSpinner( 27, 'https://www.liikku.fi/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery('#gform_ajax_frame_27').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_27');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_27').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_27').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_27').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_27').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */ jQuery(document).scrollTop(jQuery('#gform_wrapper_27').offset().top - mt); }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_27').val();gformInitSpinner( 27, 'https://www.liikku.fi/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery(document).trigger('gform_page_loaded', [27, current_page]);window['gf_submitting_27'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}jQuery('#gform_wrapper_27').replaceWith(confirmation_content);jQuery(document).scrollTop(jQuery('#gf_27').offset().top - mt);jQuery(document).trigger('gform_confirmation_loaded', [27]);window['gf_submitting_27'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_27').text());}else{jQuery('#gform_27').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger("gform_pre_post_render", [{ formId: "27", currentPage: "current_page", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_27" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_27";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_27" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 27, current_page );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );} );
+</script>
+
+
+    <div class="wp-block-acf-spacer spacer spacer--size-m">
+          </div>
+    
+
+
+<h3 class="wp-block-heading has-text-align-center is-style-big" id="h-tallainen-on-kuntokeskus-liikku">Tällainen on Kuntokeskus Liikku</h3>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="Tällainen on Kuntokeskus Liikku" width="800" height="450" src="https://www.youtube.com/embed/zEg47rPBjy8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+    <div class="wp-block-acf-spacer spacer spacer--size-m">
+          </div>
+    
+
+
+<figure class="wp-block-gallery alignwide has-nested-images columns-4 is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="800" height="534" data-id="1644" src="https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14-800x534.jpg" alt="" class="wp-image-1644" srcset="https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14-800x534.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14-400x267.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14-768x512.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14-1536x1025.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14-1216x811.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14-1824x1217.jpg 1824w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-14.jpg 2048w" sizes="(max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="800" height="533" data-id="1855" src="https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-800x533.jpg" alt="" class="wp-image-1855" srcset="https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-800x533.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-400x267.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-768x512.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-1536x1024.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-2048x1365.jpg 2048w, https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-1216x811.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/12/Korkearesoluutio-_MA_5362-1824x1216.jpg 1824w" sizes="(max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="522" data-id="1352" src="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu47-800x522.jpg" alt="" class="wp-image-1352" srcset="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu47-800x522.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu47-400x261.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu47-768x501.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu47-1536x1002.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu47-1216x793.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu47.jpg 1800w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="509" data-id="1337" src="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu32-800x509.jpg" alt="" class="wp-image-1337" srcset="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu32-800x509.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu32-400x254.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu32-768x489.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu32-1536x977.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu32-1216x774.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu32.jpg 1800w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="534" data-id="2205" src="https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119-800x534.jpg" alt="" class="wp-image-2205" srcset="https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119-800x534.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119-400x267.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119-768x513.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119-1536x1026.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119-1216x812.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119-1824x1218.jpg 1824w, https://www.liikku.fi/wp-content/uploads/2022/01/Liikku-Lahti-salivalokuvat-web-119.jpg 2048w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="519" data-id="1348" src="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu43-800x519.jpg" alt="" class="wp-image-1348" srcset="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu43-800x519.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu43-400x259.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu43-768x498.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu43-1536x996.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu43-1216x788.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu43.jpg 1800w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="509" data-id="1372" src="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu15-fococlipping-HD-800x509.jpeg" alt="" class="wp-image-1372" srcset="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu15-fococlipping-HD-800x509.jpeg 800w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu15-fococlipping-HD-400x254.jpeg 400w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu15-fococlipping-HD-768x489.jpeg 768w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu15-fococlipping-HD-1536x977.jpeg 1536w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu15-fococlipping-HD-1216x774.jpeg 1216w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu15-fococlipping-HD.jpeg 1800w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="534" data-id="1658" src="https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24-800x534.jpg" alt="" class="wp-image-1658" srcset="https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24-800x534.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24-400x267.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24-768x512.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24-1536x1025.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24-1216x811.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24-1824x1217.jpg 1824w, https://www.liikku.fi/wp-content/uploads/2022/08/liikku_salo_2048px-24.jpg 2048w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="450" data-id="1655" src="https://www.liikku.fi/wp-content/uploads/2022/08/06-1-800x450.jpg" alt="" class="wp-image-1655" srcset="https://www.liikku.fi/wp-content/uploads/2022/08/06-1-800x450.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/08/06-1-400x225.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/08/06-1-768x432.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/08/06-1-1536x864.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/08/06-1-1216x684.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/08/06-1-1824x1026.jpg 1824w, https://www.liikku.fi/wp-content/uploads/2022/08/06-1.jpg 1920w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="800" height="560" data-id="1354" src="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu49-800x560.jpg" alt="Kuntokeskus Liikku" class="wp-image-1354" srcset="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu49-800x560.jpg 800w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu49-400x280.jpg 400w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu49-768x538.jpg 768w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu49-1536x1076.jpg 1536w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu49-1216x852.jpg 1216w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu49.jpg 1800w" sizes="auto, (max-width: 800px) 100vw, 800px" /></figure>
+</figure>
+
+
+
+
+
+                                <div class="entry__content__trainers alignfull">
+              <div class="swiper-container js-carousel" data-grid="3" role="region">
+                <h2>Valmentajat</h2>
+                <div class="teaser-container swiper-wrapper">
+                  
+    <article class="swiper-slide headcoach teaser teaser--trainer" aria-label="Anna Hänninen">
+
+              <span class="teaser__tag">Keskusvastaava</span>
+      
+      
+      <div class="teaser__card">
+
+                  <div class="teaser__thumbnail">
+            
+    <svg aria-hidden="true" class="icon icon-thing4">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-thing4"></use>
+    </svg>
+
+    
+            
+    <img src="https://www.liikku.fi/wp-content/uploads/2025/07/Anna-Hanninen-2-400x279.png" width="400" height="279" srcset="https://www.liikku.fi/wp-content/uploads/2025/07/Anna-Hanninen-2.png 900w, https://www.liikku.fi/wp-content/uploads/2025/07/Anna-Hanninen-2-800x558.png 800w, https://www.liikku.fi/wp-content/uploads/2025/07/Anna-Hanninen-2-400x279.png 400w" sizes="(min-width: 400px) 400px, 100vw" alt="" loading="lazy" />
+
+              </div>
+
+        
+        <div class="teaser__content">
+
+          <header class="teaser__header">
+                        <h2 class="teaser__title notranslate">
+              <a href="https://www.liikku.fi/valmentaja/anna-hanninen/">
+                Anna Hänninen              </a>
+            </h2>
+          </header>
+
+                      <div class="teaser__summary">
+              Valmentaja            </div>
+            <a href="https://www.liikku.fi/valmentaja/anna-hanninen/" class="teaser__read-more">Tutustu</a>
+          
+        </div>
+
+        
+      </div>
+
+    </article>
+
+                    </div>
+                <div class="swiper-container__buttons">
+                  <div class="swiper-button-prev">
+                    
+    <svg aria-hidden="true" class="icon icon-arrow-left">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-arrow-left"></use>
+    </svg>
+
+                      </div>
+                  <div class="swiper-button-next">
+                    
+    <svg aria-hidden="true" class="icon icon-arrow-right">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-arrow-right"></use>
+    </svg>
+
+                      </div>
+                </div>
+              </div>
+            </div>
+          
+
+          
+        </div>
+
+      </article>
+
+    
+  </div><!-- #primary -->
+
+
+  </div><!-- #content -->
+
+  
+    <div class="cta has-mask--circle cta--position-right background-color background-color--default">
+
+      <div class="cta__media">
+                  <div class="cta__media__image mask mask--circle">
+            
+    <img src="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu16-fococlipping-HD-800x514.jpeg" width="800" height="514" srcset="https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu16-fococlipping-HD-1216x782.jpeg 1216w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu16-fococlipping-HD-800x514.jpeg 800w, https://www.liikku.fi/wp-content/uploads/2022/06/LIIKKU-johannarontu16-fococlipping-HD-400x257.jpeg 400w" sizes="(min-width: 720px) 50vw, 100vw" alt="" loading="lazy" />
+
+              </div>
+
+                      <div class="cta__media__thing">
+              
+    <svg aria-hidden="true" class="icon icon-thing3">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-thing3"></use>
+    </svg>
+
+                </div>
+                        </div>
+
+      <div class="cta__content">
+        <div class="cta__content__inner">
+                      <h2 class="is-style-small">Henkilökohtainen valmennus</h2>                  </div>
+                <div class="cta__content__inner content">
+          <p style="text-align: left;">Ei totista, ei vakavaa, vaan yhteistä tekemistä ja erinomaista oppia harjoitteluun. Liikun personal trainer auttaa sinua matkalla kohti tavoitteitasi.</p>
+        </div>
+                <div class="cta__content__inner">
+                      <a class="cta__link" href="https://www.liikku.fi/henkilokohtaiset-valmennukset/" target="">Katso Liikun valmentajat</a>                  </div>
+      </div>
+
+    </div>
+
+          <footer class="site-footer" id="colophon" itemscope itemtype="https://schema.org/WPFooter">
+
+      <div class="site-footer__container">
+        <table>
+          <tr>
+            <td class="column">
+              
+    <svg class="site-footer__logo icon icon-logo" aria-hidden="true">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-logo"></use>
+    </svg>
+
+    
+                              <div id="text-2" class="site-footer__content widget widget_text">			<div class="textwidget"><p>Kuntokeskus Liikku on suomalainen kuntokeskus, jossa riittää tilaa treenata eikä happi lopu kesken. Liikku on avoinna jäsenille joka päivä aamusta iltaan klo 05-23. Parhaiten tutustut Liikkuun ilmaisella testitreenillä ma-ke klo 16-19. Tervetuloa!</p>
+</div>
+		</div>              
+
+            </td>
+            <td class="column">
+              <table>
+                <tr>
+                  <td>
+                    
+    <nav class="js-navigation footer-additional-navigation footer-navigation" aria-label="Alatunnisteen lisävalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-alatunnisteen-lisavalikko" class="footer-additional-navigation__items"><li id="menu-item-1238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1238"><span class="menu-item__link"><a href="https://www.liikku.fi/valmentajaksi-liikkuun/">Valmentajaksi Liikkuun</a></span></li>
+<li id="menu-item-970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-970"><span class="menu-item__link"><a href="https://www.liikku.fi/asiakaspalvelu/">Asiakaspalvelu</a></span></li>
+<li id="menu-item-1396" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1396"><span class="menu-item__link"><a href="https://www.liikku.fi/sopimusehdot/">Sopimusehdot</a></span></li>
+<li id="menu-item-1700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1700"><span class="menu-item__link"><a href="https://www.liikku.fi/etsimme-toimitiloja/">Etsimme toimitiloja</a></span></li>
+<li id="menu-item-2256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2256"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntokeskus-liikku-oy/">Tietoa meistä</a></span></li>
+</ul>
+    </nav>
+
+    
+    <nav class="social-navigation" aria-label="Sosiaalisen median kanavat" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-sosiaalinen-media" class="social-navigation__items"><li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><span class="menu-item__link"><a target="_blank" href="https://www.facebook.com/liikku/">
+    <svg aria-hidden="true" class="icon icon-facebook">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-facebook"></use>
+    </svg>
+
+    <span class="social-navigation__item__label">Facebook</span></a></span></li>
+<li id="menu-item-142" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-142"><span class="menu-item__link"><a target="_blank" href="https://www.youtube.com/channel/UCJQxcUw-oLkSBjEd-uGnxmQ">
+    <svg aria-hidden="true" class="icon icon-youtube">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-youtube"></use>
+    </svg>
+
+    <span class="social-navigation__item__label">Youtube</span></a></span></li>
+<li id="menu-item-143" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-143"><span class="menu-item__link"><a target="_blank" href="https://www.instagram.com/kuntokeskusliikku/?hl=fi">
+    <svg aria-hidden="true" class="icon icon-instagram">
+            <use xlink:href="https://www.liikku.fi/wp-content/themes/liikku/dist/sprite/sprite.svg?ver=1786351079706#icon-instagram"></use>
+    </svg>
+
+    <span class="social-navigation__item__label">Instagram</span></a></span></li>
+</ul>
+    </nav>
+
+                      </td>
+                  <td>
+                    
+    <nav class="js-navigation footer-primary-navigation footer-navigation" aria-label="Alatunnisteen päävalikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-alatunnisteen-paavalikko" class="footer-primary-navigation__items"><li id="menu-item-141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/">Kuntosalit</a></span></li>
+<li id="menu-item-6613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6613"><span class="menu-item__link"><a href="https://www.liikku.fi/kuntosalit/">Liity jäseneksi</a></span></li>
+</ul>
+    </nav>
+
+                      </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        
+    <nav class="footer-terms-navigation footer-terms" aria-label="Tietosuojaselosteet yms. valikko" itemscope itemtype="https://schema.org/SiteNavigationElement">
+
+      <ul id="menu-lakisaateinen-valikko" class="footer-terms-navigation__items"><li id="menu-item-3222" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3222"><span class="menu-item__link"><a rel="privacy-policy" href="https://www.liikku.fi/liikku-tietosuojaseloste/">Tietosuojaseloste</a></span></li>
+<li id="menu-item-3221" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3221"><span class="menu-item__link"><a href="https://www.liikku.fi/evasteasetukset/">Evästeasetukset</a></span></li>
+<li id="menu-item-5043" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5043"><span class="menu-item__link"><a href="https://www.liikku.fi/saavutettavuusseloste/">Saavutettavuusseloste</a></span></li>
+</ul>
+    </nav>
+
+    
+      </div>
+
+    </footer>
+    
+</main><!-- #page -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/liikku/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  var gnxUser = 0;
+  var gnxLanguage = "fi";
+  function gtag(){dataLayer.push(arguments);}
+
+  if (gnxUser === 0) {
+    dataLayer.push({"event": "logged-out"});
+    gtag("consent", "default", {"anonymous_user": "granted"});
+  }
+  else {
+    dataLayer.push({"event": "logged-in"});
+    gtag("consent", "default", {"anonymous_user": "denied"});
+  }
+  </script>
+  <script>
+	var relevanssi_rt_regex = /(&|\?)_(rt|rt_nonce)=(\w+)/g
+	var newUrl = window.location.search.replace(relevanssi_rt_regex, '')
+	history.replaceState(null, null, window.location.pathname + newUrl + window.location.hash)
+</script>
+<script id="x-omaliikku-cancel-membership-js-js-extra">
+var wpApiSettings = {"root":"https://www.liikku.fi/wp-json/","nonce":"b650364adb","currentUser":""};
+//# sourceURL=x-omaliikku-cancel-membership-js-js-extra
+</script>
+<script src="https://www.liikku.fi/wp-content/themes/liikku/modules/omaliikku-cancel-membership/assets/scripts/omaliikku-cancel-membership.js?ver=1786351073817" id="x-omaliikku-cancel-membership-js-js"></script>
+<script id="x-omaliikku-newsletter-js-js-extra">
+var wpApiSettings = {"root":"https://www.liikku.fi/wp-json/","nonce":"b650364adb","currentUser":""};
+//# sourceURL=x-omaliikku-newsletter-js-js-extra
+</script>
+<script src="https://www.liikku.fi/wp-content/themes/liikku/modules/omaliikku-newsletter/assets/scripts/omaliikku-newsletter.js?ver=1786351073817" id="x-omaliikku-newsletter-js-js"></script>
+<script id="x-omaliikku-onboarding-js-js-extra">
+var wpApiSettings = {"root":"https://www.liikku.fi/wp-json/","nonce":"b650364adb","currentUser":""};
+//# sourceURL=x-omaliikku-onboarding-js-js-extra
+</script>
+<script src="https://www.liikku.fi/wp-content/themes/liikku/modules/omaliikku-onboarding/assets/scripts/omaliikku-onboarding.js?ver=1786351073817" id="x-omaliikku-onboarding-js-js"></script>
+<script id="x-omaliikku-training-history-js-js-extra">
+var wpApiSettings = {"root":"https://www.liikku.fi/wp-json/","nonce":"b650364adb","currentUser":"","month":"2"};
+//# sourceURL=x-omaliikku-training-history-js-js-extra
+</script>
+<script src="https://www.liikku.fi/wp-content/themes/liikku/modules/omaliikku-training-history/assets/scripts/omaliikku-training-history.js?ver=1786351073817" id="x-omaliikku-training-history-js-js"></script>
+<script src="https://www.liikku.fi/wp-content/plugins/liikku-gym-select-register-form/js/script.js" id="custom-field-script-js"></script>
+<script src="https://www.liikku.fi/wp-content/plugins/liikku-registration-engine/build/main.js?ver=2eff0bf611c043acea44" id="liikku-registration-engine-main-js"></script>
+<script id="x-js-js-extra">
+var theme_strings_lightbox = {"prev":"Edellinen","next":"Seuraava","close":"Sulje","loading":"Lataa"};
+//# sourceURL=x-js-js-extra
+</script>
+<script data-cookieconsent="ignore" src="https://www.liikku.fi/wp-content/themes/liikku/dist/scripts/main.js?ver=1786351073817" id="x-js-js"></script>
+<script src="https://www.liikku.fi/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script src="https://www.liikku.fi/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script src="https://www.liikku.fi/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="wp-a11y-js-translations">
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2025-11-29 11:04:04+0000","generator":"GlotPress\/4.0.3","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"fi"},"Notifications":["Ilmoitukset"]}},"comment":{"reference":"wp-includes\/js\/dist\/a11y.js"}} );
+//# sourceURL=wp-a11y-js-translations
+</script>
+<script src="https://www.liikku.fi/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed" id="wp-a11y-js"></script>
+<script defer='defer' src="https://www.liikku.fi/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=8673c9a2ff188de55f9073009ba56f5e" id="gform_gravityforms_theme_vendors-js"></script>
+<script id="gform_gravityforms_theme-js-extra">
+var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"33c0df7550a7b7530f4aeb476fc44514"},"ajax":{"ajaxurl":"https://www.liikku.fi/wp-admin/admin-ajax.php","ajax_submission_nonce":"c12d70a533","i18n":{"step_announcement":"Step %1$s of %2$s, %3$s","unknown_error":"There was an unknown error processing your request. Please try again."}},"product_meta":{"27":null},"pagination":{"27":""}}},"hmr_dev":"","public_path":"https://www.liikku.fi/wp-content/plugins/gravityforms/assets/js/dist/","config_nonce":"ac5c3837f0"};
+//# sourceURL=gform_gravityforms_theme-js-extra
+</script>
+<script defer='defer' src="https://www.liikku.fi/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=96b168b3a480baf99058dabf9338533b" id="gform_gravityforms_theme-js"></script>
+<script src="https://www.liikku.fi/wp-content/plugins/m3_postnumbers/js/m3postnumbers.jquery.js?ver=6.4.2017" id="m3_postnumbers-js"></script>
+<script>
+gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 27) {
+  (() => {
+    const registration_gform = document.querySelector("#gform_wrapper_3");
+    if (registration_gform) {
+
+      document.getElementById("input_3_51").addEventListener("change", promoCodeUppercase);
+
+      function promoCodeUppercase() {
+        var x = document.getElementById("input_3_51");
+        x.value = x.value.toUpperCase();
+      }
+
+      <!-- Remove page h1, Change form h2 to h1 and move it to correct position -->
+      const page_h1 = document.querySelector("h1");
+      if (page_h1) {
+        page_h1.remove();
+      }
+      const gfrom_steps_el = registration_gform.querySelector("#gf_page_steps_3");
+      const gform_heading = registration_gform.querySelector(".gform_heading");
+      let form_title = gform_heading.querySelector("h2");
+      if (form_title) {
+        form_title.outerHTML = '<h1>' + form_title.innerHTML.split(".").pop() + '</h1>';
+        form_title = gform_heading.querySelector("h1");
+        form_title.classList.add("gform_title","is-style-small");
+      }
+      gfrom_steps_el.prepend(gform_heading);
+
+      <!-- Add description toggle buttons -->
+      const gfields = registration_gform.querySelectorAll('.gfield');
+      const gfields_with_description = [];
+      for (const gfield of gfields) {
+        gfield_description = gfield.querySelector('.gfield_description:not(.validation_message)');
+
+        if (gfield_description) {
+          gfield_description.setAttribute('aria-hidden', true);
+          gfields_with_description.push({ gfield, gfield_description });
+        }
+      }
+
+      for (const { gfield, gfield_description } of gfields_with_description) {
+        const ginput_container = gfield.querySelector('.ginput_container');
+        if (!ginput_container) continue;
+
+        const toggle_el = document.createElement("button");
+        toggle_el.innerHTML = '?';
+        toggle_el.type = 'button';
+        toggle_el.setAttribute('aria-expanded', false);
+        toggle_el.addEventListener('click', function() {
+          if (toggle_el.getAttribute('aria-expanded') == 'true') {
+            toggle_el.setAttribute('aria-expanded', false);
+            gfield_description.setAttribute('aria-hidden', true);
+          } else {
+            toggle_el.setAttribute('aria-expanded', 'true');
+            gfield_description.setAttribute('aria-hidden', false);
+          }
+        });
+        ginput_container.appendChild(toggle_el);
+      }
+
+      <!-- Handle subscription selections -->
+
+      function setAllAccessOn(membership) {
+        const priceSingleAccess = membership.querySelector('.liikku-jasenyys__price--single');
+        const priceAllAccess = membership.querySelector('.liikku-jasenyys__price--all');
+        const allAccessElements = membership.querySelectorAll('[data-attribute="all_access"]');
+        const avajaisetuSubscriptionFee = membership.querySelector('.liikku-jasenyys__subscription-fee--single');
+        const avajaisetuElements = membership.querySelectorAll('[data-attribute="avajaisetu"]');
+        const normalSubscriptionFee = membership.querySelector('.liikku-jasenyys__subscription-fee--all');
+
+        priceAllAccess.style.display = 'inline';
+        priceSingleAccess.style.display = 'none';
+
+        for (const allAccessElement of allAccessElements) {
+          allAccessElement.classList.remove('liikku-jasenyys__included__entry--disabled');
+        }
+
+        for (const avajaisetuElement of avajaisetuElements) {
+          avajaisetuElement.setAttribute('aria-hidden', 'true');
+        }
+
+        if (avajaisetuSubscriptionFee) {
+          avajaisetuSubscriptionFee.style.display = 'none';
+          normalSubscriptionFee.style.display = 'inline';
+        }
+      }
+
+      function setAllAccessOff(membership) {
+        const priceSingleAccess = membership.querySelector('.liikku-jasenyys__price--single');
+        const priceAllAccess = membership.querySelector('.liikku-jasenyys__price--all');
+        const allAccessElements = membership.querySelectorAll('[data-attribute="all_access"]');
+        const avajaisetuSubscriptionFee = membership.querySelector('.liikku-jasenyys__subscription-fee--single');
+        const avajaisetuElements = membership.querySelectorAll('[data-attribute="avajaisetu"]');
+        const normalSubscriptionFee = membership.querySelector('.liikku-jasenyys__subscription-fee--all');
+
+        priceAllAccess.style.display = 'none';
+        priceSingleAccess.style.display = 'inline';
+
+        for (const allAccessElement of allAccessElements) {
+          if (!allAccessElement.classList.contains('liikku-jasenyys__included__entry--disabled')) {
+            allAccessElement.classList.add('liikku-jasenyys__included__entry--disabled');
+          }
+        }
+
+        for (const avajaisetuElement of avajaisetuElements) {
+          avajaisetuElement.setAttribute('aria-hidden', 'false');
+        }
+
+        if (avajaisetuSubscriptionFee) {
+          avajaisetuSubscriptionFee.style.display = 'inline';
+          normalSubscriptionFee.style.display = 'none';
+        }
+      }
+
+      const memberships = registration_gform.querySelectorAll('.liikku-jasenyys');
+      function initMembership(membership, reset = false) {
+
+        const priceSingleAccess = membership.querySelector('.liikku-jasenyys__price--single');
+        const priceAllAccess = membership.querySelector('.liikku-jasenyys__price--all');
+        const allAccessElements = membership.querySelectorAll('[data-attribute="all_access"]');
+        const avajaisetuSubscriptionFee = membership.querySelector('.liikku-jasenyys__subscription-fee--single');
+        const avajaisetuElements = membership.querySelectorAll('[data-attribute="avajaisetu"]');
+        const normalSubscriptionFee = membership.querySelector('.liikku-jasenyys__subscription-fee--all');
+
+        // All Access
+        priceAllAccess.style.display = 'none';
+        for (const allAccessElement of allAccessElements) {
+          if (!allAccessElement.classList.contains('liikku-jasenyys__included__entry--disabled')) {
+            allAccessElement.classList.add('liikku-jasenyys__included__entry--disabled');
+          }
+        }
+        // All Access end
+
+        // Avajaisetu
+        if (avajaisetuSubscriptionFee) {
+          avajaisetuSubscriptionFee.style.display = 'inline';
+          normalSubscriptionFee.style.display = 'none';
+        }
+        for (const avajaisetuElement of avajaisetuElements) {
+          avajaisetuElement.setAttribute('aria-hidden', 'false');
+        }
+        // Avajaisetu end
+
+        priceSingleAccess.style.display = 'inline';
+
+        for (const gchoice of membership.querySelectorAll('.gchoice input')) {
+          gchoice.checked = false;
+        }
+      }
+
+      if (memberships.length) {
+        for (const membership of memberships) {
+          //initMembership(membership);
+
+          const gchoices = membership.querySelectorAll('.gchoice');
+          <!-- console.log(gchoices); -->
+
+          for (const gchoice of gchoices) {
+            gchoice.addEventListener('click', (e) => {
+              const input = gchoice.querySelector('input');
+              for (const _membership of memberships) {
+                if (_membership === membership) continue;
+                initMembership(_membership, true);
+              }
+
+              if (input.value === 'all-access' && input.checked) {
+                setAllAccessOn(membership);
+              } else if (input.value === 'all-access' && !input.checked) {
+                setAllAccessOff(membership);
+              }
+            });
+
+            // Get element Y-position
+            function getElementY(query) {
+              return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top - (window.innerHeight>>1)
+            }
+
+            // Scroll to target to view
+            function doScrolling(element, duration) {
+              var startingY = window.pageYOffset
+              var elementY = getElementY(element)
+              // If element is close to page's bottom then window will scroll only to some position above the element.
+              var targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY
+
+
+
+
+              var diff = targetY - startingY
+              // Easing function: easeInOutCubic
+              // From: https://gist.github.com/gre/1650294
+              var easing = function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 }
+              var start
+
+              if (!diff) return
+
+              // Bootstrap our animation - it will get called right before next frame shall be rendered.
+              window.requestAnimationFrame(function step(timestamp) {
+                if (!start) start = timestamp
+                // Elapsed miliseconds since start of scrolling.
+                var time = timestamp - start
+                // Get percent of completion in range [0, 1].
+                var percent = Math.min(time / duration, 1)
+                // Apply the easing.
+                // It can cause bad-looking slow frames in browser performance tool, so be careful.
+                percent = easing(percent)
+
+                window.scrollTo(0, startingY + diff * percent)
+
+                // Proceed with animation as long as we wanted it to.
+                if (time < duration) {
+                  window.requestAnimationFrame(step)
+                }
+              })
+            }
+
+
+
+            // Product buttons
+            const buttons = document.querySelectorAll('label[for="choice_monthly_selected"],label[for="choice_annual_selected"]');
+
+            buttons.forEach(button => {
+              button.addEventListener('click', function handleClick(event) {
+                if (window.innerWidth < 1000) {
+
+                  if(!button.previousElementSibling.checked) {
+                    doScrolling('#gform_page_3_2 .gform_page_footer', 1000);
+                  }
+                }
+              });
+            });
+          }
+        }
+      }
+      <!-- Handle form page number -->
+      const gform_body_el = registration_gform.querySelector('.gform_body');
+      const gform_steps = registration_gform.querySelectorAll('.gf_step:not(.gf_step_hidden)');
+      const gform_steps_arr = Array.from(gform_steps);
+      const current_step = gform_steps_arr.findIndex(x => x.classList.contains('gf_step_active')) + 1;
+
+      const current_step_el = document.createElement("span");
+      current_step_el.classList.add('gform_current_step');
+      current_step_el.innerHTML = current_step + '/' + gform_steps_arr.length;
+
+      gform_body_el.prepend(current_step_el);
+    }
+  })();
+
+  } } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
+</script>
+<script>
+gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "27", currentPage: "1", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_27" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_27";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_27" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 27, 1 );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );
+</script>
+
+  <script async type='module' src='https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js'></script>
+  <zapier-interfaces-chatbot-embed is-popup='true' chatbot-id='cm9sdncmd008n99b8rw2t9e63'></zapier-interfaces-chatbot-embed>
+</body>
+</html>

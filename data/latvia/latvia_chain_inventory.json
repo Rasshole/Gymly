@@ -1,0 +1,148 @@
+{
+  "country": "Latvia",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "production_total": 11923,
+  "latvia_live": 33,
+  "lv_prefix_live": 33,
+  "existing_latvia_production": true,
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNN (4-digit string; LV- prefix stripped in storage)",
+  "chains": [
+    {
+      "chain": "Gym!",
+      "classification": "A",
+      "open_active": 10,
+      "ready_estimate": 10,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Lemon Gym",
+      "classification": "A",
+      "open_active": 8,
+      "ready_estimate": 8,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "MyFitness",
+      "classification": "A",
+      "open_active": 15,
+      "ready_estimate": 15,
+      "class_a": true,
+      "source": "production_hydrate + official estate audit",
+      "verdict": "COMPLETE"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "MyFitness",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "15/15 official Rīga-metro clubs in production"
+    },
+    {
+      "chain": "Lemon Gym",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "8/8 open in production; Ziepniekkalns COMING_SOON"
+    },
+    {
+      "chain": "Gym!",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "10/10 official (9 Rīga + Daugavpils) in production"
+    },
+    {
+      "chain": "People Fitness",
+      "action": "EXCLUDED",
+      "evidence": "Liquidated legacy operator"
+    },
+    {
+      "chain": "F1 Fitness",
+      "action": "ABSENT",
+      "evidence": "No >=3 conventional LV estate found"
+    },
+    {
+      "chain": "Atlētika",
+      "action": "ABSENT",
+      "evidence": "No >=3 conventional LV estate found"
+    },
+    {
+      "chain": "City Fitness",
+      "action": "EXCLUDED",
+      "evidence": "Legacy/MyFitness name confusion"
+    },
+    {
+      "chain": "Global Fitness",
+      "action": "EXCLUDED",
+      "evidence": "Hotel single-site"
+    },
+    {
+      "chain": "Fitness24Seven",
+      "action": "ABSENT",
+      "evidence": "No LV conventional chain estate"
+    },
+    {
+      "chain": "Basic-Fit",
+      "action": "ABSENT",
+      "evidence": "No LV presence"
+    },
+    {
+      "chain": "PureGym",
+      "action": "ABSENT",
+      "evidence": "No LV presence"
+    },
+    {
+      "chain": "McFIT",
+      "action": "ABSENT",
+      "evidence": "No LV presence"
+    },
+    {
+      "chain": "JOHN REED",
+      "action": "ABSENT",
+      "evidence": "No verified LV estate"
+    },
+    {
+      "chain": "Gold's Gym",
+      "action": "ABSENT",
+      "evidence": "No multi-site LV chain"
+    },
+    {
+      "chain": "World Class",
+      "action": "ABSENT",
+      "evidence": "No conventional LV chain"
+    },
+    {
+      "chain": "24-7 Fitness",
+      "action": "ABSENT",
+      "evidence": "Estonian chain — no LV estate"
+    },
+    {
+      "chain": "Gym+",
+      "action": "ABSENT",
+      "evidence": "Lithuanian brand only"
+    },
+    {
+      "chain": "Impuls",
+      "action": "ABSENT",
+      "evidence": "Lithuanian brand only"
+    }
+  ],
+  "official_estate": {
+    "MyFitness": {
+      "open_active": 15,
+      "source": "https://www.myfitness.lv/klubi/"
+    },
+    "Lemon Gym": {
+      "open_active": 8,
+      "coming_soon": 1,
+      "source": "https://www.lemongym.lv/en/clubs/"
+    },
+    "Gym!": {
+      "open_active": 10,
+      "source": "https://www.gymlatvija.lv/en/clubs/"
+    }
+  }
+}

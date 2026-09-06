@@ -1,0 +1,228 @@
+{
+  "country": "Croatia",
+  "qa_type": "PRODUCTION_QA_FINAL",
+  "generated_at": "2026-08-29T10:20:19.825Z",
+  "read_only": true,
+  "production_modified": false,
+  "qa_sha_before": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "catalog_total": 11921,
+  "croatia_live": 80,
+  "hr_prefix_live": 80,
+  "inventory": {
+    "keep_existing": 80,
+    "approved_current": 80,
+    "production": 80,
+    "missing_ids": [],
+    "unexpected_ids": [],
+    "material_metadata_drift": []
+  },
+  "reconciliation_confirmation": {
+    "insertions": 0,
+    "removals": 0,
+    "updates": 0,
+    "total_before": 11921,
+    "total_after": 11921,
+    "croatia_before": 80,
+    "croatia_after": 80,
+    "hr_before": 80,
+    "hr_after": 80
+  },
+  "idempotency": {
+    "first_run": {
+      "insertions": 0,
+      "removals": 0,
+      "updates": 0,
+      "total_before": 11921,
+      "total_after": 11921,
+      "croatia_before": 80,
+      "croatia_after": 80,
+      "hr_before": 80,
+      "hr_after": 80
+    },
+    "second_run": {
+      "insertions": 0,
+      "removals": 0,
+      "updates": 0,
+      "total_before": 11921,
+      "total_after": 11921,
+      "croatia_before": 80,
+      "croatia_after": 80,
+      "hr_before": 80,
+      "hr_after": 80
+    },
+    "insertions": 0,
+    "removals": 0,
+    "updates": 0,
+    "idempotent": true
+  },
+  "brand_inventory": {
+    "Fitness Centar Joker": 4,
+    "Gibi Gib": 4,
+    "Gyms4you": 48,
+    "Multihealth": 3,
+    "THE Fitness": 21
+  },
+  "class_a": {
+    "chains": 5,
+    "live": 80
+  },
+  "gyms4you": {
+    "live": 48,
+    "coming_soon": 6,
+    "estate_gaps": 0,
+    "metadata_drift": 0,
+    "coming_soon_live_leakage": 0
+  },
+  "the_fitness": {
+    "live": 21,
+    "coming_soon": 2,
+    "estate_gaps": 0,
+    "metadata_drift": 0,
+    "coming_soon_live_leakage": 0
+  },
+  "other_chains": {
+    "gibi_gib": 4,
+    "fitness_centar_joker": 4,
+    "multihealth": 3
+  },
+  "wellness": {
+    "additive": 2,
+    "ids": [
+      "hr_e99d3d2a6c",
+      "hr_a0ec1a2c32"
+    ]
+  },
+  "coming_soon": {
+    "staging_total": 8,
+    "production_leakage": []
+  },
+  "excluded": {
+    "staging_total": 37,
+    "production_leakage": []
+  },
+  "safety": {
+    "hotel_resort_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0
+  },
+  "cross_border": {
+    "slovenia_ready": 0,
+    "bosnia_ready": 0,
+    "serbia_ready": 0,
+    "montenegro_ready": 0,
+    "hungary_ready": 0,
+    "italy_ready": 0,
+    "neum_croatia_collisions": 0,
+    "brod_identity_collisions": 0,
+    "live_outliers": []
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "diacritic_duplicate_conflicts": 0,
+    "identity_conflicts": 0
+  },
+  "rebrand": {
+    "conflicts": 0,
+    "legacy_leakage": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "prior_country_verification": {
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "prior_country_regressions": [],
+  "historical_test_debt": {
+    "HISTORICAL_SUITES_FAILED": 42,
+    "HISTORICAL_TESTS_FAILED": 84,
+    "STALE_TOTAL_FAILURES": 78,
+    "REAL_COUNTRY_REGRESSIONS": 0,
+    "OTHER_TEST_DEBT_FAILURES": 6,
+    "classified_real_from_tests": 0
+  },
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "croatia_specific_tests": {
+    "passed": 94,
+    "total": 94,
+    "suites_passed": 5,
+    "suites_total": 5
+  },
+  "performance": {
+    "catalog_total": 11921,
+    "centers_json_bytes": 3705822,
+    "parse_ms": 18,
+    "architecture": "KEEP CLIENT-SIDE",
+    "assessment": "HEALTHY",
+    "headroom_to_12500": 579,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false
+  },
+  "gates": {
+    "production_modified": false,
+    "catalog_total": true,
+    "croatia_live": true,
+    "hr_prefix": true,
+    "sha_frozen": true,
+    "keep_approved_production_80": true,
+    "id_equality": true,
+    "material_metadata_drift": true,
+    "class_a_chains": true,
+    "class_a_live": true,
+    "brand_inventory_match": true,
+    "gyms4you_live": true,
+    "gyms4you_coming_soon": true,
+    "the_fitness_live": true,
+    "the_fitness_coming_soon": true,
+    "wellness_additive": true,
+    "coming_soon_leakage": true,
+    "excluded_leakage": true,
+    "hotel_resort_leakage": true,
+    "specialist_leakage": true,
+    "institutional_leakage": true,
+    "cross_border_clean": true,
+    "neum_collisions": true,
+    "brod_collisions": true,
+    "global_duplicate_ids": true,
+    "hard_duplicate_conflicts": true,
+    "rebrand_conflicts": true,
+    "legacy_leakage": true,
+    "data_quality_clean": true,
+    "zero_delta": true,
+    "idempotent": true,
+    "prior_country_counts_unchanged": true,
+    "real_country_regressions": true,
+    "croatia_suites_pass": true,
+    "crosses_12500": false,
+    "global_stress_qa_required": false
+  },
+  "bugs_found": [],
+  "bugs_fixed": [],
+  "remaining_risks": [
+    "Historical GymQa/MergeSafety suites contain stale global-total assertions (non-blocking)"
+  ],
+  "verdict": "CROATIA STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "qa_sha_after": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d"
+}

@@ -1,0 +1,745 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 631891113,
+      "lat": 56.3068128,
+      "lon": 44.0781973,
+      "tags": {
+        "brand": "ФизКульт",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/rodionova/",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Родионова",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1056936344,
+      "lat": 56.3160098,
+      "lon": 44.0200408,
+      "tags": {
+        "brand": "ФизКульт",
+        "check_date": "2025-07-01",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/start/",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Старт",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1736279915,
+      "lat": 56.3407975,
+      "lon": 43.9568912,
+      "tags": {
+        "brand": "ФизКульт",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/meschera/",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Мещера",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2321347175,
+      "lat": 56.3248298,
+      "lon": 44.0243517,
+      "tags": {
+        "contact:phone": "+7 831 4111795",
+        "contact:vk": "https://vk.com/classic_yoga",
+        "contact:website": "https://yoga-nn.ru",
+        "leisure": "fitness_centre",
+        "name": "Классическая йога",
+        "opening_hours": "Mo-Fr 10:00-20:00; Sa 08:00-17:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3029660377,
+      "lat": 56.319101,
+      "lon": 44.0026527,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "эко-центр \"Мирайя\"",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3867078659,
+      "lat": 56.2961801,
+      "lon": 44.0403092,
+      "tags": {
+        "brand": "ФизКульт",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/sovetskaya/",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Советская",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4116841489,
+      "lat": 56.3026751,
+      "lon": 44.0749066,
+      "tags": {
+        "brand": "ФизКульт",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/delovaya/",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Деловая",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4220272798,
+      "lat": 56.3481355,
+      "lon": 43.871092,
+      "tags": {
+        "contact:email": "cei@golds-fitness.com",
+        "contact:phone": "+7 831 2960012",
+        "contact:website": "https://golds-fitness.com",
+        "leisure": "fitness_centre",
+        "name": "Gold's Fitness",
+        "opening_hours": "Mo-Fr 06:30-24:00, Sa,Su 08:00-23:00",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4327713689,
+      "lat": 56.3043998,
+      "lon": 44.0784034,
+      "tags": {
+        "contact:phone": "+7 831 2180069",
+        "contact:vk": "https://vk.com/club23406374",
+        "contact:website": "http://ladyfit-nn.ru",
+        "leisure": "fitness_centre",
+        "name": "Леди Фитнес",
+        "opening_hours": "Su-Th 09:00-21:00; Fr-Sa 09:00-17:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4353128564,
+      "lat": 56.32068,
+      "lon": 44.0298231,
+      "tags": {
+        "check_date": "2024-03-12",
+        "contact:email": "cei@golds-fitness.com",
+        "contact:phone": "+7 831 4326760;+7 831 4326767",
+        "contact:website": "https://golds-fitness.com",
+        "leisure": "fitness_centre",
+        "name": "Gold's Fitness",
+        "opening_hours": "Mo-Fr 06:30-23:50; Sa-Su 08:00-23:50",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4361152691,
+      "lat": 56.3582234,
+      "lon": 43.809702,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Натали"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4361164591,
+      "lat": 56.358869,
+      "lon": 43.823073,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "К.о.к.с."
+      }
+    },
+    {
+      "type": "node",
+      "id": 4424871363,
+      "lat": 56.3521738,
+      "lon": 43.8711121,
+      "tags": {
+        "contact:email": "tsa_svet@mail.ru",
+        "contact:phone": "+7 831 2144779",
+        "contact:website": "https://xfitnn.ru",
+        "leisure": "fitness_centre",
+        "name": "X-Fit",
+        "opening_hours": "Mo-Fr 06:30-23:30; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4609560828,
+      "lat": 56.2856771,
+      "lon": 43.9397794,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Egoist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4610236544,
+      "lat": 56.2769512,
+      "lon": 43.9494756,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Здорровая индустрия"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4701295789,
+      "lat": 56.3254091,
+      "lon": 43.991739,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Парвати йога",
+        "name:en": "Parvati yoga",
+        "name:ru": "Парвати йога",
+        "opening_hours": "Mo-Su 08:00-09:30, 19:00-21:00",
+        "website": "https://www.parvati.studio/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4813230422,
+      "lat": 56.2900047,
+      "lon": 44.0730334,
+      "tags": {
+        "contact:email": "cei@golds-fitness.com",
+        "contact:phone": "+7 831 4326512",
+        "contact:vk": "https://vk.com/goldfitnessnn",
+        "contact:website": "https://golds-fitness.com/",
+        "leisure": "fitness_centre",
+        "name": "Gold's Fitness",
+        "opening_hours": "Mo-Fr 06:30-23:30; Sa-Su 08:00-23:30",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4900088454,
+      "lat": 56.2727721,
+      "lon": 43.8790217,
+      "tags": {
+        "contact:phone": "+7 831 2912392",
+        "contact:website": "http://sport-c.ru",
+        "leisure": "fitness_centre",
+        "name": "СпортСити"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5150776422,
+      "lat": 56.3229797,
+      "lon": 43.8806139,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5371994278,
+      "lat": 56.3161828,
+      "lon": 44.0229965,
+      "tags": {
+        "contact:vk": "https://vk.com/yogaart_nnov",
+        "leisure": "fitness_centre",
+        "name": "Yoga Art",
+        "name:ru": "Йога Арт",
+        "opening_hours": "Mo-Su 07:00-21:00",
+        "sport": "yoga",
+        "website": "https://vk.com/yogaart_nnov"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6281290365,
+      "lat": 56.357879,
+      "lon": 44.0574814,
+      "tags": {
+        "addr:city": "Бор",
+        "addr:housenumber": "153",
+        "addr:street": "улица Ленина",
+        "leisure": "fitness_centre",
+        "name": "Амазония"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6554979887,
+      "lat": 56.3195512,
+      "lon": 44.0268145,
+      "tags": {
+        "addr:city": "Нижний Новгород",
+        "addr:housenumber": "124",
+        "addr:postcode": "603024",
+        "addr:street": "улица Белинского",
+        "brand": "ФизКульт",
+        "check_date": "2024-08-14",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/sport/",
+        "fee": "yes",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "level": "5",
+        "name": "ФизКульт Спорт",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "sport": "fitness;swimming;yoga;running",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6584513763,
+      "lat": 56.2651755,
+      "lon": 44.0159109,
+      "tags": {
+        "contact:vk": "https://vk.com/svoyfitnessnn",
+        "leisure": "fitness_centre",
+        "name": "Свой фитнес",
+        "opening_hours": "08:00-22:00",
+        "sport": "gymnastics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6614994073,
+      "lat": 56.2404394,
+      "lon": 43.8651773,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "MetroFitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6616764099,
+      "lat": 56.2422429,
+      "lon": 43.8662549,
+      "tags": {
+        "brand": "ФизКульт",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/avtozavodskiy/",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Автозаводский",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7190860222,
+      "lat": 56.2592643,
+      "lon": 44.0081225,
+      "tags": {
+        "check_date": "2025-07-31",
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 831 4291661",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-nizhnij-novgorod-cvety.html",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00",
+        "operator": "ИП Григорьев С.А.",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7197421413,
+      "lat": 56.3424043,
+      "lon": 43.9056064,
+      "tags": {
+        "brand": "ФизКульт",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/burnakovskiy/",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Бурнаковский",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7197421415,
+      "lat": 56.2212857,
+      "lon": 43.8537295,
+      "tags": {
+        "brand": "ФизКульт",
+        "contact:phone": "+7 831 2200350;+7 831 2818916",
+        "contact:website": "https://fizkult-nn.ru/clubs/juzhnoe/",
+        "leisure": "fitness_centre",
+        "name": "ФизКульт Южное",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "personal_trainer": "yes",
+        "sauna": "yes",
+        "swimming_pool": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8487031338,
+      "lat": 56.325071,
+      "lon": 43.9366549,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "CrossFit Koyot",
+        "opening_hours": "Mo,We,Fr 07:00-22:00; Tu 09:00-22:00; Th 16:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8635377396,
+      "lat": 56.3173341,
+      "lon": 43.9255017,
+      "tags": {
+        "brand": "Fitness House",
+        "brand:wikidata": "Q104213893",
+        "contact:email": "ccr@fhclub.ru",
+        "contact:phone": "+7 800 5050606;+7 831 4291661",
+        "contact:vk": "https://vk.com/fitnesshouse",
+        "contact:website": "https://www.fitnesshouse.ru/fh-n-novgorod.html/",
+        "leisure": "fitness_centre",
+        "name": "Fitness House",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 08:00-22:00",
+        "operator": "ИП Григорьев С.А."
+      }
+    },
+    {
+      "type": "node",
+      "id": 9294126414,
+      "lat": 56.3599983,
+      "lon": 44.0554098,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Физра"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10576711328,
+      "lat": 56.2705243,
+      "lon": 43.9160144,
+      "tags": {
+        "contact:email": "firstcross.nn@gmail.com",
+        "contact:phone": "+7 831 2128185",
+        "contact:website": "https://crossfitness-nn.ru",
+        "leisure": "fitness_centre",
+        "name": "Кросс",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10593505501,
+      "lat": 56.2476179,
+      "lon": 44.0407939,
+      "tags": {
+        "contact:instagram": "https://www.instagram.com/vefire.nnov/",
+        "contact:phone": "+7 (910) 101-04-44",
+        "contact:vk": "https://vk.com/vefire.nnov",
+        "female": "yes",
+        "leisure": "fitness_centre",
+        "male": "no",
+        "name": "#Вэфире",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-20:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10593505502,
+      "lat": 56.3069475,
+      "lon": 43.8415148,
+      "tags": {
+        "contact:phone": "+7 (831) 214-62-64",
+        "contact:vk": "https://vk.com/fkplaza",
+        "leisure": "fitness_centre",
+        "name": "EFFECT FITNESS",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11083613187,
+      "lat": 56.2907247,
+      "lon": 43.9518572,
+      "tags": {
+        "contact:email": "office@kamo-center.ru",
+        "contact:phone": "+7 905 1957770",
+        "contact:website": "https://kamo-center.ru/",
+        "leisure": "fitness_centre",
+        "name": "Камо",
+        "opening_hours": "Mo-We,Fr-Sa 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11083618471,
+      "lat": 56.2943418,
+      "lon": 44.0604382,
+      "tags": {
+        "contact:phone": "+7 930 7049554",
+        "contact:website": "http://sportzona52.ru/",
+        "leisure": "fitness_centre",
+        "name": "SportZona",
+        "opening_hours": "Mo-Fr 07:30-23:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458171,
+      "lat": 56.3208983,
+      "lon": 44.0177032,
+      "tags": {
+        "contact:phone": "+7 960 1773619",
+        "contact:website": "https://ladystretch.com/novgorod",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458173,
+      "lat": 56.2818116,
+      "lon": 43.9298388,
+      "tags": {
+        "contact:phone": "+7 986 7497759",
+        "contact:website": "https://ladystretch.com/novgorod",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11668621416,
+      "lat": 56.2937127,
+      "lon": 44.0764167,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Центр здоровья",
+        "opening_hours": "Mo,We,Fr 09:00-21:00; Tu,Th,Sa 09:00-16:00; Su off"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11958550587,
+      "lat": 56.287377,
+      "lon": 44.068976,
+      "tags": {
+        "contact:phone": "+7 987 3966815",
+        "contact:website": "https://ladystretch.com/novgorod",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11958550588,
+      "lat": 56.2302989,
+      "lon": 43.8709273,
+      "tags": {
+        "contact:phone": "+7 910 1256429",
+        "contact:website": "https://ladystretch.com/novgorod",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12125037301,
+      "lat": 56.3233317,
+      "lon": 43.9922959,
+      "tags": {
+        "contact:vk": "sergievskaya_8",
+        "leisure": "fitness_centre",
+        "name": "Щит и меч",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "phone": "+7 920 0096306"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12393207848,
+      "lat": 56.2342692,
+      "lon": 43.8428682,
+      "tags": {
+        "contact:website": "https://flame-stretching.ru",
+        "description": "женская студия фитнеса и растяжки",
+        "leisure": "fitness_centre",
+        "name": "FLAME",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12504114702,
+      "lat": 56.2334717,
+      "lon": 43.8387135,
+      "tags": {
+        "contact:website": "https://fitgrad.ru",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Фитнес Град",
+        "official_name": "Фитнес Град Коломенская",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12615252937,
+      "lat": 56.3145909,
+      "lon": 44.0699789,
+      "tags": {
+        "contact:vk": "https://vk.com/edinoborstva_fitness",
+        "email": "edinfit.nn-2004@yandex.ru",
+        "leisure": "fitness_centre",
+        "name": "Единоборства и фитнес",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 09:00-21:00",
+        "phone": "+7 963 2328725",
+        "website": "https://xn----7sbceiffte9bfgb2apgke0b.xn--p1ai/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12782253215,
+      "lat": 56.2973847,
+      "lon": 43.9400823,
+      "tags": {
+        "check_date": "2025-04-24",
+        "leisure": "fitness_centre",
+        "name": "Фитнес-град"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13002217558,
+      "lat": 56.2621701,
+      "lon": 44.014265,
+      "tags": {
+        "check_date": "2025-07-14",
+        "leisure": "fitness_centre",
+        "name": "Рельсы-рельсы шпалы-шпалы"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754239,
+      "lat": 56.3136939,
+      "lon": 44.0282142,
+      "tags": {
+        "contact:phone": "+7 831 2601555",
+        "contact:website": "https://nizhniy-novgorod.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13601922424,
+      "lat": 56.2523256,
+      "lon": 43.8513387,
+      "tags": {
+        "contact:phone": "+7 987 7403637",
+        "contact:website": "https://ladystretch.com/novgorod",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:30,15:30-21:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 155209550,
+      "center": {
+        "lat": 56.3076215,
+        "lon": 43.9942311
+      },
+      "tags": {
+        "addr:housenumber": "31А",
+        "addr:street": "улица Тимирязева",
+        "building": "yes",
+        "building:architecture": "contemporary",
+        "building:levels": "4",
+        "contact:email": "wp-recept@wclass-nn.ru",
+        "contact:phone": "+7 831 2667419",
+        "contact:website": "https://worldclass-nn.ru/",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 09:00-00:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 234933021,
+      "center": {
+        "lat": 56.3405289,
+        "lon": 44.1270506
+      },
+      "tags": {
+        "addr:city": "Бор",
+        "addr:housenumber": "11А",
+        "addr:postcode": "606448",
+        "addr:street": "2-й микрорайон",
+        "addr:suburb": "2-й микрорайон",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Носорог,спортклуб"
+      }
+    }
+  ]
+}

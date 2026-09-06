@@ -23,6 +23,7 @@ import type {ActivityEvent, ActivityScope} from '@/types/activity.types';
 import {useActivityData} from '@/hooks/data';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import {mapEventTypeToActivityCard, buildSecondaryInfo} from '@/utils/activityUtils';
+import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
 import {useAppStore} from '@/store/appStore';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
 import * as streak from '@/utils/streakUtils';
@@ -158,10 +159,10 @@ const ActivityFeedScreen = () => {
   if (error) {
     return (
       <View style={styles.container}>
-        <ScreenHeader title="Aktivitet" onBack={() => navigation.goBack()} showBack />
+        <ScreenHeader title={t('activityFeed.title')} onBack={() => navigation.goBack()} showBack />
         <EmptyState
           icon="cloud-offline-outline"
-          title="Kunne ikke hente aktivitet"
+          title={t('activityFeed.loadError')}
           message={error.message}
           actionLabel={t('common.retry')}
           onAction={refresh}
@@ -173,7 +174,7 @@ const ActivityFeedScreen = () => {
   return (
     <View style={styles.container}>
       <ScreenHeader
-        title="Aktivitet"
+        title={t('activityFeed.title')}
         onBack={() => navigation.goBack()}
         showBack={true}
       />
@@ -184,7 +185,7 @@ const ActivityFeedScreen = () => {
         showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Aktivitet</Text>
+          <Text style={styles.headerTitle}>{t('activityFeed.title')}</Text>
           <Text style={styles.headerSubtitle}>{t('activity.headerSub')}</Text>
           <Text style={styles.headerSummary}>
             {filteredEvents.length} aktiviteter{timeFilter === 'today' ? ' i dag' : ' denne uge'}
@@ -282,7 +283,9 @@ const ActivityFeedScreen = () => {
                     userAvatar={item.profileImageUrl}
                     gymName={item.gymName || ''}
                     workoutType="fri"
-                    duration={item.minutes ? `${item.minutes} min` : '–'}
+                    duration={
+                      item.minutes ? formatWorkoutDuration(item.minutes) : '–'
+                    }
                     caption={item.message || item.text}
                     timestamp={formatRelativeTime(item.timestamp)}
                     onUserPress={() =>
@@ -309,9 +312,9 @@ const ActivityFeedScreen = () => {
         ) : (
           <EmptyState
             icon="pulse-outline"
-            title="Ingen aktivitet endnu"
-            message="Dine venner har ikke checket ind endnu. Start selv eller inviter venner."
-            actionLabel="Inviter venner"
+            title={t('activity.emptyTitle')}
+            message={t('activity.emptyMessage')}
+            actionLabel={t('activity.inviteFriends')}
             onAction={() => navigation.navigate('Friends')}
           />
         )}
@@ -331,7 +334,7 @@ const ActivityFeedScreen = () => {
               onPress={() => navigation.navigate('Friends')}
               activeOpacity={0.8}>
               <Icon name="person-add" size={20} color={colors.primary} />
-              <Text style={styles.ctaButtonText}>Find venner</Text>
+              <Text style={styles.ctaButtonText}>{t('activity.findFriends')}</Text>
             </TouchableOpacity>
           </View>
         )}

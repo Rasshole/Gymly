@@ -1,0 +1,35 @@
+{
+  "ready_by_city": {
+    "Sliema": 1,
+    "St Julian's": 1,
+    "Gżira": 1,
+    "Pembroke": 1,
+    "Birkirkara": 1,
+    "Mosta": 1,
+    "St Paul's Bay": 1,
+    "Kirkop": 1,
+    "Marsa": 1,
+    "Birżebbuġa": 1,
+    "Mellieħa": 1,
+    "San Ġwann": 1,
+    "Attard": 1,
+    "Żebbuġ": 1,
+    "Qormi": 1,
+    "Valletta": 1,
+    "Bormla": 1,
+    "Marsaskala": 1
+  },
+  "zero_classifications": {
+    "Birgu": "C_access_scope_exclusion",
+    "Msida": "A_legitimate_no_chain_presence",
+    "Fgura": "A_legitimate_no_chain_presence",
+    "Naxxar": "A_legitimate_no_chain_presence",
+    "Żurrieq": "A_legitimate_no_chain_presence",
+    "Santa Venera": "A_legitimate_no_chain_presence",
+    "Swieqi": "A_legitimate_no_chain_presence",
+    "Victoria": "A_legitimate_no_chain_presence",
+    "Xewkija": "A_legitimate_no_chain_presence"
+  },
+  "unexplained_b_d_gaps": {},
+  "gozo": "A_legitimate_no_chain_presence"
+}

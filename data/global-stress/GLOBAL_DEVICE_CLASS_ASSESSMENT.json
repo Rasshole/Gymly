@@ -1,0 +1,7 @@
+{
+  "high_end_device": "LOW",
+  "mid_range_device": "MODERATE",
+  "low_end_device": "MODERATE",
+  "rationale": "Parse median ~10-30ms on workstation; search/nearest O(n) but sub-second measured; viewport map culling limits marker render",
+  "measured_on": "development workstation via Jest"
+}

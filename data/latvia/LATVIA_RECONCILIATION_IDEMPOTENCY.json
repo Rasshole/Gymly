@@ -1,0 +1,25 @@
+{
+  "first_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "latvia_before": 33,
+    "latvia_after": 33,
+    "lv_prefix_before": 33,
+    "lv_prefix_after": 33
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "latvia_before": 33,
+    "latvia_after": 33,
+    "lv_prefix_before": 33,
+    "lv_prefix_after": 33
+  },
+  "idempotent": true
+}

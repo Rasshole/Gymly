@@ -1,0 +1,7 @@
+{
+  "fallback_ready": 0,
+  "centroid_ready": 0,
+  "invalid_postcodes": 0,
+  "missing_coords": 0,
+  "notes": "All READY passed RS_POSTAL_RE + in_serbia(); premises-grade coord_source."
+}

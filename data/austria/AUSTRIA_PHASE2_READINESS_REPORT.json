@@ -1,0 +1,191 @@
+{
+  "generated": "2026-08-22T08:40:09.613328+00:00",
+  "phase1_staged": 319,
+  "phase1_ready": 259,
+  "production_total": 9715,
+  "production_sha256": "d86bf0118c27b72561e7aa62dd787bb907b184f3e40bc9d38ad67e036166c431",
+  "unique_staged": 367,
+  "ready_to_import": 349,
+  "categories": {
+    "READY_TO_IMPORT": 349,
+    "NEEDS_COORDINATES": 9,
+    "NEEDS_REVIEW": 8,
+    "CLOSED": 1
+  },
+  "ready_by_brand": {
+    "FITINN": 51,
+    "Mrs.Sporty": 50,
+    "clever fit": 40,
+    "MYGYM": 37,
+    "INJOY": 35,
+    "Speedfit": 31,
+    "HappyFit": 29,
+    "Anytime Fitness": 22,
+    "McFIT": 15,
+    "John Harris Fitness": 12,
+    "Fit Fabrik": 12,
+    "JOHN REED": 7,
+    "Fitness First": 4,
+    "Holmes Place": 3,
+    "Gold's Gym": 1
+  },
+  "recovery_stats": {
+    "existing_unresolved_recovered": 0,
+    "new_discovered": 22,
+    "rebrands_resolved": 0,
+    "duplicates_removed": 0
+  },
+  "projected_catalog": 10064,
+  "would_cross_10000": true,
+  "coverage": [
+    {
+      "chain": "Anytime Fitness",
+      "official_estimate": "~19-22",
+      "discovered": 22,
+      "ready": 22,
+      "unresolved": 0,
+      "coverage_pct": 115.8,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "FITINN",
+      "official_estimate": "~55-57",
+      "discovered": 53,
+      "ready": 51,
+      "unresolved": 2,
+      "coverage_pct": 92.7,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "chain": "Fit Fabrik",
+      "official_estimate": "~14-17",
+      "discovered": 12,
+      "ready": 12,
+      "unresolved": 0,
+      "coverage_pct": 85.7,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "chain": "Fitness First",
+      "official_estimate": "4",
+      "discovered": 4,
+      "ready": 4,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Gold's Gym",
+      "official_estimate": "1",
+      "discovered": 1,
+      "ready": 1,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "HappyFit",
+      "official_estimate": "29",
+      "discovered": 29,
+      "ready": 29,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Holmes Place",
+      "official_estimate": "3",
+      "discovered": 3,
+      "ready": 3,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "INJOY",
+      "official_estimate": "~35",
+      "discovered": 35,
+      "ready": 35,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "JOHN REED",
+      "official_estimate": "7",
+      "discovered": 7,
+      "ready": 7,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "John Harris Fitness",
+      "official_estimate": "12",
+      "discovered": 12,
+      "ready": 12,
+      "unresolved": 0,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "MYGYM",
+      "official_estimate": "~19",
+      "discovered": 47,
+      "ready": 37,
+      "unresolved": 10,
+      "coverage_pct": 194.7,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "chain": "McFIT",
+      "official_estimate": "16",
+      "discovered": 17,
+      "ready": 15,
+      "unresolved": 1,
+      "coverage_pct": 93.8,
+      "verdict": "NEAR-COMPLETE"
+    },
+    {
+      "chain": "Mrs.Sporty",
+      "official_estimate": "~38-51",
+      "discovered": 52,
+      "ready": 50,
+      "unresolved": 2,
+      "coverage_pct": 131.6,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "Speedfit",
+      "official_estimate": "~19",
+      "discovered": 33,
+      "ready": 31,
+      "unresolved": 2,
+      "coverage_pct": 163.2,
+      "verdict": "COMPLETE"
+    },
+    {
+      "chain": "clever fit",
+      "official_estimate": "~39-48",
+      "discovered": 40,
+      "ready": 40,
+      "unresolved": 0,
+      "coverage_pct": 102.6,
+      "verdict": "COMPLETE"
+    }
+  ],
+  "quality": {
+    "duplicate_ids": 0,
+    "same_brand_physical_duplicates": 6,
+    "invalid_postcodes": 0,
+    "missing_addresses_in_ready": 0,
+    "missing_cities_in_ready": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "ambiguous_geocodes": 11
+  },
+  "verdict": "READY FOR AUSTRIA MERGE",
+  "phase3_required": false
+}

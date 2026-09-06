@@ -1,0 +1,179 @@
+{
+  "country": "Belarus",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "bec3945dd35bb8bf9cc57046110736a5fa267a673445cf4a26dba6ed92d64e05",
+  "production_total": 12034,
+  "belarus_live": 0,
+  "by_prefix_live": 0,
+  "existing_belarus_production": false,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNNN (6 digits)",
+  "fetch_summary": {
+    "adrenalin": 29,
+    "lifestyle": 3,
+    "fox_club": 5,
+    "olympic_active": 4
+  },
+  "chains": [
+    {
+      "chain": "Adrenalin",
+      "classification": "A",
+      "staged": 29,
+      "official_current_active": 29,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Delta",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "FitWorld",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Fox Club",
+      "classification": "A",
+      "staged": 5,
+      "official_current_active": 5,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Grafit",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Gym Express 24h",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Independent (Vitebsk)",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Lifestyle",
+      "classification": "A",
+      "staged": 3,
+      "official_current_active": 3,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "Olympic",
+      "classification": "A",
+      "staged": 5,
+      "official_current_active": 4,
+      "class_a": true,
+      "source": "phase1_discovery"
+    },
+    {
+      "chain": "World Class",
+      "classification": "E",
+      "staged": 1,
+      "official_current_active": null,
+      "class_a": false,
+      "source": "phase1_discovery"
+    }
+  ],
+  "probes": [
+    {
+      "chain": "Adrenalin",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "29/29 official clubs on adrenalin.by/clubs/"
+    },
+    {
+      "chain": "Lifestyle",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "3/3 Minsk clubs on fitness-club.by"
+    },
+    {
+      "chain": "Fox Club",
+      "action": "CLASS_A_COMPLETE",
+      "evidence": "5/5 on fox-club.by"
+    },
+    {
+      "chain": "Olympic",
+      "action": "CLASS_A_GAP_COMING_SOON",
+      "evidence": "4 active + Loshitsa COMING_SOON"
+    },
+    {
+      "chain": "World Class",
+      "action": "BELOW_CLASS_A_THRESHOLD",
+      "evidence": "1 BY site — small market review"
+    },
+    {
+      "chain": "Gold's Gym",
+      "action": "ABSENT",
+      "evidence": "No verified Belarus estate"
+    },
+    {
+      "chain": "Anytime Fitness",
+      "action": "ABSENT",
+      "evidence": "No verified Belarus estate"
+    },
+    {
+      "chain": "McFIT",
+      "action": "ABSENT",
+      "evidence": "No verified Belarus estate"
+    },
+    {
+      "chain": "Basic-Fit",
+      "action": "ABSENT",
+      "evidence": "No verified Belarus estate"
+    }
+  ],
+  "official_estate": {
+    "Adrenalin": {
+      "open_active": 29,
+      "source": "https://adrenalin.by/clubs/"
+    },
+    "Lifestyle": {
+      "open_active": 3,
+      "source": "https://fitness-club.by/"
+    },
+    "Fox Club": {
+      "open_active": 5,
+      "source": "https://fox-club.by/"
+    },
+    "Olympic": {
+      "open_active": 4,
+      "coming_soon": 1,
+      "source_minsk": "https://olympic-minsk.by/",
+      "source_grodno": "https://olympic-grodno.by/"
+    },
+    "World Class": {
+      "open_active": 1,
+      "source": "https://worldclass.by/",
+      "class_a": false
+    }
+  },
+  "final_missed_chain_sweep": {
+    "complete": true,
+    "new_class_a_found": false,
+    "notes": "Adrenalin + Lifestyle + Fox Club + Olympic meet Class A threshold"
+  }
+}

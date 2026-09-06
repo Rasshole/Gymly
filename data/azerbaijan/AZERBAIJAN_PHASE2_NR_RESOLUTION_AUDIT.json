@@ -1,0 +1,3680 @@
+{
+  "phase1_nr_total": 406,
+  "resolved": 406,
+  "disposition_distribution": {
+    "EXCLUDED": 371,
+    "NEW_READY_TO_IMPORT": 35
+  },
+  "classification_distribution": {
+    "STALE_LISTING": 178,
+    "INSUFFICIENT_CONVENTIONAL_GYM": 57,
+    "SPECIALIST_NON_QUALIFYING": 4,
+    "OPERATION_UNVERIFIED": 28,
+    "OSM_INDEPENDENT_ACTIVE": 12,
+    "CONFLICT_REGION": 15,
+    "INSTITUTIONAL_NON_QUALIFYING": 3,
+    "HOTEL_RESORT_WELLNESS": 2,
+    "DUPLICATE_STALE_CHAIN_PHOTON": 84,
+    "REGIONAL_PHOTON_ACTIVE": 23
+  },
+  "nr_promoted_to_ready": 35,
+  "nr_to_coming_soon": 0,
+  "nr_to_excluded": 371,
+  "nr_to_closed": 0,
+  "rows": [
+    {
+      "id": "az_66b8be4328",
+      "brand": "Independent (Sumqayit)",
+      "name": "Sumqayit Fitness Centre",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — regional probe unverified: Sumqayit"
+    },
+    {
+      "id": "az_b1e3267c05",
+      "brand": "Independent (Ganja)",
+      "name": "Ganja Sports Club",
+      "city": "Ganja",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — regional probe unverified: Ganja"
+    },
+    {
+      "id": "az_451003b037",
+      "brand": "Independent (Mingachevir)",
+      "name": "Mingachevir Gym",
+      "city": "Mingachevir",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — regional probe unverified: Mingachevir"
+    },
+    {
+      "id": "az_663d27f16f",
+      "brand": "Independent (Lankaran)",
+      "name": "Lankaran Fitness",
+      "city": "Lankaran",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — regional probe unverified: Lankaran"
+    },
+    {
+      "id": "az_fa0b74dd57",
+      "brand": "Independent (Shaki)",
+      "name": "Shaki Sports Club",
+      "city": "Shaki",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — regional probe unverified: Shaki"
+    },
+    {
+      "id": "az_5064d7278f",
+      "brand": "Independent",
+      "name": "JV Fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: JV Fitness"
+    },
+    {
+      "id": "az_07103eb43a",
+      "brand": "Independent",
+      "name": "fitnes Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitnes Baku"
+    },
+    {
+      "id": "az_35d2643e13",
+      "brand": "Independent",
+      "name": "gym Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: gym Baku"
+    },
+    {
+      "id": "az_6547ee5799",
+      "brand": "Independent",
+      "name": "Bakı Turizm Məlumat Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Turizm Məlumat Mərkəzi"
+    },
+    {
+      "id": "az_b52f76ff2b",
+      "brand": "Independent",
+      "name": "ŞƏRQ | cafe- sports bar-gaming club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: ŞƏRQ | cafe- sports bar-gaming club"
+    },
+    {
+      "id": "az_39666a9a19",
+      "brand": "Independent",
+      "name": "Restoran 44 Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Restoran 44 Club"
+    },
+    {
+      "id": "az_faf1742d66",
+      "brand": "Independent",
+      "name": "Voices karaoke club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Voices karaoke club"
+    },
+    {
+      "id": "az_b206a3b0b6",
+      "brand": "Independent",
+      "name": "Philomela Club & Restaurant",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon listing unverified (STALE_LISTING): Philomela Club & Restaurant"
+    },
+    {
+      "id": "az_cb2e4ef27b",
+      "brand": "Independent",
+      "name": "Hiss Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Hiss Club"
+    },
+    {
+      "id": "az_30e84cc171",
+      "brand": "Independent",
+      "name": "Havana Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Havana Club"
+    },
+    {
+      "id": "az_860023ea79",
+      "brand": "Independent",
+      "name": "The Coffee Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: The Coffee Club"
+    },
+    {
+      "id": "az_183028000b",
+      "brand": "Independent",
+      "name": "MediClub",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: MediClub"
+    },
+    {
+      "id": "az_19a1425bb9",
+      "brand": "Independent",
+      "name": "Metropole Cinema Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Metropole Cinema Club"
+    },
+    {
+      "id": "az_01dc6a9ab9",
+      "brand": "Independent",
+      "name": "Status Club, Bülbül prospekti",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Status Club, Bülbül prospekti"
+    },
+    {
+      "id": "az_92210b8206",
+      "brand": "Independent",
+      "name": "fitness club Nasimi Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Nasimi Baku"
+    },
+    {
+      "id": "az_e7689cdca2",
+      "brand": "Independent",
+      "name": "fitness club Nasimi Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Nasimi Baku"
+    },
+    {
+      "id": "az_8d8f4ed058",
+      "brand": "Independent",
+      "name": "MediClub Polyclinic",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: MediClub Polyclinic"
+    },
+    {
+      "id": "az_1b594f16a0",
+      "brand": "Independent",
+      "name": "fitness club Nasimi Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Nasimi Baku"
+    },
+    {
+      "id": "az_e7fc08c2b3",
+      "brand": "Independent",
+      "name": "fitness club Nasimi Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Nasimi Baku"
+    },
+    {
+      "id": "az_da79c7f79f",
+      "brand": "Independent",
+      "name": "Cüdo Klubu 2012",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Cüdo Klubu 2012"
+    },
+    {
+      "id": "az_95d53595f0",
+      "brand": "Independent",
+      "name": "Gym Shark Fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Gym Shark Fitness"
+    },
+    {
+      "id": "az_918e41c911",
+      "brand": "Independent",
+      "name": "131 club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 131 club"
+    },
+    {
+      "id": "az_9457b5be06",
+      "brand": "Independent",
+      "name": "Boss Club 979",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Boss Club 979"
+    },
+    {
+      "id": "az_e47e5f8e72",
+      "brand": "Independent",
+      "name": "fitness club Nizami Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (fitness club Nizami Baku)"
+    },
+    {
+      "id": "az_dc53437709",
+      "brand": "Independent",
+      "name": "fitness club Nizami Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Nizami Baku"
+    },
+    {
+      "id": "az_f58b6fa4b5",
+      "brand": "Independent",
+      "name": "fitness club Nizami Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Nizami Baku"
+    },
+    {
+      "id": "az_bba6289078",
+      "brand": "Independent",
+      "name": "LA Fitness & Spa",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: LA Fitness & Spa"
+    },
+    {
+      "id": "az_67220409e6",
+      "brand": "Independent",
+      "name": "fitnes Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitnes Baku"
+    },
+    {
+      "id": "az_9cf7e33504",
+      "brand": "Independent",
+      "name": "gym Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: gym Baku"
+    },
+    {
+      "id": "az_c3c77d9295",
+      "brand": "Independent",
+      "name": "Knockout Boxing Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Knockout Boxing Club"
+    },
+    {
+      "id": "az_6aa70c771c",
+      "brand": "Independent",
+      "name": "1033 club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1033 club"
+    },
+    {
+      "id": "az_3462c750a5",
+      "brand": "Independent",
+      "name": "İmperia Bilyard Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: İmperia Bilyard Club"
+    },
+    {
+      "id": "az_9dd9ea55f3",
+      "brand": "Independent",
+      "name": "Bahruz Chess Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bahruz Chess Club"
+    },
+    {
+      "id": "az_b1069e3f84",
+      "brand": "Independent",
+      "name": "Lmntrix Playstation Game Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Lmntrix Playstation Game Club"
+    },
+    {
+      "id": "az_df1ae5fde4",
+      "brand": "Independent",
+      "name": "Respublika Şahmat Mərkəzi (Klubu)",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Respublika Şahmat Mərkəzi (Klubu)"
+    },
+    {
+      "id": "az_2876604cc6",
+      "brand": "Independent",
+      "name": "Sapfir Fitnes",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Sapfir Fitnes"
+    },
+    {
+      "id": "az_63694d154b",
+      "brand": "Independent",
+      "name": "Fitnes",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Fitnes"
+    },
+    {
+      "id": "az_28f7c5da25",
+      "brand": "Independent",
+      "name": "Bakı Kristal Zalı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Kristal Zalı"
+    },
+    {
+      "id": "az_1ed7c28f64",
+      "brand": "Independent",
+      "name": "Əl Oyunları Sarayı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Əl Oyunları Sarayı"
+    },
+    {
+      "id": "az_9c37a9fb75",
+      "brand": "Independent",
+      "name": "EnerMech Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: EnerMech Baku"
+    },
+    {
+      "id": "az_d35c71bb19",
+      "brand": "Independent",
+      "name": "Su İdmanı Sarayı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Su İdmanı Sarayı"
+    },
+    {
+      "id": "az_f637b4383d",
+      "brand": "Independent",
+      "name": "Evolution Fitness Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Evolution Fitness Baku"
+    },
+    {
+      "id": "az_6881f07125",
+      "brand": "Independent",
+      "name": "Səbail Rayon İcra Hakimiyyəti",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səbail Rayon İcra Hakimiyyəti"
+    },
+    {
+      "id": "az_b4f79ace22",
+      "brand": "Independent",
+      "name": "Səbail rayon Dövlət Yanğından Mühafizə hissəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səbail rayon Dövlət Yanğından Mühafizə hissəsi"
+    },
+    {
+      "id": "az_f6c3d3c139",
+      "brand": "Independent",
+      "name": "Səbail Enerji Təchizatı və Satışı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səbail Enerji Təchizatı və Satışı"
+    },
+    {
+      "id": "az_7cea07ac29",
+      "brand": "Independent",
+      "name": "Zen Fitness & Bodybuilding",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Zen Fitness & Bodybuilding"
+    },
+    {
+      "id": "az_21e7fb1ccd",
+      "brand": "Independent",
+      "name": "DTX Səbail Şöbəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: DTX Səbail Şöbəsi"
+    },
+    {
+      "id": "az_ccfbca4098",
+      "brand": "Independent",
+      "name": "Səbail Rayon Məhkəməsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səbail Rayon Məhkəməsi"
+    },
+    {
+      "id": "az_85b85af265",
+      "brand": "Independent",
+      "name": "8-ci Polis Bölməsi Səbail",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 8-ci Polis Bölməsi Səbail"
+    },
+    {
+      "id": "az_f43fb7a85a",
+      "brand": "Independent",
+      "name": "Səbail Sosial Müdafiə DSMF",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səbail Sosial Müdafiə DSMF"
+    },
+    {
+      "id": "az_c5a356cfa9",
+      "brand": "Independent",
+      "name": "Səbail DYP",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səbail DYP"
+    },
+    {
+      "id": "az_5f074371fa",
+      "brand": "Independent",
+      "name": "Səbail Qaz İstismar 6",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səbail Qaz İstismar 6"
+    },
+    {
+      "id": "az_da33bc4a5a",
+      "brand": "Independent",
+      "name": "XH GYM",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: XH GYM"
+    },
+    {
+      "id": "az_0be071a83a",
+      "brand": "Independent",
+      "name": "ROOF 24-hour Fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: ROOF 24-hour Fitness"
+    },
+    {
+      "id": "az_b1cc3d6ff3",
+      "brand": "Independent",
+      "name": "211 Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 211 Club"
+    },
+    {
+      "id": "az_7312aaa2fa",
+      "brand": "Independent",
+      "name": "Atlant Gym \\ Bakı Nərimanov",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Atlant Gym \\ Bakı Nərimanov"
+    },
+    {
+      "id": "az_9e8ad523cd",
+      "brand": "Independent",
+      "name": "Tornado GYM",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Tornado GYM"
+    },
+    {
+      "id": "az_a4f9e723ce",
+      "brand": "Independent",
+      "name": "Extra Club Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Extra Club Baku"
+    },
+    {
+      "id": "az_27ff0c4b77",
+      "brand": "Independent",
+      "name": "Greenwich Travel Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Greenwich Travel Club"
+    },
+    {
+      "id": "az_c9543b2a23",
+      "brand": "Independent",
+      "name": "Lady Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Lady Club"
+    },
+    {
+      "id": "az_d236a514df",
+      "brand": "Independent",
+      "name": "Ellips Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Ellips Club"
+    },
+    {
+      "id": "az_d267f4c18b",
+      "brand": "Independent",
+      "name": "fitness club Narimanov Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Narimanov Baku"
+    },
+    {
+      "id": "az_e419df13e0",
+      "brand": "Independent",
+      "name": "fitness club Narimanov Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness club Narimanov Baku"
+    },
+    {
+      "id": "az_1a2c53235c",
+      "brand": "Independent",
+      "name": "Arena Fitnes",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Arena Fitnes"
+    },
+    {
+      "id": "az_3c9de2cb0e",
+      "brand": "Independent",
+      "name": "fitnes Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitnes Baku"
+    },
+    {
+      "id": "az_8e1f2ce53a",
+      "brand": "Independent",
+      "name": "Şah İsmayıl Xətainin heykəli",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Şah İsmayıl Xətainin heykəli"
+    },
+    {
+      "id": "az_5f0132ce6d",
+      "brand": "Independent",
+      "name": "Bakı metropoliteni (C. Cabbarlı - Xətai)",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı metropoliteni (C. Cabbarlı - Xətai)"
+    },
+    {
+      "id": "az_71c4bbf80a",
+      "brand": "Independent",
+      "name": "Xətai pr.",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Xətai pr."
+    },
+    {
+      "id": "az_cb0ba72533",
+      "brand": "Independent",
+      "name": "Xətai prospekti",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Xətai prospekti"
+    },
+    {
+      "id": "az_8cc4bc326c",
+      "brand": "Independent",
+      "name": "Xətai prospekti",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Xətai prospekti"
+    },
+    {
+      "id": "az_d5cd4dd68b",
+      "brand": "Independent",
+      "name": "Xətai prospekti",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Xətai prospekti"
+    },
+    {
+      "id": "az_20280bbd2e",
+      "brand": "Independent",
+      "name": "Atlético Playstation Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Atlético Playstation Club"
+    },
+    {
+      "id": "az_14c93c2c7d",
+      "brand": "Independent",
+      "name": "FitCity by ParkHill | Fitness zal",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: FitCity by ParkHill | Fitness zal"
+    },
+    {
+      "id": "az_11cf16720a",
+      "brand": "Independent",
+      "name": "FitnessLab",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: FitnessLab"
+    },
+    {
+      "id": "az_9119cea0b5",
+      "brand": "Independent",
+      "name": "Buta Palace Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Buta Palace Baku"
+    },
+    {
+      "id": "az_399b7b5286",
+      "brand": "Independent",
+      "name": "Bakı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı"
+    },
+    {
+      "id": "az_bca27e1355",
+      "brand": "Independent",
+      "name": "Bank of Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bank of Baku"
+    },
+    {
+      "id": "az_68c3750436",
+      "brand": "Independent",
+      "name": "Baku Bus Depo",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Bus Depo"
+    },
+    {
+      "id": "az_835e3634b6",
+      "brand": "Independent",
+      "name": "Baku Ekspo Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Ekspo Mərkəzi"
+    },
+    {
+      "id": "az_917c154921",
+      "brand": "Independent",
+      "name": "fitness Surakhani Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness Surakhani Baku"
+    },
+    {
+      "id": "az_7f8dc12f79",
+      "brand": "Independent",
+      "name": "Kaşıbeyaz Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Kaşıbeyaz Baku"
+    },
+    {
+      "id": "az_c0ed1e2a30",
+      "brand": "Independent",
+      "name": "Suraxanı Dairəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Suraxanı Dairəsi"
+    },
+    {
+      "id": "az_cbfb12b147",
+      "brand": "Independent",
+      "name": "\"SURAXANI\" Ship Museum",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: \"SURAXANI\" Ship Museum"
+    },
+    {
+      "id": "az_0238aee1e9",
+      "brand": "Independent",
+      "name": "ATEF Gym",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: ATEF Gym"
+    },
+    {
+      "id": "az_8088090d01",
+      "brand": "Independent",
+      "name": "Boroda Gym",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Boroda Gym"
+    },
+    {
+      "id": "az_9a29b8eb83",
+      "brand": "Independent",
+      "name": "Suraxanı Avtoservis",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Suraxanı Avtoservis"
+    },
+    {
+      "id": "az_ca708b6c36",
+      "brand": "Independent",
+      "name": "Aero Express shuttle to Airport (GYD)",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Aero Express shuttle to Airport (GYD)"
+    },
+    {
+      "id": "az_f003ac1434",
+      "brand": "Independent",
+      "name": "Bakı Süd MMC / Hövsan",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Süd MMC / Hövsan"
+    },
+    {
+      "id": "az_2c1b5a26ed",
+      "brand": "Independent",
+      "name": "Bakı şəhəri 3 nömrəli Uşaq İncəsənət Məktəbi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı şəhəri 3 nömrəli Uşaq İncəsənət Məktəbi"
+    },
+    {
+      "id": "az_3c19fe3e07",
+      "brand": "Independent",
+      "name": "Bakı Süd MMC / Hövsan",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Süd MMC / Hövsan"
+    },
+    {
+      "id": "az_ae78c11f43",
+      "brand": "Independent",
+      "name": "YAP, Yeni Azərbaycan Partiyası, Suraxanı rayonu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: YAP, Yeni Azərbaycan Partiyası, Suraxanı rayonu"
+    },
+    {
+      "id": "az_0841faba54",
+      "brand": "Independent",
+      "name": "Bakı Tennis Akademiyası",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Tennis Akademiyası"
+    },
+    {
+      "id": "az_b2727fac7f",
+      "brand": "Independent",
+      "name": "Bakı-Qars küçəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı-Qars küçəsi"
+    },
+    {
+      "id": "az_dd19912cc2",
+      "brand": "Independent",
+      "name": "Bakı Dairəvi Avtomobil Yolu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Dairəvi Avtomobil Yolu"
+    },
+    {
+      "id": "az_413a60467b",
+      "brand": "Independent",
+      "name": "Bakı Dairəvi Avtomobil Yolu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Dairəvi Avtomobil Yolu"
+    },
+    {
+      "id": "az_cc198a71fd",
+      "brand": "Independent",
+      "name": "Bakı Atıcılıq Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Atıcılıq Mərkəzi"
+    },
+    {
+      "id": "az_a79ccd7d1d",
+      "brand": "Independent",
+      "name": "Səfərbərlik və hərbi xidmətə çağırış üzrə Dövlət Xidmətinin Binəqədi rayon idarəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Səfərbərlik və hərbi xidmətə çağırış üzrə Dövlət Xidmətinin Binəqədi rayon idarəsi"
+    },
+    {
+      "id": "az_f91ba30e2a",
+      "brand": "Independent",
+      "name": "Bakı Metropoliteni - Yaşıl xətt",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Metropoliteni - Yaşıl xətt"
+    },
+    {
+      "id": "az_7ff0f175f2",
+      "brand": "Independent",
+      "name": "Binəqədi Rayon Məhkəməsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Binəqədi Rayon Məhkəməsi"
+    },
+    {
+      "id": "az_6ac3e63384",
+      "brand": "Independent",
+      "name": "Baku Electronics",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Baku Electronics)"
+    },
+    {
+      "id": "az_57fdecf11b",
+      "brand": "Independent",
+      "name": "The Green Room Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: The Green Room Baku"
+    },
+    {
+      "id": "az_b3884eb6bc",
+      "brand": "Independent",
+      "name": "Baku Karting",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Karting"
+    },
+    {
+      "id": "az_c86fc64a94",
+      "brand": "Independent",
+      "name": "Baku International School (BIS)",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku International School (BIS)"
+    },
+    {
+      "id": "az_2dd9d6e10e",
+      "brand": "Independent",
+      "name": "Baku Music Hall \\ Əhməd Rəcəbli küç.",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Music Hall \\ Əhməd Rəcəbli küç."
+    },
+    {
+      "id": "az_22b94e8d5d",
+      "brand": "Independent",
+      "name": "Baku Nar Residence",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Nar Residence"
+    },
+    {
+      "id": "az_0a43215db7",
+      "brand": "Independent",
+      "name": "Baku Lube Service",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Lube Service"
+    },
+    {
+      "id": "az_6711ad77a7",
+      "brand": "Independent",
+      "name": "Bakı Dairəvi Avtomobil Yolu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Dairəvi Avtomobil Yolu"
+    },
+    {
+      "id": "az_5cadc1e012",
+      "brand": "Independent",
+      "name": "gym Binagadi Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: gym Binagadi Baku"
+    },
+    {
+      "id": "az_37c585f0a6",
+      "brand": "Independent",
+      "name": "Bakı Metropoliteni - Bənövşəyi xətt",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Metropoliteni - Bənövşəyi xətt"
+    },
+    {
+      "id": "az_0a813960a3",
+      "brand": "Independent",
+      "name": "Mey Hanem Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Mey Hanem Baku"
+    },
+    {
+      "id": "az_cd6d45ea4a",
+      "brand": "Independent",
+      "name": "Car Club karaoke",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Car Club karaoke"
+    },
+    {
+      "id": "az_5906b626cf",
+      "brand": "Independent",
+      "name": "GYM Olimpiyskiy",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: GYM Olimpiyskiy"
+    },
+    {
+      "id": "az_c132156d9e",
+      "brand": "Independent",
+      "name": "HED Academy \\ Olimpiya Stadionui Bakı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: HED Academy \\ Olimpiya Stadionui Bakı"
+    },
+    {
+      "id": "az_1df7b4b8f6",
+      "brand": "Independent",
+      "name": "Nəqliyyat Agentliyi Taksi / Sabunçu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Nəqliyyat Agentliyi Taksi / Sabunçu"
+    },
+    {
+      "id": "az_18e002ff85",
+      "brand": "Independent",
+      "name": "Kaskad Petrol \\ Sabunçu dairəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Kaskad Petrol \\ Sabunçu dairəsi"
+    },
+    {
+      "id": "az_610ef3f5fd",
+      "brand": "Independent",
+      "name": "Sabunçu Hamamı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Sabunçu Hamamı"
+    },
+    {
+      "id": "az_4520b45c51",
+      "brand": "Independent",
+      "name": "Sabunçu Rayon İcra Hakimiyyəti",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon listing unverified (STALE_LISTING): Sabunçu Rayon İcra Hakimiyyəti"
+    },
+    {
+      "id": "az_54955b3794",
+      "brand": "Independent",
+      "name": "Beynəlxalq Bank Sabunçu filialı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Beynəlxalq Bank Sabunçu filialı"
+    },
+    {
+      "id": "az_ec19e82401",
+      "brand": "Independent",
+      "name": "Z. Bünyadov pr. Bakı Olimpiya Stadionu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Z. Bünyadov pr. Bakı Olimpiya Stadionu"
+    },
+    {
+      "id": "az_251adb18ba",
+      "brand": "Independent",
+      "name": "4 saylı Baki Şərab Zavodu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 4 saylı Baki Şərab Zavodu"
+    },
+    {
+      "id": "az_9a2dd1c8c0",
+      "brand": "Independent",
+      "name": "Bakı Fəhləsi Maşınqayırma Zavodu",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Fəhləsi Maşınqayırma Zavodu"
+    },
+    {
+      "id": "az_dea3994422",
+      "brand": "Independent",
+      "name": "Qədim Bakı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Qədim Bakı"
+    },
+    {
+      "id": "az_3d52fb374e",
+      "brand": "Independent",
+      "name": "Bakı Kafe",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Kafe"
+    },
+    {
+      "id": "az_6d45361651",
+      "brand": "Independent",
+      "name": "Fitlife Fitnes",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon listing unverified (STALE_LISTING): Fitlife Fitnes"
+    },
+    {
+      "id": "az_c61b2599ba",
+      "brand": "Independent (Nakhchivan)",
+      "name": "FS Cristal club",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (FS Cristal club)"
+    },
+    {
+      "id": "az_d258aed7b1",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Fitnes zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Fitnes zalı)"
+    },
+    {
+      "id": "az_b16b4771e9",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Fitnes zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Fitnes zalı)"
+    },
+    {
+      "id": "az_d59d79a521",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Qarabağ NN İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Qarabağ NN İdman Klubu)"
+    },
+    {
+      "id": "az_a59cc35659",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Kənd idman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Kənd idman zalı)"
+    },
+    {
+      "id": "az_7a0e83cfa4",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Köhnə idman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Köhnə idman zalı)"
+    },
+    {
+      "id": "az_499dcacb1f",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman klubu)"
+    },
+    {
+      "id": "az_3ee0099d2f",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_c6550d9e76",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_084c2c2f25",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_8c6d425788",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_9c6460c616",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_220cd06d45",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_1ae92dd797",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_f57fd8f0f9",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_cb2ff89983",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_7d55ac6446",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_297e167bdb",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_a9d603dd14",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_5eead278ea",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman Zalı \\ Dəmirçilər",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman Zalı \\ Dəmirçilər)"
+    },
+    {
+      "id": "az_c35aa24c0f",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_859bea551e",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman Zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman Zalı)"
+    },
+    {
+      "id": "az_0d4a0fc2ae",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Idman zali Narimanov",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Idman zali Narimanov)"
+    },
+    {
+      "id": "az_fa5f6e7a9e",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_e54b5ef46c",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_0e889456ed",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman zalı)"
+    },
+    {
+      "id": "az_4627bf614a",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman Zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (İdman Zalı)"
+    },
+    {
+      "id": "az_fb3878e502",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Bebr İdman Zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Bebr İdman Zalı)"
+    },
+    {
+      "id": "az_8280ced0b2",
+      "brand": "Independent (Nakhchivan)",
+      "name": "5.11 İdman Zalı",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (5.11 İdman Zalı)"
+    },
+    {
+      "id": "az_9e20a0a645",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Gəncə idman klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Gəncə idman klubu)"
+    },
+    {
+      "id": "az_71519a98b3",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Hərbi Texniki İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Hərbi Texniki İdman Klubu)"
+    },
+    {
+      "id": "az_afd22991b6",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Texniki İdman Klubu Ağdaş",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Texniki İdman Klubu Ağdaş)"
+    },
+    {
+      "id": "az_55aff61597",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Texniki İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Texniki İdman Klubu)"
+    },
+    {
+      "id": "az_6cec1aaa9e",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Hədəf İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Hədəf İdman Klubu)"
+    },
+    {
+      "id": "az_e38307fff2",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Gilan İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Gilan İdman Klubu)"
+    },
+    {
+      "id": "az_6c58651a1c",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Zirvə İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Zirvə İdman Klubu)"
+    },
+    {
+      "id": "az_6268c0874e",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Zirvə İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Zirvə İdman Klubu)"
+    },
+    {
+      "id": "az_4db1c7a685",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Monza İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Monza İdman Klubu)"
+    },
+    {
+      "id": "az_f0f23d16b4",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Zirvə İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Zirvə İdman Klubu)"
+    },
+    {
+      "id": "az_73a02a60ad",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Çempion İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Çempion İdman Klubu)"
+    },
+    {
+      "id": "az_3304279202",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Neftçi İdman Klubu İB",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Neftçi İdman Klubu İB)"
+    },
+    {
+      "id": "az_7d119ad79a",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Savalan İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Savalan İdman Klubu)"
+    },
+    {
+      "id": "az_3a7100ce31",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Arktika İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Arktika İdman Klubu)"
+    },
+    {
+      "id": "az_580fb87b69",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Lider İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Lider İdman Klubu)"
+    },
+    {
+      "id": "az_4f0e369be8",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Saray İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Saray İdman Klubu)"
+    },
+    {
+      "id": "az_a8b492a644",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Nəqşi Cahan Cüdo İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Nəqşi Cahan Cüdo İdman Klubu)"
+    },
+    {
+      "id": "az_e0bbb38760",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Olimpik Spor İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Olimpik Spor İdman Klubu)"
+    },
+    {
+      "id": "az_94304906ac",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Sədərk İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Sədərk İdman Klubu)"
+    },
+    {
+      "id": "az_7308f94b00",
+      "brand": "Independent (Nakhchivan)",
+      "name": "Sport Master İdman Klubu",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Sport Master İdman Klubu)"
+    },
+    {
+      "id": "az_3fd70bda18",
+      "brand": "Independent (Nakhchivan)",
+      "name": "NMR Gənclər ve İdman Nazirliyi",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (NMR Gənclər ve İdman Nazirliyi)"
+    },
+    {
+      "id": "az_f6837d7aa7",
+      "brand": "Independent (Nakhchivan)",
+      "name": "İdman məktəbi",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "SPECIALIST_NON_QUALIFYING",
+      "reason": "Phase 2 — Nakhchivan audit: specialist/non-qualifying (İdman məktəbi)"
+    },
+    {
+      "id": "az_0e2a02b1c3",
+      "brand": "Iron Man",
+      "name": "Iron Man",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Iron Man"
+    },
+    {
+      "id": "az_bf35997af1",
+      "brand": "Gunesh",
+      "name": "Gunesh",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Gunesh"
+    },
+    {
+      "id": "az_515e6eedf5",
+      "brand": "Atletika Fitnes",
+      "name": "Atletika Fitnes",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Atletika Fitnes"
+    },
+    {
+      "id": "az_0518afa6e7",
+      "brand": "Herkules",
+      "name": "Herkules",
+      "city": "Shaki",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Herkules"
+    },
+    {
+      "id": "az_8800b19cc1",
+      "brand": "Lokomotiv",
+      "name": "Lokomotiv",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Lokomotiv"
+    },
+    {
+      "id": "az_e474d994ad",
+      "brand": "Wolf Fitness",
+      "name": "Wolf Fitness",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Wolf Fitness"
+    },
+    {
+      "id": "az_87b6ffb603",
+      "brand": "Gorgud Wellness Center",
+      "name": "Gorgud Wellness Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Gorgud Wellness Center"
+    },
+    {
+      "id": "az_81568c17df",
+      "brand": "Modern İdman Əyləncə",
+      "name": "Modern İdman Əyləncə",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Modern İdman Əyləncə"
+    },
+    {
+      "id": "az_10ac7dcb15",
+      "brand": "Gartal Fitnes",
+      "name": "Gartal Fitnes",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Gartal Fitnes"
+    },
+    {
+      "id": "az_f7732ff31a",
+      "brand": "Cobra",
+      "name": "Cobra",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Cobra"
+    },
+    {
+      "id": "az_5448bff7ad",
+      "brand": "Trenajor zalı",
+      "name": "Trenajor zalı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Trenajor zalı"
+    },
+    {
+      "id": "az_20014de19e",
+      "brand": "Askod MMC (Epilife estetik merkez)",
+      "name": "Askod MMC (Epilife estetik merkez)",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Askod MMC (Epilife estetik merkez)"
+    },
+    {
+      "id": "az_b79f7666d3",
+      "brand": "Modern İdman Məktəbi",
+      "name": "Modern İdman Məktəbi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "SPECIALIST_NON_QUALIFYING",
+      "reason": "Phase 2 — specialist/non-qualifying: Modern İdman Məktəbi"
+    },
+    {
+      "id": "az_8709f8ccab",
+      "brand": "Trenajor zalı",
+      "name": "Trenajor zalı",
+      "city": "Qabaqçöl",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM row failed production gates: Trenajor zalı"
+    },
+    {
+      "id": "az_55467f734a",
+      "brand": "Lion Fitness",
+      "name": "Lion Fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Lion Fitness"
+    },
+    {
+      "id": "az_791e00cbf4",
+      "brand": "Abordaj Fitness Zalı",
+      "name": "Abordaj Fitness Zalı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Abordaj Fitness Zalı"
+    },
+    {
+      "id": "az_654702a630",
+      "brand": "İdman",
+      "name": "İdman",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: İdman"
+    },
+    {
+      "id": "az_94f24a7206",
+      "brand": "İdman Məktəbi",
+      "name": "İdman Məktəbi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "SPECIALIST_NON_QUALIFYING",
+      "reason": "Phase 2 — specialist/non-qualifying: İdman Məktəbi"
+    },
+    {
+      "id": "az_87f8f18f99",
+      "brand": "Şəki Qartal Arena",
+      "name": "Şəki Qartal Arena",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Şəki Qartal Arena"
+    },
+    {
+      "id": "az_748e557ca4",
+      "brand": "Fit Lady",
+      "name": "Fit Lady",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Fit Lady"
+    },
+    {
+      "id": "az_251581f61e",
+      "brand": "İBM Trenajor",
+      "name": "İBM Trenajor",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: İBM Trenajor"
+    },
+    {
+      "id": "az_f711a4d8c8",
+      "brand": "Sparta Fitnes",
+      "name": "Sparta Fitnes",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Sparta Fitnes"
+    },
+    {
+      "id": "az_d7e05bc4a5",
+      "brand": "X Fitnes Klub",
+      "name": "X Fitnes Klub",
+      "city": "Yeni Kürdəxanı",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: X Fitnes Klub"
+    },
+    {
+      "id": "az_b168d32ae6",
+      "brand": "Fitnes Trenajor",
+      "name": "Fitnes Trenajor",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Fitnes Trenajor"
+    },
+    {
+      "id": "az_99d9e1ef1b",
+      "brand": "Golds Trenajor",
+      "name": "Golds Trenajor",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Golds Trenajor"
+    },
+    {
+      "id": "az_72e54b6848",
+      "brand": "Fitnes Spa Mərkəzi",
+      "name": "Fitnes Spa Mərkəzi",
+      "city": "Masazır",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Fitnes Spa Mərkəzi"
+    },
+    {
+      "id": "az_78e44f3bea",
+      "brand": "CH Fitness",
+      "name": "CH Fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: CH Fitness"
+    },
+    {
+      "id": "az_27ad51cf1d",
+      "brand": "Çempion Fitnes",
+      "name": "Çempion Fitnes",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Çempion Fitnes"
+    },
+    {
+      "id": "az_a77fb625b0",
+      "brand": "Karol Fitnes",
+      "name": "Karol Fitnes",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Karol Fitnes"
+    },
+    {
+      "id": "az_0383217b8f",
+      "brand": "Fit House",
+      "name": "Fit House",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Fit House"
+    },
+    {
+      "id": "az_1a085424fe",
+      "brand": "Viking",
+      "name": "Viking",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Viking"
+    },
+    {
+      "id": "az_4eac2532e1",
+      "brand": "Sparta",
+      "name": "Sparta",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Sparta"
+    },
+    {
+      "id": "az_d98889c95d",
+      "brand": "Just 4 Fit",
+      "name": "Just 4 Fit",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Just 4 Fit"
+    },
+    {
+      "id": "az_365366f61d",
+      "brand": "Angels’ Embassy",
+      "name": "Angels’ Embassy",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Angels’ Embassy"
+    },
+    {
+      "id": "az_af9d77017d",
+      "brand": "GYM Fitness",
+      "name": "GYM Fitness",
+      "city": "Şirvan ş.",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: GYM Fitness"
+    },
+    {
+      "id": "az_7fa08b660b",
+      "brand": "Alik fitness",
+      "name": "Alik fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Alik fitness"
+    },
+    {
+      "id": "az_9434802ec3",
+      "brand": "Go",
+      "name": "Go",
+      "city": "Baku",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "OSM_INDEPENDENT_ACTIVE",
+      "reason": "Phase 2 — OSM independent active verified: Go"
+    },
+    {
+      "id": "az_8a317268db",
+      "brand": "Premium Fitness",
+      "name": "Premium Fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Premium Fitness"
+    },
+    {
+      "id": "az_000a4240ed",
+      "brand": "Trenajor zalı",
+      "name": "Trenajor zalı",
+      "city": "Khankendi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_73948d378b",
+      "brand": "Aura Sağlamlıq Mərkəzi",
+      "name": "Aura Sağlamlıq Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Aura Sağlamlıq Mərkəzi"
+    },
+    {
+      "id": "az_11a8b2f361",
+      "brand": "Taekvando kursu",
+      "name": "Taekvando kursu",
+      "city": "Stepanakert",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_31e6e9ffe6",
+      "brand": "İdman Məktəbi",
+      "name": "İdman Məktəbi",
+      "city": "Մարտունի",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_f233ff84d4",
+      "brand": "Güləş məktəbi",
+      "name": "Güləş məktəbi",
+      "city": "Khankendi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_6c52c6ff08",
+      "brand": "Trenajor zalı",
+      "name": "Trenajor zalı",
+      "city": "Khankendi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_51f5995cdc",
+      "brand": "Fitness",
+      "name": "Fitness",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Fitness"
+    },
+    {
+      "id": "az_4d7e3b9682",
+      "brand": "Fitnes zalı",
+      "name": "Fitnes zalı",
+      "city": "Khankendi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_f55fa85cf5",
+      "brand": "Olimpiya",
+      "name": "Olimpiya",
+      "city": "Ganja",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Olimpiya"
+    },
+    {
+      "id": "az_bf11d78641",
+      "brand": "İdman zalı",
+      "name": "İdman zalı",
+      "city": "Khankendi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_e91ac9546f",
+      "brand": "Trenajor",
+      "name": "Trenajor",
+      "city": "Khankendi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_8edf870d77",
+      "brand": "Ay Sport Klub",
+      "name": "Ay Sport Klub",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "OPERATION_UNVERIFIED",
+      "reason": "Phase 2 — OSM LOW confidence: Ay Sport Klub"
+    },
+    {
+      "id": "az_08637390c5",
+      "brand": "Independent",
+      "name": "Bakı Dəmiryol Stansiyası",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Dəmiryol Stansiyası"
+    },
+    {
+      "id": "az_e2cec29fcf",
+      "brand": "Independent",
+      "name": "Bakı Konqres Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Konqres Mərkəzi"
+    },
+    {
+      "id": "az_1944e91424",
+      "brand": "Independent",
+      "name": "Azərbaycan Respublikasının Mərkəzi Bankı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Azərbaycan Respublikasının Mərkəzi Bankı"
+    },
+    {
+      "id": "az_820f8fc28e",
+      "brand": "Independent",
+      "name": "Muzey Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Muzey Mərkəzi"
+    },
+    {
+      "id": "az_dc32b11aa8",
+      "brand": "Independent",
+      "name": "1ST DAY - V.A.S. / 2ND DAY - MARKETING",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1ST DAY - V.A.S. / 2ND DAY - MARKETING"
+    },
+    {
+      "id": "az_ae991d1979",
+      "brand": "Independent",
+      "name": "Sədərək Ticarət Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon listing unverified (STALE_LISTING): Sədərək Ticarət Mərkəzi"
+    },
+    {
+      "id": "az_0b3f628791",
+      "brand": "Independent",
+      "name": "Baki Əyləncə Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baki Əyləncə Mərkəzi"
+    },
+    {
+      "id": "az_ab762a64d6",
+      "brand": "Independent",
+      "name": "Bakı Logistika Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Logistika Mərkəzi"
+    },
+    {
+      "id": "az_a7299e3656",
+      "brand": "Independent",
+      "name": "Bakı Dəmiryol Vağzalı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Dəmiryol Vağzalı"
+    },
+    {
+      "id": "az_05e907b6b6",
+      "brand": "Independent",
+      "name": "Rukhayla Beauty Centre",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Rukhayla Beauty Centre"
+    },
+    {
+      "id": "az_184c08dd7b",
+      "brand": "Independent",
+      "name": "InterExchange Centre",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: InterExchange Centre"
+    },
+    {
+      "id": "az_6195720f95",
+      "brand": "Independent",
+      "name": "Asia Beauty Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Asia Beauty Center"
+    },
+    {
+      "id": "az_77e930c840",
+      "brand": "Independent",
+      "name": "BEGOC Business Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: BEGOC Business Center"
+    },
+    {
+      "id": "az_15b9e9e239",
+      "brand": "Independent",
+      "name": "CAPAGO Rəsmi Fransız Viza Tətbiq Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: CAPAGO Rəsmi Fransız Viza Tətbiq Mərkəzi"
+    },
+    {
+      "id": "az_9492c670f8",
+      "brand": "Independent",
+      "name": "Beynəlxalq Muğam Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Beynəlxalq Muğam Mərkəzi"
+    },
+    {
+      "id": "az_296dce6477",
+      "brand": "Independent",
+      "name": "Sədərək Ticarət Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Sədərək Ticarət Mərkəzi"
+    },
+    {
+      "id": "az_496c926b96",
+      "brand": "Independent",
+      "name": "Bunny Boom (Blue centre)",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bunny Boom (Blue centre)"
+    },
+    {
+      "id": "az_06db5cbc0b",
+      "brand": "Independent",
+      "name": "Bakı Sağlamlıq Mərkəzi \\ Azadlıq",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Sağlamlıq Mərkəzi \\ Azadlıq"
+    },
+    {
+      "id": "az_7ca22aa064",
+      "brand": "Independent",
+      "name": "Healt Baku Medical Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "INSTITUTIONAL_NON_QUALIFYING",
+      "reason": "Phase 2 — institutional/private scope: Healt Baku Medical Center"
+    },
+    {
+      "id": "az_82ba7bf513",
+      "brand": "Independent",
+      "name": "Baku City Center Guest House",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "HOTEL_RESORT_WELLNESS",
+      "reason": "Phase 2 — hotel/resort leakage: Baku City Center Guest House"
+    },
+    {
+      "id": "az_99a40a6d56",
+      "brand": "Independent",
+      "name": "Baku Book Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Book Center"
+    },
+    {
+      "id": "az_90684b85c4",
+      "brand": "Independent",
+      "name": "Baku Jazz Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Baku Jazz Center"
+    },
+    {
+      "id": "az_907668b708",
+      "brand": "Independent",
+      "name": "International Medical Center-2",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "INSTITUTIONAL_NON_QUALIFYING",
+      "reason": "Phase 2 — institutional/private scope: International Medical Center-2"
+    },
+    {
+      "id": "az_54e456b331",
+      "brand": "Independent",
+      "name": "E-Gov elektron hökümət",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: E-Gov elektron hökümət"
+    },
+    {
+      "id": "az_88a1684ce6",
+      "brand": "Independent",
+      "name": "Bakı Biznes Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Biznes Mərkəzi"
+    },
+    {
+      "id": "az_8aed529ac9",
+      "brand": "Independent",
+      "name": "Milli Onkologiya Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Milli Onkologiya Mərkəzi"
+    },
+    {
+      "id": "az_220d6d07fd",
+      "brand": "Independent",
+      "name": "Bakı Media Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Media Mərkəzi"
+    },
+    {
+      "id": "az_abc57073f9",
+      "brand": "Independent",
+      "name": "Bakı Media Mərkəzi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakı Media Mərkəzi"
+    },
+    {
+      "id": "az_00f615fb79",
+      "brand": "Independent",
+      "name": "Bakcell Service Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Bakcell Service Center"
+    },
+    {
+      "id": "az_dd2d968ca0",
+      "brand": "Independent",
+      "name": "2020 Business Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 2020 Business Center"
+    },
+    {
+      "id": "az_e4b5054294",
+      "brand": "Independent",
+      "name": "fitness center Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: fitness center Baku"
+    },
+    {
+      "id": "az_efb0c1d62f",
+      "brand": "Independent",
+      "name": "\"Lik\" Çay Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: \"Lik\" Çay Club"
+    },
+    {
+      "id": "az_864b086fc8",
+      "brand": "Independent",
+      "name": "Nightoffice Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Nightoffice Club"
+    },
+    {
+      "id": "az_5c227010a6",
+      "brand": "Independent",
+      "name": "Mugam Club Restaurant",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Mugam Club Restaurant"
+    },
+    {
+      "id": "az_ac6f33067a",
+      "brand": "Independent",
+      "name": "Let's Play Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Let's Play Club"
+    },
+    {
+      "id": "az_7fde2e4cb2",
+      "brand": "World Class",
+      "name": "World telecom",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_4f676abb04",
+      "brand": "World Class",
+      "name": "World Business Center",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_f0dbf255a7",
+      "brand": "World Class",
+      "name": "Dental World Stomatoloji \\ Qələbə dairəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_f0247de440",
+      "brand": "World Class",
+      "name": "World Telecom",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_45b4499f15",
+      "brand": "World Class",
+      "name": "WorldMed Elmlər",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_eafdbe0006",
+      "brand": "World Class",
+      "name": "World Class Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_b174343e75",
+      "brand": "World Class",
+      "name": "World Class Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_26cb6c7b72",
+      "brand": "World Class",
+      "name": "World Class Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_baef87e47e",
+      "brand": "World Class",
+      "name": "World Class Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_f6af58d581",
+      "brand": "FS Club",
+      "name": "Otto Club",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (FS Club)"
+    },
+    {
+      "id": "az_2f8db48c24",
+      "brand": "FS Club",
+      "name": "FS Club Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (FS Club)"
+    },
+    {
+      "id": "az_f06b979f67",
+      "brand": "FS Club",
+      "name": "FS Club Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (FS Club)"
+    },
+    {
+      "id": "az_6796bdc094",
+      "brand": "Independent",
+      "name": "1-ci mikrorayon",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1-ci mikrorayon"
+    },
+    {
+      "id": "az_0d421c5a9f",
+      "brand": "Independent",
+      "name": "1ST DAY - FINTECH / 2ND DAY - ECOM",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1ST DAY - FINTECH / 2ND DAY - ECOM"
+    },
+    {
+      "id": "az_6a18b6beba",
+      "brand": "Independent",
+      "name": "1ST DAY - GREAT MINDS / 2ND DAY - INSURTECH",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1ST DAY - GREAT MINDS / 2ND DAY - INSURTECH"
+    },
+    {
+      "id": "az_8e3ac9cb0d",
+      "brand": "Independent",
+      "name": "1-ci Yaşıl Ada küçəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1-ci Yaşıl Ada küçəsi"
+    },
+    {
+      "id": "az_5b4e1d0b3b",
+      "brand": "Independent",
+      "name": "1-ci Yaşıl Ada küçəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1-ci Yaşıl Ada küçəsi"
+    },
+    {
+      "id": "az_2499373964",
+      "brand": "Independent",
+      "name": "1-ci Yaşıl Ada küçəsi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1-ci Yaşıl Ada küçəsi"
+    },
+    {
+      "id": "az_6ea8a2d628",
+      "brand": "Independent",
+      "name": "Landau Məktəbi 1-ci Şöbə",
+      "city": "Bakı Kubinka",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Landau Məktəbi 1-ci Şöbə"
+    },
+    {
+      "id": "az_f51c15e9b2",
+      "brand": "Fit Way",
+      "name": "NeWay Academy Ağ Şəhər Filialı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_8a1dd72532",
+      "brand": "Fit Way",
+      "name": "NeWay Academy 28 May Filialı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_a2afe4ebf6",
+      "brand": "Fit Way",
+      "name": "Baku Medical Plaza Medilux filial",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_24d914492a",
+      "brand": "Fit Way",
+      "name": "Port Baku Walk",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_b7cda35188",
+      "brand": "Fit Way",
+      "name": "Port Baku Walk",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_9f950d1d91",
+      "brand": "Fit Way",
+      "name": "\"Bank of Baku\" Ecemi filiali",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_9ab3e5b6e7",
+      "brand": "Fit Way",
+      "name": "TostWay",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_b6690f0d69",
+      "brand": "Fit Way",
+      "name": "İ.M.Seçenov adına Birinci Moskva Dövlət Tibb Universiteti (Bakı filialı)",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_f9c76f8610",
+      "brand": "Fit Way",
+      "name": "Bank of Baku «Bakıxanov» filialı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_a425fb9f6c",
+      "brand": "Fit Way",
+      "name": "Bank of Baku (Əhmədli filialı)",
+      "city": "Xətai rayonu",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_7cc6264508",
+      "brand": "Fit Way",
+      "name": "Bank of Baku - Həzi Aslanov filialı",
+      "city": "Xətai rayonu",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_fd142316f3",
+      "brand": "Fit Way",
+      "name": "Baku Elektronics \\ Xırdalan Filialı",
+      "city": "Masazır",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_4c775e5f9a",
+      "brand": "Fit Way",
+      "name": "Bank Of Baku Filial",
+      "city": "Xırdalan",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_aacb47d32d",
+      "brand": "Fit Way",
+      "name": "Fit Way Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_c3150d9baf",
+      "brand": "Fit Way",
+      "name": "Moskva Dövlət Universitetinin Bakı filialı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_18b39d3498",
+      "brand": "Fit Way",
+      "name": "MKİS 36 Bakı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_36c94eac7f",
+      "brand": "Fit Way",
+      "name": "Naxçıvan Bank - Bakı filialı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — Nakhchivan audit: chain photon duplicate (Fit Way)"
+    },
+    {
+      "id": "az_9ac33f388b",
+      "brand": "Fit Way",
+      "name": "Caspian Fish Nərimanov / Kaspian Fiş",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_d05a5ae40e",
+      "brand": "Fit Way",
+      "name": "Bank of Baku Şirvan Filialı",
+      "city": "Şirvan ş.",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_6579f2d6a0",
+      "brand": "Gold's Gym",
+      "name": "Gold Baku Şadlıq Sarayı",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_26e3ccb0f7",
+      "brand": "Gold's Gym",
+      "name": "Gold's Gym Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_4e4c3e71e0",
+      "brand": "Gold's Gym",
+      "name": "Gold's Gym Baku",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_e884ea826d",
+      "brand": "Gold's Gym",
+      "name": "Gold City",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_1d6ba5a13b",
+      "brand": "Gold's Gym",
+      "name": "Gold Residence",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_7d1dc16569",
+      "brand": "Gold's Gym",
+      "name": "Hollywood Gold",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_adb9e79cfa",
+      "brand": "Gold's Gym",
+      "name": "AzerGold",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_efb4ae2c8c",
+      "brand": "Gold's Gym",
+      "name": "Gold Saray Şadlıq Evi",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_58fed23dd3",
+      "brand": "Sport Life",
+      "name": "Life-Sport",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — Nakhchivan audit: chain photon duplicate (Sport Life)"
+    },
+    {
+      "id": "az_bb2fce0ebf",
+      "brand": "Sport Life",
+      "name": "Sport Life Shirvan",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_1459c9527c",
+      "brand": "Dream Body",
+      "name": "Dream Tower / Drim Tauer",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Dream Tower / Drim Tauer"
+    },
+    {
+      "id": "az_531632f905",
+      "brand": "Dream Body",
+      "name": "Body & Soul",
+      "city": "Baku",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Body & Soul"
+    },
+    {
+      "id": "az_9bc632c9d0",
+      "brand": "Independent (Sumqayit)",
+      "name": "fitnes Sumqayit",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_4d32196111",
+      "brand": "Independent (Sumqayit)",
+      "name": "Qadın Dünyası Geyim",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_fc4fa728e7",
+      "brand": "Independent (Sumqayit)",
+      "name": "Ana Uşaq Mərkəzi",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_6fb26b86b5",
+      "brand": "Independent (Sumqayit)",
+      "name": "Sanitar Gigiyena və Epidemioloqiya Mərkəzi",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_fc0bcafc13",
+      "brand": "Independent (Sumqayit)",
+      "name": "Heydər Əliyev Mərkəzi",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_6a771c9edf",
+      "brand": "Independent (Sumqayit)",
+      "name": "Central Park Restoran",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_6443fcc782",
+      "brand": "Independent",
+      "name": "Ticarət Mərkəzi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon listing unverified (STALE_LISTING): Ticarət Mərkəzi"
+    },
+    {
+      "id": "az_5fc5cab60b",
+      "brand": "Independent (Sumqayit)",
+      "name": "Ticarət Mərkəzi",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_b2fbce3271",
+      "brand": "Independent (Sumqayit)",
+      "name": "İşədüzəltmə Mərkəzi",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_1f709208dd",
+      "brand": "Independent (Sumqayit)",
+      "name": "Beauty Life Center",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_623bd0cf05",
+      "brand": "Independent",
+      "name": "AQS Medical Center",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "INSTITUTIONAL_NON_QUALIFYING",
+      "reason": "Phase 2 — institutional/private scope: AQS Medical Center"
+    },
+    {
+      "id": "az_d32127398c",
+      "brand": "Independent (Sumqayit)",
+      "name": "Əziz İnternet klubu",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_ef0dbc4e63",
+      "brand": "Independent (Sumqayit)",
+      "name": "Sumgayit Olimpiya Sportcomplex",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_c4470a8be1",
+      "brand": "Independent",
+      "name": "Sumgayit Olimpiya SportComplex hotel",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "HOTEL_RESORT_WELLNESS",
+      "reason": "Phase 2 — hotel/resort leakage: Sumgayit Olimpiya SportComplex hotel"
+    },
+    {
+      "id": "az_6aa3e8d153",
+      "brand": "World Class",
+      "name": "Fun World uşaq əyləncə",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_11b8dce6a7",
+      "brand": "World Class",
+      "name": "Uşaq Aləmi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Class)"
+    },
+    {
+      "id": "az_d86de04d03",
+      "brand": "Independent (Sumqayit)",
+      "name": "1-ci Mikrorayon",
+      "city": "Sumqayit",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Sumqayit"
+    },
+    {
+      "id": "az_662397d98d",
+      "brand": "Independent",
+      "name": "1-ci Məhəllə",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: 1-ci Məhəllə"
+    },
+    {
+      "id": "az_97f13a91fc",
+      "brand": "Fit Way",
+      "name": "Demir Cargo Sumqayıt filialı",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_9e87bc8097",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının 5 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_329f6513ba",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filailının 4 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_d2b40de36e",
+      "brand": "Fit Way",
+      "name": "Yeni Poçt 18 (Sumqayıt filialı)",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_00ee0b6efe",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filailının 2 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_986cc3f6c4",
+      "brand": "Fit Way",
+      "name": "ABB Beynəlxalq Bank Sumqayıt Filialı",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_70ba1c6a5e",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının 7 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_3c91a512da",
+      "brand": "Fit Way",
+      "name": "Yanğınsöndürmә İdarəsi / Sumqayıt",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_4f25688915",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının 6 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_f7536b2665",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filalının 3 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_bf3953dca0",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının 11 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_27a0be1893",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının 8 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_1a5eec8d0c",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının 1 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_ccaffe1b83",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının 9 saylı poçt şöbəsi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_19e894ada6",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının Corat poçt şöbəsi",
+      "city": "Corat",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_3c0ddab8c0",
+      "brand": "Fit Way",
+      "name": "Sumqayıt Poçt Filialının Zeynalabdin poçt şöbəsi",
+      "city": "Zeynalabdin Tağıyev qəsəbəsi",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_ca49f90449",
+      "brand": "Fit Way",
+      "name": "Fin Plast",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_0ddf16b925",
+      "brand": "Gold's Gym",
+      "name": "Gold Palace Şadlıq Sarayı",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_5ef0963865",
+      "brand": "Gold's Gym",
+      "name": "Qold Electroniks",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_1b2d8a5549",
+      "brand": "Gold's Gym",
+      "name": "Gold's Gym Sumqayit",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_f0ea4a2704",
+      "brand": "Gold's Gym",
+      "name": "Gold Hospital",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_905fe9483e",
+      "brand": "Gold's Gym",
+      "name": "Gold Qayalı Supermarket",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_d9fd174f33",
+      "brand": "Sport Life",
+      "name": "İdman Məktəbi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_f16d11fcd9",
+      "brand": "Sport Life",
+      "name": "İdman Kompleksi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_e1de204de5",
+      "brand": "Sport Life",
+      "name": "İdman Kompleksi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_f8e22b21c9",
+      "brand": "Sport Life",
+      "name": "Paralimpiya İdman Kompleksi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_a0f8efd535",
+      "brand": "Sport Life",
+      "name": "Sport Life Sumqayit",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_f6b6b38de2",
+      "brand": "Sport Life",
+      "name": "Sea Life",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_d73faa4d38",
+      "brand": "Sport Life",
+      "name": "Spartak İdman Kompleksi",
+      "city": "Sumqayit",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_761493d203",
+      "brand": "Independent (Ganja)",
+      "name": "MediClub",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Ganja"
+    },
+    {
+      "id": "az_d764929bfb",
+      "brand": "Independent (Ganja)",
+      "name": "Arazbar",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Ganja"
+    },
+    {
+      "id": "az_62bdf16ad9",
+      "brand": "Independent (Ganja)",
+      "name": "1-ci mikrorayon",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Ganja"
+    },
+    {
+      "id": "az_93b39a36e3",
+      "brand": "Fit Way",
+      "name": "My Way Boulevard Hotel Ganja",
+      "city": "Ganja",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_ccc4bc06c1",
+      "brand": "Fit Way",
+      "name": "Fit Way Ganja",
+      "city": "Ganja",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_219e8eb207",
+      "brand": "Fit Way",
+      "name": "Fikrət Əmirov adına Gəncə Dövlət Filarmoniyası",
+      "city": "Ganja",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_40165bdb8e",
+      "brand": "Sport Life",
+      "name": "Spartak Stadionu",
+      "city": "Ganja",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_26a8843c4b",
+      "brand": "Independent (Ganja)",
+      "name": "Olimpiya idman kompleksi",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Ganja"
+    },
+    {
+      "id": "az_beed325959",
+      "brand": "Independent (Ganja)",
+      "name": "Gəncə İdman Sarayı",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Ganja"
+    },
+    {
+      "id": "az_8dc8ebc4fb",
+      "brand": "Independent (Ganja)",
+      "name": "Akt zalı",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Ganja"
+    },
+    {
+      "id": "az_8d2b363738",
+      "brand": "Independent (Ganja)",
+      "name": "İdman",
+      "city": "Ganja",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Ganja"
+    },
+    {
+      "id": "az_945279531a",
+      "brand": "Independent",
+      "name": "Zəlimxan Yaqubov",
+      "city": "Ganja",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Zəlimxan Yaqubov"
+    },
+    {
+      "id": "az_85d2a1b58b",
+      "brand": "Independent",
+      "name": "Trenajor zalı",
+      "city": "Ağdərə",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_50476e402e",
+      "brand": "Fit Way",
+      "name": "KATV 1 kabel televiziyası (Mingəçevir filialı)",
+      "city": "Mingachevir",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_f3896ad656",
+      "brand": "Fit Way",
+      "name": "Ata bank (Mingəçevir filialı)",
+      "city": "Mingachevir",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_856810fc30",
+      "brand": "Sport Life",
+      "name": "Şüşə Lifi Zavodu",
+      "city": "Mingachevir",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_77d70ec0dd",
+      "brand": "Sport Life",
+      "name": "Şüşə Lifi Zavodu",
+      "city": "Mingachevir",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Sport Life)"
+    },
+    {
+      "id": "az_ce6b3ad029",
+      "brand": "Independent (Mingachevir)",
+      "name": "Kür Olimpiya Tədris İdman Mərkəzi",
+      "city": "Mingachevir",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Mingachevir"
+    },
+    {
+      "id": "az_9549f944aa",
+      "brand": "Independent (Mingachevir)",
+      "name": "Gənclər İdman İdarəsi",
+      "city": "Mingachevir",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Mingachevir"
+    },
+    {
+      "id": "az_42a8da8f45",
+      "brand": "Independent",
+      "name": "fitness centre Nakhchivan",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (fitness centre Nakhchivan)"
+    },
+    {
+      "id": "az_60d08903fa",
+      "brand": "Independent",
+      "name": "fitness centre Nakhchivan",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (fitness centre Nakhchivan)"
+    },
+    {
+      "id": "az_85da5f4caa",
+      "brand": "Independent",
+      "name": "Garden House in Center",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Garden House in Center)"
+    },
+    {
+      "id": "az_3ec9513886",
+      "brand": "Independent",
+      "name": "1 May küçəsi",
+      "city": "Nakhchivan",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (1 May küçəsi)"
+    },
+    {
+      "id": "az_0e0a7af98c",
+      "brand": "Fit Way",
+      "name": "Fit Way Nakhchivan",
+      "city": "Naxçıvan Muxtar Respublikası",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — Nakhchivan audit: chain photon duplicate (Fit Way)"
+    },
+    {
+      "id": "az_c53504208a",
+      "brand": "Independent",
+      "name": "Vida Mərasim Zalı",
+      "city": "Binəqədi rayonu",
+      "disposition": "EXCLUDED",
+      "classification": "INSUFFICIENT_CONVENTIONAL_GYM",
+      "reason": "Phase 2 — Nakhchivan audit: audited, no production-grade qualifying public gym (Vida Mərasim Zalı)"
+    },
+    {
+      "id": "az_73152a5315",
+      "brand": "Independent (Lankaran)",
+      "name": "fitness centre Lankaran",
+      "city": "Lankaran",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Lankaran"
+    },
+    {
+      "id": "az_af7f4be71e",
+      "brand": "Independent (Lankaran)",
+      "name": "sports club Lankaran",
+      "city": "Lankaran",
+      "disposition": "NEW_READY_TO_IMPORT",
+      "classification": "REGIONAL_PHOTON_ACTIVE",
+      "reason": "Phase 2 — regional photon independent verified: Lankaran"
+    },
+    {
+      "id": "az_63d645636f",
+      "brand": "FS Club",
+      "name": "FS Club Lankaran",
+      "city": "Lankaran",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (FS Club)"
+    },
+    {
+      "id": "az_457f4a1891",
+      "brand": "Fit Way",
+      "name": "İpək yolu",
+      "city": "Lankaran",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Fit Way)"
+    },
+    {
+      "id": "az_b020b3e514",
+      "brand": "Independent",
+      "name": "idman klubu Lankaran",
+      "city": "Sütəmurdov",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: idman klubu Lankaran"
+    },
+    {
+      "id": "az_d95b26f0d5",
+      "brand": "Independent",
+      "name": "Zəlimxan Yaqub küç.",
+      "city": "Baş Zəyzid",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Zəlimxan Yaqub küç."
+    },
+    {
+      "id": "az_bb0978dbfa",
+      "brand": "Independent",
+      "name": "Medi Club Tibb Mərkəzi",
+      "city": "Şirvan ş.",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Medi Club Tibb Mərkəzi"
+    },
+    {
+      "id": "az_1b003cab23",
+      "brand": "Gold's Gym",
+      "name": "Gold Şirvan 101",
+      "city": "Şirvan ş.",
+      "disposition": "EXCLUDED",
+      "classification": "DUPLICATE_STALE_CHAIN_PHOTON",
+      "reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)"
+    },
+    {
+      "id": "az_11f45b9c36",
+      "brand": "Independent",
+      "name": "Neftçi İdman Mərkəzi",
+      "city": "Şirvan ş.",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Neftçi İdman Mərkəzi"
+    },
+    {
+      "id": "az_3c951ed9c3",
+      "brand": "Independent",
+      "name": "Azəri İdman Kompleksi",
+      "city": "Xətai rayonu",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Azəri İdman Kompleksi"
+    },
+    {
+      "id": "az_e1573d4247",
+      "brand": "Independent",
+      "name": "Aist Uşaq Dünyası",
+      "city": "Şirvan ş.",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Aist Uşaq Dünyası"
+    },
+    {
+      "id": "az_5bd8450f21",
+      "brand": "Independent",
+      "name": "İdman Məktəbi Yevlax",
+      "city": "Yevlax",
+      "disposition": "EXCLUDED",
+      "classification": "SPECIALIST_NON_QUALIFYING",
+      "reason": "Phase 2 — specialist/non-qualifying: İdman Məktəbi Yevlax"
+    },
+    {
+      "id": "az_ed16d44bb8",
+      "brand": "Independent",
+      "name": "Karvan İdman Bazasi",
+      "city": "Yevlax",
+      "disposition": "EXCLUDED",
+      "classification": "STALE_LISTING",
+      "reason": "Phase 2 — photon independent stale listing: Karvan İdman Bazasi"
+    },
+    {
+      "id": "az_354ff819e0",
+      "brand": "Independent",
+      "name": "Klub",
+      "city": "Qaladərəsi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_5e18f13d84",
+      "brand": "Independent",
+      "name": "Ovçu-balıqçı klubu",
+      "city": "Əsgəran",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_d7731a6467",
+      "brand": "Conflict region probe",
+      "name": "Khankendi fitness centre probe",
+      "city": "Khankendi",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_130d5b7006",
+      "brand": "Conflict region probe",
+      "name": "Shusha gym candidate",
+      "city": "Shusha",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_1f5a034fee",
+      "brand": "Conflict region probe",
+      "name": "Agdam sports club probe",
+      "city": "Agdam",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    },
+    {
+      "id": "az_b032b4590b",
+      "brand": "Conflict region probe",
+      "name": "Fuzuli fitness probe",
+      "city": "Fuzuli",
+      "disposition": "EXCLUDED",
+      "classification": "CONFLICT_REGION",
+      "reason": "Phase 2 — conflict region without strong conventional-gym evidence"
+    }
+  ]
+}

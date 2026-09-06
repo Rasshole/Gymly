@@ -1,0 +1,17 @@
+{
+  "brand": "CK Fitness",
+  "official_current": 4,
+  "official_source": "https://www.ck-fitness.lu/fr/nos-centres",
+  "discovered": 4,
+  "READY": 4,
+  "unresolved": 0,
+  "coverage_pct": 100.0,
+  "verdict": "COMPLETE",
+  "clubs": [
+    "CK Fitness Bertrange",
+    "CK Fitness Esch-sur-Alzette",
+    "CK Fitness Junglinster",
+    "CK Fitness Mersch"
+  ],
+  "notes": "Phase2: nos-centres still lists Bertrange / Esch / Junglinster / Mersch"
+}

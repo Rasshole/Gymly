@@ -1,0 +1,14 @@
+{
+  "status_counts": {
+    "EXCLUDED": 85,
+    "READY_TO_IMPORT": 18
+  },
+  "ready": 18,
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "chain_class_a_ready": 12,
+  "small_market_independent_ready": 6,
+  "projected_catalog": 11858,
+  "verdict": "READY FOR KOSOVO MERGE",
+  "sha": "a1aba09e9ea375e8aa3c82c719556182ad07d8251c31ec142e307670e340aca0"
+}

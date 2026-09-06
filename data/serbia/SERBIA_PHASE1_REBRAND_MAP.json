@@ -1,0 +1,38 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Ahilej Dorcol",
+        "Ahilej Dorćol 2"
+      ],
+      "notes": "Distinct Ahilej units — same chain, separate premises"
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Planet Fitness Belgrade (local)",
+        "International Planet Fitness probe"
+      ],
+      "notes": "Local Planet Fitness branding — verify distinct from US chain Phase 2"
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Sremska Mitrovica (Serbia)",
+        "Kosovo Mitrovica probe"
+      ],
+      "notes": "Mitrovica identity gate — Sremska Mitrovica=Serbia; Kosovo Mitrovica excluded"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "World Gym Belgrade",
+        "Iron Fitness Belgrade"
+      ],
+      "notes": "Distinct Belgrade independents pending Phase 2 premises proof"
+    }
+  ],
+  "note": "Phase 1 allows Phase 2 holds on NR/NC independents; merge gate requires Phase 2 audit."
+}

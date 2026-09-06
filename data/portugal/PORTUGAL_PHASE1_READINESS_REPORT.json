@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-08-22T19:20:05.949124+00:00",
+  "verdict": "PORTUGAL PHASE 2 REQUIRED BEFORE MERGE",
+  "phase2_required": true,
+  "phase2_reasons": [
+    "Element",
+    "Fitness Factory",
+    "Be-Fit",
+    "kalorias_go_gym_incomplete"
+  ],
+  "production": {
+    "total": 10525,
+    "portugal": 0,
+    "pt_ids": 0,
+    "sha256_16": "e7e3848d4ac3efd1"
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 164,
+    "NEEDS_REVIEW": 58,
+    "CLOSED": 2,
+    "NEEDS_COORDINATES": 42,
+    "DUPLICATE": 5
+  },
+  "ready_count": 164,
+  "unique_staged": 271,
+  "brand_ready": {
+    "VivaGym": 46,
+    "Fitness Factory": 1,
+    "Holmes Place": 12,
+    "Solinca Light": 16,
+    "Solinca": 19,
+    "Element": 23,
+    "Be-Fit": 8,
+    "Fitness UP": 39
+  },
+  "brand_all": {
+    "VivaGym": 46,
+    "Fitness Factory": 49,
+    "Holmes Place": 12,
+    "Supera": 5,
+    "Solinca Light": 16,
+    "Solinca": 19,
+    "Element": 28,
+    "Be-Fit": 22,
+    "Fitness UP": 74
+  },
+  "regional_ready": {
+    "Algarve": 8,
+    "North": 24,
+    "Central": 10,
+    "Porto metro": 42,
+    "Lisbon metro": 62,
+    "Alentejo": 16,
+    "Madeira": 1,
+    "Azores": 1
+  },
+  "qa": {
+    "duplicate_ids": 0,
+    "same_brand_physical_duplicates": 0,
+    "invalid_postcodes_ready": 0,
+    "missing_addresses_ready": 0,
+    "missing_cities_ready": 0,
+    "missing_coordinates_ready": 0,
+    "invalid_coordinates_ready": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "ambiguous_geocodes": 0
+  },
+  "projected_catalog": 10689,
+  "architecture": {
+    "keep_client_side": true,
+    "inside_comfort_zone": true,
+    "global_10k_qa_rerun_required_now": false
+  },
+  "madeira_azores": {
+    "madeira_ready": 1,
+    "azores_ready": 1
+  }
+}

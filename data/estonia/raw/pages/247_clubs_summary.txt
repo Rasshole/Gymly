@@ -1,0 +1,2 @@
+OPEN 31 CS 3
+SOURCE https://24-7fitness.ee/meie-klubid/

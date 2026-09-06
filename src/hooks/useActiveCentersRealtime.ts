@@ -13,7 +13,8 @@ import {buildDemoActiveCentersFromLocal} from '@/demo/buildDemoActiveCenters';
 
 const TOP_N = 5;
 
-export function useActiveCentersRealtime() {
+export function useActiveCentersRealtime(options?: {enabled?: boolean}) {
+  const enabled = options?.enabled ?? true;
   const userId = useAppStore(s => s.user?.id);
   const coords = useOptionalUserCoords();
   const [activeCenters, setActiveCenters] = useState<ActiveCenter[]>([]);
@@ -57,20 +58,23 @@ export function useActiveCentersRealtime() {
   }, [userId, coords?.latitude, coords?.longitude]);
 
   useEffect(() => {
+    if (!enabled) {
+      return;
+    }
     void refresh();
-  }, [refresh]);
+  }, [refresh, enabled]);
 
   useEffect(() => {
-    if (!userId || isDemoContentMode()) {
+    if (!enabled || !userId || isDemoContentMode()) {
       return;
     }
     return subscribeCheckInsPresence(() => {
       void refresh();
     });
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!enabled || !userId) {
       return;
     }
     const sub = AppState.addEventListener('change', state => {
@@ -79,7 +83,7 @@ export function useActiveCentersRealtime() {
       }
     });
     return () => sub.remove();
-  }, [userId, refresh]);
+  }, [userId, refresh, enabled]);
 
   const topActiveCenters = useMemo(
     () => activeCenters.slice(0, TOP_N),

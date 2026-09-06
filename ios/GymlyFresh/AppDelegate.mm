@@ -1,9 +1,10 @@
 #import "AppDelegate.h"
 
 #import <TargetConditionals.h>
-#import <React/RCTBundleURLProvider.h>
-#import <React/RCTDevLoadingViewSetEnabled.h>
+#import "RCTBundleURLProvider.h"
+#import "RCTDevLoadingViewSetEnabled.h"
 #import <Firebase.h>
+#import <ReactAppDependencyProvider/RCTAppDependencyProvider.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,6 +17,7 @@
     [FIRApp configure];
   }
   self.moduleName = @"GymlyFresh";
+  self.dependencyProvider = [RCTAppDependencyProvider new];
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};

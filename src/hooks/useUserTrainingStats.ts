@@ -38,13 +38,25 @@ export function useUserTrainingStats(userId: string | undefined): TrainingStats 
     await load(userId);
   }, [load, userId]);
 
+  const hydrate = useTrainingStatsStore(s => s.hydrate);
+
   useEffect(() => {
     if (!userId) {
       return;
     }
-    void load(userId);
-    return ensureSubscribed(userId);
-  }, [userId, load, ensureSubscribed]);
+    let cancelled = false;
+    const unsub = ensureSubscribed(userId);
+    void (async () => {
+      await hydrate();
+      if (!cancelled) {
+        await load(userId);
+      }
+    })();
+    return () => {
+      cancelled = true;
+      unsub();
+    };
+  }, [userId, load, ensureSubscribed, hydrate]);
 
   const data = snapshot ?? {
     totalCheckIns: 0,

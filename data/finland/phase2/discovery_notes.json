@@ -1,0 +1,147 @@
+{
+  "fetched": [
+    "https://www.fressi.fi/toimipisteet/kuntosali-helsinki/paloheina/",
+    "https://www.fressi.fi/toimipisteet/fressi-kuntosali-elmo-vantaa/",
+    "https://www.fressi.fi/toimipisteet/kuntosali-helsinki/tuomarila/",
+    "https://www.fressi.fi/toimipisteet/fressi-kuntosali-kokkola/",
+    "https://www.fressi.fi/toimipisteet/fressi-kuntosali-martinlaakso-vantaa/",
+    "https://www.fressi.fi/toimipisteet/fressi-kuntosali-hakametsa-tampere/",
+    "https://www.fressi.fi/toimipisteet/jyvaskyla-keskusta/",
+    "https://www.fressi.fi/toimipisteet/kuntosali-helsinki/itakeskus/",
+    "https://www.fressi.fi/toimipisteet/kuntosali-helsinki/kontula/",
+    "https://www.fressi.fi/toimipisteet/tammisto-tammiston-kauppatie-10/",
+    "https://www.fressi.fi/toimipisteet/kuntosali-helsinki/vartiokyla/",
+    "https://www.fressi.fi/toimipisteet/fressi-kuntosali-makelininkatu-oulu/",
+    "https://www.ole.fit/kuntokeskukset2/hyvinkaa/hyvinkaa",
+    "https://www.ole.fit/kuntokeskukset2/hyvinkaa/veturi",
+    "https://www.ole.fit/kuntokeskukset2/kerava/kerava",
+    "https://www.ole.fit/kuntokeskukset2/kerava/savio",
+    "https://www.ole.fit/kuntokeskukset2/kokkola/kokkola",
+    "https://www.ole.fit/kuntokeskukset2/turku/kupittaa",
+    "https://www.ole.fit/kuntokeskukset2/turku/manhattan",
+    "https://www.ole.fit/kuntokeskukset2/turku/saippua-center",
+    "https://www.ole.fit/kuntokeskukset2/tuusula/hyryla",
+    "https://www.ole.fit/kuntokeskukset2/tuusula/jokela",
+    "https://www.ole.fit/kuntokeskukset2/tuusula/urkka",
+    "https://www.ole.fit/kuntokeskukset2/vantaa/martinlaakso",
+    "https://www.ole.fit/kuntokeskukset2/vantaa/porttipuisto"
+  ],
+  "skipped_duplicates": [
+    "https://www.ole.fit/kuntokeskukset2/kokkola/kokkola-mini"
+  ],
+  "fressi_cs": [
+    {
+      "name": "Fressi 24h Paloheinä",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Elmo",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Tuomarila",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Kokkola",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Martinlaakso",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Hakametsä",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Jyväskylä Keskusta",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Itäkeskus",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Kontula",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Tammisto, Tammiston kauppatie 10",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Vartiokylä",
+      "status": "still_coming_soon"
+    },
+    {
+      "name": "Fressi 24h Mäkelininkatu",
+      "status": "still_coming_soon"
+    }
+  ],
+  "market": [],
+  "new_names": [
+    "Ole.Fit Hyvinkää",
+    "Ole.Fit Veturi",
+    "Ole.Fit Kerava",
+    "Ole.Fit Savio",
+    "Ole.Fit Kokkola kokkola",
+    "Ole.Fit Kupittaa",
+    "Ole.Fit Manhattan",
+    "Ole.Fit Turku saippua center",
+    "Ole.Fit Hyrylä",
+    "Ole.Fit Jokela",
+    "Ole.Fit Urkka",
+    "Ole.Fit Martinlaakso",
+    "Ole.Fit Porttipuisto",
+    "Ole.Fit Forssa",
+    "Ole.Fit Joensuu",
+    "Ole.Fit Kokkola",
+    "Ole.Fit Karhula",
+    "Ole.Fit Kurikka",
+    "Ole.Fit Saippua Center",
+    "Energy Karhunmäki",
+    "Energy Kumpusaari",
+    "Energy Litmanen",
+    "Energy Metropol",
+    "Energy Rantakylä",
+    "Energy Ylämylly",
+    "Esport Bristol",
+    "Esport Center",
+    "Esport Arena",
+    "Esport Express Mankkaa",
+    "Esport Express Liila",
+    "Greenfit Keilaniemi",
+    "Greenfit Pasila",
+    "Greenfit Ruoholahti",
+    "Greenfit Nummela",
+    "Vocatum Wellness Kempele",
+    "Vocatum Wellness Kynsilehto",
+    "Vocatum Wellness Pirkkala",
+    "Vocatum Up&Go Tampella",
+    "Vocatum Pateniemi",
+    "Vocatum Up&Go Lielahti"
+  ],
+  "recovered": {
+    "NEEDS_REVIEW": 6,
+    "reclassified_coming_soon": 1
+  },
+  "recovery_detail": [
+    "EasyFit Nokia: still NEEDS_REVIEW (uncertain; no fallback)",
+    "EasyFit Mustasaari – Sepänkylä: still NEEDS_COORDINATES (uncertain; no fallback)",
+    "Forever Lappeenranta Huhtari: still NEEDS_COORDINATES (uncertain; no fallback)",
+    "Fressi 24h Lentola: still NEEDS_REVIEW (uncertain; no fallback)",
+    "Fressi 24h Arabia 135: still NEEDS_REVIEW (uncertain; no fallback)",
+    "Fressi 24h Munkinmäki, Kirkkonummi: still NEEDS_REVIEW (uncertain; no fallback)",
+    "Fressi 24h Linjuri: still NEEDS_REVIEW (uncertain; no fallback)",
+    "LadyLine Kajaani: still NEEDS_REVIEW (uncertain; no fallback)",
+    "LadyLine Joensuu: NEEDS_REVIEW → READY_TO_IMPORT via recovered_structured (nominatim_structured)",
+    "LadyLine Iisalmi: still NEEDS_REVIEW (uncertain; no fallback)",
+    "Liikku Espoo Leppävaara: NEEDS_REVIEW → COMING_SOON (official avataan 2027)",
+    "Ole.Fit Meidän kaikkien kuntokeskus: NEEDS_REVIEW → READY_TO_IMPORT via recovered_official (official_google_embed)",
+    "Ole.Fit Fit Ilmajoki: NEEDS_REVIEW → READY_TO_IMPORT via recovered_official (official_google_embed)",
+    "Ole.Fit kuntosali kurikka fitkurikka kuntokeskus: NEEDS_REVIEW → READY_TO_IMPORT via recovered_structured (nominatim_structured)",
+    "Ole.Fit Meidän kaikkien kuntokeskus: NEEDS_REVIEW → READY_TO_IMPORT via recovered_official (official_google_embed)",
+    "Ole.Fit Fit Varkaus: NEEDS_REVIEW → READY_TO_IMPORT via recovered_official (official_google_embed)"
+  ]
+}

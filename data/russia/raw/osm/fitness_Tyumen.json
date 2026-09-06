@@ -1,0 +1,397 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:49:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4395950398,
+      "lat": 57.1296937,
+      "lon": 65.5778632,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4398264291,
+      "lat": 57.1481002,
+      "lon": 65.5338272,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Персей",
+        "name:ru": "Персей"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4681231989,
+      "lat": 57.1222836,
+      "lon": 65.5461874,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5068541591,
+      "lat": 57.1060377,
+      "lon": 65.5664381,
+      "tags": {
+        "addr:housenumber": "3",
+        "addr:street": "улица Василия Гольцова",
+        "entrance": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5300926221,
+      "lat": 57.1523011,
+      "lon": 65.5672135,
+      "tags": {
+        "addr:postcode": "625048",
+        "contact:phone": "+73452790079",
+        "contact:website": "https://www.брайтфит.рф/",
+        "leisure": "fitness_centre",
+        "name": "Bright Fit",
+        "name:en": "Bright Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7368238785,
+      "lat": 57.1572379,
+      "lon": 65.5544979,
+      "tags": {
+        "check_date:opening_hours": "2024-12-13",
+        "email": "office@yogainlakesh.ru",
+        "leisure": "fitness_centre",
+        "name": "Студия йоги \"Инлакеш\"",
+        "name:en": "Yoga studio \"Inlakesh\"",
+        "opening_hours": "Mo-Fr 08:30-21:45; Sa 09:00-15:00",
+        "phone": "83452451348",
+        "website": "https://yogainlakesh.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7803815410,
+      "lat": 57.172507,
+      "lon": 65.5571875,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8649591047,
+      "lat": 57.1469637,
+      "lon": 65.5578495,
+      "tags": {
+        "addr:city": "Тюмень",
+        "addr:housenumber": "74",
+        "addr:postcode": "625048",
+        "addr:street": "улица Максима Горького",
+        "leisure": "fitness_centre",
+        "name": "STRELKA CYCLE",
+        "opening_hours": "Mo,We,Th 10:00-21:00; Tu,Fr 06:00-21:00; Sa 10:00-14:00; Su 10:00-19:00",
+        "phone": "+7(3452)612-715",
+        "sport": "fitness;cycling",
+        "website": "https://strelka.fit/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9621076018,
+      "lat": 57.1568103,
+      "lon": 65.5309896,
+      "tags": {
+        "addr:city": "Тюмень",
+        "addr:housenumber": "35",
+        "addr:street": "улица Кирова",
+        "leisure": "fitness_centre",
+        "name": "Фит-Бит",
+        "phone": "+73452595813"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10788238472,
+      "lat": 57.134342,
+      "lon": 65.563659,
+      "tags": {
+        "contact:email": "monolytegym.tmn@yandex.ru",
+        "contact:phone": "+7 345 2212923",
+        "contact:website": "https://monolytegym.ru/",
+        "leisure": "fitness_centre",
+        "name": "Monolyte gym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10788245062,
+      "lat": 57.1089564,
+      "lon": 65.5037391,
+      "tags": {
+        "contact:email": "info@ac-sport.ru",
+        "contact:phone": "+7 345 2578936",
+        "contact:website": "https://ac-sport.ru/",
+        "leisure": "fitness_centre",
+        "name": "Академия спорта",
+        "opening_hours": "Mo-Su 07:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10788245101,
+      "lat": 57.1592986,
+      "lon": 65.4849636,
+      "tags": {
+        "contact:email": "fcsuper_tmn@mail.ru",
+        "contact:phone": "+7 345 2669232",
+        "contact:website": "https://fcsuper.ru/",
+        "leisure": "fitness_centre",
+        "name": "Super",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10880708389,
+      "lat": 57.1195556,
+      "lon": 65.5043527,
+      "tags": {
+        "addr:city": "Тюмень",
+        "addr:housenumber": "8 к1",
+        "addr:postcode": "625063",
+        "addr:street": "улица Александра Протозанова",
+        "leisure": "fitness_centre",
+        "name": "Fitness Matreshka",
+        "phone": "+7‒904‒883‒94‒83",
+        "website": "https://fitness-matreshka.fitbase.io/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11012717931,
+      "lat": 57.1502645,
+      "lon": 65.5414354,
+      "tags": {
+        "check_date": "2023-06-28",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443636,
+      "lat": 57.1083135,
+      "lon": 65.5689023,
+      "tags": {
+        "contact:phone": "+7 982 7779218",
+        "contact:website": "https://ladystretch.com/tyumen1",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11545703058,
+      "lat": 57.1460689,
+      "lon": 65.5561141,
+      "tags": {
+        "contact:phone": "+7 995 5688918",
+        "contact:website": "https://ladystretch.com/tyumen2",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11649774269,
+      "lat": 57.1182483,
+      "lon": 65.6210648,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "leisure": "fitness_centre",
+        "name": "World Class",
+        "name:en": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13261882339,
+      "lat": 57.1133862,
+      "lon": 65.5587728,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Woman's fitness studio"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754227,
+      "lat": 57.1597844,
+      "lon": 65.4823189,
+      "tags": {
+        "contact:phone": "+7 345 2562656",
+        "contact:website": "https://tumen.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754228,
+      "lat": 57.1055275,
+      "lon": 65.5739217,
+      "tags": {
+        "contact:phone": "+7 345 2562656",
+        "contact:website": "https://tumen.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13601922416,
+      "lat": 57.1397294,
+      "lon": 65.4734732,
+      "tags": {
+        "contact:phone": "+7 912 0770776",
+        "contact:website": "https://ladystretch.com/tyumen1",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,15:30-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13734748853,
+      "lat": 57.1626836,
+      "lon": 65.4804637,
+      "tags": {
+        "healthcare:speciality": "physiatry",
+        "leisure": "fitness_centre",
+        "name": "Спортик",
+        "phone": "+7 906 8221180"
+      }
+    },
+    {
+      "type": "way",
+      "id": 27295170,
+      "center": {
+        "lat": 57.1757856,
+        "lon": 65.6400441
+      },
+      "tags": {
+        "addr:city": "Тюмень",
+        "addr:housenumber": "17А",
+        "addr:street": "улица Беляева",
+        "building": "yes",
+        "building:levels": "1",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 54532754,
+      "center": {
+        "lat": 57.1455823,
+        "lon": 65.5889016
+      },
+      "tags": {
+        "addr:city": "Тюмень",
+        "addr:country": "RU",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "спортивно военно-патриотический комплекс \"Победа\""
+      }
+    },
+    {
+      "type": "way",
+      "id": 82793639,
+      "center": {
+        "lat": 57.1184774,
+        "lon": 65.5680488
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 290842741,
+      "center": {
+        "lat": 57.1029067,
+        "lon": 65.5752404
+      },
+      "tags": {
+        "addr:city": "Тюмень",
+        "addr:housenumber": "2 к1",
+        "addr:street": "улица Николая Ростовцева",
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "ATHLETIC GYM",
+        "website": "https://ag72.ru/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 957739947,
+      "center": {
+        "lat": 57.1586215,
+        "lon": 65.5587874
+      },
+      "tags": {
+        "addr:housenumber": "7А",
+        "addr:street": "Чукотская улица",
+        "building": "commercial",
+        "leisure": "fitness_centre",
+        "name": "Wellness Fit & SPA"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1007550326,
+      "center": {
+        "lat": 57.1088437,
+        "lon": 65.5034684
+      },
+      "tags": {
+        "addr:housenumber": "6",
+        "addr:street": "Спасская улица",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1009858548,
+      "center": {
+        "lat": 57.1737789,
+        "lon": 65.5627971
+      },
+      "tags": {
+        "addr:housenumber": "47А",
+        "addr:street": "улица Газовиков",
+        "building": "civic",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Fitberri"
+      }
+    }
+  ]
+}

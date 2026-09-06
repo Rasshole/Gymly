@@ -1,0 +1,228 @@
+{
+  "country": "Kosovo",
+  "phase": 1,
+  "market": "INDEPENDENT_PHASE_RECOMMENDED",
+  "production_total": 11840,
+  "production_sha256": "a1aba09e9ea375e8aa3c82c719556182ad07d8251c31ec142e307670e340aca0",
+  "kosovo_live": 0,
+  "xk_prefix_live": 0,
+  "staging_total": 86,
+  "status_counts": {
+    "EXCLUDED": 40,
+    "NEEDS_REVIEW": 36,
+    "NEEDS_COORDINATES": 10
+  },
+  "ready_to_import": 0,
+  "needs_review": 36,
+  "needs_coordinates": 10,
+  "excluded": 40,
+  "closed": 0,
+  "qualifying_class_a_chains": 0,
+  "potential_class_a_operators": 1,
+  "class_a_locations": 0,
+  "class_a_estates_complete": true,
+  "plausible_independents": 44,
+  "municipal_candidates": 2,
+  "city_coverage": {
+    "Prishtina": "independent_present_candidate",
+    "Fushë Kosovë": "independent_present_candidate",
+    "Prizren": "independent_present_candidate",
+    "Pejë": "independent_present_candidate",
+    "Gjakovë": "independent_present_candidate",
+    "Ferizaj": "independent_present_candidate",
+    "Gjilan": "independent_present_candidate",
+    "Mitrovicë": "independent_present_candidate",
+    "North Mitrovica": "independent_present_candidate",
+    "Zvečan": "independent_present_candidate",
+    "Leposaviq": "independent_present_candidate",
+    "Zubin Potok": "independent_present_candidate",
+    "Vushtrri": "independent_present_candidate",
+    "Podujevë": "independent_present_candidate",
+    "Lipjan": "independent_present_candidate",
+    "Drenas": "independent_present_candidate",
+    "Skenderaj": "independent_present_candidate",
+    "Rahovec": "independent_present_candidate",
+    "Malishevë": "independent_present_candidate",
+    "Suharekë": "independent_present_candidate",
+    "Kaçanik": "independent_present_candidate",
+    "Klina": "independent_present_candidate",
+    "Deçan": "independent_present_candidate",
+    "Istog": "independent_present_candidate",
+    "Dragash": "independent_present_candidate",
+    "Štrpce": "A_legitimate_no_local_gym",
+    "Ranillug": "A_legitimate_no_local_gym"
+  },
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "phase1_justified_b_gaps_for_phase2": [],
+  "phase1_justified_a_gaps": [
+    "Štrpce",
+    "Ranillug"
+  ],
+  "data_quality": {
+    "invalid_postcodes_ready_review": [],
+    "mojibake": [],
+    "foreign_ready": [],
+    "fallback_ready": [],
+    "hotel_spa_leakage_ready": 0,
+    "hard_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts_for_merge": 0,
+    "phase2_rebrand_holds": 1
+  },
+  "cross_border": {
+    "albania_ready": 0,
+    "montenegro_ready": 0,
+    "mk_ready": 0,
+    "serbia_ready": 0,
+    "foreign_probes_staged": 13,
+    "foreign_probes_excluded": 13,
+    "probes": [
+      {
+        "name": "Kukës AL border probe",
+        "city": "Kukës",
+        "territory": "Albania",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Bajram Curri AL border probe",
+        "city": "Bajram Curri",
+        "territory": "Albania",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Tropojë AL border probe",
+        "city": "Tropojë",
+        "territory": "Albania",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Rožaje ME border probe",
+        "city": "Rožaje",
+        "territory": "Montenegro",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Berane ME gym probe",
+        "city": "Berane",
+        "territory": "Montenegro",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Skopje MK gym probe",
+        "city": "Skopje",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Tetovo MK gym probe",
+        "city": "Tetovo",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Kumanovo MK gym probe",
+        "city": "Kumanovo",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Debar MK border probe",
+        "city": "Debar",
+        "territory": "North Macedonia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Novi Pazar RS gym probe",
+        "city": "Novi Pazar",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Vranje RS border probe",
+        "city": "Vranje",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Preševo RS border probe",
+        "city": "Preševo",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      },
+      {
+        "name": "Leskovac RS gym probe",
+        "city": "Leskovac",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_xk_gate": false
+      }
+    ]
+  },
+  "language_alias_audit": {
+    "performed": true,
+    "languages": [
+      "Albanian",
+      "Serbian"
+    ],
+    "albanian_terms_used": [
+      "fitnes",
+      "fitness",
+      "palestra",
+      "teretana",
+      "fitnes qendër",
+      "palestër"
+    ],
+    "serbian_terms_used": [
+      "teretana",
+      "fitnes centar",
+      "sportska sala",
+      "фитнес",
+      "teretana",
+      "gym"
+    ],
+    "cities_audited_albanian": [
+      "Prishtina",
+      "Prizren",
+      "Pejë",
+      "Gjakovë",
+      "Ferizaj",
+      "Gjilan",
+      "Mitrovicë"
+    ],
+    "cities_audited_serbian": [
+      "North Mitrovica",
+      "Zvečan",
+      "Leposaviq",
+      "Zubin Potok"
+    ],
+    "albanian_audit_candidates": 1,
+    "serbian_audit_candidates": 4,
+    "additional_legitimate_candidates": true,
+    "notes": "Albanian-language discovery covers Prishtina and regional cities; Serbian-language pass covers North Mitrovica and North Kosovo municipalities."
+  },
+  "hotel_spa_audit": {
+    "performed": true,
+    "hotel_spa_excluded": true,
+    "hotel_spa_leakage_ready": 0,
+    "notes": "Swiss Diamond, Theranda Prizren, Brekovac resort amenities staged EXCLUDED."
+  },
+  "small_market_assessment": "INDEPENDENT_PHASE_RECOMMENDED",
+  "phase2_required": true,
+  "merge_ready": false,
+  "projected_catalog": 11840,
+  "crosses_12500": false,
+  "global_stress_qa_required_now": false,
+  "verdict": "KOSOVO PHASE 2 REQUIRED BEFORE MERGE"
+}

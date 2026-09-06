@@ -1,0 +1,1124 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T19:21:51Z",
+    "timestamp_areas_base": "2026-08-29T05:46:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 3424401750,
+      "lat": 40.2005898,
+      "lon": 44.4909907,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "NEO GYM",
+        "phone": "+37433820810",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3820664394,
+      "lat": 40.1805358,
+      "lon": 44.5198178,
+      "tags": {
+        "addr:housenumber": "11",
+        "check_date": "2023-09-17",
+        "contact:email": "flexfitness@mail.ru",
+        "contact:facebook": "flexfitness.club",
+        "contact:instagram": "flexfitness.club",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Flex",
+        "opening_hours": "Mo-Sa 10:00-22:00",
+        "phone": "+37410520120",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4451841593,
+      "lat": 40.1512436,
+      "lon": 44.5332987,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "X-body gym",
+        "name:en": "X-body gym",
+        "phone": "094943663"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4572503692,
+      "lat": 40.2815808,
+      "lon": 44.638549,
+      "tags": {
+        "addr:housenumber": "26/1",
+        "addr:postcode": "2206",
+        "addr:street": "Հատիս փողոց",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Progress ֆիզիկական զարգացման կենտրոն",
+        "name:en": "Progress physical training center",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "phone": "+37422221700",
+        "website": "http://www.progressfitness.am"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4641994525,
+      "lat": 40.20062,
+      "lon": 44.4992452,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Լեդի Ֆիթնես Պլյուս",
+        "name:en": "Lady Fitness Plus",
+        "name:hy": "Լեդի Ֆիթնես Պլյուս",
+        "name:ru": "\"Леди Фитнес+\"",
+        "phone": "+374 94 90 84 18"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4649729389,
+      "lat": 40.8078329,
+      "lon": 44.4899719,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Alex Club",
+        "name:en": "Alex Club"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4823210967,
+      "lat": 40.1995484,
+      "lon": 44.5125064,
+      "tags": {
+        "email": "info@cataleya.am",
+        "leisure": "fitness_centre",
+        "name": "Cataleya",
+        "opening_hours": "Mo-Su 9:00-22:00",
+        "phone": "+374 10 25 50 00;+374 43 25 50 00",
+        "website": "https://www.cataleya.am/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4918155322,
+      "lat": 40.1527125,
+      "lon": 44.4956583,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ՌՏՍ",
+        "name:en": "RTS",
+        "name:ru": "РТС",
+        "opening_hours": "Mo-Sa 10:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4957570222,
+      "lat": 40.1774053,
+      "lon": 44.5070996,
+      "tags": {
+        "addr:housenumber": "6",
+        "addr:street": "Զաքյան փողոց",
+        "check_date": "2025-11-10",
+        "description": "One-time: 2000 AMD. One-time with a coach: 4500AMD.",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Davis' gym",
+        "name:en": "Davis' gym",
+        "opening_hours": "Mo-Sa 09:00-23:00; Su 09:00-21:00",
+        "phone": "+374 43 131315",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5052207421,
+      "lat": 40.1768528,
+      "lon": 44.5228061,
+      "tags": {
+        "addr:street": "Խանջյան փողոց",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Մուլտի ուելնես կենտրոն",
+        "name:en": "Multi Wellness Center",
+        "name:hy": "Մուլտի ուելնես կենտրոն",
+        "name:ru": "Мульти Веллнесс Центр",
+        "opening_hours": "Mo-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5069120224,
+      "lat": 40.2064442,
+      "lon": 44.5080841,
+      "tags": {
+        "addr:housenumber": "9",
+        "addr:street": "Նաիրի Զարյան փողոց 1-ին նրբանցք",
+        "check_date": "2024-06-29",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Ռիթմ Յոգա",
+        "name:en": "Rhythm Yoga",
+        "name:ru": "Ритм Йога",
+        "phone": "+37491742993",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5105830928,
+      "lat": 40.1841316,
+      "lon": 44.5075786,
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "82/84",
+        "addr:street": "Արամի փողոց",
+        "leisure": "fitness_centre",
+        "name": "Arev Yoga & Pilates Center",
+        "sport": "yoga",
+        "website": "https://www.arev.center"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5287192822,
+      "lat": 40.1766436,
+      "lon": 44.5245259,
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:housenumber": "9",
+        "addr:street": "Ալեք Մանուկյանի փողոց",
+        "brand": "Star Gym",
+        "contact:facebook": "https://www.facebook.com/stargymArmenia",
+        "contact:instagram": "https://www.instagram.com/stargymarmenia/",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Սթար Ջիմ Պրեմիեր",
+        "opening_hours": "Mo-Sat 08:00-22:00; Sun 09:00-20:00",
+        "phone": "+374 (010) 501030",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5310858421,
+      "lat": 40.8124079,
+      "lon": 43.8312276,
+      "tags": {
+        "addr:street": "Շիրակացու փողոց",
+        "leisure": "fitness_centre",
+        "name:en": "Lion’s gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5519411726,
+      "lat": 40.1855582,
+      "lon": 44.5238202,
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "14",
+        "addr:street": "Ավետիք Իսահակյան փողոց",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Grig fitness club",
+        "name:en": "Grig fitness club",
+        "opening_hours": "24/7",
+        "phone": "+374 99 71 01 71"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5642011533,
+      "lat": 40.220563,
+      "lon": 44.4943886,
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "5",
+        "addr:postcode": "0054",
+        "addr:street": "Փիրումյանների փողոց",
+        "contact:facebook": "https://www.facebook.com/reeboksportsclub/",
+        "email": "info@reeboksportsclub.com",
+        "leisure": "fitness_centre",
+        "name": "Reebok Sports Club Armenia",
+        "opening_hours": "Mo-Su 06:00-00:00",
+        "phone": "+374 10 36 36 36",
+        "surfing": "yes",
+        "swimming_pool": "yes",
+        "website": "https://www.reeboksportsclub.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6332517094,
+      "lat": 40.5653586,
+      "lon": 44.7891555,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Սպորտդահլիճ"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6680896186,
+      "lat": 40.2095298,
+      "lon": 44.5254968,
+      "tags": {
+        "addr:street": "Շիրվանզադեի փողոց",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Թի-էյջ",
+        "name:en": "T&H",
+        "phone": "093996606",
+        "website": "https://m.facebook.com/fitnessth/?tsid=0.6114699902822875&source=result"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6867177385,
+      "lat": 40.1550992,
+      "lon": 44.5136446,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Տոնուս",
+        "name:en": "Tonus fitness spa"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7041739138,
+      "lat": 40.1784578,
+      "lon": 44.5069938,
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "7",
+        "addr:street": "Մովսես Խորենացու փողոց",
+        "leisure": "fitness_centre",
+        "name": "Oxylife",
+        "opening_hours": "Mo-Sa 11:00-20:00",
+        "phone": "+374 10 53 57 03",
+        "sport": "yoga;bodyflex;pilates;zumba"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7399255007,
+      "lat": 40.1991081,
+      "lon": 44.5097995,
+      "tags": {
+        "addr:housenumber": "6/2",
+        "addr:street": "Մարո Մարգարյան փողոց",
+        "email": "arevcenter@gmail.com",
+        "leisure": "fitness_centre",
+        "name": "Arev Yoga and Pilates Center",
+        "phone": "+374 11 71 11 75",
+        "website": "https://www.arev.center/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8729024759,
+      "lat": 40.2082498,
+      "lon": 44.5313747,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "The One Gym",
+        "name:en": "The One Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8757995417,
+      "lat": 40.1526324,
+      "lon": 44.4953709,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "ՌՏՍ",
+        "name:en": "RTS",
+        "name:ru": "РТС"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9631223460,
+      "lat": 40.1445675,
+      "lon": 44.4879068,
+      "tags": {
+        "check_date": "2022-04-02",
+        "contact:facebook": "https://www.facebook.com/LadySecretFitness",
+        "contact:instagram": "https://www.instagram.com/lady_secret",
+        "leisure": "fitness_centre",
+        "name": "Lady fitness gym",
+        "opening_hours": "Mo-Fr 09:00-22:00; Sa-Su 12:00-20:00",
+        "phone": "+374 98 772774; +374 55 772774",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9654730680,
+      "lat": 40.1873176,
+      "lon": 44.5089133,
+      "tags": {
+        "addr:housenumber": "4",
+        "addr:street": "Սարյանի փողոց",
+        "check_date": "2024-09-30",
+        "leisure": "fitness_centre",
+        "name": "jamm fit",
+        "note": "not sure"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9979438619,
+      "lat": 40.1521629,
+      "lon": 44.4815672,
+      "tags": {
+        "addr:floor": "-1",
+        "addr:housenumber": "14",
+        "addr:street": "Բագրատունյաց պողոտա",
+        "check_date": "2023-06-18",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Delta",
+        "name:hy": "Դելտա",
+        "phone": "426268",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10248303347,
+      "lat": 40.1706321,
+      "lon": 44.5166884,
+      "tags": {
+        "addr:floor": "2",
+        "check_date": "2024-09-14",
+        "leisure": "fitness_centre",
+        "name": "Vlad fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10302470556,
+      "lat": 40.2223278,
+      "lon": 44.4941289,
+      "tags": {
+        "check_date": "2023-01-03",
+        "leisure": "fitness_centre",
+        "name": "Gym",
+        "opening_hours": "Mo-Fr 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10686094706,
+      "lat": 40.0629053,
+      "lon": 44.441585,
+      "tags": {
+        "addr:housenumber": "5/4-1",
+        "addr:street": "Հանրապետության փողոց",
+        "leisure": "fitness_centre",
+        "name": "Fitness Zone",
+        "phone": "099700760"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10688502406,
+      "lat": 40.0631501,
+      "lon": 44.4475213,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10707407029,
+      "lat": 40.0616618,
+      "lon": 44.4455576,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Araksya",
+        "phone": "094 47 05 40"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10718390235,
+      "lat": 40.1816959,
+      "lon": 44.5139492,
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "19",
+        "addr:street": "Պուշկինի փողոց",
+        "leisure": "fitness_centre",
+        "name": "Reform Pilates",
+        "name:en": "Reform Pilates",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10737429554,
+      "lat": 40.81187,
+      "lon": 44.4882291,
+      "tags": {
+        "check_date": "2023-03-15",
+        "leisure": "fitness_centre",
+        "name": "V.N.S."
+      }
+    },
+    {
+      "type": "node",
+      "id": 10743450697,
+      "lat": 40.8095561,
+      "lon": 44.4874828,
+      "tags": {
+        "check_date": "2023-03-18",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10765326460,
+      "lat": 40.1882822,
+      "lon": 44.4627924,
+      "tags": {
+        "check_date": "2025-10-30",
+        "leisure": "fitness_centre",
+        "name:en": "Move"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10860231599,
+      "lat": 40.1927312,
+      "lon": 44.4838326,
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:housenumber": "1/1",
+        "addr:street": "Կիևյան փողոց",
+        "check_date": "2026-06-08",
+        "contact:facebook": "https://www.facebook.com/ladyzonefitness/",
+        "contact:instagram": "https://www.instagram.com/lady_zone_fitness_club",
+        "email": "LADYZONE@INBOX.RU",
+        "leisure": "fitness_centre",
+        "name": "Lady Zone",
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 10:00-19:00",
+        "phone": "+374 77 060066",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10931678507,
+      "lat": 40.8129032,
+      "lon": 44.4773439,
+      "tags": {
+        "check_date": "2023-05-27",
+        "leisure": "fitness_centre",
+        "name": "Star Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11063714044,
+      "lat": 40.7977882,
+      "lon": 44.5094796,
+      "tags": {
+        "check_date": "2023-07-23",
+        "leisure": "fitness_centre",
+        "name": "Royal Gym",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11081070113,
+      "lat": 40.1711462,
+      "lon": 44.5098523,
+      "tags": {
+        "addr:floor": "0",
+        "check_date": "2024-03-28",
+        "contact:instagram": "https://www.instagram.com/Olympia_fitnessclub",
+        "description": "1000 AMD one-time; 2500 AMD with coach; 10000 AMD monthly.",
+        "fee": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "leisure": "fitness_centre",
+        "name": "Olympia",
+        "name:hy": "Օլիմպիա",
+        "opening_hours": "Mo-Sa 08:30-23:00",
+        "phone": "+374 96 410976",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11188943763,
+      "lat": 40.8087797,
+      "lon": 44.4893629,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Սթար Ֆիթնես",
+        "name:en": "Star Fitness",
+        "name:ru": "Стар фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11284440391,
+      "lat": 40.7977092,
+      "lon": 44.5030056,
+      "tags": {
+        "contact:facebook": "https://www.facebook.com/YogaAndPilatesstudioVanadzor/",
+        "leisure": "fitness_centre",
+        "name": "Mandala",
+        "phone": "+374 55 044464",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11298874194,
+      "lat": 40.0611289,
+      "lon": 44.4471487,
+      "tags": {
+        "addr:city": "Մասիս",
+        "addr:country": "AM",
+        "addr:housename": "MASGym",
+        "addr:housenumber": "9/12-1",
+        "addr:postcode": "0801",
+        "addr:street": "Մխիթար Հերացու փողոց",
+        "int_name": "MASGym",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "MASGym",
+        "name:en": "MASGym",
+        "name:hy": "ՄԱՍՋիմ",
+        "name:ru": "МАСДЖим",
+        "opening_hours": "Mo-Su 12:00-22:00",
+        "operator": "Տիգրան Սարգսյան",
+        "phone": "+37455599969"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11607962720,
+      "lat": 40.2065694,
+      "lon": 44.5214581,
+      "tags": {
+        "check_date": "2025-06-12",
+        "leisure": "fitness_centre",
+        "name": "My club"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11663163130,
+      "lat": 40.1759156,
+      "lon": 44.5170394,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Gofit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11807541880,
+      "lat": 40.1504047,
+      "lon": 44.5214478,
+      "tags": {
+        "check_date": "2024-03-24",
+        "leisure": "fitness_centre",
+        "name": "Qualajyan Sport"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11916174419,
+      "lat": 40.1424706,
+      "lon": 44.5203257,
+      "tags": {
+        "check_date": "2024-05-18",
+        "description": "Gym for women",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Lady Zone",
+        "phone": "+374 77 060066"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11949813062,
+      "lat": 40.2051547,
+      "lon": 44.5138508,
+      "tags": {
+        "check_date": "2024-06-01",
+        "description": "Lady fitness center",
+        "leisure": "fitness_centre",
+        "name": "DDD"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12043931177,
+      "lat": 40.2032961,
+      "lon": 44.5441536,
+      "tags": {
+        "check_date": "2025-02-16",
+        "leisure": "fitness_centre",
+        "opening_hours": "Mo-Sa 07:00-23:00; Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12211245458,
+      "lat": 40.8086995,
+      "lon": 44.4875132,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "FightLife",
+        "opening_hours": "Mo-Sa 09:00-22:00",
+        "sport": "mixed_martial_arts;brazilian_jiu-jitsu;boxing;crossfit;armwrestling;stretching",
+        "website": "https://www.facebook.com/FightLifeVanadzor/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12237288855,
+      "lat": 40.1892375,
+      "lon": 44.4787743,
+      "tags": {
+        "addr:housenumber": "4/12",
+        "addr:street": "Լենինգրադյան փողոց",
+        "check_date": "2024-10-03",
+        "contact:instagram": "https://www.instagram.com/marat.haruryunyan.dr",
+        "description:ru": "Преимущественно для девушек, но есть индивидуальные (с тренером) занятия для мужчин.",
+        "email": "maratharutyunyuan.mh.mh@gmail.com",
+        "leisure": "fitness_centre",
+        "level": "0",
+        "name": "Dreambody",
+        "opening_hours": "08:00-21:00",
+        "operator": "Marat Harutyunyan",
+        "phone": "+374 41 555152",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12456027911,
+      "lat": 40.2076774,
+      "lon": 44.4675744,
+      "tags": {
+        "addr:housenumber": "187/6",
+        "addr:street": "Բաշինջաղյան փողոց",
+        "check_date": "2025-05-24",
+        "leisure": "fitness_centre",
+        "name": "Allegro",
+        "opening_hours": "Mo-Sa 10:00-23:00; Su 10:00-20:00",
+        "phone": "+374 43 414941; +374 11 414141",
+        "website": "https://allegro-sport.am",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12787927835,
+      "lat": 40.8115784,
+      "lon": 44.4835393,
+      "tags": {
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Tonus"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12810671304,
+      "lat": 40.2128488,
+      "lon": 44.5247447,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12895685273,
+      "lat": 40.1993034,
+      "lon": 44.47698,
+      "tags": {
+        "check_date": "2025-05-10",
+        "leisure": "fitness_centre",
+        "name": "AtletX",
+        "opening_hours": "Mo-Sa 07:00-23:00; Su 09:00-21:00",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12895685274,
+      "lat": 40.1983773,
+      "lon": 44.4747867,
+      "tags": {
+        "addr:housenumber": "28/2",
+        "addr:street": "Շինարարների փողոց",
+        "check_date": "2025-05-19",
+        "contact:instagram": "https://www.instagram.com/gymunityyerevan",
+        "description": "One visit: 2000 AMD",
+        "email": "gymunityyerevan@gmail.com",
+        "leisure": "fitness_centre",
+        "name": "Gym Unity",
+        "opening_hours": "Mo-Sa 08:00-22:30; Su 12:00-20:00",
+        "phone": "+374 98 204089; +374 99 339399",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13076514213,
+      "lat": 40.7531091,
+      "lon": 44.8832109,
+      "tags": {
+        "addr:city": "Դիլիջան",
+        "addr:housenumber": "70",
+        "addr:street": "Ուսանողական փողոց",
+        "contact:email": "dilijangym@ya.ru",
+        "contact:facebook": "dilijangym",
+        "contact:instagram": "dilijangym",
+        "contact:phone": "+374 91 040111",
+        "contact:website": "https://dilijangym.am/",
+        "leisure": "fitness_centre",
+        "name": "Dilijan Gym",
+        "start_date": "2004-04-04"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13112208240,
+      "lat": 40.2030268,
+      "lon": 44.5562103,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "InShape"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13164926195,
+      "lat": 40.8112425,
+      "lon": 43.8438339,
+      "tags": {
+        "brand": "full gym",
+        "brand:en": "full gym",
+        "brand:ru": "фулл джим",
+        "check_date": "2025-09-22",
+        "image": "https://commons.wikimedia.org/wiki/File:Gym_full_gyumri_22.09.2025.jpg",
+        "leisure": "fitness_centre",
+        "name": "full gym",
+        "name:en": "full gym",
+        "name:ru": "фулл джим",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13516725878,
+      "lat": 40.201039,
+      "lon": 44.49068,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "19",
+        "phone": "+37495071919"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13609316480,
+      "lat": 40.7979271,
+      "lon": 43.855828,
+      "tags": {
+        "check_date": "2026-02-26",
+        "image": "https://commons.wikimedia.org/wiki/File:Profigym_carwash_gyumri_26.02.2026.jpg",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "ProfiGym",
+        "name:en": "ProfiGym",
+        "name:ru": "Профи Джим",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13623481583,
+      "lat": 40.1859847,
+      "lon": 44.562696,
+      "tags": {
+        "brand": "Lady Zone",
+        "gender": "female",
+        "leisure": "fitness_centre",
+        "name": "Lady Zone"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13942622110,
+      "lat": 40.7437859,
+      "lon": 44.8545159,
+      "tags": {
+        "addr:city": "Դիլիջան",
+        "addr:housenumber": "11",
+        "addr:street": "Անդրանիկի 3-րդ նրբանցք",
+        "contact:website": "https://dilitown.am/gym",
+        "leisure": "fitness_centre",
+        "name": "Dilitown Gym"
+      }
+    },
+    {
+      "type": "way",
+      "id": 133341818,
+      "center": {
+        "lat": 40.2200968,
+        "lon": 44.5781103
+      },
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "18/13",
+        "addr:postcode": "0060",
+        "addr:street": "Մարշալ Բաբաջանյանի փողոց",
+        "building": "yes",
+        "building:levels": "3",
+        "check_date": "2023-09-07",
+        "leisure": "fitness_centre",
+        "name": "Gold's Gym",
+        "phone": "+374 10 505060;+374 10 322010",
+        "website": "https://goldsgym.am/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 188440490,
+      "center": {
+        "lat": 40.2091653,
+        "lon": 44.5635867
+      },
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "14",
+        "addr:street": "Ավան 4-րդ փողոց",
+        "building": "public",
+        "leisure": "fitness_centre",
+        "name": "Ketrin"
+      }
+    },
+    {
+      "type": "way",
+      "id": 293457669,
+      "center": {
+        "lat": 40.7204916,
+        "lon": 44.8543295
+      },
+      "tags": {
+        "building": "sports_hall",
+        "building:levels": "1",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 391003502,
+      "center": {
+        "lat": 40.1606406,
+        "lon": 44.4447224
+      },
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "42/9",
+        "addr:postcode": "0004",
+        "addr:street": "Ադմիրալ Իսակովի պողոտա",
+        "building": "yes",
+        "building:levels": "2",
+        "contact:facebook": "https://www.facebook.com/NeptunGYM/",
+        "leisure": "fitness_centre",
+        "name": "Նեպտուն",
+        "name:en": "Neptun",
+        "name:hy": "Նեպտուն",
+        "name:ru": "Нептун",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "phone": "+374 10 720888; +374 77 721888",
+        "sport": "fitness;swimming;karate",
+        "swimming_pool": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 462356745,
+      "center": {
+        "lat": 40.1840591,
+        "lon": 44.5289594
+      },
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "163/2",
+        "addr:street": "Գևորգ Ջահուկյան փողոց",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "way",
+      "id": 839209495,
+      "center": {
+        "lat": 40.8108058,
+        "lon": 44.4925041
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 839216412,
+      "center": {
+        "lat": 40.8070768,
+        "lon": 44.4988757
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Elite Gym"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1032930106,
+      "center": {
+        "lat": 40.8111708,
+        "lon": 44.4866079
+      },
+      "tags": {
+        "addr:city": "Վանաձոր",
+        "addr:housenumber": "51",
+        "addr:street": "Տիգրան Մեծի պողոտա",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Sparta",
+        "name:en": "Sparta",
+        "phone": "+374 55 444045",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1158381645,
+      "center": {
+        "lat": 40.2045349,
+        "lon": 44.5159955
+      },
+      "tags": {
+        "check_date": "2024-01-20",
+        "leisure": "fitness_centre",
+        "name": "DDD",
+        "name:hy": "DDD մարզահամալիր",
+        "name:ru": "DDD комплекс",
+        "sport": "swimming",
+        "swimming_pool": "yes",
+        "website": "https://www.ddd.am/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1174041839,
+      "center": {
+        "lat": 40.1861734,
+        "lon": 44.5228327
+      },
+      "tags": {
+        "alt_name": "11 Fitness",
+        "building": "yes",
+        "contact:instagram": "fitness11",
+        "leisure": "fitness_centre",
+        "name": "Eleven Fitness",
+        "phone": "+37411500111",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1181976745,
+      "center": {
+        "lat": 40.3452985,
+        "lon": 44.2529885
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1208990866,
+      "center": {
+        "lat": 40.7876087,
+        "lon": 43.8502438
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "FlexFit",
+        "sport": "fitness;yoga"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1254672732,
+      "center": {
+        "lat": 40.1821018,
+        "lon": 44.505194
+      },
+      "tags": {
+        "addr:city": "Երևան",
+        "addr:country": "AM",
+        "addr:housenumber": "27/1",
+        "addr:street": "Ամիրյան փողոց",
+        "building": "yes",
+        "building:levels": "2",
+        "check_date": "2023-07-19",
+        "description": "One-time visits are not offered. Monthly price is 99000 AMD.",
+        "leisure": "fitness_centre",
+        "name": "Gold's Gym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa 06:30-21:00; Su 09:00-21:00",
+        "phone": "+374 10 322010; +374 10 505060",
+        "website": "https://goldsgym.am",
+        "wheelchair": "limited"
+      }
+    }
+  ]
+}

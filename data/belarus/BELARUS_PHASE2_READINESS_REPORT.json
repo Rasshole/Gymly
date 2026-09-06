@@ -1,0 +1,285 @@
+{
+  "country": "Belarus",
+  "phase": 2,
+  "generated_at": "2026-08-29T16:31:03.191234+00:00",
+  "production_total": 12034,
+  "production_sha256": "bec3945dd35bb8bf9cc57046110736a5fa267a673445cf4a26dba6ed92d64e05",
+  "baseline_malta": 24,
+  "baseline_ukraine": 105,
+  "belarus_live": 0,
+  "by_prefix_live": 0,
+  "existing_belarus_production": false,
+  "phase1_rows_recovered": 58,
+  "phase1_status_counts": {
+    "READY_TO_IMPORT": 38,
+    "NEEDS_REVIEW": 9,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 1,
+    "EXCLUDED": 10,
+    "CLOSED": 0
+  },
+  "keep_existing_count": 0,
+  "new_ready_to_import_count": 46,
+  "existing_review_required_count": 0,
+  "final_approved_belarus": 46,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 46,
+    "COMING_SOON": 1,
+    "EXCLUDED": 11
+  },
+  "ready_by_brand_new": {
+    "Adrenalin": 29,
+    "Lifestyle": 3,
+    "Fox Club": 5,
+    "Olympic": 4,
+    "World Class": 1,
+    "Gym Express 24h": 1,
+    "Grafit": 1,
+    "Delta": 1,
+    "FitWorld": 1
+  },
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "coming_soon": 1,
+  "excluded": 11,
+  "closed": 0,
+  "total_final_candidates": 58,
+  "chain_inventory": {
+    "Adrenalin": {
+      "new_ready": 29,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "official_current_active": 29,
+      "final_active_approved": 29,
+      "final_estate_accounted": 29,
+      "class_a": true,
+      "estate_complete": true,
+      "estate_gaps": 0
+    },
+    "Lifestyle": {
+      "new_ready": 3,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "official_current_active": 3,
+      "final_active_approved": 3,
+      "final_estate_accounted": 3,
+      "class_a": true,
+      "estate_complete": true,
+      "estate_gaps": 0
+    },
+    "Fox Club": {
+      "new_ready": 5,
+      "coming_soon": 0,
+      "closed": 0,
+      "excluded": 0,
+      "official_current_active": 5,
+      "final_active_approved": 5,
+      "final_estate_accounted": 5,
+      "class_a": true,
+      "estate_complete": true,
+      "estate_gaps": 0
+    },
+    "Olympic": {
+      "new_ready": 4,
+      "coming_soon": 1,
+      "closed": 0,
+      "excluded": 0,
+      "official_current_active": 4,
+      "final_active_approved": 4,
+      "final_estate_accounted": 5,
+      "class_a": true,
+      "estate_complete": true,
+      "estate_gaps": 0
+    },
+    "independents": {
+      "count": 4,
+      "small_market_independent": 5
+    },
+    "summary": {
+      "final_class_a_chain_count": 4,
+      "final_class_a_chain_names": [
+        "Adrenalin",
+        "Lifestyle",
+        "Fox Club",
+        "Olympic"
+      ],
+      "final_class_a_new_ready_count": 41,
+      "chain_estate_gaps": 0,
+      "independent_new_ready_count": 4,
+      "missed_class_a_chains_found": 0
+    }
+  },
+  "cross_border": {
+    "belarus_ready_outliers": 0,
+    "poland_ready_outliers": 0,
+    "ukraine_ready_outliers": 0,
+    "lithuania_ready_outliers": 0,
+    "latvia_ready_outliers": 0,
+    "russia_ready_outliers": 0,
+    "other_foreign_ready_outliers": 0
+  },
+  "data_quality_new_ready": {
+    "label": "NEW_READY",
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 46,
+    "raw_id_display_names": 0,
+    "geocode_fix_residual_errors": 0
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "colocated_distinct_gyms": [],
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 0,
+      "identical": 0
+    },
+    "proximity_raw": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 0,
+      "lt200": 0,
+      "identical": 0
+    }
+  },
+  "hotel_resort_ready_leakage": 0,
+  "invalid_wellness_additive": 0,
+  "specialist_ready_leakage": 0,
+  "institutional_ready_leakage": 0,
+  "city_coverage": {
+    "cities": {
+      "Minsk": "A",
+      "Brest": "A",
+      "Grodno": "A",
+      "Gomel": "A",
+      "Mogilev": "A",
+      "Vitebsk": "B",
+      "Pinsk": "A",
+      "Orsha": "A",
+      "Luninets": "A",
+      "Pruzhany": "A",
+      "Borovlyany": "A"
+    },
+    "approved_by_city": {
+      "Minsk": 31,
+      "Borovlyany": 1,
+      "Gomel": 2,
+      "Pinsk": 2,
+      "Luninets": 1,
+      "Orsha": 1,
+      "Pruzhany": 1,
+      "Mogilev": 1,
+      "Grodno": 3,
+      "Brest": 3
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0,
+    "borovlyany_grade": "A",
+    "vitebsk_grade": "B"
+  },
+  "material_d_gaps_count": 0,
+  "borovlyany_grade": "A",
+  "vitebsk_grade": "B",
+  "phase1_nr_total": 9,
+  "phase1_nr_resolved": 9,
+  "phase1_nr_unresolved": 0,
+  "missed_class_a_chains_found": 0,
+  "missed_chain_sweep_complete": true,
+  "independents_revalidated": 5,
+  "market_model": "CHAIN_LED",
+  "postcode_model": "NNNNNN (6 digits)",
+  "projected_catalog_after_merge": 12080,
+  "actual_new_delta": 46,
+  "projected_remaining_headroom": 420,
+  "projected_crosses_12500": false,
+  "global_stress_qa_required_after_merge": false,
+  "belarus_infrastructure_present": true,
+  "belarus_infrastructure_gaps": [],
+  "verdict": "READY FOR BELARUS PRODUCTION MERGE",
+  "check_in_radius_meters": 200,
+  "auto_checkout_distance_meters": 200,
+  "architecture": "KEEP CLIENT-SIDE",
+  "geocode_audit": {
+    "new_ready_invalid_coordinates": 0,
+    "new_ready_fallback_coordinates": 0,
+    "new_ready_centroid_coordinates": 0,
+    "geocode_fixes_applied": 6,
+    "geocode_fix_residual_errors": 0
+  },
+  "postcode_audit": {
+    "model": "NNNNNN (6 digits)",
+    "regex": "^\\d{6}$",
+    "new_ready_total": 46,
+    "valid_postcodes": 46,
+    "invalid_postcodes": 0,
+    "invalid_rows": []
+  },
+  "rebrand_audit": {
+    "phase1_rebrand_map": {
+      "country": "Belarus",
+      "phase": 1,
+      "relationships": [],
+      "unresolved_conflicts": 0
+    },
+    "unresolved_rebrand_conflicts": 0,
+    "phase2_new_rebrand_conflicts": 0
+  },
+  "independents_audit": {
+    "independent_brands": [
+      "Delta",
+      "FitWorld",
+      "Grafit",
+      "Gym Express",
+      "World Class"
+    ],
+    "new_ready_independents": 4,
+    "small_market_independent": 4,
+    "chain_class_a_independents": 0,
+    "locations": [
+      {
+        "id": "by_3f5719e0cd",
+        "brand": "Delta",
+        "name": "Delta Brest",
+        "city": "Brest",
+        "eligibility": "SMALL_MARKET_INDEPENDENT"
+      },
+      {
+        "id": "by_086ee5b139",
+        "brand": "FitWorld",
+        "name": "FitWorld Grodno Pushkina",
+        "city": "Grodno",
+        "eligibility": "SMALL_MARKET_INDEPENDENT"
+      },
+      {
+        "id": "by_2092ad55f8",
+        "brand": "Grafit",
+        "name": "Grafit Brest",
+        "city": "Brest",
+        "eligibility": "SMALL_MARKET_INDEPENDENT"
+      },
+      {
+        "id": "by_cc9170f013",
+        "brand": "World Class",
+        "name": "World Class Minsk Dzerzhinskogo",
+        "city": "Minsk",
+        "eligibility": "SMALL_MARKET_INDEPENDENT"
+      }
+    ],
+    "phase1_independents_revalidated": 5,
+    "nr_promoted_independents": 2
+  },
+  "hard_duplicate_conflicts": 0,
+  "class_a_estate_gaps": 0
+}

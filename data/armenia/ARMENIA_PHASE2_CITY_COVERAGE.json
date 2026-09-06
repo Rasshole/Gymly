@@ -1,0 +1,28 @@
+{
+  "cities": {
+    "Yerevan": "A",
+    "Gyumri": "A",
+    "Vanadzor": "A",
+    "Abovyan": "A",
+    "Hrazdan": "A",
+    "Kapan": "A",
+    "Armavir": "A",
+    "Goris": "A",
+    "Dilijan": "B"
+  },
+  "approved_by_city": {
+    "Yerevan": 27,
+    "Abovyan": 1,
+    "Armavir": 1,
+    "Vanadzor": 2,
+    "Gyumri": 1,
+    "Masis": 1,
+    "Hrazdan": 1,
+    "Kapan": 1,
+    "Goris": 1
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0,
+  "dilijan_material_d": "NO",
+  "dilijan_audit_grade": "B"
+}

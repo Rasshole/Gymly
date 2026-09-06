@@ -1,0 +1,255 @@
+{
+  "generated_at": "2026-08-23T17:05:36Z",
+  "production_total": 11063,
+  "pre_merge_sha256": "365a1bd25c1fad250172099a0430d9475899859c11a8e07e2ae05ea471dba75a",
+  "chains": {
+    "world_class": {
+      "chain": "World Class",
+      "official_estimate": 45,
+      "discovered": 45,
+      "with_coords": 45,
+      "source": "https://www.worldclass.ro/wp-json/clubs/v1/club",
+      "verdict": "NEAR-COMPLETE"
+    },
+    "18gym": {
+      "chain": "18GYM",
+      "official_estimate": 47,
+      "discovered": 47,
+      "coming_soon": 5,
+      "source": "https://18gym.ro/wp-admin/admin-ajax.php?action=asl_load_stores&nonce=0",
+      "verdict": "NEAR-COMPLETE"
+    },
+    "stay_fit": {
+      "chain": "Stay Fit Gym",
+      "official_estimate": 72,
+      "discovered": 167,
+      "coming_soon": 0,
+      "cities_scraped": 45,
+      "source": "https://stayfit.ro/cluburi/",
+      "verdict": "NEAR-COMPLETE"
+    }
+  },
+  "other_chains": [
+    {
+      "chain": "ESX",
+      "url": "https://esx.ro/",
+      "classification": "membership_aggregator",
+      "physical_clubs": 0,
+      "verdict": "EXCLUDED",
+      "notes": "700+ partner gyms — not ESX-branded operator; do not import partner network"
+    },
+    {
+      "chain": "Smartfit Romania",
+      "url": "https://www.smartfit.com.br/",
+      "classification": "not_in_romania",
+      "physical_clubs": 0,
+      "verdict": "EXCLUDED",
+      "notes": "Smartfit brand is Brazil/LATAM — no verified RO chain at smartfit.com.br"
+    },
+    {
+      "chain": "Anytime Fitness Romania",
+      "url": "https://www.anytimefitness.com/",
+      "classification": "franchise_sparse",
+      "physical_clubs": 0,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Sparse franchise presence — Phase 2 if multi-site verified"
+    },
+    {
+      "chain": "One Fitness",
+      "url": "https://onefitness.ro/",
+      "classification": "regional",
+      "physical_clubs": 0,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Phase 2 — verify current multi-site estate"
+    },
+    {
+      "chain": "SAS Gym",
+      "url": "https://sasgym.ro/",
+      "classification": "regional",
+      "physical_clubs": 0,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Phase 2 probe"
+    },
+    {
+      "chain": "Downtown Fitness",
+      "url": "https://downtownfitness.ro/",
+      "classification": "regional",
+      "physical_clubs": 0,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Phase 2 — Bucharest/regional"
+    },
+    {
+      "chain": "Gold's Gym Romania",
+      "url": "https://www.goldsgym.com/",
+      "classification": "franchise_sparse",
+      "physical_clubs": 0,
+      "verdict": "EXCLUDED",
+      "notes": "No verified current national RO estate"
+    },
+    {
+      "chain": "LadyFIT",
+      "url": "",
+      "classification": "unknown",
+      "physical_clubs": 0,
+      "verdict": "NEEDS_REVIEW",
+      "notes": "Women-focused — verify conventional gym model"
+    }
+  ],
+  "esx": {
+    "classification": "B_membership_platform",
+    "physical_esx_clubs": 0,
+    "partner_network_excluded": true,
+    "verdict": "EXCLUDED — import operator clubs only, not ESX partner pass network"
+  },
+  "rebrand_notes": [
+    {
+      "legacy": "World Class acquired clubs",
+      "successor": "World Class",
+      "action": "current consumer identity wins — no duplicate legacy+successor"
+    }
+  ],
+  "status_counts": {
+    "READY_TO_IMPORT": 63,
+    "NEEDS_REVIEW": 95,
+    "COMING_SOON": 5,
+    "DUPLICATE": 19
+  },
+  "ready_by_brand": {
+    "World Class": 32,
+    "18GYM": 14,
+    "Stay Fit Gym": 17
+  },
+  "city_coverage": {
+    "București": true,
+    "Cluj-Napoca": true,
+    "Timișoara": true,
+    "Iași": true,
+    "Constanța": true,
+    "Brașov": true,
+    "Craiova": false,
+    "Galați": true,
+    "Ploiești": true,
+    "Oradea": false,
+    "Sibiu": true,
+    "Arad": true,
+    "Târgu Mureș": true,
+    "Baia Mare": true,
+    "Bacău": true,
+    "Buzău": false,
+    "Satu Mare": true,
+    "Suceava": false,
+    "Pitești": false,
+    "Râmnicu Vâlcea": false
+  },
+  "coverage_notes": {
+    "World Class": "Official REST API — target NEAR-COMPLETE (~45 clubs)",
+    "Stay Fit Gym": "City page scrape — ~72 claimed; Phase 2 if material gaps remain",
+    "18GYM": "ASL store locator — postcodes often missing; geocoded in consolidate",
+    "ESX": "EXCLUDED — membership aggregator, not gym operator",
+    "Other national chains": "One Fitness, SAS Gym, Downtown etc. — Phase 2 probe required"
+  },
+  "phase2": {
+    "status_counts": {
+      "READY_TO_IMPORT": 148,
+      "COMING_SOON": 5,
+      "NEEDS_COORDINATES": 1,
+      "NEEDS_REVIEW": 9
+    },
+    "ready_by_brand": {
+      "World Class": 45,
+      "18GYM": 42,
+      "Stay Fit Gym": 61
+    },
+    "chain_completeness": {
+      "World Class": {
+        "official_current": 45,
+        "discovered": 45,
+        "ready": 45,
+        "unresolved": 0,
+        "coming_soon": 0,
+        "closed": 0,
+        "coverage_pct": 100.0,
+        "verdict": "COMPLETE"
+      },
+      "Stay Fit Gym": {
+        "official_current": 74,
+        "discovered": 71,
+        "ready": 61,
+        "unresolved": 10,
+        "coming_soon": 0,
+        "closed": 0,
+        "coverage_pct": 82.4,
+        "verdict": "PARTIAL"
+      },
+      "18GYM": {
+        "official_current": 47,
+        "discovered": 47,
+        "ready": 42,
+        "unresolved": 0,
+        "coming_soon": 5,
+        "closed": 0,
+        "coverage_pct": 89.4,
+        "verdict": "NEAR-COMPLETE"
+      }
+    },
+    "secondary_probes": [
+      {
+        "chain": "One Fitness",
+        "url": "https://onefitness.ro/locatii/",
+        "reachable": true,
+        "loc_keyword_hits": 4,
+        "verdict": "NEEDS_REVIEW",
+        "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+      },
+      {
+        "chain": "SAS Gym",
+        "url": "https://sasgym.ro/",
+        "reachable": true,
+        "loc_keyword_hits": 4,
+        "verdict": "NEEDS_REVIEW",
+        "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+      },
+      {
+        "chain": "Downtown Fitness",
+        "url": "https://downtownfitness.ro/",
+        "reachable": true,
+        "loc_keyword_hits": 27,
+        "verdict": "NEEDS_REVIEW",
+        "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+      },
+      {
+        "chain": "Anytime Fitness Romania",
+        "url": "https://www.anytimefitness.ro/",
+        "reachable": false,
+        "loc_keyword_hits": 0,
+        "verdict": "BLOCKED",
+        "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+      },
+      {
+        "chain": "Nextfit",
+        "url": "https://nextfit.ro/",
+        "reachable": false,
+        "loc_keyword_hits": 0,
+        "verdict": "BLOCKED",
+        "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+      },
+      {
+        "chain": "Burn Fitness",
+        "url": "https://burnfitness.ro/",
+        "reachable": false,
+        "loc_keyword_hits": 0,
+        "verdict": "BLOCKED",
+        "notes": "Phase 2 light probe — no READY import without structured multi-site extraction"
+      },
+      {
+        "chain": "ESX",
+        "url": "https://esx.ro/",
+        "reachable": true,
+        "physical_clubs": 0,
+        "verdict": "EXCLUDED",
+        "notes": "Membership aggregator — partner gyms not imported"
+      }
+    ],
+    "verdict": "ROMANIA PHASE 3 REQUIRED BEFORE MERGE"
+  }
+}

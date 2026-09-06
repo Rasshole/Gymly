@@ -1,0 +1,336 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "skipped_existing_id": [],
+  "included": [
+    {
+      "id": "lt_599d49215c",
+      "name": "Gym+ Vilnius Mokslininkų",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_e7e904234e",
+      "name": "Gym+ Vilnius PC Europa",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_688d913f05",
+      "name": "Gym+ Vilnius URBAN HUB",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_5e91d3e3b7",
+      "name": "Gym+ Vilnius Ozo",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_bc598810fc",
+      "name": "Gym+ Vilnius Savanorių",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_b3e748e109",
+      "name": "Gym+ Vilnius Pavilnionių",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_05508dc595",
+      "name": "Gym+ Vilnius Dariaus ir Girėno",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_70c41d18a7",
+      "name": "Gym+ Vilnius Gedimino",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_7906e643a2",
+      "name": "Gym+ Vilnius Saltoniškių",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_b4dcd88872",
+      "name": "Gym+ Vilnius Kalvarijų",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_52241d6b06",
+      "name": "Gym+ Vilnius Ukmergės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_038c37554c",
+      "name": "Gym+ Vilnius Priegliaus",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_6ddca417a2",
+      "name": "Gym+ Vilnius Vytauto Pociūno",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_11c7800655",
+      "name": "Gym+ Vilnius Žemaitės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_469dbe56a5",
+      "name": "Gym+ Vilnius Žirmūnų",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_b17e0562bf",
+      "name": "Gym+ Kaunas Lyderystės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_5e1bdb00d1",
+      "name": "Gym+ Kaunas Savanorių",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_2bc6b027e4",
+      "name": "Gym+ Kaunas Islandijos",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_767591bc25",
+      "name": "Gym+ Kaunas Baltų",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_c99c69835a",
+      "name": "Gym+ Kaunas Pramonės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_c0c3b3ba5e",
+      "name": "Gym+ Kaunas V. Krėvės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_aa6a3966e6",
+      "name": "Gym+ Klaipėda Bangų",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_00c95cd280",
+      "name": "Gym+ Klaipėda H. Manto",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_315bd35664",
+      "name": "Gym+ Klaipėda Akropolis",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_4f9b9568d4",
+      "name": "Gym+ Klaipėda Arena",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_783964bbc1",
+      "name": "Gym+ Klaipėda Vingio",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_0aa89de8a5",
+      "name": "Gym+ Šiauliai Vairo",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_5b1f24ce40",
+      "name": "Gym+ Šiauliai Gardino",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_d9955aa280",
+      "name": "Gym+ Šiauliai Gumbinės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_67bc5da2ce",
+      "name": "Gym+ Panevėžys Smėlynės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_211bd0913a",
+      "name": "Gym+ Panevėžys Klaipėdos",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_ad2adac4ef",
+      "name": "Gym+ Panevėžys Ukmergės",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_5b02033f34",
+      "name": "Gym+ Alytus",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_3874589af2",
+      "name": "Gym+ Marijampolė",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_ac04c2ee6c",
+      "name": "Gym+ Mažeikiai",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_85466a49c0",
+      "name": "Gym+ Kėdainiai",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_f39f98eb03",
+      "name": "Gym+ Telšiai",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_1e498c2e4f",
+      "name": "Gym+ Palanga",
+      "brand": "Gym+"
+    },
+    {
+      "id": "lt_eb655bb80e",
+      "name": "Lemon Gym Raudondvaris",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_5d27655261",
+      "name": "Lemon Gym Šiaulių Akropolis",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_723fd904a3",
+      "name": "Lemon Gym Vilniaus Žalgiris",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_b2b8ac4a64",
+      "name": "Lemon Gym Vilniaus Akropolis",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_7e6f007f43",
+      "name": "Lemon Gym Pikas",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_98dac4e739",
+      "name": "Lemon Gym Asanavičiūtė",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_561aafd381",
+      "name": "Lemon Gym Urmas",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_dcee389cb7",
+      "name": "Lemon Gym Skraja",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_1b9b31a01f",
+      "name": "Lemon Gym Vienuolis",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_3963b9131f",
+      "name": "Lemon Gym Kauno Žalgirio arena",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_585ac8405d",
+      "name": "Lemon Gym Savanoriai",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_9d642a49f1",
+      "name": "Lemon Gym Šilainiai",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_459f3fcf45",
+      "name": "Lemon Gym Perkūnkiemis",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_1a0be783f8",
+      "name": "Lemon Gym Ateities",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_bd4f45a9ac",
+      "name": "Lemon Gym Antakalnis",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_e3b03fe2fe",
+      "name": "Lemon Gym Banginis",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_ae46c595a4",
+      "name": "Lemon Gym Pilaitė",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_7352842442",
+      "name": "Lemon Gym Europa",
+      "brand": "Lemon Gym"
+    },
+    {
+      "id": "lt_92cb16bf9d",
+      "name": "Impuls Vilnius Kareivių",
+      "brand": "Impuls"
+    },
+    {
+      "id": "lt_b49edd5919",
+      "name": "Impuls Vilnius Savanorių",
+      "brand": "Impuls"
+    },
+    {
+      "id": "lt_f446893edd",
+      "name": "Impuls Vilnius Fabijoniškių",
+      "brand": "Impuls"
+    },
+    {
+      "id": "lt_73a259f27f",
+      "name": "Impuls Klaipėda",
+      "brand": "Impuls"
+    },
+    {
+      "id": "lt_45641da581",
+      "name": "Impuls Panevėžys",
+      "brand": "Impuls"
+    }
+  ],
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "counts": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 0
+  },
+  "classified_suspicious": []
+}

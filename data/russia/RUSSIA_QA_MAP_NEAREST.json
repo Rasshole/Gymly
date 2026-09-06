@@ -1,0 +1,72 @@
+{
+  "active_russia_map_markers": 465,
+  "nearest_qa": "PLAUSIBLE",
+  "nearest_invalid_results": 0,
+  "probes": {
+    "Moscow": {
+      "id": "ru_878a8dc2bb",
+      "distance_m": 477,
+      "city": "Moscow"
+    },
+    "Saint Petersburg": {
+      "id": "ru_b9052b3b5a",
+      "distance_m": 1495,
+      "city": "Saint Petersburg"
+    },
+    "Novosibirsk": {
+      "id": "ru_88b87955d4",
+      "distance_m": 1708,
+      "city": "Novosibirsk"
+    },
+    "Yekaterinburg": {
+      "id": "ru_3f38ea9f4c",
+      "distance_m": 961,
+      "city": "Yekaterinburg"
+    },
+    "Kazan": {
+      "id": "ru_cff642aee9",
+      "distance_m": 2632,
+      "city": "Kazan"
+    },
+    "Nizhny Novgorod": {
+      "id": "ru_bb4b031043",
+      "distance_m": 2021,
+      "city": "Nizhny Novgorod"
+    },
+    "Samara": {
+      "id": "ru_79fde6b018",
+      "distance_m": 429,
+      "city": "Samara"
+    },
+    "Ufa": {
+      "id": "ru_898929ced6",
+      "distance_m": 1459,
+      "city": "Ufa"
+    },
+    "Krasnoyarsk": {
+      "id": "ru_2d5ff17c73",
+      "distance_m": 490111,
+      "city": "Tomsk"
+    },
+    "Krasnodar": {
+      "id": "ru_24bc878dcd",
+      "distance_m": 172088,
+      "city": "Sochi"
+    },
+    "Voronezh": {
+      "id": "ru_42da945628",
+      "distance_m": 111800,
+      "city": "Lipetsk"
+    },
+    "Khabarovsk": {
+      "id": "ru_ba64436351",
+      "distance_m": 2197778,
+      "city": "поселок Молодёжный"
+    },
+    "Vladivostok": {
+      "id": "ru_ba64436351",
+      "distance_m": 2274201,
+      "city": "поселок Молодёжный"
+    }
+  }
+}

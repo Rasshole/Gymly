@@ -1,0 +1,208 @@
+{
+  "search_results": [
+    {
+      "query": "Belarus",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Беларусь",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Minsk",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Минск",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Grodno",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Гродно",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Brest",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Gomel",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Mogilev",
+      "hits": 46,
+      "ok": true
+    },
+    {
+      "query": "Borovlyany",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Adrenalin",
+      "hits": 29,
+      "ok": true
+    },
+    {
+      "query": "Lifestyle",
+      "hits": 3,
+      "ok": true
+    },
+    {
+      "query": "Fox Club",
+      "hits": 5,
+      "ok": true
+    },
+    {
+      "query": "Olympic",
+      "hits": 4,
+      "ok": true
+    },
+    {
+      "query": "World Class",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Gym Express 24h",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Grafit",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "Delta",
+      "hits": 1,
+      "ok": true
+    },
+    {
+      "query": "FitWorld",
+      "hits": 1,
+      "ok": true
+    }
+  ],
+  "search_failures": [],
+  "map_active_markers": 46,
+  "coming_soon_map_markers": 0,
+  "excluded_map_markers": 0,
+  "closed_map_markers": 0,
+  "foreign_map_markers": 0,
+  "nearest_results": [
+    {
+      "label": "Minsk",
+      "lat": 53.9006,
+      "lng": 27.559,
+      "winner_id": "by_391eb2e674",
+      "winner_name": "Adrenalin Minsk Nezavisimosti",
+      "winner_brand": "Adrenalin",
+      "distance_m": 970,
+      "ok": true
+    },
+    {
+      "label": "Grodno",
+      "lat": 53.6693,
+      "lng": 23.8131,
+      "winner_id": "by_35c11d2126",
+      "winner_name": "Olympic Grodno Sovetskaya",
+      "winner_brand": "Olympic",
+      "distance_m": 1890,
+      "ok": true
+    },
+    {
+      "label": "Brest",
+      "lat": 52.0976,
+      "lng": 23.7341,
+      "winner_id": "by_2092ad55f8",
+      "winner_name": "Grafit Brest",
+      "winner_brand": "Grafit",
+      "distance_m": 2331,
+      "ok": true
+    },
+    {
+      "label": "Gomel",
+      "lat": 52.4412,
+      "lng": 30.9878,
+      "winner_id": "by_846dbc58e6",
+      "winner_name": "Adrenalin Gomel Gagarina",
+      "winner_brand": "Adrenalin",
+      "distance_m": 1980,
+      "ok": true
+    },
+    {
+      "label": "Mogilev",
+      "lat": 53.8984,
+      "lng": 30.3308,
+      "winner_id": "by_e374a381ab",
+      "winner_name": "Fox Club Mogilev Shmidta",
+      "winner_brand": "Fox Club",
+      "distance_m": 3150,
+      "ok": true
+    },
+    {
+      "label": "Borovlyany",
+      "lat": 54.001,
+      "lng": 27.667,
+      "winner_id": "by_3633cd3ae9",
+      "winner_name": "Adrenalin Borovlyany Beryozovaya Roscha",
+      "winner_brand": "Adrenalin",
+      "distance_m": 620,
+      "ok": true
+    },
+    {
+      "label": "Baranavichy",
+      "lat": 53.1327,
+      "lng": 26.0139,
+      "winner_id": "by_fe116c2222",
+      "winner_name": "Adrenalin Luninets Zapadnaya",
+      "winner_brand": "Adrenalin",
+      "distance_m": 110658,
+      "ok": true
+    },
+    {
+      "label": "Barysaw",
+      "lat": 54.2279,
+      "lng": 28.505,
+      "winner_id": "by_3633cd3ae9",
+      "winner_name": "Adrenalin Borovlyany Beryozovaya Roscha",
+      "winner_brand": "Adrenalin",
+      "distance_m": 59696,
+      "ok": true
+    },
+    {
+      "label": "Pinsk",
+      "lat": 52.1229,
+      "lng": 26.0951,
+      "winner_id": "by_798ff81350",
+      "winner_name": "Adrenalin Pinsk Gaydaenko",
+      "winner_brand": "Adrenalin",
+      "distance_m": 391,
+      "ok": true
+    },
+    {
+      "label": "Orsha",
+      "lat": 54.5153,
+      "lng": 30.4247,
+      "winner_id": "by_9e5c072155",
+      "winner_name": "Adrenalin Orsha Flerova",
+      "winner_brand": "Adrenalin",
+      "distance_m": 2445,
+      "ok": true
+    }
+  ],
+  "nearest_failures": []
+}

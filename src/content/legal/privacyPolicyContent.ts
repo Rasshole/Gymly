@@ -210,5 +210,9 @@ const privacyEn: LegalDocument = {
 };
 
 export function getPrivacyPolicyContent(language: AppLanguage): LegalDocument {
-  return language === 'en' ? privacyEn : privacyDa;
+  if (language === 'da') {
+    return privacyDa;
+  }
+  // en + any locale without a reviewed legal pack (e.g. sv) → English
+  return privacyEn;
 }

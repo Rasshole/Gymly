@@ -1,0 +1,806 @@
+{
+  "ie|blanchardstown centre, d15 x624, dublin, ireland": {
+    "lat": 53.3932751,
+    "lng": -6.3920415,
+    "display_name": "Blanchardstown Centre, Blanchardstown-Coolmine DED 1986, Blanchardstown, Fingal, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.0800801594567788,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|52-54 kimmage rd w, d12 x379, dublin, ireland": {
+    "lat": 53.3133515,
+    "lng": -6.3075656,
+    "display_name": "Kimmage Road West, Crumlin, Terenure-Greentrees DED 1986, Dublin, South Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.05341349279011212,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|northwood business campus, d09 px36, dublin, ireland": null,
+  "ie|ben dunne gyms portlaoise, r32 pt9k, portlaoise, ireland": null,
+  "ie|coolmine business park, blanchardstown, ireland": null,
+  "ie|ashleaf shopping centre, cromwellsfort road, crumlin, ireland": null,
+  "ie|elm lawn, sandyford village, dundrum, ireland": null,
+  "ie|63 south great george's street, dublin, ireland": {
+    "lat": 53.3424154,
+    "lng": -6.2649675,
+    "display_name": "Camera Exchange, 63, South Great George's Street, Royal Exchange A Ward 1986, Dublin, County Dublin, Leinster, D02 XE40, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "D02 XE40",
+    "country_code": "ie"
+  },
+  "ie|unit 12c, 13, 14, jervis street shopping centre, 125 abbey street upper, north city, dublin, ireland": null,
+  "ie|northside shopping centre, oscar traynor road, dublin, ireland": {
+    "lat": 53.3965714,
+    "lng": -6.215004,
+    "display_name": "Northside Shopping Centre, Oscar Traynor Road, Kilmore C Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|pearse street, sallynoggin, ireland": {
+    "lat": 53.2764989,
+    "lng": -6.1393566,
+    "display_name": "Pearse Street, Sallynoggin, Dun Laoghaire-Sallynoggin East DED 1986, Dún Laoghaire, Dún Laoghaire-Rathdown, County Dublin, Leinster, A96 PX22, Éire / Ireland",
+    "importance": 0.05341349279011212,
+    "postcode": "A96 PX22",
+    "country_code": "ie"
+  },
+  "ie|south quarter, nevinstown lane, airside retail park, swords, ireland": null,
+  "ie|unit c1-c2, crosswest, tallaght, ireland": null,
+  "ie|cherrywood business park level 2 building 10, dublin, ireland": null,
+  "ie|flyefit flyefit blanchardstown, blanchardstown, ireland": {
+    "lat": 53.3839597,
+    "lng": -6.4022098,
+    "display_name": "FLYEfit, Blanchardstown Road South, Blanchardstown-Coolmine DED 1986, Blanchardstown, Fingal, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|flyefit flyefit crumlin, crumlin, ireland": null,
+  "ie|flyefit, crumlin, ireland": null,
+  "ie|flyefit flyefit dundrum, dundrum, ireland": {
+    "lat": 53.2889437,
+    "lng": -6.2421867,
+    "display_name": "Flyefit Dundrum, Sandyford Road, Dundrum-Kilmacud DED 1986, Dundrum, Dún Laoghaire-Rathdown, Dublin 14, Leinster, D16 KD93, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "D16 KD93",
+    "country_code": "ie"
+  },
+  "ie|flyefit flyefit jervis street, dublin, ireland": null,
+  "ie|flyefit, dublin, ireland": {
+    "lat": 53.3439652,
+    "lng": -6.2412641,
+    "display_name": "Flyefit, Hanover Street East, Dublin Docklands, South Dock Ward 1986, Dublin, County Dublin, Leinster, D02 KP66, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "D02 KP66",
+    "country_code": "ie"
+  },
+  "ie|flyefit flyefit swords, swords, ireland": null,
+  "ie|flyefit, swords, ireland": null,
+  "ie|flyefit flyefit tallaght, tallaght, ireland": {
+    "lat": 53.2878829,
+    "lng": -6.377006,
+    "display_name": "FLYEFIT tallaght, Cookstown Way, Springfield, Tallaght-Springfield DED 1986, Tallaght, South Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|ben dunne gyms ben dunne gyms cherrywood, dublin, ireland": null,
+  "ie|ben dunne gyms, dublin, ireland": null,
+  "ie|northwood business campus, d09 px36, ireland": null,
+  "ie|northwood business campus, dublin, ireland": null,
+  "ie|ben dunne gyms ben dunne gyms northwood, dublin, ireland": null,
+  "ie|ben dunne gyms portlaoise, r32 pt9k, ireland": null,
+  "ie|ben dunne gyms portlaoise, portlaoise, ireland": null,
+  "ie|ben dunne gyms ben dunne gyms portlaoise, portlaoise, ireland": null,
+  "ie|ben dunne gyms, portlaoise, ireland": null,
+  "ie|unit 28, the mill centre, ninth lock road, clondalkin, ireland": null,
+  "ie|anytime fitness anytime fitness clondalkin, clondalkin, ireland": null,
+  "ie|anytime fitness, clondalkin, ireland": {
+    "lat": 53.3243348,
+    "lng": -6.3956521,
+    "display_name": "Anytime Fitness, 9th Lock Road, Clondalkin-Dunawley DED 1986, Clondalkin, South Dublin, County Dublin, Leinster, D22 E9X5, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "D22 E9X5",
+    "country_code": "ie"
+  },
+  "ie|30 kill avenue, dun laoghaire, dublin, ireland": {
+    "lat": 53.2824028,
+    "lng": -6.1504814,
+    "display_name": "30, Kill Avenue, Dun Laoghaire-Monkstown Farm DED 1986, Dún Laoghaire, Dún Laoghaire-Rathdown, County Dublin, Leinster, A96 PR29, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "A96 PR29",
+    "country_code": "ie"
+  },
+  "ie|unit 9, sancton wood building, heuston south quarter, st johns road west, kilmainham, ireland": null,
+  "ie|anytime fitness anytime fitness kilmainham, kilmainham, ireland": null,
+  "ie|anytime fitness, kilmainham, ireland": {
+    "lat": 53.3439922,
+    "lng": -6.2971239,
+    "display_name": "Anytime Fitness, Saint John's Road West, Kilmainham, Ushers A ED, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|kilnamanagh shopping centre, treepark road, kilnamanagh, ireland": {
+    "lat": 53.2994238,
+    "lng": -6.3597343,
+    "display_name": "Kilnamanagh Post Office, Treepark Road, Tallaght-Kilnamanagh DED 1986, Tallaght, South Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|millfield shopping centre naul rd, tankardstown, k32 r761, ireland": null,
+  "ie|millfield shopping centre naul rd, tankardstown, balbriggan, ireland": null,
+  "ie|energie fitness energie fitness balbriggan, balbriggan, ireland": null,
+  "ie|energie fitness, balbriggan, ireland": {
+    "lat": 53.607406,
+    "lng": -6.1965643,
+    "display_name": "énergie Fitness, Chapel Street, Balbriggan Urban DED 1986, Balbriggan, Fingal, County Dublin, Leinster, Éire / Ireland",
+    "importance": 5.5731288624353664e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|unit 30 castle west shopping centre, p31 nx76, ireland": null,
+  "ie|unit 30 castle west shopping centre, ballincollig, ireland": null,
+  "ie|energie fitness energie fitness ballincollig, ballincollig, ireland": null,
+  "ie|energie fitness, ballincollig, ireland": {
+    "lat": 51.8888186,
+    "lng": -8.5911367,
+    "display_name": "énergie Fitness, Unit 29/30, Main Street, Ballincollig, Ballincollig ED, Cork, County Cork, Munster, P31 XN51, Éire / Ireland",
+    "importance": 6.924620431825769e-05,
+    "postcode": "P31 XN51",
+    "country_code": "ie"
+  },
+  "ie|carlow shopping centre kennedy ave, r93 a0e0, ireland": {
+    "lat": 52.8346837,
+    "lng": -6.9273279,
+    "display_name": "Carlow Shopping Centre, Kennedy Avenue, Carlow, Carlow Urban ED, The Municipal District of Carlow, County Carlow, Leinster, Éire / Ireland",
+    "importance": 5.550240329590322e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|unit 8, clarehall retail park 17 malahide rd, d17 x462, ireland": null,
+  "ie|unit 8, clarehall retail park 17 malahide rd, clarehall, ireland": null,
+  "ie|energie fitness energie fitness clarehall, clarehall, ireland": null,
+  "ie|energie fitness, clarehall, ireland": null,
+  "ie|west st, a92 rc99, ireland": {
+    "lat": 53.7156387,
+    "lng": -6.3557616,
+    "display_name": "West Street, Fair Gate ED, The Borough District of Drogheda, County Louth, Leinster, A92 V970, Éire / Ireland",
+    "importance": 0.05339283970397494,
+    "postcode": "A92 V970",
+    "country_code": "ie"
+  },
+  "ie|brabazon hall cork st, d08 xh90, ireland": null,
+  "ie|brabazon hall cork st, dublin 8, ireland": null,
+  "ie|energie fitness energie fitness dublin 8, dublin 8, ireland": null,
+  "ie|energie fitness, dublin 8, ireland": {
+    "lat": 53.3386292,
+    "lng": -6.2802819,
+    "display_name": "énergie Fitness, Cork Street, Merchants Quay C ED, Dublin, County Dublin, Leinster, D08 XH90, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "D08 XH90",
+    "country_code": "ie"
+  },
+  "ie|8 york rd, a96 yx25, ireland": {
+    "lat": 53.2943388,
+    "lng": -6.1430164,
+    "display_name": "énergie Fitness, 8, York Road, Dun Laoghaire-Salthill DED 1986, Dún Laoghaire, Dún Laoghaire-Rathdown, County Dublin, Leinster, A96 YX25, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "A96 YX25",
+    "country_code": "ie"
+  },
+  "ie|unit 4, the elgee building market square, a91 yr9x, ireland": null,
+  "ie|unit 4, the elgee building market square, dundalk, ireland": null,
+  "ie|energie fitness energie fitness dundalk, dundalk, ireland": null,
+  "ie|energie fitness, dundalk, ireland": {
+    "lat": 54.0039779,
+    "lng": -6.403252,
+    "display_name": "énergie Fitness, Market Square, Dundalk No. 1 Urban ED, The Municipal District of Dundalk, County Louth, Leinster, Éire / Ireland",
+    "importance": 5.890516517886652e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|briarhill business park, h91 k8xc, ireland": {
+    "lat": 53.293962,
+    "lng": -8.98965,
+    "display_name": "Briarhill Business Park, Ballybrit, Cathair na Gaillimhe, County Galway, Connacht, Éire / Ireland",
+    "importance": 0.08006588006408787,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|unit 1, abbey river court island rd, st. francis abbey, v94 42v0, ireland": null,
+  "ie|unit 1, abbey river court island rd, st. francis abbey, limerick, ireland": null,
+  "ie|energie fitness energie fitness limerick, limerick, ireland": null,
+  "ie|energie fitness, limerick, ireland": null,
+  "ie|plaza hotel complex belgard road, d24 x2fc, ireland": null,
+  "ie|plaza hotel complex belgard road, tallaght, ireland": null,
+  "ie|energie fitness energie fitness tallaght, tallaght, ireland": null,
+  "ie|energie fitness, tallaght, ireland": {
+    "lat": 53.2829788,
+    "lng": -6.4218172,
+    "display_name": "énergie Fitness, Citywest Road, Fortunestown, Tallaght-Jobstown DED 1986, Saggart, South Dublin, County Dublin, Leinster, D24 X7FY, Éire / Ireland",
+    "importance": 5.435034714270264e-05,
+    "postcode": "D24 X7FY",
+    "country_code": "ie"
+  },
+  "ie|citywest shopping centre citywest rd, d24 td81, ireland": null,
+  "ie|citywest shopping centre citywest rd, citywest, ireland": null,
+  "ie|energie fitness energie fitness citywest, citywest, ireland": null,
+  "ie|energie fitness, citywest, ireland": {
+    "lat": 53.2829788,
+    "lng": -6.4218172,
+    "display_name": "énergie Fitness, Citywest Road, Fortunestown, Tallaght-Jobstown DED 1986, Saggart, South Dublin, County Dublin, Leinster, D24 X7FY, Éire / Ireland",
+    "importance": 5.435034714270264e-05,
+    "postcode": "D24 X7FY",
+    "country_code": "ie"
+  },
+  "ie|market green shopping centre knockgriffin, p25 fp48, ireland": null,
+  "ie|market green shopping centre knockgriffin, midleton, ireland": null,
+  "ie|energie fitness energie fitness midleton, midleton, ireland": null,
+  "ie|energie fitness, midleton, ireland": {
+    "lat": 51.9175498,
+    "lng": -8.1822559,
+    "display_name": "énergie Fitness, Market Green Retail Park, Midleton Rural, The Municipal District of East Cork, County Cork, Munster, Éire / Ireland",
+    "importance": 5.294041351944789e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|devlin road, n91 w5fk, ireland": {
+    "lat": 53.2919813,
+    "lng": -6.304595,
+    "display_name": "Anne Devlin Road, Ballyroan, Rathfarnham-Ballyroan DED 1986, Rathfarnham, South Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.05341349279011212,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|baily point the promenade, h91 w93p, ireland": null,
+  "ie|baily point the promenade, salthill, ireland": null,
+  "ie|energie fitness energie fitness salthill, salthill, ireland": null,
+  "ie|energie fitness, salthill, ireland": {
+    "lat": 53.2593973,
+    "lng": -9.0770019,
+    "display_name": "énergie Fitness, Upper Salthill Road, Salthill, Cathair na Gaillimhe, County Galway, Connacht, H91 A3W9, Éire / Ireland",
+    "importance": 4.466239414049008e-05,
+    "postcode": "H91 A3W9",
+    "country_code": "ie"
+  },
+  "ie|belarmine dr, d18 nw26, ireland": {
+    "lat": 53.2593538,
+    "lng": -6.2196681,
+    "display_name": "Belarmine Drive, Belarmine, Glencullen Electoral Division, Stepaside, Dún Laoghaire-Rathdown, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.05341349279011212,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|killegland walk, milltown, ashbourne, co. meath, a84 hf78, ireland": null,
+  "ie|killegland walk, milltown, ashbourne, co. meath, ashbourne, ireland": null,
+  "ie|gym plus gym plus ashbourne, ashbourne, ireland": null,
+  "ie|gym plus, ashbourne, ireland": {
+    "lat": 53.5112677,
+    "lng": -6.4001045,
+    "display_name": "Gym Plus, Killegland Street, Donaghmore ED, Ashbourne, County Meath, Leinster, A84 E085, Éire / Ireland",
+    "importance": 4.7882047760693024e-05,
+    "postcode": "A84 E085",
+    "country_code": "ie"
+  },
+  "ie|the oval, shelbourne rd, dublin 4, d04 t8f2, ireland": {
+    "lat": 53.3314038,
+    "lng": -6.230938,
+    "display_name": "The Oval, Shelbourne Road, Pembroke West B ED, Dublin, County Dublin, Leinster, D04 FP65, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "D04 FP65",
+    "country_code": "ie"
+  },
+  "ie|2 park place, city gate, mahon, cork, t12 dh0f, ireland": null,
+  "ie|2 park place, city gate, mahon, cork, cork, ireland": null,
+  "ie|gym plus gym plus cork, cork, ireland": null,
+  "ie|gym plus, cork, ireland": {
+    "lat": 51.8865868,
+    "lng": -8.4021489,
+    "display_name": "Gym Plus Cork, City Gate Park, Ballinure, Mahon, Mahon B, Cork, County Cork, Munster, Éire / Ireland",
+    "importance": 6.924620431825769e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|m1 retail park, mell, drogheda, a92 r9tn, ireland": null,
+  "ie|m1 retail park, mell, drogheda, drogheda, ireland": null,
+  "ie|gym plus gym plus drogheda, drogheda, ireland": null,
+  "ie|gym plus, drogheda, ireland": {
+    "lat": 53.7259585,
+    "lng": -6.3899629,
+    "display_name": "Gym Plus, Northern Cross, St. Peter's ED, The Borough District of Drogheda, County Louth, Leinster, Éire / Ireland",
+    "importance": 5.950637064159636e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|monread ave, monread south, naas, w91 x67a, ireland": null,
+  "ie|monread ave, monread south, naas, naas, ireland": null,
+  "ie|gym plus gym plus naas, naas, ireland": null,
+  "ie|gym plus, naas, ireland": {
+    "lat": 53.2322543,
+    "lng": -6.6532563,
+    "display_name": "Gym Plus Naas, Monread Avenue, Naas Urban ED, The Municipal District of Naas, County Kildare, Leinster, W91 X67A, Éire / Ireland",
+    "importance": 5.5406271457954034e-05,
+    "postcode": "W91 X67A",
+    "country_code": "ie"
+  },
+  "ie|nutgrove retail park, nutgrove ave, rathfarnham, d14 y3c5, ireland": {
+    "lat": 53.2919142,
+    "lng": -6.2699364,
+    "display_name": "Nutgrove Retail Park, Nutgrove Avenue, Whitehall, Loreto, Nutgrove, Rathfarnham South ED, Dundrum, Dún Laoghaire-Rathdown, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|applewood village, swords, k67 y5f2, ireland": {
+    "lat": 53.4710836,
+    "lng": -6.2321066,
+    "display_name": "Applewood Village, Swords-Lissenhall DED 1986, Swords, Fingal, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.0800801594567788,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aston quay, dublin 2, dublin, ireland": {
+    "lat": 53.3469044,
+    "lng": -6.2592283,
+    "display_name": "Aston Quay, Royal Exchange A ED, Dublin, County Dublin, Leinster, D02 FH28, Éire / Ireland",
+    "importance": 0.05341349279011212,
+    "postcode": "D02 FH28",
+    "country_code": "ie"
+  },
+  "ie|clontarf, dublin 3, dublin, ireland": {
+    "lat": 53.3608138,
+    "lng": -6.1968538,
+    "display_name": "Clontarf, Clontarf East C Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.45356092873116677,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|dún laoghaire, co. dublin, dún laoghaire, ireland": {
+    "lat": 53.2949981,
+    "lng": -6.1347403,
+    "display_name": "Dún Laoghaire Mallin, Crofton Road, Dun Laoghaire-West Central DED 1986, Dún Laoghaire, Dún Laoghaire-Rathdown, County Dublin, Leinster, A96 K6C9, Éire / Ireland",
+    "importance": 0.2853231881743613,
+    "postcode": "A96 K6C9",
+    "country_code": "ie"
+  },
+  "ie|leopardstown, dublin 18, dublin, ireland": {
+    "lat": 53.2747217,
+    "lng": -6.1927577,
+    "display_name": "Leopardstown, Stillorgan-Leopardstown DED 1986, Blackrock, Dún Laoghaire-Rathdown, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.14674682612344545,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|sandymount, dublin 4, dublin, ireland": {
+    "lat": 53.3279999,
+    "lng": -6.2209624,
+    "display_name": "Sandymount, Sandymount Avenue, Sandymount, Pembroke East B Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.31568281446101826,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|westmanstown, dublin 15, dublin, ireland": {
+    "lat": 53.3757752,
+    "lng": -6.4481337,
+    "display_name": "Westmanstown, Lucan North DED 1986, Fingal, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.1333890646219577,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre, drogheda, drogheda, ireland": null,
+  "ie|aura leisure aura leisure drogheda, drogheda, ireland": null,
+  "ie|aura leisure, drogheda, ireland": {
+    "lat": 53.7129057,
+    "lng": -6.3743417,
+    "display_name": "Aura Leisure & Fitness, Marley's Lane, St. Mary's ED, The Borough District of Drogheda, County Louth, Leinster, Éire / Ireland",
+    "importance": 5.950637064159636e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre, dublin, dublin, ireland": null,
+  "ie|aura leisure aura leisure dublin navan road, dublin, ireland": null,
+  "ie|aura leisure, dublin, ireland": null,
+  "ie|aura leisure centre, dundalk, dundalk, ireland": null,
+  "ie|aura leisure aura leisure dundalk, dundalk, ireland": null,
+  "ie|aura leisure, dundalk, ireland": null,
+  "ie|aura leisure centre, limerick, limerick, ireland": null,
+  "ie|aura leisure aura leisure grove island, limerick, ireland": null,
+  "ie|aura leisure, limerick, ireland": null,
+  "ie|aura leisure centre, leitrim, leitrim, ireland": {
+    "lat": 53.9482946,
+    "lng": -8.0809736,
+    "display_name": "Aura Leisure Centre, Glencarraig, Carrick on Shannon ED, Carrick-on-Shannon Municipal District, County Leitrim, Connacht, Éire / Ireland",
+    "importance": 5.047302967875208e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre, letterkenny, letterkenny, ireland": {
+    "lat": 54.9461515,
+    "lng": -7.7503267,
+    "display_name": "Aura Leisure Centre, Ballymacool Street, Sallaghagrane, Letterkenny Rural ED, Letterkenny Municipal District, County Donegal, Ulster, Éire / Ireland",
+    "importance": 6.447623407335038e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre, lucan, lucan, ireland": null,
+  "ie|aura leisure aura leisure lucan, lucan, ireland": null,
+  "ie|aura leisure, lucan, ireland": null,
+  "ie|aura leisure centre, navan, navan, ireland": null,
+  "ie|aura leisure aura leisure navan, navan, ireland": null,
+  "ie|aura leisure, navan, ireland": null,
+  "ie|aura leisure centre, trim, trim, ireland": {
+    "lat": 53.5533681,
+    "lng": -6.7999961,
+    "display_name": "Aura Trim Leisure Centre, The Gallops, Trim Rural ED, The Municipal District of Trim, County Meath, Leinster, Éire / Ireland",
+    "importance": 5.1411459525398906e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre, tullamore, tullamore, ireland": {
+    "lat": 53.2687957,
+    "lng": -7.4751628,
+    "display_name": "Aura Leisure Centre, Cloncollig Housing Estate, Tullamore, The Municipal District of Tullamore, County Offaly, Leinster, Éire / Ireland",
+    "importance": 5.3739986266834784e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre, youghal, youghal, ireland": {
+    "lat": 51.9358346,
+    "lng": -7.858808,
+    "display_name": "Aura Leisure Centre, Front Strand, Youghal Urban, The Municipal District of East Cork, County Cork, Munster, Éire / Ireland",
+    "importance": 5.424811169599477e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|dartry, dublin 6, dublin, ireland": {
+    "lat": 53.3099564,
+    "lng": -6.2631069,
+    "display_name": "Dartry, Rathfarham Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.3425880974885877,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|dublin city centre, dublin, ireland": {
+    "lat": 53.3487775,
+    "lng": -6.2431541,
+    "display_name": "National College of Ireland - Campus 1, Mayor Square, IFSC II, International Financial Services Centre, North Dock C ED, Dublin, County Dublin, Leinster, D01 DE47, Éire / Ireland",
+    "importance": 0.32221217881594816,
+    "postcode": "D01 DE47",
+    "country_code": "ie"
+  },
+  "ie|ifsc, dublin 1, dublin, ireland": {
+    "lat": 53.3493935,
+    "lng": -6.2458626,
+    "display_name": "International Financial Services Centre, North Dock C ED, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.29754280206928735,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|smithfield, dublin 7, dublin, ireland": {
+    "lat": 53.3484314,
+    "lng": -6.2782374,
+    "display_name": "Smithfield, Arran Quay C Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 0.42076810418755856,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|shoreline leisure, bray, bray, ireland": {
+    "lat": 53.1832231,
+    "lng": -6.1238784,
+    "display_name": "Shoreline Leisure Bray, Southern Cross Road, Ballywaltrim, Kilmacanoge ED, The Municipal District of Bray, County Wicklow, Leinster, Éire / Ireland",
+    "importance": 5.651712825203353e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|shoreline leisure, greystones, greystones, ireland": {
+    "lat": 53.1359307,
+    "lng": -6.0650606,
+    "display_name": "Shoreline Leisure Greystones, Mill Road, Greystones ED, The Municipal District of Greystones, County Wicklow, Leinster, Éire / Ireland",
+    "importance": 5.651712825203353e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|swan leisure, cork, cork, ireland": null,
+  "ie|swan leisure swan leisure cork, cork, ireland": null,
+  "ie|swan leisure, cork, ireland": null,
+  "ie|sportsco, dublin docklands, dublin, ireland": null,
+  "ie|sportsco sportsco fitness centre, dublin, ireland": null,
+  "ie|sportsco, dublin, ireland": {
+    "lat": 53.3389141,
+    "lng": -6.2297677,
+    "display_name": "Sportsco, Bath Avenue Gardens, Pembroke West A Ward, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|perpetua fitness, dublin, dublin, ireland": null,
+  "ie|perpetua fitness perpetua fitness dublin, dublin, ireland": null,
+  "ie|perpetua fitness, dublin, ireland": null,
+  "ie|anytime fitness kilmainham, ireland": {
+    "lat": 53.3439922,
+    "lng": -6.2971239,
+    "display_name": "Anytime Fitness, Saint John's Road West, Kilmainham, Ushers A Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|anytime fitness kilnamanagh, ireland": null,
+  "ie|anytime fitness kilnamanagh, kilnamanagh, ireland": null,
+  "ie|aura leisure centre drogheda, ireland": null,
+  "ie|aura drogheda leisure, ireland": null,
+  "ie|aura leisure drogheda, ireland": {
+    "lat": 53.7129057,
+    "lng": -6.3743417,
+    "display_name": "Aura Leisure & Fitness, Marley's Lane, St. Mary's ED, The Borough District of Drogheda, County Louth, Leinster, Éire / Ireland",
+    "importance": 5.950637064159636e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre dublin, ireland": null,
+  "ie|aura dublin leisure, ireland": null,
+  "ie|aura leisure dublin, ireland": null,
+  "ie|aura leisure dublin navan road, dublin, ireland": null,
+  "ie|aura leisure centre dundalk, ireland": null,
+  "ie|aura dundalk leisure, ireland": null,
+  "ie|aura leisure dundalk, ireland": null,
+  "ie|aura leisure dundalk, dundalk, ireland": null,
+  "ie|aura leisure centre limerick, ireland": null,
+  "ie|aura limerick leisure, ireland": null,
+  "ie|aura leisure limerick, ireland": null,
+  "ie|aura leisure grove island, limerick, ireland": null,
+  "ie|aura leisure centre leitrim, ireland": {
+    "lat": 53.9482946,
+    "lng": -8.0809736,
+    "display_name": "Aura Leisure Centre, Glencarraig, Carrick on Shannon ED, Carrick-on-Shannon Municipal District, County Leitrim, Connacht, Éire / Ireland",
+    "importance": 5.047302967875208e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre letterkenny, ireland": {
+    "lat": 54.9461515,
+    "lng": -7.7503267,
+    "display_name": "Aura Leisure Centre, Ballymacool Street, Sallaghagrane, Letterkenny Rural ED, Letterkenny Municipal District, County Donegal, Ulster, Éire / Ireland",
+    "importance": 6.447623407335038e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre lucan, ireland": null,
+  "ie|aura lucan leisure, ireland": null,
+  "ie|aura leisure lucan, ireland": null,
+  "ie|aura leisure lucan, lucan, ireland": null,
+  "ie|aura leisure centre navan, ireland": null,
+  "ie|aura navan leisure, ireland": null,
+  "ie|aura leisure navan, ireland": null,
+  "ie|aura leisure navan, navan, ireland": null,
+  "ie|aura leisure centre trim, ireland": {
+    "lat": 53.5533681,
+    "lng": -6.7999961,
+    "display_name": "Aura Trim Leisure Centre, The Gallops, Trim Rural ED, The Municipal District of Trim, County Meath, Leinster, Éire / Ireland",
+    "importance": 5.1411459525398906e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre tullamore, ireland": {
+    "lat": 53.2687957,
+    "lng": -7.4751628,
+    "display_name": "Aura Leisure Centre, Eiscir Riada, Tullamore, The Municipal District of Tullamore, County Offaly, Leinster, Éire / Ireland",
+    "importance": 5.3739986266834784e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre youghal, ireland": {
+    "lat": 51.9358346,
+    "lng": -7.858808,
+    "display_name": "Aura Leisure Centre, Front Strand, Youghal Urban, The Municipal District of East Cork, County Cork, Munster, Éire / Ireland",
+    "importance": 5.424811169599477e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|ben dunne gyms dublin, ireland": null,
+  "ie|ben dunne gyms cherrywood, dublin, ireland": null,
+  "ie|ben dunne gyms northwood, dublin, ireland": null,
+  "ie|ben dunne gyms portlaoise, ireland": null,
+  "ie|energie fitness clarehall, ireland": null,
+  "ie|energie fitness clarehall, clarehall, ireland": null,
+  "ie|energie fitness limerick, ireland": null,
+  "ie|energie fitness limerick, limerick, ireland": null,
+  "ie|flyefit blanchardstown, ireland": {
+    "lat": 53.3839597,
+    "lng": -6.4022098,
+    "display_name": "FLYEfit, Blanchardstown Road South, Blanchardstown-Coolmine DED 1986, Blanchardstown, Fingal, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|flyefit crumlin, ireland": {
+    "lat": 53.3162945,
+    "lng": -6.3185742,
+    "display_name": "FLYEfit Crumlin, Cromwellsfort Road, Terenure-Cherryfield DED 1986, Dublin, South Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|flyefit dublin, ireland": {
+    "lat": 53.3320982,
+    "lng": -6.2662931,
+    "display_name": "Flyefit, 8-10, Harrington Street, Portobello, Saint Kevins Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|flyefit swords, ireland": null,
+  "ie|flyefit swords, swords, ireland": null,
+  "ie|flyefit tallaght, ireland": {
+    "lat": 53.2878829,
+    "lng": -6.377006,
+    "display_name": "FLYEFIT tallaght, Cookstown Way, Springfield, Tallaght-Springfield DED 1986, Tallaght, South Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|iconic health club iconic health clubs dartry, dublin, ireland": null,
+  "ie|iconic dublin gym dublin": null,
+  "ie|iconic health clubs dublin, ireland": null,
+  "ie|iconic health clubs dartry, dublin, ireland": null,
+  "ie|iconic health club iconic health clubs ifsc, dublin, ireland": null,
+  "ie|iconic health clubs ifsc, dublin, ireland": null,
+  "ie|iconic health club iconic health clubs smithfield, dublin, ireland": null,
+  "ie|iconic health clubs smithfield, dublin, ireland": null,
+  "ie|shoreline leisure bray, ireland": {
+    "lat": 53.1832231,
+    "lng": -6.1238784,
+    "display_name": "Shoreline Leisure Bray, Southern Cross Road, Ballywaltrim, Kilmacanoge ED, The Municipal District of Bray, County Wicklow, Leinster, Éire / Ireland",
+    "importance": 5.651712825203353e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|shoreline leisure greystones, ireland": {
+    "lat": 53.1359307,
+    "lng": -6.0650606,
+    "display_name": "Shoreline Leisure Greystones, Mill Road, Greystones ED, The Municipal District of Greystones, County Wicklow, Leinster, Éire / Ireland",
+    "importance": 5.651712825203353e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|west wood club dublin, dublin, ireland": {
+    "lat": 53.3632123,
+    "lng": -6.2290091,
+    "display_name": "West Wood Club, Clontarf Road, Marino, Clontarf West D ED, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre marley's lane drogheda ireland": null,
+  "ie|marley's lane drogheda co louth ireland": {
+    "lat": 53.7095944,
+    "lng": -6.3748843,
+    "display_name": "Marley's Lane, St. Mary's ED, The Borough District of Drogheda, County Louth, Leinster, Éire / Ireland",
+    "importance": 0.05339283970397494,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|aura leisure centre st alphonsus road dundalk ireland": null,
+  "ie|a91 yw90 ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|aura grove island leisure centre corbally limerick": null,
+  "ie|aura leitrim leisure centre attifinlay carrick-on-shannon": null,
+  "ie|aura letterkenny complex sallaghagrane letterkenny": null,
+  "ie|aura lucan leisure centre griffeen valley park lucan": null,
+  "ie|aura leisurelink navan windtown road navan": null,
+  "ie|aura trim leisure centre newhaggard road trim": null,
+  "ie|aura tullamore leisure centre hophill road r35 a594": null,
+  "ie|aura youghal leisure centre claycastle youghal": null,
+  "ie|west wood club clontarf road dublin 3 d03 t6t3": {
+    "lat": 53.3632123,
+    "lng": -6.2290091,
+    "display_name": "West Wood Club, Clontarf Road, Marino, Clontarf West D Ward 1986, Dublin, County Dublin, Leinster, Éire / Ireland",
+    "importance": 8.015945677877496e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|west wood club leopardstown race course foxrock d18 c9v6": null,
+  "ie|west wood club 1a st johns road sandymount d04 h3k2": null,
+  "ie|west wood club westmanstown clonsilla d15 t447": null,
+  "ie|ben dunne gyms northwood business park d09 px36": null,
+  "ie|d09 px36 ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|ben dunne gyms lisamard business park portlaoise r32 pt9k": null,
+  "ie|r32 pt9k ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|ben dunne gyms cherrywood business park dublin 18": null,
+  "ie|bd gyms cherrywood park cherrywood dublin": null,
+  "ie|anytime fitness heuston south quarter st johns road west dublin": null,
+  "ie|anytime fitness kilmainham sancton wood dublin": null,
+  "ie|anytime fitness kilnamanagh shopping centre treepark road": null,
+  "ie|flyefit coolmine business park blanchardstown": null,
+  "ie|flyefit ashleaf shopping centre cromwellsfort road": null,
+  "ie|flyefit northside shopping centre oscar traynor road": null,
+  "ie|flyefit airside retail park nevinstown lane swords": null,
+  "ie|flyefit crosswest tallaght": null,
+  "ie|energie fitness clarehall retail park d17 x462": null,
+  "ie|d17 x462 ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|energie fitness abbey river court island road limerick v94 42v0": null,
+  "ie|v94 42v0 ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|energie fitness plaza hotel belgard road tallaght d24 x2fc": null,
+  "ie|d24 x2fc ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|energie fitness citywest shopping centre d24 td81": null,
+  "ie|d24 td81 ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|iconic health club dartry dublin": null,
+  "ie|iconic health club ifsc dublin": null,
+  "ie|iconic health club smithfield dublin": null,
+  "ie|one escape health club smithfield dublin": null,
+  "ie|shoreline leisure bray southern cross road a98 f585": {
+    "lat": 53.1832231,
+    "lng": -6.1238784,
+    "display_name": "Shoreline Leisure Bray, Southern Cross Road, Ballywaltrim, Kilmacanoge ED, The Municipal District of Bray, County Wicklow, Leinster, Éire / Ireland",
+    "importance": 5.651712825203353e-05,
+    "postcode": "",
+    "country_code": "ie"
+  },
+  "ie|a98 f585 ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  },
+  "ie|shoreline leisure greystones 69 mill road a63 hd25": null,
+  "ie|a63 hd25 ireland": {
+    "lat": 53.3411249,
+    "lng": -6.2545,
+    "display_name": "National Library of Ireland, 7/8, Kildare Street, Mansion House B ED, Dublin, County Dublin, Leinster, D02 P638, Éire / Ireland",
+    "importance": 0.5922841716547703,
+    "postcode": "D02 P638",
+    "country_code": "ie"
+  }
+}

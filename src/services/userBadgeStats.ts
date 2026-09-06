@@ -144,6 +144,8 @@ const emptyStats = (): UserBadgeStats => ({
   planned_workouts_completed_valid: 0,
   early_check_ins: 0,
   late_check_ins: 0,
+  total_logged_sets: 0,
+  total_pr_events: 0,
 });
 
 async function countPlannedCompletedValid(
@@ -199,9 +201,19 @@ export async function buildUserBadgeStats(userId: string): Promise<UserBadgeStat
   let msgCount = 0;
   let threadIds: string[] = [];
   let plannedCreated = 0;
+  let loggedSets = 0;
+  let prEvents = 0;
 
   try {
-    const [ciRes, frRes, dmCountRes, dmThreadsRes, pwCreatedRes] = await Promise.all([
+    const [
+      ciRes,
+      frRes,
+      dmCountRes,
+      dmThreadsRes,
+      pwCreatedRes,
+      setsCountRes,
+      prCountRes,
+    ] = await Promise.all([
       supabase
         .from('check_ins')
         .select(
@@ -223,6 +235,14 @@ export async function buildUserBadgeStats(userId: string): Promise<UserBadgeStat
         .from('planned_workouts')
         .select('id', {count: 'exact', head: true})
         .eq('creator_user_id', userId),
+      supabase
+        .from('workout_sets')
+        .select('id', {count: 'exact', head: true})
+        .eq('user_id', userId),
+      supabase
+        .from('personal_record_events')
+        .select('id', {count: 'exact', head: true})
+        .eq('user_id', userId),
     ]);
 
     if (!ciRes.error && ciRes.data) {
@@ -239,6 +259,12 @@ export async function buildUserBadgeStats(userId: string): Promise<UserBadgeStat
     }
     if (!pwCreatedRes.error && typeof pwCreatedRes.count === 'number') {
       plannedCreated = pwCreatedRes.count;
+    }
+    if (!setsCountRes.error && typeof setsCountRes.count === 'number') {
+      loggedSets = setsCountRes.count;
+    }
+    if (!prCountRes.error && typeof prCountRes.count === 'number') {
+      prEvents = prCountRes.count;
     }
   } catch {
     return {
@@ -326,5 +352,7 @@ export async function buildUserBadgeStats(userId: string): Promise<UserBadgeStat
     planned_workouts_completed_valid: plannedCompletedValid,
     early_check_ins,
     late_check_ins,
+    total_logged_sets: loggedSets,
+    total_pr_events: prEvents,
   };
 }

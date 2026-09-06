@@ -1,0 +1,28 @@
+{
+  "country": "Estonia",
+  "phase": 1,
+  "maps": [
+    {
+      "legacy_brand": "MyFitness EE",
+      "current_brand": "MyFitness",
+      "classification": "B_distinct_national_estate",
+      "evidence": "Separate from MyFitness LV; ee_* prefix"
+    },
+    {
+      "legacy_brand": "Gym!",
+      "current_brand": "Gym!",
+      "classification": "B_distinct_national_estate",
+      "evidence": "Gym Eesti OÜ — NOT Gym+ Lithuania"
+    },
+    {
+      "legacy_brand": "Lemon Gym EE",
+      "current_brand": "Lemon Gym",
+      "classification": "E_sub_threshold",
+      "evidence": "Only 2 EE sites — below Class A threshold"
+    }
+  ],
+  "unresolved_conflicts": 0,
+  "excluded_aggregators": [
+    "MultiSport directory-only listings"
+  ]
+}

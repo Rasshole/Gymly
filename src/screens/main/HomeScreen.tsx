@@ -38,6 +38,7 @@ import {
 } from '@/services/supabase/workoutPostService';
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
+import {WorkoutSnapshotCard} from '@/components/personalRecords/WorkoutSnapshotCard';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
 import {spacing, typography, radius, shadows, letterSpacing} from '@/theme/designTokens';
@@ -65,8 +66,13 @@ import {
 import {formatDurationIgang} from '@/utils/activeSessionFormat';
 import {sortActiveNowFriendRows} from '@/utils/sortActiveUsersForDisplay';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
+import {useWeeklySummary} from '@/hooks/useWeeklySummary';
+import WeeklySummarySection from '@/components/home/WeeklySummarySection';
+import HomeYourGroupsSection from '@/components/home/HomeYourGroupsSection';
 import {useBadgeStore} from '@/store/badgeStore';
 import * as streak from '@/utils/streakUtils';
+import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
+import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
 import {useLocalCentersActivity} from '@/hooks/useLocalCentersActivity';
 import type {LocalCenterActivity} from '@/services/supabase/localCentersActivityService';
 import {findGymById} from '@/utils/gymDisplay';
@@ -86,6 +92,9 @@ type HomeScreenNavigationProp = StackNavigationProp<any>;
 
 /** Home layout rhythm — 20px screen gutters, 24px between sections */
 const HOME_H_PADDING = 20;
+
+/** Midlertidigt: sæt til true for at teste ugens sammendrag uden for mandage. */
+const SHOW_WEEKLY_SUMMARY = false;
 const SECTION_GAP = 24;
 
 const FRIENDS: Array<{id: string; name: string}> = [];
@@ -215,6 +224,7 @@ type FeedPhotoProps = {
 
 const FeedPhoto = memo(
   ({item, onDoubleTapLike, onLayoutMeasured, userBicepsEmoji}: FeedPhotoProps) => {
+    const {t} = useTranslation();
     if (!item.photoUri) {
       const workoutParts = (item.workoutInfo ?? '')
         .split('·')
@@ -225,7 +235,7 @@ const FeedPhoto = memo(
       const workoutText = workoutParts[2] ?? rt('notifications.workoutDefault');
       return (
         <View style={styles.feedNoImageCard}>
-          <Text style={styles.feedNoImageEyebrow}>🔥 SESSION DELT</Text>
+          <Text style={styles.feedNoImageEyebrow}>🔥 {t('phase2ui.sessionSharedEyebrow')}</Text>
           <Text style={styles.feedNoImageDuration}>{durationText.toUpperCase()}</Text>
           <Text style={styles.feedNoImageWorkout}>{workoutText}</Text>
           <Text style={styles.feedNoImageCenter} numberOfLines={1}>
@@ -428,8 +438,9 @@ const HomeScreen = () => {
 
   useFocusEffect(
     useCallback(() => {
-      if (user?.id) {
+      if (user?.id && isFocusRefreshStale(`home:local-centers:${user.id}`, 60_000)) {
         void refreshLocalCenters();
+        markFocusRefreshed(`home:local-centers:${user.id}`);
       }
     }, [user?.id, refreshLocalCenters]),
   );
@@ -467,12 +478,21 @@ const HomeScreen = () => {
           participants: [{id: friendId, name: friendName}],
         });
       } catch (e) {
-        Alert.alert('Besked', (e as Error).message);
+        Alert.alert(t('friendProfile.messageAlertTitle'), (e as Error).message);
       }
     },
     [currentUser, getChatByParticipants, navigation, upsertChat],
   );
   const trainingStats = useUserTrainingStats(user?.id);
+  const showWeeklySummary =
+    SHOW_WEEKLY_SUMMARY || new Date().getDay() === 1;
+  const weeklySummary = useWeeklySummary(
+    user?.id,
+    user?.displayName?.trim() || 'Dig',
+    trainingStats.recentSessions,
+    trainingStats.currentStreakDays,
+    showWeeklySummary,
+  );
   const dashboardStreak = trainingStats.currentStreakDays;
   const dashboardWeeklyCheckins = trainingStats.totalCheckIns;
   const dashboardWeeklyMinutes = trainingStats.totalTrainingMinutes;
@@ -484,13 +504,8 @@ const HomeScreen = () => {
     const icon = streak.getStreakIcon(dashboardStreak);
     return icon ? `${icon} ${dashboardStreak}` : String(dashboardStreak);
   }, [dashboardStreak]);
-  useEffect(() => {
-    if (__DEV__) {
-      console.log('[HomeScreen] stats read', {dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes});
-    }
-  }, [dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes]);
   const safeAreaBottom = insets?.bottom ?? 0;
-  const {feedItems} = useFeedStore();
+  const feedItems = useFeedStore(s => s.feedItems);
   const feedPostIds = useMemo(() => feedItems.map(item => item.id), [feedItems]);
   const engagement = usePostEngagement(feedPostIds, user?.id);
   const feedReactions = engagement.reactions;
@@ -597,8 +612,13 @@ const HomeScreen = () => {
     })();
   }, [bicepsListVisible, bicepsListPostId, feedReactions]);
 
+  const feedAuthorIds = useMemo(
+    () => [...new Set(feedItems.map(item => item.userId).filter(Boolean) as string[])],
+    [feedPostIds],
+  );
+
   useEffect(() => {
-    const authorIds = [...new Set(feedItems.map(item => item.userId).filter(Boolean) as string[])];
+    const authorIds = feedAuthorIds;
     if (authorIds.length === 0) {
       setAuthorStatsByUserId({});
       return;
@@ -608,6 +628,7 @@ const HomeScreen = () => {
       return;
     }
     let mounted = true;
+    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
     const load = async () => {
       try {
         const next = await getUserStatsMap(authorIds);
@@ -620,13 +641,24 @@ const HomeScreen = () => {
         }
       }
     };
+    const scheduleReload = () => {
+      if (debounceTimer) {
+        clearTimeout(debounceTimer);
+      }
+      debounceTimer = setTimeout(() => {
+        void load();
+      }, 800);
+    };
     void load();
-    const unsubs = authorIds.map(id => subscribeUserStats(id, () => void load()));
+    const unsubs = authorIds.map(id => subscribeUserStats(id, scheduleReload));
     return () => {
       mounted = false;
+      if (debounceTimer) {
+        clearTimeout(debounceTimer);
+      }
       unsubs.forEach(fn => fn());
     };
-  }, [feedItems]);
+  }, [feedAuthorIds]);
 
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 30000);
@@ -678,11 +710,15 @@ const HomeScreen = () => {
         ]),
       );
       pulseLoop.start();
-      void trainingStats.refresh();
-      if (user?.id && !isDemoContentMode()) {
-        refreshWorkoutFeedFromServerForHome(user.id).catch(() => {});
+      const homeDataKey = user?.id ? `home:data:${user.id}` : 'home:data:anon';
+      if (isFocusRefreshStale(homeDataKey, 45_000)) {
+        void trainingStats.refresh();
+        if (user?.id && !isDemoContentMode()) {
+          refreshWorkoutFeedFromServerForHome(user.id).catch(() => {});
+        }
+        void refreshGymlyActiveNow();
+        markFocusRefreshed(homeDataKey);
       }
-      void refreshGymlyActiveNow();
       return () => {
         pulseLoop.stop();
       };
@@ -1166,7 +1202,7 @@ const HomeScreen = () => {
   };
 
   const openReels = (itemId: string) => {
-    const videoItems = feedItems.filter(item => item.videoUri && item.type === 'pr');
+    const videoItems = feedItems.filter(item => Boolean(item.videoUri));
     const startIndex = videoItems.findIndex(item => item.id === itemId);
     if (startIndex >= 0) {
       setReelsItems(videoItems);
@@ -1320,7 +1356,7 @@ const HomeScreen = () => {
     
     // Check each video item
     feedItems.forEach(item => {
-      if (item.videoUri && item.type === 'pr') {
+      if (item.videoUri) {
         const layout = feedVideoLayouts.current[item.id];
         if (layout) {
           const videoTop = layout.y;
@@ -1419,7 +1455,7 @@ const HomeScreen = () => {
                 compact
                 emoji="⏰"
                 label={t('home.minutesTrained')}
-                value={dashboardWeeklyMinutes}
+                value={formatWorkoutDuration(dashboardWeeklyMinutes)}
               />
             </View>
             <View style={styles.statCardWrapper}>
@@ -1485,6 +1521,8 @@ const HomeScreen = () => {
             )}
           </DashboardSection>
 
+          <HomeYourGroupsSection />
+
           {/* 3. Aktive nu — globalt antal + venneliste (check_ins) */}
           <DashboardSection title={t('home.activeNow')}>
             <View style={styles.activeNowCounterRow}>
@@ -1518,6 +1556,9 @@ const HomeScreen = () => {
                           workoutType: f.workoutType ?? undefined,
                           centerName: f.gymName,
                           startedAt: f.startedAt,
+                          liveExerciseName: f.liveExerciseName,
+                          liveSetCount: f.liveSetCount,
+                          liveExerciseCount: f.liveExerciseCount,
                         };
                         return (
                       <TouchableOpacity
@@ -1536,10 +1577,18 @@ const HomeScreen = () => {
                             {f.displayName}
                           </Text>
                           <Text style={styles.onlineUserGymList} numberOfLines={2}>
-                            {f.gymName} · {formatWorkoutTypeDisplay(f.workoutType)}
+                            {f.liveExerciseName
+                              ? `${f.liveExerciseName}${
+                                  f.liveSetCount != null
+                                    ? ` · ${f.liveSetCount} sæt`
+                                    : ''
+                                }`
+                              : `${f.gymName} · ${formatWorkoutTypeDisplay(f.workoutType)}`}
                           </Text>
                           <Text style={styles.onlineUserSessionList} numberOfLines={1}>
-                            {formatDurationIgang(f.startedAt, durationNow)}
+                            {f.liveExerciseCount != null && f.liveExerciseCount > 0
+                              ? `${f.liveExerciseCount} øvelser logget`
+                              : formatDurationIgang(f.startedAt, durationNow)}
                           </Text>
                         </View>
                       </TouchableOpacity>
@@ -1582,6 +1631,14 @@ const HomeScreen = () => {
 
         {/* Feed */}
         <React.Fragment>
+        {showWeeklySummary && user?.id ? (
+          <WeeklySummarySection
+            userId={user.id}
+            personal={weeklySummary.personal}
+            friends={weeklySummary.friends}
+            friendsLoading={weeklySummary.friendsLoading}
+          />
+        ) : null}
         {feedItems.length === 0 ? (
           <View style={styles.emptyPreview}>
             <Text style={styles.emptyPreviewText}>{t('home.feedEmptyTitle')}</Text>
@@ -1661,7 +1718,9 @@ const HomeScreen = () => {
                   </Text>
                 </View>
               ) : null}
-              {item.type === 'photo' && (
+
+              {/* Media always renders when present — never gated by PR type */}
+              {item.photoUri ? (
                 <>
                   <FeedPhoto
                     item={item}
@@ -1677,99 +1736,124 @@ const HomeScreen = () => {
                         <Text style={styles.feedRatingEmoji}>
                           {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
                         </Text>
-                        <Text style={styles.feedHighlightSecondaryText}>Session delt</Text>
+                        <Text style={styles.feedHighlightSecondaryText}>{t('phase2ui.sessionShared')}</Text>
                       </View>
                     </View>
                   )}
                 </>
-              )}
-              {item.type === 'pr' && (
-                <>
-                  {item.videoUri && (
-                    <GestureDetector
-                      gesture={Gesture.Exclusive(
-                        Gesture.Tap()
-                          .numberOfTaps(2)
-                          .maxDelay(250)
-                          .maxDistance(10)
-                          .onEnd(() => {
-                            // Only like if not already liked
-                            const isCurrentlyLiked = feedReactions[item.id]?.liked ?? false;
-                            if (!isCurrentlyLiked) {
-                              runOnJS(likeOnly)(item.id);
-                            }
-                          }),
-                        Gesture.Tap()
-                          .numberOfTaps(1)
-                          .onEnd(() => {
-                            runOnJS(openReels)(item.id);
-                          })
-                      )}>
-                      <View 
-                        style={styles.feedVideoContainer}
-                        onLayout={event => {
-                          const layout = event.nativeEvent.layout;
-                          const cardLayout = feedCardLayouts.current[item.id];
-                          // Calculate absolute position relative to scroll view
-                          const absoluteY = (cardLayout?.y || 0) + layout.y;
-                          feedVideoLayouts.current[item.id] = {
-                            y: absoluteY,
-                            height: layout.height,
-                          };
-                        }}>
-                        <Video
-                          ref={ref => {
-                            if (ref) {
-                              feedVideoRefs.current[item.id] = ref;
-                            }
-                          }}
-                          source={{uri: item.videoUri}}
-                          style={styles.feedVideoThumbnail}
-                          resizeMode="cover"
-                          paused={!playingFeedVideos.has(item.id)}
-                          muted={true}
-                          repeat={true}
-                          playInBackground={false}
-                          playWhenInactive={false}
-                          poster={item.videoThumbnailUri}
-                          ignoreSilentSwitch="ignore"
-                          progressUpdateInterval={250}
-                        />
-                      </View>
-                    </GestureDetector>
-                  )}
-                  <View style={styles.feedHighlight}>
-                    <Icon name="trophy" size={18} color="#FACC15" />
-                    <Text style={styles.feedHighlightText}>Ny PR</Text>
+              ) : item.videoUri ? (
+                <GestureDetector
+                  gesture={Gesture.Exclusive(
+                    Gesture.Tap()
+                      .numberOfTaps(2)
+                      .maxDelay(250)
+                      .maxDistance(10)
+                      .onEnd(() => {
+                        const isCurrentlyLiked = feedReactions[item.id]?.liked ?? false;
+                        if (!isCurrentlyLiked) {
+                          runOnJS(likeOnly)(item.id);
+                        }
+                      }),
+                    Gesture.Tap()
+                      .numberOfTaps(1)
+                      .onEnd(() => {
+                        runOnJS(openReels)(item.id);
+                      }),
+                  )}>
+                  <View
+                    style={styles.feedVideoContainer}
+                    onLayout={event => {
+                      const layout = event.nativeEvent.layout;
+                      const cardLayout = feedCardLayouts.current[item.id];
+                      const absoluteY = (cardLayout?.y || 0) + layout.y;
+                      feedVideoLayouts.current[item.id] = {
+                        y: absoluteY,
+                        height: layout.height,
+                      };
+                    }}>
+                    <Video
+                      ref={ref => {
+                        if (ref) {
+                          feedVideoRefs.current[item.id] = ref;
+                        }
+                      }}
+                      source={{uri: item.videoUri}}
+                      style={styles.feedVideoThumbnail}
+                      resizeMode="cover"
+                      paused={!playingFeedVideos.has(item.id)}
+                      muted={true}
+                      repeat={true}
+                      playInBackground={false}
+                      playWhenInactive={false}
+                      poster={item.videoThumbnailUri}
+                      ignoreSilentSwitch="ignore"
+                      progressUpdateInterval={250}
+                    />
                   </View>
-                </>
-              )}
-              {item.type === 'summary' && (
+                </GestureDetector>
+              ) : null}
+
+              {/* PR + workout summary block (composable; never replaces media) */}
+              {item.workoutSnapshot ? (
+                <View style={{paddingHorizontal: 16}}>
+                  <WorkoutSnapshotCard
+                    snapshot={item.workoutSnapshot}
+                    onPress={() => {
+                      const isOwn = item.userId && item.userId === user?.id;
+                      if (isOwn && item.checkInId) {
+                        navigation.navigate('WorkoutHistoryDetail', {
+                          sessionId: item.checkInId,
+                        });
+                      } else {
+                        navigation.navigate('SharedWorkoutDetail', {
+                          authorName: item.user,
+                          gymName: item.workoutInfo?.split('·')[0]?.trim(),
+                          snapshot: item.workoutSnapshot!,
+                        });
+                      }
+                    }}
+                  />
+                </View>
+              ) : (
                 <>
-                  <View style={styles.feedNoImageCard}>
-                    <Text style={styles.feedNoImageEyebrow}>SESSION DELT</Text>
-                    <Text style={styles.feedNoImageDuration}>
-                      {(item.workoutInfo?.split('·')[1] ?? 'Session').trim().toUpperCase()}
-                    </Text>
-                    <Text style={styles.feedNoImageWorkout}>
-                      {(item.workoutInfo?.split('·')[2] ?? t('notifications.workoutDefault')).trim()}
-                    </Text>
-                    <Text style={styles.feedNoImageCenter} numberOfLines={1}>
-                      {(item.workoutInfo?.split('·')[0] ?? 'Gymly center').trim()}
-                    </Text>
-                  </View>
-                  {item.muscles && item.muscles.length > 0 && (
-                    <View style={styles.feedMuscleIconsRow}>
-                      {item.muscles.map(muscle => (
-                        <MuscleGroupTileIcon
-                          key={muscle}
-                          group={coerceMuscleGroup(String(muscle))}
-                          size={20}
-                          style={styles.feedMuscleIcon}
-                        />
-                      ))}
+                  {/* Legacy PR badge when no structured snapshot */}
+                  {item.type === 'pr' && !item.photoUri && !item.videoUri ? (
+                    <View style={styles.feedHighlight}>
+                      <Icon name="trophy" size={18} color="#FACC15" />
+                      <Text style={styles.feedHighlightText}>
+                        {t('personalRecords.newPrToast')}
+                      </Text>
                     </View>
-                  )}
+                  ) : null}
+                  {/* Legacy summary card when no media and no snapshot */}
+                  {!item.photoUri && !item.videoUri && item.type !== 'pr' ? (
+                    <>
+                      <View style={styles.feedNoImageCard}>
+                        <Text style={styles.feedNoImageEyebrow}>{t('phase2ui.sessionSharedEyebrow')}</Text>
+                        <Text style={styles.feedNoImageDuration}>
+                          {(item.workoutInfo?.split('·')[1] ?? 'Session').trim().toUpperCase()}
+                        </Text>
+                        <Text style={styles.feedNoImageWorkout}>
+                          {(item.workoutInfo?.split('·')[2] ?? t('notifications.workoutDefault')).trim()}
+                        </Text>
+                        <Text style={styles.feedNoImageCenter} numberOfLines={1}>
+                          {(item.workoutInfo?.split('·')[0] ?? 'Gymly center').trim()}
+                        </Text>
+                      </View>
+                      {item.muscles && item.muscles.length > 0 && (
+                        <View style={styles.feedMuscleIconsRow}>
+                          {item.muscles.map(muscle => (
+                            <MuscleGroupTileIcon
+                              key={muscle}
+                              group={coerceMuscleGroup(String(muscle))}
+                              size={20}
+                              style={styles.feedMuscleIcon}
+                            />
+                          ))}
+                        </View>
+                      )}
+                    </>
+                  ) : null}
                 </>
               )}
               {item.description &&
@@ -1880,6 +1964,20 @@ const HomeScreen = () => {
                     </Text>
                   </TouchableOpacity>
                 </View>
+                {item.userId && item.userId === user?.id && item.checkInId ? (
+                  <View style={styles.feedActionGroup}>
+                    <TouchableOpacity
+                      style={styles.feedSocialPill}
+                      onPress={() =>
+                        navigation.navigate('ShareWorkout', {
+                          sessionId: item.checkInId!,
+                        })
+                      }
+                      activeOpacity={0.8}>
+                      <Icon name="share-outline" size={16} color={colors.primary} />
+                    </TouchableOpacity>
+                  </View>
+                ) : null}
               </View>
               {commentsByFeedItem[item.id] && commentsByFeedItem[item.id].length > 0 ? (
                 <View style={styles.feedCommentPreview}>
@@ -1972,7 +2070,7 @@ const HomeScreen = () => {
         onClose={() => setSelectedActiveNowUser(null)}
         viewerUserId={currentUser?.id}
         viewerName={currentUser?.displayName || 'Dig'}
-        activitySubtitle="Aktiv lige nu"
+        activitySubtitle={t('home.activeNow')}
       />
 
       <PostActionBottomSheet
@@ -1982,6 +2080,9 @@ const HomeScreen = () => {
         currentUserId={currentUser?.id}
         variant="workoutPost"
         onPostDeleted={handlePostDeletedSideEffects}
+        onShareWorkoutCard={sessionId =>
+          navigation.navigate('ShareWorkout', {sessionId})
+        }
       />
 
       <Modal visible={bicepsListVisible} transparent animationType="slide">
@@ -1991,16 +2092,18 @@ const HomeScreen = () => {
               <View style={styles.bicepsListSheet}>
                 <View style={styles.commentHandle} />
                 <View style={styles.commentHeader}>
-                  <Text style={styles.modalTitle}>Biceps</Text>
+                  <Text style={styles.modalTitle}>{t('friendProfile.biceps')}</Text>
                   <TouchableOpacity onPress={closeBicepsList} style={styles.commentCloseButton}>
                     <Icon name="close" size={22} color="#0F172A" />
                   </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.commentList} contentContainerStyle={styles.commentListContent}>
                   {bicepsListLoading ? (
-                    <Text style={styles.commentEmpty}>Henter biceps...</Text>
+                    <Text style={styles.commentEmpty}>{t('friendProfile.loadingBiceps')}</Text>
                   ) : bicepsListUsers.length === 0 ? (
-                    <Text style={styles.commentEmpty}>Ingen biceps endnu</Text>
+                    <Text style={styles.commentEmpty}>
+                      {t('friendProfile.noBicepsYet')}
+                    </Text>
                   ) : (
                     bicepsListUsers.map(row => (
                       <TouchableOpacity
@@ -2013,7 +2116,7 @@ const HomeScreen = () => {
                           <Text style={styles.commentAuthor}>{row.name}</Text>
                           <Text style={styles.bicepsUserUsername}>@{row.username}</Text>
                         </View>
-                        <Text style={styles.bicepsUserCta}>Se profil</Text>
+                        <Text style={styles.bicepsUserCta}>{t('userProfileModal.seeProfile')}</Text>
                       </TouchableOpacity>
                     ))
                   )}
@@ -2035,7 +2138,7 @@ const HomeScreen = () => {
                 ]}>
                   <View style={styles.commentHandle} />
                   <View style={styles.commentHeader}>
-                    <Text style={styles.modalTitle}>Kommentarer</Text>
+                    <Text style={styles.modalTitle}>{t('friendProfile.comments')}</Text>
                     <TouchableOpacity onPress={closeComments} style={styles.commentCloseButton}>
                       <Icon name="close" size={22} color="#0F172A" />
                     </TouchableOpacity>
@@ -2044,7 +2147,9 @@ const HomeScreen = () => {
                     style={styles.commentList}
                     contentContainerStyle={styles.commentListContent}>
                     {activeComments.length === 0 ? (
-                      <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
+                      <Text style={styles.commentEmpty}>
+                        {t('friendProfile.noCommentsYet')}
+                      </Text>
                     ) : (
                       activeComments.map((comment, index) => {
                         const itemKey = activeCommentItem ?? '';
@@ -2447,7 +2552,7 @@ const HomeScreen = () => {
                   ]}>
                   <View style={styles.commentHandle} />
                   <View style={styles.commentHeader}>
-                    <Text style={styles.modalTitle}>Kommentarer</Text>
+                    <Text style={styles.modalTitle}>{t('friendProfile.comments')}</Text>
                     <TouchableOpacity 
                       onPress={() => {
                         setReelsCommentVisible(false);
@@ -2462,7 +2567,9 @@ const HomeScreen = () => {
                     style={styles.commentList}
                     contentContainerStyle={styles.commentListContent}>
                     {activeComments.length === 0 ? (
-                      <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
+                      <Text style={styles.commentEmpty}>
+                        {t('friendProfile.noCommentsYet')}
+                      </Text>
                     ) : (
                       activeComments.map((comment, index) => {
                         const itemKey = activeCommentItem ?? '';
@@ -2584,7 +2691,7 @@ const HomeScreen = () => {
                   ]}>
                   <View style={styles.commentHandle} />
                   <View style={styles.commentHeader}>
-                    <Text style={styles.modalTitle}>Videresend til</Text>
+                    <Text style={styles.modalTitle}>{t('phase2ui.forwardTo')}</Text>
                     <TouchableOpacity 
                       onPress={() => {
                         setReelsShareVisible(false);
@@ -2682,7 +2789,9 @@ const HomeScreen = () => {
                         )}
                         {MOST_FREQUENT_FRIENDS.length === 0 && FRIENDS.length === 0 && (
                           <View style={styles.shareEmptyState}>
-                            <Text style={styles.shareEmptyText}>Ingen venner at vise</Text>
+                            <Text style={styles.shareEmptyText}>
+                              {t('home.noFriendsToShow')}
+                            </Text>
                           </View>
                         )}
                       </>
@@ -2713,7 +2822,9 @@ const HomeScreen = () => {
                       })
                       ) : (
                         <View style={styles.shareEmptyState}>
-                          <Text style={styles.shareEmptyText}>Ingen resultater</Text>
+                          <Text style={styles.shareEmptyText}>
+                            {t('phase2ui.noSearchResults')}
+                          </Text>
                         </View>
                       )
                   )}

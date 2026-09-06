@@ -1,0 +1,56 @@
+{
+  "country": "Greece",
+  "prefix": "gr_",
+  "chains_attempted": [
+    {
+      "brand": "Alterlife",
+      "count": 88
+    },
+    {
+      "brand": "Holmes Place",
+      "count": 3
+    },
+    {
+      "brand": "Yava",
+      "count": 0
+    }
+  ],
+  "notes": {
+    "Yava": "Official locator JS-rendered — PHASE 2 REQUIRED for near-complete extraction",
+    "Mega Gym / Planet Fitness Greece / Curves / Gym Tonic / Golden Clubs / Bodyfit": "Confirm local identity before scrape; Phase 2",
+    "Islands": "Include chain sites on Crete/Rhodes/Corfu/Kos/Lesbos when found via Alterlife/Yava; no independent island crawl",
+    "Script": "Preserve Greek official text; Latin only when source canonical"
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 68,
+    "NEEDS_COORDINATES": 21,
+    "DUPLICATE": 1,
+    "NEEDS_REVIEW": 1
+  },
+  "ready_by_brand": {
+    "Alterlife": 66,
+    "Holmes Place": 2
+  },
+  "city_coverage": {
+    "Athens": true,
+    "Αθήνα": true,
+    "Thessaloniki": false,
+    "Θεσσαλονίκη": true,
+    "Patras": false,
+    "Πάτρα": false,
+    "Heraklion": false,
+    "Ηράκλειο": true,
+    "Larissa": false,
+    "Volos": false,
+    "Ioannina": false,
+    "Chania": false,
+    "Rhodes": false,
+    "Kalamata": false
+  },
+  "coverage_notes": {
+    "Alterlife": "WP API club list + per-club HTML address recovery",
+    "Yava": "JS-rendered locator — PHASE 2 REQUIRED for near-complete estate",
+    "Holmes Place Greece": "Official locator pins (GR-only)",
+    "Islands": "Chain presence captured when present in Alterlife/Yava; no indie crawl"
+  }
+}

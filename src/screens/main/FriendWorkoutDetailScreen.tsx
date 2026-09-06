@@ -1,8 +1,3 @@
-/**
- * Friend Workout Detail Screen
- * Shows detailed information about a friend's current workout
- */
-
 import React from 'react';
 import {
   View,
@@ -18,6 +13,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 import {LiveTrainingDot} from '@/components/ui/LiveTrainingDot';
+import {useTranslation} from '@/i18n';
 
 type FriendWorkoutDetailRouteParams = {
   friendId: string;
@@ -30,6 +26,7 @@ type FriendWorkoutDetailRouteParams = {
 type FriendWorkoutDetailNavigationProp = StackNavigationProp<any>;
 
 const FriendWorkoutDetailScreen = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<FriendWorkoutDetailNavigationProp>();
   const route =
     useRoute<RouteProp<{params: FriendWorkoutDetailRouteParams}, 'params'>>();
@@ -49,7 +46,7 @@ const FriendWorkoutDetailScreen = () => {
           activeOpacity={0.7}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Træningsdetaljer</Text>
+        <Text style={styles.headerTitle}>{t('workoutHistory.detailTitle')}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -71,13 +68,13 @@ const FriendWorkoutDetailScreen = () => {
           <Text style={styles.friendName}>{friendName}</Text>
           <View style={styles.onlineBadge}>
             <LiveTrainingDot size={8} borderColor="#E8F5E9" />
-            <Text style={styles.onlineText}>Online</Text>
+            <Text style={styles.onlineText}>{t('online.onlineNow')}</Text>
           </View>
         </View>
 
         {/* Workout Info Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Træningsinformation</Text>
+          <Text style={styles.sectionTitle}>{t('phase2ui.workoutInfo')}</Text>
 
           {/* Duration Card */}
           <View style={styles.infoCard}>
@@ -85,7 +82,7 @@ const FriendWorkoutDetailScreen = () => {
               <Icon name="time-outline" size={24} color="#007AFF" />
             </View>
             <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Træningstid</Text>
+              <Text style={styles.infoLabel}>{t('friendProfile.trainingTime')}</Text>
               <Text style={styles.infoValue}>{workoutDuration}</Text>
             </View>
           </View>
@@ -96,7 +93,7 @@ const FriendWorkoutDetailScreen = () => {
               <Icon name="fitness-outline" size={24} color="#007AFF" />
             </View>
             <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Muskelgruppe</Text>
+              <Text style={styles.infoLabel}>{t('workoutLog.customExerciseMuscle')}</Text>
               <Text style={styles.infoValue}>{currentMuscleGroup}</Text>
             </View>
           </View>
@@ -107,7 +104,7 @@ const FriendWorkoutDetailScreen = () => {
               <Icon name="location-outline" size={24} color="#007AFF" />
             </View>
             <View style={styles.infoContent}>
-              <Text style={styles.infoLabel}>Center</Text>
+              <Text style={styles.infoLabel}>{t('gymPresence.center')}</Text>
               <Text style={styles.infoValue}>{currentGym}</Text>
             </View>
           </View>
@@ -121,7 +118,7 @@ const FriendWorkoutDetailScreen = () => {
             navigation.goBack();
           }}
           activeOpacity={0.8}>
-          <Text style={styles.joinButtonText}>Spørg om deltagelse</Text>
+          <Text style={styles.joinButtonText}>{t('phase2ui.askToJoin')}</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

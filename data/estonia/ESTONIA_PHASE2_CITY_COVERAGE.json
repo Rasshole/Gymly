@@ -1,0 +1,73 @@
+{
+  "cities": {
+    "Tallinn": "A",
+    "Tartu": "A",
+    "Pärnu": "A",
+    "Narva": "A",
+    "Jõhvi": "A",
+    "Rakvere": "A",
+    "Viljandi": "A",
+    "Võru": "A",
+    "Kuressaare": "A",
+    "Keila": "A",
+    "Viimsi": "A",
+    "Peetri": "A",
+    "Tabasalu": "A",
+    "Jõgeva": "A",
+    "Järveküla": "A",
+    "Luige": "A",
+    "Kiili": "A",
+    "Saue": "A",
+    "Ülenurme": "A",
+    "Maardu": "B",
+    "Rapla": "B",
+    "Haapsalu": "B",
+    "Valga": "B",
+    "Kohtla-Järve": "B",
+    "Paide": "B",
+    "Põlva": "B",
+    "Elva": "B",
+    "Sillamäe": "B"
+  },
+  "approved_by_city": {
+    "Tallinn": 33,
+    "Tartu": 10,
+    "Jõgeva": 1,
+    "Jõhvi": 2,
+    "Järveküla": 1,
+    "Keila": 2,
+    "Kiili": 1,
+    "Kuressaare": 1,
+    "Luige": 1,
+    "Narva": 4,
+    "Peetri": 1,
+    "Pärnu": 2,
+    "Rakvere": 1,
+    "Saue": 1,
+    "Tabasalu": 1,
+    "Viljandi": 3,
+    "Võru": 1,
+    "Viimsi": 2,
+    "Ülenurme": 1
+  },
+  "material_d_gaps": [],
+  "material_d_gaps_count": 0,
+  "d_gap_resolutions": {
+    "Paide": {
+      "grade": "B",
+      "reason": "Deep sweep — no qualifying conventional public gym; no Class A chain branch"
+    },
+    "Põlva": {
+      "grade": "B",
+      "reason": "Audited — no conventional public gym beyond excluded/specialist candidates"
+    },
+    "Elva": {
+      "grade": "B",
+      "reason": "Audited — no qualifying gym; Tartu chain coverage nearby"
+    },
+    "Sillamäe": {
+      "grade": "B",
+      "reason": "Multilingual Ida-Virumaa sweep — no qualifying gym; Narva/Jõhvi chains serve region"
+    }
+  }
+}

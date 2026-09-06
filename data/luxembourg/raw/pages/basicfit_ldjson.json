@@ -1,0 +1,352 @@
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+  "numberOfItems": 10,
+  "itemListOrder": "ItemListOrderAscending",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Avenue du Swing 24/7 Belvaux",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenue du Swing 1",
+          "addressLocality": "Belvaux",
+          "postalCode": "4367",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3003/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-belval-avenue-du-swing-24-7-abbc775640cd45d391253913f8e4ad6e.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym 24/7 Bereldange",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Route de Luxembourg 111",
+          "addressLocality": "Bereldange",
+          "postalCode": "7241",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3001/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-bereldange-24-7-c9b6c7f552304bb6aefefc2a755ddc01.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Route de Luxembourg Bettembourg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Route de Luxembourg 235",
+          "addressLocality": "Bettembourg",
+          "postalCode": "3254",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3009/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-bettembourg-route-de-luxembourg-78bd67f052e0497fa9b320ab97ed537f.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "07:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "09:00",
+            "closes": "19:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Ettelbruck 24/7 Ettelbruck",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ZA et Commerciale 1",
+          "addressLocality": "Ettelbruck",
+          "postalCode": "9085",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3005/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-ettelbruck-24-7-0e42068edc4b498389d1c56bd415c2e6.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Rue du Brill 24/7 Foetz",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Route de Brill 11",
+          "addressLocality": "Foetz",
+          "postalCode": "3898",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3006/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-foetz-rue-du-brill-24-7-6dfe04f93d9e4060b307774c5c022e20.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Rue Pere Raphael 24/7 Gasperich",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rue du P\u00e8re Rapha\u00ebl 18",
+          "addressLocality": "Gasperich",
+          "postalCode": "1349",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3008/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-gasperich-rue-pere-raphael-24-7-141e420d328c4ba8b0d0489ed5eca748.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Ville Rue Joseph Junck Luxembourg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rue Joseph Junck 12",
+          "addressLocality": "Luxembourg",
+          "postalCode": "1839",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3011/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-ville-rue-joseph-junck-d7d2ee6fc2b745e5ba77d570617de4de.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "06:00",
+            "closes": "22:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "09:00",
+            "closes": "19:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Sandweiler 24/7 Sandweiler",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rue de Luxembourg 11",
+          "addressLocality": "Sandweiler",
+          "postalCode": "5230",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3012/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-luxembourg-sandweiler-24-7-7685d187d3fb43f28e9e29f4ae9ea57f.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym Rue du Cimeti\u00e8re 24/7 Strassen",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rue du Cimeti\u00e8re 150-152",
+          "addressLocality": "Strassen",
+          "postalCode": "8069",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3004/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-strassen-rue-du-cimetiere-24-7-dfe1313dc72241b5806b5cfdeb7079d1.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "ExerciseGym",
+        "name": "Gym WINDHOF 24/7 Windhof",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Route d\u2019Arlon 5",
+          "addressLocality": "Windhof",
+          "postalCode": "8399",
+          "addressCountry": "LU"
+        },
+        "image": "https://brand.basic-fit.com/match/KP_Number/3002/Club_area/Front_club_outside/Front_club_outside?io=transform:fit,width:380",
+        "url": "https://www.basic-fit.com/en-lu/clubs/basic-fit-windhof-24-7-9ccfa40858454840bd7221dde69e1932.html",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "24:00"
+          }
+        ]
+      }
+    }
+  ]
+}

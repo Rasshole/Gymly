@@ -1,0 +1,324 @@
+{
+  "generated": "2026-08-23T17:51:41.589Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "pre_merge_sha256": "365a1bd25c1fad250172099a0430d9475899859c11a8e07e2ae05ea471dba75a",
+  "baseline": {
+    "total": 11063,
+    "romania": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50
+  },
+  "approved_candidates": 154,
+  "validated_safe": 154,
+  "inserted": 154,
+  "withheld": 0,
+  "withheld_details": [],
+  "after": {
+    "total": 11217,
+    "romania": 154,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50
+  },
+  "duplicate_ids": [],
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "leading_zero_lost": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "moldova": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0,
+    "esx": 0
+  },
+  "brand_breakdown_canonical": {
+    "World Class": 45,
+    "18GYM": 42,
+    "Stay Fit Gym": 67
+  },
+  "brand_breakdown_production": {
+    "18GYM": 42,
+    "Stay Fit Gym": 67,
+    "World Class": 45
+  },
+  "world_class_validation": {
+    "official_current": 45,
+    "merged": 45,
+    "result": "PASS"
+  },
+  "stay_fit_validation": {
+    "canonical_clubs_merged": 67,
+    "parser_noise_rows_merged": 0,
+    "unresolved_rows_merged": 0,
+    "result": "PASS"
+  },
+  "gym18_validation": {
+    "open_clubs_merged": 42,
+    "coming_soon_merged": 0,
+    "coming_soon_staging_count": 5,
+    "result": "PASS"
+  },
+  "esx_live": 0,
+  "pre_merge_validation": {
+    "candidate_count": 154,
+    "ro_prefix": true,
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "moldova_contamination": 0,
+    "mojibake": 0,
+    "rebrand_conflicts": 0,
+    "staging_exclusions": 0,
+    "result": "PASS_ALL"
+  },
+  "post_merge": {
+    "romania_rows": 154,
+    "ro_prefix": true,
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_25m_hard": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 1,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 1,
+    "proximity_classifications": [
+      {
+        "a_id": "ro_841c3d6ffe",
+        "a_name": "Stay Fit Gym grand arena",
+        "a_address": "Bulevardul Metalurgiei 12-18, București 041833/",
+        "a_postal": "041833",
+        "b_id": "ro_4c5fd28082",
+        "b_name": "Stay Fit Gym metalurgiei",
+        "b_address": "Stay Fit Gym Metalurgiei",
+        "b_postal": "041833",
+        "brand": "Stay Fit Gym",
+        "distance_m": 137,
+        "same_address": false,
+        "classification": "A_legitimate",
+        "action": "retain_both",
+        "evidence": "Different addresses — dense urban / Phase 2 known SF ~137 m pair"
+      }
+    ]
+  },
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    }
+  },
+  "staging": {
+    "MERGED_INTO_CATALOG": 154,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 4,
+    "COMING_SOON": 5,
+    "CLOSED": 0,
+    "EXCLUDED": 0,
+    "DUPLICATE_LEGACY": 0
+  },
+  "rebrand_map": {
+    "generated_at": "2026-08-23T17:41:33.863774+00:00",
+    "mappings": [
+      {
+        "from": "World Class acquired/legacy club brands",
+        "to": "World Class",
+        "action": "current_identity_only"
+      },
+      {
+        "from": "Stay Fit Phase 1 city-hub parser noise",
+        "to": "Stay Fit Gym club pages + CPT centru-sfg",
+        "action": "rebuild_canonical_estate"
+      },
+      {
+        "from": "ESX partner gyms",
+        "to": "N/A",
+        "action": "exclude_aggregator"
+      },
+      {
+        "from": "18GYM coming-soon (Lujerului, Otopeni, Cluj Edgar Quinet/Era/Via)",
+        "to": "excluded until open",
+        "action": "keep_COMING_SOON"
+      }
+    ]
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous_production": 11063,
+    "new_production": 11217,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "ROMANIA MERGE COMPLETE — WAITING FOR QA",
+  "staging_reconciliation": {
+    "production_ro_ids": 154,
+    "staging_merged_ids": 154,
+    "approved_ids": 154,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "metadata_drift": "NONE"
+  },
+  "post_merge_sha256": "f31734acfd849b54f7cfeeb8d8f896980ed90fd975a87ae85f2aa1c6d1356854",
+  "performance": {
+    "catalog": 11217,
+    "active": 11212,
+    "json_size_mb": 3.32,
+    "parse_ms": 25.62,
+    "cold_index_ms": 57.2,
+    "cached_index_ms": 0.2537,
+    "typical_search_ms": 1.75,
+    "worst_search_ms": 1.96,
+    "nearest_romania_ms": 0.21,
+    "map_build_note": "client-side viewport filter over RO subset",
+    "viewport_filter_ms": 0.02,
+    "viewport_bucharest_count": 61,
+    "baseline_compare": "Hungary QA ~11063 catalog; Romania merge +154 → 11217"
+  }
+}

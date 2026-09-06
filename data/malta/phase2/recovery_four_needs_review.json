@@ -1,0 +1,51 @@
+{
+  "as_of": "2026-08-26",
+  "recovered": [
+    {
+      "id": "mt_b8747c67db",
+      "brand": "Best Gyms Malta",
+      "name": "Kirkop Fitness Centre",
+      "result": "PROMOTED_READY",
+      "postal_code": "KKP 1370",
+      "postal_provenance": "STREET_POSTCODE_DIRECTORY+SPORTMALTA_STREET",
+      "coord_source": "OFFICIAL_MAP_PIN",
+      "lat": 35.83861653083825,
+      "lng": 14.485285581268107
+    },
+    {
+      "id": "mt_af9179a385",
+      "brand": "Best Gyms Malta",
+      "name": "BGM Marsa Fitness Centre",
+      "result": "PROMOTED_READY",
+      "postal_code": "MRS 9065",
+      "postal_provenance": "SPORTMALTA_OFFICIAL_COMPLEX",
+      "coord_source": "OFFICIAL_MAP_PIN",
+      "lat": 35.876501,
+      "lng": 14.493171
+    },
+    {
+      "id": "mt_963f710969",
+      "brand": "Best Gyms Malta",
+      "name": "BGM Birżebbuġa Fitness",
+      "result": "PROMOTED_READY",
+      "postal_code": "BBG 1758",
+      "postal_provenance": "OSM_PREMISES_REVERSE+ASC_STREET",
+      "coord_source": "OFFICIAL_MAP_PIN",
+      "lat": 35.825742184357566,
+      "lng": 14.530771255818989,
+      "rebrand": "A_current_successor (Elite → BGM)"
+    },
+    {
+      "id": "mt_26579c8193",
+      "brand": "Challenger Fitness",
+      "name": "Challenger Fitness Centre Cottonera",
+      "result": "PROMOTED_READY",
+      "postal_code": "BML 9020",
+      "postal_provenance": "SPORTMALTA_OFFICIAL_COMPLEX",
+      "coord_source": "STRICT_ADDRESS_GEOCODE",
+      "lat": 35.8805184,
+      "lng": 14.5274836
+    }
+  ],
+  "remaining_needs_review_open_class_a": 0
+}

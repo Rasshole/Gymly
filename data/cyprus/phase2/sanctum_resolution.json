@@ -1,0 +1,42 @@
+{
+  "as_of": "2026-08-26",
+  "locations": [
+    {
+      "id": "cy_390557250c",
+      "name": "Sanctum Limassol Marina",
+      "classification": "B_PUBLIC_BUT_AMENITY_LED",
+      "public_membership": true,
+      "conventional_public_gym": false,
+      "lat": 34.6696333,
+      "lng": 33.0402159,
+      "postal_code": "3014"
+    },
+    {
+      "id": "cy_525b94858b",
+      "name": "Sanctum at The Icon",
+      "classification": "C_PRIVATE_RESIDENTIAL_HOTEL",
+      "public_membership": false,
+      "conventional_public_gym": false,
+      "lat": 34.6969097,
+      "lng": 33.0906193,
+      "postal_code": "4048"
+    },
+    {
+      "id": "cy_506c579ca5",
+      "name": "Sanctum at Sunset Gardens",
+      "classification": "C_PRIVATE_RESIDENTIAL_HOTEL",
+      "public_membership": false,
+      "conventional_public_gym": false,
+      "lat": 34.6482244,
+      "lng": 32.9854908,
+      "postal_code": "3150",
+      "coords_resolved": true
+    }
+  ],
+  "class_a_eligible_count": 0,
+  "verdict": "NOT_CLASS_A_NOT_INDEPENDENT_READY",
+  "sources": [
+    "https://sanctum.life/",
+    "https://phileas.guide/guide/limassol/entry/58446"
+  ]
+}

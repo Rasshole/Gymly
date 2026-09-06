@@ -1,0 +1,162 @@
+{
+  "country": "Cyprus",
+  "phase": 2,
+  "verdict": "READY FOR CYPRUS MERGE",
+  "phase3_required": false,
+  "material_blockers": [],
+  "small_market_model": "INDEPENDENT_PHASE_EXECUTED",
+  "production_total": 11648,
+  "production_sha256": "e039707d7c419d727b5297acf26b17bc1f885217ca997d3b75f21ff54f60a7f4",
+  "cyprus_live": 0,
+  "malta_live": 18,
+  "production_modified": false,
+  "phase1_ready_preserved": 0,
+  "phase1_unresolved_recovered": 3,
+  "status_counts": {
+    "READY_TO_IMPORT": 17,
+    "CLOSED": 8,
+    "EXCLUDED": 37,
+    "NEEDS_COORDINATES": 5
+  },
+  "unique_staged": 67,
+  "ready_count": 17,
+  "ready_by_eligibility": {
+    "CHAIN_CLASS_A": 0,
+    "SMALL_MARKET_INDEPENDENT": 17,
+    "TOTAL": 17
+  },
+  "ready_by_brand": {
+    "ALTERLIFE": 1,
+    "Aesthetics Gym": 2,
+    "Curves": 2,
+    "Eleftheriou Lifestyle Fitness": 1,
+    "Evolve Fitness": 1,
+    "Figure8Gym": 1,
+    "Fitness Factory": 1,
+    "G Gym": 1,
+    "Machallekide Fitness": 1,
+    "New Body Gym": 1,
+    "New Life Health Center": 1,
+    "Platinum Sports": 1,
+    "Pumping Iron Gym": 1,
+    "Reflex Gym": 1,
+    "Tower Fitness Center": 1
+  },
+  "class_a_chains": [],
+  "sanctum_eligible": false,
+  "fitness_factory": "SINGLE_CLUB_INDEPENDENT_READY",
+  "fitness_one": "SINGLE_REGISTRY_INSUFFICIENT_EXCLUDED",
+  "curves_estate_resolved": true,
+  "independents_investigated": 36,
+  "independents_ready": 17,
+  "regional_coverage": {
+    "regions": {
+      "NICOSIA_METRO": {
+        "ready": [
+          "cy_ef187d966a",
+          "cy_f070c42b8f",
+          "cy_07ec6774f1",
+          "cy_3139b5350e",
+          "cy_1e92561d3f",
+          "cy_6900220ba1",
+          "cy_f0e9563965",
+          "cy_b0c60e91df"
+        ],
+        "zero_class": "COVERED"
+      },
+      "LIMASSOL": {
+        "ready": [
+          "cy_dae41db6c3",
+          "cy_4b27323ec8"
+        ],
+        "zero_class": "COVERED",
+        "needs_coordinates": [
+          "cy_34d6f81192",
+          "cy_cd15f4d2ad"
+        ]
+      },
+      "LARNACA": {
+        "ready": [
+          "cy_56b48cbccc",
+          "cy_82f02545a6",
+          "cy_ea14f2e4e0"
+        ],
+        "zero_class": "COVERED",
+        "needs_coordinates": [
+          "cy_8713fecd49",
+          "cy_df58defb47",
+          "cy_cf3ac99b32"
+        ]
+      },
+      "PAPHOS": {
+        "ready": [
+          "cy_71a5e356d0",
+          "cy_230b74b170",
+          "cy_2acc7f6e95"
+        ],
+        "zero_class": "COVERED"
+      },
+      "FAMAGUSTA_ROC": {
+        "ready": [
+          "cy_40845af810"
+        ],
+        "zero_class": "COVERED"
+      }
+    },
+    "unexplained_b_d_gaps": {},
+    "needs_coordinates_ids": [
+      "cy_8713fecd49",
+      "cy_34d6f81192",
+      "cy_cd15f4d2ad",
+      "cy_df58defb47",
+      "cy_cf3ac99b32"
+    ]
+  },
+  "northern_cyprus_ambiguities": false,
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_territorial_outliers": 0,
+    "mojibake": 0
+  },
+  "dq_gate_details": {
+    "duplicate_ids": [],
+    "invalid_postcodes": [],
+    "missing_addresses": [],
+    "missing_cities": [],
+    "invalid_coordinates": [],
+    "fallback_coordinates": [],
+    "foreign_territorial_outliers": [],
+    "mojibake": []
+  },
+  "unresolved_rebrand_conflicts": 0,
+  "unresolved_hard_duplicates": 0,
+  "needs_coordinates_count": 5,
+  "territorial_safety": "CLEAN_FOR_READY",
+  "projected_catalog_if_merged": 11665,
+  "crossed_12500_if_merged": false,
+  "global_stress_qa_required_after_merge": false,
+  "global_stress_qa_run_now": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200,
+  "final_questions": {
+    "1_class_a_chains": false,
+    "2_sanctum_eligible": false,
+    "3_fitness_factory": "SINGLE_CLUB_INDEPENDENT_READY",
+    "4_fitness_one": "SINGLE_REGISTRY_INSUFFICIENT_EXCLUDED",
+    "5_curves_resolved": true,
+    "6_independents_investigated": 36,
+    "7_independents_ready": 17,
+    "8_major_markets_covered": true,
+    "9_northern_ambiguities": false,
+    "10_unresolved_coords_postcodes_in_ready": false,
+    "11_unresolved_duplicate_rebrand": false,
+    "12_phase3_required": false,
+    "13_ready_to_merge": true
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "country": "Russia",
+  "generated_at": "2026-08-29T21:46:41.960Z",
+  "verdict": "RUSSIA STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "catalog_total": 12850,
+  "russia": 465,
+  "ru_prefix": 465,
+  "qa_sha256_before": "968a997d91daf6424da847f0cb7144c148b42a47bd19f2715c3e52ae4b24d020",
+  "qa_sha256_after": "968a997d91daf6424da847f0cb7144c148b42a47bd19f2715c3e52ae4b24d020",
+  "qa_bytes_before": 4014884,
+  "qa_bytes_after": 4014884,
+  "qa_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "phase2_provenance": {
+    "phase1_recovered": 1656,
+    "phase1_ready_retained": 209,
+    "phase1_ready_demoted": 1,
+    "demoted_id": "ru_c7deae1519",
+    "phase1_nr_resolved": 1386,
+    "final_nr": 0,
+    "final_nc": 0,
+    "phase2_new_candidates": 0
+  },
+  "inventory": {
+    "phase2_approved": 465,
+    "merge_approved": 465,
+    "production_russia": 465,
+    "approved_missing_from_production": [],
+    "production_not_approved": [],
+    "material_drift": 0
+  },
+  "merge_reconstruction": {
+    "pre_merge_total": 12385,
+    "insertions": 465,
+    "post_merge_total": 12850,
+    "pass": true
+  },
+  "class_a": {
+    "chain_count": 5,
+    "production": {
+      "World Class": 35,
+      "X-Fit": 31,
+      "Alex Fitness": 11,
+      "DDxFitness": 25,
+      "Spirit Fitness": 2
+    },
+    "class_a_total": 104,
+    "non_class_a": 361,
+    "estate_gaps": 0
+  },
+  "geography": {
+    "moscow": 361,
+    "spb": 23
+  },
+  "material_city_gaps": 0,
+  "disputed_territory": {
+    "candidates": 27,
+    "production": 0
+  },
+  "non_ready_safety": {
+    "needs_review": [],
+    "needs_coordinates": [],
+    "coming_soon": [],
+    "excluded": [],
+    "closed": []
+  },
+  "data_quality": {
+    "invalid_russia_countries": 0,
+    "invalid_ru_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "cross_border": 0,
+    "disputed_territory": 0,
+    "mojibake": 0,
+    "raw_id_names": 0,
+    "demoted_in_production": false
+  },
+  "search_display": {
+    "pass": true,
+    "raw_ids_surfaced": 0
+  },
+  "nearest": {
+    "plausible": true,
+    "invalid": 0
+  },
+  "global_stress": {
+    "verdict": "GLOBAL STRESS QA: PASS",
+    "architecture": "KEEP CLIENT-SIDE",
+    "next_threshold": 15000,
+    "current_below_next": true
+  },
+  "merge_idempotent": true,
+  "test_debt": {
+    "STALE_HISTORICAL_BASELINE": 4,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "REAL_GLOBAL_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 4
+  },
+  "blockers": [],
+  "check_in_radius_meters": 200,
+  "auto_checkout_distance_meters": 200,
+  "russia_specific_radius_override": 0
+}

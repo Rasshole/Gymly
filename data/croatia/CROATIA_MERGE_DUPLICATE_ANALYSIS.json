@@ -1,0 +1,487 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "hr_31f66c7a1f",
+        "a_name": "THE Fitness Zavrtnica",
+        "a_address": "Zavrtnica 17",
+        "a_postal": "10000",
+        "b_id": "hr_ca7a172b54",
+        "b_name": "THE Fitness Branimir",
+        "b_address": "Ulica kneza Branimira 29, Mingle Mall",
+        "b_postal": "10240",
+        "brand": "THE Fitness",
+        "distance_m": 122,
+        "same_address": false,
+        "classification": "A_legitimate"
+      }
+    ],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "hr_1156235f67",
+        "a_brand": "Gyms4you",
+        "a_name": "Gyms4you Dubec",
+        "b_id": "hr_e86685f75d",
+        "b_brand": "THE Fitness",
+        "b_name": "THE Fitness Dubrava",
+        "distance_m": 49,
+        "classification": "A_legitimate"
+      }
+    ]
+  },
+  "skipped_existing_id": [],
+  "withheld": [],
+  "included": [
+    {
+      "id": "hr_531f4f1847",
+      "name": "Gyms4you Zadar – Voštarnica",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_65f37e31a4",
+      "name": "Gyms4you Tower centar Rijeka",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_d45eb0c6b5",
+      "name": "Gyms4you Zaprešić",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_7ceff61556",
+      "name": "Gyms4you Vrbani",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_23e290626d",
+      "name": "Gyms4you Split Kampus",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_4e90ae8d35",
+      "name": "Gyms4you Špansko",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_8d98ff97a2",
+      "name": "Gyms4you Split Lovret",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_58fcbe3db0",
+      "name": "Gyms4you Stenjevec",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_da20a6af84",
+      "name": "Gyms4you Velika Gorica",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_6eade4805d",
+      "name": "Gyms4you Maksimir 2",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_1156235f67",
+      "name": "Gyms4you Dubec",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_828baca7aa",
+      "name": "Gyms4you Matrix",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_6683a9bafc",
+      "name": "Gyms4you Siget",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_8e6426a328",
+      "name": "Gyms4you Blato",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_4de6622372",
+      "name": "Gyms4you Črnomerec",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_027ef1cdb6",
+      "name": "Gyms4you Dubrava Risnjačka",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_7c9fb9de75",
+      "name": "Gyms4you Voltino",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_b9d7bed9cd",
+      "name": "Gyms4you Kvaternik Plaza",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_6c27f9083b",
+      "name": "Gyms4you Sloboština",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_658ceb32d7",
+      "name": "Gyms4you Park Kneževa",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_184f08ae2b",
+      "name": "Gyms4you Remiza",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_312869cdd8",
+      "name": "Gyms4you Maksimir",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_b7e6171fe4",
+      "name": "Gyms4you Heinzelova",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_16f20a0868",
+      "name": "Gyms4you Nova Galerija",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_99d5434c36",
+      "name": "Gyms4you Dubrava",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_7e7415dbe5",
+      "name": "Gyms4you VMD",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_e458262bee",
+      "name": "Gyms4you Bundek",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_b66788cf76",
+      "name": "Gyms4you Karlovac Vladimira Nazora",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_0ca0078481",
+      "name": "Gyms4you Velimira Škorpika",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_84e357681f",
+      "name": "Gyms4you Put Murvice",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_858cb170a0",
+      "name": "Gyms4you Split – Gripe",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_f3652fa11f",
+      "name": "Gyms4you Velika Gorica Centar",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_fae56a35ca",
+      "name": "Gyms4you Karlovac Grabrik",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_f43e3aa015",
+      "name": "Gyms4you Slavonski Brod",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_1fac95ad76",
+      "name": "Gyms4you Zagreb – Ravnice",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_1bb0b2df35",
+      "name": "Gyms4you Dubrovnik",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_905f19b579",
+      "name": "Gyms4you Nova cesta",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_c6281ff5fd",
+      "name": "Gyms4you Osijek Trg slobode",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_d772ccd49a",
+      "name": "Gyms4you Varaždin Đurek",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_97270042fd",
+      "name": "Gyms4you Varaždin Istok",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_01f97443ea",
+      "name": "Gyms4you Osijek Donji Grad",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_26f74acfdc",
+      "name": "Gyms4you Dubrava Čulinečka",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_c422cb89ff",
+      "name": "Gyms4you Ozaljska",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_d4025dd0f1",
+      "name": "Gyms4you Rijeka",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_1b43ef6a03",
+      "name": "Gyms4you Jaruščica",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_2db3d9d79f",
+      "name": "Gyms4you Ilica",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_e220acc0f2",
+      "name": "Gyms4you Prisavlje",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_38813ae297",
+      "name": "Gyms4you Knežija",
+      "brand": "Gyms4you"
+    },
+    {
+      "id": "hr_04d608aabd",
+      "name": "THE Fitness Dugo Selo",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_e8feaadf2a",
+      "name": "THE Fitness Samobor Centar",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_4803390d6f",
+      "name": "THE Fitness Velika Gorica",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_31f66c7a1f",
+      "name": "THE Fitness Zavrtnica",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_735c904be3",
+      "name": "THE Fitness Hala",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_d77a2aec10",
+      "name": "THE Fitness Borongaj",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_f764385842",
+      "name": "THE Fitness Borovje",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_ca7a172b54",
+      "name": "THE Fitness Branimir",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_765f4e908a",
+      "name": "THE Fitness Črnomerec",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_e86685f75d",
+      "name": "THE Fitness Dubrava",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_d963ed9417",
+      "name": "THE Fitness Dvorana Vrbani III",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_036861a783",
+      "name": "THE Fitness Green Gold",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_c9eb6ff3b3",
+      "name": "THE Fitness HoB",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_e99d3d2a6c",
+      "name": "THE Fitness Hotel Novi Zagreb",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_130c7050f0",
+      "name": "THE Fitness Jelkovec",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_96bab24e46",
+      "name": "THE Fitness Kaptol",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_af1a9eecc8",
+      "name": "THE Fitness Lučko",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_3d1efcbd8c",
+      "name": "THE Fitness Mamutica",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_933ff33727",
+      "name": "THE Fitness Stenjevec",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_8aa56a987c",
+      "name": "THE Fitness ZCentar",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_a0ec1a2c32",
+      "name": "THE Fitness Zonar",
+      "brand": "THE Fitness"
+    },
+    {
+      "id": "hr_b0b6f04fa5",
+      "name": "Gibi Gib Zagreb Voltino",
+      "brand": "Gibi Gib"
+    },
+    {
+      "id": "hr_eb89f1acde",
+      "name": "Gibi Gib Zagreb Rudeš",
+      "brand": "Gibi Gib"
+    },
+    {
+      "id": "hr_51e7c33064",
+      "name": "Gibi Gib Varaždin Istok",
+      "brand": "Gibi Gib"
+    },
+    {
+      "id": "hr_9d4a1f57fa",
+      "name": "Gibi Gib Varaždin Centar",
+      "brand": "Gibi Gib"
+    },
+    {
+      "id": "hr_2dd927c58a",
+      "name": "Fitness Centar Joker Split Brodarice",
+      "brand": "Fitness Centar Joker"
+    },
+    {
+      "id": "hr_d38c920e25",
+      "name": "Fitness Centar Joker Split Mejaši",
+      "brand": "Fitness Centar Joker"
+    },
+    {
+      "id": "hr_d225dc7c62",
+      "name": "Fitness Centar Joker Omiš",
+      "brand": "Fitness Centar Joker"
+    },
+    {
+      "id": "hr_05840eab80",
+      "name": "Fitness Centar Joker Solin",
+      "brand": "Fitness Centar Joker"
+    },
+    {
+      "id": "hr_f253f40958",
+      "name": "Multihealth Samobor",
+      "brand": "Multihealth"
+    },
+    {
+      "id": "hr_35051fecb9",
+      "name": "Multihealth Karlovac",
+      "brand": "Multihealth"
+    },
+    {
+      "id": "hr_73c4f54110",
+      "name": "Multihealth Zagreb Rudeš",
+      "brand": "Multihealth"
+    }
+  ],
+  "known_pairs": {
+    "the_fitness_zavrtnica_branimir": "A_legitimate",
+    "gyms4you_dubec_the_fitness_dubrava": "A_legitimate"
+  },
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "hr_ca7a172b54",
+        "a_name": "THE Fitness Branimir",
+        "a_address": "Ulica kneza Branimira 29, Mingle Mall",
+        "a_postal": "10240",
+        "b_id": "hr_31f66c7a1f",
+        "b_name": "THE Fitness Zavrtnica",
+        "b_address": "Zavrtnica 17",
+        "b_postal": "10000",
+        "brand": "THE Fitness",
+        "distance_m": 122,
+        "same_address": false,
+        "classification": "A_legitimate"
+      }
+    ],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "hr_1156235f67",
+        "a_brand": "Gyms4you",
+        "a_name": "Gyms4you Dubec",
+        "b_id": "hr_e86685f75d",
+        "b_brand": "THE Fitness",
+        "b_name": "THE Fitness Dubrava",
+        "distance_m": 49,
+        "classification": "A_legitimate"
+      }
+    ]
+  },
+  "counts": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 1,
+    "identical_coordinate_clusters": 0,
+    "different_brand_lte_100m": 1
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "buckets": {
+    "CURRENT_FIRST_PARTY": 11,
+    "CURRENT_MULTI_SOURCE": 25
+  },
+  "stale_only_ready": 0,
+  "operation_unverified_ready": 0,
+  "rows": [
+    {
+      "id": "am_4be62b7252",
+      "brand": "Orange Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_5b26cefdf9",
+      "brand": "Orange Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_64802e03bf",
+      "brand": "Orange Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_7878973e26",
+      "brand": "Orange Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_d0d7229cd3",
+      "brand": "Orange Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_e381190ac5",
+      "brand": "Orange Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_11ae441734",
+      "brand": "Energy Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_479a56e570",
+      "brand": "Gold's Gym",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_818c480981",
+      "brand": "World Gym Armenia",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_c76cb0ba57",
+      "brand": "Panorama Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_d134df34a4",
+      "brand": "Grand Sport Club",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "HIGH",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_045c20e5e4",
+      "brand": "Independent (Abovyan)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_070a05f85b",
+      "brand": "Progress ֆիզիկական զարգացման կենտրոն",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_1aba19e385",
+      "brand": "Independent (Armavir)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_3ee6bd0963",
+      "brand": "Dreambody",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_43d12efb9f",
+      "brand": "Oxylife",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_4cda657d75",
+      "brand": "Lady Zone",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_511afad14c",
+      "brand": "Independent (Vanadzor)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_525edbb005",
+      "brand": "Allegro",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_55ef0d75b4",
+      "brand": "Star Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_566cdcee60",
+      "brand": "Reebok Sports Club Armenia",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_59a231b372",
+      "brand": "Independent (Gyumri)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_5db22c1887",
+      "brand": "jamm fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_5ef92e0c7a",
+      "brand": "Grig fitness club",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_655f99a9e3",
+      "brand": "MASGym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_8758b54ad0",
+      "brand": "Independent (Hrazdan)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_8c7f92c2e9",
+      "brand": "Թի-էյջ",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_906dca9825",
+      "brand": "Independent (Kapan)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_90e3844ca0",
+      "brand": "Delta",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_912df09b01",
+      "brand": "Gym Unity",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_b434afb728",
+      "brand": "Ketrin",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_e321de5b21",
+      "brand": "Sparta",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_e37fde58c7",
+      "brand": "Independent (Goris)",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_e5dd3ae42d",
+      "brand": "Davis' gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_f1fc60831e",
+      "brand": "Fitness Zone",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "am_f6a5febe43",
+      "brand": "Մուլտի ուելնես կենտրոն",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    }
+  ]
+}

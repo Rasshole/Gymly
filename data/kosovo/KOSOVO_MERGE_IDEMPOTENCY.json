@@ -1,0 +1,9 @@
+{
+  "second_run_insertions": 0,
+  "final_catalog": 11921,
+  "kosovo": 18,
+  "xk_prefix": 18,
+  "expected_catalog": 11921,
+  "expected_kosovo": 18,
+  "result": "PASS"
+}

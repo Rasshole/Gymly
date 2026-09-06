@@ -1,0 +1,91 @@
+{
+  "generated": "2026-08-19",
+  "staging_total": 2143,
+  "ready_count": 1902,
+  "production_france": 0,
+  "duplicates_with_production": 0,
+  "internal_near_duplicates": [
+    {
+      "entry_a": "fr_bf041ca260",
+      "name_a": "Basic-Fit Gym Rue Nationale Ladies Lille",
+      "entry_b": "fr_1c66f7f152",
+      "name_b": "Basic-Fit Gym Rue Nationale II Lille",
+      "distance_m": 22,
+      "chain": "Basic-Fit",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_bf041ca260",
+      "name_a": "Basic-Fit Gym Rue Nationale Ladies Lille",
+      "entry_b": "fr_5d629d8752",
+      "name_b": "Basic-Fit Gym Rue Nationale III Lille",
+      "distance_m": 49,
+      "chain": "Basic-Fit",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_1c66f7f152",
+      "name_a": "Basic-Fit Gym Rue Nationale II Lille",
+      "entry_b": "fr_5d629d8752",
+      "name_b": "Basic-Fit Gym Rue Nationale III Lille",
+      "distance_m": 27,
+      "chain": "Basic-Fit",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_c1135e69c4",
+      "name_a": "Basic-Fit Gym Rue de Crimée Marseille",
+      "entry_b": "fr_73c7bc6946",
+      "name_b": "Basic-Fit Gym Rue Jean Cristofol Marseille",
+      "distance_m": 71,
+      "chain": "Basic-Fit",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_02f08e085f",
+      "name_a": "Basic-Fit Gym Rue du Mondial 1998 Saint-Denis",
+      "entry_b": "fr_56aa51b8d2",
+      "name_b": "Basic-Fit Gym Rue du Mondial 1998 Ladies Saint-Denis",
+      "distance_m": 15,
+      "chain": "Basic-Fit",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_014cc820ca",
+      "name_a": "Basic-Fit Gym Rue Alexandre Dumas Ladies Strasbourg",
+      "entry_b": "fr_78ce06adcf",
+      "name_b": "Basic-Fit Gym Rue Alexandre Dumas Mixte Strasbourg",
+      "distance_m": 45,
+      "chain": "Basic-Fit",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_816e73d691",
+      "name_a": "L'Appart Fitness Lyon 1 Opéra",
+      "entry_b": "fr_094b5b6a88",
+      "name_b": "L'Appart Fitness Lyon 1 Louis Pradel",
+      "distance_m": 68,
+      "chain": "L'Appart Fitness",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_2802221e02",
+      "name_a": "Keepcool Neudorf",
+      "entry_b": "fr_faec404835",
+      "name_b": "Keepcool Neudorf Ribeauvillé",
+      "distance_m": 0,
+      "chain": "Keepcool",
+      "verdict": "legitimate_pair"
+    },
+    {
+      "entry_a": "fr_c0cc1be2fe",
+      "name_a": "Keepcool Strasbourg",
+      "entry_b": "fr_7e0bd542dd",
+      "name_b": "Keepcool Strasbourg Les Halles",
+      "distance_m": 0,
+      "chain": "Keepcool",
+      "verdict": "legitimate_pair"
+    }
+  ],
+  "notes": "All internal duplicates are legitimate (Ladies/Mixed pairs, multi-floor clubs, or shared FAQ page resolution errors already marked NEEDS_REVIEW)"
+}

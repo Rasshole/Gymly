@@ -1,0 +1,140 @@
+{
+  "country": "Estonia",
+  "reconciliation_type": "PRESERVE_68_INSERT_1",
+  "generated_at": "2026-08-29T13:11:13.321Z",
+  "dry_run": true,
+  "idempotency_check": false,
+  "production_total_before": 11923,
+  "production_total_after": 11923,
+  "production_sha256_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "production_sha256_after": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "estonia_before": 69,
+  "estonia_after": 69,
+  "phase2_inputs": {
+    "keep_existing": 68,
+    "new_ready_to_import": 1,
+    "existing_review_required": 0,
+    "coming_soon": 5,
+    "excluded": 29
+  },
+  "approved_for_production": 69,
+  "id_reconciliation": {
+    "keep_existing_ids": 68,
+    "approved_ids": 69,
+    "production_estonia_ids": 69,
+    "exact_id_match_count": 68,
+    "missing_from_production": [],
+    "unexpected_in_production": [
+      "ee_91d7bd69f0"
+    ],
+    "approved_missing_from_production": [],
+    "production_not_in_approved": []
+  },
+  "metadata": {
+    "material_metadata_drift_count": 0,
+    "material_metadata_drift": [],
+    "existing_rows_changed": 0
+  },
+  "fitlife": {
+    "id": "ee_91d7bd69f0",
+    "validated": true,
+    "already_in_production_before": true,
+    "safety_issues": [],
+    "disposition": "NEW_READY_TO_IMPORT",
+    "classification": "A_CONVENTIONAL_PUBLIC_GYM",
+    "eligibility": "SMALL_MARKET_INDEPENDENT"
+  },
+  "brand_inventory": {
+    "24-7 Fitness": 31,
+    "Golden Club": 3,
+    "Gym!": 15,
+    "MyFitness": 19,
+    "FitLife": 1
+  },
+  "expected_brands": {
+    "MyFitness": 19,
+    "24-7 Fitness": 31,
+    "Gym!": 15,
+    "Golden Club": 3,
+    "FitLife": 1
+  },
+  "class_a": {
+    "existing": 68,
+    "myfitness": 19,
+    "24_7_fitness": 31,
+    "gym_bang": 15,
+    "golden_club": 3,
+    "new_class_a": 0,
+    "small_market_independent_new": 1
+  },
+  "coming_soon": {
+    "coming_soon_production_leakage": []
+  },
+  "excluded": {
+    "excluded_production_leakage": []
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0
+  },
+  "cross_border": {
+    "latvia_outliers": 0,
+    "russia_outliers": 0,
+    "finland_outliers": 0,
+    "valga_valka_identity_collisions": 0,
+    "narva_ivangorod_identity_collisions": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "estonia_before": 69,
+    "estonia_after": 69,
+    "ee_prefix_before": 69,
+    "ee_prefix_after": 69
+  },
+  "projected_catalog_after_reconciliation": 11923,
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "global_stress_qa_run": false,
+  "prior_country_counts": {
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "performance": {
+    "catalog_total": 11923,
+    "centers_json_bytes": 3706426
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "phase2_verdict": "READY FOR ESTONIA PRODUCTION RECONCILIATION",
+  "verdict": "ESTONIA RECONCILIATION COMPLETE — WAITING FOR QA"
+}

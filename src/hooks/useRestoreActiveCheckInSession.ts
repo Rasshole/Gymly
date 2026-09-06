@@ -3,16 +3,21 @@ import {AppState} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import {activeSessionFromSupabaseRow, useSessionStore} from '@/store/sessionStore';
 import {getActiveCheckInForUser} from '@/services/supabase/checkInService';
-import {upsertLiveWorkoutSession} from '@/services/supabase/liveWorkoutSessionService';
+import {
+  deleteMyLiveWorkoutSession,
+  upsertLiveWorkoutSession,
+} from '@/services/supabase/liveWorkoutSessionService';
 import {
   startWorkoutLiveActivity,
+  cleanupAllGymlyLiveActivities,
 } from '@/services/ios/workoutLiveActivity';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
-import {clearPersistedAwayStateOnResume} from '@/services/autoCheckout/runAutoCheckoutEvaluation';
+import {useCheckInUIStore} from '@/store/checkInUIStore';
+import {fetchWorkoutNeedingReview} from '@/services/session/workoutReviewService';
 
 /**
  * Genopret aktiv træning fra Supabase ved app-start / resume.
- * Afslutter aldrig session lokalt — kun sync fra DB → sessionStore.
+ * Afslutter lokal session hvis server allerede har tjekket ud (fx baggrund/auto).
  */
 export function useRestoreActiveCheckInSession(): void {
   const userId = useAppStore(s => s.user?.id);
@@ -25,6 +30,18 @@ export function useRestoreActiveCheckInSession(): void {
     try {
       const row = await getActiveCheckInForUser(userId);
       if (!row?.started_at) {
+        const local = useSessionStore.getState().activeSession;
+        if (local?.checkInId) {
+          useSessionStore.getState().endSession();
+          useCheckInUIStore.getState().setShowAwayZoneWarning(false);
+        }
+        await deleteMyLiveWorkoutSession(userId).catch(() => {});
+        await cleanupAllGymlyLiveActivities('auto').catch(() => {});
+
+        const pending = await fetchWorkoutNeedingReview(userId).catch(() => null);
+        if (pending) {
+          useCheckInUIStore.getState().notifyImmediateAutoCheckoutReview(pending);
+        }
         return;
       }
       const session = activeSessionFromSupabaseRow(row);
@@ -32,7 +49,6 @@ export function useRestoreActiveCheckInSession(): void {
       if (cur?.checkInId === session.checkInId) {
         return;
       }
-      void clearPersistedAwayStateOnResume(session.checkInId!, userId);
       useSessionStore.getState().startSession(session);
       void startWorkoutLiveActivity(
         formatWorkoutTypeDisplay(session.workoutType || ''),

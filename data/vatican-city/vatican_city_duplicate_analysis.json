@@ -1,0 +1,12 @@
+{
+  "duplicate_ids": 0,
+  "identical_coordinates": [],
+  "same_normalized_address": [
+    {
+      "a": "va_d811b1aa02",
+      "b": "va_ef777729ca",
+      "distance_m": 857
+    }
+  ],
+  "unexplained_hard_duplicates": 0
+}

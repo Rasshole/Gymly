@@ -1,0 +1,61 @@
+{
+  "exit_code": 1,
+  "suites_failed": 4,
+  "tests_failed": 8,
+  "failures": [
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/russiaPhase2Staging.test.ts",
+      "test": "Russia Deep Phase 2 staging (merge readiness, no production writes) production frozen at 12385 / Russia 0 / AZ 46 / AM 36 / GE 25 / SHA+bytes unchanged",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge 12385 vs live 12850"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/russiaPhase1Staging.test.ts",
+      "test": "Russia Deep Phase 1 staging (no production merge) frozen production baseline intact",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-merge 12385 vs live 12850"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/russiaPhase1Staging.test.ts",
+      "test": "Russia Deep Phase 1 staging (no production merge) staging buckets exist and each candidate has exactly one status",
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/russiaPhase1Staging.test.ts Russia Deep Phase 1 staging (no product"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/russiaProductionQa.test.ts",
+      "test": "Russia Production QA (final) infrastructure / search / check-in / global stress / QA immutability",
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/russiaProductionQa.test.ts Russia Production QA (final) infrastruct"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/global10kStressQa.test.ts",
+      "test": "Global 10K+ stress QA 1. Production baseline total = 10050, active = 10046",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-Russia global10kStressQa baseline"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/global10kStressQa.test.ts",
+      "test": "Global 10K+ stress QA 2. Global catalog integrity no mojibake or literal escapes in any row",
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/global10kStressQa.test.ts Global 10K+ stress QA 2. Global catalog i"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/global10kStressQa.test.ts",
+      "test": "Global 10K+ stress QA 6. Active catalog cache getActiveGyms returns stable reference",
+      "classification": "STALE_HISTORICAL_BASELINE",
+      "reason": "Pre-Russia global10kStressQa baseline"
+    },
+    {
+      "suite": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/global10kStressQa.test.ts",
+      "test": "Global 10K+ stress QA 7. Search index caching cold index build then cached near-zero",
+      "classification": "OTHER_TEST_DEBT",
+      "reason": "/Users/patrickgarcia/Desktop/Gymly/Gymly-1/__tests__/global10kStressQa.test.ts Global 10K+ stress QA 7. Search index cac"
+    }
+  ],
+  "summary": {
+    "STALE_HISTORICAL_BASELINE": 4,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "REAL_GLOBAL_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 4
+  }
+}

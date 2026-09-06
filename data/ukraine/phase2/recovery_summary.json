@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-29T15:01:05.070873+00:00",
+  "production_total": 11929,
+  "production_sha256": "286729e8a8228863be19cf9f88108f4ebf91d2f9974c04145900622e444fed83",
+  "phase1_rows_recovered": 133,
+  "phase1_status_counts": {
+    "READY_TO_IMPORT": 99,
+    "COMING_SOON": 5,
+    "CLOSED": 2,
+    "NEEDS_REVIEW": 17,
+    "EXCLUDED": 10
+  },
+  "keep_existing": 0,
+  "new_ready_to_import": 105,
+  "existing_review_required": 0,
+  "coming_soon": 6,
+  "excluded": 31,
+  "closed": 2,
+  "new_grafit_official": 4,
+  "new_total_fitness_official": 7,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 105,
+    "COMING_SOON": 6,
+    "CLOSED": 2,
+    "EXCLUDED": 31
+  },
+  "nr_resolved": 17,
+  "apollo_city_fixes": 9
+}

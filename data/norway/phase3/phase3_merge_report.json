@@ -1,0 +1,77 @@
+{
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 1360,
+    "norway": 367,
+    "denmark": 354,
+    "sweden": 639
+  },
+  "after": {
+    "total": 1528,
+    "norway": 535,
+    "denmark": 354,
+    "sweden": 639
+  },
+  "approved_candidates": 168,
+  "inserted": 168,
+  "skipped_existing_id": 0,
+  "skipped_same_addr_brand": 0,
+  "skipped_proximity_same_brand": 0,
+  "skipped_batch_dup_addr_brand": 0,
+  "skipped_non_norway_id_collision": 0,
+  "soft_postal_included": 36,
+  "by_brand_added": {
+    "SATS": 15,
+    "Fresh Fitness": 4,
+    "EVO Fitness": 16,
+    "MUDO Gym": 2,
+    "Feel24": 6,
+    "3T-Treningssenter": 1,
+    "MOVA": 3,
+    "SKY Fitness": 3,
+    "Fitness24Seven": 9,
+    "Impulse Treningssenter": 11,
+    "Sporty": 73,
+    "Fitnesspoint": 25
+  },
+  "duplicate_ids_in_catalog": [],
+  "duplicate_same_brand_physical_new_vs_live": [],
+  "every_new_has_valid_coords": true,
+  "invalid_new": [],
+  "denmark_count": 354,
+  "sweden_count": 639,
+  "denmark_intact": true,
+  "sweden_intact": true,
+  "unresolved_remaining": 115,
+  "unresolved_by_category": {
+    "NEEDS_REVIEW": 36,
+    "NEEDS_COORDINATES": 77,
+    "SKIP_INCOMPLETE": 1,
+    "DUPLICATE_EXISTING": 1
+  },
+  "feelgood_excluded": true,
+  "next_chain_excluded": true,
+  "coming_soon_not_activated": true,
+  "files_changed_if_written": [
+    "src/data/centers.json",
+    "data/norway/norway_centers_staging.json",
+    "data/norway/phase2_new_centers_staging.json",
+    "data/norway/phase3/phase3_new_centers_staging.json",
+    "data/norway/phase3/phase3_merge_report.json",
+    "data/norway/phase3/phase3_APPROVED_FOR_MERGE.json",
+    "data/norway/phase3/phase3_merge_duplicate_analysis.json"
+  ],
+  "idempotency_second_run_inserted": 0,
+  "idempotency_passed": true,
+  "validation": {
+    "catalog_total": 1528,
+    "norway": 535,
+    "denmark": 354,
+    "sweden": 639,
+    "duplicate_ids": [],
+    "merged_staging_marks": 168,
+    "all_merged_present_in_catalog": true,
+    "all_merged_coords_valid": true
+  }
+}

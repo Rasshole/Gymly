@@ -1,0 +1,54 @@
+{
+  "as_of": "2026-08-26",
+  "phase": 2,
+  "relationships": [
+    {
+      "from": "Fitness Factory multi-city directory claims",
+      "to": "Fitness Factory Engomi (sole current)",
+      "class": "E_legacy_directory_inflation"
+    },
+    {
+      "from": "Fitness One multi-city claims",
+      "to": "Fitness One Lakatamia registry-only",
+      "class": "E_legacy_directory_inflation"
+    },
+    {
+      "from": "Curves legacy Cyprus Beauty directory clubs",
+      "to": "Curves Aglantzia + Curves Larnaca (official)",
+      "class": "E_legacy_closed"
+    },
+    {
+      "from": "Sanctum Spa & Fitness (3 Limassol sites)",
+      "to": "Amenity/spa classifications B/C — not READY",
+      "class": "C_amenity_not_chain_a"
+    },
+    {
+      "from": "Arise Active",
+      "to": "ex DP Sports (same Aradippou club identity)",
+      "class": "A_current_successor"
+    },
+    {
+      "from": "ALTERLIFE Cyprus",
+      "to": "ALTERLIFE Nicosia sole franchise",
+      "class": "A_current_successor"
+    },
+    {
+      "from": "Aesthetics Gold",
+      "to": "Aesthetics Arc (same operator, 2 sites)",
+      "class": "B_distinct_current_clubs"
+    }
+  ],
+  "unresolved": [],
+  "phase1_gaps_closed": [
+    "sanctum_policy",
+    "fitness_factory_discovery_gap",
+    "fitness_one_discovery_gap",
+    "curves_estate"
+  ],
+  "artifacts": {
+    "fitness_factory": "SINGLE_CLUB_INDEPENDENT_READY",
+    "fitness_one": "SINGLE_REGISTRY_INSUFFICIENT_EXCLUDED",
+    "curves": "ESTATE_2_INDEPENDENT_READY",
+    "sanctum": "NOT_CLASS_A_NOT_INDEPENDENT_READY"
+  }
+}

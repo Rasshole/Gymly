@@ -1,0 +1,5 @@
+exercise_id,exercise_name,reuse_asset_filename,source_exercise_id,source_exercise_name,reason_verified_safe
+ex-barbell-romanian-deadlift,Barbell Romanian Deadlift,rdl_barbell.webp,ex-rdl,Romanian Deadlift,Same barbell Romanian deadlift movement; library has parallel ID for Barbell RDL while ex-rdl already maps to rdl_barbell.webp
+ex-lying-leg-curl,Lying Leg Curl,leg_curl_lying.webp,ex-leg-curl,Leg Curl,Same lying machine leg curl pattern; ex-leg-curl already uses leg_curl_lying.webp
+ex-dumbbell-bulgarian-split-squat,Dumbbell Bulgarian Split Squat,bulgarian_split_squat.webp,ex-bulgarian,Bulgarian Split Squat,Same dumbbell Bulgarian split squat; ex-bulgarian equipment=dumbbell and maps to bulgarian_split_squat.webp
+ex-shoulder-press,Shoulder Press,shoulder_press_dumbbell.webp,ex-dumbbell-shoulder-press,Dumbbell Shoulder Press,Generic Shoulder Press is dumbbell equipment with OHP aliases; existing dumbbell shoulder press art is accurate

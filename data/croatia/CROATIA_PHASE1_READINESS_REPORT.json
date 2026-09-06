@@ -1,0 +1,358 @@
+{
+  "country": "Croatia",
+  "prefix": "hr_",
+  "generated_at": "2026-08-28T20:54:14.030607+00:00",
+  "production_total": 11921,
+  "unique_staged": 125,
+  "status_counts": {
+    "READY_TO_IMPORT": 80,
+    "COMING_SOON": 6,
+    "NEEDS_REVIEW": 2,
+    "EXCLUDED": 37
+  },
+  "ready_count": 80,
+  "ready_by_brand": {
+    "Gyms4you": 48,
+    "THE Fitness": 21,
+    "Gibi Gib": 4,
+    "Fitness Centar Joker": 4,
+    "Multihealth": 3
+  },
+  "brand_counts": {
+    "Gyms4you": 54,
+    "THE Fitness": 23,
+    "Gibi Gib": 4,
+    "Fitness Centar Joker": 4,
+    "Multihealth": 3,
+    "OrlandoFit": 1,
+    "Play Fitness": 1,
+    "XXL Fitness": 1,
+    "Sparta Gym": 1,
+    "Fitness centar Forma": 1,
+    "MoFit": 1,
+    "Jump Fitness": 1,
+    "Core Gym": 1,
+    "Basic Gym One": 1,
+    "Invictus Fitness": 1,
+    "Blue Gym": 1,
+    "Olympic Fitness": 1,
+    "Fitness Studio Energy": 1,
+    "Anytime Fitness": 1,
+    "clever fit": 1,
+    "FITINN": 1,
+    "McFIT": 1,
+    "JOHN REED": 1,
+    "Gold's Gym": 1,
+    "World Class": 1,
+    "Fitness First": 1,
+    "MultiSport": 1,
+    "PassSport": 1,
+    "Border probe": 14
+  },
+  "city_coverage": {
+    "Zagreb": "READY_present",
+    "Split": "READY_present",
+    "Rijeka": "READY_present",
+    "Osijek": "READY_present",
+    "Zadar": "READY_present",
+    "Pula": "A_legitimate_no_local_gym",
+    "Varaždin": "READY_present",
+    "Slavonski Brod": "READY_present",
+    "Karlovac": "READY_present",
+    "Šibenik": "READY_present",
+    "Dubrovnik": "READY_present",
+    "Sisak": "A_legitimate_no_local_gym",
+    "Čakovec": "A_legitimate_no_local_gym",
+    "Velika Gorica": "READY_present",
+    "Zaprešić": "READY_present",
+    "Samobor": "READY_present",
+    "Vukovar": "independent_present_candidate",
+    "Vinkovci": "independent_present_candidate",
+    "Požega": "A_legitimate_no_local_gym",
+    "Virovitica": "A_legitimate_no_local_gym",
+    "Đakovo": "independent_present_candidate",
+    "Bjelovar": "A_legitimate_no_local_gym",
+    "Koprivnica": "A_legitimate_no_local_gym",
+    "Solin": "READY_present",
+    "Kaštela": "READY_present",
+    "Makarska": "C_scope_exclusion",
+    "Trogir": "C_scope_exclusion",
+    "Poreč": "A_legitimate_no_local_gym",
+    "Rovinj": "A_legitimate_no_local_gym",
+    "Opatija": "C_scope_exclusion",
+    "Gospić": "A_legitimate_no_local_gym",
+    "Knin": "A_legitimate_no_local_gym",
+    "Metković": "A_legitimate_no_local_gym",
+    "Ploče": "A_legitimate_no_local_gym",
+    "Imotski": "A_legitimate_no_local_gym"
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "invalid_ready_postcodes": 0,
+    "invalid_ready_coordinates": 0,
+    "fallback_ready_coordinates": 0,
+    "missing_ready_fields": 0,
+    "mojibake": 0,
+    "foreign_ready_outliers": 0,
+    "hotel_resort_ready_leakage": 0,
+    "specialist_ready_leakage": 0,
+    "institutional_ready_leakage": 0
+  },
+  "production_collisions": 80,
+  "proximity_summary": {
+    "lt25": 0,
+    "lt50": 0,
+    "lt100": 0,
+    "lt200": 1,
+    "identical": 0
+  },
+  "projected_catalog_if_merged_alone": 12001,
+  "verdict": "CROATIA PHASE 2 REQUIRED BEFORE MERGE",
+  "coverage_notes": {},
+  "geocoded_this_run": 25,
+  "phase": 1,
+  "market_model": "CHAIN_LED",
+  "ready_by_city": {
+    "Zadar": 2,
+    "Rijeka": 2,
+    "Zaprešić": 1,
+    "Zagreb": 50,
+    "Split": 5,
+    "Velika Gorica": 3,
+    "Karlovac": 3,
+    "Šibenik": 1,
+    "Slavonski Brod": 1,
+    "Dubrovnik": 1,
+    "Osijek": 2,
+    "Varaždin": 4,
+    "Dugo Selo": 1,
+    "Samobor": 2,
+    "Omiš": 1,
+    "Solin": 1
+  },
+  "regional_gap_classification": {
+    "Zagreb": "A_legitimate",
+    "Split": "A_legitimate",
+    "Rijeka": "A_legitimate",
+    "Osijek": "A_legitimate",
+    "Zadar": "A_legitimate",
+    "Pula": "A_legitimate_no_chain_presence",
+    "Varaždin": "A_legitimate",
+    "Slavonski Brod": "A_legitimate",
+    "Karlovac": "A_legitimate",
+    "Šibenik": "A_legitimate",
+    "Dubrovnik": "A_legitimate",
+    "Sisak": "A_legitimate_no_chain_presence",
+    "Čakovec": "A_legitimate_no_chain_presence"
+  },
+  "production_sha256": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "croatia_live_at_run": 80,
+  "croatia_live_phase1_baseline_note": "Production already contains 80 hr_* from prior Phase 2 merge; Phase 1 staging validates frozen discovery set.",
+  "qualifying_class_a_chains": 5,
+  "class_a_chain_names": [
+    "Gyms4you",
+    "THE Fitness",
+    "Gibi Gib",
+    "Fitness Centar Joker",
+    "Multihealth"
+  ],
+  "needs_review": 2,
+  "needs_coordinates": 0,
+  "excluded": 37,
+  "closed": 0,
+  "coming_soon": 6,
+  "projected_catalog": 11921,
+  "projected_catalog_adjusted_for_live_croatia": 11921,
+  "crosses_12500_if_merged": false,
+  "global_stress_qa_required_after_merge": false,
+  "global_stress_qa_required_now": false,
+  "phase2_required": true,
+  "phase2_reasons": [
+    "Gyms4you coordinates are Nominatim STRICT_ADDRESS_GEOCODE — Phase 2 pin verification",
+    "THE Fitness hotel-sited clubs need conventional public access confirmation",
+    "Coming-soon Gyms4you Split estate requires Phase 2 activation check",
+    "Istria/Dalmatia independent and municipal candidates remain NR/NC"
+  ],
+  "unexplained_b_gaps": 0,
+  "unexplained_d_gaps": 0,
+  "new_chains_second_sweep": 0,
+  "additional_candidates_missed_gym_sweep": 0,
+  "check_in_radius_meters": 200,
+  "auto_checkout_distance_meters": 200,
+  "cross_border": {
+    "slovenia_ready": 0,
+    "bosnia_ready": 0,
+    "serbia_ready": 0,
+    "montenegro_ready": 0,
+    "hungary_ready": 0,
+    "italy_ready": 0,
+    "neum_croatia_collisions": 0,
+    "brod_identity_collisions": 0,
+    "foreign_probes_staged": 14,
+    "foreign_probes_excluded": 14,
+    "foreign_probe_ids_in_ready": [],
+    "probes": [
+      {
+        "name": "Slovenia probe Ljubljana",
+        "city": "Ljubljana",
+        "territory": "Slovenia",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": false
+      },
+      {
+        "name": "Slovenia probe Koper",
+        "city": "Koper",
+        "territory": "Slovenia",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Slovenia probe Maribor",
+        "city": "Maribor",
+        "territory": "Slovenia",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": false
+      },
+      {
+        "name": "Bosnia probe Mostar",
+        "city": "Mostar",
+        "territory": "Bosnia and Herzegovina",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Bosnia probe Neum",
+        "city": "Neum",
+        "territory": "Bosnia and Herzegovina",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Bosnia probe Banja Luka",
+        "city": "Banja Luka",
+        "territory": "Bosnia and Herzegovina",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Bosnia probe Bosanski Brod",
+        "city": "Bosanski Brod",
+        "territory": "Bosnia and Herzegovina",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Bosnia probe Trebinje",
+        "city": "Trebinje",
+        "territory": "Bosnia and Herzegovina",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Serbia probe Novi Sad",
+        "city": "Novi Sad",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": false
+      },
+      {
+        "name": "Serbia probe Sombor",
+        "city": "Sombor",
+        "territory": "Serbia",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Montenegro probe Herceg Novi",
+        "city": "Herceg Novi",
+        "territory": "Montenegro",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Montenegro probe Igalo",
+        "city": "Igalo",
+        "territory": "Montenegro",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Hungary probe southern border",
+        "city": "Barcs",
+        "territory": "Hungary",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      },
+      {
+        "name": "Italy probe Trieste",
+        "city": "Trieste",
+        "territory": "Italy",
+        "import_category": "EXCLUDED",
+        "in_croatia_gate": true
+      }
+    ]
+  },
+  "language_alias_audit": {
+    "performed": true,
+    "languages": [
+      "Croatian",
+      "Latin",
+      "English"
+    ],
+    "diacritic_pairs": [
+      [
+        "Čakovec",
+        "Cakovec"
+      ],
+      [
+        "Šibenik",
+        "Sibenik"
+      ],
+      [
+        "Požega",
+        "Pozega"
+      ],
+      [
+        "Đakovo",
+        "Dakovo",
+        "Djákovo"
+      ],
+      [
+        "Varaždin",
+        "Varazdin"
+      ],
+      [
+        "Prečko",
+        "Precko"
+      ],
+      [
+        "Zaprešić",
+        "Zapresic"
+      ]
+    ],
+    "croatian_terms_used": [
+      "teretana",
+      "fitness centar",
+      "fitnes centar",
+      "lokacije",
+      "naše lokacije",
+      "gradska teretana"
+    ],
+    "diacritic_duplicate_conflicts": 0,
+    "notes": "Search normalization folds č/ć/š/ž/đ; display preserves official Croatian diacritics."
+  },
+  "hotel_resort_audit": {
+    "performed": true,
+    "hotel_resort_candidates_staged": 4,
+    "hotel_resort_ready_leakage": 0,
+    "wellness_additive_candidates_phase2": [
+      "hr_e99d3d2a6c",
+      "hr_a0ec1a2c32"
+    ],
+    "notes": "THE Fitness Hotel Novi Zagreb / Zonar held for Phase 2 public-access confirmation; generic hotel fitness rooms excluded."
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0
+  }
+}

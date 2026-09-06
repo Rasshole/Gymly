@@ -1,0 +1,20 @@
+{
+  "classification": "B_duplicate_same_physical_club",
+  "address": "Gardino g. 3, Šiauliai",
+  "official_urls": [
+    "https://gymplius.lt/en/clubs/gardino-g-3-3/",
+    "https://gymplius.lt/en/clubs/gardino-g-3-2/"
+  ],
+  "phase1_bug": "Discover twin used same brand/address/city as primary → identical lt_* hash; by_id keep-last left only DUPLICATE twin and zero READY Gardino",
+  "evidence": [
+    "Official gyms directory lists two club_id entries (10309, 9815) with identical address text",
+    "Both club pages titled 'Gardino g. 3' with ~1700 m² and overlapping zone descriptions",
+    "Biometrics/locations page lists 'Gardino g. 3, Šiauliai' once",
+    "Press (15min HYROX) refers to a single Gardino g. 3 Gym+ club",
+    "HotWay / secondary directories show one physical club at Gardino g. 3",
+    "No distinct unit/floor/phone differentiating the twin listing"
+  ],
+  "action": "Promote surviving lt_5b1f24ce40 to READY as canonical Gym+ Šiauliai Gardino; no second live row — twin locator is evidence-only",
+  "keep_id": "lt_5b1f24ce40",
+  "duplicate_id": null
+}

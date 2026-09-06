@@ -1,0 +1,11 @@
+{
+  "relationship": "Painworld Gasperich → JIMS Gasperich",
+  "class": "A_successor_same_premises",
+  "painworld_candidates": 1,
+  "painworld_ready": 0,
+  "jims_gasperich_count": 1,
+  "jims_gasperich_ready": 1,
+  "other_painworld_locations_found": 0,
+  "verdict": "CLEAN",
+  "notes": "Predecessor EXCLUDED; successor READY exactly once"
+}

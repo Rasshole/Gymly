@@ -1,0 +1,884 @@
+{
+  "country": "Georgia",
+  "phase": 1,
+  "deep_phase": true,
+  "production_sha_before": "03dc090d0e86a532c19602490cc3a5e3877033389923fd898abe1a3c288dbb9a",
+  "production_bytes_before": 3824712,
+  "production_total": 12278,
+  "georgia_live": 0,
+  "ge_prefix_live": 0,
+  "georgia_country_live": 0,
+  "existing_georgia_production": false,
+  "baseline_turkey": 198,
+  "baseline_belarus": 46,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "market_model": "CHAIN_LED_SMALL_MARKET",
+  "postcode_model": "NNNN (4 digits)",
+  "fetch_summary": {
+    "curated_class_a": 25,
+    "osm_georgia": 106,
+    "photon_grid": 518,
+    "total_candidates": 556
+  },
+  "official_estate": {
+    "Oktopus Fitness": {
+      "open_active_estimated": 8,
+      "class_a": true
+    },
+    "World Class Georgia": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "Snap Fitness": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "Champion": {
+      "open_active_estimated": 3,
+      "class_a": true
+    },
+    "Fitness House": {
+      "open_active_estimated": 2,
+      "class_a": true
+    },
+    "Colosseum": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "Life Sport Club": {
+      "open_active_estimated": 1,
+      "class_a": true
+    },
+    "Arena Sports Complex": {
+      "open_active_estimated": 1,
+      "class_a": true
+    }
+  },
+  "conflict_regions_tracked": [
+    "Abkhazia",
+    "South Ossetia"
+  ],
+  "discover_default_category": "NEEDS_REVIEW",
+  "chains": [
+    {
+      "chain": "360⁰",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Absolute",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Arena Sports",
+      "classification": "B",
+      "staged": 15,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Arena Sports Complex",
+      "classification": "A",
+      "staged": 1,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "BFA Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "BI Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "BLUE FITNES",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Champion",
+      "classification": "A",
+      "staged": 12,
+      "official_current_active_estimated": 3,
+      "class_a": true
+    },
+    {
+      "chain": "City Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Colosseum",
+      "classification": "A",
+      "staged": 3,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "Conflict region probe",
+      "classification": "B",
+      "staged": 3,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "CycleO2 cycle&fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Elastic Fit Space",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Energym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Evo Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fit Line",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fit formula",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fitness Club \"Mtieli\"",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Fitness House",
+      "classification": "A",
+      "staged": 116,
+      "official_current_active_estimated": 2,
+      "class_a": true
+    },
+    {
+      "chain": "Flow Studio",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "GYM13",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Galileo",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gladiator Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Global Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Goal Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Gold's Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Hard Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Heyday home",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent",
+      "classification": "B",
+      "staged": 211,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Gori)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Kobuleti)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Kutaisi)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Poti)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Rustavi)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Telavi)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Independent (Zugdidi)",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Iron Viking",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "K2",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Laboratory",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Life Sport",
+      "classification": "B",
+      "staged": 56,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Life Sport Club",
+      "classification": "A",
+      "staged": 1,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "Marpha",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Mega Gym Fitness Batumi",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Oktopus Fitness",
+      "classification": "A",
+      "staged": 8,
+      "official_current_active_estimated": 8,
+      "class_a": true
+    },
+    {
+      "chain": "Olympia Fitness Club",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "PilatesBatumi",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Pro Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Reform",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Reformer",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Ringside Institute",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Rituals",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Snap Fitness",
+      "classification": "A",
+      "staged": 2,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "Snap-Fitness",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Stay Strong",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Ultraform",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Underground Gym",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Valhalla",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "World Class",
+      "classification": "B",
+      "staged": 12,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "World Class Georgia",
+      "classification": "A",
+      "staged": 2,
+      "official_current_active_estimated": 1,
+      "class_a": true
+    },
+    {
+      "chain": "Wow Boxing",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "X Area",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "Yoga Studio 9",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "აკვა ცენტრი და ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ასპრია",
+      "classification": "B",
+      "staged": 2,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ასპრია ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "აუზი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ბლისს იოგა",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "გოუ ფიტნეს",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "დინამიკა",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ელიფსი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ენერჯიმი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ზენიტი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "თბილისი იოგა ლოფტი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "თვინს",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "თიდანი +",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "იმოძრავე",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "იოგავილი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "იოგას სახლი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "კლუბი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ლიონ ფიტნეს პრო",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ლოტუსი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "მამბერი ფიტნესი",
+      "classification": "B",
+      "staged": 2,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "მანდალა",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "მატა ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "მატრიქს ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "მატრიქსი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "მუვ ქლაბი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "მფჯ",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ოკტოპუს ფიტნეს კლუბი",
+      "classification": "B",
+      "staged": 2,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "პაუერ მაქს",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "პაუერ მაქსი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "პილატეს თბილისი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "პრაიმ ფიტი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "პროფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "რეფორმა",
+      "classification": "B",
+      "staged": 2,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "რულ ფიტნეს",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "საკემატა",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "საკემატა ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "საჭიდაო დარბაზი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სნაპ ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სნეპ",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სოლო ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სპარტა",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სპარტა ფიტნესი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სპორტ დარბაზი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სპორტ თაიმი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "სპორტული დარბაზი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ტონუსი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ტროა ფიტნეს",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ფიტნეს დარბაზი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ფიტნეს ზონა",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ფიტნეს თაიმი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ფიტნესი - Club 407",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ფორმატ ფიტ",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ჩემპიონთა აკადემია",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "წრე",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    },
+    {
+      "chain": "ჰარდ ვეი",
+      "classification": "B",
+      "staged": 1,
+      "official_current_active_estimated": null,
+      "class_a": false
+    }
+  ]
+}

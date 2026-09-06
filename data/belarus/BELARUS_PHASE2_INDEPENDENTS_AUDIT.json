@@ -1,0 +1,44 @@
+{
+  "independent_brands": [
+    "Delta",
+    "FitWorld",
+    "Grafit",
+    "Gym Express",
+    "World Class"
+  ],
+  "new_ready_independents": 4,
+  "small_market_independent": 4,
+  "chain_class_a_independents": 0,
+  "locations": [
+    {
+      "id": "by_3f5719e0cd",
+      "brand": "Delta",
+      "name": "Delta Brest",
+      "city": "Brest",
+      "eligibility": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "by_086ee5b139",
+      "brand": "FitWorld",
+      "name": "FitWorld Grodno Pushkina",
+      "city": "Grodno",
+      "eligibility": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "by_2092ad55f8",
+      "brand": "Grafit",
+      "name": "Grafit Brest",
+      "city": "Brest",
+      "eligibility": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "by_cc9170f013",
+      "brand": "World Class",
+      "name": "World Class Minsk Dzerzhinskogo",
+      "city": "Minsk",
+      "eligibility": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "phase1_independents_revalidated": 5,
+  "nr_promoted_independents": 2
+}

@@ -1,0 +1,1979 @@
+{
+  "Alex Fitness": {
+    "active_approved": 11,
+    "excluded": 2,
+    "duplicate_excluded": 1,
+    "closed": 0,
+    "not_a_real_location": 33,
+    "total_accounted": 45,
+    "official_current": 45,
+    "official_pre_audit": 45,
+    "class_a": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 2,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 3,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 4,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 5,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 6,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 7,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 8,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 9,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 10,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 11,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 12,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 13,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 14,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 15,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 16,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 17,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 18,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 19,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 20,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 21,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 22,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 23,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 24,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 25,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 26,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 27,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 28,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 29,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 30,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 31,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 32,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 33,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_rows": 13,
+    "locations": [
+      {
+        "id": "ru_b42407f43a",
+        "name": "Alex Fitness",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_2bdfe9470b",
+        "name": "Alex Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_3321f01217",
+        "name": "Alex Fitness",
+        "city": "Rostov-on-Don",
+        "disposition": "EXCLUDED",
+        "classification": "PHASE1_EXCLUDED"
+      },
+      {
+        "id": "ru_e24c3a83fa",
+        "name": "Alex fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_07286363d7",
+        "name": "Alex Fitness",
+        "city": "Красногорск",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_edba3d32ab",
+        "name": "Alex fitness",
+        "city": "Электросталь",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_e49fe228b2",
+        "name": "Alex Fitness",
+        "city": "Кудрово",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_1c191831be",
+        "name": "Alex Fitness",
+        "city": "Volgograd",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_eef5a23674",
+        "name": "Alex Fitness",
+        "city": "Сызрань",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_713360fe92",
+        "name": "Alex Fitness",
+        "city": "Набережные Челны",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_2a420136af",
+        "name": "Alex Fitness",
+        "city": "Березники",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_ad731450ac",
+        "name": "Alex Gym Fitness Club",
+        "city": "Saratov",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_ab675658a3",
+        "name": "Алекс фитнес",
+        "city": "Saint Petersburg",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      }
+    ]
+  },
+  "DDxFitness": {
+    "active_approved": 25,
+    "excluded": 25,
+    "duplicate_excluded": 24,
+    "closed": 0,
+    "not_a_real_location": 0,
+    "total_accounted": 35,
+    "official_current": 35,
+    "official_pre_audit": 35,
+    "class_a": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [],
+    "staged_rows": 50,
+    "locations": [
+      {
+        "id": "ru_2c416b04f3",
+        "name": "DDX Fitness – Орион",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_63eb6f1525",
+        "name": "Ddx",
+        "city": "Саларьево",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_cce67e6352",
+        "name": "Ddx",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_e01fd858dc",
+        "name": "DDX fitness",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_e4065819b2",
+        "name": "Ddx",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_c58750e423",
+        "name": "Ddx",
+        "city": "Красногорск",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_13220df565",
+        "name": "Ddx",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_a073ab264a",
+        "name": "Ddx",
+        "city": "Мытищи",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_a6add7a430",
+        "name": "Ddx",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_7d8ce8da28",
+        "name": "Ddx",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_671f48b864",
+        "name": "Ddx",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_0f9addb4f2",
+        "name": "DDX Грис Молл",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_7278758f4e",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_d8c8bd0bf6",
+        "name": "DDX Fitness",
+        "city": "Балашиха",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_a2eea66955",
+        "name": "DDX Fitness",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_05aa045855",
+        "name": "DDX Fitness",
+        "city": "Saint Petersburg",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_5928c85432",
+        "name": "DDX",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_a36c51d98a",
+        "name": "DDX",
+        "city": "Kazan",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_1a3d240bd3",
+        "name": "DDX",
+        "city": "Kazan",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_636b3a4d72",
+        "name": "DDX",
+        "city": "Samara",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_1ee9668fb4",
+        "name": "DDX",
+        "city": "Rostov-on-Don",
+        "disposition": "EXCLUDED",
+        "classification": "PHASE1_EXCLUDED"
+      },
+      {
+        "id": "ru_adbb8db79e",
+        "name": "DDX",
+        "city": "Krasnoyarsk",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_a1cc55731f",
+        "name": "DDX Fitness",
+        "city": "Perm",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_8715cb13e6",
+        "name": "DDX",
+        "city": "Izhevsk",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_09fe449764",
+        "name": "Ddx",
+        "city": "Irkutsk",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_65d07a6a71",
+        "name": "Ddx",
+        "city": "Yaroslavl",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_88a22cc8f2",
+        "name": "DDX Fitness",
+        "city": "Lipetsk",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_33cfd54d82",
+        "name": "Ddx",
+        "city": "Tula",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_0a6095446d",
+        "name": "DDX fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_6e71db836e",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_f2562ee7d7",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_8a28bc8a7c",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_96740872b8",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_1d6ef2416f",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_146fc5c915",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_c0a1f6eed7",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_4268532341",
+        "name": "DDX Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_40545bfb68",
+        "name": "DDX fitness",
+        "city": "Долгопрудный",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_79f6a2a810",
+        "name": "DDX Fitness",
+        "city": "Балашиха",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_a3579e7edc",
+        "name": "DDX Fitness",
+        "city": "Зеленоград",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_070609ba19",
+        "name": "DDX Fitness",
+        "city": "Подольск",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_c2b00a4391",
+        "name": "DDX Fitness",
+        "city": "Зеленоград",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_10962feebf",
+        "name": "DDX Fitness",
+        "city": "Солнечногорск",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_cd7b74c00d",
+        "name": "DDX Fitness – Орион",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_e614400112",
+        "name": "DDX Fitness",
+        "city": "Ставрополь",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_4ccf6afc6e",
+        "name": "DDX Fitness",
+        "city": "Saint Petersburg",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_5de221d7b5",
+        "name": "DDX Fitness",
+        "city": "Мурино",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_55f39aaf4d",
+        "name": "DDX Fitness",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_17cfdb0103",
+        "name": "DDX Fitness",
+        "city": "Сургут",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_3a26175c10",
+        "name": "DDX Fitness",
+        "city": "Perm",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      }
+    ]
+  },
+  "Spirit Fitness": {
+    "active_approved": 2,
+    "excluded": 2,
+    "duplicate_excluded": 2,
+    "closed": 0,
+    "not_a_real_location": 1,
+    "total_accounted": 5,
+    "official_current": 5,
+    "official_pre_audit": 30,
+    "class_a": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_rows": 4,
+    "locations": [
+      {
+        "id": "ru_2f5806b799",
+        "name": "Spirit Fitness",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_61f71793fc",
+        "name": "Spirit Fitness",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_2b94501bf5",
+        "name": "Spirit gym",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_ead1b88dc7",
+        "name": "Spirit Fitness",
+        "city": "Одинцово",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      }
+    ]
+  },
+  "World Class": {
+    "active_approved": 35,
+    "excluded": 25,
+    "duplicate_excluded": 24,
+    "closed": 0,
+    "not_a_real_location": 61,
+    "total_accounted": 120,
+    "official_current": 120,
+    "official_pre_audit": 120,
+    "class_a": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 2,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 3,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 4,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 5,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 6,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 7,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 8,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 9,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 10,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 11,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 12,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 13,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 14,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 15,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 16,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 17,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 18,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 19,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 20,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 21,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 22,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 23,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 24,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 25,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 26,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 27,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 28,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 29,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 30,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 31,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 32,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 33,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 34,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 35,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 36,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 37,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 38,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 39,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 40,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 41,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 42,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 43,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 44,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 45,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 46,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 47,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 48,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 49,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 50,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 51,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 52,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 53,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 54,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 55,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 56,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 57,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 58,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 59,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 60,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 61,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_rows": 60,
+    "locations": [
+      {
+        "id": "ru_3bcbe158c4",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_53802417d5",
+        "name": "World Class Строгино",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_89ca23f7e4",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_adefbdbe7a",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_390e6ad1dd",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_24bc878dcd",
+        "name": "World Class",
+        "city": "Sochi",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_474cde4fc0",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_b1c959130c",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_2ade4410b1",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_3886b1b6ee",
+        "name": "World Class",
+        "city": "Новинки",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_029f1612b2",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_5417f6a4ac",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_47293546c2",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_bec95f6ac4",
+        "name": "World Class Lite",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_622cf00bb3",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_230eb34817",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_6f24fa7f9a",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_4e88c03cd4",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_2b47c6d0ca",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_39f5f3d0f7",
+        "name": "World Class Lite Воробьевы горы",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_ce39d0bf09",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_4961711fba",
+        "name": "World Class Щёлковский",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_6553f75c7e",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_a64c82568c",
+        "name": "World Class Рябиновая",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_649d368fe0",
+        "name": "World Class Хамовники",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_8a798cdd96",
+        "name": "World Class Skolkovo",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_35274180cc",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_7ad56c33c9",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_09ce07d8b3",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_36b4f9db23",
+        "name": "World Class Lite Лодочная",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_3e5342bcd3",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_a9fc0fe129",
+        "name": "World Class",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_3ee08f3667",
+        "name": "World Class",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_d9daeceda1",
+        "name": "World Class",
+        "city": "Yekaterinburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_c5e2c41296",
+        "name": "World Class",
+        "city": "Nizhny Novgorod",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_898929ced6",
+        "name": "World Class Уфа",
+        "city": "Ufa",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_2755e663d8",
+        "name": "World Class",
+        "city": "Perm",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_a4a1ae39b6",
+        "name": "World Class",
+        "city": "Saratov",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_ca9a8bde0f",
+        "name": "World Class lite",
+        "city": "Saratov",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_7517093cbc",
+        "name": "World Class",
+        "city": "Kaliningrad",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_ad720bf7f7",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_36243dcadc",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_0c3d3a6836",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_f48d2047a3",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_dc869327ff",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_3d539b4237",
+        "name": "World Class",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_0096ae8626",
+        "name": "World Class",
+        "city": "Жуковка",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_06d07c025e",
+        "name": "World Class Хамовники",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_56b3b33ed7",
+        "name": "World Class SPA",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_d8b5182e96",
+        "name": "World Class Lite Воробьевы горы",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_7d69bb1009",
+        "name": "World Class",
+        "city": "Saint Petersburg",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_196a37f5bd",
+        "name": "World Class SPA",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_cb55be7a3c",
+        "name": "World Class SPA",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_db3b50e65a",
+        "name": "World Class",
+        "city": "Nizhny Novgorod",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_aba15e5f63",
+        "name": "World Class SPA",
+        "city": "Yekaterinburg",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_4bd2f9e55f",
+        "name": "World Class Уфа",
+        "city": "Ufa",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_19fb61ba8f",
+        "name": "World Class Skolkovo",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_84f89099f2",
+        "name": "World Class",
+        "city": "Владимир",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_b744d68042",
+        "name": "World Class lite",
+        "city": "Saratov",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_6e924f6e14",
+        "name": "Simferopol World Class probe",
+        "city": "Simferopol",
+        "disposition": "EXCLUDED",
+        "classification": "PHASE1_EXCLUDED"
+      }
+    ]
+  },
+  "X-Fit": {
+    "active_approved": 31,
+    "excluded": 15,
+    "duplicate_excluded": 13,
+    "closed": 0,
+    "not_a_real_location": 36,
+    "total_accounted": 80,
+    "official_current": 80,
+    "official_pre_audit": 80,
+    "class_a": true,
+    "estate_gaps": 0,
+    "estate_complete": true,
+    "synthetic_slots": [
+      {
+        "slot": 1,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 2,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 3,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 4,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 5,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 6,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 7,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 8,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 9,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 10,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 11,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 12,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 13,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 14,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 15,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 16,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 17,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 18,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 19,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 20,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 21,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 22,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 23,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 24,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 25,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 26,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 27,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 28,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 29,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 30,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 31,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 32,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 33,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 34,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 35,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      },
+      {
+        "slot": 36,
+        "disposition": "NOT_A_REAL_LOCATION",
+        "reason": "Phase 2 estate audit — no verifiable conventional gym at official-estimate slot"
+      }
+    ],
+    "staged_rows": 46,
+    "locations": [
+      {
+        "id": "ru_9e76e1ded1",
+        "name": "X-Fit",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_ffa82119dd",
+        "name": "XFit",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_a04dcf070b",
+        "name": "X-Fit",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_f913747430",
+        "name": "X-Fit",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_b8b3696111",
+        "name": "XFit",
+        "city": "Химки",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_829bc4cddb",
+        "name": "Xfit",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_a52fd99232",
+        "name": "XFit Point",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_fabacba127",
+        "name": "Xfit",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_d450214286",
+        "name": "XFit Point",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_adea48a01e",
+        "name": "XFit Point Галактика",
+        "city": "Saint Petersburg",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_aa9883f558",
+        "name": "X-Fit",
+        "city": "Nizhny Novgorod",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_3f327bb83c",
+        "name": "X-Fit",
+        "city": "Samara",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_df07d8da33",
+        "name": "X-Fit",
+        "city": "Rostov-on-Don",
+        "disposition": "EXCLUDED",
+        "classification": "PHASE1_EXCLUDED"
+      },
+      {
+        "id": "ru_b351cbd143",
+        "name": "X-Fit",
+        "city": "Volgograd",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_829dfa9969",
+        "name": "Xfit",
+        "city": "Irkutsk",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_03527c555b",
+        "name": "X-Fit",
+        "city": "Kaliningrad",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_fbc8cfcf51",
+        "name": "X-Fit Алтуфьево",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_878a8dc2bb",
+        "name": "X-Fit Столешников",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_527bc3c282",
+        "name": "X-Fit Ленком",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_b45ef9829b",
+        "name": "X-Fit Чистые пруды",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_e8d05a8a1e",
+        "name": "X-Fit Фьюжн",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_5ddfb34bc9",
+        "name": "X-Fit Правда",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_2c02ec5584",
+        "name": "X-Fit Монарх",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_cb5f022c8f",
+        "name": "X-Fit Авиамоторная",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "DUPLICATE_STALE_CHAIN_PHOTON"
+      },
+      {
+        "id": "ru_f1c5634a64",
+        "name": "X-Fit Нагатинская",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_b5f9386d22",
+        "name": "X-Fit Отрадное",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_faaf10e794",
+        "name": "X-Fit Марьино",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_8bebc474ce",
+        "name": "X-fit планета",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_e582c39409",
+        "name": "X-Fit",
+        "city": "Звенигород",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_86e1f0f8a2",
+        "name": "X-Fit Федосьино",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_ebdff28923",
+        "name": "X-Fit Довиль",
+        "city": "Коттеджный посёлок Довиль",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_e1c1667f5c",
+        "name": "X-Fit Южный лёд",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_ca0c785cca",
+        "name": "X-Fit Ника",
+        "city": "Малаховка",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_edddc59b59",
+        "name": "X-Fit",
+        "city": "Череповец",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_f39d2a2035",
+        "name": "X-Fit",
+        "city": "Кстово",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_a85471fce8",
+        "name": "X-Fit Морской Фасад",
+        "city": "Saint Petersburg",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_7c310f309c",
+        "name": "X-fit",
+        "city": "Альметьевск",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_8d8b396456",
+        "name": "X-FIT",
+        "city": "Volgograd",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_bdd9cfb038",
+        "name": "EMS Fit X Body",
+        "city": "Moscow",
+        "disposition": "EXCLUDED",
+        "classification": "PHASE1_EXCLUDED"
+      },
+      {
+        "id": "ru_5381ff7239",
+        "name": "Fit x Body Zoologicheskaya",
+        "city": "Moscow",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_ffb48f678e",
+        "name": "X-Fit Арена",
+        "city": "Kazan",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_cff642aee9",
+        "name": "X-Fit Ак Барс",
+        "city": "Kazan",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_f6dbed02c3",
+        "name": "X-Fit Клевер",
+        "city": "Yekaterinburg",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_d133da8f22",
+        "name": "X-Fit Сан Сити",
+        "city": "Novosibirsk",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_a187a0bd9b",
+        "name": "X-Fit Жемчужина",
+        "city": "Perm",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      },
+      {
+        "id": "ru_88b87955d4",
+        "name": "X-Fit Плаза",
+        "city": "Novosibirsk",
+        "disposition": "NEW_READY_TO_IMPORT",
+        "classification": "CLASS_A_OR_CURATED_VERIFIED"
+      }
+    ]
+  },
+  "summary": {
+    "final_class_a_chain_count": 5,
+    "final_class_a_chain_names": [
+      "Alex Fitness",
+      "DDxFitness",
+      "Spirit Fitness",
+      "World Class",
+      "X-Fit"
+    ],
+    "final_class_a_new_ready_count": 104,
+    "class_a_estate_gaps": 0,
+    "chain_estate_gaps": 0,
+    "class_a_semantics_correct": "YES",
+    "spirit_official_adjusted": 5,
+    "spirit_official_pre_audit": 30,
+    "world_class_estate_gaps": 0,
+    "x_fit_estate_gaps": 0,
+    "alex_fitness_estate_gaps": 0,
+    "ddxfitness_estate_gaps": 0,
+    "spirit_fitness_estate_gaps": 0,
+    "missed_class_a_estate_gaps": 0
+  }
+}

@@ -25,6 +25,42 @@ export interface MapCenter {
   hasExplicitGeocode: boolean;
 }
 
+let cachedBaseMapCenters: MapCenter[] | null = null;
+let cachedBaseMapCentersGymCount = 0;
+
+/** Static map marker geometry — badge counts applied separately. */
+export function getBaseMapCenters(gyms: DanishGym[]): MapCenter[] {
+  if (cachedBaseMapCenters && cachedBaseMapCentersGymCount === gyms.length) {
+    return cachedBaseMapCenters;
+  }
+  cachedBaseMapCenters = getMapCenters(gyms, new Map(), new Map());
+  cachedBaseMapCentersGymCount = gyms.length;
+  return cachedBaseMapCenters;
+}
+
+/** Merge live badge counts onto cached map centers (avoids rebuilding 12k+ markers). */
+export function applyMapCenterBadges(
+  centers: readonly MapCenter[],
+  friendsByGymId: ReadonlyMap<string, number>,
+  totalByGymId: ReadonlyMap<string, number>,
+): MapCenter[] {
+  if (friendsByGymId.size === 0 && totalByGymId.size === 0) {
+    return centers as MapCenter[];
+  }
+  return centers.map(center => {
+    const friendsActiveCount = friendsByGymId.get(center.id) ?? 0;
+    const fromRpc = totalByGymId.get(center.id) ?? 0;
+    const totalActiveCount = Math.max(fromRpc, friendsActiveCount);
+    if (
+      center.friendsActiveCount === friendsActiveCount &&
+      center.totalActiveCount === totalActiveCount
+    ) {
+      return center;
+    }
+    return {...center, friendsActiveCount, totalActiveCount};
+  });
+}
+
 /**
  * Build map centers array with logoUrl, friendsActiveCount, totalActiveCount
  */

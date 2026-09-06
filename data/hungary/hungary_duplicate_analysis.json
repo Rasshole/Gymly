@@ -1,0 +1,137 @@
+{
+  "same_brand_lte_25m": [
+    {
+      "a": "hu_26049334fe",
+      "b": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GARDEN",
+        "4% ONLYGIRLS"
+      ],
+      "distance_m": 0.0,
+      "class": "A_legitimate_same_building_products"
+    }
+  ],
+  "same_brand_lte_50m": [
+    {
+      "a": "hu_26049334fe",
+      "b": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GARDEN",
+        "4% ONLYGIRLS"
+      ],
+      "distance_m": 0.0,
+      "class": "A_legitimate_same_building_products"
+    }
+  ],
+  "same_brand_lte_100m": [
+    {
+      "a": "hu_66d884b838",
+      "b": "hu_2bc587797d",
+      "brand": "4% Fitness",
+      "names": [
+        "4% CANDY",
+        "4% CANDYLAND"
+      ],
+      "distance_m": 92.7,
+      "class": "A_legitimate"
+    },
+    {
+      "a": "hu_26049334fe",
+      "b": "hu_781bc0caec",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GARDEN",
+        "4% GYM"
+      ],
+      "distance_m": 57.8,
+      "class": "A_legitimate"
+    },
+    {
+      "a": "hu_26049334fe",
+      "b": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GARDEN",
+        "4% ONLYGIRLS"
+      ],
+      "distance_m": 0.0,
+      "class": "A_legitimate_same_building_products"
+    },
+    {
+      "a": "hu_781bc0caec",
+      "b": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GYM",
+        "4% ONLYGIRLS"
+      ],
+      "distance_m": 57.8,
+      "class": "A_legitimate"
+    }
+  ],
+  "same_brand_lte_200m": [
+    {
+      "a": "hu_66d884b838",
+      "b": "hu_2bc587797d",
+      "brand": "4% Fitness",
+      "names": [
+        "4% CANDY",
+        "4% CANDYLAND"
+      ],
+      "distance_m": 92.7,
+      "class": "A_legitimate"
+    },
+    {
+      "a": "hu_26049334fe",
+      "b": "hu_781bc0caec",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GARDEN",
+        "4% GYM"
+      ],
+      "distance_m": 57.8,
+      "class": "A_legitimate"
+    },
+    {
+      "a": "hu_26049334fe",
+      "b": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GARDEN",
+        "4% ONLYGIRLS"
+      ],
+      "distance_m": 0.0,
+      "class": "A_legitimate_same_building_products"
+    },
+    {
+      "a": "hu_781bc0caec",
+      "b": "hu_a10dd9e7d1",
+      "brand": "4% Fitness",
+      "names": [
+        "4% GYM",
+        "4% ONLYGIRLS"
+      ],
+      "distance_m": 57.8,
+      "class": "A_legitimate"
+    }
+  ],
+  "identical_coordinate_clusters": {
+    "47.4879415|19.0640284": [
+      "hu_26049334fe",
+      "hu_a10dd9e7d1"
+    ],
+    "47.4351556|19.0413414": [
+      "hu_3b8b7317ed",
+      "hu_8b266bdb04"
+    ]
+  },
+  "counts": {
+    "lte_25m": 1,
+    "lte_50m": 1,
+    "lte_100m": 4,
+    "lte_200m": 4,
+    "identical_clusters": 2
+  }
+}

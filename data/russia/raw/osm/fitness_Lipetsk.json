@@ -1,0 +1,231 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:56:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4300573789,
+      "lat": 52.5845984,
+      "lon": 39.6283142,
+      "tags": {
+        "addr:housenumber": "1М",
+        "addr:street": "улица Адмирала Макарова",
+        "email": "sportpark_48@mail.ru",
+        "leisure": "fitness_centre",
+        "name": "СК \"Спортпарк\"",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "phone": "43-17-16"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6095917025,
+      "lat": 52.6044897,
+      "lon": 39.5789068,
+      "tags": {
+        "check_date": "2026-01-04",
+        "leisure": "fitness_centre",
+        "level": "1",
+        "name": "Flexgym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6685186186,
+      "lat": 52.5899484,
+      "lon": 39.5214456,
+      "tags": {
+        "addr:postcode": "398036",
+        "leisure": "fitness_centre",
+        "name": "Идеал-фитнес клуб",
+        "name:en": "Ideal - Fitness Club",
+        "name:ru": "Идеал - фитнес клуб",
+        "opening_hours": "Mo-Fr 09:00-22:00; Sa-Su 09:00-17:00",
+        "phone": "+7(4742)-40-30-60",
+        "website": "https://m.vk.com/ideal_lipetsk"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458183,
+      "lat": 52.5834291,
+      "lon": 39.5284792,
+      "tags": {
+        "contact:phone": "+7 909 2205888",
+        "contact:website": "https://ladystretch.com/lipetsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458184,
+      "lat": 52.5951048,
+      "lon": 39.5632149,
+      "tags": {
+        "contact:phone": "+7 920 5067772",
+        "contact:website": "https://ladystretch.com/lipetsk",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12343391892,
+      "lat": 52.6193931,
+      "lon": 39.592216,
+      "tags": {
+        "brand": "World Class",
+        "brand:wikidata": "Q102350852",
+        "check_date": "2025-07-10",
+        "leisure": "fitness_centre",
+        "name": "World Class"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12966456746,
+      "lat": 52.604521,
+      "lon": 39.5790778,
+      "tags": {
+        "check_date": "2025-07-01",
+        "leisure": "fitness_centre",
+        "name": "Осьминожки",
+        "sport": "swimming",
+        "swimming_pool": "kids"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12992203337,
+      "lat": 52.6360357,
+      "lon": 39.6627942,
+      "tags": {
+        "check_date": "2025-07-10",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13039778392,
+      "lat": 52.6075619,
+      "lon": 39.5938043,
+      "tags": {
+        "check_date": "2025-07-31",
+        "leisure": "fitness_centre",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754246,
+      "lat": 52.5855714,
+      "lon": 39.519303,
+      "tags": {
+        "contact:phone": "+7 474 2558211",
+        "contact:website": "https://lipetsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13430733111,
+      "lat": 52.606581,
+      "lon": 39.5811411,
+      "tags": {
+        "check_date": "2026-01-04",
+        "leisure": "fitness_centre",
+        "name": "ProДвижение"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14132800577,
+      "lat": 52.6054365,
+      "lon": 39.5766765,
+      "tags": {
+        "check_date": "2026-08-29",
+        "leisure": "fitness_centre",
+        "name": "DDX Fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 108436430,
+      "center": {
+        "lat": 52.6001986,
+        "lon": 39.5383473
+      },
+      "tags": {
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 201082409,
+      "center": {
+        "lat": 52.5827099,
+        "lon": 39.5128945
+      },
+      "tags": {
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Zet",
+        "official_name": "Фитнесс-Клуб \"Zet\""
+      }
+    },
+    {
+      "type": "way",
+      "id": 442928011,
+      "center": {
+        "lat": 52.6359616,
+        "lon": 39.6647433
+      },
+      "tags": {
+        "addr:city": "Липецк",
+        "addr:housenumber": "8А",
+        "addr:postcode": "398007",
+        "addr:street": "Заводская площадь",
+        "building": "yes",
+        "check_date": "2025-07-24",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Energy"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1499451143,
+      "center": {
+        "lat": 52.5894027,
+        "lon": 39.6238674
+      },
+      "tags": {
+        "addr:city": "Липецк",
+        "addr:housenumber": "1А",
+        "addr:street": "улица Зои Космодемьянской",
+        "building": "yes",
+        "building:levels": "2",
+        "leisure": "fitness_centre",
+        "name": "D13",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00",
+        "phone": "+7 4742 251111",
+        "sauna": "yes",
+        "sport": "fitness;swimming;table_tennis;yoga",
+        "swimming_pool": "yes",
+        "website": "https://d13fitness.ru"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "one_escape_to_iconic_smithfield": {
+    "legacy": "One Escape Health Club",
+    "current": "Iconic Health Clubs Smithfield",
+    "id": "ie_42999953b2"
+  },
+  "aura_depaul_excluded_pool_only": {
+    "id": "ie_31276d22be",
+    "status": "EXCLUDED"
+  },
+  "phase3_ready_preserved_count": 63,
+  "phase4_recovered": [
+    "ie_36b8a305fe",
+    "ie_edd9fa4599"
+  ]
+}

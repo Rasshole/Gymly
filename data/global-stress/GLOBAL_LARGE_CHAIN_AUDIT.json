@@ -1,0 +1,45 @@
+{
+  "top_chains": [
+    {
+      "brand": "Basic-Fit",
+      "count": 1680
+    },
+    {
+      "brand": "PureGym",
+      "count": 633
+    },
+    {
+      "brand": "clever fit",
+      "count": 442
+    },
+    {
+      "brand": "Anytime Fitness",
+      "count": 433
+    },
+    {
+      "brand": "Fitness Park",
+      "count": 380
+    },
+    {
+      "brand": "VivaGym",
+      "count": 292
+    },
+    {
+      "brand": "STC",
+      "count": 291
+    },
+    {
+      "brand": "The Gym Group",
+      "count": 256
+    },
+    {
+      "brand": "Nordic Wellness",
+      "count": 234
+    },
+    {
+      "brand": "McFIT",
+      "count": 234
+    }
+  ],
+  "large_chain_search_duplicates": 0
+}

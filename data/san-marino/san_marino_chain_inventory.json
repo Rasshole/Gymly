@@ -1,0 +1,18 @@
+{
+  "country": "San Marino",
+  "phase": 2,
+  "class_a_chains": 0,
+  "class_a_locations": 0,
+  "small_market": {
+    "recommended_model": "INDEPENDENT_PHASE_EXECUTED",
+    "ready_smi": 6
+  },
+  "ready_brands": {
+    "Dynamic Fitness Center": 1,
+    "Phisicol": 1,
+    "Energia Wellness & Fitness": 1,
+    "MOVE": 1,
+    "Federazione Sammarinese Body Building": 1,
+    "FitLife": 1
+  }
+}

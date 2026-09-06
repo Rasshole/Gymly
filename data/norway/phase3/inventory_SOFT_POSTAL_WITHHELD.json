@@ -1,0 +1,1289 @@
+[
+  {
+    "id": "no_89980ad534",
+    "name": "SATS Lillestrøm",
+    "brand": "SATS",
+    "address": "Dampsagveien 12",
+    "postal_code": "2000",
+    "city": "Lillestrøm",
+    "country": "Norway",
+    "lat": 59.952426,
+    "lng": 11.044605,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Lillestrøm",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.9524262,
+        "lng": 11.0446053,
+        "display": "12, Dampsagveien, Dampsagtomta, Volla, Lillestrøm, Akershus, 2004, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "12, Dampsagveien, Dampsagtomta, Volla, Lillestrøm, Akershus, 2004, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000057318226902,
+        "lat": 59.9524262,
+        "lng": 11.0446053,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "12, Dampsagveien, Dampsagtomta, Volla, Lillestrøm, Akershus, 2004, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_a134428847",
+    "name": "SATS Linderud",
+    "brand": "SATS",
+    "address": "Erich Mogensøns Vei 38",
+    "postal_code": "0517",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.943242,
+    "lng": 10.835473,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Linderud",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.943242,
+        "lng": 10.835473,
+        "display": "38, Erich Mogensøns vei, Øvre Vollebekk, Linderud, Bjerke, Oslo, 0594, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "38, Erich Mogensøns vei, Øvre Vollebekk, Linderud, Bjerke, Oslo, 0594, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000081374074922,
+        "lat": 59.943242,
+        "lng": 10.835473,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "38, Erich Mogensøns vei, Øvre Vollebekk, Linderud, Bjerke, Oslo, 0594, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_b785822f13",
+    "name": "SATS Nesttun",
+    "brand": "SATS",
+    "address": "Apeltunvegen 2",
+    "postal_code": "5223",
+    "city": "Nesttun",
+    "country": "Norway",
+    "lat": 60.311556,
+    "lng": 5.35447,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Nesttun",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.3117346,
+        "lng": 5.3548703,
+        "display": "Apeltunvegen 2, Apeltunvegen, Skjold, Nesttun, Fana, Bergen, Vestland, 5222, Norge"
+      },
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.3115559,
+        "lng": 5.3544703,
+        "display": "2, Apeltunvegen, Skjold, Nesttun, Fana, Bergen, Vestland, 5222, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Apeltunvegen, Skjold, Nesttun, Fana, Bergen, Vestland, 5222, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000072125581751,
+        "lat": 60.3115559,
+        "lng": 5.3544703,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Apeltunvegen, Skjold, Nesttun, Fana, Bergen, Vestland, 5222, Norge",
+        "query": "structured"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_9727941eec",
+    "name": "SATS Oasen",
+    "brand": "SATS",
+    "address": "Folke Bernadottes Vei 52",
+    "postal_code": "5881",
+    "city": "Bergen",
+    "country": "Norway",
+    "lat": 60.348956,
+    "lng": 5.291796,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Oasen",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.348956,
+        "lng": 5.291796,
+        "display": "52, Folke Bernadottes vei, Sælemyra, Fyllingsdalen, Bergen, Vestland, 5147, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "52, Folke Bernadottes vei, Sælemyra, Fyllingsdalen, Bergen, Vestland, 5147, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000072125581751,
+        "lat": 60.348956,
+        "lng": 5.291796,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "52, Folke Bernadottes vei, Sælemyra, Fyllingsdalen, Bergen, Vestland, 5147, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_0da06a0f50",
+    "name": "SATS Sandvika Panorama",
+    "brand": "SATS",
+    "address": "Sandviksveien 176",
+    "postal_code": "1338",
+    "city": "Sandvika",
+    "country": "Norway",
+    "lat": 59.886853,
+    "lng": 10.521136,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Sandvika Panorama",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.886853,
+        "lng": 10.5211355,
+        "display": "176, Sandviksveien, Jongskollen, Bakåsen, Jong, Sandvika, Bærum, Akershus, 1337, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "176, Sandviksveien, Jongskollen, Bakåsen, Jong, Sandvika, Bærum, Akershus, 1337, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000064186312658,
+        "lat": 59.886853,
+        "lng": 10.5211355,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "176, Sandviksveien, Jongskollen, Bakåsen, Jong, Sandvika, Bærum, Akershus, 1337, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_c6985b40b2",
+    "name": "SATS Vestkanten",
+    "brand": "SATS",
+    "address": "Loddefjordveien 2",
+    "postal_code": "5881",
+    "city": "Bergen",
+    "country": "Norway",
+    "lat": 60.36322,
+    "lng": 5.233628,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Vestkanten",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.3632202,
+        "lng": 5.2336282,
+        "display": "2, Loddefjordveien, Loddefjorddalen, Loddefjord, Vadmyra, Laksevåg, Bergen, Vestland, 5171, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Loddefjordveien, Loddefjorddalen, Loddefjord, Vadmyra, Laksevåg, Bergen, Vestland, 5171, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000072125581751,
+        "lat": 60.3632202,
+        "lng": 5.2336282,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Loddefjordveien, Loddefjorddalen, Loddefjord, Vadmyra, Laksevåg, Bergen, Vestland, 5171, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_6185a15658",
+    "name": "SATS Yoga Aker Brygge",
+    "brand": "SATS",
+    "address": "Bryggetorget 5",
+    "postal_code": "0520",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.910096,
+    "lng": 10.724639,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Yoga Aker Brygge",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.910096,
+        "lng": 10.724639,
+        "display": "5, Bryggetorget, Ruseløkka, Aker brygge, Frogner, Oslo, 0250, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "5, Bryggetorget, Ruseløkka, Aker brygge, Frogner, Oslo, 0250, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000081374074922,
+        "lat": 59.910096,
+        "lng": 10.724639,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "5, Bryggetorget, Ruseløkka, Aker brygge, Frogner, Oslo, 0250, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_056002d0e7",
+    "name": "SATS Yoga Majorstuen",
+    "brand": "SATS",
+    "address": "Schultz' Gate 1",
+    "postal_code": "0368",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.9273,
+    "lng": 10.720182,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Yoga Majorstuen",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.9273,
+        "lng": 10.720182,
+        "display": "1, Schultz’ gate, Hegdehaugen, Majorstuen, Frogner, Oslo, 0365, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "1, Schultz’ gate, Hegdehaugen, Majorstuen, Frogner, Oslo, 0365, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000081374074922,
+        "lat": 59.9273,
+        "lng": 10.720182,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1, Schultz’ gate, Hegdehaugen, Majorstuen, Frogner, Oslo, 0365, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_2274c9720c",
+    "name": "Fresh Fitness Manglerud",
+    "brand": "Fresh Fitness",
+    "address": "Plogveien 6",
+    "postal_code": "0612",
+    "city": "Oslo",
+    "country": "Norway",
+    "lat": 59.89729,
+    "lng": 10.81286,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (general; Søgne may differ)",
+    "source_url": "https://www.freshfitness.no/bli-medlem/",
+    "legacy_brand": null,
+    "center_name": "Manglerud",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 59.89729,
+        "lng": 10.81286,
+        "display": "6, Plogveien, Nordre Manglerud, Manglerud, Østensjø, Oslo, 0679, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Plogveien, Nordre Manglerud, Manglerud, Østensjø, Oslo, 0679, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000081374074922,
+        "lat": 59.89729,
+        "lng": 10.81286,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Plogveien, Nordre Manglerud, Manglerud, Østensjø, Oslo, 0679, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_8103a7fc38",
+    "name": "EVO Fitness Ålgård",
+    "brand": "EVO Fitness",
+    "address": "Ålgårdsheia 6",
+    "postal_code": "4330",
+    "city": "Ålgård",
+    "country": "Norway",
+    "lat": 58.770374,
+    "lng": 5.856035,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (chain standard)",
+    "source_url": "https://evofitness.no/sentre/",
+    "legacy_brand": null,
+    "center_name": "Ålgård",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 58.770374,
+        "lng": 5.856035,
+        "display": "6, Ålgårdsheiå, Husafjellet, Fiskebekk, Ålgård, Gjesdal, Rogaland, 4331, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "6, Ålgårdsheiå, Husafjellet, Fiskebekk, Ålgård, Gjesdal, Rogaland, 4331, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000051925688563,
+        "lat": 58.770374,
+        "lng": 5.856035,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "6, Ålgårdsheiå, Husafjellet, Fiskebekk, Ålgård, Gjesdal, Rogaland, 4331, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_73c5b9fba0",
+    "name": "EVO Fitness Bryne",
+    "brand": "EVO Fitness",
+    "address": "Arne Garborgs veg 17",
+    "postal_code": "4340",
+    "city": "Bryne",
+    "country": "Norway",
+    "lat": 58.734944,
+    "lng": 5.653032,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (chain standard)",
+    "source_url": "https://evofitness.no/sentre/",
+    "legacy_brand": null,
+    "center_name": "Bryne",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 58.7349444,
+        "lng": 5.6530315,
+        "display": "17, Arne Garborgs veg, Loen, Vardheia, Bryne, Time, Rogaland, 4344, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "17, Arne Garborgs veg, Loen, Vardheia, Bryne, Time, Rogaland, 4344, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000052272068361,
+        "lat": 58.7349444,
+        "lng": 5.6530315,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "17, Arne Garborgs veg, Loen, Vardheia, Bryne, Time, Rogaland, 4344, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_e8ef59cb62",
+    "name": "EVO Fitness Heimdal",
+    "brand": "EVO Fitness",
+    "address": "Industriveien 13",
+    "postal_code": "7080",
+    "city": "Heimdal",
+    "country": "Norway",
+    "lat": 63.349952,
+    "lng": 10.359564,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (chain standard)",
+    "source_url": "https://evofitness.no/sentre/",
+    "legacy_brand": null,
+    "center_name": "Heimdal",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 63.3499519,
+        "lng": 10.3595636,
+        "display": "13, Industriveien, Heimdal, Trondheim, Trøndelag, 7072, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "13, Industriveien, Heimdal, Trondheim, Trøndelag, 7072, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000073027389944,
+        "lat": 63.3499519,
+        "lng": 10.3595636,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "13, Industriveien, Heimdal, Trondheim, Trøndelag, 7072, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_632f94833e",
+    "name": "EVO Fitness Os",
+    "brand": "EVO Fitness",
+    "address": "Industrivegen 2",
+    "postal_code": "5200",
+    "city": "Os",
+    "country": "Norway",
+    "lat": 60.20463,
+    "lng": 5.449656,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": "05:00-24:00 (chain standard)",
+    "source_url": "https://evofitness.no/sentre/",
+    "legacy_brand": null,
+    "center_name": "Os",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "geocode_status": "suspicious",
+    "geocode_reason": "postal_mismatch",
+    "geocode_rejected": [
+      {
+        "reject": "postal_mismatch",
+        "lat": 60.20463,
+        "lng": 5.449656,
+        "display": "2, Industrivegen, Gudridflaten, Skogen, Osøyro, Bjørnafjorden, Vestland, 5210, Norge"
+      }
+    ],
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Industrivegen, Gudridflaten, Skogen, Osøyro, Bjørnafjorden, Vestland, 5210, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000044436560616,
+        "lat": 60.20463,
+        "lng": 5.449656,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Industrivegen, Gudridflaten, Skogen, Osøyro, Bjørnafjorden, Vestland, 5210, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_7f16f3df9e",
+    "name": "Feel24 Svolvaer Sentrum",
+    "brand": "Feel24",
+    "address": "Sivert Nilsens gt. 51",
+    "postal_code": "8300",
+    "city": "Svolvær",
+    "country": "Norway",
+    "lat": 68.235655,
+    "lng": 14.563358,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-lofoten/svolvaer-sentrum",
+    "legacy_brand": null,
+    "center_name": "svolvaer-sentrum",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "token_hits_2"
+    ],
+    "geocode_display": "51, Sivert Nilsens gate, Solheim, Svolvær, Vågan, Nordland, 8300, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 9.000054881361105,
+        "lat": 68.2356546,
+        "lng": 14.5633581,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "token_hits_2"
+        ],
+        "display": "51, Sivert Nilsens gate, Solheim, Svolvær, Vågan, Nordland, 8300, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_9674abb772",
+    "name": "Feel24 Sandnessjoen Lyngasen",
+    "brand": "Feel24",
+    "address": "Novikveien 109",
+    "postal_code": "8800",
+    "city": "Sandnessjøen",
+    "country": "Norway",
+    "lat": 66.008572,
+    "lng": 12.58112,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-sandnessjoen/sandnessjoen-lyngasen",
+    "legacy_brand": null,
+    "center_name": "sandnessjoen-lyngasen",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "109, Novikveien, Øren, Stamnesmarka, Sandnessjøen, Alstahaug, Nordland, 8802, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000054336614023,
+        "lat": 66.008572,
+        "lng": 12.5811198,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "109, Novikveien, Øren, Stamnesmarka, Sandnessjøen, Alstahaug, Nordland, 8802, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_5498242b28",
+    "name": "Feel24 Skjervoy",
+    "brand": "Feel24",
+    "address": "Strandvegen 88A",
+    "postal_code": "9180",
+    "city": "Skjervøy",
+    "country": "Norway",
+    "lat": 70.03066,
+    "lng": 20.970454,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-skjervoy/skjervoy",
+    "legacy_brand": null,
+    "center_name": "skjervoy",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "token_hits_1"
+    ],
+    "geocode_display": "88A, Strandveien, Vågen, Skjervøy, Troms, 9180, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 8.000052206454566,
+        "lat": 70.0306604,
+        "lng": 20.970454,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "token_hits_1"
+        ],
+        "display": "88A, Strandveien, Vågen, Skjervøy, Troms, 9180, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_907fd70dd6",
+    "name": "Feel24 Stjordal",
+    "brand": "Feel24",
+    "address": "Stokmovegen 1",
+    "postal_code": "7501",
+    "city": "Stjørdal",
+    "country": "Norway",
+    "lat": 63.469112,
+    "lng": 10.923203,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondelag/stjordal",
+    "legacy_brand": null,
+    "center_name": "stjordal",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "1, Stokmovegen, Sandskogan, Stjørdalshalsen, Stjørdal, Trøndelag, 7500, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.0000579346913865,
+        "lat": 63.4691115,
+        "lng": 10.9232027,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "1, Stokmovegen, Sandskogan, Stjørdalshalsen, Stjørdal, Trøndelag, 7500, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_85e7a89f76",
+    "name": "Feel24 Buran",
+    "brand": "Feel24",
+    "address": "Gamle Kirkevei 22",
+    "postal_code": "7043",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.436084,
+    "lng": 10.423403,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-trondheim/buran",
+    "legacy_brand": null,
+    "center_name": "buran",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "22, Gamle kirkevei, Buran, Reina, Lademoen, Østbyen, Trondheim, Trøndelag, 7068, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000073027389944,
+        "lat": 63.436084,
+        "lng": 10.423403,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "22, Gamle kirkevei, Buran, Reina, Lademoen, Østbyen, Trondheim, Trøndelag, 7068, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_eb069ea386",
+    "name": "Feel24 Vadso",
+    "brand": "Feel24",
+    "address": "Sør-varangerveien 2",
+    "postal_code": "9800",
+    "city": "Vadsø",
+    "country": "Norway",
+    "lat": 70.080882,
+    "lng": 29.701091,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://feel24.no/treningssentre/treningssenter-vadso/vadso",
+    "legacy_brand": null,
+    "center_name": "vadso",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "2, Sør-Varangerveien, Vadsø, Finnmark, 9801, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000056977950713,
+        "lat": 70.080882,
+        "lng": 29.701091,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "2, Sør-Varangerveien, Vadsø, Finnmark, 9801, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_78f9f6283e",
+    "name": "3T-Treningssenter Moholt",
+    "brand": "3T-Treningssenter",
+    "address": "Vegamot 16",
+    "postal_code": "7048",
+    "city": "Trondheim",
+    "country": "Norway",
+    "lat": 63.410259,
+    "lng": 10.445038,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.3t.no/treningssenter/3t-moholt",
+    "legacy_brand": null,
+    "center_name": "3t-moholt",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "16, Vegamot, Lohove, Åsvang, Strinda, Lerkendal, Trondheim, Trøndelag, 7049, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000073027389944,
+        "lat": 63.4102588,
+        "lng": 10.4450375,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "16, Vegamot, Lohove, Åsvang, Strinda, Lerkendal, Trondheim, Trøndelag, 7049, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_dfc6a8b93c",
+    "name": "MOVA Bergen Kronstad",
+    "brand": "MOVA",
+    "address": "Edvard Griegsvei 3A",
+    "postal_code": "5059",
+    "city": "Bergen",
+    "country": "Norway",
+    "lat": 60.373091,
+    "lng": 5.340983,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.mova.no/treningssenter/bergen/kronstad",
+    "legacy_brand": null,
+    "center_name": "Bergen Kronstad",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_exact",
+      "city_ok",
+      "token_hits_1"
+    ],
+    "geocode_display": "3A, Edvard Griegs vei, Kronstad, Årstad, Bergen, Vestland, 5059, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 8.000072125581749,
+        "lat": 60.373091,
+        "lng": 5.340983,
+        "reasons": [
+          "postal_exact",
+          "city_ok",
+          "token_hits_1"
+        ],
+        "display": "3A, Edvard Griegs vei, Kronstad, Årstad, Bergen, Vestland, 5059, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_9f831866d8",
+    "name": "MOVA Horten Hovedsenter",
+    "brand": "MOVA",
+    "address": "Trimveien 41B",
+    "postal_code": "3186",
+    "city": "Horten",
+    "country": "Norway",
+    "lat": 59.400639,
+    "lng": 10.46085,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.mova.no/treningssenter/horten/hovedsenter",
+    "legacy_brand": null,
+    "center_name": "Horten Hovedsenter",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "41B, Trimveien, Tveiten, Horten, Vestfold, 3188, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.00005919203479,
+        "lat": 59.4006387,
+        "lng": 10.4608497,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "41B, Trimveien, Tveiten, Horten, Vestfold, 3188, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_10b59f3e09",
+    "name": "MOVA Kleppe",
+    "brand": "MOVA",
+    "address": "Solavegen 25",
+    "postal_code": "4352",
+    "city": "Klepp",
+    "country": "Norway",
+    "lat": 58.779313,
+    "lng": 5.626292,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://www.mova.no/treningssenter/kleppe",
+    "legacy_brand": null,
+    "center_name": "Kleppe",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "25, Solavegen, Haugabakka, Kleppe, Klepp, Rogaland, 4351, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000052751201648,
+        "lat": 58.779313,
+        "lng": 5.626292,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "25, Solavegen, Haugabakka, Kleppe, Klepp, Rogaland, 4351, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_53f1e7151f",
+    "name": "SKY Fitness Lisleby",
+    "brand": "SKY Fitness",
+    "address": "Lislebyveien 191",
+    "postal_code": "1604",
+    "city": "Fredrikstad",
+    "country": "Norway",
+    "lat": 59.232352,
+    "lng": 10.977608,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://skyfitness.no/sentere/lisleby/",
+    "legacy_brand": null,
+    "center_name": "lisleby",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "191, Lislebyveien, Narnte, Lisleby, Fredrikstad, Østfold, 1619, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000063725490196,
+        "lat": 59.232352,
+        "lng": 10.977608,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "191, Lislebyveien, Narnte, Lisleby, Fredrikstad, Østfold, 1619, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_92af241728",
+    "name": "SKY Fitness Moss Jeloy",
+    "brand": "SKY Fitness",
+    "address": "Helgerødgata 11",
+    "postal_code": "1511",
+    "city": "Moss",
+    "country": "Norway",
+    "lat": 59.433994,
+    "lng": 10.648161,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://skyfitness.no/sentere/moss-jeloy/",
+    "legacy_brand": null,
+    "center_name": "moss-jeloy",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "11, Helgerødgata, Fiske, Moss, Østfold, 1515, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000050001525902,
+        "lat": 59.433994,
+        "lng": 10.648161,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "11, Helgerødgata, Fiske, Moss, Østfold, 1515, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  },
+  {
+    "id": "no_3c1dd36ce0",
+    "name": "SKY Fitness Randaberg",
+    "brand": "SKY Fitness",
+    "address": "Torvmyrveien 26",
+    "postal_code": "4096",
+    "city": "Randaberg",
+    "country": "Norway",
+    "lat": 59.00379,
+    "lng": 5.631091,
+    "is_active": false,
+    "is_coming_soon": null,
+    "verification_status": "verified_official",
+    "source_url": "https://skyfitness.no/sentere/randaberg/",
+    "legacy_brand": null,
+    "center_name": "randaberg",
+    "import_category": "SOFT_POSTAL_WITHHELD",
+    "phase": "phase2",
+    "phase2_ready_for_geocode": true,
+    "geocode_status": "suspicious",
+    "geocode_reasons": [
+      "postal_mismatch_soft_street_ok",
+      "city_ok",
+      "road_match",
+      "house_number_match"
+    ],
+    "geocode_display": "26, Torvmyrveien, Goadalen, Rygg, Randaberg, Rogaland, 4070, Norge",
+    "geocode_candidates": 1,
+    "geocode_top": [
+      {
+        "score": 7.000051986724651,
+        "lat": 59.0037895,
+        "lng": 5.6310909,
+        "reasons": [
+          "postal_mismatch_soft_street_ok",
+          "city_ok",
+          "road_match",
+          "house_number_match"
+        ],
+        "display": "26, Torvmyrveien, Goadalen, Rygg, Randaberg, Rogaland, 4070, Norge",
+        "query": "address_postal_city"
+      }
+    ],
+    "geocode_suspicious": true,
+    "phase2_merge": "withheld_soft_postal"
+  }
+]

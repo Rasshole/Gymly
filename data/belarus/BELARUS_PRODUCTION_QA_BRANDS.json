@@ -1,0 +1,28 @@
+{
+  "production": {
+    "FitWorld": 1,
+    "Adrenalin": 29,
+    "Fox Club": 5,
+    "Grafit": 1,
+    "Olympic": 4,
+    "Delta": 1,
+    "Gym Express 24h": 1,
+    "Lifestyle": 3,
+    "World Class": 1
+  },
+  "expected": {
+    "Adrenalin": 29,
+    "Lifestyle": 3,
+    "Fox Club": 5,
+    "Olympic": 4,
+    "World Class": 1,
+    "Gym Express 24h": 1,
+    "Grafit": 1,
+    "Delta": 1,
+    "FitWorld": 1
+  },
+  "reconciles": true,
+  "total": 46,
+  "class_a": 41,
+  "non_class_a": 5
+}

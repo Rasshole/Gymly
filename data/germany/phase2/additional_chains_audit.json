@@ -1,0 +1,56 @@
+{
+  "conventional_candidates": [
+    {
+      "brand": "Kieser Training",
+      "url": "https://www.kieser.com/de-de/studios/",
+      "kind": "conventional",
+      "final": "https://www.kieser.com/de-de/studios/",
+      "bytes": 115933,
+      "locationish_hrefs": 9
+    },
+    {
+      "brand": "Pfitzenmeier",
+      "url": "https://www.pfitzenmeier.de/",
+      "kind": "conventional",
+      "final": "https://www.pfitzenmeier.de/",
+      "bytes": 338367,
+      "locationish_hrefs": 18
+    },
+    {
+      "brand": "FitnessLOFT",
+      "url": "https://www.fitnessloft.de/",
+      "kind": "conventional",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1129)>"
+    },
+    {
+      "brand": "ELEMENTS Fitness",
+      "url": "https://www.elements.com/de",
+      "kind": "conventional",
+      "final": "https://www.elements.com/detox/",
+      "bytes": 897789,
+      "locationish_hrefs": 44
+    }
+  ],
+  "ems_only_not_for_catalog": [
+    {
+      "brand": "Bodystreet",
+      "url": "https://www.bodystreet.com/de/studios/",
+      "kind": "ems_only",
+      "final": "https://www.bodystreet.com/de/studios/",
+      "bytes": 13517,
+      "locationish_hrefs": 0
+    },
+    {
+      "brand": "Körperformen",
+      "url": "https://www.koerperformen.com/standorte",
+      "kind": "ems_only",
+      "final": "https://www.koerperformen.com/standorte",
+      "bytes": 114,
+      "locationish_hrefs": 0
+    }
+  ],
+  "notes": [
+    "EMS-only (Bodystreet, Körperformen) reported separately — do not add without approval.",
+    "Kieser / Pfitzenmeier / FitnessLOFT / ELEMENTS are conventional candidates not staged in Phase 2."
+  ]
+}

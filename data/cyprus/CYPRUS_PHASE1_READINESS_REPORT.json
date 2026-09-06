@@ -1,0 +1,50 @@
+{
+  "country": "Cyprus",
+  "phase": 1,
+  "verdict": "CYPRUS PHASE 2 REQUIRED BEFORE MERGE",
+  "small_market_model": "INDEPENDENT_PHASE_RECOMMENDED",
+  "production_total": 11648,
+  "production_sha256": "e039707d7c419d727b5297acf26b17bc1f885217ca997d3b75f21ff54f60a7f4",
+  "cyprus_live": 0,
+  "production_modified": false,
+  "status_counts": {
+    "EXCLUDED": 36,
+    "CLOSED": 8,
+    "NEEDS_REVIEW": 3
+  },
+  "ready_count": 0,
+  "ready_by_brand": {},
+  "class_a_chains": [],
+  "phase2_required": true,
+  "phase2_reasons": [
+    "Zero qualifying Class A chains with ≥3 conventional public locations confirmed",
+    "Sanctum Spa & Fitness has 3 Limassol sites but spa/amenity policy unresolved (NEEDS_REVIEW)",
+    "Fitness Factory / Fitness One multi-city claims are B_discovery_gap",
+    "Curves official estate is only 2 clubs (under threshold); historical directory listings closed/legacy",
+    "Strong independent / boutique / hotel-gym market → INDEPENDENT_PHASE_RECOMMENDED (decision only; not executed)"
+  ],
+  "dq_gates": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_addresses": 0,
+    "missing_cities": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_territorial_outliers": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 2
+  },
+  "territorial_safety": "CLEAN_FOR_READY",
+  "projected_catalog_if_merged": 11648,
+  "crossed_12500_if_merged": false,
+  "global_stress_qa_required_now": false,
+  "architecture": "KEEP CLIENT-SIDE",
+  "check_in_radius_m": 200,
+  "auto_checkout_m": 200,
+  "every_class_a_estate_complete": false,
+  "unresolved_coordinates_postcodes": true,
+  "unexplained_regional_gaps": true,
+  "territorial_ambiguities": false,
+  "unresolved_rebrand_duplicates": true,
+  "independent_gym_phase_recommended": true
+}

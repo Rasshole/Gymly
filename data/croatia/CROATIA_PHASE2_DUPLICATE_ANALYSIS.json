@@ -1,0 +1,20 @@
+{
+  "hard_duplicate_conflicts": 0,
+  "diacritic_duplicate_conflicts": 0,
+  "phase2_same_brand_buckets": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [
+      {
+        "a_id": "hr_31f66c7a1f",
+        "b_id": "hr_ca7a172b54",
+        "brand": "THE Fitness",
+        "distance_m": 122,
+        "same_address": false
+      }
+    ],
+    "identical": []
+  },
+  "legacy_ready_leakage": 0
+}

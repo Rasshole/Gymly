@@ -1,13 +1,17 @@
 import type {AppLanguage} from './types';
-import {getTranslations} from './translations';
+import {FALLBACK_LANGUAGE} from './types';
+import {getTranslations, getFallbackTranslations} from './translations';
 import {createTranslator} from './translate';
 
-let currentLanguage: AppLanguage = 'da';
-let runtimeT = createTranslator(getTranslations('da'));
+let currentLanguage: AppLanguage = FALLBACK_LANGUAGE;
+let runtimeT = createTranslator(
+  getTranslations(FALLBACK_LANGUAGE),
+  getFallbackTranslations(),
+);
 
 export function setRuntimeLanguage(lang: AppLanguage): void {
   currentLanguage = lang;
-  runtimeT = createTranslator(getTranslations(lang));
+  runtimeT = createTranslator(getTranslations(lang), getFallbackTranslations());
 }
 
 export function getRuntimeLanguage(): AppLanguage {

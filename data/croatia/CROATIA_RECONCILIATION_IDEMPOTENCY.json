@@ -1,0 +1,28 @@
+{
+  "first_run": {
+    "insertions": 0,
+    "removals": 0,
+    "updates": 0,
+    "total_before": 11921,
+    "total_after": 11921,
+    "croatia_before": 80,
+    "croatia_after": 80,
+    "hr_before": 80,
+    "hr_after": 80
+  },
+  "second_run": {
+    "insertions": 0,
+    "removals": 0,
+    "updates": 0,
+    "total_before": 11921,
+    "total_after": 11921,
+    "croatia_before": 80,
+    "croatia_after": 80,
+    "hr_before": 80,
+    "hr_after": 80
+  },
+  "insertions": 0,
+  "removals": 0,
+  "updates": 0,
+  "idempotent": true
+}

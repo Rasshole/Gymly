@@ -1,0 +1,303 @@
+{
+  "country": "Croatia",
+  "generated_at": "2026-08-25T09:20:38.256Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11336,
+    "croatia": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82
+  },
+  "after": {
+    "total": 11416,
+    "croatia": 80,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37,
+    "bulgaria": 82
+  },
+  "inserted": 80,
+  "withheld": 0,
+  "pre_merge_sha256": "644fb590b8327a773d1a0bc60fbebfe7558d5b112ad3aa838bd291849523d4ec",
+  "post_merge_sha256": "19f288efaebbcb3e133ecfbc5ec52e1b36925d750649dd7f922f3c6f47b864c9",
+  "brand_breakdown": {
+    "Fitness Centar Joker": 4,
+    "Gibi Gib": 4,
+    "Gyms4you": 48,
+    "Multihealth": 3,
+    "THE Fitness": 21
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0
+  },
+  "withheld_details": [],
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    },
+    "slovakia": {
+      "before": 37,
+      "after": 37,
+      "intact": true
+    },
+    "bulgaria": {
+      "before": 82,
+      "after": 82,
+      "intact": true
+    }
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 80,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 0,
+    "COMING_SOON": 8,
+    "CLOSED": 0,
+    "EXCLUDED": 23,
+    "DUPLICATE_LEGACY": 0,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "missing_from_approved": [],
+    "unexpected_in_prod_vs_ready": [],
+    "metadata_drift": "NONE",
+    "reconciliation": "80 == 80 == 80"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 1,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 1,
+    "same_brand_lte_200m_pairs": [
+      {
+        "a_id": "hr_ca7a172b54",
+        "a_name": "THE Fitness Branimir",
+        "a_address": "Ulica kneza Branimira 29, Mingle Mall",
+        "a_postal": "10240",
+        "b_id": "hr_31f66c7a1f",
+        "b_name": "THE Fitness Zavrtnica",
+        "b_address": "Zavrtnica 17",
+        "b_postal": "10000",
+        "brand": "THE Fitness",
+        "distance_m": 122,
+        "same_address": false,
+        "classification": "A_legitimate"
+      }
+    ],
+    "different_brand_pairs": [
+      {
+        "a_id": "hr_1156235f67",
+        "a_brand": "Gyms4you",
+        "a_name": "Gyms4you Dubec",
+        "b_id": "hr_e86685f75d",
+        "b_brand": "THE Fitness",
+        "b_name": "THE Fitness Dubrava",
+        "distance_m": 49,
+        "classification": "A_legitimate"
+      }
+    ]
+  },
+  "exclusions": {
+    "gyms4you_coming_soon_live": 0,
+    "the_fitness_coming_soon_live": 0,
+    "orlandofit_live": 0,
+    "play_fitness_live": 0,
+    "world_class_hotel_live": 0,
+    "coming_soon_names_absent": true
+  },
+  "rebrand_access": {
+    "the_fitness_kaptol": true,
+    "the_fitness_green_gold": true,
+    "the_fitness_branimir": true,
+    "the_fitness_crnomerec": true,
+    "hotel_novi_zagreb": true,
+    "zonar": true,
+    "jelkovec": true,
+    "hotel_access_class": "C_mixed_but_public"
+  },
+  "border_safety": {
+    "slovenia": 0,
+    "hungary": 0,
+    "serbia": 0,
+    "bosnia": 0,
+    "montenegro": 0,
+    "foreign_coords": 0
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous": 11336,
+    "new": 11416,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "CROATIA MERGE COMPLETE \u2014 WAITING FOR QA",
+  "performance": {
+    "catalog": 11416,
+    "active": 11412,
+    "json_size_mb": 3.38,
+    "parse_ms": 18,
+    "note": "Full cold-index/search timings in merge-safety test.",
+    "croatia": 80,
+    "architecture": "KEEP CLIENT-SIDE",
+    "baseline_compare": "Bulgaria QA ~11336 / 3.36 MB \u2192 now 11416 / 3.38 MB"
+  }
+}

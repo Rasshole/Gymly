@@ -20,6 +20,7 @@ import {useGymStore} from '@/store/gymStore';
 import {useAppStore} from '@/store/appStore';
 import {DanishGym} from '@/data/danishGyms';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 type RateGymScreenProps = {
   route: {
@@ -36,18 +37,19 @@ const RateGymScreen = () => {
   const {gymId, gym} = (route.params as any) || {};
   const {user} = useAppStore();
   const {addRating} = useGymStore();
+  const {t} = useTranslation();
 
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
   const [comment, setComment] = useState('');
 
   const handleSubmit = () => {
     if (!selectedRating) {
-      Alert.alert('Vælg vurdering', 'Vælg venligst en vurdering fra 1 til 5');
+      Alert.alert(t('rateGym.alertSelectTitle'), t('rateGym.alertSelectBody'));
       return;
     }
 
     if (!user) {
-      Alert.alert('Fejl', 'Bruger ikke fundet');
+      Alert.alert(t('common.error'), t('rateGym.alertUserMissing'));
       return;
     }
 
@@ -58,16 +60,12 @@ const RateGymScreen = () => {
       comment: comment.trim() || undefined,
     });
 
-    Alert.alert(
-      'Vurdering sendt',
-      'Tak for din vurdering!',
-      [
-        {
-          text: 'OK',
-          onPress: () => navigation.goBack(),
-        },
-      ]
-    );
+    Alert.alert(t('rateGym.alertSentTitle'), t('rateGym.alertSentBody'), [
+      {
+        text: t('common.ok'),
+        onPress: () => navigation.goBack(),
+      },
+    ]);
   };
 
   return (
@@ -79,14 +77,14 @@ const RateGymScreen = () => {
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Giv en vurdering</Text>
+        <Text style={styles.headerTitle}>{t('rateGym.title')}</Text>
         <View style={styles.headerRight} />
       </View>
 
       <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
         {/* Gym Info */}
         <View style={styles.gymInfo}>
-          <Text style={styles.gymName}>{gym?.name || 'Center'}</Text>
+          <Text style={styles.gymName}>{gym?.name || t('rateGym.centerFallback')}</Text>
           {gym?.brand && (
             <Text style={styles.gymBrand}>{gym.brand}</Text>
           )}
@@ -94,9 +92,9 @@ const RateGymScreen = () => {
 
         {/* Rating Selection */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Vælg din vurdering</Text>
+          <Text style={styles.sectionTitle}>{t('rateGym.selectRating')}</Text>
           <Text style={styles.sectionSubtitle}>
-            Tryk på antallet af biceps for at vælge din vurdering
+            {t('rateGym.selectRatingHint')}
           </Text>
 
           <View style={styles.ratingContainer}>
@@ -133,7 +131,7 @@ const RateGymScreen = () => {
           {selectedRating && (
             <View style={styles.selectedRatingContainer}>
               <Text style={styles.selectedRatingText}>
-                Du har valgt {selectedRating} {selectedRating === 1 ? 'biceps' : 'biceps'}
+                {t('rateGym.selectedRating', {count: selectedRating})}
               </Text>
             </View>
           )}
@@ -141,10 +139,10 @@ const RateGymScreen = () => {
 
         {/* Comment Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Kommentar (valgfrit)</Text>
+          <Text style={styles.sectionTitle}>{t('rateGym.commentOptional')}</Text>
           <TextInput
             style={styles.commentInput}
-            placeholder="Skriv din kommentar her..."
+            placeholder={t('rateGym.commentPlaceholder')}
             placeholderTextColor="#8E8E93"
             value={comment}
             onChangeText={setComment}
@@ -166,7 +164,7 @@ const RateGymScreen = () => {
           onPress={handleSubmit}
           disabled={!selectedRating}
           activeOpacity={0.7}>
-          <Text style={styles.submitButtonText}>Send vurdering</Text>
+          <Text style={styles.submitButtonText}>{t('rateGym.submit')}</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
@@ -321,4 +319,3 @@ const styles = StyleSheet.create({
 });
 
 export default RateGymScreen;
-

@@ -1,0 +1,443 @@
+[
+  {
+    "slug": "alcobaca",
+    "address": "",
+    "city": "",
+    "lat": 39.5513046,
+    "lng": -8.9687487,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/alcobaca"
+  },
+  {
+    "slug": "alcochete",
+    "address": "Rua dos Jasmins 450, Alcochete",
+    "city": "Alcochete",
+    "lat": 38.745158,
+    "lng": -8.943843,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/alcochete"
+  },
+  {
+    "slug": "alenquer",
+    "address": "",
+    "city": "",
+    "lat": 39.0170071,
+    "lng": -9.0290808,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/alenquer"
+  },
+  {
+    "slug": "almeirim",
+    "address": "",
+    "city": "",
+    "lat": 39.195807,
+    "lng": -8.625394,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/almeirim"
+  },
+  {
+    "slug": "alvalade",
+    "address": "",
+    "city": "",
+    "lat": 38.757157700109865,
+    "lng": -9.14127480575623,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/alvalade"
+  },
+  {
+    "slug": "alverca",
+    "address": "Avenida Cidade de Alverca - Alverca Park nº2A, Edifício A, Fracção H",
+    "city": "Alverca do Ribatejo",
+    "lat": 39.1173658,
+    "lng": -9.3525664,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/alverca"
+  },
+  {
+    "slug": "arruda-dos-vinhos",
+    "address": "Estrada Quinta Matos, Nº4, BL A08",
+    "city": "Arruda dos Vinhos",
+    "lat": 39.000817,
+    "lng": -9.081573,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/arruda-dos-vinhos"
+  },
+  {
+    "slug": "barcelos",
+    "address": "Rua da Escola nº 100",
+    "city": "Barcelos",
+    "lat": 41.5287036,
+    "lng": -8.6465236,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/barcelos"
+  },
+  {
+    "slug": "beja",
+    "address": "",
+    "city": "",
+    "lat": 38.00894327922494,
+    "lng": -7.859354186181617,
+    "status": "CLOSED",
+    "url": "https://www.fitnessfactory.pt/clubes/beja"
+  },
+  {
+    "slug": "benfica",
+    "address": "Rua Eng. Nobre Guedes, 18",
+    "city": "Benfica",
+    "lat": 38.746657,
+    "lng": -9.205664,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/benfica"
+  },
+  {
+    "slug": "braga",
+    "address": "",
+    "city": "",
+    "lat": 41.5198263,
+    "lng": -8.4242929,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/braga"
+  },
+  {
+    "slug": "caldas-da-rainha",
+    "address": "",
+    "city": "",
+    "lat": 39.410151,
+    "lng": -9.133389,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/caldas-da-rainha"
+  },
+  {
+    "slug": "canico",
+    "address": "",
+    "city": "",
+    "lat": 32.6533119,
+    "lng": -16.8451402,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/canico"
+  },
+  {
+    "slug": "carcavelos",
+    "address": "",
+    "city": "",
+    "lat": 38.700939,
+    "lng": -9.334096,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/carcavelos"
+  },
+  {
+    "slug": "cartaxo",
+    "address": "",
+    "city": "",
+    "lat": 39.161813,
+    "lng": -8.788069,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/cartaxo"
+  },
+  {
+    "slug": "cascais",
+    "address": "",
+    "city": "",
+    "lat": 38.703010785479286,
+    "lng": -9.416771844018172,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/cascais"
+  },
+  {
+    "slug": "castelo-branco",
+    "address": "Avenida General Humberto Delgado, 25",
+    "city": "Castelo Branco",
+    "lat": 39.824178,
+    "lng": -7.489618,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/castelo-branco"
+  },
+  {
+    "slug": "coimbra",
+    "address": "Avenida José Bonifácio de Andrade e Silva, 1 - Loja 2.28 (Fórum Coimbra)",
+    "city": "Coimbra",
+    "lat": 40.21151540402989,
+    "lng": -8.443561789739217,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/coimbra"
+  },
+  {
+    "slug": "covilha",
+    "address": "Rua Indústria, 30",
+    "city": "Covilhã",
+    "lat": 40.287338,
+    "lng": -7.50665,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/covilha"
+  },
+  {
+    "slug": "esmoriz",
+    "address": "Rua Diogo Gomes, 99",
+    "city": "Esmoriz",
+    "lat": 40.957459,
+    "lng": -8.6520007,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/esmoriz"
+  },
+  {
+    "slug": "espinho",
+    "address": "Rua 33, 232",
+    "city": "Espinho",
+    "lat": 41.0038636,
+    "lng": -8.6457678,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/espinho"
+  },
+  {
+    "slug": "esposende",
+    "address": "Rua Dr. Francisco Sá Carneiro, nº4",
+    "city": "Esposende",
+    "lat": 41.5322219,
+    "lng": -8.7579242,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/esposende"
+  },
+  {
+    "slug": "evora",
+    "address": "Rua Luís Morales, 20 Quinta da Vista Alegre - Torralva",
+    "city": "Évora",
+    "lat": 38.580424,
+    "lng": -7.923214,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/evora"
+  },
+  {
+    "slug": "funchal",
+    "address": "Caminho do Amparo 55",
+    "city": "Funchal",
+    "lat": 32.6442844,
+    "lng": -16.9460576,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/funchal"
+  },
+  {
+    "slug": "grijo",
+    "address": "",
+    "city": "",
+    "lat": 41.04354855844375,
+    "lng": -8.568029116744032,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/grijo"
+  },
+  {
+    "slug": "lamego",
+    "address": "Rua 25 de Abril, Qta das Lages, Bloco 2B, piso -1",
+    "city": "Lamego",
+    "lat": 41.0984191,
+    "lng": -7.8051498,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/lamego"
+  },
+  {
+    "slug": "leiria",
+    "address": "",
+    "city": "",
+    "lat": 39.7535966,
+    "lng": -8.808029,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/leiria"
+  },
+  {
+    "slug": "marco-de-canaveses",
+    "address": "Rua Amália Rodrigues, 408 - Estalagem Nova",
+    "city": "Marco de Canaveses",
+    "lat": 41.18488750836676,
+    "lng": -8.15359564737151,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/marco-de-canaveses"
+  },
+  {
+    "slug": "marinha-grande",
+    "address": "Rua da Figueira nº3",
+    "city": "Marinha Grande",
+    "lat": 39.747392,
+    "lng": -8.935559,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/marinha-grande"
+  },
+  {
+    "slug": "matosinhos",
+    "address": "Rua Sousa Aroso, n.º 550 - 570",
+    "city": "Matosinhos",
+    "lat": 41.17707,
+    "lng": -8.684099,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/matosinhos"
+  },
+  {
+    "slug": "oliveira-do-hospital",
+    "address": "Rua Ameal 20",
+    "city": "Oliveira do Hospital",
+    "lat": 40.3580805,
+    "lng": -7.8598181,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/oliveira-do-hospital"
+  },
+  {
+    "slug": "palmela",
+    "address": "",
+    "city": "",
+    "lat": 38.58350265656709,
+    "lng": 8.894767429686468,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/palmela"
+  },
+  {
+    "slug": "peniche",
+    "address": "Avenida do Porto de Pesca, lote 8",
+    "city": "Peniche",
+    "lat": 39.3583301,
+    "lng": -9.3747989,
+    "status": "CLOSED",
+    "url": "https://www.fitnessfactory.pt/clubes/peniche"
+  },
+  {
+    "slug": "pombal",
+    "address": "",
+    "city": "",
+    "lat": 39.9157004,
+    "lng": -8.6292752,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/pombal"
+  },
+  {
+    "slug": "ponta-delgada",
+    "address": "Rua da Piedade, n162",
+    "city": "Arrifes",
+    "lat": 37.75859833713288,
+    "lng": -25.68881520258393,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/ponta-delgada"
+  },
+  {
+    "slug": "portalegre",
+    "address": "Avenida de Badajoz, 8",
+    "city": "Portalegre",
+    "lat": 39.275956,
+    "lng": -7.429263,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/portalegre"
+  },
+  {
+    "slug": "samora-correia",
+    "address": "à Rua de Goa, Pavilhão E, Estrada Nacional 10 KM 108/100",
+    "city": "Samora Correia",
+    "lat": 38.916038771893525,
+    "lng": -8.863225094100821,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/samora-correia"
+  },
+  {
+    "slug": "santa-catarina",
+    "address": "Rua de Santa Catarina 691",
+    "city": "Porto",
+    "lat": 41.146907,
+    "lng": -8.602384,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/santa-catarina"
+  },
+  {
+    "slug": "santarem",
+    "address": "Rua de Angola",
+    "city": "Santarém",
+    "lat": 39.2421653,
+    "lng": -8.7009512,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/santarem"
+  },
+  {
+    "slug": "santiago-do-cacem",
+    "address": "",
+    "city": "",
+    "lat": 38.013098873439795,
+    "lng": -8.706504035363988,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/santiago-do-cacem"
+  },
+  {
+    "slug": "santo-antonio",
+    "address": "",
+    "city": "",
+    "lat": 32.6716397,
+    "lng": -16.9361783,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/santo-antonio"
+  },
+  {
+    "slug": "sao-joao-da-madeira",
+    "address": "Rua Oliveira Figueiredo 348",
+    "city": "São João da Madeira",
+    "lat": 40.90749909046417,
+    "lng": 8.479387917319157,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/sao-joao-da-madeira"
+  },
+  {
+    "slug": "setubal",
+    "address": "",
+    "city": "",
+    "lat": 38.5204685,
+    "lng": -8.8989147,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/setubal"
+  },
+  {
+    "slug": "sines",
+    "address": "",
+    "city": "",
+    "lat": 37.95380790600647,
+    "lng": -8.855419674190273,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/sines"
+  },
+  {
+    "slug": "torres-vedras",
+    "address": "",
+    "city": "",
+    "lat": 39.092672,
+    "lng": -9.262389,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/torres-vedras"
+  },
+  {
+    "slug": "trancoso",
+    "address": "Rua 5 de Outubro Lote 8",
+    "city": "Trancoso",
+    "lat": 40.764549,
+    "lng": -7.3590161,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/trancoso"
+  },
+  {
+    "slug": "valongo",
+    "address": "",
+    "city": "",
+    "lat": 41.1837405,
+    "lng": -8.482999,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/valongo"
+  },
+  {
+    "slug": "venda-do-pinheiro",
+    "address": "",
+    "city": "",
+    "lat": 38.923235,
+    "lng": -9.232404,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/venda-do-pinheiro"
+  },
+  {
+    "slug": "vila-nova-de-gaia",
+    "address": "Rua Soares dos Reis nº360",
+    "city": "Vila Nova de Gaia",
+    "lat": 41.1195562,
+    "lng": -8.6115177,
+    "status": "",
+    "url": "https://www.fitnessfactory.pt/clubes/vila-nova-de-gaia"
+  }
+]

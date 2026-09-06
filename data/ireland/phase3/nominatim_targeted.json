@@ -1,0 +1,297 @@
+{
+  "West Wood Club, Clontarf Road, Dublin 3": [
+    {
+      "lat": 53.3632123,
+      "lng": -6.2290091,
+      "display": "West Wood Club, Clontarf Road, Marino, Clontarf West D ED, Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "sports_centre",
+      "class": "leisure",
+      "name": "West Wood Club"
+    }
+  ],
+  "West Wood Club, Leopardstown Racecourse, Dublin 18": [],
+  "West Wood Club, St Johns Road, Sandymount, Dublin 4": [],
+  "West Wood Club, Westmanstown, Clonsilla, Dublin 15": [],
+  "Ben Dunne Fitness Centre, Northwood Road, Dublin": [
+    {
+      "lat": 53.4013543,
+      "lng": -6.2578333,
+      "display": "Ben Dunne Fitness Centre, Northwood Road, Northwood Businesss Campus, Santry, Airport ED, Dublin, Fingal, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "sports_centre",
+      "class": "leisure",
+      "name": "Ben Dunne Fitness Centre"
+    }
+  ],
+  "Ben Dunne Gym, Lismard Business Park, Portlaoise": [
+    {
+      "lat": 53.0276314,
+      "lng": -7.2863973,
+      "display": "Ben Dunne's Gym, 11, Lismard Business Park, Portlaoise, The Municipal District of Portlaoise, County Laois, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "fitness_centre",
+      "class": "leisure",
+      "name": "Ben Dunne's Gym"
+    }
+  ],
+  "Ben Dunne Gym, Cherrywood Business Park, Dublin 18": [],
+  "Cherrywood Business Park, Dublin 18": [
+    {
+      "lat": 53.2432795,
+      "lng": -6.1414206,
+      "display": "Cherrywood Business Park, Cherrywood, Cabinteely-Loughlinstown DED 1986, Shankill, D\u00fan Laoghaire-Rathdown, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "commercial",
+      "class": "landuse",
+      "name": "Cherrywood Business Park"
+    },
+    {
+      "lat": 53.2438535,
+      "lng": -6.1402031,
+      "display": "Laya Health and Wellbeing Clinic, Wyattville Link Road, Cherrywood, Cabinteely-Loughlinstown DED 1986, Shankill, D\u00fan Laoghaire-Rathdown, County Dublin, Leinster, D18 T8Y6, \u00c9ire / Ireland",
+      "postcode": "D18 T8Y6",
+      "raw_pc": "D18 T8Y6",
+      "type": "clinic",
+      "class": "amenity",
+      "name": "Laya Health and Wellbeing Clinic"
+    }
+  ],
+  "Energie Fitness, Clarehall Retail Park, Dublin": [],
+  "Energie Fitness, Belgard Road, Tallaght": [],
+  "Energie Fitness, Citywest Shopping Centre": [],
+  "Energie Fitness, Island Road, Limerick": [],
+  "Aura Leisure Centre, St Alphonsus Road, Dundalk": [],
+  "Aura Lucan Leisure Centre, Griffeen Valley Park": [],
+  "Aura Leisurelink, Windtown Road, Navan": [],
+  "Aura Tullamore, Hophill Road, Tullamore": [],
+  "Anytime Fitness, Kilnamanagh Shopping Centre, Dublin": [],
+  "Iconic Health Clubs, 31 Palmerston Gardens, Dartry": [],
+  "48 Mayor Street Lower, Dublin 1": [
+    {
+      "lat": 53.3494908,
+      "lng": -6.2470456,
+      "display": "Mayor Street Lower, George's Dock, International Financial Services Centre, North Dock C ED, Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "unclassified",
+      "class": "highway",
+      "name": "Mayor Street Lower"
+    },
+    {
+      "lat": 53.3491872,
+      "lng": -6.2419163,
+      "display": "Mayor Street Lower, IFSC II, International Financial Services Centre, North Dock C ED, Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "tertiary",
+      "class": "highway",
+      "name": "Mayor Street Lower"
+    }
+  ],
+  "Block G, Smithfield Market, Dublin 7": [],
+  "FLYEfit, Coolmine Business Park, Blanchardstown": [],
+  "FLYEfit, Ashleaf Shopping Centre, Crumlin": [],
+  "A91 YW90, Dundalk": [
+    {
+      "lat": 54.0046033,
+      "lng": -6.4008879,
+      "display": "Dundalk, County Louth, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "town",
+      "class": "place",
+      "name": "Dundalk"
+    }
+  ],
+  "R35 A594, Tullamore": [
+    {
+      "lat": 53.2743768,
+      "lng": -7.4927486,
+      "display": "Tullamore, The Municipal District of Tullamore, County Offaly, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "town",
+      "class": "place",
+      "name": "Tullamore"
+    },
+    {
+      "lat": 53.2704078,
+      "lng": -7.4999253,
+      "display": "Tullamore, R443, Tullamore, The Municipal District of Tullamore, County Offaly, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "station",
+      "class": "railway",
+      "name": "Tullamore"
+    }
+  ],
+  "A98 F585, Bray": [
+    {
+      "lat": 53.2014604,
+      "lng": -6.1105049,
+      "display": "Bray, County Wicklow, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "town",
+      "class": "place",
+      "name": "Bray"
+    },
+    {
+      "lat": 53.2012277,
+      "lng": -6.1070809,
+      "display": "Bray, Bray No 2 ED, The Municipal District of Bray, County Wicklow, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Bray"
+    }
+  ],
+  "A63 HD25, Greystones": [
+    {
+      "lat": 53.1448901,
+      "lng": -6.0632184,
+      "display": "Greystones, The Municipal District of Greystones, County Wicklow, Leinster, A63 HW80, \u00c9ire / Ireland",
+      "postcode": "A63 HW80",
+      "raw_pc": "A63 HW80",
+      "type": "town",
+      "class": "place",
+      "name": "Greystones"
+    },
+    {
+      "lat": 53.144033,
+      "lng": -6.0609993,
+      "display": "Greystones, Church Road, Greystones, The Municipal District of Greystones, County Wicklow, Leinster, A63 KX96, \u00c9ire / Ireland",
+      "postcode": "A63 KX96",
+      "raw_pc": "A63 KX96",
+      "type": "station",
+      "class": "railway",
+      "name": "Greystones"
+    }
+  ],
+  "D03 T6T3, Dublin": [
+    {
+      "lat": 53.3493795,
+      "lng": -6.2605593,
+      "display": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Dublin"
+    }
+  ],
+  "D18 C9V6, Dublin": [
+    {
+      "lat": 53.2638574,
+      "lng": -6.1890406,
+      "display": "D18 C9V6, Glencullen Electoral Division, Stepaside, D\u00fan Laoghaire-Rathdown, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "D18 C9V6",
+      "raw_pc": "D18 C9V6",
+      "type": "postcode",
+      "class": "place",
+      "name": "D18 C9V6"
+    }
+  ],
+  "D04 H3K2, Dublin": [
+    {
+      "lat": 53.3493795,
+      "lng": -6.2605593,
+      "display": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Dublin"
+    }
+  ],
+  "D15 T447, Dublin": [
+    {
+      "lat": 53.3493795,
+      "lng": -6.2605593,
+      "display": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Dublin"
+    }
+  ],
+  "D06 FX39, Dublin": [
+    {
+      "lat": 53.3493795,
+      "lng": -6.2605593,
+      "display": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Dublin"
+    }
+  ],
+  "D01 R7W7, Dublin": [
+    {
+      "lat": 53.3493795,
+      "lng": -6.2605593,
+      "display": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Dublin"
+    }
+  ],
+  "D07 VKP9, Dublin": [
+    {
+      "lat": 53.3493795,
+      "lng": -6.2605593,
+      "display": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Dublin"
+    }
+  ],
+  "D08 A9DT, Dublin": [
+    {
+      "lat": 53.3448589,
+      "lng": -6.2967329,
+      "display": "D08 A9DT, Ushers A Ward 1986, Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "D08 A9DT",
+      "raw_pc": "D08 A9DT",
+      "type": "postcode",
+      "class": "place",
+      "name": "D08 A9DT"
+    }
+  ],
+  "D09 PX36, Dublin": [
+    {
+      "lat": 53.3493795,
+      "lng": -6.2605593,
+      "display": "Dublin, County Dublin, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "administrative",
+      "class": "boundary",
+      "name": "Dublin"
+    }
+  ],
+  "R32 PT9K, Portlaoise": [
+    {
+      "lat": 53.0340093,
+      "lng": -7.3000591,
+      "display": "Portlaoise, The Municipal District of Portlaoise, County Laois, Leinster, \u00c9ire / Ireland",
+      "postcode": "",
+      "raw_pc": null,
+      "type": "town",
+      "class": "place",
+      "name": "Portlaoise"
+    }
+  ]
+}

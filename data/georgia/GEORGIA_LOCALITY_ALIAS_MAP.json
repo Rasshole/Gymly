@@ -1,0 +1,44 @@
+{
+  "country": "Georgia",
+  "search_normalization": "normalize_georgian_search() — Georgian script to Latin for dedup only",
+  "aliases": [
+    {
+      "canonical": "Tbilisi",
+      "variants": [
+        "tbilisi",
+        "თბილისი",
+        "T'bilisi"
+      ]
+    },
+    {
+      "canonical": "Batumi",
+      "variants": [
+        "batumi",
+        "ბათუმი"
+      ]
+    },
+    {
+      "canonical": "Kutaisi",
+      "variants": [
+        "kutaisi",
+        "ქუთაისი"
+      ]
+    },
+    {
+      "canonical": "Rustavi",
+      "variants": [
+        "rustavi",
+        "რუსთავი"
+      ]
+    },
+    {
+      "canonical": "Georgia",
+      "variants": [
+        "საქართველო",
+        "GE",
+        "Sakartvelo"
+      ]
+    }
+  ],
+  "notes": "Canonical Latin/Georgian local names preserved in storage; transliteration for search only"
+}

@@ -1,0 +1,1404 @@
+{
+  "country": "Georgia",
+  "phase": 2,
+  "generated_at": "2026-08-29T19:07:23.814132+00:00",
+  "production_total": 12278,
+  "production_bytes": 3824712,
+  "production_sha256": "03dc090d0e86a532c19602490cc3a5e3877033389923fd898abe1a3c288dbb9a",
+  "baseline_turkey": 198,
+  "baseline_belarus": 46,
+  "baseline_ukraine": 105,
+  "baseline_malta": 24,
+  "georgia_live": 0,
+  "ge_prefix_live": 0,
+  "phase1_rows_recovered": 556,
+  "phase1_status_counts": {
+    "READY_TO_IMPORT": 17,
+    "NEEDS_REVIEW": 533,
+    "NEEDS_COORDINATES": 0,
+    "COMING_SOON": 0,
+    "EXCLUDED": 6,
+    "CLOSED": 0
+  },
+  "keep_existing_count": 0,
+  "existing_review_required_count": 0,
+  "new_ready_to_import_count": 25,
+  "final_approved_georgia": 25,
+  "status_counts": {
+    "NEW_READY_TO_IMPORT": 25,
+    "EXCLUDED": 531
+  },
+  "ready_by_brand_new": {
+    "Oktopus Fitness": 8,
+    "Champion": 3,
+    "მამბერი ფიტნესი": 1,
+    "Fitness House": 2,
+    "იმოძრავე": 1,
+    "სპარტა": 1,
+    "Snap Fitness": 1,
+    "რეფორმა": 1,
+    "Colosseum": 1,
+    "World Class Georgia": 1,
+    "Arena Sports Complex": 1,
+    "ასპრია": 1,
+    "Fit Line": 1,
+    "BLUE FITNES": 1,
+    "Life Sport Club": 1
+  },
+  "needs_review": 0,
+  "needs_coordinates": 0,
+  "coming_soon": 0,
+  "excluded": 531,
+  "closed": 0,
+  "total_final_staging": 556,
+  "chain_inventory": {
+    "Oktopus Fitness": {
+      "active_approved": 8,
+      "excluded": 0,
+      "total_accounted": 8,
+      "official_current": 8,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_4f547667b8",
+          "name": "Oktopus Fitness Vake",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_6b0b14f0ed",
+          "name": "Oktopus Fitness Saburtalo",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_0e2fa4eaa6",
+          "name": "Oktopus Fitness Gldani",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_940706c5ca",
+          "name": "Oktopus Fitness Isani",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_a151d09963",
+          "name": "Oktopus Fitness Digomi",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_17ef6b43d4",
+          "name": "Oktopus Fitness Varketili",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_d82a6618d2",
+          "name": "Oktopus Fitness Didi Dighomi",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_051da6fe5e",
+          "name": "Oktopus Fitness Ortachala",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "Champion": {
+      "active_approved": 3,
+      "excluded": 9,
+      "total_accounted": 12,
+      "official_current": 3,
+      "class_a": true,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_9705b4ab7b",
+          "name": "Champion Fitness Vake",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_b9389ebbae",
+          "name": "Champions Academy Saburtalo",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_68bf296095",
+          "name": "Champion Fitness Batumi",
+          "city": "Batumi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_9c80645a36",
+          "name": "ჩემპიონი",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_b2600d4d07",
+          "name": "ჩემპიონი",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_7c111e0094",
+          "name": "კაჭრეთის ჩემპიონი სედოვიჩთან",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_bc164618e8",
+          "name": "Champion",
+          "city": "საგვარამიო",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_5b0f5a724d",
+          "name": "Royal Art - The School of Champions",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_4689a379ce",
+          "name": "Olympic Champions of Kutaisi",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_806daaccea",
+          "name": "ჩემპიონი (Champion)",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_b58c07e358",
+          "name": "ჩემპიონი",
+          "city": "Gori",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_8195433aa6",
+          "name": "ჩემპიონი",
+          "city": "ჩაქვი",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "Fitness House": {
+      "active_approved": 2,
+      "excluded": 114,
+      "total_accounted": 116,
+      "official_current": 2,
+      "class_a": false,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_cb4c5b571f",
+          "name": "Fitness House Tbilisi",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_1ccb2b6d0c",
+          "name": "Fitness House Batumi",
+          "city": "Batumi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_2c07261636",
+          "name": "Fitness House Rustavi",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_d9b7a7e71d",
+          "name": "Mardi Grand House Batumi",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ac853196f7",
+          "name": "Wine House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_eb990006d1",
+          "name": "Mari's Guest House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_e6497a6c52",
+          "name": "Medical House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_b32b296b87",
+          "name": "Emirplast | Thermo House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_2688af62ec",
+          "name": "Guest House Green Rooms",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_119d5e6e49",
+          "name": "Family house",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ff15e98764",
+          "name": "Brothers House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_71881853c9",
+          "name": "White House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_26912e6cb5",
+          "name": "Mickey's House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_34f66011d8",
+          "name": "Golden House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_d7f7fec97c",
+          "name": "Sea Zone Guest house",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_0f12097a38",
+          "name": "Sanni Guest House",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_991e5a3e46",
+          "name": "სახლი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_958d5f80f7",
+          "name": "სუფთა სახლი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_06d5c666a2",
+          "name": "Fitness House Batumi",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_14595b907f",
+          "name": "სუფთა სახლი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_b54c0c6a61",
+          "name": "სუფთა სახლი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_17473609b4",
+          "name": "ბელორუსული სახლი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_88610deb8e",
+          "name": "სუფთა სახლი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_5e44075a20",
+          "name": "სუფთა სახლი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_7946cf17c7",
+          "name": "სასტუმრო არსენ",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_5665f07979",
+          "name": "Green House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_19336de863",
+          "name": "Fitness House Kutaisi",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_b8699d5b18",
+          "name": "Cheese House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_f1c9990ad4",
+          "name": "Tiflis Lux Boutique Guest House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_623fc90abf",
+          "name": "Friend's house",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_9f760e7513",
+          "name": "Friendly Guest House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_4bba833b57",
+          "name": "GUEST HOUSE “BAGRATI”",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_654ac2d9f6",
+          "name": "Guest House Royal Comfort",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_62d71a27cd",
+          "name": "Guest House GEO",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_150eee9768",
+          "name": "Belas House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_306a37a6b3",
+          "name": "Guest house Sapichxia",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_f8d9997eeb",
+          "name": "Medico & Suliko guest house",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_0fabe3bbe5",
+          "name": "Sisi Guest House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_b747ba7f55",
+          "name": "GEO Guest House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_88597229df",
+          "name": "Tasty House",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_0f5d4cb9ba",
+          "name": "House N31",
+          "city": "მაღლაკი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_2c5a463cf7",
+          "name": "მწერალთა სახლი",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_44846decf3",
+          "name": "Fitness House Kutaisi",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_fcb852a207",
+          "name": "სუფთა სახლი",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_778bc91973",
+          "name": "Fitness House Kutaisi",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_dfb6b5f541",
+          "name": "Fitness House Kutaisi",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ba75f3a360",
+          "name": "ქართული სახლი",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ceeaae7523",
+          "name": "Fitness House Kutaisi",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_7f6448f2ea",
+          "name": "Fitness House Kutaisi",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_fbef6343f6",
+          "name": "ბელორუსული სახლი",
+          "city": "Kutaisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_523200aa6c",
+          "name": "რუსთავის მოხუცებულთა სახლი",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_4dfc4e38ca",
+          "name": "სუფთა სახლი",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_11437655af",
+          "name": "სუფთა სახლი",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_52d8a87f2b",
+          "name": "სუფთა სახლი",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_808dff0507",
+          "name": "სუფთა სახლი",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_f31f2f9638",
+          "name": "კაფელის სახლი (Tile House)",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_53eb122e09",
+          "name": "სუფთა სახლი",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_9ad354a8bf",
+          "name": "ბელორუსული სახლი",
+          "city": "Rustavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ca4b38d0a4",
+          "name": "სუფთა სახლი",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ed021020b0",
+          "name": "Nitsa guest house",
+          "city": "Gori",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_d98509f6e8",
+          "name": "გორის საკრებულო და მერია",
+          "city": "Gori",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_0845f01f49",
+          "name": "California Guest House",
+          "city": "Gori",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_dc4b4e181d",
+          "name": "Guest house Zugdidi Inn",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_fe7a66bfda",
+          "name": "Khazalia House",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_bbe7f33931",
+          "name": "My Moon Hostel",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_0dc9878608",
+          "name": "art house",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_86566a4761",
+          "name": "Folk House",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_347dae5443",
+          "name": "Fitness House Zugdidi",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_a60892ebf1",
+          "name": "დორ ჰაუსი",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_16697505f6",
+          "name": "სუფთა სახლი",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_2d141eae3e",
+          "name": "სუფთა სახლი",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_208db64566",
+          "name": "Fitness House Zugdidi",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_41715fb4fa",
+          "name": "Shorena",
+          "city": "Zugdidi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_c597d7e8e6",
+          "name": "კულტურის სახლი (Culture House)",
+          "city": "კახათი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_258e7fd0c3",
+          "name": "კულტურის სახლი (Culture House)",
+          "city": "ზედა ეწერი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_df03d610ec",
+          "name": "White House Anaklia",
+          "city": "Anaklia",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_5012be7c4c",
+          "name": "Beach House Anaklia",
+          "city": "ანაკლია",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_b89bde1f79",
+          "name": "კულტურის სახლი (House of Culture)",
+          "city": "ზუბი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ed38ee014e",
+          "name": "ლაშა გახარია სახლ-მუზეუმი",
+          "city": "მუხური",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_f04166d7e5",
+          "name": "კერძო სათბური",
+          "city": "ცაიში",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_511b448d42",
+          "name": "Hanmer Guest House",
+          "city": "ეცერი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ea44a75789",
+          "name": "Nanago Guest House",
+          "city": "იენაში",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_54a8853a24",
+          "name": "Nanila guest house",
+          "city": "ლენჯერი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_e1e9a9e5e3",
+          "name": "Guest House Robinzon Lalkhori",
+          "city": "ლალხორი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_bcef4f6eb7",
+          "name": "Svan house museum",
+          "city": "მულახი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_859edaeb2d",
+          "name": "ბელორუსული სახლი",
+          "city": "Poti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_1eafdc0f18",
+          "name": "Green House",
+          "city": "Poti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_ded93c0c15",
+          "name": "Beach House",
+          "city": "სუფსის თემი",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_08506bbfe6",
+          "name": "Guest House LiLu",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_3e43609b00",
+          "name": "Guest House Top Floor",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_66b96677bb",
+          "name": "Tamari Guest House",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_c7c0faafad",
+          "name": "Grandpa's Inn Guest House",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_1ec0783f1c",
+          "name": "Guest House Poligloti",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_051cf5bda8",
+          "name": "ფრჩხილის სახლი",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_386586c7a4",
+          "name": "სუფთა სახლი",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_aeccd7436e",
+          "name": "ბელორუსული სახლი",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_a495335725",
+          "name": "Fitness House Telavi",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_54cb9a428e",
+          "name": "Fitness House Telavi",
+          "city": "Telavi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_340f43a10d",
+          "name": "Fitness House Kobuleti",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_09edea6d84",
+          "name": "Private House in Kobuleti",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_eb7e278c9e",
+          "name": "ქობულეთის კულტურის სახლი",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_123fd865fb",
+          "name": "ilusha's house",
+          "city": "ქვედა კვირიკე",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_fb8639649a",
+          "name": "Tirkius House",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_473fb8ee08",
+          "name": "Wine House",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_e171020eb0",
+          "name": "Beer house",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_2919c8e213",
+          "name": "Cosy House",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_3667fc2549",
+          "name": "სუფთა სახლი",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_7332527aa7",
+          "name": "აჭარული სახლი",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_bc96363436",
+          "name": "Fitness House Kobuleti",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_af2411e817",
+          "name": "მწვანე სახლი (Green House)",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_5dd8e20727",
+          "name": "ლალა",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_1e71d52c52",
+          "name": "Fitness House Kobuleti",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_82d688fd78",
+          "name": "Fitness House Kobuleti",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_1d9d50e4fe",
+          "name": "Fitness House Kobuleti",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_9f5d581be5",
+          "name": "დაგვის კულტურის სახლი",
+          "city": "Kobuleti",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_db2fb9355c",
+          "name": "Wooden House Tsikhisdziri",
+          "city": "ციხისძირი",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "Snap Fitness": {
+      "active_approved": 1,
+      "excluded": 1,
+      "total_accounted": 2,
+      "official_current": 1,
+      "class_a": false,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_3bd67719e5",
+          "name": "Snap Fitness Tbilisi",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_063d1a0aeb",
+          "name": "Snap Fitness",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "World Class Georgia": {
+      "active_approved": 1,
+      "excluded": 1,
+      "total_accounted": 2,
+      "official_current": 1,
+      "class_a": false,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_96c3252ede",
+          "name": "World Class Georgia Melikishvili",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_45d484e2ce",
+          "name": "World Class Georgia",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "Colosseum": {
+      "active_approved": 1,
+      "excluded": 2,
+      "total_accounted": 3,
+      "official_current": 1,
+      "class_a": false,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_7fb7714ed8",
+          "name": "Colosseum Gym Tbilisi",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        },
+        {
+          "id": "ge_561e17ce07",
+          "name": "Colosseum Tbilisi",
+          "city": "Tbilisi",
+          "disposition": "EXCLUDED"
+        },
+        {
+          "id": "ge_04980c1cc9",
+          "name": "შერიფ ხიმშიაშვილის ქ. კოლიზეუმი",
+          "city": "Batumi",
+          "disposition": "EXCLUDED"
+        }
+      ]
+    },
+    "Life Sport Club": {
+      "active_approved": 1,
+      "excluded": 0,
+      "total_accounted": 1,
+      "official_current": 1,
+      "class_a": false,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_f884dff47e",
+          "name": "Life Sport Club Tbilisi",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "Arena Sports Complex": {
+      "active_approved": 1,
+      "excluded": 0,
+      "total_accounted": 1,
+      "official_current": 1,
+      "class_a": false,
+      "estate_gaps": 0,
+      "estate_complete": true,
+      "locations": [
+        {
+          "id": "ge_a82476e116",
+          "name": "Arena Sports Complex Tbilisi",
+          "city": "Tbilisi",
+          "disposition": "NEW_READY_TO_IMPORT"
+        }
+      ]
+    },
+    "summary": {
+      "final_class_a_chain_count": 2,
+      "final_class_a_chain_names": [
+        "Champion",
+        "Oktopus Fitness"
+      ],
+      "final_class_a_new_ready_count": 11,
+      "chain_estate_gaps": 0,
+      "class_a_estate_gaps": 0,
+      "snap_fitness_estate_gaps": 0,
+      "fitness_house_class_a": false,
+      "fitness_house_ready": 2,
+      "missed_class_a_chains_found": 0
+    }
+  },
+  "class_a_estate_gaps": 0,
+  "snap_fitness_estate_gaps": 0,
+  "cross_border": {
+    "russia_outliers": 0,
+    "turkey_outliers": 0,
+    "armenia_outliers": 0,
+    "azerbaijan_outliers": 0,
+    "usa_georgia_outliers": 0,
+    "georgia_ready_outliers": 0,
+    "other_foreign_ready_outliers": 0
+  },
+  "data_quality_new_ready": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "missing_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "stale_only_evidence": 0,
+    "operation_unverified_ready": 0,
+    "conflict_region_ready": 0,
+    "usa_probe_ready": 0
+  },
+  "duplicate_analysis": {
+    "hard_duplicate_conflicts": 0,
+    "georgian_transliteration_duplicate_conflicts": 0,
+    "unresolved_ready_rebrand_conflicts": 0,
+    "proximity": {
+      "lt25": 0,
+      "lt50": 0,
+      "lt100": 1,
+      "lt200": 0,
+      "identical": 0
+    }
+  },
+  "hotel_resort_ready_leakage": 0,
+  "specialist_ready_leakage": 0,
+  "city_coverage": {
+    "cities": {
+      "Tbilisi": "A",
+      "Batumi": "A",
+      "Kutaisi": "B",
+      "Rustavi": "B",
+      "Gori": "B",
+      "Zugdidi": "B",
+      "Poti": "B",
+      "Telavi": "B",
+      "Kobuleti": "B"
+    },
+    "approved_by_city": {
+      "Tbilisi": 23,
+      "Batumi": 2
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0
+  },
+  "regional_coverage": {
+    "regions": {
+      "Tbilisi": "A",
+      "Adjara": "A",
+      "Imereti": "B",
+      "Kvemo Kartli": "B",
+      "Shida Kartli": "B",
+      "Samegrelo-Zemo Svaneti": "B",
+      "Kakheti": "B",
+      "Abkhazia": "B",
+      "South Ossetia": "B",
+      "Other": "B"
+    },
+    "ready_by_region": {
+      "Tbilisi": 23,
+      "Adjara": 2
+    },
+    "material_d_gaps": [],
+    "material_d_gaps_count": 0
+  },
+  "material_d_gaps_count": 0,
+  "phase1_nr_total": 533,
+  "phase1_nr_resolved": 533,
+  "phase1_nr_unresolved": 0,
+  "nr_resolution_audit": {
+    "disposition_distribution": {
+      "NEW_READY_TO_IMPORT": 8,
+      "EXCLUDED": 525
+    },
+    "classification_distribution": {
+      "SNAP_OFFICIAL_FRANCHISE": 1,
+      "STALE_LISTING": 215,
+      "OPERATION_UNVERIFIED": 75,
+      "OSM_INDEPENDENT_ACTIVE": 7,
+      "SPECIALIST_NON_QUALIFYING": 17,
+      "DUPLICATE_STALE_CHAIN_PHOTON": 211,
+      "HOTEL_RESORT_WELLNESS": 2,
+      "DUPLICATE_PREMISES": 1,
+      "CONFLICT_REGION": 4
+    }
+  },
+  "independents_audit": {
+    "independent_brands": [
+      "BLUE FITNES",
+      "Fit Line",
+      "ასპრია",
+      "იმოძრავე",
+      "მამბერი ფიტნესი",
+      "რეფორმა",
+      "სპარტა"
+    ],
+    "new_ready_independents": 7,
+    "phase2_nr_promoted_independents": 7,
+    "phase2_nr_promoted_osm": 7,
+    "phase2_nr_promoted_regional": 0,
+    "locations": [
+      {
+        "id": "ge_cfa1e0dcc5",
+        "brand": "BLUE FITNES",
+        "name": "BLUE FITNES",
+        "city": "Tbilisi"
+      },
+      {
+        "id": "ge_c01e74d235",
+        "brand": "ასპრია",
+        "name": "ასპრია",
+        "city": "Tbilisi"
+      },
+      {
+        "id": "ge_3a461ba96b",
+        "brand": "სპარტა",
+        "name": "სპარტა",
+        "city": "Tbilisi"
+      },
+      {
+        "id": "ge_c4a7d8b637",
+        "brand": "Fit Line",
+        "name": "Fit Line",
+        "city": "Tbilisi"
+      },
+      {
+        "id": "ge_2d568940ee",
+        "brand": "იმოძრავე",
+        "name": "იმოძრავე",
+        "city": "Tbilisi"
+      },
+      {
+        "id": "ge_0b782dc001",
+        "brand": "მამბერი ფიტნესი",
+        "name": "მამბერი ფიტნესი",
+        "city": "Tbilisi"
+      },
+      {
+        "id": "ge_692205209d",
+        "brand": "რეფორმა",
+        "name": "რეფორმა",
+        "city": "Tbilisi"
+      }
+    ]
+  },
+  "market_model": "CHAIN_LED_SMALL_MARKET",
+  "postcode_model": "NNNN (4 digits)",
+  "projected_catalog_total": 12303,
+  "projected_remaining_headroom": 197,
+  "projected_crosses_12500": false,
+  "verdict": "READY FOR GEORGIA PRODUCTION MERGE",
+  "check_in_radius_meters": 200,
+  "nearest_qa": "PLAUSIBLE",
+  "geocode_audit": {
+    "ready_invalid_coordinates": 0,
+    "ready_missing_coordinates": 0,
+    "ready_fallback_coordinates": 0,
+    "ready_centroid_coordinates": 0,
+    "conflict_region_ready": 0,
+    "usa_probe_ready": 0
+  },
+  "postcode_audit": {
+    "model": "NNNN (4 digits)",
+    "regex": "^\\d{4}$",
+    "invalid_ready_postcodes": 0,
+    "missing_ready_postcodes": 0,
+    "non_canonical_ready_postcodes": 0
+  },
+  "source_recency_audit": {
+    "buckets": {
+      "CURRENT_FIRST_PARTY": 17,
+      "CURRENT_MULTI_SOURCE": 8
+    },
+    "stale_only_ready": 0,
+    "operation_unverified_ready": 0,
+    "rows": [
+      {
+        "id": "ge_051da6fe5e",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_0e2fa4eaa6",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_17ef6b43d4",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_4f547667b8",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_68bf296095",
+        "brand": "Champion",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_6b0b14f0ed",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_940706c5ca",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_9705b4ab7b",
+        "brand": "Champion",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_a151d09963",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_b9389ebbae",
+        "brand": "Champion",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_d82a6618d2",
+        "brand": "Oktopus Fitness",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_0b782dc001",
+        "brand": "მამბერი ფიტნესი",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_1ccb2b6d0c",
+        "brand": "Fitness House",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_2d568940ee",
+        "brand": "იმოძრავე",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_3a461ba96b",
+        "brand": "სპარტა",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_3bd67719e5",
+        "brand": "Snap Fitness",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_692205209d",
+        "brand": "რეფორმა",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_7fb7714ed8",
+        "brand": "Colosseum",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_96c3252ede",
+        "brand": "World Class Georgia",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_a82476e116",
+        "brand": "Arena Sports Complex",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_c01e74d235",
+        "brand": "ასპრია",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_c4a7d8b637",
+        "brand": "Fit Line",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_cb4c5b571f",
+        "brand": "Fitness House",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_cfa1e0dcc5",
+        "brand": "BLUE FITNES",
+        "source_recency": "CURRENT_MULTI_SOURCE",
+        "source_confidence": "MEDIUM",
+        "operation_status": "ACTIVE_VERIFIED"
+      },
+      {
+        "id": "ge_f884dff47e",
+        "brand": "Life Sport Club",
+        "source_recency": "CURRENT_FIRST_PARTY",
+        "source_confidence": "HIGH",
+        "operation_status": "ACTIVE_VERIFIED"
+      }
+    ]
+  },
+  "hard_duplicate_conflicts": 0,
+  "production_immutability": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "sha_before": "03dc090d0e86a532c19602490cc3a5e3877033389923fd898abe1a3c288dbb9a",
+    "sha_after": "03dc090d0e86a532c19602490cc3a5e3877033389923fd898abe1a3c288dbb9a"
+  }
+}

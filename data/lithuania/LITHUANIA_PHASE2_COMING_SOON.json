@@ -1,0 +1,83 @@
+[
+  {
+    "id": "lt_bc21f9653f",
+    "name": "Gym+ Vilnius Viršuliškių",
+    "brand": "Gym+",
+    "chain_key": "gymplus",
+    "address": "Viršuliškių g. 40",
+    "postal_code": "",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "lat": null,
+    "lng": null,
+    "website": "https://gymplius.lt/en/clubs/virsuliskiu-g-40-2/",
+    "source_url": "https://gymplius.lt/en/clubs/virsuliskiu-g-40-2/",
+    "coord_source": null,
+    "notes": "gymplius.lt official — under construction / COMING_SOON at Phase 1 audit; phase2_revalidated: gymplius.lt Aug 2026 — Viršuliškių club page still under construction / COMING_SOON; not operating at Phase 2 audit",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://gymplius.lt/en/clubs/virsuliskiu-g-40-2/"
+    },
+    "phase2_disposition": "COMING_SOON"
+  },
+  {
+    "id": "lt_4decf7f80b",
+    "name": "Lemon Gym Riešė",
+    "brand": "Lemon Gym",
+    "chain_key": "lemon_gym",
+    "address": "Molėtų g. 13",
+    "postal_code": "",
+    "city": "Didžioji Riešė",
+    "country": "Lithuania",
+    "lat": null,
+    "lng": null,
+    "website": "https://www.lemongym.lt/en/",
+    "source_url": "https://www.lemongym.lt/en/",
+    "coord_source": null,
+    "notes": "lemongym.lt official — coming soon at Phase 1 audit; phase2_revalidated: lemongym.lt Aug 2026 — Riešė location still marked coming soon; not operating at Phase 2 audit",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://www.lemongym.lt/en/"
+    },
+    "phase2_disposition": "COMING_SOON"
+  },
+  {
+    "id": "lt_c3d4f6ba00",
+    "name": "Lemon Gym Jonava (announced)",
+    "brand": "Lemon Gym",
+    "chain_key": "lemon_gym",
+    "address": "Žemaitės g. 45, Jonava",
+    "postal_code": "55134",
+    "city": "Jonava",
+    "country": "Lithuania",
+    "lat": null,
+    "lng": null,
+    "website": "https://www.lemongym.lt/en/",
+    "source_url": "https://www.lemongym.lt/en/",
+    "coord_source": null,
+    "notes": "lemongym.lt homepage announces Jonava — no street address yet; COMING_SOON; phase2_revalidated: lemongym.lt Aug 2026 — Jonava announced with Žemaitės g. 45; still pre-opening / COMING_SOON at Phase 2 audit",
+    "import_category": "COMING_SOON",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": true,
+    "is_closed": false,
+    "discovery_class": "national_chain",
+    "verification_status": "PHASE1_CANDIDATE",
+    "evidence": {
+      "source_url": "https://www.lemongym.lt/en/"
+    },
+    "phase2_disposition": "COMING_SOON"
+  }
+]

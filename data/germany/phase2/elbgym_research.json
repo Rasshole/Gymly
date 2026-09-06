@@ -1,0 +1,40 @@
+{
+  "redirects": [
+    {
+      "from": "https://www.elbgym.de/",
+      "to": "https://www.fitnessfirst.de/",
+      "len": 783385
+    },
+    {
+      "from": "https://elbgym.de/",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'elbgym.de'. (_ssl.c:1129)>"
+    },
+    {
+      "from": "https://www.elbgym.com/",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "from": "https://www.fitnessfirst.de/elbgym",
+      "to": "https://www.fitnessfirst.de/",
+      "len": 783385
+    },
+    {
+      "from": "https://www.fitnessfirst.de/marken/elbgym",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "from": "https://www.fitnessfirst.de/clubs",
+      "to": "https://www.fitnessfirst.de/clubs",
+      "len": 778024
+    }
+  ],
+  "candidate_urls": [],
+  "findings": [
+    "mentions on https://www.fitnessfirst.de/",
+    "mentions on https://www.fitnessfirst.de/",
+    "mentions on https://www.fitnessfirst.de/clubs"
+  ],
+  "ff_club_pages_with_elbgym_title": [],
+  "standalone_rows": 0,
+  "conclusion": "elbgym.de redirects to fitnessfirst.de; treat ELBGYM as LifeFit/Fitness First sub-brand unless a page is explicitly titled ELBGYM. Phase 2 keeps only explicitly branded pages as brand=ELBGYM; others remain Fitness First."
+}

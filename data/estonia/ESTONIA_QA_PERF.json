@@ -1,0 +1,32 @@
+{
+  "catalog": 11923,
+  "active": 11919,
+  "estonia": 69,
+  "json_size_mb": 3.53,
+  "parse_ms": 29,
+  "cold_index_ms": 3437,
+  "cached_index_ms": 0,
+  "typical_search_ms": 118.67,
+  "worst_search_ms": 14,
+  "nearest_ms": 0,
+  "map_build_ms": 0,
+  "viewport_filter_ms": 1,
+  "map_markers_built": 69,
+  "architecture": "KEEP CLIENT-SIDE",
+  "estonia_merge_baseline": {
+    "catalog": 11648,
+    "json_size_mb": 3.44,
+    "parse_ms": 17
+  },
+  "latvia_qa_baseline": {
+    "catalog": 11542,
+    "json_size_mb": 3.42,
+    "cold_index_ms": 1202,
+    "typical_search_ms": 110
+  },
+  "assessment": "healthy",
+  "global_stress_qa_required": false,
+  "country_expansion": "UNLOCKED",
+  "crossed_12500": false,
+  "production_sha256": "54848a8c0176789248d1483c764e8c53d010bc9b6a08409a851fc00d4bd570bb"
+}

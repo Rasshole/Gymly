@@ -1,0 +1,51 @@
+{
+  "apollo_city_metadata_errors": 0,
+  "fixes_applied": [
+    {
+      "club_num": "024",
+      "city": "Lviv",
+      "postal_code": "79071"
+    },
+    {
+      "club_num": "027",
+      "city": "Boryspil",
+      "postal_code": "08302"
+    },
+    {
+      "club_num": "033",
+      "city": "Vinnytsia",
+      "postal_code": "21030"
+    },
+    {
+      "club_num": "034",
+      "city": "Lviv",
+      "postal_code": "79029"
+    },
+    {
+      "club_num": "035",
+      "city": "Bila Tserkva",
+      "postal_code": "09117"
+    },
+    {
+      "club_num": "036",
+      "city": "Odesa",
+      "postal_code": "65025"
+    },
+    {
+      "club_num": "037",
+      "city": "Odesa",
+      "postal_code": "65012"
+    },
+    {
+      "club_num": "039",
+      "city": "Ivano-Frankivsk",
+      "postal_code": "76018"
+    },
+    {
+      "club_num": "041",
+      "city": "Zhytomyr",
+      "postal_code": "10012"
+    }
+  ],
+  "clubs_total": 24
+}

@@ -1,0 +1,223 @@
+[
+  {
+    "label": "Fitness Factory Engomi",
+    "q": "Pindou 4, Engomi 2409, Cyprus",
+    "lat": 35.1668109,
+    "lng": 33.3280729,
+    "display": "Pindou, Έγκωμη, Λευκωσία - Lefkoşa, Δήμος Λευκωσίας, Επαρχία Λευκωσίας, Κύπρος, 1409, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Aesthetics Downtown",
+    "q": "Georgiou Ch. Ioannidi, Paphos, Cyprus",
+    "lat": 34.764621,
+    "lng": 32.4324565,
+    "display": "Georgiou Ioannidi (Mathitiki), Georgiou X. Ioannidi, Έξω Βρύση, Agios Theodoros, Δήμος Πάφου, Επαρχία Πάφου, Κύπρος, 8036, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Aesthetics Uptown",
+    "q": "Moutallos, Paphos, Cyprus",
+    "lat": 34.7821886,
+    "lng": 32.4119063,
+    "display": "Moutallos, Δήμος Πάφου, Επαρχία Πάφου, Κύπρος, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "VO2 Fitness",
+    "q": "B7 13, 8280 Paphos, Cyprus",
+    "lat": 34.8192998,
+    "lng": 32.4523277,
+    "display": "Λεωφόρος Μεσόγης, Τρεμιθούσα, Tremithousa, Σύμπλεγμα Κοινοτήτων Αγίου Νεοφύτου Πάφου, Επαρχία Πάφου, Κύπρος, 8280, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Eleftheriou",
+    "q": "Pafou 218, Limassol 4152, Cyprus",
+    "lat": 34.6774933,
+    "lng": 32.9977538,
+    "display": "Pafou, Αρχάγγελος Μιχαήλ, Δήμος Κάτω Πολεμιδίων, Δήμος Πολεμιδιών, Επαρχία Λεμεσού, Κύπρος, 4152, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Anaplasis",
+    "q": "28is Oktovriou 319A, Limassol 3105, Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Machallekide",
+    "q": "Agias Fylaxeos 316, Limassol 3116, Cyprus",
+    "lat": 34.7035108,
+    "lng": 33.0274045,
+    "display": "Αγίας Φυλάξεως, Αποστόλων Πέτρου και Παύλου, Κάψαλος, Λεμεσός, Δήμος Λεμεσού, Επαρχία Λεμεσού, Κύπρος, 3081, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Kondylis The Gym",
+    "q": "Limassol Cyprus Kondylis Fitness",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Grind Fitness",
+    "q": "Steliou Kyriakidi, Limassol 3080, Cyprus",
+    "lat": 34.6985023,
+    "lng": 33.021667,
+    "display": "Steliou Kyriakidi, Άγιος Γεώργιος, Λεμεσός, Δήμος Λεμεσού, Επαρχία Λεμεσού, Κύπρος, 3080, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "New Body Gym",
+    "q": "Athinon 48, Strovolos 2040, Cyprus",
+    "lat": 35.1437768,
+    "lng": 33.3437445,
+    "display": "Αθηνών, Χρυσελεούσα, Strovolos, Δήμος Στροβόλου, Επαρχία Λευκωσίας, Κύπρος, 2040, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Figure8Gym",
+    "q": "Nicosia Figure 8 Gym Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Evolve Fitness",
+    "q": "Makarios 185, Lakatamia 2311, Cyprus",
+    "lat": 35.110698,
+    "lng": 33.3058279,
+    "display": "Αρχιεπισκόπου Μακαρίου Γ', Αγία Παρασκευή, Λακατάμεια, Δήμος Λακατάμειας, Επαρχία Λευκωσίας, Κύπρος, 2310, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Arise Active",
+    "q": "Acropoleos 23, Aradippou 7101, Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "New Life",
+    "q": "Stadiou 47, Strovolos 2058, Cyprus",
+    "lat": 35.1520108,
+    "lng": 33.3390933,
+    "display": "European University Cyprus, 47, Σταδιου, Χρυσελεούσα, Strovolos, Δήμος Στροβόλου, Επαρχία Λευκωσίας, Κύπρος, 2058, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Tower Fitness",
+    "q": "Michalaki Kyprianou 82, Peyia 8560, Cyprus",
+    "lat": 34.870939,
+    "lng": 32.3783221,
+    "display": "Μιχαλάκη Κυπριανού, Πέγεια, Δήμος Ακάμα, Επαρχία Πάφου, Κύπρος, 8560, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Curves Aglantzia",
+    "q": "Leoforos Larnakos 147B, Aglantzia 2103, Cyprus",
+    "lat": 35.1493372,
+    "lng": 33.411457,
+    "display": "Λεωφόρος Λάρνακος, Αγλαντζιά, Λευκωσία - Lefkoşa, Δήμος Λευκωσίας, Επαρχία Λευκωσίας, Κύπρος, 2103, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Curves Larnaca",
+    "q": "Piliou 8, Larnaca 6037, Cyprus",
+    "lat": 34.9156651,
+    "lng": 33.6030268,
+    "display": "Piliou, Άγιος Νικόλαος, Δήμος Λάρνακας, Επαρχία Λάρνακας, Κύπρος, 6037, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Platinum Sports",
+    "q": "Constantinou Kalogera 36, Larnaca 6021, Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Gymland Matsagides",
+    "q": "Dimonikou 9, Larnaca 6016, Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Athlesis Agios Tychonas",
+    "q": "Georgiou Griva Digeni 20, Agios Tychonas 4521, Cyprus",
+    "lat": 34.7290686,
+    "lng": 33.1433516,
+    "display": "Georgiou Griva Digeni, Άγιος Τύχωνας, Κοινότητα Αγίου Τύχωνα, Δήμος Ανατολικής Λεμεσού, Επαρχία Λεμεσού, Κύπρος, 4521, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "UFit UNIC",
+    "q": "28th October Street 24, Engomi, Nicosia, Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Hard Health Body",
+    "q": "Odos 68 26, Kato Polemidia, Limassol, Cyprus",
+    "lat": 34.6911507,
+    "lng": 32.989359,
+    "display": "Δρόμος Αριθμός 22, Agios Nikolaos, Δήμος Κάτω Πολεμιδίων, Δήμος Πολεμιδιών, Επαρχία Λεμεσού, Κύπρος, 4151, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Physique Fitness",
+    "q": "Vyzantiou 1, Lakatameia 2322, Cyprus",
+    "lat": 35.1235346,
+    "lng": 33.3212225,
+    "display": "Βυζαντίου, Aspres, Αγία Παρασκευή, Λακατάμεια, Δήμος Λακατάμειας, Επαρχία Λευκωσίας, Κύπρος, 2324, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Zeniou Altius",
+    "q": "Strovolos Nicosia 2031 Cyprus gym",
+    "lat": 35.1374015,
+    "lng": 33.3416285,
+    "display": "Pumping Iron Gym, Λεωφόρος Κωνσταντινουπόλεως, Άγιος Βασίλειος, Strovolos, Δήμος Στροβόλου, Επαρχία Λευκωσίας, Κύπρος, 2042, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Sanctum Marina",
+    "q": "Limassol Marina Street, Limassol 3014, Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Sanctum Icon",
+    "q": "The Icon Germasogeia Limassol Cyprus",
+    "lat": 34.6969097,
+    "lng": 33.0906193,
+    "display": "The Icon, Vasileos Georgiou I, Ποταμός Γερμασόγειας, Δήμος Γερμασόγειας, Δήμος Ανατολικής Λεμεσού, Επαρχία Λεμεσού, Κύπρος, 4048, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Sunset Gardens Limassol",
+    "q": "Sunset Gardens Limassol Cyprus",
+    "lat": 34.6482244,
+    "lng": 32.9854908,
+    "display": "Sunset Gardens West, Τσερκέζ Τσιφλίκ, Τσερκέζοι, Δήμος Λεμεσού, Επαρχία Λεμεσού, Κύπρος, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "City of Dreams Mediterranean",
+    "q": "City of Dreams Mediterranean Limassol Cyprus",
+    "lat": 34.6470864,
+    "lng": 32.993963,
+    "display": "City of Dreams Mediterranean, Kosta Karyotaki, Ζακάκι, Λεμεσός, Δήμος Λεμεσού, Επαρχία Λεμεσού, Κύπρος, 3150, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Reflex Gym Larnaca",
+    "q": "Reflex Gym Larnaca Cyprus",
+    "lat": 34.918215,
+    "lng": 33.6123973,
+    "display": "Reflex Gym Larnaca, 16-18, Enomenon Ethnon-United Nations, Άγιος Νικόλαος, Δήμος Λάρνακας, Επαρχία Λάρνακας, Κύπρος, 6042, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "Olympus Gym Nicosia",
+    "q": "Olympus Gym Nicosia Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Sakkis Sporting",
+    "q": "Chrysospiliotisas 110, Deftera, Cyprus",
+    "lat": null,
+    "lng": null
+  },
+  {
+    "label": "Vigour Studio",
+    "q": "Anexartisias Paphos Cyprus",
+    "lat": 34.7612635,
+    "lng": 32.4485429,
+    "display": "Anexartisias, Acropolis, Yeroskipou (quarter), Γεροσκήπου, Δήμος Ανατολικής Πάφου, Επαρχία Πάφου, Κύπρος, 8300, Κύπρος - Kıbrıs"
+  },
+  {
+    "label": "George Metaxas",
+    "q": "Georgiou A 85 Germasogeia Cyprus",
+    "lat": 34.6966664,
+    "lng": 33.0897495,
+    "display": "85a-85d, Vasileos Georgiou I, Ποταμός Γερμασόγειας, Δήμος Γερμασόγειας, Δήμος Ανατολικής Λεμεσού, Επαρχία Λεμεσού, Κύπρος, 4048, Κύπρος - Kıbrıs"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "decision": "KEEP CLIENT-SIDE",
+  "crosses_12500": true,
+  "global_stress_qa_required": true,
+  "global_stress_qa_run": true,
+  "recommended_next_global_stress_threshold": 15000,
+  "threshold_rationale": "Current headroom ~1,150 centers above 12,500 trigger; measured parse/search/nearest remain healthy at 12,850; next gate at 15,000 (~17% growth) allows 2-3 more medium country merges before re-validation"
+}

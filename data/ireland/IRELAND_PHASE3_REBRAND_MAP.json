@@ -1,0 +1,23 @@
+{
+  "one_escape_to_iconic_smithfield": {
+    "legacy": "One Escape Health Club",
+    "current": "Iconic Health Clubs Smithfield",
+    "id": "ie_42999953b2"
+  },
+  "flyehub_swords_to_flyefit_swords": {
+    "legacy": "FLYEHUB Swords",
+    "current": "FLYEfit Swords"
+  },
+  "iconic_dublin_city_canonical_camden": {
+    "id": "ie_7448978ec4",
+    "previous_name": "Iconic Health Clubs Dublin City",
+    "current_name": "Iconic Health Clubs Camden Street",
+    "reason": "phase2_misgeocode_repaired_to_official_camden_address"
+  },
+  "aura_depaul_excluded_pool_only": {
+    "id": "ie_31276d22be",
+    "reason": "no_conventional_public_gym"
+  },
+  "phase2_ready_preserved_count": 46,
+  "phase1_ready_preserved_count": 17
+}

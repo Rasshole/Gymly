@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-08-21T14:33:04.726827+00:00",
+  "production_catalog": 9056,
+  "production_italy": 550,
+  "phase3_ready_input": 22,
+  "phase3_ready_retained": 22,
+  "phase3_demotions": [],
+  "phase4_discovered": 46,
+  "phase4_newly_recovered_ready": 16,
+  "FINAL_NEW_READY": 38,
+  "ready_by_brand": {
+    "FITINN": 10,
+    "Dabliu": 5,
+    "GetFIT": 8,
+    "Fit Express": 10,
+    "Icon Palestre": 5
+  },
+  "phase4_new_by_brand": {
+    "Fit Express": 10,
+    "Icon Palestre": 5,
+    "FITINN": 1
+  },
+  "projected_catalog": 9094,
+  "headroom_to_10k": 906,
+  "exceed_10k_at_new_ready": 945,
+  "fitexpress_coverage": {
+    "live": 45,
+    "phase4_new_in_final": 10,
+    "official_wp": 69,
+    "coverage_pct_after": 79.7,
+    "official_wp_count": 69,
+    "production_live": 45,
+    "staging_total": 69,
+    "unresolved_input": 24,
+    "coverage_vs_wp_pct": 65.2,
+    "note": "WP estate is source of truth (~69). Marketing '70' not used as hard target."
+  },
+  "icon_coverage": {
+    "live": 31,
+    "phase4_new_in_final": 5,
+    "official_sitemap_clubish": 53,
+    "audited_estate_estimate": 51,
+    "coverage_pct_after_sitemap": 67.9,
+    "coverage_pct_after_audited": 70.6,
+    "missing_vs_audited": 15,
+    "sitemap_clubish": 53,
+    "production_live": 31,
+    "staging_total": 47,
+    "unresolved_input": 16,
+    "new_sitemap_audit": [
+      {
+        "slug": "ferrara",
+        "url": "https://www.iconpalestre.it/ferrara/",
+        "status": "STAGED",
+        "name": "ICON Palestre Ferrara"
+      },
+      {
+        "slug": "icon-palestre-rende",
+        "url": "https://www.iconpalestre.it/icon-palestre-rende/",
+        "status": "ALREADY_COVERED"
+      },
+      {
+        "slug": "talenti-2",
+        "url": "https://www.iconpalestre.it/talenti-2/",
+        "status": "ALREADY_COVERED"
+      },
+      {
+        "slug": "portuense",
+        "url": "https://www.iconpalestre.it/portuense/",
+        "status": "STAGED",
+        "name": "ICON Palestre Roma Portuense"
+      },
+      {
+        "slug": "roma-eur-2",
+        "url": "https://www.iconpalestre.it/roma-eur-2/",
+        "status": "STAGED",
+        "name": "ICON Palestre Roma EUR"
+      },
+      {
+        "slug": "rimini",
+        "url": "https://www.iconpalestre.it/rimini/",
+        "status": "STAGED",
+        "name": "ICON Palestre Rimini"
+      }
+    ],
+    "coverage_vs_sitemap_pct": 58.5,
+    "brand_identity": "Icon Palestre (iconpalestre.it) — never generic Icon"
+  },
+  "fitexpress_gap": {
+    "missing_vs_wp": 14,
+    "coverage_pct_after": 79.7
+  },
+  "orange_getfit": {
+    "official_locator_count": 23,
+    "production_live": 23,
+    "getfit_site_status": "http_403",
+    "getfit_phase3_ready": 8,
+    "getfit_acquired_not_on_orange_locator": 6,
+    "getfit_founder_retained": 2,
+    "combined_orange_plus_acquired_getfit": 29,
+    "press_target_after_acquisition": 33,
+    "note": "Orange locator still lists 23 clubs. Jul 2026 GetFIT acquisition (6 Milano) not yet on Orange official locator — keep as GetFIT READY from Phase 3 until Orange republishes. Do not invent Orange IDs.",
+    "coverage_locator_pct": 100.0
+  },
+  "unresolved_after_phase4": 30,
+  "credible_conventional_still_recoverable_estimate": 30,
+  "stopping_rule": {
+    "credible_left": 30,
+    "major_chain_absent": false,
+    "large_estate_blocker": false,
+    "phase5_required": false
+  },
+  "validation": {
+    "dup_ids": 0,
+    "already_in_production": 0,
+    "gate_failures": 0,
+    "ok": true
+  },
+  "phase5_required": false,
+  "final_decision": "READY FOR ITALY COMPLETENESS MERGE"
+}

@@ -1,0 +1,370 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:47:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1759578123,
+      "lat": 47.2240404,
+      "lon": 39.724031,
+      "tags": {
+        "brand": "Alex Fitness",
+        "brand:wikidata": "Q110300392",
+        "leisure": "fitness_centre",
+        "level": "2",
+        "name": "Alex Fitness",
+        "phone": "+7 (863) 300 00 09",
+        "website": "https://rostov.alexfitness.ru/chehova"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3739297525,
+      "lat": 47.203645,
+      "lon": 39.634744,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Я это я"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4033132657,
+      "lat": 47.2812562,
+      "lon": 39.755322,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Турник+Брусья",
+        "sport": "gymnastics"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4166132490,
+      "lat": 47.2290737,
+      "lon": 39.618702,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Саванна"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4438725389,
+      "lat": 47.2265798,
+      "lon": 39.7367734,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Областной Дом Физической Культуры",
+        "name:ru": "Областной Дом Физической Культуры"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4633305513,
+      "lat": 47.2321943,
+      "lon": 39.7309787,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "WorldClassFitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4790157525,
+      "lat": 47.2268608,
+      "lon": 39.7138373,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Физкульт",
+        "name:en": "FITRON",
+        "name:ru": "Физкульт",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4839831622,
+      "lat": 47.201699,
+      "lon": 39.6517324,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name:en": "Sport house",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+79034362411",
+        "website": "https://sporthous.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5037131228,
+      "lat": 47.2303932,
+      "lon": 39.7372257,
+      "tags": {
+        "addr:postcode": "344002",
+        "email": "fc.principle@mail.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "БК \"ПРИНЦИП\" бойцовский клуб",
+        "name:en": "FC \"PRINCIPLE\" fight club",
+        "name:ru": "БК \"ПРИНЦИП\" бойцовский клуб",
+        "opening_hours": "Mo, We, Fr 11:00-22:00; Tu, Th, Sa 11:00-22:00",
+        "phone": "29 61 0 61",
+        "website": "https://www.fcprinciple.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5039809384,
+      "lat": 47.256662,
+      "lon": 39.6431961,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Тренажёрный зал",
+        "sport": "fitness;exercise"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5221350816,
+      "lat": 47.2936619,
+      "lon": 39.7129287,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Олимп-Северный",
+        "sport": "fitness",
+        "website": "http://nord.olympclubs.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5292079882,
+      "lat": 47.1996802,
+      "lon": 39.6300875,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Рим-атлетик"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5296002658,
+      "lat": 47.215439,
+      "lon": 39.6185982,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "BandaFit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5303183393,
+      "lat": 47.1988587,
+      "lon": 39.6261942,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Brooklyn boxing club",
+        "sport": "boxing"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5303426940,
+      "lat": 47.2277407,
+      "lon": 39.6338131,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "West Dojo",
+        "sport": "karate_kyokushinkai"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5425242238,
+      "lat": 47.3369078,
+      "lon": 39.7368461,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Добро"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7687080485,
+      "lat": 47.2371005,
+      "lon": 39.5958209,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Alex Fitness",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa,Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7966539458,
+      "lat": 47.2086451,
+      "lon": 39.6239856,
+      "tags": {
+        "addr:city": "Ростов-на-Дону",
+        "addr:housenumber": "36",
+        "addr:street": "Коммунистический проспект",
+        "contact:phone": "+7 863 3202142",
+        "contact:website": "https://rostovnadonu.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit",
+        "opening_hours": "Mo-Fr 07:00-00:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10576466538,
+      "lat": 47.2526806,
+      "lon": 39.7649154,
+      "tags": {
+        "contact:phone": "+7 918 5560604",
+        "leisure": "fitness_centre",
+        "name": "Muscule Fit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 10:00-20:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10655405639,
+      "lat": 47.2250476,
+      "lon": 39.7047052,
+      "tags": {
+        "contact:phone": "+7 863 3100515",
+        "contact:website": "https://www.ddxfitness.ru/clubs/ddx-rostov-na-donu/",
+        "leisure": "fitness_centre",
+        "name": "Ddx",
+        "opening_hours": "Mo-Su 06:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10798898705,
+      "lat": 47.2296883,
+      "lon": 39.7098119,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Дон пауер",
+        "name:en": "Don Power"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11414656535,
+      "lat": 47.2893236,
+      "lon": 39.7131301,
+      "tags": {
+        "contact:phone": "+7 495 2555000",
+        "contact:website": "https://www.ddxfitness.ru/clubs/ddx-rostov-na-donu-galereya-park",
+        "leisure": "fitness_centre",
+        "name": "DDX",
+        "opening_hours": "Mo-Su 06:00-00:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11622376484,
+      "lat": 47.2547648,
+      "lon": 39.7710148,
+      "tags": {
+        "contact:phone": "+7 905 4309130",
+        "contact:website": "https://ladystretch.com/rostov2",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11622376486,
+      "lat": 47.2963363,
+      "lon": 39.7137265,
+      "tags": {
+        "contact:phone": "+7 989 5362239;+7 989 6161583",
+        "contact:website": "https://ladystretch.com/rostov-na-dony",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378227223,
+      "lat": 47.2089574,
+      "lon": 39.6313194,
+      "tags": {
+        "contact:phone": "+7 960 4595545",
+        "contact:website": "https://ladystretch.com/rostov-na-dony",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12806023197,
+      "lat": 47.2012103,
+      "lon": 39.7369604,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Тренажёрный зал",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13174345943,
+      "lat": 47.2240205,
+      "lon": 39.7240472,
+      "tags": {
+        "addr:city": "Ростов-на-Дону",
+        "addr:housenumber": "50",
+        "addr:postcode": "344006",
+        "addr:street": "проспект Чехова",
+        "leisure": "fitness_centre",
+        "name": "jet gym",
+        "opening_hours": "Mo-Fr 07:00-24:00",
+        "phone": "+78632098972",
+        "sport": "fitness;yoga",
+        "website": "https://jetgym.ru/chehov"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267757361,
+      "lat": 47.2945394,
+      "lon": 39.7092515,
+      "tags": {
+        "contact:phone": "+7 863 2228202",
+        "contact:website": "https://rostov-na-dony.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "way",
+      "id": 91677538,
+      "center": {
+        "lat": 47.2358491,
+        "lon": 39.7050797
+      },
+      "tags": {
+        "addr:city": "Ростов-на-Дону",
+        "addr:housenumber": "94Г",
+        "addr:street": "Соборный переулок",
+        "building": "yes",
+        "building:levels": "3",
+        "leisure": "fitness_centre",
+        "name": "Fitron"
+      }
+    }
+  ]
+}

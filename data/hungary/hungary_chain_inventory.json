@@ -1,0 +1,123 @@
+{
+  "country": "Hungary",
+  "prefix": "hu_",
+  "phase": 2,
+  "ready_by_brand": {
+    "4% Fitness": 7,
+    "Chili Fitness": 5,
+    "Cutler Gym": 7,
+    "Fitness5": 16,
+    "Life1 Fitness": 6,
+    "Nr1 Fitness": 3,
+    "Oxygen Wellness": 1,
+    "Prestige Fitness": 1,
+    "Thor Gym": 4
+  },
+  "status_counts": {
+    "READY_TO_IMPORT": 50,
+    "NEEDS_COORDINATES": 1,
+    "NEEDS_REVIEW": 8,
+    "COMING_SOON": 3,
+    "LEGACY": 1
+  },
+  "chain_completeness": {
+    "Life1 Fitness": {
+      "official_current_estimate": 6,
+      "discovered": 6,
+      "READY": 6,
+      "unresolved": 0,
+      "verdict": "COMPLETE",
+      "notes": "Official map pins: Allee, Mammut, Corvin, Etele, Nyugati, Váci; Fáy rebranded Prestige"
+    },
+    "Prestige Fitness": {
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "READY": 1,
+      "unresolved": 0,
+      "verdict": "COMPLETE"
+    },
+    "Chili Fitness": {
+      "official_current_estimate": 5,
+      "discovered": 5,
+      "READY": 5,
+      "unresolved": 0,
+      "verdict": "COMPLETE"
+    },
+    "4% Fitness": {
+      "official_current_estimate": 8,
+      "discovered": 9,
+      "READY": 7,
+      "unresolved": 2,
+      "verdict": "NEAR-COMPLETE",
+      "notes": "Lotus exact street may remain review; Garden/OnlyGirls co-located"
+    },
+    "Fitness5": {
+      "official_current_estimate": 18,
+      "discovered": 21,
+      "READY": 16,
+      "unresolved": 5,
+      "verdict": "NEAR-COMPLETE",
+      "notes": "3 coming-soon (Esztergom/Sopron/Veszprém); Szolnok/Tatabánya address debt"
+    },
+    "Nr1 Fitness": {
+      "official_current_estimate": 5,
+      "discovered": 5,
+      "READY": 3,
+      "unresolved": 2,
+      "verdict": "PARTIAL",
+      "notes": "Rákóczi + Vágóhíd need exact streets from location pages"
+    },
+    "Cutler Gym": {
+      "official_current_estimate": 8,
+      "discovered": 8,
+      "READY": 7,
+      "unresolved": 1,
+      "verdict": "NEAR-COMPLETE",
+      "notes": "Franchise-style branded network; Miskolc site unresolved"
+    },
+    "Thor Gym": {
+      "official_current_estimate": 6,
+      "discovered": 6,
+      "READY": 4,
+      "unresolved": 2,
+      "verdict": "NEAR-COMPLETE",
+      "notes": "Homepage claims 11 points historically; 6 current subdomains confirmed"
+    },
+    "Oxygen Wellness": {
+      "official_current_estimate": 1,
+      "discovered": 1,
+      "READY": 1,
+      "unresolved": 0,
+      "verdict": "COMPLETE",
+      "notes": "Naphegy only; Fáy → Prestige"
+    },
+    "Gilda Max": {
+      "official_current_estimate": 0,
+      "discovered": 1,
+      "READY": 0,
+      "unresolved": 0,
+      "verdict": "EXCLUDED",
+      "notes": "Legacy after Life1 acquisition"
+    }
+  },
+  "city_coverage": {
+    "Budapest": true,
+    "Debrecen": true,
+    "Szeged": false,
+    "Miskolc": false,
+    "Pécs": true,
+    "Győr": true,
+    "Nyíregyháza": true,
+    "Kecskemét": true,
+    "Székesfehérvár": true,
+    "Szombathely": false,
+    "Veszprém": false,
+    "Zalaegerszeg": false,
+    "Érd": false,
+    "Tatabánya": false,
+    "Sopron": true,
+    "Békéscsaba": false,
+    "Eger": false,
+    "Nagykanizsa": true
+  }
+}

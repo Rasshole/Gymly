@@ -1,0 +1,38 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "F_unresolved",
+      "entities": [
+        "ALL IN FITNESS Sarajevo estate"
+      ],
+      "notes": "Confirm 3 Sarajevo floors are conventional public vs mall-wellness — Phase 2 Class A audit",
+      "phase2": true
+    },
+    {
+      "type": "F_unresolved",
+      "entities": [
+        "Kron Fitness Tuzla-canton estate"
+      ],
+      "notes": "Confirm 4-site regional operator meets Class A conventional-floor threshold",
+      "phase2": true
+    },
+    {
+      "type": "C_name_confusion",
+      "entities": [
+        "Extreme Fitness Sarajevo",
+        "Xtreme Gym Sarajevo"
+      ],
+      "notes": "Xtreme vs Extreme branding — verify distinct operators Phase 2"
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Fitness Centar 4Life Banja Luka",
+        "Xtreme Fit Banja Luka"
+      ],
+      "notes": "Distinct Banja Luka independents pending Phase 2 premises proof"
+    }
+  ],
+  "note": "Phase 1 allows Phase 2 holds; merge gate requires 0 unresolved before merge."
+}

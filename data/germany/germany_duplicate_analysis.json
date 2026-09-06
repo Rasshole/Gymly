@@ -1,0 +1,107 @@
+{
+  "internal_events": [
+    {
+      "reason": "same_id",
+      "kept": "VeniceBeach Heidelberg Bahnstadt",
+      "dropped": "VeniceBeach Heidelberg Pfaffengrund"
+    },
+    {
+      "reason": "same_brand_address",
+      "a": "Fitness First Berlin Sch\u00f6neberg",
+      "b": "Fitness First Hamburg Bahrenfeld"
+    },
+    {
+      "reason": "proximity_same_brand",
+      "a": "Fitness First Dresden Altstadt",
+      "b": "Fitness First Dresden Prager Stra\u00dfe",
+      "m": 0
+    },
+    {
+      "reason": "proximity_same_brand",
+      "a": "VeniceBeach Plus Karlsruhe Postgalerie",
+      "b": "VeniceBeach Karlsruhe",
+      "m": 0
+    }
+  ],
+  "same_address_diff_brand": [
+    {
+      "address": "Kampstra\u00dfe 20-22",
+      "postal": "33332",
+      "brands": [
+        "JOHN REED",
+        "all inclusive Fitness"
+      ],
+      "names": [
+        "JOHN REED McFIT G\u00fctersloh",
+        "all inclusive Fitness DEIN FITNESS\u00adSTUDIO IN G\u00dcTERSLOH"
+      ]
+    },
+    {
+      "address": "Borsteler Landstra\u00dfe 4",
+      "postal": "28832",
+      "brands": [
+        "all inclusive Fitness",
+        "EASYFITNESS"
+      ],
+      "names": [
+        "all inclusive Fitness DEIN FITNESS\u00adSTUDIO IN ACHIM",
+        "EASYFITNESS Achim"
+      ]
+    },
+    {
+      "address": "Striekenkamp 40",
+      "postal": "28777",
+      "brands": [
+        "all inclusive Fitness",
+        "EASYFITNESS"
+      ],
+      "names": [
+        "all inclusive Fitness DEIN FITNESS\u00adSTUDIO IN BREMEN BLUMENTHAL",
+        "EASYFITNESS Bremen Blumenthal"
+      ]
+    },
+    {
+      "address": "Hindenburgstra\u00dfe 78",
+      "postal": "27442",
+      "brands": [
+        "all inclusive Fitness",
+        "EASYFITNESS"
+      ],
+      "names": [
+        "all inclusive Fitness DEIN FITNESS\u00adSTUDIO IN GNARRENBURG",
+        "EASYFITNESS Gnarrenburg -The Smart Gym-"
+      ]
+    },
+    {
+      "address": "Brunnenweg 1",
+      "postal": "27283",
+      "brands": [
+        "all inclusive Fitness",
+        "EASYFITNESS"
+      ],
+      "names": [
+        "all inclusive Fitness DEIN FITNESS\u00adSTUDIO IN VERDEN",
+        "EASYFITNESS Verden"
+      ]
+    },
+    {
+      "address": "Juri-Gagarin-Ring 1",
+      "postal": "17036",
+      "brands": [
+        "clever fit",
+        "Basic-Fit"
+      ],
+      "names": [
+        "clever fit Basic Fit - Neubrandenburg",
+        "Basic-Fit Navigation"
+      ]
+    }
+  ],
+  "vs_live": {
+    "live_total": 1528,
+    "existing_germany": 0,
+    "id_collisions": [],
+    "border_proximity_other_country": [],
+    "same_brand_address_live": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "country": "Luxembourg",
+  "phase": 2,
+  "relationships": [
+    {
+      "from": "Painworld Gasperich",
+      "to": "JIMS Gasperich",
+      "class": "A_successor_same_premises",
+      "action": "exclude_predecessor",
+      "status": "resolved"
+    },
+    {
+      "from": "Basic-Fit Foetz Rue du Brill 11",
+      "to": "JIMS Foetz Rue du Brill 11",
+      "class": "A_distinct_same_complex",
+      "production_decision": "CASE_A",
+      "action": "retain_basic_fit_ready_jims_coming_soon",
+      "status": "resolved"
+    },
+    {
+      "from": "Basic-Fit Rue Joseph Junck 12",
+      "to": "JIMS Gare Rue Joseph Junck 11",
+      "class": "A_legitimate_adjacent_premises",
+      "action": "retain_both",
+      "status": "resolved"
+    }
+  ]
+}

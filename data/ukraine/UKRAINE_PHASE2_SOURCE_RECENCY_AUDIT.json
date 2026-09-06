@@ -1,0 +1,8 @@
+{
+  "ready_stale_only_evidence": 0,
+  "approved_count": 105,
+  "evidence_tiers": {
+    "CURRENT_FIRST_PARTY": 98,
+    "CURRENT_SECONDARY": 7
+  }
+}

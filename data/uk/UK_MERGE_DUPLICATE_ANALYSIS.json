@@ -1,0 +1,22 @@
+{
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [],
+  "skipped_batch_dup_addr_brand": [],
+  "skipped_non_uk_id_collision": [],
+  "skipped_blocked": [],
+  "allowed_colocated_different_brand": [
+    {
+      "a": "Everlast Gyms York",
+      "b": "PureGym York Gym",
+      "postal_code": "YO30 4TU"
+    },
+    {
+      "a": "Nuffield Health Swindon Fitness & Wellbeing Gym",
+      "b": "The Gym Group Swindon",
+      "postal_code": "SN3 3SQ"
+    }
+  ],
+  "bbox_outliers_excluded": [],
+  "included_count": 1474
+}

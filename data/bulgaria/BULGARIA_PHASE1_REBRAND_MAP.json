@@ -1,0 +1,23 @@
+{
+  "generated": "Bulgaria Phase 1",
+  "cases": [
+    {
+      "from": "Platinum Health Club (seed name)",
+      "to": "Pulse Platinum (Pulse Fitness)",
+      "classification": "C_rebrand_or_name_confusion",
+      "notes": "Seed list Platinum Health Club maps to Pulse Platinum club, not a separate chain"
+    },
+    {
+      "from": "Pulse Atlantis Strumica",
+      "to": null,
+      "classification": "EXCLUDED_foreign",
+      "notes": "Official Pulse locator lists Strumica (North Macedonia) — not Bulgaria"
+    },
+    {
+      "from": "Pulse Therme / Royal Hotel locations",
+      "to": null,
+      "classification": "EXCLUDED_hotel_gym",
+      "notes": "Hotel-embedded Pulse facilities excluded from conventional gym estate"
+    }
+  ]
+}

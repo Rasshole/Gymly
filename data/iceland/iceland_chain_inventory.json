@@ -1,0 +1,71 @@
+{
+  "country": "Iceland",
+  "phase": 1,
+  "production_total": 11665,
+  "production_sha256": "caf838b1ce733fd20fb724306429bcc48ddee49d684a8efbe70c0cd9b1e46944",
+  "iceland_live": 0,
+  "class_a_chains": [
+    "World Class",
+    "Katla Fitness"
+  ],
+  "class_a_open_estimate": 27,
+  "chains": {
+    "World Class": {
+      "discovered": 21,
+      "READY": 20,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 1,
+      "EXCLUDED": 0,
+      "classification": "A",
+      "official_current": 20,
+      "official_open": 20,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE",
+      "sources": [
+        "https://worldclass.is/stodvar-og-sundlaugar",
+        "https://worldclass.is/",
+        "https://ja.is/world-class/"
+      ],
+      "notes": "20 stöðvar + 10 sundlaugar on membership; conventional gym stöðvar catalogued"
+    },
+    "Katla Fitness": {
+      "discovered": 8,
+      "READY": 7,
+      "NEEDS_COORDINATES": 0,
+      "NEEDS_REVIEW": 0,
+      "COMING_SOON": 0,
+      "CLOSED": 0,
+      "EXCLUDED": 1,
+      "classification": "A",
+      "official_current": 7,
+      "official_open": 7,
+      "coverage_pct": 100.0,
+      "verdict": "COMPLETE",
+      "sources": [
+        "https://katlafitness.is/stodvarnar/"
+      ],
+      "notes": "Includes Salalaug/Kópavogslaug municipal pool stations with Katla branding"
+    }
+  },
+  "ready_total": 27,
+  "ready_by_brand": {
+    "World Class": 20,
+    "Katla Fitness": 7
+  },
+  "excluded_operators_summary": [
+    "Hreyfing — Class C spa/wellness primary",
+    "Sporthúsið (2) — Class E boutique/CrossFit hybrid",
+    "Bjarg Akureyri — Class E single site",
+    "CrossFit boxes — Class C scope exclusion",
+    "Katla Studio Höfðatorg — Class E boutique separate membership",
+    "International chain probes — Class F absent"
+  ],
+  "small_market": {
+    "recommended_model": "NORMAL_CHAIN_MODEL_SUFFICIENT",
+    "qualifying_class_a_chains": 2,
+    "qualifying_class_a_locations": 27,
+    "reason": "World Class (20) + Katla Fitness (7) provide nationwide conventional chain coverage without independent phase"
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "es_88b9ccd91d": {
+    "postal": "08800",
+    "city": "Vilanova i la Geltrú",
+    "display": "13, Carrer de Menéndez Pelayo, Molí de Vent, Vilanova i la Geltrú, Garraf, Barcelona, Catalunya, 08800, España",
+    "source": "nominatim_reverse",
+    "lat": 41.22206,
+    "lng": 1.71456,
+    "search_postal": "08800",
+    "search_city": "Vilanova i la Geltrú",
+    "search_display": "13, Carrer de Menéndez Pelayo, Molí de Vent, Vilanova i la Geltrú, Garraf, Barcelona, Catalunya, 08800, España",
+    "search_lat": "41.2220021",
+    "search_lon": "1.7145520"
+  },
+  "es_171a849c74": {
+    "postal": "24006",
+    "city": "León",
+    "display": "2, Calle Velázquez, Chantría, León, Castilla y León, 24006, España",
+    "source": "nominatim_reverse",
+    "lat": 42.59011,
+    "lng": -5.57103,
+    "search_postal": "24004",
+    "search_city": "León",
+    "search_display": "Calle Fernando Becker, Chantría, León, Castilla y León, 24004, España",
+    "search_lat": "42.5879746",
+    "search_lon": "-5.5701323"
+  },
+  "es_fc5545eabc": {
+    "postal": "39592",
+    "city": "Cabezón de la Sal",
+    "display": "Grupo Hermanos Maristas, Urbanización Concejero, Cabezón de la Sal, Cantabria, 39592, España",
+    "source": "nominatim_reverse",
+    "lat": 43.3028693,
+    "lng": -4.2361365
+  },
+  "es_8204faf1cc": {
+    "postal": "39627",
+    "city": "Sarón",
+    "display": "Avenida del Deporte, Urbanización La Campanilla, La Abadilla, Sarón, Santa María de Cayón, Cantabria, 39627, España",
+    "source": "nominatim_reverse",
+    "lat": 43.321272,
+    "lng": -3.8585412
+  },
+  "es_ae6e4df12c": {
+    "postal": "18014",
+    "city": "Granada",
+    "display": "Beone, Calle Rector José Vida Soria, Los Mondragones, La Cruz, Beiro, Granada, Comarca de la Vega de Granada, Granada, Andalucía, 18014, España",
+    "source": "nominatim_reverse",
+    "lat": 37.1907503,
+    "lng": -3.6112791,
+    "search_postal": "18012",
+    "search_city": "Granada",
+    "search_display": "Calle Ribera del Beiro, Doctores, Plaza Toros - Doctores - San Lázaro, Beiro, Granada, Comarca de la Vega de Granada, Granada, Andalucía, 18012, España",
+    "search_lat": "37.1893953",
+    "search_lon": "-3.6111758"
+  },
+  "es_b98002f25d": {
+    "postal": "15401",
+    "city": "Ferrol",
+    "display": "FE-15, Serantes, Ferrol, A Coruña, Galicia, 15401, España",
+    "source": "nominatim_reverse",
+    "lat": 43.4911918,
+    "lng": -8.2402048
+  },
+  "es_460dc30921": {
+    "postal": "15220",
+    "city": "Bertamiráns",
+    "display": "Piscina Municipal da Telleira, Rúa do Cómaro, O Rueiro, Bertamiráns, O Porto, Ortoño, Ames, Santiago, A Coruña, Galicia, 15220, España",
+    "source": "nominatim_reverse",
+    "lat": 42.862143,
+    "lng": -8.6502161
+  },
+  "es_d5b39a3ce1": {
+    "postal": "15142",
+    "city": "Arteixo",
+    "display": "Piscina Municipal, Avenida Arsenio Iglesias, Caldas, As Viñas, A Cachopa, Arteixo, A Coruña, Galicia, 15142, España",
+    "source": "nominatim_reverse",
+    "lat": 43.309276,
+    "lng": -8.5083809
+  },
+  "es_ae050866ce": {
+    "postal": "15865",
+    "city": "Pedrouzos",
+    "display": "Ximnasio Municipal de Brión, Paseo de Pedrouzos, Lamiño do Medio, Lamiño de Abaixo, Brión, Pedrouzos, Brión, Santiago, A Coruña, Galicia, 15865, España",
+    "source": "nominatim_reverse",
+    "lat": 42.8632226,
+    "lng": -8.675662
+  },
+  "es_f16f792acc": {
+    "postal": "15920",
+    "city": "Rianxo",
+    "display": "Piscina Municipal de Rianxo, Rúa Campo de Arriba, San Xosé, Fincheira, Rianxo, A Barbanza, A Coruña, Galicia, 15920, España",
+    "source": "nominatim_reverse",
+    "lat": 42.6522228,
+    "lng": -8.8175144
+  },
+  "es_a8199d5936": {
+    "postal": "15886",
+    "city": "A Ramallosa",
+    "display": "Piscina Municipal Cuberta da Ramallosa, 23, Rúa da República Arxentina, Chaves, Lucí, A Ramallosa, Teo, Santiago, A Coruña, Galicia, 15886, España",
+    "source": "nominatim_reverse",
+    "lat": 42.7914158,
+    "lng": -8.5516375
+  },
+  "es_6dead42fbb": {
+    "postal": "27002",
+    "city": "Lugo",
+    "display": "BeOne Fitness & Sport, Rúa de Cornubia, Fingoi, Lugo, Galicia, 27002, España",
+    "source": "nominatim_reverse",
+    "lat": 43.0016991,
+    "lng": -7.5522043
+  },
+  "es_093a44cc07": {
+    "postal": "27700",
+    "city": "Ribadeo",
+    "display": "Piscina Municipal de Ribadeo, Rúa Pintor Fierros, O Xardín, San Lázaro, Ribadeo, A Mariña Oriental, Lugo, Galicia, 27700, España",
+    "source": "nominatim_reverse",
+    "lat": 43.5350142,
+    "lng": -7.0499495,
+    "search_postal": "27700",
+    "search_city": "Ribadeo",
+    "search_display": "Rúa Pintor Fierros, O Xardín, San Lázaro, Ribadeo, A Mariña Oriental, Lugo, Galicia, 27700, España",
+    "search_lat": "43.5354461",
+    "search_lon": "-7.0486693"
+  },
+  "es_132b4fd163": {
+    "postal": "28660",
+    "city": "Boadilla del Monte",
+    "display": "BeOne, Calle Luigi Boccherini, Residencial Siglo XXI, Boadilla del Monte, Comunidad de Madrid, 28660, España",
+    "source": "nominatim_reverse",
+    "lat": 40.4040995,
+    "lng": -3.8858131,
+    "search_postal": "28660",
+    "search_city": "Boadilla del Monte",
+    "search_display": "Calle Luigi Boccherini, Residencial Siglo XXI, Boadilla del Monte, Comunidad de Madrid, 28660, España",
+    "search_lat": "40.4047392",
+    "search_lon": "-3.8858381"
+  },
+  "es_77803d2991": {
+    "postal": "28903",
+    "city": "Getafe",
+    "display": "BeOne Fitness & Sport, Calle del Doctor Sánchez Morate, Las Margaritas, Getafe, Comunidad de Madrid, 28903, España",
+    "source": "nominatim_reverse",
+    "lat": 40.3151274,
+    "lng": -3.723481
+  },
+  "es_eadd857f70": {
+    "postal": "28913",
+    "city": "Leganés",
+    "display": "Polideportivo Alfredo Di Stefano, Calle de Carlos III, Batallas, San Nicasio, Leganés, Comunidad de Madrid, 28913, España",
+    "source": "nominatim_reverse",
+    "lat": 40.3327774,
+    "lng": -3.7635972,
+    "search_postal": null,
+    "search_city": "Valverde de Leganés",
+    "search_display": "Calle Carlos III, Valverde de Leganés, Badajoz, Extremadura, España",
+    "search_lat": "38.6728195",
+    "search_lon": "-6.9771846"
+  },
+  "es_36d41c08d1": {
+    "postal": "28330",
+    "city": "San Martín de la Vega",
+    "display": "2, Avenida de la Comunidad de Madrid, Carretera de Morata, San Martín de la Vega, Comunidad de Madrid, 28330, España",
+    "source": "nominatim_reverse",
+    "lat": 40.2130857,
+    "lng": -3.5709289,
+    "search_postal": "28330",
+    "search_city": "San Martín de la Vega",
+    "search_display": "2, Avenida de la Comunidad de Madrid, Carretera de Morata, San Martín de la Vega, Comunidad de Madrid, 28330, España",
+    "search_lat": "40.2128024",
+    "search_lon": "-3.5710427"
+  },
+  "es_5c457d4258": {
+    "postal": "28770",
+    "city": "Colmenar Viejo",
+    "display": "Piscina Municipal Santa Teresa, Calle de Salvadiós, Urbanización Granada, Colmenar Viejo, Comunidad de Madrid, 28770, España",
+    "source": "nominatim_reverse",
+    "lat": 40.6666527,
+    "lng": -3.7802689
+  },
+  "es_4339630efa": {
+    "postal": "29730",
+    "city": "Rincón de la Victoria",
+    "display": "4, Camino Viejo de Vélez, Torre de Benagalbón, Rincón de la Victoria, La Axarquía, Málaga, Andalucía, 29730, España",
+    "source": "nominatim_reverse",
+    "lat": 36.7156028,
+    "lng": -4.2713785
+  },
+  "es_fd82b3c111": {
+    "postal": "32001",
+    "city": "Ourense",
+    "display": "Piscina Universitaria, Avenida Otero Pedrayo, Rabaza de Abaixo, A Lonia de Abaixo, Ourense, Galicia, 32001, España",
+    "source": "nominatim_reverse",
+    "lat": 42.3431241,
+    "lng": -7.8517377
+  },
+  "es_6c4a84308f": {
+    "postal": "32003",
+    "city": "Ourense",
+    "display": "Espazo Lusquiños, Avenida de Marín, A Ponte, Ourense, Galicia, 32003, España",
+    "source": "nominatim_reverse",
+    "lat": 42.3503967,
+    "lng": -7.869142,
+    "search_postal": "32700",
+    "search_city": "Maceda",
+    "search_display": "Rúa Costa do Sol, A Eirexa, Maceda, Allariz-Maceda, Ourense, Galicia, 32700, España",
+    "search_lat": "42.2686301",
+    "search_lon": "-7.6503984"
+  },
+  "es_7b2885bb59": {
+    "postal": "36634",
+    "city": "Cambados",
+    "display": "Pavillón Polideportivo do Pombal, Rúa Pombal, A Cabana, Corvillón, Cambados, O Salnés, Pontevedra, Galicia, 36634, España",
+    "source": "nominatim_reverse",
+    "lat": 42.5223196,
+    "lng": -8.8152361
+  },
+  "es_06714eec15": {
+    "postal": "36001",
+    "city": "Pontevedra",
+    "display": "Piscinas de Campolongo, Paseo de Campolongo, O Gorgullón, Campolongo, Pontevedra, Galicia, 36001, España",
+    "source": "nominatim_reverse",
+    "lat": 42.4272692,
+    "lng": -8.6443935
+  },
+  "es_5d697070ba": {
+    "postal": "36300",
+    "city": "A Ramallosa",
+    "display": "O Xuncal, Santa Cristina da Ramallosa, A Ramallosa, Baiona, Vigo, Pontevedra, Galicia, 36300, España",
+    "source": "nominatim_reverse",
+    "lat": 42.1050909,
+    "lng": -8.8182653
+  },
+  "es_8c03568e06": {
+    "postal": "40410",
+    "city": "El Espinar",
+    "display": "Piscina climatizada, Carretera de El Espinar, Sexmo de El Espinar, Comunidad de Ciudad y Tierra de Segovia, El Espinar, Segovia, Castilla y León, 40410, España",
+    "source": "nominatim_reverse",
+    "lat": 40.7200477,
+    "lng": -4.2194547
+  },
+  "es_9a547eff6a": {
+    "postal": "46094",
+    "city": "Albal",
+    "display": "Carrer d'Alcàsser, Albal, l'Horta Sud, València / Valencia, Comunitat Valenciana, 46094, España",
+    "source": "nominatim_reverse",
+    "lat": 39.3947715,
+    "lng": -0.4117779,
+    "search_postal": "46094",
+    "search_city": "Albal",
+    "search_display": "Carrer del Rei en Jaume I, Albal, l'Horta Sud, València / Valencia, Comunitat Valenciana, 46094, España",
+    "search_lat": "39.3949909",
+    "search_lon": "-0.4112272"
+  },
+  "es_b313117d7a": {
+    "postal": "46160",
+    "city": "Llíria",
+    "display": "Carrer del Metge Jodep Pérez Martínez, la Coma, Llíria, el Camp de Túria, València / Valencia, Comunitat Valenciana, 46160, España",
+    "source": "nominatim_reverse",
+    "lat": 39.632999,
+    "lng": -0.5916007,
+    "search_postal": "46160",
+    "search_city": "Llíria",
+    "search_display": "Carrer del Pla de l'Arc, la Coma, Llíria, el Camp de Túria, València / Valencia, Comunitat Valenciana, 46160, España",
+    "search_lat": "39.6326331",
+    "search_lon": "-0.5929795"
+  },
+  "es_175f25cfd8": {
+    "postal": "08038",
+    "city": "Barcelona",
+    "display": "38-30, Avinguda de l'Estadi, Montjuïc, el Poble-sec, Sants-Montjuïc, Barcelona, Barcelonès, Barcelona, Catalunya, 08038, España",
+    "source": "nominatim_reverse",
+    "lat": 41.366222,
+    "lng": 2.1509664,
+    "search_postal": "08008",
+    "search_city": "Barcelona",
+    "search_display": "Evergreen Shipping Spain, 403, 4º 2º, Avinguda Diagonal (lateral mar), la Dreta de l'Eixample, l'Eixample, Barcelona, Barcelonès, Barcelona, Catalunya, 08008, España",
+    "search_lat": "41.3953724",
+    "search_lon": "2.1562482"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "country": "Lithuania",
+  "reconciliation_type": "ZERO_DELTA_PRESERVE_61",
+  "generated_at": "2026-08-29T14:00:54.838Z",
+  "dry_run": true,
+  "idempotency_check": false,
+  "production_total_before": 11923,
+  "production_total_after": 11923,
+  "production_bytes_before": 3706426,
+  "production_bytes_after": 3706426,
+  "production_sha256_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "production_sha256_after": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "lithuania_before": 61,
+  "lithuania_after": 61,
+  "phase2_inputs": {
+    "keep_existing": 61,
+    "new_ready_to_import": 0,
+    "existing_review_required": 0,
+    "coming_soon": 3,
+    "excluded": 39,
+    "closed": 0
+  },
+  "approved_for_production": 61,
+  "id_reconciliation": {
+    "keep_existing_ids": 61,
+    "approved_ids": 61,
+    "production_lithuania_ids": 61,
+    "exact_id_match_count": 61,
+    "missing_from_production": [],
+    "unexpected_in_production": [],
+    "approved_missing_from_production": [],
+    "production_not_in_approved": []
+  },
+  "metadata": {
+    "material_metadata_drift_count": 0,
+    "material_metadata_drift": [],
+    "existing_rows_changed": 0
+  },
+  "coming_soon": {
+    "identities": [
+      {
+        "id": "lt_bc21f9653f",
+        "name": "Gym+ Vilnius Viršuliškių",
+        "brand": "Gym+",
+        "address": "Viršuliškių g. 40",
+        "city": "Vilnius"
+      },
+      {
+        "id": "lt_4decf7f80b",
+        "name": "Lemon Gym Riešė",
+        "brand": "Lemon Gym",
+        "address": "Molėtų g. 13",
+        "city": "Didžioji Riešė"
+      },
+      {
+        "id": "lt_c3d4f6ba00",
+        "name": "Lemon Gym Jonava (announced)",
+        "brand": "Lemon Gym",
+        "address": "Žemaitės g. 45, Jonava",
+        "city": "Jonava"
+      }
+    ],
+    "coming_soon_count": 3,
+    "coming_soon_in_production": [],
+    "coming_soon_inserted": 0
+  },
+  "excluded": {
+    "excluded_count": 39,
+    "excluded_in_production": [],
+    "excluded_inserted": 0
+  },
+  "closed": {
+    "closed_count": 0,
+    "closed_inserted": 0
+  },
+  "brand_inventory": {
+    "Gym+": 38,
+    "Impuls": 5,
+    "Lemon Gym": 18
+  },
+  "expected_brands": {
+    "Gym+": 38,
+    "Lemon Gym": 18,
+    "Impuls": 5
+  },
+  "brand_inventory_reconciles": true,
+  "class_a": {
+    "chain_class_a_approved": 61,
+    "class_a_chain_count": 3,
+    "class_a_chain_names": [
+      "Gym+",
+      "Lemon Gym",
+      "Impuls"
+    ],
+    "gym_plus": 38,
+    "lemon_gym": 18,
+    "impuls": 5,
+    "estate_drift": {
+      "gym_plus": 0,
+      "lemon_gym": 0,
+      "impuls": 0
+    }
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "lithuania_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0,
+    "gym_plus_gym_exclamation_collisions": 0
+  },
+  "cross_border": {
+    "latvia_outliers": 0,
+    "poland_outliers": 0,
+    "belarus_outliers": 0,
+    "russia_kaliningrad_outliers": 0,
+    "gym_plus_gym_exclamation_collisions": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "lithuania_before": 61,
+    "lithuania_after": 61,
+    "lt_prefix_before": 61,
+    "lt_prefix_after": 61
+  },
+  "proposed_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "production_write_performed": false,
+  "projected_catalog_after_reconciliation": 11923,
+  "crosses_12500": false,
+  "remaining_headroom": 577,
+  "global_stress_qa_required": false,
+  "global_stress_qa_run": false,
+  "prior_country_counts": {
+    "Latvia": 33,
+    "Estonia": 69,
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "performance": {
+    "catalog_total": 11923,
+    "centers_json_bytes": 3706426
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "lithuania_specific_runtime_hacks": 0,
+  "phase2_verdict": "READY FOR LITHUANIA PRODUCTION RECONCILIATION",
+  "verdict": "LITHUANIA RECONCILIATION COMPLETE — ZERO DELTA — WAITING FOR QA"
+}

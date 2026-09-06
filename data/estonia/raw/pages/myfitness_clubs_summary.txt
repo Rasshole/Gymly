@@ -1,0 +1,20 @@
+Rocca al Mare|Haabersti 5|Tallinn|13516
+Mustamäe|Tammsaare tee 104a|Tallinn|12918
+Kristiine|Endla 45|Tallinn|10615
+Järve|Pärnu mnt 186|Tallinn|11314
+Viru|Viru väljak 4|Tallinn|10111
+Postimaja|Narva mnt 1|Tallinn|10111
+Rävala|Rävala pst 4|Tallinn|10143
+Balti Jaama Turg|Kopli 1|Tallinn|10412
+Ülemiste City|Sepise 10|Tallinn|11415
+Lasnamäe Linnamäe|Linnamäe tee 3|Tallinn|13912
+Lasnamäe Kärberi|Kärberi 20|Tallinn|13919
+Pirita|Merivälja tee 24|Tallinn|11911
+Viimsi|Sõpruse tee 15, Haabneeme|Viimsi|74001
+Volta|Mootori tänav 2|Tallinn|10416
+Tartu Kesklinn|Küüni 7|Tartu|51004
+Tartu Annelinn|Kalda tee 41|Tartu|50707
+Tartu Lõunakeskus|Lääneringtee 37|Tartu|50501
+Narva Fama|Fama tänav 10|Narva|20303
+Viljandi|Männimäe tee 4|Viljandi|71010
+SOURCE https://www.myfitness.ee/en/clubs/

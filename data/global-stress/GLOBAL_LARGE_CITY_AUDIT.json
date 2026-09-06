@@ -1,0 +1,45 @@
+{
+  "top_cities": [
+    {
+      "city": "Moscow",
+      "count": 361
+    },
+    {
+      "city": "London",
+      "count": 178
+    },
+    {
+      "city": "Madrid",
+      "count": 122
+    },
+    {
+      "city": "Warszawa",
+      "count": 109
+    },
+    {
+      "city": "Wien",
+      "count": 101
+    },
+    {
+      "city": "Helsinki",
+      "count": 89
+    },
+    {
+      "city": "Oslo",
+      "count": 78
+    },
+    {
+      "city": "Stockholm",
+      "count": 72
+    },
+    {
+      "city": "Berlin",
+      "count": 72
+    },
+    {
+      "city": "Barcelona",
+      "count": 72
+    }
+  ],
+  "large_city_correctness": "PASS"
+}

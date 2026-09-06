@@ -1,0 +1,13 @@
+{
+  "identical_coordinates": [],
+  "hard_duplicate_conflicts": 0,
+  "pairs_le_200m": [
+    {
+      "a_id": "xk_500cfd9387",
+      "b_id": "xk_4d98941de0",
+      "distance_m": 108.1,
+      "same_brand": false,
+      "verdict": "B_distinct_current_clubs"
+    }
+  ]
+}

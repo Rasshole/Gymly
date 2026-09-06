@@ -6,6 +6,6 @@ export type {CenterMarkerProps} from './CenterMarker';
 export type {GymMarkerProps} from './GymMarker';
 export type {SelectedCenterCardProps} from './SelectedCenterCard';
 export type {NearbyCentersCarouselProps, NearbyCenterItem} from './NearbyCentersCarousel';
-export {MapFloatingButton} from './MapFloatingButton';
+export {MapFloatingButton, MAP_FAB_SIZE, MAP_FAB_GAP, MAP_FAB_ICON_SIZE} from './MapFloatingButton';
 export {MapTypePickerMenu} from './MapTypePickerMenu';
 export type {MapTypeValue} from './MapTypePickerMenu';

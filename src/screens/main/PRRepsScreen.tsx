@@ -10,7 +10,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Image,
   Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -18,9 +17,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType} from '@/types/pr.types';
-import AddPRScreen from './AddPRScreen';
-import AddRepScreen from './AddRepScreen';
 import colors from '@/theme/colors';
+import {useTranslation, getExerciseDisplayName} from '@/i18n';
 
 type PRRepsScreenNavigationProp = StackNavigationProp<any>;
 
@@ -36,20 +34,30 @@ const exercises: ExerciseType[] = [
 
 const PRRepsScreen = () => {
   const navigation = useNavigation<PRRepsScreenNavigationProp>();
-  const {getPR, getRepRecord, getAllPRs, getAllRepRecords} = usePRStore();
+  const {getPR, getRepRecord} = usePRStore();
   const [activeTab, setActiveTab] = useState<'pr' | 'reps'>('pr');
+  const {t, language, intlLocale} = useTranslation();
 
-  const allPRs = getAllPRs();
-  const allRepRecords = getAllRepRecords();
+  const formatDate = (date: Date | string) =>
+    new Date(date).toLocaleDateString(intlLocale, {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
 
   const renderExerciseCard = (exercise: ExerciseType) => {
     const pr = getPR(exercise);
     const repRecord = getRepRecord(exercise);
+    const exerciseDisplayName = getExerciseDisplayName({
+      exerciseId: null,
+      fallbackName: exercise,
+      language,
+    });
 
     return (
       <View key={exercise} style={styles.exerciseCard}>
         <View style={styles.exerciseHeader}>
-          <Text style={styles.exerciseName}>{exercise}</Text>
+          <Text style={styles.exerciseName}>{exerciseDisplayName}</Text>
           <TouchableOpacity
             style={styles.editButton}
             onPress={() => {
@@ -87,37 +95,32 @@ const PRRepsScreen = () => {
                     style={styles.videoContainer}
                     onPress={() => {
                       // TODO: Open video player
-                      Alert.alert('Video', 'Video afspiller åbnes her');
+                      Alert.alert(t('prReps.videoAlertTitle'), t('prReps.videoAlertBody'));
                     }}
                     activeOpacity={0.8}>
                     <Icon name="play-circle" size={48} color="#007AFF" />
-                    <Text style={styles.videoText}>Se video</Text>
+                    <Text style={styles.videoText}>{t('prReps.seeVideo')}</Text>
                   </TouchableOpacity>
                 ) : (
                   <View style={styles.noVideoContainer}>
                     <Icon name="videocam-outline" size={32} color="#8E8E93" />
-                    <Text style={styles.noVideoText}>Ingen video</Text>
                   </View>
                 )}
                 <Text style={styles.dateText}>
-                  Sat {new Date(pr.date).toLocaleDateString('da-DK', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
+                  {t('prReps.setOn', {date: formatDate(pr.date)})}
                 </Text>
               </>
             ) : (
               <View style={styles.emptyState}>
                 <Icon name="trophy-outline" size={48} color="#C7C7CC" />
-                <Text style={styles.emptyText}>Ingen PR sat endnu</Text>
+                <Text style={styles.emptyText}>{t('prReps.emptyPrTitle')}</Text>
                 <TouchableOpacity
                   style={styles.addButton}
                   onPress={() => {
                     navigation.navigate('AddPR', {exercise});
                   }}
                   activeOpacity={0.8}>
-                  <Text style={styles.addButtonText}>Tilføj PR</Text>
+                  <Text style={styles.addButtonText}>{t('prReps.addPr')}</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -129,27 +132,23 @@ const PRRepsScreen = () => {
                 <View style={styles.repsValueContainer}>
                   <Text style={styles.repsValue}>{repRecord.weight}</Text>
                   <Text style={styles.repsUnit}>kg</Text>
-                  <Text style={styles.repsLabel}>for 10 reps</Text>
+                  <Text style={styles.repsLabel}>{t('addRep.weightFor10')}</Text>
                 </View>
                 <Text style={styles.dateText}>
-                  Opdateret {new Date(repRecord.date).toLocaleDateString('da-DK', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
+                  {t('prReps.updatedOn', {date: formatDate(repRecord.date)})}
                 </Text>
               </>
             ) : (
               <View style={styles.emptyState}>
                 <Icon name="barbell-outline" size={48} color="#C7C7CC" />
-                <Text style={styles.emptyText}>Ingen reps registreret</Text>
+                <Text style={styles.emptyText}>{t('prReps.emptyRepsTitle')}</Text>
                 <TouchableOpacity
                   style={styles.addButton}
                   onPress={() => {
                     navigation.navigate('AddRep', {exercise});
                   }}
                   activeOpacity={0.8}>
-                  <Text style={styles.addButtonText}>Tilføj reps</Text>
+                  <Text style={styles.addButtonText}>{t('prReps.addReps')}</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -365,6 +364,3 @@ const styles = StyleSheet.create({
 });
 
 export default PRRepsScreen;
-
-
-

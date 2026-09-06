@@ -1,0 +1,380 @@
+{
+  "country": "Georgia",
+  "phase": "production_qa",
+  "generated_at": "2026-08-29T19:18:27.829Z",
+  "frozen_baseline": {
+    "catalog_total": 12303,
+    "georgia_live": 25,
+    "ge_prefix_live": 25,
+    "turkey": 198,
+    "belarus": 46,
+    "ukraine": 105,
+    "malta": 24,
+    "sha256": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+    "bytes": 3832712,
+    "headroom": 197,
+    "architecture": "KEEP CLIENT-SIDE"
+  },
+  "inventory": {
+    "phase2_approved": 25,
+    "frozen_approved": 25,
+    "live_production": 25,
+    "sets_equal": true,
+    "approved_missing_from_production": 0,
+    "production_not_approved": 0,
+    "unauthorized_georgia": 0,
+    "authorized_material_drift": 0,
+    "phase1_recovered": 556,
+    "phase1_nr": 533,
+    "phase1_nr_resolved": 533,
+    "phase2_buckets": {
+      "NEW_READY_TO_IMPORT": 25,
+      "NEEDS_REVIEW": 0,
+      "NEEDS_COORDINATES": 0,
+      "COMING_SOON": 0,
+      "EXCLUDED": 531,
+      "CLOSED": 0,
+      "TOTAL_FINAL_STAGING": 556
+    }
+  },
+  "merge_delta": {
+    "pre_total": 12278,
+    "pre_georgia": 0,
+    "authorized_insertions": 25,
+    "authorized_updates": 0,
+    "authorized_removals": 0,
+    "post_total": 12303,
+    "post_georgia": 25,
+    "pre_sha": "03dc090d0e86a532c19602490cc3a5e3877033389923fd898abe1a3c288dbb9a",
+    "post_sha": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+    "reconstruction": "PASS"
+  },
+  "brands": {
+    "production": {
+      "Oktopus Fitness": 8,
+      "მამბერი ფიტნესი": 1,
+      "Fitness House": 2,
+      "იმოძრავე": 1,
+      "სპარტა": 1,
+      "Snap Fitness": 1,
+      "Champion": 3,
+      "რეფორმა": 1,
+      "Colosseum": 1,
+      "World Class Georgia": 1,
+      "Arena Sports Complex": 1,
+      "ასპრია": 1,
+      "Fit Line": 1,
+      "BLUE FITNES": 1,
+      "Life Sport Club": 1
+    },
+    "approved": {
+      "Oktopus Fitness": 8,
+      "Champion": 3,
+      "მამბერი ფიტნესი": 1,
+      "Fitness House": 2,
+      "იმოძრავე": 1,
+      "სპარტა": 1,
+      "Snap Fitness": 1,
+      "რეფორმა": 1,
+      "Colosseum": 1,
+      "World Class Georgia": 1,
+      "Arena Sports Complex": 1,
+      "ასპრია": 1,
+      "Fit Line": 1,
+      "BLUE FITNES": 1,
+      "Life Sport Club": 1
+    },
+    "expected": {
+      "Oktopus Fitness": 8,
+      "Champion": 3,
+      "Fitness House": 2,
+      "Snap Fitness": 1,
+      "World Class Georgia": 1,
+      "Colosseum": 1,
+      "Life Sport Club": 1,
+      "Arena Sports Complex": 1,
+      "BLUE FITNES": 1,
+      "Fit Line": 1,
+      "ასპრია": 1,
+      "იმოძრავე": 1,
+      "მამბერი ფიტნესი": 1,
+      "რეფორმა": 1,
+      "სპარტა": 1
+    },
+    "total": 25,
+    "drift": 0
+  },
+  "class_a": {
+    "chain_count": 2,
+    "names": [
+      "Champion",
+      "Oktopus Fitness"
+    ],
+    "approved_total": 11,
+    "oktopus": 8,
+    "champion": 3,
+    "estate_gaps": 0,
+    "production_drift": []
+  },
+  "snap_fitness": {
+    "approved": 1,
+    "live": 1,
+    "class_a": false,
+    "estate_gaps": 0,
+    "expected_id": "ge_3bd67719e5",
+    "present": true
+  },
+  "geography": {
+    "cities": {
+      "Tbilisi": 23,
+      "Batumi": 2
+    },
+    "approved_cities": {
+      "Tbilisi": 23,
+      "Batumi": 2
+    },
+    "expected_cities": {
+      "Tbilisi": 23,
+      "Batumi": 2
+    },
+    "city_drift": 0,
+    "region_drift": 0
+  },
+  "regional_coverage": {
+    "regions": {
+      "Tbilisi": "A",
+      "Adjara": "A",
+      "Imereti": "B",
+      "Kvemo Kartli": "B",
+      "Shida Kartli": "B",
+      "Samegrelo-Zemo Svaneti": "B",
+      "Kakheti": "B",
+      "Abkhazia": "B",
+      "South Ossetia": "B",
+      "Other": "B"
+    },
+    "grade_a": 2,
+    "grade_b": 8,
+    "grade_c": 0,
+    "grade_d": 0,
+    "material_d_gaps": 0
+  },
+  "safety": {
+    "coming_soon_leakage": [],
+    "excluded_leakage": [],
+    "closed_leakage": [],
+    "needs_review_leakage": [],
+    "hotel_leakage": [],
+    "specialist_leakage": [],
+    "institutional_leakage": []
+  },
+  "duplicates": {
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "georgian_transliteration_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "phase2_hard_duplicates": 0
+  },
+  "cross_border": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_names": 0,
+    "cross_border": 0,
+    "operation_unverified": 0,
+    "stale_only": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_names": 0,
+    "cross_border": 0,
+    "operation_unverified": 0,
+    "stale_only": 0
+  },
+  "search_map": {
+    "search_display_qa": "PASS",
+    "queries": {
+      "Georgia": 25,
+      "საქართველო": 25,
+      "Sakartvelo": 25,
+      "Tbilisi": 23,
+      "თბილისი": 23,
+      "Batumi": 2,
+      "ბათუმი": 2,
+      "Kutaisi": 0,
+      "ქუთაისი": 0,
+      "Rustavi": 0,
+      "Oktopus Fitness": 8,
+      "Champion": 3,
+      "Fitness House": 2,
+      "Snap Fitness": 1,
+      "World Class Georgia": 1,
+      "Colosseum": 1,
+      "Life Sport Club": 1,
+      "Arena Sports Complex": 1,
+      "BLUE FITNES": 1,
+      "Fit Line": 1,
+      "ასპრია": 1,
+      "იმოძრავე": 1,
+      "მამბერი ფიტნესი": 1,
+      "რეფორმა": 1,
+      "სპარტა": 1
+    },
+    "active_map_markers": 25,
+    "needs_review_map_markers": 0,
+    "needs_coordinates_map_markers": 0,
+    "coming_soon_map_markers": 0,
+    "excluded_map_markers": 0,
+    "closed_map_markers": 0,
+    "foreign_map_markers": 0
+  },
+  "nearest": {
+    "nearest_qa": "PLAUSIBLE",
+    "probes": {
+      "Tbilisi central": {
+        "id": "ge_940706c5ca",
+        "city": "Tbilisi",
+        "distance_m": 2642,
+        "local_coverage": true
+      },
+      "Tbilisi Vake/Saburtalo": {
+        "id": "ge_cb4c5b571f",
+        "city": "Tbilisi",
+        "distance_m": 166,
+        "local_coverage": true
+      },
+      "Tbilisi east": {
+        "id": "ge_17ef6b43d4",
+        "city": "Tbilisi",
+        "distance_m": 2662,
+        "local_coverage": true
+      },
+      "Batumi": {
+        "id": "ge_68bf296095",
+        "city": "Batumi",
+        "distance_m": 415,
+        "local_coverage": true
+      }
+    }
+  },
+  "infrastructure": {
+    "gaps": [],
+    "runtime_hacks": 0,
+    "infrastructure_gaps": 0
+  },
+  "check_in": {
+    "radius_meters": 200,
+    "allow_199": true,
+    "allow_200": true,
+    "block_201": true
+  },
+  "auto_checkout": {
+    "distance_meters": 200,
+    "georgia_override": 0
+  },
+  "scale": {
+    "catalog_total": 12303,
+    "headroom": 197,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false,
+    "architecture": "KEEP CLIENT-SIDE"
+  },
+  "merge_idempotency": {
+    "stdout": "DRY RUN: insertions=0 updates=0 removals=0 projected=12303\nGeorgia merge dry-run: GEORGIA MERGE COMPLETE — WAITING FOR QA delta=0/0/0",
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "idempotent": true
+  },
+  "merge_report_verdict": "GEORGIA MERGE COMPLETE — WAITING FOR QA",
+  "idempotency_record": {
+    "first_run": {
+      "insertions": 25,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12278,
+      "total_after": 12303,
+      "georgia_before": 0,
+      "georgia_after": 25
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12303,
+      "total_after": 12303,
+      "georgia_before": 25,
+      "georgia_after": 25,
+      "ge_prefix_before": 25,
+      "ge_prefix_after": 25
+    },
+    "idempotent": true
+  },
+  "historical_test_debt": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 1,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 3
+  },
+  "performance": {
+    "bytes": 3832712,
+    "expected_bytes": 3832712,
+    "json_parse_ms": 16,
+    "status": "HEALTHY"
+  },
+  "gates": {
+    "inventory_reconciles": true,
+    "authorized_material_drift": 0,
+    "brand_inventory_drift": 0,
+    "city_inventory_drift": 0,
+    "class_a_estate_gaps": 0,
+    "snap_fitness_estate_gaps": 0,
+    "material_d_gaps": 0,
+    "coming_soon_leakage": 0,
+    "excluded_leakage": 0,
+    "closed_leakage": 0,
+    "needs_review_leakage": 0,
+    "hotel_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0,
+    "hard_duplicates": 0,
+    "translit_conflicts": 0,
+    "cross_border": 0,
+    "merge_idempotent": true,
+    "prior_regressions": 0,
+    "global_duplicate_ids": 0,
+    "georgia_duplicate_ids": 0
+  },
+  "qa_immutability": {
+    "sha_before": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+    "sha_after": "eead8cd2ad6ad935ae564fd86a7dde856babfe80175bd20ded9eb3acdc1464b4",
+    "bytes_before": 3832712,
+    "bytes_after": 3832712,
+    "delta_insertions": 0,
+    "delta_updates": 0,
+    "delta_removals": 0
+  },
+  "prior_country_regressions": [],
+  "REAL_COUNTRY_REGRESSION": 0,
+  "verdict": "GEORGIA STATUS: READY",
+  "country_expansion": "UNLOCKED"
+}

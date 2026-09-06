@@ -1,0 +1,25 @@
+{
+  "country": "Georgia",
+  "sovereign_territory": "Georgia (GE)",
+  "administrative_units": "Regions / municipalities",
+  "conflict_regions": {
+    "Abkhazia": {
+      "policy": "GEOGRAPHIC_HOLD",
+      "ready_without_strong_evidence": false,
+      "bbox_hint": "lat>=42.55, lng<=41.85"
+    },
+    "South Ossetia": {
+      "policy": "GEOGRAPHIC_HOLD",
+      "ready_without_strong_evidence": false,
+      "bbox_hint": "42.05<=lat<=42.55, 43.55<=lng<=44.35"
+    }
+  },
+  "cross_border_rejects": [
+    "RU",
+    "TR",
+    "AM",
+    "AZ"
+  ],
+  "usa_georgia_contamination": "EXCLUDED — US state Georgia probes",
+  "in_country_function": "in_georgia() in batch1_phase1_common.py"
+}

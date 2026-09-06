@@ -1,0 +1,3132 @@
+{
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [],
+  "skipped_batch_dup": [],
+  "different_brand_colocations_kept": [
+    {
+      "a_id": "pl_3b16c7db04",
+      "a_name": "Well Fitness Klub fitness i Siłownia DH Wanda",
+      "a_brand": "Well Fitness",
+      "b_id": "pl_a8b07a3cbe",
+      "b_name": "Zdrofit Kraków Os. Na Lotnisku",
+      "b_brand": "Zdrofit",
+      "distance_m": 36,
+      "note": "different_brand_kept",
+      "reason_retained": "Legitimate different-brand co-location (shopping center / building)"
+    }
+  ],
+  "same_brand_pre_merge": {
+    "lt50": [],
+    "lt100": []
+  },
+  "withheld_questionable": [],
+  "included": [
+    {
+      "id": "pl_cc8b2e5276",
+      "name": "Zdrofit Katowice 3 Stawy",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_55c934e3be",
+      "name": "Zdrofit Kraków Atut Galicyjska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_8f6340405d",
+      "name": "Zdrofit Kraków Atut Ruczaj 2",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a381445963",
+      "name": "Zdrofit Bydgoszcz Balaton",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_61d34b013e",
+      "name": "Zdrofit Banino",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_712cabb4ea",
+      "name": "Zdrofit Warszawa Bemowo Warszawska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_55d9dd90fe",
+      "name": "Zdrofit Warszawa Białołęka Mochtyńska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_48ad1170e7",
+      "name": "Zdrofit Warszawa Białołęka Modlińska 168",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0183fed071",
+      "name": "Zdrofit Warszawa Bielany Arkuszowa",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_af8774d2c3",
+      "name": "Zdrofit Sosnowiec Bolesława Prusa",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3603f278e5",
+      "name": "Zdrofit Mysłowice Bończyka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_556bc95cbb",
+      "name": "Zdrofit Katowice Brynowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_30e9822d43",
+      "name": "Zdrofit Bytom Square",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_8269364a19",
+      "name": "Zdrofit Rzeszów Capital Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a4333322c9",
+      "name": "Zdrofit Chorzów Batorego",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6284beaf91",
+      "name": "Zdrofit Chorzów Silesia Office",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_065d3fa2e0",
+      "name": "Zdrofit Kraków Czerwone Maki",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_004aefccdb",
+      "name": "Zdrofit Dawidy Bankowe",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_5e75fee4d0",
+      "name": "Zdrofit Kraków Dytmara",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c1efdd51c9",
+      "name": "Zdrofit Nowy Sącz Europa II Plaza",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_19e4befd00",
+      "name": "Zdrofit Kraków Factory Park Mogilska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ad2ac0745f",
+      "name": "Zdrofit Bydgoszcz Focus",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_867241880a",
+      "name": "Zdrofit Jaworzno Galena",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f3d5b4cefc",
+      "name": "Zdrofit Lublin Galeria Gala",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4f61aab404",
+      "name": "Zdrofit Kraków Galeria Kazimierz",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c05f4a60ba",
+      "name": "Zdrofit Kraków Galeria Krakowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_fd748bdb11",
+      "name": "Zdrofit Rzeszów Galeria Rzeszów",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d67775b66a",
+      "name": "Zdrofit Bielsko Biała Galeria Sfera",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_8a4cfea0c7",
+      "name": "Zdrofit Gdańsk Garnizon",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_dc15779307",
+      "name": "Zdrofit Gdańsk Galeria Metropolia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c9a94e0859",
+      "name": "Zdrofit Gdynia Galeria Szperk",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3fb8551e7b",
+      "name": "Zdrofit Tychy Gemini Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_8c3cb04d27",
+      "name": "Zdrofit Warszawa Gocław Gen. Fieldorfa „Nila”",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6786d9e87f",
+      "name": "Zdrofit Gorzów Wielkopolski NoVa Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6dd3d3a1ce",
+      "name": "Zdrofit Gorzów Wielkopolski Panorama",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_5ab766aa30",
+      "name": "Zdrofit Gorzów Wielkopolski Słowianka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_722c4b9854",
+      "name": "Zdrofit Warszawa Grochów Kobielska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_5f33515da4",
+      "name": "Zdrofit Dąbrowa Górnicza Grynia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_100de2c518",
+      "name": "Zdrofit Zawiercie Górnośląska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_99a2013d51",
+      "name": "Zdrofit Rzeszów Hetmańska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f49696e6d9",
+      "name": "Zdrofit Kraków High 5ive",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3ed015a337",
+      "name": "Zdrofit Warszawa HOMEPARK Targówek",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_980570f6e4",
+      "name": "Zdrofit Bydgoszcz Immobile K3",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d37511f21c",
+      "name": "Zdrofit Kraków Kapelanka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3efd2c68bb",
+      "name": "Zdrofit Katowice KTW",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_98d1960676",
+      "name": "Zdrofit Kraków Garden Residence",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_2c24f68b3b",
+      "name": "Zdrofit Kraków Krowoderskich Zuchów",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_34d28ba859",
+      "name": "Zdrofit Katowice Libero",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a34e8a4e51",
+      "name": "Zdrofit Kraków Lindego",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ab82581c4f",
+      "name": "Zdrofit Warszawa Środmieście Metro Świętokrzyska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_08b5711799",
+      "name": "Zdrofit Warszawa Mokotów Modern",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_69089f5c8b",
+      "name": "Zdrofit Kraków Mogilska 70",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_dc7de3d9c9",
+      "name": "Zdrofit Sosnowiec Narutowicza",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_2172e30208",
+      "name": "Zdrofit Elbląg Nowowiejska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4085472da2",
+      "name": "Zdrofit Nowy Sącz Lwowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_fd8c6ee6f6",
+      "name": "Zdrofit Rzeszów Obrońców Poczty Gdańskiej",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_cacbb76769",
+      "name": "Zdrofit Rzeszów Odrzykońska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_62aaa2c387",
+      "name": "Zdrofit Bielsko Biała Partyzantów",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0cc9c26eb8",
+      "name": "Zdrofit Piaseczno Puławska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_571d1eccaf",
+      "name": "Zdrofit Warszawa Praga Południe Arabska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4580eede08",
+      "name": "Zdrofit Warszawa Praga Południe CH Szembeka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_248e63caf5",
+      "name": "Zdrofit Pruszków Miry Zimińskiej Sygietyńskiej",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_e0605a87f8",
+      "name": "Zdrofit Kraków Bonarka for Business",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_32a4521797",
+      "name": "Zdrofit Radom Wernera",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_2bf3ffd1ba",
+      "name": "Zdrofit Dąbrowa Górnicza Reymonta",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_37b7e55d8b",
+      "name": "Zdrofit Ruda Śląska Obrońców Westerplatte",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_fd243acc8d",
+      "name": "Zdrofit Rybnik Obwiednia Południowa",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6ff8ce736a",
+      "name": "Zdrofit Rybnik Plaza",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_7a1ee5b174",
+      "name": "Zdrofit Rzeszów Lwowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_02fe788bf2",
+      "name": "Zdrofit Bielsko Biała Sarni Stok",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_7c56633ebc",
+      "name": "Zdrofit Kraków Saska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a536e55e85",
+      "name": "Zdrofit Sosnowiec Sezam",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_8ad11d092a",
+      "name": "Zdrofit Katowice Silesia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0566ab4181",
+      "name": "Zdrofit Warszawa Białołęka Skarbka z Gór",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_7bd8b64f7f",
+      "name": "Zdrofit Sopot Sikorskiego",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0424fba32d",
+      "name": "Zdrofit Rzeszów Stara Szwalnia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d574501873",
+      "name": "Zdrofit Stargard Starówka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f7e1d0f485",
+      "name": "Zdrofit Katowice Supersam",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_bb1c4c3d0a",
+      "name": "Zdrofit Szczecin Fabryka Wody",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_319da9f899",
+      "name": "Zdrofit Kraków Szlak",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_65098a4cf1",
+      "name": "Zdrofit Tychy Stadion",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4e160931dd",
+      "name": "Zdrofit Warszawa Ursus Leszczyńskiego",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f6c043b1ac",
+      "name": "Zdrofit Warszawa Ursynów Kłobucka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_eb35411ec8",
+      "name": "Zdrofit Warszawa Ursynów Puszczyka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4b2f7e8bf3",
+      "name": "Zdrofit Kraków Wadowicka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_1f2f7bc842",
+      "name": "Zdrofit Warszawa Wilanów Syta",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c9c22f997f",
+      "name": "Zdrofit Olsztyn Wilczyńskiego",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3ea84df85a",
+      "name": "Zdrofit Rzeszów Witolda",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4aa48d58ad",
+      "name": "Zdrofit Wodzisław Śląski Armii Krajowej",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_9de807f0c0",
+      "name": "Zdrofit Warszawa Wola Forest",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_164fdb9649",
+      "name": "Zdrofit Warszawa Wola Wolska 88",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ce191fbe9c",
+      "name": "Zdrofit Zabierzów Eximius Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6e9bfb3596",
+      "name": "Zdrofit Zabrze Galeria Zabrze",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_9e471853ca",
+      "name": "Zdrofit Kraków Zakopiańska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d0275a9e40",
+      "name": "Zdrofit Stargard Zodiak",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4721b5e9c9",
+      "name": "Zdrofit Gliwice Łabędzka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_02bb4e1997",
+      "name": "Just GYM SIŁOWNIA PIOTRKOWSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_65da22b391",
+      "name": "CityFit Siłownia Białystok Galeria Zielone Wzgórze",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_0f57987465",
+      "name": "Siłownia CityFit Blue Bydgoszcz",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_e5f9c1d64f",
+      "name": "CityFit Siłownia Bydgoszcz CH Rondo",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_72b52c7ad3",
+      "name": "CityFit Siłownia Chorzów CH AKS",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_302778fa41",
+      "name": "CityFit Siłownia Gdańsk Forum",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_8f68755721",
+      "name": "CityFit Siłownia Gdańsk Olivia Business Centre",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_33931b63e9",
+      "name": "CityFit Siłownia Katowice Rynek",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_44f0fd8fc7",
+      "name": "CityFit Siłownia Kraków Principio",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_30e8d27ece",
+      "name": "CityFit Siłownia Lublin Gajek",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_f96d01d5ea",
+      "name": "CityFit Siłownia Lublin CH Lublin Plaza",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_2d9e9164f0",
+      "name": "CityFit Siłownia Lublin CH Zana",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_f7baffaef0",
+      "name": "CityFit Siłownia Rzeszów Galeria Plaza",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_3957dc5ce5",
+      "name": "CityFit Siłownia Poznań Pestka",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_d6095a1c1d",
+      "name": "Siłownia CityFit Blue Puławy Galeria Zielona",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_215c50fcdc",
+      "name": "CityFit Siłownia Siedlce Galeria",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_52886cc993",
+      "name": "CityFit Siłownia Toruń Toruń Plaza",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_f964d1758b",
+      "name": "CityFit Siłownia Wałbrzych Galeria Victoria",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_35902f3e45",
+      "name": "CityFit Siłownia Warszawa Ochota Atrium Reduta",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_8dd6ebc5af",
+      "name": "CityFit Siłownia Warszawa Rondo ONZ",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_0dffeb8e47",
+      "name": "CityFit Siłownia Warszawa Zielony Targówek",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_a053490864",
+      "name": "CityFit Siłownia Warszawa Galeria Rondo Wiatraczna",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_28b3e15b5f",
+      "name": "CityFit Siłownia Warszawa PDT Wola",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_3807efcbf1",
+      "name": "CityFit Siłownia Wrocław Stare Miasto",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_ce5dc466e4",
+      "name": "CityFit Siłownia Wrocław Wroclavia",
+      "brand": "CityFit"
+    },
+    {
+      "id": "pl_d35b3085d5",
+      "name": "Just GYM SIŁOWNIA BIELSKO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_9643dc5ee7",
+      "name": "Just GYM SIŁOWNIA BYDGOSZCZ",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_731dd1865b",
+      "name": "Just GYM SIŁOWNIA BYTOM",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_f71669dde4",
+      "name": "Just GYM SIŁOWNIA CZĘSTOCHOWA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_92611a1554",
+      "name": "Just GYM SIŁOWNIA DĄBROWA GÓRNICZA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_625a010b63",
+      "name": "Just GYM SIŁOWNIA ELBLĄG",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_330f1a8bbf",
+      "name": "Just GYM SIŁOWNIA GDAŃSK",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_0a7b39162a",
+      "name": "Just GYM SIŁOWNIA 10 LUTEGO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_68ff76deba",
+      "name": "Just GYM SIŁOWNIA UNRUGA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_7d9389d64a",
+      "name": "Just GYM SIŁOWNIA GNIEZNO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_202e126d25",
+      "name": "Just GYM SIŁOWNIA GORZÓW WIELKOPOLSKI",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_1f2457d5e2",
+      "name": "Just GYM SIŁOWNIA JASTRZĘBIE",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_b8960f7a3c",
+      "name": "Just GYM SIŁOWNIA KATOWICE",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_2417c4f0d9",
+      "name": "Just GYM SIŁOWNIA KIELCE",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_fe58ce4735",
+      "name": "Just GYM SIŁOWNIA KOSZALIN",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_0a89e9d9b4",
+      "name": "Just GYM SIŁOWNIA KRAKÓW",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_a3d7151ea3",
+      "name": "Just GYM SIŁOWNIA LESZNO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_6ec6db7611",
+      "name": "Just GYM SIŁOWNIA REMBIELIŃSKIEGO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_23c31ea3a7",
+      "name": "Just GYM SIŁOWNIA REWOLUCJI",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_dacd3d797c",
+      "name": "Just GYM SIŁOWNIA LUBIN",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_efdf595bbe",
+      "name": "Just GYM SIŁOWNIA MEŁGIEWSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_26244e9d01",
+      "name": "Just GYM SIŁOWNIA JANA PAWŁA II",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_2e82da61ec",
+      "name": "Just GYM SIŁOWNIA OLSZTYN",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_4e5228184b",
+      "name": "Just GYM SIŁOWNIA OPOLE",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_b9af4e8488",
+      "name": "Just GYM SIŁOWNIA PABIANICE",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_a11cdbc523",
+      "name": "Just GYM SIŁOWNIA PŁOCK",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_fc794e1fa4",
+      "name": "Just GYM SIŁOWNIA ANDERSA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_d162797ff9",
+      "name": "Just GYM SIŁOWNIA BUŁGARSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_e46f458b77",
+      "name": "Just GYM SIŁOWNIA SZWAJCARSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_77817a9514",
+      "name": "Just GYM SIŁOWNIA RACIBÓRZ",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_033e213da0",
+      "name": "Just GYM SIŁOWNIA RADOM",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_a5d61e4775",
+      "name": "Just GYM SIŁOWNIA RUDA ŚLĄSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_d1fcc4ed19",
+      "name": "Just GYM SIŁOWNIA SŁUPSK",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_4344903305",
+      "name": "Just GYM SIŁOWNIA KRYGIERA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_2b20096b31",
+      "name": "Just GYM SIŁOWNIA KRZYWOUSTEGO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_9a9651d0cb",
+      "name": "Just GYM SIŁOWNIA KU SŁOŃCU",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_c4ee9d92eb",
+      "name": "Just GYM SIŁOWNIA TYCHY",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_567573eaaf",
+      "name": "Just GYM SIŁOWNIA MYŚLIBORSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_00e15f80d8",
+      "name": "Just GYM SIŁOWNIA BRONIEWSKIEGO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_9d26028f97",
+      "name": "Just GYM SIŁOWNIA DZIEKOŃSKIEGO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_308a8cadd8",
+      "name": "Just GYM SIŁOWNIA MOKOTÓW NOVA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_bb116142cf",
+      "name": "Just GYM SIŁOWNIA PORT PRASKI",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_0a957f4cec",
+      "name": "Just GYM SIŁOWNIA NAŁĘCZOWSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_596a3093f4",
+      "name": "Just GYM SIŁOWNIA KUFLEWSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_eae9316b29",
+      "name": "Just GYM SIŁOWNIA NACZELNIKOWSKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_21c1421556",
+      "name": "Just GYM SIŁOWNIA HERBU OKSZA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_28040d225f",
+      "name": "Just GYM SIŁOWNIA ROSOŁA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_fb549b688c",
+      "name": "Just GYM SIŁOWNIA POŻARYSKIEGO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_4fefa5d6cc",
+      "name": "Just GYM SIŁOWNIA LEGNICKA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_f22cccf893",
+      "name": "Just GYM SIŁOWNIA BIELANY WROCŁAWSKIE",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_0d450def5d",
+      "name": "Just GYM SIŁOWNIA SIENKIEWICZA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_115c7b474a",
+      "name": "Just GYM SIŁOWNIA KAZIMIERZA WIELKIEGO",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_a0e9520ff3",
+      "name": "Just GYM SIŁOWNIE ZABRZE",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_23a24b475a",
+      "name": "Just GYM SIŁOWNIA ZIELONA GÓRA",
+      "brand": "Just GYM"
+    },
+    {
+      "id": "pl_e71e942dcc",
+      "name": "Xtreme Fitness Aleksandrów Łódzki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_93a0adc696",
+      "name": "Xtreme Fitness Andrychów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_b24effffd1",
+      "name": "Xtreme Fitness Augustów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_753a50e865",
+      "name": "Xtreme Fitness Bełchatów Budryka",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_71574375a1",
+      "name": "Xtreme Fitness Bełchatów Ludwikowska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_a1f002f7f4",
+      "name": "Xtreme Fitness Białogard",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_60b4881c59",
+      "name": "Xtreme Fitness Białystok",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_5c66b23abd",
+      "name": "Xtreme Fitness Bielsko Biała",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3e70a845af",
+      "name": "Xtreme Fitness Biłgoraj",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_d154e3d685",
+      "name": "Xtreme Fitness Bochnia",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_15ad5c7856",
+      "name": "Xtreme Fitness Bogatynia",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_54f039f7df",
+      "name": "Xtreme Fitness Brzeg",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_313dc5dbec",
+      "name": "Xtreme Fitness Brzesko",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_41b0de6073",
+      "name": "Xtreme Fitness Brzesko Odyseja",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_6ff2329bf0",
+      "name": "Xtreme Fitness Brzeziny",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_affdcc5e0c",
+      "name": "Xtreme Fitness Busko",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_38e4179087",
+      "name": "Xtreme Fitness Bydgoszcz CH Glinki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_03b188d4fe",
+      "name": "Xtreme Fitness Bytom",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_c0662119c8",
+      "name": "Xtreme Fitness Bytom Plejada",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2b63e3a10a",
+      "name": "Xtreme Fitness Bytów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_48ea671e69",
+      "name": "Xtreme Fitness Chełm",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_30ce9783cb",
+      "name": "Xtreme Fitness Chełmno",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1fe366fe1a",
+      "name": "Xtreme Fitness Chełmża",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_c1242e843b",
+      "name": "Xtreme Fitness Chojnice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_b7a51ccc7c",
+      "name": "Xtreme Fitness Chorzów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_d2de164baa",
+      "name": "Xtreme Fitness Chrzanów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_379fc65a13",
+      "name": "Xtreme Fitness Ciechanów Gostków",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_7e46245c8f",
+      "name": "Xtreme Fitness Cieszyn",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_36dd441e56",
+      "name": "Xtreme Fitness Czapury",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e3b865ad18",
+      "name": "Xtreme Fitness Częstochowa",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_d13f230440",
+      "name": "Xtreme Fitness Działdowo",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_92ef5f2640",
+      "name": "Xtreme Fitness Dzierżoniów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_64bf8d5821",
+      "name": "Xtreme Fitness Dąbrowa Tarnowska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_9f7e10291f",
+      "name": "Xtreme Fitness Dębica",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2f86e759b8",
+      "name": "Xtreme Fitness Elbląg",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_f780254b39",
+      "name": "Xtreme Fitness Ełk Karuzela",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_23c338a590",
+      "name": "Xtreme Fitness Gniezno",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_cf73bc2007",
+      "name": "Xtreme Fitness Gorlice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3c9efcc18f",
+      "name": "Xtreme Fitness Gorzów Wlkp",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_234db9edb4",
+      "name": "Xtreme Fitness Grodzisk Mazowiecki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_ba07da4fdb",
+      "name": "Xtreme Fitness Grudziądz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_d189277202",
+      "name": "Xtreme Fitness Góra Kalwaria",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2f13b58c0e",
+      "name": "Xtreme Fitness Głogów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_eb62f289cf",
+      "name": "Xtreme Fitness Jarocin",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_d097b4a516",
+      "name": "Xtreme Fitness Jarosław",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_6ea3d62b20",
+      "name": "Xtreme Fitness Jastrzębie",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1ecda45ccd",
+      "name": "Xtreme Fitness Jasło",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_4aaed8b3ae",
+      "name": "Xtreme Fitness Jawor",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3966cfebcb",
+      "name": "Xtreme Fitness Jaworzno",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e467ace719",
+      "name": "Xtreme Fitness Jędrzejów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_7e5819f589",
+      "name": "Xtreme Fitness Kalisz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3333c7bbac",
+      "name": "Xtreme Fitness Katowice Armii Krajowej",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e190e44783",
+      "name": "Xtreme Fitness Kielce",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_942061b2d1",
+      "name": "Xtreme Fitness Kielce Agroma Park",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_39cd674a2b",
+      "name": "Xtreme Fitness Kielce Bilcza",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_495f413846",
+      "name": "Xtreme Fitness Kielce Warszawska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_fa209b8f6d",
+      "name": "Xtreme Fitness Knurów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_c44ae5c1ae",
+      "name": "Xtreme Fitness Lesznowola",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_764f64879e",
+      "name": "Xtreme Fitness Konin",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_32f1e3c227",
+      "name": "Xtreme Fitness Konstancin-Jeziorna",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_54885aee57",
+      "name": "Xtreme Fitness Kołobrzeg Portowa",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_44a45c9574",
+      "name": "Xtreme Fitness Kościan",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_7123582028",
+      "name": "Xtreme Fitness Kraków Życzkowskiego",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_ae9ed01de5",
+      "name": "Xtreme Fitness Krasnystaw",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_fe9a1c908f",
+      "name": "Xtreme Fitness Kraśnik",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2d430a8a65",
+      "name": "Xtreme Fitness Krosno Galeria",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_94871c3b60",
+      "name": "Xtreme Fitness Krosno Podkarpacka",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_214ebc3551",
+      "name": "Xtreme Fitness Kędzierzyn",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_9fe3b70520",
+      "name": "Xtreme Fitness Kłobuck",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3bc28aff90",
+      "name": "Xtreme Fitness Legnica Galeria Gwiezdna",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_4a6359f8af",
+      "name": "Xtreme Fitness Leszno Galeria Leszno",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_b4b40d271d",
+      "name": "Xtreme Fitness Limanowa",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_f0d67a908a",
+      "name": "Xtreme Fitness Lubartów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_11136a463d",
+      "name": "Xtreme Fitness Lublin",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_7a17020524",
+      "name": "Xtreme Fitness Lublin Nałęczowska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_93501fdf11",
+      "name": "Xtreme Fitness Lubliniec",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_0f895df838",
+      "name": "Xtreme Fitness Lubsko",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_6e29d8fc50",
+      "name": "Xtreme Fitness Lębork",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2e6cc4bf14",
+      "name": "Xtreme Fitness Mielec",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_77f311e6f6",
+      "name": "Xtreme Fitness Mielec Navigator",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_9773a521de",
+      "name": "Xtreme Fitness Mińsk Mazowiecki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_36a3baf3c0",
+      "name": "Xtreme Fitness Morąg",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_5c63267960",
+      "name": "Xtreme Fitness Mrągowo",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_a87741ce3a",
+      "name": "Xtreme Fitness Myszków",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_fab4b4c1a3",
+      "name": "Xtreme Fitness Mława",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_14de79b60d",
+      "name": "Xtreme Fitness Niepołomice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_b9f3801a95",
+      "name": "Xtreme Fitness Nowy Sącz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_9491c9da6c",
+      "name": "Xtreme Fitness Nowy Sącz Cegielnia",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_6963a0f200",
+      "name": "Xtreme Fitness Nowy Sącz Gołąbkowice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_611fe8af2c",
+      "name": "Xtreme Fitness Nowy Targ",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_6369c153e2",
+      "name": "Xtreme Fitness Nowy Tomyśl",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_74151a8c82",
+      "name": "Xtreme Fitness Nysa",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_5ad029df53",
+      "name": "Xtreme Fitness Nysa FSD",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1d00f428c4",
+      "name": "Xtreme Fitness Oborniki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_5f90f9dd91",
+      "name": "Xtreme Fitness Oleśnica",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_b685d91896",
+      "name": "Xtreme Fitness Oleśnica Krzywoustego",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1f0ea74099",
+      "name": "Xtreme Fitness Olkusz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_cd9fd61808",
+      "name": "Xtreme Fitness Opoczno",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_30d296f92d",
+      "name": "Xtreme Fitness Opole",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_bcce586a30",
+      "name": "Xtreme Fitness Opole Ozimska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_0d109d7370",
+      "name": "Xtreme Fitness Opole Turawa",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_7937ae5d85",
+      "name": "Xtreme Fitness Ostrowiec",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e7a112cec1",
+      "name": "Xtreme Fitness Ostrzeszów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_66cbff4dbc",
+      "name": "Xtreme Fitness Ostróda",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_43d4ec866c",
+      "name": "Xtreme Fitness Ozorków",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_212e15fd0c",
+      "name": "Xtreme Fitness Pabianice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_f6b807ce88",
+      "name": "Xtreme Fitness Pawłowice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_dc1200dd17",
+      "name": "Xtreme Fitness Piekary Śląskie",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2010a6a263",
+      "name": "Xtreme Fitness Pierwoszyno",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_bedf3d3149",
+      "name": "Xtreme Fitness Pionki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_cd4fe63e2e",
+      "name": "Xtreme Fitness Poznań Dębiec",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_10bf98f095",
+      "name": "Xtreme Fitness Poznań Stary Browar",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_79a05c1fb2",
+      "name": "Xtreme Fitness Prudnik",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e38a60f4ce",
+      "name": "Xtreme Fitness Przasnysz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_5550d3a064",
+      "name": "Xtreme Fitness Przemyśl",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_9389c95c0e",
+      "name": "Xtreme Fitness Przeworsk",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_37007f9efd",
+      "name": "Xtreme Fitness Puck",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_f640cea4b4",
+      "name": "Xtreme Fitness Płock",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_17adb515b4",
+      "name": "Xtreme Fitness Płońsk",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2b519c16a8",
+      "name": "Xtreme Fitness Racibórz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2dd060d4f3",
+      "name": "Xtreme Fitness Radomsko",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_d995309fcf",
+      "name": "Xtreme Fitness Radomsko Narutowicza",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_efbc1cb168",
+      "name": "Xtreme Fitness Ropczyce",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_36c8cacf6e",
+      "name": "Xtreme Fitness Ruda Sląska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_59332f5602",
+      "name": "Xtreme Fitness Rybnik",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_dcaa8bdf60",
+      "name": "Xtreme Fitness Rzeszów Olszynki Park",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2849e1cbd0",
+      "name": "Xtreme Fitness Sandomierz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_92d41c83d5",
+      "name": "Xtreme Fitness Sanok",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3a3787d0a6",
+      "name": "Xtreme Fitness Siedlce",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_07406e3bb6",
+      "name": "Xtreme Fitness Siemianowice Śląskie OTO Park",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1d05c3dd3c",
+      "name": "Xtreme Fitness Sieradz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_4b410bb50a",
+      "name": "Xtreme Fitness Skarżysko-Kamienna",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_ef7b68a102",
+      "name": "Xtreme Fitness Skawina",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_d7c2f3d0e4",
+      "name": "Xtreme Fitness Sochaczew",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_06181d4de7",
+      "name": "Xtreme Fitness Sokołów Podlaski",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_313f021877",
+      "name": "Xtreme Fitness Sosnowiec Wojska Polskiego",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_920ffafb26",
+      "name": "Xtreme Fitness Stalowa Wola",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_89514e80b7",
+      "name": "Xtreme Fitness Stargard",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_52e5ce1fef",
+      "name": "Xtreme Fitness Staszów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e522265e3d",
+      "name": "Xtreme Fitness Strzegom",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_a39d148141",
+      "name": "Xtreme Fitness Suwałki S1",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_7583cef90f",
+      "name": "Xtreme Fitness Suwałki Sejneńska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1f6ef79e20",
+      "name": "Xtreme Fitness Szamotuły",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_dfd1caa8f5",
+      "name": "Xtreme Fitness Szczytno",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_6772c53c07",
+      "name": "Xtreme Fitness Szprotawa",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_8b6d4212af",
+      "name": "Xtreme Fitness Sztum",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_2038c4649b",
+      "name": "Xtreme Fitness Sępólno Krajeńskie",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_039b34601d",
+      "name": "Xtreme Fitness Słubice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e5ebe9c0aa",
+      "name": "Xtreme Fitness Tarnobrzeg N-Park",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1d68196912",
+      "name": "Xtreme Fitness Tarnobrzeg Warszawska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_9524af85db",
+      "name": "Xtreme Fitness Tarnowskie Góry",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_0fe9342111",
+      "name": "Xtreme Fitness Tarnowskie Góry Nakielska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_cc9035ca15",
+      "name": "Xtreme Fitness Tarnów Błonie",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_faefbda9b3",
+      "name": "Xtreme Fitness Tarnów Dąbrowskiego",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_86ccf9cb91",
+      "name": "Xtreme Fitness Tarnów Tarnovia",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_760aba36b8",
+      "name": "Xtreme Fitness Tarnów Widok",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_67d65ef3c6",
+      "name": "Xtreme Fitness Website Test",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1ff56323ee",
+      "name": "Xtreme Fitness Tczew",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_27c14412df",
+      "name": "Xtreme Fitness Tomaszów Lubelski",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3b8a8b1668",
+      "name": "Xtreme Fitness Tomaszów Mazowiecki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e81a53ae23",
+      "name": "Xtreme Fitness Wadowice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_75e56c51f2",
+      "name": "Xtreme Fitness Warszawa Cybernetyki",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e39df535ad",
+      "name": "Xtreme Fitness Warszawa Jurajska",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_8f48ab2b5f",
+      "name": "Xtreme Fitness Warszawa Kasprzaka",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_33fd3444df",
+      "name": "Xtreme Fitness Warszawa Powstańców Śląskich",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_03b734f861",
+      "name": "Xtreme Fitness Wałcz",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_0e80ea7d3d",
+      "name": "Xtreme Fitness Wejherowo",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_ed610c219a",
+      "name": "Xtreme Fitness Wodzisław Śląski",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_18424ea1a4",
+      "name": "Xtreme Fitness Węgrów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_89b18ce4c5",
+      "name": "Xtreme Fitness Włocławek",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_1d7e0a87a5",
+      "name": "Xtreme Fitness Zabrze",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_e394cf9b4a",
+      "name": "Xtreme Fitness Zambrów",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_9dfaa71bb9",
+      "name": "Xtreme Fitness Zamość",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_a9e2333d8e",
+      "name": "Xtreme Fitness Zawiercie Piłsudskiego",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_79057ab054",
+      "name": "Xtreme Fitness Zgorzelec",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_022773630c",
+      "name": "Xtreme Fitness Zielona Góra Galeria Źródlana",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_f5d22a9e68",
+      "name": "Xtreme Fitness Zielonka",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_bb53002538",
+      "name": "Xtreme Fitness Łomża",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_0cb26a6d8e",
+      "name": "Xtreme Fitness Śrem",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_64185d1dda",
+      "name": "Xtreme Fitness Świdnica",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_3662f28f00",
+      "name": "Xtreme Fitness Świdnik",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_98dda94d8e",
+      "name": "Xtreme Fitness Świebodzice",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_fa7ec74d26",
+      "name": "Xtreme Fitness Świebodzin",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_8fca6d6368",
+      "name": "Xtreme Fitness Świecie",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_24e9fd2eba",
+      "name": "Xtreme Fitness Żory",
+      "brand": "Xtreme Fitness Gyms"
+    },
+    {
+      "id": "pl_379c9a319f",
+      "name": "Calypso Fitness Białystok",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_4b9fa041b7",
+      "name": "Calypso Fitness Ełk",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_926e76b240",
+      "name": "Calypso Fitness Łomianki",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_ec6b685d80",
+      "name": "Calypso Fitness Poznań Avenida",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_2b2373e679",
+      "name": "Calypso Fitness Premium Warszawa Wilanów",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_9e39102059",
+      "name": "Calypso Fitness Rumia",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_0d903cd607",
+      "name": "Calypso Fitness Rzeszów Hetmańska",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_c4a54568ae",
+      "name": "Calypso Fitness Rzeszów Millenium Hall",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_7c280bb836",
+      "name": "Calypso Fitness Suwałki",
+      "brand": "Calypso Fitness"
+    },
+    {
+      "id": "pl_29f305d642",
+      "name": "Well Fitness Klub fitness i Siłownia Bełchatów",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_33e718abec",
+      "name": "Well Fitness Klub fitness i Siłownia PKS Białystok",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_256633e777",
+      "name": "Well Fitness Klub fitness i Siłownia Bielsko-Biała",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_87cc873ae4",
+      "name": "Well Fitness Klub fitness i Siłownia Bolesławiec",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_bd4001b8b0",
+      "name": "Well Fitness Klub fitness i Siłownia Bydgoszcz",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_a7548bdb8f",
+      "name": "Well Fitness Klub fitness i Siłownia Bytom",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_8867af2722",
+      "name": "Well Fitness Klub fitness i Siłownia Ciechanów",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_61c56f90dc",
+      "name": "Well Fitness Klub fitness i Siłownia Czechowice-Dziedzice",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_6c083b79c9",
+      "name": "Well Fitness Klub fitness i Siłownia Czeladź",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_70e6290785",
+      "name": "Well Fitness Klub fitness i Siłownia Częstochowa",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e032c94250",
+      "name": "Well Fitness Klub fitness i Siłownia Elbląg",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_6b70530a7e",
+      "name": "Well Fitness Klub Fitness i Siłownia Oliwa",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_6c5486186a",
+      "name": "Well Fitness Klub Fitness i Siłownia Orunia",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_40ec42b922",
+      "name": "Well Fitness Klub Fitness i Siłownia Osowa",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_c3af7770e7",
+      "name": "Well Fitness Klub fitness i Siłownia Gdynia",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_4bbd6e7612",
+      "name": "Well Fitness Klub fitness i Siłownia Glogovia",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e0a0a2623e",
+      "name": "Well Fitness Klub fitness i Siłownia Gwiaździsta",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_ddf49efbb5",
+      "name": "Well Fitness Klub fitness i Siłownia Multibox",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_05066ba11f",
+      "name": "Well Fitness Klub fitness i Siłownia Gubin",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_0d1b233894",
+      "name": "Well Fitness Klub fitness i Siłownia Jastrzębie-Zdrój",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_4b1f87d60b",
+      "name": "Well Fitness Klub fitness i Siłownia Pasaż Grodzki",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_7577bf5b79",
+      "name": "Well Fitness Klub fitness i Siłownia Zabobrze",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_4af82dd968",
+      "name": "Well Fitness Klub fitness i Siłownia Kalisz",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_9532b73bed",
+      "name": "Well Fitness Klub fitness i Siłownia Korfantego",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_4221e72727",
+      "name": "Well Fitness Klub fitness i Siłownia Manhattan",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_b0de0ef2a6",
+      "name": "Well Fitness Klub fitness i Siłownia Wrocławska",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_7cbc3a9814",
+      "name": "Well Fitness Klub fitness i Siłownia Załęże",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_73674f7e85",
+      "name": "Well Fitness Klub fitness i Siłownia Al. Pokoju",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_bb87a555c2",
+      "name": "Well Fitness Klub fitness i Siłownia Aleksandry",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_a8d5bc0807",
+      "name": "Well Fitness Klub fitness i Siłownia Azbud",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_6998bee076",
+      "name": "Well Fitness Klub fitness i Siłownia Bratysławska",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_3b16c7db04",
+      "name": "Well Fitness Klub fitness i Siłownia DH Wanda",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_2d3d3b6f4a",
+      "name": "Well Fitness Klub fitness i Siłownia Klimeckiego",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e054d017d1",
+      "name": "Well Fitness Klub fitness i Siłownia Reymonta",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_8a551355d3",
+      "name": "Well Fitness Klub fitness i Siłownia Solvay Park",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_1f2067f8b3",
+      "name": "Well Fitness Klub fitness i Siłownia Stawowa",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_5890c54bde",
+      "name": "Well Fitness Klub fitness i Siłownia Zachodnia",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_78808f41bf",
+      "name": "Well Fitness Klub fitness i Siłownia Lębork",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_f50201a6d0",
+      "name": "Well Fitness Klub fitness i Siłownia Legionowo",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_90a223e6a1",
+      "name": "Well Fitness Klub fitness i Siłownia Galeria Ferio",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_0166e80fad",
+      "name": "Well Fitness Klub fitness i Siłownia Marsa",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_7c2328161f",
+      "name": "Well Fitness Klub fitness i Siłownia Brama Miasta",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_797e792a7f",
+      "name": "Well Fitness Klub fitness i Siłownia Chojny",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_84f804bed0",
+      "name": "Well Fitness Klub fitness i Siłownia Chojny 2",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_81acffa2db",
+      "name": "Well Fitness Klub fitness i Siłownia Górna",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_8cea655cd8",
+      "name": "Well Fitness Klub fitness i Siłownia Imagine",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_a27ac2e452",
+      "name": "Well Fitness Klub fitness i Siłownia Księży Młyn",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e3926a1732",
+      "name": "Well Fitness Klub fitness i Siłownia Liściasta",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e3d0207920",
+      "name": "Well Fitness Klub Fitness i Siłownia Ogrody Geyera",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_843b88d805",
+      "name": "Well Fitness Klub fitness i Siłownia Teofilów",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_4ce2736f5e",
+      "name": "Well Fitness Klub Fitness i Siłownia Widzew",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_1d339b8130",
+      "name": "Well Fitness Klub fitness i Siłownia Łomianki",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_733c20f6d3",
+      "name": "Well Fitness Klub fitness i Siłownia Cuprum Arena",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_41438e8d75",
+      "name": "Well Fitness Klub fitness i Siłownia Indomo",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_fb2b953b8b",
+      "name": "Well Fitness Klub fitness i Siłownia Leszczynowa",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_6ac2208e09",
+      "name": "Well Fitness Klub fitness i Siłownia Marki",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_ec8a3d4866",
+      "name": "Well Fitness Klub fitness i Siłownia Piaseczno",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e675a7f761",
+      "name": "Well Fitness Klub fitness i Siłownia Polkowice",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e4889c3861",
+      "name": "Well Fitness Klub fitness i Siłownia Business Garden",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_788bd25e80",
+      "name": "Well Fitness Klub fitness i Siłownia Niku",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_9745efd60c",
+      "name": "Well Fitness Klub fitness i Siłownia Pixel",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_5d6a715679",
+      "name": "Well Fitness Klub fitness i Siłownia Półwiejska",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_46ac4b9109",
+      "name": "Well Fitness Klub fitness i Siłownia Racibórz",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_446748ef1b",
+      "name": "Well Fitness Klub fitness i Siłownia Rawa Mazowiecka",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_494d3c232e",
+      "name": "Well Fitness Klub fitness i Siłownia Rumia",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_aa0348fa31",
+      "name": "Well Fitness Klub fitness i Siłownia Siedlce",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_a8ce3559f6",
+      "name": "Well Fitness Klub fitness i Siłownia Słupsk",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_287932de56",
+      "name": "Well Fitness Klub fitness i Siłownia Sosnowiec",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_cb57feb08b",
+      "name": "Well Fitness Klub Fitness i Siłownia Stargard",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_4359d40952",
+      "name": "Well Fitness Klub fitness i Siłownia Starogard Gdański",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_434e63751d",
+      "name": "Well Fitness Klub fitness i Siłownia Sulejówek",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_9f047aa62c",
+      "name": "Well Fitness Klub fitness i Siłownia Swarzędz",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_ed00a38fce",
+      "name": "Well Fitness Klub fitness i Siłownia Świdnica",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_8b62b81a86",
+      "name": "Well Fitness Klub fitness i Siłownia Świebodzin",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_5dce388c2a",
+      "name": "Well Fitness Klub fitness i Siłownia Hanza",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e074a49998",
+      "name": "Well Fitness Klub fitness i Siłownia Słoneczne",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_572f846c61",
+      "name": "Well Fitness Klub fitness i Siłownia Wałbrzych",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_3e5efd61c6",
+      "name": "Well Fitness Klub fitness i Siłownia Bemowo",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_5657630131",
+      "name": "Well Fitness Klub fitness i Siłownia Browary Warszawskie",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_7a194639b3",
+      "name": "Well Fitness Klub fitness i Siłownia Gocław",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_a56df628a6",
+      "name": "Well Fitness Klub fitness i Siłownia Grochów",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_16064b9662",
+      "name": "Well Fitness Klub fitness i Siłownia Nowy Świat",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_9dae01457b",
+      "name": "Well Fitness Klub fitness i Siłownia Plac Zawiszy",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_e3b29a07ad",
+      "name": "Well Fitness Klub fitness i Siłownia Skorosze",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_cd89543850",
+      "name": "Well Fitness Klub fitness i Siłownia Ursynów",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_5b81f2f445",
+      "name": "Well Fitness Klub fitness i Siłownia Wołoska",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_75a1af439d",
+      "name": "Well Fitness Klub fitness i Siłownia Złote Tarasy",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_d2a890ae6f",
+      "name": "Well Fitness Klub fitness i Siłownia Wejherowo",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_886a50b35f",
+      "name": "Well Fitness Klub fitness i Siłownia Astra",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_f322d4c90c",
+      "name": "Well Fitness Klub fitness i Siłownia Biskupin",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_1c6f09857a",
+      "name": "Well Fitness Klub fitness i Siłownia Ferio Gaj",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_0438703743",
+      "name": "Well Fitness Klub fitness i Siłownia Grabiszyn",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_b6a7c317ec",
+      "name": "Well Fitness Klub fitness i Siłownia Karłowice",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_9c3e272324",
+      "name": "Well Fitness Klub fitness i Siłownia Kleczków",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_fe6bc606e8",
+      "name": "Well Fitness Klub fitness i Siłownia OVO",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_67642e49d8",
+      "name": "Well Fitness Klub fitness i Siłownia Tęczowa",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_50dcefa107",
+      "name": "Well Fitness Klub fitness i Siłownia Żary",
+      "brand": "Well Fitness"
+    },
+    {
+      "id": "pl_46ce17b233",
+      "name": "Zdrofit Warszawa Adgar Plaza",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_258a20667d",
+      "name": "Zdrofit Bytom Agora",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3d586c4a18",
+      "name": "Zdrofit Gdańsk Alchemia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_5e98284e94",
+      "name": "Zdrofit Warszawa Ochota Jerozolimskie",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_facd294d04",
+      "name": "Zdrofit Warszawa Śródmieście CH Arkadia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_894725b121",
+      "name": "Zdrofit Lublin Batory",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_79e3c24a03",
+      "name": "Zdrofit Warszawa Bemowo",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d4d8555054",
+      "name": "Zdrofit Warszawa Bemowo Świetlików",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0a2d0dcd3a",
+      "name": "Zdrofit Warszawa Białołęka Modlińska 256",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_9f41d1ab75",
+      "name": "Zdrofit Białystok Wrocławska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ea41a34e63",
+      "name": "Zdrofit Warszawa Bielany",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_184eff14ab",
+      "name": "Zdrofit Warszawa Mokotów Bobrowiecka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c8a2df658c",
+      "name": "Zdrofit Gdańsk Chełm",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_57feac5cf1",
+      "name": "Zdrofit Gdynia Chwarzno",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6d63b3e58a",
+      "name": "Zdrofit Pruszcz Gdański Domeyki",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_405c462dee",
+      "name": "Zdrofit Warszawa Metro Dw. Gdański",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0809c17f01",
+      "name": "Zdrofit Warszawa Mokotów Europlex",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_11eefc8760",
+      "name": "Zdrofit Warszawa Wawer CH Ferio",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3514da9487",
+      "name": "Zdrofit Warszawa Fort Wola",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6cfd18f0fb",
+      "name": "Zdrofit Koszalin Forum Koszalin",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c5989dd80e",
+      "name": "Zdrofit Warszawa Gocław G City Promenada",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_fc0f8d9a3a",
+      "name": "Zdrofit Warszawa G City Targówek",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_023d75ee1d",
+      "name": "Zdrofit Szczecin Galaxy",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_05c136fa08",
+      "name": "Zdrofit Toruń Galeria Copernicus",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0c44e6e371",
+      "name": "Zdrofit Kielce Galeria Echo",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_5b3726902b",
+      "name": "Zdrofit Kielce Galeria Korona",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_69c2200a36",
+      "name": "Zdrofit Koszalin Galeria Kosmos",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_96f5637a8f",
+      "name": "Zdrofit Płock Galeria Mazovia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_228ef7b6c5",
+      "name": "Zdrofit Lublin Galeria Olimp",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f8f97237f3",
+      "name": "Zdrofit Gdańsk Galeria Przymorze",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6238d375c4",
+      "name": "Zdrofit Warszawa Tarchomin Galeria Północna",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ba5fae02de",
+      "name": "Zdrofit Warszawa Gocław",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f92b8b1799",
+      "name": "Zdrofit Gdańsk Grunwaldzka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ca277f4f8c",
+      "name": "Zdrofit Warszawa Ochota Grójecka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0d7f9f43c1",
+      "name": "Zdrofit Homepark Janki",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a133a5eced",
+      "name": "Zdrofit Warszawa Wola Jana Kazimierza",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4f084d8454",
+      "name": "Zdrofit Gdynia Karwiny",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a950e92ab8",
+      "name": "Zdrofit Szczecin Kaskada",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_1911a247fd",
+      "name": "Zdrofit Pruszcz Gdański Kasprowicza",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_1806fe3e66",
+      "name": "Zdrofit Gdynia Klif",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_9c094fb4b5",
+      "name": "Zdrofit Warszawa Praga Koneser",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0a5f411370",
+      "name": "Zdrofit Warszawa Mokotów Konstruktorska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_59fbc48fb4",
+      "name": "Zdrofit Gdańsk Kowale",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_86043bb531",
+      "name": "Zdrofit Warszawa Włochy Krakowiaków",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_390bdacd1d",
+      "name": "Zdrofit Kraków Columbus",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_07f2050b5d",
+      "name": "Zdrofit Warszawa Centrum Krucza",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_58e33fc8d5",
+      "name": "Zdrofit Warszawa Bemowo Lazurowa",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f3112ac229",
+      "name": "Zdrofit Legionowo CH Maxim",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_26df9994dd",
+      "name": "Zdrofit Gdańsk Madison",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6b7c5d75d4",
+      "name": "Zdrofit Gdańsk CH Manhattan",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_cc21bc8288",
+      "name": "Zdrofit Warszawa Marynarska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_95d37dc2bc",
+      "name": "Zdrofit Warszawa Wola Mennica Towers",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_21b37e4cb9",
+      "name": "Zdrofit Warszawa Śródmieście Metro Politechnika",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_2cd15911da",
+      "name": "Zdrofit Warszawa Mokotów Bukowińska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3b68c65cdd",
+      "name": "Zdrofit Warszawa Mokotów Mangalia 2a",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6f641a2c6a",
+      "name": "Zdrofit Warszawa Mokotów Puławska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_1f39a9bb7d",
+      "name": "Zdrofit Gdańsk Morena",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_92209a6dae",
+      "name": "Zdrofit Kraków Mozaika",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d35a8262ae",
+      "name": "Zdrofit Warszawa Galeria Młociny",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_bc37617b07",
+      "name": "Zdrofit NPark Stara Iwiczna",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_7cf545278b",
+      "name": "Zdrofit Gdańsk Nieborowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_65de94e337",
+      "name": "Zdrofit Pruszków CH Nowa Stacja",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d0be8d0df5",
+      "name": "Zdrofit Warszawa Ochota Adgar",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_78a50cbd3f",
+      "name": "Zdrofit Warszawa Ochota Aleja Bohaterów Września",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ad51f3ef8d",
+      "name": "Zdrofit Gdańsk Orzechowa",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a8b07a3cbe",
+      "name": "Zdrofit Kraków Os. Na Lotnisku",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_be8b60e943",
+      "name": "Zdrofit Kraków Os. Na Stoku",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_e83ff67c55",
+      "name": "Zdrofit Otwock Kołłątaja",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_bba30b53f0",
+      "name": "Zdrofit Szczecin Outlet Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_884153d497",
+      "name": "Zdrofit Piastów Pasaż Warszawska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6dc9ab507d",
+      "name": "Zdrofit Piaseczno Pawia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_7bd93f53af",
+      "name": "Zdrofit Częstochowa Piastowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4a9e4ffd7c",
+      "name": "Zdrofit Szczecin Piastów Office Center",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_392817bc8b",
+      "name": "Zdrofit Gdynia Plac Kaszubski",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_884845abe5",
+      "name": "Zdrofit Warszawa CH Plac Unii",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_748690e3b2",
+      "name": "Zdrofit Kraków Podium Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4b88cabb88",
+      "name": "Zdrofit Warszawa Bielany Przy Agorze",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_1972806657",
+      "name": "Zdrofit Gdańsk Przymorze",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a59bc39e0d",
+      "name": "Zdrofit Warszawa Ursynów Puławska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_60c5b74a74",
+      "name": "Zdrofit Warszawa Targówek Galeria Renova",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_7a38f0b094",
+      "name": "Zdrofit Gdańsk CH Rental Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_2491e87e17",
+      "name": "Zdrofit Gdynia CH Riviera",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_156928e88c",
+      "name": "Zdrofit Warszawa Centrum Rondo ONZ",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c2797b5331",
+      "name": "Zdrofit Toruń Rydygiera",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_f94761879a",
+      "name": "Zdrofit Gdańsk Rzeczypospolitej",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_84a4405dce",
+      "name": "Zdrofit Warszawa Sadyba Nałęczowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_7cede7eebf",
+      "name": "Zdrofit Warszawa Wola Skierniewicka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_cdd5f9f463",
+      "name": "Zdrofit Sopot Centrum",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_d6cadae110",
+      "name": "Zdrofit Gdańsk Suchanino",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_c4a5af015f",
+      "name": "Zdrofit Warszawa Żoliborz Szamocka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3ad238bcaf",
+      "name": "Zdrofit Warszawa Targówek Dalanowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0ddf695255",
+      "name": "Zdrofit Warszawa Wola The Warsaw HUB",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_3069e70e16",
+      "name": "Zdrofit Warszawa Wesoła Trakt Brzeski",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_dc1462ca58",
+      "name": "Zdrofit Warszawa Ursus Dzieci Warszawy",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ece03dec51",
+      "name": "Zdrofit Warszawa Ursus Pużaka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_2cbb2a305b",
+      "name": "Zdrofit Warszawa Ursynów Koński Jar",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_445e3a6e11",
+      "name": "Zdrofit Warszawa Varso",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4a317afb89",
+      "name": "Zdrofit Warszawa Wola Warsaw Spire",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_1e15ab4037",
+      "name": "Zdrofit Warszawa Mokotów Warszawianka",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_2c1cc7edab",
+      "name": "Zdrofit Warszawa Westfield Mokotów (d. Galeria Mokotów)",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a739b58aac",
+      "name": "Zdrofit Warszawa Mokotów Wilanowska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6e8707129e",
+      "name": "Zdrofit Warszawa Wilanów Rzeczypospolitej",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_38a95ea962",
+      "name": "Zdrofit Warszawa Wilanów Aleja Rzeczypospolitej 14",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_9dc5b06f64",
+      "name": "Zdrofit Gdynia Witawa",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ae518802fb",
+      "name": "Zdrofit Warszawa Wola Wolska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_4ffe9be9fc",
+      "name": "Zdrofit Warszawa Wola Park",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_e5f2a2ad0e",
+      "name": "Zdrofit Wołomin Geodetów",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_9052619ddb",
+      "name": "Zdrofit Włocławek Wzorcownia",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_0dcd0daf0f",
+      "name": "Zdrofit Gdańsk Zaspa",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_6f03e97214",
+      "name": "Zdrofit Warszawa PZO",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_a9a77c92a3",
+      "name": "Zdrofit Legionowo Zegrzyńska",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_65b1f0c542",
+      "name": "Zdrofit Żory Zjednoczonej Europy",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_929e6920ac",
+      "name": "Zdrofit Warszawa Tarchomin Światowida",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_5e00c2b338",
+      "name": "Zdrofit Warszawa Żoliborz Hubnera",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_bec09536c6",
+      "name": "Zdrofit Warszawa Żoliborz Wojska Polskiego",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_ae6e88e203",
+      "name": "Zdrofit Warszawa Włochy Żwirki i Wigury",
+      "brand": "Zdrofit"
+    },
+    {
+      "id": "pl_5b6b755252",
+      "name": "Fabryka Formy Poznań A2",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_277c7875ea",
+      "name": "Fabryka Formy Zielona Góra Alpha",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_40435a6bfc",
+      "name": "Fabryka Formy Poznań Bałtyk",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_0f208d3ed1",
+      "name": "Fabryka Formy Kalisz Galeria Amber",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_c54ad17dae",
+      "name": "Fabryka Formy Poznań Green Point",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_6fbd7bf931",
+      "name": "Fabryka Formy Poznań Kinepolis",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_70e8ea8371",
+      "name": "Fabryka Formy Poznań Korty Arena",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_fdf6c50a9a",
+      "name": "Fabryka Formy Poznań Mallwowa",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_3e27afb5d2",
+      "name": "Fabryka Formy Poznań Pasaż Rondo",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_ca7ecff508",
+      "name": "Fabryka Formy Poznań Posnania",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_767353eda7",
+      "name": "Fabryka Formy Poznań Jutrzenka",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_793008a228",
+      "name": "Fabryka Formy Poznań Malta House",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_1fbeb08db9",
+      "name": "Fabryka Formy Poznań Plaza",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_ad5aec95a4",
+      "name": "Fabryka Formy Poznań Serbska",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_397fd496d8",
+      "name": "Fabryka Formy Poznań Strzeszyńska",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_d293557ae9",
+      "name": "Fabryka Formy Poznań Suchy Las",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_24255c0783",
+      "name": "Fabryka Formy Swarzędz Tysiąclecia",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_a79875b46b",
+      "name": "Fabryka Formy Poznań Termy Maltańskie",
+      "brand": "Fabryka Formy"
+    },
+    {
+      "id": "pl_ad3defd9fc",
+      "name": "Fit Fabric Andrespol Rokicińska",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_e401e16361",
+      "name": "Fit Fabric Łódź Dąbrowa",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_f83c7e6238",
+      "name": "Fit Fabric Łódź Franciszkańska",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_1f58d5122e",
+      "name": "Fit Fabric Łódź Galeria Retkińska",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_2b3f509fb7",
+      "name": "Fit Fabric Łódź Hetmańska",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_a91a1635aa",
+      "name": "Fit Fabric Łódź Kilińskiego",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_9d54df4104",
+      "name": "Fit Fabric Konstantynów Łódzki Jana Pawła II",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_ef8d1fed7d",
+      "name": "Fit Fabric Łódź Manufaktura",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_f5ce00654d",
+      "name": "Fit Fabric Łódź Matejki",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_2db8a2c37c",
+      "name": "Fit Fabric Łódź Nowosolna",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_d9a40f6a2e",
+      "name": "Fit Fabric Piotrków Trybunalski Focus Mall",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_9473864f7a",
+      "name": "Fit Fabric Łódź Port",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_b75586e6b1",
+      "name": "Fit Fabric Łódź Rewolucji",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_e22e2f82f9",
+      "name": "Fit Fabric Łódź Strażacka",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_d9a618a08f",
+      "name": "Fit Fabric Łódź Sukcesja",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_e2667bbbb0",
+      "name": "Fit Fabric Łódź Teofilów",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_0ff2213b0a",
+      "name": "Fit Fabric Tomaszów Mazowiecki Galeria Tomaszów",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_a30adb21a1",
+      "name": "Fit Fabric Łódź Widzewska Manufaktura",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_188645b1a3",
+      "name": "Fit Fabric Łódź Zatoka Sportu",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_fdd7cd7756",
+      "name": "Fit Fabric Łódź Zgierska",
+      "brand": "Fit Fabric"
+    },
+    {
+      "id": "pl_714c28ae7a",
+      "name": "Fit Fabric Łódź Zielona",
+      "brand": "Fit Fabric"
+    }
+  ],
+  "retained_close_pairs": []
+}

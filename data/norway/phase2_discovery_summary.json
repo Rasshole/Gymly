@@ -1,0 +1,24 @@
+{
+  "feel24_with_address": 111,
+  "3t_with_address": 17,
+  "mova_with_city": 92,
+  "sky_with_address": 45,
+  "spenst_with_address": 21,
+  "phase2_new_keep": 257,
+  "phase2_ambiguous": 29,
+  "phase2_new_by_brand": {
+    "Feel24": 84,
+    "3T-Treningssenter": 15,
+    "MOVA": 92,
+    "SKY Fitness": 45,
+    "Spenst": 21
+  },
+  "staging_ready_for_geocode": 27,
+  "sky_coming_notes": [],
+  "spenst_coming_notes": [
+    "Åpningstider Spenst Fredrikstad åpner januar 2027!"
+  ],
+  "sporty": "JS-rendered; addresses not extractable from static HTML — flagged for manual/API follow-up",
+  "fitness24seven": "Static pages lacked address list — flagged for manual follow-up",
+  "impulse": "4 center URLs found (Lade, Lerkendal, Pirbadet, Solsiden) but addresses not in static HTML — flagged"
+}

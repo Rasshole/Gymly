@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ua_32e504a27b",
+    "name": "Sport Life Почайна",
+    "brand": "Sport Life",
+    "chain_key": "sport_life",
+    "address": "Київ, просп. Степана Бандери, 20б, ТРК Plaza sport outlet, 3-й пов.",
+    "postal_code": "",
+    "city": "Kyiv",
+    "country": "Ukraine",
+    "lat": 50.488197,
+    "lng": 30.50709,
+    "website": "https://sportlife.ua/uk/clubs/pochaina/",
+    "source_url": "https://sportlife.ua/uk/clubs/pochaina/",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "notes": "",
+    "import_category": "CLOSED",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": false,
+    "is_closed": true,
+    "discovery_class": "national_chain",
+    "verification_status": "CLOSED",
+    "evidence": {
+      "source_url": "https://sportlife.ua/uk/clubs/pochaina/"
+    },
+    "operator_class": "A"
+  },
+  {
+    "id": "ua_efd768323e",
+    "name": "Sport Life Антоновича",
+    "brand": "Sport Life",
+    "chain_key": "sport_life",
+    "address": "м. Львів, вул. Антоновича, 120, БЦ «Вертикаль»",
+    "postal_code": "",
+    "city": "Lviv",
+    "country": "Ukraine",
+    "lat": 49.82761,
+    "lng": 23.99266,
+    "website": "https://sportlife.ua/uk/clubs/antonovicha/",
+    "source_url": "https://sportlife.ua/uk/clubs/antonovicha/",
+    "coord_source": "OFFICIAL_MAP_PIN",
+    "notes": "",
+    "import_category": "CLOSED",
+    "discovered_at": "2026-08-29",
+    "is_active": false,
+    "is_coming_soon": false,
+    "is_closed": true,
+    "discovery_class": "national_chain",
+    "verification_status": "CLOSED",
+    "evidence": {
+      "source_url": "https://sportlife.ua/uk/clubs/antonovicha/"
+    },
+    "operator_class": "A"
+  }
+]

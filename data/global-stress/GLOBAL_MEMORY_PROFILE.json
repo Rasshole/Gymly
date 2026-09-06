@@ -1,0 +1,10 @@
+{
+  "memory_measurement_mode": "ESTIMATED",
+  "base_memory_mb": 3.83,
+  "post_parse_memory_mb": 9.57,
+  "post_registry_memory_mb": 12.25,
+  "post_search_index_memory_mb": 17.23,
+  "post_map_prep_memory_mb": 14.55,
+  "peak_memory_mb": 19.14,
+  "note": "Deterministic estimates from raw JSON bytes; no runtime heap profiling"
+}

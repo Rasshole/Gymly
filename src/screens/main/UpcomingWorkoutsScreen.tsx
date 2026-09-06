@@ -1,27 +1,14 @@
 import React, {useMemo} from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
-import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import colors from '@/theme/colors';
 import {useAppStore} from '@/store/appStore';
 import {isWorkoutOnUserCalendar} from '@/utils/plannedCalendarFilter';
+import {useTranslation, useMuscleLabel} from '@/i18n';
 
-const MUSCLE_LABELS: Record<MuscleGroup, string> = {
-  bryst: 'Bryst',
-  triceps: 'Triceps',
-  skulder: 'Skulder',
-  ben: 'Ben',
-  biceps: 'Biceps',
-  mave: 'Mave',
-  ryg: 'Ryg',
-  cardio: 'Cardio',
-  reformer: 'Reformer',
-  pilates: 'Pilates',
-};
-
-const formatDateTime = (date: Date) =>
-  new Date(date).toLocaleString('da-DK', {
+const formatDateTime = (date: Date, intlLocale: string) =>
+  new Date(date).toLocaleString(intlLocale, {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -30,6 +17,8 @@ const formatDateTime = (date: Date) =>
   });
 
 const UpcomingWorkoutsScreen = () => {
+  const {t, tp, intlLocale} = useTranslation();
+  const muscleLabel = useMuscleLabel();
   const {user} = useAppStore();
   const plannedWorkouts = useWorkoutPlanStore(state => state.plannedWorkouts);
   const removePlannedWorkout = useWorkoutPlanStore(state => state.removePlannedWorkout);
@@ -50,30 +39,34 @@ const UpcomingWorkoutsScreen = () => {
             <View style={styles.cardHeader}>
               <View>
                 <Text style={styles.gymName}>{formatGymDisplayName(item.gym)}</Text>
-                <Text style={styles.timestamp}>{formatDateTime(item.scheduledAt)}</Text>
+                <Text style={styles.timestamp}>{formatDateTime(item.scheduledAt, intlLocale)}</Text>
               </View>
               <TouchableOpacity
                 style={styles.cancelButton}
                 onPress={() => removePlannedWorkout(item.id)}>
-                <Text style={styles.cancelButtonText}>Annuller</Text>
+                <Text style={styles.cancelButtonText}>{t('common.cancel')}</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.muscleRow}>
               {item.muscles.map(group => (
                 <View key={group} style={styles.muscleChip}>
-                  <Text style={styles.muscleChipText}>{MUSCLE_LABELS[group]}</Text>
+                  <Text style={styles.muscleChipText}>{muscleLabel(group)}</Text>
                 </View>
               ))}
             </View>
             {item.invitedFriends.length > 0 && (
               <Text style={styles.friendText}>
                 {item.acceptedFriends && item.acceptedFriends.length > 0
-                  ? `${item.acceptedFriends.length} ${
-                      item.acceptedFriends.length === 1 ? 'ven' : 'venner'
-                    } deltager`
-                  : `${item.invitedFriends.length} ${
-                      item.invitedFriends.length === 1 ? 'ven' : 'venner'
-                    } har ikke svaret endnu`}
+                  ? tp(
+                      'phase2ui.friendsJoining',
+                      item.acceptedFriends.length,
+                      {count: item.acceptedFriends.length},
+                    )
+                  : tp(
+                      'phase2ui.friendsNotResponded',
+                      item.invitedFriends.length,
+                      {count: item.invitedFriends.length},
+                    )}
               </Text>
             )}
           </View>
@@ -81,9 +74,9 @@ const UpcomingWorkoutsScreen = () => {
         ListEmptyComponent={
           <View style={styles.emptyState}>
             <Text style={styles.emptyEmoji}>📅</Text>
-            <Text style={styles.emptyTitle}>Ingen planlagte sessions</Text>
+            <Text style={styles.emptyTitle}>{t('phase2ui.upcomingEmptyTitle')}</Text>
             <Text style={styles.emptySubtitle}>
-              Åbn “Planlagte sessions” fra tjek ind og aftal næste træning med venner.
+              {t('phase2ui.upcomingEmptySubtitle')}
             </Text>
           </View>
         }

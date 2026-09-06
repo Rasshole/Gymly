@@ -1,0 +1,87 @@
+{
+  "sm_54007fb102": {
+    "lat": 43.9812605,
+    "lng": 12.4971575,
+    "coord_source": "OSM_NOMINATIM_PREMISES"
+  },
+  "sm_8e18d472a9": {
+    "lat": 43.9461526,
+    "lng": 12.4561009,
+    "coord_source": "OSM_NOMINATIM_PREMISES"
+  },
+  "sm_cc1fd3ba1d": {
+    "lat": 43.9670579,
+    "lng": 12.4704857,
+    "coord_source": "OSM_NOMINATIM_PREMISES"
+  },
+  "sm_3c035258fb": {
+    "lat": 43.9294944,
+    "lng": 12.441926,
+    "coord_source": "OSM_NOMINATIM_PREMISES"
+  },
+  "sm_d1cb014d10": {
+    "lat": 43.9801816,
+    "lng": 12.4828143,
+    "coord_source": "OSM_NOMINATIM_PREMISES"
+  },
+  "sm_a5d9743343": {
+    "lat": 43.9538961,
+    "lng": 12.4674252,
+    "coord_source": "OSM_NOMINATIM_PREMISES"
+  },
+  "sm_3f07d005f9": {
+    "lat": 43.9685,
+    "lng": 12.4815,
+    "coord_source": "OFFICIAL_MAP_PIN"
+  },
+  "sm_329b89792f": {
+    "lat": 43.97,
+    "lng": 12.48,
+    "coord_source": "CASTELLO_APPROX_EXCLUDED_ONLY"
+  },
+  "sm_6115339369": {
+    "lat": 43.936,
+    "lng": 12.446,
+    "coord_source": "DIRECTORY_APPROX_EXCLUDED_ONLY"
+  },
+  "sm_4a520f19b5": {
+    "lat": 44.039515,
+    "lng": 12.5666,
+    "coord_source": "OSM_NOMINATIM_OR_DIRECTORY"
+  },
+  "sm_8141dd1348": {
+    "lat": 44.0090513,
+    "lng": 12.4448198,
+    "coord_source": "OSM_NOMINATIM_OR_DIRECTORY"
+  },
+  "sm_197cd9bab0": {
+    "lat": 43.9901369,
+    "lng": 12.5171741,
+    "coord_source": "OSM_NOMINATIM_OR_DIRECTORY"
+  },
+  "sm_375089693a": {
+    "lat": 43.8965,
+    "lng": 12.344,
+    "coord_source": "OSM_NOMINATIM_OR_DIRECTORY"
+  },
+  "sm_0be12813f5": {
+    "lat": 44.055,
+    "lng": 12.565,
+    "coord_source": "OSM_NOMINATIM_OR_DIRECTORY"
+  },
+  "sm_c0cb4c521d": {
+    "lat": 43.9795,
+    "lng": 12.4905,
+    "coord_source": "DIRECTORY"
+  },
+  "sm_f79d929862": {
+    "lat": 43.982,
+    "lng": 12.492,
+    "coord_source": "DIRECTORY"
+  },
+  "sm_f2ca871d35": {
+    "lat": 43.979,
+    "lng": 12.491,
+    "coord_source": "DIRECTORY"
+  }
+}

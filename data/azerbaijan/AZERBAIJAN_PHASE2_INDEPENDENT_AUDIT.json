@@ -1,0 +1,240 @@
+{
+  "independent_candidates_reviewed": 266,
+  "independent_brands": [
+    "Angels’ Embassy",
+    "Atletika Fitnes",
+    "Fit Lady",
+    "Fitnes Spa Mərkəzi",
+    "Go",
+    "Golds Trenajor",
+    "Independent (Ganja)",
+    "Independent (Lankaran)",
+    "Independent (Mingachevir)",
+    "Independent (Sumqayit)",
+    "Karol Fitnes",
+    "Lokomotiv",
+    "Sparta",
+    "Viking",
+    "Wolf Fitness",
+    "Çempion Fitnes"
+  ],
+  "new_ready_independents": 35,
+  "independents_promoted_to_ready": 35,
+  "independents_excluded": 243,
+  "independents_closed": 0,
+  "phase2_nr_promoted_independents": 35,
+  "phase2_nr_promoted_osm": 12,
+  "phase2_nr_promoted_regional": 23,
+  "locations": [
+    {
+      "id": "az_515e6eedf5",
+      "brand": "Atletika Fitnes",
+      "name": "Atletika Fitnes",
+      "city": "Baku"
+    },
+    {
+      "id": "az_8800b19cc1",
+      "brand": "Lokomotiv",
+      "name": "Lokomotiv",
+      "city": "Baku"
+    },
+    {
+      "id": "az_e474d994ad",
+      "brand": "Wolf Fitness",
+      "name": "Wolf Fitness",
+      "city": "Baku"
+    },
+    {
+      "id": "az_748e557ca4",
+      "brand": "Fit Lady",
+      "name": "Fit Lady",
+      "city": "Baku"
+    },
+    {
+      "id": "az_99d9e1ef1b",
+      "brand": "Golds Trenajor",
+      "name": "Golds Trenajor",
+      "city": "Baku"
+    },
+    {
+      "id": "az_72e54b6848",
+      "brand": "Fitnes Spa Mərkəzi",
+      "name": "Fitnes Spa Mərkəzi",
+      "city": "Masazır"
+    },
+    {
+      "id": "az_27ad51cf1d",
+      "brand": "Çempion Fitnes",
+      "name": "Çempion Fitnes",
+      "city": "Baku"
+    },
+    {
+      "id": "az_a77fb625b0",
+      "brand": "Karol Fitnes",
+      "name": "Karol Fitnes",
+      "city": "Baku"
+    },
+    {
+      "id": "az_1a085424fe",
+      "brand": "Viking",
+      "name": "Viking",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_4eac2532e1",
+      "brand": "Sparta",
+      "name": "Sparta",
+      "city": "Baku"
+    },
+    {
+      "id": "az_365366f61d",
+      "brand": "Angels’ Embassy",
+      "name": "Angels’ Embassy",
+      "city": "Baku"
+    },
+    {
+      "id": "az_9434802ec3",
+      "brand": "Go",
+      "name": "Go",
+      "city": "Baku"
+    },
+    {
+      "id": "az_9bc632c9d0",
+      "brand": "Independent (Sumqayit)",
+      "name": "fitnes Sumqayit",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_4d32196111",
+      "brand": "Independent (Sumqayit)",
+      "name": "Qadın Dünyası Geyim",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_fc4fa728e7",
+      "brand": "Independent (Sumqayit)",
+      "name": "Ana Uşaq Mərkəzi",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_6fb26b86b5",
+      "brand": "Independent (Sumqayit)",
+      "name": "Sanitar Gigiyena və Epidemioloqiya Mərkəzi",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_fc0bcafc13",
+      "brand": "Independent (Sumqayit)",
+      "name": "Heydər Əliyev Mərkəzi",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_6a771c9edf",
+      "brand": "Independent (Sumqayit)",
+      "name": "Central Park Restoran",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_5fc5cab60b",
+      "brand": "Independent (Sumqayit)",
+      "name": "Ticarət Mərkəzi",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_b2fbce3271",
+      "brand": "Independent (Sumqayit)",
+      "name": "İşədüzəltmə Mərkəzi",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_1f709208dd",
+      "brand": "Independent (Sumqayit)",
+      "name": "Beauty Life Center",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_d32127398c",
+      "brand": "Independent (Sumqayit)",
+      "name": "Əziz İnternet klubu",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_ef0dbc4e63",
+      "brand": "Independent (Sumqayit)",
+      "name": "Sumgayit Olimpiya Sportcomplex",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_d86de04d03",
+      "brand": "Independent (Sumqayit)",
+      "name": "1-ci Mikrorayon",
+      "city": "Sumqayit"
+    },
+    {
+      "id": "az_761493d203",
+      "brand": "Independent (Ganja)",
+      "name": "MediClub",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_d764929bfb",
+      "brand": "Independent (Ganja)",
+      "name": "Arazbar",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_62bdf16ad9",
+      "brand": "Independent (Ganja)",
+      "name": "1-ci mikrorayon",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_26a8843c4b",
+      "brand": "Independent (Ganja)",
+      "name": "Olimpiya idman kompleksi",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_beed325959",
+      "brand": "Independent (Ganja)",
+      "name": "Gəncə İdman Sarayı",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_8dc8ebc4fb",
+      "brand": "Independent (Ganja)",
+      "name": "Akt zalı",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_8d2b363738",
+      "brand": "Independent (Ganja)",
+      "name": "İdman",
+      "city": "Ganja"
+    },
+    {
+      "id": "az_ce6b3ad029",
+      "brand": "Independent (Mingachevir)",
+      "name": "Kür Olimpiya Tədris İdman Mərkəzi",
+      "city": "Mingachevir"
+    },
+    {
+      "id": "az_9549f944aa",
+      "brand": "Independent (Mingachevir)",
+      "name": "Gənclər İdman İdarəsi",
+      "city": "Mingachevir"
+    },
+    {
+      "id": "az_73152a5315",
+      "brand": "Independent (Lankaran)",
+      "name": "fitness centre Lankaran",
+      "city": "Lankaran"
+    },
+    {
+      "id": "az_af7f4be71e",
+      "brand": "Independent (Lankaran)",
+      "name": "sports club Lankaran",
+      "city": "Lankaran"
+    }
+  ]
+}

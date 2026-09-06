@@ -69,12 +69,10 @@ export function coerceMuscleGroup(raw: string): MuscleGroup {
 
 /**
  * Serializes selected groups for session / workout history (comma-separated keys).
+ * Empty selection → empty string (caller should require ≥1 type before check-in).
  */
 export function encodeMuscleGroupsForSession(groups: MuscleGroup[]): string {
   const sorted = [...new Set(groups)].sort();
-  if (sorted.length === 0) {
-    return 'cardio';
-  }
   return sorted.join(',');
 }
 
@@ -121,14 +119,14 @@ export function parseMuscleGroupsFromSession(workoutType: string): MuscleGroup[]
 
 /**
  * Check-in grid: alle træningstyper kan vælges frit (fx cardio + bryst).
+ * Empty selection is allowed in the UI; check-in requires ≥1 before submit.
  */
 export function toggleCheckInMuscleGroup(
   prev: MuscleGroup[],
   key: MuscleGroup,
 ): MuscleGroup[] {
   if (prev.includes(key)) {
-    const next = prev.filter(k => k !== key);
-    return next.length === 0 ? ['cardio'] : next;
+    return prev.filter(k => k !== key);
   }
   return [...prev, key];
 }

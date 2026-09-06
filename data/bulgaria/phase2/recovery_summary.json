@@ -1,0 +1,14 @@
+{
+  "phase1_ready": 11,
+  "phase2_ready": 67,
+  "existing_unresolved_recovered_approx": 56,
+  "new_locations": 0,
+  "phase1_ready_preserved": 11,
+  "verdict": "BULGARIA PHASE 3 REQUIRED BEFORE MERGE",
+  "material_blockers": [
+    "Pulse materially incomplete 13/~21 eligible",
+    "Flais still substantially unresolved 10/14",
+    "Titanium incomplete 4/6",
+    "Hammer incomplete 2/5"
+  ]
+}

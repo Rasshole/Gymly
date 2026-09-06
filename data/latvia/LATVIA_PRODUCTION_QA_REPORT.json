@@ -1,0 +1,262 @@
+{
+  "country": "Latvia",
+  "qa_type": "PRODUCTION_QA_FINAL",
+  "generated_at": "2026-08-29T13:45:14.540Z",
+  "read_only": true,
+  "production_modified": false,
+  "qa_sha_before": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38",
+  "qa_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "catalog_total": 11923,
+  "latvia_live": 33,
+  "lv_prefix_live": 33,
+  "phase2_inputs": {
+    "keep_existing": 33,
+    "new_ready": 0,
+    "existing_review_required": 0,
+    "coming_soon": 1,
+    "excluded": 40,
+    "closed": 0
+  },
+  "four_way_reconciliation": {
+    "keep_ids": 33,
+    "new_ready_ids": 0,
+    "approved_ids": 33,
+    "production_ids": 33,
+    "approved_missing_from_production": [],
+    "production_not_approved": [],
+    "duplicate_approved_ids": 0,
+    "duplicate_production_ids": 0
+  },
+  "original_33": {
+    "present": 33,
+    "missing": [],
+    "material_metadata_drift": [],
+    "keep_vs_production_drift": []
+  },
+  "coming_soon": {
+    "authoritative_count": 1,
+    "identity": "lv_eb2ad44f7d",
+    "name": "Lemon Gym Ziepniekkalns",
+    "address": "Valdeķu iela 39",
+    "city": "Rīga",
+    "in_production": false,
+    "approved": false,
+    "production_leakage": [],
+    "map_leakage": 0
+  },
+  "excluded": {
+    "authoritative_count": 40,
+    "production_leakage": [],
+    "map_leakage": 0
+  },
+  "closed": {
+    "authoritative_count": 0,
+    "production_leakage": []
+  },
+  "brand_inventory": {
+    "Gym!": 10,
+    "Lemon Gym": 8,
+    "MyFitness": 15
+  },
+  "expected_brands": {
+    "MyFitness": 15,
+    "Lemon Gym": 8,
+    "Gym!": 10
+  },
+  "class_a": {
+    "chain_class_a_approved": 33,
+    "class_a_chain_count": 3,
+    "myfitness": 15,
+    "lemon_gym": 8,
+    "gym_bang": 10,
+    "estate_drift": {
+      "myfitness": 0,
+      "lemon_gym": 0,
+      "gym_bang": 0
+    }
+  },
+  "safety": {
+    "hotel_resort_ready_leakage": 0,
+    "invalid_wellness_additive": 0,
+    "specialist_ready_leakage": 0,
+    "institutional_ready_leakage": 0
+  },
+  "cross_border": {
+    "lithuania_ready_outliers": 0,
+    "estonia_ready_outliers": 0,
+    "russia_ready_outliers": 0,
+    "belarus_ready_outliers": 0,
+    "valka_valga_identity_collisions": 0,
+    "live_production": {
+      "estonia_outliers": 0,
+      "lithuania_outliers": 0,
+      "russia_outliers": 0,
+      "belarus_outliers": 0,
+      "valka_valga_identity_collisions": 0,
+      "live_outliers": []
+    }
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "latvia_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "exact_coordinate_conflicts": 0,
+    "near_coordinate_conflicts": 0,
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0
+  },
+  "data_quality": {
+    "invalid_lv_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_required_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "reconciliation_confirmation": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11923,
+    "total_after": 11923,
+    "latvia_before": 33,
+    "latvia_after": 33,
+    "lv_prefix_before": 33,
+    "lv_prefix_after": 33
+  },
+  "idempotency": {
+    "first_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11923,
+      "total_after": 11923,
+      "latvia_before": 33,
+      "latvia_after": 33,
+      "lv_prefix_before": 33,
+      "lv_prefix_after": 33
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 11923,
+      "total_after": 11923,
+      "latvia_before": 33,
+      "latvia_after": 33,
+      "lv_prefix_before": 33,
+      "lv_prefix_after": 33
+    },
+    "idempotent": true
+  },
+  "dry_run_delta": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0
+  },
+  "prior_country_verification": {
+    "Estonia": 69,
+    "Slovenia": 33,
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "prior_country_regressions": [],
+  "historical_test_debt": {
+    "TOTAL_HISTORICAL_SUITES_RUN": 2,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 9,
+    "HISTORICAL_SUITES_FAILED": 2,
+    "HISTORICAL_TESTS_FAILED": 9,
+    "STALE_GLOBAL_TOTAL_EXPECTATION": 2,
+    "STALE_COUNTRY_COUNT_EXPECTATION": 0,
+    "STALE_HISTORICAL_SHA_EXPECTATION": 0,
+    "STALE_PRE_RECONCILIATION_STATE_EXPECTATION": 2,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 5,
+    "STALE_TOTAL_FAILURES": 4,
+    "REAL_COUNTRY_REGRESSIONS": 0
+  },
+  "REAL_COUNTRY_REGRESSIONS": 0,
+  "authoritative_tests": {
+    "passed": 45,
+    "total": 45,
+    "suites_passed": 4,
+    "suites_total": 4
+  },
+  "performance": {
+    "catalog_total": 11923,
+    "centers_json_bytes": 3706426,
+    "expected_centers_json_bytes": 3706426,
+    "parse_ms": 18.14,
+    "representative_search_ms": 2.01,
+    "architecture": "KEEP CLIENT-SIDE",
+    "assessment": "HEALTHY",
+    "headroom_to_12500": 577,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false
+  },
+  "gates": {
+    "production_modified": false,
+    "catalog_total": true,
+    "latvia_live": true,
+    "lv_prefix": true,
+    "sha_frozen": true,
+    "keep_33": true,
+    "new_ready_0": true,
+    "existing_review_0": true,
+    "approved_33": true,
+    "four_way_id_equality": true,
+    "original_33_present": true,
+    "original_33_material_drift": true,
+    "brand_inventory_match": true,
+    "class_a_estate_drift": true,
+    "coming_soon_count": true,
+    "coming_soon_leakage": true,
+    "excluded_count": true,
+    "excluded_leakage": true,
+    "closed_leakage": true,
+    "hotel_resort_leakage": true,
+    "specialist_leakage": true,
+    "institutional_leakage": true,
+    "cross_border_clean": true,
+    "valka_valga_collisions": true,
+    "global_duplicate_ids": true,
+    "hard_duplicate_conflicts": true,
+    "rebrand_conflicts": true,
+    "data_quality_clean": true,
+    "qa_delta_zero": true,
+    "reconciliation_idempotent": true,
+    "prior_country_counts_unchanged": true,
+    "real_country_regressions": true,
+    "historical_real_regression": true,
+    "authoritative_qa_tests": true,
+    "crosses_12500": false,
+    "global_stress_qa_required": false
+  },
+  "bugs_found": [],
+  "bugs_fixed": [],
+  "reconciliation_verdict": "LATVIA RECONCILIATION COMPLETE — ZERO DELTA — WAITING FOR QA",
+  "verdict": "LATVIA STATUS: READY",
+  "country_expansion": "UNLOCKED",
+  "qa_sha_after": "6f40fba98eb351c54ecc076278c18d49349b0f42e7b18c4532710aa523f89c38"
+}

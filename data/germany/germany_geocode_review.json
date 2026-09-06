@@ -1,0 +1,668 @@
+[
+  {
+    "id": "de_e286be218e",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Bad Nenndorf",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_29cef47c5c",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Bösel",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_a319f0cf96",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Bremen-Vahr",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_COORDINATES",
+    "status": "failed"
+  },
+  {
+    "id": "de_a266445655",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Cottbus",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_COORDINATES",
+    "status": "failed"
+  },
+  {
+    "id": "de_c94b6e2873",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Dresden Weißig",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_COORDINATES",
+    "status": "failed"
+  },
+  {
+    "id": "de_999f372b0c",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS EMS Braunschweig",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_COORDINATES",
+    "status": "failed"
+  },
+  {
+    "id": "de_70f2a2ed90",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Gnarrenburg -The Smart Gym-",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_56ab73ade5",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Hamburg-Rahlstedt",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_0a68c83618",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Hannover-Lahe",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_e05d5ace23",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Mühlhausen",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_7b57136f51",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Rinteln",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_ca2443e5f2",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Schöllkrippen -The Smart Gym-",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_d3b1d2d39b",
+    "brand": "EASYFITNESS",
+    "name": "EASYFITNESS Uelzen",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_22309294d9",
+    "brand": "INJOY",
+    "name": "INJOY Schwandorf",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_cd18f6ec15",
+    "brand": "Fitness First",
+    "name": "Fitness First Berlin Gendarmenmarkt",
+    "lat": 48.127828,
+    "lng": 9.802391,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_4d33a4b967",
+    "brand": "Fitness First",
+    "name": "Fitness First Berlin Schöneberg",
+    "lat": 52.492162,
+    "lng": 13.371307,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_84770adfa7",
+    "brand": "Fitness First",
+    "name": "Fitness First Berlin Wedding",
+    "lat": 52.549033,
+    "lng": 13.355159,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_5887bc94ab",
+    "brand": "Fitness First",
+    "name": "Fitness First Bremen Neustadt",
+    "lat": 53.066093,
+    "lng": 8.769109,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_2d570d15a4",
+    "brand": "Fitness First",
+    "name": "Fitness First Dresden Postplatz",
+    "lat": 51.05102,
+    "lng": 13.733965,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_3324b08e8e",
+    "brand": "Fitness First",
+    "name": "Fitness First Düsseldorf Am Seestern",
+    "lat": 51.239868,
+    "lng": 6.736599,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_3fe9a7d53c",
+    "brand": "Fitness First",
+    "name": "Fitness First Esslingen Im Dick",
+    "lat": 48.740766,
+    "lng": 9.298834,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_255e9cac76",
+    "brand": "Fitness First",
+    "name": "Fitness First Köln Breite Straße",
+    "lat": 50.939472,
+    "lng": 6.949352,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_1fbf735b54",
+    "brand": "Fitness First",
+    "name": "Fitness First Frankfurt Preungesheim",
+    "lat": 50.161006,
+    "lng": 8.688116,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_442710aa3c",
+    "brand": "Fitness First",
+    "name": "Fitness First Göppingen Am Autohof",
+    "lat": 48.698922,
+    "lng": 9.681555,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_001869ffe4",
+    "brand": "Fitness First",
+    "name": "Fitness First Göppingen City",
+    "lat": 48.703928,
+    "lng": 9.663491,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_b7a3b694ed",
+    "brand": "Fitness First",
+    "name": "Fitness First Göppingen Stauferpark",
+    "lat": 48.713607,
+    "lng": 9.689407,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_d70f0eabc0",
+    "brand": "Fitness First",
+    "name": "Fitness First Göttingen An der Uni",
+    "lat": 51.538877,
+    "lng": 9.934773,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_5622935f20",
+    "brand": "Fitness First",
+    "name": "Fitness First Göttingen Im Carré",
+    "lat": 51.536458,
+    "lng": 9.934065,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_99742673a5",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Alsterufer - Performance",
+    "lat": 53.559523,
+    "lng": 9.994402,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_ae9319845d",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Altona",
+    "lat": 53.562948,
+    "lng": 9.932612,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_628630cfd3",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Harburg Hafen",
+    "lat": 53.462425,
+    "lng": 9.987713,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_69c7f92b82",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Harburg Lüneburger Tor",
+    "lat": 53.459431,
+    "lng": 9.983931,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_baf0d14248",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Innenstadt Dammtorpark - Performance",
+    "lat": 53.557699,
+    "lng": 9.985618,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_41fb44010c",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Langenhorn",
+    "lat": 53.649922,
+    "lng": 10.013273,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_778cad95d4",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Jungfernstieg",
+    "lat": 53.552075,
+    "lng": 9.995458,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_ff4848f44f",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Rödingsmarkt",
+    "lat": 53.548158,
+    "lng": 9.987459,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_4e91792c6b",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Niendorf",
+    "lat": 53.615156,
+    "lng": 9.951361,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_136cb7831a",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg St. Georg",
+    "lat": 53.553427,
+    "lng": 10.003876,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_eef5e2709e",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Stadthöfe - Performance",
+    "lat": 53.551625,
+    "lng": 9.987558,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_c6a44e82db",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Stephansplatz",
+    "lat": 53.558021,
+    "lng": 9.988141,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_3e743f7607",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Wandsbek",
+    "lat": 53.570486,
+    "lng": 10.061476,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_221c808d8b",
+    "brand": "Fitness First",
+    "name": "Fitness First Hamburg Winterhude - Performance",
+    "lat": 53.576163,
+    "lng": 10.022889,
+    "cat": "READY_TO_IMPORT",
+    "status": "suspicious"
+  },
+  {
+    "id": "de_14852810cc",
+    "brand": "Fitness First",
+    "name": "Fitness First Hannover City",
+    "lat": 52.373398,
+    "lng": 9.736587,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_b080bc19cf",
+    "brand": "Fitness First",
+    "name": "Fitness First Hannover Georgstraße",
+    "lat": 52.37473,
+    "lng": 9.7361,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_5a176ef6f5",
+    "brand": "Fitness First",
+    "name": "Fitness First Heidenheim Am Brenzpark",
+    "lat": 48.69024,
+    "lng": 10.156012,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_acae431b5b",
+    "brand": "Fitness First",
+    "name": "Fitness First Heidenheim Steinheimer Straße",
+    "lat": 48.679406,
+    "lng": 10.109858,
+    "cat": "READY_TO_IMPORT",
+    "status": "suspicious"
+  },
+  {
+    "id": "de_a0ca54894a",
+    "brand": "Fitness First",
+    "name": "Fitness First Idar-Oberstein Am Festplatz",
+    "lat": 49.723778,
+    "lng": 7.316679,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_79a4d0d0cf",
+    "brand": "Fitness First",
+    "name": "Fitness First Idar-Oberstein Am Kreisel",
+    "lat": 49.726722,
+    "lng": 7.320126,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_77ed4057f6",
+    "brand": "Fitness First",
+    "name": "Fitness First Köln Bayenthal",
+    "lat": 50.908078,
+    "lng": 6.963726,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_b527762759",
+    "brand": "Fitness First",
+    "name": "Fitness First Köln Ehrenfeld",
+    "lat": 50.950898,
+    "lng": 6.915102,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_07f7a84bb8",
+    "brand": "Fitness First",
+    "name": "Fitness First Köln Eigelstein-Viertel",
+    "lat": 50.948352,
+    "lng": 6.957183,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_6420412f5e",
+    "brand": "Fitness First",
+    "name": "Fitness First Köln Schildergasse",
+    "lat": 50.93645,
+    "lng": 6.953118,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_f504a8b66d",
+    "brand": "Fitness First",
+    "name": "Fitness First Köln Sülz",
+    "lat": 50.916956,
+    "lng": 6.929401,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_0031d9f70a",
+    "brand": "Fitness First",
+    "name": "Fitness First Leipzig Thomaskirche",
+    "lat": 51.338867,
+    "lng": 12.374202,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_c85780403f",
+    "brand": "Fitness First",
+    "name": "Fitness First Magdeburg Sudenburg",
+    "lat": 52.117762,
+    "lng": 11.595041,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_d0d0d3c1ca",
+    "brand": "Fitness First",
+    "name": "Fitness First Mannheim Im Quartier",
+    "lat": 49.486959,
+    "lng": 8.471806,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_8e0dc3dc85",
+    "brand": "Fitness First",
+    "name": "Fitness First Mannheim Neckarau",
+    "lat": 49.446174,
+    "lng": 8.508284,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_d757442525",
+    "brand": "Fitness First",
+    "name": "Fitness First Mannheim Sandhofen",
+    "lat": 49.549513,
+    "lng": 8.453105,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_37d394102b",
+    "brand": "Fitness First",
+    "name": "Fitness First Merzig City",
+    "lat": 49.444687,
+    "lng": 6.634906,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_51314667bf",
+    "brand": "Fitness First",
+    "name": "Fitness First Merzig Saarwiesenring",
+    "lat": 49.44554,
+    "lng": 6.624082,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_821b814627",
+    "brand": "Fitness First",
+    "name": "Fitness First Mönchengladbach Eicken",
+    "lat": 51.212393,
+    "lng": 6.459328,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_b5bf0f70fb",
+    "brand": "Fitness First",
+    "name": "Fitness First Mönchengladbach Rheydt",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_50673e2f7a",
+    "brand": "Fitness First",
+    "name": "Fitness First München Hofstatt - Performance",
+    "lat": 48.136064,
+    "lng": 11.571457,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_de6b3e289b",
+    "brand": "Fitness First",
+    "name": "Fitness First München Am Marienplatz",
+    "lat": 48.137709,
+    "lng": 11.571422,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_7d596c655a",
+    "brand": "Fitness First",
+    "name": "Fitness First München Laim",
+    "lat": 48.144564,
+    "lng": 11.490107,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_3d595f81fc",
+    "brand": "Fitness First",
+    "name": "Fitness First Münster Germania-Campus",
+    "lat": 51.976659,
+    "lng": 7.611856,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_6458d00831",
+    "brand": "Fitness First",
+    "name": "Fitness First Paderborn Kernstadt",
+    "lat": null,
+    "lng": null,
+    "cat": "NEEDS_REVIEW",
+    "status": "ambiguous"
+  },
+  {
+    "id": "de_fcc9cb6858",
+    "brand": "Fitness First",
+    "name": "Fitness First Regensburg Pfaffenstein",
+    "lat": 49.028291,
+    "lng": 12.085932,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_d094c957c0",
+    "brand": "Fitness First",
+    "name": "Fitness First Stuttgart Hauptstätter Straße",
+    "lat": 48.767707,
+    "lng": 9.172663,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_ade08a54d0",
+    "brand": "Fitness First",
+    "name": "Fitness First Trier Nord",
+    "lat": 49.771222,
+    "lng": 6.677498,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_f07a08bb7b",
+    "brand": "Fitness First",
+    "name": "Fitness First Trier West",
+    "lat": 49.731779,
+    "lng": 6.608515,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_ee1d40532c",
+    "brand": "Fitness First",
+    "name": "Fitness First Trier Zentrum",
+    "lat": 49.756512,
+    "lng": 6.650342,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_c535e41c77",
+    "brand": "Fitness First",
+    "name": "Fitness First Wiesbaden Bahnhofsplatz",
+    "lat": 50.070922,
+    "lng": 8.241192,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  },
+  {
+    "id": "de_a8b99ceac8",
+    "brand": "Fitness First",
+    "name": "Fitness First Wiesbaden Im Künstlerviertel",
+    "lat": 50.072628,
+    "lng": 8.214115,
+    "cat": "READY_TO_IMPORT",
+    "status": "ok"
+  }
+]

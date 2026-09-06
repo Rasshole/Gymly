@@ -1,0 +1,161 @@
+{
+  "country": "Russia",
+  "phase": 1,
+  "generated_at": "2026-08-29T21:15:11.554731+00:00",
+  "two_site_operator_clusters": 88,
+  "third_site_probes_completed": 88,
+  "new_class_a_chains_found": 0,
+  "missed_class_a_chains_found": 0,
+  "top_clusters": [
+    {
+      "brand": "World Class",
+      "count": 51,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "X-Fit",
+      "count": 38,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Lady Stretch",
+      "count": 27,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "МетроFitness",
+      "count": 22,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "DDxFitness",
+      "count": 22,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Fitness House",
+      "count": 20,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Alex Fitness",
+      "count": 13,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Ddx",
+      "count": 12,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "SPORTLIFE",
+      "count": 9,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Bright Fit",
+      "count": 8,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "DDX",
+      "count": 7,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "DDX Fitness",
+      "count": 6,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Спарта",
+      "count": 5,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "MetroFitness",
+      "count": 5,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Foreign Probe",
+      "count": 5,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "СССР",
+      "count": 4,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Powerhouse Gym",
+      "count": 4,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Динамо",
+      "count": 4,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Олимп",
+      "count": 4,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Гармония",
+      "count": 4,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "A-Fitness",
+      "count": 4,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Disputed Territory Probe",
+      "count": 4,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Планета фитнес",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Территория фитнеса",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Атлант",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Лидер",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Encore Fitness",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Energy",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Spirit Fitness",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    },
+    {
+      "brand": "Облака",
+      "count": 3,
+      "third_site_probe": "PERFORMED"
+    }
+  ]
+}

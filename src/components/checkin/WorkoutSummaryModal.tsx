@@ -30,6 +30,8 @@ import {
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
+import {formatVolumeKg} from '@/utils/workoutLogFormat';
 import {useTranslation, getRuntimeLanguage} from '@/i18n';
 
 const MOODS = [
@@ -44,6 +46,11 @@ export interface WorkoutSummaryData {
   gymName: string;
   durationMinutes: number;
   workoutType: string;
+  /** Optional logged-workout stats for share preview */
+  exerciseCount?: number;
+  setCount?: number;
+  volumeKg?: number;
+  prCount?: number;
 }
 
 export interface WorkoutSummaryModalProps {
@@ -81,12 +88,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
     }
   }, [visible]);
 
-  const formatDuration = (mins: number) => {
-    if (mins < 60) return `${mins} min`;
-    const h = Math.floor(mins / 60);
-    const m = mins % 60;
-    return m > 0 ? `${h} t ${m} min` : `${h} time`;
-  };
+  const formatDuration = (mins: number) => formatWorkoutDuration(mins);
 
   const workoutTypeLabel = formatWorkoutTypeDisplay(
     summary.workoutType,
@@ -252,6 +254,33 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                 <Text style={styles.summaryLabel}>{t('workoutSummary.workoutType')}</Text>
               </View>
             </View>
+
+            {(summary.exerciseCount != null && summary.exerciseCount > 0) ||
+            (summary.prCount != null && summary.prCount > 0) ? (
+              <View style={styles.logPreviewCard}>
+                {summary.exerciseCount != null && summary.exerciseCount > 0 ? (
+                  <Text style={styles.logPreviewMeta}>
+                    {t('personalRecords.snapshotMeta', {
+                      exercises: summary.exerciseCount ?? 0,
+                      sets: summary.setCount ?? 0,
+                      volume: formatVolumeKg(summary.volumeKg ?? 0),
+                    })}
+                  </Text>
+                ) : null}
+                {summary.prCount != null && summary.prCount > 0 ? (
+                  <Text style={styles.logPreviewPr}>
+                    {summary.prCount === 1
+                      ? t('personalRecords.oneNewPr')
+                      : t('personalRecords.nNewPrs', {count: summary.prCount})}
+                  </Text>
+                ) : null}
+                {mediaUri ? (
+                  <Text style={styles.logPreviewHint}>
+                    {t('workoutSummary.previewIncludesPhoto')}
+                  </Text>
+                ) : null}
+              </View>
+            ) : null}
 
             <View style={styles.section}>
               <Text style={styles.sectionLabel}>{t('workoutSummary.photoOptional')}</Text>
@@ -488,6 +517,31 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border + '99',
     ...shadows.sm,
+  },
+  logPreviewCard: {
+    backgroundColor: colors.primary + '0C',
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.primary + '33',
+    padding: spacing.md,
+    marginBottom: spacing.lg,
+    gap: 6,
+  },
+  logPreviewMeta: {
+    ...typography.caption,
+    color: colors.text,
+    fontWeight: '700',
+  },
+  logPreviewPr: {
+    ...typography.body,
+    color: colors.primaryDark,
+    fontWeight: '800',
+  },
+  logPreviewHint: {
+    ...typography.small,
+    color: colors.textMuted,
+    fontWeight: '600',
+    marginTop: 2,
   },
   summaryRow: {
     flexDirection: 'row',

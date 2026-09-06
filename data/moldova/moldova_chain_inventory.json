@@ -1,0 +1,41 @@
+{
+  "class_a_chains": 4,
+  "class_a_ready_locations": 23,
+  "smi_ready_locations": 5,
+  "operators": {
+    "Adrenalin": {
+      "READY": 3,
+      "EXCLUDED": 1,
+      "NEEDS_COORDINATES": 0,
+      "final_classification": "CHAIN_CLASS_A",
+      "estate_fully_reconciled": true
+    },
+    "BIGSPORT GYM": {
+      "READY": 13,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 0,
+      "final_classification": "CHAIN_CLASS_A",
+      "estate_fully_reconciled": true
+    },
+    "Energy Fitness": {
+      "READY": 3,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 0,
+      "final_classification": "CHAIN_CLASS_A",
+      "estate_fully_reconciled": true
+    },
+    "XTZ Fitness": {
+      "READY": 4,
+      "EXCLUDED": 0,
+      "NEEDS_COORDINATES": 0,
+      "final_classification": "CHAIN_CLASS_A",
+      "estate_fully_reconciled": true
+    }
+  },
+  "unica_sport_classification": "EXCLUDED_WOMEN_ONLY_SPECIALIST",
+  "unica_locations_discovered_approx": 18,
+  "international_probes_zero_md": true,
+  "transnistria_policy": "INCLUDE_AS_MOLDOVA_TERRITORIAL",
+  "adrenalin_estate_active": 3,
+  "adrenalin_qualifies_class_a": true
+}

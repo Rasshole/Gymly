@@ -1,0 +1,47 @@
+{
+  "1_centers_before": 1139,
+  "2_centers_after": 1360,
+  "3_norway_before": 146,
+  "4_norway_after": 367,
+  "5_exact_number_added": 221,
+  "6_breakdown_by_chain": {
+    "SATS": 2,
+    "Fresh Fitness": 1,
+    "EVO Fitness": 2,
+    "MUDO Gym": 1,
+    "3T-Treningssenter": 11,
+    "Feel24": 81,
+    "MOVA": 69,
+    "SKY Fitness": 37,
+    "Spenst": 17
+  },
+  "7_soft_postal_intentionally_withheld": 26,
+  "8_unresolved_rows_still_staged": 135,
+  "8b_unresolved_by_category": {
+    "NEEDS_REVIEW": 33,
+    "NEEDS_COORDINATES": 63,
+    "SOFT_POSTAL_WITHHELD": 26,
+    "SKIP_INCOMPLETE": 13
+  },
+  "9_duplicate_ids_found": 0,
+  "10_duplicate_physical_same_brand_address": 0,
+  "10b_colocated_different_brands": [
+    [
+      "SATS:SATS Triaden",
+      "MUDO Gym:MUDO Gym Lørenskog"
+    ]
+  ],
+  "11_dk_unchanged": true,
+  "12_se_unchanged": true,
+  "13_every_new_has_valid_coords": true,
+  "14_files_changed": [
+    "src/data/centers.json",
+    "data/norway/norway_centers_staging.json",
+    "data/norway/phase2_new_centers_staging.json",
+    "data/norway/phase2_APPROVED_FOR_MERGE.json",
+    "data/norway/phase2_SOFT_POSTAL_WITHHELD.json",
+    "data/norway/phase2_merge_report.json",
+    "data/norway/README.md",
+    "scripts/import-norway-centers-phase2-merge.mjs"
+  ]
+}

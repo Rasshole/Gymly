@@ -1,0 +1,97 @@
+{
+  "dry_run": false,
+  "idempotency_check": true,
+  "before": {
+    "total": 5455,
+    "netherlands": 600,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474
+  },
+  "after": {
+    "total": 5455,
+    "netherlands": 600,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474
+  },
+  "inserted": 0,
+  "rejected": {
+    "not_ready": 0,
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "outside_bbox": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "sportcity_fitforfree_dup": [],
+    "trainmore_tier_dup": []
+  },
+  "netherlands_by_brand": {
+    "Anytime Fitness": 132,
+    "Basic-Fit": 248,
+    "Clubsportive": 1,
+    "David Lloyd": 6,
+    "HealthCity": 19,
+    "Optisport": 7,
+    "Snap Fitness": 6,
+    "SportCity": 117,
+    "TrainMore": 49,
+    "BigGym": 15
+  },
+  "brand_sum": 600,
+  "duplicate_ids_in_catalog": [],
+  "duplicate_same_brand_physical": [],
+  "missing_address": 0,
+  "missing_postal": 0,
+  "missing_city": 0,
+  "encoding_issues": [],
+  "dutch_letter_counts": {
+    "e_acute": 0,
+    "e_diaeresis": 0,
+    "i_diaeresis": 0,
+    "o_diaeresis": 0,
+    "u_diaeresis": 0,
+    "a_acute": 0
+  },
+  "coordinate_outliers": [],
+  "postal_format_ok": true,
+  "countries_intact": {
+    "dk": true,
+    "se": true,
+    "no": true,
+    "fi": true,
+    "de": true,
+    "uk": true
+  },
+  "staging_categories": {
+    "MERGED_INTO_CATALOG": 600,
+    "NEEDS_COORDINATES": 12,
+    "READY_TO_IMPORT": 3,
+    "COMING_SOON": 3,
+    "NEEDS_REVIEW": 10
+  },
+  "excluded_still_staged": {
+    "NEEDS_COORDINATES": 12,
+    "NEEDS_REVIEW": 10,
+    "COMING_SOON": 3,
+    "CLOSED": 0
+  },
+  "dupAnalysis_summary": {
+    "skipped_existing_id": 0,
+    "skipped_same_addr_brand": 0,
+    "skipped_proximity_same_brand": 3
+  }
+}

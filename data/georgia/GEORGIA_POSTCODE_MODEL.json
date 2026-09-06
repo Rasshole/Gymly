@@ -1,0 +1,14 @@
+{
+  "country": "Georgia",
+  "format": "NNNN (4 digits)",
+  "regex": "^\\d{4}$",
+  "examples": [
+    "0108",
+    "0171",
+    "6010",
+    "4600"
+  ],
+  "validation_function": "format_ge_postal() in batch1_phase1_common.py",
+  "source": "Georgian Post; aligned with GE_POSTAL_RE",
+  "verified_independently": true
+}

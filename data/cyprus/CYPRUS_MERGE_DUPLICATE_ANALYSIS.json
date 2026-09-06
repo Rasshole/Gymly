@@ -1,0 +1,125 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "skipped_existing_id": [],
+  "included": [
+    {
+      "id": "cy_ef187d966a",
+      "name": "ALTERLIFE Nicosia",
+      "brand": "ALTERLIFE",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_71a5e356d0",
+      "name": "Aesthetics Arc Uptown Paphos",
+      "brand": "Aesthetics Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_230b74b170",
+      "name": "Aesthetics Gold Downtown Paphos",
+      "brand": "Aesthetics Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_f070c42b8f",
+      "name": "Curves Aglantzia",
+      "brand": "Curves",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_56b48cbccc",
+      "name": "Curves Larnaca",
+      "brand": "Curves",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_dae41db6c3",
+      "name": "Eleftheriou Lifestyle Fitness Club",
+      "brand": "Eleftheriou Lifestyle Fitness",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_07ec6774f1",
+      "name": "Evolve Fitness and Wellness Lakatamia",
+      "brand": "Evolve Fitness",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_3139b5350e",
+      "name": "Figure8Gym Pallouriotissa",
+      "brand": "Figure8Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_1e92561d3f",
+      "name": "Fitness Factory Nicosia Engomi",
+      "brand": "Fitness Factory",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_40845af810",
+      "name": "G Gym Paralimni",
+      "brand": "G Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_4b27323ec8",
+      "name": "Machallekide Fitness and Dance",
+      "brand": "Machallekide Fitness",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_6900220ba1",
+      "name": "New Body Gym Strovolos",
+      "brand": "New Body Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_f0e9563965",
+      "name": "New Life Health Center Strovolos",
+      "brand": "New Life Health Center",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_82f02545a6",
+      "name": "Platinum Sports Center Larnaca",
+      "brand": "Platinum Sports",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_b0c60e91df",
+      "name": "Pumping Iron Gym Strovolos",
+      "brand": "Pumping Iron Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_ea14f2e4e0",
+      "name": "Reflex Gym Larnaca",
+      "brand": "Reflex Gym",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    },
+    {
+      "id": "cy_2acc7f6e95",
+      "name": "Tower Fitness Center Peyia",
+      "brand": "Tower Fitness Center",
+      "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+    }
+  ],
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": []
+  },
+  "duplicate_ids": [],
+  "unexplained_hard_duplicates": 0
+}

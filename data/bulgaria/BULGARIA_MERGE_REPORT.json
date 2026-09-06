@@ -1,0 +1,258 @@
+{
+  "country": "Bulgaria",
+  "generated_at": "2026-08-24T19:25:34.397Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "before": {
+    "total": 11254,
+    "bulgaria": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37
+  },
+  "after": {
+    "total": 11336,
+    "bulgaria": 82,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "italy": 588,
+    "belgium": 363,
+    "poland": 621,
+    "austria": 335,
+    "switzerland": 475,
+    "portugal": 247,
+    "greece": 106,
+    "ireland": 65,
+    "czechia": 70,
+    "hungary": 50,
+    "romania": 154,
+    "slovakia": 37
+  },
+  "inserted": 82,
+  "withheld": 0,
+  "pre_merge_sha256": "91ffadd49497614f96eaf11f9d01edbdb127df2a6d8ce87bb7d7ad4443717840",
+  "post_merge_sha256": "644fb590b8327a773d1a0bc60fbebfe7558d5b112ad3aa838bd291849523d4ec",
+  "brand_breakdown": {
+    "Athletic Fitness": 9,
+    "Flais Fitness": 14,
+    "Hammer Gym": 5,
+    "Next Level Fitness": 29,
+    "Pulse Fitness": 19,
+    "Titanium Fitness": 6
+  },
+  "rejected": {
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "foreign_coords": 0,
+    "foreign_text": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "fallback_coord": 0,
+    "wrong_import_status": 0,
+    "dup_id_in_batch": 0,
+    "not_in_ready_file": 0
+  },
+  "withheld_details": [],
+  "country_regression": {
+    "denmark": {
+      "before": 354,
+      "after": 354,
+      "intact": true
+    },
+    "sweden": {
+      "before": 639,
+      "after": 639,
+      "intact": true
+    },
+    "norway": {
+      "before": 535,
+      "after": 535,
+      "intact": true
+    },
+    "finland": {
+      "before": 429,
+      "after": 429,
+      "intact": true
+    },
+    "germany": {
+      "before": 1424,
+      "after": 1424,
+      "intact": true
+    },
+    "united_kingdom": {
+      "before": 1474,
+      "after": 1474,
+      "intact": true
+    },
+    "netherlands": {
+      "before": 600,
+      "after": 600,
+      "intact": true
+    },
+    "france": {
+      "before": 1712,
+      "after": 1712,
+      "intact": true
+    },
+    "spain": {
+      "before": 976,
+      "after": 976,
+      "intact": true
+    },
+    "italy": {
+      "before": 588,
+      "after": 588,
+      "intact": true
+    },
+    "belgium": {
+      "before": 363,
+      "after": 363,
+      "intact": true
+    },
+    "poland": {
+      "before": 621,
+      "after": 621,
+      "intact": true
+    },
+    "austria": {
+      "before": 335,
+      "after": 335,
+      "intact": true
+    },
+    "switzerland": {
+      "before": 475,
+      "after": 475,
+      "intact": true
+    },
+    "portugal": {
+      "before": 247,
+      "after": 247,
+      "intact": true
+    },
+    "greece": {
+      "before": 106,
+      "after": 106,
+      "intact": true
+    },
+    "ireland": {
+      "before": 65,
+      "after": 65,
+      "intact": true
+    },
+    "czechia": {
+      "before": 70,
+      "after": 70,
+      "intact": true
+    },
+    "hungary": {
+      "before": 50,
+      "after": 50,
+      "intact": true
+    },
+    "romania": {
+      "before": 154,
+      "after": 154,
+      "intact": true
+    },
+    "slovakia": {
+      "before": 37,
+      "after": 37,
+      "intact": true
+    }
+  },
+  "staging_reconciliation": {
+    "MERGED_INTO_CATALOG": 82,
+    "NEEDS_COORDINATES": 0,
+    "NEEDS_REVIEW": 1,
+    "COMING_SOON": 2,
+    "CLOSED": 0,
+    "EXCLUDED": 20,
+    "DUPLICATE_LEGACY": 0,
+    "missing_production_ids": [],
+    "unexpected_production_ids": [],
+    "missing_from_approved": [],
+    "unexpected_in_prod_vs_ready": [],
+    "metadata_drift": "NONE"
+  },
+  "post_merge": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "different_brand_colocations": 3
+  },
+  "pulse_validation": {
+    "open_current_merged": 19,
+    "pulse_platinum_present": true,
+    "west_park_lyulin_distance_m": 1081,
+    "hotel_foreign_merged": 0,
+    "coming_soon_merged": 0
+  },
+  "titanium_validation": {
+    "studentski_address": "бул. Симеоновско шосе 77",
+    "mladost3_address": "Блок 386, ж.к. Младост 3"
+  },
+  "exclusions": {
+    "atlantis_absent": true,
+    "therme_absent": true,
+    "royal_hotel_absent": true,
+    "coming_soon_pulse_absent": true,
+    "athletic_nk_absent": true,
+    "platinum_health_club_absent": true
+  },
+  "check_in": {
+    "CHECK_IN_RADIUS_METERS": 200,
+    "AUTO_CHECKOUT_DISTANCE_METERS": 200,
+    "changed": false
+  },
+  "global_scale": {
+    "previous": 11254,
+    "new": 11336,
+    "crossed_12500": false,
+    "global_stress_qa_required_now": false
+  },
+  "verdict": "BULGARIA MERGE COMPLETE — WAITING FOR QA",
+  "performance": {
+    "catalog": 11336,
+    "active": 11332,
+    "json_size_mb": 3.36,
+    "parse_ms": 16,
+    "note": "Full cold-index/search timings in merge-safety test / Production QA."
+  }
+}

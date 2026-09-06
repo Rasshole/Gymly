@@ -1,0 +1,179 @@
+{
+  "dry_run": false,
+  "idempotency_check": false,
+  "source_of_truth": "data/italy/ITALY_COMPLETENESS_READY_TO_IMPORT.json",
+  "ready_file_count": 38,
+  "expected_insert_if_all_pass": 38,
+  "projected_if_all_38": {
+    "total": 9094,
+    "italy": 588
+  },
+  "actual_safe_target": {
+    "total": 9092,
+    "italy": 586,
+    "safe_count": 36
+  },
+  "note": "SAFE append of completeness READY only. Existing 550 IT IDs untouched. Neighbour/wrong-comune geocodes withheld (no invent/repair of coords).",
+  "repair_removed_neighbour_from_catalog": [
+    {
+      "id": "it_ccb19385b7",
+      "name": "FITINN Milano Bicocca",
+      "lat": 45.549983,
+      "lng": 9.3750001
+    },
+    {
+      "id": "it_4ca03e5086",
+      "name": "FITINN Milano Viale Abruzzi",
+      "lat": 45.4551727,
+      "lng": 9.3164328
+    }
+  ],
+  "already_safe_in_catalog": 36,
+  "stopped_short_of_expected": true,
+  "genuine_partial_ok": true,
+  "stop_reason": "safe completeness in catalog 36 of 38; genuine neighbour withholds = 2 (not forced to 38)",
+  "pre_merge_sha256": "e5eedb4d28e098e24d26049d1bfdcf0dd2df08f25cdc17490eea5360cba0359f",
+  "before": {
+    "total": 9092,
+    "italy": 586,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "belgium": 363,
+    "total_on_disk_before_repair": 9094,
+    "italy_on_disk_before_repair": 588
+  },
+  "after": {
+    "total": 9092,
+    "italy": 586,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "finland": 429,
+    "germany": 1424,
+    "united_kingdom": 1474,
+    "netherlands": 600,
+    "france": 1712,
+    "spain": 976,
+    "belgium": 363
+  },
+  "inserted": 0,
+  "would_have_inserted": 0,
+  "effective_completeness_in_catalog": 36,
+  "withheld": 2,
+  "rejected": {
+    "not_ready": 0,
+    "missing_id_prefix": 0,
+    "missing_name": 0,
+    "missing_brand": 0,
+    "missing_address": 0,
+    "missing_postal": 0,
+    "missing_city": 0,
+    "wrong_country": 0,
+    "invalid_coords": 0,
+    "bad_postal_format": 0,
+    "postal_not_string": 0,
+    "outside_bbox": 0,
+    "mojibake": 0,
+    "not_active": 0,
+    "questionable_city": 0,
+    "foreign_neighbor": 0,
+    "dup_id_in_batch": 0,
+    "bad_coord_source": 0,
+    "fallback_coord": 0,
+    "blocked_category": 0,
+    "neighbour_geocode": 2
+  },
+  "rejected_details": [
+    {
+      "id": "it_ccb19385b7",
+      "name": "FITINN Milano Bicocca",
+      "reason": "neighbour_suburb_geocode",
+      "best": "Via Fulvio Testi, Cascina Pariana, Pessano con Bornago, Rodano, Milano, Lombardia, 20042, Italia",
+      "note": "OSM best match is outside Comune di Milano"
+    },
+    {
+      "id": "it_4ca03e5086",
+      "name": "FITINN Milano Viale Abruzzi",
+      "reason": "neighbour_suburb_geocode",
+      "best": "38, Viale Abruzzi, San Felicino, San Bovio, Peschiera Borromeo, Rodano, Milano, Lombardia, 20068, Italia",
+      "note": "OSM best match is outside Comune di Milano"
+    }
+  ],
+  "italy_inserted_by_brand": {},
+  "brand_sum": 0,
+  "duplicate_ids_in_catalog": [],
+  "duplicate_same_brand_physical_post_merge": [],
+  "encoding_issues": [],
+  "italian_letter_counts_inserted": {
+    "a_grave": 0,
+    "e_grave": 0,
+    "e_acute": 0,
+    "i_grave": 0,
+    "o_grave": 0,
+    "u_grave": 0
+  },
+  "geography_inserted": {
+    "north": 25,
+    "central": 10,
+    "south": 0,
+    "sicily": 1,
+    "sardinia": 0,
+    "outlier": 0
+  },
+  "geography_outliers": [],
+  "postal_format_ok": true,
+  "postal_all_string": true,
+  "postal_leading_zero_count": 7,
+  "prior_550_italy_intact": true,
+  "countries_intact": {
+    "dk": true,
+    "se": true,
+    "no": true,
+    "fi": true,
+    "de": true,
+    "uk": true,
+    "nl": true,
+    "fr": true,
+    "es": true,
+    "be": true
+  },
+  "staging_categories": {
+    "MERGED_INTO_CATALOG": 586,
+    "COMING_SOON": 15,
+    "NEEDS_REVIEW": 24,
+    "NEEDS_COORDINATES": 18
+  },
+  "excluded_still_staged": {
+    "NEEDS_COORDINATES": 18,
+    "NEEDS_REVIEW": 24,
+    "COMING_SOON": 15,
+    "CLOSED": 0,
+    "DUPLICATE": 0,
+    "READY_TO_IMPORT": 0,
+    "MERGED_INTO_CATALOG": 586
+  },
+  "dupAnalysis_summary": {
+    "skipped_existing_id": 36,
+    "skipped_same_addr_brand": 0,
+    "skipped_proximity_same_brand": 0,
+    "inspected_proximity_lt50": 0,
+    "inspected_proximity_lt100": 0,
+    "different_brand_colocations_kept": 0,
+    "withheld_neighbour_geocode": 2,
+    "would_include": 0
+  },
+  "checkpoint_10k": {
+    "live_after_if_merged": 9092,
+    "headroom_to_10k": 908,
+    "stress_qa": "NO"
+  },
+  "check_in_radius_meters": 200,
+  "auto_checkout_unchanged": true
+}

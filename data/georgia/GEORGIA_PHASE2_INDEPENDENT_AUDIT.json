@@ -1,0 +1,59 @@
+{
+  "independent_brands": [
+    "BLUE FITNES",
+    "Fit Line",
+    "ასპრია",
+    "იმოძრავე",
+    "მამბერი ფიტნესი",
+    "რეფორმა",
+    "სპარტა"
+  ],
+  "new_ready_independents": 7,
+  "phase2_nr_promoted_independents": 7,
+  "phase2_nr_promoted_osm": 7,
+  "phase2_nr_promoted_regional": 0,
+  "locations": [
+    {
+      "id": "ge_cfa1e0dcc5",
+      "brand": "BLUE FITNES",
+      "name": "BLUE FITNES",
+      "city": "Tbilisi"
+    },
+    {
+      "id": "ge_c01e74d235",
+      "brand": "ასპრია",
+      "name": "ასპრია",
+      "city": "Tbilisi"
+    },
+    {
+      "id": "ge_3a461ba96b",
+      "brand": "სპარტა",
+      "name": "სპარტა",
+      "city": "Tbilisi"
+    },
+    {
+      "id": "ge_c4a7d8b637",
+      "brand": "Fit Line",
+      "name": "Fit Line",
+      "city": "Tbilisi"
+    },
+    {
+      "id": "ge_2d568940ee",
+      "brand": "იმოძრავე",
+      "name": "იმოძრავე",
+      "city": "Tbilisi"
+    },
+    {
+      "id": "ge_0b782dc001",
+      "brand": "მამბერი ფიტნესი",
+      "name": "მამბერი ფიტნესი",
+      "city": "Tbilisi"
+    },
+    {
+      "id": "ge_692205209d",
+      "brand": "რეფორმა",
+      "name": "რეფორმა",
+      "city": "Tbilisi"
+    }
+  ]
+}

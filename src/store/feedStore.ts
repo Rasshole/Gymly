@@ -1,8 +1,15 @@
 import {create} from 'zustand';
 import {MuscleGroup} from '@/types/workout.types';
+import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
 
 export type FeedItemType = 'photo' | 'pr' | 'summary';
 
+/**
+ * Feed item — workout session is the primary object.
+ * `type` is a display hint for legacy paths; media (`photoUri`/`videoUri`),
+ * `workoutSnapshot` (PRs + stats), and `description` (caption) are composable
+ * and must not be treated as mutually exclusive.
+ */
 export type FeedItem = {
   id: string;
   type: FeedItemType;
@@ -20,6 +27,9 @@ export type FeedItem = {
   mentionedUsers?: string[]; // Array of user IDs that were mentioned/tagged
   muscles?: MuscleGroup[]; // Muscle groups for this workout (for icons in feed)
   prInfo?: string; // PR info if user set a new PR during workout
+  /** Intentional shared workout payload (never private history) */
+  workoutSnapshot?: SharedWorkoutSnapshot;
+  checkInId?: string;
 };
 
 interface FeedState {

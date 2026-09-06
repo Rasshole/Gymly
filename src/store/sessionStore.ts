@@ -6,7 +6,7 @@
 
 import {create} from 'zustand';
 import type {SupabaseCheckInRow} from '@/types/checkIn.types';
-import {endWorkoutLiveActivity} from '@/services/ios/workoutLiveActivity';
+import {cleanupAllGymlyLiveActivities} from '@/services/ios/workoutLiveActivity';
 
 export interface ActiveSession {
   /** Sættes kun når tjek-ind er i Supabase (database-checkout); null for Firestore-only */
@@ -49,7 +49,7 @@ export const useSessionStore = create<SessionState>((set, get) => ({
   },
 
   endSession: () => {
-    void endWorkoutLiveActivity();
+    void cleanupAllGymlyLiveActivities('stale');
     set({activeSession: null});
   },
 

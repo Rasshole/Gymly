@@ -1,0 +1,74 @@
+{
+  "unresolved_conflicts": 0,
+  "relationships": [
+    {
+      "type": "A_CLASS_A_CHAIN",
+      "entities": [
+        "ALL IN FITNESS Malta",
+        "ALL IN FITNESS Ilidža",
+        "ALL IN FITNESS Bingo"
+      ],
+      "notes": "Phase2 resolved: 3 conventional public Sarajevo floors; directory aliases map to ALL IN FITNESS; CLASS_A."
+    },
+    {
+      "type": "A_CLASS_A_CHAIN",
+      "entities": [
+        "Kron Tuzla",
+        "Kron Živinice",
+        "Kron Srebrenik",
+        "Kron Gračanica"
+      ],
+      "notes": "Phase2 resolved: 4-site Tuzla-canton regional operator; conventional public floors; CLASS_A."
+    },
+    {
+      "type": "A_DISTINCT_CURRENT_GYMS",
+      "entities": [
+        "Extreme Fitness Sarajevo",
+        "Xtreme Gym Sarajevo"
+      ],
+      "notes": "Extreme Fitness Zmaja od Bosne 7 READY; Xtreme Gym EXCLUDED C_DUPLICATE_UNVERIFIED."
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Fitness Centar 4Life Banja Luka",
+        "Xtreme Fit Banja Luka"
+      ],
+      "notes": "Distinct Banja Luka independents; both READY SMI with defended premises."
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "ALL IN FITNESS Ilidža",
+        "Fitness Zone Sarajevo"
+      ],
+      "notes": "Adjacent Ilidža conventional floors; distinct operators."
+    },
+    {
+      "type": "B_distinct_current_clubs",
+      "entities": [
+        "Kron Fitness Tuzla",
+        "Slavinovici Teretana Tuzla"
+      ],
+      "notes": "Distinct Tuzla conventional clubs."
+    }
+  ],
+  "all_in_fitness_audit": {
+    "ALL_IN_ACTIVE_SITES": 3,
+    "CLASS_A": true,
+    "conventional_public_floors_verified": 3,
+    "directory_alias_resolution": "ALL IN / All In Fitness / Malta-Bingo-Ilidža unified"
+  },
+  "kron_audit": {
+    "KRON_ACTIVE_SITES": 4,
+    "CLASS_A": true,
+    "conventional_public_floors_verified": 4,
+    "cities": [
+      "Tuzla",
+      "Živinice",
+      "Srebrenik",
+      "Gračanica"
+    ]
+  },
+  "note": "Phase2 merge gate: 0 unresolved rebrand conflicts; Phase 1 holds resolved."
+}

@@ -35,6 +35,10 @@ export interface SupabaseCheckInRow {
   duration_minutes?: number | null;
   end_reason?: string | null;
   planned_workout_id?: string | null;
+  gymly_group_id?: string | null;
+  live_exercise_name?: string | null;
+  live_set_count?: number | null;
+  live_exercise_count?: number | null;
 }
 
 export interface CheckInSubmitResult {
@@ -54,6 +58,8 @@ export interface SubmitCheckInParams {
   userInitials?: string;
   /** Når tjek-ind matcher en accepteret planlagt træning (venne-invitation) */
   plannedWorkoutId?: string | null;
+  /** Valgfri: knyt check-in til en gymly-gruppe (group session) */
+  gymlyGroupId?: string | null;
 }
 
 export interface CheckIn {

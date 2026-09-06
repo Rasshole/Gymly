@@ -1,0 +1,26 @@
+{
+  "skipped_existing_id": [],
+  "skipped_same_addr_brand": [],
+  "skipped_proximity_same_brand": [
+    {
+      "id": "nl_1c58b5c1a2",
+      "name": "Gym Donjon 24/7 Almere",
+      "match_id": "nl_f9e03f6964",
+      "distance_m": 82
+    },
+    {
+      "id": "nl_53052a5148",
+      "name": "Basic-Fit Gym Basic-Fit Eindhoven Vijfkamplaan 24/7",
+      "match_id": "nl_b4f9eaf309",
+      "distance_m": 57
+    },
+    {
+      "id": "nl_1ea8b30e5e",
+      "name": "Basic-Fit Gym Basic-Fit Rotterdam Metaalhof Ladies",
+      "match_id": "nl_2096092791",
+      "distance_m": 74
+    }
+  ],
+  "skipped_batch_dup": [],
+  "included": []
+}

@@ -1,0 +1,157 @@
+{
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "lu_a61ce060d4",
+        "a_brand": "Basic-Fit",
+        "a_name": "Basic-Fit Luxembourg",
+        "b_id": "lu_987be28ebf",
+        "b_brand": "JIMS",
+        "b_name": "JIMS Gare",
+        "distance_m": 57,
+        "classification": "A_legitimate_adjacent"
+      }
+    ]
+  },
+  "skipped_existing_id": [],
+  "included": [
+    {
+      "id": "lu_adba0aa1be",
+      "name": "Basic-Fit Belvaux",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_ea7a20aa6a",
+      "name": "Basic-Fit Bereldange",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_4ab388c2c6",
+      "name": "Basic-Fit Bettembourg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_b09bad2f57",
+      "name": "Basic-Fit Ettelbruck",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_dc1931d263",
+      "name": "Basic-Fit Foetz",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_0584d1ee62",
+      "name": "Basic-Fit Gasperich",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_a61ce060d4",
+      "name": "Basic-Fit Luxembourg",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_6fa32b9ed7",
+      "name": "Basic-Fit Sandweiler",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_9fe4ea92b9",
+      "name": "Basic-Fit Strassen",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_c297264cb5",
+      "name": "Basic-Fit Windhof",
+      "brand": "Basic-Fit"
+    },
+    {
+      "id": "lu_a5245b7be2",
+      "name": "JIMS Beggen",
+      "brand": "JIMS"
+    },
+    {
+      "id": "lu_987be28ebf",
+      "name": "JIMS Gare",
+      "brand": "JIMS"
+    },
+    {
+      "id": "lu_c723452e75",
+      "name": "JIMS Gasperich",
+      "brand": "JIMS"
+    },
+    {
+      "id": "lu_0c9e1f9d30",
+      "name": "JIMS Kirchberg Ellipse",
+      "brand": "JIMS"
+    },
+    {
+      "id": "lu_bdc43c2ba1",
+      "name": "JIMS Kirchberg Infinity",
+      "brand": "JIMS"
+    },
+    {
+      "id": "lu_02e3840020",
+      "name": "JIMS Mersch",
+      "brand": "JIMS"
+    },
+    {
+      "id": "lu_0f2e7412ed",
+      "name": "CK Fitness Bertrange",
+      "brand": "CK Fitness"
+    },
+    {
+      "id": "lu_dd26bc58a6",
+      "name": "CK Fitness Esch-sur-Alzette",
+      "brand": "CK Fitness"
+    },
+    {
+      "id": "lu_767bafd5af",
+      "name": "CK Fitness Junglinster",
+      "brand": "CK Fitness"
+    },
+    {
+      "id": "lu_3c4b4d0191",
+      "name": "CK Fitness Mersch",
+      "brand": "CK Fitness"
+    }
+  ],
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand": [
+      {
+        "a_id": "lu_a61ce060d4",
+        "a_brand": "Basic-Fit",
+        "a_name": "Basic-Fit Luxembourg",
+        "b_id": "lu_987be28ebf",
+        "b_brand": "JIMS",
+        "b_name": "JIMS Gare",
+        "distance_m": 57,
+        "classification": "A_legitimate_adjacent"
+      }
+    ]
+  },
+  "duplicate_ids": [],
+  "known_legitimate": {
+    "junck_pair": {
+      "a_id": "lu_a61ce060d4",
+      "a_brand": "Basic-Fit",
+      "a_name": "Basic-Fit Luxembourg",
+      "b_id": "lu_987be28ebf",
+      "b_brand": "JIMS",
+      "b_name": "JIMS Gare",
+      "distance_m": 57,
+      "classification": "A_legitimate_adjacent"
+    },
+    "foetz_live_only_basic_fit": true
+  }
+}

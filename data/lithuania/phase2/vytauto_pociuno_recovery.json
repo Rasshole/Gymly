@@ -1,0 +1,14 @@
+{
+  "club_page": "https://gymplius.lt/en/clubs/vytauto-pociuno-g-8-2/",
+  "premises": "Vilnius OUTLET / V. Pociūno g. 8, Pilaitė",
+  "postal_evidence": "LT-06264 (building / company registries + OSM)",
+  "coord": {
+    "lat": 54.7026293,
+    "lng": 25.2060967,
+    "source": "OSM Nominatim fitness_centre named GymPlius at housenumber 8",
+    "query": "Pociūno 8 Vilnius",
+    "display": "GymPlius, 8, V. Pociūno g., Senoji Pilaitė, Vilnius, 06264"
+  },
+  "status": "OPEN — official club page live with trainers/schedule; not under construction",
+  "in_lithuania": true
+}

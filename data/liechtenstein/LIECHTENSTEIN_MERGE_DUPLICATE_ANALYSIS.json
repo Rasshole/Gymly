@@ -1,0 +1,67 @@
+{
+  "duplicate_ids": [],
+  "unexplained_hard_duplicates": 0,
+  "metrics": {
+    "duplicate_ids": 0,
+    "same_normalized_addresses": 0,
+    "identical_coordinates": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "different_brand_lte_100m": 0,
+    "different_brand_lte_200m": 0
+  },
+  "pre_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand100": [],
+    "diffBrand200": [],
+    "sameAddr": []
+  },
+  "post_merge_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [],
+    "lt200": [],
+    "identical": [],
+    "diffBrand100": [],
+    "diffBrand200": [],
+    "sameAddr": []
+  },
+  "pair_classifications": [],
+  "included": [
+    {
+      "id": "li_35eed72b39",
+      "name": "purfitness Schaan"
+    },
+    {
+      "id": "li_688dc73ac2",
+      "name": "Lorez Power Center Bendern"
+    },
+    {
+      "id": "li_740e149c77",
+      "name": "In Motion Eschen"
+    },
+    {
+      "id": "li_9514fe2df2",
+      "name": "LieFit Vaduz"
+    },
+    {
+      "id": "li_9b66d0aa5e",
+      "name": "KOKON Fitness & Spa Ruggell"
+    },
+    {
+      "id": "li_9fdb1d933f",
+      "name": "update Fitness Vaduz"
+    },
+    {
+      "id": "li_f02192ce76",
+      "name": "flexigym Balzers"
+    }
+  ],
+  "skipped_existing_id": []
+}

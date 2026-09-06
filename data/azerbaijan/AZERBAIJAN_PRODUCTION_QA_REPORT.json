@@ -1,0 +1,501 @@
+{
+  "country": "Azerbaijan",
+  "phase": "production_qa",
+  "generated_at": "2026-08-29T20:35:19.146Z",
+  "frozen_baseline": {
+    "catalog_total": 12385,
+    "azerbaijan_live": 46,
+    "az_prefix_live": 46,
+    "armenia": 36,
+    "georgia": 25,
+    "turkey": 198,
+    "belarus": 46,
+    "ukraine": 105,
+    "malta": 24,
+    "sha256": "1f711c075668cd1dacd8e14a8a2189d8cff48c133b3b9546f00bb2767ac82ca1",
+    "bytes": 3858778,
+    "headroom": 115,
+    "architecture": "KEEP CLIENT-SIDE"
+  },
+  "inventory": {
+    "phase2_approved": 46,
+    "frozen_approved": 46,
+    "live_production": 46,
+    "sets_equal": true,
+    "approved_missing_from_production": 0,
+    "production_not_approved": 0,
+    "unauthorized_azerbaijan": 0,
+    "authorized_material_drift": 0,
+    "phase1_recovered": 434,
+    "phase1_ready": 11,
+    "phase1_nr": 406,
+    "phase1_nr_resolved": 406,
+    "phase2_buckets": {
+      "NEW_READY_TO_IMPORT": 46,
+      "NEEDS_REVIEW": 0,
+      "NEEDS_COORDINATES": 0,
+      "COMING_SOON": 0,
+      "EXCLUDED": 388,
+      "CLOSED": 0,
+      "TOTAL_FINAL_STAGING": 434
+    }
+  },
+  "merge_delta": {
+    "pre_total": 12339,
+    "pre_azerbaijan": 0,
+    "authorized_insertions": 46,
+    "authorized_updates": 0,
+    "authorized_removals": 0,
+    "post_total": 12385,
+    "post_azerbaijan": 46,
+    "pre_sha": "7ddc9977a7273668b3fcc6edb68b9a490b873e478bccd1e51b9f31710a2585e7",
+    "post_sha": "1f711c075668cd1dacd8e14a8a2189d8cff48c133b3b9546f00bb2767ac82ca1",
+    "reconstruction": "PASS"
+  },
+  "operators": {
+    "production": {
+      "Viking": 1,
+      "Independent (Sumqayit)": 12,
+      "Independent (Ganja)": 7,
+      "Çempion Fitnes": 1,
+      "Angels’ Embassy": 1,
+      "FS Club Network": 3,
+      "Sparta": 1,
+      "Atletika Fitnes": 1,
+      "Fit Way": 1,
+      "Fitnes Spa Mərkəzi": 1,
+      "Independent (Lankaran)": 2,
+      "Fit Lady": 1,
+      "1st Fitness": 1,
+      "Sport Life": 1,
+      "Lokomotiv": 1,
+      "Go": 1,
+      "Independent (Mingachevir)": 2,
+      "Dream Body": 1,
+      "Golds Trenajor": 1,
+      "Pulse": 1,
+      "Karol Fitnes": 1,
+      "Gold's Gym": 1,
+      "FitClub": 1,
+      "World Class Azerbaijan": 1,
+      "Wolf Fitness": 1
+    },
+    "approved": {
+      "FS Club Network": 3,
+      "Fit Way": 1,
+      "1st Fitness": 1,
+      "Sport Life": 1,
+      "Dream Body": 1,
+      "Pulse": 1,
+      "Gold's Gym": 1,
+      "FitClub": 1,
+      "World Class Azerbaijan": 1,
+      "Viking": 1,
+      "Independent (Sumqayit)": 12,
+      "Independent (Ganja)": 7,
+      "Çempion Fitnes": 1,
+      "Angels’ Embassy": 1,
+      "Sparta": 1,
+      "Atletika Fitnes": 1,
+      "Fitnes Spa Mərkəzi": 1,
+      "Independent (Lankaran)": 2,
+      "Fit Lady": 1,
+      "Lokomotiv": 1,
+      "Go": 1,
+      "Independent (Mingachevir)": 2,
+      "Golds Trenajor": 1,
+      "Karol Fitnes": 1,
+      "Wolf Fitness": 1
+    },
+    "class_a": {
+      "FS Club Network": 3
+    },
+    "curated": {
+      "World Class Azerbaijan": 1,
+      "1st Fitness": 1,
+      "FitClub": 1,
+      "Fit Way": 1,
+      "Pulse": 1,
+      "Gold's Gym": 1,
+      "Sport Life": 1,
+      "Dream Body": 1
+    },
+    "other_approved_total": 35,
+    "total": 46,
+    "drift": 0
+  },
+  "class_a": {
+    "chain_count": 1,
+    "names": [
+      "FS Club Network"
+    ],
+    "approved_total": 3,
+    "fs_club_network": 3,
+    "estate_gaps": 0,
+    "production_drift": [],
+    "semantics_correct": "YES"
+  },
+  "curated_operators": {
+    "counts": {
+      "World Class Azerbaijan": 1,
+      "1st Fitness": 1,
+      "FitClub": 1,
+      "Fit Way": 1,
+      "Pulse": 1,
+      "Gold's Gym": 1,
+      "Sport Life": 1,
+      "Dream Body": 1
+    },
+    "production": {
+      "World Class Azerbaijan": 1,
+      "1st Fitness": 1,
+      "FitClub": 1,
+      "Fit Way": 1,
+      "Pulse": 1,
+      "Gold's Gym": 1,
+      "Sport Life": 1,
+      "Dream Body": 1
+    },
+    "drift": [],
+    "class_a": false
+  },
+  "geography": {
+    "cities": {
+      "Ganja": 8,
+      "Sumqayit": 12,
+      "Baku": 21,
+      "Masazır": 1,
+      "Lankaran": 2,
+      "Mingachevir": 2
+    },
+    "approved_cities": {
+      "Baku": 21,
+      "Ganja": 8,
+      "Sumqayit": 12,
+      "Masazır": 1,
+      "Lankaran": 2,
+      "Mingachevir": 2
+    },
+    "expected_cities": {
+      "Baku": 21,
+      "Sumqayit": 12,
+      "Ganja": 8,
+      "Mingachevir": 2,
+      "Lankaran": 2,
+      "Masazır": 1
+    },
+    "city_drift": 0,
+    "region_drift": 0
+  },
+  "regional_coverage": {
+    "regions": {
+      "Baku": "A",
+      "Nakhchivan": "B",
+      "Absheron": "A",
+      "Ganja-Qazakh": "A",
+      "Shaki-Zagatala": "B",
+      "Lankaran": "A",
+      "Guba-Khachmaz": "D",
+      "Aran": "A",
+      "Upper Karabakh": "B",
+      "Kalbajar-Lachin": "D",
+      "Mountainous Shirvan": "D",
+      "Central Aran": "D",
+      "East Zangezur": "D",
+      "Shirvan": "B",
+      "Other": "B"
+    },
+    "grade_a": 5,
+    "grade_b": 5,
+    "grade_c": 0,
+    "grade_d": 5,
+    "material_d_gaps": 0,
+    "nakhchivan_material_d": "NO"
+  },
+  "nakhchivan": {
+    "production": 0,
+    "unauthorized": 0,
+    "material_d": "NO"
+  },
+  "conflict_region": {
+    "candidates": 24,
+    "production": 0,
+    "leakage": 0,
+    "operation_unverified_ready": 0
+  },
+  "safety": {
+    "coming_soon_leakage": [],
+    "excluded_leakage": [],
+    "closed_leakage": [],
+    "needs_review_leakage": [],
+    "hotel_leakage": [],
+    "specialist_leakage": [],
+    "institutional_leakage": []
+  },
+  "duplicates": {
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "azerbaijani_transliteration_duplicate_conflicts": 0,
+    "unresolved_rebrand_conflicts": 0,
+    "phase2_hard_duplicates": 0
+  },
+  "cross_border": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_names": 0,
+    "cross_border": 0,
+    "operation_unverified": 0,
+    "stale_only": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "missing_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "suspect_geocodes": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_names": 0,
+    "cross_border": 0,
+    "operation_unverified": 0,
+    "stale_only": 0
+  },
+  "search_map": {
+    "search_display_qa": "PASS",
+    "raw_ids_surfaced": 0,
+    "queries": {
+      "Azerbaijan": 46,
+      "Azərbaycan": 46,
+      "Azerbaycan": 46,
+      "Baku": 21,
+      "Bakı": 21,
+      "Baki": 21,
+      "Sumqayit": 12,
+      "Sumgayit": 12,
+      "Ganja": 8,
+      "Gəncə": 8,
+      "Mingachevir": 2,
+      "Lankaran": 2,
+      "Masazır": 1,
+      "FS Club Network": 3,
+      "World Class Azerbaijan": 1,
+      "1st Fitness": 3,
+      "FitClub": 1,
+      "Fit Way": 1,
+      "Pulse": 1,
+      "Gold's Gym": 1,
+      "Sport Life": 1,
+      "Dream Body": 1,
+      "Fit Point": 0,
+      "Olympic Gym": 0,
+      "Power Gym": 0
+    },
+    "active_map_markers": 46,
+    "needs_review_map_markers": 0,
+    "needs_coordinates_map_markers": 0,
+    "coming_soon_map_markers": 0,
+    "excluded_map_markers": 0,
+    "closed_map_markers": 0,
+    "foreign_map_markers": 0
+  },
+  "nearest": {
+    "nearest_qa": "PLAUSIBLE",
+    "probes": {
+      "Baku central": {
+        "id": "az_8253b1289d",
+        "city": "Baku",
+        "distance_m": 88,
+        "local_coverage": true
+      },
+      "Baku Nasimi": {
+        "id": "az_365366f61d",
+        "city": "Baku",
+        "distance_m": 569,
+        "local_coverage": true
+      },
+      "Baku Nizami": {
+        "id": "az_74b25de0ef",
+        "city": "Baku",
+        "distance_m": 254,
+        "local_coverage": true
+      },
+      "Baku Yasamal": {
+        "id": "az_a4cd84ee2a",
+        "city": "Baku",
+        "distance_m": 1032,
+        "local_coverage": true
+      },
+      "Baku Khatai": {
+        "id": "az_96901c65b0",
+        "city": "Baku",
+        "distance_m": 476,
+        "local_coverage": true
+      },
+      "Sumqayit": {
+        "id": "az_4d32196111",
+        "city": "Sumqayit",
+        "distance_m": 577,
+        "local_coverage": true
+      },
+      "Ganja": {
+        "id": "az_d764929bfb",
+        "city": "Ganja",
+        "distance_m": 570,
+        "local_coverage": true
+      },
+      "Mingachevir": {
+        "id": "az_9549f944aa",
+        "city": "Mingachevir",
+        "distance_m": 772,
+        "local_coverage": true
+      },
+      "Lankaran": {
+        "id": "az_af7f4be71e",
+        "city": "Lankaran",
+        "distance_m": 400,
+        "local_coverage": true
+      },
+      "Masazır": {
+        "id": "az_72e54b6848",
+        "city": "Masazır",
+        "distance_m": 2633,
+        "local_coverage": true
+      },
+      "Baku Ganjlik": {
+        "id": "az_691bc37c21",
+        "city": "Baku",
+        "distance_m": 254,
+        "local_coverage": true
+      },
+      "Baku Port": {
+        "id": "az_d164c1f55e",
+        "city": "Baku",
+        "distance_m": 215,
+        "local_coverage": true
+      }
+    }
+  },
+  "infrastructure": {
+    "gaps": [],
+    "runtime_hacks": 0,
+    "infrastructure_gaps": 0
+  },
+  "check_in": {
+    "radius_meters": 200,
+    "allow_199": true,
+    "allow_200": true,
+    "block_201": true
+  },
+  "auto_checkout": {
+    "distance_meters": 200,
+    "azerbaijan_override": 0
+  },
+  "scale": {
+    "catalog_total": 12385,
+    "headroom": 115,
+    "crosses_12500": false,
+    "global_stress_qa_required": false,
+    "global_stress_qa_run": false,
+    "architecture": "KEEP CLIENT-SIDE"
+  },
+  "merge_idempotency": {
+    "stdout": "DRY RUN: insertions=0 updates=0 removals=0 projected=12385\nAzerbaijan merge dry-run: AZERBAIJAN MERGE COMPLETE — WAITING FOR QA delta=0/0/0",
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "idempotent": true
+  },
+  "merge_report_verdict": "AZERBAIJAN MERGE COMPLETE — WAITING FOR QA",
+  "idempotency_record": {
+    "first_run": {
+      "insertions": 46,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12339,
+      "total_after": 12385,
+      "azerbaijan_before": 0,
+      "azerbaijan_after": 46
+    },
+    "second_run": {
+      "insertions": 0,
+      "updates": 0,
+      "removals": 0,
+      "total_before": 12385,
+      "total_after": 12385,
+      "azerbaijan_before": 46,
+      "azerbaijan_after": 46,
+      "az_prefix_before": 46,
+      "az_prefix_after": 46
+    },
+    "idempotent": true
+  },
+  "historical_test_debt": {
+    "STALE_HISTORICAL_BASELINE": 2,
+    "QA_HARNESS_DEFECT": 0,
+    "REAL_COUNTRY_REGRESSION": 0,
+    "OTHER_TEST_DEBT": 2,
+    "HISTORICAL_SUITES_FAILED": 3,
+    "TOTAL_HISTORICAL_TEST_FAILURES": 4
+  },
+  "performance": {
+    "bytes": 3858778,
+    "expected_bytes": 3858778,
+    "json_parse_ms": 16,
+    "representative_search_ms": 1,
+    "status": "HEALTHY"
+  },
+  "gates": {
+    "inventory_reconciles": true,
+    "authorized_material_drift": 0,
+    "brand_inventory_drift": 0,
+    "city_inventory_drift": 0,
+    "class_a_estate_gaps": 0,
+    "missed_class_a_estate_gaps": 0,
+    "material_d_gaps": 0,
+    "nakhchivan_production": 0,
+    "nakhchivan_material_d": "NO",
+    "conflict_region_production": 0,
+    "coming_soon_leakage": 0,
+    "excluded_leakage": 0,
+    "closed_leakage": 0,
+    "needs_review_leakage": 0,
+    "hotel_leakage": 0,
+    "specialist_leakage": 0,
+    "institutional_leakage": 0,
+    "hard_duplicates": 0,
+    "translit_conflicts": 0,
+    "cross_border": 0,
+    "merge_idempotent": true,
+    "prior_regressions": 0,
+    "global_duplicate_ids": 0,
+    "azerbaijan_duplicate_ids": 0,
+    "other_approved_total": 35,
+    "other_approved_missing": 0,
+    "curated_drift": 0,
+    "class_a_production_drift": 0
+  },
+  "qa_immutability": {
+    "sha_before": "1f711c075668cd1dacd8e14a8a2189d8cff48c133b3b9546f00bb2767ac82ca1",
+    "sha_after": "1f711c075668cd1dacd8e14a8a2189d8cff48c133b3b9546f00bb2767ac82ca1",
+    "bytes_before": 3858778,
+    "bytes_after": 3858778,
+    "delta_insertions": 0,
+    "delta_updates": 0,
+    "delta_removals": 0
+  },
+  "prior_country_regressions": [],
+  "REAL_COUNTRY_REGRESSION": 0,
+  "verdict": "AZERBAIJAN STATUS: READY",
+  "country_expansion": "UNLOCKED"
+}

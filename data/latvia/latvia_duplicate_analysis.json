@@ -1,0 +1,12 @@
+{
+  "ready_count": 33,
+  "same_brand": {
+    "lte_25m": [],
+    "lte_50m": [],
+    "lte_100m": [],
+    "lte_200m": [],
+    "identical": []
+  },
+  "different_brand_lte_100m": [],
+  "phase": 2
+}

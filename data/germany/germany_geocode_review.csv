@@ -1,0 +1,299 @@
+id,name,brand,address,postal_code,city,latitude,longitude,geocode_status,import_category
+de_6b79418955,PRIME TIME fitness Fitnessstudios Fitnessstudios Frankfurt,PRIME TIME fitness,Bockenheimer Landstraße 33,60325,Frankfurt am Main,50.116385,8.666574,ok,READY_TO_IMPORT
+de_498a02e058,EASYFITNESS Peine,EASYFITNESS,An der Ziegelei 10,31228,Peine,52.333729,10.192744,ok,READY_TO_IMPORT
+de_35530cd7c9,EASYFITNESS Achern,EASYFITNESS,Severinstraße 2,77855,Achern,48.635189,8.062992,ok,READY_TO_IMPORT
+de_669fbe71e2,EASYFITNESS Achim,EASYFITNESS,Borsteler Landstraße 4,28832,Achim,53.014308,9.034174,ok,READY_TO_IMPORT
+de_1321d53251,EASYFITNESS Ahaus,EASYFITNESS,Markt 22,48683,Ahaus,52.07579,7.007459,ok,READY_TO_IMPORT
+de_07134db858,EASYFITNESS Ahrensburg,EASYFITNESS,Hagener Allee 25,22926,Ahrensburg,53.671118,10.238987,ok,READY_TO_IMPORT
+de_0b14bdf0e6,Easyfitness Alsfeld,EASYFITNESS,Alicestraße 11,36304,Alsfeld,50.751481,9.266757,ok,READY_TO_IMPORT
+de_9ac94d22a3,EASYFITNESS Aßlar,EASYFITNESS,Industriestraße 8,35614,Aßlar,50.581206,8.476289,ok,READY_TO_IMPORT
+de_29ebfee79f,EASYFITNESS Bad Bergzabern,EASYFITNESS,Friedrich-Ebert-Straße 42,76887,Bad Bergzabern,49.093761,7.999483,ok,READY_TO_IMPORT
+de_e8c64c1d79,EASYFITNESS Bad Eilsen,EASYFITNESS,Am Kohlenberg 2,31683,Obernkirchen,52.256413,9.135416,ok,READY_TO_IMPORT
+de_83df7017c2,EASYFITNESS Bad Hersfeld,EASYFITNESS,Konrad-Zuse-Str. 13,36251,Bad Hersfeld,50.868564,9.723042,ok,READY_TO_IMPORT
+de_06b635ea83,EASYFITNESS Bad Langensalza,EASYFITNESS,Bad Nauheimer Straße 34,99947,Bad Langensalza,51.103258,10.650722,ok,READY_TO_IMPORT
+de_e286be218e,EASYFITNESS Bad Nenndorf,EASYFITNESS,Piepmühle 11,31542,Bad Nenndorf,,,ambiguous,NEEDS_REVIEW
+de_81d53089a9,EASYFITNESS Bad Salzuflen,EASYFITNESS,Schloßstraße 69,32108,Bad Salzuflen,52.075681,8.755774,ok,READY_TO_IMPORT
+de_1c8413781a,EASYFITNESS Baden-Baden,EASYFITNESS,Flugstraße 7,76532,Baden-Baden,48.792377,8.190985,ok,READY_TO_IMPORT
+de_61e127bb29,EASYFITNESS Bamberg,EASYFITNESS,Jäckstraße 31,96052,Bamberg,49.904898,10.881574,ok,READY_TO_IMPORT
+de_484a4c6988,EASYFITNESS Bassum -The Smart Gym-,EASYFITNESS,Sulinger Str. 10,27211,Bassum,52.846528,8.727618,ok,READY_TO_IMPORT
+de_ba96aa3d64,EASYFITNESS Bensheim,EASYFITNESS,Neuhofstr. 13A,64625,Bensheim,49.682374,8.58867,ok,READY_TO_IMPORT
+de_ae5573aca1,EASYFITNESS Bergen,EASYFITNESS,Beethovenstraße 3,29303,Bergen,52.814325,9.957931,ok,READY_TO_IMPORT
+de_6f209e5d9b,EASYFITNESS Bergkamen,EASYFITNESS,Legionärstr. 1,59192,Bergkamen,51.612845,7.586973,ok,READY_TO_IMPORT
+de_1de89a5526,EASYFITNESS Bielefeld,EASYFITNESS,Bahnhofstraße 23-25,33602,Bielefeld,52.025107,8.531465,ok,READY_TO_IMPORT
+de_3c45136f9b,EASYFITNESS Bocholt,EASYFITNESS,Westend 31-39,46399,Bocholt,51.838688,6.603473,ok,READY_TO_IMPORT
+de_86059e4167,EASYFITNESS Bochum,EASYFITNESS,Viktoriastr. 14c,44787,Bochum,51.480177,7.215571,ok,READY_TO_IMPORT
+de_293df5eafd,EASYFITNESS Bornheim,EASYFITNESS,Königstraße 25,53332,Bornheim,50.76088,6.995441,ok,READY_TO_IMPORT
+de_29cef47c5c,EASYFITNESS Bösel,EASYFITNESS,Am Steinkamp 2,26219,Bösel,,,ambiguous,NEEDS_REVIEW
+de_30e42e7845,EASYFITNESS Bottrop,EASYFITNESS,Hansastraße 7,46236,Bottrop,51.521882,6.925205,ok,READY_TO_IMPORT
+de_2ce688fd9e,EASYFITNESS Brake -The Smart Gym-,EASYFITNESS,Kirchenstrasse 38,26919,Brake,53.322679,8.480834,ok,READY_TO_IMPORT
+de_8b5298c997,EASYFITNESS Brandenburg a. d. Havel,EASYFITNESS,Sankt-Annen-Str. 38,14776,Brandenburg an der Havel,52.408603,12.563077,ok,READY_TO_IMPORT
+de_e5db67d441,EASYFITNESS Braunlage -The Smart Gym-,EASYFITNESS,Am Buchholzplatz 5,38700,Braunlage,51.719491,10.615984,ok,READY_TO_IMPORT
+de_70852efcb2,EASYFITNESS Braunschweig,EASYFITNESS,Münchenstr. 12,38118,Braunschweig,52.254885,10.495201,ok,READY_TO_IMPORT
+de_679f036b01,EASYFITNESS Bremen &#8211; Die Fabrik,EASYFITNESS,Hermann-Ritter-Straße 110,28197,Bremen,53.077469,8.772544,ok,READY_TO_IMPORT
+de_8e7dc6ed2c,EASYFITNESS Bremen Blumenthal,EASYFITNESS,Striekenkamp 40,28777,Bremen,53.192818,8.548892,ok,READY_TO_IMPORT
+de_eed19b4a67,EASYFITNESS Bremen-Brinkum,EASYFITNESS,Feldstraße 2,28816,Brinkum,53.011564,8.788308,ok,READY_TO_IMPORT
+de_1fe2007fd3,EASYFITNESS Bremen-Osterholz,EASYFITNESS,Elisabeth-Selbert-Str. 5,28307,Bremen,53.059055,8.922269,ok,READY_TO_IMPORT
+de_a319f0cf96,EASYFITNESS Bremen-Vahr,EASYFITNESS,"Berliner Freiheit 9A, 9B",28327,Bremen,,,failed,NEEDS_COORDINATES
+de_23b822af0d,EASYFITNESS Bruchhausen-Vilsen -The Smart Gym-,EASYFITNESS,Bahnhofstr. 41-45,27305,Bruchhausen-Vilsen,52.82353,8.986823,ok,READY_TO_IMPORT
+de_3eab9db816,EASYFITNESS Bückeburg,EASYFITNESS,Lange Straße 37,31675,Bückeburg,52.260922,9.044399,ok,READY_TO_IMPORT
+de_de38c76c26,EASYFITNESS Burg,EASYFITNESS,Conrad-Tack-Ring 32,39288,Burg,52.265844,11.857386,ok,READY_TO_IMPORT
+de_63187e72e1,EASYFITNESS Burgdorf,EASYFITNESS,Leineweberstr.2,31303,Burgdorf,52.447255,10.03923,ok,READY_TO_IMPORT
+de_a4b02472fd,EASYFITNESS Cloppenburg,EASYFITNESS,Mühlenstr. 35 - 37,49661,Cloppenburg,52.845881,8.042969,ok,READY_TO_IMPORT
+de_b9ad6c1090,EASYFITNESS Coesfeld,EASYFITNESS,Dülmenerstr. 25,48653,Coesfeld,51.937226,7.168399,ok,READY_TO_IMPORT
+de_a266445655,EASYFITNESS Cottbus,EASYFITNESS,Sielower Chausee 38,03044,Cottbus,,,failed,NEEDS_COORDINATES
+de_3c73820013,EASYFITNESS Dillenburg,EASYFITNESS,Stadionstrasse 2,35683,Dillenburg,50.740569,8.281121,ok,READY_TO_IMPORT
+de_17defc67d6,EASYFITNESS Dodenhof,EASYFITNESS,Posthausen 1,28869,Dodenhof (Ottersberg/Posthausen),53.060824,9.168125,suspicious,READY_TO_IMPORT
+de_8674d4437b,EASYFITNESS Dormagen,EASYFITNESS,Hamburger Str. 17a,41540,Dormagen,51.092058,6.80939,ok,READY_TO_IMPORT
+de_c94b6e2873,EASYFITNESS Dresden Weißig,EASYFITNESS,An der Prießnitzaue 1-3 / Hochlandcenter,01328,Dresden,,,failed,NEEDS_COORDINATES
+de_858d2d5912,EASYFITNESS Dubai,EASYFITNESS,Hayat Boulevard Townsquare,00000,Dubai,,,failed,NEEDS_COORDINATES
+de_bba313466c,EASYFITNESS Einbeck,EASYFITNESS,Altendorfer Tor 29,37574,Einbeck,51.813477,9.884673,ok,READY_TO_IMPORT
+de_f7e41eb90e,EASYFITNESS Emden,EASYFITNESS,Auricher Str. 150,26721,Emden,53.386083,7.209409,ok,READY_TO_IMPORT
+de_8005ce9d01,EASYFITNESS EMS Bad Hersfeld,EASYFITNESS,Badestube 7,36251,Bad Hersfeld,50.868597,9.71037,ok,READY_TO_IMPORT
+de_b7b9cba278,EASYFITNESS EMS Bad Pyrmont,EASYFITNESS,Kirchstraße 19,31812,Bad Pyrmont,51.984612,9.254293,ok,READY_TO_IMPORT
+de_c1add6e06c,EASYFITNESS EMS Barsinghausen,EASYFITNESS,Egestorfer Str. 4,30890,Barsinghausen,52.300871,9.470696,ok,READY_TO_IMPORT
+de_e703b9e32d,EASYFITNESS EMS Bielefeld,EASYFITNESS,Hillegosser Straße 10,33719,Bielefeld,52.031272,8.604356,ok,READY_TO_IMPORT
+de_999f372b0c,EASYFITNESS EMS Braunschweig,EASYFITNESS,"Packhof Braunschweig, Schild 11",38100,Braunschweig,,,failed,NEEDS_COORDINATES
+de_99e8f6a4bf,EASYFITNESS EMS Bückeburg,EASYFITNESS,Obertorstr. 14,31675,Bückeburg,52.261711,9.056197,ok,READY_TO_IMPORT
+de_cd6ce85942,EASYFITNESS EMS Burgdorf,EASYFITNESS,Poststraße 12,31303,Burgdorf,52.446486,10.009184,ok,READY_TO_IMPORT
+de_6362967d70,EASYFITNESS EMS Celle,EASYFITNESS,Bergstraße 51,29221,Celle,52.622987,10.082626,ok,READY_TO_IMPORT
+de_6938980cfc,EASYFITNESS EMS Garbsen,EASYFITNESS,Asternstr.1,30827,Garbsen,52.435727,9.600499,ok,READY_TO_IMPORT
+de_7f2cce8572,EASYFITNESS EMS Großburgwedel,EASYFITNESS,Von-Alten-Straße 21,30938,Burgwedel,52.493628,9.859737,ok,READY_TO_IMPORT
+de_eaa4a511a7,EASYFITNESS EMS Hannover Marktkirche,EASYFITNESS,Schmiedestrasse 6,30159,Hannover,52.371996,9.736052,ok,READY_TO_IMPORT
+de_26b22524e7,EASYFITNESS EMS Hannover-Podbi,EASYFITNESS,Podbielskistraße 138,30177,Hannover,52.396974,9.770202,ok,READY_TO_IMPORT
+de_fb1a5a06f4,EASYFITNESS EMS Hannover-Süd,EASYFITNESS,Marienstr. 54,30171,Hannover,52.369321,9.751491,ok,READY_TO_IMPORT
+de_fe9d713e1d,EASYFITNESS EMS Hildesheim,EASYFITNESS,Schuhstr. 7,31134,Hildesheim,52.1507,9.94879,ok,READY_TO_IMPORT
+de_a385869edb,EASYFITNESS EMS Hockenheim,EASYFITNESS,Karlsruher Str. 17,68766,Hockenheim,49.318168,8.544661,ok,READY_TO_IMPORT
+de_06c19867a4,EASYFITNESS EMS Kirchrode,EASYFITNESS,Großer Hillen 4,30559,Hannover,52.361126,9.826551,ok,READY_TO_IMPORT
+de_81fa26f7c8,EASYFITNESS EMS Langenhagen,EASYFITNESS,Walsroderstr. 128a,30853,Langenhagen,52.44685,9.739045,ok,READY_TO_IMPORT
+de_f5d5e1f203,EASYFITNESS EMS Lister Meile,EASYFITNESS,Celler Str. 79,30161,Hannover,52.385455,9.745494,ok,READY_TO_IMPORT
+de_219939833b,EASYFITNESS EMS Minden,EASYFITNESS,Hufschmiede 3,32423,Minden,52.290297,8.916216,ok,READY_TO_IMPORT
+de_dd487a97cf,EASYFITNESS EMS Neustadt am Rübenberge,EASYFITNESS,Mittelstraße 19,31535,Neustadt am Rübenberge,52.506143,9.461167,ok,READY_TO_IMPORT
+de_3d9dbdec92,EASYFITNESS EMS Ricklingen,EASYFITNESS,Pfarrstraße 45,30459,Hannover,52.347085,9.72313,ok,READY_TO_IMPORT
+de_423e6adc5e,EASYFITNESS EMS Ronnenberg,EASYFITNESS,Lange Reihe 11,30952,Ronnenberg,52.318038,9.659065,ok,READY_TO_IMPORT
+de_83ced21c0f,EASYFITNESS EMS Wolfsburg,EASYFITNESS,Steimker Promenade 6a,38446,Wolfsburg,52.414505,10.818454,ok,READY_TO_IMPORT
+de_e8b4f15ec2,EASYFITNESS EMS Wunstorf,EASYFITNESS,Hagenburger Str. 1,31515,Wunstorf,52.42908,9.426459,ok,READY_TO_IMPORT
+de_cd361749f6,EASYFITNESS Ennigerloh,EASYFITNESS,Ennigerstraße 1,59320,Ennigerloh,51.835074,8.023323,ok,READY_TO_IMPORT
+de_b41877fa73,EASYFITNESS Erfurt,EASYFITNESS,Schlachthofstr. 43,99085,Erfurt,50.987996,11.043186,ok,READY_TO_IMPORT
+de_f3cd48a5f2,EASYFITNESS Garrel,EASYFITNESS,Karpfenweg 1,49681,Garrel,52.966369,8.023917,ok,READY_TO_IMPORT
+de_ced8ce7c55,EASYFITNESS Georgensgmünd -The Smart Gym-,EASYFITNESS,Breite Str. 19,91166,Georgensgmünd,49.195602,11.019301,ok,READY_TO_IMPORT
+de_42eae1fc8a,EASYFITNESS Gernsbach -The Smart Gym-,EASYFITNESS,Baccarat Straße 41,76593,Gernsbach,48.775573,8.345007,ok,READY_TO_IMPORT
+de_62004ebca4,EASYFITNESS Gifhorn,EASYFITNESS,Am Allerkanal 4,38518,Gifhorn,52.461035,10.539749,ok,READY_TO_IMPORT
+de_70f2a2ed90,EASYFITNESS Gnarrenburg -The Smart Gym-,EASYFITNESS,Hindenburgstraße 78,27442,Gnarrenburg,,,ambiguous,NEEDS_REVIEW
+de_b6ca103e10,EASYFITNESS Goslar,EASYFITNESS,Klubgartenstr. 10,38640,Goslar,51.910624,10.419967,ok,READY_TO_IMPORT
+de_60d36e5642,EASYFITNESS Göttingen,EASYFITNESS,Groner Straße 29/31,37073,Göttingen,51.531847,9.934664,ok,READY_TO_IMPORT
+de_b337ec17d3,EASYFITNESS Grömitz -The Smart Gym-,EASYFITNESS,Grömitzer Höhe 3,23743,Grömitz,54.148749,10.951091,ok,READY_TO_IMPORT
+de_bfe298953f,EASYFITNESS Großwallstadt,EASYFITNESS,Einsteinstr. 4A,63868,Großwallstadt,49.88223,9.143928,ok,READY_TO_IMPORT
+de_ebea20a958,EASYFITNESS Gunzenhausen,EASYFITNESS,Tachauer Str. 2a,91710,Gunzenhausen,49.122391,10.769093,ok,READY_TO_IMPORT
+de_d60d69eb99,EASYFITNESS Hachenburg,EASYFITNESS,Adolf-Münch-Weg 5,57627,Hachenburg,50.663366,7.813441,ok,READY_TO_IMPORT
+de_a42c3f8478,EASYFITNESS Hagenow -THE SMART GYM-,EASYFITNESS,Steegener Chaussee 11b,19230,Hagenow,53.420966,11.185612,ok,READY_TO_IMPORT
+de_5a7ce480ed,EASYFITNESS Halberstadt,EASYFITNESS,Große Ringstraße 50/51,38820,Halberstadt,51.895638,11.077941,ok,READY_TO_IMPORT
+de_56e29cde45,EASYFITNESS Halle Saale,EASYFITNESS,Südstadtring 58,06128,Halle (Saale),51.448961,11.952678,ok,READY_TO_IMPORT
+de_8b0ce9856e,EASYFITNESS Hambühren -The Smart Gym-,EASYFITNESS,Hehlenbruchweg 5,29313,Hambühren,52.633377,9.977957,ok,READY_TO_IMPORT
+de_86ffba289e,EASYFITNESS Hamburg-Altona,EASYFITNESS,Stresemannstr. 23,22769,Hamburg,53.559557,9.96169,ok,READY_TO_IMPORT
+de_18242af43f,EASYFITNESS Hamburg-Jenfeld,EASYFITNESS,Barsbütteler Straße 37,22043,Hamburg,53.570897,10.142696,ok,READY_TO_IMPORT
+de_56ab73ade5,EASYFITNESS Hamburg-Rahlstedt,EASYFITNESS,Merkurring 38-40,22143,Hamburg,,,ambiguous,NEEDS_REVIEW
+de_98e1d8b39e,EASYFITNESS Hamburg-Wandsbek,EASYFITNESS,Von-Bargen-Straße 18 A,22041,Hamburg,53.575516,10.08182,ok,READY_TO_IMPORT
+de_066be6b6c8,EASYFITNESS Hameln,EASYFITNESS,Marienthaler Straße 2,31789,Hameln,52.102752,9.389134,ok,READY_TO_IMPORT
+de_3d9d4a34af,EASYFITNESS Hann. Münden,EASYFITNESS,Am Wittenborn 1,34346,Hann. Münden,51.404255,9.66334,ok,READY_TO_IMPORT
+de_9375bc9745,EASYFITNESS Hannover-Badenstedt,EASYFITNESS,Badenstedter Straße 130,30453,Hannover,52.35987,9.678516,ok,READY_TO_IMPORT
+de_0a68c83618,EASYFITNESS Hannover-Lahe,EASYFITNESS,Rendsburger Str. 18-20,30659,Hannover,,,ambiguous,NEEDS_REVIEW
+de_aea60eadaa,EASYFITNESS Hannover-List,EASYFITNESS,Hamburger Allee 2-4,30161,Hannover,52.37979,9.743799,ok,READY_TO_IMPORT
+de_76e77f36a2,EASYFITNESS Hannover-Misburg,EASYFITNESS,Anderter Str. 53,30629,Hannover,52.38512,9.860579,ok,READY_TO_IMPORT
+de_645055acbc,EASYFITNESS Hannover-Süd,EASYFITNESS,Anna-Zammert-Straße 27,30171,Hannover,52.365849,9.763054,ok,READY_TO_IMPORT
+de_b59786562e,EASYFITNESS Hannover-Wettbergen,EASYFITNESS,Berliner Str. 6 B,30457,Hannover,52.32686,9.695296,ok,READY_TO_IMPORT
+de_35149cf59f,EASYFITNESS Hannover-Wülfel,EASYFITNESS,Hildesheimer Straße 420,30519,Hannover,52.324749,9.781887,ok,READY_TO_IMPORT
+de_d959b78e52,EASYFITNESS Harsum &#8211; Premium &#8211;,EASYFITNESS,Morgenstern 5a,31177,Harsum,52.207437,9.967976,ok,READY_TO_IMPORT
+de_100ed022f9,EASYFITNESS Hattingen,EASYFITNESS,Heggerstr. 24,45525,Hattingen,51.399623,7.185432,ok,READY_TO_IMPORT
+de_4188ffcfc0,EASYFITNESS Helmstedt,EASYFITNESS,Von Guericke Str. 1,38350,Helmstedt,52.240505,10.987898,ok,READY_TO_IMPORT
+de_1073690648,EASYFITNESS Hemer,EASYFITNESS,Hauptstraße 180,58675,Hemer,51.385778,7.765593,ok,READY_TO_IMPORT
+de_f027eecdf3,EASYFITNESS Heppenheim,EASYFITNESS,Tiergartenstr. 7a,64646,Heppenheim,49.635933,8.618593,ok,READY_TO_IMPORT
+de_e7df733ab6,EASYFITNESS Hildesheim &#8211; City,EASYFITNESS,Bismarckstr. 6,31135,Hildesheim,52.157666,9.959915,ok,READY_TO_IMPORT
+de_ac41731db9,EASYFITNESS Hildesheim &#8211; Itzum,EASYFITNESS,Hansering 114,31141,Hildesheim,52.124455,9.985894,ok,READY_TO_IMPORT
+de_c0c94bec94,EASYFITNESS Hildesheim &#8211; Phoenix,EASYFITNESS,Phoenixallee 2,31137,Hildesheim,52.151329,9.931862,ok,READY_TO_IMPORT
+de_83cba86867,EASYFITNESS Hof,EASYFITNESS,An den Mühlwiesen 1,95032,Hof,50.279901,11.922382,ok,READY_TO_IMPORT
+de_f80fe7c89f,EASYFITNESS Hohenhameln -The Smart Gym-,EASYFITNESS,Im Hoken 25,31249,Hohenhameln,52.256397,10.065643,ok,READY_TO_IMPORT
+de_1e87017121,EASYFITNESS Holzminden -The Smart Gym-,EASYFITNESS,Bahnhofstraße 5a,37603,Holzminden,51.82531,9.450479,ok,READY_TO_IMPORT
+de_b141bdde13,EASYFITNESS Karlsruhe,EASYFITNESS,Heinrich-Wittmannstr. 23,76131,Karlsruhe,49.009045,8.44273,ok,READY_TO_IMPORT
+de_c45c14a5ef,EASYFITNESS Kelkheim,EASYFITNESS,Pestalozzistraße 1,65779,Kelkheim,50.13865,8.447917,ok,READY_TO_IMPORT
+de_4c681d331b,EASYFITNESS Kirchlengern,EASYFITNESS,Im Obrock 29,32278,Kirchlengern,52.197948,8.638007,ok,READY_TO_IMPORT
+de_8deaa51444,EASYFITNESS Korschenbroich,EASYFITNESS,Auf den Kempen 6,41352,Korschenbroich,51.19854,6.55591,ok,READY_TO_IMPORT
+de_c4670157ec,EASYFITNESS Landau,EASYFITNESS,Marie-Curie-Straße 9,76829,Landau,49.192492,8.137087,ok,READY_TO_IMPORT
+de_051eaf62dc,EASYFITNESS Leer,EASYFITNESS,Sägemühlenstraße 7,26789,Leer,53.225145,7.463953,ok,READY_TO_IMPORT
+de_e0657dc17b,EASYFITNESS Lehrte,EASYFITNESS,Poststraße 10,31275,Lehrte,52.377284,9.975014,ok,READY_TO_IMPORT
+de_d82fcca3fa,EASYFITNESS Leiferde,EASYFITNESS,Gilder Weg 70,38542,Leiferde,52.441634,10.43576,ok,READY_TO_IMPORT
+de_54693f55cf,EASYFITNESS Leinefelde-Worbis,EASYFITNESS,Breitenhölzerstr. 2,37327,Leinefelde,51.389174,10.329653,ok,READY_TO_IMPORT
+de_2885e86490,EASYFITNESS Lemgo,EASYFITNESS,Lagesche Straße 19,32657,Lemgo,52.022307,8.890146,ok,READY_TO_IMPORT
+de_0eba427413,EASYFITNESS Lingen,EASYFITNESS,Große Str. 14-16,49808,Lingen,52.523044,7.315304,ok,READY_TO_IMPORT
+de_d5d02f566e,EASYFITNESS Lübbecke,EASYFITNESS,Zeiss-Str. 2,32312,Lübbecke,52.324645,8.622271,ok,READY_TO_IMPORT
+de_ac3fd7ec90,EASYFITNESS Lübeck-Dänischburg,EASYFITNESS,Dänischburger Landstraße 81,23569,Lübeck,53.911985,10.733109,ok,READY_TO_IMPORT
+de_17145e5362,EASYFITNESS Lübeck-Mitte,EASYFITNESS,Königstraße 84-96,23552,Lübeck,53.865169,10.686083,ok,READY_TO_IMPORT
+de_de646ca2c5,EASYFITNESS Magdeburg,EASYFITNESS,Otto-von-Guericke-Straße 14,39104,Magdeburg,52.130013,11.630649,ok,READY_TO_IMPORT
+de_c3c5ab9d21,EASYFITNESS Maisach,EASYFITNESS,Bahnhofstrasse 23,82216,Maisach,48.214659,11.258645,ok,READY_TO_IMPORT
+de_308627ae9b,EASYFITNESS Marburg,EASYFITNESS,Krummbogen 14,35039,Marburg,50.816057,8.776444,ok,READY_TO_IMPORT
+de_72186e74c5,EASYFITNESS Marsberg,EASYFITNESS,Dütlingstalweg 8,34431,Marsberg,51.454471,8.83675,ok,READY_TO_IMPORT
+de_228a4d3251,EASYFITNESS Meitingen,EASYFITNESS,Via Claudia 2b,86405,Meitingen,48.556508,10.853083,ok,READY_TO_IMPORT
+de_d71324e33a,EASYFITNESS Mömlingen,EASYFITNESS,Am Schlaggraben 6,63853,Mömlingen,49.850138,9.075816,ok,READY_TO_IMPORT
+de_53852bcef8,EASYFITNESS Mönchengladbach,EASYFITNESS,Lürriper Str. 17,41065,Mönchengladbach,51.195806,6.447989,ok,READY_TO_IMPORT
+de_13447a3a73,EASYFITNESS Mörfelden-Walldorf,EASYFITNESS,Hessenring 13a,64546,Mörfelden-Walldorf,49.985762,8.587014,ok,READY_TO_IMPORT
+de_e05d5ace23,EASYFITNESS Mühlhausen,EASYFITNESS,Altenburgstr. 7,99974,Mühlhausen,,,ambiguous,NEEDS_REVIEW
+de_1934e06254,EASYFITNESS Munster -THE SMART GYM-,EASYFITNESS,Wilhelm-Bockelmann-Straße 35,29633,Munster,52.988165,10.085893,ok,READY_TO_IMPORT
+de_86c3c63a8a,EASYFITNESS Neuburg a.d. Donau,EASYFITNESS,Nördliche Grünauer Straße 21,86633,Neuburg a.d. Donau,48.739168,11.21388,ok,READY_TO_IMPORT
+de_ce51163b04,EASYFITNESS Neustadt am Rübenberge,EASYFITNESS,Ernst Abbe Ring 17a,31535,Neustadt am Rbge,52.507014,9.47311,ok,READY_TO_IMPORT
+de_164ca2f1c8,EASYFITNESS Neustadt in Holstein &#8211; Premium &#8211;,EASYFITNESS,Werftstraße 9,23730,Neustadt,54.102762,10.811548,ok,READY_TO_IMPORT
+de_b799cd9d4a,EASYFITNESS Nidderau,EASYFITNESS,Siemensstr. 2,61130,Nidderau,50.241319,8.868241,ok,READY_TO_IMPORT
+de_604a78d17e,EASYFITNESS Nienburg,EASYFITNESS,Auf dem Kampe 6,31582,Nienburg (Weser),52.640336,9.236912,ok,READY_TO_IMPORT
+de_a05cc86b25,EASYFITNESS Norden,EASYFITNESS,Bahnhofstraße 1a,26506,Norden,53.590375,7.21577,ok,READY_TO_IMPORT
+de_1c1da3391e,EASYFITNESS Northeim,EASYFITNESS,Von-Menzel-Str. 4,37154,Northeim,51.694024,9.990553,ok,READY_TO_IMPORT
+de_db7275fd0a,EASYFITNESS Oberneuland,EASYFITNESS,Rockwinkeler Heerstraße 14,28355,Oberneuland,53.089904,8.935163,ok,READY_TO_IMPORT
+de_daafe00e5c,EASYFITNESS Oldenburg,EASYFITNESS,Ammergaustraße 43,26123,Oldenburg,53.162376,8.228448,ok,READY_TO_IMPORT
+de_953193a714,EASYFITNESS Oyten -The Smart Gym-,EASYFITNESS,Wehlacker 4-6,28876,Oyten,53.059338,9.028105,ok,READY_TO_IMPORT
+de_3963a9dd07,EASYFITNESS Pegnitz,EASYFITNESS,Nürnberger Str. 26,91257,Pegnitz,49.747686,11.538481,ok,READY_TO_IMPORT
+de_901290ae74,EASYFITNESS Peine City,EASYFITNESS,Hagenstr. 17,31224,Peine,52.323718,10.228824,ok,READY_TO_IMPORT
+de_c842410289,EASYFITNESS Petershagen,EASYFITNESS,Bückeburger Str. 13,32469,Petershagen,52.366135,9.004754,ok,READY_TO_IMPORT
+de_2699582e9a,EASYFITNESS Pirmasens,EASYFITNESS,Hillstr. 6,66953,Pirmasens,49.212312,7.599866,ok,READY_TO_IMPORT
+de_f51930b419,EASYFITNESS Quedlinburg,EASYFITNESS,Steinweg 44,06484,Quedlinburg,51.790313,11.15482,ok,READY_TO_IMPORT
+de_dae9bdb6e1,EASYFITNESS Rastatt,EASYFITNESS,Karlsruher Str. 27,76437,Rastatt,48.865072,8.218706,ok,READY_TO_IMPORT
+de_15275e0fdc,EASYFITNESS Regensburg,EASYFITNESS,Rudolf-Vogt-Straße 23,93053,Regensburg,49.000321,12.105549,ok,READY_TO_IMPORT
+de_181cbc723f,EASYFITNESS Reutlingen -THE SMART GYM-,EASYFITNESS,Metzgerstraße 59,72764,Reutlingen,48.491741,9.213719,ok,READY_TO_IMPORT
+de_06dd54a054,EASYFITNESS Riedstadt,EASYFITNESS,Stockstädter Strasse 5-7,64560,Riedstadt,49.825789,8.48665,ok,READY_TO_IMPORT
+de_7b57136f51,EASYFITNESS Rinteln,EASYFITNESS,Detmolder Str. 27 - 29,31737,Rinteln,,,ambiguous,NEEDS_REVIEW
+de_773d0a7fbc,EASYFITNESS Rödermark,EASYFITNESS,Raiffeisenstraße 6,63322,Rödermark,49.970403,8.831028,ok,READY_TO_IMPORT
+de_58e03d598b,EASYFITNESS Rostock -The Smart Gym-,EASYFITNESS,Walter-Stoecker-Straße 1,18069,Rostock,54.098779,12.073091,ok,READY_TO_IMPORT
+de_fd90a95d94,EASYFITNESS Rostock Groß Klein -THE SMART GYM-,EASYFITNESS,Schiffbauerring 71,18109,Rostock,54.14871,12.075752,ok,READY_TO_IMPORT
+de_0a61ae69f2,EASYFITNESS Rothenburg o.d.T.,EASYFITNESS,Erlbacher Straße 80,91541,Rothenburg ob der Tauber,49.370482,10.192927,ok,READY_TO_IMPORT
+de_6f87cac700,EASYFITNESS Rüsselsheim,EASYFITNESS,Eisenstraße 5,65428,Rüsselsheim,49.975912,8.420002,ok,READY_TO_IMPORT
+de_7632f08ee5,EASYFITNESS Rüsselsheim Königstädten,EASYFITNESS,Bensheimer Str. 61,65428,Rüsselsheim,49.96742,8.450422,ok,READY_TO_IMPORT
+de_4653a697ff,EASYFITNESS Sachsenheim,EASYFITNESS,Lammstraße 2,74343,Sachsenheim,48.9598,9.063476,ok,READY_TO_IMPORT
+de_caa7b48aa9,EASYFITNESS Salzgitter-Lebenstedt,EASYFITNESS,Leibnizstraße 5,38228,Salzgitter,52.144251,10.315413,ok,READY_TO_IMPORT
+de_feaae16ef6,EASYFITNESS Sangerhausen,EASYFITNESS,Kylische Straße 28-34,06526,Sangerhausen,51.473341,11.296285,ok,READY_TO_IMPORT
+de_fa3f6fa8d4,EASYFITNESS Schmalkalden,EASYFITNESS,Haindorfsgasse 15,98574,Schmalkalden,50.722161,10.44949,ok,READY_TO_IMPORT
+de_ca2443e5f2,EASYFITNESS Schöllkrippen -The Smart Gym-,EASYFITNESS,Aschaffenburger Str. 50,63825,Schöllkrippen,,,ambiguous,NEEDS_REVIEW
+de_e313e1de68,EASYFITNESS Schramberg,EASYFITNESS,Heiligenbronner Str. 26,78713,Schramberg,48.230742,8.423029,ok,READY_TO_IMPORT
+de_1535d4dd89,EASYFITNESS Schwalbach,EASYFITNESS,Am Kronberger Hang 2,65824,Schwalbach am Taunus,50.163873,8.533484,ok,READY_TO_IMPORT
+de_6d8852a032,EASYFITNESS Schwenningen,EASYFITNESS,Villingerstraße 142,78054,Schwenningen,48.063035,8.514842,ok,READY_TO_IMPORT
+de_c31d6d8708,EASYFITNESS Schwerte,EASYFITNESS,Am Markt 11,58239,Schwerte,51.44015,7.568701,ok,READY_TO_IMPORT
+de_09599bd859,EASYFITNESS Seelze,EASYFITNESS,Hannoversche Str. 65,30926,Seelze,52.392985,9.607913,ok,READY_TO_IMPORT
+de_8094fecb83,EASYFITNESS Soltau,EASYFITNESS,Lüneburger Straße 109,29614,Soltau,52.987384,9.862633,ok,READY_TO_IMPORT
+de_3802a6aa5b,EASYFITNESS Stadthagen,EASYFITNESS,Hüttenstr. 7,31655,Stadthagen,52.324335,9.185434,ok,READY_TO_IMPORT
+de_735c127481,EASYFITNESS Stein,EASYFITNESS,Forum 1,90547,Stein,49.411555,11.012315,ok,READY_TO_IMPORT
+de_4f0a845c8e,EASYFITNESS Stuttgart-Hedelfingen,EASYFITNESS,Otto-Hirsch-Brücken 17,70329,Stuttgart,48.760972,9.255663,ok,READY_TO_IMPORT
+de_0b7bf9bea2,EASYFITNESS Sulingen,EASYFITNESS,Nienburger Straße 190,27232,Sulingen,52.681491,8.837795,ok,READY_TO_IMPORT
+de_ae522a938f,EASYFITNESS Syke,EASYFITNESS,Suurend 3-5,28857,Syke,52.915561,8.816149,ok,READY_TO_IMPORT
+de_093b66568f,EASYFITNESS Traunreut -THE SMART GYM-,EASYFITNESS,Kantstr. 4,83301,Traunreut,47.963609,12.592097,ok,READY_TO_IMPORT
+de_d3b1d2d39b,EASYFITNESS Uelzen,EASYFITNESS,Bahnhofstraße 2 b,29525,Uelzen,,,ambiguous,NEEDS_REVIEW
+de_8d7d211fb8,EASYFITNESS Usingen,EASYFITNESS,Am Riedborn 18,61250,Usingen,50.333157,8.527008,ok,READY_TO_IMPORT
+de_1a2e6675dc,EASYFITNESS Vechelde,EASYFITNESS,Peinerstraße 9,38159,Vechelde,52.263227,10.366101,ok,READY_TO_IMPORT
+de_54c914058c,EASYFITNESS Vellmar,EASYFITNESS,Berliner Str. 10-14,34246,Vellmar,51.34754,9.477053,ok,READY_TO_IMPORT
+de_ca4788119f,EASYFITNESS Verden,EASYFITNESS,Brunnenweg 1,27283,Verden/Aller,52.924792,9.236653,ok,READY_TO_IMPORT
+de_895a859a50,EASYFITNESS Viersen,EASYFITNESS,Albertstraße 9,41751,Viersen,51.256654,6.332336,ok,READY_TO_IMPORT
+de_6238b7bcad,EASYFITNESS Vlotho,EASYFITNESS,Valdorfer Str. 100,32602,Vlotho,52.157463,8.848233,ok,READY_TO_IMPORT
+de_eeec9aa5ac,EASYFITNESS Wegberg,EASYFITNESS,Bahnhofstraße 42,41844,Wegberg,51.143712,6.279613,ok,READY_TO_IMPORT
+de_5966466d24,EASYFITNESS Weil der Stadt -The Smart Gym-,EASYFITNESS,Siemensstraße 6,71263,Weil der Stadt,48.756977,8.86891,ok,READY_TO_IMPORT
+de_a4e48db5e3,EASYFITNESS Weilburg,EASYFITNESS,Johann-Ernst-Straße 6,35781,Weilburg,50.483349,8.285566,ok,READY_TO_IMPORT
+de_be762b67b6,EASYFITNESS Weimar,EASYFITNESS,Ernst-Busse-Straße 33,99427,Weimar,51.00843,11.33481,ok,READY_TO_IMPORT
+de_1593defa94,EASYFITNESS Wendeburg -The Smart Gym-,EASYFITNESS,Büssingstraße 8,38176,Wendeburg,52.319643,10.399278,ok,READY_TO_IMPORT
+de_748758bcc5,EASYFITNESS Wernberg Köblitz -The Smart Gym-,EASYFITNESS,Am Franzosengraben 6,92533,Wernberg Köblitz,49.541355,12.156392,ok,READY_TO_IMPORT
+de_e8874a06f1,EASYFITNESS Wertheim,EASYFITNESS,Am Stammholz 2,97877,Wertheim,49.7787,9.478475,ok,READY_TO_IMPORT
+de_3bdeec2967,EASYFITNESS Wesel,EASYFITNESS,Esplanade 22,46483,Wesel,51.655553,6.617502,ok,READY_TO_IMPORT
+de_d062f210a7,EASYFITNESS Wiesloch,EASYFITNESS,Hauptstr. 65,69168,Wiesloch,49.295177,8.70126,ok,READY_TO_IMPORT
+de_dfc011b9c8,EASYFITNESS Willich,EASYFITNESS,Friedrichstr. 27,47877,Willich,51.263896,6.550971,ok,READY_TO_IMPORT
+de_de2f4d5fed,EASYFITNESS Winsen,EASYFITNESS,Osttangente 200,21423,Winsen,53.351369,10.224951,ok,READY_TO_IMPORT
+de_e3b85f90d3,EASYFITNESS Wismar,EASYFITNESS,Lübsche Straße 21,23966,Wismar,53.892225,11.462835,ok,READY_TO_IMPORT
+de_38fa19becf,EASYFITNESS Witzenhausen,EASYFITNESS,Mündener Str. 15a,37213,Witzenhausen,51.34737,9.854748,ok,READY_TO_IMPORT
+de_17cad8076f,EASYFITNESS Wolfenbüttel,EASYFITNESS,Am Alten Schlachthof 6,38304,Wolfenbüttel,52.1635,10.511273,ok,READY_TO_IMPORT
+de_0716604245,EASYFITNESS Wunstorf,EASYFITNESS,Industriestr. 2a,31515,Wunstorf,52.417139,9.450037,ok,READY_TO_IMPORT
+de_3c125dcf26,Fitness First Aalen,Fitness First,Ulmer Straße 142,73431,Aalen,48.828553,10.113151,ok,READY_TO_IMPORT
+de_72fd8ddf1a,Fitness First Asemissen,Fitness First,Asemisser Allee 5,33818,Leopoldshöhe-Asemissen,51.978742,8.667404,ok,READY_TO_IMPORT
+de_35a9cea6df,Fitness First Augsburg,Fitness First,Bahnhofstraße 26‑30,86152,Augsburg,48.366267,10.888111,suspicious,READY_TO_IMPORT
+de_cea58675e0,Fitness First Backnang,Fitness First,Stuttgarter Straße 135,71522,Backnang,48.937687,9.438613,ok,READY_TO_IMPORT
+de_c0fa9482b4,Fitness First Bad Berka,Fitness First,Hexenbergstraße 1,99438,Bad Berka,50.903925,11.27785,ok,READY_TO_IMPORT
+de_b0a4c7f605,Fitness First Bad Boll,Fitness First,Jurastraße 13,73087,Bad Boll,48.645851,9.613577,ok,READY_TO_IMPORT
+de_1628960857,Fitness First Bad Kreuznach,Fitness First,Hannah-Arendt-Straße 4,55543,Bad Kreuznach,49.840508,7.875872,ok,READY_TO_IMPORT
+de_7fe6195bb2,Fitness First Bad Rappenau,Fitness First,Raiffeisenstraße 22,74906,Bad Rappenau,49.235936,9.089937,ok,READY_TO_IMPORT
+de_f21e980c9b,Fitness First 15 x in Berlin: Entdecke dein Fitnessstudio,Fitness First,Jägerstraße 27,40050,coh-ce-cpt,,,ambiguous,NEEDS_REVIEW
+de_cd18f6ec15,Fitness First Biberach,Fitness First,Obere Stegwiesen 10,88400,Biberach an der Riß,48.127828,9.802391,ok,READY_TO_IMPORT
+de_2e37e80685,Fitness First 2 x in Bielefeld: Entdecke dein Fitnessstudio,Fitness First,Stadtheiderstraße 10,71088,coh-component-instance-de,,,failed,NEEDS_COORDINATES
+de_fbe3385fcd,Fitness First Bietigheim-Bissingen,Fitness First,Otto-Konz-Straße 1,74321,Bietigheim-Bissingen,48.942766,9.139354,ok,READY_TO_IMPORT
+de_0a699aeb42,Fitness First Blieskastel,Fitness First,Auf Scharlen 3,66440,Blieskastel,49.234167,7.270342,ok,READY_TO_IMPORT
+de_4c9296b916,Fitness First Blomberg,Fitness First,Auf den Kreuzen 27,32825,Blomberg,51.937965,9.088244,ok,READY_TO_IMPORT
+de_ea87091105,Fitness First Bonn,Fitness First,Markt 13-21,53111,Bonn,50.735097,7.101812,ok,READY_TO_IMPORT
+de_09b59fb0ef,Fitness First Braunschweig,Fitness First,Böcklerstraße 30,38102,Braunschweig,52.250183,10.532008,ok,READY_TO_IMPORT
+de_c36d8a970c,Fitness First 3 x in Bremen: Entdecke dein Fitnessstudio,Fitness First,Volkmannstraße 2,02011,ssa-instance-,53.057676,8.809445,ok,READY_TO_IMPORT
+de_8bd165dfd3,Fitness First Bretten,Fitness First,Beispielstraße 1,75015,Bretten,,,failed,NEEDS_COORDINATES
+de_4a6e9c578f,Fitness First Bünde,Fitness First,Dünner Straße 10,32257,Bünde,52.208767,8.593245,ok,READY_TO_IMPORT
+de_25df63bbf0,Fitness First Cottbus,Fitness First,Curt-Möbius-Straße 48,03042,Cottbus,51.760896,14.358282,ok,READY_TO_IMPORT
+de_43396c6a35,Fitness First Crailsheim,Fitness First,Haller Straße 197,74564,Crailsheim,,,ambiguous,NEEDS_REVIEW
+de_2ac16a04c8,Fitness First 10 x in Darmstadt: Dein Training wartet direkt um die Ecke,Fitness First,Poststraße 4-6,71088,coh-component-instance-de,,,failed,NEEDS_COORDINATES
+de_a56e47340b,Fitness First Datteln,Fitness First,Wiesenstraße 6,45711,Datteln,51.649812,7.330904,ok,READY_TO_IMPORT
+de_a4c5c4363b,Fitness First Detmold,Fitness First,Wittekindstraße 26,32758,Detmold,51.945503,8.864275,ok,READY_TO_IMPORT
+de_2bade43cd5,Fitness First Dorsten,Fitness First,Fürst-Leopold-Allee 77,46284,Dorsten,51.673537,6.985085,ok,READY_TO_IMPORT
+de_1b00e32257,Fitness First Dortmund,Fitness First,Brauhausstraße 7,44137,Dortmund,51.51301,7.46575,ok,READY_TO_IMPORT
+de_83249972f0,Fitness First 3 x in Dresden: Entdecke dein Fitnessstudio,Fitness First,Postplatz 1,85801,coh-ce-cpt,,,failed,NEEDS_COORDINATES
+de_0b8dfa1bb5,Fitness First 5 x in Düsseldorf: Entdecke dein Fitnessstudio,Fitness First,Königsallee 60,81305,coh-component-instance-b,51.222196,6.779545,ok,READY_TO_IMPORT
+de_201c65e948,Fitness First Essen Kettwig,Fitness First,Montebruchstraße 22,45219,Essen,51.356751,6.934151,ok,READY_TO_IMPORT
+de_6fd0872f52,Fitness First 3 x in Esslingen: Entdecke dein Fitnessstudio,Fitness First,Kollwitzstraße 1,82419,coh-ce-cpt,50.133245,8.611286,ok,READY_TO_IMPORT
+de_663866c7c8,Fitness First Ettlingen,Fitness First,Zehntwiesenstraße 47,76275,Ettlingen,48.945483,8.389382,ok,READY_TO_IMPORT
+de_f82da49ed0,Fitness First Fellbach,Fitness First,Stuttgarter Straße 106,70736,Fellbach,48.812177,9.261349,ok,READY_TO_IMPORT
+de_64da4ad22a,Fitness First 12 x in Frankfurt: Entdecke dein Fitnessstudio,Fitness First,Solmsstraße 18,85801,coh-ce-cpt,52.49124,13.392334,ok,READY_TO_IMPORT
+de_a91caff9ff,Fitness First Freiburg,Fitness First,Auf der Zinnen 1,79098,Freiburg,47.997486,7.854063,ok,READY_TO_IMPORT
+de_a7ca0b2a51,Fitness First Fürth,Fitness First,Fürther Freiheit 8-10,90762,Fürth,49.47166,10.990954,ok,READY_TO_IMPORT
+de_ddfbdcf877,Fitness First Geislingen,Fitness First,Gartenstraße 30,73312,Geislingen,48.611971,9.841574,ok,READY_TO_IMPORT
+de_6f15552263,Fitness First Gera,Fitness First,Museumsplatz 2,07545,Gera,50.876995,12.081424,ok,READY_TO_IMPORT
+de_3d6693e936,Fitness First Giengen,Fitness First,Chemnitzer Straße 2,89537,Giengen,48.626694,10.265426,ok,READY_TO_IMPORT
+de_16327b49f0,Fitness First Gifhorn,Fitness First,Celler Straße 110,38518,Gifhorn,52.48679,10.516846,ok,READY_TO_IMPORT
+de_e4e6bc8556,Fitness First 3 x in Göppingen: Entdecke dein Fitnessstudio,Fitness First,Manfred-Wörner-Straße 109,71088,coh-component-instance-de,48.713607,9.689407,ok,READY_TO_IMPORT
+de_37c0766d76,Fitness First 2 x in Göttingen: Entdecke dein Fitnessstudio,Fitness First,Landstraße 8,30308,coh-component-instance-,,,failed,NEEDS_COORDINATES
+de_b3ac94f67d,Fitness First Goslar,Fitness First,fitness-first-icons-parkplatz_32x32.png?v=cef3c9d3-5bab-4ed0-8ade-3d247a,03426,coh-container-boxed,,,failed,NEEDS_COORDINATES
+de_47c7e3215e,Fitness First Griesheim,Fitness First,Im Leuschnerpark 4,64347,Griesheim,49.865454,8.590151,ok,READY_TO_IMPORT
+de_45a4dc6db7,Fitness First 17 x in Hamburg: Entdecke dein Fitnessstudio,Fitness First,fitness-first-hamburg-stephansplatz-97-pool-2000x1105.jpg.webp?itok=l4j,85801,coh-ce-cpt,,,failed,NEEDS_COORDINATES
+de_5556eb4a9b,Fitness First Hamm,Fitness First,Römerstraße 30,59075,Hamm,51.696399,7.772533,ok,READY_TO_IMPORT
+de_76997322c1,Fitness First 2 x in Hannover: Entdecke dein Fitnessstudio,Fitness First,Packhofstraße 41-45,45471,coh-ce-cpt,,,failed,NEEDS_COORDINATES
+de_3fc8309622,Fitness First Heilbronn,Fitness First,Kastellstraße 56,74080,Heilbronn,,,ambiguous,NEEDS_REVIEW
+de_a597a1d703,Fitness First Hildesheim,Fitness First,Bavenstedter Straße 65,31135,Hildesheim,52.16478,9.969912,ok,READY_TO_IMPORT
+de_cd095f5af2,Fitness First Homburg,Fitness First,Berliner Straße 80,66424,Homburg,49.340015,7.331383,ok,READY_TO_IMPORT
+de_27ab64bacf,Fitness First Horn,Fitness First,Carl-Zeiss-Straße 2,32805,Horn-Bad Meinberg,51.883043,8.941786,ok,READY_TO_IMPORT
+de_18795a226f,Fitness First 2 x in Idar-Oberstein: Entdecke dein Fitnessstudio,Fitness First,Vollmersbachstraße 71,84429,coh-ce-cpt,49.726722,7.320126,ok,READY_TO_IMPORT
+de_7add0df82a,Fitness First Ingolstadt,Fitness First,Am Westpark 3,85057,Ingolstadt,48.774871,11.387409,ok,READY_TO_IMPORT
+de_cb6fd542fe,Fitness First Kaiserslautern,Fitness First,Straßburger Allee 4,67657,Kaiserslautern,49.457096,7.80193,ok,READY_TO_IMPORT
+de_9565a0a2ec,Fitness First Kassel,Fitness First,Wilhelmshöher Allee 91,34121,Kassel,51.311882,9.47237,ok,READY_TO_IMPORT
+de_2d359cf778,Fitness First Kirn,Fitness First,Steinweg 28,55606,Kirn,49.787887,7.457776,ok,READY_TO_IMPORT
+de_4f5083a312,Fitness First 6 x in Köln: Entdecke dein Fitnessstudio,Fitness First,Bonnerstraße 271,71088,coh-component-instance-de,,,failed,NEEDS_COORDINATES
+de_0eab44e55d,Fitness First Kornwestheim,Fitness First,Ohiostraße 1,70806,Kornwestheim,48.865802,9.222541,ok,READY_TO_IMPORT
+de_fea49eeadd,Fitness First Laatzen,Fitness First,Albert-Schweitzer-Straße 10,30880,Laatzen,52.307885,9.811012,ok,READY_TO_IMPORT
+de_44752ef01c,Fitness First Laufenburg,Fitness First,Gehrengrabenstraße 2,79725,Laufenburg,47.567334,8.085747,ok,READY_TO_IMPORT
+de_1f7b08bad4,Fitness First Laupheim,Fitness First,Biberacher Straße 9,88471,Laupheim,48.226669,9.87761,ok,READY_TO_IMPORT
+de_f49f293610,Fitness First 2 x in Leipzig: Entdecke dein Fitnessstudio,Fitness First,Petersstraße 15,61398,coh-ce-cpt,51.338789,12.375004,ok,READY_TO_IMPORT
+de_4698dda396,Fitness First Lemgo,Fitness First,Lagesche Straße 54b,32657,Lemgo,52.023507,8.886478,ok,READY_TO_IMPORT
+de_908144f21d,Fitness First Ludwigsburg,Fitness First,Marstallstraße 1,71634,Ludwigsburg,48.899618,9.19076,ok,READY_TO_IMPORT
+de_682864cf0b,Fitness First 2 x in Magdeburg: Entdecke dein Fitnessstudio,Fitness First,fitness-first-magdeburg-am-kroatenweg-009.jpg?v=6b762c7c-74b7-433f-bf87-3adc6d,17996,coh-ce-cpt,,,failed,NEEDS_COORDINATES
+de_84a2eaefda,Fitness First 3 x in Mannheim Entdecke dein Fitnessstudio,Fitness First,Casterfeldstraße 108-120,71088,coh-component-instance-de,,,failed,NEEDS_COORDINATES
+de_5dbb29f43d,Fitness First Marl,Fitness First,Herzlia-Allee 3,45770,Marl,51.658039,7.102403,ok,READY_TO_IMPORT
+de_4ecdcd9856,Fitness First 2 x in Mönchengladbach: Entdecke dein Fitnessstudio,Fitness First,Friedrich-Ebert-Straße 219-229,02011,ssa-instance-,,,failed,NEEDS_COORDINATES
+de_d2f1d4ad12,Fitness First 8 x in München: Entdecke dein Fitnessstudio,Fitness First,Kaufingerstraße 17,85801,coh-ce-cpt,48.137709,11.571422,ok,READY_TO_IMPORT
+de_211946e709,Fitness First Nordhausen,Fitness First,Kyffhäuser Straße 15,99734,Nordhausen,51.493629,10.800631,ok,READY_TO_IMPORT
+de_ccb177fcb4,Fitness First 2 x in Paderborn: Entdecke dein Fitnessstudio,Fitness First,Kaufingerstraße 17,46353,coh-component-instance-e,48.137709,11.571422,ok,READY_TO_IMPORT
+de_f8a241d882,Fitness First Pforzheim,Fitness First,Karlsruher Straße 49,75179,Pforzheim,48.900099,8.666288,ok,READY_TO_IMPORT
+de_08501895c4,Fitness First Pirmasens,Fitness First,Waisenhausstraße 20-22,66954,Pirmasens,49.195113,7.591975,ok,READY_TO_IMPORT
+de_d61345f649,Fitness First Plochingen,Fitness First,Am Fischbrunnen 2,73207,Plochingen,48.71056,9.415116,ok,READY_TO_IMPORT
+de_7fe31fdaf5,Fitness First 2 x in Regensburg: Entdecke dein Fitnessstudio,Fitness First,Kirchmeierstraße 8A,71088,coh-component-instance-de,,,failed,NEEDS_COORDINATES
+de_07e2ca3f6a,Fitness First Rheinstetten,Fitness First,Rappenwörthstraße 70,76287,Rheinstetten,,,ambiguous,NEEDS_REVIEW
+de_5b5cc67f6b,Fitness First Rostock Innenstadt,Fitness First,Kröpeliner Straße 57,18055,Rostock,54.088815,12.131427,ok,READY_TO_IMPORT
+de_0b2cfd823b,Fitness First Saarbrücken,Fitness First,Am Hauptbahnhof 16-18,66111,Saarbrücken,49.240782,6.988027,ok,READY_TO_IMPORT
+de_8eb32dda2f,Fitness First Sigmaringen,Fitness First,"Zeppelinstraße 2-8, 72488",03426,coh-container-boxed,,,failed,NEEDS_COORDINATES
+de_d4367e37bf,Fitness First Singen,Fitness First,Georg-Fischer-Straße 29,78224,Singen,47.754199,8.851046,ok,READY_TO_IMPORT
+de_cfcd819dab,Fitness First 4 x in Stuttgart: Entdecke dein Fitnessstudio,Fitness First,Daimlerstraße 67,67743,coh-component-instance-c,,,ambiguous,NEEDS_REVIEW
+de_ba2150fab4,Fitness First Süßen,Fitness First,Fabrikstraße 10,73079,Süßen,48.681983,9.765925,ok,READY_TO_IMPORT
+de_dc5776536d,Fitness First 3 x in Trier: Entdecke dein Fitnessstudio,Fitness First,Metternichstraße 42,14376,coh-ce-cpt,49.771222,6.677498,ok,READY_TO_IMPORT
+de_f335de1f44,Fitness First Uhingen,Fitness First,Bahnhofstraße 10,73066,Uhingen,48.707951,9.584444,ok,READY_TO_IMPORT
+de_5124455e82,Fitness First Vösendorf,Fitness First,Marktstraße 13,2331,Vösendorf,,,ambiguous,NEEDS_REVIEW
+de_5dc2bc554e,Fitness First Wäschenbeuren,Fitness First,Lorcher Straße 2,73116,Wäschenbeuren,48.759165,9.685671,ok,READY_TO_IMPORT
+de_9bfa2182dd,Fitness First Waiblingen,Fitness First,Stuttgarter Straße 149,71332,Waiblingen,48.820803,9.294966,ok,READY_TO_IMPORT
+de_89c2ff6846,Fitness First Wangen,Fitness First,Franz-Walchner-Straße 6,88239,Wangen im Allgäu,47.693855,9.823908,ok,READY_TO_IMPORT
+de_60c61ca2ce,Fitness First Wedel,Fitness First,Bahnhofstraße 35,22880,Wedel,53.577804,9.705438,ok,READY_TO_IMPORT
+de_7cd33cee60,Fitness First Wernigerode,Fitness First,Dornbergsweg 28,38855,Wernigerode,51.847454,10.785054,ok,READY_TO_IMPORT
+de_be3dcb03d7,Fitness First 3 x in Wien: Entdecke dein Fitnessstudio,Fitness First,festplatz_211.jpg.webp?itok=_YgkQ24Q,90145,coh-component-instance-ff,,,failed,NEEDS_COORDINATES
+de_10a38381a2,Fitness First 2 x in Wiesbaden: Entdecke dein Fitnessstudio,Fitness First,fitness-first-wiesbaden-am-bahnhofsplatz-001.jpg?v=b2cda55e-57da-4f62-8007-0349d4d,07892,coh-component-instance-d,,,failed,NEEDS_COORDINATES
+de_da27a469f1,Fitness First Winnenden,Fitness First,Max-Eyth-Straße 43/1,71364,Winnenden,,,ambiguous,NEEDS_REVIEW
+de_2371082861,Fitness First Wolfenbüttel City,Fitness First,Bahnhofstraße 9B,38300,Wolfenbüttel,52.157355,10.532928,ok,READY_TO_IMPORT
+de_6d9e3fc1b5,Fitness First Würzburg Grombühl,Fitness First,Nürnberger Straße 3,97076,Würzburg,49.799296,9.954042,ok,READY_TO_IMPORT
+de_60c5dd363c,Fitness First Zweibrücken,Fitness First,Etzelweg 252,66482,Zweibrücken,49.226663,7.354632,ok,READY_TO_IMPORT

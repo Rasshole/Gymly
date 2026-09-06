@@ -1,0 +1,37 @@
+{
+  "production": {
+    "Oktopus Fitness": 8,
+    "მამბერი ფიტნესი": 1,
+    "Fitness House": 2,
+    "იმოძრავე": 1,
+    "სპარტა": 1,
+    "Snap Fitness": 1,
+    "Champion": 3,
+    "რეფორმა": 1,
+    "Colosseum": 1,
+    "World Class Georgia": 1,
+    "Arena Sports Complex": 1,
+    "ასპრია": 1,
+    "Fit Line": 1,
+    "BLUE FITNES": 1,
+    "Life Sport Club": 1
+  },
+  "approved": {
+    "Oktopus Fitness": 8,
+    "Champion": 3,
+    "მამბერი ფიტნესი": 1,
+    "Fitness House": 2,
+    "იმოძრავე": 1,
+    "სპარტა": 1,
+    "Snap Fitness": 1,
+    "რეფორმა": 1,
+    "Colosseum": 1,
+    "World Class Georgia": 1,
+    "Arena Sports Complex": 1,
+    "ასპრია": 1,
+    "Fit Line": 1,
+    "BLUE FITNES": 1,
+    "Life Sport Club": 1
+  },
+  "total": 25
+}

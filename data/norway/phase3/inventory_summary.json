@@ -1,0 +1,38 @@
+{
+  "total_unresolved": 135,
+  "by_category": {
+    "NEEDS_REVIEW": 33,
+    "NEEDS_COORDINATES": 63,
+    "SOFT_POSTAL_WITHHELD": 26,
+    "SKIP_INCOMPLETE": 13
+  },
+  "soft_file_count": 26,
+  "soft_names": [
+    "SATS Lillestrøm",
+    "SATS Linderud",
+    "SATS Nesttun",
+    "SATS Oasen",
+    "SATS Sandvika Panorama",
+    "SATS Vestkanten",
+    "SATS Yoga Aker Brygge",
+    "SATS Yoga Majorstuen",
+    "Fresh Fitness Manglerud",
+    "EVO Fitness Ålgård",
+    "EVO Fitness Bryne",
+    "EVO Fitness Heimdal",
+    "EVO Fitness Os",
+    "Feel24 Svolvaer Sentrum",
+    "Feel24 Sandnessjoen Lyngasen",
+    "Feel24 Skjervoy",
+    "Feel24 Stjordal",
+    "Feel24 Buran",
+    "Feel24 Vadso",
+    "3T-Treningssenter Moholt",
+    "MOVA Bergen Kronstad",
+    "MOVA Horten Hovedsenter",
+    "MOVA Kleppe",
+    "SKY Fitness Lisleby",
+    "SKY Fitness Moss Jeloy",
+    "SKY Fitness Randaberg"
+  ]
+}

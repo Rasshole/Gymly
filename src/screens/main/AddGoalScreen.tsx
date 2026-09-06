@@ -14,73 +14,90 @@ import {
   SafeAreaView,
   Alert,
 } from 'react-native';
-import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useGoalStore} from '@/store/goalStore';
 import {useAppStore} from '@/store/appStore';
 import {GoalType, GoalPeriod} from '@/types/goal.types';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 type AddGoalNavigationProp = StackNavigationProp<any>;
+
+/** Stable ids for UI; storageName keeps legacy Danish DB values. */
+const GOAL_EXERCISES = [
+  {id: 'benchPress', storageName: 'Bænkpres'},
+  {id: 'deadlift', storageName: 'Dødløft'},
+  {id: 'legPress', storageName: 'Benpres'},
+  {id: 'squats', storageName: 'Squads'},
+  {id: 'inclineDumbbell', storageName: 'Incline Dumbell'},
+  {id: 'pullDown', storageName: 'Pull-Down'},
+  {id: 'shoulderPressDumbbell', storageName: 'Shoulder Pres Dumbell'},
+] as const;
+
+type GoalExerciseId = (typeof GOAL_EXERCISES)[number]['id'];
 
 const AddGoalScreen = () => {
   const navigation = useNavigation<AddGoalNavigationProp>();
   const {addGoal} = useGoalStore();
   const {user} = useAppStore();
+  const {t} = useTranslation();
   const [selectedType, setSelectedType] = useState<GoalType | null>(null);
   const [target, setTarget] = useState('');
   const [period, setPeriod] = useState<GoalPeriod>('week');
-  const [exercise, setExercise] = useState('');
+  const [exerciseId, setExerciseId] = useState<GoalExerciseId | null>(null);
   const [workoutDuration, setWorkoutDuration] = useState('');
 
-  const goalTypes: Array<{type: GoalType; title: string; description: string}> = [
+  const goalTypes: Array<{type: GoalType; titleKey: string; descKey: string}> = [
     {
       type: 'set_pr',
-      title: 'Sæt PR',
-      description: 'Sæt et personligt rekord for en specifik øvelse',
+      titleKey: 'addGoal.typePrTitle',
+      descKey: 'addGoal.typePrDesc',
     },
     {
       type: 'workouts',
-      title: 'Træninger',
-      description: 'Fuldfør et antal træninger i en periode',
+      titleKey: 'addGoal.typeWorkoutsTitle',
+      descKey: 'addGoal.typeWorkoutsDesc',
     },
-  ];
-
-  const exercises = [
-    'Bænkpres',
-    'Dødløft',
-    'Benpres',
-    'Squads',
-    'Incline Dumbell',
-    'Pull-Down',
-    'Shoulder Pres Dumbell',
   ];
 
   const handleSave = () => {
     if (!selectedType) {
-      Alert.alert('Vælg måltype', 'Vælg venligst en type mål');
+      Alert.alert(t('addGoal.alertSelectTypeTitle'), t('addGoal.alertSelectTypeBody'));
       return;
     }
 
     if (selectedType === 'set_pr') {
-      if (!exercise) {
-        Alert.alert('Vælg øvelse', 'Vælg venligst en øvelse');
+      if (!exerciseId) {
+        Alert.alert(
+          t('addGoal.alertSelectExerciseTitle'),
+          t('addGoal.alertSelectExerciseBody'),
+        );
         return;
       }
       if (!target || isNaN(Number(target)) || Number(target) <= 0) {
-        Alert.alert('Ugyldig værdi', 'Indtast venligst et gyldigt vægt (kg)');
+        Alert.alert(
+          t('addGoal.alertInvalidWeightTitle'),
+          t('addGoal.alertInvalidWeightBody'),
+        );
         return;
       }
     }
 
     if (selectedType === 'workouts') {
       if (!target || isNaN(Number(target)) || Number(target) <= 0) {
-        Alert.alert('Ugyldig værdi', 'Indtast venligst antal træninger');
+        Alert.alert(
+          t('addGoal.alertInvalidCountTitle'),
+          t('addGoal.alertInvalidCountBody'),
+        );
         return;
       }
       if (!workoutDuration || isNaN(Number(workoutDuration)) || Number(workoutDuration) <= 0) {
-        Alert.alert('Ugyldig varighed', 'Indtast venligst træningens varighed i minutter');
+        Alert.alert(
+          t('addGoal.alertInvalidDurationTitle'),
+          t('addGoal.alertInvalidDurationBody'),
+        );
         return;
       }
     }
@@ -88,17 +105,37 @@ const AddGoalScreen = () => {
     // Generate title and description
     let title = '';
     let description = '';
+    let exerciseStorageName: string | undefined;
 
     switch (selectedType) {
-      case 'set_pr':
-        title = `Sæt PR: ${exercise}`;
-        description = `Sæt personlig rekord på ${exercise} med ${target} kg`;
+      case 'set_pr': {
+        const meta = GOAL_EXERCISES.find(e => e.id === exerciseId);
+        exerciseStorageName = meta?.storageName;
+        const exerciseLabel = exerciseId
+          ? t(`addGoal.exercises.${exerciseId}`)
+          : exerciseStorageName ?? '';
+        title = t('addGoal.titlePr', {exercise: exerciseLabel});
+        description = t('addGoal.descPr', {
+          exercise: exerciseLabel,
+          weight: target,
+        });
         break;
-      case 'workouts':
-        const periodText = period === 'week' ? 'uge' : period === 'month' ? 'måned' : 'år';
-        title = `${target} træninger på ${periodText}`;
-        description = `Fuldfør ${target} træninger på ${periodText} (min. ${workoutDuration} min per træning)`;
+      }
+      case 'workouts': {
+        const periodWord =
+          period === 'week'
+            ? t('addGoal.periodWordWeek')
+            : period === 'month'
+              ? t('addGoal.periodWordMonth')
+              : t('addGoal.periodWordYear');
+        title = t('addGoal.titleWorkouts', {count: target, period: periodWord});
+        description = t('addGoal.descWorkouts', {
+          count: target,
+          period: periodWord,
+          minutes: workoutDuration,
+        });
         break;
+      }
     }
 
     addGoal({
@@ -108,16 +145,26 @@ const AddGoalScreen = () => {
       description,
       target: selectedType === 'set_pr' ? Number(target) : Number(target),
       period: selectedType === 'workouts' ? period : undefined,
-      exercise: selectedType === 'set_pr' ? exercise : undefined,
+      exercise: selectedType === 'set_pr' ? exerciseStorageName : undefined,
       workoutDuration: selectedType === 'workouts' ? Number(workoutDuration) : undefined,
     });
 
-    Alert.alert('Mål oprettet', 'Dit nye mål er blevet oprettet', [
+    Alert.alert(t('addGoal.alertCreatedTitle'), t('addGoal.alertCreatedBody'), [
       {
-        text: 'OK',
+        text: t('common.ok'),
         onPress: () => navigation.goBack(),
       },
     ]);
+  };
+
+  const periodLabel = (p: GoalPeriod) => {
+    if (p === 'week') {
+      return t('addGoal.periodWeek');
+    }
+    if (p === 'month') {
+      return t('addGoal.periodMonth');
+    }
+    return t('addGoal.periodYear');
   };
 
   return (
@@ -130,14 +177,14 @@ const AddGoalScreen = () => {
           activeOpacity={0.7}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Tilføj Mål</Text>
+        <Text style={styles.headerTitle}>{t('addGoal.title')}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Goal Type Selection */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Vælg måltype</Text>
+          <Text style={styles.sectionTitle}>{t('addGoal.selectType')}</Text>
           {goalTypes.map((goalType) => (
             <TouchableOpacity
               key={goalType.type}
@@ -148,8 +195,8 @@ const AddGoalScreen = () => {
               onPress={() => setSelectedType(goalType.type)}
               activeOpacity={0.7}>
               <View style={styles.goalTypeContent}>
-                <Text style={styles.goalTypeTitle}>{goalType.title}</Text>
-                <Text style={styles.goalTypeDescription}>{goalType.description}</Text>
+                <Text style={styles.goalTypeTitle}>{t(goalType.titleKey)}</Text>
+                <Text style={styles.goalTypeDescription}>{t(goalType.descKey)}</Text>
               </View>
               {selectedType === goalType.type && (
                 <Icon name="checkmark-circle" size={24} color="#007AFF" />
@@ -161,28 +208,28 @@ const AddGoalScreen = () => {
         {/* Goal Configuration */}
         {selectedType && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Konfigurer mål</Text>
+            <Text style={styles.sectionTitle}>{t('addGoal.configure')}</Text>
 
             {/* Exercise Selection (for set_pr) */}
             {selectedType === 'set_pr' && (
               <View style={styles.inputGroup}>
-                <Text style={styles.inputLabel}>Vælg øvelse</Text>
+                <Text style={styles.inputLabel}>{t('addGoal.selectExercise')}</Text>
                 <View style={styles.exerciseContainer}>
-                  {exercises.map((ex) => (
+                  {GOAL_EXERCISES.map((ex) => (
                     <TouchableOpacity
-                      key={ex}
+                      key={ex.id}
                       style={[
                         styles.exerciseButton,
-                        exercise === ex && styles.exerciseButtonActive,
+                        exerciseId === ex.id && styles.exerciseButtonActive,
                       ]}
-                      onPress={() => setExercise(ex)}
+                      onPress={() => setExerciseId(ex.id)}
                       activeOpacity={0.7}>
                       <Text
                         style={[
                           styles.exerciseButtonText,
-                          exercise === ex && styles.exerciseButtonTextActive,
+                          exerciseId === ex.id && styles.exerciseButtonTextActive,
                         ]}>
-                        {ex}
+                        {t(`addGoal.exercises.${ex.id}`)}
                       </Text>
                     </TouchableOpacity>
                   ))}
@@ -193,12 +240,12 @@ const AddGoalScreen = () => {
             {/* Target Input for PR (weight in kg) */}
             {selectedType === 'set_pr' && (
               <View style={styles.inputGroup}>
-                <Text style={styles.inputLabel}>Vægt (kg)</Text>
+                <Text style={styles.inputLabel}>{t('addGoal.weightKg')}</Text>
                 <TextInput
                   style={styles.input}
                   value={target}
                   onChangeText={setTarget}
-                  placeholder="F.eks. 100"
+                  placeholder={t('addGoal.weightPlaceholder')}
                   keyboardType="numeric"
                   placeholderTextColor="#8E8E93"
                 />
@@ -209,19 +256,19 @@ const AddGoalScreen = () => {
             {selectedType === 'workouts' && (
               <>
                 <View style={styles.inputGroup}>
-                  <Text style={styles.inputLabel}>Antal træninger</Text>
+                  <Text style={styles.inputLabel}>{t('addGoal.workoutCount')}</Text>
                   <TextInput
                     style={styles.input}
                     value={target}
                     onChangeText={setTarget}
-                    placeholder="F.eks. 8"
+                    placeholder={t('addGoal.workoutCountPlaceholder')}
                     keyboardType="numeric"
                     placeholderTextColor="#8E8E93"
                   />
                 </View>
 
                 <View style={styles.inputGroup}>
-                  <Text style={styles.inputLabel}>Periode</Text>
+                  <Text style={styles.inputLabel}>{t('addGoal.period')}</Text>
                   <View style={styles.periodContainer}>
                     {(['week', 'month', 'year'] as GoalPeriod[]).map((p) => (
                       <TouchableOpacity
@@ -237,7 +284,7 @@ const AddGoalScreen = () => {
                             styles.periodButtonText,
                             period === p && styles.periodButtonTextActive,
                           ]}>
-                          {p === 'week' ? 'Uge' : p === 'month' ? 'Måned' : 'År'}
+                          {periodLabel(p)}
                         </Text>
                       </TouchableOpacity>
                     ))}
@@ -245,12 +292,12 @@ const AddGoalScreen = () => {
                 </View>
 
                 <View style={styles.inputGroup}>
-                  <Text style={styles.inputLabel}>Træningens varighed (minutter)</Text>
+                  <Text style={styles.inputLabel}>{t('addGoal.durationMinutes')}</Text>
                   <TextInput
                     style={styles.input}
                     value={workoutDuration}
                     onChangeText={setWorkoutDuration}
-                    placeholder="F.eks. 60"
+                    placeholder={t('addGoal.durationPlaceholder')}
                     keyboardType="numeric"
                     placeholderTextColor="#8E8E93"
                   />
@@ -263,7 +310,7 @@ const AddGoalScreen = () => {
         {/* Save Button */}
         {selectedType && (
           <TouchableOpacity style={styles.saveButton} onPress={handleSave} activeOpacity={0.8}>
-            <Text style={styles.saveButtonText}>Gem Mål</Text>
+            <Text style={styles.saveButtonText}>{t('addGoal.save')}</Text>
           </TouchableOpacity>
         )}
       </ScrollView>
@@ -433,4 +480,3 @@ const styles = StyleSheet.create({
 });
 
 export default AddGoalScreen;
-

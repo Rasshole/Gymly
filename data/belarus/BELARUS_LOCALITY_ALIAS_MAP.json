@@ -1,0 +1,56 @@
+{
+  "country": "Belarus",
+  "aliases": [
+    {
+      "canonical": "Minsk",
+      "variants": [
+        "Минск",
+        "minsk"
+      ]
+    },
+    {
+      "canonical": "Brest",
+      "variants": [
+        "Брест",
+        "brest"
+      ]
+    },
+    {
+      "canonical": "Grodno",
+      "variants": [
+        "Гродно",
+        "grodno"
+      ]
+    },
+    {
+      "canonical": "Gomel",
+      "variants": [
+        "Гомель",
+        "gomel"
+      ]
+    },
+    {
+      "canonical": "Mogilev",
+      "variants": [
+        "Могилёв",
+        "Могилев",
+        "mogilev"
+      ]
+    },
+    {
+      "canonical": "Vitebsk",
+      "variants": [
+        "Витебск",
+        "vitebsk"
+      ]
+    },
+    {
+      "canonical": "Borovlyany",
+      "variants": [
+        "Боровляны",
+        "borovlyany"
+      ]
+    }
+  ],
+  "notes": "Canonical English exonym in staging; Cyrillic preserved in address fields"
+}

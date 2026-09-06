@@ -1,0 +1,122 @@
+{
+  "generated": "2026-08-21T15:03:34.944580+00:00",
+  "task": "ITALY_COMPLETENESS_FITINN_2ROW_REPAIR",
+  "starting_production": {
+    "total": 9092,
+    "italy": 586
+  },
+  "original_intended_merge": 38,
+  "initially_written": 38,
+  "post_merge_safety_repair_removed": 2,
+  "removal_reason": "invalid neighbour-suburb STRICT_ADDRESS_GEOCODE (Pessano/Rodano / Peschiera Borromeo)",
+  "recovered_now": 2,
+  "inserted_now": 2,
+  "still_unresolved": 0,
+  "final_completeness_additions_in_production": 38,
+  "final_italy": 588,
+  "final_total": 9094,
+  "pre_repair_sha256": "9af5ebe9605a59ffa72aad82df8ed58c3e2bc3a4428a93c62a342144c7a4226d",
+  "post_repair_sha256": "6b2b87ffce4d0ee2d7d1d4e6bc21b573579c6c4b28a31a39a0b2ed613e989b7f",
+  "recovered_rows": {
+    "it_ccb19385b7": {
+      "name": "FITINN Milano Bicocca",
+      "brand": "FITINN",
+      "address": "Via Fulvio Testi 282",
+      "postal_code": "20162",
+      "city": "Milano",
+      "lat": 45.5243,
+      "lng": 9.21156,
+      "coord_source": "OFFICIAL_MAP_PIN",
+      "source_url": "https://fitinn.it/palestre/milano-bicocca/",
+      "status": "READY_TO_IMPORT→MERGED_INTO_CATALOG",
+      "evidence": {
+        "official_page_address": "Via Fulvio Testi 282, 20162 Milano",
+        "official_locator_zip": "20162",
+        "official_locator_position": {
+          "lat": 45.5243,
+          "lng": 9.21156
+        },
+        "club_page_position": {
+          "lat": 45.5243,
+          "lng": 9.21156
+        },
+        "reverse_geocode": "280/6, Viale Fulvio Testi, Bicocca, Milano (OSM postcode 20126; official CAP 20162)",
+        "rejected_prior": {
+          "lat": 45.549983,
+          "lng": 9.3750001,
+          "reason": "neighbour_suburb_geocode Pessano/Rodano"
+        },
+        "operating_status": "OPEN"
+      }
+    },
+    "it_4ca03e5086": {
+      "name": "FITINN Milano Viale Abruzzi",
+      "brand": "FITINN",
+      "address": "Viale Abruzzi 38",
+      "postal_code": "20131",
+      "city": "Milano",
+      "lat": 45.47906,
+      "lng": 9.21737,
+      "coord_source": "OFFICIAL_MAP_PIN",
+      "source_url": "https://fitinn.it/palestre/milano-viale-abruzzi/",
+      "status": "READY_TO_IMPORT→MERGED_INTO_CATALOG",
+      "evidence": {
+        "official_page_address": "Viale Abruzzi 38, 20131 Milano",
+        "official_locator_zip": "20131",
+        "official_locator_position": {
+          "lat": 45.47906,
+          "lng": 9.21737
+        },
+        "club_page_position": {
+          "lat": 45.47906,
+          "lng": 9.21737
+        },
+        "reverse_geocode": "Named OSM POI \"FITINN\", Via Sansovino / Buenos Aires-Venezia, Milano, 20131",
+        "rejected_prior": {
+          "lat": 45.4551727,
+          "lng": 9.3164328,
+          "reason": "neighbour_suburb_geocode Peschiera Borromeo"
+        },
+        "operating_status": "OPEN"
+      }
+    }
+  },
+  "validation": {
+    "duplicate_ids": 0,
+    "same_brand_physical_duplicates_lt100": [],
+    "invalid_cap": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "distance_between_recovered_m": 5050.8
+  },
+  "country_counts_unchanged": {
+    "Denmark": 354,
+    "Sweden": 639,
+    "Norway": 535,
+    "Germany": 1424,
+    "United Kingdom": 1474,
+    "Finland": 429,
+    "Netherlands": 600,
+    "France": 1712,
+    "Spain": 976,
+    "Belgium": 363
+  },
+  "original_italy_550_intact": true,
+  "canonical_reconciliation": {
+    "completeness_candidates_originally": 38,
+    "actually_merged_before_repair": 36,
+    "recovered_now": 2,
+    "final_completeness_rows_in_production": 38,
+    "rows_marked_MERGED_INTO_CATALOG": 38,
+    "metadata_drift": false
+  },
+  "idempotency_second_run_insertions": 0,
+  "checkpoint_10k": {
+    "catalog": 9094,
+    "headroom_to_10000": 906,
+    "centers_to_exceed_10000": 907,
+    "stress_qa": "NO"
+  },
+  "check_in_radius_meters": 200
+}

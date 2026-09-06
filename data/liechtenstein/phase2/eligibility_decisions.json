@@ -1,0 +1,50 @@
+{
+  "update_fitness": {
+    "id": "li_9fdb1d933f",
+    "verdict": "READY",
+    "eligibility_path": "SMALL_MARKET_INDEPENDENT",
+    "li_estate": 1
+  },
+  "liefit_vaduz": {
+    "id": "li_9514fe2df2",
+    "verdict": "READY",
+    "eligibility_path": "SMALL_MARKET_INDEPENDENT"
+  },
+  "liefit_geoway_eschen": {
+    "id": "li_7f2d2a5ed7",
+    "verdict": "EXCLUDED",
+    "relationship": "GEOWAY_specialty_studio_same_operators_as_LieFit",
+    "import_units": "LieFit Vaduz only (conventional); GEOWAY Eschen excluded"
+  },
+  "purfitness": {
+    "id": "li_35eed72b39",
+    "verdict": "READY",
+    "successor_of": "fitnesshaus by blugym Schaan"
+  },
+  "lorez_gesundheitscenter": {
+    "id": "li_3ff9b2a62c",
+    "verdict": "EXCLUDED",
+    "classification": "B_PUBLIC_BUT_MEDICAL_REHAB_LED"
+  },
+  "lorez_power_center": {
+    "id": "li_688dc73ac2",
+    "verdict": "READY",
+    "units": 1,
+    "co_located_health_training": "not_separate_club"
+  },
+  "flexigym": {
+    "id": "li_f02192ce76",
+    "verdict": "READY"
+  },
+  "in_motion": {
+    "id": "li_740e149c77",
+    "verdict": "READY",
+    "classification": "A_CONVENTIONAL_PUBLIC_GYM",
+    "not": "B_PUBLIC_BUT_MEDICAL_REHAB_LED"
+  },
+  "kokon": {
+    "id": "li_9b66d0aa5e",
+    "verdict": "READY",
+    "phase2_new": true
+  }
+}

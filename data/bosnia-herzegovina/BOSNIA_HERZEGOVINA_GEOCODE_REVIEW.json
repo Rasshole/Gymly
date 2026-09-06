@@ -1,0 +1,10 @@
+{
+  "fallback_ready": 0,
+  "outside_gate": 0,
+  "invalid_postcodes": 0,
+  "northwest_fbih_exceptions": [
+    "ba_7aeec79730",
+    "ba_bc60505bc2"
+  ],
+  "notes": "All READY passed BA_POSTAL_RE; no FALLBACK coord_source. Bihać/Cazin use verified NW FBiH premises west of conservative gate envelope."
+}

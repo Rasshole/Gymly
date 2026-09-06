@@ -1,0 +1,40 @@
+[
+  {
+    "id": "no_57dfa10c2e",
+    "name": "SATS Triaden",
+    "brand": "SATS",
+    "address": "Gamleveien 88",
+    "postal_code": "1461",
+    "city": "Lørenskog",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.sats.no/treningssenter",
+    "legacy_brand": null,
+    "center_name": "Triaden",
+    "import_category": "POSSIBLE_DUPLICATE",
+    "duplicate_note": "Same address as another chain (SATS Triaden / MUDO Lørenskog) — co-located or conflict; manual review"
+  },
+  {
+    "id": "no_8d28883955",
+    "name": "MUDO Gym Lørenskog",
+    "brand": "MUDO Gym",
+    "address": "Gamleveien 88",
+    "postal_code": "1461",
+    "city": "Lørenskog",
+    "country": "Norway",
+    "lat": null,
+    "lng": null,
+    "is_active": false,
+    "verification_status": "verified_official",
+    "opening_hours_raw": null,
+    "source_url": "https://www.mudogym.no/finn-et-gym/",
+    "legacy_brand": null,
+    "center_name": "Lørenskog",
+    "import_category": "POSSIBLE_DUPLICATE",
+    "duplicate_note": "Same address as another chain (SATS Triaden / MUDO Lørenskog) — co-located or conflict; manual review"
+  }
+]

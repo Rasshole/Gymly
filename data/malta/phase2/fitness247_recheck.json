@@ -1,0 +1,17 @@
+{
+  "official_open": 4,
+  "ready": 4,
+  "ready_names": [
+    "24/7 Fitness Club Mellieħa",
+    "24/7 Fitness Club San Ġwann",
+    "24/7 Fitness Club Ta' Qali",
+    "24/7 Fitness Club Żebbuġ"
+  ],
+  "closed_legacy": [
+    "24/7 Fitness Club Santa Luċija (legacy listing)",
+    "24/7 Fitness Club St Paul's Bay (legacy listing)"
+  ],
+  "additional_current_branches_found": false,
+  "santa_lucija_st_pauls": "historical/closed blog listings — remain CLOSED",
+  "verdict": "COMPLETE"
+}

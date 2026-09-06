@@ -1,0 +1,14 @@
+{
+  "country": "Azerbaijan",
+  "phase": 1,
+  "two_site_operator_clusters": 1,
+  "third_site_probes": 1,
+  "new_class_a_chains_found": 0,
+  "clusters": [
+    {
+      "brand": "İdman Məktəbi",
+      "count": 2,
+      "third_site_probe": "PERFORMED"
+    }
+  ]
+}

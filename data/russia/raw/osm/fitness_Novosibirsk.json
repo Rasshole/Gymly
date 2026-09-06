@@ -1,0 +1,769 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T20:46:05Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 4345299690,
+      "lat": 55.0158955,
+      "lon": 82.9191212,
+      "tags": {
+        "addr:housenumber": "17 к2",
+        "addr:street": "Фабричная улица",
+        "leisure": "fitness_centre",
+        "name": "Eversi",
+        "opening_hours": "Mo-Su 07:30-22:30",
+        "phone": "+7 383 2483066",
+        "website": "http://vk.com/eversi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4420650445,
+      "lat": 54.9389908,
+      "lon": 83.1888128,
+      "tags": {
+        "addr:floor": "цоколь",
+        "addr:housenumber": "2",
+        "addr:street": "Никольский проспект",
+        "check_date": "2022-12-18",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Fitness Expert",
+        "source": "Bing",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4426210098,
+      "lat": 55.0117328,
+      "lon": 82.9366695,
+      "tags": {
+        "addr:postcode": "630102",
+        "email": "info@omclub.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Йога-клуб \"oum.ru в Новосибирске\"",
+        "name:en": "Yoga-club \"Om\"",
+        "name:ru": "Йога-клуб \"Ом\"",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "phone": "+73833750409",
+        "website": "http://vk.com/omclubru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4526293526,
+      "lat": 55.0554192,
+      "lon": 82.9192894,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Движение",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4622877689,
+      "lat": 55.1133714,
+      "lon": 82.9334783,
+      "tags": {
+        "addr:postcode": "630061",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4717660690,
+      "lat": 55.0145822,
+      "lon": 82.9479617,
+      "tags": {
+        "addr:housenumber": "82",
+        "addr:postcode": "630102",
+        "addr:street": "улица Кирова",
+        "email": "info@panorama-sport.ru",
+        "internet_access": "wlan",
+        "leisure": "fitness_centre",
+        "name": "Панорама, центр скалолазания",
+        "name:en": "Panorama Climbing Center",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+7 383 3034141",
+        "website": "http://www.panorama-sport.ru"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4781548923,
+      "lat": 54.9688283,
+      "lon": 83.1032804,
+      "tags": {
+        "email": "nika-nsk@bk.ru",
+        "leisure": "fitness_centre",
+        "name": "Ника",
+        "name:en": "Nika",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "phone": "+73833271184"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4791330493,
+      "lat": 55.0575055,
+      "lon": 82.9369436,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Африка",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4962952032,
+      "lat": 54.9368897,
+      "lon": 83.1048643,
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "19",
+        "addr:street": "Берёзовая улица",
+        "check_date": "2025-05-21",
+        "leisure": "fitness_centre",
+        "name": "Железный занавес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4962961563,
+      "lat": 54.9381028,
+      "lon": 83.1054933,
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "1/9",
+        "addr:street": "улица Одоевского",
+        "leisure": "fitness_centre",
+        "name": "Body Fit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5423014923,
+      "lat": 55.0681249,
+      "lon": 82.9131536,
+      "tags": {
+        "addr:postcode": "630048",
+        "email": "extreme-info@mail.ru",
+        "leisure": "fitness_centre",
+        "name": "Экстрим фитнес",
+        "name:en": "Extreme fitness",
+        "opening_hours": "24/7",
+        "phone": "+73833499090",
+        "website": "https://www.extremefitness.ru/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5451150622,
+      "lat": 55.0401061,
+      "lon": 83.0056215,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Talwego"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5458080229,
+      "lat": 55.0444185,
+      "lon": 82.9909238,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5458080230,
+      "lat": 55.0360921,
+      "lon": 83.0008067,
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6514648069,
+      "lat": 55.0606446,
+      "lon": 82.9049157,
+      "tags": {
+        "leisure": "fitness_centre",
+        "name": "Красотка",
+        "opening_hours": "Mo-Fr 09:00-21:00; Sa 10:00-20:00",
+        "phone": "+7 913 3830045;+7 383 2362187",
+        "sport": "fitness",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6522359985,
+      "lat": 55.0037236,
+      "lon": 83.0199146,
+      "tags": {
+        "contact:email": "europa1253@gmail.com",
+        "contact:phone": "+7 383 2442443;+7 383 2692100",
+        "contact:website": "https://europaclub.ru",
+        "leisure": "fitness_centre",
+        "name": "Европа",
+        "name:en": "Europa",
+        "opening_hours": "Mo-Fr 07:00-23:30; Sa-Su 08:00-21:00",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7019355888,
+      "lat": 55.0803337,
+      "lon": 82.9077454,
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "1А",
+        "addr:postcode": "630123",
+        "addr:street": "улица Аэропорт",
+        "contact:email": "panattasport.pro@yandex.ru",
+        "contact:phone": "+7 383 3830880",
+        "contact:website": "https://panattasport.pro",
+        "leisure": "fitness_centre",
+        "name": "Panatta sport",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7942484139,
+      "lat": 55.0392903,
+      "lon": 82.9545464,
+      "tags": {
+        "clothes": "sports",
+        "contact:email": "premierfitness@mail.ru",
+        "contact:instagram": "https://instagram.com/premier_fitness_nsk",
+        "contact:phone": "+7 383 3809816",
+        "contact:vk": "https://vk.com/premierfit",
+        "contact:website": "https://www.premier-fit.ru/",
+        "leisure": "fitness_centre",
+        "name": "Премьер фитнес",
+        "opening_hours": "Mo-Fr 07:00-23:00;Sa-Su 09:00-21:00",
+        "operator": "Премьер фитнес"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7951162676,
+      "lat": 55.0193978,
+      "lon": 82.9393863,
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "23",
+        "addr:street": "улица Кирова",
+        "contact:phone": "+7 383 2449225",
+        "contact:website": "https://plaza.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit Плаза",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7966497091,
+      "lat": 54.9801294,
+      "lon": 82.897629,
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "7",
+        "addr:street": "площадь Карла Маркса",
+        "contact:phone": "+7 383 2449428",
+        "contact:website": "https://novosibirsk.xfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "X-Fit Сан Сити",
+        "opening_hours": "Mo-Fr 07:00-24:00; Sa-Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8058964422,
+      "lat": 54.9279117,
+      "lon": 82.9944083,
+      "tags": {
+        "contact:email": "sky.light.studio@yandex.ru",
+        "contact:phone": "+7 383 2143939;+7 913 9123939;+7 953 8594003",
+        "contact:website": "https://sky-light-studio.ru/",
+        "leisure": "fitness_centre",
+        "name": "Небесный Свет",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "sport": "yoga"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9800896574,
+      "lat": 55.0404352,
+      "lon": 82.9703478,
+      "tags": {
+        "check_date": "2022-06-07",
+        "contact:email": "info@nivafit.ru",
+        "contact:phone": "+7 383 3190035-2;+7 913 4640009",
+        "contact:website": "https://nivafit.ru",
+        "leisure": "fitness_centre",
+        "name": "Nivafit",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9830033352,
+      "lat": 55.0600097,
+      "lon": 82.9216063,
+      "tags": {
+        "check_date": "2022-06-19",
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10270711444,
+      "lat": 54.9389273,
+      "lon": 83.1879501,
+      "tags": {
+        "addr:floor": "цоколь",
+        "addr:housenumber": "2",
+        "addr:street": "Никольский проспект",
+        "check_date": "2022-12-18",
+        "internet_access": "no",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Freedom room",
+        "payment:cards": "no",
+        "payment:credit_cards": "no",
+        "payment:debit_cards": "no",
+        "phone": "+7 913 917-91-08",
+        "sport": "yoga",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10886209452,
+      "lat": 55.046872,
+      "lon": 82.859624,
+      "tags": {
+        "contact:email": "info@fitparklite.ru",
+        "contact:phone": "+7 383 3191946;+7 929 3881919",
+        "contact:website": "https://fitparklite.ru/",
+        "leisure": "fitness_centre",
+        "name": "Фитнес парк lite",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11155923747,
+      "lat": 55.0500559,
+      "lon": 82.9140651,
+      "tags": {
+        "contact:email": "crossbox.kontora@yandex.ru",
+        "contact:phone": "+7 913 7427251;+7 993 0089375",
+        "contact:website": "https://www.one.crossboxkontora.ru/",
+        "leisure": "fitness_centre",
+        "name": "Crossbox Kontora",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 09:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11155945219,
+      "lat": 54.9899786,
+      "lon": 82.9701125,
+      "tags": {
+        "contact:email": "director@madeingym.com",
+        "contact:phone": "+7 383 3051555",
+        "contact:website": "https://madeingym.com/",
+        "leisure": "fitness_centre",
+        "name": "Made in gym",
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11332753107,
+      "lat": 55.010869,
+      "lon": 82.9357481,
+      "tags": {
+        "contact:email": "point-fit@yandex.ru",
+        "contact:phone": "+7 383 2142322;+7 913 9122322",
+        "contact:website": "http://pointfit.ru/",
+        "leisure": "fitness_centre",
+        "name": "Point fit",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa-Su 09:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443629,
+      "lat": 55.0571851,
+      "lon": 82.9121468,
+      "tags": {
+        "contact:phone": "+7 913 3992171",
+        "contact:website": "https://ladystretch.com/novosibirsk1",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443630,
+      "lat": 55.1092785,
+      "lon": 82.929895,
+      "tags": {
+        "contact:phone": "+7 913 3992171",
+        "contact:website": "https://ladystretch.com/novosibirsk1",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459443667,
+      "lat": 55.0409263,
+      "lon": 82.9735914,
+      "tags": {
+        "contact:phone": "+7 913 3992171;+7 913 4579232",
+        "contact:website": "https://ladystretch.com/novosibirsk1",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458169,
+      "lat": 54.9812501,
+      "lon": 82.869284,
+      "tags": {
+        "contact:phone": "+7 913 3992171;+7 993 0135793",
+        "contact:website": "https://novosibirsk.ladystretch.ru",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11459458170,
+      "lat": 55.0314574,
+      "lon": 82.9139911,
+      "tags": {
+        "contact:phone": "+7 952 9235955",
+        "contact:website": "https://lady-stretch.online/novosib",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11482397168,
+      "lat": 55.0432946,
+      "lon": 82.9492879,
+      "tags": {
+        "contact:email": "tonus-club@mail.ru",
+        "contact:phone": "+7 383 2081960;+7 906 9432667;+7 983 5562677;+7 993 0161950",
+        "contact:website": "https://wellnessclubnsk28.ru/",
+        "leisure": "fitness_centre",
+        "name": "Женский клуб здоровья и похудения",
+        "opening_hours": "Mo-Fr 08:00-21:00; Sa-Su 08:30-17:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11747632818,
+      "lat": 55.0558559,
+      "lon": 82.9046372,
+      "tags": {
+        "contact:phone": "+7 383 3807277;+7 901 4592196",
+        "contact:website": "https://www.genesis-fit.ru/",
+        "leisure": "fitness_centre",
+        "name": "Genesis",
+        "opening_hours": "Mo-Fr 09:00-21:00; Sa-Su 09:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873736552,
+      "lat": 55.0406451,
+      "lon": 82.9002678,
+      "tags": {
+        "contact:email": "fitness@grand-arena.ru",
+        "contact:phone": "+7 383 2300350;+7 913 0649107",
+        "contact:website": "https://grand-arena.ru/",
+        "leisure": "fitness_centre",
+        "name": "Гранд Арена",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873795172,
+      "lat": 55.0433745,
+      "lon": 82.9235415,
+      "tags": {
+        "contact:email": "hammer-fit@mail.ru",
+        "contact:phone": "+7 383 3830272",
+        "contact:website": "https://hammer-fit.ru",
+        "leisure": "fitness_centre",
+        "name": "Hammer Fit",
+        "opening_hours": "Mo-Fr 06:00-24:00; Sa-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11958269286,
+      "lat": 55.0486976,
+      "lon": 82.9117369,
+      "tags": {
+        "contact:phone": "+7 903 9017949;+7 960 7939400;+7 962 8350111",
+        "contact:website": "https://extremefitness.ru/clubs",
+        "leisure": "fitness_centre",
+        "name": "Экстрим фитнес",
+        "opening_hours": "Mo-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12012057613,
+      "lat": 55.0188703,
+      "lon": 82.9464152,
+      "tags": {
+        "contact:phone": "+7 993 0061886",
+        "contact:website": "https://ladystretch.com/novosibirsk2",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12216002774,
+      "lat": 55.0105537,
+      "lon": 82.9323175,
+      "tags": {
+        "contact:email": "soft_pilates@mail.ru",
+        "contact:phone": "+7 383 3902945",
+        "contact:website": "https://softpilates.ru",
+        "leisure": "fitness_centre",
+        "name": "Soft place",
+        "opening_hours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-18:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378229081,
+      "lat": 54.9590552,
+      "lon": 82.9675232,
+      "tags": {
+        "contact:phone": "+7 953 8768154",
+        "contact:website": "https://ladystretch.com/novosibirsk2",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:30,15:30-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378229084,
+      "lat": 55.0739216,
+      "lon": 82.9486511,
+      "tags": {
+        "contact:phone": "+7 923 1773626",
+        "contact:website": "https://ladystretch.com/novosibirsk1",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12378229086,
+      "lat": 55.0415309,
+      "lon": 82.9256796,
+      "tags": {
+        "contact:phone": "+7 923 1770010",
+        "contact:website": "https://ladystretch.com/novosibirsk1",
+        "leisure": "fitness_centre",
+        "name": "Lady Stretch",
+        "opening_hours": "Mo-Su 09:00-14:00,16:00-21:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13078336118,
+      "lat": 55.0517529,
+      "lon": 82.8959358,
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "37",
+        "addr:place": "Апельсин",
+        "addr:postcode": "630001",
+        "addr:street": "Нарымская улица",
+        "contact:telegram": "https://t.me/apelsinfitness_narymskaya",
+        "contact:vk": "https://vk.com/apelsin_fitness",
+        "leisure": "fitness_centre",
+        "name": "Апельсин",
+        "opening_hours": "Mo-Fr 06:00-24:00; Sa-Su 8:00-22:00",
+        "personal_trainer": "yes",
+        "phone": "+7 (383) 383‒01‒76",
+        "sauna": "no",
+        "sport": "fitness",
+        "website": "фитнес-апельсин.рф"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754240,
+      "lat": 55.0569712,
+      "lon": 82.9138827,
+      "tags": {
+        "contact:phone": "+7 383 2883299",
+        "contact:website": "https://novosibirsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754241,
+      "lat": 55.0414504,
+      "lon": 82.9604834,
+      "tags": {
+        "contact:phone": "+7 383 2883299",
+        "contact:website": "https://novosibirsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13267754242,
+      "lat": 54.9907695,
+      "lon": 82.908124,
+      "tags": {
+        "contact:phone": "+7 383 2883299;+7 950 2752317",
+        "contact:website": "https://novosibirsk.metrofitness.ru",
+        "leisure": "fitness_centre",
+        "name": "МетроFitness",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 14120615253,
+      "lat": 55.0427496,
+      "lon": 82.9492793,
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "2/1",
+        "addr:postcode": "630112",
+        "addr:street": "улица Кошурникова",
+        "leisure": "fitness_centre",
+        "name": "СТОВБУР",
+        "phone": "+7 383 375-71-08",
+        "sport": "yoga;fitness;gymnastics",
+        "website": "https://stovburyoga.ru/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 596120169,
+      "center": {
+        "lat": 54.9868245,
+        "lon": 82.8443581
+      },
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "106",
+        "addr:postcode": "630064",
+        "addr:street": "улица Пархоменко",
+        "building": "yes",
+        "building:levels": "6",
+        "contact:email": "desk@aqua-tonus.ru",
+        "contact:phone": "+7 383 3090002;+7 383 3090004;+7 913 4624004",
+        "contact:website": "https://aqua-tonus.ru",
+        "leisure": "fitness_centre",
+        "name": "Аква-тонус",
+        "opening_hours": "Mo-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "way",
+      "id": 851571952,
+      "center": {
+        "lat": 54.9860341,
+        "lon": 83.0436766
+      },
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "18",
+        "addr:postcode": "630114",
+        "addr:street": "улица Ключ-Камышенское Плато",
+        "building": "yes",
+        "leisure": "fitness_centre",
+        "name": "Фитнес-центр \"Спарта\"",
+        "sport": "fitness;swimming"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1083722605,
+      "center": {
+        "lat": 55.0475175,
+        "lon": 82.9598746
+      },
+      "tags": {
+        "leisure": "fitness_centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1084371876,
+      "center": {
+        "lat": 55.0628103,
+        "lon": 82.8934175
+      },
+      "tags": {
+        "leisure": "fitness_centre",
+        "sport": "fitness"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1125160307,
+      "center": {
+        "lat": 54.9420248,
+        "lon": 82.9533237
+      },
+      "tags": {
+        "addr:city": "Новосибирск",
+        "addr:housenumber": "101/2",
+        "addr:postcode": "630022",
+        "addr:street": "улица Петухова",
+        "building": "yes",
+        "leisure": "fitness_centre"
+      }
+    }
+  ]
+}

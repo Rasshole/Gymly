@@ -1,0 +1,13 @@
+{
+  "country": "Russia",
+  "format": "NNNNNN (6 digits)",
+  "regex": "^\\d{6}$",
+  "examples": [
+    "101000",
+    "190000",
+    "630099"
+  ],
+  "validation_function": "format_ru_postal() in batch1_phase1_common.py",
+  "source": "Pochta Rossii index; aligned with RU_POSTAL_RE",
+  "verified_independently": true
+}

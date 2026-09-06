@@ -1,4 +1,4 @@
-#import <React/RCTBridgeModule.h>
+#import "RCTBridgeModule.h"
 
 @interface RCT_EXTERN_MODULE(GymlyAppBadgeModule, NSObject)
 

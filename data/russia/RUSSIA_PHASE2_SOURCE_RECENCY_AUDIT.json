@@ -1,0 +1,3266 @@
+{
+  "buckets": {
+    "CURRENT_FIRST_PARTY": 209,
+    "CURRENT_MULTI_SOURCE": 256
+  },
+  "stale_only_ready": 0,
+  "operation_unverified_ready": 0,
+  "disputed_territory_staged": 27,
+  "rows": [
+    {
+      "id": "ru_0096ae8626",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_029f1612b2",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_05aa045855",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_06d07c025e",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_070609ba19",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_07286363d7",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0a6095446d",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0c3d3a6836",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_10962feebf",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_146fc5c915",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_17cfdb0103",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_19fb61ba8f",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1c191831be",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1d6ef2416f",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_230eb34817",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_24bc878dcd",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2a420136af",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2ade4410b1",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2b47c6d0ca",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2bdfe9470b",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2c02ec5584",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2c416b04f3",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_390e6ad1dd",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3a26175c10",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3d539b4237",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3e5342bcd3",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_40545bfb68",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4268532341",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_47293546c2",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_474cde4fc0",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4961711fba",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4ccf6afc6e",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4e88c03cd4",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_527bc3c282",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_53802417d5",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5381ff7239",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5417f6a4ac",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_56b3b33ed7",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5ddfb34bc9",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5de221d7b5",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_61f71793fc",
+      "brand": "Spirit Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_622cf00bb3",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6553f75c7e",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6e71db836e",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6f24fa7f9a",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_713360fe92",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_79f6a2a810",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7c310f309c",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7d69bb1009",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7d8ce8da28",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_84f89099f2",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_86e1f0f8a2",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8715cb13e6",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_878a8dc2bb",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_88b87955d4",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_898929ced6",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_89ca23f7e4",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8a28bc8a7c",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8bebc474ce",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8d8b396456",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_96740872b8",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9e76e1ded1",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a04dcf070b",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a187a0bd9b",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a3579e7edc",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a6add7a430",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a85471fce8",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ab675658a3",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_aba15e5f63",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ad720bf7f7",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ad731450ac",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_adefbdbe7a",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b1c959130c",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b5f9386d22",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b744d68042",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c0a1f6eed7",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c2b00a4391",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ca0c785cca",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_cff642aee9",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d133da8f22",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d8b5182e96",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_db3b50e65a",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_dc869327ff",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e1c1667f5c",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e24c3a83fa",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e49fe228b2",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e582c39409",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e614400112",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e8d05a8a1e",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ead1b88dc7",
+      "brand": "Spirit Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ebdff28923",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_edba3d32ab",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_edddc59b59",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_eef5a23674",
+      "brand": "Alex Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f1c5634a64",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f2562ee7d7",
+      "brand": "DDxFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f39d2a2035",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f48d2047a3",
+      "brand": "World Class",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f6dbed02c3",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f913747430",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_faaf10e794",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fbc8cfcf51",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ffa82119dd",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ffb48f678e",
+      "brand": "X-Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_009f1ea2cb",
+      "brand": "WeGym Зелёный",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_027c6c78c4",
+      "brand": "Loft Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0289af6ac6",
+      "brand": "Фитнес Хаус",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_02ca3146a9",
+      "brand": "Динамо",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_03315501d2",
+      "brand": "ФОЗ",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_047cd77b25",
+      "brand": "Молодежный спортивный клуб \"Меридиан\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0492773180",
+      "brand": "Fitness Time",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_04aef71bbb",
+      "brand": "Boom Cycle",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_059c7e4be2",
+      "brand": "Фьюжн фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_064b69edf0",
+      "brand": "D`Athletics",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_06740690b0",
+      "brand": "Спортзал",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_06e56a5933",
+      "brand": "NeDerevo",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0722e76b43",
+      "brand": "Люкс Фитнес",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0783658d2a",
+      "brand": "Power Fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_08835a12e9",
+      "brand": "Crocus Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_099d4915e9",
+      "brand": "Magneto fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0a39887233",
+      "brand": "Fitcurves",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0be67fd992",
+      "brand": "ФитнесМания",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0c4317d5ba",
+      "brand": "Палестра",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0c4de45c0d",
+      "brand": "Фитнес Файв",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0c934794f2",
+      "brand": "Nova fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0e410c45b0",
+      "brand": "Спорт-Пульс",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_0f0551bc68",
+      "brand": "Нонстоп",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_10d6bef0aa",
+      "brand": "Ninjafit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_113864d169",
+      "brand": "Белые медведи",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1158d201cc",
+      "brand": "Стронг",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_12804f273a",
+      "brand": "Аква-тонус",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1297b38001",
+      "brand": "Просветление",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_140a1da3ad",
+      "brand": "Ньюфит Арбат",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_14b4aecafa",
+      "brand": "Allo",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1526683d21",
+      "brand": "Ленин",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1534a02f11",
+      "brand": "X-Line",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_15d149bf1e",
+      "brand": "Intuition",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_177d6a0e3a",
+      "brand": "Gym & Tonic",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_17fa614715",
+      "brand": "PROFIT",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1a3bad3a62",
+      "brand": "Территория фитнеса",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1cdaace544",
+      "brand": "Gym Fitness Studio",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1dc548f801",
+      "brand": "Gymnastika",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_1ed2ee56bd",
+      "brand": "Леон",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2092ed33f1",
+      "brand": "Лето",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_20d162b60d",
+      "brand": "Все свои",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_235efaa6e8",
+      "brand": "Ревиталь Парк",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_236838bef1",
+      "brand": "Тонус-Клуб",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_24320968af",
+      "brand": "Спортивный Клуб Бабочка",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_250668e53b",
+      "brand": "X-Fit Чистые пруды",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_25967ac34b",
+      "brand": "СССР",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_25b89c4523",
+      "brand": "Тонус",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_25f234bc23",
+      "brand": "Спортивный баскетбольный клуб \"Глория\" олимпийского резерва",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2615aa661f",
+      "brand": "Mind Body Studio",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_261ff7520f",
+      "brand": "Титаниум",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_26e7f14a78",
+      "brand": "SkyGYM",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_271d0c0f64",
+      "brand": "G8",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2757598894",
+      "brand": "Экарма",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_276b483ef7",
+      "brand": "Fitness Center",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2a150b9990",
+      "brand": "ЙогаМания",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2b2d4ec2cc",
+      "brand": "ФОЦ",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2bed13189a",
+      "brand": "КлубникаСпорт",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2c57e2cd44",
+      "brand": "Ньюфит Братиславская",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2d01e585c3",
+      "brand": "Bungee Workout",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2d5ff17c73",
+      "brand": "Super Gym (Супер Джим)",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_2f0a0bc59f",
+      "brand": "Лечебная гимнастика ЛФК",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_302a6deab6",
+      "brand": "ML Dance",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_30785adaa4",
+      "brand": "Fiesta FIT",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_31c54bddde",
+      "brand": "Фитнес Лэнд",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_31cf2de330",
+      "brand": "Аэромагия",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3272f6ad8f",
+      "brand": "Фитнес-студия «Ирбис»",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_35bd0c1fe7",
+      "brand": "Hardy's Body",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_35e137c16c",
+      "brand": "ГУАП фитнес",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_368ff8c498",
+      "brand": "Олимпик Фитнес",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3942062ad7",
+      "brand": "Magic Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3986de9104",
+      "brand": "Golden mile",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3a27bc88b6",
+      "brand": "Апельсин",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3a9eb249c2",
+      "brand": "Виллафит",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3c41c5bddb",
+      "brand": "Republika",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3cbabd607a",
+      "brand": "Ньюфит Автозаводская",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3d5970ed1a",
+      "brand": "Zamute",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3ea699530a",
+      "brand": "MyFitlab Преображенская",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_3f38ea9f4c",
+      "brand": "Центр йоги \"Анахата\"",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_400ee15425",
+      "brand": "Фитнес для женщин",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4136f969dd",
+      "brand": "Ла Салюте",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_41ca776326",
+      "brand": "Акробат",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_41ec9374ab",
+      "brand": "Power Zone",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_42da945628",
+      "brand": "Energy",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_42dd14766d",
+      "brand": "Спортивный клуб \"Taekwon\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_43a428664f",
+      "brand": "NeoFIT",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4421d4f71f",
+      "brand": "Тонус relax",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_449d83c7bf",
+      "brand": "Фитнесс Парк",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_45bc078a42",
+      "brand": "S-Sport",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_45dba4ed70",
+      "brand": "La Collina",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_45f6e4ee9d",
+      "brand": "Неф",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_46186ed300",
+      "brand": "Reboot",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4642c0ade9",
+      "brand": "Скиллфит",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_46ebf30a25",
+      "brand": "Parislife",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4700cc6cf9",
+      "brand": "Спортивный клуб \"Иван\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_47703cf6dd",
+      "brand": "Лидер",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_47735dbac7",
+      "brand": "Royal Gym",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_483f4b1f4b",
+      "brand": "Школа восточных единоборств",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_488f1ea248",
+      "brand": "39 чувство",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4958804cb0",
+      "brand": "Корона",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_49ab02c10a",
+      "brand": "Дом единоборств «Союз Бокса»",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4a1b1a728b",
+      "brand": "Jump",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4b133f37e5",
+      "brand": "Фитнес-центр \"Фаворит\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4bd4138520",
+      "brand": "Фитнес-студия персонального тренинга Оксаны Щежиной",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4c1873bef5",
+      "brand": "Pluzhnik",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4d47a9678f",
+      "brand": "FITLIT",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4dbbd2cf45",
+      "brand": "Groza Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4e53c2f466",
+      "brand": "Фитнес-клуб",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4ede4af752",
+      "brand": "Атлант",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4f6184dc3f",
+      "brand": "Притяжение",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4f971d1ed8",
+      "brand": "Сити Фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_4fe7c12194",
+      "brand": "TopStretching",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_50b5413334",
+      "brand": "Зебра",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_50d2fed0e1",
+      "brand": "Весна",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_51c5e742ed",
+      "brand": "Fit Fashion",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_53305dd26c",
+      "brand": "Физкультурно-оздоровительный комплекс",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_538a2348a4",
+      "brand": "AirFit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_549aa5574a",
+      "brand": "Barre Addict",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_550e31f42c",
+      "brand": "MyFitlab",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_55a38016a8",
+      "brand": "2%fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_561268d251",
+      "brand": "5fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_574a6efb92",
+      "brand": "Altis Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_581d63e440",
+      "brand": "Keep Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_58f32ab7df",
+      "brand": "Sunny Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_59492bf603",
+      "brand": "Challenge Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_59746649dc",
+      "brand": "Йога-Практика",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5abf188ac7",
+      "brand": "Vega Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5b06558675",
+      "brand": "Ideal Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5be72707d0",
+      "brand": "Тренажерный зал",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5cca4cb6e1",
+      "brand": "Спортивный клуб 40",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5ddc72a8fe",
+      "brand": "Спортмотив",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_5e3d397625",
+      "brand": "Шелт",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6062aaa555",
+      "brand": "Fusion Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_611233db99",
+      "brand": "Number One Fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_61c83bc4be",
+      "brand": "Европейский гимнастический центр",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6260cca944",
+      "brand": "Конно-спортивный клуб Алмазово",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6347ba0e13",
+      "brand": "Do",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_63614a74db",
+      "brand": "FitLife",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_638a49136e",
+      "brand": "X-Way",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_63f9f97f46",
+      "brand": "Winner",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_64a91b67ab",
+      "brand": "Good Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_653f86f523",
+      "brand": "Батутный клуб Рубикон",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_656f682c4c",
+      "brand": "Fitnation",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6582defc5a",
+      "brand": "Royal wellness club",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6630ff8d94",
+      "brand": "Капсула",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_67723ab6b5",
+      "brand": "Фитнес Плаза",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6783f93b29",
+      "brand": "Прайд",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_67cb2da187",
+      "brand": "Спортивный клуб УВД ЦАО г. Москвы",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_67ea1da612",
+      "brand": "Платинум фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_67f6c0afb9",
+      "brand": "Zebra",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_69a712e90b",
+      "brand": "Activum Style",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6c9796b479",
+      "brand": "Фитнес-бар",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6cac67a04d",
+      "brand": "Спортивный клуб \"Медвежьи Озёра\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6d309870b5",
+      "brand": "Паллада",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6d65908b48",
+      "brand": "Спортивный клуб \"Спиридоновка\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6d9e2fbee7",
+      "brand": "Factory Fight",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6dde6ebb10",
+      "brand": "Just Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6de6cf4f60",
+      "brand": "Фитнес-центр \"Маугли\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_6f8dc36c24",
+      "brand": "Кенгуру",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7119a23ce0",
+      "brand": "Оранж Фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_71ef628cbb",
+      "brand": "Move On",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7251b11ca4",
+      "brand": "Ges Studio",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_74340070f8",
+      "brand": "MD",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_74c053f6c5",
+      "brand": "Юна Aqua-Life",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_74d0573c07",
+      "brand": "MyFitlab",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_75457edec5",
+      "brand": "ProfStyle",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_75fe9b5480",
+      "brand": "Андрей",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_767518f9b0",
+      "brand": "Fit-N-Go",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_770c55c2a9",
+      "brand": "Тренажерный зал",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_79fde6b018",
+      "brand": "Тригон",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7b3fb7b9b7",
+      "brand": "RE:fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7b5b1f04d5",
+      "brand": "Come on gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7b9bb7f0ef",
+      "brand": "Формула успеха",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7c0de314d5",
+      "brand": "Пионер",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7ccd638223",
+      "brand": "Союз",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7d0d7d2461",
+      "brand": "Фабрика Фитнеса",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7d7a31e99d",
+      "brand": "Elastic",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7e95f1a3b6",
+      "brand": "Рефил фитнес",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7ebabfc5ee",
+      "brand": "культурно-спортивный клуб Луч",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7f4c0e188e",
+      "brand": "Фитнес клуб",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7f7ae60b1a",
+      "brand": "Динамика",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_7f82343eab",
+      "brand": "Фитнес Салон Диана",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_80599c9729",
+      "brand": "СитиФитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_80c2270786",
+      "brand": "Спортивный клуб \"Десантник\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_81a5eead58",
+      "brand": "ЮВ-Спорт",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_82d0faddf0",
+      "brand": "Концепт Фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_82da008c61",
+      "brand": "Альфа-фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8324a83653",
+      "brand": "Фитнес-Лэнд",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_836347f2f7",
+      "brand": "Wegym",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_841c319cdc",
+      "brand": "X-Fit Авиамоторная",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8589e8c3db",
+      "brand": "Panatta sport",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_870363f20a",
+      "brand": "Mix-Fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8724e1917c",
+      "brand": "Северо-Запад",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8745a0c768",
+      "brand": "Sandow",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_87cf3fef88",
+      "brand": "Zebra Sport",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_88effb527a",
+      "brand": "Encore Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8909d6fcd2",
+      "brand": "Анатомия",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_891110ce4f",
+      "brand": "Мисс фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8a60744151",
+      "brand": "Rock the Cycle",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8b0287f84a",
+      "brand": "СпортЛэнд",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8c75b2662a",
+      "brand": "Bodies by design fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8d77faa294",
+      "brand": "Спортив",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8e0464894e",
+      "brand": "GymPro",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8e3715ae0b",
+      "brand": "Gymnasium",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_8f9316d06c",
+      "brand": "Фитнес-клуб СССР",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_923adcd9b9",
+      "brand": "Sculpt",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_93f086647a",
+      "brand": "Спортклуб \"На Арбате\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9415eee52a",
+      "brand": "Здоровье и спорт",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_952fcd8f31",
+      "brand": "Gym Space",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9560b5ec20",
+      "brand": "Геркулес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_967820fb1c",
+      "brand": "Universal Fit",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_970b550f0e",
+      "brand": "Спортивный клуб \"Печатники\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_98cb013374",
+      "brand": "Crocus Fitness Studio",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_990fc822ed",
+      "brand": "Delta Sport",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9a419bf642",
+      "brand": "Hoba",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9a50bbc388",
+      "brand": "Адреналин",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9ad3f442d0",
+      "brand": "Fitness House",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9afbc95b37",
+      "brand": "Планета фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9b26c8425b",
+      "brand": "Gym Pro",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9cc832bf2b",
+      "brand": "Paris Life",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9dfcd4d3ac",
+      "brand": "Gud Fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9ee3bf077a",
+      "brand": "Papa Smith",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_9f11f3a2b6",
+      "brand": "ParisLife",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a0bbd3860f",
+      "brand": "Crocus Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a0ef14b861",
+      "brand": "Фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a1ce8fd7c9",
+      "brand": "Центр экстремального похудения «Бамбук»",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a1e4f96070",
+      "brand": "Dolphin",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a2ca9a718a",
+      "brand": "Твой фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a40e3a7d8a",
+      "brand": "Суперпозиция",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a4a311f6c1",
+      "brand": "Фитнес-центр \"Спарта\"",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a5585e376e",
+      "brand": "Спорт & Лайф",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a55c9d2019",
+      "brand": "Express-Fit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a6483efca7",
+      "brand": "Папа Смит",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a6cbac6dfa",
+      "brand": "Yashankin Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a712f199f7",
+      "brand": "СССР",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a77f4e0363",
+      "brand": "Profipump",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a7f6d18377",
+      "brand": "Сафранс",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a908a08fc7",
+      "brand": "Центр досуга и спорта \"Южный\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_a94010541a",
+      "brand": "фитнес-центр",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_aac5dc2c9b",
+      "brand": "Energy",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ab962ca4de",
+      "brand": "Спортивный клуб «Мускул»",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_abbce4d704",
+      "brand": "Ньюфит Люберцы",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_abdefda432",
+      "brand": "Спортивный клуб \"Ярославский\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_acef355f66",
+      "brand": "I'm крепыш",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ad1472acd1",
+      "brand": "STRELKA CYCLE",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ad8e88a726",
+      "brand": "Военно-спортивный клуб \"Герат\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_aeaed1bb2a",
+      "brand": "Студия спорта",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_af17ff61df",
+      "brand": "МетроFitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b023e8a236",
+      "brand": "Экспресс-фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b02df96191",
+      "brand": "Панорама Arionov Hockeygym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b0817a58f9",
+      "brand": "Atletico",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b1195fbeea",
+      "brand": "Velobeat",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b11b3f7c1c",
+      "brand": "Ньюфит Юго-Западная",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b19561f053",
+      "brand": "Амазония",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b349f8445e",
+      "brand": "WLB",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b5c407bb61",
+      "brand": "Гладиатор",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b6373b669b",
+      "brand": "Energy",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b65a05422e",
+      "brand": "DorFit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b6f95da4d7",
+      "brand": "Олимпиец",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b7f3263194",
+      "brand": "Капитан",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b900a0cf57",
+      "brand": "Спортивный клуб \"Стрела\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b9052b3b5a",
+      "brand": "Фитнес Палас",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b9118cba28",
+      "brand": "Lifestyle",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b96ea4be79",
+      "brand": "Детский спортивный клуб Racketball",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_b98f0efbc7",
+      "brand": "Kreativ",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ba64436351",
+      "brand": "Спортзал \"Легенда\"",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ba7661253a",
+      "brand": "Capsule boot camp",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_bb4b031043",
+      "brand": "ФизКульт",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_bc46fcc028",
+      "brand": "Uni-Gym",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_bc792ed3da",
+      "brand": "Profistudio",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_be608a8f62",
+      "brand": "СТОВБУР",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_be860cc1ee",
+      "brand": "Snegiri",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_bf4a55ed4f",
+      "brand": "Pride fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_bfb2d355d6",
+      "brand": "Телеос",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c08a8c0d03",
+      "brand": "Neofit",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c1092ceb33",
+      "brand": "Fan Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c11d43fe44",
+      "brand": "Ludus Dome",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c2168cb675",
+      "brand": "MyFitlab Речной вокзал",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c22530d3a8",
+      "brand": "Загорянский физкультурно-спортивный клуб \"Спартак\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c317d6b146",
+      "brand": "Зебра Лето",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c3b9a12d68",
+      "brand": "Гигант",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c540061655",
+      "brand": "I Love Sport",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c556c5181a",
+      "brand": "Спортивный клуб № 1",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c60481c5ec",
+      "brand": "Лидер",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c63d548666",
+      "brand": "Фитнес \"Индустриальный\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c7750251e7",
+      "brand": "Powerhouse Gym",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c80d753baf",
+      "brand": "Московский городской стрелково-спортивный клуб",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c8c29071b7",
+      "brand": "Носорог,спортклуб",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_c92e4e8be8",
+      "brand": "Элис",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_cac445d6b2",
+      "brand": "Бегемот",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_cd263502c2",
+      "brand": "ReStart",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_cd406a3843",
+      "brand": "ЛедиФерст",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ce1a1ec106",
+      "brand": "Пилатес plus",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ce5c2d797f",
+      "brand": "Старт-7",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_cf8ad917dd",
+      "brand": "Факел",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_cfde97b7fb",
+      "brand": "Клуб Айкидо \"Сити-Го-Сан\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d0696fc832",
+      "brand": "Дон-спорт",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d07caa929d",
+      "brand": "Фитнесс-центр \"Newton\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d14754b41c",
+      "brand": "Bodyhacker",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d15b509076",
+      "brand": "СССР",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d22c5b6350",
+      "brand": "Феникс",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d252cc6bdf",
+      "brand": "Else",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d25c09071b",
+      "brand": "Фитнес-центр",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d3339eebb8",
+      "brand": "A-Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d3b3d4aec6",
+      "brand": "Pro Trener",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d3d421443a",
+      "brand": "Ego Fitness Swim",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d44ae04663",
+      "brand": "Fitts",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d4ed9ffc75",
+      "brand": "Adidas",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d50c38c3eb",
+      "brand": "Ледифит",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d597d371ae",
+      "brand": "Олимпик",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d59a20e877",
+      "brand": "Территория Фитнеса",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d6633e4182",
+      "brand": "Панорама, центр скалолазания",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d6734d3f57",
+      "brand": "Baza Фитнесс",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d6a1d60d2f",
+      "brand": "Городской межотраслевой физкультурно-спортивный клуб \"Здоровье\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d7ad2b9d28",
+      "brand": "Фитнес клуб",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d80a25095a",
+      "brand": "ООО «НВМ-сервис» Дом физкультуры",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d8c6082be0",
+      "brand": "Get Fit Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d9598847cf",
+      "brand": "Дубровка Фитнес",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d9b078cffa",
+      "brand": "Кимберли Лэнд",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_d9f48719a5",
+      "brand": "Dr. Loder",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_da82932696",
+      "brand": "Классика",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_db0ac8c19b",
+      "brand": "Атлетика",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_db4d4b1682",
+      "brand": "С.С.С.Р",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_dc2258f8fa",
+      "brand": "Свобода в Движении",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_dc4ac7d14d",
+      "brand": "Теорема спорта",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_dd45540565",
+      "brand": "Result Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_dd9f8c9a0e",
+      "brand": "NewLife",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_de639cac3f",
+      "brand": "Центр развития личности «Оранжерея»",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_def00b5aaf",
+      "brand": "Los Island",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e0dc6fefff",
+      "brand": "Водно-спортивный клуб \"Вираж\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e343ebacea",
+      "brand": "Fitness 24",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e704b95f48",
+      "brand": "Центральный спортивный клуб МЧС",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e77ee18bbb",
+      "brand": "Ананас",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e7e8efe156",
+      "brand": "Византий",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e87d614456",
+      "brand": "Power",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e8eee19216",
+      "brand": "Kenga",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_e90b09fc1f",
+      "brand": "#всемфитнес",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ec4ba92496",
+      "brand": "Фитнес колледж «Взмах. Здоровячок»",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ede3cfcae8",
+      "brand": "Красота неземная",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ef0b54db8a",
+      "brand": "Smart Fits",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f038a41a90",
+      "brand": "Force factory",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f0a64e7c14",
+      "brand": "Megapolis",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f2dff5d95e",
+      "brand": "Фитнес Pro",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f30f9d9e07",
+      "brand": "Пируэт",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f375bb6a29",
+      "brand": "Fitness Piramida",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f468fbc4f9",
+      "brand": "Ньюфит Бабушкинская",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f4bb8c33a3",
+      "brand": "Конно-спортивный клуб «Шамиран»",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f553e1f8f4",
+      "brand": "Фитнес-клуб КОНЦЕПТ",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f55a76308a",
+      "brand": "Fitneo",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f83cb338fc",
+      "brand": "Спортивный клуб \"Современник\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f8ab85f841",
+      "brand": "Hit Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f8f6e9521c",
+      "brand": "Конно-спортивный клуб \"Орион\"",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f91dd7354f",
+      "brand": "World Fitness",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_f9d54df024",
+      "brand": "FitClub",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fa5a6ed0fa",
+      "brand": "Фикус",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fb05b039e5",
+      "brand": "MyFitlab Ясенево",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fb7acf3344",
+      "brand": "Зарядка Gym",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fbded192eb",
+      "brand": "Спарта",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "LOW",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fe3e70a56b",
+      "brand": "MyFitlab Пражская",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fe6d43b5b3",
+      "brand": "Fitness Matreshka",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_ff033363ee",
+      "brand": "Фитнес-клуб С.О.К.",
+      "source_recency": "CURRENT_MULTI_SOURCE",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    },
+    {
+      "id": "ru_fffc295cfc",
+      "brand": "Encore Fitness",
+      "source_recency": "CURRENT_FIRST_PARTY",
+      "source_confidence": "MEDIUM",
+      "operation_status": "ACTIVE_VERIFIED"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "phase": "3",
+  "production_total": 11254,
+  "bulgaria_live": 0,
+  "production_sha": "91ffadd49497614f96eaf11f9d01edbdb127df2a6d8ce87bb7d7ad4443717840",
+  "production_modified": false,
+  "phase2_staged": 105,
+  "phase2_ready": 67,
+  "phase2_ready_preserved": 67,
+  "phase2_ready_demoted": [],
+  "revalidate_demotions": [],
+  "unique_staged": 105,
+  "status_counts": {
+    "READY_TO_IMPORT": 82,
+    "COMING_SOON": 2,
+    "EXCLUDED": 20,
+    "NEEDS_REVIEW": 1
+  },
+  "ready_count": 82,
+  "ready_by_brand": {
+    "Next Level Fitness": 29,
+    "Pulse Fitness": 19,
+    "Athletic Fitness": 9,
+    "Flais Fitness": 14,
+    "Titanium Fitness": 6,
+    "Hammer Gym": 5
+  },
+  "ready_by_city": {
+    "Sofia": 65,
+    "Burgas": 4,
+    "Varna": 2,
+    "Pernik": 1,
+    "Plovdiv": 6,
+    "Stara Zagora": 2,
+    "Sveti Vlas": 1,
+    "Kardzhali": 1
+  },
+  "chains": {
+    "Next Level Fitness": {
+      "official_current_estimate": 29,
+      "discovered": 29,
+      "READY": 29,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "29/29",
+      "verdict": "COMPLETE"
+    },
+    "Pulse Fitness": {
+      "official_current_estimate": 21,
+      "discovered": 26,
+      "READY": 19,
+      "unresolved": 0,
+      "EXCLUDED": 5,
+      "COMING_SOON": 2,
+      "coverage": "19/19 open (2 coming_soon, 5 excluded)",
+      "verdict": "COMPLETE"
+    },
+    "Athletic Fitness": {
+      "official_current_estimate": 10,
+      "discovered": 10,
+      "READY": 9,
+      "unresolved": 1,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "9/10",
+      "verdict": "NEAR_COMPLETE"
+    },
+    "Flais Fitness": {
+      "official_current_estimate": 14,
+      "discovered": 14,
+      "READY": 14,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "14/14",
+      "verdict": "COMPLETE"
+    },
+    "Titanium Fitness": {
+      "official_current_estimate": 6,
+      "discovered": 6,
+      "READY": 6,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "6/6",
+      "verdict": "COMPLETE"
+    },
+    "Hammer Gym": {
+      "official_current_estimate": 5,
+      "discovered": 5,
+      "READY": 5,
+      "unresolved": 0,
+      "EXCLUDED": 0,
+      "COMING_SOON": 0,
+      "coverage": "5/5",
+      "verdict": "COMPLETE"
+    }
+  },
+  "regional_coverage": {
+    "Sofia": {
+      "ready": 65,
+      "staged_non_excluded": 68,
+      "gap_classification": "covered"
+    },
+    "Plovdiv": {
+      "ready": 6,
+      "staged_non_excluded": 6,
+      "gap_classification": "covered"
+    },
+    "Varna": {
+      "ready": 2,
+      "staged_non_excluded": 2,
+      "gap_classification": "covered"
+    },
+    "Burgas": {
+      "ready": 4,
+      "staged_non_excluded": 4,
+      "gap_classification": "covered"
+    },
+    "Stara Zagora": {
+      "ready": 2,
+      "staged_non_excluded": 2,
+      "gap_classification": "covered"
+    },
+    "Pernik": {
+      "ready": 1,
+      "staged_non_excluded": 1,
+      "gap_classification": "covered"
+    },
+    "Sveti Vlas": {
+      "ready": 1,
+      "staged_non_excluded": 1,
+      "gap_classification": "covered"
+    },
+    "Ruse": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Pleven": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Sliven": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Dobrich": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Shumen": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Haskovo": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Yambol": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Veliko Tarnovo": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    },
+    "Blagoevgrad": {
+      "ready": 0,
+      "staged_non_excluded": 0,
+      "gap_classification": "A_legitimate_no_chain_presence"
+    }
+  },
+  "data_quality": {
+    "duplicate_ids": 0,
+    "same_brand_lte_25m": 0,
+    "same_brand_lte_50m": 0,
+    "same_brand_lte_100m": 0,
+    "same_brand_lte_200m": 0,
+    "identical_coordinate_clusters": 0,
+    "invalid_postcodes": 0,
+    "missing_ready_addresses": 0,
+    "missing_ready_cities": 0,
+    "invalid_ready_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "mojibake": 0,
+    "unresolved_rebrand_conflicts": 0
+  },
+  "material_blockers": [],
+  "non_blocking_gaps": [
+    "Athletic Nikolai Kopernik only (9/10)",
+    "Pulse Ovcha Kupel COMING_SOON",
+    "Pulse Drujba COMING_SOON",
+    "Athletic Nikolai Kopernik NEEDS_REVIEW — Nominatim miss on exact street"
+  ],
+  "projected_catalog_if_merged_alone": 11336,
+  "threshold_12500_crossed_projected": false,
+  "global_qa_required_now": false,
+  "phase4_required": false,
+  "phase4_reason": "Next Level/Flais/Titanium/Hammer complete; Pulse open estate fully READY (coming-soon separate); Athletic 9/10 near-complete with only Nikolai Kopernik unresolved; no structural discovery gap; READY DQ clean.",
+  "verdict": "READY FOR BULGARIA MERGE"
+}

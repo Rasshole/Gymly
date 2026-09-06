@@ -14,6 +14,7 @@ import {spacing, radius, shadows, typography} from '@/theme/designTokens';
 import {PurpleGradientButton} from '@/components/ui/PurpleGradientButton';
 import TrainingTypeMuscleGrid from '@/components/planned/TrainingTypeMuscleGrid';
 import TrainingCenterPicker from '@/components/planned/TrainingCenterPicker';
+import {useTranslation} from '@/i18n';
 
 export const INVITE_FORM_SCREEN_TINT = '#F7F5FC';
 export const INVITE_FORM_CARD_LINE = 'rgba(139, 92, 246, 0.1)';
@@ -31,28 +32,31 @@ export function defaultScheduleParts(): {date: Date; time: Date} {
   return {date: dateOnly, time: timeOnly};
 }
 
-export function formatInviteDateLine(selectedDate: Date): string {
-  return selectedDate.toLocaleDateString('da-DK', {
+export function formatInviteDateLine(selectedDate: Date, intlLocale: string): string {
+  return selectedDate.toLocaleDateString(intlLocale, {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
   });
 }
 
-export function formatInviteTimeLine(selectedTime: Date): string {
-  return selectedTime.toLocaleTimeString('da-DK', {
+export function formatInviteTimeLine(selectedTime: Date, intlLocale: string): string {
+  return selectedTime.toLocaleTimeString(intlLocale, {
     hour: '2-digit',
     minute: '2-digit',
   });
 }
 
-export function formatInvitePreviewLine(scheduledPreview: Date): string {
-  const dateStr = scheduledPreview.toLocaleDateString('da-DK', {
+export function formatInvitePreviewLine(
+  scheduledPreview: Date,
+  intlLocale: string,
+): string {
+  const dateStr = scheduledPreview.toLocaleDateString(intlLocale, {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
   });
-  const timeStr = scheduledPreview.toLocaleTimeString('da-DK', {
+  const timeStr = scheduledPreview.toLocaleTimeString(intlLocale, {
     hour: '2-digit',
     minute: '2-digit',
   });
@@ -75,8 +79,8 @@ export type PlannedWorkoutInviteFormProps = {
   scheduledPreview: Date;
   planSelectedGym: DanishGym | null;
   onGymChange: (gym: DanishGym) => void;
-  planMuscle: MuscleGroup;
-  onMuscleChange: (m: MuscleGroup) => void;
+  planMuscles: MuscleGroup[];
+  onMusclesChange: (groups: MuscleGroup[]) => void;
   onSubmit: () => void;
   submitLabel: string;
   saving?: boolean;
@@ -96,15 +100,16 @@ const PlannedWorkoutInviteForm: React.FC<PlannedWorkoutInviteFormProps> = ({
   scheduledPreview,
   planSelectedGym,
   onGymChange,
-  planMuscle,
-  onMuscleChange,
+  planMuscles,
+  onMusclesChange,
   onSubmit,
   submitLabel,
   saving = false,
   submitDisabled = false,
   scrollBottomPadding = spacing.xxxl,
 }) => {
-  const displayName = (peerDisplayName || 'din ven').trim() || 'din ven';
+  const {t, intlLocale} = useTranslation();
+  const displayName = (peerDisplayName || t('plannedSessions.yourFriend')).trim() || t('plannedSessions.yourFriend');
 
   return (
     <ScrollView
@@ -120,8 +125,8 @@ const PlannedWorkoutInviteForm: React.FC<PlannedWorkoutInviteFormProps> = ({
                 <Text style={styles.avatarLetter}>{displayName.charAt(0).toUpperCase()}</Text>
               </View>
             </View>
-            <Text style={styles.heroTitle}>Træn med {displayName}</Text>
-            <Text style={styles.heroSubtitle}>Planlæg en session sammen</Text>
+            <Text style={styles.heroTitle}>{t('phase2ui.trainWithName', {name: displayName})}</Text>
+            <Text style={styles.heroSubtitle}>{t('chat.planWorkoutSubtitle')}</Text>
           </View>
         </Animated.View>
       ) : (
@@ -135,7 +140,7 @@ const PlannedWorkoutInviteForm: React.FC<PlannedWorkoutInviteFormProps> = ({
 
       <Animated.View entering={FadeInDown.duration(260).delay(variant === 'hero' ? 50 : 20)}>
         <View style={styles.card}>
-          <Text style={styles.cardLabel}>Tidspunkt</Text>
+          <Text style={styles.cardLabel}>{t('phase2ui.timeLabel')}</Text>
           <Pressable
             onPress={onPressSelectDate}
             style={({pressed}) => [styles.timeRow, pressed && styles.rowPressed]}
@@ -143,7 +148,9 @@ const PlannedWorkoutInviteForm: React.FC<PlannedWorkoutInviteFormProps> = ({
             <View style={styles.timeIconWrap}>
               <Icon name="calendar-outline" size={18} color={colors.primary} />
             </View>
-            <Text style={styles.timeRowText}>{formatInviteDateLine(selectedDate)}</Text>
+            <Text style={styles.timeRowText}>
+              {formatInviteDateLine(selectedDate, intlLocale)}
+            </Text>
             <Icon name="chevron-forward" size={18} color={colors.textMuted} />
           </Pressable>
           <View style={styles.hairline} />
@@ -154,11 +161,15 @@ const PlannedWorkoutInviteForm: React.FC<PlannedWorkoutInviteFormProps> = ({
             <View style={styles.timeIconWrap}>
               <Icon name="time-outline" size={18} color={colors.primary} />
             </View>
-            <Text style={styles.timeRowText}>{formatInviteTimeLine(selectedTime)}</Text>
+            <Text style={styles.timeRowText}>
+              {formatInviteTimeLine(selectedTime, intlLocale)}
+            </Text>
             <Icon name="chevron-forward" size={18} color={colors.textMuted} />
           </Pressable>
           <View style={styles.previewPill}>
-            <Text style={styles.previewPillText}>{formatInvitePreviewLine(scheduledPreview)}</Text>
+            <Text style={styles.previewPillText}>
+              {formatInvitePreviewLine(scheduledPreview, intlLocale)}
+            </Text>
           </View>
         </View>
       </Animated.View>
@@ -173,9 +184,9 @@ const PlannedWorkoutInviteForm: React.FC<PlannedWorkoutInviteFormProps> = ({
 
       <Animated.View entering={FadeInDown.duration(260).delay(variant === 'hero' ? 130 : 80)}>
         <View style={styles.card}>
-          <Text style={styles.cardLabel}>Træningstype</Text>
-          <Text style={styles.cardHint}>Én type — som i Planlagte sessions</Text>
-          <TrainingTypeMuscleGrid value={planMuscle} onChange={onMuscleChange} />
+          <Text style={styles.cardLabel}>{t('plannedSessions.trainingType')}</Text>
+          <Text style={styles.cardHint}>{t('checkIn.selectOneOrMore')}</Text>
+          <TrainingTypeMuscleGrid value={planMuscles} onChange={onMusclesChange} />
         </View>
       </Animated.View>
 

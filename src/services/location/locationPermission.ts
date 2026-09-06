@@ -5,6 +5,7 @@
  */
 import Geolocation from '@react-native-community/geolocation';
 import {Alert, Linking, PermissionsAndroid, Platform} from 'react-native';
+import {rt} from '@/i18n';
 
 export type LocationPermissionStatus =
   | 'notDetermined'
@@ -14,27 +15,90 @@ export type LocationPermissionStatus =
   | 'restricted'
   | 'unavailable';
 
-export const LOCATION_DENIED_SETTINGS_DA =
-  'Lokation er slået fra. Gå til Indstillinger for at slå det til.';
-
 let geolocationConfigured = false;
+let activeWorkoutTrackingEnabled = false;
 
 export function configureGeolocationForPermissionSafety(): void {
-  if (geolocationConfigured) {
+  if (geolocationConfigured && !activeWorkoutTrackingEnabled) {
     return;
   }
   geolocationConfigured = true;
   try {
     Geolocation.setRNConfiguration({
       skipPermissionRequests: true,
-      authorizationLevel: 'whenInUse',
-      enableBackgroundLocationUpdates: false,
+      authorizationLevel: activeWorkoutTrackingEnabled ? 'always' : 'whenInUse',
+      enableBackgroundLocationUpdates: activeWorkoutTrackingEnabled,
     });
   } catch (e) {
     if (__DEV__) {
       console.warn('[locationPermission] setRNConfiguration failed', e);
     }
   }
+}
+
+/** Aktiv træning: tillad GPS i baggrunden til auto-tjek-ud. */
+export function configureGeolocationForActiveWorkoutTracking(enabled: boolean): void {
+  if (activeWorkoutTrackingEnabled === enabled) {
+    return;
+  }
+  activeWorkoutTrackingEnabled = enabled;
+  geolocationConfigured = false;
+  configureGeolocationForPermissionSafety();
+}
+
+export async function requestBackgroundLocationForActiveWorkout(): Promise<LocationPermissionStatus> {
+  configureGeolocationForActiveWorkoutTracking(true);
+
+  if (Platform.OS === 'android') {
+    try {
+      const fineGranted = await PermissionsAndroid.check(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      );
+      if (!fineGranted) {
+        return requestLocationPermission();
+      }
+      const bgGranted = await PermissionsAndroid.check(
+        PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
+      );
+      if (bgGranted) {
+        return 'authorizedAlways';
+      }
+      const result = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
+        {
+          title: rt('permissions.androidBackgroundTitle'),
+          message: rt('permissions.androidRationaleMessage'),
+          buttonNeutral: rt('permissions.androidLater'),
+          buttonNegative: rt('common.cancel'),
+          buttonPositive: rt('common.ok'),
+        },
+      );
+      return result === PermissionsAndroid.RESULTS.GRANTED
+        ? 'authorizedAlways'
+        : 'authorizedWhenInUse';
+    } catch {
+      return getLocationPermissionStatus();
+    }
+  }
+
+  const current = await getLocationPermissionStatus();
+  if (current === 'authorizedAlways') {
+    return current;
+  }
+  if (current !== 'authorizedWhenInUse' && current !== 'notDetermined') {
+    return current;
+  }
+
+  return new Promise(resolve => {
+    Geolocation.requestAuthorization(
+      () => {
+        void getLocationPermissionStatus().then(resolve);
+      },
+      () => {
+        void getLocationPermissionStatus().then(resolve);
+      },
+    );
+  });
 }
 
 export function isLocationAuthorized(status: LocationPermissionStatus): boolean {
@@ -109,11 +173,11 @@ export async function requestLocationPermission(): Promise<LocationPermissionSta
       const result = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
-          title: 'Placeringsadgang',
-          message: 'Gymly bruger din placering til check-in ved fitnesscentre.',
-          buttonNeutral: 'Senere',
-          buttonNegative: 'Annuller',
-          buttonPositive: 'OK',
+          title: rt('permissions.androidRationaleTitle'),
+          message: rt('permissions.androidRationaleMessage'),
+          buttonNeutral: rt('permissions.androidLater'),
+          buttonNegative: rt('common.cancel'),
+          buttonPositive: rt('common.ok'),
         },
       );
       if (result === PermissionsAndroid.RESULTS.GRANTED) {
@@ -150,8 +214,8 @@ export async function requestLocationPermissionIfNeeded(): Promise<LocationPermi
 }
 
 export function showLocationDeniedInAppMessage(): void {
-  Alert.alert('Lokation', LOCATION_DENIED_SETTINGS_DA, [
-    {text: 'Annuller', style: 'cancel'},
-    {text: 'Åbn Indstillinger', onPress: () => Linking.openSettings()},
+  Alert.alert(rt('permissions.locationTitle'), rt('permissions.locationDeniedBody'), [
+    {text: rt('common.cancel'), style: 'cancel'},
+    {text: rt('permissions.openSettings'), onPress: () => Linking.openSettings()},
   ]);
 }

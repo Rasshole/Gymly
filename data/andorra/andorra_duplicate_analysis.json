@@ -1,0 +1,41 @@
+{
+  "phase": 2,
+  "ready_proximity": {
+    "lt25": [],
+    "lt50": [],
+    "lt100": [
+      {
+        "a_id": "ad_488e241114",
+        "b_id": "ad_6fc179f949",
+        "brand": "Urban Gym",
+        "distance_m": 76,
+        "same_address": false
+      }
+    ],
+    "lt200": [
+      {
+        "a_id": "ad_2594f0bd4f",
+        "b_id": "ad_cfb6dcda5e",
+        "brand": "NEXT Sports Club",
+        "distance_m": 146,
+        "same_address": false
+      }
+    ],
+    "identical": []
+  },
+  "unexplained_hard_duplicates": 0,
+  "note": "Andorra valleys are dense — proximity alone is not duplication",
+  "dq": {
+    "duplicate_ids": 0,
+    "invalid_postcodes": 0,
+    "missing_fields": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "foreign_outliers": 0,
+    "spanish_contamination": 0,
+    "french_contamination": 0,
+    "mojibake": 0,
+    "bad_eligibility_path": 0,
+    "all_gates_pass": true
+  }
+}

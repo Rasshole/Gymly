@@ -1,0 +1,23 @@
+{
+  "first_run": {
+    "insertions": 46,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12339,
+    "total_after": 12385,
+    "azerbaijan_before": 0,
+    "azerbaijan_after": 46
+  },
+  "second_run": {
+    "insertions": 0,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 12385,
+    "total_after": 12385,
+    "azerbaijan_before": 46,
+    "azerbaijan_after": 46,
+    "az_prefix_before": 46,
+    "az_prefix_after": 46
+  },
+  "idempotent": true
+}

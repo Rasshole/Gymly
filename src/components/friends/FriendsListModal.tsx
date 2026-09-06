@@ -108,7 +108,7 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
           style={styles.closeBtn}
           hitSlop={12}
           accessibilityRole="button"
-          accessibilityLabel="Luk">
+          accessibilityLabel={t('a11y.close')}>
           <Icon name="close" size={26} color={colors.text} />
         </TouchableOpacity>
       </View>
@@ -170,7 +170,7 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
               style={styles.removeBtn}
               onPress={() => confirmRemove(item)}
               activeOpacity={0.7}>
-              <Text style={styles.removeBtnText}>Fjern</Text>
+              <Text style={styles.removeBtnText}>{t('common.remove')}</Text>
             </TouchableOpacity>
           </View>
         )}

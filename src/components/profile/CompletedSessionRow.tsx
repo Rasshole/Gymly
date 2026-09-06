@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import type {ProfileCompletedSession} from '@/services/supabase/profileCheckInHistory';
 import {formatSessionDateAndDurationDa} from '@/services/supabase/profileCheckInHistory';
@@ -10,31 +10,66 @@ import {spacing, typography} from '@/theme/designTokens';
 type Props = {
   session: ProfileCompletedSession;
   isLast?: boolean;
+  /** Optional "4 øvelser · 12 sæt · 6.480 kg" */
+  summaryLine?: string;
+  onPress?: () => void;
 };
 
-export const CompletedSessionRow: React.FC<Props> = ({session, isLast}) => (
-  <View style={[styles.row, isLast && styles.rowLast]}>
-    <View style={styles.icon}>
-      <Icon name="barbell-outline" size={22} color={colors.primary} />
-    </View>
-    <View style={styles.body}>
-      <Text style={styles.title} numberOfLines={2}>
-        {session.gymName}
-      </Text>
-      <Text style={styles.meta} numberOfLines={1}>
-        {formatSessionDateAndDurationDa(session.startedAt, session.durationMinutes)}
-      </Text>
-      <Text style={styles.typeLine} numberOfLines={2}>
-        {formatWorkoutTypeDisplay(session.workoutType)}
-      </Text>
-      {session.partnerDisplayName ? (
-        <Text style={styles.withLine} numberOfLines={1}>
-          Med: {session.partnerDisplayName}
+export const CompletedSessionRow: React.FC<Props> = ({
+  session,
+  isLast,
+  summaryLine,
+  onPress,
+}) => {
+  const content = (
+    <>
+      <View style={styles.icon}>
+        <Icon name="barbell-outline" size={22} color={colors.primary} />
+      </View>
+      <View style={styles.body}>
+        <Text style={styles.title} numberOfLines={2}>
+          {session.gymName}
         </Text>
+        <Text style={styles.meta} numberOfLines={1}>
+          {formatSessionDateAndDurationDa(
+            session.startedAt,
+            session.durationMinutes,
+          )}
+        </Text>
+        <Text style={styles.typeLine} numberOfLines={2}>
+          {formatWorkoutTypeDisplay(session.workoutType)}
+        </Text>
+        {summaryLine ? (
+          <Text style={styles.summaryLine} numberOfLines={1}>
+            {summaryLine}
+          </Text>
+        ) : null}
+        {session.partnerDisplayName ? (
+          <Text style={styles.withLine} numberOfLines={1}>
+            Med: {session.partnerDisplayName}
+          </Text>
+        ) : null}
+      </View>
+      {onPress ? (
+        <Icon name="chevron-forward" size={18} color={colors.textMuted} />
       ) : null}
-    </View>
-  </View>
-);
+    </>
+  );
+
+  if (onPress) {
+    return (
+      <TouchableOpacity
+        style={[styles.row, isLast && styles.rowLast]}
+        onPress={onPress}
+        activeOpacity={0.75}
+        accessibilityRole="button">
+        {content}
+      </TouchableOpacity>
+    );
+  }
+
+  return <View style={[styles.row, isLast && styles.rowLast]}>{content}</View>;
+};
 
 const styles = StyleSheet.create({
   row: {
@@ -73,6 +108,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.text,
     marginTop: 6,
+  },
+  summaryLine: {
+    ...typography.caption,
+    color: colors.primaryDark,
+    fontWeight: '700',
+    marginTop: 4,
   },
   withLine: {
     ...typography.caption,

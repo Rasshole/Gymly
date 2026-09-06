@@ -1,0 +1,130 @@
+{
+  "country": "Slovenia",
+  "reconciliation_type": "PRESERVE_32_INSERT_1",
+  "generated_at": "2026-08-29T11:01:32.326Z",
+  "dry_run": false,
+  "idempotency_check": false,
+  "production_total_before": 11921,
+  "production_total_after": 11922,
+  "production_sha256_before": "de118760217108ec7dfec4d6085584d1c6b0bad267c0031130998b16b15d624d",
+  "production_sha256_after": "18c7ed69ad1bdebcfbd77bd8b746bd48159c4963c0bb9a9c071bf5ee3e2d2bab",
+  "slovenia_before": 32,
+  "slovenia_after": 33,
+  "phase2_inputs": {
+    "keep_existing": 32,
+    "new_ready_to_import": 1,
+    "existing_review_required": 0
+  },
+  "approved_for_production": 33,
+  "id_reconciliation": {
+    "keep_existing_ids": 32,
+    "approved_ids": 33,
+    "production_slovenia_ids": 33,
+    "exact_id_match_count": 32,
+    "missing_from_production": [],
+    "unexpected_in_production": [],
+    "approved_missing_from_production": [],
+    "production_not_in_approved": []
+  },
+  "metadata": {
+    "material_metadata_drift_count": 0,
+    "material_metadata_drift": [],
+    "existing_rows_changed": 0
+  },
+  "alfa_gym": {
+    "id": "si_c516823c91",
+    "validated": true,
+    "already_in_production_before": true,
+    "safety_issues": [],
+    "disposition": "NEW_READY_TO_IMPORT",
+    "classification": "SMALL_MARKET_INDEPENDENT",
+    "eligibility": "CONVENTIONAL_PUBLIC_GYM"
+  },
+  "brand_inventory": {
+    "BODIFIT": 8,
+    "FITINN": 6,
+    "Shape House": 18,
+    "Alfa Gym": 1
+  },
+  "expected_brands": {
+    "Shape House": 18,
+    "BODIFIT": 8,
+    "FITINN": 6,
+    "Alfa Gym": 1
+  },
+  "class_a": {
+    "existing": 32,
+    "shape_house": 18,
+    "bodifit": 8,
+    "fitinn": 6,
+    "new_class_a": 0,
+    "small_market_independent_new": 1
+  },
+  "excluded": {
+    "excluded_production_leakage": []
+  },
+  "duplicates": {
+    "global_duplicate_ids": 0,
+    "hard_duplicate_conflicts": 0,
+    "hard_duplicate_detail": [],
+    "diacritic_duplicate_conflicts": 0,
+    "multilingual_duplicate_conflicts": 0,
+    "rebrand_conflicts": 0
+  },
+  "cross_border": {
+    "italy_outliers": 0,
+    "austria_outliers": 0,
+    "hungary_outliers": 0,
+    "croatia_outliers": 0,
+    "gorica_gorizia_identity_collisions": 0,
+    "italy_production_contamination": 0
+  },
+  "data_quality": {
+    "invalid_ids": 0,
+    "invalid_countries": 0,
+    "invalid_postcodes": 0,
+    "invalid_coordinates": 0,
+    "fallback_coordinates": 0,
+    "centroid_coordinates": 0,
+    "missing_fields": 0,
+    "mojibake": 0,
+    "raw_id_display_names": 0
+  },
+  "delta": {
+    "insertions": 1,
+    "updates": 0,
+    "removals": 0,
+    "total_before": 11921,
+    "total_after": 11922,
+    "slovenia_before": 32,
+    "slovenia_after": 33,
+    "si_prefix_before": 32,
+    "si_prefix_after": 33
+  },
+  "projected_catalog_after_reconciliation": 11922,
+  "crosses_12500": false,
+  "global_stress_qa_required": false,
+  "global_stress_qa_run": false,
+  "prior_country_counts": {
+    "Croatia": 80,
+    "Serbia": 63,
+    "Kosovo": 18,
+    "Albania": 9,
+    "Bosnia and Herzegovina": 31,
+    "North Macedonia": 25,
+    "Montenegro": 26,
+    "Moldova": 28,
+    "San Marino": 6,
+    "Monaco": 4,
+    "Andorra": 12,
+    "Liechtenstein": 7,
+    "Iceland": 27
+  },
+  "performance": {
+    "catalog_total": 11922,
+    "centers_json_bytes": 3706129
+  },
+  "architecture": "KEEP CLIENT-SIDE",
+  "phase2_verdict": "READY FOR SLOVENIA PRODUCTION RECONCILIATION",
+  "verdict": "SLOVENIA RECONCILIATION COMPLETE — WAITING FOR QA"
+}

@@ -1,0 +1,581 @@
+{
+  "MACFit": {
+    "active_approved": 34,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 0,
+    "unverified": 0,
+    "total_accounted": 34,
+    "official_current": 34,
+    "phase1_marketing_estimate": 320,
+    "estate_gaps": 0,
+    "class_a": true,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "tr_2ff63fd549",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_684f6189b7",
+        "name": "MACFit",
+        "city": "Beşiktaş",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_fc8f4bba2b",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_9f4d739931",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_ad1601d39a",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_621e046fdc",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_543c849cfc",
+        "name": "MACFit",
+        "city": "Ümraniye",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_46872d9bed",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_b11f4e2d39",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_5c527202e0",
+        "name": "MACFit",
+        "city": "Kartal",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_16fa12ba3b",
+        "name": "MACFit",
+        "city": "Maltepe",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_518f07383a",
+        "name": "MACFit",
+        "city": "Pendik",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_888f2c3b00",
+        "name": "MACFit",
+        "city": "Küçükçekmece",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_1e14f26ded",
+        "name": "MACFit",
+        "city": "Sancaktepe",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_ed3b0005b4",
+        "name": "MACFit",
+        "city": "Sarıyer",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_25c85deed7",
+        "name": "MACFit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_23721e9cca",
+        "name": "MACFit",
+        "city": "İzmit",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_2d11ef51c3",
+        "name": "MACFit",
+        "city": "Bursa",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_893107c342",
+        "name": "MACFit",
+        "city": "Konak",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_e072f5bfb2",
+        "name": "MACFit",
+        "city": "Etimesgut",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_3c3ef20587",
+        "name": "MACFit",
+        "city": "Çiğli",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_be58f68b61",
+        "name": "MACFit",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_59a4105c71",
+        "name": "MACFit",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_0058881262",
+        "name": "MACFit",
+        "city": "Konak",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_63ae41b630",
+        "name": "MACFit",
+        "city": "Konak",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_ee646fee52",
+        "name": "MACFit",
+        "city": "Gaziemir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_c6574ee740",
+        "name": "MACFit",
+        "city": "Çankaya",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_e0bb3b25b4",
+        "name": "MACFit",
+        "city": "Keçiören",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_b58dc58106",
+        "name": "MACFit",
+        "city": "Yenimahalle",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_eb859ffccf",
+        "name": "MACFit Balçova Kipa",
+        "city": "İzmir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_16a60deeff",
+        "name": "MACFit Erasta",
+        "city": "Antalya",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_9133253094",
+        "name": "Mac Fit",
+        "city": "Gebze",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_6851ee847d",
+        "name": "Mac-Fit",
+        "city": "Yenimahalle",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_158f4f2ce8",
+        "name": "Mac Fit",
+        "city": "Bornova",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "Mars Athletic Club": {
+    "active_approved": 2,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 0,
+    "unverified": 0,
+    "total_accounted": 2,
+    "official_current": 2,
+    "phase1_marketing_estimate": 45,
+    "estate_gaps": 0,
+    "class_a": true,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "tr_fc24632906",
+        "name": "Mars Athletic Club",
+        "city": "Ataşehir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_acdfb031ca",
+        "name": "MARS Athletic Club",
+        "city": "Çankaya",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "Sports International": {
+    "active_approved": 5,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 1,
+    "unverified": 0,
+    "total_accounted": 6,
+    "official_current": 6,
+    "phase1_marketing_estimate": 28,
+    "estate_gaps": 0,
+    "class_a": true,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "tr_f53d5104f3",
+        "name": "Sports International",
+        "city": "Bakırköy",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_316f102698",
+        "name": "Sports International",
+        "city": "Çankaya",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_263ec93a91",
+        "name": "Sports International",
+        "city": "Çankaya",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_db468745b2",
+        "name": "Sports International",
+        "city": "Yenişehir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_eb6beab7b7",
+        "name": "Sports International",
+        "city": "Yenişehir",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_04742a1022",
+        "name": "Mavişehir Sports International",
+        "city": "İzmir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "GymFit": {
+    "active_approved": 20,
+    "coming_soon": 2,
+    "closed": 0,
+    "excluded": 0,
+    "unverified": 0,
+    "total_accounted": 22,
+    "official_current": 22,
+    "phase1_marketing_estimate": 22,
+    "estate_gaps": 0,
+    "class_a": true,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "tr_90132f81c8",
+        "name": "GYMFIT NUROL PARK",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_df2525bc63",
+        "name": "GYMFIT OLIVIUM",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_99bed7d7de",
+        "name": "GYMFIT ATRIUM",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_991a4a71bc",
+        "name": "GYMFIT ANATOLIUM",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_28931ac3f7",
+        "name": "GYMFIT WORLD POINT",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_a415a9b61c",
+        "name": "GYMFIT VENEZIA",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_2eac898f2d",
+        "name": "GYMFIT İNEGÖL",
+        "city": "Bursa",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_7483ed5e01",
+        "name": "GYMFIT KORUPARK",
+        "city": "Bursa",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_10bead02ac",
+        "name": "GYMFIT VEGA OUTLET AVM",
+        "city": "Eskişehir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_589ccf58bb",
+        "name": "GYMFIT İKİ EYLÜL",
+        "city": "Eskişehir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_6d5623c24c",
+        "name": "GYMFIT EXPRESS",
+        "city": "Eskişehir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_8f1115c5bf",
+        "name": "GYMFIT SPORTS PLAZA",
+        "city": "Eskişehir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_2bdff164b1",
+        "name": "GYMFIT NOVACITY",
+        "city": "Eskişehir",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_6d8596f2ab",
+        "name": "GYMFIT VEGA SUBAYEVLERİ",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_4e40beba0d",
+        "name": "GYMFIT METROMALL",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_b70e267ba9",
+        "name": "GYMFIT ANTARES",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_6bf349cea0",
+        "name": "GYMFIT NEXT LEVEL",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_e9e27467a0",
+        "name": "GYMFIT TAURUS",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_8de022c2be",
+        "name": "GYMFIT VELUX ANKARA",
+        "city": "Ankara",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_716f911874",
+        "name": "GYMFIT ADRES ANKARA",
+        "city": "Ankara",
+        "disposition": "COMING_SOON"
+      },
+      {
+        "id": "tr_dd6d274fc0",
+        "name": "GYMFIT ZİRVEKENT ANKARA",
+        "city": "Ankara",
+        "disposition": "COMING_SOON"
+      },
+      {
+        "id": "tr_d7230f72ee",
+        "name": "GYMFIT KENT PLAZA",
+        "city": "Konya",
+        "disposition": "NEW_READY_TO_IMPORT"
+      }
+    ]
+  },
+  "LifeClub": {
+    "active_approved": 0,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 0,
+    "unverified": 0,
+    "total_accounted": 0,
+    "official_current": 0,
+    "phase1_marketing_estimate": 18,
+    "estate_gaps": 0,
+    "class_a": true,
+    "estate_complete": true,
+    "locations": []
+  },
+  "B-Fit": {
+    "active_approved": 3,
+    "coming_soon": 0,
+    "closed": 0,
+    "excluded": 12,
+    "unverified": 0,
+    "total_accounted": 15,
+    "official_current": 15,
+    "phase1_marketing_estimate": 120,
+    "estate_gaps": 0,
+    "class_a": true,
+    "estate_complete": true,
+    "locations": [
+      {
+        "id": "tr_3acf4d171a",
+        "name": "B fit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_9e05be27e2",
+        "name": "b-fit",
+        "city": "İstanbul",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_3f8be1057f",
+        "name": "b-fit",
+        "city": "Çankaya",
+        "disposition": "NEW_READY_TO_IMPORT"
+      },
+      {
+        "id": "tr_f4b5ead69a",
+        "name": "Mac Fit",
+        "city": "Gebze",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_74e421011f",
+        "name": "Mac-Fit",
+        "city": "Yenimahalle",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_7e9a62db77",
+        "name": "Mac Fit",
+        "city": "Bornova",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_e50b7d6d39",
+        "name": "Fit",
+        "city": "Fethiye",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_5ac588b617",
+        "name": "CrossFit",
+        "city": "Konak",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_799ed63dbc",
+        "name": "FIT Gloria Fitness Center",
+        "city": "Serik",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_826349ad23",
+        "name": "Fit arena",
+        "city": "Kemer",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_fe66cda12c",
+        "name": "Fit & Fun",
+        "city": "Manavgat",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_aefa658d1c",
+        "name": "fit and akay office",
+        "city": "Kemer",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_f037e23fd4",
+        "name": "FIT life",
+        "city": "Manavgat",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_2b90ecd5e6",
+        "name": "CrossFit",
+        "city": "Muratpaşa",
+        "disposition": "EXCLUDED"
+      },
+      {
+        "id": "tr_c6bc41e8a3",
+        "name": "Boks Fit Club",
+        "city": "Serdivan",
+        "disposition": "EXCLUDED"
+      }
+    ]
+  },
+  "summary": {
+    "final_class_a_chain_count": 6,
+    "final_class_a_chain_names": [
+      "MACFit",
+      "Mars Athletic Club",
+      "Sports International",
+      "GymFit",
+      "LifeClub",
+      "B-Fit"
+    ],
+    "final_class_a_new_ready_count": 64,
+    "chain_estate_gaps": 0,
+    "class_a_estate_gaps": 0,
+    "phase1_marketing_gap_retired": true,
+    "missed_class_a_chains_found": 0
+  }
+}

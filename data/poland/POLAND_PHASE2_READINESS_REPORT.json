@@ -1,0 +1,51 @@
+{
+  "generated": "2026-08-21T23:08:28.833333+00:00",
+  "phase1_ready": 372,
+  "production_total": 9094,
+  "poland_live": 0,
+  "production_modified": false,
+  "discovered_unique": 659,
+  "categories": {
+    "NEEDS_REVIEW": 23,
+    "COMING_SOON": 15,
+    "READY_TO_IMPORT": 621
+  },
+  "ready_to_import": 621,
+  "ready_by_brand": {
+    "Zdrofit": 212,
+    "Xtreme Fitness Gyms": 185,
+    "Well Fitness": 97,
+    "Just GYM": 55,
+    "CityFit": 24,
+    "Fit Fabric": 21,
+    "Fabryka Formy": 18,
+    "Calypso Fitness": 9
+  },
+  "zdrofit": {
+    "official_list_html": 223,
+    "ready": 212,
+    "coming_soon": 8,
+    "unresolved": 1,
+    "coverage_ratio": 0.991,
+    "recoverable_with_address": 1
+  },
+  "well": {
+    "ready": 97
+  },
+  "fabryka_formy": {
+    "ready": 18,
+    "source": "benefit_html_extract"
+  },
+  "fit_fabric": {
+    "ready": 21,
+    "source": "benefit_html_extract"
+  },
+  "projected_catalog": 9715,
+  "would_cross_10000": false,
+  "centers_below_10000": 285,
+  "centers_above_10000": 0,
+  "global_10k_stress_after_poland_qa": false,
+  "phase3_required": false,
+  "recommendation": "READY FOR POLAND MERGE",
+  "supplement": "integrated Chrome-extracted Benefit HTML (Fabryka/FitFabric)"
+}

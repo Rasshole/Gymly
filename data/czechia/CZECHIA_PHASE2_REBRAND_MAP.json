@@ -1,0 +1,35 @@
+{
+  "generated": "2026-08-23T14:45:07.621963+00:00",
+  "entries": [
+    {
+      "legacy": "Form Factory /klub/fitness-* only crawl (Phase 1)",
+      "successor": "Form Factory full listing incl. the-gym-* slugs",
+      "notes": "Phase 1 missed 13 the-gym-* clubs present on formfactory.cz/kluby/"
+    }
+  ],
+  "phase1_ready_preserved_count": 52,
+  "excluded_brands": [
+    {
+      "brand": "McFIT",
+      "reason": "No verified current Czech studio estate"
+    },
+    {
+      "brand": "Next.Move",
+      "reason": "Single-site operator below multi-location chain threshold"
+    },
+    {
+      "brand": "BBC Fitness",
+      "reason": "Site unreachable"
+    },
+    {
+      "brand": "Factory Pro",
+      "reason": "Site unreachable"
+    }
+  ],
+  "international_chains": {
+    "clever_fit_cz_studios": 1,
+    "fitinn_cz_studios": 1,
+    "john_reed_cz_studios": 1,
+    "mcfit_cz_studios": 0
+  }
+}

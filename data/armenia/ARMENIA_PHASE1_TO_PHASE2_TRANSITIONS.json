@@ -1,0 +1,3122 @@
+[
+  {
+    "id": "am_7878973e26",
+    "brand": "Orange Fitness",
+    "name": "Orange Fitness Komitas",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_4be62b7252",
+    "brand": "Orange Fitness",
+    "name": "Orange Fitness Arabkir",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_d0d7229cd3",
+    "brand": "Orange Fitness",
+    "name": "Orange Fitness Davtashen",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_64802e03bf",
+    "brand": "Orange Fitness",
+    "name": "Orange Fitness Malatia",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_e381190ac5",
+    "brand": "Orange Fitness",
+    "name": "Orange Fitness Shengavit",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_5b26cefdf9",
+    "brand": "Orange Fitness",
+    "name": "Orange Fitness Kentron",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_479a56e570",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_c76cb0ba57",
+    "brand": "Panorama Fitness",
+    "name": "Panorama Fitness Club Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_818c480981",
+    "brand": "World Gym Armenia",
+    "name": "World Gym Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_11ae441734",
+    "brand": "Energy Fitness",
+    "name": "Energy Fitness Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_d134df34a4",
+    "brand": "Grand Sport Club",
+    "name": "Grand Sport Club Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "READY_TO_IMPORT",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — Phase 1 READY revalidated through production gates",
+    "in_production": false
+  },
+  {
+    "id": "am_59a231b372",
+    "brand": "Independent (Gyumri)",
+    "name": "Gyumri Fitness Centre",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — regional independent active verified: Gyumri",
+    "in_production": false
+  },
+  {
+    "id": "am_511afad14c",
+    "brand": "Independent (Vanadzor)",
+    "name": "Vanadzor Sports Club",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — regional independent active verified: Vanadzor",
+    "in_production": false
+  },
+  {
+    "id": "am_045c20e5e4",
+    "brand": "Independent (Abovyan)",
+    "name": "Abovyan Gym",
+    "city": "Abovyan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — regional independent active verified: Abovyan",
+    "in_production": false
+  },
+  {
+    "id": "am_8758b54ad0",
+    "brand": "Independent (Hrazdan)",
+    "name": "Hrazdan Fitness",
+    "city": "Hrazdan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — regional independent active verified: Hrazdan",
+    "in_production": false
+  },
+  {
+    "id": "am_906dca9825",
+    "brand": "Independent (Kapan)",
+    "name": "Kapan Sports Club",
+    "city": "Kapan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — regional independent active verified: Kapan",
+    "in_production": false
+  },
+  {
+    "id": "am_1aba19e385",
+    "brand": "Independent (Armavir)",
+    "name": "Armavir Fitness",
+    "city": "Armavir",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — regional independent active verified: Armavir",
+    "in_production": false
+  },
+  {
+    "id": "am_e37fde58c7",
+    "brand": "Independent (Goris)",
+    "name": "Goris Gym",
+    "city": "Goris",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — regional independent active verified: Goris",
+    "in_production": false
+  },
+  {
+    "id": "am_a14fb94930",
+    "brand": "NEO GYM",
+    "name": "NEO GYM",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: NEO GYM",
+    "in_production": false
+  },
+  {
+    "id": "am_3ac927a21c",
+    "brand": "Flex",
+    "name": "Flex",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Flex",
+    "in_production": false
+  },
+  {
+    "id": "am_cc2a1a8f54",
+    "brand": "X-body gym",
+    "name": "X-body gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: X-body gym",
+    "in_production": false
+  },
+  {
+    "id": "am_070a05f85b",
+    "brand": "Progress ֆիզիկական զարգացման կենտրոն",
+    "name": "Progress ֆիզիկական զարգացման կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Progress ֆիզիկական զարգացման կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_6c93975846",
+    "brand": "Լեդի Ֆիթնես Պլյուս",
+    "name": "Լեդի Ֆիթնես Պլյուս",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Լեդի Ֆիթնես Պլյուս",
+    "in_production": false
+  },
+  {
+    "id": "am_e269a8ba72",
+    "brand": "Alex Club",
+    "name": "Alex Club",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Alex Club",
+    "in_production": false
+  },
+  {
+    "id": "am_4aa6526fbd",
+    "brand": "Cataleya",
+    "name": "Cataleya",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Cataleya",
+    "in_production": false
+  },
+  {
+    "id": "am_3009e64b25",
+    "brand": "ՌՏՍ",
+    "name": "ՌՏՍ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ՌՏՍ",
+    "in_production": false
+  },
+  {
+    "id": "am_e5dd3ae42d",
+    "brand": "Davis' gym",
+    "name": "Davis' gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Davis' gym",
+    "in_production": false
+  },
+  {
+    "id": "am_f6a5febe43",
+    "brand": "Մուլտի ուելնես կենտրոն",
+    "name": "Մուլտի ուելնես կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Մուլտի ուելնես կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_9f7088b343",
+    "brand": "Ռիթմ Յոգա",
+    "name": "Ռիթմ Յոգա",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Ռիթմ Յոգա",
+    "in_production": false
+  },
+  {
+    "id": "am_32f8f6b641",
+    "brand": "Arev Yoga & Pilates Center",
+    "name": "Arev Yoga & Pilates Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Arev Yoga & Pilates Center",
+    "in_production": false
+  },
+  {
+    "id": "am_55ef0d75b4",
+    "brand": "Star Gym",
+    "name": "Սթար Ջիմ Պրեմիեր",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Սթար Ջիմ Պրեմիեր",
+    "in_production": false
+  },
+  {
+    "id": "am_5ef92e0c7a",
+    "brand": "Grig fitness club",
+    "name": "Grig fitness club",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Grig fitness club",
+    "in_production": false
+  },
+  {
+    "id": "am_566cdcee60",
+    "brand": "Reebok Sports Club Armenia",
+    "name": "Reebok Sports Club Armenia",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Reebok Sports Club Armenia",
+    "in_production": false
+  },
+  {
+    "id": "am_4e9679e5bc",
+    "brand": "Սպորտդահլիճ",
+    "name": "Սպորտդահլիճ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Սպորտդահլիճ",
+    "in_production": false
+  },
+  {
+    "id": "am_8c7f92c2e9",
+    "brand": "Թի-էյջ",
+    "name": "Թի-էյջ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Թի-էյջ",
+    "in_production": false
+  },
+  {
+    "id": "am_35fffa82f2",
+    "brand": "Տոնուս",
+    "name": "Տոնուս",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Տոնուս",
+    "in_production": false
+  },
+  {
+    "id": "am_43d12efb9f",
+    "brand": "Oxylife",
+    "name": "Oxylife",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Oxylife",
+    "in_production": false
+  },
+  {
+    "id": "am_08de3f1884",
+    "brand": "Arev Yoga and Pilates Center",
+    "name": "Arev Yoga and Pilates Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Arev Yoga and Pilates Center",
+    "in_production": false
+  },
+  {
+    "id": "am_b07f473be7",
+    "brand": "The One Gym",
+    "name": "The One Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: The One Gym",
+    "in_production": false
+  },
+  {
+    "id": "am_5a1bab1434",
+    "brand": "Lady fitness gym",
+    "name": "Lady fitness gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Lady fitness gym",
+    "in_production": false
+  },
+  {
+    "id": "am_5db22c1887",
+    "brand": "jamm fit",
+    "name": "jamm fit",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: jamm fit",
+    "in_production": false
+  },
+  {
+    "id": "am_90e3844ca0",
+    "brand": "Delta",
+    "name": "Delta",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Delta",
+    "in_production": false
+  },
+  {
+    "id": "am_7e5f2ff9c1",
+    "brand": "Vlad fitness",
+    "name": "Vlad fitness",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Vlad fitness",
+    "in_production": false
+  },
+  {
+    "id": "am_46bbfe93f0",
+    "brand": "Gym",
+    "name": "Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Gym",
+    "in_production": false
+  },
+  {
+    "id": "am_f1fc60831e",
+    "brand": "Fitness Zone",
+    "name": "Fitness Zone",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Fitness Zone",
+    "in_production": false
+  },
+  {
+    "id": "am_40b931027f",
+    "brand": "Araksya",
+    "name": "Araksya",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Araksya",
+    "in_production": false
+  },
+  {
+    "id": "am_b301689d91",
+    "brand": "Reform Pilates",
+    "name": "Reform Pilates",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — specialist/non-qualifying: Reform Pilates",
+    "in_production": false
+  },
+  {
+    "id": "am_3d6fc2901a",
+    "brand": "V.N.S.",
+    "name": "V.N.S.",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: V.N.S.",
+    "in_production": false
+  },
+  {
+    "id": "am_4cda657d75",
+    "brand": "Lady Zone",
+    "name": "Lady Zone",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Lady Zone",
+    "in_production": false
+  },
+  {
+    "id": "am_9683d6b8e0",
+    "brand": "Star Gym",
+    "name": "Star Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Star Gym",
+    "in_production": false
+  },
+  {
+    "id": "am_fd32003bb9",
+    "brand": "Royal Gym",
+    "name": "Royal Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Royal Gym",
+    "in_production": false
+  },
+  {
+    "id": "am_6a69f4be28",
+    "brand": "Olympia",
+    "name": "Olympia",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Olympia",
+    "in_production": false
+  },
+  {
+    "id": "am_e54613d40d",
+    "brand": "Սթար Ֆիթնես",
+    "name": "Սթար Ֆիթնես",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Սթար Ֆիթնես",
+    "in_production": false
+  },
+  {
+    "id": "am_726c2acdb1",
+    "brand": "Mandala",
+    "name": "Mandala",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Mandala",
+    "in_production": false
+  },
+  {
+    "id": "am_655f99a9e3",
+    "brand": "MASGym",
+    "name": "MASGym",
+    "city": "Մասիս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: MASGym",
+    "in_production": false
+  },
+  {
+    "id": "am_fe3a5d3870",
+    "brand": "My club",
+    "name": "My club",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: My club",
+    "in_production": false
+  },
+  {
+    "id": "am_35861322c6",
+    "brand": "Gofit",
+    "name": "Gofit",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Gofit",
+    "in_production": false
+  },
+  {
+    "id": "am_a0c07467c4",
+    "brand": "Qualajyan Sport",
+    "name": "Qualajyan Sport",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Qualajyan Sport",
+    "in_production": false
+  },
+  {
+    "id": "am_ba6609f2da",
+    "brand": "Lady Zone",
+    "name": "Lady Zone",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Lady Zone",
+    "in_production": false
+  },
+  {
+    "id": "am_a15a8bfccc",
+    "brand": "DDD",
+    "name": "DDD",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: DDD",
+    "in_production": false
+  },
+  {
+    "id": "am_3ee6bd0963",
+    "brand": "Dreambody",
+    "name": "Dreambody",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Dreambody",
+    "in_production": false
+  },
+  {
+    "id": "am_525edbb005",
+    "brand": "Allegro",
+    "name": "Allegro",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Allegro",
+    "in_production": false
+  },
+  {
+    "id": "am_e989f60a9a",
+    "brand": "Tonus",
+    "name": "Tonus",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Tonus",
+    "in_production": false
+  },
+  {
+    "id": "am_63b30f1cd3",
+    "brand": "AtletX",
+    "name": "AtletX",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: AtletX",
+    "in_production": false
+  },
+  {
+    "id": "am_912df09b01",
+    "brand": "Gym Unity",
+    "name": "Gym Unity",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Gym Unity",
+    "in_production": false
+  },
+  {
+    "id": "am_933e5f376e",
+    "brand": "Dilijan Gym",
+    "name": "Dilijan Gym",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Dilijan Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_fe0a7f2564",
+    "brand": "InShape",
+    "name": "InShape",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: InShape",
+    "in_production": false
+  },
+  {
+    "id": "am_555aac6eef",
+    "brand": "full gym",
+    "name": "full gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: full gym",
+    "in_production": false
+  },
+  {
+    "id": "am_5b7e0c1c27",
+    "brand": "19",
+    "name": "19",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: 19",
+    "in_production": false
+  },
+  {
+    "id": "am_5d8087f42e",
+    "brand": "ProfiGym",
+    "name": "ProfiGym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: ProfiGym",
+    "in_production": false
+  },
+  {
+    "id": "am_25b6e04e74",
+    "brand": "Dilitown Gym",
+    "name": "Dilitown Gym",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Dilitown Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_0fd6a5e618",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_b434afb728",
+    "brand": "Ketrin",
+    "name": "Ketrin",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Ketrin",
+    "in_production": false
+  },
+  {
+    "id": "am_035b93c1df",
+    "brand": "Elite Gym",
+    "name": "Elite Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Elite Gym",
+    "in_production": false
+  },
+  {
+    "id": "am_e321de5b21",
+    "brand": "Sparta",
+    "name": "Sparta",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "NEW_READY_TO_IMPORT",
+    "decision_reason": "Phase 2 — OSM independent active verified: Sparta",
+    "in_production": false
+  },
+  {
+    "id": "am_04c44b4050",
+    "brand": "Eleven Fitness",
+    "name": "Eleven Fitness",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: Eleven Fitness",
+    "in_production": false
+  },
+  {
+    "id": "am_a0e6255776",
+    "brand": "FlexFit",
+    "name": "FlexFit",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — OSM LOW confidence: FlexFit",
+    "in_production": false
+  },
+  {
+    "id": "am_90e11673a8",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_3a9baf48ef",
+    "brand": "Independent",
+    "name": "Orange Fitness",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Independent)",
+    "in_production": false
+  },
+  {
+    "id": "am_c820f48219",
+    "brand": "Independent",
+    "name": "կավալլի գիշերային ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: կավալլի գիշերային ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_230f435be3",
+    "brand": "Independent",
+    "name": "Eleven Fitness",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Eleven Fitness",
+    "in_production": false
+  },
+  {
+    "id": "am_5ddb3ebdaf",
+    "brand": "Independent",
+    "name": "Tourist information centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Tourist information centre",
+    "in_production": false
+  },
+  {
+    "id": "am_cbf1a369e5",
+    "brand": "Independent",
+    "name": "VLV Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: VLV Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_fd2824d627",
+    "brand": "Independent",
+    "name": "fitness centre Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness centre Yerevan",
+    "in_production": false
+  },
+  {
+    "id": "am_dc4448f264",
+    "brand": "Independent",
+    "name": "Երևան Բժշկական կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Երևան Բժշկական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_b5c8097a17",
+    "brand": "Independent",
+    "name": "Ջիմ Պլյսուս",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ջիմ Պլյսուս",
+    "in_production": false
+  },
+  {
+    "id": "am_9aece0694b",
+    "brand": "Independent",
+    "name": "Hotel & Commercial Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — hotel/resort leakage: Hotel & Commercial Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_441ada4592",
+    "brand": "Independent",
+    "name": "Ակուստիկա",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ակուստիկա",
+    "in_production": false
+  },
+  {
+    "id": "am_f71e4cd48c",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_5da3795aba",
+    "brand": "Independent",
+    "name": "Globe Language Educational Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Globe Language Educational Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_f8f2e01c27",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_8e82a72539",
+    "brand": "Independent",
+    "name": "VLV centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: VLV centre",
+    "in_production": false
+  },
+  {
+    "id": "am_982bc89a6c",
+    "brand": "Independent",
+    "name": "Mobile centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile centre",
+    "in_production": false
+  },
+  {
+    "id": "am_3f562da41a",
+    "brand": "Independent",
+    "name": "Makkony busines centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Makkony busines centre",
+    "in_production": false
+  },
+  {
+    "id": "am_18c394d6f9",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_c869d48861",
+    "brand": "Independent",
+    "name": "Mobile centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile centre",
+    "in_production": false
+  },
+  {
+    "id": "am_78afa0b269",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_6270a2d0a1",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_5cc1d18826",
+    "brand": "Independent",
+    "name": "Home PC Service Centre",
+    "city": "Այնթապ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Home PC Service Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_5f4295c379",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_a755c50a4f",
+    "brand": "Independent",
+    "name": "Թումո ստեղծարար տեխնոլոգիաների կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Թումո ստեղծարար տեխնոլոգիաների կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_03bcb35dcf",
+    "brand": "Independent",
+    "name": "Tumo Center for Creative Technologies",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: Tumo Center for Creative Technologies",
+    "in_production": false
+  },
+  {
+    "id": "am_0785aa0320",
+    "brand": "Independent",
+    "name": "Երևանի Կենտրոն վարչական շրջանի թաղապետարան",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Երևանի Կենտրոն վարչական շրջանի թաղապետարան",
+    "in_production": false
+  },
+  {
+    "id": "am_3e85bdb274",
+    "brand": "Independent",
+    "name": "Allergology&Immunology Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Allergology&Immunology Center",
+    "in_production": false
+  },
+  {
+    "id": "am_11c5ff7c1a",
+    "brand": "Independent",
+    "name": "ՇԵՆԳԱՎԻԹ ԲԺՇԿԱԿԱՆ ԿԵՆՏՐՈՆ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ՇԵՆԳԱՎԻԹ ԲԺՇԿԱԿԱՆ ԿԵՆՏՐՈՆ",
+    "in_production": false
+  },
+  {
+    "id": "am_3ddb0043ca",
+    "brand": "Independent",
+    "name": "Izmirlian Medical Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: Izmirlian Medical Center",
+    "in_production": false
+  },
+  {
+    "id": "am_b7f74ded2e",
+    "brand": "Independent",
+    "name": "Երևան Ջուր հաճախորդների սպասարկման կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Երևան Ջուր հաճախորդների սպասարկման կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_018b9de77b",
+    "brand": "Independent",
+    "name": "Նորք-Մարաշ բժշկական կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Նորք-Մարաշ բժշկական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_f6937b60eb",
+    "brand": "Independent",
+    "name": "Թռչունների փրկարարական կենտրոն / Bird Rescue Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Թռչունների փրկարարական կենտրոն / Bird Rescue Center",
+    "in_production": false
+  },
+  {
+    "id": "am_1028cd5a13",
+    "brand": "Independent",
+    "name": "Alexander Malayan Vision and Aesthetic Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Alexander Malayan Vision and Aesthetic Center",
+    "in_production": false
+  },
+  {
+    "id": "am_703ebafd9a",
+    "brand": "Independent",
+    "name": "Pharm Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Pharm Center",
+    "in_production": false
+  },
+  {
+    "id": "am_e7fd379fb5",
+    "brand": "Independent",
+    "name": "BSC Business Support Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: BSC Business Support Center",
+    "in_production": false
+  },
+  {
+    "id": "am_c152423e29",
+    "brand": "Independent",
+    "name": "Modus Vivendi Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Modus Vivendi Center",
+    "in_production": false
+  },
+  {
+    "id": "am_37598cd087",
+    "brand": "Independent",
+    "name": "EduLab Learning Center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: EduLab Learning Center",
+    "in_production": false
+  },
+  {
+    "id": "am_4797215e58",
+    "brand": "Independent",
+    "name": "Nic's study center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Nic's study center",
+    "in_production": false
+  },
+  {
+    "id": "am_3485cb8f95",
+    "brand": "Independent",
+    "name": "Gera service center",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Gera service center",
+    "in_production": false
+  },
+  {
+    "id": "am_65fa59652d",
+    "brand": "Independent",
+    "name": "Woods Center",
+    "city": "Ջրվեժ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Woods Center",
+    "in_production": false
+  },
+  {
+    "id": "am_22226ea8df",
+    "brand": "Independent",
+    "name": "Porshe Center Armenia",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Porshe Center Armenia",
+    "in_production": false
+  },
+  {
+    "id": "am_f9815c4897",
+    "brand": "Independent",
+    "name": "Children's Developmental Center NANI",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: Children's Developmental Center NANI",
+    "in_production": false
+  },
+  {
+    "id": "am_b18a2dbd12",
+    "brand": "Independent",
+    "name": "Մոր և մանկան առողջության պահպանման գիտահետազոտական կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Մոր և մանկան առողջության պահպանման գիտահետազոտական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_fb85e1ab46",
+    "brand": "Independent",
+    "name": "fitness center Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: fitness center Yerevan",
+    "in_production": false
+  },
+  {
+    "id": "am_7bbbec2ec8",
+    "brand": "Independent",
+    "name": "Ռուսաստանի գիտության և մշակույթի կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ռուսաստանի գիտության և մշակույթի կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_09568c86d0",
+    "brand": "Independent",
+    "name": "ԴիՓիՍի կլինիկա",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ԴիՓիՍի կլինիկա",
+    "in_production": false
+  },
+  {
+    "id": "am_df9dc6f327",
+    "brand": "Independent",
+    "name": "Նորարար Փորձառական Արվեստի Կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Նորարար Փորձառական Արվեստի Կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_46b773a8c6",
+    "brand": "Independent",
+    "name": "\"Քամի\" Մյուզիք կլաբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: \"Քամի\" Մյուզիք կլաբ",
+    "in_production": false
+  },
+  {
+    "id": "am_7c9f1150dd",
+    "brand": "Independent",
+    "name": "Բժշկական Կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Բժշկական Կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_6a9f680157",
+    "brand": "Independent",
+    "name": "Neo Gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Neo Gym",
+    "in_production": false
+  },
+  {
+    "id": "am_c4b3a15b32",
+    "brand": "Independent",
+    "name": "Haktan gym",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Haktan gym",
+    "in_production": false
+  },
+  {
+    "id": "am_cbc116036d",
+    "brand": "Independent",
+    "name": "MotoGYM",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: MotoGYM",
+    "in_production": false
+  },
+  {
+    "id": "am_fd292c4be0",
+    "brand": "Independent",
+    "name": "Էկշն ֆիթնես ջիմ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Էկշն ֆիթնես ջիմ",
+    "in_production": false
+  },
+  {
+    "id": "am_03f89d0b13",
+    "brand": "Independent",
+    "name": "Սթար Ջիմ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Սթար Ջիմ",
+    "in_production": false
+  },
+  {
+    "id": "am_48df481f02",
+    "brand": "Independent",
+    "name": "Սթար Ջիմ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Սթար Ջիմ",
+    "in_production": false
+  },
+  {
+    "id": "am_8d3fcaa9e4",
+    "brand": "Independent",
+    "name": "Գոլդս Ջիմ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Գոլդս Ջիմ",
+    "in_production": false
+  },
+  {
+    "id": "am_faa8589b24",
+    "brand": "Independent",
+    "name": "Գոլդս Ջիմ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Գոլդս Ջիմ",
+    "in_production": false
+  },
+  {
+    "id": "am_b43f496de5",
+    "brand": "Independent",
+    "name": "gym Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: gym Yerevan",
+    "in_production": false
+  },
+  {
+    "id": "am_889e65d2f1",
+    "brand": "Panorama Fitness",
+    "name": "Տեսարան ռեստորան",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Panorama Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_7aeb818594",
+    "brand": "Panorama Fitness",
+    "name": "Պանորամա",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Panorama Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_cce7f8a889",
+    "brand": "World Gym",
+    "name": "Copy of Baylonian Map of the World",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_adddf14a4e",
+    "brand": "World Gym",
+    "name": "Pen's world",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_04aff29aad",
+    "brand": "World Gym",
+    "name": "World Health Organization",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_3a3cd11b3f",
+    "brand": "World Gym",
+    "name": "Car mirrors world",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_18acb8823f",
+    "brand": "World Gym",
+    "name": "E.L.I. Children's world",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_3fe56be440",
+    "brand": "World Gym",
+    "name": "Shoes World",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_c4b048dc0e",
+    "brand": "World Gym",
+    "name": "World Gym Yerevan",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_db2243069c",
+    "brand": "World Gym",
+    "name": "Մրգի աշխարհ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_98bc4a00b7",
+    "brand": "World Gym",
+    "name": "Գրքերի աշխարհ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_c694c6d91b",
+    "brand": "World Gym",
+    "name": "Enlarged replica of clay tablet \"Babylonian Map of the World\"",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_a6bdd88db6",
+    "brand": "World Gym",
+    "name": "Պաստառների աշխարհ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_aba4e0a46f",
+    "brand": "World Gym",
+    "name": "Քարերի Աշխարհ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_753dbec7c3",
+    "brand": "World Gym",
+    "name": "Հագուստի Աշխարհ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_9b6103277d",
+    "brand": "Energy Fitness",
+    "name": "Energy",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_efd6f255fb",
+    "brand": "Energy Fitness",
+    "name": "Team Energy",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_a9b95b2c5b",
+    "brand": "Energy Fitness",
+    "name": "Team Energy",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_e00f77ca19",
+    "brand": "Energy Fitness",
+    "name": "Էներգակարգաբերում",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_b9774266f4",
+    "brand": "Energy Fitness",
+    "name": "ՕՀՄ ԷՆԵՐՋԻ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_85b63698cc",
+    "brand": "Energy Fitness",
+    "name": "Թիմ էներջի",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_16d24afb5d",
+    "brand": "Energy Fitness",
+    "name": "Թիմ էներջի",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_e9042c2122",
+    "brand": "Grand Sport",
+    "name": "Գրանդ Սպորտ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_13c88dedf4",
+    "brand": "Grand Sport",
+    "name": "Գրանդ Սպորտ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_6e2803f17a",
+    "brand": "Grand Sport",
+    "name": "Գրանդ սպորտ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_4d4b016a16",
+    "brand": "Independent",
+    "name": "բացօթյա մարզահրապարակը \"Չռիկը\"",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: բացօթյա մարզահրապարակը \"Չռիկը\"",
+    "in_production": false
+  },
+  {
+    "id": "am_62773ccc08",
+    "brand": "Independent",
+    "name": "Ուրարտու ֆուտբոլային ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ուրարտու ֆուտբոլային ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_c297bab0c2",
+    "brand": "Independent",
+    "name": "ԱԿՈՒՄԲ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ԱԿՈՒՄԲ",
+    "in_production": false
+  },
+  {
+    "id": "am_9ffdc5521c",
+    "brand": "Independent",
+    "name": "Վելո Ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վելո Ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_cd34774104",
+    "brand": "Independent",
+    "name": "Ջիաննի ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ջիաննի ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_ef4fc891a1",
+    "brand": "Independent",
+    "name": "sports club Abovyan",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: sports club Abovyan",
+    "in_production": false
+  },
+  {
+    "id": "am_95654c9f6c",
+    "brand": "Independent",
+    "name": "Քրեյզի Ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Քրեյզի Ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_431eb6044b",
+    "brand": "Independent",
+    "name": "Մանկական ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Մանկական ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_173ffda5fb",
+    "brand": "Independent",
+    "name": "Այրուձի Հեծյալ Ակումբ",
+    "city": "Աշտարակ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Այրուձի Հեծյալ Ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_5c75208790",
+    "brand": "Independent",
+    "name": "Մալխաս ջազ ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Մալխաս ջազ ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_b38316d15f",
+    "brand": "Independent",
+    "name": "Ledz խաղային ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ledz խաղային ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_bca0472eb2",
+    "brand": "Independent",
+    "name": "Արարատ Թենիսի Ակումբ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Արարատ Թենիսի Ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_6df9a61eb7",
+    "brand": "Independent",
+    "name": "Երիտասարդական ակումբների դաշնություն ԵԱԴ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Երիտասարդական ակումբների դաշնություն ԵԱԴ",
+    "in_production": false
+  },
+  {
+    "id": "am_9c252e822b",
+    "brand": "Independent",
+    "name": "Ինդեքս Վարտա ակումլյատորների խանութ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ինդեքս Վարտա ակումլյատորների խանութ",
+    "in_production": false
+  },
+  {
+    "id": "am_35530d5fa1",
+    "brand": "Independent",
+    "name": "Վարտա,Ինդեքս ակումուլյատորներ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վարտա,Ինդեքս ակումուլյատորներ",
+    "in_production": false
+  },
+  {
+    "id": "am_656def4665",
+    "brand": "Independent",
+    "name": "դպրոցական սպորտաին դահլիճ",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: դպրոցական սպորտաին դահլիճ",
+    "in_production": false
+  },
+  {
+    "id": "am_be90b967aa",
+    "brand": "Independent",
+    "name": "ԿԱԶԱ Գյումրու կենտրոն",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ԿԱԶԱ Գյումրու կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_d3ea151930",
+    "brand": "Independent",
+    "name": "Թումո ստեղծարար տեխնոլոգիաների կենտրոն",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Թումո ստեղծարար տեխնոլոգիաների կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_75de0bdd69",
+    "brand": "Independent",
+    "name": "Գյումրիի կենտրոնական զբոսայգի",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): Գյումրիի կենտրոնական զբոսայգի",
+    "in_production": false
+  },
+  {
+    "id": "am_29f68fd02f",
+    "brand": "Independent",
+    "name": "Shemm centre",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Shemm centre",
+    "in_production": false
+  },
+  {
+    "id": "am_41071060af",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_8ee0be3e40",
+    "brand": "Independent",
+    "name": "Little Prince Social Centre for Children",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: Little Prince Social Centre for Children",
+    "in_production": false
+  },
+  {
+    "id": "am_7cbe6bddbe",
+    "brand": "Independent",
+    "name": "Կենտրոնական Շուկա",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Կենտրոնական Շուկա",
+    "in_production": false
+  },
+  {
+    "id": "am_bc2e4f093d",
+    "brand": "Independent",
+    "name": "Գյումրի Հոգեկան Առողջության Կենտրոն",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Գյումրի Հոգեկան Առողջության Կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_fe845f374c",
+    "brand": "Independent",
+    "name": "GIS Center of NSSP MES RA",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: GIS Center of NSSP MES RA",
+    "in_production": false
+  },
+  {
+    "id": "am_2a3b0de91b",
+    "brand": "Independent",
+    "name": "Գեղագիտության ազգային կենտրոնի գյումրու մասնաճյուղ",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Գեղագիտության ազգային կենտրոնի գյումրու մասնաճյուղ",
+    "in_production": false
+  },
+  {
+    "id": "am_0dea46ff16",
+    "brand": "Independent",
+    "name": "ՀՕՄ հոգեբանական կենտրոն",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: ՀՕՄ հոգեբանական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_36b4087af4",
+    "brand": "Independent",
+    "name": "Ցիտո Բժշկական կենտրոն",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ցիտո Բժշկական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_d8c6adf325",
+    "brand": "Independent",
+    "name": "gym Gyumri",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: gym Gyumri",
+    "in_production": false
+  },
+  {
+    "id": "am_2cb63b54c5",
+    "brand": "Independent",
+    "name": "Ռելաքս",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ռելաքս",
+    "in_production": false
+  },
+  {
+    "id": "am_c72da63c97",
+    "brand": "Independent",
+    "name": "Sportsplace gyumri",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Sportsplace gyumri",
+    "in_production": false
+  },
+  {
+    "id": "am_a13ff237ef",
+    "brand": "Gold's Gym",
+    "name": "Gold's Gym Gyumri",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_2e7a153030",
+    "brand": "World Gym",
+    "name": "World Gym Gyumri",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_09a39ee00a",
+    "brand": "Grand Sport",
+    "name": "Gyumri State College of Olympic Sport Shift",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_1bdcca287d",
+    "brand": "Grand Sport",
+    "name": "Գրանդ հոթել Գյումրի",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_f28705ab6c",
+    "brand": "Grand Sport",
+    "name": "Սպորտ դպրոց",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_8613b1aab1",
+    "brand": "Grand Sport",
+    "name": "Սպարտակի փողոցի 1-ին նրբանցք",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_2d8b4c641e",
+    "brand": "Grand Sport",
+    "name": "Սպարտակի փողոցի 2-րդ նրբանցք",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_6eaac7874a",
+    "brand": "Independent",
+    "name": "Տեքստիլ Ակումբ",
+    "city": "Gyumri",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Տեքստիլ Ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_d5c2fb435f",
+    "brand": "Independent",
+    "name": "Vanadzor Medical Center",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: Vanadzor Medical Center",
+    "in_production": false
+  },
+  {
+    "id": "am_4d92e0f841",
+    "brand": "Independent",
+    "name": "Գեղագիտության Ազգային Կենտրոնի Վանաձորի Մասնաճյուղ",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Գեղագիտության Ազգային Կենտրոնի Վանաձորի Մասնաճյուղ",
+    "in_production": false
+  },
+  {
+    "id": "am_2642e078ed",
+    "brand": "Independent",
+    "name": "Վանաձորի Տեխնոլոգիական Կենտրոնը",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վանաձորի Տեխնոլոգիական Կենտրոնը",
+    "in_production": false
+  },
+  {
+    "id": "am_d6fcd39b6c",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Mobile Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_0f43bd683f",
+    "brand": "Independent",
+    "name": "Ջերմա Էլեկտրո Կենտրոն",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): Ջերմա Էլեկտրո Կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_62df181e55",
+    "brand": "Independent",
+    "name": "Orran Krikorian Center",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Orran Krikorian Center",
+    "in_production": false
+  },
+  {
+    "id": "am_f81b766d01",
+    "brand": "Independent",
+    "name": "ARDA Community Center",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: ARDA Community Center",
+    "in_production": false
+  },
+  {
+    "id": "am_4dd8033212",
+    "brand": "Independent",
+    "name": "COAF Debed Canyon Visitor Center",
+    "city": "Լոռի",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: COAF Debed Canyon Visitor Center",
+    "in_production": false
+  },
+  {
+    "id": "am_f56b52d868",
+    "brand": "Independent",
+    "name": "Վարդանանց նորարարական բժշկության կենտրոն",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վարդանանց նորարարական բժշկության կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_4460660bcd",
+    "brand": "Independent",
+    "name": "Հանրապետական Անասնաբուժասանիտարական Եվ Բուսասանիտարական Լաբորատոր Ծառայութունների Կենտրոն",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Հանրապետական Անասնաբուժասանիտարական Եվ Բուսասանիտարական Լաբորատոր Ծառայութունների Կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_217a8f95fa",
+    "brand": "Independent",
+    "name": "Վանաձորի Տարածքային Մանկավարժահոգեբանական Աջակցության Կենտրոն",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վանաձորի Տարածքային Մանկավարժահոգեբանական Աջակցության Կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_b5215fff9d",
+    "brand": "Independent",
+    "name": "Շահումյանի Առողջության Առաջնային Պահպանման Կենտրոն",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): Շահումյանի Առողջության Առաջնային Պահպանման Կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_05a3c5276b",
+    "brand": "Independent",
+    "name": "Elite Gym",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Elite Gym",
+    "in_production": false
+  },
+  {
+    "id": "am_f2056d9731",
+    "brand": "Independent",
+    "name": "Վ. Բադալյանի անվ. բռնցքամարտի ակումբ",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վ. Բադալյանի անվ. բռնցքամարտի ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_59f812bb7e",
+    "brand": "Independent",
+    "name": "Winther Sports School",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Winther Sports School",
+    "in_production": false
+  },
+  {
+    "id": "am_90fa7abff7",
+    "brand": "Independent",
+    "name": "Շախմատի մասնագիտացված մանկապատանեկան մարզադպրոց",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Շախմատի մասնագիտացված մանկապատանեկան մարզադպրոց",
+    "in_production": false
+  },
+  {
+    "id": "am_45a4272dd0",
+    "brand": "Independent",
+    "name": "Աթլետիկայի Մարզադպրոց",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Աթլետիկայի Մարզադպրոց",
+    "in_production": false
+  },
+  {
+    "id": "am_020ec74ff6",
+    "brand": "Independent",
+    "name": "Սպորտ կոմպլեքս",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Սպորտ կոմպլեքս",
+    "in_production": false
+  },
+  {
+    "id": "am_09550a9160",
+    "brand": "Independent",
+    "name": "Ձիարշավարան",
+    "city": "Ձորաղբյուր",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ձիարշավարան",
+    "in_production": false
+  },
+  {
+    "id": "am_6e539c270f",
+    "brand": "Orange Fitness",
+    "name": "Orange",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Orange Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_10738b14c4",
+    "brand": "Orange Fitness",
+    "name": "Orange Elephant",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Orange Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_c2f59ecda6",
+    "brand": "Grand Sport",
+    "name": "Sport Zone",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_15d9912b43",
+    "brand": "Grand Sport",
+    "name": "Sport Shoes",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_04cdfebcd1",
+    "brand": "Grand Sport",
+    "name": "Uno Sport",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_4ee9867912",
+    "brand": "Grand Sport",
+    "name": "Grand Sport Vanadzor",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_38a5defd65",
+    "brand": "Grand Sport",
+    "name": "Սպորտդպրոց",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_01bb2df7ff",
+    "brand": "Grand Sport",
+    "name": "Grand Tabak",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_2b463e5566",
+    "brand": "Grand Sport",
+    "name": "Grand Ton",
+    "city": "Լոռի",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_eb75d6704b",
+    "brand": "Grand Sport",
+    "name": "Գրան ՄեԴ",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_e0b3df607e",
+    "brand": "Grand Sport",
+    "name": "Sparta",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_2e4a78c3a2",
+    "brand": "Independent",
+    "name": "8 Բիլլիարդ Ակումբ",
+    "city": "Vanadzor",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: 8 Բիլլիարդ Ակումբ",
+    "in_production": false
+  },
+  {
+    "id": "am_169aa54689",
+    "brand": "Independent",
+    "name": "Ռուբիկ Հարությունյանի անվան Աբովյանի բժշկական կենտրոն",
+    "city": "Աբովյան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ռուբիկ Հարությունյանի անվան Աբովյանի բժշկական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_790034927b",
+    "brand": "Independent",
+    "name": "Բեգլարյան բժշկական կենտրոն",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Բեգլարյան բժշկական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_d80c1af264",
+    "brand": "Independent",
+    "name": "Փարավոն հյուրանոց և զվարճանքի կենտրոն",
+    "city": "Բալահովիտ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Փարավոն հյուրանոց և զվարճանքի կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_88bf53e7dc",
+    "brand": "Independent",
+    "name": "Եղվարդ (կենտրոն)",
+    "city": "Եղվարդ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Եղվարդ (կենտրոն)",
+    "in_production": false
+  },
+  {
+    "id": "am_eb6dcb1d14",
+    "brand": "Independent",
+    "name": "Յունիմեդ բժշկական կենտրոն",
+    "city": "Աբովյան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Յունիմեդ բժշկական կենտրոն",
+    "in_production": false
+  },
+  {
+    "id": "am_473b8ca1e6",
+    "brand": "Independent",
+    "name": "Cool Club",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Cool Club",
+    "in_production": false
+  },
+  {
+    "id": "am_d0f72bd652",
+    "brand": "World Gym",
+    "name": "ՁԿՆԵՐԻ ԱՇԽԱՐՀ",
+    "city": "Աբովյան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_63287fe05d",
+    "brand": "World Gym",
+    "name": "Հագուստի աշխարհ",
+    "city": "Իջևան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_1430a532f8",
+    "brand": "Grand Sport",
+    "name": "Sportpoint",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_0d426798fa",
+    "brand": "Grand Sport",
+    "name": "Nazaret Sport, Made in Armenia",
+    "city": "Վերին Պտղնի",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_2f96c4a17c",
+    "brand": "Grand Sport",
+    "name": "Sport Shoes",
+    "city": "Վերին Պտղնի",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_f4df8286c7",
+    "brand": "Grand Sport",
+    "name": "Grand Shin",
+    "city": "Աբովյան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_b884e018b7",
+    "brand": "Grand Sport",
+    "name": "Multi Grand Hotel",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_7074d5df61",
+    "brand": "Independent",
+    "name": "Ակունք",
+    "city": "Աբովյան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ակունք",
+    "in_production": false
+  },
+  {
+    "id": "am_91a06af2c3",
+    "brand": "Independent",
+    "name": "Ակունք",
+    "city": "Բալահովիտ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ակունք",
+    "in_production": false
+  },
+  {
+    "id": "am_f01bbf01e5",
+    "brand": "Independent",
+    "name": "Ակունք",
+    "city": "Մայակովսկի",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ակունք",
+    "in_production": false
+  },
+  {
+    "id": "am_318ca5111e",
+    "brand": "Independent",
+    "name": "Ակունք",
+    "city": "Մայակովսկի",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ակունք",
+    "in_production": false
+  },
+  {
+    "id": "am_29c79d6f27",
+    "brand": "Independent",
+    "name": "Ակունք",
+    "city": "Արամուս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ակունք",
+    "in_production": false
+  },
+  {
+    "id": "am_c275401220",
+    "brand": "Independent",
+    "name": "Ակունք",
+    "city": "Կաթնաղբյուր",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Ակունք",
+    "in_production": false
+  },
+  {
+    "id": "am_80ffd741e3",
+    "brand": "Independent",
+    "name": "mobile centre",
+    "city": "Հրազդան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): mobile centre",
+    "in_production": false
+  },
+  {
+    "id": "am_8cbea8cba8",
+    "brand": "Independent",
+    "name": "Սևան (կենտրոն)",
+    "city": "Գեղարքունիք",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Սևան (կենտրոն)",
+    "in_production": false
+  },
+  {
+    "id": "am_7970a737de",
+    "brand": "Independent",
+    "name": "Kapan Medical Center",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — institutional/private scope: Kapan Medical Center",
+    "in_production": false
+  },
+  {
+    "id": "am_f5e906043c",
+    "brand": "Independent",
+    "name": "COAF SMART Center Kapan",
+    "city": "Սյունիք",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): COAF SMART Center Kapan",
+    "in_production": false
+  },
+  {
+    "id": "am_547e8a6fe6",
+    "brand": "Independent",
+    "name": "Վազգեն Սարգսյանի անվան Կապանի կենտրոնական զբոսայգի",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վազգեն Սարգսյանի անվան Կապանի կենտրոնական զբոսայգի",
+    "in_production": false
+  },
+  {
+    "id": "am_2671b8419a",
+    "brand": "Independent",
+    "name": "Central Park",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Central Park",
+    "in_production": false
+  },
+  {
+    "id": "am_cdbccb638a",
+    "brand": "Gold's Gym",
+    "name": "Капанский ГОК Deno Gold",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Gold's Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_cf745c3704",
+    "brand": "World Gym",
+    "name": "World Gym Kapan",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_3c22397824",
+    "brand": "Grand Sport",
+    "name": "Sport school",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_7544ec37ef",
+    "brand": "Grand Sport",
+    "name": "Dzorastan Permaculture Sport",
+    "city": "Ձորաստան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_0b05ddbea7",
+    "brand": "Grand Sport",
+    "name": "InSport Syunik",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_a4389e003c",
+    "brand": "Grand Sport",
+    "name": "Grand House",
+    "city": "Կապան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_617b8d8e53",
+    "brand": "Independent",
+    "name": "Home Building Centre",
+    "city": "Մրգաշատ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Home Building Centre",
+    "in_production": false
+  },
+  {
+    "id": "am_b4a19bb7cb",
+    "brand": "Independent",
+    "name": "Կենտրոնական Ավտոկայարան",
+    "city": "Yerevan",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Կենտրոնական Ավտոկայարան",
+    "in_production": false
+  },
+  {
+    "id": "am_59872c0487",
+    "brand": "Independent",
+    "name": "Մխոյի խանութ",
+    "city": "Մյասնիկյան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Մխոյի խանութ",
+    "in_production": false
+  },
+  {
+    "id": "am_c59deb557e",
+    "brand": "Independent",
+    "name": "Վաղարշապատ (կենտրոն)",
+    "city": "Վաղարշապատ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Վաղարշապատ (կենտրոն)",
+    "in_production": false
+  },
+  {
+    "id": "am_c88d18149f",
+    "brand": "Independent",
+    "name": "\"Mobile Centre\"",
+    "city": "Վաղարշապատ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: \"Mobile Centre\"",
+    "in_production": false
+  },
+  {
+    "id": "am_ce2090eeb6",
+    "brand": "Independent",
+    "name": "Կուլտուրայի տուն",
+    "city": "Արմավիր",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Կուլտուրայի տուն",
+    "in_production": false
+  },
+  {
+    "id": "am_9ef8471083",
+    "brand": "Independent",
+    "name": "«ԶԱՐԻՇԱՏ ՄԿՐՏՉՅԱՆԻ ԱՆՎԱՆ ԱՐՄԱՎԻՐԻ ԲԺՇԿԱԿԱՆ ԿԵՆՏՐՈՆ»",
+    "city": "Արմավիր",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: «ԶԱՐԻՇԱՏ ՄԿՐՏՉՅԱՆԻ ԱՆՎԱՆ ԱՐՄԱՎԻՐԻ ԲԺՇԿԱԿԱՆ ԿԵՆՏՐՈՆ»",
+    "in_production": false
+  },
+  {
+    "id": "am_04b7675966",
+    "brand": "Independent",
+    "name": "Armavir Village club",
+    "city": "Արմավիր",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): Armavir Village club",
+    "in_production": false
+  },
+  {
+    "id": "am_dce0bf11fb",
+    "brand": "Independent",
+    "name": "Village club",
+    "city": "Արաքս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon independent stale listing: Village club",
+    "in_production": false
+  },
+  {
+    "id": "am_d9078bcf53",
+    "brand": "Independent",
+    "name": "Social Club",
+    "city": "Գայ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): Social Club",
+    "in_production": false
+  },
+  {
+    "id": "am_f7daa5beae",
+    "brand": "Grand Sport",
+    "name": "Ապոլլոն մարզահամալիր",
+    "city": "Մեծամոր",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon/OSM chain duplicate stale listing (Grand Sport)",
+    "in_production": false
+  },
+  {
+    "id": "am_fa0a931895",
+    "brand": "Independent",
+    "name": "Goris Tourist Information Centre",
+    "city": "Գորիս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_9068b0c87d",
+    "brand": "Independent",
+    "name": "Mobile Centre",
+    "city": "Գորիս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_40b63d9541",
+    "brand": "Independent",
+    "name": "FRENCH-ARMENIAN CARDIOVASCULAR CENTRE",
+    "city": "Գորիս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_b782110192",
+    "brand": "Independent",
+    "name": "Goris Medical Center",
+    "city": "Գորիս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_d67d645293",
+    "brand": "Energy Fitness",
+    "name": "Energy",
+    "city": "Գորիս",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_79921c3902",
+    "brand": "Independent",
+    "name": "TUMO Center for Creative Technologies",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: institutional/non-public (TUMO Center for Creative Technologies)",
+    "in_production": false
+  },
+  {
+    "id": "am_b1f5df35f0",
+    "brand": "Independent",
+    "name": "Home Jan Dilijan",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Home Jan Dilijan)",
+    "in_production": false
+  },
+  {
+    "id": "am_c55b069f60",
+    "brand": "Independent",
+    "name": "Mobile Center",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Mobile Center)",
+    "in_production": false
+  },
+  {
+    "id": "am_cc70ac5a6d",
+    "brand": "Independent",
+    "name": "Դիլիջան Օգնության կենտրոնական պահեստ ՖԱ Իմպուլսում",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Դիլիջան Օգնության կենտրոնական պահեստ ՖԱ Իմպուլսում)",
+    "in_production": false
+  },
+  {
+    "id": "am_7a0c5b17bc",
+    "brand": "Independent",
+    "name": "Դիլիջան ազգային պարկի այցելուների կենտրոն",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Դիլիջան ազգային պարկի այցելուների կենտրոն)",
+    "in_production": false
+  },
+  {
+    "id": "am_adb675e41c",
+    "brand": "Independent",
+    "name": "Դիլիջանի Երիտասարդական Համագործակցության Կենտրոն",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Դիլիջանի Երիտասարդական Համագործակցության Կենտրոն)",
+    "in_production": false
+  },
+  {
+    "id": "am_aa24bce5ee",
+    "brand": "Independent",
+    "name": "Կենտրոնական բանկի թիվ 2 հաշվարկ",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Կենտրոնական բանկի թիվ 2 հաշվարկ)",
+    "in_production": false
+  },
+  {
+    "id": "am_926636eddd",
+    "brand": "Independent",
+    "name": "Դիլիջանի կենտրոնական հրապարակ",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Դիլիջանի կենտրոնական հրապարակ)",
+    "in_production": false
+  },
+  {
+    "id": "am_b141c74be7",
+    "brand": "Independent",
+    "name": "Կենտրոնական բանկի բնակելի շենք",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Կենտրոնական բանկի բնակելի շենք)",
+    "in_production": false
+  },
+  {
+    "id": "am_2fbad94009",
+    "brand": "Independent",
+    "name": "Ազնիվ եղջերուների բուծման կենտրոն",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Ազնիվ եղջերուների բուծման կենտրոն)",
+    "in_production": false
+  },
+  {
+    "id": "am_56af3c0eaf",
+    "brand": "Independent",
+    "name": "MTB Club",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (MTB Club)",
+    "in_production": false
+  },
+  {
+    "id": "am_132978db41",
+    "brand": "Independent",
+    "name": "Aleksberg Club",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Aleksberg Club)",
+    "in_production": false
+  },
+  {
+    "id": "am_156699e06c",
+    "brand": "Independent",
+    "name": "Շամախյանի նախկին ակումբ",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Շամախյանի նախկին ակումբ)",
+    "in_production": false
+  },
+  {
+    "id": "am_fff90d29fe",
+    "brand": "Independent",
+    "name": "Yerevan Sailing Club \"Surfex\"",
+    "city": "Ցամաքաբերդ",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: audited, no production-grade qualifying public gym (Yerevan Sailing Club \"Surfex\")",
+    "in_production": false
+  },
+  {
+    "id": "am_5a341d91b7",
+    "brand": "Independent",
+    "name": "Joker night club",
+    "city": "Գագարին",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — photon listing unverified (STALE_LISTING): Joker night club",
+    "in_production": false
+  },
+  {
+    "id": "am_8fd472e7a6",
+    "brand": "Independent",
+    "name": "UWC Dilijan College Sports Hall",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: institutional/non-public (UWC Dilijan College Sports Hall)",
+    "in_production": false
+  },
+  {
+    "id": "am_c2dd7095ad",
+    "brand": "Gold's Gym",
+    "name": "Dilijan Gold Resort",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: hotel/resort/non-public (Dilijan Gold Resort)",
+    "in_production": false
+  },
+  {
+    "id": "am_a01cf49dde",
+    "brand": "Panorama Fitness",
+    "name": "Panorama Dilijan",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: chain photon duplicate (Panorama Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_18f1e3dc75",
+    "brand": "World Gym",
+    "name": "Երկրորդ համաշխարհային պատերազմի հուշարձան",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: chain photon duplicate (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_0c988bc733",
+    "brand": "World Gym",
+    "name": "Ռուբի վորլդ",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: chain photon duplicate (World Gym)",
+    "in_production": false
+  },
+  {
+    "id": "am_294d9a668e",
+    "brand": "Energy Fitness",
+    "name": "Թիմ էներջի",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: chain photon duplicate (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_22b9b116f7",
+    "brand": "Energy Fitness",
+    "name": "Թիմ էներջի",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: chain photon duplicate (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_00c78665e9",
+    "brand": "Energy Fitness",
+    "name": "Թիմ էներջի",
+    "city": "Գեղարքունիք",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: chain photon duplicate (Energy Fitness)",
+    "in_production": false
+  },
+  {
+    "id": "am_a563a31c9f",
+    "brand": "Grand Sport",
+    "name": "Eva Grand House Dilijan",
+    "city": "Դիլիջան",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — Dilijan audit: hotel/resort/non-public (Eva Grand House Dilijan)",
+    "in_production": false
+  },
+  {
+    "id": "am_d4c4a6d18c",
+    "brand": "Conflict region probe",
+    "name": "Stepanakert fitness centre probe",
+    "city": "Stepanakert",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_fd3ce63aed",
+    "brand": "Conflict region probe",
+    "name": "Shushi gym candidate",
+    "city": "Shushi",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_c8c90a1b4c",
+    "brand": "Conflict region probe",
+    "name": "Martakert sports club probe",
+    "city": "Martakert",
+    "phase1_category": "NEEDS_REVIEW",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — conflict region without strong conventional-gym evidence",
+    "in_production": false
+  },
+  {
+    "id": "am_373ac4f44a",
+    "brand": "FightLife",
+    "name": "FightLife",
+    "city": "Yerevan",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "am_13434c491b",
+    "brand": "Նեպտուն",
+    "name": "Նեպտուն",
+    "city": "Yerevan",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "am_a1069e7a03",
+    "brand": "Independent",
+    "name": "DoubleTree by Hilton Yerevan City Centre",
+    "city": "Yerevan",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "am_91d39fbbfa",
+    "brand": "Independent",
+    "name": "Sambo Judo Sports School",
+    "city": "Gyumri",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "am_5a80e7c5f1",
+    "brand": "Exclusion probe",
+    "name": "Private residential gym Arabkir",
+    "city": "Yerevan",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "am_db76c798a9",
+    "brand": "Foreign probe",
+    "name": "Los Angeles Fitness Armenia probe",
+    "city": "Los Angeles",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "am_2ab7926c61",
+    "brand": "Foreign probe",
+    "name": "Moscow gym Armenia mis-tag",
+    "city": "Moscow",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  },
+  {
+    "id": "am_666679c691",
+    "brand": "Foreign probe",
+    "name": "Istanbul fitness Armenia probe",
+    "city": "Istanbul",
+    "phase1_category": "EXCLUDED",
+    "phase2_disposition": "EXCLUDED",
+    "decision_reason": "Phase 2 — carry forward Phase 1 exclusion",
+    "in_production": false
+  }
+]

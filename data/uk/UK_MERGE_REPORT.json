@@ -1,0 +1,62 @@
+{
+  "generated": "2026-08-18T17:45:58.753409+00:00",
+  "dry_run": false,
+  "idempotency_second_run_inserted": 0,
+  "before": {
+    "total": 2952,
+    "united_kingdom": 0,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "germany": 1424
+  },
+  "after": {
+    "total": 4426,
+    "united_kingdom": 1474,
+    "denmark": 354,
+    "sweden": 639,
+    "norway": 535,
+    "germany": 1424
+  },
+  "inserted": 1474,
+  "uk_by_brand": {
+    "Anytime Fitness": 137,
+    "Bannatyne": 48,
+    "Buzz Gym": 6,
+    "David Lloyd": 112,
+    "Energie Fitness": 34,
+    "Everlast Gyms": 44,
+    "Fitness First": 23,
+    "JD Gyms": 78,
+    "Nuffield Health": 110,
+    "PureGym": 456,
+    "Snap Fitness": 71,
+    "The Gym Group": 256,
+    "Village Gym": 34,
+    "Third Space": 15,
+    "Virgin Active": 26,
+    "Fitness4Less": 5,
+    "easyGym": 1,
+    "Gymbox": 7,
+    "Total Fitness": 11
+  },
+  "duplicate_ids_in_catalog": [],
+  "duplicate_same_brand_physical": [],
+  "missing_address": 0,
+  "missing_postal": 0,
+  "missing_city": 0,
+  "missing_coordinates": 0,
+  "gb_prefix_ok": true,
+  "uk_country_ok": true,
+  "denmark_intact": true,
+  "sweden_intact": true,
+  "norway_intact": true,
+  "germany_intact": true,
+  "excluded_still_staged": {
+    "NEEDS_COORDINATES": 166,
+    "NEEDS_REVIEW": 5,
+    "COMING_SOON": 71,
+    "CLOSED": 1,
+    "MERGED_INTO_CATALOG": 1474
+  }
+}

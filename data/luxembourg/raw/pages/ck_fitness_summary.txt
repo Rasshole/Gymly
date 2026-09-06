@@ -1,0 +1,5 @@
+Bertrange|City Concorde, 80 Route de Longwy|Bertrange|8060
+Esch-sur-Alzette|2 Rue de Mondercange|Esch-sur-Alzette|4247
+Junglinster|Laangwiss II, Rue Nicolas Glesener|Junglinster|6131
+Mersch|Topaze, Rue Colmar-Berg|Mersch|7525
+SOURCE https://www.ck-fitness.lu/fr/nos-centres

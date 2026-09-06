@@ -1,0 +1,773 @@
+{
+  "pl. Jednocześnie proponujemy aż 135 ofert z kategorii przemysł, pozostałe. Domena po, 70-653, Szczecin, Poland": null,
+  "Al. Pokoju 16 XXL (Kraków), 51-162, Wrocław, Poland": null,
+  "ul. Bohater\\u00f3w Monte Cassino 10\",\"addressLocality\":\"Bia\\u0142ystok\",\"postalCode\", 15-873, Bia, Poland": null,
+  "ul. Spacerowa 65\",\"addressLocality\":\"Gda\\u0144sk\",\"postalCode\":\"80-299 Gda\\u0144sk\",, 80-299, Gda, Poland": null,
+  "ul. Grodzka 7\",\"addressLocality\":\"Jelenia G\\u00f3ra\",\"postalCode\":\"58-500 Jelenia G\\, 58-500, Jelenia, Poland": null,
+  "ul. Szewska 11\",\"addressLocality\":\"Katowice\",\"postalCode\":\"40-649 Katowice\",\"address, 40-649, Katowice, Poland": null,
+  "Al. Pokoju i DH Wanda.\" /, 31-801, Krak, Poland": null,
+  "ul. Marsa i w Galerii Ferio., 59-220, Legnica, Poland": null,
+  "ul. Leszczynowa 27c\",\"addressLocality\":\"Lubin\",\"postalCode\":\"59-300 Lubin\",\"addressC, 59-300, Lubin, Poland": null,
+  "ul. Pi\\u0105tkowska 200\",\"addressLocality\":\"Pozna\\u0144\",\"postalCode\":\"61-693 Pozna\\, 60-166, Pozna, Poland": null,
+  "al. Wojciecha Korfantego 138\",\"addressLocality\":\"Katowice\",\"postalCode\":\"40-001 Kato, 40-001, Katowice, Poland": null,
+  "al. Wyzwolenia 46\",\"addressLocality\":\"Szczecin\",\"postalCode\":\"71-500 Szczecin\",\"addr, 71-500, Szczecin, Poland": null,
+  "Plac Zawiszy, 02-017, 00-844, Warszawa, Poland": null,
+  "ul. T\\u0119czowa 83x\",\"addressLocality\":\"Wroc\\u0142aw\",\"postalCode\":\"53-601 Wroc\\u01, 53-601, Wroc, Poland": null,
+  "ul. Kościuszki 12 \", 15-265, Bia, Poland": null,
+  "ul. Głogowska 440, 442, Poznań, Poland": null,
+  "ul. Wrocławska 17b, Zielona Góra, Poland": null,
+  "ul. Franklina Roosevelta 22, Poznań, Poland": null,
+  "ul. Górnośląska 82, Kalisz, Poland": null,
+  "ul. Hetmańska 91, Poznań, Poland": null,
+  "ul. B. Krzywoustego 72, Poznań, Poland": null,
+  "ul. Reymonta 35, Poznań, Poland": null,
+  "ul. Malwowa 162, Poznań, Poland": null,
+  "ul. Zamenhofa 133, Poznań, Poland": null,
+  "ul. Pleszewska 1, Poznań, Poland": null,
+  "ul. Jutrzenka 8, Poznań, Poland": null,
+  "ul. Baraniaka 6, Poznań, Poland": null,
+  "ul. Drużbickiego 2, Poznań, Poland": null,
+  "ul. Serbska 7, Poznań, Poland": null,
+  "ul. Strzeszyńska 61, Poznań, Poland": null,
+  "ul. Obornicka 85, Suchy Las, Poland": null,
+  "ul. Tysiąclecia 17, Swarzędz, Poland": null,
+  "ul. Termalna 1, Poznań, Poland": null,
+  "ul. Rokicińska 125, Andrespol, Poland": null,
+  "ul. Dąbrowskiego 207/225, Łódź, Poland": null,
+  "ul. Franciszkańska 99, Łódź, Poland": null,
+  "al. Kard. Stefana Wyszyńskiego 29, Łódź, Poland": {
+    "lat": 51.7466036,
+    "lng": 19.3971736,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Galeria Retkińska, 29, Aleja Księdza Kardynała Stefana Wyszyńskiego, Retkinia Zachód-Smulsko, Retkinia, Łódź-Polesie, Łódź, województwo łódzkie, 94-047, Polska"
+  },
+  "al. Hetmańska 18, Łódź, Poland": {
+    "lat": 51.7474497,
+    "lng": 19.5733708,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Galeria Hetmańska, 18, Aleja Hetmańska, Olechów-Janów, Olechów, Łódź-Widzew, Łódź, województwo łódzkie, 92-444, Polska"
+  },
+  "ul. Kilińskiego 122/128, Łódź, Poland": null,
+  "ul. Jana Pawła II 11/13, Konstantynów Łódzki, Poland": null,
+  "ul. Drewnowska 58, Łódź, Poland": null,
+  "ul. Matejki 3/5, Łódź, Poland": null,
+  "ul. Byszewska 3a, Łódź, Poland": null,
+  "ul. Juliusza Słowackiego 123, Piotrków Trybunalski, Poland": null,
+  "ul. Pabianicka 245, Łódź, Poland": null,
+  "ul. Rewolucji 1905 r nr 44, Łódź, Poland": null,
+  "ul. Strażacka 5, Łódź, Poland": null,
+  "al. Politechniki 1, Łódź, Poland": {
+    "lat": 51.7496371,
+    "lng": 19.4485762,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Nowa Sukcesja, 1, Aleje Politechniki, Stare Polesie, Łódź-Polesie, Łódź, województwo łódzkie, 93-590, Polska"
+  },
+  "ul. Aleksandrowska 38, Łódź, Poland": null,
+  "ul. Warszawska 1, Tomaszów Mazowiecki, Poland": null,
+  "ul. Piłsudskiego 135, Łódź, Poland": null,
+  "al. Politechniki 10, Łódź, Poland": {
+    "lat": 51.7462766,
+    "lng": 19.4516095,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "B28 Zatoka Sportu, 10, Aleje Politechniki, Stare Polesie, Łódź-Polesie, Łódź, województwo łódzkie, 93-502, Polska"
+  },
+  "ul. Zgierska 211, Łódź, Poland": null,
+  "al. 1 Maja 119/121, Łódź, Poland": {
+    "lat": 51.7692018,
+    "lng": 19.4322464,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Aleja 1 Maja, Stare Polesie, Łódź-Polesie, Łódź, województwo łódzkie, 90-764, Polska"
+  },
+  "ul. Gen. Kazimierza Pułaskiego 60, Katowice, Poland": null,
+  "Plac Tadeusza Kościuszki 1, Bytom, Poland": {
+    "lat": 50.3475613,
+    "lng": 18.9194552,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Galeria Agora, 1, Plac Tadeusza Kościuszki, Śródmieście, Bytom, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-902, Polska"
+  },
+  "ul. Galicyjska 18, Kraków, Poland": null,
+  "ul. Karola Bunscha 19, Kraków, Poland": null,
+  "ul. Marii Skłodowskiej Curie 33, Bydgoszcz, Poland": null,
+  "ul. Północna 3, Banino, Poland": null,
+  "ul. Warszawska 3a, Warszawa, Poland": null,
+  "ul. Mochtyńska 75, Warszawa, Poland": null,
+  "ul. Modlińska 168, Warszawa, Poland": null,
+  "ul. Arkuszowa 18, Warszawa, Poland": null,
+  "ul. Prusa 53, Sosnowiec, Poland": null,
+  "ul. Bończyka 80, Mysłowice, Poland": null,
+  "ul. Brynowska 52, Katowice, Poland": null,
+  "ul. Wrocławska 32/34, Bytom, Poland": null,
+  "ul. Cieszyńskiego 1B, Rzeszów, Poland": null,
+  "ul. Batorego 29a, Chorzów, Poland": null,
+  "ul. Katowicka 47, Chorzów, Poland": null,
+  "ul. Czerwone Maki 83, Kraków, Poland": null,
+  "ul. Długa 15, Dawidy Bankowe, Poland": null,
+  "ul. Sołtysa Dytmara 3, Kraków, Poland": null,
+  "ul. Puławska 17, Nowy Sącz, Poland": null,
+  "ul. Mogilska 97, Kraków, Poland": null,
+  "ul. Jagiellońska 39, Bydgoszcz, Poland": null,
+  "ul. Grunwaldzka 59, Jaworzno, Poland": null,
+  "ul. Fabryczna 2, Lublin, Poland": null,
+  "ul.Podgórska 34, Kraków, Poland": null,
+  "ul. Pawia 5, Kraków, Poland": null,
+  "al. Spółdzielczości Pracy 34, Lublin, Poland": {
+    "lat": 51.2659745,
+    "lng": 22.5709592,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Olimp I, 34, Aleja Spółdzielczości Pracy, Czechów Południowy, Lublin, województwo lubelskie, 20-147, Polska"
+  },
+  "ul. Mostowa 5, Rzeszów, Poland": null,
+  "ul. Mostowa 5, Bielsko Biała, Poland": null,
+  "ul. Słonimskiego 8, Gdańsk, Poland": null,
+  "ul. Jana Kilińskiego 4, Gdańsk, Poland": null,
+  "ul. płk. Stanisława Dąbka 338, Gdynia, Poland": null,
+  "ul. Towarowa 2c, Tychy, Poland": null,
+  "ul. gen. Fieldorfa „Nila” 11, Warszawa, Poland": null,
+  "ul. Przemysłowa 2, Gorzów Wielkopolski, Poland": null,
+  "ul. Górczyńska 23, Gorzów Wielkopolski, Poland": null,
+  "ul. Słowiańska 14, Gorzów Wielkopolski, Poland": null,
+  "ul. Kobielska 23, Warszawa, Poland": null,
+  "ul. Grynia 6, Dąbrowa Górnicza, Poland": null,
+  "ul. Górnośląska 8, Zawiercie, Poland": null,
+  "ul. Pawia 21, Rzeszów, Poland": null,
+  "ul. Pawia 21, Kraków, Poland": null,
+  "ul. Malborska 39 lok. A4/5, Warszawa, Poland": null,
+  "ul. Plac Kościeleckich 3, Bydgoszcz, Poland": null,
+  "ul. Nowowiczlińska 35, Kraków, Poland": null,
+  "ul. Rozdzieńskiego 1, Katowice, Poland": null,
+  "Os. Bohaterów Września 82, Kraków, Poland": {
+    "lat": 50.1029202,
+    "lng": 20.0119595,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "82, Osiedle Bohaterów Września, Mistrzejowice, Kraków, województwo małopolskie, 31-625, Polska"
+  },
+  "ul. Przemysłowa 4, Kraków, Poland": null,
+  "ul. Krowoderskich Zuchów 12, Kraków, Poland": null,
+  "ul. Kościuszki 229, Katowice, Poland": null,
+  "ul. Lindego 1C, Kraków, Poland": null,
+  "ul. Marszałkowska 126/134, Warszawa, Poland": null,
+  "ul. Fabryki \"Tewa\" 5, Warszawa, Poland": null,
+  "ul. Mogilska 70, Kraków, Poland": null,
+  "ul. Wielicka 259, Kraków, Poland": {
+    "lat": 50.0127836,
+    "lng": 19.9999538,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "RCKiK w Krakowie OT Kraków (Wielicka), 265, Wielicka, Nowy Prokocim, Prokocim, Bieżanów-Prokocim, Kraków, województwo małopolskie, 30-663, Polska"
+  },
+  "ul. Narutowicza 51a, Sosnowiec, Poland": null,
+  "ul. Nowowiejska 1a, Elbląg, Poland": null,
+  "Al. Jerozolimskie 181B, Nowy Sącz, Poland": null,
+  "Al. Jerozolimskie 181B, Rzeszów, Poland": null,
+  "al. Bohaterów Września 9, Warszawa, Poland": {
+    "lat": 52.2131116,
+    "lng": 20.9595899,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "9, Aleja Bohaterów Września, Szczęśliwice, Ochota, Warszawa, województwo mazowieckie, 02-389, Polska"
+  },
+  "ul. Orzechowa 7, Rzeszów, Poland": null,
+  "Os. na lotnisku 3, Kraków, Poland": {
+    "lat": 50.0864605,
+    "lng": 20.0187892,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Park Handlowy Na Lotnisku, 3, Osiedle Na Lotnisku, Bieńczyce, Kraków, województwo małopolskie, 31-801, Polska"
+  },
+  "Os. Na Stoku 53, Kraków, Poland": {
+    "lat": 50.091123,
+    "lng": 20.056764,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "53, Osiedle Na Stoku, Wzgórza Krzesławickie, Kraków, województwo małopolskie, 31-708, Polska"
+  },
+  "ul. Partyzantów 22, Bielsko Biała, Poland": null,
+  "ul. Puławska 44D, Piaseczno, Poland": null,
+  "al. Jana Pawła II 43 a, Kraków, Poland": {
+    "lat": 50.0748156,
+    "lng": 19.9985614,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Podium Park A, 43a, Aleja Jana Pawła II, Czyżyny, Kraków, województwo małopolskie, 31-864, Polska"
+  },
+  "ul. Arabska 7a, Warszawa, Poland": null,
+  "ul. Zamieniecka 80, Warszawa, Poland": null,
+  "ul. Miry Zimińskiej Sygietyńskiej 1, Pruszków, Poland": null,
+  "ul. Puszkarska 7G, Kraków, Poland": null,
+  "ul. Wernera 10, Radom, Poland": null,
+  "ul. Reymonta 29, Dąbrowa Górnicza, Poland": null,
+  "ul. Obrońców Westerplatte 29, Ruda Śląska, Poland": null,
+  "ul. Obwiednia Południowa 3, Rybnik, Poland": null,
+  "ul. Raciborska 16, Rybnik, Poland": null,
+  "ul. Nałęczowska 19, Rzeszów, Poland": null,
+  "ul. Sarni Stok 2, Bielsko Biała, Poland": null,
+  "ul. Saska 25, Kraków, Poland": null,
+  "ul. 3-go Maja 14, Sosnowiec, Poland": null,
+  "ul. Chorzowska 111, Katowice, Poland": null,
+  "ul. Skarbka z Gór 8, Warszawa, Poland": null,
+  "ul. Sikorskiego 8, Sopot, Poland": null,
+  "ul. B. Chrobrego 8, Rzeszów, Poland": null,
+  "ul. B. Chrobrego 8, Stargard, Poland": null,
+  "ul. Piotra Skargi 6a, Katowice, Poland": null,
+  "ul. 1 Maja 41, Szczecin, Poland": null,
+  "ul. Szlak 77, Kraków, Poland": null,
+  "ul. Edukacji 7, Tychy, Poland": null,
+  "ul. Leszczyńskiego 40a, Warszawa, Poland": null,
+  "ul. Hilarego Koprowskiego 2, Warszawa, Poland": null,
+  "ul. Puszczyka 7, Warszawa, Poland": null,
+  "ul. Wadowicka 6, Kraków, Poland": null,
+  "al. Rzeczypospolitej 14, Warszawa, Poland": {
+    "lat": 52.1641045,
+    "lng": 21.0709276,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "Alto Wilanów, 14, Aleja Rzeczypospolitej, Miasteczko Wilanów, Błonia Wilanowskie, Wilanów, Warszawa, województwo mazowieckie, 02-972, Polska"
+  },
+  "ul. Syta 83, Warszawa, Poland": null,
+  "ul. Wielkokacka 2, Olsztyn, Poland": null,
+  "ul. Armii Krajowej 5, Rzeszów, Poland": null,
+  "ul. Armii Krajowej 5, Wodzisław Śląski, Poland": null,
+  "ul. Burakowska 14, Warszawa, Poland": null,
+  "ul. Wolska 88, Warszawa, Poland": null,
+  "ul. Krakowska 280, Zabierzów, Poland": null,
+  "ul. Wolności 273, Zabrze, Poland": null,
+  "ul. Zakopiańska 62, Kraków, Poland": null,
+  "al. Zjednoczonej Europy 39, Żory, Poland": {
+    "lat": 50.0342052,
+    "lng": 18.6813014,
+    "source": "STRICT_ADDRESS_GEOCODE",
+    "display": "39, Aleja Zjednoczonej Europy, Osiedle Pawlikowskiego, Pawlikowskiego, Żory, województwo śląskie, 44-240, Polska"
+  },
+  "ul. Kardynała Stefana Wyszyńskiego 12-15a, Stargard, Poland": null,
+  "ul. Łabędzka 26, Gliwice, Poland": null,
+  "REV|50.24308|19.03767": {
+    "display": "Lodomania, 60, Generała Kazimierza Pułaskiego, Osiedle Paderewskiego, Osiedle Paderewskiego-Muchowiec, Katowice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 40-028, Polska",
+    "postcode": "40-028"
+  },
+  "REV|50.05765|20.00536": {
+    "display": "Galicyjska, Załęcze, Łęg, Czyżyny, Kraków, województwo małopolskie, 31-978, Polska",
+    "postcode": "31-978"
+  },
+  "REV|50.01288|19.88626": {
+    "display": "Czerwone Maki, Osiedle Nad Ruczajem, Kobierzyn, Dębniki, Kraków, województwo małopolskie, 30-392, Polska",
+    "postcode": "30-392"
+  },
+  "REV|53.12648|18.05321": {
+    "display": "33, Marii Skłodowskiej-Curie, Bartodzieje, Bydgoszcz, województwo kujawsko-pomorskie, 85-733, Polska",
+    "postcode": "85-733"
+  },
+  "REV|54.39377|18.39783": {
+    "display": "58, Lotnicza, Banino, gmina Żukowo, powiat kartuski, województwo pomorskie, 80-297, Polska",
+    "postcode": "80-297"
+  },
+  "REV|52.23935|20.89212": {
+    "display": "3A, Warszawska, Blizne Łaszczyńskiego, gmina Stare Babice, powiat warszawski zachodni, województwo mazowieckie, 05-082, Polska",
+    "postcode": "05-082"
+  },
+  "REV|52.35367|21.03487": {
+    "display": "Białołęcka, Kobiałka, Białołęka, Warszawa, województwo mazowieckie, 03-044, Polska",
+    "postcode": "03-044"
+  },
+  "REV|52.32054|20.97335": {
+    "display": "20, Samowarowa, Srebrna Góra, Henryków, Białołęka, Warszawa, województwo mazowieckie, 03-180, Polska",
+    "postcode": "03-180"
+  },
+  "REV|52.28420|20.90906": {
+    "display": "18, Arkuszowa, Radiowo, Bielany, Warszawa, województwo mazowieckie, 01-934, Polska",
+    "postcode": "01-934"
+  },
+  "REV|50.29538|19.15524": {
+    "display": "Bolesława Prusa, Konstantynów, Środula, Sosnowiec, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-207, Polska",
+    "postcode": "41-207"
+  },
+  "REV|50.24778|19.11706": {
+    "display": "Max-Gym, Księdza Norberta Bończyka, Bończyk, Bończyk-Tuwima, Mysłowice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-406, Polska",
+    "postcode": "41-406"
+  },
+  "REV|50.23486|18.99598": {
+    "display": "52, Brynowska, Brynów, Brynów-Osiedle Zgrzebnioka, Katowice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 40-584, Polska",
+    "postcode": "40-584"
+  },
+  "REV|50.34907|18.90588": {
+    "display": "Przedszkole Miejskie nr 8, Wrocławska, Kleinfeld, Śródmieście, Bytom, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-902, Polska",
+    "postcode": "41-902"
+  },
+  "REV|50.02972|22.01782": {
+    "display": "Alior Bank, 23, Aleja Tadeusza Rejtana, Czekaj, Mieszka I, Rzeszów, województwo podkarpackie, 35-242, Polska",
+    "postcode": "35-242"
+  },
+  "REV|50.27176|18.93978": {
+    "display": "Racjonalizatorów, Chorzów Czwarty, Chorzów Batory, Chorzów, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-506, Polska",
+    "postcode": "41-506"
+  },
+  "REV|50.29112|18.95967": {
+    "display": "Młodzieżowa, Osiedle Różanka, Klimzowiec, Centrum, Chorzów, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-516, Polska",
+    "postcode": "41-516"
+  },
+  "REV|50.01946|19.89019": {
+    "display": "83, Czerwone Maki, Skotniki, Dębniki, Kraków, województwo małopolskie, 30-348, Polska",
+    "postcode": "30-348"
+  },
+  "REV|52.13260|20.97154": {
+    "display": "Długa, Dawidy Bankowe I, Dawidy Bankowe, gmina Raszyn, powiat pruszkowski, województwo mazowieckie, 02-198, Polska",
+    "postcode": "02-198"
+  },
+  "REV|50.07958|19.89246": {
+    "display": "Zdrofit Kraków Dytmara, 3, Sołtysa Dytmara, Bronowice, Kraków, województwo małopolskie, 30-126, Polska",
+    "postcode": "30-126"
+  },
+  "REV|49.61476|20.70368": {
+    "display": "Europa II Plaza, 1, Nawojowska, Osiedle Millenium, Nowy Sącz, województwo małopolskie, 33-300, Polska",
+    "postcode": "33-300"
+  },
+  "REV|50.06644|19.97498": {
+    "display": "My Therapy, Mogilska, Grzegórzki, Kraków, województwo małopolskie, 31-545, Polska",
+    "postcode": "31-545"
+  },
+  "REV|53.12420|18.01660": {
+    "display": "Pizza Hut, 39-47, Jagiellońska, Sielanka, Bocianowo-Śródmieście-Stare Miasto, Bydgoszcz, województwo kujawsko-pomorskie, 85-097, Polska",
+    "postcode": "85-097"
+  },
+  "REV|50.20351|19.26554": {
+    "display": "Rzemieślnicza, Osiedle Tadeusza Kościuszki, Pechnik, Śródmieście, Bory i Niedzieliska, Jaworzno, województwo śląskie, 43-609, Polska",
+    "postcode": "43-609"
+  },
+  "REV|51.23898|22.57279": {
+    "display": "Gala, 2a, Fabryczna, Za Cukrownią, Lublin, województwo lubelskie, 20-301, Polska",
+    "postcode": "20-301"
+  },
+  "REV|50.05350|19.95472": {
+    "display": "Galeria Kazimierz, 34, Podgórska, Grzegórzki, Kraków, województwo małopolskie, 31-536, Polska",
+    "postcode": "31-536"
+  },
+  "REV|50.06865|19.94549": {
+    "display": "Rossmann, Pawia, Wesoła, Stare Miasto, Kraków, województwo małopolskie, 31-154, Polska",
+    "postcode": "31-154"
+  },
+  "REV|50.04233|21.99901": {
+    "display": "Sphinx, 44, Aleja Józefa Piłsudskiego, Pułaskiego, Rzeszów, województwo podkarpackie, 35-001, Polska",
+    "postcode": "35-001"
+  },
+  "REV|49.82713|19.04976": {
+    "display": "JYSK, 5, Mostowa, Śródmieście, Biała Śródmieście, Bielsko-Biała, województwo śląskie, 43-300, Polska",
+    "postcode": "43-300"
+  },
+  "REV|54.38335|18.59083": {
+    "display": "8, Antoniego Słonimskiego, Garnizon, Wrzeszcz Górny, Gdańsk, województwo pomorskie, 80-280, Polska",
+    "postcode": "80-280"
+  },
+  "REV|54.38307|18.60413": {
+    "display": "Paczkomat InPost, 4, Jana Kilińskiego, Kuźniczki, Wrzeszcz Dolny, Gdańsk, województwo pomorskie, 80-452, Polska",
+    "postcode": "80-452"
+  },
+  "REV|54.56438|18.50368": {
+    "display": "Galeria Szperk, 338, Pułkownika Stanisława Dąbka, Pogórze, Gdynia, województwo pomorskie, 81-198, Polska",
+    "postcode": "81-198"
+  },
+  "REV|50.09575|19.00675": {
+    "display": "OBI, 2B, Towarowa, Klachowice, Paprocany, Tychy, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 43-100, Polska",
+    "postcode": "43-100"
+  },
+  "REV|52.22467|21.09140": {
+    "display": "11, Generała Augusta Emila Fieldorfa „Nila”, Gocław, Praga-Południe, Warszawa, województwo mazowieckie, 03-984, Polska",
+    "postcode": "03-984"
+  },
+  "REV|52.72648|15.24131": {
+    "display": "53, Przemysłowa, Zamoście, Gorzów Wielkopolski, województwo lubuskie, 66-400, Polska",
+    "postcode": "66-400"
+  },
+  "REV|52.75797|15.25032": {
+    "display": "Górczyńska, Osiedle Św. Jana Pawła II, Os. Chemik, Manhattan, Gorzów Wielkopolski, województwo lubuskie, 66-400, Polska",
+    "postcode": "66-400"
+  },
+  "REV|52.81397|15.22327": {
+    "display": "Kłodawa, gmina Kłodawa, powiat gorzowski, województwo lubuskie, 66-415, Polska",
+    "postcode": "66-415"
+  },
+  "REV|52.24660|21.08536": {
+    "display": "Auchan, 23, Kobielska, Grochów-Centrum, Grochów, Praga-Południe, Warszawa, województwo mazowieckie, 04-359, Polska",
+    "postcode": "04-359"
+  },
+  "REV|50.32000|19.16758": {
+    "display": "6, Wirgiliusza Grynia, Mydlice, Dąbrowa Górnicza, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-300, Polska",
+    "postcode": "41-300"
+  },
+  "REV|50.48658|19.42102": {
+    "display": "Prelunia, 8, Górnośląska, Marciszów, Zawiercie, powiat zawierciański, województwo śląskie, 42-400, Polska",
+    "postcode": "42-400"
+  },
+  "REV|50.02157|21.99347": {
+    "display": "Albert, 40, Hetmańska, Piastów, Rzeszów, województwo podkarpackie, 35-208, Polska",
+    "postcode": "35-208"
+  },
+  "REV|50.07210|19.94552": {
+    "display": "High5ive - Budynek 4, 21, Pawia, Wesoła, Stare Miasto, Kraków, województwo małopolskie, 31-510, Polska",
+    "postcode": "31-510"
+  },
+  "REV|52.30475|21.07758": {
+    "display": "Super-Pharm, 51/53, Malborska, Bródno-Podgrodzie, Targówek, Warszawa, województwo mazowieckie, 03-286, Polska",
+    "postcode": "03-286"
+  },
+  "REV|53.12083|18.00349": {
+    "display": "Joanna Kobak Doradca Kredytowy, 3, Plac Kościeleckich, Stare Miasto, Bocianowo-Śródmieście-Stare Miasto, Bydgoszcz, województwo kujawsko-pomorskie, 85-033, Polska",
+    "postcode": "85-033"
+  },
+  "REV|50.03538|19.92492": {
+    "display": "HSBC Service Delivery, Kapelanka, Zakrzówek, Dębniki, Kraków, województwo małopolskie, 30-347, Polska",
+    "postcode": "30-347"
+  },
+  "REV|50.26430|19.02582": {
+    "display": "1, Aleja Walentego Roździeńskiego, Koszutka, Katowice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 40-202, Polska",
+    "postcode": "40-202"
+  },
+  "REV|50.04864|19.95822": {
+    "display": "Saturn, Przemysłowa, Zabłocie, Podgórze, Kraków, województwo małopolskie, 30-701, Polska",
+    "postcode": "30-701"
+  },
+  "REV|50.08947|19.93051": {
+    "display": "12, Krowoderskich Zuchów, Krowodrza Górka, Prądnik Biały, Kraków, województwo małopolskie, 31-272, Polska",
+    "postcode": "31-272"
+  },
+  "REV|50.22377|18.98554": {
+    "display": "Kolejowa, Ligota-Panewniki, Katowice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 40-600, Polska",
+    "postcode": "40-600"
+  },
+  "REV|50.07857|19.87924": {
+    "display": "Pepco, 1C, Samuela Bogumiła Lindego, Osiedle Widok Zarzecze, Bronowice, Kraków, województwo małopolskie, 30-148, Polska",
+    "postcode": "30-148"
+  },
+  "REV|52.23514|21.00986": {
+    "display": "Komputerownia, 31/33A, Świętokrzyska, Centrum, Śródmieście Północne, Śródmieście, Warszawa, województwo mazowieckie, 00-002, Polska",
+    "postcode": "00-002"
+  },
+  "REV|50.06743|19.96859": {
+    "display": "Zdrofit Kraków Mogilska 70, 70, Mogilska, Osiedle Oficerskie, Grzegórzki, Kraków, województwo małopolskie, 31-545, Polska",
+    "postcode": "31-545"
+  },
+  "REV|50.28152|19.14843": {
+    "display": "Centrum Rozrywki Sosnowiec, 51A, Gabriela Narutowicza, Sielec, Sosnowiec, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-200, Polska",
+    "postcode": "41-200"
+  },
+  "REV|54.16663|19.40874": {
+    "display": "Nowowiejska, Kopernika, Elbląg, województwo warmińsko-mazurskie, 82-300, Polska",
+    "postcode": "82-300"
+  },
+  "REV|49.62518|20.71310": {
+    "display": "101, Lwowska, Osiedle Gołąbkowice, Osiedle Westerplatte, Nowy Sącz, województwo małopolskie, 33-300, Polska",
+    "postcode": "33-300"
+  },
+  "REV|50.05860|21.97823": {
+    "display": "14, Obrońców Poczty Gdańskiej, Baranówka, Rzeszów, województwo podkarpackie, 35-509, Polska",
+    "postcode": "35-509"
+  },
+  "REV|50.04491|21.94939": {
+    "display": "1, Odrzykońska, Słoneczny Stok, Franciszka Kotuli, Rzeszów, województwo podkarpackie, 35-505, Polska",
+    "postcode": "35-505"
+  },
+  "REV|49.81691|19.04320": {
+    "display": "20, Partyzantów, Osiedle Słoneczne, Śródmieście, Bielsko-Biała, województwo śląskie, 43-300, Polska",
+    "postcode": "43-300"
+  },
+  "REV|52.08945|21.01969": {
+    "display": "44D, Puławska, Piaseczno, gmina Piaseczno, powiat piaseczyński, województwo mazowieckie, 05-500, Polska",
+    "postcode": "05-500"
+  },
+  "REV|52.22259|21.07017": {
+    "display": "4, Arabska, Saska Kępa, Praga-Południe, Warszawa, województwo mazowieckie, 03-977, Polska",
+    "postcode": "03-977"
+  },
+  "REV|52.24112|21.09911": {
+    "display": "Reh-Medica, 27A, Mlądzka, Grochów-Południowy, Grochów, Praga-Południe, Warszawa, województwo mazowieckie, 04-136, Polska",
+    "postcode": "04-136"
+  },
+  "REV|52.16769|20.80791": {
+    "display": "Zdrofit, 1, Miry Zimińskiej-Sygietyńskiej, Żbików, Pruszków, powiat pruszkowski, województwo mazowieckie, 05-800, Polska",
+    "postcode": "05-800"
+  },
+  "REV|50.02611|19.95095": {
+    "display": "Zdrofit, 7g, Puszkarska, B4B, Wola Duchacka, Podgórze Duchackie, Kraków, województwo małopolskie, 30-644, Polska",
+    "postcode": "30-644"
+  },
+  "REV|51.40907|21.14338": {
+    "display": "Szarych Szeregów, Stare Miasto, Radom, województwo mazowieckie, 26-610, Polska",
+    "postcode": "26-610"
+  },
+  "REV|50.32469|19.20241": {
+    "display": "MOL, 52, Królowej Jadwigi, Smugi, Reden, Dąbrowa Górnicza, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-300, Polska",
+    "postcode": "41-300"
+  },
+  "REV|50.27524|18.86839": {
+    "display": "Zdrofit, 29, Obrońców Westerplatte, Wirek, Ruda Śląska, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-710, Polska",
+    "postcode": "41-710"
+  },
+  "REV|50.08597|18.54286": {
+    "display": "3, Obwiednia Południowa, Śródmieście, Rybnik, województwo śląskie, 44-200, Polska",
+    "postcode": "44-200"
+  },
+  "REV|50.09641|18.53764": {
+    "display": "Grycan, 16, Raciborska, Osiedle Sławików, Smolna, Śródmieście, Rybnik, województwo śląskie, 44-200, Polska",
+    "postcode": "44-200"
+  },
+  "REV|50.03818|22.02257": {
+    "display": "McDonald's, 6, Lwowska, Osiedle Pobitno-Południe, Mieszka I, Rzeszów, województwo podkarpackie, 35-301, Polska",
+    "postcode": "35-301"
+  },
+  "REV|49.83929|19.03389": {
+    "display": "Semilac, 2, Sarni Stok, Osiedle Sarni Stok, Stare Bielsko, Dolne Przedmieście, Bielsko-Biała, województwo śląskie, 43-300, Polska",
+    "postcode": "43-300"
+  },
+  "REV|50.03775|19.98219": {
+    "display": "LUX MED Stomatologia, 25C, Saska, Płaszów, Podgórze, Kraków, województwo małopolskie, 30-720, Polska",
+    "postcode": "30-720"
+  },
+  "REV|50.27745|19.12455": {
+    "display": "3 Maja, Śródmieście, Sosnowiec, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-206, Polska",
+    "postcode": "41-206"
+  },
+  "REV|50.27123|19.00273": {
+    "display": "107, Chorzowska, Dąb, Katowice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 40-101, Polska",
+    "postcode": "40-101"
+  },
+  "REV|52.31143|21.06049": {
+    "display": "Zdrofit, 8, Skarbka z Gór, Grodzisk, Białołęka, Warszawa, województwo mazowieckie, 03-287, Polska",
+    "postcode": "03-287"
+  },
+  "REV|54.44232|18.55761": {
+    "display": "Pepco, 8, Generała Władysława Sikorskiego, Dolina Prątki, Sopot Górny, Sopot, województwo pomorskie, 81-827, Polska",
+    "postcode": "81-827"
+  },
+  "REV|50.04796|21.98719": {
+    "display": "Aleja generała Leopolda Okulickiego, Króla Stanisława Augusta, Rzeszów, województwo podkarpackie, 35-211, Polska",
+    "postcode": "35-211"
+  },
+  "REV|53.33873|15.04247": {
+    "display": "1, Płatnerzy, Stare Miasto, Stargard, powiat stargardzki, województwo zachodniopomorskie, 73-110, Polska",
+    "postcode": "73-110"
+  },
+  "REV|50.26196|19.01914": {
+    "display": "Douglas, 6, Księdza Piotra Skargi, Śródmieście, Katowice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 40-092, Polska",
+    "postcode": "40-092"
+  },
+  "REV|53.44437|14.56759": {
+    "display": "47, 1 Maja, Łęgi, Drzetowo-Grabowo, Śródmieście, Szczecin, województwo zachodniopomorskie, 71-627, Polska",
+    "postcode": "71-627"
+  },
+  "REV|50.07026|19.94420": {
+    "display": "77, Szlak, Kleparz, Stare Miasto, Kraków, województwo małopolskie, 31-155, Polska",
+    "postcode": "31-155"
+  },
+  "REV|50.12384|18.99145": {
+    "display": "Stadion Miejski w Tychach, Jana Brzozy, Stare Tychy, Tychy, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 43-100, Polska",
+    "postcode": "43-100"
+  },
+  "REV|52.20504|20.85874": {
+    "display": "Zdrofit, 40A, Stanisława Leszczyńskiego, Gołąbki, Ursus, Warszawa, gmina Ożarów Mazowiecki, powiat warszawski zachodni, województwo mazowieckie, 02-496, Polska",
+    "postcode": "02-496"
+  },
+  "REV|52.15914|20.99330": {
+    "display": "Biedronka, 2, Hilarego Koprowskiego, Zielony Ursynów, Wyczółki, Ursynów, Warszawa, województwo mazowieckie, 02-699, Polska",
+    "postcode": "02-699"
+  },
+  "REV|52.15853|21.02178": {
+    "display": "Zdrofit, 7, Puszczyka, Wysoki Ursynów, Ursynów Północny, Ursynów, Warszawa, województwo mazowieckie, 02-785, Polska",
+    "postcode": "02-785"
+  },
+  "REV|50.03306|19.93997": {
+    "display": "Wadowicka, Stare Podgórze, Podgórze, Kraków, województwo małopolskie, 30-415, Polska",
+    "postcode": "30-415"
+  },
+  "REV|52.16522|21.10883": {
+    "display": "Zdrofit, Syta, Zawady, Wilanów, Warszawa, województwo mazowieckie, 02-990, Polska",
+    "postcode": "02-990"
+  },
+  "REV|53.74014|20.49070": {
+    "display": "Floriana Piotrowskiego, Jaroty, Olsztyn, województwo warmińsko-mazurskie, 10-692, Polska",
+    "postcode": "10-692"
+  },
+  "REV|50.02790|22.04133": {
+    "display": "32, Witolda, Słocina, Rzeszów, województwo podkarpackie, 35-302, Polska",
+    "postcode": "35-302"
+  },
+  "REV|50.01128|18.46503": {
+    "display": "96, 26 Marca, Osiedle Stanisława Staszica, Nowe Miasto, Wodzisław Śląski, powiat wodzisławski, województwo śląskie, 44-286, Polska",
+    "postcode": "44-286"
+  },
+  "REV|52.25544|20.97923": {
+    "display": "14, Burakowska, Powązki, Wola, Warszawa, województwo mazowieckie, 01-066, Polska",
+    "postcode": "01-066"
+  },
+  "REV|52.23243|20.95856": {
+    "display": "88, Wolska, Młynów, Wola, Warszawa, województwo mazowieckie, 01-141, Polska",
+    "postcode": "01-141"
+  },
+  "REV|50.10696|19.82528": {
+    "display": "280, Krakowska, Zamoście, Zabierzów, gmina Zabierzów, powiat krakowski, województwo małopolskie, 32-080, Polska",
+    "postcode": "32-080"
+  },
+  "REV|50.30727|18.78318": {
+    "display": "Sygnity, 273, Wolności, Osiedle Barbary, Małe Zabrze, Śródmieście, Zabrze, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 41-800, Polska",
+    "postcode": "41-800"
+  },
+  "REV|50.01569|19.93116": {
+    "display": "Zdrofit Kraków Zakopiańska, 62b, Zakopiańska, Borek Fałęcki, Łagiewniki-Borek Fałęcki, Kraków, województwo małopolskie, 30-418, Polska",
+    "postcode": "30-418"
+  },
+  "REV|53.33884|15.03387": {
+    "display": "13, Kardynała Stefana Wyszyńskiego, Osiedle Tysiąclecia, Przedmieście Poznańskie, Stargard, powiat stargardzki, województwo zachodniopomorskie, 73-110, Polska",
+    "postcode": "73-110"
+  },
+  "REV|50.31138|18.62670": {
+    "display": "JYSK, Łabędzka, Stare Gliwice, Gliwice, Górnośląsko-Zagłębiowska Metropolia, województwo śląskie, 44-121, Polska",
+    "postcode": "44-121"
+  },
+  "REV|52.35279|16.83821": {
+    "display": "Głogowska, Kotowo, Fabianowo-Kotowo, Poznań, województwo wielkopolskie, 60-004, Polska",
+    "postcode": "60-004"
+  },
+  "REV|51.93517|15.51020": {
+    "display": "MediaMarkt, 17, Wrocławska, Stare Miasto, Zielona Góra, województwo lubuskie, 65-427, Polska",
+    "postcode": "65-427"
+  },
+  "REV|52.40711|16.90959": {
+    "display": "11a, Bukowska, Jeżyce, Poznań, województwo wielkopolskie, 60-809, Polska",
+    "postcode": "60-809"
+  },
+  "REV|51.74403|18.06724": {
+    "display": "7, Wrocławska, Serbinów, Kalisz, województwo wielkopolskie, 62-800, Polska",
+    "postcode": "62-800"
+  },
+  "REV|52.38685|16.91296": {
+    "display": "Rossmann, 91, Hetmańska, Wilda, Poznań, województwo wielkopolskie, 61-514, Polska",
+    "postcode": "61-514"
+  },
+  "REV|52.37338|16.97987": {
+    "display": "BZ WBK, 72, Bolesława Krzywoustego, Żegrze, Poznań, województwo wielkopolskie, 61-292, Polska",
+    "postcode": "61-292"
+  },
+  "REV|52.39893|16.89052": {
+    "display": "Stanisława Wyspiańskiego, Grunwald, Łazarz, Poznań, województwo wielkopolskie, 60-792, Polska",
+    "postcode": "60-792"
+  },
+  "REV|52.39657|16.79984": {
+    "display": "4, Spokojna, Skórzewo, gmina Dopiewo, powiat poznański, województwo wielkopolskie, 60-185, Polska",
+    "postcode": "60-185"
+  },
+  "REV|52.38222|16.94536": {
+    "display": "Gołe Baby, 133, Ludwika Zamenhofa, Rataje, Poznań, województwo wielkopolskie, 61-131, Polska",
+    "postcode": "61-131"
+  },
+  "REV|52.39844|16.95287": {
+    "display": "Zygmunta Warczygłowy, Miasteczko, Łacina, Rataje, Poznań, województwo wielkopolskie, 61-141, Polska",
+    "postcode": "61-141"
+  },
+  "REV|52.41069|16.87761": {
+    "display": "Evergreen 365, 8, Jutrzenka, Świt, Grunwald Północ, Poznań, województwo wielkopolskie, 60-373, Polska",
+    "postcode": "60-373"
+  },
+  "REV|52.40294|16.95794": {
+    "display": "Malta House, 6, Arcybiskupa Antoniego Baraniaka, Miasteczko, Łacina, Rataje, Poznań, województwo wielkopolskie, 61-131, Polska",
+    "postcode": "61-131"
+  },
+  "REV|52.44078|16.91912": {
+    "display": "Olimp, 2, Kaspra Drużbickiego, Trójpole, Winiary, Poznań, województwo wielkopolskie, 61-693, Polska",
+    "postcode": "61-693"
+  },
+  "REV|52.43389|16.95104": {
+    "display": "Hawelańska, Stare Winogrady, Winogrady, Poznań, województwo wielkopolskie, 61-694, Polska",
+    "postcode": "61-694"
+  },
+  "REV|52.44848|16.89472": {
+    "display": "Fabryka Formy, 61, Strzeszyńska, Podolany, Poznań, województwo wielkopolskie, 60-479, Polska",
+    "postcode": "60-479"
+  },
+  "REV|52.47309|16.87370": {
+    "display": "11, Szkolna, Osiedle Suchy Las - Wschód, Suchy Las, gmina Suchy Las, powiat poznański, województwo wielkopolskie, 62-002, Polska",
+    "postcode": "62-002"
+  },
+  "REV|52.40238|17.06906": {
+    "display": "Paczkomat InPost, 17, Tysiąclecia, Swarzędz, gmina Swarzędz, powiat poznański, województwo wielkopolskie, 62-020, Polska",
+    "postcode": "62-020"
+  },
+  "REV|52.40570|16.97480": {
+    "display": "Dogster, 1, Termalna, Komandoria-Pomet, Warszawskie-Pomet-Maltańskie, Poznań, województwo wielkopolskie, 61-028, Polska",
+    "postcode": "61-028"
+  },
+  "REV|51.72691|19.64044": {
+    "display": "9, Brzezińska, Andrespol, gmina Andrespol, powiat łódzki wschodni, województwo łódzkie, 95-020, Polska",
+    "postcode": "95-020"
+  },
+  "REV|51.73492|19.51634": {
+    "display": "Fit Fabric 13.0, 207-225, Generała Jarosława Dąbrowskiego, Chojny-Dąbrowa, Dąbrowa, Łódź-Górna, Łódź, województwo łódzkie, 93-231, Polska",
+    "postcode": "93-231"
+  },
+  "REV|51.79202|19.46088": {
+    "display": "Sfera 24, 99, Franciszkańska, Stare Bałuty, Łódź-Bałuty, Łódź, województwo łódzkie, 91-838, Polska",
+    "postcode": "91-838"
+  },
+  "REV|51.74732|19.39731": {
+    "display": "Armii Krajowej, Retkinia Zachód-Smulsko, Retkinia, Łódź-Polesie, Łódź, województwo łódzkie, 94-046, Polska",
+    "postcode": "94-046"
+  },
+  "REV|51.74767|19.57305": {
+    "display": "Maksa Bauma, Olechów-Janów, Olechów, Łódź-Widzew, Łódź, województwo łódzkie, 92-444, Polska",
+    "postcode": "92-444"
+  },
+  "REV|51.76112|19.46958": {
+    "display": "Media Expert, 122/128, Jana Kilińskiego, Fabryczna, Łódź-Śródmieście, Łódź, województwo łódzkie, 90-013, Polska",
+    "postcode": "90-013"
+  },
+  "REV|51.74979|19.32273": {
+    "display": "¥€$, 11, Jana Pawła II, Konstantynów Łódzki, powiat pabianicki, województwo łódzkie, 95-050, Polska",
+    "postcode": "95-050"
+  },
+  "REV|51.78047|19.44908": {
+    "display": "Kręgielnia Grakula, 58A, Drewnowska, Bałuty-Centrum, Stare Miasto, Łódź-Bałuty, Łódź, województwo łódzkie, 91-005, Polska",
+    "postcode": "91-005"
+  },
+  "REV|51.78162|19.48386": {
+    "display": "Jana Matejki, Radiostacja, Łódź-Śródmieście, Łódź, województwo łódzkie, 91-403, Polska",
+    "postcode": "91-403"
+  },
+  "REV|51.79474|19.59242": {
+    "display": "3A, Byszewska, Nowosolna, Łódź-Widzew, Łódź, gmina Nowosolna, powiat łódzki wschodni, województwo łódzkie, 92-770, Polska",
+    "postcode": "92-770"
+  },
+  "REV|51.41110|19.66720": {
+    "display": "House, 123, Juliusza Słowackiego, Osiedle Belzacka, Centrum, Piotrków Trybunalski, województwo łódzkie, 97-300, Polska",
+    "postcode": "97-300"
+  },
+  "REV|51.70330|19.41608": {
+    "display": "TEDi, Patio, Nad Nerem, Chocianowice, Łódź-Górna, Łódź, województwo łódzkie, 93-459, Polska",
+    "postcode": "93-459"
+  },
+  "REV|51.77582|19.46462": {
+    "display": "44A, Rewolucji 1905 r., Fabryczna, Łódź-Śródmieście, Łódź, województwo łódzkie, 90-213, Polska",
+    "postcode": "90-213"
+  },
+  "REV|51.71790|19.48282": {
+    "display": "Strażacka, Stare Chojny, Górna, Łódź-Górna, Łódź, województwo łódzkie, 93-318, Polska",
+    "postcode": "93-318"
+  },
+  "REV|51.74901|19.44833": {
+    "display": "Kino Helios, 1, Aleje Politechniki, Stare Polesie, Łódź-Polesie, Łódź, województwo łódzkie, 93-590, Polska",
+    "postcode": "93-590"
+  },
+  "REV|51.79717|19.39214": {
+    "display": "Teofil, 38, Aleksandrowska, Teofilów-Wielkopolska, Teofilów, Łódź-Bałuty, Łódź, województwo łódzkie, 91-151, Polska",
+    "postcode": "91-151"
+  },
+  "REV|51.53545|20.00576": {
+    "display": "Galeria Tomaszów, 1, Warszawska, Tomaszów Mazowiecki, powiat tomaszowski, województwo łódzkie, 97-200, Polska",
+    "postcode": "97-200"
+  },
+  "REV|51.76182|19.50348": {
+    "display": "Aleja Marszałka Józefa Piłsudskiego, Stary Widzew, Łódź-Widzew, Łódź, województwo łódzkie, 92-236, Polska",
+    "postcode": "92-236"
+  },
+  "REV|51.74626|19.45252": {
+    "display": "Aleje Politechniki, Stare Polesie, Łódź-Polesie, Łódź, województwo łódzkie, 90-717, Polska",
+    "postcode": "90-717"
+  },
+  "REV|51.81803|19.43535": {
+    "display": "Street Mall „Vis a Vis”, 211, Zgierska, Radogoszcz, Łódź-Bałuty, Łódź, województwo łódzkie, 91-497, Polska",
+    "postcode": "91-497"
+  },
+  "REV|51.76883|19.42855": {
+    "display": "Black Raven, 121, Aleja 1 Maja, Stare Polesie, Łódź-Polesie, Łódź, województwo łódzkie, 90-766, Polska",
+    "postcode": "90-766"
+  }
+}

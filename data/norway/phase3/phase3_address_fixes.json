@@ -1,0 +1,44 @@
+[
+  {
+    "file": "phase2_new_centers_staging.json",
+    "name": "Feel24 Melbu",
+    "old": "Chr. Fredriksens gate. 3",
+    "new": "Chr. Fredriksens gate 3"
+  },
+  {
+    "file": "phase2_new_centers_staging.json",
+    "name": "3T-Treningssenter Sluppen",
+    "old": "Sluppenveieneien 12 H",
+    "new": "Sluppenveien 12 H"
+  },
+  {
+    "file": "phase2_new_centers_staging.json",
+    "name": "Spenst Kråkerøy",
+    "old": "Selma Nygrensvei",
+    "new": "Selma Nygrens vei 1"
+  },
+  {
+    "file": "phase3_new_centers_staging.json",
+    "name": "Fitness24Seven Drammen Sentrum",
+    "old": "Torgeir Vraas nr 6",
+    "new": "Torgeir Vraas plass 6"
+  },
+  {
+    "file": "phase3_new_centers_staging.json",
+    "name": "Sporty Porsgrunn",
+    "old": "Kulltangv 70",
+    "new": "Kulltangveien 70"
+  },
+  {
+    "file": "phase3_new_centers_staging.json",
+    "name": "Sporty Askim",
+    "old": "Henstad alle 1 A",
+    "new": "Henstad allé 1 A"
+  },
+  {
+    "file": "phase3_new_centers_staging.json",
+    "name": "Sporty Grimstad",
+    "old": "Storgt. 90",
+    "new": "Storgata 90"
+  }
+]

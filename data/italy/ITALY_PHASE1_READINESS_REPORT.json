@@ -1,0 +1,48 @@
+{
+  "generated_utc": "2026-08-21T08:39:02.501996+00:00",
+  "production_before": 8143,
+  "italy_live_before": 0,
+  "production_modified": false,
+  "discovered": 465,
+  "categories": {
+    "NEEDS_REVIEW": 114,
+    "READY_TO_IMPORT": 338,
+    "NEEDS_COORDINATES": 11,
+    "COMING_SOON": 2
+  },
+  "ready_to_import": 338,
+  "ready_by_brand": {
+    "FitActive": 191,
+    "Fit Express": 45,
+    "FitUP": 12,
+    "McFIT": 42,
+    "Gold's Gym": 2,
+    "JOHN REED": 1,
+    "Virgin Active": 42,
+    "WebFit": 3
+  },
+  "projected_catalog": 8481,
+  "crosses_10k": false,
+  "recommendation": "READY FOR ITALY MERGE",
+  "geography_ready": {
+    "north": 232,
+    "central": 69,
+    "sardinia": 4,
+    "south": 19,
+    "sicily": 14
+  },
+  "live_dupes": {
+    "existing_italy_in_catalog": 0,
+    "live_catalog_total": 8143,
+    "id_collisions": [],
+    "same_brand_address_matches": [],
+    "proximity_same_brand": [],
+    "it_prefix_already_used": []
+  },
+  "staging_dupes": {
+    "duplicate_ids": [],
+    "same_brand_address": [],
+    "proximity_same_brand_80m": []
+  },
+  "collapsed": 16
+}
