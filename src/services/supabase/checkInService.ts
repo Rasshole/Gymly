@@ -11,6 +11,7 @@ import {
   completeGymlyGroupParticipant,
   startOrJoinGymlyGroupSession,
 } from '@/services/supabase/gymlyGroupSessionService';
+import {scheduleReferralQualifyAfterActivity} from '@/services/supabase/referralService';
 import type {
   CheckInEndReason,
   CheckoutReason,
@@ -355,6 +356,8 @@ export async function completeActiveTrainingSession(
   }
   emitProfileStatsSelf(userId);
   void checkAndUnlockBadges(userId);
+  // Server trigger is authoritative; client fallback must never affect checkout.
+  scheduleReferralQualifyAfterActivity(userId, 'check_in');
 
   return completed;
 }
