@@ -356,9 +356,6 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
     if (!row.unlocked_at) {
       return;
     }
-    const prevUnlocked = Boolean(
-      useBadgeStore.getState().unlockedByUser[userId]?.[row.badge_id],
-    );
     set(state => {
       const cur = state.unlockedByUser[userId] ?? {};
       const ex = cur[row.badge_id];
@@ -376,13 +373,14 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
       };
     });
     get().persist().catch(() => {});
-    if (!prevUnlocked) {
-      const def = BADGE_BY_ID[row.badge_id];
-      if (def?.requirement_type === 'manual_server') {
-        void import('@/services/referral/serverBadgeUnlockModal').then(m =>
-          m.enqueueServerAwardedBadgeUnlockOnce(row.badge_id),
-        );
-      }
+    const def = BADGE_BY_ID[row.badge_id];
+    if (def?.requirement_type === 'manual_server') {
+      // Always attempt: helpers no-op if already shown / already queued.
+      // Covers pending celebrations after failed display without requiring
+      // a locked→unlocked transition.
+      void import('@/services/referral/serverBadgeUnlockModal').then(m =>
+        m.enqueueServerAwardedBadgeUnlockOnce(row.badge_id),
+      );
     }
   },
 
@@ -394,26 +392,28 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
       const server = await fetchUserBadges(userId);
       const prev = useBadgeStore.getState().unlockedByUser[userId] ?? {};
       const merged = mergeUnlockedFromServer(prev, server);
-      if (unlockMapsEqual(prev, merged)) {
-        return;
+      if (!unlockMapsEqual(prev, merged)) {
+        set(state => ({
+          unlockedByUser: {
+            ...state.unlockedByUser,
+            [userId]: merged,
+          },
+        }));
+        get().persist().catch(() => {});
       }
-      set(state => ({
-        unlockedByUser: {
-          ...state.unlockedByUser,
-          [userId]: merged,
-        },
-      }));
-      get().persist().catch(() => {});
+      // Re-queue pending celebrations even when unlock map is unchanged
+      // (app closed / nav change / failed open before Modal onShow).
       for (const [badgeId, unlockedAt] of Object.entries(merged)) {
-        if (!unlockedAt || prev[badgeId]) {
+        if (!unlockedAt) {
           continue;
         }
         const def = BADGE_BY_ID[badgeId];
-        if (def?.requirement_type === 'manual_server') {
-          void import('@/services/referral/serverBadgeUnlockModal').then(m =>
-            m.enqueueServerAwardedBadgeUnlockOnce(badgeId),
-          );
+        if (def?.requirement_type !== 'manual_server') {
+          continue;
         }
+        void import('@/services/referral/serverBadgeUnlockModal').then(m =>
+          m.enqueueServerAwardedBadgeUnlockOnce(badgeId),
+        );
       }
     } catch {
       /* offline */
@@ -425,9 +425,15 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
   },
 
   dismissUnlockModal: () => {
+    const current = get().unlockModalQueue[0] ?? null;
     set(state => ({
       unlockModalQueue: state.unlockModalQueue.slice(1),
     }));
+    if (current?.requirement_type === 'manual_server') {
+      void import('@/services/referral/serverBadgeUnlockModal').then(m =>
+        m.onServerBadgeUnlockModalDismissed(current.id),
+      );
+    }
   },
 
   currentUnlockModal: () => {

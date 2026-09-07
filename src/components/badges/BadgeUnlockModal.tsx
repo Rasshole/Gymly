@@ -22,6 +22,8 @@ type Props = {
   visible: boolean;
   badge: BadgeDefinition | null;
   onDismiss: () => void;
+  /** Fired when the native Modal has successfully shown (celebration can be consumed). */
+  onDisplayed?: (badgeId: string) => void;
 };
 
 const RARITY_KEY: Record<BadgeRarity, string> = {
@@ -33,10 +35,11 @@ const RARITY_KEY: Record<BadgeRarity, string> = {
 
 const DURATION_UP = 220;
 
-export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
+export function BadgeUnlockModal({visible, badge, onDismiss, onDisplayed}: Props) {
   const {t} = useTranslation();
   const scale = useRef(new Animated.Value(0.8)).current;
   const opacity = useRef(new Animated.Value(0)).current;
+  const displayedForId = useRef<string | null>(null);
 
   useEffect(() => {
     if (visible && badge) {
@@ -64,6 +67,9 @@ export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
         ]),
       ]).start();
     }
+    if (!visible) {
+      displayedForId.current = null;
+    }
   }, [visible, badge, scale, opacity]);
 
   if (!badge) {
@@ -84,7 +90,17 @@ export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
       visible={visible}
       transparent
       animationType="fade"
-      onRequestClose={onDismiss}>
+      onRequestClose={onDismiss}
+      onShow={() => {
+        if (!badge || !visible) {
+          return;
+        }
+        if (displayedForId.current === badge.id) {
+          return;
+        }
+        displayedForId.current = badge.id;
+        onDisplayed?.(badge.id);
+      }}>
       <Pressable style={styles.backdrop} onPress={onDismiss}>
         <Animated.View style={[styles.cardWrap, {opacity, transform: [{scale}]}]}>
           <Pressable onPress={e => e.stopPropagation()}>
