@@ -190,6 +190,26 @@ export function compactGymSearchValue(value: string): string {
   return normalizeGymSearchValue(value).replace(/\s+/g, '');
 }
 
+/**
+ * Collapse Nordic digraphs so user ASCII forms match indexed æ/ø/å expansions.
+ * Example: noerrebro (ø→oe) and norrebro (typed) both fold to norrebro.
+ * æ↔ae↔a, ø↔oe↔o, å↔aa↔a. Search-only — display names unchanged.
+ */
+export function foldNordicSearchEquivalents(value: string): string {
+  return value
+    .replace(/oe/g, 'o')
+    .replace(/ae/g, 'a')
+    .replace(/aa/g, 'a');
+}
+
+export function normalizeGymSearchFolded(value: string): string {
+  return foldNordicSearchEquivalents(normalizeGymSearchValue(value));
+}
+
+export function compactGymSearchFolded(value: string): string {
+  return foldNordicSearchEquivalents(compactGymSearchValue(value));
+}
+
 export function tokenizeGymQuery(queryRaw: string): string[] {
   return normalizeGymSearchValue(queryRaw).split(' ').filter(Boolean);
 }

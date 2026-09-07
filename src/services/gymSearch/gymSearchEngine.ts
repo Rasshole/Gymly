@@ -1,6 +1,8 @@
 import type {DanishGym} from '@/data/danishGyms';
 import {
+  compactGymSearchFolded,
   compactGymSearchValue,
+  foldNordicSearchEquivalents,
   levenshtein,
   normalizeGymSearchValue,
   tokenizeGymQuery,
@@ -9,6 +11,64 @@ import {
   getGymSearchIndex,
   type GymSearchIndexEntry,
 } from './gymSearchIndex';
+
+function foldedIncludes(haystack: string, needle: string): boolean {
+  if (!needle) {
+    return true;
+  }
+  return foldNordicSearchEquivalents(haystack).includes(
+    foldNordicSearchEquivalents(needle),
+  );
+}
+
+function foldedEquals(a: string, b: string): boolean {
+  return foldNordicSearchEquivalents(a) === foldNordicSearchEquivalents(b);
+}
+
+function foldedStartsWith(value: string, prefix: string): boolean {
+  if (!prefix) {
+    return true;
+  }
+  return foldNordicSearchEquivalents(value).startsWith(
+    foldNordicSearchEquivalents(prefix),
+  );
+}
+
+/** Brand+place glued queries e.g. fitnessxnorrebro / puregymvalby */
+function compactGluedMatch(
+  entry: GymSearchIndexEntry,
+  queryCompact: string,
+): boolean {
+  const q = foldNordicSearchEquivalents(queryCompact);
+  if (q.length < 6) {
+    return false;
+  }
+  const hay = foldNordicSearchEquivalents(entry.haystackCompact);
+  if (hay.includes(q)) {
+    return true;
+  }
+  const brand = foldNordicSearchEquivalents(entry.brandCompact);
+  if (brand.length >= 3 && q.startsWith(brand)) {
+    const rest = q.slice(brand.length);
+    if (rest.length < 3) {
+      return false;
+    }
+    return (
+      foldNordicSearchEquivalents(entry.nameCompact).includes(rest) ||
+      foldNordicSearchEquivalents(entry.cityNorm.replace(/\s+/g, '')).includes(
+        rest,
+      ) ||
+      foldNordicSearchEquivalents(entry.streetNorm.replace(/\s+/g, '')).includes(
+        rest,
+      ) ||
+      foldNordicSearchEquivalents(entry.addressNorm.replace(/\s+/g, '')).includes(
+        rest,
+      ) ||
+      hay.includes(rest)
+    );
+  }
+  return false;
+}
 
 export type GymSearchHit = {
   gym: DanishGym;
@@ -50,19 +110,31 @@ function tokenMatches(entry: GymSearchIndexEntry, token: string): boolean {
   if (!t) {
     return true;
   }
+  // Single-letter tokens (e.g. "x" in "fitness x") are too broad as hard filters.
+  if (t.length < 2) {
+    return (
+      foldedIncludes(entry.brandNorm, t) ||
+      foldedIncludes(entry.brandCompact, tc) ||
+      foldedIncludes(entry.nameNorm, t)
+    );
+  }
 
   if (
-    entry.haystack.includes(t) ||
-    entry.haystackCompact.includes(tc) ||
-    entry.nameNorm.includes(t) ||
-    entry.nameCompact.includes(tc) ||
-    entry.brandNorm.includes(t) ||
-    entry.brandCompact.includes(tc) ||
-    entry.cityNorm.includes(t) ||
-    entry.streetNorm.includes(t) ||
-    entry.addressNorm.includes(t) ||
-    entry.postalNorm.includes(t)
+    foldedIncludes(entry.haystack, t) ||
+    foldedIncludes(entry.haystackCompact, tc) ||
+    foldedIncludes(entry.nameNorm, t) ||
+    foldedIncludes(entry.nameCompact, tc) ||
+    foldedIncludes(entry.brandNorm, t) ||
+    foldedIncludes(entry.brandCompact, tc) ||
+    foldedIncludes(entry.cityNorm, t) ||
+    foldedIncludes(entry.streetNorm, t) ||
+    foldedIncludes(entry.addressNorm, t) ||
+    foldedIncludes(entry.postalNorm, t)
   ) {
+    return true;
+  }
+
+  if (compactGluedMatch(entry, tc)) {
     return true;
   }
 
@@ -70,33 +142,38 @@ function tokenMatches(entry: GymSearchIndexEntry, token: string): boolean {
   if (
     tc.length >= 2 &&
     postalCompact &&
-    (postalCompact === tc ||
-      postalCompact.startsWith(tc) ||
-      (tc.length >= 5 && postalCompact.includes(tc)))
+    (foldedEquals(postalCompact, tc) ||
+      foldedStartsWith(postalCompact, tc) ||
+      (tc.length >= 5 && foldedIncludes(postalCompact, tc)))
   ) {
     return true;
   }
 
-  if (t.length >= 2 && entry.words.some(w => w.startsWith(t))) {
+  if (t.length >= 2 && entry.words.some(w => foldedStartsWith(w, t))) {
     return true;
   }
 
   if (t.length >= 4) {
+    const tf = foldNordicSearchEquivalents(t);
     if (
-      entry.words.some(
-        w =>
-          Math.abs(w.length - t.length) <= 1 &&
-          w.charAt(0) === t.charAt(0) &&
-          levenshtein(w, t) <= 1,
-      )
+      entry.words.some(w => {
+        const wf = foldNordicSearchEquivalents(w);
+        return (
+          Math.abs(wf.length - tf.length) <= 1 &&
+          wf.charAt(0) === tf.charAt(0) &&
+          levenshtein(wf, tf) <= 1
+        );
+      })
     ) {
       return true;
     }
+    const nameFold = foldNordicSearchEquivalents(entry.nameCompact);
+    const tcFold = foldNordicSearchEquivalents(tc);
     if (
-      tc.length >= 5 &&
-      Math.abs(entry.nameCompact.length - tc.length) <= 2 &&
-      entry.nameCompact.charAt(0) === tc.charAt(0) &&
-      levenshtein(entry.nameCompact, tc) <= 2
+      tcFold.length >= 5 &&
+      Math.abs(nameFold.length - tcFold.length) <= 2 &&
+      nameFold.charAt(0) === tcFold.charAt(0) &&
+      levenshtein(nameFold, tcFold) <= 2
     ) {
       return true;
     }
@@ -114,73 +191,112 @@ function scoreEntry(
   distanceM: number | null,
 ): number {
   let score = 0;
+  const queryFold = foldNordicSearchEquivalents(queryNorm);
+  const queryCompactFold = foldNordicSearchEquivalents(queryCompact);
 
   if (queryNorm.length >= 2) {
-    if (entry.nameNorm === queryNorm) {
+    if (foldedEquals(entry.nameNorm, queryNorm)) {
       score += 220;
-    } else if (entry.nameNorm.startsWith(queryNorm)) {
+    } else if (foldedStartsWith(entry.nameNorm, queryNorm)) {
       score += 150;
-    } else if (entry.nameCompact.startsWith(queryCompact)) {
+    } else if (foldedStartsWith(entry.nameCompact, queryCompact)) {
       score += 130;
-    } else if (entry.haystack.includes(queryNorm)) {
+    } else if (foldedIncludes(entry.haystack, queryNorm)) {
       score += 90;
-    } else if (entry.haystackCompact.includes(queryCompact)) {
+    } else if (foldedIncludes(entry.haystackCompact, queryCompact)) {
       score += 75;
+    } else if (compactGluedMatch(entry, queryCompact)) {
+      score += 95;
     }
 
     const postalCompact = entry.postalNorm.replace(/\s+/g, '');
     if (postalCompact && queryCompact.length >= 2) {
-      if (postalCompact === queryCompact) {
+      if (foldedEquals(postalCompact, queryCompact)) {
         score += 110;
-      } else if (postalCompact.startsWith(queryCompact)) {
+      } else if (foldedStartsWith(postalCompact, queryCompact)) {
         score += 70;
       }
     }
   }
 
   for (const token of tokens) {
-    if (entry.nameNorm === token) {
+    if (token.length < 2) {
+      if (
+        foldedIncludes(entry.brandNorm, token) ||
+        foldedIncludes(entry.nameNorm, token)
+      ) {
+        score += 8;
+      }
+      continue;
+    }
+    if (foldedEquals(entry.nameNorm, token)) {
       score += 80;
-    } else if (entry.nameNorm.startsWith(token)) {
+    } else if (foldedStartsWith(entry.nameNorm, token)) {
       score += 65;
-    } else if (entry.brandNorm === token || entry.brandCompact === token) {
+    } else if (
+      foldedEquals(entry.brandNorm, token) ||
+      foldedEquals(entry.brandCompact, token)
+    ) {
       score += 60;
-    } else if (entry.brandNorm.startsWith(token)) {
+    } else if (foldedStartsWith(entry.brandNorm, token)) {
       score += 55;
-    } else if (entry.nameNorm.includes(token)) {
+    } else if (foldedIncludes(entry.nameNorm, token)) {
       score += 48;
-    } else if (entry.cityNorm.includes(token) || entry.cityNorm.startsWith(token)) {
+    } else if (
+      foldedIncludes(entry.cityNorm, token) ||
+      foldedStartsWith(entry.cityNorm, token)
+    ) {
       score += 42;
-    } else if (entry.streetNorm.includes(token)) {
+    } else if (foldedIncludes(entry.streetNorm, token)) {
       score += 38;
-    } else if (entry.addressNorm.includes(token)) {
+    } else if (foldedIncludes(entry.addressNorm, token)) {
       score += 30;
     } else if (
-      entry.postalNorm === token ||
-      entry.postalNorm.replace(/\s+/g, '') === token.replace(/\s+/g, '')
+      foldedEquals(entry.postalNorm, token) ||
+      foldedEquals(
+        entry.postalNorm.replace(/\s+/g, ''),
+        token.replace(/\s+/g, ''),
+      )
     ) {
       score += 70;
     } else if (
       token.length >= 2 &&
-      (entry.postalNorm.startsWith(token) ||
-        entry.postalNorm.replace(/\s+/g, '').startsWith(token.replace(/\s+/g, '')))
+      (foldedStartsWith(entry.postalNorm, token) ||
+        foldedStartsWith(
+          entry.postalNorm.replace(/\s+/g, ''),
+          token.replace(/\s+/g, ''),
+        ))
     ) {
       score += 50;
-    } else if (entry.haystack.includes(token)) {
+    } else if (foldedIncludes(entry.haystack, token)) {
       score += 22;
-    } else if (entry.words.some(w => w.startsWith(token))) {
+    } else if (entry.words.some(w => foldedStartsWith(w, token))) {
       score += 18;
     } else if (
       token.length >= 4 &&
-      entry.words.some(
-        w =>
-          Math.abs(w.length - token.length) <= 1 &&
-          w.charAt(0) === token.charAt(0) &&
-          levenshtein(w, token) <= 1,
-      )
+      entry.words.some(w => {
+        const wf = foldNordicSearchEquivalents(w);
+        const tf = foldNordicSearchEquivalents(token);
+        return (
+          Math.abs(wf.length - tf.length) <= 1 &&
+          wf.charAt(0) === tf.charAt(0) &&
+          levenshtein(wf, tf) <= 1
+        );
+      })
     ) {
       score += 12;
     }
+  }
+
+  // Prefer stronger full-query compact hits over weak partial brand-only noise.
+  if (queryCompactFold.length >= 6 && compactGluedMatch(entry, queryCompact)) {
+    score += 40;
+  }
+  if (
+    queryFold.length >= 4 &&
+    foldedIncludes(entry.streetNorm, queryFold.split(' ').slice(-1)[0] ?? '')
+  ) {
+    score += 10;
   }
 
   if (favoriteSet.has(entry.gym.id)) {
@@ -189,6 +305,7 @@ function scoreEntry(
 
   if (distanceM != null && Number.isFinite(distanceM)) {
     const km = distanceM / 1000;
+    // Soft nearby bonus only — never a hard radius cutoff.
     score += Math.max(0, 35 - km * 4);
   }
 
@@ -237,39 +354,49 @@ export function searchGyms(
         }
         const da = a.distanceM ?? Number.POSITIVE_INFINITY;
         const db = b.distanceM ?? Number.POSITIVE_INFINITY;
-        return da - db;
+        if (da !== db) {
+          return da - db;
+        }
+        return a.gym.id.localeCompare(b.gym.id);
       })
       .slice(0, limit);
   }
 
   const tokens = tokenizeGymQuery(trimmed);
+  const significantTokens = tokens.filter(t => t.length >= 2);
   const queryNorm = normalizeGymSearchValue(trimmed);
   const queryCompact = compactGymSearchValue(trimmed);
+  const queryCompactFold = compactGymSearchFolded(trimmed);
 
   const scored: GymSearchHit[] = [];
 
   for (const entry of index) {
-    const matchedTokens = tokens.filter(t => tokenMatches(entry, t));
-    const allTokensMatch = tokens.length === 0 || matchedTokens.length === tokens.length;
-    const partialMatch = matchedTokens.length > 0;
+    const matchTokens =
+      significantTokens.length > 0 ? significantTokens : tokens;
+    const matchedTokens = matchTokens.filter(t => tokenMatches(entry, t));
+    const allTokensMatch =
+      matchTokens.length === 0 || matchedTokens.length === matchTokens.length;
+    const glued = compactGluedMatch(entry, queryCompact);
 
-    if (!allTokensMatch && !partialMatch) {
-      const nameSlice = entry.nameCompact.slice(
-        0,
-        Math.min(entry.nameCompact.length, queryCompact.length + 2),
-      );
-      const plausibleTypo =
-        queryCompact.length >= 3 &&
-        Math.abs(nameSlice.length - queryCompact.length) <= 2 &&
-        nameSlice.charAt(0) === queryCompact.charAt(0);
-      const loose =
-        queryNorm.length >= 3 &&
-        (entry.haystack.includes(queryNorm) ||
-          entry.haystackCompact.includes(queryCompact) ||
-          (plausibleTypo && levenshtein(nameSlice, queryCompact) <= 2));
-      if (!loose) {
-        continue;
-      }
+    const nameFold = foldNordicSearchEquivalents(entry.nameCompact);
+    const nameSlice = nameFold.slice(
+      0,
+      Math.min(nameFold.length, queryCompactFold.length + 2),
+    );
+    const plausibleTypo =
+      queryCompactFold.length >= 4 &&
+      Math.abs(nameSlice.length - queryCompactFold.length) <= 2 &&
+      nameSlice.charAt(0) === queryCompactFold.charAt(0);
+    const looseFullQuery =
+      queryNorm.length >= 3 &&
+      (foldedIncludes(entry.haystack, queryNorm) ||
+        foldedIncludes(entry.haystackCompact, queryCompact) ||
+        (plausibleTypo && levenshtein(nameSlice, queryCompactFold) <= 2));
+
+    // Multi-token queries require every significant token (across name/city/address),
+    // or a compact/glued/full-query hit — never brand-only partials.
+    if (!allTokensMatch && !glued && !looseFullQuery) {
+      continue;
     }
 
     const distanceM = hasLocation
@@ -285,12 +412,14 @@ export function searchGyms(
       distanceM,
     );
 
-    if (!allTokensMatch && partialMatch) {
-      score *= matchedTokens.length / tokens.length;
-      score += matchedTokens.length * 5;
+    if (glued && !allTokensMatch) {
+      score += 25;
+    }
+    if (looseFullQuery && !allTokensMatch && !glued) {
+      score += 20;
     }
 
-    if (score >= minScore || partialMatch) {
+    if (score >= minScore || glued || allTokensMatch || looseFullQuery) {
       scored.push({gym: entry.gym, score, distanceM});
     }
   }
@@ -306,7 +435,11 @@ export function searchGyms(
     }
     const da = a.distanceM ?? Number.POSITIVE_INFINITY;
     const db = b.distanceM ?? Number.POSITIVE_INFINITY;
-    return da - db;
+    if (da !== db) {
+      return da - db;
+    }
+    // Deterministic tie-break (no catalogue-order dependency).
+    return a.gym.id.localeCompare(b.gym.id);
   });
 
   return scored.slice(0, limit);

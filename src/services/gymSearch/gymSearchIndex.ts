@@ -153,22 +153,29 @@ function extractStreet(address?: string): string {
 function extractArea(city?: string, address?: string): string[] {
   const areas: string[] = [];
   const c = (city ?? '').toLowerCase();
+  const addr = (address ?? '').toLowerCase();
+  const placeBlob = `${c} ${addr}`;
   if (c.includes('københavn') || c.includes('kobenhavn')) {
     areas.push('københavn', 'kobenhavn', 'copenhagen', 'kbh');
   }
-  if (c.includes('nørre') || c.includes('norre')) {
-    areas.push('nørrebro', 'norrebro');
+  if (
+    /nørrebro|norrebro|noerrebro/.test(placeBlob)
+  ) {
+    areas.push('nørrebro', 'norrebro', 'noerrebro');
   }
-  if (c.includes('øster') || c.includes('oster')) {
-    areas.push('østerbro', 'osterbro');
+  if (c.includes('øster') || c.includes('oster') || /østerbro|osterbro|oesterbro/.test(placeBlob)) {
+    areas.push('østerbro', 'osterbro', 'oesterbro');
   }
-  if (c.includes('amager')) {
+  if (c.includes('amager') || addr.includes('amager')) {
     areas.push('amager');
   }
-  if (c.includes('valby')) {
+  if (c.includes('valby') || addr.includes('valby')) {
     areas.push('valby');
   }
-  if (c.includes('frederiksberg')) {
+  if (/vanløse|vanlose|vanloese/.test(placeBlob)) {
+    areas.push('vanløse', 'vanlose', 'vanloese');
+  }
+  if (c.includes('frederiksberg') || addr.includes('frederiksberg')) {
     areas.push('frederiksberg', 'frb');
   }
   const swedishCities: Array<[RegExp, string[]]> = [
@@ -1332,9 +1339,8 @@ function extractArea(city?: string, address?: string): string[] {
       areas.push(...aliases);
     }
   }
-  const addr = (address ?? '').toLowerCase();
-  for (const token of ['nørrelund', 'norrelund', 'fasanvej', 'gothersgade', 'portugalsgade']) {
-    if (addr.includes(token.replace('ø', 'o')) || addr.includes(token)) {
+  for (const token of ['nørrelund', 'norrelund', 'fasanvej', 'gothersgade', 'portugalsgade', 'nørrebrogade', 'norrebrogade', 'noerrebrogade']) {
+    if (addr.includes(token.replace('ø', 'o')) || addr.includes(token) || addr.includes(token.replace('ø', 'oe'))) {
       areas.push(token);
     }
   }
@@ -1669,6 +1675,12 @@ export function buildGymSearchEntry(gym: DanishGym): GymSearchIndexEntry {
 
 let cachedIndex: GymSearchIndexEntry[] | null = null;
 let cachedSourceRef: readonly DanishGym[] | null = null;
+
+/** Test / HMR helper — rebuild index after search keyword changes. */
+export function clearGymSearchIndexCache(): void {
+  cachedIndex = null;
+  cachedSourceRef = null;
+}
 
 export function getGymSearchIndex(gyms?: DanishGym[]): GymSearchIndexEntry[] {
   const source = gyms ?? getActiveDanishGyms();

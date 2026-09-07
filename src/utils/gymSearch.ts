@@ -5,9 +5,14 @@ export {
   normalizeGymSearchValue,
   compactGymSearchValue,
   tokenizeGymQuery,
+  foldNordicSearchEquivalents,
 } from '@/services/gymSearch/gymSearchNormalize';
 
-import {normalizeGymSearchValue, compactGymSearchValue} from '@/services/gymSearch/gymSearchNormalize';
+import {
+  normalizeGymSearchValue,
+  compactGymSearchValue,
+  foldNordicSearchEquivalents,
+} from '@/services/gymSearch/gymSearchNormalize';
 
 export function gymSearchMatchesTokens(haystackRaw: string, queryRaw: string): boolean {
   const query = normalizeGymSearchValue(queryRaw);
@@ -15,12 +20,18 @@ export function gymSearchMatchesTokens(haystackRaw: string, queryRaw: string): b
     return true;
   }
 
-  const haystack = normalizeGymSearchValue(haystackRaw);
-  const haystackCompact = compactGymSearchValue(haystackRaw);
+  const haystack = foldNordicSearchEquivalents(normalizeGymSearchValue(haystackRaw));
+  const haystackCompact = foldNordicSearchEquivalents(compactGymSearchValue(haystackRaw));
   const tokens = query.split(' ').filter(Boolean);
 
   return tokens.every(token => {
-    const compactToken = token.replace(/\s+/g, '');
-    return haystack.includes(token) || haystackCompact.includes(compactToken);
+    if (token.length < 2) {
+      return true;
+    }
+    const compactToken = foldNordicSearchEquivalents(token.replace(/\s+/g, ''));
+    const foldedToken = foldNordicSearchEquivalents(token);
+    return (
+      haystack.includes(foldedToken) || haystackCompact.includes(compactToken)
+    );
   });
 }
