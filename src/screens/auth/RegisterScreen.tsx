@@ -48,6 +48,16 @@ import {useTranslation, getIntlLocale} from '@/i18n';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as streak from '@/utils/streakUtils';
 import {
+  getPendingInviteCode,
+  clearPendingInviteCode,
+} from '@/services/referral/pendingInviteCode';
+import {normalizeReferralCode} from '@/services/referral/referralCodeUtils';
+import {applyReferralCode} from '@/services/supabase/referralService';
+import {
+  mapReferralApplyError,
+  referralApplyErrorMessageKey,
+} from '@/services/referral/referralApplyErrors';
+import {
   getUsernameFormatError,
   normalizeUsernameForStorage,
   normalizeUsernameInput,
@@ -123,6 +133,10 @@ const RegisterScreen = () => {
   const [profilePhotoUri, setProfilePhotoUri] = useState('');
   const [trainingGoal, setTrainingGoal] = useState('');
   const [bio, setBio] = useState('');
+  const [inviteCode, setInviteCode] = useState('');
+  const [inviteStatus, setInviteStatus] = useState<
+    'idle' | 'success' | 'invalid' | 'expired' | 'self' | 'already' | 'ineligible' | 'generic'
+  >('idle');
   const [isLoading, setIsLoading] = useState(false);
   const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
   const [showPassword, setShowPassword] = useState(false);
@@ -464,6 +478,31 @@ const RegisterScreen = () => {
         throw new Error(t('register.alertRegisterRetry'));
       }
       login(user, tokens);
+
+      const normalizedInvite = normalizeReferralCode(inviteCode);
+      if (normalizedInvite && normalizedInvite.length >= 4) {
+        try {
+          await applyReferralCode(normalizedInvite);
+          setInviteStatus('success');
+          await clearPendingInviteCode();
+        } catch (applyErr) {
+          const kind = mapReferralApplyError(applyErr);
+          setInviteStatus(kind);
+          if (kind === 'expired' || kind === 'already' || kind === 'self' || kind === 'invalid') {
+            await clearPendingInviteCode();
+          }
+          Alert.alert(
+            t('inviteFive.applyFailedTitle'),
+            t(referralApplyErrorMessageKey(kind)),
+          );
+          if (__DEV__) {
+            console.warn('[Register] applyReferralCode failed', kind, applyErr);
+          }
+        }
+      } else {
+        await clearPendingInviteCode();
+      }
+
       if (navigationRef.isReady()) {
         navigationRef.reset({
           index: 0,
@@ -481,9 +520,22 @@ const RegisterScreen = () => {
   };
 
   useEffect(() => {
-    if (step !== 'profile') {
-      setShowDatePicker(false);
+    if (step !== 'social') {
+      return;
     }
+    let cancelled = false;
+    (async () => {
+      const pending = await getPendingInviteCode();
+      if (!cancelled && pending && !inviteCode.trim()) {
+        setInviteCode(pending);
+        setInviteStatus('idle');
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // Prefill once when entering social; do not fight manual edits.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
   useEffect(() => {
@@ -847,6 +899,31 @@ const RegisterScreen = () => {
           maxLength={200}
           multiline
         />
+        <Text style={styles.inputLabel}>{t('register.inviteCodeLabel')}</Text>
+        <Text style={styles.helperMuted}>{t('register.inviteCodeHint')}</Text>
+        <TextInput
+          style={styles.input}
+          placeholder={t('register.inviteCodePlaceholder')}
+          placeholderTextColor={colors.textMuted}
+          value={inviteCode}
+          onChangeText={text => {
+            setInviteCode(text);
+            setInviteStatus('idle');
+          }}
+          autoCapitalize="characters"
+          autoCorrect={false}
+          maxLength={16}
+          accessibilityLabel={t('register.inviteCodeLabel')}
+        />
+        <Text style={styles.helperMuted}>{t('register.inviteCodeOptional')}</Text>
+        {inviteStatus !== 'idle' && inviteStatus !== 'success' ? (
+          <Text style={styles.hintErr}>
+            {t(referralApplyErrorMessageKey(inviteStatus))}
+          </Text>
+        ) : null}
+        {inviteStatus === 'success' ? (
+          <Text style={styles.hintOk}>{t('inviteFive.applySuccess')}</Text>
+        ) : null}
       </View>
 
       <View style={[styles.consentBlock, shadows.sm]}>

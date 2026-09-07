@@ -50,6 +50,8 @@ function statForRequirement(
       return stats.total_logged_sets;
     case 'total_pr_events':
       return stats.total_pr_events;
+    case 'manual_server':
+      return 0;
     default:
       return 0;
   }

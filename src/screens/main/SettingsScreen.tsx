@@ -307,6 +307,12 @@ const SettingsScreen = () => {
             onPress={() => navigation.navigate('EditProfile')}
           />
           <SettingRow
+            icon="gift-outline"
+            title={t('inviteFive.settingsEntry')}
+            subtitle={t('inviteFive.settingsEntrySub')}
+            onPress={() => navigation.navigate('InviteFiveFriends')}
+          />
+          <SettingRow
             icon="mail-outline"
             title={t('settings.changeEmail')}
             onPress={() => navigation.navigate('ChangeEmail')}

@@ -9,6 +9,7 @@ export type BadgeCategory =
   | 'sessions'
   | 'messaging'
   | 'social'
+  | 'referral'
   | 'planned'
   | 'habits'
   | 'records'
@@ -32,7 +33,9 @@ export type BadgeRequirementType =
   | 'early_check_ins'
   | 'late_check_ins'
   | 'total_logged_sets'
-  | 'total_pr_events';
+  | 'total_pr_events'
+  /** Server-awarded only (e.g. referral_founder_5). Client progress stays 0. */
+  | 'manual_server';
 
 export type BadgeRarity = 'common' | 'rare' | 'epic' | 'legendary';
 

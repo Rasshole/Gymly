@@ -130,6 +130,10 @@ const FriendsScreen = () => {
     stackNavigate('AddFriend');
   }, [stackNavigate]);
 
+  const openInviteFiveFriends = useCallback(() => {
+    stackNavigate('InviteFiveFriends');
+  }, [stackNavigate]);
+
   const openFriendRequestsSheet = usePendingFriendRequestStore(s => s.openSheet);
   const pendingFriendRequests = useNotificationStore(
     s => s.incomingFriendRequestCount,
@@ -430,6 +434,13 @@ const FriendsScreen = () => {
               onPress={openAddFriend}
               variant="premium"
               style={styles.addFriendBanner}
+            />
+            <SocialPrimaryButton
+              label={t('inviteFive.friendsEntry')}
+              iconName="gift-outline"
+              onPress={openInviteFiveFriends}
+              variant="flat"
+              style={styles.inviteFriendsBanner}
             />
             {pendingFriendRequests > 0 ? (
               <FriendRequestsCard onPress={openFriendRequestsSheet} />
@@ -872,6 +883,10 @@ const styles = StyleSheet.create({
     paddingTop: spacing.xs,
   },
   addFriendBanner: {
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.sm,
+  },
+  inviteFriendsBanner: {
     marginHorizontal: spacing.lg,
     marginBottom: spacing.md,
   },

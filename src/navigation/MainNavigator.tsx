@@ -105,6 +105,7 @@ import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
 import ActivityFeedScreen from '@/screens/main/ActivityFeedScreen';
 import GymPresenceScreen from '@/screens/main/GymPresenceScreen';
 import AddFriendScreen from '@/screens/main/AddFriendScreen';
+import InviteFiveFriendsScreen from '@/screens/main/InviteFiveFriendsScreen';
 import {InAppNotificationBootstrap} from '@/components/inApp/InAppNotificationBootstrap';
 import {PendingFriendRequestBootstrap} from '@/components/friends/PendingFriendRequestBootstrap';
 import {FriendRequestsSheet} from '@/components/friends/FriendRequestsSheet';
@@ -247,6 +248,7 @@ export type MainStackParamList = {
     | {activeCenter?: ActiveCenter; gym?: GymPresence}
     | undefined;
   AddFriend: undefined;
+  InviteFiveFriends: undefined;
 };
 
 function UsernameChangeGate() {
@@ -818,6 +820,13 @@ const MainNavigator = () => {
       <Stack.Screen
         name="AddFriend"
         component={AddFriendScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="InviteFiveFriends"
+        component={InviteFiveFriendsScreen}
         options={{
           headerShown: false,
         }}

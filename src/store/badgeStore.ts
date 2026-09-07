@@ -264,7 +264,9 @@ async function runCheckAndUnlockBadgesBody(uid: string, dn: string): Promise<voi
       }
     }
 
-    const upserts = BADGE_DEFINITIONS.map(def => {
+    const upserts = BADGE_DEFINITIONS.filter(
+      def => def.requirement_type !== 'manual_server',
+    ).map(def => {
       const st = getBadgeStatValue(def, postStats);
       const t = def.requirement_value;
       const progress = Math.min(Math.max(0, st), t);
@@ -354,6 +356,9 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
     if (!row.unlocked_at) {
       return;
     }
+    const prevUnlocked = Boolean(
+      useBadgeStore.getState().unlockedByUser[userId]?.[row.badge_id],
+    );
     set(state => {
       const cur = state.unlockedByUser[userId] ?? {};
       const ex = cur[row.badge_id];
@@ -371,6 +376,14 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
       };
     });
     get().persist().catch(() => {});
+    if (!prevUnlocked) {
+      const def = BADGE_BY_ID[row.badge_id];
+      if (def?.requirement_type === 'manual_server') {
+        void import('@/services/referral/serverBadgeUnlockModal').then(m =>
+          m.enqueueServerAwardedBadgeUnlockOnce(row.badge_id),
+        );
+      }
+    }
   },
 
   hydrateUserBadgesFromServer: async userId => {
@@ -379,12 +392,9 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
     }
     try {
       const server = await fetchUserBadges(userId);
-      const merged = mergeUnlockedFromServer(
-        useBadgeStore.getState().unlockedByUser[userId] ?? {},
-        server,
-      );
-      const cur = useBadgeStore.getState().unlockedByUser[userId] ?? {};
-      if (unlockMapsEqual(cur, merged)) {
+      const prev = useBadgeStore.getState().unlockedByUser[userId] ?? {};
+      const merged = mergeUnlockedFromServer(prev, server);
+      if (unlockMapsEqual(prev, merged)) {
         return;
       }
       set(state => ({
@@ -393,6 +403,18 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
           [userId]: merged,
         },
       }));
+      get().persist().catch(() => {});
+      for (const [badgeId, unlockedAt] of Object.entries(merged)) {
+        if (!unlockedAt || prev[badgeId]) {
+          continue;
+        }
+        const def = BADGE_BY_ID[badgeId];
+        if (def?.requirement_type === 'manual_server') {
+          void import('@/services/referral/serverBadgeUnlockModal').then(m =>
+            m.enqueueServerAwardedBadgeUnlockOnce(badgeId),
+          );
+        }
+      }
     } catch {
       /* offline */
     }

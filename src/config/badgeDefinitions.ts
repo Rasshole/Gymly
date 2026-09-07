@@ -503,6 +503,19 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     is_hidden: false,
   },
 
+  // --- REFERRAL (server-awarded only; separate from social_squad_5) ---
+  {
+    id: 'referral_founder_5',
+    name: 'Founding Crew',
+    emoji: '🏅',
+    description: 'Invited 5 friends who completed their first Gymly activity',
+    category: 'referral',
+    requirement_type: 'manual_server',
+    requirement_value: 5,
+    rarity: 'legendary',
+    is_hidden: false,
+  },
+
   // --- PLANLAGT ---
   {
     id: 'planned_planner_5',
