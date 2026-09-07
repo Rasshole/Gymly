@@ -14,6 +14,9 @@
   RewriteRule ^auth/confirm/$ /auth-confirm/index.html [L]
   RewriteRule ^reset-password$ /reset-password/index.html [L]
   RewriteRule ^reset-password/$ /reset-password/index.html [L]
+  RewriteRule ^invite$ /invite/index.html [L]
+  RewriteRule ^invite/$ /invite/index.html [L]
+  RewriteRule ^invite/[^/]+/?$ /invite/index.html [L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

@@ -10,7 +10,10 @@
     { "source": "/auth/confirm", "destination": "/auth-confirm/index.html" },
     { "source": "/auth/confirm/", "destination": "/auth-confirm/index.html" },
     { "source": "/reset-password", "destination": "/reset-password/index.html" },
-    { "source": "/reset-password/", "destination": "/reset-password/index.html" }
+    { "source": "/reset-password/", "destination": "/reset-password/index.html" },
+    { "source": "/invite", "destination": "/invite/index.html" },
+    { "source": "/invite/", "destination": "/invite/index.html" },
+    { "source": "/invite/:code", "destination": "/invite/index.html" }
   ],
   "headers": [
     {

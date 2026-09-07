@@ -25,6 +25,13 @@
           },
           {
             "/": "/reset-password/*"
+          },
+          {
+            "/": "/invite",
+            "comment": "Invite 5 Friends referral deep link"
+          },
+          {
+            "/": "/invite/*"
           }
         ]
       }

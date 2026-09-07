@@ -26,7 +26,6 @@ import {clearLocalUserSession} from './src/services/auth/sessionCleanup';
 import {
   AUTH_LINK_PREFIXES,
   handleAuthDeepLink,
-  isAuthDeepLinkUrl,
   isPasswordRecoveryActive,
   logAuthDeepLinkEvent,
   sessionToAuthTokens,
@@ -37,7 +36,10 @@ import {
   navigateToLogin,
   navigateToResetPassword,
 } from './src/services/auth/authDeepLinkNavigation';
-
+import {
+  classifyAppDeepLinkUrl,
+  handleIncomingInviteIfPresent,
+} from './src/services/referral/appDeepLinkRouter';
 try {
   configureGeolocationForPermissionSafety();
 } catch (e) {
@@ -77,9 +79,14 @@ const App = () => {
     setTimeout(() => navigateToLogin(), 2000);
   }, [logout]);
 
-  const processAuthUrl = useCallback(
+  const processIncomingUrl = useCallback(
     async (url: string) => {
-      if (!isAuthDeepLinkUrl(url)) {
+      // Invite first — before auth (auth matcher can treat ?code= as auth).
+      const invite = await handleIncomingInviteIfPresent(url);
+      if (invite.handled) {
+        return;
+      }
+      if (classifyAppDeepLinkUrl(url) !== 'auth') {
         return;
       }
       const result = await handleAuthDeepLink(url);
@@ -129,9 +136,9 @@ const App = () => {
     let cancelled = false;
     (async () => {
       const initialUrl = await Linking.getInitialURL().catch(() => null);
-      if (initialUrl && isAuthDeepLinkUrl(initialUrl)) {
+      if (initialUrl && classifyAppDeepLinkUrl(initialUrl) !== 'ignored') {
         initialUrlHandled.current = true;
-        await processAuthUrl(initialUrl);
+        await processIncomingUrl(initialUrl);
       }
       if (!cancelled) {
         await initializeApp();
@@ -141,8 +148,7 @@ const App = () => {
     return () => {
       cancelled = true;
     };
-  }, [initializeApp, loadPrivacyConsent, processAuthUrl]);
-
+  }, [initializeApp, loadPrivacyConsent, processIncomingUrl]);
   useEffect(() => {
     const {
       data: {subscription},
@@ -185,12 +191,11 @@ const App = () => {
       if (!url) {
         return;
       }
-      void processAuthUrl(url);
+      void processIncomingUrl(url);
     };
     const sub = Linking.addEventListener('url', onUrl);
     return () => sub.remove();
-  }, [processAuthUrl]);
-
+  }, [processIncomingUrl]);
   return (
     <StartupErrorBoundary>
       <GestureHandlerRootView style={styles.root}>
