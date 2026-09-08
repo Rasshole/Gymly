@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Animated,
   ScrollView,
+  Pressable,
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
@@ -33,6 +34,14 @@ type Props<T extends string> = {
   scrollableChips?: boolean;
 };
 
+/** Equal tab width inside the track (accounts for track padding). */
+export function segmentedTabWidth(trackWidth: number, segmentCount: number): number {
+  if (trackWidth <= 0 || segmentCount <= 0) {
+    return 0;
+  }
+  return (trackWidth - 6) / segmentCount;
+}
+
 export function SegmentedControl<T extends string>({
   segments,
   value,
@@ -52,7 +61,7 @@ export function SegmentedControl<T extends string>({
     if (variant !== 'tabs' || trackWidth <= 0 || segments.length === 0) {
       return;
     }
-    const segmentW = (trackWidth - 6) / segments.length;
+    const segmentW = segmentedTabWidth(trackWidth, segments.length);
     Animated.spring(slideX, {
       toValue: activeIndex * segmentW,
       ...animation.springSnappy,
@@ -99,12 +108,13 @@ export function SegmentedControl<T extends string>({
     return <View style={[styles.chipsRow, style]}>{chips}</View>;
   }
 
-  const segmentW = trackWidth > 0 ? (trackWidth - 6) / segments.length : 0;
+  const segmentW = segmentedTabWidth(trackWidth, segments.length);
 
   return (
     <View
       style={[styles.tabTrack, style]}
-      onLayout={e => setTrackWidth(e.nativeEvent.layout.width)}>
+      onLayout={e => setTrackWidth(e.nativeEvent.layout.width)}
+      accessibilityRole="tablist">
       {segmentW > 0 ? (
         <Animated.View
           pointerEvents="none"
@@ -120,22 +130,31 @@ export function SegmentedControl<T extends string>({
       {segments.map(seg => {
         const active = seg.key === value;
         return (
-          <GymlyPressable
-            key={seg.key}
-            onPress={() => select(seg.key)}
-            haptic={false}
-            style={styles.tabBtn}>
-            {seg.icon ? (
-              <Icon
-                name={seg.icon as never}
-                size={17}
-                color={active ? colors.white : colors.textSecondary}
-              />
-            ) : null}
-            <Text style={[styles.tabLabel, active && styles.tabLabelActive]}>
-              {seg.label}
-            </Text>
-          </GymlyPressable>
+          <View key={seg.key} style={styles.tabSlot}>
+            <Pressable
+              onPress={() => select(seg.key)}
+              style={styles.tabBtn}
+              accessibilityRole="tab"
+              accessibilityState={{selected: active}}
+              accessibilityLabel={seg.label}
+              testID={`segment-tab-${seg.key}`}>
+              <View style={styles.tabContent} testID={`segment-tab-content-${seg.key}`}>
+                {seg.icon ? (
+                  <Icon
+                    name={seg.icon as never}
+                    size={17}
+                    color={active ? colors.white : colors.textSecondary}
+                    style={styles.tabIcon}
+                  />
+                ) : null}
+                <Text
+                  style={[styles.tabLabel, active && styles.tabLabelActive]}
+                  numberOfLines={1}>
+                  {seg.label}
+                </Text>
+              </View>
+            </Pressable>
+          </View>
         );
       })}
     </View>
@@ -145,6 +164,7 @@ export function SegmentedControl<T extends string>({
 const styles = StyleSheet.create({
   tabTrack: {
     flexDirection: 'row',
+    alignItems: 'stretch',
     position: 'relative',
     padding: 3,
     backgroundColor: '#EFEFF4',
@@ -161,20 +181,35 @@ const styles = StyleSheet.create({
     borderRadius: radius.full,
     ...shadows.glow,
   },
-  tabBtn: {
+  /** Equal-width slot — flex lives here, not inside GymlyPressable's scale wrapper. */
+  tabSlot: {
     flex: 1,
+    minWidth: 0,
+    zIndex: 1,
+  },
+  tabBtn: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: spacing.md,
+    borderRadius: radius.full,
+  },
+  tabContent: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: spacing.sm,
-    paddingVertical: spacing.md,
-    borderRadius: radius.full,
-    zIndex: 1,
+    maxWidth: '100%',
+    paddingHorizontal: spacing.xs,
+  },
+  tabIcon: {
+    flexShrink: 0,
   },
   tabLabel: {
     ...typography.bodyBold,
     fontSize: 15,
     color: colors.textSecondary,
+    flexShrink: 1,
   },
   tabLabelActive: {
     color: colors.white,
