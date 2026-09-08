@@ -2142,6 +2142,9 @@ const da = {
     removeRecipient: 'Fjern modtager',
     sendBiceps: 'Send biceps',
     image: 'Billede',
+    moveGymEarlier: 'Flyt center tidligere',
+    moveGymLater: 'Flyt center senere',
+    dragGymToReorder: 'Hold inde og træk for at ændre rækkefølge',
   },
   activeSession: {
     minutesInProgress: '{{count}} min i gang',

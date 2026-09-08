@@ -2076,7 +2076,10 @@ const nb = {
     sendMessage: "Send melding",
     removeRecipient: "Fjern mottaker",
     sendBiceps: "Send biceps",
-    image: "Bilde"
+    image: "Bilde",
+    moveGymEarlier: "Flytt treningssenter tidligere",
+    moveGymLater: "Flytt treningssenter senere",
+    dragGymToReorder: "Hold inne og dra for å endre rekkefølge",
   },
   activeSession: {
     minutesInProgress: "{{count}} min i gang",

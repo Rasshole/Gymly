@@ -2132,6 +2132,9 @@ const en = {
     removeRecipient: 'Remove recipient',
     sendBiceps: 'Send biceps',
     image: 'Image',
+    moveGymEarlier: 'Move gym earlier',
+    moveGymLater: 'Move gym later',
+    dragGymToReorder: 'Long press and drag to reorder',
   },
   activeSession: {
     minutesInProgress: '{{count}} min in progress',

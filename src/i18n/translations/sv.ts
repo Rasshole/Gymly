@@ -2077,6 +2077,9 @@ const sv = {
     removeRecipient: "Ta bort mottagare",
     sendBiceps: "Skicka biceps",
     image: "Bild",
+    moveGymEarlier: "Flytta gym tidigare",
+    moveGymLater: "Flytta gym senare",
+    dragGymToReorder: "Håll inne och dra för att ändra ordning",
   },
   activeSession: {
     minutesInProgress: "{{count}} min pågår",

@@ -12,28 +12,33 @@ import {
   PanResponder,
   Platform,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {getActiveGyms, type DanishGym} from '@/data/gymCatalog';
 import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 import {pickBrowseGyms} from '@/utils/pickBrowseGyms';
 import GymLogoView from '@/components/ui/GymLogoView';
+import {SelectedCentersReorderRow} from '@/components/profile/SelectedCentersReorderRow';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 import colors from '@/theme/colors';
 import {radius, spacing, typography, shadows} from '@/theme/designTokens';
 import {useTranslation} from '@/i18n';
+import {
+  MAX_PROFILE_CENTERS,
+  idsEqual,
+} from '@/utils/reorderCenterIds';
 
 const SCREEN_H = Dimensions.get('window').height;
 const ALL_GYMS = getActiveGyms();
-const MAX_CENTERS = 3;
+const MAX_CENTERS = MAX_PROFILE_CENTERS;
 
 const springOpen = {
   stiffness: 420,
@@ -52,13 +57,6 @@ const springClose = {
 const DISMISS_DRAG_THRESHOLD = 72;
 const DISMISS_VELOCITY = 0.65;
 
-function idsEqual(a: string[], b: string[]): boolean {
-  if (a.length !== b.length) {
-    return false;
-  }
-  return a.every((id, i) => id === b[i]);
-}
-
 export type EditProfileCentersSheetProps = {
   visible: boolean;
   initialCenterIds: string[];
@@ -66,6 +64,8 @@ export type EditProfileCentersSheetProps = {
   onSave: (orderedIds: string[]) => Promise<void>;
   onLimitReached?: () => void;
 };
+
+const ListGap = () => <View style={styles.listGap} />;
 
 export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = ({
   visible,
@@ -244,18 +244,12 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
     [onLimitReached],
   );
 
-  const moveSelected = useCallback((index: number, dir: -1 | 1) => {
-    setSelectedIds(prev => {
-      const next = [...prev];
-      const j = index + dir;
-      if (j < 0 || j >= next.length) {
-        return prev;
-      }
-      const tmp = next[index]!;
-      next[index] = next[j]!;
-      next[j] = tmp;
-      return next;
-    });
+  const reorderSelected = useCallback((nextIds: string[]) => {
+    setSelectedIds(nextIds.slice(0, MAX_CENTERS));
+  }, []);
+
+  const removeSelected = useCallback((gymId: string) => {
+    setSelectedIds(prev => prev.filter(id => id !== gymId));
   }, []);
 
   const handleSave = useCallback(async () => {
@@ -289,69 +283,12 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
     }
 
     return (
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.chipsScroll}>
-        {selectedGyms.map((gym, index) => (
-          <View key={gym.id} style={styles.chip}>
-            {index === 0 ? (
-              <View style={styles.chipPrimaryBadge}>
-                <Text style={styles.chipPrimaryText}>
-                  {t('phase2ui.primaryCenter')}
-                </Text>
-              </View>
-            ) : null}
-            <View style={styles.chipTopRow}>
-              <View style={styles.chipLogoWrap}>
-                <GymLogoView gymName={gym.name} brand={gym.brand} size={32} surface="lavender" />
-              </View>
-              <TouchableOpacity
-                onPress={() => toggleGym(gym.id)}
-                hitSlop={8}
-                style={styles.chipRemove}>
-                <Icon name="close-circle" size={20} color={colors.textMuted} />
-              </TouchableOpacity>
-            </View>
-            <Text style={styles.chipName} numberOfLines={2}>
-              {formatGymDisplayName(gym)}
-            </Text>
-            {gym.city ? (
-              <Text style={styles.chipCity} numberOfLines={1}>
-                {gym.city}
-              </Text>
-            ) : null}
-            {selectedGyms.length > 1 ? (
-              <View style={styles.chipReorder}>
-                <TouchableOpacity
-                  onPress={() => moveSelected(index, -1)}
-                  disabled={index === 0}
-                  hitSlop={6}
-                  style={index === 0 && styles.chipReorderDisabled}>
-                  <Icon
-                    name="chevron-back"
-                    size={16}
-                    color={index === 0 ? colors.textMuted : colors.primary}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => moveSelected(index, 1)}
-                  disabled={index === selectedGyms.length - 1}
-                  hitSlop={6}
-                  style={index === selectedGyms.length - 1 && styles.chipReorderDisabled}>
-                  <Icon
-                    name="chevron-forward"
-                    size={16}
-                    color={
-                      index === selectedGyms.length - 1 ? colors.textMuted : colors.primary
-                    }
-                  />
-                </TouchableOpacity>
-              </View>
-            ) : null}
-          </View>
-        ))}
-      </ScrollView>
+      <SelectedCentersReorderRow
+        gyms={selectedGyms}
+        selectedIds={selectedIds}
+        onReorder={reorderSelected}
+        onRemove={removeSelected}
+      />
     );
   };
 
@@ -402,7 +339,7 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
       onRequestClose={onClose}
       presentationStyle="overFullScreen"
       statusBarTranslucent>
-      <View style={styles.root}>
+      <GestureHandlerRootView style={styles.root}>
         <Animated.View style={[styles.backdrop, {opacity: backdropOpacity}]}>
           <Pressable
             style={StyleSheet.absoluteFill}
@@ -470,12 +407,14 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
             contentContainerStyle={styles.listContent}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
-            ItemSeparatorComponent={() => <View style={styles.listGap} />}
+            ItemSeparatorComponent={ListGap}
           />
 
           <TouchableOpacity
             style={[styles.saveBtn, saveDisabled && styles.saveBtnDisabled]}
-            onPress={() => void handleSave()}
+            onPress={() => {
+              handleSave().catch(() => undefined);
+            }}
             disabled={saveDisabled}
             activeOpacity={0.88}>
             {saving ? (
@@ -488,7 +427,7 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
             )}
           </TouchableOpacity>
         </Animated.View>
-      </View>
+      </GestureHandlerRootView>
     </Modal>
   );
 };
@@ -599,6 +538,7 @@ const styles = StyleSheet.create({
   selectedSection: {
     marginBottom: spacing.lg,
     minHeight: 56,
+    overflow: 'visible',
   },
   emptyPickCard: {
     flexDirection: 'row',
@@ -616,74 +556,6 @@ const styles = StyleSheet.create({
     ...typography.caption,
     color: colors.textSecondary,
     fontWeight: '500',
-  },
-  chipsScroll: {
-    gap: spacing.sm,
-    paddingRight: spacing.xs,
-  },
-  chip: {
-    width: 148,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.primary + '35',
-    padding: spacing.sm,
-    ...shadows.sm,
-  },
-  chipPrimaryBadge: {
-    alignSelf: 'flex-start',
-    backgroundColor: colors.primary,
-    paddingHorizontal: 7,
-    paddingVertical: 2,
-    borderRadius: radius.full,
-    marginBottom: 6,
-  },
-  chipPrimaryText: {
-    fontSize: 10,
-    fontWeight: '700',
-    color: colors.white,
-  },
-  chipTopRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    marginBottom: 6,
-  },
-  chipLogoWrap: {
-    width: 40,
-    height: 40,
-    borderRadius: radius.sm,
-    backgroundColor: colors.primary + '12',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  chipRemove: {
-    marginTop: -2,
-    marginRight: -2,
-  },
-  chipName: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: colors.text,
-    lineHeight: 17,
-  },
-  chipCity: {
-    fontSize: 11,
-    color: colors.textMuted,
-    marginTop: 2,
-  },
-  chipReorder: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    gap: spacing.md,
-    marginTop: spacing.sm,
-    paddingTop: spacing.xs,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border,
-  },
-  chipReorderDisabled: {
-    opacity: 0.35,
   },
   list: {
     flex: 1,
