@@ -4,6 +4,7 @@
  * (auth matcher treats query `code=` as auth).
  */
 
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {isAuthDeepLinkUrl} from '@/services/auth/authDeepLink';
 import {
   handleInviteDeepLink,
@@ -19,7 +20,8 @@ export function classifyAppDeepLinkUrl(
     return 'ignored';
   }
   if (isInviteDeepLinkUrl(url)) {
-    return 'invite';
+    // Feature off: treat as ignored so App.tsx continues normal startup (no pending code).
+    return INVITE_5_FRIENDS_ENABLED ? 'invite' : 'ignored';
   }
   if (isAuthDeepLinkUrl(url)) {
     return 'auth';
@@ -36,6 +38,9 @@ export function classifyAppDeepLinkUrl(
 export async function handleIncomingInviteIfPresent(
   url: string | null | undefined,
 ): Promise<{handled: boolean; code: string | null}> {
+  if (!INVITE_5_FRIENDS_ENABLED) {
+    return {handled: false, code: null};
+  }
   if (classifyAppDeepLinkUrl(url) !== 'invite') {
     return {handled: false, code: null};
   }

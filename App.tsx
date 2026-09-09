@@ -17,6 +17,7 @@ import {LanguageProvider} from './src/i18n';
 import {navigationRef} from './src/navigation/navigationRef';
 import {useAppStore} from './src/store/appStore';
 import {BadgeUnlockModalHost} from './src/components/badges/BadgeUnlockModalHost';
+import {LocationProminentDisclosureHost} from './src/components/location/LocationProminentDisclosureHost';
 import {usePrivacyStore} from './src/store/privacyStore';
 import {StartupErrorBoundary} from './src/components/StartupErrorBoundary';
 import {supabase} from './src/services/supabase/supabaseClient';
@@ -205,6 +206,7 @@ const App = () => {
             <NavigationContainer ref={navigationRef} theme={DefaultTheme} linking={linking}>
               <RootNavigator />
               <BadgeUnlockModalHost />
+              <LocationProminentDisclosureHost />
             </NavigationContainer>
           </LanguageProvider>
         </SafeAreaProvider>

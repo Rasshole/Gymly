@@ -47,6 +47,15 @@ export function configureGeolocationForActiveWorkoutTracking(enabled: boolean): 
 }
 
 export async function requestBackgroundLocationForActiveWorkout(): Promise<LocationPermissionStatus> {
+  // Route through disclosure gate (background access must be disclosed first).
+  const {
+    requestBackgroundLocationWithDisclosureIfNeeded,
+  } = require('./requestLocationWithDisclosure') as typeof import('./requestLocationWithDisclosure');
+  return requestBackgroundLocationWithDisclosureIfNeeded();
+}
+
+/** OS-level background location request — call only after prominent disclosure Agree. */
+export async function requestBackgroundLocationOsPermission(): Promise<LocationPermissionStatus> {
   configureGeolocationForActiveWorkoutTracking(true);
 
   if (Platform.OS === 'android') {
@@ -203,14 +212,11 @@ export async function requestLocationPermission(): Promise<LocationPermissionSta
 
 /** Only prompts when status is notDetermined (or Android not yet granted). */
 export async function requestLocationPermissionIfNeeded(): Promise<LocationPermissionStatus> {
-  const current = await getLocationPermissionStatus();
-  if (isLocationAuthorized(current)) {
-    return current;
-  }
-  if (current === 'denied' || current === 'restricted') {
-    return current;
-  }
-  return requestLocationPermission();
+  // Always route through Gymly prominent disclosure before any OS location prompt.
+  const {
+    requestLocationPermissionWithDisclosureIfNeeded,
+  } = require('./requestLocationWithDisclosure') as typeof import('./requestLocationWithDisclosure');
+  return requestLocationPermissionWithDisclosureIfNeeded();
 }
 
 export function showLocationDeniedInAppMessage(): void {

@@ -57,6 +57,7 @@ import {
   mapReferralApplyError,
   referralApplyErrorMessageKey,
 } from '@/services/referral/referralApplyErrors';
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {
   getUsernameFormatError,
   normalizeUsernameForStorage,
@@ -74,6 +75,7 @@ import {
   requestLocationPermissionIfNeeded,
   showLocationDeniedInAppMessage,
 } from '@/services/location/locationPermission';
+import {markLocationProminentDisclosureAccepted} from '@/services/location/locationDisclosureConsent';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import {
   OnboardingPrimaryButton,
@@ -330,6 +332,8 @@ const RegisterScreen = () => {
     };
 
     try {
+      // Inline onboarding disclosure already shown — Agree is affirmative consent.
+      await markLocationProminentDisclosureAccepted();
       const status = await requestLocationPermissionIfNeeded();
       const legacy = mapLegacyLocationPermissionStatus(status);
       setLocationPermissionStatus(legacy === 'granted' ? 'granted' : 'denied');
@@ -479,25 +483,29 @@ const RegisterScreen = () => {
       }
       login(user, tokens);
 
-      const normalizedInvite = normalizeReferralCode(inviteCode);
-      if (normalizedInvite && normalizedInvite.length >= 4) {
-        try {
-          await applyReferralCode(normalizedInvite);
-          setInviteStatus('success');
-          await clearPendingInviteCode();
-        } catch (applyErr) {
-          const kind = mapReferralApplyError(applyErr);
-          setInviteStatus(kind);
-          if (kind === 'expired' || kind === 'already' || kind === 'self' || kind === 'invalid') {
+      if (INVITE_5_FRIENDS_ENABLED) {
+        const normalizedInvite = normalizeReferralCode(inviteCode);
+        if (normalizedInvite && normalizedInvite.length >= 4) {
+          try {
+            await applyReferralCode(normalizedInvite);
+            setInviteStatus('success');
             await clearPendingInviteCode();
+          } catch (applyErr) {
+            const kind = mapReferralApplyError(applyErr);
+            setInviteStatus(kind);
+            if (kind === 'expired' || kind === 'already' || kind === 'self' || kind === 'invalid') {
+              await clearPendingInviteCode();
+            }
+            Alert.alert(
+              t('inviteFive.applyFailedTitle'),
+              t(referralApplyErrorMessageKey(kind)),
+            );
+            if (__DEV__) {
+              console.warn('[Register] applyReferralCode failed', kind, applyErr);
+            }
           }
-          Alert.alert(
-            t('inviteFive.applyFailedTitle'),
-            t(referralApplyErrorMessageKey(kind)),
-          );
-          if (__DEV__) {
-            console.warn('[Register] applyReferralCode failed', kind, applyErr);
-          }
+        } else {
+          await clearPendingInviteCode();
         }
       } else {
         await clearPendingInviteCode();
@@ -520,7 +528,7 @@ const RegisterScreen = () => {
   };
 
   useEffect(() => {
-    if (step !== 'social') {
+    if (!INVITE_5_FRIENDS_ENABLED || step !== 'social') {
       return;
     }
     let cancelled = false;
@@ -899,30 +907,34 @@ const RegisterScreen = () => {
           maxLength={200}
           multiline
         />
-        <Text style={styles.inputLabel}>{t('register.inviteCodeLabel')}</Text>
-        <Text style={styles.helperMuted}>{t('register.inviteCodeHint')}</Text>
-        <TextInput
-          style={styles.input}
-          placeholder={t('register.inviteCodePlaceholder')}
-          placeholderTextColor={colors.textMuted}
-          value={inviteCode}
-          onChangeText={text => {
-            setInviteCode(text);
-            setInviteStatus('idle');
-          }}
-          autoCapitalize="characters"
-          autoCorrect={false}
-          maxLength={16}
-          accessibilityLabel={t('register.inviteCodeLabel')}
-        />
-        <Text style={styles.helperMuted}>{t('register.inviteCodeOptional')}</Text>
-        {inviteStatus !== 'idle' && inviteStatus !== 'success' ? (
-          <Text style={styles.hintErr}>
-            {t(referralApplyErrorMessageKey(inviteStatus))}
-          </Text>
-        ) : null}
-        {inviteStatus === 'success' ? (
-          <Text style={styles.hintOk}>{t('inviteFive.applySuccess')}</Text>
+        {INVITE_5_FRIENDS_ENABLED ? (
+          <>
+            <Text style={styles.inputLabel}>{t('register.inviteCodeLabel')}</Text>
+            <Text style={styles.helperMuted}>{t('register.inviteCodeHint')}</Text>
+            <TextInput
+              style={styles.input}
+              placeholder={t('register.inviteCodePlaceholder')}
+              placeholderTextColor={colors.textMuted}
+              value={inviteCode}
+              onChangeText={text => {
+                setInviteCode(text);
+                setInviteStatus('idle');
+              }}
+              autoCapitalize="characters"
+              autoCorrect={false}
+              maxLength={16}
+              accessibilityLabel={t('register.inviteCodeLabel')}
+            />
+            <Text style={styles.helperMuted}>{t('register.inviteCodeOptional')}</Text>
+            {inviteStatus !== 'idle' && inviteStatus !== 'success' ? (
+              <Text style={styles.hintErr}>
+                {t(referralApplyErrorMessageKey(inviteStatus))}
+              </Text>
+            ) : null}
+            {inviteStatus === 'success' ? (
+              <Text style={styles.hintOk}>{t('inviteFive.applySuccess')}</Text>
+            ) : null}
+          </>
         ) : null}
       </View>
 
@@ -964,8 +976,9 @@ const RegisterScreen = () => {
         </View>
 
         <View style={styles.consentLocationSection}>
-          <Text style={styles.consentHead}>{t('register.consentLocationTitle')}</Text>
-          <Text style={styles.consentSub}>{t('register.consentLocationBody')}</Text>
+          <Text style={styles.consentHead}>{t('locationDisclosure.title')}</Text>
+          <Text style={styles.consentSub}>{t('locationDisclosure.body')}</Text>
+          <Text style={styles.consentSub}>{t('locationDisclosure.notForAds')}</Text>
           <View style={styles.locationCardInner}>
             {locationPermissionStatus === 'granted' ? (
               <View style={styles.locationSuccessBox}>
@@ -983,32 +996,22 @@ const RegisterScreen = () => {
               </View>
             ) : (
               <>
-                <View style={styles.locationStatusRow}>
-                  <Icon name="location-outline" size={26} color={colors.primary} />
-                  <View style={styles.locationStatusTextCol}>
-                    <Text style={styles.locationStatusTitle}>
-                      {t('register.consentLocationPrompt')}
-                    </Text>
-                    <Text style={styles.locationStatusSub}>
-                      {t('register.consentLocationPromptSub')}
-                    </Text>
-                  </View>
-                </View>
                 <OnboardingPrimaryButton
-                  label={t('register.consentAllowLocation')}
+                  label={t('locationDisclosure.agree')}
                   onPress={requestOnboardingLocation}
                   loading={locationRequesting}
                   style={styles.locationAllowBtnWrap}
                 />
-                {locationPermissionStatus === 'denied' ? (
-                  <TouchableOpacity
-                    style={styles.locationRetryBtn}
-                    onPress={requestOnboardingLocation}
-                    disabled={locationRequesting}
-                    hitSlop={8}>
-                    <Text style={styles.locationRetryText}>{t('common.retry')}</Text>
-                  </TouchableOpacity>
-                ) : null}
+                <TouchableOpacity
+                  style={styles.locationRetryBtn}
+                  onPress={() => setLocationPermissionStatus('denied')}
+                  disabled={locationRequesting}
+                  hitSlop={8}
+                  accessibilityRole="button">
+                  <Text style={styles.locationRetryText}>
+                    {t('locationDisclosure.notNow')}
+                  </Text>
+                </TouchableOpacity>
               </>
             )}
           </View>
@@ -1053,7 +1056,7 @@ const RegisterScreen = () => {
         label={t('register.acceptAndCreate')}
         onPress={handleCompleteRegistration}
         disabled={
-          !privacyAccepted || !termsAccepted || locationPermissionStatus !== 'granted'
+          !privacyAccepted || !termsAccepted
         }
         loading={isLoading}
       />

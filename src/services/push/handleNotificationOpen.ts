@@ -1,5 +1,9 @@
 import {navigationRef} from '@/navigation/navigationRef';
-import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
+import {
+  INVITE_5_FRIENDS_ENABLED,
+  SURFACE_GROUPS_IN_APP,
+} from '@/config/launchSurfaceConfig';
+import {REFERRAL_FOUNDER_BADGE_ID} from '@/services/referral/referralCodeUtils';
 
 /**
  * FCM data: alle værdier er strenge. Naviger fra baggrund/quit.
@@ -158,6 +162,13 @@ export function navigateFromPushData(data: Record<string, string> | undefined): 
 
   if (type === 'badge_unlocked' || type === 'streak_milestone' || type === 'badge_progress') {
     const badgeId = data.badgeId;
+    if (
+      !INVITE_5_FRIENDS_ENABLED &&
+      badgeId === REFERRAL_FOUNDER_BADGE_ID
+    ) {
+      nav.navigate('Notifications', notifId ? {highlightNotificationId: notifId} : undefined);
+      return;
+    }
     nav.navigate('Badges', badgeId ? {highlightBadgeId: badgeId} : undefined);
     return;
   }

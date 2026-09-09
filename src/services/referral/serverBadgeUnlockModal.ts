@@ -9,6 +9,7 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {REFERRAL_FOUNDER_BADGE_ID} from '@/services/referral/referralCodeUtils';
 import {useBadgeStore} from '@/store/badgeStore';
 
@@ -55,6 +56,13 @@ export function isServerBadgeUnlockQueuedOrDisplaying(badgeId: string): boolean 
 export async function enqueueServerAwardedBadgeUnlockOnce(
   badgeId: string,
 ): Promise<boolean> {
+  // Founding Crew celebration is part of Invite 5 Friends launch surface.
+  if (
+    !INVITE_5_FRIENDS_ENABLED &&
+    badgeId === REFERRAL_FOUNDER_BADGE_ID
+  ) {
+    return false;
+  }
   const def = BADGE_BY_ID[badgeId];
   if (!def || def.requirement_type !== 'manual_server') {
     return false;

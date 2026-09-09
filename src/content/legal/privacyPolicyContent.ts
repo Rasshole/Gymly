@@ -5,7 +5,7 @@ const privacyDa: LegalDocument = {
   icon: '🔐',
   headerTitle: 'Privatlivspolitik',
   mainTitle: 'Privatlivspolitik for Gymly',
-  lastUpdated: 'Sidst opdateret: 20. dec. 2025',
+  lastUpdated: 'Sidst opdateret: 9. sep. 2026',
   sections: [
     {
       paragraphs: [
@@ -28,10 +28,12 @@ const privacyDa: LegalDocument = {
       bullets: [
         'Enhedsoplysninger',
         'App-brug og interaktion',
-        'Omtrentlig lokation (kun til check-in-funktion)',
+        'Præcis lokation under check-in og aktiv træning (til geofence-verifikation)',
+        'Afstand til center under aktiv check-in (gemmes som meter, ikke koordinater)',
       ],
       paragraphs: [
-        'Vi indsamler ikke præcis GPS-sporing i baggrunden, medmindre det tydeligt er aktiveret af brugeren.',
+        'Under en aktiv træning kan Gymly fortsætte med at bruge placering i baggrunden — også når appen er lukket eller ikke er i brug — for at aktivere automatisk tjek-ud, når du forlader centerområdet. Dine præcise GPS-koordinater uploades ikke; vi gemmer typisk kun afstanden til centret sammen med din session.',
+        'Placering bruges ikke til reklame.',
       ],
     },
     {
@@ -41,6 +43,7 @@ const privacyDa: LegalDocument = {
         'Drive og forbedre Appen',
         'Muliggøre sociale funktioner',
         'Vise check-ins og aktivitet',
+        'Verificere check-in inden for ca. 200 m og automatisk tjek-ud',
         'Sikre appens stabilitet og sikkerhed',
         'Overholde juridiske krav',
       ],
@@ -109,7 +112,7 @@ const privacyEn: LegalDocument = {
   icon: '🔐',
   headerTitle: 'Privacy policy',
   mainTitle: 'Privacy Policy for Gymly',
-  lastUpdated: 'Last updated: Dec 20, 2025',
+  lastUpdated: 'Last updated: Sep 9, 2026',
   sections: [
     {
       paragraphs: [
@@ -132,10 +135,12 @@ const privacyEn: LegalDocument = {
       bullets: [
         'Device information',
         'App usage and interaction',
-        'Approximate location (only for check-in)',
+        'Precise location during check-in and active workouts (for geofence verification)',
+        'Distance to the gym during an active check-in (stored as meters, not coordinates)',
       ],
       paragraphs: [
-        'We do not collect precise background GPS tracking unless clearly enabled by the user.',
+        'During an active workout, Gymly may continue to use location in the background — including when the app is closed or not in use — to enable automatic check-out when you leave the gym area. Your exact GPS coordinates are not uploaded; we typically store only the distance to the gym with your session.',
+        'Location is not used for advertising.',
       ],
     },
     {
@@ -145,6 +150,7 @@ const privacyEn: LegalDocument = {
         'Operate and improve the App',
         'Enable social features',
         'Show check-ins and activity',
+        'Verify check-in within about 200 m and automatic check-out',
         'Ensure app stability and security',
         'Comply with legal requirements',
       ],

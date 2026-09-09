@@ -46,6 +46,18 @@ jest.mock('@/services/auth/authDeepLink', () => ({
   },
 }));
 
+/**
+ * Checkpoint F validates the preserved invite deep-link implementation.
+ * Production launch surface keeps INVITE_5_FRIENDS_ENABLED=false; force-enable here.
+ */
+jest.mock('@/config/launchSurfaceConfig', () => {
+  const actual = jest.requireActual('@/config/launchSurfaceConfig');
+  return {
+    ...actual,
+    INVITE_5_FRIENDS_ENABLED: true,
+  };
+});
+
 import fs from 'fs';
 import path from 'path';
 import {

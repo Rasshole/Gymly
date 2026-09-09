@@ -5,6 +5,7 @@
  */
 
 import {supabase} from '@/services/supabase/supabaseClient';
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {
   REFERRAL_CAMPAIGN_ID,
   REFERRAL_FOUNDER_BADGE_ID,
@@ -177,5 +178,10 @@ export function scheduleReferralQualifyAfterActivity(
   userId: string,
   source: 'check_in' | 'workout' = 'check_in',
 ): void {
+  // Launch surface: skip client qualify fallback while Invite 5 Friends is hidden.
+  // Server check-in trigger may still run independently; UI remains gated.
+  if (!INVITE_5_FRIENDS_ENABLED) {
+    return;
+  }
   void tryQualifyMyReferral(userId, source);
 }

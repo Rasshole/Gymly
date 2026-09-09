@@ -25,6 +25,7 @@ import {
   getBadgeProgressList,
 } from '@/store/badgeStore';
 import {BADGE_DEFINITIONS} from '@/config/badgeDefinitions';
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {useTranslation, progressLabelT, rt} from '@/i18n';
 import {badgeDisplayDescription, badgeDisplayName} from '@/i18n/badgeDisplay';
 import type {BadgeCategory, BadgeRarity} from '@/types/badge.types';
@@ -33,7 +34,7 @@ import {spacing, radius, typography} from '@/theme/designTokens';
 
 type BadgeStatus = 'locked' | 'almost_unlocked' | 'unlocked';
 
-const SECTION_ORDER: BadgeCategory[] = [
+const SECTION_ORDER_ALL: BadgeCategory[] = [
   'checkin',
   'streak',
   'sessions',
@@ -46,6 +47,10 @@ const SECTION_ORDER: BadgeCategory[] = [
   'habits',
   'elite',
 ];
+
+const SECTION_ORDER: BadgeCategory[] = INVITE_5_FRIENDS_ENABLED
+  ? SECTION_ORDER_ALL
+  : SECTION_ORDER_ALL.filter(c => c !== 'referral');
 
 const SECTION_TITLE_KEY: Record<BadgeCategory, string> = {
   streak: 'badges.sectionStreak',

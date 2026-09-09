@@ -40,6 +40,7 @@ import {enqueueFoundingCrewUnlockOnce} from '@/services/referral/serverBadgeUnlo
 import {openShopCheckoutBrowser} from '@/shop/destination/openShopCheckoutBrowser';
 import {useBadgeStore} from '@/store/badgeStore';
 import {useAppStore} from '@/store/appStore';
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {copyToClipboard} from '@/utils/clipboard';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
@@ -50,6 +51,18 @@ export default function InviteFiveFriendsScreen() {
   const userId = useAppStore(s => s.user?.id);
   const isUnlocked = useBadgeStore(s => s.isUnlocked);
   const hydrateUserBadgesFromServer = useBadgeStore(s => s.hydrateUserBadgesFromServer);
+
+  // Stale route / deep navigation: exit safely while campaign is launch-gated.
+  useEffect(() => {
+    if (!INVITE_5_FRIENDS_ENABLED) {
+      if (navigation.canGoBack()) {
+        navigation.goBack();
+      } else {
+        // No back stack — land on Friends tab (normal social surface).
+        (navigation as {navigate: (name: string) => void}).navigate('Friends');
+      }
+    }
+  }, [navigation]);
 
   const [progress, setProgress] = useState<ReferralProgress | null>(null);
   const [loading, setLoading] = useState(true);
@@ -78,6 +91,10 @@ export default function InviteFiveFriendsScreen() {
   );
 
   const load = useCallback(async () => {
+    if (!INVITE_5_FRIENDS_ENABLED) {
+      setLoading(false);
+      return;
+    }
     setError(false);
     setLoading(true);
     try {
@@ -96,11 +113,17 @@ export default function InviteFiveFriendsScreen() {
 
   useFocusEffect(
     useCallback(() => {
+      if (!INVITE_5_FRIENDS_ENABLED) {
+        return;
+      }
       void load();
     }, [load]),
   );
 
   useEffect(() => {
+    if (!INVITE_5_FRIENDS_ENABLED) {
+      return;
+    }
     const onChange = (state: AppStateStatus) => {
       if (state === 'active') {
         void load();
@@ -111,7 +134,7 @@ export default function InviteFiveFriendsScreen() {
   }, [load]);
 
   useEffect(() => {
-    if (!founderUnlocked) {
+    if (!INVITE_5_FRIENDS_ENABLED || !founderUnlocked) {
       return;
     }
     void enqueueFoundingCrewUnlockOnce();
@@ -175,6 +198,10 @@ export default function InviteFiveFriendsScreen() {
       setBusyAction(null);
     }
   };
+
+  if (!INVITE_5_FRIENDS_ENABLED) {
+    return null;
+  }
 
   return (
     <View style={styles.screen}>

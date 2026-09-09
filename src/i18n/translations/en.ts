@@ -523,12 +523,12 @@ const en = {
     consentTermsLink: 'Read terms',
     consentLocationTitle: 'Location',
     consentLocationBody:
-      'Gymly uses your location to show gyms and when you check in at a gym.',
+      'Gymly collects location data to verify that you are at the selected gym when you check in, to show nearby gyms on the map, and to enable automatic check-out when you leave the gym area during an active workout, even when the app is closed or not in use.',
     consentLocationGranted: 'Location allowed',
     consentLocationGrantedSub: 'You can create your account.',
     consentLocationPrompt: 'Allow location access',
-    consentLocationPromptSub: 'Tap below — you will see a system location dialog.',
-    consentAllowLocation: 'Allow location',
+    consentLocationPromptSub: 'Tap Agree to continue to the system location dialog.',
+    consentAllowLocation: 'Agree',
     consentOptional: 'Optional',
     consentMarketing: 'News from Gymly',
     consentMarketingSub: 'Tips and updates',
@@ -2068,9 +2068,18 @@ const en = {
     locationDeniedBody: 'Location is turned off. Go to Settings to turn it on.',
     openSettings: 'Open Settings',
     androidRationaleTitle: 'Location access',
-    androidRationaleMessage: 'Gymly uses your location for check-in at gyms.',
+    androidRationaleMessage:
+      'Gymly uses your location to verify gym check-ins and for automatic check-out during an active workout.',
     androidBackgroundTitle: 'Background location',
     androidLater: 'Later',
+  },
+  locationDisclosure: {
+    title: 'Location access',
+    body:
+      'Gymly collects location data to verify that you are at the selected gym when you check in, to show nearby gyms on the map, and to enable automatic check-out when you leave the gym area during an active workout, even when the app is closed or not in use.\n\nYour exact coordinates stay on your device for verification. Gymly may store the distance to your gym (not your exact coordinates) with your check-in session on our servers.',
+    notForAds: 'Your location is not used for advertising.',
+    agree: 'Agree',
+    notNow: 'Not now',
   },
   userProfileModal: {
     friendsAlertTitle: 'Friends',

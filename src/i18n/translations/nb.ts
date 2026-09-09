@@ -521,12 +521,12 @@ const nb = {
     consentTerms: "Vilkår for bruk",
     consentTermsLink: "Læs vilkår",
     consentLocationTitle: "Posisjon",
-    consentLocationBody: "Gymly bruker din posisjon til å vise gym og når du sjekker inn ved et gym.",
-    consentLocationGranted: "Lokation tilladt",
-    consentLocationGrantedSub: "Du kan opprette din konto.",
-    consentLocationPrompt: "Tillad brug av lokation",
-    consentLocationPromptSub: "Trykk herunder — du får en systemdialog om posisjon.",
-    consentAllowLocation: "Tillad lokation",
+    consentLocationBody: "Gymly samler inn posisjonsdata for å bekrefte at du er på det valgte treningssenteret når du sjekker inn, for å vise nærliggende sentre på kartet, og for å aktivere automatisk sjekk-ut når du forlater senterområdet under en aktiv trening — også når appen er lukket eller ikke i bruk.",
+    consentLocationGranted: "Lokasjon tillatt",
+    consentLocationGrantedSub: "Du kan opprette kontoen din.",
+    consentLocationPrompt: "Tillat posisjonstilgang",
+    consentLocationPromptSub: "Trykk Godta for å fortsette til systemdialogen om posisjon.",
+    consentAllowLocation: "Godta",
     consentOptional: "Valgfritt",
     consentMarketing: "Nyheder fra Gymly",
     consentMarketingSub: "Tips og opdateringer",
@@ -2009,13 +2009,20 @@ const nb = {
     shareFallback: "Jeg har nettopp trent på Gymly 💜"
   },
   permissions: {
-    locationTitle: "Lokation",
-    locationDeniedBody: "Lokation er slått av. Gå til Innstillinger for å slå det til.",
+    locationTitle: "Lokasjon",
+    locationDeniedBody: "Lokasjon er slått av. Gå til Innstillinger for å slå det til.",
     openSettings: "Åpne Innstillinger",
     androidRationaleTitle: "Posisjonsadgang",
-    androidRationaleMessage: "Gymly bruker din posisjon til check-in ved fitnessgym.",
-    androidBackgroundTitle: "Posisjon i baggrunden",
+    androidRationaleMessage: "Gymly bruker din posisjon for å bekrefte check-in og til automatisk sjekk-ut under en aktiv trening.",
+    androidBackgroundTitle: "Posisjon i bakgrunnen",
     androidLater: "Senere"
+  },
+  locationDisclosure: {
+    title: "Posisjonsadgang",
+    body: "Gymly samler inn posisjonsdata for å bekrefte at du er på det valgte treningssenteret når du sjekker inn, for å vise nærliggende sentre på kartet, og for å aktivere automatisk sjekk-ut når du forlater senterområdet under en aktiv trening — også når appen er lukket eller ikke i bruk.\n\nDine nøyaktige koordinater blir på enheten din for verifisering. Gymly kan lagre avstanden til treningssenteret ditt (ikke nøyaktige koordinater) sammen med check-in-økten din på serverne våre.",
+    notForAds: "Posisjonen din brukes ikke til reklame.",
+    agree: "Godta",
+    notNow: "Ikke nå"
   },
   userProfileModal: {
     friendsAlertTitle: "Venner",

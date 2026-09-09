@@ -58,3 +58,13 @@ export const SURFACE_DEMO_MODE_IN_SETTINGS = false;
  * Keep `true` for Shop Phase 1B local QA once Shopify token is configured.
  */
 export const SURFACE_SHOP_IN_TABS = true;
+
+/**
+ * Invite 5 Friends / Founding Crew campaign (hub, Friends/Settings CTAs, register
+ * invite field, invite deep links, client qualify fallback, Founding Crew modal).
+ *
+ * Implementation stays in-repo — flip to `true` after QA. While `false`, CTAs are
+ * hidden, invite deep links are ignored (no pending code), and the hub screen
+ * exits safely if opened via a stale route.
+ */
+export const INVITE_5_FRIENDS_ENABLED = false;

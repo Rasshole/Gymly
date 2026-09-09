@@ -46,6 +46,15 @@ jest.mock('@/store/badgeStore', () => {
   };
 });
 
+/** Checkpoint E validates Founding Crew celebration when the campaign is enabled. */
+jest.mock('@/config/launchSurfaceConfig', () => {
+  const actual = jest.requireActual('@/config/launchSurfaceConfig');
+  return {
+    ...actual,
+    INVITE_5_FRIENDS_ENABLED: true,
+  };
+});
+
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
 import {
   REFERRAL_REWARDS_COLLECTION_LIVE,

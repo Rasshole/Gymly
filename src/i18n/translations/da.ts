@@ -527,13 +527,13 @@ const da = {
     consentTermsLink: 'Læs vilkår',
     consentLocationTitle: 'Placering',
     consentLocationBody:
-      'Gymly bruger din placering til at vise centre og når du tjekker ind ved et center.',
+      'Gymly indsamler lokationsdata for at bekræfte, at du er ved det valgte center, når du tjekker ind, for at vise nærliggende centre på kortet, og for at aktivere automatisk tjek-ud, når du forlader centerområdet under en aktiv træning — også når appen er lukket eller ikke er i brug.',
     consentLocationGranted: 'Lokation tilladt',
     consentLocationGrantedSub: 'Du kan oprette din konto.',
     consentLocationPrompt: 'Tillad brug af lokation',
     consentLocationPromptSub:
-      'Tryk herunder — du får en systemdialog om placering.',
-    consentAllowLocation: 'Tillad lokation',
+      'Tryk på Accepter for at fortsætte til systemdialogen om placering.',
+    consentAllowLocation: 'Accepter',
     consentOptional: 'Valgfrit',
     consentMarketing: 'Nyheder fra Gymly',
     consentMarketingSub: 'Tips og opdateringer',
@@ -2078,9 +2078,18 @@ const da = {
     locationDeniedBody: 'Lokation er slået fra. Gå til Indstillinger for at slå det til.',
     openSettings: 'Åbn Indstillinger',
     androidRationaleTitle: 'Placeringsadgang',
-    androidRationaleMessage: 'Gymly bruger din placering til check-in ved fitnesscentre.',
+    androidRationaleMessage:
+      'Gymly bruger din placering til at bekræfte check-in og til automatisk tjek-ud under en aktiv træning.',
     androidBackgroundTitle: 'Placering i baggrunden',
     androidLater: 'Senere',
+  },
+  locationDisclosure: {
+    title: 'Placeringsadgang',
+    body:
+      'Gymly indsamler lokationsdata for at bekræfte, at du er ved det valgte center, når du tjekker ind, for at vise nærliggende centre på kortet, og for at aktivere automatisk tjek-ud, når du forlader centerområdet under en aktiv træning — også når appen er lukket eller ikke er i brug.\n\nDine præcise koordinater bliver på din enhed til verifikation. Gymly kan gemme afstanden til dit center (ikke dine præcise koordinater) sammen med din check-in-session på vores servere.',
+    notForAds: 'Din placering bruges ikke til reklame.',
+    agree: 'Accepter',
+    notNow: 'Ikke nu',
   },
   userProfileModal: {
     friendsAlertTitle: 'Venner',

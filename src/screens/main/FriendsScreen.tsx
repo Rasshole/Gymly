@@ -25,6 +25,7 @@ import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {MuscleGroup} from '@/types/workout.types';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {
@@ -131,6 +132,9 @@ const FriendsScreen = () => {
   }, [stackNavigate]);
 
   const openInviteFiveFriends = useCallback(() => {
+    if (!INVITE_5_FRIENDS_ENABLED) {
+      return;
+    }
     stackNavigate('InviteFiveFriends');
   }, [stackNavigate]);
 
@@ -435,13 +439,15 @@ const FriendsScreen = () => {
               variant="premium"
               style={styles.addFriendBanner}
             />
-            <SocialPrimaryButton
-              label={t('inviteFive.friendsEntry')}
-              iconName="gift-outline"
-              onPress={openInviteFiveFriends}
-              variant="flat"
-              style={styles.inviteFriendsBanner}
-            />
+            {INVITE_5_FRIENDS_ENABLED ? (
+              <SocialPrimaryButton
+                label={t('inviteFive.friendsEntry')}
+                iconName="gift-outline"
+                onPress={openInviteFiveFriends}
+                variant="flat"
+                style={styles.inviteFriendsBanner}
+              />
+            ) : null}
             {pendingFriendRequests > 0 ? (
               <FriendRequestsCard onPress={openFriendRequestsSheet} />
             ) : null}

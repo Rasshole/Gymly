@@ -27,7 +27,7 @@ import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows, layout, iconSize} from '@/theme/designTokens';
-import {SURFACE_DEMO_MODE_IN_SETTINGS} from '@/config/launchSurfaceConfig';
+import {SURFACE_DEMO_MODE_IN_SETTINGS, INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {useTranslation} from '@/i18n';
 
 const SettingsScreen = () => {
@@ -306,12 +306,14 @@ const SettingsScreen = () => {
             subtitle={t('settings.editProfileSub')}
             onPress={() => navigation.navigate('EditProfile')}
           />
-          <SettingRow
-            icon="gift-outline"
-            title={t('inviteFive.settingsEntry')}
-            subtitle={t('inviteFive.settingsEntrySub')}
-            onPress={() => navigation.navigate('InviteFiveFriends')}
-          />
+          {INVITE_5_FRIENDS_ENABLED ? (
+            <SettingRow
+              icon="gift-outline"
+              title={t('inviteFive.settingsEntry')}
+              subtitle={t('inviteFive.settingsEntrySub')}
+              onPress={() => navigation.navigate('InviteFiveFriends')}
+            />
+          ) : null}
           <SettingRow
             icon="mail-outline"
             title={t('settings.changeEmail')}
