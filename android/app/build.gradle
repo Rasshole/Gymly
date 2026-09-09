@@ -42,7 +42,7 @@ android {
         applicationId "com.gymly"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 51
+        versionCode 52
         versionName "2.1.0"
         manifestPlaceholders = [
             GOOGLE_MAPS_API_KEY: googleMapsApiKey,
