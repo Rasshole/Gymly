@@ -114,4 +114,28 @@ describe('EditProfileCentersSheet source contracts', () => {
   it('keys chips by gym id', () => {
     expect(row).toMatch(/key=\{gym\.id\}/);
   });
+
+  it('keeps useAnimatedStyle free of Platform.select (Android Reanimated crash)', () => {
+    const animatedBlocks = [
+      ...row.matchAll(/useAnimatedStyle\(\(\) => \{([\s\S]*?)\},?\s*\[[^\]]*\]\)/g),
+    ].map(m => m[1] ?? '');
+    expect(animatedBlocks.length).toBeGreaterThan(0);
+    for (const block of animatedBlocks) {
+      expect(block).not.toMatch(/Platform\.select/);
+      expect(block).not.toMatch(/Platform\.OS/);
+    }
+    // Elevation/shadow must not be driven via Platform APIs inside the worklet.
+    expect(row).not.toMatch(
+      /useAnimatedStyle\([\s\S]*Platform\.select[\s\S]*\[[^\]]*\]\)/,
+    );
+  });
+
+  it('mounts GestureHandlerRootView inside the Modal for Android gestures', () => {
+    expect(sheet).toMatch(/<Modal[\s\S]*<GestureHandlerRootView/);
+  });
+
+  it('uses pickBrowseGyms for default Alle centre browse (not empty catalog slice)', () => {
+    expect(sheet).toMatch(/pickBrowseGyms\(/);
+    expect(sheet).toMatch(/searchGyms\(/);
+  });
 });

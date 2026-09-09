@@ -1,13 +1,23 @@
-import {pickBrowseGyms} from '@/utils/pickBrowseGyms';
+import {
+  pickBrowseGyms,
+  pickGlobalBrowseFallback,
+} from '@/utils/pickBrowseGyms';
 import {rankNearbyCentres} from '@/utils/nearbyCentersRanking';
 import {getActiveGyms} from '@/data/gymCatalog';
 import type {DanishGym} from '@/data/danishGyms';
+import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
 
 const ACTIVE = getActiveGyms();
 
 describe('pickBrowseGyms', () => {
-  it('returns empty when location unknown (forces search)', () => {
-    expect(pickBrowseGyms({gyms: ACTIVE, userLocation: null})).toEqual([]);
+  it('returns non-empty global sample when location unknown (not Denmark-only)', () => {
+    const list = pickBrowseGyms({gyms: ACTIVE, userLocation: null, cap: 49});
+    expect(list.length).toBe(49);
+    const countries = new Set(list.map(g => g.country));
+    expect(countries.size).toBeGreaterThan(1);
+    expect(list.every(g => g.country === 'Denmark')).toBe(false);
+    // Not the catalog-order Denmark prefix
+    expect(list.map(g => g.id)).not.toEqual(ACTIVE.slice(0, 49).map(g => g.id));
   });
 
   it('does not return catalog-order Denmark prefix at Berlin coords', () => {
@@ -20,6 +30,35 @@ describe('pickBrowseGyms', () => {
     expect(list.some(g => g.country === 'Germany')).toBe(true);
     expect(list.every(g => g.country === 'Denmark')).toBe(false);
   });
+
+  it('with location still returns nearest-first non-empty browse', () => {
+    const list = pickBrowseGyms({
+      gyms: ACTIVE,
+      userLocation: {latitude: 55.6761, longitude: 12.5683},
+      cap: 30,
+    });
+    expect(list.length).toBe(30);
+  });
+});
+
+describe('pickGlobalBrowseFallback', () => {
+  it('round-robins countries and respects exclude + cap', () => {
+    const exclude = new Set([ACTIVE[0]!.id]);
+    const list = pickGlobalBrowseFallback(ACTIVE, exclude, 20);
+    expect(list.length).toBe(20);
+    expect(list.every(g => g.id !== ACTIVE[0]!.id)).toBe(true);
+    expect(new Set(list.map(g => g.country)).size).toBeGreaterThan(1);
+  });
+});
+
+describe('Edit Home Gyms search remains global', () => {
+  it.each(['Berlin', 'Stockholm', 'London', 'Moscow'] as const)(
+    'search resolves %s',
+    q => {
+      const hits = searchGyms(q, {gyms: ACTIVE, limit: 10});
+      expect(hits.length).toBeGreaterThan(0);
+    },
+  );
 });
 
 describe('rankNearbyCentres browse regression', () => {

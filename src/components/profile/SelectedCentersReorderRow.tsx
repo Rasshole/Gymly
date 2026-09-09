@@ -5,7 +5,6 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   AccessibilityActionEvent,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -87,21 +86,14 @@ function SelectedCenterChip({
     : 0;
   const restOffset = useSharedValue(0);
   const scale = useSharedValue(1);
-  const elev = useSharedValue(0);
 
   useEffect(() => {
     restOffset.value = withSpring(slotShift * SELECTED_CHIP_SLOT, springConfig);
   }, [restOffset, slotShift]);
 
   useEffect(() => {
-    if (isActive) {
-      scale.value = withSpring(1.06, springConfig);
-      elev.value = withSpring(1, springConfig);
-    } else {
-      scale.value = withSpring(1, springConfig);
-      elev.value = withSpring(0, springConfig);
-    }
-  }, [elev, isActive, scale]);
+    scale.value = withSpring(isActive ? 1.06 : 1, springConfig);
+  }, [isActive, scale]);
 
   const startDragJs = useCallback(() => {
     triggerHaptic('medium');
@@ -159,22 +151,13 @@ function SelectedCenterChip({
     [cancelDragJs, count, dragX, endDragJs, hoverJs, index, startDragJs],
   );
 
+  // Do not call Platform.* inside this worklet — crashes Reanimated on Android mount.
   const animatedStyle = useAnimatedStyle(() => {
     const tx = isActive ? dragX.value : restOffset.value;
     return {
       transform: [{translateX: tx}, {scale: scale.value}],
       zIndex: isActive ? 20 : 1,
       opacity: isActive ? 0.92 : 1,
-      ...Platform.select({
-        ios: {
-          shadowOpacity: 0.08 + elev.value * 0.16,
-          shadowRadius: 4 + elev.value * 10,
-        },
-        android: {
-          elevation: 2 + elev.value * 8,
-        },
-        default: {},
-      }),
     };
   }, [isActive]);
 
