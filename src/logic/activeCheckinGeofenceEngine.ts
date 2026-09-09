@@ -1,7 +1,9 @@
 import {
+  ACTIVE_CHECKIN_OUTSIDE_GRACE_MS,
   ACTIVE_CHECKIN_SAFE_RADIUS,
   ACTIVE_CHECKIN_SPIKE_MAX_DELTA_M,
   ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE,
+  ACTIVE_CHECKIN_STALE_LOCATION_GAP_MS,
   MAX_DISTANCE_SAMPLES,
 } from '@/config/activeCheckinGeofenceConfig';
 
@@ -23,19 +25,53 @@ function median(values: number[]): number {
     : s[mid]!;
 }
 
+/** True when a prior accepted sample exists but is older than the stale gap. */
+export function isGeofenceLocationSampleStale(
+  lastCoordsAtMs: number,
+  nowMs: number,
+  staleGapMs: number = ACTIVE_CHECKIN_STALE_LOCATION_GAP_MS,
+): boolean {
+  // No prior sample yet (fresh check-in) — use normal spike/grace path.
+  if (!lastCoordsAtMs || lastCoordsAtMs <= 0) {
+    return false;
+  }
+  return nowMs - lastCoordsAtMs >= staleGapMs;
+}
+
+/**
+ * After a long gap outside the radius, seed grace + stable-outside so checkout
+ * can complete on the first trusted resume reading (JS was paused in background).
+ */
+export function seedStaleOutsideResumeState(nowMs: number): {
+  awayStartedAt: string;
+  zoneHistory: GeofenceZone[];
+} {
+  return {
+    awayStartedAt: new Date(
+      nowMs - ACTIVE_CHECKIN_OUTSIDE_GRACE_MS - 1,
+    ).toISOString(),
+    zoneHistory: [2, 2],
+  };
+}
+
 /**
  * Rullende median over sidste 1–3 for at dæmpe enkelt-GPS-spring.
  */
 export function pushDistanceSample(
   buffer: number[],
   rawMeters: number,
-  opts?: {previousMedianForSpikeCheck?: number | null},
+  opts?: {
+    previousMedianForSpikeCheck?: number | null;
+    /** When true, skip spike reject (stale gap / first sample after background). */
+    skipSpikeReject?: boolean;
+  },
 ): {buffer: number[]; median: number; zone: GeofenceZone; rejectedSpike: boolean} {
   let next = [...buffer, rawMeters];
   if (next.length > MAX_DISTANCE_SAMPLES) {
     next = next.slice(-MAX_DISTANCE_SAMPLES);
   }
   if (
+    !opts?.skipSpikeReject &&
     typeof opts?.previousMedianForSpikeCheck === 'number' &&
     !Number.isNaN(opts.previousMedianForSpikeCheck) &&
     next.length >= 2

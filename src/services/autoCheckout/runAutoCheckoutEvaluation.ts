@@ -6,10 +6,17 @@ import Geolocation from '@react-native-community/geolocation';
 import {
   ACTIVE_CHECKIN_LOCATION_INTERVAL_MS,
   ACTIVE_CHECKIN_SAFE_RADIUS,
+  AUTO_CHECKOUT_DISTANCE_METERS,
 } from '@/config/activeCheckinGeofenceConfig';
 import {getGymLatLngForCheckIn} from '@/utils/gymCoordinatesForCheckIn';
 import {getDistanceInMeters} from '@/utils/geoUtils';
-import {pushDistanceSample, computeStableFlags, type GeofenceZone} from '@/logic/activeCheckinGeofenceEngine';
+import {
+  pushDistanceSample,
+  computeStableFlags,
+  isGeofenceLocationSampleStale,
+  seedStaleOutsideResumeState,
+  type GeofenceZone,
+} from '@/logic/activeCheckinGeofenceEngine';
 import {
   decideGeofenceAutoCheckout,
   shouldShowAwayZoneWarning,
@@ -161,18 +168,23 @@ export async function runAutoCheckoutEvaluation(params: {
   }
 
   let distM: number | null = null;
+  let sampleGapStale = isGeofenceLocationSampleStale(st.lastCoordsAt, now);
   const devD = getAutoCheckoutDevDistanceOverride();
   if (devD != null) {
     distM = devD;
     st.zoneHistory = [...st.zoneHistory, devD > ACTIVE_CHECKIN_SAFE_RADIUS ? 2 : 1].slice(-5) as GeofenceZone[];
     st.lastDistM = devD;
     st.lastCoordsAt = now;
+    sampleGapStale = false;
   } else {
     const position = await resolveUserPosition(userCoords);
     if (!position) {
       if (st.lastDistM != null && now - st.lastCoordsAt < 120_000) {
         distM = st.lastDistM;
       } else {
+        if (__DEV__) {
+          console.log('[AUTO_CHECKOUT] no position; skip evaluation');
+        }
         return;
       }
     } else {
@@ -182,14 +194,17 @@ export async function runAutoCheckoutEvaluation(params: {
         target.latitude,
         target.longitude,
       );
+      // After Android background JS pause, the first reading can jump far past
+      // the gym. That is a real move, not a 150 m GPS spike — accept it.
       const pushed = pushDistanceSample(st.buf, raw, {
-        previousMedianForSpikeCheck: st.prev,
+        previousMedianForSpikeCheck: sampleGapStale ? null : st.prev,
+        skipSpikeReject: sampleGapStale,
       });
       st.buf = pushed.buffer;
       st.prev = pushed.median;
       if (pushed.rejectedSpike) {
         if (__DEV__) {
-          console.log('[AutoCheckout] GPS spike ignored');
+          console.log('[AUTO_CHECKOUT] GPS spike ignored');
         }
         return;
       }
@@ -204,6 +219,23 @@ export async function runAutoCheckoutEvaluation(params: {
     return;
   }
 
+  // Resume / background gap: user already spent ≥ grace outside while JS slept.
+  // Seed away + stable-outside so checkout can complete on this reading.
+  if (
+    sampleGapStale &&
+    distM > AUTO_CHECKOUT_DISTANCE_METERS &&
+    getAutoCheckoutDevDistanceOverride() == null
+  ) {
+    const seeded = seedStaleOutsideResumeState(now);
+    st.clientAwayStartedAt = seeded.awayStartedAt;
+    st.zoneHistory = seeded.zoneHistory;
+    if (__DEV__) {
+      console.log('[AUTO_CHECKOUT] stale gap outside — seed grace for checkout', {
+        distM: Math.round(distM),
+      });
+    }
+  }
+
   const awayIso =
     st.clientAwayStartedAt ?? row.away_started_at ?? null;
   const decision = decideGeofenceAutoCheckout(distM, awayIso, now);
@@ -215,10 +247,11 @@ export async function runAutoCheckoutEvaluation(params: {
   }
 
   if (__DEV__) {
-    console.log('[AutoCheckout]', {
+    console.log('[AUTO_CHECKOUT] evaluate', {
       distM: Math.round(distM),
       action: decision.action,
-      awayIso: st.clientAwayStartedAt ?? row.away_started_at,
+      appState,
+      sampleGapStale,
     });
   }
 

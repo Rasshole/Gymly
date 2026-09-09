@@ -4,6 +4,9 @@
  *
  * Afstand beregnes altid mod stored/active check-in gym_id (ikke nærmeste center).
  * Safeguards: rolling median, spike reject, ~12s grace, 2 consecutive outside readings.
+ *
+ * Spike reject is skipped after a long gap without fresh coords (typical Android
+ * background JS pause) so a legitimate large move is not treated as GPS noise.
  */
 
 import {CHECK_IN_RADIUS_METERS} from '@/config/dataConfig';
@@ -30,5 +33,11 @@ export const ACTIVE_CHECKIN_STABLE_CONSECUTIVE_BUFFER = ACTIVE_CHECKIN_STABLE_CO
 export const ACTIVE_CHECKIN_LOCATION_INTERVAL_MS = 8 * 1000;
 
 export const ACTIVE_CHECKIN_SPIKE_MAX_DELTA_M = 150;
+
+/**
+ * If no accepted GPS sample for this long, the next large jump is trusted
+ * (background suspension / Settings resume), not rejected as a spike.
+ */
+export const ACTIVE_CHECKIN_STALE_LOCATION_GAP_MS = 30 * 1000;
 
 export const MAX_DISTANCE_SAMPLES = 5;
