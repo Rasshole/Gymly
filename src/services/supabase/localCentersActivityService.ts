@@ -4,12 +4,14 @@ import {
   findGymByIdRelaxed,
   formatGymDisplayName,
   normalizeGymBrand,
+  formatCompactAddressForGym,
 } from '@/utils/gymDisplay';
 import {
   dedupeCheckInRowsByUserId,
   isEffectiveActiveCheckIn,
   runStaleActiveSessionCleanup,
 } from '@/services/supabase/activeSessionsSync';
+import {resolveLiveDisplayName} from '@/utils/displayName';
 
 type ActiveCheckInRow = {
   user_id: string;
@@ -39,6 +41,8 @@ export type LocalCenterActivity = {
   totalActiveCount: number;
   activeFriendsCount: number;
   activeFriends: LocalCenterFriend[];
+  /** Synlige aktive (RLS) — venner + øvrige synlige profiler */
+  activeVisible: LocalCenterFriend[];
 };
 
 export async function loadLocalCentersActivity(
@@ -91,44 +95,57 @@ export async function loadLocalCentersActivity(
   const friendRows = rows.filter(
     r => r.user_id && r.user_id !== userId && friendIds.has(r.user_id),
   );
-  const profileMap = await getPublicProfilesByIds(
-    [...new Set(friendRows.map(r => r.user_id))],
-  );
+  const allVisibleIds = [
+    ...new Set(rows.map(r => r.user_id).filter(Boolean)),
+  ];
+  const profileMap = await getPublicProfilesByIds(allVisibleIds);
 
   return ids.map(centerId => {
     const gym = findGymByIdRelaxed(centerId);
     const centerRows = byCenter.get(centerId) ?? [];
     const uniqUsers = new Set(centerRows.map(r => r.user_id).filter(Boolean));
+    const toEntry = (r: ActiveCheckInRow): LocalCenterFriend => {
+      const p = profileMap.get(r.user_id);
+      return {
+        userId: r.user_id,
+        displayName: resolveLiveDisplayName({
+          profileDisplayName: p?.displayName,
+          profileUsername: p?.username,
+          checkInDisplayName: r.user_display_name,
+        }),
+        avatarUrl: p?.avatarUrl ?? null,
+        workoutType: r.workout_type,
+        startedAt: r.started_at,
+      };
+    };
     const friendEntries: LocalCenterFriend[] = centerRows
       .filter(r => r.user_id && r.user_id !== userId && friendIds.has(r.user_id))
-      .map(r => {
-        const p = profileMap.get(r.user_id);
-        const displayName =
-          p?.displayName?.trim() ||
-          p?.username?.trim() ||
-          r.user_display_name?.trim() ||
-          'Bruger';
-        return {
-          userId: r.user_id,
-          displayName,
-          avatarUrl: p?.avatarUrl ?? null,
-          workoutType: r.workout_type,
-          startedAt: r.started_at,
-        };
-      })
+      .map(toEntry)
       .sort(
         (a, b) =>
           new Date(a.startedAt).getTime() - new Date(b.startedAt).getTime(),
       );
+    const visibleEntries: LocalCenterFriend[] = centerRows
+      .filter(r => Boolean(r.user_id))
+      .map(toEntry)
+      .sort((a, b) => {
+        const af = friendIds.has(a.userId) ? 0 : 1;
+        const bf = friendIds.has(b.userId) ? 0 : 1;
+        if (af !== bf) {
+          return af - bf;
+        }
+        return new Date(a.startedAt).getTime() - new Date(b.startedAt).getTime();
+      });
 
     return {
       centerId,
       displayName: gym ? formatGymDisplayName(gym) : centerRows[0]?.gym_name || 'Center',
       brand: normalizeGymBrand(gym?.brand) || null,
-      address: gym?._center?.address ?? null,
+      address: formatCompactAddressForGym(gym) || null,
       totalActiveCount: uniqUsers.size,
       activeFriendsCount: friendEntries.length,
       activeFriends: friendEntries,
+      activeVisible: visibleEntries,
     };
   });
 }

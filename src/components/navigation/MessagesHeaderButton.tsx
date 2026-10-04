@@ -12,6 +12,7 @@ import {useTranslation} from '@/i18n';
 import {useChatStore} from '@/store/chatStore';
 import NotificationBadge from '@/components/ui/Badge';
 import {navigateToRootScreen} from '@/navigation/rootNavigation';
+import {totalDmUnread} from '@/utils/dmUnreadTotal';
 
 const HEADER_ICON = 24;
 
@@ -23,10 +24,7 @@ export const MessagesHeaderButton: React.FC<Props> = ({color = colors.text}) => 
   const {t} = useTranslation();
   const navigation = useNavigation<NavigationProp<ParamListBase>>();
   const chats = useChatStore(s => s.chats);
-  const unread = useMemo(
-    () => chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
-    [chats],
-  );
+  const unread = useMemo(() => totalDmUnread(chats), [chats]);
 
   return (
     <TouchableOpacity

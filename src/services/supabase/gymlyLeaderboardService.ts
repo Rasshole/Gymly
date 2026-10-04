@@ -4,6 +4,7 @@ import {supabase} from '@/services/supabase/supabaseClient';
  * Not mounted from primary chrome while launch focus is live/social (see launchSurfaceConfig).
  */
 import type {LeaderboardEntry} from '@/types/leaderboard.types';
+import {safeDisplayName} from '@/utils/displayName';
 
 export type GymlyLeaderboardMetric = 'checkins' | 'minutes' | 'streak';
 export type GymlyLeaderboardPeriod = 'week' | 'month' | 'all';
@@ -161,7 +162,7 @@ export async function fetchGymlyLeaderboard(params: {
     return {
       rank: safeRank,
       userId: row.user_id,
-      displayName: row.display_name?.trim() || 'Bruger',
+      displayName: safeDisplayName(row.display_name, row.username),
       username: row.username?.trim() || undefined,
       profileImageUrl: row.avatar_url ?? undefined,
       value,

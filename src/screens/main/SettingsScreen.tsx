@@ -21,13 +21,11 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import {usePrivacyStore} from '@/store/privacyStore';
-import {useDemoModeStore} from '@/demo/demoModeStore';
-import {seedDemoStores, clearDemoStoresAfterDisable} from '@/demo/seedDemoStores';
 import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows, layout, iconSize} from '@/theme/designTokens';
-import {SURFACE_DEMO_MODE_IN_SETTINGS, INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
+import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {useTranslation} from '@/i18n';
 
 const SettingsScreen = () => {
@@ -45,9 +43,6 @@ const SettingsScreen = () => {
   const [autoplayVideo, setAutoplayVideo] = useState(true);
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
   const [deviceComingSoonOpen, setDeviceComingSoonOpen] = useState(false);
-  const [demoBusy, setDemoBusy] = useState(false);
-  const demoEnabled = useDemoModeStore(s => s.enabled);
-  const setDemoEnabledPersisted = useDemoModeStore(s => s.setEnabled);
   const deviceModalOpacity = useRef(new Animated.Value(0)).current;
   const deviceModalScale = useRef(new Animated.Value(0.95)).current;
 
@@ -68,33 +63,6 @@ const SettingsScreen = () => {
     } catch {
       Alert.alert(t('common.error'), t('settings.updateFailed'));
       setAnalyticsEnabled(!value);
-    }
-  };
-
-  const handleDemoContentToggle = async (next: boolean) => {
-    if (!__DEV__) {
-      return;
-    }
-    if (!user?.id) {
-      Alert.alert(t('auth.loginTitle'), t('settings.demoLoginRequired'));
-      return;
-    }
-    if (demoBusy) {
-      return;
-    }
-    setDemoBusy(true);
-    try {
-      if (!next) {
-        await setDemoEnabledPersisted(false);
-        await clearDemoStoresAfterDisable(user.id);
-      } else {
-        await setDemoEnabledPersisted(true);
-        seedDemoStores(user.id);
-      }
-    } catch {
-      Alert.alert(t('common.error'), t('settings.demoUpdateFailed'));
-    } finally {
-      setDemoBusy(false);
     }
   };
 
@@ -436,23 +404,6 @@ const SettingsScreen = () => {
             onPress={() => navigation.navigate('Terms')}
           />
         </Section>
-
-        {__DEV__ && SURFACE_DEMO_MODE_IN_SETTINGS ? (
-          <Section title={t('phase2ui.demoSectionTitle')}>
-            <View style={{opacity: demoBusy ? 0.55 : 1}}>
-              <SettingSwitch
-                icon="videocam-outline"
-                iconColor={colors.secondary}
-                title={t('phase2ui.demoContentTitle')}
-                subtitle={t('settings.demoContentSub')}
-                value={demoEnabled}
-                onValueChange={v => {
-                  handleDemoContentToggle(v).catch(() => {});
-                }}
-              />
-            </View>
-          </Section>
-        ) : null}
 
         {/* Support */}
         <Section title={t('settings.support')}>

@@ -8,6 +8,7 @@ import {View, StyleSheet, ViewStyle} from 'react-native';
 import Avatar from './Avatar';
 import colors from '@/theme/colors';
 import {LiveTrainingDot} from './LiveTrainingDot';
+import {firstUsableDisplayName, getNeutralDisplayNameFallback} from '@/utils/displayName';
 
 type UserAvatarProps = {
   name: string;
@@ -38,10 +39,12 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
 }) => {
   const dimension = sizeMap[size];
   const resolvedName =
-    user?.full_name?.trim() ||
-    user?.displayName?.trim() ||
-    user?.username?.trim() ||
-    name;
+    firstUsableDisplayName(
+      user?.full_name,
+      user?.displayName,
+      user?.username,
+      name,
+    ) ?? getNeutralDisplayNameFallback();
   const resolvedImage = user?.avatar_url ?? user?.avatarUrl ?? imageUrl;
 
   const indicatorSize = Math.max(10, Math.round(dimension * 0.3));

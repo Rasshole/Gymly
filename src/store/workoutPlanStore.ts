@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 import {MuscleGroup} from '@/types/workout.types';
-import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+import type {DanishGym} from '@/data/danishGyms';
 
 export interface WorkoutPlanEntry {
   id: string;
@@ -38,11 +38,6 @@ interface WorkoutPlanState {
   removePlannedWorkout: (planId: string) => void;
   addCompletedWorkout: (entry: WorkoutHistoryEntry) => void;
 }
-
-const findGymByName = (name: string): DanishGym => {
-  const list = getActiveDanishGyms();
-  return list.find(gym => gym.name === name) || list[0]!;
-};
 
 const initialPlanned: WorkoutPlanEntry[] = [];
 

@@ -40,7 +40,7 @@ export function formatSessionDateAndDurationDa(
 }
 
 export function formatDurationShortDa(totalMinutes: number): string {
-  return formatWorkoutDuration(totalMinutes);
+  return formatWorkoutDuration(totalMinutes, getRuntimeLanguage());
 }
 
 function mapRowToSession(

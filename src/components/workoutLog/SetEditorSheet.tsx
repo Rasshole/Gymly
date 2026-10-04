@@ -65,8 +65,10 @@ const SetEditorSheet: React.FC<SetEditorSheetProps> = ({
     language,
   });
 
+  const wasVisible = useRef(false);
+
   useEffect(() => {
-    if (visible) {
+    if (visible && !wasVisible.current) {
       const w = initialWeight;
       setWeightText(
         w == null
@@ -78,6 +80,9 @@ const SetEditorSheet: React.FC<SetEditorSheetProps> = ({
       setRepsText(initialReps != null ? String(initialReps) : '');
       setSaving(false);
       savingLock.current = false;
+    }
+    wasVisible.current = visible;
+    if (visible) {
       Animated.parallel([
         Animated.timing(backdrop, {
           toValue: 1,
@@ -108,7 +113,7 @@ const SetEditorSheet: React.FC<SetEditorSheetProps> = ({
         }),
       ]).start();
     }
-  }, [visible, initialWeight, initialReps, backdrop, sheetY]);
+  }, [visible, backdrop, sheetY]);
 
   const handleSave = async () => {
     if (savingLock.current) {

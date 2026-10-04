@@ -10,8 +10,33 @@ import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import {buildDemoPayload} from '@/demo/buildDemoPayload';
 import {buildDemoActiveCentersFromLocal} from '@/demo/buildDemoActiveCenters';
+import {perfPhase} from '@/utils/perfMark';
 
 const TOP_N = 5;
+
+let pendingActiveCenters: {
+  userId: string;
+  promise: Promise<ActiveCenter[]>;
+} | null = null;
+
+/** Start the Centre live query on tab press, before the screen finishes rendering. */
+export function prefetchActiveCenters(userId: string): Promise<ActiveCenter[]> {
+  if (pendingActiveCenters?.userId === userId) {
+    return pendingActiveCenters.promise;
+  }
+  const promise = loadActiveCentersData(userId);
+  pendingActiveCenters = {userId, promise};
+  return promise;
+}
+
+function takePrefetchedActiveCenters(userId: string): Promise<ActiveCenter[]> | null {
+  if (pendingActiveCenters?.userId !== userId) {
+    return null;
+  }
+  const promise = pendingActiveCenters.promise;
+  pendingActiveCenters = null;
+  return promise;
+}
 
 export function useActiveCentersRealtime(options?: {enabled?: boolean}) {
   const enabled = options?.enabled ?? true;
@@ -19,6 +44,7 @@ export function useActiveCentersRealtime(options?: {enabled?: boolean}) {
   const coords = useOptionalUserCoords();
   const [activeCenters, setActiveCenters] = useState<ActiveCenter[]>([]);
   const [loading, setLoading] = useState(false);
+  const [settled, setSettled] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
   const refresh = useCallback(async () => {
@@ -42,18 +68,39 @@ export function useActiveCentersRealtime(options?: {enabled?: boolean}) {
       return;
     }
     setLoading(true);
+    let ok = false;
     try {
-      const list = await loadActiveCentersData(userId, {
-        userLatitude: coords?.latitude,
-        userLongitude: coords?.longitude,
-      });
+      const fetchStarted = Date.now();
+      const prefetched = takePrefetchedActiveCenters(userId);
+      const list = prefetched
+        ? await prefetched
+        : await loadActiveCentersData(userId, {
+            userLatitude: coords?.latitude,
+            userLongitude: coords?.longitude,
+          });
       setActiveCenters(list);
+      perfPhase(
+        'centres',
+        'live',
+        `count=${list.length} fetchMs=${Date.now() - fetchStarted}`,
+      );
       setError(null);
+      ok = true;
     } catch (e) {
       setActiveCenters([]);
       setError(e instanceof Error ? e : new Error(String(e)));
+      const message =
+        e instanceof Error
+          ? e.message
+          : e && typeof e === 'object' && 'message' in e
+            ? String((e as {message: unknown}).message)
+            : String(e);
+      perfPhase('centres', 'live_error', message.slice(0, 160));
     } finally {
       setLoading(false);
+      if (ok) {
+        setSettled(true);
+      }
     }
   }, [userId, coords?.latitude, coords?.longitude]);
 
@@ -94,6 +141,7 @@ export function useActiveCentersRealtime(options?: {enabled?: boolean}) {
     activeCenters,
     topActiveCenters,
     loading,
+    settled,
     error,
     refresh,
   };

@@ -60,6 +60,8 @@ export interface SubmitCheckInParams {
   plannedWorkoutId?: string | null;
   /** Valgfri: knyt check-in til en gymly-gruppe (group session) */
   gymlyGroupId?: string | null;
+  /** Valgfri kontaktstatus for sessionen (null = ikke åben for fremmede) */
+  contactStatus?: 'open' | 'focused' | null;
 }
 
 export interface CheckIn {

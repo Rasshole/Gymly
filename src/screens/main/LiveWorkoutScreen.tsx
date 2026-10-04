@@ -152,7 +152,7 @@ function ExerciseCard(props: {
             key={set.id}
             style={[
               styles.setRow,
-              set.pending && styles.setRowPending,
+              set.failed && styles.setRowFailed,
               setIsPr && styles.setRowPr,
             ]}
             onPress={() => onPressSet(set)}
@@ -162,7 +162,9 @@ function ExerciseCard(props: {
             </Text>
             <Text style={styles.setVal}>{formatWeightKg(set.weightKg)}</Text>
             <Text style={styles.setVal}>{formatReps(set.reps)}</Text>
-            {setIsPr ? (
+            {set.failed ? (
+              <Text style={styles.retryBadge}>{t('workoutLog.retry')}</Text>
+            ) : setIsPr ? (
               <Text style={styles.prBadge}>🏆 PR</Text>
             ) : progression ? (
               <Text style={styles.progressBadge}>
@@ -186,6 +188,31 @@ function ExerciseCard(props: {
   );
 }
 
+function WorkoutLogHeader({
+  title,
+  gymName,
+  onBack,
+}: {
+  title: string;
+  gymName: string;
+  onBack: () => void;
+}) {
+  const getElapsedSeconds = useSessionStore(s => s.getElapsedSeconds);
+  const [elapsed, setElapsed] = useState(() => getElapsedSeconds());
+  useEffect(() => {
+    const id = setInterval(() => setElapsed(getElapsedSeconds()), 1000);
+    return () => clearInterval(id);
+  }, [getElapsedSeconds]);
+  return (
+    <ScreenHeader
+      title={title}
+      subtitle={`${gymName} · ${formatSessionElapsedMinutes(elapsed)}`}
+      onBack={onBack}
+      style={{paddingTop: spacing.sm}}
+    />
+  );
+}
+
 const LiveWorkoutScreen: React.FC = () => {
   const {t, language} = useTranslation();
   const {intlLocale} = useAppFormat();
@@ -193,8 +220,6 @@ const LiveWorkoutScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
   const user = useAppStore(s => s.user);
   const activeSession = useSessionStore(s => s.activeSession);
-  const getElapsedSeconds = useSessionStore(s => s.getElapsedSeconds);
-  const [elapsed, setElapsed] = useState(0);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [editor, setEditor] = useState<EditorState>(null);
   const [historyTarget, setHistoryTarget] = useState<HistoryTarget | null>(null);
@@ -208,10 +233,10 @@ const LiveWorkoutScreen: React.FC = () => {
   const addSetOptimistic = useWorkoutLogStore(s => s.addSetOptimistic);
   const editSetOptimistic = useWorkoutLogStore(s => s.editSetOptimistic);
   const deleteSetOptimistic = useWorkoutLogStore(s => s.deleteSetOptimistic);
+  const retrySave = useWorkoutLogStore(s => s.retrySave);
+  const logError = useWorkoutLogStore(s => s.error);
 
   const ensurePrBaseline = usePersonalRecordSessionStore(s => s.ensureBaseline);
-  const evaluatePrSet = usePersonalRecordSessionStore(s => s.evaluateCompletedSet);
-  const recomputeExercisePrs = usePersonalRecordSessionStore(s => s.recomputeExercise);
   const isSetPr = usePersonalRecordSessionStore(s => s.isSetPr);
   const toastRecord = usePersonalRecordSessionStore(s => s.toastRecord);
   const clearPrToast = usePersonalRecordSessionStore(s => s.clearToast);
@@ -283,32 +308,27 @@ const LiveWorkoutScreen: React.FC = () => {
     };
   }, [toastRecord]);
 
-  useEffect(() => {
-    const id = setInterval(() => setElapsed(getElapsedSeconds()), 1000);
-    return () => clearInterval(id);
-  }, [getElapsedSeconds]);
-
   const stats = useMemo(() => {
-    const withSets = visibleExercises;
+    let exerciseCount = 0;
+    let setCount = 0;
+    let volume = 0;
+    for (const ex of visibleExercises) {
+      const sets = ex.sets.filter(s => !s.failed);
+      if (sets.length === 0) {
+        continue;
+      }
+      exerciseCount += 1;
+      setCount += sets.length;
+      for (const s of sets) {
+        volume += (s.weightKg ?? 0) * (s.reps ?? 0);
+      }
+    }
     return {
-      exerciseCount: withSets.length,
-      setCount: withSets.reduce((n, e) => n + e.sets.length, 0),
-      volumeKg: (() => {
-        let total = 0;
-        for (const ex of withSets) {
-          for (const s of ex.sets) {
-            total += (s.weightKg ?? 0) * (s.reps ?? 0);
-          }
-        }
-        return Math.round(total * 10) / 10;
-      })(),
+      exerciseCount,
+      setCount,
+      volumeKg: Math.round(volume * 10) / 10,
     };
   }, [visibleExercises]);
-
-  const subtitle = useMemo(() => {
-    const gym = activeSession?.gymName ?? '';
-    return `${gym} · ${formatSessionElapsedMinutes(elapsed)}`;
-  }, [activeSession?.gymName, elapsed]);
 
   const defaultMuscleFilters = useMemo(
     () => defaultExerciseMuscleFiltersFromSession(activeSession?.workoutType),
@@ -345,8 +365,9 @@ const LiveWorkoutScreen: React.FC = () => {
   const makeClientKey = () =>
     `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 
-  const onSelectExercise = async (exercise: ExerciseLibraryItem) => {
-    await lastCache.ensure(exercise.name, exercise.id);
+  const onSelectExercise = (exercise: ExerciseLibraryItem) => {
+    setEditor({kind: 'new-exercise', exercise});
+    void lastCache.ensure(exercise.name, exercise.id);
     if (sessionId && user?.id) {
       void ensurePrBaseline({
         userId: user.id,
@@ -355,7 +376,6 @@ const LiveWorkoutScreen: React.FC = () => {
         exerciseId: exercise.id,
       });
     }
-    setEditor({kind: 'new-exercise', exercise});
   };
 
   const onPressNewSet = (exerciseId: string, exerciseName: string) => {
@@ -384,7 +404,13 @@ const LiveWorkoutScreen: React.FC = () => {
       fallbackName: exerciseName,
       language,
     });
-    Alert.alert(displayName, t('workoutLog.setActions'), [
+    const actions = [
+      ...(set.failed && set.clientKey
+        ? [{
+            text: t('workoutLog.retry'),
+            onPress: () => retrySave(set.clientKey!),
+          }]
+        : []),
       {
         text: t('workoutLog.editSet'),
         onPress: () => setEditor({kind: 'edit-set', set, exerciseName}),
@@ -414,8 +440,9 @@ const LiveWorkoutScreen: React.FC = () => {
           );
         },
       },
-      {text: t('common.cancel'), style: 'cancel'},
-    ]);
+      {text: t('common.cancel'), style: 'cancel' as const},
+    ];
+    Alert.alert(displayName, t('workoutLog.setActions'), actions);
   };
 
   const handleSave = async (weightKg: number, reps: number) => {
@@ -423,15 +450,8 @@ const LiveWorkoutScreen: React.FC = () => {
       throw new Error('Ingen aktiv session');
     }
     const clientKey = makeClientKey();
-    let savedSet: WorkoutSet | null = null;
-    let exerciseMeta: {
-      workoutExerciseId: string;
-      exerciseName: string;
-      exerciseId: string | null;
-    } | null = null;
-
     if (editor.kind === 'new-exercise') {
-      savedSet = await addExerciseWithFirstSet({
+      await addExerciseWithFirstSet({
         sessionId,
         userId: user.id,
         exercise: editor.exercise,
@@ -439,26 +459,8 @@ const LiveWorkoutScreen: React.FC = () => {
         reps,
         clientKey,
       });
-      const ex = useWorkoutLogStore
-        .getState()
-        .exercises.find(e => e.sets.some(s => s.id === savedSet?.id));
-      exerciseMeta = {
-        workoutExerciseId: ex?.id ?? savedSet.workoutExerciseId,
-        exerciseName: editor.exercise.name,
-        exerciseId: editor.exercise.id,
-      };
-      await evaluatePrSet({
-        userId: user.id,
-        sessionId,
-        setId: savedSet.id,
-        workoutExerciseId: exerciseMeta.workoutExerciseId,
-        exerciseName: exerciseMeta.exerciseName,
-        exerciseId: exerciseMeta.exerciseId,
-        weightKg,
-        reps,
-      });
     } else if (editor.kind === 'new-set') {
-      savedSet = await addSetOptimistic({
+      await addSetOptimistic({
         workoutExerciseId: editor.exerciseId,
         sessionId,
         userId: user.id,
@@ -466,45 +468,14 @@ const LiveWorkoutScreen: React.FC = () => {
         reps,
         clientKey,
       });
-      const ex = useWorkoutLogStore
-        .getState()
-        .exercises.find(e => e.id === editor.exerciseId);
-      await evaluatePrSet({
-        userId: user.id,
-        sessionId,
-        setId: savedSet.id,
-        workoutExerciseId: editor.exerciseId,
-        exerciseName: editor.exerciseName,
-        exerciseId: ex?.exerciseId ?? null,
-        weightKg,
-        reps,
-      });
-    } else if (editor.kind === 'edit-set') {
+    } else {
       await editSetOptimistic({
         setId: editor.set.id,
         weightKg,
         reps,
       });
-      const ex = useWorkoutLogStore
-        .getState()
-        .exercises.find(e => e.sets.some(s => s.id === editor.set.id));
-      if (ex) {
-        await recomputeExercisePrs({
-          userId: user.id,
-          sessionId,
-          workoutExerciseId: ex.id,
-          exerciseName: ex.exerciseName,
-          exerciseId: ex.exerciseId,
-          sets: ex.sets.map(s => ({
-            id: s.id,
-            weightKg: s.id === editor.set.id ? weightKg : s.weightKg,
-            reps: s.id === editor.set.id ? reps : s.reps,
-            setNumber: s.setNumber,
-          })),
-        });
-      }
     }
-    triggerHaptic('success');
+    triggerHaptic('selection');
     animateNewSet();
   };
 
@@ -541,12 +512,14 @@ const LiveWorkoutScreen: React.FC = () => {
 
   return (
     <View style={[styles.container, {paddingBottom: insets.bottom}]}>
-      <ScreenHeader
+      <WorkoutLogHeader
         title={t('workoutLog.title')}
-        subtitle={subtitle}
+        gymName={activeSession.gymName ?? ''}
         onBack={() => navigation.goBack()}
-        style={{paddingTop: spacing.sm}}
       />
+      {logError ? (
+        <Text style={styles.logError}>{t('workoutLog.saveFailedBody')}</Text>
+      ) : null}
 
       <ScrollView
         contentContainerStyle={styles.content}
@@ -787,7 +760,23 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     marginBottom: 6,
   },
-  setRowPending: {opacity: 0.55},
+  setRowFailed: {
+    opacity: 1,
+    borderWidth: 1,
+    borderColor: colors.error,
+  },
+  retryBadge: {
+    ...typography.caption,
+    color: colors.error,
+    fontWeight: '700',
+  },
+  logError: {
+    ...typography.caption,
+    color: colors.error,
+    fontWeight: '600',
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.sm,
+  },
   setRowPr: {
     borderWidth: 1,
     borderColor: colors.primary + '44',

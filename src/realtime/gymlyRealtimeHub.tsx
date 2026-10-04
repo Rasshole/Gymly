@@ -10,12 +10,16 @@
 import {useCallback, useEffect, useRef} from 'react';
 import {AppState, AppStateStatus} from 'react-native';
 import {supabase} from '@/services/supabase/supabaseClient';
+import {flushPendingGroupParticipantCompletes} from '@/services/supabase/pendingGroupParticipantComplete';
 import {useAppStore} from '@/store/appStore';
 import {useChatStore} from '@/store/chatStore';
 import {
   dmMessageFromPayload,
   fetchDmInboxItemForThread,
+  fetchDmMessages,
   inboxItemToChat,
+  markDmThreadMessagesDelivered,
+  markDmThreadMessagesRead,
   messageFromDmRow,
   type DmMessageRow,
 } from '@/services/supabase/dmService';
@@ -44,6 +48,7 @@ import {
 } from '@/realtime/realtimeDebug';
 import {useRealtimeHealthStore} from '@/realtime/realtimeHealthStore';
 import {isDemoContentMode} from '@/demo/demoContentGate';
+import {mergeLatestServerPage} from '@/utils/dmMessageMerge';
 
 const HUB_NAME = 'gymly_hub';
 
@@ -60,6 +65,8 @@ export function GymlyRealtimeHub() {
   const syncBadges = useBadgeStore(s => s.syncBadgesForUser);
   const timersRef = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
   const appStateRef = useRef<AppStateStatus>(AppState.currentState);
+  const catchUpOpenDmRef = useRef<() => void>(() => {});
+  const reconnectDmRef = useRef<() => void>(() => {});
   const badgeSyncLockRef = useRef(false);
   const badgeSyncPendingRef = useRef(false);
 
@@ -80,6 +87,13 @@ export function GymlyRealtimeHub() {
       fn();
     }, ms);
   }, []);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    void flushPendingGroupParticipantCompletes();
+  }, [userId]);
 
   const runBadgeSync = useCallback(() => {
     if (!userId) {
@@ -230,66 +244,6 @@ export function GymlyRealtimeHub() {
 
     let ch = supabase.channel(channelId);
     ch = attachInAppNotificationsToHubChannel(ch, userId);
-
-    ch = ch.on(
-      'postgres_changes',
-      {event: 'INSERT', schema: 'public', table: 'dm_messages'},
-      async payload => {
-        bumpHealth('dm_messages', 'INSERT');
-        const row = dmMessageFromPayload(payload.new);
-        if (!row) {
-          return;
-        }
-        const threadId = row.thread_id;
-        const store = useChatStore.getState();
-        let hasThread = store.chats.some(c => c.id === threadId);
-        if (!hasThread) {
-          try {
-            await syncDmInboxToStore(
-              userId,
-              (displayName || '').trim() || 'Dig',
-            );
-          } catch {
-            /* ignore */
-          }
-          hasThread = useChatStore.getState().chats.some(c => c.id === threadId);
-        }
-        if (!hasThread) {
-          const myName = (displayName || '').trim() || 'Dig';
-          const item = await fetchDmInboxItemForThread(userId, threadId);
-          if (item) {
-            const chat = inboxItemToChat(item, userId, myName);
-            useChatStore.getState().upsertChat({...chat, unreadCount: 0});
-          }
-        }
-        const msg = messageFromDmRow(row as DmMessageRow);
-        const fromMe = row.sender_id === userId;
-        useChatStore.getState().mergeIncomingMessage(threadId, msg, fromMe, userId);
-        if (fromMe) {
-          debounce('badges_dm', 280, () => {
-            runBadgeSync();
-            logRealtimeStore('dm_messages', 'badges');
-          });
-        }
-        logRealtimeStore('dm_messages', 'merge_message');
-      },
-    );
-
-    ch = ch.on(
-      'postgres_changes',
-      {event: 'UPDATE', schema: 'public', table: 'dm_messages'},
-      payload => {
-        bumpHealth('dm_messages', 'UPDATE');
-        const row = dmMessageFromPayload(payload.new);
-        if (!row?.read_at) {
-          return;
-        }
-        useChatStore.getState().patchChatMessage(row.thread_id, row.id, {
-          readAt: new Date(row.read_at),
-        });
-        logRealtimeStore('dm_messages', 'read_receipt');
-      },
-    );
 
     ch = ch
       .on(
@@ -544,10 +498,197 @@ export function GymlyRealtimeHub() {
 
   useEffect(() => {
     if (!userId) {
+      catchUpOpenDmRef.current = () => {};
+      reconnectDmRef.current = () => {};
+      return;
+    }
+    let stopped = false;
+    let generation = 0;
+    let retryTimer: ReturnType<typeof setTimeout> | null = null;
+    let channel: ReturnType<typeof supabase.channel> | null = null;
+
+    const catchUpOpenChat = async () => {
+      const chatId = useChatStore.getState().foregroundOpenChatId;
+      if (!chatId) {
+        return;
+      }
+      try {
+        const page = await fetchDmMessages(chatId, {limit: 40});
+        if (stopped) {
+          return;
+        }
+        const local = useChatStore.getState().getMessagesForChat(chatId);
+        const merged = mergeLatestServerPage(local, page);
+        useChatStore.getState().setMessagesForChat(chatId, merged);
+        const list = useChatStore.getState().getMessagesForChat(chatId);
+        const last = list[list.length - 1];
+        if (last && !last.id.startsWith('pending-')) {
+          useChatStore.getState().updateChatLastMessage(chatId, last, {
+            fromCurrentUser: last.senderId === userId,
+          });
+        }
+      } catch {
+        /* The next reconnect or focus tries again. */
+      }
+    };
+    catchUpOpenDmRef.current = () => {
+      void catchUpOpenChat();
+    };
+
+    const onInsert = async (payload: {new?: unknown}) => {
+      recordHealthEvent('dm_messages:INSERT');
+      const row = dmMessageFromPayload(payload.new);
+      if (!row) {
+        return;
+      }
+      const threadId = row.thread_id;
+      let hasThread = useChatStore.getState().chats.some(c => c.id === threadId);
+      if (!hasThread) {
+        try {
+          await syncDmInboxToStore(userId, (displayName || '').trim() || 'Dig');
+        } catch {
+          /* ignore */
+        }
+        hasThread = useChatStore.getState().chats.some(c => c.id === threadId);
+      }
+      if (!hasThread) {
+        const myName = (displayName || '').trim() || 'Dig';
+        const item = await fetchDmInboxItemForThread(userId, threadId);
+        if (item) {
+          const chat = inboxItemToChat(item, userId, myName);
+          useChatStore.getState().upsertChat({...chat, unreadCount: 0});
+        }
+      }
+      const msg = messageFromDmRow(row as DmMessageRow);
+      const fromMe = row.sender_id === userId;
+      useChatStore.getState().mergeIncomingMessage(threadId, msg, fromMe, userId);
+      if (!fromMe) {
+        const openId = useChatStore.getState().foregroundOpenChatId;
+        debounce(`dm_ack_${threadId}`, 180, () => {
+          if (openId === threadId) {
+            void markDmThreadMessagesRead(threadId);
+          } else {
+            void markDmThreadMessagesDelivered(threadId);
+          }
+        });
+      }
+      if (fromMe) {
+        debounce('badges_dm', 280, () => {
+          runBadgeSync();
+        });
+      }
+      logRealtimeStore('dm_messages', 'merge_message');
+    };
+
+    const onUpdate = (payload: {new?: unknown}) => {
+      recordHealthEvent('dm_messages:UPDATE');
+      const row = dmMessageFromPayload(payload.new);
+      if (!row) {
+        return;
+      }
+      const msg = messageFromDmRow(row);
+      useChatStore.getState().patchChatMessage(row.thread_id, row.id, {
+        text: msg.text,
+        editedAt: msg.editedAt,
+        reactions: msg.reactions ?? {},
+        readAt: msg.readAt,
+        deliveredAt: msg.deliveredAt,
+        replyToId: msg.replyToId,
+      });
+      const list = useChatStore.getState().getMessagesForChat(row.thread_id);
+      const updated = list.find(item => item.id === row.id);
+      const last = list[list.length - 1];
+      if (updated && last?.id === row.id) {
+        useChatStore.getState().updateChatLastMessage(row.thread_id, updated, {
+          fromCurrentUser: row.sender_id === userId,
+        });
+      }
+      logRealtimeStore('dm_messages', 'message_update');
+    };
+
+    const scheduleRetry = (gen: number) => {
+      if (stopped || gen !== generation) {
+        return;
+      }
+      if (retryTimer) {
+        clearTimeout(retryTimer);
+      }
+      retryTimer = setTimeout(() => {
+        retryTimer = null;
+        void connect();
+      }, 1500);
+    };
+
+    const connect = async () => {
+      if (stopped) {
+        return;
+      }
+      const gen = ++generation;
+      if (retryTimer) {
+        clearTimeout(retryTimer);
+        retryTimer = null;
+      }
+      const previous = channel;
+      channel = null;
+      if (previous) {
+        // removeChannel is async. A same-topic channel() call would reuse the
+        // leaving socket and subscribe() would no-op, so the next join never starts.
+        supabase.removeChannel(previous).catch(() => {});
+      }
+      if (stopped || gen !== generation) {
+        return;
+      }
+      const dmChannelId = `gymly_dm_${userId}_${gen}`;
+      const next = supabase
+        .channel(dmChannelId)
+        .on('postgres_changes', {event: 'INSERT', schema: 'public', table: 'dm_messages'}, payload => {
+          void onInsert(payload);
+        })
+        .on('postgres_changes', {event: 'UPDATE', schema: 'public', table: 'dm_messages'}, payload => {
+          onUpdate(payload);
+        });
+      channel = next;
+      next.subscribe((status, err) => {
+        if (stopped || gen !== generation || channel !== next) {
+          return;
+        }
+        logRealtimeStatus(dmChannelId, status, err?.message);
+        if (status === 'SUBSCRIBED') {
+          logRealtimeSubscribed(dmChannelId, 'gymly_dm');
+          void catchUpOpenChat();
+        } else if (status === 'TIMED_OUT' || status === 'CHANNEL_ERROR' || status === 'CLOSED') {
+          scheduleRetry(gen);
+        }
+      }, 20000);
+    };
+    reconnectDmRef.current = () => {
+      void connect();
+    };
+    void connect();
+
+    return () => {
+      stopped = true;
+      generation += 1;
+      catchUpOpenDmRef.current = () => {};
+      reconnectDmRef.current = () => {};
+      if (retryTimer) {
+        clearTimeout(retryTimer);
+      }
+      if (channel) {
+        supabase.removeChannel(channel).catch(() => {});
+      }
+    };
+  }, [userId, displayName, debounce, runBadgeSync]);
+
+  useEffect(() => {
+    if (!userId) {
       return;
     }
     const sub = AppState.addEventListener('change', next => {
       if (appStateRef.current.match(/inactive|background/) && next === 'active') {
+        catchUpOpenDmRef.current();
+        reconnectDmRef.current();
+        void flushPendingGroupParticipantCompletes();
         useInAppNotificationStore.getState().refresh(userId).catch(() => {});
         useGymlyGroupsStore.getState().refresh(userId).catch(() => {});
         (async () => {

@@ -16,6 +16,8 @@ export interface ActiveSession {
   city?: string | null;
   startTime: Date;
   workoutType: string;
+  /** Session contact preference; null = not open to stranger hi */
+  contactStatus?: 'open' | 'focused' | null;
 }
 
 export function activeSessionFromSupabaseRow(
@@ -39,6 +41,7 @@ interface SessionState {
   startSession: (session: ActiveSession) => void;
   endSession: () => void;
   getElapsedSeconds: () => number;
+  setContactStatus: (status: 'open' | 'focused' | null) => void;
 }
 
 export const useSessionStore = create<SessionState>((set, get) => ({
@@ -57,5 +60,13 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     const {activeSession} = get();
     if (!activeSession) return 0;
     return Math.floor((Date.now() - activeSession.startTime.getTime()) / 1000);
+  },
+
+  setContactStatus: status => {
+    const {activeSession} = get();
+    if (!activeSession) {
+      return;
+    }
+    set({activeSession: {...activeSession, contactStatus: status}});
   },
 }));

@@ -70,8 +70,8 @@ describe('Invite 5 Friends — temporarily disabled for release', () => {
     expect(friends).toMatch(/inviteFive\.friendsEntry/);
     expect(settings).toMatch(/INVITE_5_FRIENDS_ENABLED \? \(/);
     expect(settings).toMatch(/inviteFive\.settingsEntry/);
-    expect(register).toMatch(/INVITE_5_FRIENDS_ENABLED \? \(/);
-    expect(register).toMatch(/register\.inviteCodeLabel/);
+    // Onboarding V2 no longer collects invite codes during signup; hub/Settings stay gated.
+    expect(register).not.toMatch(/inviteCodeLabel/);
     expect(badges).toMatch(/INVITE_5_FRIENDS_ENABLED/);
     expect(badges).toMatch(/filter\(c => c !== 'referral'\)/);
   });

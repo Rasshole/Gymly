@@ -1,18 +1,27 @@
 /**
- * Format training duration from whole minutes for UI.
- * Examples: 45 → "45 min.", 75 → "1 t. 15 min.", 120 → "2 t."
+ * Format training duration from whole minutes.
+ * Danish/Norwegian: 24 min, 1 t 56 min, 4 t.
+ * English and other UI languages: 24 min, 1 h 56 min, 4 h.
+ * Exact hours omit the zero minutes.
  */
-export function formatWorkoutDuration(minutes: number): string {
+export function formatWorkoutDuration(
+  minutes: number,
+  language: string = 'da',
+): string {
   const mins = Math.max(0, Math.round(Number.isFinite(minutes) ? minutes : 0));
   if (mins < 60) {
-    return `${mins} min.`;
+    return `${mins} min`;
   }
   const h = Math.floor(mins / 60);
   const m = mins % 60;
+  const lang = language.toLowerCase();
+  const hourUnit = lang === 'da' || lang === 'nb' || lang.startsWith('da-') || lang.startsWith('nb-')
+    ? 't'
+    : 'h';
   if (m === 0) {
-    return `${h} t.`;
+    return `${h} ${hourUnit}`;
   }
-  return `${h} t. ${m} min.`;
+  return `${h} ${hourUnit} ${m} min`;
 }
 
 /** Seconds → same label (group session stats). */

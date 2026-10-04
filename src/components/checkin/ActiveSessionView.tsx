@@ -22,12 +22,15 @@ import {useFriendStore} from '@/store/friendStore';
 import {useNavigation} from '@react-navigation/native';
 import ActiveUsersList, {type ActiveUser} from './ActiveUsersList';
 import UserProfileModal from './UserProfileModal';
+import ContactStatusPicker from '@/components/social/ContactStatusPicker';
+import {updateMyContactStatus} from '@/services/supabase/sayHiService';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {getRuntimeLanguage, useTranslation} from '@/i18n';
 import {sortActiveUsersForDisplay} from '@/utils/sortActiveUsersForDisplay';
 import {useDemoModeStore} from '@/demo/demoModeStore';
+import {safeDisplayName, firstUsableDisplayName} from '@/utils/displayName';
 
 function formatElapsed(seconds: number): string {
   const h = Math.floor(seconds / 3600);
@@ -96,10 +99,10 @@ export interface ActiveSessionViewProps {
 const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => {
   const {t} = useTranslation();
   const navigation = useNavigation<any>();
-  const {activeSession, getElapsedSeconds} = useSessionStore();
+  const {activeSession, getElapsedSeconds, setContactStatus} = useSessionStore();
   const showAwayZoneWarning = useCheckInUIStore(s => s.showAwayZoneWarning);
   const {gyms} = useGymPresence();
-  const {user} = useAppStore();
+  const user = useAppStore(s => s.user);
   const friendIds = useFriendStore(s => s.friendIds);
   const loadFriendStore = useFriendStore(s => s.load);
   const demoCenterCrowdActive =
@@ -162,7 +165,8 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
     ? gyms.find(g => g.gymId === activeGymId)
     : gyms.find(g => g.gymName === activeSession?.gymName);
 
-  const currentUserName = user?.displayName ?? t('common.you');
+  const currentUserName =
+    firstUsableDisplayName(user?.displayName, user?.username) ?? t('common.you');
   const rawType = activeSession?.workoutType || '';
   const workoutLabel = formatWorkoutTypeDisplay(rawType, getRuntimeLanguage());
 
@@ -170,7 +174,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
     gymPresence?.userList?.length && gymPresence.userList.length > 0
       ? gymPresence.userList.map((u) => ({
           id: u.id,
-          name: u.name,
+          name: safeDisplayName(u.name),
           avatar: u.avatar,
           isFriend: friendIds.has(u.id),
           workoutType: u.workoutType ?? activeSession?.workoutType ?? undefined,
@@ -179,6 +183,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           liveExerciseName: u.liveExerciseName,
           liveSetCount: u.liveSetCount,
           liveExerciseCount: u.liveExerciseCount,
+          contactStatus: u.contactStatus ?? null,
         }))
       : [];
 
@@ -272,7 +277,16 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           <Icon name="chevron-forward" size={20} color={colors.primaryDark} />
         </TouchableOpacity>
 
+        <ContactStatusPicker
+          value={activeSession?.contactStatus ?? null}
+          onChange={next => {
+            setContactStatus(next);
+            void updateMyContactStatus(next);
+          }}
+        />
+
         <TouchableOpacity
+          testID="checkin-end-workout"
           style={styles.endButton}
           onPress={onEndSession}
           activeOpacity={0.86}>

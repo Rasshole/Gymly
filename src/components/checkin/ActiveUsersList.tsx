@@ -46,6 +46,8 @@ export interface ActiveUser {
   liveExerciseName?: string | null;
   liveSetCount?: number | null;
   liveExerciseCount?: number | null;
+  /** Session contact preference when known (null = not open). */
+  contactStatus?: 'open' | 'focused' | null;
   liveDemoSeed?: LiveCenterUserDemoSeed;
 }
 
@@ -222,6 +224,18 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
                       </Text>
                     </>
                   )}
+                  <Text style={styles.liveHere} numberOfLines={1}>
+                    {t('sayHi.trainingHereNow')}
+                  </Text>
+                  {user.contactStatus === 'open' ? (
+                    <Text style={styles.contactOpen} numberOfLines={1}>
+                      👋
+                    </Text>
+                  ) : user.contactStatus === 'focused' ? (
+                    <Text style={styles.contactFocused} numberOfLines={1}>
+                      🎧
+                    </Text>
+                  ) : null}
                   {streak > 0 && badge ? (
                     <Text style={styles.streakMeta} numberOfLines={1}>
                       {badge} {streak}d
@@ -339,6 +353,21 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: colors.primaryDark,
     width: '100%',
+  },
+  liveHere: {
+    marginTop: 2,
+    fontSize: 9,
+    fontWeight: '600',
+    color: colors.success,
+    width: '100%',
+  },
+  contactOpen: {
+    marginTop: 1,
+    fontSize: 11,
+  },
+  contactFocused: {
+    marginTop: 1,
+    fontSize: 11,
   },
   streakMeta: {
     marginTop: 3,

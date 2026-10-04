@@ -28,6 +28,7 @@ import GymLogoView from '@/components/ui/GymLogoView';
 import {SelectedCentersReorderRow} from '@/components/profile/SelectedCentersReorderRow';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 import colors from '@/theme/colors';
 import {radius, spacing, typography, shadows} from '@/theme/designTokens';
 import {useTranslation} from '@/i18n';
@@ -38,6 +39,7 @@ import {
 
 const SCREEN_H = Dimensions.get('window').height;
 const ALL_GYMS = getActiveGyms();
+scheduleGymSearchWarmup(ALL_GYMS);
 const MAX_CENTERS = MAX_PROFILE_CENTERS;
 
 const springOpen = {

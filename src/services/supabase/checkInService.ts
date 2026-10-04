@@ -1,5 +1,9 @@
 import {emitProfileStatsSelf} from '@/realtime/profileStatsSelfBridge';
 import {supabase} from '@/services/supabase/supabaseClient';
+import {
+  firstUsableDisplayName,
+  getNeutralDisplayNameFallback,
+} from '@/utils/displayName';
 import {checkAndUnlockBadges} from '@/store/badgeStore';
 import {updateUserStatsAfterSession} from '@/services/supabase/userStatsService';
 import {
@@ -7,10 +11,9 @@ import {
   type CompletedTrainingSession,
 } from '@/services/training/completedTraining';
 import {sessionDurationMinutes} from '@/utils/trainingStatsFromCheckIns';
-import {
-  completeGymlyGroupParticipant,
-  startOrJoinGymlyGroupSession,
-} from '@/services/supabase/gymlyGroupSessionService';
+import {startOrJoinGymlyGroupSession} from '@/services/supabase/gymlyGroupSessionService';
+import {enqueueGroupParticipantCompletes} from '@/services/supabase/pendingGroupParticipantComplete';
+import {perfPhase} from '@/utils/perfMark';
 import {scheduleReferralQualifyAfterActivity} from '@/services/supabase/referralService';
 import type {
   CheckInEndReason,
@@ -28,14 +31,7 @@ export type {CompletedTrainingSession} from '@/services/training/completedTraini
 export async function endPriorActiveCheckInsForUser(
   userId: string,
 ): Promise<void> {
-  const {data: prior} = await supabase
-    .from('check_ins')
-    .select('id')
-    .eq('user_id', userId)
-    .eq('is_active', true)
-    .is('ended_at', null);
-
-  const {error} = await supabase
+  const {data: prior, error} = await supabase
     .from('check_ins')
     .update({
       is_active: false,
@@ -43,7 +39,8 @@ export async function endPriorActiveCheckInsForUser(
     })
     .eq('user_id', userId)
     .eq('is_active', true)
-    .is('ended_at', null);
+    .is('ended_at', null)
+    .select('id');
 
   if (error) {
     throw new Error(
@@ -55,9 +52,7 @@ export async function endPriorActiveCheckInsForUser(
 
   const priorIds = (prior ?? []).map((r: {id: string}) => r.id);
   if (priorIds.length > 0) {
-    for (const id of priorIds) {
-      await completeGymlyGroupParticipant(id).catch(() => {});
-    }
+    await enqueueGroupParticipantCompletes(priorIds);
   }
 }
 
@@ -523,8 +518,13 @@ export async function submitCheckInSupabase(
     data: {user},
     error: authError,
   } = await supabase.auth.getUser();
+  perfPhase('checkin', 'auth');
 
   if (authError || !user) {
+    const raw = authError?.message ?? '';
+    if (/network|timed out|timeout|failed to fetch|name resolution/i.test(raw)) {
+      throw new Error(raw);
+    }
     throw new Error('Du skal være logget ind for at tjekke ind.');
   }
 
@@ -533,8 +533,11 @@ export async function submitCheckInSupabase(
   }
 
   await endPriorActiveCheckInsForUser(user.id);
+  perfPhase('checkin', 'prior_end');
 
   const startedAt = new Date().toISOString();
+  const safeCheckInName =
+    firstUsableDisplayName(params.displayName) ?? getNeutralDisplayNameFallback();
 
   const insertPayload: Record<string, unknown> = {
     user_id: user.id,
@@ -543,7 +546,7 @@ export async function submitCheckInSupabase(
     city: params.city ?? null,
     workout_type: params.workoutType ?? null,
     note: params.note ?? null,
-    user_display_name: params.displayName,
+    user_display_name: safeCheckInName,
     started_at: startedAt,
     is_active: true,
     ended_at: null,
@@ -557,12 +560,30 @@ export async function submitCheckInSupabase(
   }
   insertPayload.away_started_at = null;
   insertPayload.last_distance_meters = null;
+  if (
+    params.contactStatus === 'open' ||
+    params.contactStatus === 'focused'
+  ) {
+    insertPayload.contact_status = params.contactStatus;
+  }
 
   let {data, error} = await supabase
     .from('check_ins')
     .insert(insertPayload)
     .select('id, started_at')
     .single();
+
+  if (error && /contact_status/i.test(String(error.message))) {
+    const {contact_status: _cs, ...withoutContact} = insertPayload;
+    void _cs;
+    const rc = await supabase
+      .from('check_ins')
+      .insert(withoutContact)
+      .select('id, started_at')
+      .single();
+    data = rc.data;
+    error = rc.error;
+  }
 
   if (error && /planned_workout/i.test(String(error.message))) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars -- drop planned id for retry
@@ -637,6 +658,7 @@ export async function submitCheckInSupabase(
   if (!data) {
     throw new Error('Kunne ikke gemme tjek-ind (ingen række returneret).');
   }
+  perfPhase('checkin', 'insert');
 
   if (params.gymlyGroupId) {
     try {
@@ -646,9 +668,14 @@ export async function submitCheckInSupabase(
         console.warn('[CheckIn] group session join failed', groupErr);
       }
     }
+    perfPhase('checkin', 'group_join');
   }
 
-  void checkAndUnlockBadges(user.id, params.displayName);
+  // Badges recompute stats across several tables. That must not compete with
+  // painting the active session or the check-in splash hide timer.
+  setTimeout(() => {
+    void checkAndUnlockBadges(user.id, safeCheckInName);
+  }, 800);
   return {
     id: data.id,
     startedAt: new Date(data.started_at ?? startedAt),

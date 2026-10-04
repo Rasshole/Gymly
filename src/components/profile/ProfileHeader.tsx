@@ -119,10 +119,13 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       ) : null}
       {primaryCenterLabel ? (
         <View style={styles.locationRow}>
-          <Icon name="location-outline" size={14} color={colors.textMuted} />
-          <Text style={styles.location} numberOfLines={2}>
-            {primaryCenterLabel}
-          </Text>
+          <Icon
+            name="location-outline"
+            size={14}
+            color={colors.textMuted}
+            style={styles.locationIcon}
+          />
+          <Text style={styles.location}>{primaryCenterLabel}</Text>
         </View>
       ) : null}
     </View>
@@ -226,16 +229,22 @@ const styles = StyleSheet.create({
   },
   locationRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    gap: 7,
     marginTop: spacing.sm,
-    paddingHorizontal: spacing.lg,
+    maxWidth: '100%',
+    paddingHorizontal: spacing.md,
+  },
+  locationIcon: {
+    marginTop: 1,
   },
   location: {
     ...typography.caption,
     color: colors.textMuted,
-    textAlign: 'center',
-    flex: 1,
+    flexShrink: 1,
+    textAlign: 'left',
   },
   statsSection: {
     marginTop: spacing.lg + 2,

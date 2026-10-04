@@ -24,7 +24,8 @@ export type InAppNotificationType =
   | 'gymly_group_member_joined'
   | 'gymly_group_message'
   | 'gymly_planned_in_group'
-  | 'gymly_group_check_in';
+  | 'gymly_group_check_in'
+  | 'say_hi_request';
 
 export type NotificationRow = {
   id: string;

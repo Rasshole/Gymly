@@ -9,11 +9,18 @@ import type {FeedItem} from '@/store/feedStore';
 import type {WorkoutPostRow} from '@/types/post.types';
 import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import {buildWorkoutInfoLine} from '@/utils/workoutPostLocalization';
 import {getRuntimeLanguage} from '@/i18n/runtimeLanguage';
 import {withAvatarCacheBust} from '../../utils/avatar';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {detectGymChain} from '@/services/gymLogoService';
 import {isLikelyServerPostUuid, isLocalDemoPostId} from '@/utils/postIds';
+import {
+  firstUsableDisplayName,
+  getNeutralDisplayNameFallback,
+  safeDisplayName,
+} from '@/utils/displayName';
+
 const BUCKET = 'workout-images';
 
 function workoutImageStoragePathFromPublicUrl(publicUrl: string): string | null {
@@ -39,7 +46,13 @@ export function mapPostRowToFeedItem(row: WorkoutPostRow): FeedItem {
   const centerLabel = centerRaw
     ? formatGymNameWithBrand(centerRaw, centerBrand)
     : 'Center';
-  const workoutInfo = `${centerLabel} · ${row.workout_duration} min · ${row.workout_type}`;
+  const language = getRuntimeLanguage();
+  const workoutInfo = buildWorkoutInfoLine({
+    centerLabel,
+    durationMinutes: row.workout_duration,
+    workoutTypeStored: row.workout_type,
+    language,
+  });
   const snapshot = row.workout_snapshot ?? undefined;
   const hasPrs = Boolean(snapshot?.prs?.length);
   const hasImage = Boolean(row.image_url && String(row.image_url).trim());
@@ -49,12 +62,15 @@ export function mapPostRowToFeedItem(row: WorkoutPostRow): FeedItem {
     id: row.id,
     type: hasImage ? 'photo' : hasPrs ? 'pr' : 'summary',
     userId: row.user_id,
-    user: row.author_display_name?.trim() || 'Bruger',
+    user: safeDisplayName(row.author_display_name),
     userAvatarUrl: row.author_avatar_url || undefined,
     description: row.caption || '',
     timestamp: formatRelativeTime(new Date(row.created_at), getRuntimeLanguage()),
     photoUri: hasImage ? row.image_url || undefined : undefined,
     workoutInfo,
+    durationMinutes: row.workout_duration,
+    centerName: centerLabel,
+    workoutTypeSource: row.workout_type,
     rating:
       row.mood_rating != null && row.mood_rating >= 1 && row.mood_rating <= 5
         ? row.mood_rating
@@ -283,7 +299,8 @@ export async function createWorkoutPost(
     center_name: centerName,
     workout_type: workoutTypeLabel,
     mood_rating: moodRating,
-    author_display_name: authorDisplayName,
+    author_display_name:
+      firstUsableDisplayName(authorDisplayName) ?? getNeutralDisplayNameFallback(),
   };
   if (checkInId) {
     baseRow.check_in_id = checkInId;

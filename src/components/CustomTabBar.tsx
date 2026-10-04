@@ -23,6 +23,7 @@ import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {useChatStore} from '@/store/chatStore';
 import NotificationBadge from '@/components/ui/Badge';
+import {totalDmUnread} from '@/utils/dmUnreadTotal';
 
 /** Samme stil for alle faner: Ionicons outline ↔ filled, Gymly primary når aktiv */
 const TAB_ICONS: Record<string, {focused: string; blur: string}> = {
@@ -49,10 +50,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
   const onTabBarHeight = React.useContext(BottomTabBarHeightCallbackContext);
   const iconSize = 26;
   const chats = useChatStore(s => s.chats);
-  const messagesUnread = useMemo(
-    () => chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
-    [chats],
-  );
+  const messagesUnread = useMemo(() => totalDmUnread(chats), [chats]);
 
   const focusedOptions = descriptors[state.routes[state.index]?.key ?? '']?.options;
   const flattenedTabBarStyle = StyleSheet.flatten(
@@ -113,6 +111,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
           return (
             <TouchableOpacity
               key={route.key}
+              testID={`main-tab-${route.name}`}
               accessibilityRole="button"
               accessibilityState={isFocused ? {selected: true} : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel || options.title}

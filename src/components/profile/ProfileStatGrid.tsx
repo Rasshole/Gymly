@@ -1,9 +1,9 @@
 /**
- * ProfileStatGrid – premium stats grid for profile Data tab
+ * ProfileStatGrid – equal-width 2-column stats (falls back to 1 column when narrow).
  */
 
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useMemo, useState} from 'react';
+import {View, Text, StyleSheet, type LayoutChangeEvent} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows, iconSize} from '@/theme/designTokens';
@@ -22,66 +22,103 @@ type ProfileStatGridProps = {
   stats: StatItem[];
 };
 
-export const ProfileStatGrid: React.FC<ProfileStatGridProps> = ({stats}) => (
-  <View style={styles.grid}>
-    {stats.map(stat => {
-      const inner = (
-        <>
-          <View style={styles.iconWrapper}>
-            {stat.emoji ? (
-              <Text style={styles.emojiMark} allowFontScaling={false}>
-                {stat.emoji}
-              </Text>
-            ) : (
-              <Icon name={stat.icon as never} size={iconSize.sm} color={colors.primary} />
-            )}
-          </View>
-          <Text style={styles.value} numberOfLines={1}>
-            {stat.value}
-          </Text>
-          <Text style={styles.label} numberOfLines={2}>
-            {stat.label}
-          </Text>
-        </>
-      );
+const GAP = spacing.sm;
+/** Content width below this → single column (large text / narrow phones). */
+const SINGLE_COLUMN_MAX_WIDTH = 300;
 
-      if (stat.onPress) {
-        return (
-          <GymlyPressable
-            key={stat.key}
-            onPress={stat.onPress}
-            haptic="light"
-            style={styles.item}>
-            {inner}
-          </GymlyPressable>
+export const ProfileStatGrid: React.FC<ProfileStatGridProps> = ({stats}) => {
+  const [gridWidth, setGridWidth] = useState(0);
+
+  const onLayout = (e: LayoutChangeEvent) => {
+    const w = Math.floor(e.nativeEvent.layout.width);
+    if (w > 0 && w !== gridWidth) {
+      setGridWidth(w);
+    }
+  };
+
+  const columns = gridWidth > 0 && gridWidth < SINGLE_COLUMN_MAX_WIDTH ? 1 : 2;
+  const itemWidth = useMemo(() => {
+    if (gridWidth <= 0) {
+      return undefined;
+    }
+    return (gridWidth - GAP * (columns - 1)) / columns;
+  }, [gridWidth, columns]);
+
+  return (
+    <View style={styles.grid} onLayout={onLayout}>
+      {stats.map(stat => {
+        const inner = (
+          <>
+            <View style={styles.iconWrapper}>
+              {stat.emoji ? (
+                <Text style={styles.emojiMark} allowFontScaling={false}>
+                  {stat.emoji}
+                </Text>
+              ) : (
+                <Icon
+                  name={stat.icon as never}
+                  size={iconSize.sm}
+                  color={colors.primary}
+                />
+              )}
+            </View>
+            <Text style={styles.value}>{stat.value}</Text>
+            <Text style={styles.label}>{stat.label}</Text>
+          </>
         );
-      }
 
-      return (
-        <View key={stat.key} style={styles.item}>
-          {inner}
-        </View>
-      );
-    })}
-  </View>
-);
+        const shellStyle = [
+          styles.item,
+          itemWidth != null ? {width: itemWidth} : styles.itemFallback,
+        ];
+
+        if (stat.onPress) {
+          return (
+            <View key={stat.key} style={shellStyle}>
+              <GymlyPressable
+                onPress={stat.onPress}
+                haptic="light"
+                style={styles.pressFill}>
+                {inner}
+              </GymlyPressable>
+            </View>
+          );
+        }
+
+        return (
+          <View key={stat.key} style={shellStyle}>
+            {inner}
+          </View>
+        );
+      })}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing.sm,
+    gap: GAP,
+    width: '100%',
   },
   item: {
-    width: '48%',
-    flexGrow: 1,
-    flexBasis: '46%',
+    flexGrow: 0,
+    flexShrink: 0,
     backgroundColor: colors.backgroundCardLight,
     borderRadius: radius.md,
     padding: spacing.md,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
     ...shadows.sm,
+  },
+  /** Before first onLayout measurement — keep ~2 columns without flexGrow squash. */
+  itemFallback: {
+    width: '47%',
+    maxWidth: '47%',
+  },
+  pressFill: {
+    width: '100%',
   },
   iconWrapper: {
     width: 40,

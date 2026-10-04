@@ -114,13 +114,16 @@ function mapExercise(row: ExerciseRow, sets: WorkoutSet[]): WorkoutExercise {
   };
 }
 
-/**
- * Local expanded catalog is the source of truth for names/aliases/equipment.
- * Server rows overlay UUID ids when the exercise name matches (history FK).
- * User customs are appended (device + user scoped).
- */
-export async function fetchExerciseLibrary(): Promise<ExerciseLibraryItem[]> {
-  const customs = await loadCustomExercises();
+const LIBRARY_SERVER_TTL_MS = 10 * 60 * 1000;
+let cachedServerLibrary: ExerciseLibraryItem[] | null = null;
+let cachedServerLibraryAt = 0;
+
+/** Already loaded catalog, or the bundled list before the first server overlay. */
+export function peekExerciseLibrary(): ExerciseLibraryItem[] {
+  return cachedServerLibrary ?? EXERCISE_LIBRARY;
+}
+
+async function loadServerExerciseLibrary(): Promise<ExerciseLibraryItem[]> {
   let base: ExerciseLibraryItem[] = EXERCISE_LIBRARY.map(e => ({...e}));
 
   try {
@@ -172,6 +175,23 @@ export async function fetchExerciseLibrary(): Promise<ExerciseLibraryItem[]> {
     }
   } catch {
     /* keep local base */
+  }
+
+  return base;
+}
+
+/**
+ * Local expanded catalog is the source of truth for names/aliases/equipment.
+ * Server rows overlay UUID ids when the exercise name matches (history FK).
+ * The server overlay is reused for 10 minutes. User customs are always merged.
+ */
+export async function fetchExerciseLibrary(): Promise<ExerciseLibraryItem[]> {
+  const customs = await loadCustomExercises();
+  let base = cachedServerLibrary;
+  if (!base || Date.now() - cachedServerLibraryAt > LIBRARY_SERVER_TTL_MS) {
+    base = await loadServerExerciseLibrary();
+    cachedServerLibrary = base;
+    cachedServerLibraryAt = Date.now();
   }
 
   const customNames = new Set(customs.map(c => c.name.trim().toLowerCase()));
@@ -304,7 +324,7 @@ export async function addWorkoutExercise(params: {
     throw error;
   }
 
-  await pushRecentExerciseId(exercise.id);
+  void pushRecentExerciseId(exercise.id);
   return mapExercise(data as ExerciseRow, []);
 }
 
@@ -353,8 +373,9 @@ export async function addWorkoutSet(params: {
     throw error;
   }
 
-  // Touch parent exercise so "latest" ordering for live status works
-  await supabase
+  // Touch parent exercise so "latest" ordering for live status works.
+  // Do not block the set the user just logged.
+  void supabase
     .from('workout_exercises')
     .update({updated_at: now})
     .eq('id', params.workoutExerciseId);

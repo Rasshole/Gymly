@@ -583,7 +583,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -600,6 +600,7 @@
 					"\"../node_modules/react-native/React/Base\"",
 					"\"../node_modules/react-native/React/DevSupport\"",
 					"\"../node_modules/react-native/Libraries/AppDelegate\"",
+					"\"/Users/patrickgarcia/Developer/Gymly-1/ios/.react-header-shim\"",
 				);
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -607,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.46;
+				MARKETING_VERSION = 2.49;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -630,7 +631,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -642,6 +643,7 @@
 					"\"../node_modules/react-native/React/Base\"",
 					"\"../node_modules/react-native/React/DevSupport\"",
 					"\"../node_modules/react-native/Libraries/AppDelegate\"",
+					"\"/Users/patrickgarcia/Developer/Gymly-1/ios/.react-header-shim\"",
 				);
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -649,7 +651,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.46;
+				MARKETING_VERSION = 2.49;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -841,7 +843,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GymlyLiveActivityWidget/Info.plist;
@@ -852,7 +854,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6;
+				MARKETING_VERSION = 2.48;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test1.Gymly.LiveActivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -869,7 +871,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GymlyLiveActivityWidget/Info.plist;
@@ -880,7 +882,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.6;
+				MARKETING_VERSION = 2.48;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test1.Gymly.LiveActivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

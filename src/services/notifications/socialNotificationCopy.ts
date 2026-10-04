@@ -1,4 +1,5 @@
 import type {AppLanguage} from '@/i18n/types';
+import {pickLocalizedString} from '@/i18n/pickLocalizedString';
 
 type SocialNotifInput = {
   type: string;
@@ -7,37 +8,210 @@ type SocialNotifInput = {
   grouped?: boolean;
 };
 
+/** Someone / anonymous actor — locale → EN fallback. */
+const SOMEONE: Record<string, string> & {en: string} = {
+  en: 'Someone',
+  da: 'En bruger',
+  sv: 'Någon',
+  nb: 'Noen',
+  de: 'Jemand',
+  fr: 'Quelqu’un',
+  es: 'Alguien',
+  nl: 'Iemand',
+  it: 'Qualcuno',
+  pl: 'Ktoś',
+  pt: 'Alguém',
+  fi: 'Joku',
+  cs: 'Někdo',
+  ro: 'Cineva',
+  hu: 'Valaki',
+  el: 'Κάποιος',
+  tr: 'Birisi',
+  uk: 'Хтось',
+  ja: '誰か',
+  ko: '누군가',
+  'zh-Hans': '有人',
+  'zh-Hant': '有人',
+  hi: 'कोई',
+  id: 'Seseorang',
+  ms: 'Seseorang',
+  vi: 'Ai đó',
+  th: 'ใครบางคน',
+  ar: 'شخص ما',
+  he: 'מישהו',
+};
+
 export function formatSocialNotificationBody(
-  language: AppLanguage,
+  language: AppLanguage | string,
   input: SocialNotifInput,
 ): string {
-  const name = input.actorName?.trim() || (language === 'da' ? 'En bruger' : 'Someone');
+  const name = input.actorName?.trim() || pickLocalizedString(language, SOMEONE);
   const count = input.likeCount ?? 1;
 
   switch (input.type) {
     case 'post_like':
     case 'biceps_reaction':
       if (count > 10) {
-        return language === 'da'
-          ? '10+ personer gav din træning 💪'
-          : '10+ people liked your workout 💪';
+        return pickLocalizedString(language, {
+          en: '10+ people liked your workout 💪',
+          da: '10+ personer gav din træning 💪',
+          sv: '10+ personer gillade din träning 💪',
+          nb: '10+ personer likte treningen din 💪',
+          de: '10+ Personen haben dein Training geliked 💪',
+          fr: 'Plus de 10 personnes ont aimé ta séance 💪',
+          es: 'Más de 10 personas dieron me gusta a tu entrenamiento 💪',
+          nl: '10+ mensen vonden je training leuk 💪',
+          it: 'Oltre 10 persone hanno messo mi piace al tuo allenamento 💪',
+          pl: 'Ponad 10 osób polubiło twój trening 💪',
+          pt: 'Mais de 10 pessoas gostaram do teu treino 💪',
+          fi: 'Yli 10 henkilöä tykkäsi treenistäsi 💪',
+          cs: 'Více než 10 lidí dalo like tvému tréninku 💪',
+          ro: 'Peste 10 persoane au apreciat antrenamentul tău 💪',
+          hu: '10+ ember likeolta az edzésedet 💪',
+          el: '10+ άτομα έκαναν like στην προπόνησή σου 💪',
+          tr: '10+ kişi antrenmanını beğendi 💪',
+          uk: '10+ людей вподобали твоє тренування 💪',
+          ja: '10人以上があなたのワークアウトにいいねしました 💪',
+          ko: '10명 이상이 운동에 좋아요를 눌렀어요 💪',
+          'zh-Hans': '10+ 人赞了你的训练 💪',
+          'zh-Hant': '10+ 人對你的訓練按讚 💪',
+          hi: '10+ लोगों ने आपके वर्कआउट को लाइक किया 💪',
+          id: '10+ orang menyukai latihanmu 💪',
+          ms: '10+ orang menyukai latihan anda 💪',
+          vi: 'Hơn 10 người đã thích buổi tập của bạn 💪',
+          th: 'มีคนมากกว่า 10 คนถูกใจ workout ของคุณ 💪',
+          ar: 'أعجب أكثر من 10 أشخاص بتمرينك 💪',
+          he: 'יותר מ-10 אנשים אהבו את האימון שלך 💪',
+        });
       }
       if (count >= 2) {
-        return language === 'da'
-          ? `${count} personer gav din træning 💪`
-          : `${count} people liked your workout 💪`;
+        return pickLocalizedString(language, {
+          en: `${count} people liked your workout 💪`,
+          da: `${count} personer gav din træning 💪`,
+          sv: `${count} personer gillade din träning 💪`,
+          nb: `${count} personer likte treningen din 💪`,
+          de: `${count} Personen haben dein Training geliked 💪`,
+          fr: `${count} personnes ont aimé ta séance 💪`,
+          es: `${count} personas dieron me gusta a tu entrenamiento 💪`,
+          nl: `${count} mensen vonden je training leuk 💪`,
+          it: `${count} persone hanno messo mi piace al tuo allenamento 💪`,
+          pl: `${count} osób polubiło twój trening 💪`,
+          pt: `${count} pessoas gostaram do teu treino 💪`,
+          fi: `${count} henkilöä tykkäsi treenistäsi 💪`,
+          cs: `${count} lidí dalo like tvému tréninku 💪`,
+          ro: `${count} persoane au apreciat antrenamentul tău 💪`,
+          hu: `${count} ember likeolta az edzésedet 💪`,
+          el: `${count} άτομα έκαναν like στην προπόνησή σου 💪`,
+          tr: `${count} kişi antrenmanını beğendi 💪`,
+          uk: `${count} людей вподобали твоє тренування 💪`,
+          ja: `${count}人があなたのワークアウトにいいねしました 💪`,
+          ko: `${count}명이 운동에 좋아요를 눌렀어요 💪`,
+          'zh-Hans': `${count} 人赞了你的训练 💪`,
+          'zh-Hant': `${count} 人對你的訓練按讚 💪`,
+          hi: `${count} लोगों ने आपके वर्कआउट को लाइक किया 💪`,
+          id: `${count} orang menyukai latihanmu 💪`,
+          ms: `${count} orang menyukai latihan anda 💪`,
+          vi: `${count} người đã thích buổi tập của bạn 💪`,
+          th: `${count} คนถูกใจ workout ของคุณ 💪`,
+          ar: `أعجب ${count} أشخاص بتمرينك 💪`,
+          he: `${count} אנשים אהבו את האימון שלך 💪`,
+        });
       }
-      return language === 'da'
-        ? `${name} gav din træning 💪`
-        : `${name} liked your workout 💪`;
+      return pickLocalizedString(language, {
+        en: `${name} liked your workout 💪`,
+        da: `${name} gav din træning 💪`,
+        sv: `${name} gillade din träning 💪`,
+        nb: `${name} likte treningen din 💪`,
+        de: `${name} hat dein Training geliked 💪`,
+        fr: `${name} a aimé ta séance 💪`,
+        es: `${name} dio me gusta a tu entrenamiento 💪`,
+        nl: `${name} vond je training leuk 💪`,
+        it: `${name} ha messo mi piace al tuo allenamento 💪`,
+        pl: `${name} polubił(a) twój trening 💪`,
+        pt: `${name} gostou do teu treino 💪`,
+        fi: `${name} tykkäsi treenistäsi 💪`,
+        cs: `${name} dal(a) like tvému tréninku 💪`,
+        ro: `${name} a apreciat antrenamentul tău 💪`,
+        hu: `${name} likeolta az edzésedet 💪`,
+        el: `${name} έκανε like στην προπόνησή σου 💪`,
+        tr: `${name} antrenmanını beğendi 💪`,
+        uk: `${name} вподобав(ла) твоє тренування 💪`,
+        ja: `${name}があなたのワークアウトにいいねしました 💪`,
+        ko: `${name}님이 운동에 좋아요를 눌렀어요 💪`,
+        'zh-Hans': `${name} 赞了你的训练 💪`,
+        'zh-Hant': `${name} 對你的訓練按讚 💪`,
+        hi: `${name} ने आपके वर्कआउट को लाइक किया 💪`,
+        id: `${name} menyukai latihanmu 💪`,
+        ms: `${name} menyukai latihan anda 💪`,
+        vi: `${name} đã thích buổi tập của bạn 💪`,
+        th: `${name} ถูกใจ workout ของคุณ 💪`,
+        ar: `أعجب ${name} بتمرينك 💪`,
+        he: `${name} אהב/ה את האימון שלך 💪`,
+      });
     case 'post_comment':
-      return language === 'da'
-        ? `${name} kommenterede på din træning`
-        : `${name} commented on your workout`;
+      return pickLocalizedString(language, {
+        en: `${name} commented on your workout`,
+        da: `${name} kommenterede på din træning`,
+        sv: `${name} kommenterade din träning`,
+        nb: `${name} kommenterte treningen din`,
+        de: `${name} hat dein Training kommentiert`,
+        fr: `${name} a commenté ta séance`,
+        es: `${name} comentó tu entrenamiento`,
+        nl: `${name} reageerde op je training`,
+        it: `${name} ha commentato il tuo allenamento`,
+        pl: `${name} skomentował(a) twój trening`,
+        pt: `${name} comentou o teu treino`,
+        fi: `${name} kommentoi treeniäsi`,
+        cs: `${name} okomentoval(a) tvůj trénink`,
+        ro: `${name} a comentat la antrenamentul tău`,
+        hu: `${name} kommentelt az edzésedhez`,
+        el: `${name} σχολίασε την προπόνησή σου`,
+        tr: `${name} antrenmanına yorum yaptı`,
+        uk: `${name} прокоментував(ла) твоє тренування`,
+        ja: `${name}があなたのワークアウトにコメントしました`,
+        ko: `${name}님이 운동에 댓글을 남겼어요`,
+        'zh-Hans': `${name} 评论了你的训练`,
+        'zh-Hant': `${name} 留言了你的訓練`,
+        hi: `${name} ने आपके वर्कआउट पर टिप्पणी की`,
+        id: `${name} mengomentari latihanmu`,
+        ms: `${name} mengulas latihan anda`,
+        vi: `${name} đã bình luận buổi tập của bạn`,
+        th: `${name} แสดงความคิดเห็นใน workout ของคุณ`,
+        ar: `علّق ${name} على تمرينك`,
+        he: `${name} הגיב/ה על האימון שלך`,
+      });
     case 'comment_like':
-      return language === 'da'
-        ? `${name} gav din kommentar 💪`
-        : `${name} liked your comment 💪`;
+      return pickLocalizedString(language, {
+        en: `${name} liked your comment 💪`,
+        da: `${name} gav din kommentar 💪`,
+        sv: `${name} gillade din kommentar 💪`,
+        nb: `${name} likte kommentaren din 💪`,
+        de: `${name} hat deinen Kommentar geliked 💪`,
+        fr: `${name} a aimé ton commentaire 💪`,
+        es: `${name} dio me gusta a tu comentario 💪`,
+        nl: `${name} vond je reactie leuk 💪`,
+        it: `${name} ha messo mi piace al tuo commento 💪`,
+        pl: `${name} polubił(a) twój komentarz 💪`,
+        pt: `${name} gostou do teu comentário 💪`,
+        fi: `${name} tykkäsi kommentistasi 💪`,
+        cs: `${name} dal(a) like tvému komentáři 💪`,
+        ro: `${name} a apreciat comentariul tău 💪`,
+        hu: `${name} likeolta a kommentedet 💪`,
+        el: `${name} έκανε like στο σχόλιό σου 💪`,
+        tr: `${name} yorumunu beğendi 💪`,
+        uk: `${name} вподобав(ла) твій коментар 💪`,
+        ja: `${name}があなたのコメントにいいねしました 💪`,
+        ko: `${name}님이 댓글에 좋아요를 눌렀어요 💪`,
+        'zh-Hans': `${name} 赞了你的评论 💪`,
+        'zh-Hant': `${name} 對你的留言按讚 💪`,
+        hi: `${name} ने आपकी टिप्पणी को लाइक किया 💪`,
+        id: `${name} menyukai komentarmu 💪`,
+        ms: `${name} menyukai ulasan anda 💪`,
+        vi: `${name} đã thích bình luận của bạn 💪`,
+        th: `${name} ถูกใจคอมเมนต์ของคุณ 💪`,
+        ar: `أعجب ${name} بتعليقك 💪`,
+        he: `${name} אהב/ה את התגובה שלך 💪`,
+      });
     default:
       return '';
   }

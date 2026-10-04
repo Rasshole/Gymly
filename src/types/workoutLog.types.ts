@@ -63,8 +63,10 @@ export type WorkoutSet = {
   completedAt: string;
   createdAt: string;
   updatedAt: string;
-  /** Lokal optimistic flag */
+  /** Vises med det samme, mens lagring kører i baggrunden. */
   pending?: boolean;
+  /** Lagring fejlede. Rækken må ikke behandles som gemt. */
+  failed?: boolean;
   /** Client clientKey til dedupe ved retry */
   clientKey?: string;
 };

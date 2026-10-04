@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 import {useNotificationStore} from '@/store/notificationStore';
-import {DanishGym} from '@/data/danishGyms';
+import type {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 import {safeDisplayName} from '@/utils/displayName';
 import {getMessagePreview} from '@/utils/dmMessagePreview';
@@ -9,6 +9,7 @@ import {
   messageTimestamp,
   sortChatsByLastActivity,
 } from '@/utils/chatListSort';
+import {mergeDmMessage, mergeServerPage, preserveConfirmedEdit} from '@/utils/dmMessageMerge';
 
 export type PlannedWorkoutDmEmbed =
   | {
@@ -36,8 +37,14 @@ export interface ChatMessage {
   plannedWorkoutEmbed?: PlannedWorkoutDmEmbed;
   /** Når modtager har åbnet tråden (kun meningsfuldt for beskeder modparten sendte) */
   readAt?: Date | null;
-  /** Optimistisk afsendelse (fjernes når server-besked indsættes) */
-  sendState?: 'sending';
+  /** Optimistisk afsendelse. failed bliver stående til retry med samme clientSendId. */
+  sendState?: 'sending' | 'failed';
+  clientSendId?: string;
+  editedAt?: Date;
+  /** Sat når modtagerens klient har beskeden. */
+  deliveredAt?: Date;
+  replyToId?: string;
+  reactions?: Record<string, string>;
 }
 
 export interface Chat {
@@ -109,8 +116,11 @@ interface ChatState {
   upsertChat: (chat: Chat) => void;
   /** Opdatér eget viste navn i DM-listen efter profil-gem */
   updateMyDmParticipantLabels: (myUserId: string, displayName: string) => void;
-  /** Erstat hele besked-listen (hent fra Supabase) */
+  /** Erstat hele besked-listen (hent fra Supabase), men behold usendte rækker */
   setMessagesForChat: (chatId: string, messages: ChatMessage[]) => void;
+  prependOlderMessages: (chatId: string, older: ChatMessage[]) => void;
+  draftsByChat: Record<string, string>;
+  setChatDraft: (chatId: string, text: string) => void;
   mergeIncomingMessage: (
     threadId: string,
     message: ChatMessage,
@@ -138,6 +148,18 @@ export const useChatStore = create<ChatState>((set, get) => ({
 
   chats: [],
   messagesByChat: {},
+  draftsByChat: {},
+  setChatDraft: (chatId, text) => {
+    set(state => {
+      const next = {...state.draftsByChat};
+      if (text) {
+        next[chatId] = text;
+      } else {
+        delete next[chatId];
+      }
+      return {draftsByChat: next};
+    });
+  },
   activePlansByChat: {},
   dismissedPlanInviteBannerByChat: {},
   setDismissedPlanInviteBanner: (chatId, surfaceId) => {
@@ -250,26 +272,12 @@ export const useChatStore = create<ChatState>((set, get) => ({
   },
 
   addMessageToChat: (chatId, message) => {
-    set((state) => {
-      const list = state.messagesByChat[chatId] ?? [];
-      const idx = list.findIndex(m => m.id === message.id);
-      if (idx >= 0) {
-        const next = [...list];
-        next[idx] = {...next[idx], ...message};
-        return {
-          messagesByChat: {
-            ...state.messagesByChat,
-            [chatId]: next,
-          },
-        };
-      }
-      return {
-        messagesByChat: {
-          ...state.messagesByChat,
-          [chatId]: [...list, message],
-        },
-      };
-    });
+    set((state) => ({
+      messagesByChat: {
+        ...state.messagesByChat,
+        [chatId]: mergeDmMessage(state.messagesByChat[chatId] ?? [], message),
+      },
+    }));
   },
 
   patchChatMessage: (chatId, messageId, patch) => {
@@ -281,7 +289,12 @@ export const useChatStore = create<ChatState>((set, get) => ({
       return {
         messagesByChat: {
           ...state.messagesByChat,
-          [chatId]: list.map(m => (m.id === messageId ? {...m, ...patch} : m)),
+          [chatId]: list.map(m => {
+            if (m.id !== messageId) {
+              return m;
+            }
+            return preserveConfirmedEdit(m, {...m, ...patch});
+          }),
         },
       };
     });
@@ -321,9 +334,28 @@ export const useChatStore = create<ChatState>((set, get) => ({
     set((state) => ({
       messagesByChat: {
         ...state.messagesByChat,
-        [chatId]: messages,
+        [chatId]: mergeServerPage(state.messagesByChat[chatId] ?? [], messages),
       },
     }));
+  },
+
+  prependOlderMessages: (chatId, older) => {
+    set(state => {
+      const current = state.messagesByChat[chatId] ?? [];
+      const known = new Set(current.map(m => m.id));
+      const fresh = older.filter(m => !known.has(m.id));
+      if (fresh.length === 0) {
+        return state;
+      }
+      return {
+        messagesByChat: {
+          ...state.messagesByChat,
+          [chatId]: [...fresh, ...current].sort(
+            (a, b) => messageTimestamp(a) - messageTimestamp(b),
+          ),
+        },
+      };
+    });
   },
 
   upsertChat: (chat) => {
@@ -415,8 +447,12 @@ export const useChatStore = create<ChatState>((set, get) => ({
         participantNames: ids.map(id => (id === myUserId ? 'Dig' : 'Ukendt bruger')),
         lastActivity: message.timestamp,
         lastMessage: message,
-        unreadCount: 0,
+        // Incoming while thread missing: start at 1 (updateChatLastMessage would
+        // otherwise add on top of 0 after a forced-zero create).
+        unreadCount: 1,
       });
+      get().addMessageToChat(threadId, message);
+      return;
     }
     get().addMessageToChat(threadId, message);
     get().updateChatLastMessage(threadId, message, {fromCurrentUser: fromCurrentUser});

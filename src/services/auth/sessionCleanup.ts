@@ -1,23 +1,12 @@
 /**
  * Full local teardown after sign-out — stores, navigation, no placeholder user.
+ *
+ * Heavy store modules (and danishGyms → centers.json) are required lazily inside
+ * clearAllUserStores so importing this file from App does not parse the gym catalog.
  */
 
 import {navigationRef} from '@/navigation/navigationRef';
 import {useAppStore} from '@/store/appStore';
-import {useFriendStore} from '@/store/friendStore';
-import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
-import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
-import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
-import {useFeedStore} from '@/store/feedStore';
-import {useNotificationStore} from '@/store/notificationStore';
-import {useChatStore} from '@/store/chatStore';
-import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
-import {useSessionStore} from '@/store/sessionStore';
-import {useCheckInUIStore} from '@/store/checkInUIStore';
-import {useDemoModeStore} from '@/demo/demoModeStore';
-import {clearDemoStoresAfterDisable} from '@/demo/seedDemoStores';
-import {useTrainingStatsStore} from '@/store/trainingStatsStore';
-import {useSavedShopProductsStore} from '@/store/savedShopProductsStore';
 
 /** Hard reset to Login — user cannot navigate back into Main. */
 export function resetNavigationToLogin(): void {
@@ -37,6 +26,28 @@ export function resetNavigationToLogin(): void {
 
 /** Clears all in-memory user-bound state (no Supabase signOut). */
 export function clearAllUserStores(previousUserId?: string | null): void {
+  const {useSessionStore} = require('@/store/sessionStore') as typeof import('@/store/sessionStore');
+  const {useCheckInUIStore} = require('@/store/checkInUIStore') as typeof import('@/store/checkInUIStore');
+  const {useFriendStore} = require('@/store/friendStore') as typeof import('@/store/friendStore');
+  const {usePendingFriendRequestStore} =
+    require('@/store/pendingFriendRequestStore') as typeof import('@/store/pendingFriendRequestStore');
+  const {useInAppNotificationStore} =
+    require('@/store/inAppNotificationStore') as typeof import('@/store/inAppNotificationStore');
+  const {useGymlyGroupsStore} =
+    require('@/store/gymlyGroupsStore') as typeof import('@/store/gymlyGroupsStore');
+  const {useFeedStore} = require('@/store/feedStore') as typeof import('@/store/feedStore');
+  const {useNotificationStore} =
+    require('@/store/notificationStore') as typeof import('@/store/notificationStore');
+  const {useChatStore} = require('@/store/chatStore') as typeof import('@/store/chatStore');
+  const {useWorkoutPlanStore} =
+    require('@/store/workoutPlanStore') as typeof import('@/store/workoutPlanStore');
+  const {useTrainingStatsStore} =
+    require('@/store/trainingStatsStore') as typeof import('@/store/trainingStatsStore');
+  const {useSavedShopProductsStore} =
+    require('@/store/savedShopProductsStore') as typeof import('@/store/savedShopProductsStore');
+  const {clearFocusRefreshThrottle} =
+    require('@/utils/focusRefreshThrottle') as typeof import('@/utils/focusRefreshThrottle');
+
   useSessionStore.getState().endSession();
   useCheckInUIStore.getState().setShowAwayZoneWarning(false);
   useFriendStore.getState().reset();
@@ -56,6 +67,7 @@ export function clearAllUserStores(previousUserId?: string | null): void {
     dmPresenceByUser: {},
     threadSeenAtByUser: {},
   });
+  clearFocusRefreshThrottle();
   useWorkoutPlanStore.setState({
     plannedWorkouts: [],
     completedWorkouts: [],
@@ -64,6 +76,10 @@ export function clearAllUserStores(previousUserId?: string | null): void {
   useSavedShopProductsStore.getState().resetForLogout();
 
   if (__DEV__ && previousUserId) {
+    const {useDemoModeStore} =
+      require('@/demo/demoModeStore') as typeof import('@/demo/demoModeStore');
+    const {clearDemoStoresAfterDisable} =
+      require('@/demo/seedDemoStores') as typeof import('@/demo/seedDemoStores');
     void useDemoModeStore
       .getState()
       .setEnabled(false)

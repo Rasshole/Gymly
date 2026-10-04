@@ -20,13 +20,29 @@ export {
   getReadyLocales,
   getReadyLocaleIds,
   matchesLocaleSearch,
+  sortLocalesByNativeName,
+  getExerciseNamePolicy,
 } from './localeRegistry';
-export type {LocaleDefinition, LocaleStatus} from './localeRegistry';
+export type {
+  LocaleDefinition,
+  LocaleStatus,
+  ExerciseNamePolicy,
+} from './localeRegistry';
 export {
   resolveDeviceLanguage,
+  resolveLanguageFromTag,
+  resolveLanguageFromPreferences,
+  resolveStartupLanguage,
+  matchSelectableLanguage,
   toSelectableLanguage,
   getRecommendedLocaleId,
 } from './resolveDeviceLanguage';
+export {pickLocalizedString} from './pickLocalizedString';
+export {hasTranslationModule, LANGUAGE_MODULE_IDS} from './types';
+export {
+  getSelectablePickerLocales,
+  listVisiblePickerLocaleIds,
+} from './selectableLocales';
 export {getRuntimeLanguage, rt} from './runtimeLanguage';
 export {useMuscleLabel} from './useMuscleLabel';
 export {isRtlLanguage, applyLayoutDirectionForLanguage} from './rtl';

@@ -1,18 +1,17 @@
 /**
  * Auth Navigator
  * Authentication flow screens
+ *
+ * RegisterScreen pulls danishGyms → centers.json (~4MB). Use getComponent so
+ * the Language / Login path can paint without parsing the gym catalog.
  */
 
 import React from 'react';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 import LoginScreen from '@/screens/auth/LoginScreen';
-import RegisterScreen from '@/screens/auth/RegisterScreen';
 import ForgotPasswordScreen from '@/screens/auth/ForgotPasswordScreen';
-import LanguageOnboardingScreen from '@/screens/settings/LanguageScreen';
-import TermsScreen from '@/screens/main/TermsScreen';
-import PrivacyPolicyScreen from '@/screens/main/PrivacyPolicyScreen';
-import {useTranslation} from '@/i18n';
+import {LanguageSettingsScreen} from '@/screens/settings/LanguageScreen';
 import type {AuthStackParamList} from './authStackParamList';
 
 export type {AuthStackParamList};
@@ -20,8 +19,6 @@ export type {AuthStackParamList};
 const Stack = createStackNavigator<AuthStackParamList>();
 
 const AuthNavigator = () => {
-  const {hasUserChosenLanguage} = useTranslation();
-
   return (
     <Stack.Navigator
       screenOptions={{
@@ -30,13 +27,24 @@ const AuthNavigator = () => {
         ...TransitionPresets.SlideFromRightIOS,
         gestureEnabled: true,
       }}
-      initialRouteName={hasUserChosenLanguage ? 'Login' : 'Language'}>
-      <Stack.Screen name="Language" component={LanguageOnboardingScreen} />
+      initialRouteName="Login">
+      <Stack.Screen name="Language" component={LanguageSettingsScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen
+        name="Register"
+        getComponent={() => require('@/screens/auth/RegisterScreen').default}
+      />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-      <Stack.Screen name="Terms" component={TermsScreen} />
-      <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicyScreen} />
+      <Stack.Screen
+        name="Terms"
+        getComponent={() => require('@/screens/main/TermsScreen').default}
+      />
+      <Stack.Screen
+        name="PrivacyPolicy"
+        getComponent={() =>
+          require('@/screens/main/PrivacyPolicyScreen').default
+        }
+      />
     </Stack.Navigator>
   );
 };

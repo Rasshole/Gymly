@@ -5,7 +5,37 @@
 import type {ShopifyStorefrontConfig} from '@/config/shopifyConfig';
 import {ShopError} from './shopErrors';
 
-export type StorefrontLanguageCode = 'EN' | 'DA' | 'NO' | 'SV';
+/** Shopify Storefront @inContext language codes we map from app locales. Unknown → EN. */
+export type StorefrontLanguageCode =
+  | 'EN'
+  | 'DA'
+  | 'NO'
+  | 'SV'
+  | 'DE'
+  | 'FR'
+  | 'ES'
+  | 'NL'
+  | 'IT'
+  | 'PL'
+  | 'PT'
+  | 'FI'
+  | 'CS'
+  | 'RO'
+  | 'HU'
+  | 'EL'
+  | 'TR'
+  | 'UK'
+  | 'JA'
+  | 'KO'
+  | 'ZH_CN'
+  | 'ZH_TW'
+  | 'HI'
+  | 'ID'
+  | 'MS'
+  | 'VI'
+  | 'TH'
+  | 'AR'
+  | 'HE';
 export type StorefrontCountryCode = 'DK' | 'SE' | 'NO' | 'GB' | 'US';
 
 export type StorefrontRequestContext = {
@@ -110,18 +140,46 @@ export class ShopifyStorefrontClient {
   }
 }
 
+/** Generic Shopify Storefront language map — unknown → EN (never Danish). */
+const STOREFRONT_BY_APP_LANG: Record<string, StorefrontLanguageCode> = {
+  en: 'EN',
+  da: 'DA',
+  nb: 'NO',
+  no: 'NO',
+  sv: 'SV',
+  de: 'DE',
+  fr: 'FR',
+  es: 'ES',
+  nl: 'NL',
+  it: 'IT',
+  pl: 'PL',
+  pt: 'PT',
+  fi: 'FI',
+  cs: 'CS',
+  ro: 'RO',
+  hu: 'HU',
+  el: 'EL',
+  tr: 'TR',
+  uk: 'UK',
+  ja: 'JA',
+  ko: 'KO',
+  'zh-hans': 'ZH_CN',
+  'zh-hant': 'ZH_TW',
+  'zh-cn': 'ZH_CN',
+  'zh-tw': 'ZH_TW',
+  hi: 'HI',
+  id: 'ID',
+  ms: 'MS',
+  vi: 'VI',
+  th: 'TH',
+  ar: 'AR',
+  he: 'HE',
+};
+
 export function mapAppLanguageToStorefront(
   languageCode: string | undefined,
 ): StorefrontLanguageCode {
-  switch ((languageCode ?? 'en').toLowerCase().slice(0, 2)) {
-    case 'da':
-      return 'DA';
-    case 'nb':
-    case 'no':
-      return 'NO';
-    case 'sv':
-      return 'SV';
-    default:
-      return 'EN';
-  }
+  const raw = (languageCode ?? 'en').toLowerCase();
+  const primary = raw.split(/[-_]/)[0] ?? 'en';
+  return STOREFRONT_BY_APP_LANG[raw] ?? STOREFRONT_BY_APP_LANG[primary] ?? 'EN';
 }

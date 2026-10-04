@@ -17,7 +17,8 @@ import {UserAvatar} from '@/components/ui/UserAvatar';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
-import {getRuntimeLanguage} from '@/i18n';
+import {getRuntimeLanguage, useTranslation} from '@/i18n';
+import {displayFeedCaption} from '@/utils/workoutPostLocalization';
 import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
 import {WorkoutSnapshotCard} from '@/components/personalRecords/WorkoutSnapshotCard';
 
@@ -53,6 +54,10 @@ export interface GymlyPostCardProps {
   bicepActive?: boolean;
   onBicepsCountPress?: () => void;
   onSharePress?: () => void;
+  /** Open 1:1 DM with post author — omit for own/system posts */
+  onMessagePress?: () => void;
+  messageLabel?: string;
+  messageA11yLabel?: string;
 }
 
 const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
@@ -77,7 +82,12 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
   bicepActive = false,
   onBicepsCountPress,
   onSharePress,
+  onMessagePress,
+  messageLabel,
+  messageA11yLabel,
 }) => {
+  const {language} = useTranslation();
+  const visibleCaption = displayFeedCaption(caption, language);
   return (
     <View style={styles.card}>
       <View style={styles.header}>
@@ -144,9 +154,9 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
       ) : null}
 
       {/* Caption */}
-      {caption ? (
-        <Text style={styles.caption} numberOfLines={3}>
-          {caption}
+      {visibleCaption ? (
+        <Text style={styles.caption}>
+          {visibleCaption}
         </Text>
       ) : null}
 
@@ -171,6 +181,19 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
           <Icon name="chatbubble-outline" size={18} color={colors.primary} />
           <Text style={styles.commentCount}>{commentCount}</Text>
         </TouchableOpacity>
+        {onMessagePress ? (
+          <TouchableOpacity
+            style={styles.reactionButton}
+            onPress={onMessagePress}
+            activeOpacity={0.7}
+            accessibilityRole="button"
+            accessibilityLabel={messageA11yLabel}>
+            <Icon name="chatbubbles-outline" size={18} color={colors.primary} />
+            {messageLabel ? (
+              <Text style={styles.commentCount}>{messageLabel}</Text>
+            ) : null}
+          </TouchableOpacity>
+        ) : null}
         {onSharePress ? (
           <TouchableOpacity
             style={styles.reactionButton}

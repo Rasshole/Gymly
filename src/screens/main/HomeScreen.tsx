@@ -22,12 +22,14 @@ import {
   FlatList,
   Image,
   Dimensions,
+  ActivityIndicator,
 } from 'react-native';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Reanimated, {useSharedValue, useAnimatedStyle, withTiming, withDelay, runOnJS, Easing as ReanimatedEasing} from 'react-native-reanimated';
 import Video from 'react-native-video';
 import {useAuth} from '@/hooks/useAuth';
-import {useNavigation, useFocusEffect, useIsFocused} from '@react-navigation/native';
+import {useDmInboxUnreadSync} from '@/hooks/useDmInboxUnreadSync';
+import {useNavigation, useFocusEffect, useIsFocused, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
@@ -39,12 +41,15 @@ import {
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {WorkoutSnapshotCard} from '@/components/personalRecords/WorkoutSnapshotCard';
+import {FeedSessionSummary} from '@/components/feed/FeedSessionSummary';
+import {displayFeedCaption} from '@/utils/workoutPostLocalization';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
 import {spacing, typography, radius, shadows, letterSpacing} from '@/theme/designTokens';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useGymlyActiveNow} from '@/hooks/useGymlyActiveNow';
 import {Card} from '@/components/ui/Card';
+import {resolveHomeFriendGate} from '@/utils/homeFriendGate';
 import {StatCard} from '@/components/ui/StatCard';
 import {DashboardSection} from '@/components/dashboard';
 import {useAppStore} from '@/store/appStore';
@@ -84,9 +89,15 @@ import {
   subscribeUserStats,
   type UserStats,
 } from '@/services/supabase/userStatsService';
-import {useTranslation, useAppFormat, rt} from '@/i18n';
+import {useTranslation, useAppFormat} from '@/i18n';
 import {EditProfileCentersSheet} from '@/components/profile/EditProfileCentersSheet';
 import {syncUserHomeGymsAfterSave} from '@/services/supabase/homeGymsService';
+import {
+  resolveFeedAuthorProfileTarget,
+  shouldShowFeedMessageAction,
+} from '@/navigation/feedAuthorNavigation';
+
+import type {MainTabParamList} from '@/navigation/MainNavigator';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
@@ -153,27 +164,21 @@ const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: strin
   );
 };
 
-const RenderCaptionWithMentions = ({
-  text,
-  mentionedUsers,
-  navigation,
-  username,
-  onPressUsername,
-}: {
-  text: string;
-  mentionedUsers?: string[];
-  navigation: any;
-  username: string;
-  onPressUsername: () => void;
-}) => {
+/** Same glyph on every post. The active state is the purple mark, not a different skin tone. */
+const FEED_BICEPS = '💪';
+
+function captionToSingleLine(text: string): string {
+  return text.replace(/[\r\n]+/g, ' ').replace(/[ \t]{2,}/g, ' ').trim();
+}
+
+function splitCaptionParts(shown: string, mentionedUsers?: string[]) {
   const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
   const mentionRegex = /@(\w+)/g;
   let lastIndex = 0;
   let match;
-
-  while ((match = mentionRegex.exec(text)) !== null) {
+  while ((match = mentionRegex.exec(shown)) !== null) {
     if (match.index > lastIndex) {
-      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
+      parts.push({text: shown.substring(lastIndex, match.index), isMention: false});
     }
     const mentionedName = match[1];
     const friend = FRIENDS.find(f => f.name === mentionedName);
@@ -185,33 +190,89 @@ const RenderCaptionWithMentions = ({
     });
     lastIndex = match.index + match[0].length;
   }
+  if (lastIndex < shown.length) {
+    parts.push({text: shown.substring(lastIndex), isMention: false});
+  }
+  return parts;
+}
 
-  if (lastIndex < text.length) {
-    parts.push({text: text.substring(lastIndex), isMention: false});
+const RenderCaptionWithMentions = ({
+  text,
+  mentionedUsers,
+  navigation,
+}: {
+  text: string;
+  mentionedUsers?: string[];
+  navigation: any;
+}) => {
+  const {t, language} = useTranslation();
+  const [expanded, setExpanded] = useState(false);
+  const [overflows, setOverflows] = useState(false);
+  const visible = displayFeedCaption(text, language);
+  if (!visible) {
+    return null;
+  }
+  const oneLine = captionToSingleLine(visible);
+  const hasLineBreak = /[\r\n]/.test(visible);
+  const canExpand = overflows || hasLineBreak;
+
+  const renderParts = (shown: string) =>
+    splitCaptionParts(shown, mentionedUsers).map((part, index) => {
+      if (part.isMention && part.userId) {
+        return (
+          <Text
+            key={index}
+            style={styles.feedMention}
+            onPress={() => {
+              navigation.navigate('FriendProfile', {friendId: part.userId});
+            }}>
+            {part.text}
+          </Text>
+        );
+      }
+      return <Text key={index}>{part.text}</Text>;
+    });
+
+  if (expanded) {
+    return (
+      <Text style={styles.feedDescription}>
+        {renderParts(visible)}
+        <Text style={styles.feedCaptionToggle} onPress={() => setExpanded(false)}>
+          {'  '}
+          {t('personalRecords.seeLess')}
+        </Text>
+      </Text>
+    );
   }
 
   return (
-    <Text style={styles.feedDescription}>
-      <Text style={styles.feedCaptionUser} onPress={onPressUsername}>
-        {username}
+    <View style={styles.feedCaptionRow}>
+      <Text
+        style={styles.feedCaptionMeasure}
+        accessible={false}
+        onTextLayout={event => {
+          const lineCount = event.nativeEvent.lines?.length ?? 1;
+          setOverflows(lineCount > 1);
+        }}>
+        {oneLine}
       </Text>
-      <Text> </Text>
-      {parts.map((part, index) => {
-        if (part.isMention && part.userId) {
-          return (
-            <Text
-              key={index}
-              style={styles.feedMention}
-              onPress={() => {
-                navigation.navigate('FriendProfile', {friendId: part.userId});
-              }}>
-              {part.text}
-            </Text>
-          );
-        }
-        return <Text key={index}>{part.text}</Text>;
-      })}
-    </Text>
+      <Text
+        style={styles.feedDescriptionCollapsed}
+        numberOfLines={1}
+        ellipsizeMode="tail"
+        onPress={canExpand ? () => setExpanded(true) : undefined}>
+        {renderParts(oneLine)}
+      </Text>
+      {canExpand ? (
+        <Pressable
+          onPress={() => setExpanded(true)}
+          hitSlop={{top: 12, bottom: 12, left: 6, right: 8}}
+          style={styles.feedCaptionToggleHit}
+          accessibilityRole="button">
+          <Text style={styles.feedCaptionToggle}>{t('personalRecords.seeMore')}</Text>
+        </Pressable>
+      ) : null}
+    </View>
   );
 };
 
@@ -224,25 +285,8 @@ type FeedPhotoProps = {
 
 const FeedPhoto = memo(
   ({item, onDoubleTapLike, onLayoutMeasured, userBicepsEmoji}: FeedPhotoProps) => {
-    const {t} = useTranslation();
     if (!item.photoUri) {
-      const workoutParts = (item.workoutInfo ?? '')
-        .split('·')
-        .map(part => part.trim())
-        .filter(Boolean);
-      const centerText = workoutParts[0] ?? 'Gymly center';
-      const durationText = workoutParts[1] ?? 'Session';
-      const workoutText = workoutParts[2] ?? rt('notifications.workoutDefault');
-      return (
-        <View style={styles.feedNoImageCard}>
-          <Text style={styles.feedNoImageEyebrow}>🔥 {t('phase2ui.sessionSharedEyebrow')}</Text>
-          <Text style={styles.feedNoImageDuration}>{durationText.toUpperCase()}</Text>
-          <Text style={styles.feedNoImageWorkout}>{workoutText}</Text>
-          <Text style={styles.feedNoImageCenter} numberOfLines={1}>
-            {centerText}
-          </Text>
-        </View>
-      );
+      return null;
     }
 
     const [aspectRatio, setAspectRatio] = useState<number | null>(null);
@@ -369,11 +413,13 @@ const FeedPhoto = memo(
 
 
 const HomeScreen = () => {
-  const {t} = useTranslation();
+  const {t, tp} = useTranslation();
+  const route = useRoute<RouteProp<MainTabParamList, 'Home'>>();
   const {formatDateLong, streakLabel} = useAppFormat();
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const isHomeFocused = useIsFocused();
   const user = useAuth();
+  useDmInboxUnreadSync();
   const insets = useSafeAreaInsets();
   const {
     totalActiveUsers,
@@ -384,7 +430,23 @@ const HomeScreen = () => {
   } = useGymlyActiveNow(user?.id);
   const currentUser = useAppStore(s => s.user);
   const friendIds = useFriendStore(s => s.friendIds);
+  const friendsLoading = useFriendStore(s => s.loading);
+  const friendsLoadError = useFriendStore(s => s.loadError);
+  const friendsLoadedFor = useFriendStore(s => s.lastLoadedUserId);
   const loadFriendStore = useFriendStore(s => s.load);
+  const friendGate = resolveHomeFriendGate({
+    userId: user?.id,
+    lastLoadedUserId: friendsLoadedFor,
+    loading: friendsLoading,
+    loadError: friendsLoadError,
+    friendCount: friendIds.size,
+  });
+  const openFindFriends = useCallback(() => {
+    navigation.navigate('Friends', {
+      screen: 'Venner',
+      focusSearch: Date.now(),
+    });
+  }, [navigation]);
 
   useEffect(() => {
     if (user?.id) {
@@ -554,6 +616,28 @@ const HomeScreen = () => {
   const reelsVideoRefs = useRef<Record<string, any>>({});
   const feedVideoRefs = useRef<Record<string, any>>({});
   const scrollViewRef = useRef<ScrollView>(null);
+  const highlightPostId = route.params?.highlightPostId;
+
+  useEffect(() => {
+    if (!highlightPostId) {
+      return;
+    }
+    let attempts = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    const scrollToPost = () => {
+      const y = feedCardLayouts.current[highlightPostId]?.y;
+      if (y == null && attempts < 8) {
+        attempts += 1;
+        timer = setTimeout(scrollToPost, 200);
+        return;
+      }
+      if (y != null) {
+        scrollViewRef.current?.scrollTo({y: Math.max(0, y - 8), animated: true});
+      }
+    };
+    timer = setTimeout(scrollToPost, 350);
+    return () => clearTimeout(timer);
+  }, [highlightPostId, feedItems]);
   const feedVideoLayouts = useRef<Record<string, {y: number; height: number}>>({});
   const scrollY = useRef(0);
   const screenHeight = Dimensions.get('window').height;
@@ -1081,20 +1165,45 @@ const HomeScreen = () => {
     [likeOnly, runOverlayAnimation, ensureBicepsAnimation],
   );
 
-  const openProfile = useCallback(() => {
-    navigation.navigate('Profile');
-  }, [navigation]);
+  /** Open the post author's profile — never force the authenticated user's Profile tab. */
+  const openFeedAuthorProfile = useCallback(
+    (authorUserId?: string, authorName?: string) => {
+      const target = resolveFeedAuthorProfileTarget(
+        authorUserId,
+        currentUser?.id ?? user?.id,
+      );
+      if (target === 'none') {
+        return;
+      }
+      if (target === 'self') {
+        navigation.navigate('Profile');
+        return;
+      }
+      navigation.navigate('FriendProfile', {
+        friendId: authorUserId!,
+        friendName: authorName ?? '',
+        mutualFriends: 0,
+        gyms: [],
+      });
+    },
+    [currentUser?.id, navigation, user?.id],
+  );
 
   const openLocalCenterDetail = useCallback((center: LocalCenterActivity) => {
     const gym = findGymById(center.centerId);
-    const activeFriends = center.activeFriends.map(f => ({
+    const toSession = (f: LocalCenterActivity['activeFriends'][number]) => ({
       checkInId: `${center.centerId}_${f.userId}_${f.startedAt}`,
       userId: f.userId,
       displayName: f.displayName,
       workoutType: f.workoutType,
       startedAt: f.startedAt,
       avatarUrl: f.avatarUrl,
-    }));
+    });
+    const activeFriends = center.activeFriends.map(toSession);
+    const activeSessions = (center.activeVisible?.length
+      ? center.activeVisible
+      : center.activeFriends
+    ).map(toSession);
     navigation.navigate('GymPresence', {
       activeCenter: {
         centerId: center.centerId,
@@ -1106,7 +1215,7 @@ const HomeScreen = () => {
         totalActiveCount: center.totalActiveCount,
         activeFriendsCount: center.activeFriendsCount,
         activeFriends,
-        activeSessions: activeFriends,
+        activeSessions,
       },
     });
   }, [navigation]);
@@ -1328,20 +1437,7 @@ const HomeScreen = () => {
   }, [reelsShareSearch]);
 
   const handleReelsSubmitComment = () => {
-    const trimmed = commentInput.trim();
-    if (!trimmed || !activeCommentItem) {
-      return;
-    }
-    const authorName = user?.displayName || user?.username || 'Du';
-    const commentId = `${activeCommentItem}_${Date.now()}_${Math.random()}`;
-    setCommentsByFeedItem(prev => ({
-      ...prev,
-      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), {author: authorName, text: trimmed, id: commentId}],
-    }));
-    setCommentedItems(prev =>
-      prev.includes(activeCommentItem) ? prev : [...prev, activeCommentItem],
-    );
-    setCommentInput('');
+    handleSubmitComment();
   };
 
   const activeComments = activeCommentItem ? commentsByFeedItem[activeCommentItem] ?? [] : [];
@@ -1423,10 +1519,78 @@ const HomeScreen = () => {
         scrollEventThrottle={16}>
         {/* 1. Header / Welcome */}
         <View style={[styles.welcomeSection, {paddingHorizontal: HOME_H_PADDING}]}>
-          <Text style={styles.welcomeText}>{greeting}</Text>
+          <View style={styles.welcomeGreetingRow}>
+            <Text style={styles.welcomeText}>{greeting}</Text>
+            <Image
+              source={require('@/assets/images/gymly-kettlebell-greeting.png')}
+              style={styles.welcomeLogo}
+              resizeMode="contain"
+              accessibilityElementsHidden
+              importantForAccessibility="no-hide-descendants"
+            />
+          </View>
           <Text style={styles.subtitle}>{formatDateLong(new Date())}</Text>
           <Text style={styles.welcomeCta}>{t('home.readyForSession')}</Text>
         </View>
+
+        {friendGate === 'empty' ? (
+          <View style={styles.welcomeFriendWrap}>
+            <Card padding="lg" style={styles.welcomeFriendCard}>
+              <Text style={styles.welcomeFriendTitle}>
+                {t('home.welcomeTogether')}
+              </Text>
+              <Text style={styles.welcomeFriendSub}>
+                {t('home.welcomeTogetherSub')}
+              </Text>
+              <View style={styles.welcomeFriendActions}>
+                <Pressable
+                  testID="home-find-friends"
+                  style={({pressed}) => [
+                    styles.emptyCta,
+                    styles.emptyCtaInRow,
+                    pressed && styles.emptyCtaPressed,
+                  ]}
+                  onPress={openFindFriends}>
+                  <Text style={styles.emptyCtaText}>{t('home.findFriends')}</Text>
+                </Pressable>
+                <Pressable
+                  testID="home-welcome-check-in"
+                  style={({pressed}) => [
+                    styles.welcomeCheckIn,
+                    pressed && styles.emptyCtaPressed,
+                  ]}
+                  onPress={() => navigation.navigate('CheckIn')}>
+                  <Text style={styles.welcomeCheckInText}>
+                    {t('home.checkInCta')}
+                  </Text>
+                </Pressable>
+              </View>
+            </Card>
+          </View>
+        ) : null}
+
+        {friendGate === 'error' ? (
+          <View style={styles.welcomeFriendWrap}>
+            <Card padding="lg" style={styles.welcomeFriendCard}>
+              <Text style={styles.welcomeFriendTitle}>
+                {t('home.friendsLoadError')}
+              </Text>
+              <Pressable
+                testID="home-friends-retry"
+                style={({pressed}) => [
+                  styles.emptyCta,
+                  pressed && styles.emptyCtaPressed,
+                ]}
+                onPress={() => {
+                  if (user?.id) {
+                    void loadFriendStore(user.id);
+                  }
+                }}>
+                <Text style={styles.emptyCtaText}>{t('home.friendsLoadRetry')}</Text>
+              </Pressable>
+            </Card>
+          </View>
+        ) : null}
 
         {/* 2. Quick Stats Cards */}
         <View style={[styles.dashboardSection, {paddingHorizontal: HOME_H_PADDING}]}>
@@ -1493,12 +1657,48 @@ const HomeScreen = () => {
                       <Text style={styles.localCenterName} numberOfLines={1}>
                         {center.displayName}
                       </Text>
-                      <Text style={styles.localCenterCounts} numberOfLines={1}>
-                        {t('home.activeAndFriends', {
-                          active: center.totalActiveCount,
-                          friends: center.activeFriendsCount,
-                        })}
-                      </Text>
+                      {center.totalActiveCount > 0 ? (
+                        <View style={styles.localCenterActivityRow}>
+                          <View style={styles.localCenterLiveDot} />
+                          <Text style={styles.localCenterTrainingNow} numberOfLines={1}>
+                            {tp('home.trainingNow', center.totalActiveCount)}
+                          </Text>
+                          {center.activeFriendsCount > 0 ? (
+                            <>
+                              <Text style={styles.localCenterActivitySep}>·</Text>
+                              <View style={styles.localCenterFriendsCluster}>
+                                {center.activeFriends.slice(0, 3).map((friend, idx) => (
+                                  <View
+                                    key={friend.userId}
+                                    style={[
+                                      styles.localCenterFriendAvatarWrap,
+                                      {marginLeft: idx === 0 ? 0 : -6, zIndex: 3 - idx},
+                                    ]}>
+                                    <UserAvatar
+                                      name={friend.displayName}
+                                      imageUrl={friend.avatarUrl ?? undefined}
+                                      size="xs"
+                                    />
+                                  </View>
+                                ))}
+                              </View>
+                              <Icon
+                                name="people-outline"
+                                size={13}
+                                color={colors.textSecondary}
+                                style={styles.localCenterFriendsIcon}
+                              />
+                              <Text style={styles.localCenterFriendsCount} numberOfLines={1}>
+                                {tp('home.friendsAtGym', center.activeFriendsCount)}
+                              </Text>
+                            </>
+                          ) : null}
+                        </View>
+                      ) : (
+                        <Text style={styles.localCenterQuiet} numberOfLines={1}>
+                          {t('home.quietRightNow')}
+                        </Text>
+                      )}
                     </View>
                     <Icon name="chevron-forward" size={20} color={colors.textMuted} />
                   </Pressable>
@@ -1542,6 +1742,7 @@ const HomeScreen = () => {
                 {t('home.activeOnGymly', {count: totalActiveUsers})}
               </Text>
             </View>
+            {friendGate === 'empty' ? null : (
             <Card padding="lg" style={styles.activeNowHighlightCard}>
               {socialActiveNowList.length > 0 ? (
                 <View style={styles.onlineUsersListCol}>
@@ -1607,7 +1808,9 @@ const HomeScreen = () => {
                     </View>
                   ))}
                 </View>
-              ) : (
+              ) : friendGate === 'loading' ? (
+                <ActivityIndicator color={colors.primary} />
+              ) : friendGate === 'error' ? null : (
                 <View style={styles.emptyPreview}>
                   <Text style={styles.emptyPreviewText}>{t('home.noFriendsActive')}</Text>
                   <Text style={styles.emptyPreviewSubtext}>
@@ -1626,6 +1829,7 @@ const HomeScreen = () => {
                 </View>
               )}
             </Card>
+            )}
           </DashboardSection>
         </View>
 
@@ -1640,15 +1844,17 @@ const HomeScreen = () => {
           />
         ) : null}
         {feedItems.length === 0 ? (
+          friendGate === 'hasFriends' ? (
           <View style={styles.emptyPreview}>
             <Text style={styles.emptyPreviewText}>{t('home.feedEmptyTitle')}</Text>
             <Text style={styles.emptyPreviewSubtext}>{t('home.feedEmptySub')}</Text>
             <Pressable
               style={({pressed}) => [styles.emptyCta, pressed && styles.emptyCtaPressed]}
-              onPress={() => navigation.navigate('Friends')}>
+              onPress={openFindFriends}>
               <Text style={styles.emptyCtaText}>{t('home.findFriends')}</Text>
             </Pressable>
           </View>
+          ) : null
         ) : feedItems.map(item => {
             // Ensure animation is initialized
             const likeAnim = ensureBicepsAnimation(item.id);
@@ -1670,8 +1876,10 @@ const HomeScreen = () => {
               <View style={styles.feedCardHeader}>
                 <TouchableOpacity
                   style={styles.feedHeaderProfile}
-                  onPress={openProfile}
-                  activeOpacity={0.8}>
+                  onPress={() => openFeedAuthorProfile(item.userId, item.user)}
+                  activeOpacity={0.8}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('chat.openProfile', {name: item.user})}>
                   <UserAvatar
                     name={item.user}
                     imageUrl={item.userAvatarUrl}
@@ -1710,16 +1918,6 @@ const HomeScreen = () => {
                   <Icon name="ellipsis-horizontal" size={17} color="#64748B" />
                 </TouchableOpacity>
               </View>
-              {item.workoutInfo ? (
-                <View style={styles.feedWorkoutChip}>
-                  <Text style={styles.feedWorkoutChipIcon}>📍</Text>
-                  <Text style={styles.feedWorkoutChipText} numberOfLines={1}>
-                    {item.workoutInfo}
-                  </Text>
-                </View>
-              ) : null}
-
-              {/* Media always renders when present — never gated by PR type */}
               {item.photoUri ? (
                 <>
                   <FeedPhoto
@@ -1730,16 +1928,6 @@ const HomeScreen = () => {
                     }}
                     userBicepsEmoji={userBicepsEmoji}
                   />
-                  {item.rating != null && item.rating >= 1 && item.rating <= 5 && (
-                    <View style={styles.feedPhotoMoodRow}>
-                      <View style={styles.feedHighlightSecondary}>
-                        <Text style={styles.feedRatingEmoji}>
-                          {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
-                        </Text>
-                        <Text style={styles.feedHighlightSecondaryText}>{t('phase2ui.sessionShared')}</Text>
-                      </View>
-                    </View>
-                  )}
                 </>
               ) : item.videoUri ? (
                 <GestureDetector
@@ -1793,80 +1981,63 @@ const HomeScreen = () => {
                 </GestureDetector>
               ) : null}
 
-              {/* PR + workout summary block (composable; never replaces media) */}
-              {item.workoutSnapshot ? (
-                <View style={{paddingHorizontal: 16}}>
-                  <WorkoutSnapshotCard
-                    snapshot={item.workoutSnapshot}
-                    onPress={() => {
-                      const isOwn = item.userId && item.userId === user?.id;
-                      if (isOwn && item.checkInId) {
-                        navigation.navigate('WorkoutHistoryDetail', {
-                          sessionId: item.checkInId,
-                        });
-                      } else {
-                        navigation.navigate('SharedWorkoutDetail', {
-                          authorName: item.user,
-                          gymName: item.workoutInfo?.split('·')[0]?.trim(),
-                          snapshot: item.workoutSnapshot!,
-                        });
-                      }
-                    }}
-                  />
-                </View>
+              {item.photoUri || item.videoUri ? (
+                <FeedSessionSummary
+                  variant="line"
+                  centerName={item.centerName}
+                  durationMinutes={item.durationMinutes}
+                  workoutTypeSource={item.workoutTypeSource}
+                  fallbackLine={item.workoutInfo}
+                />
               ) : (
-                <>
-                  {/* Legacy PR badge when no structured snapshot */}
-                  {item.type === 'pr' && !item.photoUri && !item.videoUri ? (
-                    <View style={styles.feedHighlight}>
-                      <Icon name="trophy" size={18} color="#FACC15" />
-                      <Text style={styles.feedHighlightText}>
-                        {t('personalRecords.newPrToast')}
-                      </Text>
-                    </View>
-                  ) : null}
-                  {/* Legacy summary card when no media and no snapshot */}
-                  {!item.photoUri && !item.videoUri && item.type !== 'pr' ? (
-                    <>
-                      <View style={styles.feedNoImageCard}>
-                        <Text style={styles.feedNoImageEyebrow}>{t('phase2ui.sessionSharedEyebrow')}</Text>
-                        <Text style={styles.feedNoImageDuration}>
-                          {(item.workoutInfo?.split('·')[1] ?? 'Session').trim().toUpperCase()}
-                        </Text>
-                        <Text style={styles.feedNoImageWorkout}>
-                          {(item.workoutInfo?.split('·')[2] ?? t('notifications.workoutDefault')).trim()}
-                        </Text>
-                        <Text style={styles.feedNoImageCenter} numberOfLines={1}>
-                          {(item.workoutInfo?.split('·')[0] ?? 'Gymly center').trim()}
-                        </Text>
-                      </View>
-                      {item.muscles && item.muscles.length > 0 && (
-                        <View style={styles.feedMuscleIconsRow}>
-                          {item.muscles.map(muscle => (
-                            <MuscleGroupTileIcon
-                              key={muscle}
-                              group={coerceMuscleGroup(String(muscle))}
-                              size={20}
-                              style={styles.feedMuscleIcon}
-                            />
-                          ))}
-                        </View>
-                      )}
-                    </>
-                  ) : null}
-                </>
+                <FeedSessionSummary
+                  variant="card"
+                  centerName={item.centerName}
+                  durationMinutes={item.durationMinutes}
+                  workoutTypeSource={item.workoutTypeSource}
+                  fallbackLine={item.workoutInfo}
+                  hasPR={item.type === 'pr' && !(item.workoutSnapshot?.prs?.length)}
+                />
               )}
-              {item.description &&
-                item.description.trim().length > 0 &&
-                item.description.trim() !== (item.workoutInfo ?? '').trim() && (
+              {!item.photoUri && !item.videoUri && item.muscles && item.muscles.length > 0 ? (
+                <View style={styles.feedMuscleIconsRow}>
+                  {item.muscles.map(muscle => (
+                    <MuscleGroupTileIcon
+                      key={muscle}
+                      group={coerceMuscleGroup(String(muscle))}
+                      size={20}
+                      style={styles.feedMuscleIcon}
+                    />
+                  ))}
+                </View>
+              ) : null}
+              {item.description?.trim() &&
+              item.description.trim() !== (item.workoutInfo ?? '').trim() ? (
                 <RenderCaptionWithMentions
                   text={item.description}
                   mentionedUsers={item.mentionedUsers}
                   navigation={navigation}
-                  username={item.user}
-                  onPressUsername={openProfile}
                 />
-              )}
+              ) : null}
+              {item.workoutSnapshot ? (
+                <WorkoutSnapshotCard
+                  snapshot={item.workoutSnapshot}
+                  onPress={() => {
+                    const isOwn = item.userId && item.userId === user?.id;
+                    if (isOwn && item.checkInId) {
+                      navigation.navigate('WorkoutHistoryDetail', {
+                        sessionId: item.checkInId,
+                      });
+                    } else {
+                      navigation.navigate('SharedWorkoutDetail', {
+                        authorName: item.user,
+                        gymName: item.centerName || item.workoutInfo?.split('·')[0]?.trim(),
+                        snapshot: item.workoutSnapshot!,
+                      });
+                    }
+                  }}
+                />
+              ) : null}
               <Animated.View
                 pointerEvents="none"
                 style={[
@@ -1880,7 +2051,7 @@ const HomeScreen = () => {
                     ],
                   },
                 ]}>
-                <Text style={styles.feedCardBicepsEmoji}>{userBicepsEmoji}</Text>
+                <Text style={styles.feedCardBicepsEmoji}>{FEED_BICEPS}</Text>
               </Animated.View>
               <View
                 style={styles.feedActions}
@@ -1904,7 +2075,7 @@ const HomeScreen = () => {
                         style={likeScaleStyle}
                         renderToHardwareTextureAndroid={true}
                         shouldRasterizeIOS={true}>
-                        <View style={styles.likeButtonContent}>
+                        <View style={[styles.likeButtonContent, isLiked && styles.likeButtonContentActive]}>
                           {/* Biceps emoji - always visible */}
                           <Animated.View
                             style={[
@@ -1918,7 +2089,7 @@ const HomeScreen = () => {
                               allowFontScaling={false}
                               textBreakStrategy="simple"
                               suppressHighlighting={true}>
-                              {isLiked ? userBicepsEmoji : '💪'}
+                              {FEED_BICEPS}
                             </Text>
                           </Animated.View>
                         </View>
@@ -1938,7 +2109,7 @@ const HomeScreen = () => {
                             },
                           ]}>
                           <Text style={styles.bicepsParticleEmoji}>
-                            {userBicepsEmoji}
+                            {FEED_BICEPS}
                           </Text>
                         </Animated.View>
                       ))}
@@ -1964,6 +2135,30 @@ const HomeScreen = () => {
                     </Text>
                   </TouchableOpacity>
                 </View>
+                {shouldShowFeedMessageAction(
+                  item.userId,
+                  currentUser?.id ?? user?.id,
+                ) ? (
+                  <View style={styles.feedActionGroup}>
+                    <TouchableOpacity
+                      style={styles.feedSocialPill}
+                      onPress={() =>
+                        void openDmToFriend(item.userId!, item.user)
+                      }
+                      activeOpacity={0.8}
+                      accessibilityRole="button"
+                      accessibilityLabel={t('a11y.sendMessage')}>
+                      <Icon
+                        name="chatbubbles-outline"
+                        size={16}
+                        color={colors.primary}
+                      />
+                      <Text style={styles.feedCommentPillText}>
+                        {t('home.message')}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                ) : null}
                 {item.userId && item.userId === user?.id && item.checkInId ? (
                   <View style={styles.feedActionGroup}>
                     <TouchableOpacity
@@ -2109,7 +2304,17 @@ const HomeScreen = () => {
                       <TouchableOpacity
                         key={`${row.userId}_${row.createdAt}`}
                         style={styles.bicepsUserRow}
-                        onPress={() => navigation.navigate('FriendProfile', {friendId: row.userId, friendName: row.name})}
+                        onPress={() => {
+                          closeBicepsList();
+                          if (row.userId === (currentUser?.id ?? user?.id)) {
+                            navigation.navigate('Profile');
+                            return;
+                          }
+                          navigation.navigate('FriendProfile', {
+                            friendId: row.userId,
+                            friendName: row.name,
+                          });
+                        }}
                         activeOpacity={0.75}>
                         <UserAvatar name={row.name} imageUrl={row.avatarUrl ?? undefined} size="sm" />
                         <View style={styles.bicepsUserMeta}>
@@ -2915,11 +3120,61 @@ const styles = StyleSheet.create({
   },
   localCenterBody: {
     flex: 1,
+    minWidth: 0,
   },
   localCenterName: {
     ...typography.body,
     color: colors.text,
     fontWeight: '700',
+  },
+  localCenterActivityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 5,
+    gap: 5,
+    minWidth: 0,
+  },
+  localCenterLiveDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: colors.primary,
+  },
+  localCenterTrainingNow: {
+    ...typography.small,
+    color: colors.text,
+    fontWeight: '700',
+    flexShrink: 1,
+  },
+  localCenterActivitySep: {
+    ...typography.small,
+    color: colors.textMuted,
+  },
+  localCenterFriendsCluster: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 2,
+  },
+  localCenterFriendAvatarWrap: {
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: colors.backgroundCard,
+    overflow: 'hidden',
+    transform: [{scale: 0.78}],
+  },
+  localCenterFriendsIcon: {
+    marginLeft: 1,
+  },
+  localCenterFriendsCount: {
+    ...typography.small,
+    color: colors.textSecondary,
+    fontWeight: '600',
+    flexShrink: 1,
+  },
+  localCenterQuiet: {
+    ...typography.small,
+    color: colors.textMuted,
+    marginTop: 5,
   },
   localCenterCounts: {
     ...typography.small,
@@ -3030,6 +3285,41 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     maxWidth: 280,
   },
+  welcomeFriendWrap: {
+    paddingHorizontal: HOME_H_PADDING,
+    marginBottom: spacing.md,
+  },
+  welcomeFriendCard: {
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary + '30',
+  },
+  welcomeFriendTitle: {
+    ...typography.h4,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  welcomeFriendSub: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: spacing.xs,
+    lineHeight: 20,
+  },
+  welcomeFriendActions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginTop: spacing.md,
+  },
+  welcomeCheckIn: {
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.sm,
+  },
+  welcomeCheckInText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.primary,
+  },
   emptyCta: {
     marginTop: spacing.lg,
     paddingVertical: spacing.md,
@@ -3037,6 +3327,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderRadius: radius.full,
     ...shadows.glow,
+  },
+  emptyCtaInRow: {
+    marginTop: 0,
   },
   emptyCtaPressed: {
     opacity: 0.9,
@@ -3189,8 +3482,20 @@ const styles = StyleSheet.create({
   welcomeText: {
     ...typography.h2,
     color: colors.text,
-    marginBottom: spacing.xs,
     letterSpacing: letterSpacing.headline,
+    flexShrink: 1,
+  },
+  welcomeGreetingRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.xs,
+    gap: 7,
+    maxWidth: '100%',
+  },
+  welcomeLogo: {
+    width: 28,
+    height: 28,
+    flexShrink: 0,
   },
   subtitle: {
     ...typography.body,
@@ -3339,14 +3644,15 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   feedCard: {
-    marginBottom: spacing.xl,
+    marginBottom: spacing.lg,
     marginHorizontal: HOME_H_PADDING,
     backgroundColor: colors.backgroundCard,
     borderRadius: radius.xl,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
     paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.sm,
     overflow: 'hidden',
     position: 'relative',
     ...shadows.card,
@@ -3520,7 +3826,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing.md,
+    marginBottom: 8,
     overflow: 'visible',
     zIndex: 10,
     elevation: 10,
@@ -3610,6 +3916,34 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 13,
   },
+  feedCaptionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 6,
+    marginBottom: 2,
+    minWidth: 0,
+  },
+  feedCaptionMeasure: {
+    position: 'absolute',
+    opacity: 0,
+    left: 0,
+    right: 0,
+    height: 0,
+    overflow: 'hidden',
+    fontSize: 15,
+    lineHeight: 20,
+  },
+  feedCaptionToggleHit: {
+    flexShrink: 0,
+    marginLeft: 8,
+    justifyContent: 'center',
+  },
+  feedCaptionToggle: {
+    fontSize: 12,
+    lineHeight: 16,
+    color: colors.primary,
+    fontWeight: '500',
+  },
   feedRatingEmoji: {
     fontSize: 16,
   },
@@ -3659,7 +3993,16 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.text,
     lineHeight: 22,
-    marginBottom: spacing.md,
+    marginTop: 6,
+    marginBottom: 2,
+  },
+  feedDescriptionCollapsed: {
+    flex: 1,
+    flexShrink: 1,
+    minWidth: 0,
+    fontSize: 15,
+    lineHeight: 20,
+    color: colors.text,
   },
   feedCaptionUser: {
     fontWeight: '700',
@@ -3676,9 +4019,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: spacing.sm,
-    paddingTop: spacing.xs,
-    paddingBottom: spacing.md,
+    gap: 2,
+    marginTop: 2,
+    paddingBottom: 0,
     zIndex: 1,
   },
   feedActionGroup: {
@@ -3690,16 +4033,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    borderRadius: radius.full,
-    backgroundColor: colors.surface,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    minHeight: 44,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+    backgroundColor: 'transparent',
   },
   feedSocialPillActive: {
-    backgroundColor: colors.primary + '18',
-    borderColor: colors.primary + '40',
+    backgroundColor: 'transparent',
   },
   feedSocialPillEmoji: {
     fontSize: 14,
@@ -3743,9 +4083,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
+    borderRadius: 13,
     borderWidth: 0,
     borderBottomWidth: 0,
     borderBottomColor: 'transparent',
+  },
+  likeButtonContentActive: {
+    backgroundColor: '#EDE9FE',
   },
   likeButtonOverlay: {
     position: 'absolute',

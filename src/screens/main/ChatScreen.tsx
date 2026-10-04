@@ -20,6 +20,10 @@ import {
   Image,
   TouchableWithoutFeedback,
   Keyboard,
+  type StyleProp,
+  type ViewStyle,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
   ActivityIndicator,
   useWindowDimensions,
   Animated,
@@ -28,6 +32,11 @@ import {
   useColorScheme,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {
+  isNearLatestEdge,
+  showChatDateSeparator,
+  toNewestFirst,
+} from '@/utils/chatThreadList';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
 import {format} from 'date-fns';
@@ -65,10 +74,14 @@ import {
   isDmThreadId,
   fetchDmMessages,
   sendDmMessage,
+  editDmMessage,
+  setDmReaction,
   markDmThreadMessagesRead,
   userFacingDmError,
 } from '@/services/supabase/dmService';
-import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
+import {createClientSendId, editUiStillOnOrigin, nextDmSendTimestamp} from '@/utils/dmMessageMerge';
+import {dmReceiptState, placeDmContextMenu, type MenuRect} from '@/utils/dmReceipt';
+import {copyToClipboard} from '@/utils/clipboard';
 import {getPublicProfilesByIds} from '@/services/supabase/friendService';
 import {uploadDmChatImage} from '@/services/supabase/dmImageUpload';
 import {getActiveCheckInForUser} from '@/services/supabase/checkInService';
@@ -164,8 +177,10 @@ const TypingDotsInline = () => {
 
 const AnimatedMessageWrap = ({
   children,
+  align,
 }: {
   children: React.ReactNode;
+  align: 'flex-start' | 'flex-end';
 }) => {
   const opacity = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(0.96)).current;
@@ -185,7 +200,13 @@ const AnimatedMessageWrap = ({
     ]).start();
   }, [opacity, scale]);
   return (
-    <Animated.View style={{opacity, transform: [{scale}]}}>
+    <Animated.View
+      style={{
+        opacity,
+        transform: [{scale}],
+        alignSelf: 'stretch',
+        alignItems: align,
+      }}>
       {children}
     </Animated.View>
   );
@@ -293,6 +314,44 @@ function mapServerPlanToChatPlan(r: {
   };
 }
 
+const DM_REACTIONS = ['💪', '❤️', '😂', '🔥', '👍'] as const;
+const DM_MENU_WIDTH = 220;
+const DM_MENU_HEIGHT = 156;
+
+function BubbleAnchor({
+  children,
+  onLongPress,
+  style,
+}: {
+  children: React.ReactNode;
+  onLongPress: (anchor: MenuRect) => void;
+  style?: StyleProp<ViewStyle>;
+}) {
+  const ref = useRef<View>(null);
+  return (
+    <Pressable
+      ref={ref}
+      style={style}
+      delayLongPress={280}
+      onLongPress={() => {
+        const node = ref.current;
+        if (!node || typeof node.measureInWindow !== 'function') {
+          onLongPress({x: 24, y: 180, width: 220, height: 48});
+          return;
+        }
+        node.measureInWindow((x, y, width, height) => {
+          onLongPress(
+            width > 0 && height > 0
+              ? {x, y, width, height}
+              : {x: 24, y: 180, width: 220, height: 48},
+          );
+        });
+      }}>
+      {children}
+    </Pressable>
+  );
+}
+
 const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const {t, dateFnsLocale, intlLocale} = useTranslation();
   const pickerLocale = intlLocale.replace('-', '_');
@@ -306,8 +365,9 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   );
   const setForegroundOpenChatId = useChatStore(state => state.setForegroundOpenChatId);
   const addMessageToChat = useChatStore(state => state.addMessageToChat);
-  const resolvePendingDmMessage = useChatStore(state => state.resolvePendingDmMessage);
-  const abortPendingDmMessage = useChatStore(state => state.abortPendingDmMessage);
+  const prependOlderMessages = useChatStore(state => state.prependOlderMessages);
+  const setChatDraft = useChatStore(state => state.setChatDraft);
+  const patchChatMessage = useChatStore(state => state.patchChatMessage);
   const upsertDmPresence = useChatStore(state => state.upsertDmPresence);
   const dmPresenceByUser = useChatStore(state => state.dmPresenceByUser);
   const setThreadSeenAtByUser = useChatStore(state => state.setThreadSeenAtByUser);
@@ -336,6 +396,10 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     }
     return messages.filter(m => m.plannedWorkoutEmbed?.kind !== 'invite');
   }, [messages, isDm]);
+  const chatListData = useMemo(
+    () => toNewestFirst(dmMessagesForList),
+    [dmMessagesForList],
+  );
   const planInviteBannerSurfaceId = activePlan?.serverPlannedWorkoutId ?? activePlan?.id ?? null;
   const dismissedPlanInviteBannerSurfaceId = useChatStore(
     useCallback(
@@ -402,6 +466,31 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const [recipientTraining, setRecipientTraining] = useState<RecipientTrainingHeader | null>(null);
   const [recipientDurationClockMs, setRecipientDurationClockMs] = useState(() => Date.now());
   const [message, setMessage] = useState('');
+  const composerRef = useRef('');
+  const setComposer = useCallback((text: string) => {
+    composerRef.current = text;
+    setMessage(text);
+  }, []);
+  const [menuMessage, setMenuMessage] = useState<ChatMessage | null>(null);
+  const [menuAnchor, setMenuAnchor] = useState<MenuRect | null>(null);
+  const [menuOrigin, setMenuOrigin] = useState({x: 0, y: 0});
+  const menuOverlayRef = useRef<View>(null);
+  const [editingMessage, setEditingMessage] = useState<ChatMessage | null>(null);
+  const [editSaving, setEditSaving] = useState(false);
+  const [editError, setEditError] = useState<string | null>(null);
+  const editSaveLock = useRef(false);
+  const chatIdRef = useRef(chatId);
+  chatIdRef.current = chatId;
+  const editingIdRef = useRef<string | null>(null);
+  editingIdRef.current = editingMessage?.id ?? null;
+  const [replyTarget, setReplyTarget] = useState<ChatMessage | null>(null);
+  const [showJump, setShowJump] = useState(false);
+  const [loadingOlder, setLoadingOlder] = useState(false);
+  const sendGate = useRef(false);
+  const hasMoreHistory = useRef(true);
+  const [dmReloadKey, setDmReloadKey] = useState(0);
+  const [dmLoadError, setDmLoadError] = useState(false);
+  const [dmLoading, setDmLoading] = useState(false);
   const [planModalVisible, setPlanModalVisible] = useState(false);
   const [planDetailVisible, setPlanDetailVisible] = useState(false);
   const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
@@ -422,7 +511,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     safeDisplayName(friendName, 'Ukendt bruger'),
   );
   const [headerAvatarUrl, setHeaderAvatarUrl] = useState<string | null>(null);
-  const {width: windowWidth} = useWindowDimensions();
+  const {width: windowWidth, height: windowHeight} = useWindowDimensions();
   const refreshInAppNotifications = useInAppNotificationStore(s => s.refresh);
   const mergePlannedFromServer = useWorkoutPlanStore(s => s.mergePlannedFromServer);
   const maxDmImageWidth = useMemo(
@@ -431,10 +520,16 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   );
   const trainingPulse = useRef(new Animated.Value(1)).current;
   const flatListRef = useRef<FlatList>(null);
+  /** User dragged the list. Until then we stay pinned to the newest message. */
+  const userDraggedRef = useRef(false);
+  const userDraggingRef = useRef(false);
+  /** True while the viewport is on the newest messages (inverted offset near 0). */
+  const stickToLatestRef = useRef(true);
   const initialMessageHandledRef = useRef(false);
   const presenceChannelRef = useRef<any>(null);
   const insets = useSafeAreaInsets();
   const [keyboardOpen, setKeyboardOpen] = useState(false);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [localTyping, setLocalTyping] = useState(false);
   const showLiveTrainingHeader = !!recipientTraining && !remoteTyping;
   const headerLiveContextText = useMemo(() => {
@@ -585,20 +680,92 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     setLocalTyping(message.trim().length > 0);
   }, [isDm, message]);
 
+  const ignoreNextDraftWrite = useRef(false);
+  const messageRef = useRef(message);
+  messageRef.current = message;
+
+  useEffect(() => {
+    userDraggedRef.current = false;
+    userDraggingRef.current = false;
+    stickToLatestRef.current = true;
+    setShowJump(false);
+    if (!chatId) {
+      return;
+    }
+    const draft = useChatStore.getState().draftsByChat[chatId] ?? '';
+    composerRef.current = draft;
+    setEditingMessage(null);
+    setEditError(null);
+    setReplyTarget(null);
+    setMenuMessage(null);
+    if (draft !== messageRef.current) {
+      ignoreNextDraftWrite.current = true;
+      setMessage(draft);
+    }
+  }, [chatId]);
+
+  useEffect(() => {
+    if (!chatId || editingMessage) {
+      return;
+    }
+    if (ignoreNextDraftWrite.current) {
+      ignoreNextDraftWrite.current = false;
+      return;
+    }
+    setChatDraft(chatId, message);
+    // chatId belongs to the render that produced this message text.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [message, editingMessage, setChatDraft]);
+
+  const pinToLatest = useCallback((animated: boolean) => {
+    flatListRef.current?.scrollToOffset({offset: 0, animated});
+  }, []);
+
+  const onChatScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const nearLatest = isNearLatestEdge(event.nativeEvent.contentOffset.y);
+    if (userDraggedRef.current) {
+      stickToLatestRef.current = nearLatest;
+      if (nearLatest) {
+        setShowJump(false);
+      }
+    }
+  }, []);
+
+  const onChatScrollBeginDrag = useCallback(() => {
+    userDraggedRef.current = true;
+    userDraggingRef.current = true;
+  }, []);
+
+  const onChatScrollEndDrag = useCallback(() => {
+    userDraggingRef.current = false;
+  }, []);
+
   useEffect(() => {
     const show = Keyboard.addListener(
       Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow',
-      () => setKeyboardOpen(true),
+      event => {
+        setKeyboardOpen(true);
+        setKeyboardHeight(event.endCoordinates?.height ?? 0);
+        if (stickToLatestRef.current) {
+          requestAnimationFrame(() => pinToLatest(false));
+        }
+      },
     );
     const hide = Keyboard.addListener(
       Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide',
-      () => setKeyboardOpen(false),
+      () => {
+        setKeyboardOpen(false);
+        setKeyboardHeight(0);
+        if (stickToLatestRef.current) {
+          requestAnimationFrame(() => pinToLatest(false));
+        }
+      },
     );
     return () => {
       show.remove();
       hide.remove();
     };
-  }, []);
+  }, [pinToLatest]);
 
   useEffect(() => {
     if (!isDm || !chatId || !currentUserId) {
@@ -787,12 +954,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         setThreadSeenAtByUser(chatId, currentUserId, Date.now());
         void loadRecipientTraining();
         if (chatId && isDmThreadId(chatId) && !(isDemoContentMode() && chatId.startsWith('demo-thread-'))) {
-          void markDmThreadMessagesRead(chatId).then(() => {
-            const me = useAppStore.getState().user;
-            if (me?.id) {
-              void syncDmInboxToStore(me.id, (me.displayName || 'Dig').trim());
-            }
-          });
+          void markDmThreadMessagesRead(chatId);
         }
       } else {
         initializeChatMessages(chatId, []);
@@ -823,28 +985,28 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       return;
     }
     let cancelled = false;
+    setDmLoading(true);
+    setDmLoadError(false);
     (async () => {
       try {
-        const list = await fetchDmMessages(chatId, {limit: 100});
+        const list = await fetchDmMessages(chatId, {limit: 40});
         if (cancelled) {
           return;
         }
+        hasMoreHistory.current = list.length >= 40;
         setMessagesForChat(chatId, list);
+        setDmLoadError(false);
         if (
           chatId &&
           isDmThreadId(chatId) &&
           !(isDemoContentMode() && chatId.startsWith('demo-thread-'))
         ) {
-          void markDmThreadMessagesRead(chatId).then(() => {
-            const me = useAppStore.getState().user;
-            if (me?.id) {
-              void syncDmInboxToStore(me.id, (me.displayName || 'Dig').trim());
-            }
-          });
+          void markDmThreadMessagesRead(chatId);
         }
         if (initialMessage?.trim() && !initialMessageHandledRef.current) {
           const {message: sent} = await sendDmMessage(chatId, {
             body: initialMessage.trim(),
+            clientSendId: createClientSendId(),
           });
           initialMessageHandledRef.current = true;
           addMessageToChat(chatId, sent);
@@ -853,10 +1015,14 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       } catch (e) {
         if (!cancelled) {
           console.warn('[ChatScreen] Kunne ikke hente DM-beskeder:', e);
-          setMessagesForChat(chatId, []);
+          // Keep any already-loaded messages. Inbox preview comes from
+          // dm_threads.last_message_preview — wiping here made the thread look
+          // empty after a network timeout against a stale LAN IP.
+          setDmLoadError(true);
         }
       } finally {
         if (!cancelled) {
+          setDmLoading(false);
           markChatAsRead(chatId);
           markMessageNotificationsForChatRead(chatId);
         }
@@ -865,7 +1031,16 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     return () => {
       cancelled = true;
     };
-  }, [chatId, isDm, setMessagesForChat, addMessageToChat, updateChatLastMessage, markChatAsRead, markMessageNotificationsForChatRead]);
+  }, [
+    chatId,
+    isDm,
+    dmReloadKey,
+    setMessagesForChat,
+    addMessageToChat,
+    updateChatLastMessage,
+    markChatAsRead,
+    markMessageNotificationsForChatRead,
+  ]);
 
   useEffect(() => {
     if (isDm) {
@@ -956,92 +1131,195 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     };
   }, [friendId, friendName]);
 
-  useEffect(() => {
-    // Scroll to bottom when messages change
-    setTimeout(() => {
-      flatListRef.current?.scrollToEnd({animated: true});
-    }, 100);
-  }, [messages]);
+  const newestMessage = dmMessagesForList[dmMessagesForList.length - 1];
+  const newestMessageId = newestMessage?.id ?? null;
+  const newestSenderId = newestMessage?.senderId ?? null;
 
-  const handleSend = async () => {
-    if (isSendingImage) {
+  useEffect(() => {
+    if (!newestMessageId) {
       return;
     }
-    if (!message.trim() && !selectedImageUri) {
+    const fromMe = newestSenderId === currentUserId;
+    if (fromMe) {
+      stickToLatestRef.current = true;
+    }
+    const shouldPin = !userDraggedRef.current || stickToLatestRef.current || fromMe;
+    if (!shouldPin) {
+      setShowJump(true);
+      return;
+    }
+    setShowJump(false);
+    const animated = userDraggedRef.current;
+    const frame = requestAnimationFrame(() => pinToLatest(animated));
+    return () => cancelAnimationFrame(frame);
+  }, [newestMessageId, newestSenderId, currentUserId, pinToLatest]);
+
+  const deliverDm = useCallback(
+    async (pending: ChatMessage, startedAt = Date.now()) => {
+      if (!chatId) {
+        return;
+      }
+      patchChatMessage(chatId, pending.id, {sendState: 'sending'});
+      try {
+        const {message: sent} = await sendDmMessage(chatId, {
+          body: pending.text,
+          imageUrl: pending.imageUri,
+          clientSendId: pending.clientSendId,
+          replyToId: pending.replyToId,
+        });
+        addMessageToChat(chatId, {...sent, clientSendId: pending.clientSendId, sendState: undefined});
+        updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
+        if (__DEV__) {
+          console.log(
+            `[dm-measure] stored ${Date.now() - startedAt}ms id=${pending.clientSendId ?? pending.id}`,
+          );
+        }
+      } catch (e) {
+        patchChatMessage(chatId, pending.id, {sendState: 'failed'});
+        Alert.alert(t('chat.couldNotSend'), userFacingDmError(e));
+      }
+    },
+    [chatId, patchChatMessage, addMessageToChat, updateChatLastMessage, t],
+  );
+
+  const handleSend = async () => {
+    if (editingMessage && chatId) {
+      if (editSaveLock.current || isSendingImage) {
+        return;
+      }
+      const next = message.trim();
+      if (!next || next === editingMessage.text.trim()) {
+        return;
+      }
+      const target = editingMessage;
+      const originChatId = chatId;
+      editSaveLock.current = true;
+      setEditSaving(true);
+      setEditError(null);
+      const stillEditingHere = () =>
+        editUiStillOnOrigin(
+          chatIdRef.current,
+          editingIdRef.current,
+          originChatId,
+          target.id,
+        );
+      try {
+        const saved = await editDmMessage(target.id, next);
+        const confirmed =
+          saved.id === target.id &&
+          saved.text.trim() === next &&
+          saved.editedAt instanceof Date &&
+          !Number.isNaN(saved.editedAt.getTime());
+        if (!confirmed) {
+          if (stillEditingHere()) {
+            setEditError(t('errors.couldNotSave'));
+          }
+          return;
+        }
+        patchChatMessage(originChatId, target.id, {
+          text: saved.text,
+          editedAt: saved.editedAt,
+        });
+        const list = useChatStore.getState().getMessagesForChat(originChatId);
+        const last = list[list.length - 1];
+        if (last?.id === target.id) {
+          updateChatLastMessage(originChatId, {...last, text: saved.text}, {fromCurrentUser: true});
+        }
+        if (stillEditingHere()) {
+          const draft = useChatStore.getState().draftsByChat[originChatId] ?? '';
+          setEditingMessage(null);
+          setEditError(null);
+          setComposer(draft);
+        }
+      } catch (e) {
+        console.warn('[ChatScreen] edit failed', e);
+        if (stillEditingHere()) {
+          setEditError(t('errors.couldNotSave'));
+        }
+      } finally {
+        editSaveLock.current = false;
+        setEditSaving(false);
+      }
+      return;
+    }
+    if (isSendingImage || sendGate.current) {
+      return;
+    }
+    const textToSend = composerRef.current.trim();
+    if (!textToSend && !selectedImageUri) {
       return;
     }
 
     if (isDm && chatId) {
-      if (selectedImageUri) {
+      sendGate.current = true;
+      const imageUri = selectedImageUri;
+      const imageMime = selectedImageMime;
+      const replyId = replyTarget && !replyTarget.id.startsWith('pending-') ? replyTarget.id : undefined;
+      const clientSendId = createClientSendId();
+      setComposer('');
+      setLocalTyping(false);
+      setReplyTarget(null);
+      setSelectedImageUri(null);
+      setSelectedImageMime(null);
+      sendGate.current = false;
+
+      if (imageUri) {
+        const pending: ChatMessage = {
+          id: `pending-${clientSendId}`,
+          text: textToSend,
+          senderId: currentUserId,
+          timestamp: nextDmSendTimestamp(),
+          isRead: false,
+          imageUri,
+          clientSendId,
+          replyToId: replyId,
+          sendState: 'sending',
+        };
+        addMessageToChat(chatId, pending);
+        updateChatLastMessage(chatId, pending, {fromCurrentUser: true});
         setIsSendingImage(true);
         try {
-          const imageUrl = await uploadDmChatImage(
-            selectedImageUri,
-            chatId,
-            selectedImageMime,
-          );
-          const {message: sent} = await sendDmMessage(chatId, {
-            body: message.trim(),
-            imageUrl,
-          });
-          addMessageToChat(chatId, sent);
-          updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
-          setMessage('');
-          setLocalTyping(false);
-          setSelectedImageUri(null);
-          setSelectedImageMime(null);
+          const imageUrl = await uploadDmChatImage(imageUri, chatId, imageMime);
+          patchChatMessage(chatId, pending.id, {imageUri: imageUrl});
+          await deliverDm({...pending, imageUri: imageUrl});
         } catch (e) {
-          Alert.alert(
-            t('chat.couldNotSend'),
-            userFacingDmError(e, rt('errors.tryAgainSoon')),
-          );
+          patchChatMessage(chatId, pending.id, {sendState: 'failed'});
+          Alert.alert(t('chat.couldNotSend'), userFacingDmError(e, rt('errors.tryAgainSoon')));
         } finally {
           setIsSendingImage(false);
         }
         return;
       }
-      if (!message.trim()) {
+      if (!textToSend) {
         return;
       }
-      const textToSend = message.trim();
-      const useOptimistic = !!(chatId && isDmThreadId(chatId));
-      const tempId = useOptimistic ? `pending-${Date.now()}` : '';
-      if (useOptimistic && chatId) {
-        const optimisticMessage = {
-          id: tempId,
-          text: textToSend,
-          senderId: currentUserId,
-          timestamp: new Date(),
-          isRead: false,
-          sendState: 'sending' as const,
-        };
-        addMessageToChat(chatId, optimisticMessage);
-        updateChatLastMessage(chatId, optimisticMessage, {fromCurrentUser: true});
-      }
-      setMessage('');
-      setLocalTyping(false);
-      try {
-        const {message: sent} = await sendDmMessage(chatId, {
-          body: textToSend,
+      const pending: ChatMessage = {
+        id: `pending-${clientSendId}`,
+        text: textToSend,
+        senderId: currentUserId,
+        timestamp: nextDmSendTimestamp(),
+        isRead: false,
+        clientSendId,
+        replyToId: replyId,
+        sendState: 'sending',
+      };
+      const sendStarted = Date.now();
+      addMessageToChat(chatId, pending);
+      updateChatLastMessage(chatId, pending, {fromCurrentUser: true});
+      if (__DEV__) {
+        requestAnimationFrame(() => {
+          console.log(
+            `[dm-measure] local-visible ${Date.now() - sendStarted}ms id=${clientSendId}`,
+          );
         });
-        if (useOptimistic && chatId) {
-          resolvePendingDmMessage(chatId, tempId, sent);
-        } else if (chatId) {
-          addMessageToChat(chatId, sent);
-        }
-        updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
-      } catch (e) {
-        if (useOptimistic && chatId) {
-          abortPendingDmMessage(chatId, tempId);
-        }
-        Alert.alert(t('chat.couldNotSend'), userFacingDmError(e));
       }
+      void deliverDm(pending, sendStarted);
       return;
     }
 
     const newMessage: ChatMessage = {
       id: Date.now().toString(),
-      text: message.trim(),
+      text: textToSend,
       senderId: currentUserId,
       timestamp: new Date(),
       isRead: false,
@@ -1052,11 +1330,89 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       addMessageToChat(chatId, newMessage);
       updateChatLastMessage(chatId, newMessage, {fromCurrentUser: true});
     }
-    setMessage('');
+    setComposer('');
     setLocalTyping(false);
     setSelectedImageUri(null);
     setSelectedImageMime(null);
   };
+
+  const loadOlder = useCallback(async () => {
+    if (!chatId || !isDm || loadingOlder || !hasMoreHistory.current) {
+      return;
+    }
+    if (isDemoContentMode() && chatId.startsWith('demo-thread-')) {
+      return;
+    }
+    const list = useChatStore.getState().getMessagesForChat(chatId);
+    const oldest = list.find(item => !item.id.startsWith('pending-'));
+    if (!oldest) {
+      return;
+    }
+    setLoadingOlder(true);
+    try {
+      const page = await fetchDmMessages(chatId, {
+        limit: 40,
+        before: oldest.timestamp.toISOString(),
+      });
+      if (page.length < 40) {
+        hasMoreHistory.current = false;
+      }
+      if (page.length > 0) {
+        prependOlderMessages(chatId, page);
+      }
+    } catch {
+      /* Scroll position stays. A later scroll retries. */
+    } finally {
+      setLoadingOlder(false);
+    }
+  }, [chatId, isDm, loadingOlder, prependOlderMessages]);
+
+  const retryFailed = useCallback(
+    async (item: ChatMessage) => {
+      if (!chatId || item.sendState !== 'failed') {
+        return;
+      }
+      if (item.imageUri && !/^https?:/i.test(item.imageUri)) {
+        patchChatMessage(chatId, item.id, {sendState: 'sending'});
+        try {
+          const imageUrl = await uploadDmChatImage(item.imageUri, chatId, null);
+          patchChatMessage(chatId, item.id, {imageUri: imageUrl});
+          await deliverDm({...item, imageUri: imageUrl, sendState: 'sending'});
+        } catch (e) {
+          patchChatMessage(chatId, item.id, {sendState: 'failed'});
+          Alert.alert(t('chat.couldNotSend'), userFacingDmError(e, rt('errors.tryAgainSoon')));
+        }
+        return;
+      }
+      void deliverDm(item);
+    },
+    [chatId, patchChatMessage, deliverDm, t],
+  );
+
+  const applyReaction = useCallback(
+    async (item: ChatMessage, emoji: string) => {
+      if (!chatId || item.sendState || item.id.startsWith('pending-')) {
+        return;
+      }
+      const previous = item.reactions ?? {};
+      const next = {...previous};
+      if (next[currentUserId] === emoji) {
+        delete next[currentUserId];
+      } else {
+        next[currentUserId] = emoji;
+      }
+      patchChatMessage(chatId, item.id, {reactions: next});
+      setMenuMessage(null);
+      try {
+        const saved = await setDmReaction(item.id, emoji);
+        patchChatMessage(chatId, item.id, {reactions: saved});
+      } catch (e) {
+        patchChatMessage(chatId, item.id, {reactions: previous});
+        Alert.alert(t('chat.couldNotSend'), userFacingDmError(e));
+      }
+    },
+    [chatId, currentUserId, patchChatMessage, t],
+  );
 
   const handleImagePickerToggle = () => {
     setShowImagePickerOptions(prev => !prev);
@@ -1440,14 +1796,19 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       isDm && !!chatId && isDmThreadId(chatId) && isLatestOutgoing;
     let dmReceiptLabel: string | null = null;
     if (showDmReceipt) {
-      if (item.sendState === 'sending' || item.id.startsWith('pending-')) {
+      const receipt = dmReceiptState(item);
+      if (receipt === 'failed') {
+        dmReceiptLabel = t('chat.retrySend');
+      } else if (receipt === 'sending') {
         dmReceiptLabel = t('chat.sending');
-      } else if (item.readAt) {
+      } else if (receipt === 'read' && item.readAt) {
         dmReceiptLabel = t('chat.readAt', {
           time: format(item.readAt, 'HH:mm', {locale: dateFnsLocale}),
         });
-      } else {
+      } else if (receipt === 'delivered') {
         dmReceiptLabel = t('chat.delivered');
+      } else if (receipt === 'sent') {
+        dmReceiptLabel = t('chat.sent');
       }
     }
     const showSeenLegacy =
@@ -1455,9 +1816,24 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       isLatestOutgoing &&
       typeof remoteSeenAt === 'number' &&
       remoteSeenAt >= item.timestamp.getTime();
-    const showDate =
-      index === 0 ||
-      formatDate(item.timestamp) !== formatDate(dmMessagesForList[index - 1].timestamp);
+    const showDate = showChatDateSeparator(chatListData, index, (a, b) => formatDate(a) === formatDate(b));
+    const quoted = item.replyToId
+      ? dmMessagesForList.find(m => m.id === item.replyToId)
+      : undefined;
+    const reactionCounts = new Map<string, number>();
+    for (const emoji of Object.values(item.reactions ?? {})) {
+      reactionCounts.set(emoji, (reactionCounts.get(emoji) ?? 0) + 1);
+    }
+    const reactionEntries = Array.from(reactionCounts.entries());
+    const ownReaction = item.reactions?.[currentUserId];
+    const quoteText = quoted
+      ? quoted.text?.trim() || (quoted.imageUri ? t('chat.photoLabel') : t('chat.replyUnavailable'))
+      : t('chat.replyUnavailable');
+    const quoteName = quoted
+      ? quoted.senderId === currentUserId
+        ? t('common.you')
+        : headerDisplayName
+      : '';
 
     return (
       <View>
@@ -1470,17 +1846,39 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           style={[
             styles.messageContainer,
             isMe ? styles.messageRight : styles.messageLeft,
+            reactionEntries.length > 0 && styles.messageWithReactions,
           ]}>
-          <AnimatedMessageWrap>
-            <View
+          <AnimatedMessageWrap align={isMe ? 'flex-end' : 'flex-start'}>
+            <View style={styles.messageBubbleSlot}>
+            <BubbleAnchor
+              onLongPress={anchor => {
+                if (item.sendState === 'sending') {
+                  return;
+                }
+                Vibration.vibrate(10);
+                setMenuAnchor(anchor);
+                setMenuMessage(item);
+              }}
               style={[
                 styles.messageBubble,
                 isMe ? styles.messageBubbleMe : styles.messageBubbleOther,
+                menuMessage?.id === item.id && styles.messageBubbleSelected,
                 item.imageUri &&
                   (item.text?.trim()
                     ? styles.messageBubbleWithImage
                     : styles.messageBubbleImageOnly),
               ]}>
+            {item.replyToId ? (
+              <Text
+                style={[
+                  styles.messageTime,
+                  isMe ? styles.messageTimeMe : styles.messageTimeOther,
+                  {marginBottom: 4, fontWeight: '600'},
+                ]}
+                numberOfLines={2}>
+                {quoteName ? `${quoteName}: ${quoteText}` : quoteText}
+              </Text>
+            ) : null}
             {item.imageUri && (
               <DmChatMessageImage
                 uri={item.imageUri}
@@ -1519,13 +1917,49 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                 item.imageUri && !item.text?.trim() && styles.messageTimeImageOnly,
               ]}>
               {formatTime(item.timestamp)}
+              {item.editedAt ? ` · ${t('chat.edited')}` : ''}
             </Text>
+            </BubbleAnchor>
+            {reactionEntries.length > 0 ? (
+              <View
+                style={[
+                  styles.reactionBadge,
+                  isMe ? styles.reactionBadgeMe : styles.reactionBadgeOther,
+                ]}>
+                {reactionEntries.map(([emoji, count]) => (
+                  <View
+                    key={emoji}
+                    style={[
+                      styles.reactionChip,
+                      ownReaction === emoji && styles.reactionChipMine,
+                    ]}>
+                    <Text style={styles.reactionEmoji}>{emoji}</Text>
+                    {count > 1 ? (
+                      <Text style={styles.reactionCount}>{count}</Text>
+                    ) : null}
+                  </View>
+                ))}
+              </View>
+            ) : null}
             </View>
           </AnimatedMessageWrap>
           {dmReceiptLabel ? (
-            <View style={styles.readReceiptRow}>
-              <Text style={styles.readReceiptText}>{dmReceiptLabel}</Text>
-            </View>
+            <TouchableOpacity
+              style={styles.readReceiptRow}
+              disabled={item.sendState !== 'failed'}
+              onPress={() => {
+                if (item.sendState === 'failed') {
+                  void retryFailed(item);
+                }
+              }}>
+              <Text
+                style={[
+                  styles.readReceiptText,
+                  item.sendState === 'failed' && {color: colors.error},
+                ]}>
+                {dmReceiptLabel}
+              </Text>
+            </TouchableOpacity>
           ) : showSeenLegacy ? (
             <Animated.View style={styles.seenRow}>
               <Text style={styles.seenText}>{t('phase2ui.seen')}</Text>
@@ -1797,11 +2231,32 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         ) : null}
         <FlatList
           ref={flatListRef}
-          data={dmMessagesForList}
+          data={chatListData}
           renderItem={renderMessage}
           keyExtractor={item => item.id}
           contentContainerStyle={styles.messagesList}
-          ListFooterComponent={
+          ListEmptyComponent={
+            isDm && !dmLoading && dmLoadError ? (
+              <View style={styles.dmLoadErrorWrap}>
+                <Text style={styles.dmLoadErrorText}>
+                  {t('chat.loadMessagesFailed')}
+                </Text>
+                <TouchableOpacity
+                  style={styles.dmLoadRetryBtn}
+                  onPress={() => setDmReloadKey(k => k + 1)}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('common.retry')}>
+                  <Text style={styles.dmLoadRetryText}>{t('common.retry')}</Text>
+                </TouchableOpacity>
+              </View>
+            ) : dmLoading && chatListData.length === 0 ? (
+              <ActivityIndicator
+                color={colors.primary}
+                style={{marginTop: spacing.xl}}
+              />
+            ) : null
+          }
+          ListHeaderComponent={
             remoteTyping ? (
               <View style={styles.typingBubbleWrap}>
                 <View style={styles.typingBubble}>
@@ -1810,11 +2265,56 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               </View>
             ) : null
           }
-          inverted={false}
+          inverted
           keyboardShouldPersistTaps="handled"
           keyboardDismissMode="interactive"
-          onContentSizeChange={() => flatListRef.current?.scrollToEnd({animated: true})}
+          onScroll={onChatScroll}
+          onScrollBeginDrag={onChatScrollBeginDrag}
+          onScrollEndDrag={onChatScrollEndDrag}
+          onMomentumScrollEnd={onChatScrollEndDrag}
+          scrollEventThrottle={64}
+          onContentSizeChange={() => {
+            if (stickToLatestRef.current && !userDraggingRef.current && !loadingOlder) {
+              flatListRef.current?.scrollToOffset({offset: 0, animated: false});
+            }
+          }}
+          onEndReached={() => {
+            if (userDraggedRef.current) {
+              void loadOlder();
+            }
+          }}
+          onEndReachedThreshold={0.2}
+          maintainVisibleContentPosition={{minIndexForVisible: 1}}
+          initialNumToRender={16}
+          maxToRenderPerBatch={10}
+          windowSize={9}
         />
+        {showJump ? (
+          <TouchableOpacity
+            onPress={() => {
+              stickToLatestRef.current = true;
+              userDraggedRef.current = false;
+              setShowJump(false);
+              pinToLatest(true);
+            }}
+            style={{
+              position: 'absolute',
+              alignSelf: 'center',
+              bottom: spacing.sm,
+              backgroundColor: colors.backgroundCard,
+              borderRadius: 16,
+              paddingHorizontal: 14,
+              paddingVertical: 8,
+              borderWidth: 1,
+              borderColor: colors.border,
+            }}
+            accessibilityRole="button"
+            accessibilityLabel={t('chat.jumpToLatest')}>
+            <Text style={{color: colors.primary, fontWeight: '600', fontSize: 13}}>
+              {t('chat.jumpToLatest')}
+            </Text>
+          </TouchableOpacity>
+        ) : null}
       </View>
 
       {/* Plan Modal — samme UI som Inviter til træning (PlannedWorkoutInviteForm) */}
@@ -2005,7 +2505,69 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             <View style={styles.imagePickerBackdrop} />
           </TouchableWithoutFeedback>
         )}
+        {editingMessage ? (
+          <View style={styles.editBar}>
+            <View style={styles.editBarAccent} />
+            <Text style={styles.editBarTitle} numberOfLines={1}>
+              {t('chat.editMessage')}
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                if (editSaving) {
+                  return;
+                }
+                const draft = chatId ? useChatStore.getState().draftsByChat[chatId] ?? '' : '';
+                setEditingMessage(null);
+                setEditError(null);
+                setComposer(draft);
+              }}
+              disabled={editSaving}
+              hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
+              accessibilityRole="button"
+              accessibilityLabel={t('common.cancel')}>
+              <Icon name="close" size={20} color={colors.textSecondary} />
+            </TouchableOpacity>
+          </View>
+        ) : null}
+        {editingMessage && editError ? (
+          <Text style={styles.editError} accessibilityRole="alert">
+            {editError}
+          </Text>
+        ) : null}
+        {replyTarget && !editingMessage ? (
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginHorizontal: spacing.sm,
+              marginBottom: spacing.xs,
+              paddingHorizontal: 12,
+              paddingVertical: 8,
+              borderRadius: 12,
+              backgroundColor: colors.backgroundCardLight,
+              borderLeftWidth: 3,
+              borderLeftColor: colors.primary,
+              gap: spacing.sm,
+            }}>
+            <View style={{flex: 1}}>
+              <Text style={{color: colors.primary, fontWeight: '700', fontSize: 13}} numberOfLines={1}>
+                {replyTarget.senderId === currentUserId ? t('common.you') : headerDisplayName}
+              </Text>
+              <Text style={{color: colors.textSecondary, fontSize: 13}} numberOfLines={1}>
+                {replyTarget.text?.trim() || (replyTarget.imageUri ? t('chat.photoLabel') : t('chat.replyUnavailable'))}
+              </Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => setReplyTarget(null)}
+              accessibilityRole="button"
+              accessibilityLabel={t('common.cancel')}>
+              <Icon name="close" size={18} color={colors.textMuted} />
+            </TouchableOpacity>
+          </View>
+        ) : null}
         <View style={styles.inputWrapper}>
+          {editingMessage ? null : (
+          <>
           <View style={styles.inputLeadingCluster}>
             {showImagePickerOptions ? (
               <View style={styles.imagePickerOptions}>
@@ -2056,6 +2618,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             accessibilityLabel={t('chat.planWorkout')}>
             <Icon name="calendar-outline" size={20} color={colors.primary} />
           </TouchableOpacity>
+          </>
+          )}
           <View style={styles.inputFieldColumn}>
             {selectedImageUri ? (
               <View style={styles.selectedImageContainer}>
@@ -2082,31 +2646,182 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             ) : null}
             <TextInput
               style={styles.input}
-              placeholder={t('chat.writeMessage')}
+              placeholder={editingMessage ? t('chat.editMessage') : t('chat.writeMessage')}
               placeholderTextColor={colors.textMuted}
               value={message}
-              onChangeText={setMessage}
+              onChangeText={setComposer}
               multiline
               maxLength={1000}
               {...(Platform.OS === 'android' ? {includeFontPadding: false} : {})}
             />
           </View>
-          {(message.trim().length > 0 || selectedImageUri) && (
+          {(() => {
+            const editReady =
+              !!editingMessage &&
+              message.trim().length > 0 &&
+              message.trim() !== editingMessage.text;
+            const showSend = editingMessage
+              ? true
+              : message.trim().length > 0 || !!selectedImageUri;
+            if (!showSend) {
+              return null;
+            }
+            return (
             <TouchableOpacity
               onPress={handleSend}
-              style={[styles.sendButton, isSendingImage && styles.sendButtonDisabled]}
+              style={[
+                styles.sendButton,
+                ((isSendingImage || (editingMessage && !editReady)) && !editSaving) &&
+                  styles.sendButtonDisabled,
+              ]}
               activeOpacity={0.8}
-              disabled={isSendingImage}
-              accessibilityLabel={t('a11y.sendMessage')}>
-              {isSendingImage ? (
+              disabled={isSendingImage || editSaving || (!!editingMessage && !editReady)}
+              accessibilityState={{busy: editSaving, disabled: isSendingImage || editSaving || (!!editingMessage && !editReady)}}
+              accessibilityLabel={editingMessage ? t('chat.saveEdit') : t('a11y.sendMessage')}>
+              {isSendingImage || editSaving ? (
                 <ActivityIndicator color={colors.white} size="small" />
               ) : (
-                <Icon name="send" size={20} color={colors.white} />
+                <Icon
+                  name={editingMessage ? 'checkmark' : 'send'}
+                  size={editingMessage ? 22 : 20}
+                  color={colors.white}
+                />
               )}
             </TouchableOpacity>
-          )}
+            );
+          })()}
         </View>
       </View>
+
+      {menuMessage && menuAnchor ? (
+        <View
+          ref={menuOverlayRef}
+          style={styles.menuOverlay}
+          pointerEvents="box-none"
+          onLayout={() => {
+            menuOverlayRef.current?.measureInWindow((x, y) => {
+              setMenuOrigin(prev => (prev.x === x && prev.y === y ? prev : {x, y}));
+            });
+          }}>
+          <Pressable
+            style={styles.menuDim}
+            onPress={() => {
+              setMenuMessage(null);
+              setMenuAnchor(null);
+            }}
+          />
+          <View
+            pointerEvents="none"
+            style={[
+              styles.menuLiftedBubble,
+              menuMessage.senderId === currentUserId
+                ? styles.messageBubbleMe
+                : styles.messageBubbleOther,
+              {
+                top: menuAnchor.y - menuOrigin.y,
+                left: menuAnchor.x - menuOrigin.x,
+                width: menuAnchor.width,
+                minHeight: menuAnchor.height,
+              },
+            ]}>
+            <Text
+              style={[
+                styles.messageText,
+                menuMessage.senderId === currentUserId
+                  ? styles.messageTextMe
+                  : styles.messageTextOther,
+              ]}
+              numberOfLines={6}>
+              {menuMessage.text?.trim() ||
+                (menuMessage.imageUri ? t('chat.photoLabel') : '')}
+            </Text>
+          </View>
+          <View
+            style={[
+              styles.menuCard,
+              (() => {
+                const place = placeDmContextMenu({
+                  anchor: menuAnchor,
+                  menuWidth: DM_MENU_WIDTH,
+                  menuHeight: DM_MENU_HEIGHT,
+                  windowWidth,
+                  windowHeight,
+                  keyboardHeight,
+                  alignEnd: menuMessage.senderId === currentUserId,
+                });
+                return {top: place.top - menuOrigin.y, left: place.left - menuOrigin.x};
+              })(),
+            ]}>
+            <View style={styles.menuReactions}>
+              {DM_REACTIONS.map(emoji => {
+                const mine = menuMessage.reactions?.[currentUserId] === emoji;
+                const saved = !menuMessage.sendState && !menuMessage.id.startsWith('pending-');
+                return (
+                  <TouchableOpacity
+                    key={emoji}
+                    disabled={!saved}
+                    onPress={() => {
+                      Vibration.vibrate(10);
+                      void applyReaction(menuMessage, emoji);
+                      setMenuAnchor(null);
+                    }}
+                    style={[styles.menuEmoji, mine && styles.menuEmojiMine, !saved && {opacity: 0.4}]}
+                    accessibilityRole="button"
+                    accessibilityLabel={emoji}>
+                    <Text style={styles.menuEmojiText}>{emoji}</Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+            <TouchableOpacity
+              style={styles.menuAction}
+              disabled={!!menuMessage.sendState || menuMessage.id.startsWith('pending-')}
+              onPress={() => {
+                if (editingMessage && !editSaving) {
+                  const draft = chatId ? useChatStore.getState().draftsByChat[chatId] ?? '' : '';
+                  setEditingMessage(null);
+                  setEditError(null);
+                  setComposer(draft);
+                }
+                setReplyTarget(menuMessage);
+                setMenuMessage(null);
+                setMenuAnchor(null);
+              }}>
+              <Text style={styles.menuActionText}>{t('chat.reply')}</Text>
+            </TouchableOpacity>
+            {menuMessage.text?.trim() ? (
+              <TouchableOpacity
+                style={styles.menuAction}
+                onPress={() => {
+                  copyToClipboard(menuMessage.text);
+                  setMenuMessage(null);
+                  setMenuAnchor(null);
+                }}>
+                <Text style={styles.menuActionText}>{t('chat.copy')}</Text>
+              </TouchableOpacity>
+            ) : null}
+            {menuMessage.senderId === currentUserId &&
+            !menuMessage.sendState &&
+            !menuMessage.id.startsWith('pending-') &&
+            !!menuMessage.text?.trim() &&
+            !menuMessage.imageUri ? (
+              <TouchableOpacity
+                style={styles.menuAction}
+                onPress={() => {
+                  const target = menuMessage;
+                  setMenuMessage(null);
+                  setMenuAnchor(null);
+                  setReplyTarget(null);
+                  setEditingMessage(target);
+                  setEditError(null);
+                  setComposer(target.text);
+                }}>
+                <Text style={styles.menuActionEdit}>{t('chat.edit')}</Text>
+              </TouchableOpacity>
+            ) : null}
+          </View>
+        </View>
+      ) : null}
 
       <Modal
         visible={!!lightboxUri}
@@ -2223,6 +2938,29 @@ const styles = StyleSheet.create({
   messagesList: {
     padding: spacing.lg,
     paddingBottom: spacing.lg,
+  },
+  dmLoadErrorWrap: {
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.lg,
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  dmLoadErrorText: {
+    ...typography.body,
+    color: colors.textMuted,
+    textAlign: 'center',
+  },
+  dmLoadRetryBtn: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.lg,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    minHeight: 44,
+    justifyContent: 'center',
+  },
+  dmLoadRetryText: {
+    ...typography.bodyBold,
+    color: '#fff',
   },
   planBannerOuter: {
     marginHorizontal: spacing.lg,
@@ -2379,7 +3117,146 @@ const styles = StyleSheet.create({
     borderRadius: radius.full,
   },
   messageContainer: {
+    width: '100%',
     marginBottom: spacing.sm,
+  },
+  messageWithReactions: {
+    marginBottom: spacing.sm + 16,
+  },
+  messageBubbleSelected: {
+    borderWidth: 2,
+    borderColor: colors.primary,
+  },
+  reactionBadge: {
+    position: 'absolute',
+    bottom: -10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 12,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    shadowColor: colors.black,
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    shadowOffset: {width: 0, height: 1},
+    elevation: 2,
+  },
+  reactionBadgeMe: {
+    right: 10,
+  },
+  reactionBadgeOther: {
+    left: 10,
+  },
+  reactionChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 10,
+    paddingHorizontal: 3,
+    paddingVertical: 1,
+  },
+  reactionChipMine: {
+    backgroundColor: colors.primaryLight,
+  },
+  reactionEmoji: {
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  reactionCount: {
+    marginLeft: 2,
+    fontSize: 11,
+    fontWeight: '700',
+    color: colors.textSecondary,
+  },
+  editBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: spacing.xs,
+    marginBottom: spacing.xs,
+    paddingRight: spacing.sm,
+    minHeight: 36,
+  },
+  editBarAccent: {
+    width: 3,
+    alignSelf: 'stretch',
+    borderRadius: 2,
+    backgroundColor: colors.primary,
+    marginRight: spacing.sm,
+  },
+  editBarTitle: {
+    flex: 1,
+    color: colors.primary,
+    fontWeight: '700',
+    fontSize: 15,
+  },
+  editError: {
+    marginHorizontal: spacing.sm,
+    marginBottom: spacing.xs,
+    color: colors.error,
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  menuOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 40,
+  },
+  menuDim: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(17, 24, 39, 0.45)',
+  },
+  menuLiftedBubble: {
+    position: 'absolute',
+    borderRadius: radius.xl,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
+    justifyContent: 'center',
+  },
+  menuCard: {
+    position: 'absolute',
+    width: DM_MENU_WIDTH,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 14,
+    paddingVertical: 4,
+    shadowColor: colors.black,
+    shadowOpacity: 0.16,
+    shadowRadius: 12,
+    shadowOffset: {width: 0, height: 6},
+    elevation: 8,
+  },
+  menuReactions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+  },
+  menuEmoji: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  menuEmojiMine: {
+    backgroundColor: colors.primaryLight,
+  },
+  menuEmojiText: {
+    fontSize: 18,
+  },
+  menuAction: {
+    paddingHorizontal: 14,
+    paddingVertical: 9,
+  },
+  menuActionText: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '600',
+  },
+  menuActionEdit: {
+    color: colors.primary,
+    fontSize: 15,
+    fontWeight: '700',
   },
   messageLeft: {
     alignItems: 'flex-start',
@@ -2387,8 +3264,10 @@ const styles = StyleSheet.create({
   messageRight: {
     alignItems: 'flex-end',
   },
-  messageBubble: {
+  messageBubbleSlot: {
     maxWidth: '80%',
+  },
+  messageBubble: {
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md + 2,
     borderRadius: radius.xl,
@@ -2554,7 +3433,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 20,
     color: colors.text,
-    maxHeight: 100,
+    maxHeight: 180,
     paddingVertical: Platform.OS === 'ios' ? 8 : 6,
     paddingHorizontal: 4,
     margin: 0,

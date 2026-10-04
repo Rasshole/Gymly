@@ -26,6 +26,13 @@ export const useDemoModeStore = create<DemoModeState>((set, _get) => ({
 
   hydrateFromStorage: async () => {
     if (!devBuild()) {
+      // Release: never activate, and scrub any leftover key from older Debug installs
+      // that shared the same AsyncStorage namespace on a device upgrade path.
+      try {
+        await AsyncStorage.removeItem(STORAGE_KEY);
+      } catch {
+        /* ignore */
+      }
       set({hydrated: true, enabled: false});
       return;
     }
@@ -33,12 +40,13 @@ export const useDemoModeStore = create<DemoModeState>((set, _get) => ({
       const v = await AsyncStorage.getItem(STORAGE_KEY);
       set({enabled: v === '1', hydrated: true});
     } catch {
-      set({hydrated: true});
+      set({hydrated: true, enabled: false});
     }
   },
 
   setEnabled: async next => {
     if (!devBuild()) {
+      set({enabled: false});
       return;
     }
     if (next) {

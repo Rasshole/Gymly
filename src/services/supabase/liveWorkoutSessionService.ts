@@ -1,4 +1,8 @@
 import {supabase} from '@/services/supabase/supabaseClient';
+import {
+  firstUsableDisplayName,
+  getNeutralDisplayNameFallback,
+} from '@/utils/displayName';
 
 /** Hvis heartbeat ikke er modtaget inden da, tælles man ikke som live (app i baggrund / session slut). */
 export const LIVE_SESSION_STALE_MINUTES = 4;
@@ -33,7 +37,8 @@ export async function upsertLiveWorkoutSession(params: {
       gym_name: params.gymName,
       city: params.city ?? null,
       workout_type: params.workoutType,
-      user_display_name: params.displayName.trim() || 'Bruger',
+      user_display_name:
+        firstUsableDisplayName(params.displayName) ?? getNeutralDisplayNameFallback(),
       started_at: now,
       updated_at: now,
     },

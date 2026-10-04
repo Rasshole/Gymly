@@ -7,6 +7,7 @@ import {
   type ActiveCheckInSyncRow,
 } from '@/services/supabase/activeSessionsSync';
 import {getIntlLocale, getRuntimeLanguage} from '@/i18n';
+import {resolveLiveDisplayName} from '@/utils/displayName';
 
 export type ActiveNowFriendRow = {
   userId: string;
@@ -50,14 +51,15 @@ export async function fetchGlobalActiveUserCount(): Promise<number> {
 function rowToFriendRow(
   r: CheckInRow,
   profiles: Map<string, {displayName?: string; username?: string; avatarUrl?: string | null}>,
-  displayNameFallback: string,
 ): ActiveNowFriendRow {
   const p = profiles.get(r.user_id);
-  const nameFromProfile =
-    p?.displayName?.trim() || p?.username?.trim() || '';
   return {
     userId: r.user_id,
-    displayName: nameFromProfile || r.user_display_name?.trim() || displayNameFallback,
+    displayName: resolveLiveDisplayName({
+      profileDisplayName: p?.displayName,
+      profileUsername: p?.username,
+      checkInDisplayName: r.user_display_name,
+    }),
     gymName: r.gym_name?.trim() || '—',
     workoutType: r.workout_type,
     startedAt: r.started_at,
@@ -125,12 +127,10 @@ export async function loadGymlyActiveNowData(currentUserId: string): Promise<{
   const profiles = await getPublicProfilesByIds(profileIds);
 
   const currentUserActive = selfRow
-    ? rowToFriendRow(selfRow, profiles, 'Dig')
+    ? rowToFriendRow(selfRow, profiles)
     : null;
 
-  const friends = friendRows.map(r =>
-    rowToFriendRow(r, profiles, 'Bruger'),
-  );
+  const friends = friendRows.map(r => rowToFriendRow(r, profiles));
 
   if (__DEV__) {
     console.log('[ActiveSessions] loadGymlyActiveNowData', {

@@ -3,13 +3,17 @@
  * `workout_live_sessions` (synlige rækker med frisk heartbeat), ikke gammel check_in.
  */
 
-import {getMyFriendIds} from '@/services/supabase/friendService';
+import {
+  getMyFriendIds,
+  getPublicProfilesByIds,
+} from '@/services/supabase/friendService';
 import {fetchVisibleLiveSessions} from '@/services/supabase/liveWorkoutSessionService';
 import type {OnlineUser} from '@/types/online.types';
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import {buildDemoPayload} from '@/demo/buildDemoPayload';
 import {buildDemoOnlineUsersFromActiveFriends} from '@/demo/demoMapAndOnline';
 import {getIntlLocale, getRuntimeLanguage} from '@/i18n';
+import {resolveLiveDisplayName} from '@/utils/displayName';
 
 export interface GetOnlineUsersOptions {
   filter?: 'alle' | 'venner';
@@ -43,21 +47,32 @@ export async function getOnlineUsers(
     }
     throw e;
   }
-  const out: OnlineUser[] = [];
 
-  for (const r of liveRows) {
+  const visible = liveRows.filter(r => {
     if (r.user_id === userId) {
-      continue;
+      return false;
     }
     if (filter === 'venner' && !friendIds.has(r.user_id)) {
-      continue;
+      return false;
     }
+    return true;
+  });
+
+  const profiles = await getPublicProfilesByIds(visible.map(r => r.user_id));
+  const out: OnlineUser[] = [];
+
+  for (const r of visible) {
+    const p = profiles.get(r.user_id);
     const gid = r.gym_id != null && String(r.gym_id) !== '' ? String(r.gym_id) : undefined;
     const start = new Date(r.started_at).getTime();
     const minutesSinceStart = Math.max(0, Math.floor((Date.now() - start) / 60_000));
     out.push({
       userId: r.user_id,
-      displayName: r.user_display_name?.trim() || 'Bruger',
+      displayName: resolveLiveDisplayName({
+        profileDisplayName: p?.displayName,
+        profileUsername: p?.username,
+        checkInDisplayName: r.user_display_name,
+      }),
       gymName: r.gym_name,
       gymId: gid,
       city: r.city ?? undefined,

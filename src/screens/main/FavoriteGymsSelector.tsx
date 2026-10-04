@@ -19,10 +19,12 @@ import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 import {pickBrowseGyms} from '@/utils/pickBrowseGyms';
 
 const FAV_PICKER = getActiveGyms();
+scheduleGymSearchWarmup(FAV_PICKER);
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
 import {useTranslation} from '@/i18n';
 

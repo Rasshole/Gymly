@@ -20,7 +20,8 @@ export type NotificationType =
   | 'planned_workout_declined'
   | 'planned_workout_reminder'
   | 'workout_reaction'
-  | 'biceps_reaction';
+  | 'biceps_reaction'
+  | 'say_hi_request';
 
 export interface Notification {
   id: string;
@@ -63,6 +64,14 @@ export interface Notification {
   dataPayload?: Record<string, unknown>;
   /** Oprettet i Supabase (public.notifications) */
   isFromServer?: boolean;
-  /** Lokalt efter accept/afvis (ingen serverfelt) */
-  friendRequestUiState?: 'pending' | 'accepted' | 'declined';
+  /**
+   * Resolved friend-request UI state (server + optimistic).
+   * Accept/Decline only when `pending`. Distinct from `read`.
+   */
+  friendRequestUiState?:
+    | 'pending'
+    | 'accepted'
+    | 'declined'
+    | 'unavailable'
+    | 'unknown';
 }

@@ -7,24 +7,27 @@ import {
   markAllInAppRead,
   type NotificationRow,
 } from '@/services/notifications/inAppNotificationService';
+import {
+  applyOptimisticFriendRequestResolution,
+  resolveFriendRequestNotifications,
+  type FriendRequestResolutionMap,
+} from '@/services/notifications/resolveFriendRequestNotificationStatuses';
 import {isDemoContentMode} from '@/demo/demoContentGate';
-import {buildDemoPayload} from '@/demo/buildDemoPayload';
 import {
   countBellUnreadFromRows,
   syncAppIconBadgeFromRows,
 } from '@/services/push/appIconBadge';
 
-export type FriendRequestOutcomeMap = Record<
-  string,
-  {outcome: 'accepted' | 'declined'; peerName: string}
->;
+export type {FriendRequestResolutionMap};
 
 type InAppState = {
   rows: NotificationRow[];
   dbUnread: number;
   loadedUserId: string | null;
-  /** Optimistisk UX efter accept/afvis (nøgle = notification id) */
-  friendRequestOutcomes: FriendRequestOutcomeMap;
+  /** Server (+ optimistic) UI state per friend_request notification id */
+  friendRequestResolutions: FriendRequestResolutionMap;
+  /** Increments on each status resolve attempt; stale async results are dropped */
+  friendRequestResolveGeneration: number;
   setRows: (r: NotificationRow[], uid: string) => void;
   reset: () => void;
   refresh: (userId: string) => Promise<void>;
@@ -35,16 +38,46 @@ type InAppState = {
     outcome: 'accepted' | 'declined',
     peerName: string,
   ) => void;
+  /** Mark all friend_request notifs for this request id (e.g. accept from Friends). */
+  setFriendRequestOutcomeByRequestId: (
+    requestId: string,
+    outcome: 'accepted' | 'declined',
+    peerName: string,
+  ) => void;
   clearFriendRequestOutcome: (notifId: string) => void;
   /** Fjerner én række (optimistisk ved sletning) */
   removeInAppRowById: (notifId: string) => void;
 };
 
+async function resolveStatusesForRows(
+  userId: string,
+  rows: NotificationRow[],
+  generation: number,
+  get: () => InAppState,
+  set: (
+    partial:
+      | Partial<InAppState>
+      | ((state: InAppState) => Partial<InAppState>),
+  ) => void,
+): Promise<void> {
+  const previous = get().friendRequestResolutions;
+  const next = await resolveFriendRequestNotifications({
+    userId,
+    rows,
+    previous,
+  });
+  if (get().friendRequestResolveGeneration !== generation) {
+    return;
+  }
+  set({friendRequestResolutions: next});
+}
+
 export const useInAppNotificationStore = create<InAppState>((set, get) => ({
   rows: [],
   dbUnread: 0,
   loadedUserId: null,
-  friendRequestOutcomes: {},
+  friendRequestResolutions: {},
+  friendRequestResolveGeneration: 0,
 
   setRows: (r, uid) => {
     syncAppIconBadgeFromRows(r);
@@ -53,7 +86,13 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
 
   reset: () => {
     syncAppIconBadgeFromRows([]);
-    set({rows: [], dbUnread: 0, loadedUserId: null, friendRequestOutcomes: {}});
+    set({
+      rows: [],
+      dbUnread: 0,
+      loadedUserId: null,
+      friendRequestResolutions: {},
+      friendRequestResolveGeneration: get().friendRequestResolveGeneration + 1,
+    });
   },
 
   refresh: async (userId: string) => {
@@ -62,27 +101,60 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
       return;
     }
     if (isDemoContentMode()) {
+      // Lazy: buildDemoPayload → danishGyms → centers.json (~4MB); never at module load.
+      const {buildDemoPayload} = require('@/demo/buildDemoPayload') as typeof import('@/demo/buildDemoPayload');
       const d = buildDemoPayload(userId);
       const nextRows = d.notificationRows;
       const bellUnread = countBellUnreadFromRows(nextRows);
       syncAppIconBadgeFromRows(nextRows);
-      set(state => ({
+      const generation = get().friendRequestResolveGeneration + 1;
+      const previous = get().friendRequestResolutions;
+      const demoResolutions: FriendRequestResolutionMap = {};
+      for (const row of nextRows) {
+        if (row.type !== 'friend_request') {
+          continue;
+        }
+        const data = row.data ?? {};
+        const requestId =
+          typeof data.friendRequestId === 'string'
+            ? data.friendRequestId
+            : undefined;
+        const peerName =
+          (typeof data.friendName === 'string' && data.friendName) ||
+          (typeof data.actorName === 'string' && data.actorName) ||
+          '';
+        const prev = previous[row.id];
+        demoResolutions[row.id] =
+          prev?.source === 'optimistic'
+            ? prev
+            : {
+                uiState: 'pending',
+                peerName,
+                source: 'server',
+                requestId,
+              };
+      }
+      set({
         rows: nextRows,
         dbUnread: bellUnread,
         loadedUserId: userId,
-        friendRequestOutcomes: state.friendRequestOutcomes,
-      }));
+        friendRequestResolveGeneration: generation,
+        friendRequestResolutions: demoResolutions,
+      });
       return;
     }
     const data = await fetchInAppNotifications(userId);
     const bellUnread = countBellUnreadFromRows(data);
     syncAppIconBadgeFromRows(data);
+    const generation = get().friendRequestResolveGeneration + 1;
     set(state => ({
       rows: data,
       dbUnread: bellUnread,
       loadedUserId: userId,
-      friendRequestOutcomes: state.friendRequestOutcomes,
+      friendRequestResolveGeneration: generation,
+      friendRequestResolutions: state.friendRequestResolutions,
     }));
+    await resolveStatusesForRows(userId, data, generation, get, set);
   },
 
   setFriendRequestOutcome: (notifId, outcome, peerName) => {
@@ -92,12 +164,14 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
           ? {...r, is_read: true}
           : r,
       );
+      const resolutions = applyOptimisticFriendRequestResolution(
+        state.friendRequestResolutions,
+        nextRows,
+        {notifId, outcome, peerName},
+      );
       const patch = {
         rows: nextRows,
-        friendRequestOutcomes: {
-          ...state.friendRequestOutcomes,
-          [notifId]: {outcome, peerName},
-        },
+        friendRequestResolutions: resolutions,
         dbUnread: countBellUnreadFromRows(nextRows),
       };
       syncAppIconBadgeFromRows(nextRows);
@@ -105,22 +179,48 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
     });
   },
 
+  setFriendRequestOutcomeByRequestId: (requestId, outcome, peerName) => {
+    set(state => {
+      const nextRows = state.rows.map(r => {
+        if (r.type !== 'friend_request') {
+          return r;
+        }
+        const rid = (r.data ?? {}).friendRequestId;
+        if (rid === requestId) {
+          return {...r, is_read: true};
+        }
+        return r;
+      });
+      const resolutions = applyOptimisticFriendRequestResolution(
+        state.friendRequestResolutions,
+        nextRows,
+        {requestId, outcome, peerName},
+      );
+      syncAppIconBadgeFromRows(nextRows);
+      return {
+        rows: nextRows,
+        friendRequestResolutions: resolutions,
+        dbUnread: countBellUnreadFromRows(nextRows),
+      };
+    });
+  },
+
   clearFriendRequestOutcome: notifId => {
     set(state => {
-      const rest = {...state.friendRequestOutcomes};
+      const rest = {...state.friendRequestResolutions};
       delete rest[notifId];
-      return {friendRequestOutcomes: rest};
+      return {friendRequestResolutions: rest};
     });
   },
 
   removeInAppRowById: notifId => {
     set(state => {
       const next = state.rows.filter(r => r.id !== notifId);
-      const outcomes = {...state.friendRequestOutcomes};
-      delete outcomes[notifId];
+      const resolutions = {...state.friendRequestResolutions};
+      delete resolutions[notifId];
       const patch = {
         rows: next,
-        friendRequestOutcomes: outcomes,
+        friendRequestResolutions: resolutions,
         dbUnread: countBellUnreadFromRows(next),
       };
       syncAppIconBadgeFromRows(next);
@@ -149,7 +249,7 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
       return {
         rows: next,
         dbUnread: 0,
-        friendRequestOutcomes: state.friendRequestOutcomes,
+        friendRequestResolutions: state.friendRequestResolutions,
       };
     });
     await markAllInAppRead(userId);
@@ -158,7 +258,7 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
       return {
         rows: state.rows.map(r => ({...r, is_read: true})),
         dbUnread: 0,
-        friendRequestOutcomes: state.friendRequestOutcomes,
+        friendRequestResolutions: state.friendRequestResolutions,
       };
     });
   },
@@ -192,6 +292,10 @@ export function attachInAppNotificationsToHubChannel(
           syncAppIconBadgeFromRows(nextRows);
           return {rows: nextRows, dbUnread: bellUnread};
         });
+        // Re-resolve so a new friend_request gets correct pending/unknown state.
+        if (n.type === 'friend_request') {
+          void useInAppNotificationStore.getState().refresh(userId);
+        }
         logRealtimeStore('notifications', 'insert_row');
       },
     )
@@ -227,4 +331,3 @@ export function attachInAppNotificationsToHubChannel(
       },
     );
 }
-

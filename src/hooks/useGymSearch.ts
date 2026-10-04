@@ -5,6 +5,7 @@ import {
   type GymSearchHit,
   type GymSearchOptions,
 } from '@/services/gymSearch/gymSearchEngine';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 
 const DEBOUNCE_MS = 120;
 
@@ -14,6 +15,10 @@ export function useGymSearch(
 ) {
   const [debouncedQuery, setDebouncedQuery] = useState(query);
   const [isSearching, setIsSearching] = useState(false);
+
+  useEffect(() => {
+    scheduleGymSearchWarmup(options.gyms);
+  }, [options.gyms]);
 
   useEffect(() => {
     const trimmed = query.trim();

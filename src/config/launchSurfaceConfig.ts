@@ -38,7 +38,12 @@ export const SURFACE_GROUPS_IN_APP = true;
 
 /**
  * Demo-indhold toggle i Indstillinger (optagelse / fiktiv aktivitet).
- * Sæt til `true` når du skal optage demo-video igen.
+ *
+ * LAUNCH: kept `false` so production/Release and normal Debug installs never
+ * surface a Settings toggle. Demo fixtures remain in-repo for tests / explicit
+ * __DEV__ tooling, but `shouldShowDemoSettingsSection()` is hard-off for store builds.
+ *
+ * Flip to `true` only for intentional local recording sessions (still requires `__DEV__`).
  */
 export const SURFACE_DEMO_MODE_IN_SETTINGS = false;
 

@@ -13,6 +13,8 @@ export type ActiveCenterSession = {
   liveExerciseName?: string | null;
   liveSetCount?: number | null;
   liveExerciseCount?: number | null;
+  /** Session contact preference: open | focused | null (not open). */
+  contactStatus?: 'open' | 'focused' | null;
 };
 
 export type ActiveCenter = {

@@ -7,12 +7,11 @@ import type {AppLanguage} from '@/i18n/types';
 import {EXERCISE_LIBRARY} from '@/data/exerciseLibrary';
 
 /**
- * Optional overrides by exercise library id.
+ * Optional overrides by exercise library id (keyed by locale id string for scalability).
  * Missing entries → fall back to the stored English library name (never breaks history).
+ * Policy (FULLY_LOCALIZED | CANONICAL_GYM_ENGLISH_ALLOWED) lives on localeRegistry.
  */
-const EXERCISE_NAME_OVERRIDES: Partial<
-  Record<AppLanguage, Record<string, string>>
-> = {
+const EXERCISE_NAME_OVERRIDES: Record<string, Record<string, string>> = {
   da: {
     'ex-bench-press': 'Bænkpres',
     'ex-incline-bench': 'Incline bænkpres',

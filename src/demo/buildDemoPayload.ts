@@ -909,7 +909,7 @@ export function buildDemoPayload(realUserId: string): DemoPayload {
         mkFriend(p(25), 21, 'ryg'),
       ],
     },
-  ];
+  ].map(c => ({...c, activeVisible: c.activeFriends}));
 
   const demoMapExtraRollups = [
     {gymId: gymVan.id, total: 18, friends: 2},

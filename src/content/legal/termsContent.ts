@@ -273,10 +273,14 @@ const termsEn: LegalDocument = {
   ],
 };
 
+/** Reviewed legal packs by locale; missing → English (unchanged behavior). */
+const TERMS_BY_LOCALE: Partial<Record<AppLanguage, LegalDocument>> & {
+  en: LegalDocument;
+} = {
+  da: termsDa,
+  en: termsEn,
+};
+
 export function getTermsContent(language: AppLanguage): LegalDocument {
-  if (language === 'da') {
-    return termsDa;
-  }
-  // en + any locale without a reviewed legal pack (e.g. sv) → English
-  return termsEn;
+  return TERMS_BY_LOCALE[language] ?? TERMS_BY_LOCALE.en;
 }

@@ -2,15 +2,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import type {AppLanguage} from './types';
 import {
   LANGUAGE_STORAGE_KEY,
-  SUPPORTED_LANGUAGES,
+  hasTranslationModule,
   coerceToSelectableLanguage,
 } from './types';
 
 export async function loadStoredLanguage(): Promise<AppLanguage | null> {
   try {
     const raw = await AsyncStorage.getItem(LANGUAGE_STORAGE_KEY);
-    if (raw && SUPPORTED_LANGUAGES.includes(raw as AppLanguage)) {
-      return raw as AppLanguage;
+    if (raw && hasTranslationModule(raw)) {
+      return coerceToSelectableLanguage(raw);
     }
   } catch {
     /* ignore */

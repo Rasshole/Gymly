@@ -28,6 +28,10 @@ import {useFriendStore} from '@/store/friendStore';
 import {useChatStore} from '@/store/chatStore';
 import AuthService from '@/services/auth/AuthService';
 import {upsertMyProfile, mergeProfileUsernameIntoUser} from '@/services/supabase/friendService';
+import {
+  fetchMyPrimaryGymDiscoverable,
+  setMyPrimaryGymDiscoverable,
+} from '@/services/supabase/primaryGymSuggestionsService';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {
   getUsernameFormatError,
@@ -83,6 +87,43 @@ const EditProfileScreen = () => {
   const [profileVisibility, setProfileVisibility] = useState<ProfileVisibility>(
     user?.privacySettings.profileVisibility || 'private'
   );
+  const [gymDiscoverable, setGymDiscoverable] = useState(false);
+  const [gymDiscoverableBusy, setGymDiscoverableBusy] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    void fetchMyPrimaryGymDiscoverable()
+      .then(value => {
+        if (!cancelled) {
+          setGymDiscoverable(value);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setGymDiscoverable(false);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [user?.id]);
+
+  const toggleGymDiscoverable = async (next: boolean) => {
+    if (gymDiscoverableBusy) {
+      return;
+    }
+    setGymDiscoverableBusy(true);
+    const previous = gymDiscoverable;
+    setGymDiscoverable(next);
+    try {
+      await setMyPrimaryGymDiscoverable(next);
+    } catch {
+      setGymDiscoverable(previous);
+      Alert.alert(t('friendsScreen.gymMatesOptIn'), t('friendsScreen.gymMatesError'));
+    } finally {
+      setGymDiscoverableBusy(false);
+    }
+  };
   const [isSaving, setIsSaving] = useState(false);
   const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
 
@@ -735,6 +776,19 @@ const EditProfileScreen = () => {
               ))}
             </View>
           </View>
+
+          <View style={styles.visibilitySection}>
+            <View style={styles.gymDiscoverRow}>
+              <Text style={styles.settingLabel}>{t('friendsScreen.gymMatesOptIn')}</Text>
+              <Switch
+                value={gymDiscoverable}
+                onValueChange={value => void toggleGymDiscoverable(value)}
+                disabled={gymDiscoverableBusy}
+                trackColor={{false: colors.border, true: colors.primary}}
+              />
+            </View>
+            <Text style={styles.gymDiscoverHint}>{t('friendsScreen.gymMatesOptInHint')}</Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -966,6 +1020,18 @@ const styles = StyleSheet.create({
   },
   visibilitySection: {
     marginTop: 8,
+  },
+  gymDiscoverRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  gymDiscoverHint: {
+    fontSize: 13,
+    lineHeight: 18,
+    color: '#8E8E93',
+    marginTop: 4,
   },
   settingLabel: {
     fontSize: 14,

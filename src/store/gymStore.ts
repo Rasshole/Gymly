@@ -33,6 +33,8 @@ const mockCheckIns: GymCheckIn[] = [];
 const mockRatings: GymRating[] = [];
 
 const mockHours: GymHours[] = gymHoursData as GymHours[];
+const gymById = new Map(danishGyms.map(gym => [gym.id, gym]));
+const hoursByGymId = new Map(mockHours.map(hours => [hours.gymId, hours]));
 
 // Helper function to get default hours based on brand
 const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
@@ -293,16 +295,13 @@ export const useGymStore = create<GymState>((set, get) => ({
    * Get gym hours
    */
   getGymHours: (gymId) => {
-    const state = get();
-    const existingHours = state.hours.find((hours) => hours.gymId === gymId);
-    
-    // If hours exist, return them
+    const existingHours = hoursByGymId.get(gymId) ?? get().hours.find(hours => hours.gymId === gymId);
+
     if (existingHours) {
       return existingHours;
     }
-    
-    // Otherwise, generate default hours based on brand
-    const gym = danishGyms.find(g => g.id === gymId);
+
+    const gym = gymById.get(gymId);
     if (!gym) {
       return undefined;
     }
@@ -322,11 +321,8 @@ export const useGymStore = create<GymState>((set, get) => ({
    * Get gym status (open/closed)
    */
   getGymStatus: (gymId) => {
-    const state = get();
-    const hours = state.hours.find((hours) => hours.gymId === gymId);
-    // Get brand from danishGyms data
-    const gym = danishGyms.find(g => g.id === gymId);
-    const brand = gym?.brand;
+    const hours = hoursByGymId.get(gymId) ?? get().hours.find(row => row.gymId === gymId);
+    const brand = gymById.get(gymId)?.brand;
     return checkGymStatus(hours, brand);
   },
 

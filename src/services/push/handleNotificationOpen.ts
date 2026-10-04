@@ -47,6 +47,14 @@ export function navigateFromPushData(data: Record<string, string> | undefined): 
     return;
   }
 
+  if (type === 'say_hi_request') {
+    nav.navigate('Messages', {
+      openSayHi: true,
+      sayHiRequestId: data.sayHiRequestId || data.say_hi_request_id,
+    });
+    return;
+  }
+
   if (type === 'friend_checked_in') {
     const friendUserId =
       data.friendUserId ||
@@ -109,8 +117,12 @@ export function navigateFromPushData(data: Record<string, string> | undefined): 
     return;
   }
 
-  if (type === 'biceps_reaction') {
-    nav.navigate('Notifications', notifId ? {highlightNotificationId: notifId} : undefined);
+  if (type === 'biceps_reaction' || type === 'post_like' || type === 'post_comment') {
+    const postId = data.postId || data.post_id;
+    nav.navigate('MainTabs', {
+      screen: 'Home',
+      params: postId ? {highlightPostId: String(postId)} : undefined,
+    });
     return;
   }
 

@@ -28,14 +28,56 @@ export interface MapCenter {
 let cachedBaseMapCenters: MapCenter[] | null = null;
 let cachedBaseMapCentersGymCount = 0;
 
+/** One gym → map marker geometry. Badge counts stay 0 until live data is applied. */
+export function mapCenterFromGym(gym: DanishGym): MapCenter {
+  const hasExplicit =
+    gym._center?.lat != null &&
+    gym._center?.lng != null &&
+    Number.isFinite(gym._center.lat) &&
+    Number.isFinite(gym._center.lng);
+  if (
+    typeof __DEV__ !== 'undefined' &&
+    __DEV__ &&
+    (!Number.isFinite(gym.latitude) || !Number.isFinite(gym.longitude))
+  ) {
+    console.warn(
+      '[mapCenters] Center mangler gyldige koordinater (afstand/marker fejler):',
+      gym.id,
+      gym.name,
+    );
+  }
+  const map = getMarkerMapCoordinate(gym.id, gym.latitude, gym.longitude);
+  return {
+    id: gym.id,
+    name: gym.name,
+    latitude: gym.latitude,
+    longitude: gym.longitude,
+    mapLatitude: map.latitude,
+    mapLongitude: map.longitude,
+    logoUrl: null,
+    friendsActiveCount: 0,
+    totalActiveCount: 0,
+    address: gym.address,
+    city: gym.city,
+    brand: gym.brand,
+    hasExplicitGeocode: hasExplicit,
+  };
+}
+
 /** Static map marker geometry — badge counts applied separately. */
 export function getBaseMapCenters(gyms: DanishGym[]): MapCenter[] {
   if (cachedBaseMapCenters && cachedBaseMapCentersGymCount === gyms.length) {
     return cachedBaseMapCenters;
   }
-  cachedBaseMapCenters = getMapCenters(gyms, new Map(), new Map());
+  cachedBaseMapCenters = gyms.map(mapCenterFromGym);
   cachedBaseMapCentersGymCount = gyms.length;
   return cachedBaseMapCenters;
+}
+
+/** Called by the chunked map builder so a later sync read hits the same cache. */
+export function rememberBaseMapCenters(centers: MapCenter[], gymCount: number): void {
+  cachedBaseMapCenters = centers;
+  cachedBaseMapCentersGymCount = gymCount;
 }
 
 /** Merge live badge counts onto cached map centers (avoids rebuilding 12k+ markers). */
@@ -70,44 +112,13 @@ export function getMapCenters(
   totalByGymId: Map<string, number>,
 ): MapCenter[] {
   return gyms.map(gym => {
+    const base = mapCenterFromGym(gym);
     const friendsActiveCount = friendsByGymId.get(gym.id) ?? 0;
     const fromRpc = totalByGymId.get(gym.id) ?? 0;
     const totalActiveCount = Math.max(fromRpc, friendsActiveCount);
-    /** Kun lokale mærke-PNG'er; `GymLogoView` løser via brand+navn. */
-    const logoUrl: string | null = null;
-
-    const hasExplicit =
-      gym._center?.lat != null &&
-      gym._center?.lng != null &&
-      Number.isFinite(gym._center.lat) &&
-      Number.isFinite(gym._center.lng);
-    if (
-      typeof __DEV__ !== 'undefined' &&
-      __DEV__ &&
-      (!Number.isFinite(gym.latitude) || !Number.isFinite(gym.longitude))
-    ) {
-      console.warn(
-        '[mapCenters] Center mangler gyldige koordinater (afstand/marker fejler):',
-        gym.id,
-        gym.name,
-      );
+    if (friendsActiveCount === 0 && totalActiveCount === 0) {
+      return base;
     }
-    const map = getMarkerMapCoordinate(gym.id, gym.latitude, gym.longitude);
-
-    return {
-      id: gym.id,
-      name: gym.name,
-      latitude: gym.latitude,
-      longitude: gym.longitude,
-      mapLatitude: map.latitude,
-      mapLongitude: map.longitude,
-      logoUrl,
-      friendsActiveCount,
-      totalActiveCount,
-      address: gym.address,
-      city: gym.city,
-      brand: gym.brand,
-      hasExplicitGeocode: hasExplicit,
-    };
+    return {...base, friendsActiveCount, totalActiveCount};
   });
 }

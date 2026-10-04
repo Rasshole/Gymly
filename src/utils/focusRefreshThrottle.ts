@@ -11,3 +11,16 @@ export function isFocusRefreshStale(key: string, ttlMs = 45_000): boolean {
 export function markFocusRefreshed(key: string): void {
   lastRefreshAt.set(key, Date.now());
 }
+
+/** Call on logout / account switch so the next user gets a fresh inbox sync. */
+export function clearFocusRefreshThrottle(prefix?: string): void {
+  if (!prefix) {
+    lastRefreshAt.clear();
+    return;
+  }
+  for (const key of [...lastRefreshAt.keys()]) {
+    if (key.startsWith(prefix) || key.includes(prefix)) {
+      lastRefreshAt.delete(key);
+    }
+  }
+}

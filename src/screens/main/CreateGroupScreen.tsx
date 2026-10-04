@@ -1,6 +1,6 @@
 /**
- * Create Group — navn, beskrivelse, valgfri billede, multi-select venner
- * Visuelt aligned med Venner-liste + premium CTA.
+ * Create Group — name required; photo, description, friends optional.
+ * Calm flat CTA (no premium gradient).
  */
 
 import React, {useEffect, useMemo, useState} from 'react';
@@ -35,17 +35,7 @@ import {
 } from '@/services/supabase/gymlyGroupsService';
 import {useTranslation} from '@/i18n';
 import colors from '@/theme/colors';
-import {spacing, radius, typography, shadows} from '@/theme/designTokens';
-
-const listCardShadow = Platform.select({
-  ios: {
-    shadowColor: '#0F172A',
-    shadowOffset: {width: 0, height: 3},
-    shadowOpacity: 0.06,
-    shadowRadius: 10,
-  },
-  android: {elevation: 2},
-});
+import {spacing, radius, typography} from '@/theme/designTokens';
 
 const CreateGroupScreen = () => {
   const navigation = useNavigation<any>();
@@ -72,6 +62,8 @@ const CreateGroupScreen = () => {
       void loadFriends(user.id);
     }
   }, [user?.id, loadFriends]);
+
+  const hasFriends = friends.length > 0;
 
   const filteredFriends = useMemo(() => {
     const q = friendQuery.trim().toLowerCase();
@@ -113,10 +105,13 @@ const CreateGroupScreen = () => {
 
   const handleCreate = async () => {
     if (!name.trim()) {
-      Alert.alert(t('groups.createMissingNameTitle'), t('groups.createMissingNameBody'));
+      Alert.alert(
+        t('groups.createMissingNameTitle'),
+        t('groups.createMissingNameBody'),
+      );
       return;
     }
-    if (!user?.id) {
+    if (!user?.id || creating) {
       return;
     }
     setCreating(true);
@@ -168,21 +163,22 @@ const CreateGroupScreen = () => {
           <TouchableOpacity
             style={styles.imagePicker}
             onPress={() => void pickImage()}
-            activeOpacity={0.85}>
+            activeOpacity={0.85}
+            accessibilityRole="button"
+            accessibilityLabel={t('groups.addPhoto')}>
             {imageUri ? (
               <Image source={{uri: imageUri}} style={styles.imagePreview} />
             ) : (
               <View style={styles.imagePlaceholder}>
-                <View style={styles.imageIconWrap}>
-                  <Icon name="camera-outline" size={26} color={colors.primary} />
-                </View>
-                <Text style={styles.imageHint}>{t('groups.addImage')}</Text>
+                <Icon name="camera-outline" size={22} color={colors.primary} />
+                <Text style={styles.imageHint}>{t('groups.addPhoto')}</Text>
               </View>
             )}
           </TouchableOpacity>
 
           <Text style={styles.label}>{t('groups.nameLabel')}</Text>
-          <View style={[styles.inputCard, nameFocused && styles.inputCardFocused]}>
+          <View
+            style={[styles.inputCard, nameFocused && styles.inputCardFocused]}>
             <TextInput
               style={[styles.input, styles.nameInput]}
               placeholder={t('groups.namePlaceholder')}
@@ -195,8 +191,12 @@ const CreateGroupScreen = () => {
             />
           </View>
 
-          <Text style={styles.label}>{t('groups.descriptionLabel')}</Text>
-          <View style={[styles.inputCard, descFocused && styles.inputCardFocused]}>
+          <View style={styles.labelRow}>
+            <Text style={styles.labelInline}>{t('groups.descriptionLabel')}</Text>
+            <Text style={styles.optionalTag}>{t('groups.optional')}</Text>
+          </View>
+          <View
+            style={[styles.inputCard, descFocused && styles.inputCardFocused]}>
             <TextInput
               style={[styles.input, styles.textArea]}
               placeholder={t('groups.descriptionPlaceholder')}
@@ -204,7 +204,7 @@ const CreateGroupScreen = () => {
               value={description}
               onChangeText={setDescription}
               multiline
-              numberOfLines={4}
+              numberOfLines={2}
               textAlignVertical="top"
               maxLength={280}
               onFocus={() => setDescFocused(true)}
@@ -212,54 +212,70 @@ const CreateGroupScreen = () => {
             />
           </View>
 
-          <Text style={styles.label}>
-            {t('groups.inviteFriends', {count: selectedFriendIds.size})}
-          </Text>
-          <SocialSearchBar
-            value={friendQuery}
-            onChangeText={setFriendQuery}
-            placeholder={t('groups.searchFriends')}
-            style={styles.friendSearch}
-          />
-          {filteredFriends.length === 0 ? (
-            <Text style={styles.emptyFriends}>{t('groups.noFriends')}</Text>
+          <View style={styles.labelRow}>
+            <Text style={styles.labelInline}>
+              {hasFriends
+                ? t('groups.inviteFriends', {count: selectedFriendIds.size})
+                : t('groups.addFriends')}
+            </Text>
+            <Text style={styles.optionalTag}>{t('groups.optional')}</Text>
+          </View>
+
+          {hasFriends ? (
+            <>
+              <SocialSearchBar
+                value={friendQuery}
+                onChangeText={setFriendQuery}
+                placeholder={t('groups.searchFriends')}
+                style={styles.friendSearch}
+              />
+              {filteredFriends.length === 0 ? (
+                <Text style={styles.emptyFriends}>
+                  {t('groups.noFriendsMatch')}
+                </Text>
+              ) : (
+                filteredFriends.map(f => {
+                  const selected = selectedFriendIds.has(f.id);
+                  return (
+                    <Pressable
+                      key={f.id}
+                      style={({pressed}) => [
+                        styles.friendRow,
+                        selected && styles.friendRowSelected,
+                        pressed && styles.friendRowPressed,
+                      ]}
+                      onPress={() => toggleFriend(f.id)}>
+                      <View style={styles.avatarRing}>
+                        <UserAvatar
+                          name={f.displayName}
+                          imageUrl={f.avatarUrl}
+                          size="sm"
+                        />
+                      </View>
+                      <View style={styles.friendBody}>
+                        <Text style={styles.friendName} numberOfLines={1}>
+                          {f.displayName}
+                        </Text>
+                        {f.username ? (
+                          <Text style={styles.friendUser} numberOfLines={1}>
+                            @{f.username}
+                          </Text>
+                        ) : null}
+                      </View>
+                      <Icon
+                        name={selected ? 'checkmark-circle' : 'ellipse-outline'}
+                        size={22}
+                        color={selected ? colors.primary : colors.textMuted}
+                      />
+                    </Pressable>
+                  );
+                })
+              )}
+            </>
           ) : (
-            filteredFriends.map(f => {
-              const selected = selectedFriendIds.has(f.id);
-              return (
-                <Pressable
-                  key={f.id}
-                  style={({pressed}) => [
-                    styles.friendRow,
-                    selected && styles.friendRowSelected,
-                    pressed && styles.friendRowPressed,
-                  ]}
-                  onPress={() => toggleFriend(f.id)}>
-                  <View style={styles.avatarRing}>
-                    <UserAvatar
-                      name={f.displayName}
-                      imageUrl={f.avatarUrl}
-                      size="md"
-                    />
-                  </View>
-                  <View style={styles.friendBody}>
-                    <Text style={styles.friendName} numberOfLines={1}>
-                      {f.displayName}
-                    </Text>
-                    {f.username ? (
-                      <Text style={styles.friendUser} numberOfLines={1}>
-                        @{f.username}
-                      </Text>
-                    ) : null}
-                  </View>
-                  <Icon
-                    name={selected ? 'checkmark-circle' : 'ellipse-outline'}
-                    size={26}
-                    color={selected ? colors.primary : colors.textMuted}
-                  />
-                </Pressable>
-              );
-            })
+            <Text style={styles.inviteLaterHint}>
+              {t('groups.inviteLater')}
+            </Text>
           )}
         </ScrollView>
 
@@ -273,7 +289,6 @@ const CreateGroupScreen = () => {
             onPress={() => void handleCreate()}
             disabled={!canSubmit}
             loading={creating}
-            variant="premium"
           />
         </View>
       </KeyboardAvoidingView>
@@ -291,39 +306,31 @@ const styles = StyleSheet.create({
   },
   imagePicker: {
     alignSelf: 'center',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xl,
   },
   imagePreview: {
-    width: 104,
-    height: 104,
-    borderRadius: 52,
-    borderWidth: 3,
-    borderColor: colors.primary + '55',
+    width: 72,
+    height: 72,
+    borderRadius: 36,
+    borderWidth: 2,
+    borderColor: colors.primary + '40',
   },
   imagePlaceholder: {
-    width: 104,
-    height: 104,
-    borderRadius: 52,
+    width: 72,
+    height: 72,
+    borderRadius: 36,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.backgroundCard,
     borderWidth: 1,
     borderColor: colors.border,
-    ...shadows.sm,
-  },
-  imageIconWrap: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: colors.primary + '14',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   imageHint: {
     ...typography.caption,
     color: colors.textSecondary,
-    marginTop: 6,
+    marginTop: 4,
     fontWeight: '600',
+    fontSize: 11,
   },
   label: {
     ...typography.small,
@@ -331,42 +338,51 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: spacing.sm,
   },
+  labelRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    justifyContent: 'space-between',
+    marginBottom: spacing.sm,
+  },
+  labelInline: {
+    ...typography.small,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  optionalTag: {
+    ...typography.caption,
+    color: colors.textMuted,
+    fontWeight: '500',
+  },
   inputCard: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.xl,
+    borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border + 'CC',
     paddingHorizontal: spacing.md,
     marginBottom: spacing.lg,
-    ...shadows.sm,
-    ...listCardShadow,
   },
   inputCardFocused: {
     borderColor: colors.primary + '55',
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.14,
-        shadowRadius: 10,
-      },
-      android: {elevation: 3},
-    }),
   },
   input: {
     ...typography.body,
     color: colors.text,
   },
   nameInput: {
-    paddingVertical: Platform.OS === 'ios' ? 16 : 12,
-    lineHeight: Platform.OS === 'ios' ? typography.body.fontSize : typography.body.lineHeight,
+    paddingVertical: Platform.OS === 'ios' ? 14 : 12,
+    lineHeight:
+      Platform.OS === 'ios'
+        ? typography.body.fontSize
+        : typography.body.lineHeight,
     ...(Platform.OS === 'android'
       ? {includeFontPadding: false, textAlignVertical: 'center' as const}
       : null),
   },
   textArea: {
-    minHeight: 100,
-    paddingVertical: Platform.OS === 'ios' ? 14 : 12,
+    minHeight: 64,
+    maxHeight: 96,
+    paddingVertical: Platform.OS === 'ios' ? 12 : 10,
   },
   friendSearch: {marginBottom: spacing.sm},
   emptyFriends: {
@@ -374,18 +390,22 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     marginBottom: spacing.md,
   },
+  inviteLaterHint: {
+    ...typography.body,
+    color: colors.textMuted,
+    marginBottom: spacing.md,
+    lineHeight: 22,
+  },
   friendRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.sm + 2,
     paddingHorizontal: spacing.md,
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.xl,
+    borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border + 'CC',
-    marginBottom: spacing.sm,
-    ...shadows.sm,
-    ...listCardShadow,
+    marginBottom: spacing.xs,
   },
   friendRowSelected: {
     backgroundColor: colors.primary + '08',
@@ -399,14 +419,14 @@ const styles = StyleSheet.create({
   },
   friendBody: {flex: 1, minWidth: 0},
   friendName: {
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 15,
+    fontWeight: '600',
     color: colors.text,
   },
   friendUser: {
     ...typography.caption,
     color: colors.textMuted,
-    marginTop: 2,
+    marginTop: 1,
   },
   footer: {
     paddingHorizontal: spacing.lg,

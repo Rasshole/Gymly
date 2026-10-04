@@ -14,6 +14,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import safeArea from '@/safeAreaContext';
 import RootNavigator from './src/navigation/RootNavigator';
 import {LanguageProvider} from './src/i18n';
+import {startupMark} from './src/i18n/startupMark';
 import {navigationRef} from './src/navigation/navigationRef';
 import {useAppStore} from './src/store/appStore';
 import {BadgeUnlockModalHost} from './src/components/badges/BadgeUnlockModalHost';
@@ -22,7 +23,7 @@ import {usePrivacyStore} from './src/store/privacyStore';
 import {StartupErrorBoundary} from './src/components/StartupErrorBoundary';
 import {supabase} from './src/services/supabase/supabaseClient';
 import AuthService from './src/services/auth/AuthService';
-import {configureGeolocationForPermissionSafety} from './src/services/location/locationPermission';
+import {configureGeolocationForPermissionSafety, warmLastUserFix} from './src/services/location/locationPermission';
 import {clearLocalUserSession} from './src/services/auth/sessionCleanup';
 import {
   AUTH_LINK_PREFIXES,
@@ -41,6 +42,9 @@ import {
   classifyAppDeepLinkUrl,
   handleIncomingInviteIfPresent,
 } from './src/services/referral/appDeepLinkRouter';
+
+startupMark('App.tsx module evaluated');
+
 try {
   configureGeolocationForPermissionSafety();
 } catch (e) {
@@ -134,20 +138,64 @@ const App = () => {
   );
 
   useEffect(() => {
+    warmLastUserFix();
+  }, []);
+
+  useEffect(() => {
     let cancelled = false;
-    (async () => {
-      const initialUrl = await Linking.getInitialURL().catch(() => null);
-      if (initialUrl && classifyAppDeepLinkUrl(initialUrl) !== 'ignored') {
-        initialUrlHandled.current = true;
-        await processIncomingUrl(initialUrl);
+    // Do not wait for the launch URL. Linking.getInitialURL can stay pending on
+    // a device and leave isLoading true, which keeps the Gymly logo up forever.
+    void (async () => {
+      try {
+        await initializeApp();
+      } catch (e) {
+        if (__DEV__) {
+          console.warn('[App] initialize failed', e);
+        }
       }
       if (!cancelled) {
-        await initializeApp();
-        await loadPrivacyConsent();
+        await loadPrivacyConsent().catch(() => {});
       }
     })();
+
+    void Linking.getInitialURL()
+      .catch(() => null)
+      .then(initialUrl => {
+        if (cancelled || !initialUrl) {
+          return;
+        }
+        if (classifyAppDeepLinkUrl(initialUrl) === 'ignored') {
+          return;
+        }
+        initialUrlHandled.current = true;
+        return processIncomingUrl(initialUrl);
+      })
+      .catch(e => {
+        if (__DEV__) {
+          console.warn('[App] initial URL failed', e);
+        }
+      });
+
+    const watchdog = setTimeout(() => {
+      const state = useAppStore.getState();
+      const splashStuck =
+        state.isLoading ||
+        (state.isAuthenticated && state.onboardingComplete === null);
+      if (!splashStuck) {
+        return;
+      }
+      startupMark('startup watchdog leaving splash');
+      useAppStore.setState({
+        isLoading: false,
+        onboardingComplete: state.isAuthenticated
+          ? state.onboardingComplete ?? false
+          : state.onboardingComplete,
+      });
+    }, 8000);
+
     return () => {
       cancelled = true;
+      clearTimeout(watchdog);
     };
   }, [initializeApp, loadPrivacyConsent, processIncomingUrl]);
   useEffect(() => {
@@ -203,8 +251,12 @@ const App = () => {
         <SafeAreaProvider>
           <LanguageProvider>
             <StatusBar barStyle="dark-content" />
-            <NavigationContainer ref={navigationRef} theme={DefaultTheme} linking={linking}>
-              <RootNavigator />
+            <NavigationContainer
+              ref={navigationRef}
+              theme={DefaultTheme}
+              linking={linking}
+              onReady={() => startupMark('NavigationContainer onReady')}>
+              <RootNavigatorMarked />
               <BadgeUnlockModalHost />
               <LocationProminentDisclosureHost />
             </NavigationContainer>
@@ -214,6 +266,14 @@ const App = () => {
     </StartupErrorBoundary>
   );
 };
+
+function RootNavigatorMarked() {
+  if (!(globalThis as {__gymlyRootNavMarked?: boolean}).__gymlyRootNavMarked) {
+    (globalThis as {__gymlyRootNavMarked?: boolean}).__gymlyRootNavMarked = true;
+    startupMark('RootNavigator mount (first React screen tree)');
+  }
+  return <RootNavigator />;
+}
 
 export default App;
 

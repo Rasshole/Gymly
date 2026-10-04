@@ -10,6 +10,7 @@ import {
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import {buildDemoPayload} from '@/demo/buildDemoPayload';
 import {buildDemoMapGymBadgesFromCenters} from '@/demo/demoMapAndOnline';
+import {safeDisplayName} from '@/utils/displayName';
 
 export const PRESENCE_WINDOW_HOURS = 3;
 
@@ -86,7 +87,7 @@ function rowToUserPresence(row: CheckInRow): UserPresence {
   }
   return {
     id: row.user_id,
-    name: row.user_display_name?.trim() || 'Bruger',
+    name: safeDisplayName(row.user_display_name),
     avatar: undefined,
     workoutType: row.workout_type ?? undefined,
     status,
@@ -203,35 +204,67 @@ export async function loadGymPresenceForUser(userId: string): Promise<GymPresenc
   return buildGymPresenceFromLiveSessions(userId, friendIds, liveRows, totals);
 }
 
-export async function loadMapGymBadges(userId: string): Promise<{
+type MapGymBadges = {
   friendsByGymId: Map<string, number>;
   totalByGymId: Map<string, number>;
-}> {
+};
+
+let pendingMapBadges: {userId: string; promise: Promise<MapGymBadges>} | null = null;
+let settledMapBadges: {userId: string; value: MapGymBadges} | null = null;
+
+/** Join an in-flight badge fetch started on the Kort tap, if it is still current. */
+export function takePrefetchedMapGymBadges(userId: string): Promise<MapGymBadges> | null {
+  if (pendingMapBadges?.userId !== userId) {
+    return null;
+  }
+  const promise = pendingMapBadges.promise;
+  pendingMapBadges = null;
+  return promise;
+}
+
+export function peekSettledMapGymBadges(userId: string): MapGymBadges | null {
+  return settledMapBadges?.userId === userId ? settledMapBadges.value : null;
+}
+
+/** Start badge fetch on tab press so it is not queued behind map construction. */
+export function prefetchMapGymBadges(userId: string): Promise<MapGymBadges> {
+  if (pendingMapBadges?.userId === userId) {
+    return pendingMapBadges.promise;
+  }
+  const promise = loadMapGymBadges(userId).then(value => {
+    settledMapBadges = {userId, value};
+    return value;
+  });
+  pendingMapBadges = {userId, promise};
+  return promise;
+}
+
+export async function loadMapGymBadges(userId: string): Promise<MapGymBadges> {
   if (isDemoContentMode()) {
     const d = buildDemoPayload(userId);
     return buildDemoMapGymBadgesFromCenters(d.localCenters, d.demoMapExtraRollups);
   }
-  const friendIds = await getMyFriendIds(userId);
 
-  const {data: rollups, error: rollupErr} = await supabase
-    .from('gym_active_checkin_rollup')
-    .select('gym_id, active_count');
-  if (!rollupErr && rollups) {
+  const [friendIds, rollupRes, activeRes] = await Promise.all([
+    getMyFriendIds(userId),
+    supabase.from('gym_active_checkin_rollup').select('gym_id, active_count'),
+    supabase
+      .from('check_ins')
+      .select('gym_id, user_id')
+      .eq('is_active', true)
+      .is('ended_at', null),
+  ]);
+
+  if (!rollupRes.error && rollupRes.data) {
     const totalByGymId = new Map<string, number>();
-    for (const r of rollups) {
+    for (const r of rollupRes.data) {
       const row = r as {gym_id: string; active_count: number | string};
       totalByGymId.set(String(row.gym_id), Number(row.active_count) || 0);
     }
 
-    const {data: activeRows, error: cinErr} = await supabase
-      .from('check_ins')
-      .select('gym_id, user_id')
-      .eq('is_active', true)
-      .is('ended_at', null);
-
     const friendsByGymId = new Map<string, number>();
-    if (!cinErr && activeRows) {
-      for (const r of activeRows) {
+    if (!activeRes.error && activeRes.data) {
+      for (const r of activeRes.data) {
         const row = r as {gym_id: string; user_id: string};
         if (row.user_id === userId) {
           continue;

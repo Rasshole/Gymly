@@ -1,6 +1,7 @@
 import {supabase} from '@/services/supabase/supabaseClient';
 import {getPublicProfilesByIds} from '@/services/supabase/friendService';
 import {fetchCheckInCountsByUserIdsInRange} from '@/services/supabase/weeklySummaryService';
+import {safeDisplayName} from '@/utils/displayName';
 import {
   buildWeeklyFriendLeaderboard,
   type WeeklyFriendLeaderboardEntry,
@@ -141,7 +142,7 @@ export async function fetchGymlyGroupMembers(
     const p = profs.get(r.user_id);
     return {
       ...r,
-      displayName: p?.displayName?.trim() || p?.username || 'Bruger',
+      displayName: safeDisplayName(p?.displayName, p?.username),
       avatarUrl: p?.avatarUrl ?? null,
     };
   });

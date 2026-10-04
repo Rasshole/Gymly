@@ -17,6 +17,8 @@ export interface UserPresence {
   liveExerciseName?: string | null;
   liveSetCount?: number | null;
   liveExerciseCount?: number | null;
+  /** Session contact preference when known */
+  contactStatus?: 'open' | 'focused' | null;
   status: UserPresenceStatus;
   lastActivity: Date;
   /** Minutes ago when status is active_minutes or checked_in_minutes */

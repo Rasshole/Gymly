@@ -42,7 +42,7 @@ export function buildDemoFriendsScreenList(userId: string): DemoFriendRow[] {
       name: prof.displayName,
       avatar: prof.avatarUrl ?? undefined,
       isOnline: false,
-      checkOutTime: new Date(Date.now() - minsAgo * 60_000),
+      checkInTime: new Date(Date.now() - minsAgo * 60_000),
     };
   });
 }

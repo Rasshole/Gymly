@@ -1,5 +1,6 @@
 /**
- * Gymly onboarding — email, adgangskode, profil, centre og træning; direkte ind i appen efter signup.
+ * Gymly onboarding V2 — Create account → Profile → Gym → Home.
+ * Also used post-auth (Apple/Google) via OnboardingNavigator.
  */
 
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
@@ -7,644 +8,353 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   Alert,
-  ActivityIndicator,
-  Switch,
   Image,
-  Animated,
-  Easing,
-  Dimensions,
-  Linking,
   Pressable,
+  ActivityIndicator,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {
+  useNavigation,
+  useRoute,
+  type RouteProp,
+} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamList} from '@/navigation/authStackParamList';
+import type {OnboardingStackParamList} from '@/navigation/OnboardingNavigator';
 import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
+import {
+  getPasswordIssue,
+  isPasswordPolicyError,
+  type PasswordIssue,
+} from '@/services/auth/passwordPolicy';
 import {navigationRef} from '@/navigation/navigationRef';
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
-import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+import {AuthLanguageButton} from '@/components/auth/AuthLanguageButton';
+import {getActiveDanishGyms, type DanishGym} from '@/data/danishGyms';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 import colors from '@/theme/colors';
-import {spacing, radius, shadows} from '@/theme/designTokens';
+import {spacing, radius, typography} from '@/theme/designTokens';
 import {
-  launchCamera,
   launchImageLibrary,
-  CameraOptions,
-  ImagePickerResponse,
+  type ImagePickerResponse,
 } from 'react-native-image-picker';
-import {isValidDanishMobile, normalizeDanishPhone} from '@/utils/phoneUtils';
-import {gymSearchMatchesTokens} from '@/utils/gymSearch';
-import {formatGymDisplayName} from '@/utils/gymDisplay';
-import {useTranslation, getIntlLocale} from '@/i18n';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import * as streak from '@/utils/streakUtils';
 import {
-  getPendingInviteCode,
-  clearPendingInviteCode,
-} from '@/services/referral/pendingInviteCode';
-import {normalizeReferralCode} from '@/services/referral/referralCodeUtils';
-import {applyReferralCode} from '@/services/supabase/referralService';
-import {
-  mapReferralApplyError,
-  referralApplyErrorMessageKey,
-} from '@/services/referral/referralApplyErrors';
-import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
-import {
-  getUsernameFormatError,
   normalizeUsernameForStorage,
   normalizeUsernameInput,
 } from '@/utils/usernameRules';
 import {useUsernameAvailability} from '@/hooks/useUsernameAvailability';
-import Geolocation, {
-  type GeolocationError,
-  type GeolocationResponse,
-} from '@react-native-community/geolocation';
-import {
-  getLocationPermissionStatus,
-  isLocationAuthorized,
-  mapLegacyLocationPermissionStatus,
-  requestLocationPermissionIfNeeded,
-  showLocationDeniedInAppMessage,
-} from '@/services/location/locationPermission';
-import {markLocationProminentDisclosureAccepted} from '@/services/location/locationDisclosureConsent';
-import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
+import {useTranslation} from '@/i18n';
 import {
   OnboardingPrimaryButton,
   OnboardingGymPicker,
   ONBOARDING,
 } from '@/components/onboarding';
+import {SocialContinueButtons} from '@/components/auth/SocialContinueButtons';
+import {
+  getOnboardingState,
+  type OnboardingStepId,
+} from '@/services/onboarding/onboardingState';
 
 const REG_PICKER_GYMS = getActiveDanishGyms();
+scheduleGymSearchWarmup(REG_PICKER_GYMS);
 
-type RegisterScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Register'>;
-type Step = 'entry' | 'profile' | 'gym' | 'social';
+type Step = 'entry' | 'profile' | 'gym';
 
-/** Register wizard steps (language is step 1 globally). */
-const FLOW_STEPS: Step[] = ['entry', 'profile', 'gym', 'social'];
-const ONBOARDING_TOTAL_STEPS = 5;
-const BICEPS_OPTIONS = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
+type NavProp = StackNavigationProp<AuthStackParamList, 'Register'>;
 
-const GEO_PERMISSION_DENIED = 1;
-const GEO_OPTS_ONBOARD = {
-  enableHighAccuracy: false,
-  timeout: 20000,
-  maximumAge: 60000,
-};
-
-/** Standard startalder i onboarding (~25 år); bruges som init for fødselsdato + iOS-datokladde. */
-function defaultOnboardingBirthDate(): Date {
-  const d = new Date();
-  d.setFullYear(d.getFullYear() - 25);
-  return d;
+function stepFromOnboardingId(id: OnboardingStepId): Step {
+  return id === 'gym' ? 'gym' : 'profile';
 }
 
 const RegisterScreen = () => {
-  const navigation = useNavigation<RegisterScreenNavigationProp>();
+  const navigation = useNavigation<NavProp>();
+  const route = useRoute<
+    RouteProp<AuthStackParamList, 'Register'> | RouteProp<OnboardingStackParamList, 'CompleteProfile'>
+  >();
   const insets = useSafeAreaInsets();
-  const {login} = useAppStore();
-  const {t, language} = useTranslation();
+  const {login, setUser, markOnboardingComplete, user: storeUser} = useAppStore();
+  const {t} = useTranslation();
   const scrollRef = useRef<ScrollView>(null);
 
-  const [step, setStep] = useState<Step>('entry');
+  const isPostAuth =
+    (route.params as {mode?: string} | undefined)?.mode === 'postAuth' ||
+    route.name === 'CompleteProfile';
+
+  const [step, setStep] = useState<Step>(isPostAuth ? 'profile' : 'entry');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState(defaultOnboardingBirthDate);
-  /** Android: system date dialog visibility */
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [favoriteGyms, setFavoriteGyms] = useState<(DanishGym | null)[]>([null, null, null]);
-  const [favoriteGymLabels, setFavoriteGymLabels] = useState<string[]>(['', '', '']);
-  /** OS-placeringstilladelse — påkrævet for at gå videre fra gym-trinnet */
-  const [locationPermissionStatus, setLocationPermissionStatus] = useState<
-    'idle' | 'granted' | 'denied'
-  >('idle');
-  const [locationRequesting, setLocationRequesting] = useState(false);
+  const [passwordAttempted, setPasswordAttempted] = useState(false);
+  const passwordRef = useRef<TextInput>(null);
+  const [displayName, setDisplayName] = useState('');
   const [username, setUsername] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [selectedBiceps, setSelectedBiceps] = useState<string | null>(null);
-  const [profilePhotoUri, setProfilePhotoUri] = useState('');
-  const [trainingGoal, setTrainingGoal] = useState('');
-  const [bio, setBio] = useState('');
-  const [inviteCode, setInviteCode] = useState('');
-  const [inviteStatus, setInviteStatus] = useState<
-    'idle' | 'success' | 'invalid' | 'expired' | 'self' | 'already' | 'ineligible' | 'generic'
-  >('idle');
-  const [isLoading, setIsLoading] = useState(false);
-  const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
-  const [showPassword, setShowPassword] = useState(false);
+  const [profileImageUri, setProfileImageUri] = useState<string | undefined>();
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
-  const [marketingConsent, setMarketingConsent] = useState(false);
-  const [analyticsConsent, setAnalyticsConsent] = useState(false);
-  const contentFade = useRef(new Animated.Value(1)).current;
-  const logoFloat = useRef(new Animated.Value(0)).current;
-  const progressAnim = useRef(new Animated.Value(2 / ONBOARDING_TOTAL_STEPS)).current;
-  const passwordToggleAnim = useRef(new Animated.Value(1)).current;
-  const bicepsScaleRef = useRef<Record<string, Animated.Value>>(
-    Object.fromEntries(BICEPS_OPTIONS.map(key => [key, new Animated.Value(1)])),
-  ).current;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [socialBusy, setSocialBusy] = useState(false);
+  const [focused, setFocused] = useState<string | null>(null);
 
-  const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
-
-  const validatePassword = (pwd: string): string[] => {
-    const errors: string[] = [];
-    if (pwd.length < 8) errors.push(t('register.passwordMinLength'));
-    if (!/[A-Z]/.test(pwd)) errors.push(t('register.passwordUpper'));
-    if (!/[a-z]/.test(pwd)) errors.push(t('register.passwordLower'));
-    if (!/[0-9]/.test(pwd)) errors.push(t('register.passwordDigit'));
-    return errors;
-  };
-
-  const handlePasswordChange = (text: string) => {
-    setPassword(text);
-    setPasswordErrors(text.length > 0 ? validatePassword(text) : []);
-  };
-
-  const formatBirthDateLabel = (d: Date) =>
-    d.toLocaleDateString(getIntlLocale(language), {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-    });
-
-  const ageFromBirthDate = (birth: Date): number => {
-    const today = new Date();
-    let age = today.getFullYear() - birth.getFullYear();
-    const md = today.getMonth() - birth.getMonth();
-    if (md < 0 || (md === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    return age;
-  };
-
-  const validateBirthDate = (d: Date): string | null => {
-    const age = ageFromBirthDate(d);
-    if (age < 13) return t('register.alertBirthDateYoung');
-    if (age > 120) return t('register.alertBirthDateCheck');
-    return null;
-  };
-
-  const usernameAvailability = useUsernameAvailability({
+  const usernameNorm = normalizeUsernameForStorage(username);
+  const {
+    formatError: usernameFormatError,
+    available: usernameAvailable,
+    checking: usernameChecking,
+    canProceed: usernameCanProceed,
+  } = useUsernameAvailability({
     rawUsername: username,
-    excludeUserId: null,
-    language,
+    excludeUserId: isPostAuth ? storeUser?.id ?? null : null,
+    unchangedNormalized:
+      isPostAuth && storeUser?.username
+        ? normalizeUsernameForStorage(storeUser.username)
+        : null,
   });
 
-  const profileContinueEnabled = useMemo(() => {
-    const dobErr = validateBirthDate(dateOfBirth);
-    return (
-      Boolean(firstName.trim() && lastName.trim()) &&
-      dobErr === null &&
-      usernameAvailability.canProceed &&
-      isValidDanishMobile(phoneNumber)
-    );
-  }, [
-    firstName,
-    lastName,
-    dateOfBirth,
-    usernameAvailability.canProceed,
-    phoneNumber,
-  ]);
+  const profileReady =
+    displayName.trim().length >= 2 && usernameCanProceed;
 
-  const progressIndex = FLOW_STEPS.indexOf(step);
-  const showProgress = progressIndex >= 0;
+  useEffect(() => {
+    if (!isPostAuth || !storeUser) {
+      return;
+    }
+    if (storeUser.displayName && !displayName) {
+      setDisplayName(storeUser.displayName);
+    }
+    if (storeUser.username && !username && !storeUser.usernameRequiresChange) {
+      const u = normalizeUsernameInput(storeUser.username);
+      if (u && !/^u_[a-f0-9]/i.test(u)) {
+        setUsername(u);
+      }
+    }
+    if (storeUser.profileImageUrl && !profileImageUri) {
+      setProfileImageUri(storeUser.profileImageUrl);
+    }
+    void getOnboardingState(storeUser).then(state => {
+      if (state.status === 'INCOMPLETE') {
+        setStep(stepFromOnboardingId(state.firstMissingStep));
+      }
+    });
+    // Soft-accept terms for social; required checkboxes only on email entry.
+    setPrivacyAccepted(true);
+    setTermsAccepted(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPostAuth, storeUser?.id]);
+
+  const passwordIssue = getPasswordIssue(password);
+
+  const passwordHintKey = (issue: PasswordIssue): string => {
+    switch (issue) {
+      case 'minLength':
+        return 'register.passwordMinLength';
+      case 'upper':
+        return 'register.passwordUpper';
+      case 'lower':
+        return 'register.passwordLower';
+      case 'digit':
+        return 'register.passwordDigit';
+    }
+  };
+
+  const showPasswordError = passwordAttempted && passwordIssue !== null;
+
+  const progress = useMemo(() => {
+    if (step === 'entry') {
+      return {current: 0, total: 2, show: false};
+    }
+    if (step === 'profile') {
+      return {current: 1, total: 2, show: true};
+    }
+    return {current: 2, total: 2, show: true};
+  }, [step]);
+
+  const handlePickPhoto = () => {
+    launchImageLibrary(
+      {mediaType: 'photo', quality: 0.8, selectionLimit: 1},
+      (res: ImagePickerResponse) => {
+        const uri = res.assets?.[0]?.uri;
+        if (uri) {
+          setProfileImageUri(uri);
+        }
+      },
+    );
+  };
+
+  const finishToHome = useCallback(
+    (user: Parameters<typeof login>[0], tokens?: Parameters<typeof login>[1]) => {
+      if (tokens) {
+        login(user, tokens);
+      } else {
+        setUser(user);
+      }
+      markOnboardingComplete();
+      if (navigationRef.isReady()) {
+        navigationRef.reset({index: 0, routes: [{name: 'Main'}]});
+      }
+    },
+    [login, markOnboardingComplete, setUser],
+  );
 
   const handleEntryContinue = () => {
-    if (!email.trim()) {
-      Alert.alert(t('register.alertEmail'), t('register.alertEmailEmpty'));
+    if (email.trim().length <= 3 || !privacyAccepted || !termsAccepted) {
       return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      Alert.alert(t('register.alertEmail'), t('register.alertEmailInvalid'));
-      return;
-    }
-    const err = validatePassword(password);
-    if (err.length) {
-      Alert.alert(t('register.alertPassword'), err.join('\n'));
+    if (passwordIssue) {
+      setPasswordAttempted(true);
+      passwordRef.current?.focus();
       return;
     }
     setStep('profile');
+    scrollRef.current?.scrollTo({y: 0, animated: false});
+  };
+
+  const surfaceRegistrationError = (e: unknown) => {
+    if (isPasswordPolicyError(e)) {
+      setPasswordAttempted(true);
+      setStep('entry');
+      requestAnimationFrame(() => passwordRef.current?.focus());
+      return;
+    }
+    const message = e instanceof Error ? e.message : t('common.retry');
+    if (/adgangskode|password/i.test(message)) {
+      setPasswordAttempted(true);
+      setStep('entry');
+      requestAnimationFrame(() => passwordRef.current?.focus());
+      return;
+    }
+    Alert.alert(t('common.error'), message);
   };
 
   const handleProfileContinue = () => {
-    if (!firstName.trim() || !lastName.trim()) {
-      Alert.alert(t('register.alertName'), t('register.alertNameEmpty'));
-      return;
-    }
-    const dobErr = validateBirthDate(dateOfBirth);
-    if (dobErr) {
-      Alert.alert(t('register.alertBirthDate'), dobErr);
-      return;
-    }
-    const uFmt = getUsernameFormatError(language, normalizeUsernameForStorage(username));
-    if (uFmt) {
-      Alert.alert(t('register.alertUsername'), uFmt);
-      return;
-    }
-    if (!usernameAvailability.canProceed) {
-      if (usernameAvailability.checking) {
-        Alert.alert(t('register.alertUsername'), t('register.alertUsernameWait'));
-        return;
-      }
-      if (usernameAvailability.available === false) {
-        Alert.alert(t('register.alertUsername'), t('register.alertUsernameTaken'));
-        return;
-      }
-      Alert.alert(t('register.alertUsername'), t('register.alertUsernameRetry'));
-      return;
-    }
-    if (!isValidDanishMobile(phoneNumber)) {
-      Alert.alert(t('register.alertPhone'), t('register.alertPhoneInvalid'));
+    if (!profileReady) {
       return;
     }
     setStep('gym');
+    scrollRef.current?.scrollTo({y: 0, animated: false});
   };
 
-  const handleSelectGymAtIndex = (index: number, gym: DanishGym) => {
-    const displayLabel = formatGymDisplayName(gym);
-    setFavoriteGyms(prev => {
-      const next = [...prev];
-      next[index] = gym;
-      return next;
-    });
-    setFavoriteGymLabels(prev => {
-      const next = [...prev];
-      next[index] = displayLabel;
-      return next;
-    });
-  };
+  const buildConsent = () => ({
+    privacyPolicyAccepted: privacyAccepted || isPostAuth,
+    termsOfServiceAccepted: termsAccepted || isPostAuth,
+    marketingConsent: false,
+    analyticsConsent: false,
+    locationTrackingConsent: false,
+  });
 
-  const handleRemoveGymAtIndex = (index: number) => {
-    setFavoriteGyms(prev => {
-      const next = [...prev];
-      next[index] = null;
-      return next;
+  const completeEmailRegistration = async (gymIds: string[]) => {
+    const {user, tokens} = await AuthService.register({
+      email: email.trim(),
+      password,
+      username: usernameNorm,
+      displayName: displayName.trim(),
+      phoneNumber: undefined,
+      profileImageUrl: profileImageUri,
+      favoriteGyms: gymIds,
+      bicepsEmoji: '💪🏻',
+      gdprConsent: buildConsent(),
     });
-    setFavoriteGymLabels(prev => {
-      const next = [...prev];
-      next[index] = '';
-      return next;
-    });
-  };
-
-  const markLocationGranted = useCallback(() => {
-    setLocationPermissionStatus('granted');
-  }, []);
-
-  const onGeolocationFailure = useCallback((error: GeolocationError) => {
-    const denied = error?.code === GEO_PERMISSION_DENIED;
-    if (denied) {
-      setLocationPermissionStatus('denied');
-      Alert.alert(
-        t('register.alertLocation'),
-        t('register.alertLocationDenied'),
-        [
-          {text: t('common.ok')},
-          {text: t('register.alertLocationOpenSettings'), onPress: () => Linking.openSettings()},
-        ],
-      );
-    } else {
-      // Timeout / position ukendt — tilladelse kan stadig være givet
-      markLocationGranted();
+    if (!tokens) {
+      throw new Error(t('auth.sessionFailed'));
     }
-  }, [markLocationGranted]);
+    finishToHome(user, tokens);
+  };
 
-  const requestOnboardingLocation = useCallback(async () => {
-    setLocationRequesting(true);
-    const finish = () => setLocationRequesting(false);
-    const onPosOk = (_p: GeolocationResponse) => {
-      markLocationGranted();
-      finish();
-    };
-    const onPosErr = (err: GeolocationError) => {
-      onGeolocationFailure(err);
-      finish();
-    };
+  const completePostAuth = async (gymIds: string[]) => {
+    const user = await AuthService.completeGymlyOnboarding({
+      username: usernameNorm,
+      displayName: displayName.trim(),
+      phoneNumber: undefined,
+      profileImageUrl: profileImageUri,
+      favoriteGyms: gymIds,
+      bicepsEmoji: '💪🏻',
+      gdprConsent: buildConsent(),
+    });
+    finishToHome(user);
+  };
 
+  /** One-tap gym → persist first → Home. Never mark complete on failure. */
+  const handleGymPicked = async (gym: DanishGym) => {
+    if (isSubmitting) {
+      return;
+    }
+    setIsSubmitting(true);
     try {
-      // Inline onboarding disclosure already shown — Agree is affirmative consent.
-      await markLocationProminentDisclosureAccepted();
-      const status = await requestLocationPermissionIfNeeded();
-      const legacy = mapLegacyLocationPermissionStatus(status);
-      setLocationPermissionStatus(legacy === 'granted' ? 'granted' : 'denied');
-
-      if (status === 'denied' || status === 'restricted') {
-        finish();
-        showLocationDeniedInAppMessage();
-        return;
-      }
-      if (!isLocationAuthorized(status)) {
-        finish();
-        return;
-      }
-      Geolocation.getCurrentPosition(onPosOk, onPosErr, GEO_OPTS_ONBOARD);
-    } catch {
-      finish();
-    }
-  }, [markLocationGranted, onGeolocationFailure, t]);
-
-  useEffect(() => {
-    void getLocationPermissionStatus().then(status => {
-      if (isLocationAuthorized(status)) {
-        setLocationPermissionStatus('granted');
-      } else if (status === 'denied' || status === 'restricted') {
-        setLocationPermissionStatus('denied');
-      }
-    });
-  }, []);
-
-  const handleGymContinue = () => {
-    const hasGym = favoriteGyms.some(g => g !== null);
-    if (!hasGym) {
-      Alert.alert(t('register.alertGym'), t('register.alertGymRequired'));
-      return;
-    }
-    if (!selectedBiceps) {
-      Alert.alert(t('register.alertBiceps'), t('register.alertBicepsRequired'));
-      return;
-    }
-    setStep('social');
-  };
-
-  const handlePhotoPick = () => {
-    Alert.alert(t('register.alertPhoto'), t('register.alertPhotoHow'), [
-      {
-        text: t('register.alertPhotoCamera'),
-        onPress: async () => {
-          const response: ImagePickerResponse = await launchCamera({
-            mediaType: 'photo',
-            cameraType: 'front',
-            saveToPhotos: false,
-            quality: 0.8,
-          } as CameraOptions);
-          const asset = response.assets?.[0];
-          if (asset?.uri) setProfilePhotoUri(asset.uri);
-        },
-      },
-      {
-        text: t('register.alertPhotoLibrary'),
-        onPress: async () => {
-          const response = await launchImageLibrary({
-            mediaType: 'photo',
-            selectionLimit: 1,
-            quality: 0.8,
-          });
-          const asset = response.assets?.[0];
-          if (asset?.uri) setProfilePhotoUri(asset.uri);
-        },
-      },
-      {text: t('common.cancel'), style: 'cancel'},
-    ]);
-  };
-
-  const buildFavoriteGymIds = (): string[] => {
-    const ids: string[] = [];
-    favoriteGymLabels.forEach((label, index) => {
-      const trimmed = label.trim();
-      if (!trimmed) return;
-      const selected = favoriteGyms[index];
-      const gymId =
-        selected?.id ??
-        REG_PICKER_GYMS.find(g => {
-          const haystack = [g.name, g.city ?? '', g.address ?? '', g.brand ?? ''].join(' ');
-          return gymSearchMatchesTokens(haystack, trimmed);
-        })?.id;
-      if (gymId && !ids.includes(gymId)) ids.push(gymId);
-    });
-    return ids;
-  };
-
-  const handleCompleteRegistration = async () => {
-    if (!privacyAccepted || !termsAccepted) {
-      Alert.alert(t('register.alertRequired'), t('register.alertConsentRequired'));
-      return;
-    }
-    if (locationPermissionStatus !== 'granted') {
-      Alert.alert(t('register.alertLocation'), t('register.alertLocationRequired'));
-      return;
-    }
-    const dobErr = validateBirthDate(dateOfBirth);
-    if (dobErr) {
-      Alert.alert(t('register.alertBirthDate'), dobErr);
-      return;
-    }
-
-    setIsLoading(true);
-    try {
-      const favoriteGymIds = buildFavoriteGymIds();
-      if (favoriteGymIds.length === 0) {
-        Alert.alert(t('register.alertGym'), t('register.alertGymRequired'));
-        setIsLoading(false);
-        return;
-      }
-      const birthYear = dateOfBirth.getFullYear();
-      const dateOfBirthIso = streak.getLocalDateString(dateOfBirth);
-      const phoneNormalized = normalizeDanishPhone(phoneNumber);
-      if (!phoneNormalized) {
-        Alert.alert(t('register.alertPhone'), t('register.alertPhoneInvalidShort'));
-        setIsLoading(false);
-        return;
-      }
-
-      const {user, tokens} = await AuthService.register({
-        email: email.trim(),
-        username: normalizeUsernameForStorage(username),
-        phoneNumber: phoneNormalized,
-        displayName: fullName || email.trim(),
-        password,
-        bicepsEmoji: selectedBiceps ?? '💪🏻',
-        gdprConsent: {
-          privacyPolicyAccepted: privacyAccepted,
-          termsOfServiceAccepted: termsAccepted,
-          marketingConsent,
-          analyticsConsent,
-          locationTrackingConsent: locationPermissionStatus === 'granted',
-        },
-        favoriteGyms: favoriteGymIds,
-        profileImageUrl: profilePhotoUri || undefined,
-        bio: bio.trim() || undefined,
-        trainingGoal: trainingGoal.trim() || undefined,
-        birthYear,
-        dateOfBirth: dateOfBirthIso,
-      });
-
-      if (!tokens) {
-        throw new Error(t('register.alertRegisterRetry'));
-      }
-      login(user, tokens);
-
-      if (INVITE_5_FRIENDS_ENABLED) {
-        const normalizedInvite = normalizeReferralCode(inviteCode);
-        if (normalizedInvite && normalizedInvite.length >= 4) {
-          try {
-            await applyReferralCode(normalizedInvite);
-            setInviteStatus('success');
-            await clearPendingInviteCode();
-          } catch (applyErr) {
-            const kind = mapReferralApplyError(applyErr);
-            setInviteStatus(kind);
-            if (kind === 'expired' || kind === 'already' || kind === 'self' || kind === 'invalid') {
-              await clearPendingInviteCode();
-            }
-            Alert.alert(
-              t('inviteFive.applyFailedTitle'),
-              t(referralApplyErrorMessageKey(kind)),
-            );
-            if (__DEV__) {
-              console.warn('[Register] applyReferralCode failed', kind, applyErr);
-            }
-          }
-        } else {
-          await clearPendingInviteCode();
-        }
+      const gymIds = [gym.id];
+      if (isPostAuth) {
+        await completePostAuth(gymIds);
       } else {
-        await clearPendingInviteCode();
+        await completeEmailRegistration(gymIds);
       }
-
-      if (navigationRef.isReady()) {
-        navigationRef.reset({
-          index: 0,
-          routes: [{name: 'Main'}],
-        });
-      }
-    } catch (error: any) {
-      Alert.alert(
-        t('register.alertRegisterFailed'),
-        error.message || t('register.alertRegisterRetry'),
-      );
+    } catch (e) {
+      surfaceRegistrationError(e);
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
 
-  useEffect(() => {
-    if (!INVITE_5_FRIENDS_ENABLED || step !== 'social') {
+  const handleSkipGym = async () => {
+    if (isSubmitting) {
       return;
     }
-    let cancelled = false;
-    (async () => {
-      const pending = await getPendingInviteCode();
-      if (!cancelled && pending && !inviteCode.trim()) {
-        setInviteCode(pending);
-        setInviteStatus('idle');
+    setIsSubmitting(true);
+    try {
+      if (isPostAuth) {
+        await completePostAuth([]);
+      } else {
+        await completeEmailRegistration([]);
       }
-    })();
-    return () => {
-      cancelled = true;
-    };
-    // Prefill once when entering social; do not fight manual edits.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [step]);
-
-  useEffect(() => {
-    const loop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(logoFloat, {toValue: 1, duration: 2000, useNativeDriver: true}),
-        Animated.timing(logoFloat, {toValue: 0, duration: 2000, useNativeDriver: true}),
-      ]),
-    );
-    loop.start();
-    return () => loop.stop();
-  }, [logoFloat]);
-
-  const prevStepRef = useRef(step);
-  useEffect(() => {
-    if (prevStepRef.current === step) {
-      return;
+    } catch (e) {
+      surfaceRegistrationError(e);
+    } finally {
+      setIsSubmitting(false);
     }
-    prevStepRef.current = step;
-    contentFade.setValue(0);
-    Animated.timing(contentFade, {
-      toValue: 1,
-      duration: 280,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: true,
-    }).start();
-  }, [contentFade, step]);
-
-  useEffect(() => {
-    if (progressIndex < 0) return;
-    const target = (progressIndex + 2) / ONBOARDING_TOTAL_STEPS;
-    Animated.timing(progressAnim, {
-      toValue: target,
-      duration: 280,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: false,
-    }).start();
-  }, [progressAnim, progressIndex]);
-
-  useEffect(() => {
-    passwordToggleAnim.setValue(0.6);
-    Animated.timing(passwordToggleAnim, {
-      toValue: 1,
-      duration: 180,
-      easing: Easing.out(Easing.quad),
-      useNativeDriver: true,
-    }).start();
-  }, [passwordToggleAnim, showPassword]);
-
-  const handleBackPress = () => {
-    if (step === 'entry') {
-      navigation.navigate('Language');
-      return;
-    }
-    const i = FLOW_STEPS.indexOf(step);
-    if (i > 0) setStep(FLOW_STEPS[i - 1]);
   };
 
-  const titles: Record<Step, {title: string; sub: string}> = useMemo(
-    () => ({
-      entry: {
-        title: t('register.stepEntryTitle'),
-        sub: t('register.stepEntrySub'),
-      },
-      profile: {
-        title: t('register.stepProfileTitle'),
-        sub: t('register.stepProfileSub'),
-      },
-      gym: {
-        title: t('register.stepGymTitle'),
-        sub: t('register.stepGymSub'),
-      },
-      social: {
-        title: t('register.stepTrainingTitle'),
-        sub: t('register.stepTrainingSub'),
-      },
-    }),
-    [t],
-  );
+  const handleBack = () => {
+    if (step === 'gym') {
+      setStep('profile');
+      return;
+    }
+    if (step === 'profile') {
+      if (isPostAuth) {
+        return;
+      }
+      setStep('entry');
+      return;
+    }
+    navigation.navigate('Login');
+  };
 
   const renderProgress = () => {
-    if (!showProgress) return null;
+    if (!progress.show) {
+      return null;
+    }
     return (
       <View style={styles.progressWrap}>
-        <View style={styles.progressTrack}>
-          <Animated.View
+        <View style={styles.progressDots}>
+          <View
             style={[
-              styles.progressFill,
-              {
-                width: progressAnim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: ['0%', '100%'],
-                }),
-              },
+              styles.dot,
+              progress.current >= 1 ? styles.dotOn : styles.dotOff,
+            ]}
+          />
+          <View style={styles.progressLine} />
+          <View
+            style={[
+              styles.dot,
+              progress.current >= 2 ? styles.dotOn : styles.dotOff,
             ]}
           />
         </View>
         <Text style={styles.progressLabel}>
-          {t('register.progressStep', {
-            current: progressIndex + 2,
-            total: ONBOARDING_TOTAL_STEPS,
+          {t('register.progressOf', {
+            current: String(progress.current),
+            total: String(progress.total),
           })}
         </Text>
       </View>
@@ -652,1073 +362,406 @@ const RegisterScreen = () => {
   };
 
   const renderEntry = () => (
-    <View style={styles.section}>
-      <View style={[styles.card, shadows.sm]}>
-        <TextInput
-          style={styles.input}
-          placeholder={t('register.emailPlaceholder')}
-          placeholderTextColor={colors.textMuted}
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-          autoCapitalize="none"
-          autoComplete="email"
-          textContentType="emailAddress"
-        />
-        <View style={styles.passwordField}>
-          <TextInput
-            style={[styles.input, styles.passwordInput]}
-            placeholder={t('register.passwordPlaceholder')}
-            placeholderTextColor={colors.textMuted}
-            value={password}
-            onChangeText={handlePasswordChange}
-            secureTextEntry={!showPassword}
-            textContentType="newPassword"
-            autoComplete="password-new"
-          />
-          <TouchableOpacity
-            style={styles.passwordToggle}
-            onPress={() => setShowPassword(p => !p)}
-            hitSlop={12}>
-            <Animated.Text
-              style={[
-                styles.passwordToggleText,
-                {
-                  opacity: passwordToggleAnim,
-                  transform: [
-                    {
-                      scale: passwordToggleAnim.interpolate({
-                        inputRange: [0.6, 1],
-                        outputRange: [0.94, 1],
-                      }),
-                    },
-                  ],
-                },
-              ]}>
-              {showPassword ? t('register.hidePassword') : t('register.showPassword')}
-            </Animated.Text>
-          </TouchableOpacity>
+    <View>
+      <Text style={styles.title}>{t('register.v2EntryTitle')}</Text>
+      <Text style={styles.subtitle}>{t('register.v2EntrySub')}</Text>
+
+      <SocialContinueButtons
+        divider="after"
+        disabled={isSubmitting}
+        onBusyChange={setSocialBusy}
+      />
+
+      <Text style={styles.fieldLabel}>{t('auth.email')}</Text>
+      <TextInput
+        style={[styles.input, focused === 'email' && styles.inputFocused]}
+        value={email}
+        onChangeText={setEmail}
+        autoCapitalize="none"
+        keyboardType="email-address"
+        autoCorrect={false}
+        placeholder={t('register.emailPlaceholder')}
+        placeholderTextColor={colors.textMuted}
+        onFocus={() => setFocused('email')}
+        onBlur={() => setFocused(null)}
+      />
+
+      <Text style={styles.fieldLabel}>{t('auth.password')}</Text>
+      <TextInput
+        ref={passwordRef}
+        style={[
+          styles.input,
+          focused === 'password' && styles.inputFocused,
+          showPasswordError && styles.inputError,
+        ]}
+        value={password}
+        onChangeText={value => {
+          setPassword(value);
+        }}
+        secureTextEntry
+        placeholder={t('register.passwordPlaceholder')}
+        placeholderTextColor={colors.textMuted}
+        onFocus={() => setFocused('password')}
+        onBlur={() => {
+          setFocused(null);
+          if (password.length > 0) {
+            setPasswordAttempted(true);
+          }
+        }}
+      />
+      {passwordIssue ? (
+        <Text style={showPasswordError ? styles.hintError : styles.hintMuted}>
+          {t(passwordHintKey(passwordIssue))}
+        </Text>
+      ) : password.length > 0 ? (
+        <Text style={styles.hintOk}>{t('register.passwordStrong')}</Text>
+      ) : null}
+
+      <Pressable
+        style={styles.checkRow}
+        onPress={() => setTermsAccepted(v => !v)}>
+        <View style={[styles.checkBox, termsAccepted && styles.checkBoxOn]}>
+          {termsAccepted ? (
+            <Icon name="checkmark" size={14} color={colors.white} />
+          ) : null}
         </View>
-      </View>
-      {password.length > 0 && (
-        <View style={styles.passwordHints}>
-          {passwordErrors.length > 0 ? (
-            passwordErrors.map((err, i) => (
-              <View key={i} style={styles.hintRow}>
-                <Icon name="close-circle" size={16} color={colors.error} />
-                <Text style={styles.hintErr}>{err}</Text>
-              </View>
-            ))
-          ) : (
-            <View style={styles.hintRow}>
-              <Icon name="checkmark-circle" size={16} color={colors.primary} />
-              <Text style={styles.hintOk}>{t('register.passwordStrong')}</Text>
-            </View>
-          )}
+        <Text style={styles.checkText}>
+          {t('register.consentAccept')}{' '}
+          <Text
+            style={styles.link}
+            onPress={() => navigation.navigate('Terms')}>
+            {t('register.consentTerms')}
+          </Text>
+        </Text>
+      </Pressable>
+      <Pressable
+        style={styles.checkRow}
+        onPress={() => setPrivacyAccepted(v => !v)}>
+        <View style={[styles.checkBox, privacyAccepted && styles.checkBoxOn]}>
+          {privacyAccepted ? (
+            <Icon name="checkmark" size={14} color={colors.white} />
+          ) : null}
         </View>
-      )}
+        <Text style={styles.checkText}>
+          {t('register.consentAccept')}{' '}
+          <Text
+            style={styles.link}
+            onPress={() => navigation.navigate('PrivacyPolicy')}>
+            {t('register.consentPrivacy')}
+          </Text>
+        </Text>
+      </Pressable>
+
       <OnboardingPrimaryButton
         label={t('register.continue')}
         onPress={handleEntryContinue}
-        disabled={!(password.length > 0 && passwordErrors.length === 0 && email.trim())}
+        disabled={email.trim().length <= 3 || !privacyAccepted || !termsAccepted || socialBusy}
       />
-      <View style={styles.inlineLogin}>
-        <Text style={styles.muted}>{t('register.haveAccount')} </Text>
-        <Pressable
-          onPress={() => navigation.navigate('Login')}
-          hitSlop={12}
-          style={({pressed}) => [styles.loginLinkWrap, pressed && styles.loginLinkPressed]}>
-          <Text style={styles.link}>{t('register.logIn')}</Text>
-        </Pressable>
-      </View>
     </View>
   );
 
   const renderProfile = () => (
-    <View style={styles.section}>
-      <View style={[styles.card, shadows.sm]}>
-        <View style={styles.rowInputs}>
-          <TextInput
-            style={[styles.input, styles.inputHalf]}
-            placeholder={t('register.firstName')}
-            placeholderTextColor={colors.textMuted}
-            value={firstName}
-            onChangeText={setFirstName}
-            textContentType="givenName"
-            autoComplete="given-name"
-          />
-          <TextInput
-            style={[styles.input, styles.inputHalf]}
-            placeholder={t('register.lastName')}
-            placeholderTextColor={colors.textMuted}
-            value={lastName}
-            onChangeText={setLastName}
-            textContentType="familyName"
-            autoComplete="family-name"
-          />
-        </View>
-        <Text style={styles.blockTitleSmall}>{t('register.birthDate')}</Text>
-        {Platform.OS === 'ios' ? (
-          <View style={[styles.input, styles.dobButton]}>
-            <DateTimePicker
-              value={dateOfBirth}
-              mode="date"
-              display="compact"
-              onChange={(_event, selectedDate) => {
-                if (selectedDate) {
-                  setDateOfBirth(selectedDate);
-                }
-              }}
-              minimumDate={(() => {
-                const x = new Date();
-                x.setFullYear(x.getFullYear() - 120);
-                return x;
-              })()}
-              maximumDate={new Date()}
-              locale={getIntlLocale(language)}
-              themeVariant="light"
-              style={styles.dobCompactPicker}
-            />
-            <Icon name="calendar-outline" size={22} color={colors.textMuted} />
-          </View>
-        ) : (
-          <TouchableOpacity
-            style={[styles.input, styles.dobButton]}
-            onPress={() => setShowDatePicker(true)}
-            activeOpacity={0.85}>
-            <Text style={styles.dobButtonText}>
-              {formatBirthDateLabel(dateOfBirth)}
-            </Text>
-            <Icon name="calendar-outline" size={22} color={colors.textMuted} />
-          </TouchableOpacity>
-        )}
-        <Text style={[styles.helperMuted, styles.helperBelowDob]}>
-          {t('register.birthDateRequired')}
-        </Text>
-        <TextInput
-          style={[
-            styles.input,
-            usernameAvailability.formatError || usernameAvailability.available === false
-              ? styles.inputUsernameErr
-              : usernameAvailability.available === true && !usernameAvailability.formatError
-                ? styles.inputUsernameOk
-                : null,
-          ]}
-          placeholder={t('register.username')}
-          placeholderTextColor={colors.textMuted}
-          value={username}
-          onChangeText={t => setUsername(normalizeUsernameInput(t))}
-          autoCapitalize="none"
-          autoCorrect={false}
-          textContentType="username"
-          maxLength={20}
-        />
-        <Text style={styles.helperMuted}>
-          {t('register.usernameRules')}
-        </Text>
-        {usernameAvailability.formatError ? (
-          <View style={styles.usernameStatusRow}>
-            <Icon name="close-circle" size={16} color={colors.error} />
-            <Text style={styles.hintErr}>{usernameAvailability.formatError}</Text>
-          </View>
-        ) : usernameAvailability.checking && normalizeUsernameForStorage(username).length > 0 ? (
-          <Text style={styles.helperMuted}>{t('register.usernameChecking')}</Text>
-        ) : usernameAvailability.available === false ? (
-          <View style={styles.usernameStatusRow}>
-            <Icon name="close-circle" size={16} color={colors.error} />
-            <Text style={styles.hintErr}>{t('register.usernameTaken')}</Text>
-          </View>
-        ) : usernameAvailability.available === true ? (
-          <View style={styles.usernameStatusRow}>
-            <Icon name="checkmark-circle" size={16} color={colors.primary} />
-            <Text style={styles.hintOk}>{t('register.usernameAvailable')}</Text>
-          </View>
-        ) : null}
-        <TextInput
-          style={styles.input}
-          placeholder={t('register.phone')}
-          placeholderTextColor={colors.textMuted}
-          value={phoneNumber}
-          onChangeText={setPhoneNumber}
-          keyboardType="phone-pad"
-          textContentType="telephoneNumber"
-          autoComplete="tel"
-        />
-        <Text style={styles.helperMuted}>
-          {t('register.phoneHint')}
-        </Text>
+    <View>
+      {renderProgress()}
+      <View style={styles.brandRow}>
+        <GymlyLogo size={28} />
       </View>
+      <Text style={styles.title}>{t('register.v2ProfileTitle')}</Text>
+      <Text style={styles.subtitle}>{t('register.v2ProfileSub')}</Text>
+
+      <Text style={styles.fieldLabel}>{t('register.name')}</Text>
+      <TextInput
+        style={[styles.input, focused === 'name' && styles.inputFocused]}
+        value={displayName}
+        onChangeText={setDisplayName}
+        autoCapitalize="words"
+        placeholder={t('register.namePlaceholder')}
+        placeholderTextColor={colors.textMuted}
+        onFocus={() => setFocused('name')}
+        onBlur={() => setFocused(null)}
+      />
+
+      <Text style={styles.fieldLabel}>{t('register.username')}</Text>
+      <TextInput
+        style={[styles.input, focused === 'username' && styles.inputFocused]}
+        value={username}
+        onChangeText={v => setUsername(normalizeUsernameInput(v))}
+        autoCapitalize="none"
+        autoCorrect={false}
+        placeholder={t('register.username')}
+        placeholderTextColor={colors.textMuted}
+        onFocus={() => setFocused('username')}
+        onBlur={() => setFocused(null)}
+      />
+      {usernameFormatError ? (
+        <Text style={styles.hintError}>{usernameFormatError}</Text>
+      ) : usernameChecking ? (
+        <Text style={styles.hintMuted}>{t('register.usernameChecking')}</Text>
+      ) : usernameAvailable === false ? (
+        <Text style={styles.hintError}>{t('register.usernameTaken')}</Text>
+      ) : usernameAvailable === true ? (
+        <Text style={styles.hintOk}>{t('register.usernameAvailable')}</Text>
+      ) : (
+        <Text style={styles.hintMuted}>{t('register.usernameRules')}</Text>
+      )}
+
+      <View style={styles.photoBlock}>
+        <Pressable style={styles.photoCircle} onPress={handlePickPhoto}>
+          {profileImageUri ? (
+            <Image source={{uri: profileImageUri}} style={styles.photoImg} />
+          ) : (
+            <Icon name="camera-outline" size={28} color={colors.primary} />
+          )}
+        </Pressable>
+        <View style={styles.photoActions}>
+          <Pressable onPress={handlePickPhoto}>
+            <Text style={styles.photoActionPrimary}>{t('register.addPhoto')}</Text>
+          </Pressable>
+          {profileImageUri ? (
+            <Pressable onPress={() => setProfileImageUri(undefined)}>
+              <Text style={styles.photoActionSkip}>{t('register.skipPhoto')}</Text>
+            </Pressable>
+          ) : (
+            <Text style={styles.photoActionSkip}>{t('register.skipPhoto')}</Text>
+          )}
+        </View>
+      </View>
+
       <OnboardingPrimaryButton
         label={t('register.continue')}
         onPress={handleProfileContinue}
-        disabled={!profileContinueEnabled}
+        disabled={!profileReady}
       />
     </View>
   );
 
   const renderGym = () => (
-    <View style={styles.section}>
+    <View style={styles.gymStep}>
+      {renderProgress()}
+      <Text style={styles.title}>{t('register.v2GymTitle')}</Text>
+
       <OnboardingGymPicker
         allGyms={REG_PICKER_GYMS}
-        favoriteGyms={favoriteGyms}
-        favoriteGymLabels={favoriteGymLabels}
-        onSelectGym={handleSelectGymAtIndex}
-        onRemoveGym={handleRemoveGymAtIndex}
-        selectedBiceps={selectedBiceps}
-        onSelectBiceps={setSelectedBiceps}
-        bicepsScaleRef={bicepsScaleRef}
+        onSelectGym={gym => {
+          void handleGymPicked(gym);
+        }}
+        disabled={isSubmitting}
       />
-      <OnboardingPrimaryButton label={t('register.continue')} onPress={handleGymContinue} />
-    </View>
-  );
 
-  const renderSocial = () => (
-    <View style={styles.section}>
       <Pressable
-        style={({pressed}) => [styles.photoRing, pressed && styles.photoRingPressed]}
-        onPress={handlePhotoPick}>
-        <View style={styles.photoRingGlow} pointerEvents="none" />
-        {profilePhotoUri ? (
-          <Image source={{uri: profilePhotoUri}} style={styles.photoImg} />
+        style={styles.skipBtn}
+        onPress={() => {
+          void handleSkipGym();
+        }}
+        disabled={isSubmitting}>
+        {isSubmitting ? (
+          <ActivityIndicator color={colors.textMuted} />
         ) : (
-          <View style={styles.photoPlaceholder}>
-            <MaterialIcon name="camera-plus" size={44} color={colors.primary} />
-            <Text style={styles.photoHint}>{t('register.addPhoto')}</Text>
-          </View>
+          <Text style={styles.skipText}>{t('register.skipForNow')}</Text>
         )}
       </Pressable>
-      <View style={[styles.card, shadows.sm]}>
-        <Text style={styles.inputLabel}>{t('register.trainingGoalLabel')}</Text>
-        <TextInput
-          style={[styles.input, styles.textArea]}
-          placeholder={t('register.trainingGoalPlaceholder')}
-          placeholderTextColor={colors.textMuted}
-          value={trainingGoal}
-          onChangeText={setTrainingGoal}
-          maxLength={120}
-        />
-        <Text style={styles.inputLabel}>{t('register.bioLabel')}</Text>
-        <TextInput
-          style={[styles.input, styles.textArea, styles.textAreaTall]}
-          placeholder={t('register.bioPlaceholder')}
-          placeholderTextColor={colors.textMuted}
-          value={bio}
-          onChangeText={setBio}
-          maxLength={200}
-          multiline
-        />
-        {INVITE_5_FRIENDS_ENABLED ? (
-          <>
-            <Text style={styles.inputLabel}>{t('register.inviteCodeLabel')}</Text>
-            <Text style={styles.helperMuted}>{t('register.inviteCodeHint')}</Text>
-            <TextInput
-              style={styles.input}
-              placeholder={t('register.inviteCodePlaceholder')}
-              placeholderTextColor={colors.textMuted}
-              value={inviteCode}
-              onChangeText={text => {
-                setInviteCode(text);
-                setInviteStatus('idle');
-              }}
-              autoCapitalize="characters"
-              autoCorrect={false}
-              maxLength={16}
-              accessibilityLabel={t('register.inviteCodeLabel')}
-            />
-            <Text style={styles.helperMuted}>{t('register.inviteCodeOptional')}</Text>
-            {inviteStatus !== 'idle' && inviteStatus !== 'success' ? (
-              <Text style={styles.hintErr}>
-                {t(referralApplyErrorMessageKey(inviteStatus))}
-              </Text>
-            ) : null}
-            {inviteStatus === 'success' ? (
-              <Text style={styles.hintOk}>{t('inviteFive.applySuccess')}</Text>
-            ) : null}
-          </>
-        ) : null}
-      </View>
-
-      <View style={[styles.consentBlock, shadows.sm]}>
-        <Text style={styles.consentBlockTitle}>{t('register.consentRequired')}</Text>
-        <View style={styles.consentRow}>
-          <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>{t('register.consentPrivacy')}</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy')} hitSlop={8}>
-              <Text style={styles.consentLink}>{t('register.consentPrivacyLink')}</Text>
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity
-            onPress={() => setPrivacyAccepted(!privacyAccepted)}
-            hitSlop={12}
-            accessibilityRole="checkbox"
-            accessibilityState={{checked: privacyAccepted}}>
-            <View style={[styles.checkBox, privacyAccepted && styles.checkBoxOn]}>
-              {privacyAccepted ? <Icon name="checkmark" size={18} color={colors.white} /> : null}
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.consentRow}>
-          <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>{t('register.consentTerms')}</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Terms')} hitSlop={8}>
-              <Text style={styles.consentLink}>{t('register.consentTermsLink')}</Text>
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity
-            onPress={() => setTermsAccepted(!termsAccepted)}
-            hitSlop={12}
-            accessibilityRole="checkbox"
-            accessibilityState={{checked: termsAccepted}}>
-            <View style={[styles.checkBox, termsAccepted && styles.checkBoxOn]}>
-              {termsAccepted ? <Icon name="checkmark" size={18} color={colors.white} /> : null}
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.consentLocationSection}>
-          <Text style={styles.consentHead}>{t('locationDisclosure.title')}</Text>
-          <Text style={styles.consentSub}>{t('locationDisclosure.body')}</Text>
-          <Text style={styles.consentSub}>{t('locationDisclosure.notForAds')}</Text>
-          <View style={styles.locationCardInner}>
-            {locationPermissionStatus === 'granted' ? (
-              <View style={styles.locationSuccessBox}>
-                <View style={styles.locationSuccessIcon}>
-                  <Icon name="checkmark" size={20} color={colors.white} />
-                </View>
-                <View style={styles.locationStatusTextCol}>
-                  <Text style={styles.locationStatusTitle}>
-                    {t('register.consentLocationGranted')}
-                  </Text>
-                  <Text style={styles.locationStatusSub}>
-                    {t('register.consentLocationGrantedSub')}
-                  </Text>
-                </View>
-              </View>
-            ) : (
-              <>
-                <OnboardingPrimaryButton
-                  label={t('locationDisclosure.agree')}
-                  onPress={requestOnboardingLocation}
-                  loading={locationRequesting}
-                  style={styles.locationAllowBtnWrap}
-                />
-                <TouchableOpacity
-                  style={styles.locationRetryBtn}
-                  onPress={() => setLocationPermissionStatus('denied')}
-                  disabled={locationRequesting}
-                  hitSlop={8}
-                  accessibilityRole="button">
-                  <Text style={styles.locationRetryText}>
-                    {t('locationDisclosure.notNow')}
-                  </Text>
-                </TouchableOpacity>
-              </>
-            )}
-          </View>
-        </View>
-      </View>
-
-      <View style={[styles.consentBlock, shadows.sm]}>
-        <Text style={styles.consentBlockTitle}>{t('register.consentOptional')}</Text>
-        <View style={styles.switchRow}>
-          <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>{t('register.consentMarketing')}</Text>
-            <Text style={styles.consentSub}>{t('register.consentMarketingSub')}</Text>
-          </View>
-          <Switch
-            value={marketingConsent}
-            onValueChange={setMarketingConsent}
-            trackColor={{false: colors.surface, true: colors.primary}}
-            thumbColor={colors.white}
-            ios_backgroundColor={colors.surface}
-          />
-        </View>
-        <View style={styles.switchRow}>
-          <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>{t('register.consentAnalytics')}</Text>
-            <Text style={styles.consentSub}>{t('register.consentAnalyticsSub')}</Text>
-          </View>
-          <Switch
-            value={analyticsConsent}
-            onValueChange={setAnalyticsConsent}
-            trackColor={{false: colors.surface, true: colors.primary}}
-            thumbColor={colors.white}
-            ios_backgroundColor={colors.surface}
-          />
-        </View>
-      </View>
-
-      <View style={styles.gdprMini}>
-        <Text style={styles.gdprMiniText}>{t('register.consentGdpr')}</Text>
-      </View>
-
-      <OnboardingPrimaryButton
-        label={t('register.acceptAndCreate')}
-        onPress={handleCompleteRegistration}
-        disabled={
-          !privacyAccepted || !termsAccepted
-        }
-        loading={isLoading}
-      />
     </View>
   );
 
-  const renderBody = () => {
-    switch (step) {
-      case 'entry':
-        return renderEntry();
-      case 'profile':
-        return renderProfile();
-      case 'gym':
-        return renderGym();
-      case 'social':
-        return renderSocial();
-      default:
-        return null;
-    }
-  };
-
-  const showBack = true;
-
   return (
-    <View style={styles.screen}>
-      <View style={styles.bgGradientWrap} pointerEvents="none">
-        <Svg width="100%" height="100%">
-          <Defs>
-            <LinearGradient id="registerBg" x1="0" y1="0" x2="0" y2="1">
-              <Stop offset="0" stopColor={ONBOARDING.bgTop} stopOpacity="1" />
-              <Stop offset="0.55" stopColor="#FBFAFF" stopOpacity="1" />
-              <Stop offset="1" stopColor={ONBOARDING.bgBottom} stopOpacity="1" />
-            </LinearGradient>
-          </Defs>
-          <Rect x="0" y="0" width="100%" height="100%" fill="url(#registerBg)" />
-        </Svg>
-      </View>
-      {showBack ? (
-        <Pressable
-          style={[styles.backBtn, {top: insets.top + spacing.sm}]}
-          onPress={handleBackPress}
-          hitSlop={16}>
-          <View style={styles.backBtnInner}>
-            <MaterialIcon name="arrow-left" size={22} color={colors.text} />
-          </View>
-        </Pressable>
-      ) : null}
-      <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+    <View style={[styles.root, {paddingTop: insets.top + spacing.sm}]}>
+      <KeyboardAvoidingView
+        style={styles.flex}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        <View style={styles.topBar}>
+          {!isPostAuth || step !== 'profile' ? (
+            <Pressable
+              style={styles.backBtn}
+              onPress={handleBack}
+              hitSlop={12}
+              accessibilityLabel={t('register.back')}>
+              <Icon name="chevron-back" size={24} color={colors.text} />
+            </Pressable>
+          ) : (
+            <View style={styles.backBtnSpacer} />
+          )}
+          {step === 'entry' && !isPostAuth ? (
+            <AuthLanguageButton />
+          ) : (
+            <View style={styles.topBarSide} />
+          )}
+        </View>
+
         <ScrollView
           ref={scrollRef}
           contentContainerStyle={[
-            styles.scrollContent,
-            {
-              flexGrow: 1,
-              justifyContent: 'center',
-              minHeight:
-                Dimensions.get('window').height - insets.top - insets.bottom - 8,
-              paddingTop: insets.top + 16,
-              paddingBottom: Math.max(insets.bottom, spacing.xl) + spacing.lg,
-            },
+            styles.scroll,
+            {paddingBottom: insets.bottom + spacing.xl},
           ]}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
-          <Animated.View
-            style={{
-              opacity: contentFade,
-              transform: [
-                {
-                  translateY: contentFade.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [8, 0],
-                  }),
-                },
-              ],
-            }}>
-            <Animated.View
-              style={[
-                styles.logoWrap,
-                {
-                  transform: [
-                    {
-                      translateY: logoFloat.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [0, -5],
-                      }),
-                    },
-                  ],
-                },
-              ]}>
-              <View style={styles.logoHalo}>
-                <GymlyLogo size={76} />
-              </View>
-            </Animated.View>
-            <View style={styles.formMax}>
-              {renderProgress()}
-              <Text style={styles.title}>{titles[step].title}</Text>
-              <Text style={styles.subtitle}>{titles[step].sub}</Text>
-              {renderBody()}
-            </View>
-          </Animated.View>
+          {step === 'entry'
+            ? renderEntry()
+            : step === 'profile'
+              ? renderProfile()
+              : renderGym()}
         </ScrollView>
       </KeyboardAvoidingView>
-
-      {showDatePicker && Platform.OS === 'android' ? (
-        <DateTimePicker
-          value={dateOfBirth}
-          mode="date"
-          display="default"
-          onChange={(event, selectedDate) => {
-            setShowDatePicker(false);
-            if (event.type === 'set' && selectedDate) {
-              setDateOfBirth(selectedDate);
-            }
-          }}
-          minimumDate={(() => {
-            const x = new Date();
-            x.setFullYear(x.getFullYear() - 120);
-            return x;
-          })()}
-          maximumDate={new Date()}
-        />
-      ) : null}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  screen: {flex: 1, backgroundColor: '#FFFFFF'},
-  bgGradientWrap: {...StyleSheet.absoluteFillObject},
+  root: {flex: 1, backgroundColor: colors.white},
   flex: {flex: 1},
-  scrollContent: {
-    paddingHorizontal: spacing.xl,
-  },
-  formMax: {
-    width: '100%',
-    maxWidth: 460,
-    alignSelf: 'center',
-  },
-  backBtn: {
-    position: 'absolute',
-    left: spacing.sm,
-    zIndex: 10,
-    width: 44,
-    height: 44,
-    justifyContent: 'center',
+  topBar: {
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingRight: spacing.lg,
   },
-  logoWrap: {alignItems: 'center', marginBottom: spacing.lg, marginTop: spacing.xs},
-  logoHalo: {
-    padding: spacing.md,
-    borderRadius: 999,
-    backgroundColor: 'rgba(139, 92, 246, 0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.12)',
+  topBarSide: {width: 40},
+  backBtn: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
   },
-  progressWrap: {marginBottom: spacing.lg},
-  progressLabel: {
-    textAlign: 'center',
-    fontSize: 11,
-    fontWeight: '600',
-    color: colors.textMuted,
-    marginTop: spacing.sm,
-    letterSpacing: 0.8,
-    textTransform: 'uppercase',
+  backBtnSpacer: {height: 36, width: 40},
+  scroll: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
   },
-  progressTrack: {
-    height: 5,
-    borderRadius: 4,
+  brandRow: {marginBottom: spacing.md},
+  progressWrap: {
+    alignItems: 'center',
+    marginBottom: spacing.lg,
+  },
+  progressDots: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  dot: {width: 8, height: 8, borderRadius: 4},
+  dotOn: {backgroundColor: colors.primary},
+  dotOff: {backgroundColor: ONBOARDING.progressTrack},
+  progressLine: {
+    width: 28,
+    height: 2,
     backgroundColor: ONBOARDING.progressTrack,
-    overflow: 'hidden',
+    marginHorizontal: 6,
   },
-  progressFill: {
-    height: '100%',
-    borderRadius: 4,
-    backgroundColor: colors.primary,
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.45,
-        shadowRadius: 6,
-      },
-    }),
+  progressLabel: {
+    ...typography.caption,
+    color: colors.textMuted,
   },
   title: {
-    fontSize: 34,
-    fontWeight: '800',
-    letterSpacing: -0.8,
+    fontSize: 28,
+    fontWeight: ONBOARDING.titleWeight,
     color: colors.text,
-    textAlign: 'center',
-    marginBottom: spacing.sm,
+    letterSpacing: -0.6,
+    marginBottom: spacing.xs,
   },
   subtitle: {
-    fontSize: 15,
-    fontWeight: '500',
+    ...typography.body,
     color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: 22,
     marginBottom: spacing.xl,
-    maxWidth: 320,
-    alignSelf: 'center',
-    paddingHorizontal: spacing.md,
+    lineHeight: 22,
   },
-  section: {gap: spacing.lg},
-  card: {
-    backgroundColor: ONBOARDING.cardBg,
-    borderRadius: ONBOARDING.cardRadius,
-    padding: spacing.lg + 2,
-    borderWidth: 1,
-    borderColor: ONBOARDING.cardBorder,
-    gap: spacing.md + 2,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#6B21A8',
-        shadowOffset: {width: 0, height: 8},
-        shadowOpacity: 0.06,
-        shadowRadius: 20,
-      },
-      android: {elevation: 3},
-    }),
+  fieldLabel: {
+    ...typography.caption,
+    fontWeight: '600',
+    color: colors.textMuted,
+    marginBottom: spacing.xs,
+    marginTop: spacing.sm,
   },
-  rowInputs: {flexDirection: 'row', gap: spacing.md},
   input: {
-    backgroundColor: ONBOARDING.inputBg,
-    borderRadius: ONBOARDING.inputRadius,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: Platform.OS === 'ios' ? 14 : 16,
-    fontSize: 16,
-    lineHeight: 20,
-    fontWeight: '500',
-    color: colors.text,
     borderWidth: 1,
     borderColor: ONBOARDING.inputBorder,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#0F172A',
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.04,
-        shadowRadius: 8,
-      },
-      android: {elevation: 1, includeFontPadding: false, textAlignVertical: 'center'},
-    }),
-  },
-  inputUsernameOk: {
-    borderColor: colors.primary,
-    borderWidth: 1.5,
-  },
-  inputUsernameErr: {
-    borderColor: colors.error,
-    borderWidth: 1.5,
-  },
-  usernameStatusRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginTop: 2,
-  },
-  inputHalf: {flex: 1},
-  inputLabel: {
-    fontSize: 13,
-    fontWeight: '700',
+    borderRadius: ONBOARDING.inputRadius,
+    paddingHorizontal: spacing.md,
+    paddingVertical: Platform.OS === 'ios' ? 14 : 10,
+    fontSize: 16,
     color: colors.text,
+    backgroundColor: colors.white,
     marginBottom: spacing.xs,
-    letterSpacing: -0.1,
   },
-  textArea: {minHeight: 48, paddingTop: spacing.md + 2},
-  textAreaTall: {minHeight: 88, textAlignVertical: 'top'},
-  passwordField: {position: 'relative', justifyContent: 'center'},
-  passwordInput: {paddingRight: 64},
-  passwordToggle: {position: 'absolute', right: spacing.md, top: '50%', marginTop: -12},
-  passwordToggleText: {color: colors.primary, fontSize: 14, fontWeight: '600'},
-  passwordHints: {marginTop: -8},
-  hintRow: {flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4},
-  hintErr: {fontSize: 13, color: colors.error},
-  hintOk: {fontSize: 13, color: colors.primary, fontWeight: '600'},
-  helperMuted: {
-    fontSize: 12,
-    fontWeight: '500',
-    color: colors.textMuted,
-    marginTop: spacing.xs,
-    lineHeight: 17,
-  },
-  inlineLogin: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: spacing.lg,
-    paddingVertical: spacing.sm,
-  },
-  loginLinkWrap: {
-    paddingHorizontal: spacing.xs,
-    paddingVertical: 2,
-    borderRadius: radius.sm,
-  },
-  loginLinkPressed: {backgroundColor: 'rgba(139, 92, 246, 0.1)'},
-  muted: {color: colors.textSecondary, fontSize: 15, fontWeight: '500'},
-  link: {color: colors.primary, fontSize: 15, fontWeight: '800'},
-  blockTitle: {
-    fontSize: 17,
-    fontWeight: '800',
-    color: colors.text,
-    marginBottom: spacing.sm,
-    letterSpacing: -0.3,
-  },
-  consentLocationSection: {
-    marginTop: spacing.md,
-    paddingTop: spacing.md,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border,
-    gap: spacing.sm,
-  },
-  locationCardInner: {
-    backgroundColor: ONBOARDING.lavenderTint,
-    borderRadius: radius.lg,
-    padding: spacing.md + 2,
-    borderWidth: 1,
-    borderColor: ONBOARDING.lavenderTintBorder,
-    gap: spacing.md,
-  },
-  locationSuccessBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-    backgroundColor: 'rgba(34, 197, 94, 0.08)',
-    borderRadius: radius.lg,
-    padding: spacing.md,
-    borderWidth: 1,
-    borderColor: 'rgba(34, 197, 94, 0.22)',
-  },
-  locationSuccessIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 4},
-        shadowOpacity: 0.35,
-        shadowRadius: 8,
-      },
-    }),
-  },
-  locationStatusRow: {flexDirection: 'row', alignItems: 'center', gap: spacing.md},
-  locationStatusTextCol: {flex: 1},
-  locationStatusTitle: {fontSize: 16, fontWeight: '700', color: colors.text},
-  locationStatusSub: {fontSize: 13, color: colors.textSecondary, marginTop: 2},
-  locationAllowBtnWrap: {marginTop: 0},
-  locationRetryBtn: {alignSelf: 'center', paddingVertical: spacing.xs},
-  locationRetryText: {color: colors.primary, fontSize: 15, fontWeight: '600'},
-  blockTitleSmall: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: colors.text,
-    marginTop: spacing.md,
-    marginBottom: spacing.sm,
-    letterSpacing: -0.2,
-  },
-  dobButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#F8F7FC',
+  inputFocused: {
     borderColor: ONBOARDING.inputBorderFocus,
   },
-  dobButtonText: {
-    fontSize: 16,
-    color: colors.text,
-    fontWeight: '600',
+  inputError: {
+    borderColor: colors.error,
   },
-  dobCompactPicker: {
-    marginLeft: -8,
-    flex: 1,
-  },
-  helperBelowDob: {marginBottom: spacing.sm},
-  sectionMiniTitle: {
-    fontSize: 17,
-    fontWeight: '800',
-    color: colors.text,
-    marginTop: spacing.md,
-    letterSpacing: -0.3,
-  },
-  regionSegment: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-    padding: spacing.xs,
-    borderRadius: radius.xl,
-    backgroundColor: '#F3F0FA',
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.1)',
-  },
-  chip: {
-    paddingHorizontal: spacing.lg,
-    paddingVertical: 11,
-    borderRadius: radius.full,
-    borderWidth: 1,
-    borderColor: ONBOARDING.chipBorder,
-    backgroundColor: ONBOARDING.chipBg,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: {width: 0, height: 1},
-        shadowOpacity: 0.04,
-        shadowRadius: 3,
-      },
-    }),
-  },
-  chipActive: {
-    borderColor: colors.primary,
-    backgroundColor: '#FFFFFF',
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 4},
-        shadowOpacity: 0.18,
-        shadowRadius: 10,
-      },
-      android: {elevation: 3},
-    }),
-  },
-  chipText: {fontSize: 15, color: colors.textSecondary, fontWeight: '600'},
-  chipTextActive: {color: colors.primaryDark, fontWeight: '800'},
-  bicepsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, justifyContent: 'center'},
-  bicepsPress: {borderRadius: 28},
-  bicepsChip: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#FFFFFF',
-    borderWidth: 2,
-    borderColor: '#E7E2F5',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  bicepsChipActive: {
-    borderColor: colors.primary,
-    borderWidth: 3,
-    backgroundColor: 'rgba(139, 92, 246, 0.1)',
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.35,
-        shadowRadius: 12,
-      },
-    }),
-  },
-  bicepsEmoji: {fontSize: 30},
-  gymFieldWrap: {marginBottom: spacing.md, zIndex: 2},
-  gymRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-    backgroundColor: '#FFFFFF',
-    borderRadius: radius.lg,
-    padding: spacing.sm,
-    borderWidth: 1,
-    borderColor: ONBOARDING.inputBorder,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#0F172A',
-        shadowOffset: {width: 0, height: 3},
-        shadowOpacity: 0.05,
-        shadowRadius: 10,
-      },
-      android: {elevation: 2},
-    }),
-  },
-  gymRowFilled: {
-    borderColor: 'rgba(139, 92, 246, 0.35)',
-    backgroundColor: '#FDFCFF',
-  },
-  gymIndexBadge: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  gymIndex: {
-    fontSize: 15,
-    fontWeight: '800',
-    color: colors.primary,
-    textAlign: 'center',
-  },
-  gymInput: {flex: 1},
-  gymInputInCard: {
-    borderWidth: 0,
-    backgroundColor: 'transparent',
-    paddingVertical: 12,
-    paddingHorizontal: spacing.sm,
-    ...Platform.select({
-      ios: {shadowOpacity: 0},
-      android: {elevation: 0},
-    }),
-  },
-  suggestions: {
-    marginTop: spacing.sm,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: '#FFFFFF',
-    overflow: 'hidden',
-  },
-  suggestionRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.lg,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  suggestionText: {flex: 1},
-  suggestionTitle: {fontSize: 15, fontWeight: '600', color: colors.text},
-  suggestionSub: {fontSize: 13, color: colors.textSecondary},
-  toggleCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
-    padding: spacing.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    gap: spacing.md,
-  },
-  toggleTextCol: {flex: 1},
-  toggleTitle: {fontSize: 15, fontWeight: '700', color: colors.text},
-  toggleSub: {fontSize: 13, color: colors.textSecondary, marginTop: 2},
-  photoRing: {
-    alignSelf: 'center',
-    width: 168,
-    height: 168,
-    borderRadius: 84,
-    borderWidth: 2,
-    borderColor: 'rgba(139, 92, 246, 0.45)',
-    overflow: 'hidden',
-    backgroundColor: '#FAF8FF',
-    marginBottom: spacing.sm,
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 10},
-        shadowOpacity: 0.14,
-        shadowRadius: 22,
-      },
-      android: {elevation: 4},
-    }),
-  },
-  photoRingPressed: {opacity: 0.92, transform: [{scale: 0.98}]},
-  photoRingGlow: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: 84,
-    backgroundColor: 'rgba(139, 92, 246, 0.06)',
-  },
-  photoImg: {width: '100%', height: '100%'},
-  photoPlaceholder: {flex: 1, justifyContent: 'center', alignItems: 'center', padding: spacing.md},
-  photoHint: {
-    marginTop: spacing.sm,
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.primary,
-    textAlign: 'center',
-  },
-  skipBtn: {alignItems: 'center', paddingVertical: spacing.md, marginTop: -spacing.xs},
-  skipText: {color: colors.textMuted, fontSize: 14, fontWeight: '600', letterSpacing: 0.2},
-  consentBlock: {
-    backgroundColor: ONBOARDING.cardBg,
-    borderRadius: ONBOARDING.cardRadius,
-    padding: spacing.lg + 2,
-    borderWidth: 1,
-    borderColor: ONBOARDING.cardBorder,
-    gap: spacing.md + 2,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#6B21A8',
-        shadowOffset: {width: 0, height: 6},
-        shadowOpacity: 0.05,
-        shadowRadius: 16,
-      },
-      android: {elevation: 2},
-    }),
-  },
-  consentBlockTitle: {
-    fontSize: 13,
-    fontWeight: '800',
+  hintMuted: {
+    ...typography.caption,
     color: colors.textMuted,
-    textTransform: 'uppercase',
-    letterSpacing: 0.6,
+    marginBottom: spacing.sm,
   },
-  consentRow: {
+  hintError: {
+    ...typography.caption,
+    color: colors.error,
+    marginBottom: spacing.sm,
+  },
+  hintOk: {
+    ...typography.caption,
+    color: colors.success,
+    marginBottom: spacing.sm,
+  },
+  photoBlock: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     gap: spacing.md,
+    marginVertical: spacing.lg,
   },
-  consentCopy: {flex: 1},
-  consentHead: {fontSize: 16, fontWeight: '700', color: colors.text, marginBottom: 4},
-  consentSub: {fontSize: 13, color: colors.textSecondary, lineHeight: 18},
-  consentLink: {fontSize: 14, fontWeight: '600', color: colors.primary},
-  checkBox: {
-    width: 30,
-    height: 30,
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: 'rgba(139, 92, 246, 0.35)',
-    justifyContent: 'center',
+  photoCircle: {
+    width: 72,
+    height: 72,
+    borderRadius: 36,
+    backgroundColor: ONBOARDING.lavenderTint,
     alignItems: 'center',
-    backgroundColor: '#FAFAFE',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  photoImg: {width: 72, height: 72},
+  photoActions: {flex: 1, gap: 6},
+  photoActionPrimary: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.primary,
+  },
+  photoActionSkip: {
+    fontSize: 14,
+    color: colors.textMuted,
+  },
+  checkRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  checkBox: {
+    width: 22,
+    height: 22,
+    borderRadius: 6,
+    borderWidth: 1.5,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   checkBoxOn: {
     backgroundColor: colors.primary,
     borderColor: colors.primary,
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 3},
-        shadowOpacity: 0.3,
-        shadowRadius: 6,
-      },
-    }),
   },
-  switchRow: {
-    flexDirection: 'row',
+  checkText: {
+    flex: 1,
+    ...typography.small,
+    color: colors.textSecondary,
+  },
+  link: {color: colors.primary, fontWeight: '600'},
+  gymStep: {flexGrow: 1, minHeight: 420},
+  skipBtn: {
     alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-    paddingVertical: spacing.sm,
-    borderTopWidth: 1,
-    borderTopColor: '#EEEAF9',
+    paddingVertical: spacing.lg,
+    marginTop: spacing.xl,
   },
-  gdprMini: {paddingHorizontal: spacing.xs},
-  privacyCtaDock: {
-    paddingTop: spacing.md,
-    paddingBottom: spacing.xs,
-    marginTop: spacing.sm,
+  skipText: {
+    color: colors.textMuted,
+    fontSize: 15,
+    fontWeight: '600',
   },
-  backBtnInner: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: 'rgba(255,255,255,0.92)',
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.12)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.06,
-        shadowRadius: 8,
-      },
-      android: {elevation: 2},
-    }),
-  },
-  gdprMiniText: {fontSize: 12, color: colors.textMuted, lineHeight: 18},
 });
 
 export default RegisterScreen;

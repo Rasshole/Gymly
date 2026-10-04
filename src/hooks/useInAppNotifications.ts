@@ -50,7 +50,7 @@ type Result = {
 export function useInAppNotifications(): Result {
   const userId = useAppStore(s => s.user?.id);
   const rows = useInAppNotificationStore(s => s.rows);
-  const frOutcomes = useInAppNotificationStore(s => s.friendRequestOutcomes);
+  const frResolutions = useInAppNotificationStore(s => s.friendRequestResolutions);
   const refresh = useInAppNotificationStore(s => s.refresh);
   const markR = useInAppNotificationStore(s => s.markRead);
   const markAllR = useInAppNotificationStore(s => s.markAllRead);
@@ -64,9 +64,20 @@ export function useInAppNotifications(): Result {
       }
       try {
         let n = mapRowToViewNotification(r);
-        const o = n.id ? frOutcomes[n.id] : undefined;
-        if (n.type === 'friend_request' && o) {
-          n = applyLocalFriendRequestResolution(n, o);
+        if (n.type === 'friend_request') {
+          const resolved = n.id ? frResolutions[n.id] : undefined;
+          if (resolved) {
+            n = applyLocalFriendRequestResolution(n, {
+              outcome: resolved.uiState,
+              peerName: resolved.peerName || n.friendName || '',
+            });
+          } else {
+            // Until first server resolve completes, never treat as pending.
+            n = applyLocalFriendRequestResolution(n, {
+              outcome: 'unknown',
+              peerName: n.friendName || '',
+            });
+          }
         }
         out.push(normalizeNotification(n));
       } catch (e) {
@@ -76,7 +87,7 @@ export function useInAppNotifications(): Result {
       }
     }
     return out;
-  }, [rows, frOutcomes]);
+  }, [rows, frResolutions]);
 
   const listForUi: Notification[] = useMemo(() => {
     const bellDbRows = fromDb.filter(n => isBellNotification(n.type));

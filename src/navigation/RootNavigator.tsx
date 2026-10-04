@@ -1,20 +1,25 @@
 /**
  * Root Navigator
- * Manages navigation flow based on authentication and consent state
+ * Gates: loading → auth → post-auth onboarding → main
+ *
+ * Auth / onboarding / main are lazy so splash does not evaluate
+ * the register flow (danishGyms / gym catalog) during module load.
  */
 
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
+import {startupMark} from '@/i18n/startupMark';
 
-import AuthNavigator from './AuthNavigator';
+import LazyAuthNavigator from './LazyAuthNavigator';
+import LazyOnboardingNavigator from './LazyOnboardingNavigator';
 import LazyMainNavigator from './LazyMainNavigator';
 import LoadingScreen from '@/screens/LoadingScreen';
-import ResetPasswordScreen from '@/screens/auth/ResetPasswordScreen';
 
 export type RootStackParamList = {
   Auth: undefined;
+  Onboarding: undefined;
   Main: undefined;
   Loading: undefined;
   ResetPassword: undefined;
@@ -22,26 +27,56 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-const RootNavigator = () => {
-  const {isAuthenticated, isLoading} = useAppStore();
+let didMarkFirstScreen = false;
 
-  if (isLoading) {
+const RootNavigator = () => {
+  const {isAuthenticated, isLoading, onboardingComplete} = useAppStore();
+
+  if (isLoading || (isAuthenticated && onboardingComplete === null)) {
+    if (!didMarkFirstScreen) {
+      didMarkFirstScreen = true;
+      startupMark('first screen decision → LoadingScreen');
+    }
     return <LoadingScreen />;
+  }
+
+  const showMain = isAuthenticated && onboardingComplete === true;
+  const showOnboarding = isAuthenticated && onboardingComplete === false;
+  if (!didMarkFirstScreen) {
+    didMarkFirstScreen = true;
+    startupMark('first screen decision', {
+      showMain,
+      showOnboarding,
+      signedOut: !showMain && !showOnboarding,
+    });
   }
 
   return (
     <Stack.Navigator
-      key={isAuthenticated ? 'root-signed-in' : 'root-signed-out'}
+      key={
+        showMain
+          ? 'root-main'
+          : showOnboarding
+            ? 'root-onboarding'
+            : 'root-signed-out'
+      }
       screenOptions={{
         headerShown: false,
         cardStyle: {flex: 1, backgroundColor: colors.background},
       }}>
-      {isAuthenticated ? (
+      {showMain ? (
         <Stack.Screen name="Main" component={LazyMainNavigator} />
+      ) : showOnboarding ? (
+        <Stack.Screen name="Onboarding" component={LazyOnboardingNavigator} />
       ) : (
         <>
-          <Stack.Screen name="Auth" component={AuthNavigator} />
-          <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+          <Stack.Screen name="Auth" component={LazyAuthNavigator} />
+          <Stack.Screen
+            name="ResetPassword"
+            getComponent={() =>
+              require('@/screens/auth/ResetPasswordScreen').default
+            }
+          />
         </>
       )}
     </Stack.Navigator>
@@ -49,4 +84,3 @@ const RootNavigator = () => {
 };
 
 export default RootNavigator;
-

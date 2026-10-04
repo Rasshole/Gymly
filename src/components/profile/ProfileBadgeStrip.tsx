@@ -3,16 +3,14 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
   Modal,
   Pressable,
   Animated,
   Easing,
-  LayoutChangeEvent,
+  type LayoutChangeEvent,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
 import {upcomingBadgeHintT} from '@/i18n/badgeLabels';
 import {badgeDisplayName} from '@/i18n/badgeDisplay';
@@ -21,6 +19,7 @@ import {getBadgeProgressList, useBadgeStore} from '@/store/badgeStore';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {useTranslation} from '@/i18n';
+import {GymlyPressable} from '@/components/ui/GymlyPressable';
 
 type Props = {
   userId: string;
@@ -45,12 +44,10 @@ type UpcomingStripItem = {
 
 type StripItem = UnlockedStripItem | UpcomingStripItem;
 
-const BADGE_TILE_W = 88;
-const BADGE_GAP = 12;
-const ROW_H_PADDING = 18;
-const ROW_V_PADDING = 10;
-const EDGE_FADE_WIDTH = 28;
-const CENTER_MAX_COUNT = 3;
+const BADGE_GAP = spacing.md; // 12
+const NATURAL_TILE_W = 96;
+const MIN_TILE_W = 84;
+const MAX_PREVIEW = 3;
 
 function formatEarnedAt(iso: string, intlLocale: string): string {
   if (!iso) {
@@ -67,48 +64,18 @@ function formatEarnedAt(iso: string, intlLocale: string): string {
   }
 }
 
-function ScrollEdgeFade({
-  side,
-  height,
-  gradientId,
-}: {
-  side: 'left' | 'right';
-  height: number;
-  gradientId: string;
-}) {
-  const x1 = side === 'left' ? '0' : '1';
-  const x2 = side === 'left' ? '1' : '0';
-  return (
-    <View
-      pointerEvents="none"
-      style={[
-        styles.edgeFade,
-        side === 'left' ? styles.edgeFadeLeft : styles.edgeFadeRight,
-        {width: EDGE_FADE_WIDTH, height},
-      ]}>
-      <Svg width={EDGE_FADE_WIDTH} height={height} style={StyleSheet.absoluteFill}>
-        <Defs>
-          <LinearGradient id={gradientId} x1={x1} y1="0" x2={x2} y2="0">
-            <Stop offset="0" stopColor={colors.background} stopOpacity={1} />
-            <Stop offset="1" stopColor={colors.background} stopOpacity={0} />
-          </LinearGradient>
-        </Defs>
-        <Rect width={EDGE_FADE_WIDTH} height={height} fill={`url(#${gradientId})`} />
-      </Svg>
-    </View>
-  );
-}
-
 function ProfileBadgeCell({
   item,
   isNewest,
   onPress,
   entranceEpoch,
+  width,
 }: {
   item: StripItem;
   isNewest: boolean;
   onPress: () => void;
   entranceEpoch: number;
+  width: number;
 }) {
   const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
@@ -133,13 +100,13 @@ function ProfileBadgeCell({
       const loop = Animated.loop(
         Animated.sequence([
           Animated.timing(scale, {
-            toValue: 1.09,
+            toValue: 1.03,
             duration: 2600,
             easing: Easing.inOut(Easing.quad),
             useNativeDriver: true,
           }),
           Animated.timing(scale, {
-            toValue: 1.045,
+            toValue: 1.01,
             duration: 2600,
             easing: Easing.inOut(Easing.quad),
             useNativeDriver: true,
@@ -151,7 +118,7 @@ function ProfileBadgeCell({
     };
 
     if (entranceEpoch === 0) {
-      scale.setValue(1.06);
+      scale.setValue(1.02);
       const pulseTimer = setTimeout(startPulse, 500);
       return () => {
         clearTimeout(pulseTimer);
@@ -160,17 +127,17 @@ function ProfileBadgeCell({
     }
 
     stopAll();
-    scale.setValue(0.9);
+    scale.setValue(0.94);
     const entrance = Animated.sequence([
       Animated.spring(scale, {
-        toValue: 1.12,
-        friction: 5.5,
+        toValue: 1.04,
+        friction: 6,
         tension: 140,
         useNativeDriver: true,
       }),
       Animated.spring(scale, {
-        toValue: 1.06,
-        friction: 6,
+        toValue: 1.02,
+        friction: 7,
         tension: 120,
         useNativeDriver: true,
       }),
@@ -189,6 +156,7 @@ function ProfileBadgeCell({
 
   const tileStyle = [
     styles.badgeTile,
+    {width},
     isUpcoming && styles.badgeTileUpcoming,
     isNewest && !isUpcoming && styles.badgeTileNewest,
   ];
@@ -197,7 +165,7 @@ function ProfileBadgeCell({
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.88}
-      style={styles.badgeTouch}
+      style={[styles.badgeTouch, {width}]}
       accessibilityRole="button"
       accessibilityLabel={
         isUpcoming
@@ -209,13 +177,9 @@ function ProfileBadgeCell({
           {item.def.emoji}
         </Text>
         {isUpcoming ? (
-          <Text style={styles.badgeHint} numberOfLines={2}>
-            {item.hint}
-          </Text>
+          <Text style={styles.badgeHint}>{item.hint}</Text>
         ) : (
-          <Text style={styles.badgeName} numberOfLines={2}>
-            {badgeDisplayName(t, item.def)}
-          </Text>
+          <Text style={styles.badgeName}>{badgeDisplayName(t, item.def)}</Text>
         )}
       </Animated.View>
     </TouchableOpacity>
@@ -234,14 +198,10 @@ export function ProfileBadgeStrip({
   const statsSnap = useBadgeStore(s => s.statsByUser[userId]);
   const hydrateFromServer = useBadgeStore(s => s.hydrateUserBadgesFromServer);
   const [detail, setDetail] = useState<StripItem | null>(null);
-  const scrollRef = useRef<ScrollView>(null);
-  const [stripHeight, setStripHeight] = useState(100);
-  const [scrollW, setScrollW] = useState(0);
-  const [contentW, setContentW] = useState(0);
+  const [gridWidth, setGridWidth] = useState(0);
   const [newestEntranceEpoch, setNewestEntranceEpoch] = useState(0);
   const initializedRef = useRef(false);
   const prevNewestIdRef = useRef<string | null>(null);
-  const fadeId = useRef(`pf_${Math.random().toString(36).slice(2)}`).current;
 
   useEffect(() => {
     initializedRef.current = false;
@@ -283,7 +243,7 @@ export function ProfileBadgeStrip({
     return getBadgeProgressList(userId)
       .filter(r => r.progress.status !== 'unlocked')
       .sort((a, b) => b.progress.percent - a.progress.percent)
-      .slice(0, 3)
+      .slice(0, MAX_PREVIEW)
       .map(r => ({
         kind: 'upcoming' as const,
         def: r.def,
@@ -294,12 +254,12 @@ export function ProfileBadgeStrip({
 
   const displayItems = useMemo((): StripItem[] => {
     if (sortedUnlocked.length > 0) {
-      return sortedUnlocked.slice(0, 3);
+      return sortedUnlocked.slice(0, MAX_PREVIEW);
     }
     if (viewingOtherUser) {
       const ids = (featuredBadgeIds ?? [])
         .filter(id => BADGE_BY_ID[id])
-        .slice(0, 3);
+        .slice(0, MAX_PREVIEW);
       return ids.map(id => ({
         kind: 'unlocked' as const,
         def: BADGE_BY_ID[id],
@@ -315,7 +275,6 @@ export function ProfileBadgeStrip({
   const newestId =
     sortedUnlocked.length > 0 ? sortedUnlocked[0].def.id : null;
   const rowCount = displayItems.length;
-  const useCenteredRow = rowCount > 0 && rowCount <= CENTER_MAX_COUNT;
 
   useEffect(() => {
     if (showUpcomingFallback || !newestId || sortedUnlocked.length === 0) {
@@ -329,25 +288,43 @@ export function ProfileBadgeStrip({
     if (prevNewestIdRef.current !== newestId) {
       prevNewestIdRef.current = newestId;
       setNewestEntranceEpoch(e => e + 1);
-      requestAnimationFrame(() => {
-        scrollRef.current?.scrollTo({x: 0, animated: true});
-      });
     }
   }, [newestId, sortedUnlocked.length, showUpcomingFallback]);
 
-  const onScrollLayout = useCallback((e: LayoutChangeEvent) => {
-    setScrollW(e.nativeEvent.layout.width);
-  }, []);
-
-  const onStripLayout = useCallback((e: LayoutChangeEvent) => {
-    const h = e.nativeEvent.layout.height;
-    if (h > 0) {
-      setStripHeight(h);
+  const onGridLayout = useCallback((e: LayoutChangeEvent) => {
+    const w = Math.floor(e.nativeEvent.layout.width);
+    if (w > 0 && w !== gridWidth) {
+      setGridWidth(w);
     }
-  }, []);
+  }, [gridWidth]);
 
-  const showEdgeFade =
-    rowCount > CENTER_MAX_COUNT && contentW > scrollW + 4 && scrollW > 0;
+  const {tileWidth} = useMemo(() => {
+    const count = Math.max(1, rowCount);
+    if (gridWidth <= 0) {
+      return {tileWidth: NATURAL_TILE_W};
+    }
+
+    let cols = Math.min(count, MAX_PREVIEW);
+    while (cols > 1) {
+      const w = (gridWidth - BADGE_GAP * (cols - 1)) / cols;
+      if (w >= MIN_TILE_W) {
+        break;
+      }
+      cols -= 1;
+    }
+
+    // 1–2 badges: keep a natural card size (don’t stretch full width).
+    if (count < 3) {
+      const equal = (gridWidth - BADGE_GAP * (cols - 1)) / cols;
+      return {
+        tileWidth: Math.min(NATURAL_TILE_W, Math.max(MIN_TILE_W, equal)),
+      };
+    }
+
+    return {
+      tileWidth: (gridWidth - BADGE_GAP * (cols - 1)) / cols,
+    };
+  }, [gridWidth, rowCount]);
 
   const badgeProgressById = useMemo(() => {
     const list = getBadgeProgressList(userId);
@@ -382,36 +359,17 @@ export function ProfileBadgeStrip({
       </>
     );
     if (viewingOtherUser) {
-      return <View style={styles.emptyRow}>{content}</View>;
+      return <View style={[styles.wrap, styles.emptyRow]}>{content}</View>;
     }
     return (
       <TouchableOpacity
-        style={styles.emptyRow}
+        style={[styles.wrap, styles.emptyRow]}
         onPress={() => navigation.navigate('Badges')}
         activeOpacity={0.85}>
         {content}
       </TouchableOpacity>
     );
   }
-
-  const contentContainerStyle = useCenteredRow
-    ? [
-        styles.scrollContentCentered,
-        {
-          paddingHorizontal: ROW_H_PADDING,
-          paddingVertical: ROW_V_PADDING,
-          gap: BADGE_GAP,
-        },
-      ]
-    : [
-        styles.scrollContentScrolling,
-        {
-          paddingLeft: ROW_H_PADDING,
-          paddingRight: ROW_H_PADDING,
-          paddingVertical: ROW_V_PADDING,
-          gap: BADGE_GAP,
-        },
-      ];
 
   return (
     <View style={styles.wrap}>
@@ -423,55 +381,42 @@ export function ProfileBadgeStrip({
           ) : null}
         </View>
         {viewingOtherUser ? null : (
-          <TouchableOpacity onPress={() => navigation.navigate('Badges')}>
+          <GymlyPressable
+            onPress={() => navigation.navigate('Badges')}
+            haptic="selection"
+            hitSlop={{top: 10, bottom: 10, left: 12, right: 4}}
+            accessibilityRole="button"
+            accessibilityLabel={t('profile.seeAll')}
+            style={styles.seeAllHit}>
             <Text style={styles.seeAll}>{t('profile.seeAll')}</Text>
-          </TouchableOpacity>
+          </GymlyPressable>
         )}
       </View>
 
-      <View style={styles.stripOuter} onLayout={onStripLayout}>
-        <ScrollView
-          ref={scrollRef}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          decelerationRate="fast"
-          bounces={rowCount > CENTER_MAX_COUNT}
-          scrollEnabled={rowCount > CENTER_MAX_COUNT}
-          onLayout={onScrollLayout}
-          onContentSizeChange={w => setContentW(w)}
-          contentContainerStyle={contentContainerStyle}>
-          {displayItems.map(item => {
-            const isNewest =
-              !showUpcomingFallback &&
-              !viewingOtherUser &&
-              item.kind === 'unlocked' &&
-              newestId != null &&
-              item.def.id === newestId;
-            return (
-              <ProfileBadgeCell
-                key={item.def.id}
-                item={item}
-                isNewest={isNewest}
-                entranceEpoch={isNewest ? newestEntranceEpoch : 0}
-                onPress={() => setDetail(item)}
-              />
-            );
-          })}
-        </ScrollView>
-        {showEdgeFade ? (
-          <>
-            <ScrollEdgeFade
-              side="left"
-              height={stripHeight}
-              gradientId={`${fadeId}_L`}
+      <View
+        style={[
+          styles.grid,
+          rowCount < 3 ? styles.gridNatural : null,
+        ]}
+        onLayout={onGridLayout}>
+        {displayItems.map(item => {
+          const isNewest =
+            !showUpcomingFallback &&
+            !viewingOtherUser &&
+            item.kind === 'unlocked' &&
+            newestId != null &&
+            item.def.id === newestId;
+          return (
+            <ProfileBadgeCell
+              key={item.def.id}
+              item={item}
+              isNewest={isNewest}
+              entranceEpoch={isNewest ? newestEntranceEpoch : 0}
+              width={tileWidth}
+              onPress={() => setDetail(item)}
             />
-            <ScrollEdgeFade
-              side="right"
-              height={stripHeight}
-              gradientId={`${fadeId}_R`}
-            />
-          </>
-        ) : null}
+          );
+        })}
       </View>
 
       <Modal
@@ -533,16 +478,20 @@ export function ProfileBadgeStrip({
 
 const styles = StyleSheet.create({
   wrap: {
-    marginBottom: spacing.md,
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.sm,
+    marginBottom: spacing.xl,
   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: spacing.sm,
+    alignItems: 'center',
+    marginBottom: spacing.md,
   },
   titleBlock: {
     flex: 1,
+    minWidth: 0,
+    marginRight: spacing.sm,
   },
   title: {
     fontSize: 16,
@@ -554,60 +503,56 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     marginTop: 2,
   },
+  seeAllHit: {
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.xs,
+  },
   seeAll: {
     ...typography.small,
     color: colors.primary,
     fontWeight: '600',
   },
-  stripOuter: {
-    position: 'relative',
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: BADGE_GAP,
     width: '100%',
-    overflow: 'hidden',
   },
-  scrollContentCentered: {
-    flexGrow: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 96,
-  },
-  scrollContentScrolling: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  gridNatural: {
     justifyContent: 'flex-start',
-    flexGrow: 0,
   },
   badgeTouch: {
-    width: BADGE_TILE_W,
+    flexGrow: 0,
+    flexShrink: 0,
   },
   badgeTile: {
-    width: BADGE_TILE_W,
     minHeight: 96,
     borderRadius: radius.lg,
     backgroundColor: colors.backgroundCard,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: spacing.xs,
+    paddingHorizontal: spacing.sm,
     paddingVertical: spacing.sm,
     ...shadows.sm,
   },
   badgeTileUpcoming: {
     borderStyle: 'dashed',
+    borderWidth: 1,
     borderColor: colors.primary + '55',
     backgroundColor: colors.primary + '06',
     opacity: 0.92,
   },
   badgeTileNewest: {
-    borderWidth: 2.5,
+    borderWidth: 1.5,
     borderColor: colors.primary,
     backgroundColor: colors.backgroundCard,
     shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 0.45,
-    shadowRadius: 14,
-    elevation: 8,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.18,
+    shadowRadius: 4,
+    elevation: 2,
   },
   badgeEmoji: {
     fontSize: 28,
@@ -630,24 +575,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 13,
   },
-  edgeFade: {
-    position: 'absolute',
-    top: 0,
-    zIndex: 2,
-  },
-  edgeFadeLeft: {
-    left: 0,
-  },
-  edgeFadeRight: {
-    right: 0,
-  },
   emptyRow: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.backgroundCard,
     borderRadius: radius.lg,
     padding: spacing.md,
-    marginBottom: spacing.md,
     borderWidth: 1,
     borderColor: colors.border,
   },

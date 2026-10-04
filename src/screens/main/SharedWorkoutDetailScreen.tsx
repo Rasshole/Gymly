@@ -10,10 +10,9 @@ import ScreenHeader from '@/components/ui/ScreenHeader';
 import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
-import {formatReps, formatVolumeKg, formatWeightKg} from '@/utils/workoutLogFormat';
-import {formatPrTypeLabel} from '@/utils/personalRecordCopy';
+import {formatVolumeKg, formatWeightKg} from '@/utils/workoutLogFormat';
 import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
-import {useTranslation, getRuntimeLanguage, getExerciseDisplayName} from '@/i18n';
+import {useTranslation, getExerciseDisplayName} from '@/i18n';
 
 export type SharedWorkoutDetailParams = {
   SharedWorkoutDetail: {
@@ -23,13 +22,19 @@ export type SharedWorkoutDetailParams = {
   };
 };
 
+function formatSharedRepCount(reps: number | null | undefined): string {
+  if (reps == null || !Number.isFinite(reps)) {
+    return '—';
+  }
+  return String(reps);
+}
+
 const SharedWorkoutDetailScreen: React.FC = () => {
   const {t, language} = useTranslation();
   const navigation = useNavigation();
   const route =
     useRoute<RouteProp<SharedWorkoutDetailParams, 'SharedWorkoutDetail'>>();
   const insets = useSafeAreaInsets();
-  const lang = getRuntimeLanguage();
   const {authorName, gymName, snapshot} = route.params;
 
   return (
@@ -42,12 +47,14 @@ const SharedWorkoutDetailScreen: React.FC = () => {
         <Text style={styles.author}>{authorName}</Text>
         {gymName ? <Text style={styles.gym}>{gymName}</Text> : null}
         <Text style={styles.meta}>
-          {formatWorkoutDuration(snapshot.durationMinutes)} ·{' '}
-          {t('personalRecords.snapshotMeta', {
-            exercises: snapshot.exerciseCount,
-            sets: snapshot.setCount,
-            volume: formatVolumeKg(snapshot.totalVolumeKg),
-          })}
+          {formatWorkoutDuration(snapshot.durationMinutes, language)}
+          {snapshot.exerciseCount > 0 || snapshot.setCount > 0
+            ? ` · ${t('personalRecords.snapshotMeta', {
+                exercises: snapshot.exerciseCount,
+                sets: snapshot.setCount,
+                volume: formatVolumeKg(snapshot.totalVolumeKg),
+              })}`
+            : ''}
         </Text>
 
         {snapshot.prs.length > 0 ? (
@@ -60,39 +67,56 @@ const SharedWorkoutDetailScreen: React.FC = () => {
           </View>
         ) : null}
 
-        {snapshot.exercises.map((ex, idx) => (
-          <View key={`${ex.name}-${idx}`} style={styles.exerciseCard}>
-            <Text style={styles.exerciseName}>
-              {getExerciseDisplayName({
-                exerciseId: null,
-                fallbackName: ex.name,
-                language,
-              })}
-            </Text>
-            {ex.sets.map(set => (
-              <View key={`${ex.name}-${set.setNumber}`} style={styles.setRow}>
-                <Text style={styles.setNum}>
-                  {t('workoutLog.setN', {n: set.setNumber})}
+        {snapshot.exercises.length === 0 ? (
+          <Text style={styles.emptyLog}>{t('workoutHistory.noExercisesLogged')}</Text>
+        ) : (
+          snapshot.exercises.map((ex, idx) => (
+            <View key={`${ex.name}-${idx}`} style={styles.exerciseCard}>
+              <Text style={styles.exerciseName}>
+                {getExerciseDisplayName({
+                  exerciseId: null,
+                  fallbackName: ex.name,
+                  language,
+                })}
+              </Text>
+              <View style={styles.setHeader}>
+                <Text style={[styles.setNum, styles.setHeaderText]}>
+                  {t('personalRecords.sharedLogSet')}
                 </Text>
-                <Text style={styles.setVal}>{formatWeightKg(set.weightKg)}</Text>
-                <Text style={styles.setVal}>{formatReps(set.reps)}</Text>
-                {set.isPr ? <Text style={styles.prMark}>🏆</Text> : null}
+                <Text style={[styles.setVal, styles.setHeaderText]}>
+                  {t('personalRecords.sharedLogWeight')}
+                </Text>
+                <Text style={[styles.setVal, styles.setHeaderText]}>
+                  {t('personalRecords.sharedLogReps')}
+                </Text>
+                <Text style={styles.prMark} />
               </View>
-            ))}
-          </View>
-        ))}
+              {ex.sets.map(set => {
+                const marked =
+                  Boolean(set.isPr) ||
+                  (snapshot.prs ?? []).some(
+                    pr =>
+                      pr.exerciseName === ex.name &&
+                      pr.weightKg === set.weightKg &&
+                      pr.reps === set.reps,
+                  );
+                return (
+                  <View
+                    key={`${ex.name}-${set.setNumber}`}
+                    style={[styles.setRow, marked && styles.setRowPr]}>
+                    <Text style={styles.setNum}>
+                      {t('workoutLog.setN', {n: set.setNumber})}
+                    </Text>
+                    <Text style={styles.setVal}>{formatWeightKg(set.weightKg)}</Text>
+                    <Text style={styles.setVal}>{formatSharedRepCount(set.reps)}</Text>
+                    {marked ? <Text style={styles.prMark}>PR</Text> : <Text style={styles.prMark} />}
+                  </View>
+                );
+              })}
+            </View>
+          ))
+        )}
 
-        {snapshot.prs.map((pr, i) => (
-          <Text key={`pr-${i}`} style={styles.prFoot}>
-            🏆{' '}
-            {getExerciseDisplayName({
-              exerciseId: null,
-              fallbackName: pr.exerciseName,
-              language,
-            })}{' '}
-            · {formatPrTypeLabel(pr.recordType, lang)}
-          </Text>
-        ))}
       </ScrollView>
     </View>
   );
@@ -136,10 +160,32 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: spacing.sm,
   },
+  emptyLog: {
+    ...typography.body,
+    color: colors.textSecondary,
+    marginTop: spacing.md,
+  },
+  setHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingBottom: 6,
+  },
+  setHeaderText: {
+    ...typography.small,
+    color: colors.textMuted,
+    fontWeight: '700',
+  },
   setRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: 10,
+    paddingHorizontal: spacing.sm,
+    borderRadius: radius.md,
+    marginBottom: 4,
+    backgroundColor: colors.background,
+  },
+  setRowPr: {
+    backgroundColor: colors.primary + '12',
   },
   setNum: {
     width: 56,
@@ -153,7 +199,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.text,
   },
-  prMark: {width: 28, textAlign: 'right'},
+  prMark: {
+    width: 36,
+    textAlign: 'right',
+    fontSize: 12,
+    fontWeight: '800',
+    color: colors.primaryDark,
+  },
   prFoot: {
     ...typography.caption,
     color: colors.primaryDark,

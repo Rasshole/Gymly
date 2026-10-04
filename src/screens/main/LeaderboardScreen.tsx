@@ -34,6 +34,7 @@ import {fetchGymlyLeaderboard} from '@/services/supabase/gymlyLeaderboardService
 import {getHomeLeaderboardCenterIdForUser} from '@/utils/leaderboardCenterFromGym';
 import {findGymById} from '@/utils/gymDisplay';
 import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 import type {LeaderboardEntry} from '@/types/leaderboard.types';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import {useTranslation, rt} from '@/i18n';
@@ -380,6 +381,9 @@ function LeaderboardSearchBar({
 
 const LeaderboardScreen = () => {
   const {t} = useTranslation();
+  useEffect(() => {
+    scheduleGymSearchWarmup();
+  }, []);
   const periodOptions = useMemo(
     () => [
       {key: 'week' as const, label: t('leaderboard.thisWeek')},

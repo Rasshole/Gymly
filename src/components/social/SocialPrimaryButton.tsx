@@ -26,6 +26,8 @@ export type SocialPrimaryButtonProps = {
   style?: StyleProp<ViewStyle>;
   /** Premium gradient + gloss (Beskeder FAB style) */
   variant?: 'flat' | 'premium';
+  testID?: string;
+  accessibilityLabel?: string;
 };
 
 const PREMIUM_HEIGHT = 54;
@@ -38,6 +40,8 @@ const SocialPrimaryButton: React.FC<SocialPrimaryButtonProps> = ({
   iconName,
   style,
   variant = 'flat',
+  testID,
+  accessibilityLabel,
 }) => {
   const scale = useRef(new Animated.Value(1)).current;
   const isPremium = variant === 'premium';
@@ -84,7 +88,8 @@ const SocialPrimaryButton: React.FC<SocialPrimaryButtonProps> = ({
           pressed && !disabled && !loading && styles.btnPressed,
         ]}
         accessibilityRole="button"
-        accessibilityLabel={label}>
+        accessibilityLabel={accessibilityLabel || label}
+        testID={testID}>
         {isPremium ? (
           <>
             <Svg width={size.w} height={size.h} style={StyleSheet.absoluteFill}>

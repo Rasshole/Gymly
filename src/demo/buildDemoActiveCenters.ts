@@ -10,7 +10,9 @@ import type {ActiveCenter, ActiveCenterSession} from '@/types/activeCenter.types
 import type {LocalCenterActivity} from '@/services/supabase/localCentersActivityService';
 
 function toSessions(lc: LocalCenterActivity): ActiveCenterSession[] {
-  return lc.activeFriends.map((f, i) => ({
+  const source =
+    lc.activeVisible?.length > 0 ? lc.activeVisible : lc.activeFriends;
+  return source.map((f, i) => ({
     checkInId: `demo-ac-${lc.centerId}-${i}`,
     userId: f.userId,
     displayName: f.displayName,
@@ -26,6 +28,14 @@ export function buildDemoActiveCentersFromLocal(
   const out: ActiveCenter[] = localCenters.map(lc => {
     const gym = findGymById(lc.centerId);
     const sessions = toSessions(lc);
+    const friendSessions = lc.activeFriends.map((f, i) => ({
+      checkInId: `demo-ac-friend-${lc.centerId}-${i}`,
+      userId: f.userId,
+      displayName: f.displayName,
+      workoutType: f.workoutType,
+      startedAt: f.startedAt,
+      avatarUrl: f.avatarUrl,
+    }));
     return {
       centerId: lc.centerId,
       displayName: gym ? formatGymDisplayName(gym) : lc.displayName,
@@ -35,7 +45,7 @@ export function buildDemoActiveCentersFromLocal(
       distanceMeters: null,
       totalActiveCount: lc.totalActiveCount,
       activeFriendsCount: lc.activeFriendsCount,
-      activeFriends: sessions,
+      activeFriends: friendSessions,
       activeSessions: sessions,
     };
   });

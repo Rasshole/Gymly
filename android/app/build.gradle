@@ -2,6 +2,23 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+// react-native-config: map flavors to production `.env`.
+// Also refuse Release if a shell ENVFILE points at QA (dotenv.gradle prefers System.env).
+project.ext.envConfigFiles = [
+    debug: ".env",
+    release: ".env",
+]
+project.ext.defaultEnvFile = ".env"
+
+def _gradleTasks = gradle.startParameter.taskNames.collect { it.toLowerCase() }
+def _isAndroidRelease = _gradleTasks.any { it.contains('release') }
+def _envfile = System.getenv('ENVFILE')
+if (_isAndroidRelease && _envfile != null && _envfile.toLowerCase().contains('qa')) {
+    throw new GradleException(
+        "Android Release refused: ENVFILE=${_envfile}. Unset ENVFILE so production `.env` is used."
+    )
+}
+
 // Inject root `.env` into BuildConfig / resources (react-native-config).
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
@@ -42,8 +59,11 @@ android {
         applicationId "com.gymly"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 52
-        versionName "2.1.0"
+        versionCode 55
+        versionName "2.1.2"
+        // applicationId (com.gymly) differs from namespace/BuildConfig (com.gymly.app).
+        // react-native-config needs this to locate BuildConfig at runtime.
+        resValue "string", "build_config_package", "com.gymly.app"
         manifestPlaceholders = [
             GOOGLE_MAPS_API_KEY: googleMapsApiKey,
         ]

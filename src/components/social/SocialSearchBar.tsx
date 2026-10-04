@@ -7,6 +7,7 @@ import {
   Animated,
   Easing,
   Platform,
+  ActivityIndicator,
   type TextInputProps,
   type ViewStyle,
   type StyleProp,
@@ -31,6 +32,12 @@ export type SocialSearchBarProps = {
   style?: StyleProp<ViewStyle>;
   /** Search field variant */
   variant?: 'inline' | 'floating' | 'map';
+  /** Shows a spinner in the field while a search request is in flight. */
+  loading?: boolean;
+  /** Kept so callers can reserve layout; the spinner uses the icon slot. */
+  reserveLoadingSlot?: boolean;
+  inputRef?: React.Ref<TextInput>;
+  testID?: string;
 } & Pick<
   TextInputProps,
   'autoCorrect' | 'autoCapitalize' | 'keyboardType' | 'onSubmitEditing' | 'returnKeyType'
@@ -42,11 +49,14 @@ const SocialSearchBar: React.FC<SocialSearchBarProps> = ({
   placeholder,
   style,
   variant = 'inline',
+  loading = false,
   autoCorrect = true,
   autoCapitalize = 'sentences',
   keyboardType = 'default',
   onSubmitEditing,
   returnKeyType,
+  inputRef,
+  testID,
 }) => {
   const {t} = useTranslation();
   const [focused, setFocused] = useState(false);
@@ -92,13 +102,19 @@ const SocialSearchBar: React.FC<SocialSearchBarProps> = ({
         style,
       ]}>
       <View style={styles.iconSlot}>
-        <Icon
-          name="search"
-          size={isMap ? 19 : 20}
-          color={focused ? colors.primary : colors.textMuted}
-        />
+        {loading ? (
+          <ActivityIndicator size="small" color={colors.primary} />
+        ) : (
+          <Icon
+            name="search"
+            size={isMap ? 19 : 20}
+            color={focused ? colors.primary : colors.textMuted}
+          />
+        )}
       </View>
       <TextInput
+        ref={inputRef}
+        testID={testID}
         style={styles.input}
         placeholder={placeholder}
         placeholderTextColor={colors.textMuted}

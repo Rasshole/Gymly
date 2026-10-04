@@ -2,7 +2,7 @@
  * Fuldskærm splash ved tjek ind — Gymly kettlebell + bløde ringe
  */
 
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import {
   Modal,
   View,
@@ -17,7 +17,6 @@ import Animated, {
   withSpring,
   withTiming,
   withDelay,
-  runOnJS,
   interpolate,
   Easing,
 } from 'react-native-reanimated';
@@ -38,7 +37,6 @@ export const CheckInSplashOverlay: React.FC<Props> = ({visible, onHidden}) => {
   const logoOpacity = useSharedValue(0);
   const ring = useSharedValue(0);
   const ring2 = useSharedValue(0);
-  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (!visible) {
@@ -47,10 +45,6 @@ export const CheckInSplashOverlay: React.FC<Props> = ({visible, onHidden}) => {
       logoOpacity.value = 0;
       ring.value = 0;
       ring2.value = 0;
-      if (hideTimer.current) {
-        clearTimeout(hideTimer.current);
-        hideTimer.current = null;
-      }
       return;
     }
 
@@ -68,27 +62,7 @@ export const CheckInSplashOverlay: React.FC<Props> = ({visible, onHidden}) => {
       120,
       withTiming(1, {duration: 900, easing: Easing.out(Easing.quad)}),
     );
-
-    hideTimer.current = setTimeout(() => {
-      hideTimer.current = null;
-      logoOpacity.value = withTiming(0, {duration: 260});
-      logoScale.value = withTiming(0.94, {duration: 260});
-      backdrop.value = withTiming(
-        0,
-        {duration: 300, easing: Easing.in(Easing.cubic)},
-        finished => {
-          if (finished) runOnJS(onHidden)();
-        },
-      );
-    }, 760);
-
-    return () => {
-      if (hideTimer.current) {
-        clearTimeout(hideTimer.current);
-        hideTimer.current = null;
-      }
-    };
-  }, [visible, backdrop, logoScale, logoOpacity, ring, ring2, onHidden]);
+  }, [visible, backdrop, logoScale, logoOpacity, ring, ring2]);
 
   const backdropStyle = useAnimatedStyle(() => ({
     opacity: backdrop.value * 0.92,

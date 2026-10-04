@@ -37,7 +37,11 @@ import {useNavigation} from '@react-navigation/native';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {DanishGym} from '@/data/danishGyms';
-import {getMapRuntime} from '@/data/mapRuntime';
+import {
+  buildMapRuntimeInChunks,
+  peekMapRuntime,
+  type MapRuntime,
+} from '@/data/mapRuntime';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useTranslation} from '@/i18n';
@@ -54,7 +58,8 @@ import {
 import {useAppStore} from '@/store/appStore';
 import {useOnlineUsers} from '@/hooks/useOnlineUsers';
 import {getMapCenterActivity} from '@/data/mapCenterActivity';
-import {applyMapCenterBadges, type MapCenter} from '@/data/mapCentersData';
+import {type MapCenter} from '@/data/mapCentersData';
+import type {MapCenterSpatialIndex} from '@/utils/mapCenterSpatialIndex';
 import colors from '@/theme/colors';
 import {spacing} from '@/theme/designTokens';
 import {
@@ -63,13 +68,20 @@ import {
   MapFloatingButton,
   MapTypePickerMenu,
 } from '@/components/map';
-import MapGymLogoMarker from '@/components/map/MapGymLogoMarker';
+import MapGymLogoMarker, {
+  subscribeMapSnapshotDrain,
+} from '@/components/map/MapGymLogoMarker';
 import {
   MAP_FAB_GAP,
   MAP_FAB_SIZE,
 } from '@/components/map/MapFloatingButton';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
-import {loadMapGymBadges} from '@/services/supabase/presenceService';
+import {
+  loadMapGymBadges,
+  peekSettledMapGymBadges,
+  takePrefetchedMapGymBadges,
+} from '@/services/supabase/presenceService';
+import {perfEnd, perfHas, perfPhase, perfStart} from '@/utils/perfMark';
 import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
 
 type MapScreenProps = {
@@ -103,10 +115,33 @@ const calculateDistance = (
   return R * c;
 };
 
+const EMPTY_GYMS: readonly DanishGym[] = [];
+const EMPTY_GYM_BY_ID: ReadonlyMap<string, DanishGym> = new Map();
+const EMPTY_CENTERS: readonly MapCenter[] = [];
+const EMPTY_CENTER_INDEX: MapCenterSpatialIndex = {cellDeg: 0.35, buckets: new Map()};
+
+function overlayLiveCounts(
+  center: MapCenter,
+  friendsByGymId: ReadonlyMap<string, number>,
+  totalByGymId: ReadonlyMap<string, number>,
+): MapCenter {
+  const friendsActiveCount = friendsByGymId.get(center.id) ?? 0;
+  const totalActiveCount = Math.max(totalByGymId.get(center.id) ?? 0, friendsActiveCount);
+  if (
+    center.friendsActiveCount === friendsActiveCount &&
+    center.totalActiveCount === totalActiveCount
+  ) {
+    return center;
+  }
+  return {...center, friendsActiveCount, totalActiveCount};
+}
+
 const MapScreen = ({isActive = true}: MapScreenProps) => {
-  const mapRuntime = useMemo(() => getMapRuntime(), []);
-  const {gyms: mapGyms, gymById: mapGymById, baseCenters: baseMapCenters, centerIndex: mapCenterIndex} =
-    mapRuntime;
+  const [mapRuntime, setMapRuntime] = useState<MapRuntime | null>(() => peekMapRuntime());
+  const mapGyms = mapRuntime?.gyms ?? EMPTY_GYMS;
+  const mapGymById = mapRuntime?.gymById ?? EMPTY_GYM_BY_ID;
+  const baseMapCenters = mapRuntime?.baseCenters ?? EMPTY_CENTERS;
+  const mapCenterIndex = mapRuntime?.centerIndex ?? EMPTY_CENTER_INDEX;
 
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {t} = useTranslation();
@@ -123,22 +158,66 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
   const [mapTotalByGymId, setMapTotalByGymId] = useState<Map<string, number>>(
     () => new Map(),
   );
+  const [badgesReady, setBadgesReady] = useState(false);
+  const badgesReadyRef = useRef(badgesReady);
+  badgesReadyRef.current = badgesReady;
+  const [mapNativeReady, setMapNativeReady] = useState(false);
+
+  useEffect(() => {
+    perfPhase('map', 'map_mount');
+    const existing = peekMapRuntime();
+    if (existing) {
+      setMapRuntime(existing);
+      perfPhase('map', 'runtime', 'buildMs=0');
+      return;
+    }
+    return buildMapRuntimeInChunks((runtime, buildMs) => {
+      setMapRuntime(runtime);
+      perfPhase('map', 'runtime', `buildMs=${buildMs}`);
+    });
+  }, []);
 
   const refreshMapBadges = useCallback(async () => {
     if (!user?.id) {
       setMapFriendsByGymId(new Map());
       setMapTotalByGymId(new Map());
+      setBadgesReady(true);
       return;
     }
     try {
-      const {friendsByGymId, totalByGymId} = await loadMapGymBadges(user.id);
+      const fetchStarted = Date.now();
+      const prefetched = takePrefetchedMapGymBadges(user.id);
+      const settled = prefetched ? null : peekSettledMapGymBadges(user.id);
+      const {friendsByGymId, totalByGymId} = settled
+        ? settled
+        : await (prefetched ?? loadMapGymBadges(user.id));
       setMapFriendsByGymId(friendsByGymId);
       setMapTotalByGymId(totalByGymId);
-    } catch {
+      setBadgesReady(true);
+      perfPhase(
+        'map',
+        'badges',
+        `fetchMs=${Date.now() - fetchStarted} gyms=${totalByGymId.size}`,
+      );
+    } catch (e) {
       setMapFriendsByGymId(new Map());
       setMapTotalByGymId(new Map());
+      const message =
+        e instanceof Error
+          ? e.message
+          : e && typeof e === 'object' && 'message' in e
+            ? String((e as {message: unknown}).message)
+            : String(e);
+      perfPhase('map', 'badges_error', message.slice(0, 160));
     }
   }, [user?.id]);
+
+  useEffect(() => {
+    if (!isActive || !mapNativeReady) {
+      return;
+    }
+    perfPhase('map', 'visible');
+  }, [isActive, mapNativeReady]);
 
   useEffect(() => {
     if (!isActive) {
@@ -146,6 +225,9 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
     }
     const mapKey = user?.id ? `map:badges:${user.id}` : 'map:badges:anon';
     if (!isFocusRefreshStale(mapKey, 30_000)) {
+      if (badgesReadyRef.current) {
+        perfPhase('map', 'badges', 'fetchMs=0 cached=1');
+      }
       return;
     }
     void refreshMapBadges();
@@ -203,6 +285,10 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
   const watchIdRef = useRef<number | null>(null);
   const hasCenteredMapOnUserRef = useRef(false);
   const userBrowsingRef = useRef(false);
+  const panGestureStartedRef = useRef(false);
+  const seededRuntimeRef = useRef(false);
+  const userLocationRef = useRef(userLocation);
+  userLocationRef.current = userLocation;
   const pendingProgrammaticRegionRef = useRef<Region | null>(null);
   const seedMapRegionRef = useRef<
     ((region: Region, opts?: {immediate?: boolean}) => void) | null
@@ -427,7 +513,9 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
       userLng: userLocation.longitude,
       favoriteIds: favoriteGymIds,
       limit: 20,
-      gyms: [...mapGyms],
+      gyms: (searchQuery.trim().length > 0 && mapRuntime
+        ? mapRuntime.gyms
+        : EMPTY_GYMS) as DanishGym[],
     });
 
   const searchMatchIds = useMemo(
@@ -435,15 +523,13 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
     [searchHits],
   );
 
-  const allMapCenters = useMemo(
-    () => applyMapCenterBadges(baseMapCenters, mapFriendsByGymId, mapTotalByGymId),
-    [baseMapCenters, mapFriendsByGymId, mapTotalByGymId],
-  );
-
-  const mapCenterById = useMemo(
-    () => new Map(allMapCenters.map(center => [center.id, center])),
-    [allMapCenters],
-  );
+  const mapCenterById = useMemo(() => {
+    const byId = new Map<string, MapCenter>();
+    for (const center of baseMapCenters) {
+      byId.set(center.id, center);
+    }
+    return byId;
+  }, [baseMapCenters]);
 
   /**
    * Discovery-map markers — geography from settled MapView region only.
@@ -452,7 +538,6 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
   const {
     mapDisplayMarkers: viewportLogoMarkers,
     settledMapRegion,
-    markerVisibilityEpoch,
     onRegionChange,
     onRegionChangeComplete,
     seedMapRegion,
@@ -465,12 +550,36 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
   });
   seedMapRegionRef.current = seedMapRegion;
 
-  /** Search overrides browse markers; carousel / GPS never do. */
+  useEffect(() => {
+    if (!mapRuntime || seededRuntimeRef.current) {
+      return;
+    }
+    seededRuntimeRef.current = true;
+    const loc = userLocationRef.current;
+    seedMapRegionRef.current?.(
+      {
+        latitude: loc.latitude,
+        longitude: loc.longitude,
+        latitudeDelta: 0.1,
+        longitudeDelta: 0.1,
+      },
+      {immediate: true},
+    );
+  }, [mapRuntime]);
+
+  /**
+   * Search overrides browse markers; carousel / GPS never do.
+   * Keep the last marker list while the map tab is hidden. Clearing and
+   * reinserting the pins makes AIRMap insert a child past the end of its
+   * subview array and abort the app.
+   */
+  const heldMapMarkersRef = useRef<MapDisplayMarker[]>([]);
   const mapDisplayMarkers: MapDisplayMarker[] = useMemo(() => {
     if (!isActive) {
-      return [];
+      return heldMapMarkersRef.current;
     }
     if (!isSearchActive) {
+      heldMapMarkersRef.current = viewportLogoMarkers;
       return viewportLogoMarkers;
     }
     const matched: MapCenter[] = [];
@@ -487,7 +596,9 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
         matched.push(sel);
       }
     }
-    return matched.map(center => ({kind: 'single' as const, center}));
+    const searchMarkers = matched.map(center => ({kind: 'single' as const, center}));
+    heldMapMarkersRef.current = searchMarkers;
+    return searchMarkers;
   }, [
     isActive,
     isSearchActive,
@@ -498,26 +609,79 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
   ]);
 
   useEffect(() => {
-    if (!__DEV__) {
+    if (!isActive) {
       return;
     }
-    const total = mapGyms.length;
-    const explicit = allMapCenters.filter(c => c.hasExplicitGeocode).length;
+    const count = mapDisplayMarkers.reduce(
+      (n, item) => n + (item.kind === 'single' ? 1 : 0),
+      0,
+    );
+    perfPhase('map', 'markers_js', `count=${count}`);
+    if (mapNativeReady) {
+      perfPhase('map', 'markers_native', `count=${count}`);
+    }
+    if (perfHas('map_pan')) {
+      perfPhase('map_pan', 'markers_js', `count=${count}`);
+      perfPhase('map_pan', 'pan_settled', `count=${count}`);
+      perfEnd('map_pan');
+    }
+    if (!mapNativeReady || count === 0) {
+      return;
+    }
+    const rich = mapDisplayMarkers.reduce((n, item) => {
+      if (item.kind !== 'single') {
+        return n;
+      }
+      if (
+        item.center.totalActiveCount > 0 ||
+        item.center.friendsActiveCount > 0 ||
+        item.center.id === selectedGym?.id
+      ) {
+        return n + 1;
+      }
+      return n;
+    }, 0);
+    if (rich === 0) {
+      perfPhase('map', 'snapshots_done', `count=0 elapsedMs=0 pins=${count}`);
+    }
+  }, [isActive, mapDisplayMarkers, mapNativeReady, selectedGym?.id]);
+
+  useEffect(() => {
+    return subscribeMapSnapshotDrain((count, elapsedMs) => {
+      perfPhase('map', 'snapshots_done', `count=${count} elapsedMs=${elapsedMs}`);
+      if (perfHas('map_pan')) {
+        perfPhase('map_pan', 'snapshots_done', `count=${count} elapsedMs=${elapsedMs}`);
+      }
+    });
+  }, []);
+
+  const mapCatalogWarnedRef = useRef(false);
+  useEffect(() => {
+    if (!__DEV__ || !mapRuntime || mapCatalogWarnedRef.current) {
+      return;
+    }
+    mapCatalogWarnedRef.current = true;
+    const total = mapRuntime.gyms.length;
+    const explicit = mapRuntime.baseCenters.filter(c => c.hasExplicitGeocode).length;
     const approx = total - explicit;
     console.warn(
-      `[Map] Aktive centre: ${total}. Eksplicit lat/lng i JSON: ${explicit}. Post/fallback: ${approx}. Markører: ${allMapCenters.length}.`,
+      `[Map] Aktive centre: ${total}. Eksplicit lat/lng i JSON: ${explicit}. Post/fallback: ${approx}. Markører: ${mapRuntime.baseCenters.length}.`,
     );
     if (approx > 0) {
       console.warn(
         '[Map] Kør: node scripts/geocode-centers.mjs for at skrive rigtige koordinater til centers.json',
       );
     }
-  }, [allMapCenters, mapGyms.length]);
+  }, [mapRuntime]);
 
-  const hasActiveGymsOnMap = useMemo(
-    () => allMapCenters.some(c => c.totalActiveCount > 0),
-    [allMapCenters],
-  );
+  const hasActiveGymsOnMap = useMemo(() => {
+    for (const count of mapTotalByGymId.values()) {
+      if (count > 0) {
+        return true;
+      }
+    }
+    return false;
+  }, [mapTotalByGymId]);
 
   /** Carousel follows browsed viewport markers — not GPS nearby. */
   const nearestCentersForCarousel = useMemo(() => {
@@ -545,7 +709,6 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
       return da - db;
     });
     return ranked.slice(0, 40).map(gym => {
-      const c = mapCenterById.get(gym.id);
       const distanceKm = calculateDistance(
         userLocation.latitude,
         userLocation.longitude,
@@ -558,15 +721,19 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
           distanceKm < 1
             ? `${Math.round(distanceKm * 1000)} m`
             : `${distanceKm.toFixed(1)} km`,
-        totalActiveCount: c?.totalActiveCount ?? 0,
-        friendsActiveCount: c?.friendsActiveCount ?? 0,
+        totalActiveCount: Math.max(
+          mapTotalByGymId.get(gym.id) ?? 0,
+          mapFriendsByGymId.get(gym.id) ?? 0,
+        ),
+        friendsActiveCount: mapFriendsByGymId.get(gym.id) ?? 0,
       };
     });
   }, [
     isActive,
     mapDisplayMarkers,
     mapGymById,
-    mapCenterById,
+    mapFriendsByGymId,
+    mapTotalByGymId,
     settledMapRegion.latitude,
     settledMapRegion.longitude,
     userLocation.latitude,
@@ -578,7 +745,7 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
       return {within5km: [] as DanishGym[], beyond5km: [] as DanishGym[]};
     }
     const pool = pickBrowseGyms({
-      gyms: [...mapGyms],
+      gyms: mapGyms as DanishGym[],
       userLocation,
       cap: 80,
     });
@@ -609,7 +776,7 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
       }
       setSelectedGym(gym);
-      const mc = allMapCenters.find(x => x.id === gym.id);
+      const mc = mapCenterById.get(gym.id);
       const lat = mc?.mapLatitude ?? gym.latitude;
       const lng = mc?.mapLongitude ?? gym.longitude;
       mapRef.current?.animateToRegion(
@@ -622,7 +789,7 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
         400,
       );
     },
-    [allMapCenters],
+    [mapCenterById],
   );
 
   const handleCloseSelection = useCallback(() => {
@@ -658,7 +825,7 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
       if (item.kind !== 'single') {
         return null;
       }
-      const center = item.center;
+      const center = overlayLiveCounts(item.center, mapFriendsByGymId, mapTotalByGymId);
       const gym = mapGymById.get(center.id);
       if (!gym) {
         return null;
@@ -666,45 +833,60 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
       const isSelected = selectedGym?.id === center.id;
       return (
         <MapGymLogoMarker
-          key={`${center.id}:${markerVisibilityEpoch}`}
+          key={center.id}
           center={center}
           gym={gym}
           selected={isSelected}
-          visibilityEpoch={markerVisibilityEpoch}
           onPress={handleSelectGym}
         />
       );
     },
-    [handleSelectGym, mapGymById, markerVisibilityEpoch, selectedGym?.id],
+    [handleSelectGym, mapFriendsByGymId, mapGymById, mapTotalByGymId, selectedGym?.id],
   );
 
   const selectedActivity = useMemo(() => {
     if (!selectedGym) {
       return null;
     }
-    const c = allMapCenters.find(x => x.id === selectedGym.id);
-    return getMapCenterActivity(
-      selectedGym.id,
-      c?.friendsActiveCount ?? 0,
-      c?.totalActiveCount ?? 0,
+    const friendsActiveCount = mapFriendsByGymId.get(selectedGym.id) ?? 0;
+    const totalActiveCount = Math.max(
+      mapTotalByGymId.get(selectedGym.id) ?? 0,
+      friendsActiveCount,
     );
-  }, [selectedGym, allMapCenters]);
+    return getMapCenterActivity(selectedGym.id, friendsActiveCount, totalActiveCount);
+  }, [selectedGym, mapFriendsByGymId, mapTotalByGymId]);
 
   const getActivityForGymId = useCallback(
     (gymId: string) => {
-      const c = allMapCenters.find(x => x.id === gymId);
-      return getMapCenterActivity(
-        gymId,
-        c?.friendsActiveCount ?? 0,
-        c?.totalActiveCount ?? 0,
+      const friendsActiveCount = mapFriendsByGymId.get(gymId) ?? 0;
+      const totalActiveCount = Math.max(
+        mapTotalByGymId.get(gymId) ?? 0,
+        friendsActiveCount,
       );
+      return getMapCenterActivity(gymId, friendsActiveCount, totalActiveCount);
     },
-    [allMapCenters],
+    [mapFriendsByGymId, mapTotalByGymId],
   );
 
   const friendNamesAtSelected = selectedGym
     ? friends.filter(f => f.gymId === selectedGym.id).map(f => f.name)
     : [];
+
+  const mapCenterKm = calculateDistance(
+    settledMapRegion.latitude,
+    settledMapRegion.longitude,
+    userLocation.latitude,
+    userLocation.longitude,
+  );
+  const halfLat = Math.abs(settledMapRegion.latitudeDelta) / 2;
+  const halfLng = Math.abs(settledMapRegion.longitudeDelta) / 2;
+  const userOutsideViewport =
+    halfLat > 0 &&
+    halfLng > 0 &&
+    (Math.abs(settledMapRegion.latitude - userLocation.latitude) > halfLat ||
+      Math.abs(settledMapRegion.longitude - userLocation.longitude) > halfLng);
+  // A wide zoom can still contain the user after a pan into another neighbourhood.
+  const viewportAwayFromUser = userOutsideViewport || mapCenterKm > 0.5;
 
   return (
     <View style={styles.container}>
@@ -725,6 +907,10 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
         onPanDrag={() => {
           userBrowsingRef.current = true;
           setBrowsingAway(true);
+          if (!panGestureStartedRef.current) {
+            panGestureStartedRef.current = true;
+            perfStart('map_pan', 'pan_start');
+          }
           if (followUserMode) {
             setFollowUserMode(false);
           }
@@ -751,11 +937,17 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
             }
           }
           onRegionChangeComplete(normalized);
+          if (panGestureStartedRef.current) {
+            panGestureStartedRef.current = false;
+            perfPhase('map_pan', 'pan_end');
+          }
           if (followUserMode && gesture?.isGesture) {
             setFollowUserMode(false);
           }
         }}
         onMapReady={() => {
+          setMapNativeReady(true);
+          perfPhase('map', 'map_ready');
           if (!hasCenteredMapOnUserRef.current) {
             pendingProgrammaticRegionRef.current = initialRegion;
             mapRef.current?.animateToRegion(initialRegion, 1000);
@@ -789,7 +981,7 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
             </View>
           </View>
         </Marker.Animated>
-        {mapDisplayMarkers.map(renderMapDisplayMarker)}
+        {mapNativeReady ? mapDisplayMarkers.map(renderMapDisplayMarker) : null}
       </MapView>
 
       <SocialSearchBar
@@ -853,6 +1045,7 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
           friendsActiveCount={selectedActivity.friendsActiveCount}
           activityLevel={selectedActivity.activityLevel}
           friendNames={friendNamesAtSelected}
+          activityKnown={badgesReady}
           onClose={handleCloseSelection}
           onViewDetails={() =>
             navigation.navigate('GymDetail', {gymId: selectedGym.id, gym: selectedGym})
@@ -869,7 +1062,8 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
             selectedGymId={selectedGym?.id ?? null}
             onSelectCenter={handleSelectGym}
             hasActiveGyms={hasActiveGymsOnMap}
-            browsingAway={browsingAway}
+            browsingAway={browsingAway || viewportAwayFromUser}
+            activityKnown={badgesReady}
           />
         </View>
       ) : null}
@@ -945,7 +1139,9 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
         <View style={styles.centersBarContent}>
           <View style={styles.centersBarHandle} />
           <Icon name="location" size={18} color={colors.primary} style={styles.centersBarIcon} />
-          <Text style={styles.centersBarText}>{t('map.nearby')}</Text>
+          <Text style={styles.centersBarText}>
+            {t(browsingAway || viewportAwayFromUser ? 'map.inThisArea' : 'map.nearby')}
+          </Text>
         </View>
       </View>
 
@@ -987,20 +1183,22 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
                         <View style={styles.sheetItemInfo}>
                           <Text style={styles.sheetItemName}>{formatGymDisplayName(gym)}</Text>
                           {gym.city && <Text style={styles.sheetItemCity}>{gym.city}</Text>}
-                          <View style={styles.sheetActivity}>
-                            <Icon name="people" size={14} color={colors.secondary} />
-                            <Text style={[styles.sheetActivityText, {color: colors.secondary}]}>
-                              {t('map.activeCount', {
-                                count: String(activity.totalActiveCount),
-                              })}
-                            </Text>
-                            <Icon name="person" size={14} color={colors.primary} style={{marginLeft: 12}} />
-                            <Text style={[styles.sheetActivityText, {color: colors.primary}]}>
-                              {t('map.friendsCount', {
-                                count: String(activity.friendsActiveCount),
-                              })}
-                            </Text>
-                          </View>
+                          {badgesReady ? (
+                            <View style={styles.sheetActivity}>
+                              <Icon name="people" size={14} color={colors.secondary} />
+                              <Text style={[styles.sheetActivityText, {color: colors.secondary}]}>
+                                {t('map.activeCount', {
+                                  count: String(activity.totalActiveCount),
+                                })}
+                              </Text>
+                              <Icon name="person" size={14} color={colors.primary} style={{marginLeft: 12}} />
+                              <Text style={[styles.sheetActivityText, {color: colors.primary}]}>
+                                {t('map.friendsCount', {
+                                  count: String(activity.friendsActiveCount),
+                                })}
+                              </Text>
+                            </View>
+                          ) : null}
                         </View>
                         <View style={styles.sheetItemRight}>
                           <Text style={styles.sheetDistance}>{getDistanceText(gym)}</Text>
@@ -1030,20 +1228,22 @@ const MapScreen = ({isActive = true}: MapScreenProps) => {
                         <View style={styles.sheetItemInfo}>
                           <Text style={styles.sheetItemName}>{formatGymDisplayName(gym)}</Text>
                           {gym.city && <Text style={styles.sheetItemCity}>{gym.city}</Text>}
-                          <View style={styles.sheetActivity}>
-                            <Icon name="people" size={14} color={colors.secondary} />
-                            <Text style={[styles.sheetActivityText, {color: colors.secondary}]}>
-                              {t('map.activeCount', {
-                                count: String(activity.totalActiveCount),
-                              })}
-                            </Text>
-                            <Icon name="person" size={14} color={colors.primary} style={{marginLeft: 12}} />
-                            <Text style={[styles.sheetActivityText, {color: colors.primary}]}>
-                              {t('map.friendsCount', {
-                                count: String(activity.friendsActiveCount),
-                              })}
-                            </Text>
-                          </View>
+                          {badgesReady ? (
+                            <View style={styles.sheetActivity}>
+                              <Icon name="people" size={14} color={colors.secondary} />
+                              <Text style={[styles.sheetActivityText, {color: colors.secondary}]}>
+                                {t('map.activeCount', {
+                                  count: String(activity.totalActiveCount),
+                                })}
+                              </Text>
+                              <Icon name="person" size={14} color={colors.primary} style={{marginLeft: 12}} />
+                              <Text style={[styles.sheetActivityText, {color: colors.primary}]}>
+                                {t('map.friendsCount', {
+                                  count: String(activity.friendsActiveCount),
+                                })}
+                              </Text>
+                            </View>
+                          ) : null}
                         </View>
                         <View style={styles.sheetItemRight}>
                           <Text style={styles.sheetDistance}>{getDistanceText(gym)}</Text>

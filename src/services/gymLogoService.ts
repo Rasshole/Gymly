@@ -1,4 +1,5 @@
 import {normalizeGymBrand} from '@/utils/gymDisplay';
+import {matchBruceBrandLogoKey} from '@/services/bruceBrandLogoRegistry';
 /**
  * Gym logo service — **kun** bundtede, officielle brand-PNG'er.
  * Ingen recolor, ingen Clearbit/remote for centre i master-datasættet.
@@ -13,6 +14,8 @@ export type GymChain =
   | 'arca'
   | 'arcaplanet'
   | 'power_house'
+  | 'energii'
+  | 'inzhape'
   | 'fair_fitness'
   | 'mimogym'
   | 'orange_fitness'
@@ -45,6 +48,12 @@ const LOCAL_LOGO_ASSETS: Partial<Record<GymChain, number>> = {
   /** Official SHC */
   sporting_health_club: require('@/assets/images/brandLogos/shc_logo.png'),
   stc: require('@/assets/images/brandLogos/stc_logo.png'),
+  /** Official Energii mark (energii.dk) */
+  energii: require('@/assets/images/brandLogos/energii_logo.png'),
+  /** Official InZhape wordmark (inzhape.dk) */
+  inzhape: require('@/assets/images/brandLogos/inzhape_logo.png'),
+  /** Official Power House wordmark (powerhousedanmark.dk) — also Power Studio */
+  power_house: require('@/assets/images/brandLogos/power_house_logo.png'),
 };
 
 const DEFAULT_GYMLY = require('@/assets/images/gymly-kettlebell-logo.png');
@@ -63,6 +72,10 @@ const BRAND_KEY_TO_CHAIN: Record<string, GymChain> = {
   stc: 'stc',
   shc: 'sporting_health_club',
   'sporting health club': 'sporting_health_club',
+  energii: 'energii',
+  inzhape: 'inzhape',
+  'power house': 'power_house',
+  powerhouse: 'power_house',
 };
 
 /**
@@ -77,6 +90,32 @@ function chainFromBrandField(brand?: string): GymChain | null {
   return BRAND_KEY_TO_CHAIN[k] ?? null;
 }
 
+/**
+ * Brand fields like "Power House Vejle" / "Power Studio by Power House Aarhus"
+ * should still resolve to the shared Power House asset.
+ */
+function chainFromLooseBrandLabel(brand?: string): GymChain | null {
+  const k = (brand || '').trim().toLowerCase();
+  if (!k) {
+    return null;
+  }
+  if (k === 'energii' || k.startsWith('energii ')) {
+    return 'energii';
+  }
+  if (k === 'inzhape' || k.startsWith('inzhape ')) {
+    return 'inzhape';
+  }
+  if (
+    k === 'power house' ||
+    k.startsWith('power house ') ||
+    k.includes('power studio by power house') ||
+    k.replace(/\s+/g, '') === 'powerhouse'
+  ) {
+    return 'power_house';
+  }
+  return null;
+}
+
 export function detectGymChain(
   brand?: string,
   gymName?: string,
@@ -85,6 +124,28 @@ export function detectGymChain(
   if (fromField) {
     const canonical = normalizeGymBrand(brand);
     return {chain: fromField, displayName: canonical || brand!.trim()};
+  }
+  const fromRegistry = matchBruceBrandLogoKey(brand, gymName);
+  if (fromRegistry) {
+    const display =
+      fromRegistry === 'energii'
+        ? 'Energii'
+        : fromRegistry === 'inzhape'
+          ? 'InZhape'
+          : fromRegistry === 'power_house'
+            ? 'Power House'
+            : 'STC';
+    return {chain: fromRegistry, displayName: display};
+  }
+  const fromLoose = chainFromLooseBrandLabel(brand);
+  if (fromLoose) {
+    const display =
+      fromLoose === 'energii'
+        ? 'Energii'
+        : fromLoose === 'inzhape'
+          ? 'InZhape'
+          : 'Power House';
+    return {chain: fromLoose, displayName: display};
   }
   const raw = (brand || gymName || '').trim().toLowerCase().replace(/[^\w\sæøå-]/g, '');
   const combined = `${raw} ${(gymName || '').trim().toLowerCase()}`;
@@ -102,7 +163,13 @@ export function detectGymChain(
     {pattern: /loop fitness|loopfitness/i, chain: 'loop_fitness', displayName: 'LOOP'},
     {pattern: /arcaplanet/, chain: 'arcaplanet', displayName: 'ARCA'},
     {pattern: /arca(?!planet)/, chain: 'arca', displayName: 'ARCA'},
-    {pattern: /power house|powerhouse/, chain: 'power_house', displayName: 'Power House'},
+    {pattern: /energii/, chain: 'energii', displayName: 'Energii'},
+    {pattern: /inzhape/, chain: 'inzhape', displayName: 'InZhape'},
+    {
+      pattern: /power studio by power house|power house|powerhouse/,
+      chain: 'power_house',
+      displayName: 'Power House',
+    },
     {pattern: /fair fitness|fairfitness/, chain: 'fair_fitness', displayName: 'Fair Fitness'},
     {pattern: /mimogym/, chain: 'mimogym', displayName: 'MimoGym'},
     {pattern: /orange fitness|orangefitness/, chain: 'orange_fitness', displayName: 'Orange Fitness'},
@@ -184,6 +251,15 @@ export function getLogoFallbackInitials(brand?: string, gymName?: string): strin
   }
   if (chain === 'arca' || chain === 'arcaplanet') {
     return 'A';
+  }
+  if (chain === 'energii') {
+    return 'EN';
+  }
+  if (chain === 'inzhape') {
+    return 'IN';
+  }
+  if (chain === 'power_house') {
+    return 'PH';
   }
   if (chain !== 'unknown' && displayName) {
     const initials = displayName

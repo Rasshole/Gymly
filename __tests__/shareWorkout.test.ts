@@ -29,6 +29,7 @@ function basePayload(
     muscleGroupsLabel: 'Chest · Triceps',
     streakDays: 12,
     prs: [],
+    exercises: [],
     ...overrides,
   };
 }

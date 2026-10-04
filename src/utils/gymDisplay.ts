@@ -14,6 +14,13 @@ const BRAND_CANONICAL_MAP: Array<{re: RegExp; value: string}> = [
   {re: /^loop(\s+fitness)?$/i, value: 'LOOP'},
   {re: /^arca$/i, value: 'ARCA'},
   {re: /^(sporting health club|shc)$/i, value: 'Sporting Health Club'},
+  {re: /^energii$/i, value: 'Energii'},
+  {re: /^inzhape$/i, value: 'InZhape'},
+  {re: /^power[\s_]*house$/i, value: 'Power House'},
+  {
+    re: /^power\s+studio\s+by\s+power\s+house/i,
+    value: 'Power House',
+  },
 ];
 
 export function normalizeGymBrand(brand?: string | null): string {
@@ -51,6 +58,41 @@ export function formatGymNameWithBrand(
   }
   const cleanedName = stripLeadingBrandPrefix(rawName, canonicalBrand) || rawName;
   return `${canonicalBrand} — ${cleanedName}`;
+}
+
+/**
+ * True when `city` is already the trailing place segment of the gym display name
+ * (e.g. "SATS — Valby" + city "Valby") so UI should not append it again.
+ */
+export function gymNameAlreadyIncludesCity(
+  gymDisplayName: string,
+  city?: string | null,
+): boolean {
+  const c = (city ?? '').trim().toLowerCase();
+  if (!c) {
+    return false;
+  }
+  const n = gymDisplayName.trim().toLowerCase();
+  if (!n) {
+    return false;
+  }
+  const parts = n.split(/\s*[—–\-]\s*/).map(p => p.trim()).filter(Boolean);
+  const last = parts[parts.length - 1] ?? '';
+  return last === c || n.endsWith(` ${c}`) || n === c;
+}
+
+/** Gym line + optional city for “trains often” — skips duplicate city. */
+export function formatTrainsOftenGymAndCity(
+  name?: string | null,
+  brand?: string | null,
+  city?: string | null,
+): {gym: string; city?: string} {
+  const gym = formatGymNameWithBrand(name, brand);
+  const tail = (city ?? '').trim();
+  if (!tail || gymNameAlreadyIncludesCity(gym, tail)) {
+    return {gym};
+  }
+  return {gym, city: tail};
 }
 
 export const formatGymDisplayName = (gym?: DanishGym | null) => {
@@ -287,4 +329,75 @@ export function resolveGymOrStub(
     findGymByIdRelaxed(centerId) ??
     unresolvedGymStub(centerId, storedName)
   );
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Compact gym address: street + "postal city", without repeating postal/city
+ * when they are already embedded in the street line.
+ */
+export function formatCompactGymAddress(input: {
+  street?: string | null;
+  postalCode?: string | null;
+  city?: string | null;
+  fallback?: string | null;
+}): string {
+  const postal = (input.postalCode ?? '').trim();
+  const city = (input.city ?? '').trim();
+  let street = (input.street ?? '').trim();
+
+  if (street && postal && city) {
+    const patterns = [
+      new RegExp(
+        `,\\s*${escapeRegExp(postal)}\\s*,\\s*${escapeRegExp(city)}\\s*$`,
+        'i',
+      ),
+      new RegExp(
+        `,\\s*${escapeRegExp(postal)}\\s+${escapeRegExp(city)}\\s*$`,
+        'i',
+      ),
+      new RegExp(
+        `\\s+${escapeRegExp(postal)}\\s*,\\s*${escapeRegExp(city)}\\s*$`,
+        'i',
+      ),
+      new RegExp(
+        `\\s+${escapeRegExp(postal)}\\s+${escapeRegExp(city)}\\s*$`,
+        'i',
+      ),
+    ];
+    for (const re of patterns) {
+      street = street.replace(re, '').trim();
+    }
+  }
+  if (street && city) {
+    street = street
+      .replace(new RegExp(`,\\s*${escapeRegExp(city)}\\s*$`, 'i'), '')
+      .trim();
+  }
+
+  const locality = [postal, city].filter(Boolean).join(' ');
+  const parts = [street, locality].filter(Boolean);
+  if (parts.length > 0) {
+    return parts.join(', ');
+  }
+  return (input.fallback ?? '').trim();
+}
+
+/** Prefer structured DanishGym / _center fields for a compact one-line address. */
+export function formatCompactAddressForGym(
+  gym: DanishGym | null | undefined,
+  fallback?: string | null,
+): string {
+  if (!gym) {
+    return (fallback ?? '').trim();
+  }
+  return formatCompactGymAddress({
+    street: gym.address ?? gym._center?.address,
+    postalCode: gym.postalCode ?? gym._center?.postal_code,
+    city: gym.city ?? gym._center?.city,
+    fallback,
+  });
 }

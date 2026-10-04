@@ -4,6 +4,7 @@
  */
 
 import type {DetectedPersonalRecord} from '@/types/personalRecord.types';
+import type {WorkoutExercise} from '@/types/workoutLog.types';
 
 export type ShareWorkoutTemplate = 'summary' | 'pr' | 'streak';
 
@@ -52,6 +53,8 @@ export type ShareWorkoutPayload = {
   /** Current active streak days (0 = none) */
   streakDays: number;
   prs: ShareWorkoutPrItem[];
+  /** Saved exercises for the expandable log. Not used by the story export card. */
+  exercises: WorkoutExercise[];
 };
 
 export type ShareWorkoutEditorState = {

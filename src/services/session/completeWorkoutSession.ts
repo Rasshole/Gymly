@@ -3,6 +3,7 @@ import {
   getActiveCheckInForUser,
 } from '@/services/supabase/checkInService';
 import {completeGymlyGroupParticipant} from '@/services/supabase/gymlyGroupSessionService';
+import {enqueueGroupParticipantCompletes} from '@/services/supabase/pendingGroupParticipantComplete';
 import {deleteMyLiveWorkoutSession} from '@/services/supabase/liveWorkoutSessionService';
 import {cleanupAllGymlyLiveActivities} from '@/services/ios/workoutLiveActivity';
 import {notifyCheckInsPresenceSubscribers} from '@/realtime/checkInsPresenceSubscription';
@@ -90,7 +91,7 @@ export async function completeWorkoutSession(params: {
       try {
         await completeGymlyGroupParticipant(resolvedCheckInId);
       } catch {
-        /* group session optional */
+        await enqueueGroupParticipantCompletes([resolvedCheckInId]);
       }
     }
   }

@@ -16,17 +16,15 @@ import {
   Pressable,
   Platform,
 } from 'react-native';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation, useRoute} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {ComposeMessageFab} from '@/components/messages/ComposeMessageFab';
 import {useChatStore, Chat, ChatMessage} from '@/store/chatStore';
 import {CURRENT_USER_PLACEHOLDER_ID} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
-import {isDemoContentMode} from '@/demo/demoContentGate';
 import {getInitialChats, getInitialMessages} from '@/services/data';
-import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
 import {sortChatsByLastActivity} from '@/utils/chatListSort';
-import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
+import {useDmInboxUnreadSync} from '@/hooks/useDmInboxUnreadSync';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {useFormatRelativeTime} from '@/hooks/useFormatRelativeTime';
 import {useOptionalBottomTabBarHeight} from '@/hooks/useOptionalBottomTabBarHeight';
@@ -36,10 +34,12 @@ import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
 import {safeDisplayName} from '@/utils/displayName';
 import {getMessagePreview} from '@/utils/dmMessagePreview';
 import colors from '@/theme/colors';
-import {spacing, radius, typography, shadows} from '@/theme/designTokens';
+import {spacing, radius, typography} from '@/theme/designTokens';
 import {EmptyState} from '@/components/ui/EmptyState';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import {shouldShowMessagesInlineTitle} from '@/screens/main/messagesPresentation';
+import SayHiRequestsSheet from '@/components/social/SayHiRequestsSheet';
+import {listIncomingSayHiRequests} from '@/services/supabase/sayHiService';
 
 type ConversationItem = {
   id: string;
@@ -134,31 +134,6 @@ function previewForListMessage(
   return isMine ? t('messages.youPrefix', {message: body}) : body;
 }
 
-/** Seneste besked til listen: chat.lastMessage eller sidste i tråden */
-function getLastMessageInThread(
-  chat: Chat,
-  messagesByChat: Record<string, ChatMessage[] | undefined>,
-): ChatMessage | undefined {
-  if (chat.lastMessage) {
-    return chat.lastMessage;
-  }
-  const msgs = messagesByChat[chat.id];
-  if (msgs?.length) {
-    return msgs[msgs.length - 1];
-  }
-  return undefined;
-}
-
-function getChatListPreview(
-  chat: Chat,
-  messagesByChat: Record<string, ChatMessage[] | undefined>,
-  myId: string | undefined,
-  t: (path: string, params?: Record<string, string | number>) => string,
-): string {
-  const last = getLastMessageInThread(chat, messagesByChat);
-  return previewForListMessage(last, myId, t);
-}
-
 function formatLastSeenText(
   lastSeenAt: number | undefined,
   t: (path: string, params?: Record<string, string | number>) => string,
@@ -175,48 +150,38 @@ function formatLastSeenText(
   return t('messages.lastSeenHours', {hours});
 }
 
-const FriendRequestsBanner = ({onPress}: {onPress: () => void}) => {
+const FriendRequestsBanner = ({
+  onPress,
+  pendingCount,
+  title,
+  iconName = 'person-add-outline',
+}: {
+  onPress: () => void;
+  pendingCount: number;
+  title?: string;
+  iconName?: string;
+}) => {
   const {t} = useTranslation();
-  const opacity = useRef(new Animated.Value(0)).current;
-  const translateY = useRef(new Animated.Value(6)).current;
-
-  useEffect(() => {
-    Animated.parallel([
-      Animated.timing(opacity, {
-        toValue: 1,
-        duration: 340,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }),
-      Animated.timing(translateY, {
-        toValue: 0,
-        duration: 340,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, [opacity, translateY]);
 
   return (
-    <Pressable onPress={onPress} accessibilityRole="button">
-      <Animated.View
-        style={[
-          styles.unreadStrip,
-          {opacity, transform: [{translateY}]},
-        ]}>
-        <View style={styles.unreadStripIconWrap}>
-          <Icon name="person-add" size={16} color={colors.primary} />
-        </View>
-        <View style={styles.friendRequestsBannerText}>
-          <Text style={styles.friendRequestsBannerTitle}>
-            {t('messages.friendRequestsTitle')}
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      style={({pressed}) => [styles.friendRequestsRow, pressed && styles.friendRequestsRowPressed]}>
+      <View style={styles.friendRequestsIconWrap}>
+        <Icon name={iconName} size={16} color={colors.primary} />
+      </View>
+      <Text style={styles.friendRequestsBannerTitle} numberOfLines={1}>
+        {title ?? t('messages.friendRequestsTitle')}
+      </Text>
+      {pendingCount > 0 ? (
+        <View style={styles.friendRequestsCountBadge}>
+          <Text style={styles.friendRequestsCountText}>
+            {pendingCount > 99 ? '99+' : pendingCount}
           </Text>
-          <Text style={styles.friendRequestsBannerSubtitle}>
-            {t('messages.friendRequestsSubtitle')}
-          </Text>
         </View>
-        <Icon name="chevron-forward" size={18} color={colors.textMuted} />
-      </Animated.View>
+      ) : null}
+      <Icon name="chevron-forward" size={16} color={colors.textMuted} />
     </Pressable>
   );
 };
@@ -274,14 +239,11 @@ const ConversationRow = ({item, presence, onPress}: ConversationRowProps) => {
           {transform: [{scale}]},
         ]}>
         <View style={styles.avatarWrapper}>
-          <View style={[styles.avatarRing, isUnread && styles.avatarRingUnread]}>
-            <UserAvatar
-              name={safeDisplayName(item.name)}
-              imageUrl={item.avatar}
-              size="lg"
-            />
-            <View style={styles.avatarSheen} pointerEvents="none" />
-          </View>
+          <UserAvatar
+            name={safeDisplayName(item.name)}
+            imageUrl={item.avatar}
+            size="lg"
+          />
           {(presence?.isActive || trainingNow) && <View style={styles.activeDot} />}
           {isUnread ? (
             <View style={styles.unreadBadge}>
@@ -317,7 +279,6 @@ const ConversationRow = ({item, presence, onPress}: ConversationRowProps) => {
             </Text>
           )}
         </View>
-        <Icon name="chevron-forward" size={18} color={colors.textMuted} />
       </Animated.View>
     </Pressable>
   );
@@ -364,49 +325,57 @@ const TypingDots = () => {
 
 const MessagesScreen = () => {
   const navigation = useNavigation<any>();
+  const route = useRoute<any>();
   const {t} = useTranslation();
   const formatRelativeTime = useFormatRelativeTime();
   const chats = useChatStore(s => s.chats);
   const seedChatsFromInitial = useChatStore(s => s.seedChatsFromInitial);
   const markChatAsRead = useChatStore(s => s.markChatAsRead);
-  const messagesByChat = useChatStore(s => s.messagesByChat);
   const pendingFriendRequests = useNotificationStore(
     s => s.incomingFriendRequestCount,
   );
   const openFriendRequestsSheet = usePendingFriendRequestStore(s => s.openSheet);
+  const [sayHiOpen, setSayHiOpen] = useState(false);
+  const [sayHiCount, setSayHiCount] = useState(0);
+  const [focusSayHiId, setFocusSayHiId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (route.params?.openSayHi) {
+      setSayHiOpen(true);
+      if (route.params?.sayHiRequestId) {
+        setFocusSayHiId(String(route.params.sayHiRequestId));
+      }
+      navigation.setParams?.({openSayHi: undefined, sayHiRequestId: undefined});
+    }
+  }, [route.params?.openSayHi, route.params?.sayHiRequestId, navigation]);
+
+  const refreshSayHiCount = useCallback(async () => {
+    try {
+      const {requests, backendUnavailable} = await listIncomingSayHiRequests();
+      setSayHiCount(backendUnavailable ? 0 : requests.length);
+    } catch {
+      setSayHiCount(0);
+    }
+  }, []);
   const dmPresenceByUser = useChatStore(s => s.dmPresenceByUser);
   const upsertDmPresence = useChatStore(s => s.upsertDmPresence);
-  const {user} = useAppStore();
+  const user = useAppStore(s => s.user);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
   const tabBarHeight = useOptionalBottomTabBarHeight();
   const fabBottom = tabBarHeight + spacing.md;
-  const listBottomPad = fabBottom + 72;
+  const listBottomPad = fabBottom + 64;
+
+  // Inbox unread → chatStore (shared with header badge). Does not mark messages read.
+  useDmInboxUnreadSync();
 
   useFocusEffect(
     useCallback(() => {
       if (!user?.id) {
         return;
       }
-      const inboxKey = `messages:inbox:${user.id}`;
-      if (!isFocusRefreshStale(inboxKey, 30_000)) {
-        return;
-      }
-      void (async () => {
-        try {
-          if (isDemoContentMode()) {
-            return;
-          }
-          await syncDmInboxToStore(
-            user.id,
-            user.displayName?.trim() || t('common.you'),
-          );
-          markFocusRefreshed(inboxKey);
-        } catch {
-          // offline / RLS: ignore; liste viser cache
-        }
-      })();
-    }, [user?.id, user?.displayName, t]),
+      void refreshSayHiCount();
+    }, [user?.id, refreshSayHiCount]),
   );
 
   useEffect(() => {
@@ -428,13 +397,8 @@ const MessagesScreen = () => {
       .map((chat) => ({
         id: chat.id,
         name: safeDisplayName(getConversationTitle(chat, meId, meName)),
-        lastMessage: getChatListPreview(chat, messagesByChat, meId, t),
-        timestamp: (() => {
-          const last = getLastMessageInThread(chat, messagesByChat);
-          return last
-            ? formatRelativeTime(last.timestamp)
-            : formatRelativeTime(chat.lastActivity);
-        })(),
+        lastMessage: previewForListMessage(chat.lastMessage, meId, t),
+        timestamp: formatRelativeTime(chat.lastMessage?.timestamp ?? chat.lastActivity),
         unreadCount: chat.unreadCount,
         participantIds: chat.participantIds,
         participants: chat.participantNames,
@@ -456,7 +420,7 @@ const MessagesScreen = () => {
           item.lastMessage.toLowerCase().includes(q)
         );
       });
-  }, [chats, searchQuery, user?.id, user?.displayName, messagesByChat, t, formatRelativeTime]);
+  }, [chats, searchQuery, user?.id, user?.displayName, t, formatRelativeTime]);
 
   const presenceTargets = useMemo(() => {
     const meId = user?.id;
@@ -577,12 +541,11 @@ const MessagesScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        {shouldShowMessagesInlineTitle('stack') ? (
+      {shouldShowMessagesInlineTitle('stack') ? (
+        <View style={styles.header}>
           <Text style={styles.headerTitle}>{t('messages.title')}</Text>
-        ) : null}
-        <Text style={styles.headerSubtitle}>{t('messages.subtitle')}</Text>
-      </View>
+        </View>
+      ) : null}
 
       {chats.length > 0 ? (
         <View
@@ -592,7 +555,7 @@ const MessagesScreen = () => {
           ]}>
           <Icon
             name="search"
-            size={19}
+            size={17}
             color={searchFocused ? colors.primary : colors.textMuted}
             style={styles.searchIcon}
           />
@@ -610,7 +573,7 @@ const MessagesScreen = () => {
             <TouchableOpacity
               onPress={() => setSearchQuery('')}
               hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-              <Icon name="close-circle" size={20} color={colors.textMuted} />
+              <Icon name="close-circle" size={18} color={colors.textMuted} />
             </TouchableOpacity>
           ) : null}
         </View>
@@ -625,10 +588,20 @@ const MessagesScreen = () => {
             ? [styles.emptyContainer, {paddingBottom: listBottomPad}]
             : [styles.list, {paddingBottom: listBottomPad}]
         }
+        ItemSeparatorComponent={() => <View style={styles.rowSeparator} />}
         ListHeaderComponent={
-          pendingFriendRequests > 0 ? (
-            <FriendRequestsBanner onPress={openFriendRequestsSheet} />
-          ) : null
+          <View>
+            <FriendRequestsBanner
+              onPress={openFriendRequestsSheet}
+              pendingCount={pendingFriendRequests}
+            />
+            <FriendRequestsBanner
+              onPress={() => setSayHiOpen(true)}
+              pendingCount={sayHiCount}
+              title={t('sayHi.inboxTitle')}
+              iconName="hand-left-outline"
+            />
+          </View>
         }
         ListEmptyComponent={
           <EmptyState
@@ -647,6 +620,15 @@ const MessagesScreen = () => {
         right={spacing.lg}
         onPress={() => navigation.navigate('NewMessage')}
       />
+      <SayHiRequestsSheet
+        visible={sayHiOpen}
+        onClose={() => {
+          setSayHiOpen(false);
+          setFocusSayHiId(null);
+          void refreshSayHiCount();
+        }}
+        focusRequestId={focusSayHiId}
+      />
     </View>
   );
 };
@@ -658,21 +640,15 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.md,
+    paddingTop: spacing.md,
+    paddingBottom: spacing.xs,
     backgroundColor: colors.background,
   },
   headerTitle: {
-    fontSize: 26,
-    fontWeight: '800',
-    letterSpacing: -0.4,
+    fontSize: 22,
+    fontWeight: '700',
+    letterSpacing: -0.3,
     color: colors.text,
-  },
-  headerSubtitle: {
-    ...typography.small,
-    color: colors.textSecondary,
-    marginTop: 5,
-    lineHeight: 20,
   },
   searchWrapper: {
     flexDirection: 'row',
@@ -681,152 +657,91 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
     marginBottom: spacing.xs,
     paddingHorizontal: spacing.md,
-    minHeight: 48,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.xl,
-    borderWidth: 1,
-    borderColor: colors.border,
-    ...shadows.sm,
+    minHeight: 40,
+    backgroundColor: colors.surfaceLight ?? colors.border + '55',
+    borderRadius: radius.md,
   },
   searchWrapperFocused: {
-    borderColor: colors.primary + '55',
     backgroundColor: colors.white,
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 0},
-        shadowOpacity: 0.14,
-        shadowRadius: 10,
-      },
-      android: {elevation: 3},
-    }),
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
   },
   searchIcon: {
     marginRight: spacing.sm,
   },
-  unreadStrip: {
+  friendRequestsRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    marginBottom: spacing.md,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.md,
-    backgroundColor: colors.primary + '0A',
-    borderRadius: radius.xl,
-    borderWidth: 1,
-    borderColor: colors.primary + '22',
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.1,
-        shadowRadius: 10,
-      },
-      android: {elevation: 2},
-    }),
+    paddingVertical: spacing.sm + 2,
+    paddingHorizontal: spacing.xs,
+    marginBottom: spacing.xs,
   },
-  unreadStripIconWrap: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: colors.primary + '18',
+  friendRequestsRowPressed: {
+    opacity: 0.7,
+  },
+  friendRequestsIconWrap: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: colors.primary + '14',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  friendRequestsBannerText: {
+  friendRequestsBannerTitle: {
+    ...typography.body,
+    color: colors.text,
+    fontWeight: '600',
     flex: 1,
     minWidth: 0,
   },
-  friendRequestsBannerTitle: {
-    ...typography.small,
-    color: colors.text,
-    fontWeight: '700',
-    lineHeight: 19,
+  friendRequestsCountBadge: {
+    minWidth: 20,
+    height: 20,
+    borderRadius: 10,
+    paddingHorizontal: 6,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  friendRequestsBannerSubtitle: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginTop: 2,
-    lineHeight: 17,
+  friendRequestsCountText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: colors.white,
+    lineHeight: 13,
   },
   searchInput: {
     flex: 1,
     ...typography.body,
     color: colors.text,
-    paddingVertical: Platform.OS === 'ios' ? 12 : 8,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 6,
     padding: 0,
   },
   list: {
     paddingHorizontal: spacing.lg,
-    paddingTop: spacing.sm,
+    paddingTop: spacing.xs,
   },
   emptyContainer: {
     flexGrow: 1,
+  },
+  rowSeparator: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: colors.border,
+    marginLeft: 64,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: spacing.md,
-    paddingHorizontal: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    marginBottom: spacing.sm,
-    borderRadius: radius.xl,
-    borderWidth: 1,
-    borderColor: colors.border + 'CC',
-    ...shadows.sm,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#0F172A',
-        shadowOffset: {width: 0, height: 3},
-        shadowOpacity: 0.06,
-        shadowRadius: 10,
-      },
-      android: {elevation: 2},
-    }),
+    paddingHorizontal: 0,
+    backgroundColor: 'transparent',
   },
   rowUnread: {
-    backgroundColor: colors.primary + '07',
-    borderColor: colors.primary + '40',
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.12,
-        shadowRadius: 12,
-      },
-      android: {elevation: 3},
-    }),
+    backgroundColor: 'transparent',
   },
   avatarWrapper: {
     position: 'relative',
     marginRight: spacing.md,
-  },
-  avatarRing: {
-    borderRadius: 999,
-    padding: 2,
-    overflow: 'hidden',
-    backgroundColor: colors.primaryLight,
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.18,
-        shadowRadius: 6,
-      },
-      android: {elevation: 2},
-    }),
-  },
-  avatarRingUnread: {
-    backgroundColor: colors.primary,
-  },
-  avatarSheen: {
-    position: 'absolute',
-    top: 4,
-    left: 8,
-    right: 8,
-    height: 14,
-    borderRadius: 10,
-    backgroundColor: 'rgba(255,255,255,0.22)',
   },
   activeDot: {
     position: 'absolute',
@@ -837,7 +752,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     backgroundColor: colors.success,
     borderWidth: 2,
-    borderColor: colors.backgroundCard,
+    borderColor: colors.background,
   },
   unreadBadge: {
     position: 'absolute',
@@ -851,16 +766,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 5,
     borderWidth: 2,
-    borderColor: colors.backgroundCard,
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primaryDark,
-        shadowOffset: {width: 0, height: 1},
-        shadowOpacity: 0.35,
-        shadowRadius: 3,
-      },
-      android: {elevation: 3},
-    }),
+    borderColor: colors.background,
   },
   unreadText: {
     fontSize: 10,
@@ -871,7 +777,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     minWidth: 0,
-    marginRight: spacing.xs,
   },
   rowHeader: {
     flexDirection: 'row',
@@ -881,13 +786,13 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '500',
     color: colors.text,
     flex: 1,
     letterSpacing: -0.2,
   },
   nameUnread: {
-    fontWeight: '800',
+    fontWeight: '700',
     color: colors.text,
   },
   timestamp: {
@@ -897,7 +802,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   timestampUnread: {
-    color: colors.primaryDark,
+    color: colors.primary,
     fontWeight: '600',
   },
   preview: {

@@ -11,7 +11,6 @@ import {presentLocationProminentDisclosure} from '@/services/location/locationDi
 import {
   getLocationPermissionStatus,
   isLocationAuthorized,
-  requestBackgroundLocationOsPermission,
   requestLocationPermission,
   type LocationPermissionStatus,
 } from '@/services/location/locationPermission';
@@ -50,18 +49,9 @@ export async function requestLocationPermissionWithDisclosureIfNeeded(): Promise
 }
 
 /**
- * Active workout: disclosure (if needed) → fine location → background location.
+ * Active workout: disclosure (if needed) → fine / when-in-use location.
+ * Does not request continuous background / Always permission (resume-based auto-checkout).
  */
 export async function requestBackgroundLocationWithDisclosureIfNeeded(): Promise<LocationPermissionStatus> {
-  const fine = await requestLocationPermissionWithDisclosureIfNeeded();
-  if (!isLocationAuthorized(fine)) {
-    return fine;
-  }
-
-  const accepted = await ensureProminentDisclosureAccepted();
-  if (!accepted) {
-    return fine;
-  }
-
-  return requestBackgroundLocationOsPermission();
+  return requestLocationPermissionWithDisclosureIfNeeded();
 }

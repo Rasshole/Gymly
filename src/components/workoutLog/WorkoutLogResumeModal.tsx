@@ -8,7 +8,6 @@ import {
   Text,
   StyleSheet,
   Modal,
-  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -59,22 +58,13 @@ const WorkoutLogResumeModal: React.FC<WorkoutLogResumeModalProps> = ({
         <View style={styles.card}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={styles.title}>{t('workoutLog.resumeTitle')}</Text>
-            <View style={styles.stats}>
-              <View style={styles.stat}>
-                <Text style={styles.statValue}>{summary.exerciseCount}</Text>
-                <Text style={styles.statLabel}>{t('workoutLog.exercises')}</Text>
-              </View>
-              <View style={styles.stat}>
-                <Text style={styles.statValue}>{summary.setCount}</Text>
-                <Text style={styles.statLabel}>{t('workoutLog.sets')}</Text>
-              </View>
-              <View style={styles.stat}>
-                <Text style={styles.statValue} numberOfLines={1} adjustsFontSizeToFit>
-                  {formatVolumeKg(summary.totalVolumeKg)}
-                </Text>
-                <Text style={styles.statLabel}>{t('workoutLog.volume')}</Text>
-              </View>
-            </View>
+            <Text style={styles.summaryLine}>
+              {t('workoutHistory.summaryLine', {
+                exercises: summary.exerciseCount,
+                sets: summary.setCount,
+                volume: formatVolumeKg(summary.totalVolumeKg),
+              })}
+            </Text>
             <Text style={styles.duration}>
               {formatWorkoutDuration(summary.durationMinutes)}
             </Text>
@@ -145,9 +135,6 @@ const WorkoutLogResumeModal: React.FC<WorkoutLogResumeModalProps> = ({
             variant={onShareWorkout ? 'flat' : 'premium'}
             style={onShareWorkout ? {marginTop: spacing.sm} : undefined}
           />
-          <TouchableOpacity onPress={onDone} style={styles.skip}>
-            <Text style={styles.skipText}>{t('common.close')}</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </Modal>
@@ -174,29 +161,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: spacing.lg,
   },
-  stats: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-    marginBottom: spacing.md,
-  },
-  stat: {
-    flex: 1,
-    backgroundColor: colors.background,
-    borderRadius: radius.lg,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.sm,
-    alignItems: 'center',
-  },
-  statValue: {
-    ...typography.h4,
-    color: colors.primaryDark,
-    fontWeight: '800',
-  },
-  statLabel: {
-    ...typography.caption,
-    color: colors.textMuted,
-    marginTop: 4,
-    fontWeight: '600',
+  summaryLine: {
+    ...typography.body,
+    color: colors.text,
+    textAlign: 'center',
+    fontWeight: '700',
+    marginBottom: spacing.xs,
   },
   duration: {
     ...typography.body,
@@ -253,8 +223,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 4,
   },
-  skip: {alignItems: 'center', marginTop: spacing.md},
-  skipText: {...typography.small, color: colors.textMuted},
 });
 
 export default WorkoutLogResumeModal;

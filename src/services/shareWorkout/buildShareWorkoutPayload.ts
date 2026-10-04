@@ -65,5 +65,6 @@ export async function buildShareWorkoutPayload(params: {
     ),
     streakDays,
     prs,
+    exercises: detail.exercises,
   };
 }

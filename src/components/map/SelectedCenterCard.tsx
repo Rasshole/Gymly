@@ -21,6 +21,8 @@ export interface SelectedCenterCardProps {
   friendsActiveCount: number;
   activityLevel: ActivityLevel;
   friendNames?: string[];
+  /** False while live counts are still loading — do not show an empty check-in result. */
+  activityKnown?: boolean;
   onClose: () => void;
   onViewDetails: () => void;
 }
@@ -35,6 +37,7 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
   friendsActiveCount,
   activityLevel,
   friendNames = [],
+  activityKnown = true,
   onClose,
   onViewDetails,
 }) => {
@@ -110,9 +113,9 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
               </Text>
             </View>
           </>
-        ) : (
+        ) : activityKnown ? (
           <Text style={styles.activityEmpty}>{t('map.noOneCheckedIn')}</Text>
-        )}
+        ) : null}
       </View>
 
       {friendNames.length > 0 && (

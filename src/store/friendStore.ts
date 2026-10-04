@@ -5,12 +5,13 @@ import {
   type PublicProfile,
 } from '@/services/supabase/friendService';
 import {isDemoContentMode} from '@/demo/demoContentGate';
-import {buildDemoPayload} from '@/demo/buildDemoPayload';
 
 type FriendState = {
   friends: PublicProfile[];
   friendIds: Set<string>;
   loading: boolean;
+  /** True when this user has no successful friend snapshot yet and the last load failed. */
+  loadError: boolean;
   lastLoadedUserId: string | null;
   version: number;
   load: (userId: string) => Promise<void>;
@@ -23,6 +24,7 @@ export const useFriendStore = create<FriendState>((set, get) => ({
   friends: [],
   friendIds: new Set(),
   loading: false,
+  loadError: false,
   lastLoadedUserId: null,
   version: 0,
 
@@ -32,22 +34,33 @@ export const useFriendStore = create<FriendState>((set, get) => ({
         friends: [],
         friendIds: new Set(),
         lastLoadedUserId: null,
+        loadError: false,
         version: get().version + 1,
       });
       return;
     }
     if (isDemoContentMode()) {
+      const {buildDemoPayload} =
+        require('@/demo/buildDemoPayload') as typeof import('@/demo/buildDemoPayload');
       const d = buildDemoPayload(userId);
       set({
         friends: d.friends,
         friendIds: new Set(d.friends.map(f => f.id)),
         lastLoadedUserId: userId,
+        loadError: false,
         version: get().version + 1,
         loading: false,
       });
       return;
     }
-    set({loading: true});
+    const switchingUser = get().lastLoadedUserId !== userId;
+    set({
+      loading: true,
+      loadError: false,
+      ...(switchingUser
+        ? {friends: [], friendIds: new Set(), lastLoadedUserId: null}
+        : {}),
+    });
     try {
       const list = await listFriendsWithProfiles(userId);
       const friendIds = new Set(list.map(f => f.id));
@@ -55,11 +68,16 @@ export const useFriendStore = create<FriendState>((set, get) => ({
         friends: list,
         friendIds,
         lastLoadedUserId: userId,
+        loadError: false,
         version: get().version + 1,
         loading: false,
       });
     } catch {
-      set({loading: false});
+      const hadSnapshot = get().lastLoadedUserId === userId;
+      set({
+        loading: false,
+        loadError: !hadSnapshot,
+      });
     }
   },
 
@@ -94,6 +112,8 @@ export const useFriendStore = create<FriendState>((set, get) => ({
       friends: [],
       friendIds: new Set(),
       lastLoadedUserId: null,
+      loadError: false,
+      loading: false,
       version: 0,
     }),
 

@@ -18,6 +18,7 @@ import {supabase} from '@/services/supabase/supabaseClient';
 import {getLocalDateString} from '@/utils/streakUtils';
 import {SUPABASE_PASSWORD_RESET_REDIRECT} from '@/config/supabaseConfig';
 import {User as SupabaseUser} from '@supabase/supabase-js';
+import {assertPasswordPolicy} from '@/services/auth/passwordPolicy';
 import {normalizeDanishPhone} from '@/utils/phoneUtils';
 import {
   getUsernameFormatErrorDa,
@@ -28,6 +29,7 @@ import {mergeProfileUsernameIntoUser} from '@/services/supabase/friendService';
 import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
 import {fetchUserHomeGymIds} from '@/services/supabase/homeGymsService';
 import {persistUserHomeGyms} from '@/services/supabase/userCentersService';
+import {displayNameFromAuthMetadata, firstUsableDisplayName} from '@/utils/displayName';
 
 class AuthService {
   private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
@@ -99,11 +101,19 @@ class AuthService {
         : typeof weightRaw === 'string' && weightRaw.trim() !== ''
           ? Number(weightRaw)
           : undefined;
+    // Provider fields actually seen from Google/Apple → Supabase metadata:
+    // Google: full_name, name, given_name, family_name (never use email).
+    // Apple: full_name / given_name / family_name when first authorized; often absent later.
+    const metaDisplayName = displayNameFromAuthMetadata(metadata);
+    const metaUsername =
+      typeof metadata.username === 'string' && metadata.username.trim()
+        ? metadata.username.trim()
+        : 'gymly_user';
     return {
       id: user.id,
       email: user.email || '',
-      username: metadata.username || user.email?.split('@')[0] || 'gymly_user',
-      displayName: metadata.displayName || metadata.display_name || user.email || 'Gymly User',
+      username: metaUsername,
+      displayName: metaDisplayName ?? '',
       phoneNumber:
         typeof metadata.phoneNumber === 'string' ? metadata.phoneNumber : undefined,
       profileImageUrl: metadata.profileImageUrl,
@@ -143,7 +153,10 @@ class AuthService {
       createdAt: user.created_at ? new Date(user.created_at) : now,
       updatedAt: now,
       lastLoginAt: now,
-    };
+      ...(metadata.gymlyOnboardingComplete === true
+        ? ({_rawOnboardingComplete: true} as {_rawOnboardingComplete: true})
+        : {}),
+    } as User;
   }
 
   /**
@@ -323,6 +336,7 @@ class AuthService {
                 allowFriendRequests: true,
                 showOnlineStatus: true,
               },
+              gymlyOnboardingComplete: true,
             },
           },
         });
@@ -405,32 +419,33 @@ class AuthService {
       const tokens = this.mapSessionTokens(session);
       if (user.id) {
         const gymIds = (data.favoriteGyms ?? []).filter(Boolean);
-        if (gymIds.length === 0) {
-          throw new Error('Select at least one home gym to continue');
-        }
-        try {
-          if (__DEV__) {
-            console.log('[homeGyms] Auth.register_save_start', {userId: user.id, gymIds});
+        if (gymIds.length > 0) {
+          try {
+            if (__DEV__) {
+              console.log('[homeGyms] Auth.register_save_start', {userId: user.id, gymIds});
+            }
+            const savedIds = await persistUserHomeGyms(user.id, gymIds);
+            user = {...user, favoriteGyms: savedIds, updatedAt: new Date()};
+            emitProfileCentersChanged(user.id);
+            if (__DEV__) {
+              console.log('[homeGyms] Auth.register_save_success', {userId: user.id, savedIds});
+            }
+          } catch (gymErr) {
+            logAuthDebug('[AuthService] persistUserHomeGyms after register', gymErr);
+            if (__DEV__) {
+              console.warn('[homeGyms] Auth.register_save_failed', {
+                userId: user.id,
+                message: gymErr instanceof Error ? gymErr.message : String(gymErr),
+              });
+            }
+            throw new Error(
+              gymErr instanceof Error
+                ? gymErr.message
+                : 'Could not save your home gyms. Check your connection and try again.',
+            );
           }
-          const savedIds = await persistUserHomeGyms(user.id, gymIds);
-          user = {...user, favoriteGyms: savedIds, updatedAt: new Date()};
-          emitProfileCentersChanged(user.id);
-          if (__DEV__) {
-            console.log('[homeGyms] Auth.register_save_success', {userId: user.id, savedIds});
-          }
-        } catch (gymErr) {
-          logAuthDebug('[AuthService] persistUserHomeGyms after register', gymErr);
-          if (__DEV__) {
-            console.warn('[homeGyms] Auth.register_save_failed', {
-              userId: user.id,
-              message: gymErr instanceof Error ? gymErr.message : String(gymErr),
-            });
-          }
-          throw new Error(
-            gymErr instanceof Error
-              ? gymErr.message
-              : 'Could not save your home gyms. Check your connection and try again.',
-          );
+        } else {
+          user = {...user, favoriteGyms: [], updatedAt: new Date()};
         }
       }
       await SecureStorage.saveTokens(tokens);
@@ -599,7 +614,9 @@ class AuthService {
     this.validateEmail(data.email);
     this.validatePassword(data.password);
     this.validateUsername(data.username);
-    this.validatePhoneNumber(data.phoneNumber);
+    if (data.phoneNumber && String(data.phoneNumber).trim()) {
+      this.validatePhoneNumber(data.phoneNumber);
+    }
 
     if (!data.displayName || data.displayName.length < 2) {
       throw new Error('Navn skal være mindst 2 tegn');
@@ -628,21 +645,7 @@ class AuthService {
    * Validate password
    */
   private validatePassword(password: string): void {
-    if (password.length < 8) {
-      throw new Error('Adgangskoden skal være mindst 8 tegn');
-    }
-
-    if (!/[A-Z]/.test(password)) {
-      throw new Error('Adgangskoden skal indeholde mindst ét stort bogstav');
-    }
-
-    if (!/[a-z]/.test(password)) {
-      throw new Error('Adgangskoden skal indeholde mindst ét lille bogstav');
-    }
-
-    if (!/[0-9]/.test(password)) {
-      throw new Error('Adgangskoden skal indeholde mindst ét tal');
-    }
+    assertPasswordPolicy(password);
   }
 
   private validatePhoneNumber(phone: string): void {
@@ -666,13 +669,17 @@ class AuthService {
   }
 
   /**
-   * Sign in with Apple (iOS only)
-   * Uses Apple Authentication Services - name/email come from Apple, never ask again (Guideline 4)
+   * Sign in with Apple (iOS only).
+   * Full name/email may only arrive on first authorization — persist once, never overwrite later Gymly edits.
    */
   async signInWithApple(): Promise<AuthResponse> {
     if (Platform.OS !== 'ios') {
       throw new Error('Sign in with Apple er kun tilgængelig på iOS');
     }
+    const {
+      SocialAuthCancelledError,
+    } = require('@/services/auth/socialAuthErrors') as typeof import('@/services/auth/socialAuthErrors');
+    const {ensureGymlyProfile} = require('@/services/onboarding/ensureGymlyProfile') as typeof import('@/services/onboarding/ensureGymlyProfile');
     try {
       const appleAuth = require('@invertase/react-native-apple-authentication').default;
       if (!appleAuth.isSupported) {
@@ -685,7 +692,7 @@ class AuthService {
           appleAuth.Scope.FULL_NAME,
           appleAuth.Scope.EMAIL,
         ],
-        nonceEnabled: false, // Supabase nonce mismatch: id_token must not contain nonce when we don't pass one
+        nonceEnabled: false,
       });
 
       if (!credential.identityToken) {
@@ -697,47 +704,260 @@ class AuthService {
         token: credential.identityToken,
       });
 
-      if (error) throw new Error(error.message);
-      if (!data.session || !data.user) throw new Error('Kunne ikke logge ind med Apple');
+      if (error) {
+        throw new Error(error.message);
+      }
+      if (!data.session || !data.user) {
+        throw new Error('Kunne ikke logge ind med Apple');
+      }
 
-      // Apple only provides fullName on first sign-in - save to metadata
-      if (credential.fullName) {
-        const nameParts = [
-          credential.fullName.givenName,
-          credential.fullName.familyName,
-        ].filter(Boolean);
-        const fullName = nameParts.join(' ');
+      const given = credential.fullName?.givenName || undefined;
+      const family = credential.fullName?.familyName || undefined;
+      const fullName = firstUsableDisplayName(
+        [given, family].filter(Boolean).join(' '),
+      );
+      const meta = data.user.user_metadata || {};
+      const alreadyHasName = Boolean(
+        firstUsableDisplayName(
+          typeof meta.displayName === 'string' ? meta.displayName : undefined,
+          typeof meta.display_name === 'string' ? meta.display_name : undefined,
+          typeof meta.full_name === 'string' ? meta.full_name : undefined,
+        ),
+      );
+
+      if (fullName && !alreadyHasName) {
         await supabase.auth.updateUser({
           data: {
             full_name: fullName,
-            given_name: credential.fullName.givenName,
-            family_name: credential.fullName.familyName,
+            given_name: given,
+            family_name: family,
+            displayName: fullName,
           },
         });
+        const refreshed = await supabase.auth.getUser();
+        if (refreshed.data.user) {
+          data.user = refreshed.data.user;
+        }
       }
 
-      const user = this.mapSupabaseUser(data.user);
+      let user = await mergeProfileUsernameIntoUser(this.mapSupabaseUser(data.user));
+      user = await ensureGymlyProfile(user, {
+        displayName: fullName || undefined,
+        givenName: given,
+        familyName: family,
+      });
       const tokens = this.mapSessionTokens(data.session);
       await SecureStorage.saveTokens(tokens);
       await SecureStorage.saveUserData(user);
-
       return {user, tokens};
     } catch (error: any) {
       if (error?.code === 'ERR_REQUEST_CANCELED') {
-        throw new Error('Apple-login blev annulleret');
+        throw new SocialAuthCancelledError('apple');
       }
-      console.error('Apple sign in error:', error);
+      if (__DEV__) {
+        console.warn('Apple sign in error:', error?.message || error);
+      }
       throw error;
     }
   }
 
   /**
-   * Social login (Apple/Google)
-   * For Apple: uses signInWithApple() - never pass or ask for name/email
+   * Sign in with Google via native Google Sign-In → Supabase id_token.
+   * Requires GOOGLE_WEB_CLIENT_ID (and iOS client id) in native env — see MANUAL_SETUP.
+   */
+  async signInWithGoogle(): Promise<AuthResponse> {
+    const {
+      SocialAuthCancelledError,
+    } = require('@/services/auth/socialAuthErrors') as typeof import('@/services/auth/socialAuthErrors');
+    const {ensureGymlyProfile} = require('@/services/onboarding/ensureGymlyProfile') as typeof import('@/services/onboarding/ensureGymlyProfile');
+    const {
+      getGoogleWebClientId,
+      getGoogleIosClientId,
+      isGoogleSignInConfigured,
+    } = require('@/config/googleAuthConfig') as typeof import('@/config/googleAuthConfig');
+
+    if (!isGoogleSignInConfigured()) {
+      // Stable code for UI localization — never expose env key names to users.
+      throw new Error('GOOGLE_SIGN_IN_NOT_CONFIGURED');
+    }
+
+    let statusCodes: {SIGN_IN_CANCELLED?: string} | undefined;
+    try {
+      const googleSignIn = require('@react-native-google-signin/google-signin');
+      const {GoogleSignin} = googleSignIn;
+      statusCodes = googleSignIn.statusCodes;
+      GoogleSignin.configure({
+        webClientId: getGoogleWebClientId(),
+        iosClientId: getGoogleIosClientId() || undefined,
+        offlineAccess: false,
+      });
+      await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
+      const response = await GoogleSignin.signIn();
+      const idToken =
+        response?.data?.idToken ??
+        response?.idToken ??
+        null;
+      if (!idToken) {
+        throw new Error('Google returnerede ikke et id-token');
+      }
+
+      const {data, error} = await supabase.auth.signInWithIdToken({
+        provider: 'google',
+        token: idToken,
+      });
+      if (error) {
+        throw new Error(error.message);
+      }
+      if (!data.session || !data.user) {
+        throw new Error('Kunne ikke logge ind med Google');
+      }
+
+      const meta = data.user.user_metadata || {};
+      const providerName = firstUsableDisplayName(
+        typeof meta.full_name === 'string' ? meta.full_name : undefined,
+        typeof meta.name === 'string' ? meta.name : undefined,
+        [meta.given_name, meta.family_name]
+          .filter((p): p is string => typeof p === 'string' && p.trim().length > 0)
+          .join(' '),
+      );
+      const avatar =
+        typeof meta.avatar_url === 'string'
+          ? meta.avatar_url
+          : typeof meta.picture === 'string'
+            ? meta.picture
+            : undefined;
+
+      let user = await mergeProfileUsernameIntoUser(this.mapSupabaseUser(data.user));
+      user = await ensureGymlyProfile(user, {
+        displayName: providerName,
+        avatarUrl: avatar,
+      });
+      const tokens = this.mapSessionTokens(data.session);
+      await SecureStorage.saveTokens(tokens);
+      await SecureStorage.saveUserData(user);
+      return {user, tokens};
+    } catch (error: any) {
+      const cancelled =
+        error instanceof SocialAuthCancelledError ||
+        error?.code === 'SIGN_IN_CANCELLED' ||
+        error?.code === statusCodes?.SIGN_IN_CANCELLED ||
+        (typeof error?.message === 'string' &&
+          /cancel|annuller/i.test(error.message));
+      if (cancelled) {
+        throw new SocialAuthCancelledError('google');
+      }
+      if (__DEV__) {
+        console.warn('Google sign in error:', error?.message || error);
+      }
+      throw error;
+    }
+  }
+
+  /**
+   * Persist remaining Gymly onboarding fields for an already-authenticated user.
+   */
+  async completeGymlyOnboarding(
+    data: Omit<UserRegistration, 'email' | 'password'> & {email?: string},
+  ): Promise<User> {
+    const {
+      data: {user: authUser},
+    } = await supabase.auth.getUser();
+    if (!authUser) {
+      throw new Error('Ingen aktiv session');
+    }
+
+    const normalizedUsername = normalizeUsernameForStorage(data.username);
+    this.validateUsername(normalizedUsername);
+    const usernameFree = await isUsernameAvailableInSupabase(
+      normalizedUsername,
+      authUser.id,
+    );
+    if (!usernameFree) {
+      throw new Error('Brugernavn er allerede taget');
+    }
+
+    const gymIds = (data.favoriteGyms ?? []).filter(Boolean);
+
+    const {error: updateError} = await supabase.auth.updateUser({
+      data: {
+        username: normalizedUsername,
+        phoneNumber: data.phoneNumber,
+        displayName: data.displayName,
+        bicepsEmoji: data.bicepsEmoji || '💪🏻',
+        favoriteGyms: gymIds,
+        profileImageUrl: data.profileImageUrl,
+        bio: data.bio,
+        birthYear: data.birthYear,
+        dateOfBirth: data.dateOfBirth,
+        trainingGoal: data.trainingGoal,
+        gdprConsent: {
+          ...data.gdprConsent,
+          dataRetentionConsent: true,
+          locationTrackingConsent:
+            data.gdprConsent.locationTrackingConsent ?? false,
+          consentDate: new Date().toISOString(),
+          privacyPolicyVersion: '1.0.0',
+          termsOfServiceVersion: '1.0.0',
+          consentHistory: [],
+        },
+        gymlyOnboardingComplete: true,
+      },
+    });
+    if (updateError) {
+      throw new Error(this.humanizeAuthMessage(updateError.message));
+    }
+
+    const {
+      data: {user: refreshed},
+    } = await supabase.auth.getUser();
+    let user = await mergeProfileUsernameIntoUser(
+      this.mapSupabaseUser(refreshed ?? authUser),
+    );
+    user = {
+      ...user,
+      username: normalizedUsername,
+      displayName: data.displayName,
+      phoneNumber: data.phoneNumber,
+      bicepsEmoji: data.bicepsEmoji || '💪🏻',
+      bio: data.bio,
+      birthYear: data.birthYear,
+      dateOfBirth: data.dateOfBirth
+        ? new Date(data.dateOfBirth)
+        : user.dateOfBirth,
+      trainingGoal: data.trainingGoal,
+      profileImageUrl: data.profileImageUrl ?? user.profileImageUrl,
+      usernameRequiresChange: false,
+      gdprConsent: {
+        ...user.gdprConsent,
+        privacyPolicyAccepted: data.gdprConsent.privacyPolicyAccepted,
+        termsOfServiceAccepted: data.gdprConsent.termsOfServiceAccepted,
+        marketingConsent: data.gdprConsent.marketingConsent,
+        analyticsConsent: data.gdprConsent.analyticsConsent,
+        locationTrackingConsent:
+          data.gdprConsent.locationTrackingConsent ?? false,
+        dataRetentionConsent: true,
+      },
+    };
+
+    const {upsertMyProfile} = require('@/services/supabase/friendService') as typeof import('@/services/supabase/friendService');
+    await upsertMyProfile(user);
+    if (gymIds.length > 0) {
+      const savedIds = await persistUserHomeGyms(user.id, gymIds);
+      user = {...user, favoriteGyms: savedIds, updatedAt: new Date()};
+      emitProfileCentersChanged(user.id);
+    } else {
+      user = {...user, favoriteGyms: [], updatedAt: new Date()};
+    }
+    await SecureStorage.saveUserData(user);
+    return user;
+  }
+
+  /**
+   * Social login (Apple/Google) — establishes session only; Gymly onboarding is separate.
    */
   async socialLogin(
     provider: 'apple' | 'google',
-    data?: {
+    _data?: {
       firstName?: string;
       lastName?: string;
       email?: string;
@@ -749,55 +969,10 @@ class AuthService {
     if (provider === 'apple') {
       return this.signInWithApple();
     }
-    // Google: TODO implement with Supabase OAuth
-    try {
-      const mockUser: User = {
-        id: Date.now().toString(),
-        email: data?.email || `${provider}@example.com`,
-        username: data?.username || data?.email?.split('@')[0] || `${provider}user`,
-        displayName: data?.firstName && data?.lastName
-          ? `${data.firstName} ${data.lastName}`
-          : data?.email?.split('@')[0] || '',
-        bicepsEmoji: data?.bicepsEmoji || '💪',
-        favoriteGyms: data?.favoriteGyms,
-        privacySettings: {
-          profileVisibility: 'friends',
-          locationSharingEnabled: true,
-          showWorkoutHistory: true,
-          allowFriendRequests: true,
-          showOnlineStatus: true,
-        },
-        gdprConsent: {
-          privacyPolicyAccepted: true,
-          termsOfServiceAccepted: true,
-          dataRetentionConsent: true,
-          marketingConsent: false,
-          analyticsConsent: false,
-          locationTrackingConsent: false,
-          consentDate: new Date(),
-          privacyPolicyVersion: '1.0.0',
-          termsOfServiceVersion: '1.0.0',
-          consentHistory: [],
-        },
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        lastLoginAt: new Date(),
-      };
-
-      const mockTokens: AuthTokens = {
-        accessToken: this.generateMockToken(),
-        refreshToken: this.generateMockToken(),
-        expiresAt: Date.now() + 3600000,
-      };
-
-      await SecureStorage.saveTokens(mockTokens);
-      await SecureStorage.saveUserData(mockUser);
-
-      return {user: mockUser, tokens: mockTokens};
-    } catch (error) {
-      console.error('Social login error:', error);
-      throw error;
+    if (provider === 'google') {
+      return this.signInWithGoogle();
     }
+    throw new Error('Ukendt login-udbyder');
   }
 
   /**

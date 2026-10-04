@@ -2,10 +2,17 @@
  * Location permission — iOS/Android status is source of truth.
  * Geolocation is configured with skipPermissionRequests so getCurrentPosition
  * never triggers the system dialog; only explicit request* calls may prompt.
+ *
+ * Production auto-checkout is resume-based (evaluate when the app is active).
+ * We therefore request when-in-use / fine location only — not ACCESS_BACKGROUND_LOCATION
+ * and not continuous closed-app tracking.
  */
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Geolocation from '@react-native-community/geolocation';
 import {Alert, Linking, PermissionsAndroid, Platform} from 'react-native';
 import {rt} from '@/i18n';
+
+const LAST_USER_FIX_KEY = 'gymly.lastUserFix.v1';
 
 export type LocationPermissionStatus =
   | 'notDetermined'
@@ -16,18 +23,50 @@ export type LocationPermissionStatus =
   | 'unavailable';
 
 let geolocationConfigured = false;
-let activeWorkoutTrackingEnabled = false;
+
+let lastUserFix: {latitude: number; longitude: number} | null = null;
+
+export function peekLastUserFix(): {latitude: number; longitude: number} | null {
+  return lastUserFix;
+}
+
+export function rememberUserFix(latitude: number, longitude: number): void {
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+    return;
+  }
+  lastUserFix = {latitude, longitude};
+  void AsyncStorage.setItem(LAST_USER_FIX_KEY, `${latitude},${longitude}`).catch(() => {});
+}
+
+/** Load the last fix into memory and start a fresh reading. Safe at app launch. */
+export function warmLastUserFix(): void {
+  void AsyncStorage.getItem(LAST_USER_FIX_KEY)
+    .then(raw => {
+      if (!raw || lastUserFix) {
+        return;
+      }
+      const [latRaw, lngRaw] = raw.split(',');
+      const latitude = Number(latRaw);
+      const longitude = Number(lngRaw);
+      if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+        return;
+      }
+      lastUserFix = {latitude, longitude};
+    })
+    .catch(() => {});
+  void getLocationPermissionStatus().catch(() => {});
+}
 
 export function configureGeolocationForPermissionSafety(): void {
-  if (geolocationConfigured && !activeWorkoutTrackingEnabled) {
+  if (geolocationConfigured) {
     return;
   }
   geolocationConfigured = true;
   try {
     Geolocation.setRNConfiguration({
       skipPermissionRequests: true,
-      authorizationLevel: activeWorkoutTrackingEnabled ? 'always' : 'whenInUse',
-      enableBackgroundLocationUpdates: activeWorkoutTrackingEnabled,
+      authorizationLevel: 'whenInUse',
+      enableBackgroundLocationUpdates: false,
     });
   } catch (e) {
     if (__DEV__) {
@@ -36,78 +75,39 @@ export function configureGeolocationForPermissionSafety(): void {
   }
 }
 
-/** Aktiv træning: tillad GPS i baggrunden til auto-tjek-ud. */
-export function configureGeolocationForActiveWorkoutTracking(enabled: boolean): void {
-  if (activeWorkoutTrackingEnabled === enabled) {
-    return;
-  }
-  activeWorkoutTrackingEnabled = enabled;
+/**
+ * Kept for call-site compatibility during active workouts.
+ * Does not enable continuous background location (resume-based auto-checkout only).
+ */
+export function configureGeolocationForActiveWorkoutTracking(_enabled: boolean): void {
   geolocationConfigured = false;
   configureGeolocationForPermissionSafety();
 }
 
 export async function requestBackgroundLocationForActiveWorkout(): Promise<LocationPermissionStatus> {
-  // Route through disclosure gate (background access must be disclosed first).
+  // Route through disclosure gate, then ensure when-in-use (no Always / background).
   const {
     requestBackgroundLocationWithDisclosureIfNeeded,
   } = require('./requestLocationWithDisclosure') as typeof import('./requestLocationWithDisclosure');
   return requestBackgroundLocationWithDisclosureIfNeeded();
 }
 
-/** OS-level background location request — call only after prominent disclosure Agree. */
+/**
+ * Ensures location permission for active-workout auto-checkout.
+ * Does NOT request ACCESS_BACKGROUND_LOCATION / Always — production checkout runs
+ * while the app is open or when it becomes active again.
+ */
 export async function requestBackgroundLocationOsPermission(): Promise<LocationPermissionStatus> {
   configureGeolocationForActiveWorkoutTracking(true);
 
-  if (Platform.OS === 'android') {
-    try {
-      const fineGranted = await PermissionsAndroid.check(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      );
-      if (!fineGranted) {
-        return requestLocationPermission();
-      }
-      const bgGranted = await PermissionsAndroid.check(
-        PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
-      );
-      if (bgGranted) {
-        return 'authorizedAlways';
-      }
-      const result = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
-        {
-          title: rt('permissions.androidBackgroundTitle'),
-          message: rt('permissions.androidRationaleMessage'),
-          buttonNeutral: rt('permissions.androidLater'),
-          buttonNegative: rt('common.cancel'),
-          buttonPositive: rt('common.ok'),
-        },
-      );
-      return result === PermissionsAndroid.RESULTS.GRANTED
-        ? 'authorizedAlways'
-        : 'authorizedWhenInUse';
-    } catch {
-      return getLocationPermissionStatus();
-    }
-  }
-
   const current = await getLocationPermissionStatus();
-  if (current === 'authorizedAlways') {
+  if (isLocationAuthorized(current)) {
+    return current === 'authorizedAlways' ? 'authorizedWhenInUse' : current;
+  }
+  if (current === 'denied' || current === 'restricted') {
     return current;
   }
-  if (current !== 'authorizedWhenInUse' && current !== 'notDetermined') {
-    return current;
-  }
-
-  return new Promise(resolve => {
-    Geolocation.requestAuthorization(
-      () => {
-        void getLocationPermissionStatus().then(resolve);
-      },
-      () => {
-        void getLocationPermissionStatus().then(resolve);
-      },
-    );
-  });
+  return requestLocationPermission();
 }
 
 export function isLocationAuthorized(status: LocationPermissionStatus): boolean {
@@ -144,7 +144,10 @@ function probeIosLocationPermissionStatus(): Promise<LocationPermissionStatus> {
     const timer = setTimeout(() => finish('notDetermined'), 1200);
 
     Geolocation.getCurrentPosition(
-      () => finish('authorizedWhenInUse'),
+      position => {
+        rememberUserFix(position.coords.latitude, position.coords.longitude);
+        finish('authorizedWhenInUse');
+      },
       err => {
         if (err?.code === 1) {
           finish('denied');

@@ -5,6 +5,7 @@
 import React, {useMemo, useState, useEffect} from 'react';
 import {View, Image, Text, StyleSheet, ViewStyle, ActivityIndicator} from 'react-native';
 import colors from '@/theme/colors';
+import {avatarInitialsFromDisplayName} from '@/utils/displayName';
 
 type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 const sizeMap = {xs: 24, sm: 32, md: 40, lg: 64, xl: 96};
@@ -33,12 +34,7 @@ const Avatar: React.FC<AvatarProps> = ({
     setImageFailed(false);
     setImageLoaded(false);
   }, [normalizedUrl]);
-  const initials = name
-    .split(' ')
-    .map(n => n[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
+  const initials = avatarInitialsFromDisplayName(name);
 
   if (normalizedUrl && !imageFailed) {
     return (

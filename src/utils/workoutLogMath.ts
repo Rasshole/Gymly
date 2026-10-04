@@ -36,7 +36,7 @@ export function computeWorkoutVolumeKg(exercises: WorkoutExercise[]): number {
       if (s.weightKg == null || s.reps == null) {
         continue;
       }
-      if (s.weightKg < 0 || s.reps < 1) {
+      if (s.weightKg < 0 || s.reps < 1 || s.failed) {
         continue;
       }
       total += s.weightKg * s.reps;
@@ -50,7 +50,9 @@ export function summarizeWorkoutLog(
   exercises: WorkoutExercise[],
   durationMinutes: number,
 ): WorkoutLogSummary {
-  const withSets = exercises.filter(e => e.sets.length > 0);
+  const withSets = exercises
+    .map(e => ({...e, sets: e.sets.filter(s => !s.failed)}))
+    .filter(e => e.sets.length > 0);
   return {
     sessionId,
     exerciseCount: withSets.length,

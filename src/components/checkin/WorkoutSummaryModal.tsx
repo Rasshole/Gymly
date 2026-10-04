@@ -346,6 +346,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
 
             <View style={styles.section}>
               <TouchableOpacity
+                testID="workout-summary-share-toggle"
                 style={styles.toggleRow}
                 onPress={() => setShareToFeed(!shareToFeed)}
                 activeOpacity={0.8}>
@@ -363,6 +364,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
 
             <View style={styles.buttons}>
               <TouchableOpacity
+                testID="workout-summary-finish"
                 style={[styles.primaryButton, submitting && styles.primaryButtonDisabled]}
                 onPress={handleFinish}
                 activeOpacity={0.8}

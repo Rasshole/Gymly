@@ -8,6 +8,7 @@ import type {Chat, ChatMessage, PlannedWorkoutDmEmbed} from '@/store/chatStore';
 import {withAvatarCacheBust} from '../../utils/avatar';
 import {safeDisplayName} from '@/utils/displayName';
 import {getMessagePreview} from '@/utils/dmMessagePreview';
+import {chronologicalFromNewestQuery} from '@/utils/chatThreadList';
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -24,12 +25,19 @@ export type DmMessageRow = {
   image_url: string | null;
   created_at: string;
   read_at?: string | null;
+  delivered_at?: string | null;
+  client_send_id?: string | null;
+  edited_at?: string | null;
+  reply_to_id?: string | null;
+  reactions?: Record<string, string> | null;
 };
 
 const GYM_PLAN_INVITE_PREFIX = '[GYM_PLAN_INVITE]';
 const GYM_PLAN_STATUS_PREFIX = '[GYM_PLAN_STATUS]';
 
 /** Kolonner inkl. read receipts (kræver migration på dm_messages). */
+const DM_MESSAGE_SELECT_FULL =
+  'id, thread_id, sender_id, body, image_url, created_at, read_at, delivered_at, client_send_id, edited_at, reply_to_id, reactions';
 const DM_MESSAGE_SELECT_WITH_READ = 'id, thread_id, sender_id, body, image_url, created_at, read_at';
 const DM_MESSAGE_SELECT_LEGACY = 'id, thread_id, sender_id, body, image_url, created_at';
 
@@ -41,10 +49,22 @@ function postgresErrorText(err: unknown): string {
   return [e.message, e.details, e.hint, e.code].filter(Boolean).join(' ');
 }
 
-function isReadReceiptColumnError(err: unknown): boolean {
+function isMissingColumnError(err: unknown, column: string): boolean {
   const t = postgresErrorText(err).toLowerCase();
   return (
-    t.includes('read_at') &&
+    t.includes(column) &&
+    /does not exist|schema cache|unknown column|42703|pgrst204/i.test(t)
+  );
+}
+
+function isReadReceiptColumnError(err: unknown): boolean {
+  return isMissingColumnError(err, 'read_at');
+}
+
+function isDmIdentityColumnError(err: unknown): boolean {
+  const t = postgresErrorText(err).toLowerCase();
+  return (
+    /client_send_id|edited_at|reply_to_id|reactions|delivered_at/.test(t) &&
     /does not exist|schema cache|unknown column|42703|pgrst204/i.test(t)
   );
 }
@@ -77,11 +97,24 @@ function logDmService(context: string, err: unknown) {
   console.warn(`[dm] ${context}:`, postgresErrorText(err));
 }
 
+function reactionsFromRow(value: unknown): Record<string, string> | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    return undefined;
+  }
+  const out: Record<string, string> = {};
+  for (const [key, emoji] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof emoji === 'string' && emoji) {
+      out[key] = emoji;
+    }
+  }
+  return Object.keys(out).length ? out : undefined;
+}
+
 async function fetchDmMessageRowById(
   messageId: string,
   threadId: string,
 ): Promise<DmMessageRow> {
-  for (const cols of [DM_MESSAGE_SELECT_WITH_READ, DM_MESSAGE_SELECT_LEGACY]) {
+  for (const cols of [DM_MESSAGE_SELECT_FULL, DM_MESSAGE_SELECT_WITH_READ, DM_MESSAGE_SELECT_LEGACY]) {
     const {data, error} = await supabase
       .from('dm_messages')
       .select(cols)
@@ -91,7 +124,7 @@ async function fetchDmMessageRowById(
     if (!error && data) {
       return data as DmMessageRow;
     }
-    if (error && !isReadReceiptColumnError(error)) {
+    if (error && !isReadReceiptColumnError(error) && !isDmIdentityColumnError(error)) {
       throw new Error(userFacingDmError(error));
     }
   }
@@ -174,6 +207,11 @@ export function messageFromDmRow(row: DmMessageRow): ChatMessage {
     imageUri: row.image_url?.trim() || undefined,
     plannedWorkoutEmbed: parsed.plannedWorkoutEmbed,
     readAt: row.read_at ? new Date(row.read_at) : undefined,
+    deliveredAt: row.delivered_at ? new Date(row.delivered_at) : undefined,
+    clientSendId: row.client_send_id ?? undefined,
+    editedAt: row.edited_at ? new Date(row.edited_at) : undefined,
+    replyToId: row.reply_to_id ?? undefined,
+    reactions: reactionsFromRow(row.reactions),
   };
 }
 
@@ -225,11 +263,30 @@ export async function getOrCreateDmThread(otherUserId: string): Promise<string> 
   return data;
 }
 
+/** Find eksisterende tråd uden at kræve venskab (fx accepteret say-hi). */
+export async function findDmThreadWith(
+  otherUserId: string,
+): Promise<string | null> {
+  const {data, error} = await supabase.rpc('find_dm_thread_with', {
+    p_other: otherUserId,
+  });
+  if (error) {
+    if (/could not find the function|42883|schema cache/i.test(error.message)) {
+      return null;
+    }
+    throw new Error(rpcErrorToMessage(error.message));
+  }
+  if (typeof data === 'string' && isDmThreadId(data)) {
+    return data;
+  }
+  return null;
+}
+
 export type SendDmResult = {message: ChatMessage; row: DmMessageRow};
 
 export async function sendDmMessage(
   threadId: string,
-  input: {body: string; imageUrl?: string | null},
+  input: {body: string; imageUrl?: string | null; clientSendId?: string; replyToId?: string | null},
 ): Promise<SendDmResult> {
   const body = (input.body || '').trim();
   const imageUrl = (input.imageUrl || '').trim() || null;
@@ -242,21 +299,54 @@ export async function sendDmMessage(
     throw new Error('Ikke logget ind');
   }
 
-  const {data: inserted, error: insertErr} = await supabase
-    .from('dm_messages')
-    .insert({
-      thread_id: threadId,
-      sender_id: uid,
-      body: body || null,
-      image_url: imageUrl,
-    })
-    .select('id')
-    .single();
+  const payload: Record<string, unknown> = {
+    thread_id: threadId,
+    sender_id: uid,
+    body: body || null,
+    image_url: imageUrl,
+  };
+  if (input.clientSendId) {
+    payload.client_send_id = input.clientSendId;
+  }
+  if (input.replyToId) {
+    payload.reply_to_id = input.replyToId;
+  }
 
-  if (insertErr) {
+  let insertedId: string | null = null;
+  let insertErr: unknown = null;
+  {
+    const res = await supabase.from('dm_messages').insert(payload).select('id').single();
+    insertedId = res.data?.id ?? null;
+    insertErr = res.error;
+  }
+  if (insertErr && input.clientSendId && isDmIdentityColumnError(insertErr)) {
+    const {client_send_id: _c, reply_to_id: _r, ...legacy} = payload;
+    const res = await supabase.from('dm_messages').insert(legacy).select('id').single();
+    insertedId = res.data?.id ?? null;
+    insertErr = res.error;
+  }
+  if (
+    insertErr &&
+    input.clientSendId &&
+    /23505|duplicate|client_send/i.test(postgresErrorText(insertErr))
+  ) {
+    const {data: existing} = await supabase
+      .from('dm_messages')
+      .select('id')
+      .eq('thread_id', threadId)
+      .eq('sender_id', uid)
+      .eq('client_send_id', input.clientSendId)
+      .maybeSingle();
+    insertedId = existing?.id ?? null;
+    if (insertedId) {
+      insertErr = null;
+    }
+  }
+
+  if (insertErr || !insertedId) {
     throw new Error(userFacingDmError(insertErr));
   }
-  const row = await fetchDmMessageRowById(inserted.id, threadId);
+  const row = await fetchDmMessageRowById(insertedId, threadId);
   // Trigger on dm_messages should create a `notifications` row for recipient.
   // Fallback: if row exists, call send-push directly to avoid missing webhook dispatch.
   setTimeout(async () => {
@@ -324,28 +414,76 @@ export async function sendDmMessage(
 
 export async function fetchDmMessages(
   threadId: string,
-  options: {limit?: number} = {},
+  options: {limit?: number; before?: string} = {},
 ): Promise<ChatMessage[]> {
-  const limit = Math.min(options.limit ?? 100, 200);
-  let {data, error} = await supabase
-    .from('dm_messages')
-    .select(DM_MESSAGE_SELECT_WITH_READ)
-    .eq('thread_id', threadId)
-    .order('created_at', {ascending: true})
-    .limit(limit);
+  const limit = Math.min(options.limit ?? 40, 80);
+  const run = (cols: string) => {
+    let query = supabase
+      .from('dm_messages')
+      .select(cols)
+      .eq('thread_id', threadId)
+      .order('created_at', {ascending: false})
+      .limit(limit);
+    if (options.before) {
+      query = query.lt('created_at', options.before);
+    }
+    return query;
+  };
+  // Newest page, then flipped to oldest-first. Ascending + limit kept the oldest page.
+  let {data, error} = await run(DM_MESSAGE_SELECT_FULL);
+  if (error && isDmIdentityColumnError(error)) {
+    ({data, error} = await run(DM_MESSAGE_SELECT_WITH_READ));
+  }
   if (error && isReadReceiptColumnError(error)) {
     logDmService('fetchDmMessages: retry without read_at', error);
-    ({data, error} = await supabase
-      .from('dm_messages')
-      .select(DM_MESSAGE_SELECT_LEGACY)
-      .eq('thread_id', threadId)
-      .order('created_at', {ascending: true})
-      .limit(limit));
+    ({data, error} = await run(DM_MESSAGE_SELECT_LEGACY));
   }
   if (error) {
     throw new Error(userFacingDmError(error, 'Kunne ikke hente beskeder.'));
   }
-  return (data as DmMessageRow[]).map(mapRowToMessage);
+  return chronologicalFromNewestQuery((data as DmMessageRow[]).map(mapRowToMessage));
+}
+
+function rowFromEditRpc(data: unknown): DmMessageRow | null {
+  const value = Array.isArray(data) ? data[0] : data;
+  if (!value || typeof value !== 'object') {
+    return null;
+  }
+  const record = value as Record<string, unknown>;
+  if (typeof record.id === 'string' && typeof record.created_at === 'string') {
+    return record as unknown as DmMessageRow;
+  }
+  const nested = record.edit_dm_message;
+  if (nested && typeof nested === 'object') {
+    return rowFromEditRpc(nested);
+  }
+  return null;
+}
+
+export async function editDmMessage(messageId: string, body: string): Promise<ChatMessage> {
+  const {data, error} = await supabase.rpc('edit_dm_message', {
+    p_message_id: messageId,
+    p_body: body.trim(),
+  });
+  const row = rowFromEditRpc(data);
+  if (error || !row) {
+    throw new Error(userFacingDmError(error, 'Kunne ikke redigere beskeden.'));
+  }
+  return mapRowToMessage(row);
+}
+
+export async function setDmReaction(
+  messageId: string,
+  emoji: string | null,
+): Promise<Record<string, string>> {
+  const {data, error} = await supabase.rpc('set_dm_reaction', {
+    p_message_id: messageId,
+    p_emoji: emoji ?? '',
+  });
+  if (error) {
+    throw new Error(userFacingDmError(error, 'Kunne ikke gemme reaktionen.'));
+  }
+  return reactionsFromRow(data) ?? {};
 }
 
 /**
@@ -381,6 +519,15 @@ export async function fetchDmUnreadCountsByThread(
 }
 
 /** Marker alle modpartens beskeder som læst (sætter read_at). */
+export async function markDmThreadMessagesDelivered(threadId: string): Promise<void> {
+  const {error} = await supabase.rpc('mark_dm_thread_messages_delivered', {
+    p_thread_id: threadId,
+  });
+  if (error) {
+    logDmService('markDmThreadMessagesDelivered', error);
+  }
+}
+
 export async function markDmThreadMessagesRead(threadId: string): Promise<void> {
   const {error} = await supabase.rpc('mark_dm_thread_messages_read', {
     p_thread_id: threadId,
@@ -531,16 +678,27 @@ export function inboxItemToChat(
   };
 }
 
+function realtimeTimestamp(value: unknown): string | null {
+  if (typeof value === 'string' && value.trim()) {
+    return value;
+  }
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString();
+  }
+  return null;
+}
+
 export function dmMessageFromPayload(newRow: unknown): DmMessageRow | null {
   if (!newRow || typeof newRow !== 'object') {
     return null;
   }
   const r = newRow as Record<string, unknown>;
+  const createdAt = realtimeTimestamp(r.created_at);
   if (
     typeof r.id === 'string' &&
     typeof r.thread_id === 'string' &&
     typeof r.sender_id === 'string' &&
-    typeof r.created_at === 'string'
+    createdAt
   ) {
     return {
       id: r.id,
@@ -548,8 +706,13 @@ export function dmMessageFromPayload(newRow: unknown): DmMessageRow | null {
       sender_id: r.sender_id,
       body: typeof r.body === 'string' ? r.body : null,
       image_url: typeof r.image_url === 'string' ? r.image_url : null,
-      created_at: r.created_at,
-      read_at: typeof r.read_at === 'string' ? r.read_at : null,
+      created_at: createdAt,
+      read_at: realtimeTimestamp(r.read_at),
+      delivered_at: realtimeTimestamp(r.delivered_at),
+      client_send_id: typeof r.client_send_id === 'string' ? r.client_send_id : null,
+      edited_at: realtimeTimestamp(r.edited_at),
+      reply_to_id: typeof r.reply_to_id === 'string' ? r.reply_to_id : null,
+      reactions: reactionsFromRow(r.reactions),
     };
   }
   return null;

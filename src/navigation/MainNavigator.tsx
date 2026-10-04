@@ -136,8 +136,12 @@ export type CheckInStackParamList = {
 };
 
 export type MainTabParamList = {
-  Home: undefined;
-  Friends: {screen?: 'Venner' | 'Grupper' | 'Centre' | 'Kort'};
+  Home: {highlightPostId?: string} | undefined;
+  Friends: {
+    screen?: 'Venner' | 'Grupper' | 'Centre' | 'Kort';
+    /** Changes on each Find-friends tap so the search field focuses again. */
+    focusSearch?: number;
+  };
   /** Present when SURFACE_SHOP_IN_TABS is false (safe five-tab fallback). */
   Messages?: undefined;
   /** Present when SURFACE_SHOP_IN_TABS is true. */

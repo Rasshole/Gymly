@@ -192,6 +192,9 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
     if (state.notifications.length > 0) return;
     const now = new Date();
     const notifications: Notification[] = incoming.map((n, i) => ({
+      type: 'friend_checkin',
+      title: '',
+      message: '',
       ...n,
       id: `notif_${Date.now()}_${i}_${Math.random().toString(36).slice(2, 8)}`,
       timestamp: (n as any).timestamp

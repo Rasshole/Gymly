@@ -5,6 +5,7 @@ import {
   findGymById,
   formatGymNameWithBrand,
   normalizeGymBrand,
+  formatCompactAddressForGym,
 } from '@/utils/gymDisplay';
 import {detectGymChain} from '@/services/gymLogoService';
 import {calculateDistance} from '@/utils/geoUtils';
@@ -16,6 +17,7 @@ import {
   runStaleActiveSessionCleanup,
 } from '@/services/supabase/activeSessionsSync';
 import {getIntlLocale, getRuntimeLanguage} from '@/i18n';
+import {resolveLiveDisplayName} from '@/utils/displayName';
 
 type CheckInActiveRow = {
   id: string;
@@ -31,22 +33,32 @@ type CheckInActiveRow = {
   live_exercise_name?: string | null;
   live_set_count?: number | null;
   live_exercise_count?: number | null;
+  contact_status?: string | null;
 };
 
 function toSession(
   r: CheckInActiveRow,
-  avatars: Map<string, {avatarUrl: string | null}>,
+  profiles: Map<string, {displayName?: string; username?: string; avatarUrl: string | null}>,
 ): ActiveCenterSession {
+  const p = profiles.get(r.user_id);
   return {
     checkInId: r.id,
     userId: r.user_id,
-    displayName: r.user_display_name?.trim() || 'Bruger',
+    displayName: resolveLiveDisplayName({
+      profileDisplayName: p?.displayName,
+      profileUsername: p?.username,
+      checkInDisplayName: r.user_display_name,
+    }),
     workoutType: r.workout_type,
     startedAt: r.started_at,
-    avatarUrl: avatars.get(r.user_id)?.avatarUrl ?? null,
+    avatarUrl: p?.avatarUrl ?? null,
     liveExerciseName: r.live_exercise_name ?? null,
     liveSetCount: r.live_set_count ?? null,
     liveExerciseCount: r.live_exercise_count ?? null,
+    contactStatus:
+      r.contact_status === 'open' || r.contact_status === 'focused'
+        ? r.contact_status
+        : null,
   };
 }
 
@@ -91,6 +103,7 @@ export function mapSessionToUserPresence(s: ActiveCenterSession): UserPresence {
     liveExerciseName: s.liveExerciseName,
     liveSetCount: s.liveSetCount,
     liveExerciseCount: s.liveExerciseCount,
+    contactStatus: s.contactStatus ?? null,
     status,
     lastActivity: new Date(s.startedAt),
     minutesAgo,
@@ -115,17 +128,41 @@ export async function loadActiveCentersData(
 ): Promise<ActiveCenter[]> {
   const staleCleaned = await runStaleActiveSessionCleanup();
   const now = Date.now();
-  const [friendIdSet, rollupRes, checkInsRes] = await Promise.all([
+  const [friendIdSet, rollupRes, checkInsResInitial] = await Promise.all([
     getMyFriendIds(currentUserId),
     supabase.from('gym_active_checkin_rollup').select('gym_id, active_count'),
     supabase
       .from('check_ins')
       .select(
-        'id, user_id, gym_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name, live_exercise_name, live_set_count, live_exercise_count',
+        'id, user_id, gym_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name, live_exercise_name, live_set_count, live_exercise_count, contact_status',
       )
       .eq('is_active', true)
       .is('ended_at', null),
   ]);
+
+  let checkInsRes: {
+    data: CheckInActiveRow[] | null;
+    error: {message: string} | null;
+  } = checkInsResInitial as {
+    data: CheckInActiveRow[] | null;
+    error: {message: string} | null;
+  };
+  if (
+    checkInsRes.error &&
+    /contact_status/i.test(String(checkInsRes.error.message))
+  ) {
+    const fallback = await supabase
+      .from('check_ins')
+      .select(
+        'id, user_id, gym_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name, live_exercise_name, live_set_count, live_exercise_count',
+      )
+      .eq('is_active', true)
+      .is('ended_at', null);
+    checkInsRes = fallback as {
+      data: CheckInActiveRow[] | null;
+      error: {message: string} | null;
+    };
+  }
 
   if (rollupRes.error) {
     throw rollupRes.error;
@@ -159,18 +196,9 @@ export async function loadActiveCentersData(
   const friendOnlyIds = new Set(
     [...friendIdSet].filter(id => id && id !== currentUserId),
   );
-  const allProfileIds = [
-    ...new Set(
-      rows
-        .map(r => r.user_id)
-        .filter(id => friendOnlyIds.has(id)),
-    ),
-  ];
+  // One batched profiles fetch for all visible active users (RLS-scoped).
+  const allProfileIds = [...new Set(rows.map(r => r.user_id).filter(Boolean))];
   const profileMap = await getPublicProfilesByIds(allProfileIds);
-  const avatars = new Map<string, {avatarUrl: string | null}>();
-  for (const [id, p] of profileMap) {
-    avatars.set(id, {avatarUrl: p.avatarUrl});
-  }
 
   const rollupRows = (rollupRes.data ?? []) as Array<{
     gym_id: string;
@@ -201,7 +229,7 @@ export async function loadActiveCentersData(
     }
 
     const sessionsAll: ActiveCenterSession[] = atGym.map(r =>
-      toSession(r, avatars),
+      toSession(r, profileMap),
     );
     const friendsAt = sessionsAll.filter(s => friendOnlyIds.has(s.userId));
     const activeFriends: ActiveCenterSession[] = friendsAt;
@@ -216,9 +244,7 @@ export async function loadActiveCentersData(
     const brand = normalizeGymBrand(dg?.brand) || chainDisplay;
     const formattedName = formatGymNameWithBrand(displayName, brand);
     const address = dg
-      ? [dg._center.address, dg._center.postal_code, dg._center.city]
-          .filter(Boolean)
-          .join(', ')
+      ? formatCompactAddressForGym(dg) || undefined
       : undefined;
     let distanceMeters: number | null = null;
     if (lat != null && lng != null && dg) {

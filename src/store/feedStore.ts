@@ -23,6 +23,11 @@ export type FeedItem = {
   videoUri?: string; // Video URI for PR posts
   videoThumbnailUri?: string; // Thumbnail for PR video
   workoutInfo?: string; // Location, participants, muscle groups, time
+  /** Whole minutes, so the feed can format duration in the viewer language. */
+  durationMinutes?: number;
+  centerName?: string;
+  /** Stored workout type (keys or legacy labels) before display formatting. */
+  workoutTypeSource?: string;
   rating?: number; // 1-5 rating with emojis
   mentionedUsers?: string[]; // Array of user IDs that were mentioned/tagged
   muscles?: MuscleGroup[]; // Muscle groups for this workout (for icons in feed)

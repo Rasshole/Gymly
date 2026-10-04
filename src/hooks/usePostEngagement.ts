@@ -175,16 +175,22 @@ export function usePostEngagement(
     });
   }, [currentUserId, postIdKey, postIds, reloadComments]);
 
+  const desiredLikedRef = useRef<Record<string, boolean>>({});
+
   const togglePostLike = useCallback(
     async (postId: string) => {
-      if (!currentUserId || busyPostsRef.current.has(postId) || isDemoContentMode()) {
+      if (!currentUserId || isDemoContentMode()) {
         return;
       }
-      const before = reactionsRef.current[postId] ?? {liked: false, likes: 0};
-      busyPostsRef.current.add(postId);
+      const current = reactionsRef.current[postId] ?? {liked: false, likes: 0};
+      const nextLiked = !(desiredLikedRef.current[postId] ?? current.liked);
+      desiredLikedRef.current[postId] = nextLiked;
+      const before = current;
       setReactions(prev => {
         const existing = prev[postId] ?? {liked: false, likes: 0};
-        const nextLiked = !existing.liked;
+        if (existing.liked === nextLiked) {
+          return prev;
+        }
         return {
           ...prev,
           [postId]: {
@@ -193,14 +199,26 @@ export function usePostEngagement(
           },
         };
       });
+      if (busyPostsRef.current.has(postId)) {
+        return;
+      }
+      busyPostsRef.current.add(postId);
       try {
-        const result = await togglePostBicepsReaction(postId);
-        setReactions(prev => ({
-          ...prev,
-          [postId]: {liked: result.reacted, likes: result.count},
-        }));
+        let guard = 0;
+        while (guard < 4) {
+          guard += 1;
+          const result = await togglePostBicepsReaction(postId);
+          const synced = {liked: result.reacted, likes: result.count};
+          reactionsRef.current = {...reactionsRef.current, [postId]: synced};
+          setReactions(prev => ({...prev, [postId]: synced}));
+          if (desiredLikedRef.current[postId] === result.reacted) {
+            break;
+          }
+        }
       } catch {
         setReactions(prev => ({...prev, [postId]: before}));
+        reactionsRef.current = {...reactionsRef.current, [postId]: before};
+        desiredLikedRef.current[postId] = before.liked;
       } finally {
         busyPostsRef.current.delete(postId);
       }

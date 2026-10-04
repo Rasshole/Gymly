@@ -1,5 +1,6 @@
 import {supabase} from '@/services/supabase/supabaseClient';
 import type {RealtimeChannel} from '@supabase/supabase-js';
+import {safeDisplayName} from '@/utils/displayName';
 
 /**
  * Let reaktion til ven der har aktivt tjek-ind (idempotent på server).
@@ -130,7 +131,7 @@ export async function fetchPostBicepsUsers(postId: string): Promise<PostBicepsUs
     const p = profileById.get(r.user_id);
     return {
       userId: r.user_id,
-      name: p?.display_name?.trim() || p?.username?.trim() || 'Bruger',
+      name: safeDisplayName(p?.display_name, p?.username),
       username: p?.username?.trim() || 'bruger',
       avatarUrl: p?.avatar_url ?? null,
       createdAt: r.created_at,

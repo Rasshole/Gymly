@@ -35,6 +35,8 @@ function mapType(t: InAppNotificationType): NotificationType {
       return 'planned_workout_reminder';
     case 'workout_reaction':
       return 'workout_reaction';
+    case 'say_hi_request':
+      return 'say_hi_request';
     case 'biceps_reaction':
     case 'post_like':
       return 'biceps_reaction';
@@ -56,31 +58,20 @@ function mapType(t: InAppNotificationType): NotificationType {
 }
 
 export type LocalFriendRequestResolution = {
-  outcome: 'accepted' | 'declined';
+  outcome: 'accepted' | 'declined' | 'unavailable' | 'unknown' | 'pending';
   peerName: string;
 };
 
-/** Tekst/tilstand når bruger lige har accepteret/afvist (optimistisk UI) */
+/** Apply resolved friend-request UI state (copy filled at render via i18n). */
 export function applyLocalFriendRequestResolution(
   n: Notification,
   o: LocalFriendRequestResolution,
 ): Notification {
-  const name = o.peerName.trim() || 'Brugeren';
-  if (o.outcome === 'accepted') {
-    return {
-      ...n,
-      read: true,
-      title: 'Du er nu venner med ' + name,
-      message: '',
-      friendRequestUiState: 'accepted',
-    };
-  }
   return {
     ...n,
-    read: true,
-    title: 'Venneanmodning',
-    message: 'Du har afvist venneanmodningen fra ' + name + '.',
-    friendRequestUiState: 'declined',
+    read: o.outcome === 'pending' ? n.read : true,
+    friendRequestUiState: o.outcome,
+    friendName: o.peerName.trim() || n.friendName,
   };
 }
 
@@ -98,12 +89,11 @@ export function mapRowToViewNotification(row: NotificationRow): Notification {
 
   const data = row.data ?? {};
   const fId = (data.friendRequestId as string) || undefined;
-  const actorName =
-    safeDisplayName(
-      data.friendName as string | undefined,
-      data.actorName as string | undefined,
-      data.displayName as string | undefined,
-    ) || 'Ukendt bruger';
+  const actorName = safeDisplayName(
+    data.friendName as string | undefined,
+    data.actorName as string | undefined,
+    data.displayName as string | undefined,
+  );
   const plannedWorkoutId =
     (data.plannedWorkoutId as string) ||
     (data.planned_workout_id as string) ||

@@ -1,9 +1,10 @@
 import type {DanishGym} from '@/data/danishGyms';
 import {getActiveDanishGyms} from '@/data/danishGyms';
 import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
-import {isAustriaCountry, isBelgiumCountry, isBulgariaCountry, isCroatiaCountry, isSloveniaCountry, isLithuaniaCountry, isLatviaCountry, isEstoniaCountry, isLuxembourgCountry, isMaltaCountry, isUkraineCountry, isBelarusCountry, isTurkeyCountry, isGeorgiaCountry, isArmeniaCountry, isAzerbaijanCountry, isRussiaCountry, isCyprusCountry, isIcelandCountry, isLiechtensteinCountry, isAndorraCountry, isMonacoCountry, isSanMarinoCountry, isVaticanCityCountry, isMoldovaCountry, isMontenegroCountry, isNorthMacedoniaCountry, isBosniaHerzegovinaCountry, isAlbaniaCountry, isKosovoCountry, isSerbiaCountry, isFranceCountry, isFinlandCountry, isGermanyCountry, isItalyCountry, isNetherlandsCountry, isPolandCountry, isPortugalCountry, isIrelandCountry, isCzechiaCountry, isHungaryCountry, isGreeceCountry, isRomaniaCountry, isSlovakiaCountry, isSpainCountry, isSwitzerlandCountry, isUnitedKingdomCountry} from '@/utils/gymCountry';
+import {isSwedenCountry, isNorwayCountry, isAustriaCountry, isBelgiumCountry, isBulgariaCountry, isCroatiaCountry, isSloveniaCountry, isLithuaniaCountry, isLatviaCountry, isEstoniaCountry, isLuxembourgCountry, isMaltaCountry, isUkraineCountry, isBelarusCountry, isTurkeyCountry, isGeorgiaCountry, isArmeniaCountry, isAzerbaijanCountry, isRussiaCountry, isCyprusCountry, isIcelandCountry, isLiechtensteinCountry, isAndorraCountry, isMonacoCountry, isSanMarinoCountry, isVaticanCityCountry, isMoldovaCountry, isMontenegroCountry, isNorthMacedoniaCountry, isBosniaHerzegovinaCountry, isAlbaniaCountry, isKosovoCountry, isSerbiaCountry, isFranceCountry, isFinlandCountry, isGermanyCountry, isItalyCountry, isNetherlandsCountry, isPolandCountry, isPortugalCountry, isIrelandCountry, isCzechiaCountry, isHungaryCountry, isGreeceCountry, isRomaniaCountry, isSlovakiaCountry, isSpainCountry, isSwitzerlandCountry, isUnitedKingdomCountry} from '@/utils/gymCountry';
 import {
   compactGymSearchValue,
+  foldNordicSearchEquivalents,
   normalizeGymSearchValue,
 } from './gymSearchNormalize';
 
@@ -18,7 +19,9 @@ export type GymSearchIndexEntry = {
   addressNorm: string;
   regionNorm: string;
   postalNorm: string;
-  /** Combined searchable blob + aliases */
+  /** Folded postal with spaces removed. Built once. */
+  postalCompact: string;
+  /** Combined searchable blob + aliases. Already Nordic-folded. */
   haystack: string;
   haystackCompact: string;
   words: string[];
@@ -142,41 +145,13 @@ const CHAIN_ALIASES: Record<string, string[]> = {
   orange: ['orange fitness', 'orange gym'],
 };
 
-function extractStreet(address?: string): string {
-  if (!address?.trim()) {
-    return '';
-  }
-  const first = address.split(',')[0]?.trim() ?? '';
-  return first.replace(/^\d+\s*/, '').trim();
-}
+type CityAliasList = Array<[RegExp, string[]]>;
 
-function extractArea(city?: string, address?: string): string[] {
-  const areas: string[] = [];
-  const c = (city ?? '').toLowerCase();
-  const addr = (address ?? '').toLowerCase();
-  const placeBlob = `${c} ${addr}`;
-  if (c.includes('københavn') || c.includes('kobenhavn')) {
-    areas.push('københavn', 'kobenhavn', 'copenhagen', 'kbh');
-  }
-  if (
-    /nørrebro|norrebro|noerrebro/.test(placeBlob)
-  ) {
-    areas.push('nørrebro', 'norrebro', 'noerrebro');
-  }
-  if (c.includes('øster') || c.includes('oster') || /østerbro|osterbro|oesterbro/.test(placeBlob)) {
-    areas.push('østerbro', 'osterbro', 'oesterbro');
-  }
-  if (c.includes('amager') || addr.includes('amager')) {
-    areas.push('amager');
-  }
-  if (c.includes('valby') || addr.includes('valby')) {
-    areas.push('valby');
-  }
-  if (/vanløse|vanlose|vanloese/.test(placeBlob)) {
-    areas.push('vanløse', 'vanlose', 'vanloese');
-  }
-  if (c.includes('frederiksberg') || addr.includes('frederiksberg')) {
-    areas.push('frederiksberg', 'frb');
+let cityAliasTablesCache: Record<string, CityAliasList> | null = null;
+
+function loadCityAliasTables(): Record<string, CityAliasList> {
+  if (cityAliasTablesCache) {
+    return cityAliasTablesCache;
   }
   const swedishCities: Array<[RegExp, string[]]> = [
     [/stockholm/i, ['stockholm', 'sthlm']],
@@ -1098,245 +1073,480 @@ function extractArea(city?: string, address?: string): string[] {
     [/ρόδος|\brhodes\b|\brodos\b/i, ['rhodes', 'rodos', 'ρόδος']],
     [/καλαμάτα|\bkalamata\b/i, ['kalamata', 'καλαμάτα']],
   ];
+  cityAliasTablesCache = {
+    swedishCities,
+    norwegianCities,
+    germanCities,
+    ukCities,
+    dutchCities,
+    frenchCities,
+    spanishCities,
+    italianCities,
+    belgianCities,
+    polishCities,
+    austrianCities,
+    swissCities,
+    portugueseCities,
+    irishCities,
+    czechCities,
+    hungarianCities,
+    romanianCities,
+    slovakCities,
+    bulgarianCities,
+    croatianCities,
+    slovenianCities,
+    lithuanianCities,
+    latvianCities,
+    estonianCities,
+    luxembourgCities,
+    maltaCities,
+    ukrainianCities,
+    belarusianCities,
+    turkishCities,
+    georgianCities,
+    armenianCities,
+    azerbaijaniCities,
+    russianCities,
+    cyprusCities,
+    icelandCities,
+    liechtensteinCities,
+    andorraCities,
+    monacoCities,
+    sanMarinoCities,
+    vaticanCityCities,
+    moldovaCities,
+    montenegroCities,
+    northMacedoniaCities,
+    albaniaCities,
+    kosovoCities,
+    serbiaCities,
+    bosniaHerzegovinaCities,
+    greekCities,
+  };
+  return cityAliasTablesCache;
+}
+
+function extractStreet(address?: string): string {
+  if (!address?.trim()) {
+    return '';
+  }
+  const first = address.split(',')[0]?.trim() ?? '';
+  return first.replace(/^\d+\s*/, '').trim();
+}
+
+function extractArea(city?: string, address?: string, country?: string): string[] {
+  const areas: string[] = [];
+  const c = (city ?? '').toLowerCase();
+  const addr = (address ?? '').toLowerCase();
+  const placeBlob = `${c} ${addr}`;
+  if (c.includes('københavn') || c.includes('kobenhavn')) {
+    areas.push('københavn', 'kobenhavn', 'copenhagen', 'kbh');
+  }
+  if (
+    /nørrebro|norrebro|noerrebro/.test(placeBlob)
+  ) {
+    areas.push('nørrebro', 'norrebro', 'noerrebro');
+  }
+  if (c.includes('øster') || c.includes('oster') || /østerbro|osterbro|oesterbro/.test(placeBlob)) {
+    areas.push('østerbro', 'osterbro', 'oesterbro');
+  }
+  if (c.includes('amager') || addr.includes('amager')) {
+    areas.push('amager');
+  }
+  if (c.includes('valby') || addr.includes('valby')) {
+    areas.push('valby');
+  }
+  if (/vanløse|vanlose|vanloese/.test(placeBlob)) {
+    areas.push('vanløse', 'vanlose', 'vanloese');
+  }
+  if (c.includes('frederiksberg') || addr.includes('frederiksberg')) {
+    areas.push('frederiksberg', 'frb');
+  }
+  const {
+    swedishCities,
+    norwegianCities,
+    germanCities,
+    ukCities,
+    dutchCities,
+    frenchCities,
+    spanishCities,
+    italianCities,
+    belgianCities,
+    polishCities,
+    austrianCities,
+    swissCities,
+    portugueseCities,
+    irishCities,
+    czechCities,
+    hungarianCities,
+    romanianCities,
+    slovakCities,
+    bulgarianCities,
+    croatianCities,
+    slovenianCities,
+    lithuanianCities,
+    latvianCities,
+    estonianCities,
+    luxembourgCities,
+    maltaCities,
+    ukrainianCities,
+    belarusianCities,
+    turkishCities,
+    georgianCities,
+    armenianCities,
+    azerbaijaniCities,
+    russianCities,
+    cyprusCities,
+    icelandCities,
+    liechtensteinCities,
+    andorraCities,
+    monacoCities,
+    sanMarinoCities,
+    vaticanCityCities,
+    moldovaCities,
+    montenegroCities,
+    northMacedoniaCities,
+    albaniaCities,
+    kosovoCities,
+    serbiaCities,
+    bosniaHerzegovinaCities,
+    greekCities,
+  } = loadCityAliasTables();
   const blob = `${city ?? ''} ${address ?? ''}`;
-  for (const [re, aliases] of frenchCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isFranceCountry(country)) {
+    for (const [re, aliases] of frenchCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of spanishCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isSpainCountry(country)) {
+    for (const [re, aliases] of spanishCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of italianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isItalyCountry(country)) {
+    for (const [re, aliases] of italianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of belgianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isBelgiumCountry(country)) {
+    for (const [re, aliases] of belgianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of polishCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isPolandCountry(country)) {
+    for (const [re, aliases] of polishCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of austrianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isAustriaCountry(country)) {
+    for (const [re, aliases] of austrianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of swissCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isSwitzerlandCountry(country)) {
+    for (const [re, aliases] of swissCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of portugueseCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isPortugalCountry(country)) {
+    for (const [re, aliases] of portugueseCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of irishCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isIrelandCountry(country)) {
+    for (const [re, aliases] of irishCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of czechCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isCzechiaCountry(country)) {
+    for (const [re, aliases] of czechCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of hungarianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isHungaryCountry(country)) {
+    for (const [re, aliases] of hungarianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of romanianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isRomaniaCountry(country)) {
+    for (const [re, aliases] of romanianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of slovakCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isSlovakiaCountry(country)) {
+    for (const [re, aliases] of slovakCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of bulgarianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isBulgariaCountry(country)) {
+    for (const [re, aliases] of bulgarianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of croatianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isCroatiaCountry(country)) {
+    for (const [re, aliases] of croatianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of slovenianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isSloveniaCountry(country)) {
+    for (const [re, aliases] of slovenianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of lithuanianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isLithuaniaCountry(country)) {
+    for (const [re, aliases] of lithuanianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of latvianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isLatviaCountry(country)) {
+    for (const [re, aliases] of latvianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of estonianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isEstoniaCountry(country)) {
+    for (const [re, aliases] of estonianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of luxembourgCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isLuxembourgCountry(country)) {
+    for (const [re, aliases] of luxembourgCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of maltaCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isMaltaCountry(country)) {
+    for (const [re, aliases] of maltaCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of ukrainianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isUkraineCountry(country)) {
+    for (const [re, aliases] of ukrainianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of belarusianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isBelarusCountry(country)) {
+    for (const [re, aliases] of belarusianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of turkishCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isTurkeyCountry(country)) {
+    for (const [re, aliases] of turkishCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of georgianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isGeorgiaCountry(country)) {
+    for (const [re, aliases] of georgianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of armenianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isArmeniaCountry(country)) {
+    for (const [re, aliases] of armenianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of azerbaijaniCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isAzerbaijanCountry(country)) {
+    for (const [re, aliases] of azerbaijaniCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of russianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isRussiaCountry(country)) {
+    for (const [re, aliases] of russianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of cyprusCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isCyprusCountry(country)) {
+    for (const [re, aliases] of cyprusCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of icelandCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isIcelandCountry(country)) {
+    for (const [re, aliases] of icelandCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of liechtensteinCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isLiechtensteinCountry(country)) {
+    for (const [re, aliases] of liechtensteinCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of andorraCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isAndorraCountry(country)) {
+    for (const [re, aliases] of andorraCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of monacoCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isMonacoCountry(country)) {
+    for (const [re, aliases] of monacoCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of sanMarinoCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isSanMarinoCountry(country)) {
+    for (const [re, aliases] of sanMarinoCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of vaticanCityCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isVaticanCityCountry(country)) {
+    for (const [re, aliases] of vaticanCityCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of moldovaCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isMoldovaCountry(country)) {
+    for (const [re, aliases] of moldovaCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of montenegroCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isMontenegroCountry(country)) {
+    for (const [re, aliases] of montenegroCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of northMacedoniaCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isNorthMacedoniaCountry(country)) {
+    for (const [re, aliases] of northMacedoniaCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of bosniaHerzegovinaCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isBosniaHerzegovinaCountry(country)) {
+    for (const [re, aliases] of bosniaHerzegovinaCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of albaniaCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isAlbaniaCountry(country)) {
+    for (const [re, aliases] of albaniaCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of kosovoCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isKosovoCountry(country)) {
+    for (const [re, aliases] of kosovoCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of serbiaCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isSerbiaCountry(country)) {
+    for (const [re, aliases] of serbiaCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of greekCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isGreeceCountry(country)) {
+    for (const [re, aliases] of greekCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of swedishCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isSwedenCountry(country)) {
+    for (const [re, aliases] of swedishCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of norwegianCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isNorwayCountry(country)) {
+    for (const [re, aliases] of norwegianCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of germanCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isGermanyCountry(country)) {
+    for (const [re, aliases] of germanCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of ukCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isUnitedKingdomCountry(country)) {
+    for (const [re, aliases] of ukCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
-  for (const [re, aliases] of dutchCities) {
-    if (re.test(blob)) {
-      areas.push(...aliases);
+  if (isNetherlandsCountry(country)) {
+    for (const [re, aliases] of dutchCities) {
+      if (re.test(blob)) {
+        areas.push(...aliases);
+      }
     }
   }
   for (const token of ['nørrelund', 'norrelund', 'fasanvej', 'gothersgade', 'portugalsgade', 'nørrebrogade', 'norrebrogade', 'noerrebrogade']) {
@@ -1637,7 +1847,7 @@ function buildKeywords(gym: DanishGym): string[] {
   const brandKey = normalizeGymSearchValue(rawBrand || brandNorm);
   const aliases = CHAIN_ALIASES[brandKey] ?? CHAIN_ALIASES[brandKey.replace(/\s+/g, '')] ?? [];
   parts.push(...aliases);
-  parts.push(...extractArea(gym.city, gym.address));
+  parts.push(...extractArea(gym.city, gym.address, gym.country));
 
   const nameParts = gym.name.split(/[—–\-|]/).map(s => s.trim()).filter(Boolean);
   parts.push(...nameParts);
@@ -1645,41 +1855,105 @@ function buildKeywords(gym: DanishGym): string[] {
   return parts;
 }
 
+function foldSearch(value: string): string {
+  return foldNordicSearchEquivalents(value);
+}
+
 export function buildGymSearchEntry(gym: DanishGym): GymSearchIndexEntry {
   const keywords = buildKeywords(gym);
   const haystackRaw = keywords.join(' ');
-  const nameNorm = normalizeGymSearchValue(gym.name);
-  const brandNorm = normalizeGymSearchValue(gym.brand ?? '');
-  const cityNorm = normalizeGymSearchValue(gym.city ?? '');
-  const streetNorm = normalizeGymSearchValue(extractStreet(gym.address));
-  const addressNorm = normalizeGymSearchValue(gym.address ?? '');
-  const regionNorm = normalizeGymSearchValue(gym.region ?? '');
-  const postalNorm = normalizeGymSearchValue(gym.postalCode ?? '');
+  const haystack = foldSearch(normalizeGymSearchValue(haystackRaw));
+  const postalNorm = foldSearch(normalizeGymSearchValue(gym.postalCode ?? ''));
 
   return {
     gym,
-    nameNorm,
-    nameCompact: compactGymSearchValue(gym.name),
-    brandNorm,
-    brandCompact: compactGymSearchValue(gym.brand ?? ''),
-    cityNorm,
-    streetNorm,
-    addressNorm,
-    regionNorm,
+    nameNorm: foldSearch(normalizeGymSearchValue(gym.name)),
+    nameCompact: foldSearch(compactGymSearchValue(gym.name)),
+    brandNorm: foldSearch(normalizeGymSearchValue(gym.brand ?? '')),
+    brandCompact: foldSearch(compactGymSearchValue(gym.brand ?? '')),
+    cityNorm: foldSearch(normalizeGymSearchValue(gym.city ?? '')),
+    streetNorm: foldSearch(normalizeGymSearchValue(extractStreet(gym.address))),
+    addressNorm: foldSearch(normalizeGymSearchValue(gym.address ?? '')),
+    regionNorm: foldSearch(normalizeGymSearchValue(gym.region ?? '')),
     postalNorm,
-    haystack: normalizeGymSearchValue(haystackRaw),
-    haystackCompact: compactGymSearchValue(haystackRaw),
-    words: normalizeGymSearchValue(haystackRaw).split(' ').filter(w => w.length >= 2),
+    postalCompact: postalNorm.replace(/\s+/g, ''),
+    haystack,
+    haystackCompact: foldSearch(compactGymSearchValue(haystackRaw)),
+    words: haystack.split(' ').filter(w => w.length >= 2),
   };
 }
 
 let cachedIndex: GymSearchIndexEntry[] | null = null;
 let cachedSourceRef: readonly DanishGym[] | null = null;
+let cachedWordIndex: Map<string, number[]> | null = null;
+let cachedPrefix4: Map<string, number[]> | null = null;
+let cachedPrefix6: Map<string, number[]> | null = null;
+let warmToken = 0;
 
 /** Test / HMR helper — rebuild index after search keyword changes. */
 export function clearGymSearchIndexCache(): void {
   cachedIndex = null;
   cachedSourceRef = null;
+  cachedWordIndex = null;
+  cachedPrefix4 = null;
+  cachedPrefix6 = null;
+  warmToken += 1;
+}
+
+function buildWordIndex(index: GymSearchIndexEntry[]): Map<string, number[]> {
+  const wordIndex = new Map<string, number[]>();
+  for (let i = 0; i < index.length; i++) {
+    for (const word of index[i].words) {
+      if (word.length < 3) {
+        continue;
+      }
+      const bucket = wordIndex.get(word);
+      if (bucket) {
+        bucket.push(i);
+      } else {
+        wordIndex.set(word, [i]);
+      }
+    }
+  }
+  return wordIndex;
+}
+
+function buildPrefix(
+  index: GymSearchIndexEntry[],
+  width: number,
+): Map<string, number[]> {
+  const prefix = new Map<string, number[]>();
+  for (let i = 0; i < index.length; i++) {
+    const seen = new Set<string>();
+    for (const word of index[i].words) {
+      if (word.length < width) {
+        continue;
+      }
+      const key = word.slice(0, width);
+      if (seen.has(key)) {
+        continue;
+      }
+      seen.add(key);
+      const bucket = prefix.get(key);
+      if (bucket) {
+        bucket.push(i);
+      } else {
+        prefix.set(key, [i]);
+      }
+    }
+  }
+  return prefix;
+}
+
+function commitGymSearchIndex(
+  source: readonly DanishGym[],
+  index: GymSearchIndexEntry[],
+): void {
+  cachedIndex = index;
+  cachedSourceRef = source;
+  cachedWordIndex = buildWordIndex(index);
+  cachedPrefix4 = buildPrefix(index, 4);
+  cachedPrefix6 = buildPrefix(index, 6);
 }
 
 export function getGymSearchIndex(gyms?: DanishGym[]): GymSearchIndexEntry[] {
@@ -1688,7 +1962,73 @@ export function getGymSearchIndex(gyms?: DanishGym[]): GymSearchIndexEntry[] {
     return cachedIndex;
   }
   const index = source.map(buildGymSearchEntry);
-  cachedIndex = index;
-  cachedSourceRef = source;
+  commitGymSearchIndex(source, index);
   return index;
+}
+
+/**
+ * Build the search index in slices so opening a gym picker does not freeze
+ * the JS thread for the whole catalog. A search that arrives first still
+ * builds synchronously and this warmup will not overwrite that result.
+ */
+export function scheduleGymSearchWarmup(gyms?: DanishGym[]): void {
+  if (gyms && gyms.length === 0) {
+    return;
+  }
+  const source = gyms ?? getActiveDanishGyms();
+  if (cachedIndex && cachedSourceRef === source) {
+    return;
+  }
+  const token = ++warmToken;
+  const built: GymSearchIndexEntry[] = new Array(source.length);
+  let cursor = 0;
+  const step = () => {
+    if (token !== warmToken) {
+      return;
+    }
+    if (cachedIndex && cachedSourceRef === source) {
+      return;
+    }
+    // Small slices so splash timers and taps can run between chunks.
+    // 700-center slices held the thread for a large fraction of the ~1s index build.
+    const end = Math.min(cursor + 48, source.length);
+    for (; cursor < end; cursor++) {
+      built[cursor] = buildGymSearchEntry(source[cursor]);
+    }
+    if (cursor < source.length) {
+      setTimeout(step, 0);
+      return;
+    }
+    setTimeout(() => {
+      if (token !== warmToken) {
+        return;
+      }
+      if (cachedIndex && cachedSourceRef === source) {
+        return;
+      }
+      commitGymSearchIndex(source, built);
+    }, 0);
+  };
+  setTimeout(step, 0);
+}
+
+/** Folded word → entry indexes. Typo lookup probes this instead of every center. */
+export function getGymSearchWordIndex(gyms?: DanishGym[]): Map<string, number[]> {
+  getGymSearchIndex(gyms);
+  return cachedWordIndex ?? new Map();
+}
+
+/**
+ * First 6 folded characters of each word → entry indexes.
+ * Long queries use the smallest bucket as a candidate shortlist.
+ */
+export function getGymSearchPrefix6(gyms?: DanishGym[]): Map<string, number[]> {
+  getGymSearchIndex(gyms);
+  return cachedPrefix6 ?? new Map();
+}
+
+/** First 4 folded characters of each word → entry indexes. */
+export function getGymSearchPrefix4(gyms?: DanishGym[]): Map<string, number[]> {
+  getGymSearchIndex(gyms);
+  return cachedPrefix4 ?? new Map();
 }

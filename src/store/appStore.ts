@@ -23,6 +23,8 @@ import {
   resetNavigationToLogin,
 } from '@/services/auth/sessionCleanup';
 import {isPasswordRecoveryActive} from '@/services/auth/authDeepLink';
+import {getOnboardingStateFromMetadata} from '@/services/onboarding/onboardingState';
+import {safeDisplayName} from '@/utils/displayName';
 
 function syncPublicProfileToSupabase(user: User) {
   upsertMyProfile(user).catch(err => {
@@ -38,6 +40,8 @@ interface AppState {
   user: User | null;
   tokens: AuthTokens | null;
   isLoading: boolean;
+  /** null while unknown / loading; drives RootNavigator onboarding gate */
+  onboardingComplete: boolean | null;
 
   // Actions
   initialize: () => Promise<void>;
@@ -47,6 +51,26 @@ interface AppState {
   setUser: (user: User, options?: {skipProfileSync?: boolean}) => void;
   setLoading: (loading: boolean) => void;
   setFavoriteGyms: (gymIds: string[]) => void;
+  refreshOnboardingState: () => Promise<void>;
+  markOnboardingComplete: () => void;
+}
+
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error(`${label} timed out after ${ms}ms`));
+    }, ms);
+    promise.then(
+      value => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      error => {
+        clearTimeout(timer);
+        reject(error);
+      },
+    );
+  });
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -55,18 +79,27 @@ export const useAppStore = create<AppState>((set, get) => ({
   tokens: null,
   /** true indtil første `initialize()` — undgår ét frame med forkert stack (kan give tom/hvid UI). */
   isLoading: true,
+  onboardingComplete: null,
 
   /**
    * Initialize app - check for existing session
    */
   initialize: async () => {
-    set({isLoading: true});
+    set({isLoading: true, onboardingComplete: null});
 
     try {
       // Source of truth: Supabase persisted session (AsyncStorage).
       const {
         data: {session},
-      } = await supabase.auth.getSession();
+      } = await Promise.race([
+        supabase.auth.getSession(),
+        new Promise<never>((_, reject) => {
+          setTimeout(
+            () => reject(new Error('getSession timed out')),
+            10000,
+          );
+        }),
+      ]);
 
       if (
         session?.user &&
@@ -85,11 +118,19 @@ export const useAppStore = create<AppState>((set, get) => ({
               email: fromAuth.email || storedUser.email,
             }
           : fromAuth;
-        mergedUser = await mergeProfileUsernameIntoUser(mergedUser);
+        mergedUser = await withTimeout(
+          mergeProfileUsernameIntoUser(mergedUser),
+          8000,
+          'mergeProfileUsername',
+        ).catch(() => mergedUser);
         try {
-          const centerIds = await fetchUserHomeGymIds(
-            mergedUser.id,
-            mergedUser.favoriteGyms ?? storedUser?.favoriteGyms,
+          const centerIds = await withTimeout(
+            fetchUserHomeGymIds(
+              mergedUser.id,
+              mergedUser.favoriteGyms ?? storedUser?.favoriteGyms,
+            ),
+            8000,
+            'fetchUserHomeGymIds',
           );
           if (centerIds.length > 0) {
             mergedUser = {
@@ -108,14 +149,32 @@ export const useAppStore = create<AppState>((set, get) => ({
             (session.expires_at ?? Math.floor(Date.now() / 1000) + 3600) * 1000,
         };
 
-        await SecureStorage.saveTokens(tokens);
-        await SecureStorage.saveUserData(mergedUser);
+        await withTimeout(
+          SecureStorage.saveTokens(tokens),
+          4000,
+          'saveTokens',
+        ).catch(() => {});
+        await withTimeout(
+          SecureStorage.saveUserData(mergedUser),
+          4000,
+          'saveUserData',
+        ).catch(() => {});
+
+        const onboarding = await withTimeout(
+          getOnboardingStateFromMetadata(
+            mergedUser,
+            session.user.user_metadata as Record<string, unknown> | undefined,
+          ),
+          8000,
+          'onboarding state',
+        ).catch(() => ({status: 'INCOMPLETE' as const}));
 
         set({
           isAuthenticated: true,
           user: mergedUser,
           tokens,
           isLoading: false,
+          onboardingComplete: onboarding.status === 'COMPLETE',
         });
 
         useBadgeStore
@@ -126,7 +185,7 @@ export const useAppStore = create<AppState>((set, get) => ({
               .getState()
               .syncBadgesForUser(
                 mergedUser.id,
-                (mergedUser.displayName || '').trim() || 'Bruger',
+                safeDisplayName(mergedUser.displayName),
               );
           })
           .catch(() => {});
@@ -140,28 +199,30 @@ export const useAppStore = create<AppState>((set, get) => ({
       }
 
       if (session?.user && isPasswordRecoveryActive()) {
-        set({isLoading: false});
+        set({isLoading: false, onboardingComplete: null});
         return;
       }
 
       // No Supabase session — never restore from Keychain/AsyncStorage alone (ghost login).
       clearAllUserStores();
-      await SecureStorage.clearAll().catch(() => {});
+      void SecureStorage.clearAll().catch(() => {});
       set({
         isAuthenticated: false,
         user: null,
         tokens: null,
         isLoading: false,
+        onboardingComplete: null,
       });
     } catch (error) {
       console.error('Initialization error:', error);
       clearAllUserStores();
-      await SecureStorage.clearAll().catch(() => {});
+      void SecureStorage.clearAll().catch(() => {});
       set({
         isAuthenticated: false,
         user: null,
         tokens: null,
         isLoading: false,
+        onboardingComplete: null,
       });
     }
   },
@@ -174,6 +235,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       isAuthenticated: true,
       user,
       tokens,
+      onboardingComplete: null,
     });
     SecureStorage.saveTokens(tokens).catch(err => {
       if (__DEV__) {
@@ -193,7 +255,7 @@ export const useAppStore = create<AppState>((set, get) => ({
           .getState()
           .syncBadgesForUser(
             user.id,
-            (user.displayName || '').trim() || 'Bruger',
+            safeDisplayName(user.displayName),
           );
       })
       .catch(() => {});
@@ -203,6 +265,31 @@ export const useAppStore = create<AppState>((set, get) => ({
       .then(() => useTrainingStatsStore.getState().load(user.id))
       .catch(() => {});
     syncPublicProfileToSupabase(user);
+    void get().refreshOnboardingState();
+  },
+
+  refreshOnboardingState: async () => {
+    const user = get().user;
+    if (!user) {
+      set({onboardingComplete: null});
+      return;
+    }
+    try {
+      const {
+        data: {user: authUser},
+      } = await supabase.auth.getUser();
+      const onboarding = await getOnboardingStateFromMetadata(
+        user,
+        authUser?.user_metadata as Record<string, unknown> | undefined,
+      );
+      set({onboardingComplete: onboarding.status === 'COMPLETE'});
+    } catch {
+      set({onboardingComplete: false});
+    }
+  },
+
+  markOnboardingComplete: () => {
+    set({onboardingComplete: true});
   },
 
   /**
@@ -228,6 +315,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         isAuthenticated: false,
         user: null,
         tokens: null,
+        onboardingComplete: null,
       });
       resetNavigationToLogin();
     }
@@ -255,6 +343,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         previousUserId: currentUserId,
         navigate: true,
       });
+      set({onboardingComplete: null});
     }
   },
 

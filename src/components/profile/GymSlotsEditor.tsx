@@ -16,9 +16,11 @@ import {getActiveDanishGyms} from '@/data/danishGyms';
 import type {DanishGym} from '@/data/danishGyms';
 import {gymSearchMatchesTokens} from '@/utils/gymSearch';
 import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 
 const PICKER_GYMS = getActiveDanishGyms();
+scheduleGymSearchWarmup(PICKER_GYMS);
 import colors from '@/theme/colors';
 import {spacing, typography, shadows} from '@/theme/designTokens';
 import {useTranslation} from '@/i18n';

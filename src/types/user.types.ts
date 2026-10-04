@@ -97,8 +97,8 @@ export type ConsentType =
 export interface UserRegistration {
   email: string;
   username: string;
-  /** Normaliseret dansk mobil, fx +4512345678 */
-  phoneNumber: string;
+  /** Normaliseret dansk mobil, fx +4512345678 — optional in onboarding V2 */
+  phoneNumber?: string;
   displayName: string;
   password: string;
   bicepsEmoji?: string; // User's chosen biceps emoji for likes

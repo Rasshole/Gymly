@@ -29,6 +29,7 @@ import {
 } from '@/utils/gymDisplay';
 import {gymPickerLocationLine} from '@/utils/gymCountryLabel';
 import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 import colors from '@/theme/colors';
 import {radius, spacing, typography} from '@/theme/designTokens';
 import {useActiveCentersRealtime} from '@/hooks/useActiveCentersRealtime';
@@ -37,6 +38,7 @@ import type {ActiveCenter} from '@/types/activeCenter.types';
 import {useTranslation, rt} from '@/i18n';
 
 const ALL_ACTIVE = getActiveGyms();
+scheduleGymSearchWarmup(ALL_ACTIVE);
 
 type LiveStats = {total: number; friends: number};
 

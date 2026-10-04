@@ -10,6 +10,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
@@ -26,10 +27,16 @@ import {mapEventTypeToActivityCard, buildSecondaryInfo} from '@/utils/activityUt
 import {formatWorkoutDuration} from '@/utils/groupSessionFormat';
 import {useAppStore} from '@/store/appStore';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
+import {useChatStore} from '@/store/chatStore';
+import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import * as streak from '@/utils/streakUtils';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {useTranslation} from '@/i18n';
+import {
+  resolveFeedAuthorProfileTarget,
+  shouldShowFeedMessageAction,
+} from '@/navigation/feedAuthorNavigation';
 
 type FilterScope = 'all' | ActivityScope;
 type TimeFilter = 'today' | 'week';
@@ -97,6 +104,8 @@ const ActivityFeedScreen = () => {
   const [activityMenuItem, setActivityMenuItem] = useState<ActivityEvent | null>(null);
   const currentUser = useAppStore(s => s.user);
   const dashboardStreak = useDashboardStatsStore(s => s.streak);
+  const getChatByParticipants = useChatStore(s => s.getChatByParticipants);
+  const upsertChat = useChatStore(s => s.upsertChat);
 
   const scopeChipOptions = useMemo(
     () =>
@@ -137,14 +146,61 @@ const ActivityFeedScreen = () => {
     };
   }, [activityEvents]);
 
-  const handleUserPress = (userId: string, name: string) => {
-    navigation.navigate('FriendProfile', {
-      friendId: userId,
-      friendName: name,
-      mutualFriends: 0,
-      gyms: [],
-    });
-  };
+  const handleUserPress = useCallback(
+    (userId: string, name: string) => {
+      const target = resolveFeedAuthorProfileTarget(userId, currentUser?.id);
+      if (target === 'none') {
+        return;
+      }
+      if (target === 'self') {
+        navigation.navigate('Profile');
+        return;
+      }
+      navigation.navigate('FriendProfile', {
+        friendId: userId,
+        friendName: name,
+        mutualFriends: 0,
+        gyms: [],
+      });
+    },
+    [currentUser?.id, navigation],
+  );
+
+  const openDmToAuthor = useCallback(
+    async (friendId: string, friendName: string) => {
+      if (!currentUser?.id || !friendId) {
+        return;
+      }
+      const participantIds = [currentUser.id, friendId].sort();
+      const nameById: Record<string, string> = {
+        [currentUser.id]: currentUser.displayName || 'Dig',
+        [friendId]: friendName,
+      };
+      const participantNames = participantIds.map(id => nameById[id] ?? 'Ven');
+      const existingChat = getChatByParticipants(participantIds);
+      try {
+        const threadId = await getOrCreateDmThread(friendId);
+        upsertChat({
+          id: threadId,
+          participantIds,
+          participantNames,
+          lastActivity: existingChat?.lastActivity ?? new Date(),
+          unreadCount: existingChat?.unreadCount ?? 0,
+          avatar: existingChat?.avatar,
+          avatarInitials: existingChat?.avatarInitials,
+        });
+        navigation.navigate('Chat', {
+          chatId: threadId,
+          friendId,
+          friendName,
+          participants: [{id: friendId, name: friendName}],
+        });
+      } catch (e) {
+        Alert.alert(t('friendProfile.messageAlertTitle'), (e as Error).message);
+      }
+    },
+    [currentUser, getChatByParticipants, navigation, t, upsertChat],
+  );
 
   const closeActivityPostSheet = useCallback(() => {
     setActivityMenuItem(null);
@@ -292,6 +348,17 @@ const ActivityFeedScreen = () => {
                       handleUserPress(item.userId, item.displayName)
                     }
                     onMenuPress={() => openActivityPostMenu(item)}
+                    onMessagePress={
+                      shouldShowFeedMessageAction(
+                        item.userId,
+                        currentUser?.id,
+                      )
+                        ? () =>
+                            void openDmToAuthor(item.userId, item.displayName)
+                        : undefined
+                    }
+                    messageLabel={t('home.message')}
+                    messageA11yLabel={t('a11y.sendMessage')}
                   />
                 );
               }

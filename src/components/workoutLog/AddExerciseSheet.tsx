@@ -1,9 +1,10 @@
 /**
  * Bottom sheet: search / pick exercise, or create a user-scoped custom exercise.
  * Muscle filter: multi-select via nested "Muskelgrupper" picker (not horizontal chips).
+ * Browse mode uses a virtualized 2-column image-first grid.
  */
 
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -34,6 +35,7 @@ import {createCustomExercise} from '@/services/supabase/customExerciseService';
 import {
   fetchExerciseLibrary,
   getRecentExerciseIds,
+  peekExerciseLibrary,
 } from '@/services/supabase/workoutLogService';
 import type {
   ExerciseEquipment,
@@ -51,8 +53,11 @@ import {
   toggleMuscleFilter,
 } from '@/utils/workoutMuscleFilter';
 import {useTranslation} from '@/i18n';
-import {getExerciseDisplayName} from '@/i18n/exerciseNames';
-import ExerciseIllustrationThumb from '@/components/workoutLog/ExerciseIllustrationThumb';
+import ExerciseGridCard from '@/components/workoutLog/ExerciseGridCard';
+import {
+  pairExercisesForGrid,
+  type ExerciseGridListRow,
+} from '@/components/workoutLog/exerciseGridRows';
 
 const SCREEN_H = Dimensions.get('window').height;
 
@@ -71,11 +76,6 @@ export type AddExerciseSheetProps = {
   defaultMuscleFilters?: ExerciseMuscleFilters;
 };
 
-type ListRow =
-  | {type: 'header'; key: string; title: string}
-  | {type: 'exercise'; key: string; exercise: ExerciseLibraryItem}
-  | {type: 'create'; key: string};
-
 type SheetMode = 'pick' | 'create' | 'filter';
 
 const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
@@ -84,7 +84,7 @@ const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
   onSelect,
   defaultMuscleFilters = [],
 }) => {
-  const {t, language} = useTranslation();
+  const {t} = useTranslation();
   const insets = useSafeAreaInsets();
   const backdrop = useRef(new Animated.Value(0)).current;
   const sheetY = useRef(new Animated.Value(SCREEN_H)).current;
@@ -93,7 +93,7 @@ const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
     useState<ExerciseMuscleFilters>(defaultMuscleFilters);
   const [draftFilters, setDraftFilters] =
     useState<ExerciseMuscleFilters>(defaultMuscleFilters);
-  const [library, setLibrary] = useState<ExerciseLibraryItem[]>(EXERCISE_LIBRARY);
+  const [library, setLibrary] = useState<ExerciseLibraryItem[]>(peekExerciseLibrary);
   const [recentIds, setRecentIds] = useState<string[]>([]);
   const [mode, setMode] = useState<SheetMode>('pick');
   const [customName, setCustomName] = useState('');
@@ -182,8 +182,8 @@ const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
           count: muscleFilters.length,
         });
 
-  const rows: ListRow[] = useMemo(() => {
-    const out: ListRow[] = [];
+  const rows: ExerciseGridListRow[] = useMemo(() => {
+    const out: ExerciseGridListRow[] = [];
     if (!query.trim() && recentIds.length > 0) {
       const byName = recentIds
         .map(id => {
@@ -208,16 +208,12 @@ const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
           key: 'recent',
           title: t('workoutLog.recentExercises'),
         });
-        recentForFilter.forEach(e =>
-          out.push({type: 'exercise', key: `recent-${e.id}`, exercise: e}),
-        );
+        out.push(...pairExercisesForGrid(recentForFilter, 'recent'));
       }
     }
     const muscleGroups = groupExercisesByMuscle(filtered);
     if (muscleFilters.length === 1 && muscleGroups.length === 1) {
-      muscleGroups[0].exercises.forEach(e =>
-        out.push({type: 'exercise', key: e.id, exercise: e}),
-      );
+      out.push(...pairExercisesForGrid(muscleGroups[0].exercises, 'all'));
     } else {
       for (const group of muscleGroups) {
         out.push({
@@ -225,14 +221,22 @@ const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
           key: `mg-${group.muscleGroup}`,
           title: muscleGroupLabelDa(group.muscleGroup),
         });
-        group.exercises.forEach(e =>
-          out.push({type: 'exercise', key: e.id, exercise: e}),
+        out.push(
+          ...pairExercisesForGrid(group.exercises, `mg-${group.muscleGroup}`),
         );
       }
     }
     out.push({type: 'create', key: 'create-custom'});
     return out;
   }, [filtered, library, muscleFilters, query, recentIds, t]);
+
+  const handleSelectExercise = useCallback(
+    (exercise: ExerciseLibraryItem) => {
+      onSelect(exercise);
+      onClose();
+    },
+    [onClose, onSelect],
+  );
 
   const openFilterPicker = () => {
     setDraftFilters(muscleFilters);
@@ -536,6 +540,10 @@ const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
                 keyboardShouldPersistTaps="handled"
                 keyboardDismissMode="on-drag"
                 contentContainerStyle={styles.list}
+                initialNumToRender={8}
+                maxToRenderPerBatch={8}
+                windowSize={7}
+                removeClippedSubviews={Platform.OS === 'android'}
                 renderItem={({item}) => {
                   if (item.type === 'header') {
                     return <Text style={styles.section}>{item.title}</Text>;
@@ -561,41 +569,20 @@ const AddExerciseSheet: React.FC<AddExerciseSheetProps> = ({
                     );
                   }
                   return (
-                    <TouchableOpacity
-                      style={styles.row}
-                      onPress={() => {
-                        onSelect(item.exercise);
-                        onClose();
-                      }}
-                      activeOpacity={0.85}>
-                      <ExerciseIllustrationThumb
-                        exerciseId={item.exercise.id}
-                        exerciseName={item.exercise.name}
+                    <View style={styles.pairRow}>
+                      <ExerciseGridCard
+                        exercise={item.left}
+                        onPress={handleSelectExercise}
                       />
-                      <View style={styles.rowTextWrap}>
-                        <Text style={styles.rowName} numberOfLines={2}>
-                          {getExerciseDisplayName({
-                            exerciseId: item.exercise.id,
-                            fallbackName: item.exercise.name,
-                            language,
-                          })}
-                        </Text>
-                        {item.exercise.isCustom ? (
-                          <Text style={styles.rowMeta}>
-                            {t('workoutLog.customBadge')}
-                          </Text>
-                        ) : item.exercise.equipment ? (
-                          <Text style={styles.rowMeta}>
-                            {equipmentLabelDa(item.exercise.equipment)}
-                          </Text>
-                        ) : null}
-                      </View>
-                      <Icon
-                        name="chevron-forward"
-                        size={18}
-                        color={colors.textMuted}
-                      />
-                    </TouchableOpacity>
+                      {item.right ? (
+                        <ExerciseGridCard
+                          exercise={item.right}
+                          onPress={handleSelectExercise}
+                        />
+                      ) : (
+                        <View style={styles.pairSpacer} />
+                      )}
+                    </View>
                   );
                 }}
               />
@@ -761,26 +748,14 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
-  row: {
+  pairRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-    borderRadius: radius.lg,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm + 2,
+    alignItems: 'stretch',
+    gap: spacing.sm,
     marginBottom: spacing.sm,
-    minHeight: 60,
   },
-  rowTextWrap: {flex: 1, marginRight: spacing.sm},
-  rowName: {
-    ...typography.body,
-    fontWeight: '600',
-    color: colors.text,
-  },
-  rowMeta: {
-    ...typography.small,
-    color: colors.textMuted,
-    marginTop: 2,
+  pairSpacer: {
+    flex: 1,
   },
   createRow: {
     flexDirection: 'row',

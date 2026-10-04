@@ -8,6 +8,7 @@ import {
 import {getPublicProfilesByIds} from '@/services/supabase/friendService';
 import type {GymlyGroupRow, GymlyGroupInviteRow} from '@/types/gymlyGroups.types';
 import {supabase} from '@/services/supabase/supabaseClient';
+import {safeDisplayName} from '@/utils/displayName';
 
 export type EnrichedGymlyInvite = GymlyGroupInviteRow & {group: GymlyGroupRow};
 
@@ -57,7 +58,7 @@ async function loadMembersMap(
     const p = profs.get(r.user_id);
     const m: GroupMember = {
       id: r.user_id,
-      name: p?.displayName?.trim() || p?.username || 'Bruger',
+      name: safeDisplayName(p?.displayName, p?.username),
       avatar: p?.avatarUrl ?? undefined,
     };
     const list = byG.get(r.group_id) ?? [];

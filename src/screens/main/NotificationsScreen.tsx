@@ -2,17 +2,18 @@
  * Notifikationer – Supabase public.notifications + lokale (workout, besked)
  */
 
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {
+  ActionSheetIOS,
   View,
   Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Platform,
   RefreshControl,
   Alert,
   Pressable,
-  ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {CommonActions, useFocusEffect, useNavigation} from '@react-navigation/native';
@@ -24,9 +25,17 @@ import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useFormatRelativeTime} from '@/hooks/useFormatRelativeTime';
 import {formatRelativeTime as formatRelativeTimeUtil} from '@/utils/formatRelativeTime';
-import {getRuntimeLanguage, rt, useTranslation, badgeDisplayName} from '@/i18n';
-import type {TranslateFn} from '@/i18n';
+import {getRuntimeLanguage, rt, useTranslation} from '@/i18n';
 import {labelForMuscleToken} from '@/utils/muscleGroupLabels';
+import {
+  badgeNameForNotification,
+  friendCheckinTitle,
+  localizedBadgeProgressCopy,
+  localizedFriendRequestCopy,
+  localizedStreakCopy,
+  resolveBadgeDefFromNotification,
+} from '@/utils/notificationCopy';
+import {shouldShowFriendRequestActions} from '@/utils/friendRequestNotificationResolve';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {EmptyState} from '@/components/ui/EmptyState';
@@ -56,24 +65,23 @@ import {
   isFriendRequestNotRecipientError,
   isFriendRequestStaleError,
 } from '@/utils/friendRequestRpcErrors';
+import {isFriendActionUnavailableError} from '@/services/supabase/userBlockService';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useFriendStore} from '@/store/friendStore';
 import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
-import {sendWorkoutBicepsReaction} from '@/services/supabase/workoutReactionService';
-import {normalizeLegacyMuscleKey} from '@/utils/muscleGroupLabels';
-import type {MuscleGroup} from '@/types/workout.types';
-import {BADGE_BY_ID} from '@/config/badgeDefinitions';
-import type {BadgeDefinition} from '@/types/badge.types';
+import {
+  enqueueBicepsDm,
+  newClientMessageId,
+} from '@/services/notifications/notificationBicepsDm';
+import {BicepsBurst} from '@/components/notifications/BicepsBurst';
+import {GymlyPressable} from '@/components/ui/GymlyPressable';
 
-const BICEPS_SENT_STORAGE = (userId: string) => `@gymly/biceps_sent_v1_${userId}`;
 const FRIEND_CHECKIN_GROUP_THRESHOLD = 4;
 const FRIEND_CHECKIN_GROUP_WINDOW_MS = 5 * 60 * 1000;
-
-function bicepsReactionKey(checkInId: string, friendUserId: string): string {
-  return `${checkInId}:${friendUserId}`;
-}
+const SENT_FLASH_MS = 1200;
+/** Matches Avatar size "md" so person rows and icon wells share one size. */
+const ROW_AVATAR_PX = 40;
 
 function muscleLabel(raw: string): string {
   return labelForMuscleToken(raw, getRuntimeLanguage());
@@ -105,34 +113,6 @@ function friendCheckinLocationTrainingLine(item: Notification): string {
     return `${center} · ${train}`;
   }
   return center || train || '';
-}
-
-function friendCheckinCardTitle(item: Notification): string {
-  const name = (item.friendName || item.title || rt('notifications.aFriend')).trim();
-  const center = (item.gymName || (item.dataPayload?.centerName as string) || '').trim();
-  if (center) {
-    return rt('notifications.checkedInAt', {name, center});
-  }
-  return rt('notifications.activeNow', {name});
-}
-
-function resolveBadgeDefinition(item: Notification): BadgeDefinition | undefined {
-  const id = item.badgeId || (item.dataPayload?.badgeId as string | undefined);
-  if (!id) {
-    return undefined;
-  }
-  return BADGE_BY_ID[id];
-}
-
-function badgeUnlockDisplayName(
-  item: Notification,
-  def: BadgeDefinition | undefined,
-  t: TranslateFn,
-): string {
-  if (def) {
-    return badgeDisplayName(t, def);
-  }
-  return item.badgeName || (item.dataPayload?.badgeName as string) || 'Badge';
 }
 
 function friendCheckinMetaLine(item: Notification): string {
@@ -241,14 +221,10 @@ class NotificationsErrorBoundary extends React.Component<
     if (this.state.hasError) {
       return (
         <View style={styles.container}>
-          <View style={styles.header}>
-            <Text style={styles.headerTitle}>{rt('notifications.title')}</Text>
-            <Text style={styles.headerSubtitle}>{rt('notifications.loadError')}</Text>
-          </View>
           <EmptyState
             icon="alert-circle-outline"
             title={rt('notifications.couldNotShowTitle')}
-            message={this.state.message || rt('notifications.unknownError')}
+            message={this.state.message || rt('notifications.loadError')}
             actionLabel={rt('errors.tryAgain')}
             onAction={() => this.setState({hasError: false, message: undefined})}
           />
@@ -298,16 +274,22 @@ const NotificationsScreenInner = () => {
   const clearFriendRequestOutcome = useInAppNotificationStore(
     s => s.clearFriendRequestOutcome,
   );
-  const frOutcomeKeys = useInAppNotificationStore(s =>
-    Object.keys(s.friendRequestOutcomes).join(),
+  const frResolutionKeys = useInAppNotificationStore(s =>
+    Object.keys(s.friendRequestResolutions).join(),
   );
   const removeInAppRowById = useInAppNotificationStore(s => s.removeInAppRowById);
   const loadFriendStore = useFriendStore(s => s.load);
 
   const pendingInvitations = user ? getPendingInvitations(user.id) : [];
   const [friendReqBusyId, setFriendReqBusyId] = useState<string | null>(null);
-  const [bicepsBusyKey, setBicepsBusyKey] = useState<string | null>(null);
-  const [bicepsSentKeys, setBicepsSentKeys] = useState<Record<string, true>>({});
+  const [burstByNotifId, setBurstByNotifId] = useState<Record<string, number>>({});
+  const [sentFlashByNotifId, setSentFlashByNotifId] = useState<
+    Record<string, number>
+  >({});
+  /** notifId -> clientMessageId of the last failed send, so retry never duplicates. */
+  const failedClientIdByNotifId = useRef(new Map<string, string>());
+  const burstSeq = useRef(0);
+  const flashTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [profileById, setProfileById] = useState<Record<string, PublicProfile>>(
     {},
@@ -323,6 +305,10 @@ const NotificationsScreenInner = () => {
 
   useEffect(() => {
     logNotif('screen mounted');
+    return () => {
+      flashTimers.current.forEach(clearTimeout);
+      flashTimers.current = [];
+    };
   }, []);
 
   const groupedNotifications = useMemo(() => {
@@ -376,6 +362,8 @@ const NotificationsScreenInner = () => {
       return listForUi;
     }
   }, [listForUi]);
+
+  const hasUnread = useMemo(() => listForUi.some(n => !n.read), [listForUi]);
 
   useEffect(() => {
     const ids = new Set<string>();
@@ -457,25 +445,6 @@ const NotificationsScreenInner = () => {
       cancelled = true;
     };
   }, [plannedInviteModalNotif]);
-
-  useEffect(() => {
-    if (!user?.id) {
-      return;
-    }
-    AsyncStorage.getItem(BICEPS_SENT_STORAGE(user.id))
-      .then(raw => {
-        if (!raw) {
-          return;
-        }
-        try {
-          const o = JSON.parse(raw) as Record<string, true>;
-          setBicepsSentKeys(o);
-        } catch {
-          /* ignore */
-        }
-      })
-      .catch(() => {});
-  }, [user?.id]);
 
   const onPullRefresh = async () => {
     setRefreshing(true);
@@ -577,13 +546,28 @@ const NotificationsScreenInner = () => {
       }
       return;
     }
+    if (item.type === 'say_hi_request' || item.dbType === 'say_hi_request') {
+      navigation.navigate('Messages', {
+        openSayHi: true,
+        sayHiRequestId:
+          (d?.sayHiRequestId as string | undefined) ||
+          (d?.say_hi_request_id as string | undefined),
+      });
+      return;
+    }
     if (
       item.type === 'biceps_reaction' ||
       item.dbType === 'post_like' ||
       item.dbType === 'post_comment' ||
       item.dbType === 'comment_like'
     ) {
-      navigation.navigate('Home');
+      const postId =
+        (d?.postId as string | undefined) ||
+        (d?.post_id as string | undefined);
+      navigation.navigate('MainTabs', {
+        screen: 'Home',
+        params: postId ? {highlightPostId: postId} : undefined,
+      });
       return;
     }
     if (item.type === 'friend_checkin' || item.type === 'friend_request_accepted') {
@@ -665,44 +649,108 @@ const NotificationsScreenInner = () => {
     }
   };
 
-  const markBicepsSentPersist = (key: string) => {
-    setBicepsSentKeys(prev => {
-      const next = {...prev, [key]: true};
-      if (user?.id) {
-        AsyncStorage.setItem(
-          BICEPS_SENT_STORAGE(user.id),
-          JSON.stringify(next),
-        ).catch(() => {});
-      }
-      return next;
-    });
+  const flashSentConfirmed = (notifId: string) => {
+    burstSeq.current += 1;
+    const token = burstSeq.current;
+    setBurstByNotifId(prev => ({...prev, [notifId]: token}));
+    setSentFlashByNotifId(prev => ({...prev, [notifId]: token}));
+    const timer = setTimeout(() => {
+      const clearIfSameToken = (prev: Record<string, number>) => {
+        if (prev[notifId] !== token) {
+          return prev;
+        }
+        const next = {...prev};
+        delete next[notifId];
+        return next;
+      };
+      setSentFlashByNotifId(clearIfSameToken);
+      setBurstByNotifId(clearIfSameToken);
+      flashTimers.current = flashTimers.current.filter(x => x !== timer);
+    }, SENT_FLASH_MS);
+    flashTimers.current.push(timer);
   };
 
-  const handleFriendCheckinBiceps = async (item: Notification) => {
-    const checkInId = String(
-      item.checkInId || (item.dataPayload?.checkInId as string) || '',
-    ).trim();
-    const toUserId = item.friendId;
-    if (!user?.id || !checkInId || !toUserId) {
-      Alert.alert(t('notifications.couldNotSend'), t('notifications.missingCheckInData'));
+  /**
+   * 💪 is a normal DM, so it is repeatable: every tap enqueues one send and we
+   * stay on the notifications screen.
+   */
+  const sendBicepsDm = async (item: Notification, clientMessageId: string) => {
+    const friendId = item.friendId;
+    if (!user?.id || !friendId) {
       return;
     }
-    const key = bicepsReactionKey(checkInId, toUserId);
-    if (bicepsSentKeys[key] || bicepsBusyKey) {
-      return;
-    }
-    setBicepsBusyKey(key);
+    const notifId = item.id;
+    const friendName =
+      profileById[friendId]?.displayName ||
+      item.friendName ||
+      t('common.friend');
     try {
-      await sendWorkoutBicepsReaction(toUserId, checkInId);
-      markBicepsSentPersist(key);
+      await enqueueBicepsDm({
+        clientMessageId,
+        currentUserId: user.id,
+        friendId,
+        friendName,
+      });
+      failedClientIdByNotifId.current.delete(notifId);
+      flashSentConfirmed(notifId);
     } catch (e) {
+      // Keep the id so a retry lands on the same message row instead of a duplicate.
+      failedClientIdByNotifId.current.set(notifId, clientMessageId);
+      if (isFriendActionUnavailableError(e)) {
+        Alert.alert(
+          t('notifications.couldNotSend'),
+          t('friendsScreen.actionFailed'),
+        );
+        return;
+      }
       Alert.alert(
         t('notifications.couldNotSend'),
         e instanceof Error ? e.message : t('errors.tryAgain'),
+        [
+          {text: t('common.cancel'), style: 'cancel'},
+          {
+            text: t('common.retry'),
+            onPress: () => void sendBicepsDm(item, clientMessageId),
+          },
+        ],
       );
-    } finally {
-      setBicepsBusyKey(null);
     }
+  };
+
+  const handleFriendCheckinBiceps = (item: Notification) => {
+    if (!item.friendId) {
+      return;
+    }
+    // Scale + light haptic fire on press via GymlyPressable; "Sent" only after await.
+    void sendBicepsDm(item, newClientMessageId());
+  };
+
+  const openRowMenu = (item: Notification) => {
+    const removeLabel = t('notifications.remove');
+    const cancelLabel = t('common.cancel');
+    if (Platform.OS === 'ios') {
+      ActionSheetIOS.showActionSheetWithOptions(
+        {
+          options: [cancelLabel, removeLabel],
+          cancelButtonIndex: 0,
+          destructiveButtonIndex: 1,
+        },
+        index => {
+          if (index === 1) {
+            handleDismissNotification(item);
+          }
+        },
+      );
+      return;
+    }
+    Alert.alert(t('notifications.title'), undefined, [
+      {text: cancelLabel, style: 'cancel'},
+      {
+        text: removeLabel,
+        style: 'destructive',
+        onPress: () => handleDismissNotification(item),
+      },
+    ]);
   };
 
   const handleFriendCheckinMessage = async (item: Notification) => {
@@ -746,6 +794,9 @@ const NotificationsScreenInner = () => {
     if (!frId || !user?.id) {
       return;
     }
+    if (friendReqBusyId || !shouldShowFriendRequestActions(item.friendRequestUiState)) {
+      return;
+    }
     const peer = resolvePeerName(item);
     setFriendReqBusyId(frId);
     setFriendRequestOutcome(notifId, 'accepted', peer);
@@ -758,6 +809,7 @@ const NotificationsScreenInner = () => {
     } catch (e: unknown) {
       const msg = getSupabaseRpcErrorMessage(e);
       if (isFriendRequestStaleError(msg)) {
+        setFriendRequestOutcome(notifId, 'accepted', peer);
         void markRead(notifId);
         void loadFriendStore(user.id);
         void refetch();
@@ -772,7 +824,12 @@ const NotificationsScreenInner = () => {
         );
         return;
       }
-      Alert.alert(t('notifications.couldNotAccept'), msg || t('errors.tryAgain'));
+      Alert.alert(
+        t('notifications.couldNotAccept'),
+        isFriendActionUnavailableError(e)
+          ? t('friendsScreen.actionFailed')
+          : msg || t('errors.tryAgain'),
+      );
     } finally {
       setFriendReqBusyId(null);
     }
@@ -835,6 +892,9 @@ const NotificationsScreenInner = () => {
     if (!frId || !user?.id) {
       return;
     }
+    if (friendReqBusyId || !shouldShowFriendRequestActions(item.friendRequestUiState)) {
+      return;
+    }
     const peer = resolvePeerName(item);
     setFriendReqBusyId(frId);
     setFriendRequestOutcome(notifId, 'declined', peer);
@@ -846,6 +906,7 @@ const NotificationsScreenInner = () => {
     } catch (e: unknown) {
       const msg = getSupabaseRpcErrorMessage(e);
       if (isFriendRequestStaleError(msg)) {
+        setFriendRequestOutcome(notifId, 'declined', peer);
         void markRead(notifId);
         await refetch();
         return;
@@ -968,14 +1029,13 @@ const NotificationsScreenInner = () => {
     const iconColor = getNotificationIconColor(item.type, item.read);
     const actorId = item.friendId;
     const prof = actorId ? profileById[actorId] : undefined;
-    const frResolved = !!item.friendRequestUiState;
     const frShowActions =
       item.type === 'friend_request' &&
       item.friendRequestId &&
       item.isFromServer &&
-      !frResolved;
+      shouldShowFriendRequestActions(item.friendRequestUiState);
 
-    const badgeDefRow = resolveBadgeDefinition(item);
+    const badgeDefRow = resolveBadgeDefFromNotification(item);
     const isBadgeNotif =
       item.type === 'badge_unlocked' ||
       item.type === 'badge_progress' ||
@@ -1024,93 +1084,21 @@ const NotificationsScreenInner = () => {
       }
       return (
         <View style={[styles.iconWrapper, {backgroundColor: iconColor + '20'}]}>
-          <Icon name={iconName as 'notifications'} size={24} color={iconColor} />
+          <Icon name={iconName as 'notifications'} size={22} color={iconColor} />
         </View>
       );
     };
 
-    return (
-      <View
-        style={[
-          styles.row,
-          !item.read && styles.rowUnread,
-          item.friendRequestUiState === 'accepted' && styles.rowFrAccepted,
-          item.friendRequestUiState === 'declined' && styles.rowFrDeclined,
-        ]}>
-        <Pressable
-          onPress={() => handleOpenFromNotification(item)}
-          style={({pressed}) => [styles.rowMain, pressed && {opacity: 0.85}]}
-          android_ripple={{color: '#0001'}}>
-          {renderRowLeading()}
-          <View style={styles.content}>
-            {item.type === 'friend_checkin' ? (
-              <>
-                <Text
-                  style={[styles.title, styles.friendCheckinTitle, !item.read && styles.titleUnread]}
-                  numberOfLines={3}
-                  ellipsizeMode="tail">
-                  {isGroupedFriendCheckins ? item.title : friendCheckinCardTitle(item)}
-                </Text>
-                {friendCheckinLocationTrainingLine(item) ? (
-                  <Text
-                    style={styles.friendCheckinBody}
-                    numberOfLines={2}
-                    ellipsizeMode="tail">
-                    {friendCheckinLocationTrainingLine(item)}
-                  </Text>
-                ) : null}
-                <Text style={styles.friendCheckinMeta} numberOfLines={1}>
-                  {isGroupedFriendCheckins
-                    ? t('notifications.tapActiveNow')
-                    : friendCheckinMetaLine(item)}
-                </Text>
-              </>
-            ) : item.type === 'badge_unlocked' ? (
-              <>
-                <Text
-                  style={[styles.title, !item.read && styles.titleUnread]}
-                  numberOfLines={1}>
-                  {t('notifications.newBadge')}
-                </Text>
-                <Text style={styles.message} numberOfLines={2} ellipsizeMode="tail">
-                  {t('notifications.badgeUnlocked', {
-                    name: badgeUnlockDisplayName(item, badgeDefRow, t),
-                  })}
-                </Text>
-                <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
-              </>
-            ) : item.type === 'badge_progress' || item.type === 'streak_milestone' ? (
-              <>
-                <Text
-                  style={[styles.title, !item.read && styles.titleUnread]}
-                  numberOfLines={2}
-                  ellipsizeMode="tail">
-                  {item.title}
-                </Text>
-                {item.message ? (
-                  <Text style={styles.message} numberOfLines={2} ellipsizeMode="tail">
-                    {item.message}
-                  </Text>
-                ) : null}
-                <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
-              </>
-            ) : (
-              <>
-                <Text style={[styles.title, !item.read && styles.titleUnread]}>
-                  {item.title}
-                </Text>
-                {item.message ? (
-                  <Text style={styles.message} numberOfLines={3}>
-                    {item.message}
-                  </Text>
-                ) : null}
-                <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
-              </>
-            )}
-          </View>
-        </Pressable>
-        {!item.read && <View style={styles.unreadDot} />}
-        {frShowActions ? (
+    const showCheckinActions =
+      item.type === 'friend_checkin' &&
+      item.isFromServer &&
+      !isGroupedFriendCheckins;
+    const burstToken = burstByNotifId[item.id] ?? 0;
+    const showSentFlash = !!sentFlashByNotifId[item.id];
+
+    const renderRowActions = () => {
+      if (frShowActions) {
+        return (
           <View style={styles.friendReqActions}>
             <TouchableOpacity
               onPress={() => handleDeclineFriendRequest(item)}
@@ -1126,72 +1114,42 @@ const NotificationsScreenInner = () => {
               activeOpacity={0.8}>
               <Text style={styles.friendReqBtnTextPrimary}>{t('groups.accept')}</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleDismissNotification(item)}
-              style={styles.dismissIconBtn}
-              hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
-              accessibilityLabel={t('a11y.removeNotification')}
-              activeOpacity={0.7}>
-              <Icon name="close" size={22} color={colors.textMuted} />
-            </TouchableOpacity>
           </View>
-        ) : item.type === 'friend_checkin' && item.isFromServer && !isGroupedFriendCheckins ? (
-          <View style={styles.friendCheckinActions}>
-            {(() => {
-              const ck = String(
-                item.checkInId || (item.dataPayload?.checkInId as string) || '',
-              ).trim();
-              const fid = item.friendId || '';
-              const bk = ck && fid ? bicepsReactionKey(ck, fid) : '';
-              const sent = bk ? !!bicepsSentKeys[bk] : false;
-              const busy = bk && bicepsBusyKey === bk;
-              return (
-                <>
-                  <TouchableOpacity
-                    onPress={() => void handleFriendCheckinBiceps(item)}
-                    disabled={sent || busy || !ck || !fid}
-                    style={[
-                      styles.checkinIconBtn,
-                      sent && styles.checkinIconBtnSent,
-                    ]}
-                    activeOpacity={0.8}
-                    accessibilityLabel={t('a11y.sendBiceps')}
-                    accessibilityState={{disabled: sent || busy || !ck || !fid}}>
-                    {busy ? (
-                      <ActivityIndicator size="small" color={colors.primary} />
-                    ) : (
-                      <View style={styles.checkinBicepsIconInner}>
-                        <Text style={styles.checkinIconEmoji} accessibilityElementsHidden>
-                          💪
-                        </Text>
-                        {sent ? (
-                          <View style={styles.checkinIconSentMark} pointerEvents="none">
-                            <Icon name="checkmark" size={10} color={colors.success} />
-                          </View>
-                        ) : null}
-                      </View>
-                    )}
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() => void handleFriendCheckinMessage(item)}
-                    style={styles.checkinIconBtn}
-                    activeOpacity={0.8}
-                    accessibilityLabel={t('a11y.sendMessage')}>
-                    <Icon name="chatbubble-outline" size={20} color={colors.primary} />
-                  </TouchableOpacity>
-                </>
-              );
-            })()}
+        );
+      }
+      if (showCheckinActions) {
+        return (
+          <View style={styles.checkinActions}>
+            {item.friendId ? (
+              <View style={styles.bicepsSlot}>
+                <BicepsBurst token={burstToken} />
+                <GymlyPressable
+                  haptic="light"
+                  onPress={() => handleFriendCheckinBiceps(item)}
+                  style={styles.checkinIconBtn}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('a11y.sendBiceps')}>
+                  <Text style={styles.checkinIconEmoji} accessibilityElementsHidden>
+                    💪
+                  </Text>
+                </GymlyPressable>
+              </View>
+            ) : null}
             <TouchableOpacity
-              onPress={() => handleDismissNotification(item)}
-              style={styles.dismissIconBtnTight}
-              hitSlop={{top: 10, bottom: 10, left: 8, right: 8}}
-              accessibilityLabel={t('a11y.removeNotification')}
-              activeOpacity={0.7}>
-              <Icon name="close" size={20} color={colors.textMuted} />
+              onPress={() => void handleFriendCheckinMessage(item)}
+              style={styles.checkinIconBtn}
+              activeOpacity={0.8}
+              accessibilityLabel={t('a11y.sendMessage')}>
+              <Icon name="chatbubble-outline" size={18} color={colors.primary} />
             </TouchableOpacity>
+            {showSentFlash ? (
+              <Text style={styles.sentFlash}>{t('notifications.sent')}</Text>
+            ) : null}
           </View>
-        ) : item.type === 'workout_invite' ? (
+        );
+      }
+      if (item.type === 'workout_invite') {
+        return (
           <View style={styles.actions}>
             <TouchableOpacity
               onPress={() => handleJoinWorkout(item)}
@@ -1202,40 +1160,185 @@ const NotificationsScreenInner = () => {
                 {item.joined ? 'Anmodet' : 'Deltag'}
               </Text>
             </TouchableOpacity>
+          </View>
+        );
+      }
+      return null;
+    };
+
+    const rowActions = renderRowActions();
+
+    return (
+      <View
+        style={[
+          styles.row,
+          !item.read && styles.rowUnread,
+          item.friendRequestUiState === 'accepted' && styles.rowFrAccepted,
+          item.friendRequestUiState === 'declined' && styles.rowFrDeclined,
+        ]}>
+        <View style={styles.rowTop}>
+          <Pressable
+            testID={
+              item.dbType === 'post_like' || item.type === 'biceps_reaction'
+                ? 'notif-post-like'
+                : undefined
+            }
+            onPress={() => handleOpenFromNotification(item)}
+            style={({pressed}) => [styles.rowMain, pressed && {opacity: 0.85}]}
+            android_ripple={{color: '#0001'}}>
+            {renderRowLeading()}
+            <View style={styles.content}>
+              {item.type === 'friend_checkin' ? (
+                <>
+                  <Text
+                    style={[styles.title, !item.read && styles.titleUnread]}
+                    numberOfLines={2}
+                    ellipsizeMode="tail">
+                    {isGroupedFriendCheckins
+                      ? item.title
+                      : friendCheckinTitle(
+                          item.friendName ||
+                            (actorId ? profileById[actorId]?.displayName : '') ||
+                            item.title ||
+                            '',
+                          t,
+                        )}
+                  </Text>
+                  {friendCheckinLocationTrainingLine(item) ? (
+                    <Text
+                      style={styles.message}
+                      numberOfLines={1}
+                      ellipsizeMode="tail">
+                      {friendCheckinLocationTrainingLine(item)}
+                    </Text>
+                  ) : null}
+                  <Text style={styles.time} numberOfLines={1}>
+                    {isGroupedFriendCheckins
+                      ? t('notifications.tapActiveNow')
+                      : friendCheckinMetaLine(item)}
+                  </Text>
+                </>
+              ) : item.type === 'badge_unlocked' ? (
+                <>
+                  <Text
+                    style={[styles.title, !item.read && styles.titleUnread]}
+                    numberOfLines={1}>
+                    {t('notifications.newBadge')}
+                  </Text>
+                  <Text style={styles.message} numberOfLines={2} ellipsizeMode="tail">
+                    {t('notifications.badgeUnlocked', {
+                      name: badgeNameForNotification(item, badgeDefRow, t),
+                    })}
+                  </Text>
+                  <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
+                </>
+              ) : item.type === 'badge_progress' ||
+                item.type === 'streak_milestone' ? (
+                (() => {
+                  const copy =
+                    item.type === 'streak_milestone'
+                      ? localizedStreakCopy(item, t)
+                      : localizedBadgeProgressCopy(item, t);
+                  return (
+                    <>
+                      <Text
+                        style={[styles.title, !item.read && styles.titleUnread]}
+                        numberOfLines={2}
+                        ellipsizeMode="tail">
+                        {copy.title}
+                      </Text>
+                      {copy.message ? (
+                        <Text
+                          style={styles.message}
+                          numberOfLines={2}
+                          ellipsizeMode="tail">
+                          {copy.message}
+                        </Text>
+                      ) : null}
+                      <Text style={styles.time}>
+                        {formatRelativeTime(item.timestamp)}
+                      </Text>
+                    </>
+                  );
+                })()
+              ) : item.type === 'friend_request' ? (
+                (() => {
+                  const copy = localizedFriendRequestCopy(item, t);
+                  return (
+                    <>
+                      <Text
+                        style={[styles.title, !item.read && styles.titleUnread]}
+                        numberOfLines={2}
+                        ellipsizeMode="tail">
+                        {copy.title}
+                      </Text>
+                      {copy.message ? (
+                        <Text
+                          style={styles.message}
+                          numberOfLines={2}
+                          ellipsizeMode="tail">
+                          {copy.message}
+                        </Text>
+                      ) : null}
+                      {copy.statusLabel && !frShowActions ? (
+                        <Text style={styles.frStatusLabel}>{copy.statusLabel}</Text>
+                      ) : null}
+                      <Text style={styles.time}>
+                        {formatRelativeTime(item.timestamp)}
+                      </Text>
+                    </>
+                  );
+                })()
+              ) : (
+                <>
+                  <Text
+                    style={[styles.title, !item.read && styles.titleUnread]}
+                    numberOfLines={2}>
+                    {item.title}
+                  </Text>
+                  {item.message ? (
+                    <Text style={styles.message} numberOfLines={2}>
+                      {item.message}
+                    </Text>
+                  ) : null}
+                  <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
+                </>
+              )}
+            </View>
+          </Pressable>
+          <View style={styles.rowTrailing}>
+            {!item.read ? <View style={styles.unreadDot} /> : null}
             <TouchableOpacity
-              onPress={() => handleDismissNotification(item)}
-              style={styles.dismissIconBtn}
-              hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
-              accessibilityLabel={t('a11y.removeNotification')}
+              onPress={() => openRowMenu(item)}
+              style={styles.menuBtn}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+              accessibilityRole="button"
+              accessibilityLabel={t('a11y.moreOptions')}
               activeOpacity={0.7}>
-              <Icon name="close" size={22} color={colors.textMuted} />
+              <Icon name="ellipsis-horizontal" size={20} color={colors.textMuted} />
             </TouchableOpacity>
           </View>
-        ) : (
-          <TouchableOpacity
-            onPress={() => handleDismissNotification(item)}
-            style={styles.dismissIconBtn}
-            hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
-            accessibilityLabel={t('a11y.removeNotification')}
-            activeOpacity={0.7}>
-            <Icon name="close" size={22} color={colors.textMuted} />
-          </TouchableOpacity>
-        )}
+        </View>
+        {rowActions ? (
+          <View style={styles.rowActionsWrap}>{rowActions}</View>
+        ) : null}
       </View>
     );
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>{t('notifications.title')}</Text>
-        <Text style={styles.headerSubtitle}>{t('notifications.subtitle')}</Text>
-        {listForUi.length > 0 && (
-          <TouchableOpacity onPress={onMarkAll} style={styles.markAllBtn} activeOpacity={0.8}>
+      {hasUnread ? (
+        <View style={styles.topBar}>
+          <TouchableOpacity
+            onPress={onMarkAll}
+            style={styles.markAllBtn}
+            accessibilityRole="button"
+            activeOpacity={0.8}>
             <Text style={styles.markAllText}>{t('notifications.markAllRead')}</Text>
           </TouchableOpacity>
-        )}
-      </View>
+        </View>
+      ) : null}
 
       {pendingInvitations.length > 0 && (
         <TouchableOpacity
@@ -1261,7 +1364,11 @@ const NotificationsScreenInner = () => {
         keyExtractor={(item, index) =>
           `${item?.id != null ? String(item.id) : 'row'}_${index}`
         }
-        extraData={`${frOutcomeKeys}|${Object.keys(bicepsSentKeys).join(',')}|${bicepsBusyKey ?? ''}|${plannedInviteModalNotif?.id ?? ''}|${plannedBusy ?? ''}`}
+        extraData={`${frResolutionKeys}|${Object.entries(burstByNotifId)
+          .map(([k, v]) => `${k}:${v}`)
+          .join(',')}|${Object.keys(sentFlashByNotifId).join(',')}|${
+          plannedInviteModalNotif?.id ?? ''
+        }|${plannedBusy ?? ''}|${friendReqBusyId ?? ''}`}
         renderItem={renderNotificationItem}
         contentContainerStyle={
           groupedNotifications.length === 0 ? styles.emptyContainer : styles.list
@@ -1306,7 +1413,7 @@ const NotificationsScreenInner = () => {
         }
         inviterAvatarUrl={
           plannedInviteModalNotif?.friendId
-            ? profileById[plannedInviteModalNotif.friendId]?.avatarUrl
+            ? profileById[plannedInviteModalNotif.friendId]?.avatarUrl ?? undefined
             : undefined
         }
         trainingLine={plannedModalTrainingLine}
@@ -1349,26 +1456,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  header: {
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
     paddingHorizontal: spacing.lg,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  headerTitle: {
-    ...typography.h4,
-    color: colors.text,
-  },
-  headerSubtitle: {
-    ...typography.small,
-    color: colors.textSecondary,
-    marginTop: 4,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.xs,
   },
   markAllBtn: {
-    alignSelf: 'flex-end',
-    marginTop: spacing.sm,
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.xs,
   },
   markAllText: {
     ...typography.small,
@@ -1393,49 +1490,50 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingBottom: spacing.xxxl,
-    paddingTop: spacing.xs,
   },
   emptyContainer: {
     flexGrow: 1,
     paddingBottom: spacing.xxxl,
   },
   row: {
+    paddingHorizontal: spacing.lg,
+    paddingVertical: 12,
+    backgroundColor: colors.backgroundCard,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+    overflow: 'visible',
+  },
+  rowTop: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: spacing.lg,
-    backgroundColor: colors.backgroundCard,
-    marginHorizontal: spacing.lg,
-    marginTop: spacing.md,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.07,
-    shadowRadius: 10,
-    elevation: 3,
   },
   rowMain: {flex: 1, flexDirection: 'row', alignItems: 'center', minWidth: 0},
+  rowTrailing: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexShrink: 0,
+  },
   rowUnread: {
-    backgroundColor: colors.primary + '08',
-    borderColor: colors.primary + '30',
+    backgroundColor: colors.primary + '0A',
   },
   rowFrAccepted: {
-    backgroundColor: colors.success + '10',
-    borderColor: colors.success + '35',
+    backgroundColor: colors.success + '0D',
   },
   rowFrDeclined: {
     opacity: 0.92,
-    backgroundColor: colors.backgroundCard,
-    borderColor: colors.border,
+  },
+  frStatusLabel: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+    fontWeight: '600',
   },
   iconWrapper: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: ROW_AVATAR_PX,
+    height: ROW_AVATAR_PX,
+    borderRadius: ROW_AVATAR_PX / 2,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: spacing.md,
   },
   content: {
     flex: 1,
@@ -1443,58 +1541,52 @@ const styles = StyleSheet.create({
     marginLeft: spacing.md,
   },
   title: {
-    ...typography.bodyBold,
+    ...typography.small,
+    fontWeight: '600',
     color: colors.text,
-  },
-  friendCheckinTitle: {
-    lineHeight: 22,
-    paddingRight: spacing.xs,
   },
   titleUnread: {
     fontWeight: '700',
   },
   message: {
-    ...typography.small,
+    ...typography.caption,
     color: colors.textSecondary,
     marginTop: 2,
   },
   time: {
     ...typography.caption,
     color: colors.textMuted,
-    marginTop: 4,
+    marginTop: 2,
   },
   badgeEarnedIconWrap: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: ROW_AVATAR_PX,
+    height: ROW_AVATAR_PX,
+    borderRadius: ROW_AVATAR_PX / 2,
     backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    marginRight: spacing.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
   badgeEarnedEmoji: {
-    fontSize: 26,
-    lineHeight: 30,
-  },
-  friendCheckinBody: {
-    ...typography.small,
-    color: colors.textSecondary,
-    marginTop: 6,
-    lineHeight: 18,
-  },
-  friendCheckinMeta: {
-    ...typography.caption,
-    color: colors.textMuted,
-    marginTop: 4,
+    fontSize: 24,
+    lineHeight: 28,
   },
   unreadDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
     backgroundColor: colors.primary,
     marginLeft: spacing.sm,
+  },
+  menuBtn: {
+    width: 36,
+    height: 36,
+    marginLeft: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  rowActionsWrap: {
+    marginLeft: ROW_AVATAR_PX + spacing.md,
+    marginTop: 8,
   },
   actions: {
     flexDirection: 'row',
@@ -1505,19 +1597,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.xs,
-    flexShrink: 0,
-  },
-  dismissIconBtn: {
-    padding: spacing.sm,
-    marginLeft: spacing.xs,
-    minWidth: 44,
-    minHeight: 44,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   friendReqBtn: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.sm,
+    paddingVertical: 6,
+    paddingHorizontal: spacing.md,
     borderRadius: radius.md,
   },
   friendReqBtnMuted: {
@@ -1540,7 +1623,7 @@ const styles = StyleSheet.create({
   },
   joinBtn: {
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingVertical: 6,
     backgroundColor: colors.primary,
     borderRadius: radius.md,
   },
@@ -1557,56 +1640,33 @@ const styles = StyleSheet.create({
   joinBtnTextJoined: {
     color: colors.primary,
   },
-  friendCheckinActions: {
+  checkinActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    flexShrink: 0,
-    gap: 6,
+    gap: 8,
+  },
+  bicepsSlot: {
+    position: 'relative',
+    overflow: 'visible',
   },
   checkinIconBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     backgroundColor: colors.background,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkinIconBtnSent: {
-    opacity: 0.5,
-  },
-  checkinBicepsIconInner: {
-    position: 'relative',
-    width: 36,
-    height: 36,
     alignItems: 'center',
     justifyContent: 'center',
   },
   checkinIconEmoji: {
-    fontSize: 18,
+    fontSize: 17,
     lineHeight: 20,
   },
-  checkinIconSentMark: {
-    position: 'absolute',
-    right: 2,
-    top: 2,
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    backgroundColor: colors.background,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
-  },
-  dismissIconBtnTight: {
-    padding: 4,
-    marginLeft: 2,
-    minWidth: 36,
-    minHeight: 36,
-    alignItems: 'center',
-    justifyContent: 'center',
+  sentFlash: {
+    ...typography.caption,
+    color: colors.success,
+    fontWeight: '600',
   },
 });
 

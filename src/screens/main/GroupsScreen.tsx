@@ -1,6 +1,6 @@
 /**
- * Groups Screen — MVP list under Venner → Grupper
- * Visuelt aligned med Venner / Beskeder listecards + premium CTA.
+ * Groups Screen — MVP list under Friends → Groups
+ * Minimal empty state + calm create CTA (no premium gradient).
  */
 
 import React, {useCallback, useMemo, useState} from 'react';
@@ -209,47 +209,64 @@ const GroupsScreen = () => {
           ]}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled">
-          <SocialPrimaryButton
-            label={t('groups.createSubmit')}
-            iconName="add-circle-outline"
-            onPress={openCreate}
-            variant="premium"
-            style={styles.createBanner}
-          />
-
           {isEmpty ? (
             <View style={styles.emptyContainer}>
               <View style={styles.emptyIconWrap}>
-                <Icon name="people-outline" size={40} color={colors.primary} />
+                <Icon name="people-outline" size={28} color={colors.primary} />
               </View>
               <Text style={styles.emptyTitle}>
-                {searchQuery ? t('groups.emptySearchTitle') : t('groups.emptyTitle')}
+                {searchQuery
+                  ? t('groups.emptySearchTitle')
+                  : t('groups.emptyTitle')}
               </Text>
               <Text style={styles.emptyText}>
-                {searchQuery ? t('groups.emptySearchSub') : t('groups.emptySub')}
+                {searchQuery
+                  ? t('groups.emptySearchSub')
+                  : t('groups.emptySub')}
               </Text>
+              {!searchQuery ? (
+                <SocialPrimaryButton
+                  label={t('groups.createSubmit')}
+                  iconName="add"
+                  onPress={openCreate}
+                  style={styles.emptyCreateBtn}
+                />
+              ) : null}
             </View>
           ) : (
             <>
+              <SocialPrimaryButton
+                label={t('groups.createSubmit')}
+                iconName="add"
+                onPress={openCreate}
+                style={styles.createBanner}
+              />
+
               {pendingInvites.length > 0 ? (
                 <View style={styles.section}>
                   <Text style={styles.sectionTitle}>{t('groups.invites')}</Text>
                   {pendingInvites.map(inv => (
                     <View key={inv.id} style={styles.inviteCard}>
                       <Text style={styles.groupName}>{inv.group.name}</Text>
-                      <Text style={styles.inviteHint}>{t('groups.inviteHint')}</Text>
+                      <Text style={styles.inviteHint}>
+                        {t('groups.inviteHint')}
+                      </Text>
                       <View style={styles.inviteActions}>
                         <TouchableOpacity
                           style={styles.inviteAccept}
                           onPress={() => void onAcceptInvite(inv.id)}
                           activeOpacity={0.85}>
-                          <Text style={styles.inviteAcceptText}>{t('groups.accept')}</Text>
+                          <Text style={styles.inviteAcceptText}>
+                            {t('groups.accept')}
+                          </Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                           style={styles.inviteDecline}
                           onPress={() => void onDeclineInvite(inv.id)}
                           activeOpacity={0.85}>
-                          <Text style={styles.inviteDeclineText}>{t('groups.decline')}</Text>
+                          <Text style={styles.inviteDeclineText}>
+                            {t('groups.decline')}
+                          </Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -259,7 +276,9 @@ const GroupsScreen = () => {
 
               <View style={styles.section}>
                 {filteredMyGroups.length === 0 ? (
-                  <Text style={styles.emptySectionText}>{t('groups.noMatch')}</Text>
+                  <Text style={styles.emptySectionText}>
+                    {t('groups.noMatch')}
+                  </Text>
                 ) : (
                   filteredMyGroups.map(group => (
                     <GroupCard
@@ -313,6 +332,11 @@ const styles = StyleSheet.create({
   createBanner: {
     marginBottom: spacing.md,
   },
+  emptyCreateBtn: {
+    marginTop: spacing.xl,
+    alignSelf: 'stretch',
+    maxWidth: 280,
+  },
   loadingWrap: {
     flex: 1,
     alignItems: 'center',
@@ -326,6 +350,7 @@ const styles = StyleSheet.create({
   },
   scrollContentEmpty: {
     flexGrow: 1,
+    justifyContent: 'center',
   },
   section: {marginTop: spacing.xs},
   sectionTitle: {
@@ -368,15 +393,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: colors.primary,
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.2,
-        shadowRadius: 6,
-      },
-      android: {elevation: 2},
-    }),
   },
   groupCardBody: {flex: 1, minWidth: 0, marginRight: spacing.xs},
   groupName: {
@@ -443,34 +459,33 @@ const styles = StyleSheet.create({
   emptyContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: spacing.xl,
     paddingHorizontal: spacing.xl,
-    transform: [{translateY: -24}],
+    paddingVertical: spacing.xxl,
   },
   emptyIconWrap: {
-    width: 88,
-    height: 88,
-    borderRadius: 44,
+    width: 64,
+    height: 64,
+    borderRadius: 32,
     backgroundColor: colors.backgroundCard,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: spacing.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    ...shadows.sm,
   },
   emptyTitle: {
-    ...typography.h4,
+    fontSize: 20,
     fontWeight: '700',
     color: colors.text,
     textAlign: 'center',
     marginBottom: spacing.sm,
+    letterSpacing: -0.3,
   },
   emptyText: {
     ...typography.body,
     color: colors.textTertiary,
     textAlign: 'center',
-    maxWidth: 300,
+    maxWidth: 280,
     lineHeight: 22,
   },
   emptySectionText: {

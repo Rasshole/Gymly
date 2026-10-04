@@ -37,14 +37,16 @@ describe('Google Play location prominent disclosure', () => {
   it('DISCLOSURE_EXPLAINS_PURPOSE', () => {
     const body = disclosure.body.toLowerCase();
     expect(body).toMatch(/check in|check-in/);
-    expect(body).toMatch(/check-out|check out|automatic/);
+    expect(body).toMatch(/check-out|check out|automatically check you out/);
     expect(body).toMatch(/gym/);
   });
 
-  it('DISCLOSURE_EXPLAINS_BACKGROUND_USE and CLOSED_NOT_IN_USE', () => {
+  it('DISCLOSURE_MATCHES_RESUME_BASED_AUTO_CHECKOUT (no closed-app claim)', () => {
     const body = disclosure.body.toLowerCase();
-    expect(body).toMatch(/closed or not in use/);
-    expect(body).toMatch(/automatic check-out|leave the gym/);
+    expect(body).not.toMatch(/closed or not in use/);
+    expect(body).not.toMatch(/even when the app is closed/);
+    expect(body).toMatch(/active again|once the app is active/);
+    expect(body).toMatch(/automatic|automatically/);
   });
 
   it('AFFIRMATIVE_CONSENT_REQUIRED Agree / Not now', () => {
@@ -57,16 +59,18 @@ describe('Google Play location prominent disclosure', () => {
     expect(host).toMatch(/resolveLocationProminentDisclosure\(false\)/);
   });
 
-  it('localized disclosure present in da/nb/sv', () => {
+  it('localized disclosure present in da/nb/sv and omits closed-app claim', () => {
     for (const locale of [da, nb, sv]) {
       expect(locale.locationDisclosure.title.length).toBeGreaterThan(0);
       expect(locale.locationDisclosure.body.length).toBeGreaterThan(40);
       expect(locale.locationDisclosure.agree.length).toBeGreaterThan(0);
       expect(locale.locationDisclosure.notNow.length).toBeGreaterThan(0);
+      const body = locale.locationDisclosure.body.toLowerCase();
+      expect(body).not.toMatch(/lukket eller ikke|stängd eller inte|lukket eller ikke i bruk/);
     }
-    expect(da.locationDisclosure.body.toLowerCase()).toMatch(/lukket|ikke er i brug/);
-    expect(nb.locationDisclosure.body.toLowerCase()).toMatch(/lukket|ikke i bruk/);
-    expect(sv.locationDisclosure.body.toLowerCase()).toMatch(/stängd|inte används/);
+    expect(da.locationDisclosure.body.toLowerCase()).toMatch(/aktiv igen|bliver aktiv/);
+    expect(nb.locationDisclosure.body.toLowerCase()).toMatch(/aktiv igjen|blir aktiv/);
+    expect(sv.locationDisclosure.body.toLowerCase()).toMatch(/aktiv igen|blir aktiv/);
   });
 
   it('not used for advertising claim present', () => {
@@ -110,6 +114,15 @@ describe('Disclosure gate wiring (no bypass)', () => {
       expect(src).not.toMatch(/requestBackgroundLocationOsPermission/);
     }
   });
+
+  it('Android does not declare or request ACCESS_BACKGROUND_LOCATION', () => {
+    const manifest = read('android/app/src/main/AndroidManifest.xml');
+    expect(manifest).not.toMatch(/ACCESS_BACKGROUND_LOCATION/);
+    const perm = read('src/services/location/locationPermission.ts');
+    expect(perm).not.toMatch(/PermissionsAndroid\.PERMISSIONS\.ACCESS_BACKGROUND_LOCATION/);
+    expect(perm).toMatch(/enableBackgroundLocationUpdates:\s*false/);
+    expect(perm).toMatch(/authorizationLevel:\s*'whenInUse'/);
+  });
 });
 
 describe('Check-in / auto-checkout radius regression', () => {
@@ -122,10 +135,11 @@ describe('Check-in / auto-checkout radius regression', () => {
 });
 
 describe('Privacy policy location accuracy', () => {
-  it('in-app privacy policy mentions background / closed use', () => {
-    const privacy = read('src/content/legal/privacyPolicyContent.ts');
-    expect(privacy.toLowerCase()).toMatch(/closed or not in use/);
-    expect(privacy.toLowerCase()).toMatch(/not used for advertising|location is not used for advertising/);
-    expect(privacy.toLowerCase()).toMatch(/distance to the gym/);
+  it('in-app privacy policy matches resume-based auto-checkout', () => {
+    const privacy = read('src/content/legal/privacyPolicyContent.ts').toLowerCase();
+    expect(privacy).not.toMatch(/closed or not in use/);
+    expect(privacy).toMatch(/becomes active again|when the app is active/);
+    expect(privacy).toMatch(/not used for advertising|location is not used for advertising/);
+    expect(privacy).toMatch(/distance to the gym/);
   });
 });

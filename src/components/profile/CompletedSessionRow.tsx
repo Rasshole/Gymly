@@ -4,6 +4,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import type {ProfileCompletedSession} from '@/services/supabase/profileCheckInHistory';
 import {formatSessionDateAndDurationDa} from '@/services/supabase/profileCheckInHistory';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {findGymRecordByIdRelaxed} from '@/data/danishGyms';
+import GymLogoView from '@/components/ui/GymLogoView';
+import {useTranslation} from '@/i18n';
 import colors from '@/theme/colors';
 import {spacing, typography} from '@/theme/designTokens';
 
@@ -21,11 +24,29 @@ export const CompletedSessionRow: React.FC<Props> = ({
   summaryLine,
   onPress,
 }) => {
+  const {t, language} = useTranslation();
+
+  const registry = session.gymId
+    ? findGymRecordByIdRelaxed(session.gymId)
+    : null;
+  const logoBrand =
+    session.gymBrand?.trim() || registry?.brand?.trim() || undefined;
+  const logoName =
+    session.gymName?.trim() ||
+    registry?.name?.trim() ||
+    logoBrand ||
+    'Center';
+
   const content = (
     <>
-      <View style={styles.icon}>
-        <Icon name="barbell-outline" size={22} color={colors.primary} />
-      </View>
+      <GymLogoView
+        gymName={logoName}
+        brand={logoBrand}
+        size={40}
+        surface="lavender"
+        unknownFallback="gymly-only"
+        style={styles.logo}
+      />
       <View style={styles.body}>
         <Text style={styles.title} numberOfLines={2}>
           {session.gymName}
@@ -34,10 +55,11 @@ export const CompletedSessionRow: React.FC<Props> = ({
           {formatSessionDateAndDurationDa(
             session.startedAt,
             session.durationMinutes,
+            language,
           )}
         </Text>
         <Text style={styles.typeLine} numberOfLines={2}>
-          {formatWorkoutTypeDisplay(session.workoutType)}
+          {formatWorkoutTypeDisplay(session.workoutType, language)}
         </Text>
         {summaryLine ? (
           <Text style={styles.summaryLine} numberOfLines={1}>
@@ -46,7 +68,7 @@ export const CompletedSessionRow: React.FC<Props> = ({
         ) : null}
         {session.partnerDisplayName ? (
           <Text style={styles.withLine} numberOfLines={1}>
-            Med: {session.partnerDisplayName}
+            {t('profile.sessionWith', {name: session.partnerDisplayName})}
           </Text>
         ) : null}
       </View>
@@ -84,13 +106,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0,
     paddingBottom: spacing.sm,
   },
-  icon: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    backgroundColor: colors.primary + '14',
-    alignItems: 'center',
-    justifyContent: 'center',
+  logo: {
+    flexShrink: 0,
   },
   body: {flex: 1, minWidth: 0},
   title: {

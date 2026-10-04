@@ -5,6 +5,7 @@ import {seedDemoStores} from '@/demo/seedDemoStores';
 
 /**
  * Synkroniser persisted demo-tilstand + seed når bruger er logget ind.
+ * Release: hydrate clears any leftover flag and never seeds fixtures.
  * Ingen overlay/banner — overlay med høj z-index kan blokere scroll/tabs på iOS.
  */
 export function DemoContentOrchestrator() {
@@ -17,7 +18,7 @@ export function DemoContentOrchestrator() {
   }, []);
 
   useEffect(() => {
-    if (!hydrated || !userId || !enabled) {
+    if (!__DEV__ || !hydrated || !userId || !enabled) {
       return;
     }
     try {

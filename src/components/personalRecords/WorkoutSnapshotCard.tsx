@@ -1,6 +1,6 @@
 /**
- * Structured workout / PR block for feed posts (shared snapshot only).
- * Renders as composable sections: PR achievements + compact workout summary.
+ * Compact "Se træning" row for a shared workout log.
+ * Hidden when the log has no exercises, sets, volume or PRs.
  */
 
 import React from 'react';
@@ -10,186 +10,118 @@ import type {SharedWorkoutSnapshot} from '@/types/personalRecord.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {formatVolumeKg} from '@/utils/workoutLogFormat';
-import {formatPrLiftLine, formatPrTypeLabel} from '@/utils/personalRecordCopy';
-import {getRuntimeLanguage, useTranslation, getExerciseDisplayName} from '@/i18n';
+import {useTranslation} from '@/i18n';
 
 type Props = {
   snapshot: SharedWorkoutSnapshot;
   onPress?: () => void;
 };
 
-export const WorkoutSnapshotCard: React.FC<Props> = ({snapshot, onPress}) => {
-  const {t, language} = useTranslation();
-  const lang = getRuntimeLanguage();
-  const totalPrs = snapshot.prs?.length ?? 0;
-  const prs = (snapshot.prs ?? []).slice(0, 3);
-  const extraPrCount = Math.max(0, totalPrs - prs.length);
-  const hasSummary =
+export function workoutSnapshotHasContent(snapshot: SharedWorkoutSnapshot): boolean {
+  return (
     snapshot.exerciseCount > 0 ||
     snapshot.setCount > 0 ||
-    snapshot.totalVolumeKg > 0;
+    snapshot.totalVolumeKg > 0 ||
+    (snapshot.prs?.length ?? 0) > 0 ||
+    (snapshot.exercises?.length ?? 0) > 0
+  );
+}
+
+export const WorkoutSnapshotCard: React.FC<Props> = ({snapshot, onPress}) => {
+  const {t, tp} = useTranslation();
+  if (!workoutSnapshotHasContent(snapshot)) {
+    return null;
+  }
+
+  const parts: string[] = [];
+  if (snapshot.exerciseCount > 0) {
+    parts.push(tp('personalRecords.snapshotExercises', snapshot.exerciseCount));
+  }
+  if (snapshot.setCount > 0) {
+    parts.push(tp('personalRecords.snapshotSets', snapshot.setCount));
+  }
+  if (snapshot.totalVolumeKg > 0) {
+    parts.push(formatVolumeKg(snapshot.totalVolumeKg));
+  }
+  const summary = parts.join(' · ');
+  const prCount = snapshot.prs?.length ?? 0;
+  const canOpen = Boolean(onPress && (summary || prCount > 0 || snapshot.exercises?.length));
 
   const content = (
-    <View style={styles.card}>
-      {totalPrs > 0 ? (
-        <View style={styles.prBlock}>
-          <View style={styles.prHeader}>
-            <Icon name="trophy" size={16} color={colors.primary} />
-            <Text style={styles.prHeaderText}>
-              {totalPrs === 1
-                ? t('personalRecords.oneNewPr')
-                : t('personalRecords.nNewPrs', {count: totalPrs})}
-            </Text>
-          </View>
-
-          {prs.map((pr, idx) => (
-            <View
-              key={`${pr.exerciseName}-${pr.weightKg}-${idx}`}
-              style={[styles.prRow, idx === prs.length - 1 && !extraPrCount && styles.prRowLast]}>
-              <Text style={styles.prExercise} numberOfLines={1}>
-                {getExerciseDisplayName({
-                  exerciseId: null,
-                  fallbackName: pr.exerciseName,
-                  language,
-                })}
-              </Text>
-              <Text style={styles.prLift}>
-                {formatPrLiftLine(pr.weightKg, pr.reps)}
-              </Text>
-              <Text style={styles.prType}>
-                {formatPrTypeLabel(pr.recordType, lang)}
-              </Text>
-            </View>
-          ))}
-
-          {extraPrCount > 0 ? (
-            <Text style={styles.morePrs}>
-              {t('personalRecords.morePrs', {count: extraPrCount})}
-            </Text>
-          ) : null}
-        </View>
-      ) : null}
-
-      {hasSummary ? (
-        <View
-          style={[
-            styles.metaRow,
-            totalPrs > 0 ? styles.metaRowAfterPr : null,
-          ]}>
-          <Text style={styles.metaText}>
-            {t('personalRecords.snapshotMeta', {
-              exercises: snapshot.exerciseCount,
-              sets: snapshot.setCount,
-              volume: formatVolumeKg(snapshot.totalVolumeKg),
-            })}
+    <View style={styles.row}>
+      <View style={styles.copy}>
+        {prCount > 0 ? (
+          <Text style={styles.pr} numberOfLines={1}>
+            {prCount === 1
+              ? t('personalRecords.oneNewPr')
+              : t('personalRecords.nNewPrs', {count: prCount})}
           </Text>
-          {onPress ? (
-            <View style={styles.viewRow}>
-              <Text style={styles.viewText}>{t('personalRecords.viewWorkout')}</Text>
-              <Icon name="chevron-forward" size={14} color={colors.primary} />
-            </View>
-          ) : null}
-        </View>
-      ) : onPress ? (
-        <View style={styles.metaRow}>
+        ) : null}
+        {summary ? (
+          <Text style={styles.summary} numberOfLines={2}>
+            {summary}
+          </Text>
+        ) : null}
+      </View>
+      {canOpen ? (
+        <View style={styles.viewRow}>
           <Text style={styles.viewText}>{t('personalRecords.viewWorkout')}</Text>
-          <Icon name="chevron-forward" size={14} color={colors.primary} />
+          <Icon name="chevron-forward" size={16} color={colors.primary} />
         </View>
       ) : null}
     </View>
   );
 
-  if (onPress) {
-    return (
-      <TouchableOpacity onPress={onPress} activeOpacity={0.85}>
-        {content}
-      </TouchableOpacity>
-    );
+  if (!canOpen) {
+    return summary || prCount > 0 ? content : null;
   }
-  return content;
+
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.75}
+      accessibilityRole="button"
+      accessibilityLabel={t('personalRecords.viewWorkout')}>
+      {content}
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: colors.background,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.primary + '22',
-    padding: spacing.md,
-    marginTop: spacing.sm,
-    marginBottom: spacing.sm,
-  },
-  prBlock: {
-    backgroundColor: colors.primary + '0A',
-    borderRadius: radius.md,
-    padding: spacing.sm,
-    marginBottom: spacing.xs,
-  },
-  prHeader: {
+  row: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    marginBottom: spacing.sm,
+    gap: spacing.sm,
+    marginTop: 6,
+    marginBottom: 2,
+    paddingVertical: 8,
+    paddingHorizontal: spacing.md,
+    borderRadius: radius.md,
+    backgroundColor: colors.background,
   },
-  prHeaderText: {
+  copy: {
+    flex: 1,
+    minWidth: 0,
+  },
+  pr: {
     ...typography.caption,
     color: colors.primaryDark,
-    fontWeight: '800',
-  },
-  prRow: {
-    marginBottom: spacing.sm,
-  },
-  prRowLast: {
-    marginBottom: 0,
-  },
-  prExercise: {
-    ...typography.body,
-    color: colors.text,
     fontWeight: '700',
+    marginBottom: 2,
   },
-  prLift: {
+  summary: {
     ...typography.caption,
     color: colors.text,
     fontWeight: '600',
-    marginTop: 2,
-  },
-  prType: {
-    ...typography.small,
-    color: colors.primary,
-    fontWeight: '700',
-    marginTop: 2,
-  },
-  morePrs: {
-    ...typography.small,
-    color: colors.textMuted,
-    fontWeight: '700',
-    marginTop: 2,
-  },
-  metaRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.sm,
-  },
-  metaRowAfterPr: {
-    marginTop: spacing.sm,
-    paddingTop: spacing.sm,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border,
-  },
-  metaText: {
-    ...typography.small,
-    color: colors.textMuted,
-    fontWeight: '600',
-    flex: 1,
   },
   viewRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 2,
+    minHeight: 36,
   },
   viewText: {
-    ...typography.small,
+    ...typography.caption,
     color: colors.primary,
     fontWeight: '700',
   },

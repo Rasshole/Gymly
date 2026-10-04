@@ -2,6 +2,11 @@ import {supabase} from '@/services/supabase/supabaseClient';
 import {checkAndUnlockBadges} from '@/store/badgeStore';
 import type {User} from '@/types/user.types';
 import {withAvatarCacheBust} from '../../utils/avatar';
+import {
+  firstUsableDisplayName,
+  getNeutralDisplayNameFallback,
+  isUsablePublicDisplayName,
+} from '@/utils/displayName';
 
 const USERNAME_TAKEN_DA = 'Brugernavnet er allerede taget';
 
@@ -77,7 +82,8 @@ function mapProfile(row: {
   return {
     id: row.id,
     username: row.username,
-    displayName: row.display_name,
+    // Never expose email-like / invalid display_name through public profile cache.
+    displayName: firstUsableDisplayName(row.display_name) ?? '',
     avatarUrl: withAvatarCacheBust(row.avatar_url, row.updated_at),
     avatarUpdatedAt: row.updated_at ?? null,
   };
@@ -91,10 +97,13 @@ export async function upsertMyProfile(user: User): Promise<void> {
   const gymIds = (user.favoriteGyms ?? [])
     .filter((id): id is string => typeof id === 'string' && id.length > 0)
     .slice(0, 3);
+  const safeName =
+    firstUsableDisplayName(user.displayName) ??
+    (isUsablePublicDisplayName(username) ? username : getNeutralDisplayNameFallback());
   const baseRow = {
     id: user.id,
     username,
-    display_name: (user.displayName || username).trim(),
+    display_name: safeName,
     avatar_url: user.profileImageUrl ?? null,
     updated_at: new Date().toISOString(),
   };
@@ -216,9 +225,11 @@ export async function getProfileDisplayNameForId(userId: string): Promise<string
   if (error || !data) {
     return 'En bruger';
   }
-  const d = (data as {display_name: string; username: string}).display_name?.trim();
-  const u = (data as {display_name: string; username: string}).username?.trim();
-  return d || u || 'En bruger';
+  const d = firstUsableDisplayName(
+    (data as {display_name: string; username: string}).display_name,
+    (data as {display_name: string; username: string}).username,
+  );
+  return d ?? getNeutralDisplayNameFallback();
 }
 
 /** Bruger DB-orden (least/greatest) — ikke nødvendigvis samme som JS a &lt; b for uuid-strings. */
@@ -282,6 +293,41 @@ export async function getMyFriendIds(userId: string): Promise<Set<string>> {
   return ids;
 }
 
+export type FriendRequestStatusRow = {
+  id: string;
+  status: string;
+  fromUserId: string;
+  toUserId: string;
+};
+
+/** Batch: status for specific friend_requests ids (any status). */
+export async function fetchFriendRequestStatusesByIds(
+  requestIds: string[],
+): Promise<Map<string, FriendRequestStatusRow>> {
+  const uniq = [...new Set(requestIds.filter(Boolean))];
+  const out = new Map<string, FriendRequestStatusRow>();
+  if (uniq.length === 0) {
+    return out;
+  }
+  const {data, error} = await supabase
+    .from('friend_requests')
+    .select('id, status, from_user_id, to_user_id')
+    .in('id', uniq);
+  if (error) {
+    throw error;
+  }
+  for (const row of data ?? []) {
+    const id = row.id as string;
+    out.set(id, {
+      id,
+      status: String(row.status ?? ''),
+      fromUserId: row.from_user_id as string,
+      toUserId: row.to_user_id as string,
+    });
+  }
+  return out;
+}
+
 export async function getOutgoingPendingTo(
   fromUserId: string,
   toUserId: string,
@@ -298,6 +344,27 @@ export async function getOutgoingPendingTo(
     return false;
   }
   return !!data;
+}
+
+/** Batch: udgående pending anmodninger til et sæt af bruger-id'er. */
+export async function getOutgoingPendingToMany(
+  fromUserId: string,
+  toUserIds: string[],
+): Promise<Set<string>> {
+  const uniq = [...new Set(toUserIds.filter(Boolean))];
+  if (!fromUserId || uniq.length === 0) {
+    return new Set();
+  }
+  const {data, error} = await supabase
+    .from('friend_requests')
+    .select('to_user_id')
+    .eq('from_user_id', fromUserId)
+    .eq('status', 'pending')
+    .in('to_user_id', uniq);
+  if (error) {
+    return new Set();
+  }
+  return new Set((data ?? []).map(r => r.to_user_id as string));
 }
 
 export type PendingBetween = {

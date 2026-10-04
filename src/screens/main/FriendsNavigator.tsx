@@ -17,9 +17,8 @@ import {
   Animated,
   LayoutChangeEvent,
   ActivityIndicator,
-  InteractionManager,
 } from 'react-native';
-import {useFocusEffect, useRoute} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import {useTranslation} from '@/i18n';
 import colors from '@/theme/colors';
 import {spacing} from '@/theme/designTokens';
@@ -27,6 +26,10 @@ import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 import FriendsScreen from './FriendsScreen';
 import GroupsScreen from './GroupsScreen';
 import CentresScreen from './CentresScreen';
+import {perfPhase, perfStart} from '@/utils/perfMark';
+import {useAppStore} from '@/store/appStore';
+import {prefetchActiveCenters} from '@/hooks/useActiveCentersRealtime';
+import {prefetchMapGymBadges} from '@/services/supabase/presenceService';
 
 type MapScreenComponent = React.ComponentType<{isActive?: boolean}>;
 
@@ -36,14 +39,14 @@ function LazyMapScreen({isActive}: {isActive: boolean}) {
 
   useEffect(() => {
     let cancelled = false;
-    const task = InteractionManager.runAfterInteractions(() => {
-      if (!cancelled) {
-        setScreen(() => require('./MapScreen').default);
-      }
-    });
+    const requireStarted = Date.now();
+    const Screen = require('./MapScreen').default as MapScreenComponent;
+    perfPhase('map', 'module_loaded', `requireMs=${Date.now() - requireStarted}`);
+    if (!cancelled) {
+      setScreen(() => Screen);
+    }
     return () => {
       cancelled = true;
-      task.cancel();
     };
   }, []);
 
@@ -118,20 +121,32 @@ const FriendsNavigator = () => {
   const [tabBarWidth, setTabBarWidth] = useState(0);
   const indicatorX = useRef(new Animated.Value(0)).current;
 
-  const syncFromParams = useCallback(() => {
-    const screen = (route.params as {screen?: string} | undefined)?.screen;
-    setActive(normalizeFriendsSubRoute(screen, tabNames));
-  }, [route.params, tabNames]);
+  const friendsParams = route.params as
+    | {screen?: string; focusSearch?: number}
+    | undefined;
+  const focusSearchToken = friendsParams?.focusSearch;
 
+  // Apply an explicit Friends sub-route once, when navigation asks for it.
+  // Do not re-apply on focus: GymDetail sits on the parent stack, and coming
+  // back would otherwise reset Centre/Kort to Venner and drop the list or map.
   useEffect(() => {
-    syncFromParams();
-  }, [syncFromParams]);
+    const screen = friendsParams?.screen;
+    if (!screen) {
+      return;
+    }
+    const next = normalizeFriendsSubRoute(screen, tabNames);
+    setActive(next);
+    setMountedTabs(prev => (prev[next] ? prev : {...prev, [next]: true}));
+  }, [friendsParams?.screen, tabNames]);
 
-  useFocusEffect(
-    useCallback(() => {
-      syncFromParams();
-    }, [syncFromParams]),
-  );
+  // Find friends from Home opens the Venner search, even if another sub-tab was last.
+  useEffect(() => {
+    if (!focusSearchToken) {
+      return;
+    }
+    setActive('Venner');
+    setMountedTabs(prev => (prev.Venner ? prev : {...prev, Venner: true}));
+  }, [focusSearchToken]);
 
   const activeIndex = tabs.findIndex(tab => tab.name === active);
 
@@ -159,19 +174,32 @@ const FriendsNavigator = () => {
   };
 
   const handleTabPress = (name: FriendsSubRouteName) => {
-    setActive(name);
-    if (!mountedTabs[name]) {
-      requestAnimationFrame(() => {
-        setMountedTabs(prev => ({...prev, [name]: true}));
-      });
+    const userId = useAppStore.getState().user?.id;
+    if (name === 'Centre') {
+      perfStart('centres', 'tap');
+      if (userId) {
+        void prefetchActiveCenters(userId);
+      }
+    } else if (name === 'Kort') {
+      perfStart('map', 'tap');
+      if (userId) {
+        void prefetchMapGymBadges(userId);
+      }
     }
+    setActive(name);
+    setMountedTabs(prev => (prev[name] ? prev : {...prev, [name]: true}));
   };
 
   const renderScene = () => (
     <>
       {mountedTabs.Venner ? (
-        <View style={[styles.sceneLayer, active !== 'Venner' && styles.sceneHidden]}>
-          <FriendsScreen />
+        <View
+          pointerEvents={active === 'Venner' ? 'auto' : 'none'}
+          style={[styles.sceneLayer, active === 'Venner' ? styles.sceneVisible : styles.sceneHidden]}>
+          <FriendsScreen
+            isActive={active === 'Venner'}
+            focusSearchToken={focusSearchToken}
+          />
         </View>
       ) : null}
       {SURFACE_GROUPS_IN_APP && mountedTabs.Grupper ? (
@@ -180,7 +208,9 @@ const FriendsNavigator = () => {
         </View>
       ) : null}
       {mountedTabs.Centre ? (
-        <View style={[styles.sceneLayer, active !== 'Centre' && styles.sceneHidden]}>
+        <View
+          pointerEvents={active === 'Centre' ? 'auto' : 'none'}
+          style={[styles.sceneLayer, active === 'Centre' ? styles.sceneVisible : styles.sceneHidden]}>
           <CentresScreen isActive={active === 'Centre'} />
         </View>
       ) : active === 'Centre' ? (
@@ -189,7 +219,9 @@ const FriendsNavigator = () => {
         </View>
       ) : null}
       {mountedTabs.Kort ? (
-        <View style={[styles.sceneLayer, active !== 'Kort' && styles.sceneHidden]}>
+        <View
+          pointerEvents={active === 'Kort' ? 'auto' : 'none'}
+          style={[styles.sceneLayer, active === 'Kort' ? styles.sceneVisible : styles.sceneHidden]}>
           <LazyMapScreen isActive={active === 'Kort'} />
         </View>
       ) : active === 'Kort' ? (
@@ -211,6 +243,7 @@ const FriendsNavigator = () => {
             return (
               <Pressable
                 key={tab.name}
+                testID={`friends-tab-${tab.name}`}
                 accessibilityRole="button"
                 accessibilityState={isFocused ? {selected: true} : {}}
                 accessibilityLabel={tab.label}
@@ -296,8 +329,15 @@ const styles = StyleSheet.create({
   sceneLayer: {
     ...StyleSheet.absoluteFillObject,
   },
+  sceneVisible: {
+    zIndex: 1,
+    opacity: 1,
+  },
+  // Keep the native map mounted. display:none detaches AIRMap and the next
+  // show inserts a marker past the end of its subview array, which aborts.
   sceneHidden: {
-    display: 'none',
+    zIndex: 0,
+    opacity: 0,
   },
   sceneLoading: {
     flex: 1,

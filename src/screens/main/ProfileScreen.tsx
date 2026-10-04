@@ -2,7 +2,7 @@
  * Profil – faner Feed (træninger + opslag) og Data (statistik); titel/tandhjul i tab-header
  */
 
-import React, {useMemo, useCallback, useEffect, useState} from 'react';
+import React, {useMemo, useCallback, useEffect, useState, useRef} from 'react';
 import {
   View,
   Text,
@@ -17,6 +17,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
+import {useTabPressScrollToTop} from '@/hooks/useTabPressScrollToTop';
+import {useDmInboxUnreadSync} from '@/hooks/useDmInboxUnreadSync';
 import {useAppStore} from '@/store/appStore';
 import {fetchFeaturedBadgeIdsForUser} from '@/services/supabase/profileFeaturedBadgesService';
 import {useFeedStore} from '@/store/feedStore';
@@ -47,7 +49,11 @@ import {useProfileStats} from '@/hooks/useProfileData';
 import {useFriends} from '@/hooks/useFriends';
 import {useBadgeStore} from '@/store/badgeStore';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
-import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {formatTrainsOftenGymAndCity} from '@/utils/gymDisplay';
+import {
+  firstUsableDisplayName,
+  getNeutralDisplayNameFallback,
+} from '@/utils/displayName';
 import {fetchProfilePersonalRecords} from '@/services/supabase/personalRecordService';
 import type {ProfilePersonalRecord} from '@/types/personalRecord.types';
 import {formatPrLiftLine} from '@/utils/personalRecordCopy';
@@ -66,6 +72,7 @@ import {useSessionStore} from '@/store/sessionStore';
 import colors from '@/theme/colors';
 import {spacing, typography, radius, shadows} from '@/theme/designTokens';
 import {useTranslation, getExerciseDisplayName} from '@/i18n';
+import {formatFeedItemCaptionForProfile} from '@/utils/workoutPostLocalization';
 import {useAppFormat} from '@/i18n/useAppFormat';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
 import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
@@ -86,6 +93,7 @@ const ProfileScreen = () => {
   const {dayWord, formatTrainingDuration} = useAppFormat();
   const isAuthenticated = useAppStore(s => s.isAuthenticated);
   const user = useAppStore(s => s.user);
+  useDmInboxUnreadSync();
   const setUser = useAppStore(s => s.setUser);
   const feedItems = useFeedStore(s => s.feedItems);
   const [tab, setTab] = useState<ProfileTab>('feed');
@@ -116,6 +124,8 @@ const ProfileScreen = () => {
   const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
   const [commentInput, setCommentInput] = useState('');
   const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
+  const scrollRef = useRef<ScrollView>(null);
+  useTabPressScrollToTop(scrollRef);
 
   const dataPeriodOptions = useMemo(
     (): {key: WorkoutPeriod; label: string}[] => [
@@ -128,9 +138,8 @@ const ProfileScreen = () => {
   );
 
   const displayName =
-    user?.displayName?.trim() ||
-    user?.email?.split('@')[0]?.trim() ||
-    '';
+    firstUsableDisplayName(user?.displayName, user?.username) ??
+    getNeutralDisplayNameFallback();
   const username = user?.username?.trim() || '';
   const activeStatusText = useMemo(() => {
     if (activeSession?.gymName) {
@@ -147,11 +156,14 @@ const ProfileScreen = () => {
     if (!first) {
       return undefined;
     }
-    const nameLine = formatGymNameWithBrand(first.name, first.brand);
-    const tail = first.city?.trim();
-    return tail
-      ? t('profile.trainsOftenCity', {gym: nameLine, city: tail})
-      : t('profile.trainsOften', {gym: nameLine});
+    const {gym, city} = formatTrainsOftenGymAndCity(
+      first.name,
+      first.brand,
+      first.city,
+    );
+    return city
+      ? t('profile.trainsOftenCity', {gym, city})
+      : t('profile.trainsOften', {gym});
   }, [centerRows, t]);
 
   const refreshProfileCenters = useCallback(async () => {
@@ -520,6 +532,7 @@ const ProfileScreen = () => {
   return (
     <View style={styles.container}>
       <ScrollView
+        ref={scrollRef}
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
@@ -625,7 +638,7 @@ const ProfileScreen = () => {
                       workoutType={parsedInfo.workoutType}
                       duration={parsedInfo.duration}
                       mediaUri={post.photoUri ?? post.videoThumbnailUri ?? post.videoUri}
-                      caption={post.description}
+                      caption={formatFeedItemCaptionForProfile(post, language)}
                       timestamp={post.timestamp}
                       reactions={{bicep: reaction.likes, fire: 0, eyes: 0}}
                       bicepActive={reaction.liked}
@@ -634,6 +647,12 @@ const ProfileScreen = () => {
                       onWorkoutSnapshotPress={
                         post.workoutSnapshot
                           ? () => {
+                              if (post.workoutSnapshot?.kind === 'badge_unlock') {
+                                navigation.navigate('Badges', {
+                                  highlightBadgeId: post.workoutSnapshot.badgeId,
+                                });
+                                return;
+                              }
                               if (post.checkInId) {
                                 navigation.navigate('WorkoutHistoryDetail', {
                                   sessionId: post.checkInId,

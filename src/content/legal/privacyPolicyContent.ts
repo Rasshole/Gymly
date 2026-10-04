@@ -32,7 +32,7 @@ const privacyDa: LegalDocument = {
         'Afstand til center under aktiv check-in (gemmes som meter, ikke koordinater)',
       ],
       paragraphs: [
-        'Under en aktiv træning kan Gymly fortsætte med at bruge placering i baggrunden — også når appen er lukket eller ikke er i brug — for at aktivere automatisk tjek-ud, når du forlader centerområdet. Dine præcise GPS-koordinater uploades ikke; vi gemmer typisk kun afstanden til centret sammen med din session.',
+        'Under en aktiv træning kan Gymly bruge placering, mens appen er åben, til at vurdere om du stadig er ved centret, og automatisk tjekke dig ud, når du forlader centerområdet, når appen bliver aktiv igen. Dine præcise GPS-koordinater uploades ikke; vi gemmer typisk kun afstanden til centret sammen med din session.',
         'Placering bruges ikke til reklame.',
       ],
     },
@@ -43,7 +43,7 @@ const privacyDa: LegalDocument = {
         'Drive og forbedre Appen',
         'Muliggøre sociale funktioner',
         'Vise check-ins og aktivitet',
-        'Verificere check-in inden for ca. 200 m og automatisk tjek-ud',
+        'Verificere check-in inden for ca. 200 m og automatisk tjek-ud, når appen er aktiv',
         'Sikre appens stabilitet og sikkerhed',
         'Overholde juridiske krav',
       ],
@@ -139,7 +139,7 @@ const privacyEn: LegalDocument = {
         'Distance to the gym during an active check-in (stored as meters, not coordinates)',
       ],
       paragraphs: [
-        'During an active workout, Gymly may continue to use location in the background — including when the app is closed or not in use — to enable automatic check-out when you leave the gym area. Your exact GPS coordinates are not uploaded; we typically store only the distance to the gym with your session.',
+        'During an active workout, Gymly may use location while the app is open to verify whether you are still at the gym, and can automatically check you out when you leave the gym area once the app becomes active again. Your exact GPS coordinates are not uploaded; we typically store only the distance to the gym with your session.',
         'Location is not used for advertising.',
       ],
     },
@@ -150,7 +150,7 @@ const privacyEn: LegalDocument = {
         'Operate and improve the App',
         'Enable social features',
         'Show check-ins and activity',
-        'Verify check-in within about 200 m and automatic check-out',
+        'Verify check-in within about 200 m and automatic check-out when the app is active',
         'Ensure app stability and security',
         'Comply with legal requirements',
       ],
@@ -215,10 +215,14 @@ const privacyEn: LegalDocument = {
   ],
 };
 
+/** Reviewed legal packs by locale; missing → English (unchanged behavior). */
+const PRIVACY_BY_LOCALE: Partial<Record<AppLanguage, LegalDocument>> & {
+  en: LegalDocument;
+} = {
+  da: privacyDa,
+  en: privacyEn,
+};
+
 export function getPrivacyPolicyContent(language: AppLanguage): LegalDocument {
-  if (language === 'da') {
-    return privacyDa;
-  }
-  // en + any locale without a reviewed legal pack (e.g. sv) → English
-  return privacyEn;
+  return PRIVACY_BY_LOCALE[language] ?? PRIVACY_BY_LOCALE.en;
 }

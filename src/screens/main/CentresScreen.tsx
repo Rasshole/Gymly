@@ -13,12 +13,13 @@ import {
   TouchableOpacity,
   Platform,
   ActivityIndicator,
-  InteractionManager,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import {
   getLocationPermissionStatus,
   isLocationAuthorized,
+  peekLastUserFix,
+  rememberUserFix,
 } from '@/services/location/locationPermission';
 import Icon from 'react-native-vector-icons/Ionicons';
 import danishGyms, {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
@@ -41,7 +42,8 @@ import type {ActiveCenter} from '@/types/activeCenter.types';
 import {useTranslation} from '@/i18n';
 import {useGymSearch} from '@/hooks/useGymSearch';
 import {GymSearchResultsPanel} from '@/components/gym/GymSearchResultsPanel';
-import {rankNearbyCentres} from '@/utils/nearbyCentersRanking';
+import {rankNearbyCentres, takeNearestGyms} from '@/utils/nearbyCentersRanking';
+import {perfPhase} from '@/utils/perfMark';
 
 type CentresScreenProps = {
   /** True when the Gyms sub-tab is selected (not merely Friends bottom tab). */
@@ -98,8 +100,11 @@ function formatDistanceMeters(distanceM: number): string {
   return `${(distanceM / 1000).toFixed(1)} km`;
 }
 
-function LiveActivityLine({live}: {live: LiveStats}) {
+function LiveActivityLine({live, pending}: {live: LiveStats; pending?: boolean}) {
   const {t} = useTranslation();
+  if (pending && live.total <= 0 && live.friends <= 0) {
+    return null;
+  }
   if (live.total <= 0) {
     return (
       <Text style={styles.liveLineMuted} numberOfLines={1}>
@@ -150,12 +155,14 @@ const FavoriteGymCard = ({
   index,
   distanceText,
   live,
+  livePending,
   gymStatus,
 }: {
   gym: DanishGym;
   index: number;
   distanceText: string;
   live: LiveStats;
+  livePending?: boolean;
   gymStatus: {isOpen: boolean};
 }) => {
   const {t} = useTranslation();
@@ -187,7 +194,7 @@ const FavoriteGymCard = ({
           </View>
           <View style={styles.primaryMetaRow}>
             <OpenClosedChip isOpen={gymStatus.isOpen} />
-            <LiveActivityLine live={live} />
+            <LiveActivityLine live={live} pending={livePending} />
           </View>
           <Text style={styles.cityDistanceLine} numberOfLines={1}>
             {[gym.city, distanceText].filter(Boolean).join(' · ')}
@@ -205,24 +212,32 @@ const FavoriteGymCard = ({
 };
 
 type NearbyGymRowProps = {
+  testID?: string;
   gym: DanishGym;
   isFavorite: boolean;
   isOpen: boolean;
   distanceText: string;
   live: LiveStats;
+  livePending?: boolean;
   onPress: () => void;
 };
 
 const NearbyGymRow = React.memo(function NearbyGymRow({
+  testID,
   gym,
   isFavorite,
   isOpen,
   distanceText,
   live,
+  livePending,
   onPress,
 }: NearbyGymRowProps) {
   return (
-    <TouchableOpacity style={styles.gymCard} activeOpacity={0.72} onPress={onPress}>
+    <TouchableOpacity
+      testID={testID}
+      style={styles.gymCard}
+      activeOpacity={0.72}
+      onPress={onPress}>
       <View style={styles.gymCardInner}>
         {isFavorite ? (
           <View style={[styles.gymIcon, styles.gymIconFavorite]}>
@@ -242,7 +257,7 @@ const NearbyGymRow = React.memo(function NearbyGymRow({
           </Text>
           <View style={styles.primaryMetaRow}>
             <OpenClosedChip isOpen={isOpen} />
-            <LiveActivityLine live={live} />
+            <LiveActivityLine live={live} pending={livePending} />
           </View>
           <Text style={styles.cityDistanceLine} numberOfLines={1}>
             {[gym.brand ? normalizeGymBrand(gym.brand) : null, gym.city, distanceText]
@@ -268,7 +283,9 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
   const user = useAppStore(s => s.user);
   const getActiveUsersCount = useGymStore(s => s.getActiveUsersCount);
   const getGymStatus = useGymStore(s => s.getGymStatus);
-  const {activeCenters} = useActiveCentersRealtime({enabled: isActive});
+  const {activeCenters, settled: liveSettled} = useActiveCentersRealtime({
+    enabled: isActive,
+  });
   const {
     resolvedCenterIds,
     hasLocalCenters,
@@ -277,26 +294,58 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
   const [userLocation, setUserLocation] = useState<{
     latitude: number;
     longitude: number;
-  } | null>(null);
+  } | null>(() => peekLastUserFix());
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const [nearbyGyms, setNearbyGyms] = useState<DanishGym[]>([]);
   const [nearbyRanking, setNearbyRanking] = useState(false);
   const listRef = useRef<FlatList<DanishGym>>(null);
 
   const liveByGymId = useMemo(() => buildLiveByGymId(activeCenters), [activeCenters]);
+  const liveByGymIdRef = useRef(liveByGymId);
+  liveByGymIdRef.current = liveByGymId;
+  const liveSettledRef = useRef(liveSettled);
+  liveSettledRef.current = liveSettled;
+  const rankedWithLiveRef = useRef(false);
 
   useEffect(() => {
+    const applyFix = (latitude: number, longitude: number, cached: boolean) => {
+      rememberUserFix(latitude, longitude);
+      setUserLocation(prev => {
+        if (
+          prev &&
+          Math.abs(prev.latitude - latitude) < 0.00001 &&
+          Math.abs(prev.longitude - longitude) < 0.00001
+        ) {
+          return prev;
+        }
+        return {latitude, longitude};
+      });
+      if (!loggedGps) {
+        loggedGps = true;
+        perfPhase('centres', 'gps', cached ? 'cached=1' : 'cached=0');
+      }
+    };
+    let loggedGps = false;
+    const cached = peekLastUserFix();
+    if (cached) {
+      applyFix(cached.latitude, cached.longitude, true);
+    }
     void getLocationPermissionStatus().then(status => {
+      const afterProbe = peekLastUserFix();
+      if (afterProbe) {
+        applyFix(afterProbe.latitude, afterProbe.longitude, true);
+        return;
+      }
       if (!isLocationAuthorized(status)) {
         return;
       }
       Geolocation.getCurrentPosition(
         position => {
           const {latitude, longitude} = position.coords;
-          setUserLocation({latitude, longitude});
+          applyFix(latitude, longitude, false);
         },
         () => {},
-        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+        {enableHighAccuracy: false, timeout: 8000, maximumAge: 120000},
       );
     });
   }, []);
@@ -331,7 +380,7 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
       userLng: userLocation?.longitude,
       favoriteIds: favoriteGymIds,
       limit: 50,
-      gyms: allCentres,
+      gyms: searchQuery.trim().length > 0 ? allCentres : [],
     });
 
   const searchListGyms = useMemo(
@@ -343,29 +392,58 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
   );
 
   useEffect(() => {
-    if (!isActive || isSearchActive) {
+    if (!isActive || isSearchActive || !userLocation) {
       return;
     }
     let cancelled = false;
+    rankedWithLiveRef.current = false;
+    const nearestStarted = Date.now();
+    const nearest = takeNearestGyms({
+      gyms: allCentres,
+      excludeIds: favoriteGymIdSet,
+      userLocation,
+      calculateDistanceMeters: calculateDistance,
+    });
+    if (!cancelled) {
+      setNearbyGyms(nearest);
+      perfPhase(
+        'centres',
+        'first_list',
+        `count=${nearest.length} computeMs=${Date.now() - nearestStarted}`,
+      );
+    }
     setNearbyRanking(true);
-    const task = InteractionManager.runAfterInteractions(() => {
+    const timer = setTimeout(() => {
+      if (cancelled) {
+        return;
+      }
+      const rankStarted = Date.now();
       const ranked = rankNearbyCentres({
         gyms: allCentres,
         excludeIds: favoriteGymIdSet,
         userLocation,
         getGymStatus,
-        liveByGymId,
+        liveByGymId: liveByGymIdRef.current,
         getActiveUsersCount,
         calculateDistanceMeters: calculateDistance,
       });
-      if (!cancelled) {
-        setNearbyGyms(ranked);
-        setNearbyRanking(false);
+      if (cancelled) {
+        return;
       }
-    });
+      if (liveSettledRef.current) {
+        rankedWithLiveRef.current = true;
+      }
+      setNearbyGyms(ranked);
+      setNearbyRanking(false);
+      perfPhase(
+        'centres',
+        'list',
+        `count=${ranked.length} computeMs=${Date.now() - rankStarted}`,
+      );
+    }, 0);
     return () => {
       cancelled = true;
-      task.cancel();
+      clearTimeout(timer);
     };
   }, [
     isActive,
@@ -374,7 +452,51 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
     favoriteGymIdSet,
     userLocation,
     getGymStatus,
-    liveByGymId,
+    getActiveUsersCount,
+  ]);
+
+  useEffect(() => {
+    if (!isActive || isSearchActive || !userLocation || !liveSettled || rankedWithLiveRef.current) {
+      return;
+    }
+    let cancelled = false;
+    const timer = setTimeout(() => {
+      if (cancelled || rankedWithLiveRef.current) {
+        return;
+      }
+      const rankStarted = Date.now();
+      const ranked = rankNearbyCentres({
+        gyms: allCentres,
+        excludeIds: favoriteGymIdSet,
+        userLocation,
+        getGymStatus,
+        liveByGymId: liveByGymIdRef.current,
+        getActiveUsersCount,
+        calculateDistanceMeters: calculateDistance,
+      });
+      if (cancelled) {
+        return;
+      }
+      rankedWithLiveRef.current = true;
+      setNearbyGyms(ranked);
+      perfPhase(
+        'centres',
+        'live_rank',
+        `count=${ranked.length} computeMs=${Date.now() - rankStarted}`,
+      );
+    }, 0);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [
+    isActive,
+    isSearchActive,
+    liveSettled,
+    allCentres,
+    favoriteGymIdSet,
+    userLocation,
+    getGymStatus,
     getActiveUsersCount,
   ]);
 
@@ -431,6 +553,7 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
                   index={index}
                   distanceText={distanceForGym(gym)}
                   live={liveStatsForGym(gym.id, liveByGymId, getActiveUsersCount)}
+                  livePending={!liveSettled}
                   gymStatus={getGymStatus(gym.id)}
                 />
               ))}
@@ -452,17 +575,20 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
       liveByGymId,
       getActiveUsersCount,
       getGymStatus,
+      liveSettled,
     ],
   );
 
   const renderNearbyItem = useCallback(
-    ({item}: {item: DanishGym}) => (
+    ({item, index}: {item: DanishGym; index: number}) => (
       <NearbyGymRow
+        testID={index === 0 ? 'centres-first-gym' : undefined}
         gym={item}
         isFavorite={favoriteGymIds.includes(item.id)}
         isOpen={getGymStatus(item.id).isOpen}
         distanceText={distanceForGym(item)}
         live={liveStatsForGym(item.id, liveByGymId, getActiveUsersCount)}
+        livePending={!liveSettled}
         onPress={() =>
           navigation.navigate('GymDetail', {
             gymId: item.id,
@@ -477,6 +603,7 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
       distanceForGym,
       liveByGymId,
       getActiveUsersCount,
+      liveSettled,
       navigation,
     ],
   );
@@ -520,7 +647,11 @@ const CentresScreen = ({isActive = true}: CentresScreenProps) => {
           ) : null
         }
         ListEmptyComponent={
-          !nearbyRanking && !isSearchActive ? (
+          !userLocation || nearbyRanking ? (
+            <View style={styles.nearbyLoadingFooter}>
+              <ActivityIndicator color={colors.primary} />
+            </View>
+          ) : !isSearchActive ? (
             <View style={styles.nearbyEmptyWrap}>
               <Text style={styles.nearbyEmptyText}>{t('centres.searchPlaceholder')}</Text>
             </View>

@@ -35,6 +35,8 @@ export interface NearbyCentersCarouselProps {
   hasActiveGyms?: boolean;
   /** When browsing away from the user, prefer "In this area" over "Near you". */
   browsingAway?: boolean;
+  /** False while live badge counts are still loading. */
+  activityKnown?: boolean;
 }
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.74;
@@ -44,10 +46,12 @@ function NearbyCard({
   item,
   isSelected,
   onPress,
+  activityKnown,
 }: {
   item: NearbyCenterItem;
   isSelected: boolean;
   onPress: () => void;
+  activityKnown: boolean;
 }) {
   const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
@@ -106,9 +110,9 @@ function NearbyCard({
                 </View>
               ) : null}
             </View>
-          ) : (
+          ) : activityKnown ? (
             <Text style={styles.activityEmpty}>{t('map.noOneCheckedIn')}</Text>
-          )}
+          ) : null}
         </View>
       </Animated.View>
     </Pressable>
@@ -121,6 +125,7 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
   onSelectCenter,
   hasActiveGyms = false,
   browsingAway = false,
+  activityKnown = true,
 }) => {
   const {t} = useTranslation();
   const flatListRef = useRef<FlatList>(null);
@@ -141,14 +146,14 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
     return null;
   }
 
-  const sectionTitle = hasActiveGyms
-    ? t('map.activeGyms')
-    : browsingAway
-      ? t('map.inThisArea')
+  const sectionTitle = browsingAway
+    ? t('map.inThisArea')
+    : hasActiveGyms
+      ? t('map.activeGyms')
       : t('map.nearYou');
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="map-nearby-carousel">
       <Text style={styles.sectionTitle}>{sectionTitle}</Text>
       <FlatList
         ref={flatListRef}
@@ -161,6 +166,7 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
           <NearbyCard
             item={item}
             isSelected={selectedGymId === item.gym.id}
+            activityKnown={activityKnown}
             onPress={() => onSelectCenter(item.gym)}
           />
         )}

@@ -31,10 +31,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect, useRoute} from '@react-navigation/native';
 import type {RouteProp} from '@react-navigation/native';
 import type {CheckInStackParamList} from '@/navigation/MainNavigator';
+import {useDmInboxUnreadSync} from '@/hooks/useDmInboxUnreadSync';
 import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+import {perfPhase, perfStart} from '@/utils/perfMark';
 import {searchGyms} from '@/services/gymSearch/gymSearchEngine';
+import {scheduleGymSearchWarmup} from '@/services/gymSearch/gymSearchIndex';
 import {findNearestGym} from '@/utils/nearestGym';
 import {pickBrowseGyms} from '@/utils/pickBrowseGyms';
 import {useAppStore} from '@/store/appStore';
@@ -62,6 +65,11 @@ import {runAutoCheckoutEvaluation} from '@/services/autoCheckout/runAutoCheckout
 import {notifyFriendsOfCheckIn} from '@/services/firestore/FriendCheckInNotificationService';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {
+  avatarInitialsFromDisplayName,
+  firstUsableDisplayName,
+  getNeutralDisplayNameFallback,
+} from '@/utils/displayName';
+import {
   fetchPlannedWorkoutsForUser,
   findLinkablePlannedWorkoutId,
   loadWorkoutPlanEntriesForUser,
@@ -70,6 +78,8 @@ import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {calculateDistance, formatDistance} from '@/utils/geoUtils';
 import GymLogoView from '@/components/ui/GymLogoView';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
+import ContactStatusPicker from '@/components/social/ContactStatusPicker';
+import type {ContactStatus} from '@/utils/contactStatus';
 import {
   encodeMuscleGroupsForSession,
   toggleCheckInMuscleGroup,
@@ -112,6 +122,7 @@ import {isDemoContentMode} from '@/demo/demoContentGate';
 import {useDemoModeStore} from '@/demo/demoModeStore';
 
 const CHECKIN_GYMS = getActiveDanishGyms();
+scheduleGymSearchWarmup(CHECKIN_GYMS);
 
 /** Demo / screen recording: fiktiv placering 57 m fra SATS Valby (tjek-ind tilladt inden for radius). */
 const DEMO_CHECKIN_SHOWCASE_GYM_ID = 'sats-2500-valby-torvegade-17';
@@ -202,7 +213,7 @@ function userFacingCheckInError(err: unknown): string {
     return rt('checkIn.checkInFailed');
   }
   if (
-    /network|Network request failed|Failed to fetch|timeout|getaddrinfo/i.test(m)
+    /network|Network request failed|Failed to fetch|timed out|timeout|getaddrinfo/i.test(m)
   ) {
     return rt('checkIn.checkInFailedNetwork');
   }
@@ -212,8 +223,28 @@ function userFacingCheckInError(err: unknown): string {
   return rt('checkIn.checkInFailed');
 }
 
+let nearestScanCache: {lat: number; lng: number; gym: DanishGym | null} | null = null;
+
 function findNearestGymFromCoords(latitude: number, longitude: number): DanishGym | null {
-  return findNearestGym(latitude, longitude, CHECKIN_GYMS);
+  const cached = nearestScanCache;
+  if (
+    cached &&
+    cached.lat === latitude &&
+    cached.lng === longitude
+  ) {
+    return cached.gym;
+  }
+  const gym = findNearestGym(latitude, longitude, CHECKIN_GYMS);
+  nearestScanCache = {lat: latitude, lng: longitude, gym};
+  return gym;
+}
+
+function logCheckInPerf(startedAt: number, label: string): void {
+  if (!__DEV__) {
+    return;
+  }
+  const elapsed = Math.round(performance.now() - startedAt);
+  console.log(`[PERF checkin +${elapsed}ms] ${label}`);
 }
 
 const CheckInScreen = () => {
@@ -221,7 +252,8 @@ const CheckInScreen = () => {
   const route = useRoute<RouteProp<CheckInStackParamList, 'CheckInMain'>>();
   const {t, intlLocale} = useTranslation();
   const {streakLabel} = useAppFormat();
-  const {user} = useAppStore();
+  const user = useAppStore(s => s.user);
+  useDmInboxUnreadSync();
   const gymlyGroups = useGymlyGroupsStore(s => s.groups);
   const refreshGymlyGroups = useGymlyGroupsStore(s => s.refresh);
   const demoCheckInPlacementActive =
@@ -290,9 +322,12 @@ const CheckInScreen = () => {
   const [selectedMuscleGroups, setSelectedMuscleGroups] = useState<MuscleGroup[]>(
     [],
   );
+  const [pendingContactStatus, setPendingContactStatus] =
+    useState<ContactStatus | null>(null);
   const [soloTraining, setSoloTraining] = useState(false);
   const [selectedGroupId, setSelectedGroupId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const submitLockRef = useRef(false);
   /** Splash (Gymly-logo) ved swipe check-in og ved afslut/del træning */
   const [showGymlySplash, setShowGymlySplash] = useState(false);
   const [gymSearchQuery, setGymSearchQuery] = useState('');
@@ -368,6 +403,9 @@ const CheckInScreen = () => {
   }, [user?.id, selectedGym]);
 
   const filteredGyms = useMemo(() => {
+    if (activeSession) {
+      return [];
+    }
     const q = gymSearchQuery.trim();
     if (q.length > 0) {
       return searchGyms(q, {
@@ -385,13 +423,14 @@ const CheckInScreen = () => {
       });
     }
     return [];
-  }, [gymSearchQuery, userLocation]);
+  }, [activeSession, gymSearchQuery, userLocation]);
 
-  // Nærmeste center baseret på brugerens lokation
+  // Nærmeste center baseret på brugerens lokation.
+  // Skipped once a session is active — the 13k scan is only for picking a gym.
   const nearestGym = useMemo(() => {
-    if (!userLocation) return null;
+    if (activeSession || !userLocation) return null;
     return findNearestGymFromCoords(userLocation.latitude, userLocation.longitude);
-  }, [userLocation]);
+  }, [activeSession, userLocation]);
 
   // Afstand til aktivt check-in-center (single source of truth)
   const distanceToActiveGym = useMemo(() => {
@@ -475,6 +514,9 @@ const CheckInScreen = () => {
     const {latitude, longitude} = position.coords;
     setUserLocation({latitude, longitude});
     setLocationPermissionStatus('granted');
+    if (useSessionStore.getState().activeSession) {
+      return;
+    }
     const nearest = findNearestGymFromCoords(latitude, longitude);
     const allowAutoSelect = !isManualGymSelectionRef.current;
     logCheckInDebug('locationSuccess', {
@@ -494,7 +536,7 @@ const CheckInScreen = () => {
    * altid være det geografisk nærmeste — også ved fokus/opdateret GPS eller når valget nulstilles.
    */
   useEffect(() => {
-    if (demoCheckInPlacementActive) {
+    if (activeSession || demoCheckInPlacementActive) {
       return;
     }
     if (isManualGymSelectionRef.current) {
@@ -510,7 +552,7 @@ const CheckInScreen = () => {
     if (nearest) {
       setSelectedGym(nearest);
     }
-  }, [userLocation, selectedGym, demoCheckInPlacementActive, isManualGymSelection]);
+  }, [activeSession, userLocation, selectedGym, demoCheckInPlacementActive, isManualGymSelection]);
 
   /**
    * Kun når placering ikke kan bruges (afvist/utilgængelig): brug favorit-center som fallback.
@@ -659,18 +701,28 @@ const CheckInScreen = () => {
         : linkablePlannedId && gym.id === selectedGym?.id
           ? linkablePlannedId
           : null;
+      const perfStartedAt = __DEV__ ? performance.now() : 0;
       try {
+        const checkInDisplayName =
+          firstUsableDisplayName(user?.displayName, user?.username) ??
+          getNeutralDisplayNameFallback();
+        logCheckInPerf(perfStartedAt, 'submit started');
         const result = await submitCheckIn({
           userId: currentUserId,
           gymId: gym.id,
           gymName: centerDisplayName,
           city: gym.city,
           workoutType: workoutTypeForFirestoreCheckIn(encoded),
-          displayName: user?.displayName ?? 'Bruger',
-          userInitials: user?.displayName?.charAt(0)?.toUpperCase(),
+          displayName: checkInDisplayName,
+          userInitials: avatarInitialsFromDisplayName(
+            user?.displayName,
+            user?.username,
+          ),
           plannedWorkoutId,
           gymlyGroupId: selectedGroupId,
+          contactStatus: pendingContactStatus,
         });
+        logCheckInPerf(perfStartedAt, 'Supabase insert complete');
         onStatsCheckIn();
         startSession({
           checkInId: result.id,
@@ -679,36 +731,43 @@ const CheckInScreen = () => {
           city: gym.city,
           startTime: result.startedAt,
           workoutType: encoded,
+          contactStatus: pendingContactStatus,
         });
+        logCheckInPerf(perfStartedAt, 'local session updated');
+        perfPhase('checkin', 'session');
         void startWorkoutLiveActivity(
           formatWorkoutTypeDisplay(encoded, getRuntimeLanguage()),
           centerDisplayName,
           result.startedAt,
         );
         if (user?.id) {
-          try {
-            await upsertLiveWorkoutSession({
-              userId: user.id,
-              gymId: gym.id,
-              gymName: centerDisplayName,
-              city: gym.city,
-              workoutType: encoded,
-              displayName: user?.displayName ?? 'Bruger',
+          const liveUserId = user.id;
+          void upsertLiveWorkoutSession({
+            userId: liveUserId,
+            gymId: gym.id,
+            gymName: centerDisplayName,
+            city: gym.city,
+            workoutType: encoded,
+            displayName: checkInDisplayName,
+          })
+            .then(() => {
+              logCheckInPerf(perfStartedAt, 'live session upsert complete');
+            })
+            .catch(liveErr => {
+              if (__DEV__) {
+                console.warn('[CheckIn] workout_live_sessions upsert', liveErr);
+              }
             });
-          } catch (liveErr) {
-            if (__DEV__) {
-              console.warn('[CheckIn] workout_live_sessions upsert', liveErr);
-            }
-          }
         }
         void notifyFriendsOfCheckIn({
           actorUserId: currentUserId,
-          displayName: user?.displayName ?? 'Bruger',
+          displayName: checkInDisplayName,
           gymId: gym.id,
           gymName: centerDisplayName,
           city: gym.city,
           workoutEncoded: encoded,
         });
+        logCheckInPerf(perfStartedAt, 'critical path returned');
         return true;
       } catch (err) {
         if (__DEV__) {
@@ -718,7 +777,7 @@ const CheckInScreen = () => {
         return false;
       }
     },
-    [currentUserId, user, onStatsCheckIn, startSession, linkablePlannedId, selectedGym, selectedGroupId, t]
+    [currentUserId, user, onStatsCheckIn, startSession, linkablePlannedId, selectedGym, selectedGroupId, pendingContactStatus, t]
   );
 
   const restoreSessionFromDatabase = useCallback(
@@ -741,23 +800,21 @@ const CheckInScreen = () => {
           session.gymName,
           session.startTime,
         );
-        try {
-          await upsertLiveWorkoutSession({
-            userId: user.id,
-            gymId: session.gymId,
-            gymName: session.gymName,
-            city: session.city ?? null,
-            workoutType: session.workoutType,
-            displayName: user?.displayName ?? 'Bruger',
-          });
-        } catch (liveErr) {
+        void upsertLiveWorkoutSession({
+          userId: user.id,
+          gymId: session.gymId,
+          gymName: session.gymName,
+          city: session.city ?? null,
+          workoutType: session.workoutType,
+          displayName: user?.displayName ?? 'Bruger',
+        }).catch(liveErr => {
           if (__DEV__) {
             console.warn(
               '[CheckIn] live session upsert (restoreSession)',
               liveErr,
             );
           }
-        }
+        });
       } catch (e) {
         if (__DEV__) {
           console.warn('[CheckIn] restoreSessionFromDatabase', e);
@@ -794,6 +851,11 @@ const CheckInScreen = () => {
   );
 
   const handleCheckIn = async () => {
+    if (submitLockRef.current) {
+      perfPhase('checkin', 'double_tap_ignored');
+      return;
+    }
+    perfStart('checkin', 'tap');
     if (!selectedGym) {
       Alert.alert(
         t('checkIn.selectCenterTitle'),
@@ -801,63 +863,6 @@ const CheckInScreen = () => {
         [{text: t('common.ok')}],
       );
       return;
-    }
-    if (!SKIP_LOCATION_CHECK) {
-      let coords = userLocation;
-      if (!coords) {
-        const status = await requestLocationPermissionIfNeeded();
-        setLocationPermissionStatus(mapLegacyLocationPermissionStatus(status));
-        if (status === 'denied' || status === 'restricted') {
-          showLocationDeniedInAppMessage();
-          return;
-        }
-        if (!isLocationAuthorized(status)) {
-          Alert.alert(
-            t('checkIn.locationRequired'),
-            t('checkIn.allowLocationHint'),
-            [{text: t('common.ok')}],
-          );
-          return;
-        }
-        coords = await new Promise<{latitude: number; longitude: number} | null>(resolve => {
-          Geolocation.getCurrentPosition(
-            position => {
-              applyGeolocationSuccess(position);
-              resolve({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-              });
-            },
-            () => resolve(null),
-            GEO_OPTIONS_FRESH,
-          );
-        });
-        if (!coords) {
-          Alert.alert(
-            t('checkIn.locationRequired'),
-            t('checkIn.locationRequiredBody'),
-            [{text: t('common.ok')}],
-          );
-          return;
-        }
-      }
-      const metersAway = calculateDistance(
-        coords.latitude,
-        coords.longitude,
-        selectedGym.latitude,
-        selectedGym.longitude
-      );
-      if (metersAway > CHECK_IN_RADIUS_METERS) {
-        Alert.alert(
-          t('common.error'),
-          t('checkIn.tooFar', {
-            distance: formatDistance(metersAway),
-            radius: String(CHECK_IN_RADIUS_METERS),
-          }),
-          [{text: t('common.ok')}],
-        );
-        return;
-      }
     }
     if (selectedMuscleGroups.length === 0) {
       Alert.alert(
@@ -871,17 +876,91 @@ const CheckInScreen = () => {
       setPlannedLinkPromptVisible(true);
       return;
     }
-    setShowGymlySplash(true);
+    submitLockRef.current = true;
     setIsSubmitting(true);
-    await doCheckInAndStartSession(selectedGym, selectedMuscleGroups);
-    setIsSubmitting(false);
+    setShowGymlySplash(true);
+    requestAnimationFrame(() => {
+      perfPhase('checkin', 'overlay');
+    });
+    try {
+      if (!SKIP_LOCATION_CHECK) {
+        let coords = userLocation;
+        if (coords) {
+          perfPhase('checkin', 'gps', 'source=cached');
+        }
+        if (!coords) {
+          const status = await requestLocationPermissionIfNeeded();
+          setLocationPermissionStatus(mapLegacyLocationPermissionStatus(status));
+          if (status === 'denied' || status === 'restricted') {
+            perfPhase('checkin', 'location_denied');
+            showLocationDeniedInAppMessage();
+            return;
+          }
+          if (!isLocationAuthorized(status)) {
+            Alert.alert(
+              t('checkIn.locationRequired'),
+              t('checkIn.allowLocationHint'),
+              [{text: t('common.ok')}],
+            );
+            return;
+          }
+          coords = await new Promise<{latitude: number; longitude: number} | null>(resolve => {
+            Geolocation.getCurrentPosition(
+              position => {
+                applyGeolocationSuccess(position);
+                resolve({
+                  latitude: position.coords.latitude,
+                  longitude: position.coords.longitude,
+                });
+              },
+              () => resolve(null),
+              GEO_OPTIONS_FRESH,
+            );
+          });
+          perfPhase('checkin', 'gps', coords ? 'source=fresh' : 'source=unavailable');
+          if (!coords) {
+            Alert.alert(
+              t('checkIn.locationRequired'),
+              t('checkIn.locationRequiredBody'),
+              [{text: t('common.ok')}],
+            );
+            return;
+          }
+        }
+        const metersAway = calculateDistance(
+          coords.latitude,
+          coords.longitude,
+          selectedGym.latitude,
+          selectedGym.longitude,
+        );
+        perfPhase('checkin', 'radius', `meters=${Math.round(metersAway)}`);
+        if (metersAway > CHECK_IN_RADIUS_METERS) {
+          Alert.alert(
+            t('common.error'),
+            t('checkIn.tooFar', {
+              distance: formatDistance(metersAway),
+              radius: String(CHECK_IN_RADIUS_METERS),
+            }),
+            [{text: t('common.ok')}],
+          );
+          return;
+        }
+      }
+      await doCheckInAndStartSession(selectedGym, selectedMuscleGroups);
+    } finally {
+      submitLockRef.current = false;
+      setIsSubmitting(false);
+      setShowGymlySplash(false);
+      perfPhase('checkin', 'splash_hide');
+    }
   };
 
   const completeCheckInWithPlannedChoice = useCallback(
     async (plannedWorkoutId: string | null) => {
-      if (!selectedGym) {
+      if (!selectedGym || submitLockRef.current) {
         return;
       }
+      submitLockRef.current = true;
       setPlannedLinkPromptVisible(false);
       setShowGymlySplash(true);
       setIsSubmitting(true);
@@ -890,7 +969,9 @@ const CheckInScreen = () => {
           plannedWorkoutId,
         });
       } finally {
+        submitLockRef.current = false;
         setIsSubmitting(false);
+        setShowGymlySplash(false);
       }
     },
     [selectedGym, selectedMuscleGroups, doCheckInAndStartSession],
@@ -969,8 +1050,15 @@ const CheckInScreen = () => {
       > | null;
 
       if (checkInId && user?.id) {
+        await useWorkoutLogStore.getState().flush();
         pendingResume = await fetchWorkoutLogSummary(checkInId, durationMinutes);
-        const exercises = useWorkoutLogStore.getState().exercises;
+        const exercises = useWorkoutLogStore
+          .getState()
+          .exercises.map(e => ({
+            ...e,
+            sets: e.sets.filter(s => !s.failed && !s.pending),
+          }))
+          .filter(e => e.sets.length > 0);
         try {
           const evaluated = await evaluateSessionPersonalRecords(
             user.id,
@@ -994,12 +1082,14 @@ const CheckInScreen = () => {
           }
         }
       } else if (checkInId) {
+        await useWorkoutLogStore.getState().flush();
         pendingResume = await fetchWorkoutLogSummary(checkInId, durationMinutes);
       }
 
       if (user?.id) {
         if (isAutoCheckoutInProgress(checkInId)) {
           setShowSummaryModal(false);
+          setShowGymlySplash(false);
           return;
         }
         try {
@@ -1012,10 +1102,13 @@ const CheckInScreen = () => {
           usePersonalRecordSessionStore.getState().reset();
           await refreshTrainingStats();
         } catch (err) {
+          const raw = err instanceof Error ? err.message : '';
           const detail =
-            err instanceof Error && err.message.length > 0
-              ? err.message
-              : t('checkIn.workoutNotSaved');
+            /network|timed out|timeout|failed to fetch|getaddrinfo/i.test(raw) ||
+            raw.length === 0 ||
+            raw.length >= 200
+              ? t('checkIn.workoutNotSaved')
+              : raw;
           if (__DEV__) {
             console.warn('[CheckIn] completeWorkoutSession failed', err);
           }
@@ -1416,6 +1509,11 @@ const CheckInScreen = () => {
             ))}
           </View>
         </View>
+
+        <ContactStatusPicker
+          value={pendingContactStatus}
+          onChange={setPendingContactStatus}
+        />
 
         {SURFACE_GROUPS_IN_APP && gymlyGroups.length > 0 ? (
           <View style={styles.groupTrainSection}>

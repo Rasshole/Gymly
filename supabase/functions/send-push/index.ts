@@ -203,6 +203,9 @@ function preferenceAllows(
   if (type === "friend_request" || type === "friend_request_accepted") {
     return p.friend_requests_enabled;
   }
+  if (type === "say_hi_request") {
+    return p.friend_requests_enabled || p.messages_enabled;
+  }
   if (
     type === "friend_checked_in" ||
     type === "workout_reaction" ||

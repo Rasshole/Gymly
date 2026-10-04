@@ -14,6 +14,10 @@ import {
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {useCheckInUIStore} from '@/store/checkInUIStore';
 import {fetchWorkoutNeedingReview} from '@/services/session/workoutReviewService';
+import {
+  firstUsableDisplayName,
+  getNeutralDisplayNameFallback,
+} from '@/utils/displayName';
 
 /**
  * Genopret aktiv træning fra Supabase ved app-start / resume.
@@ -62,7 +66,8 @@ export function useRestoreActiveCheckInSession(): void {
           gymName: session.gymName,
           city: session.city ?? null,
           workoutType: session.workoutType,
-          displayName: displayName?.trim() || 'Bruger',
+          displayName:
+            firstUsableDisplayName(displayName) ?? getNeutralDisplayNameFallback(),
         });
       } catch {
         /* offline / RLS */

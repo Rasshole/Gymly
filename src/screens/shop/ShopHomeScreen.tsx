@@ -15,6 +15,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {useDmInboxUnreadSync} from '@/hooks/useDmInboxUnreadSync';
 import colors from '@/theme/colors';
 import {spacing, typography, radius, shadows} from '@/theme/designTokens';
 import {SectionHeader} from '@/components/ui/SectionHeader';
@@ -53,6 +54,7 @@ export const ShopHomeScreen: React.FC = () => {
   const tabBarHeight = useOptionalBottomTabBarHeight();
   const navigation = useNavigation<StackNavigationProp<ShopStackParamList>>();
   const userId = useAppStore(s => s.user?.id ?? null);
+  useDmInboxUnreadSync();
   const recommendedCardWidth = useMemo(
     () => shopGridCardWidth(windowWidth),
     [windowWidth],
