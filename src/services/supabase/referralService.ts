@@ -5,7 +5,7 @@
  */
 
 import {supabase} from '@/services/supabase/supabaseClient';
-import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
+import {isInviteFiveFriendsSurfaceEnabled} from '@/services/referral/inviteSurface';
 import {
   REFERRAL_CAMPAIGN_ID,
   REFERRAL_FOUNDER_BADGE_ID,
@@ -27,6 +27,9 @@ export type ReferralProgress = {
   campaignId: string;
   badgeId: string;
   target: number;
+  invitedCount: number;
+  signedUpCount: number;
+  onboardedCount: number;
   attributedCount: number;
   qualifiedCount: number;
   rewardUnlocked: boolean;
@@ -40,6 +43,11 @@ export type ApplyReferralResult = {
   status: string;
   attributedAt: string | null;
   referrerId: string;
+  inviteCapturedAt: string | null;
+  accountCreatedAt: string | null;
+  onboardingCompletedAt: string | null;
+  qualifiedAt: string | null;
+  idempotent: boolean;
 };
 
 export type QualifyReferralResult = {
@@ -74,6 +82,10 @@ function mapProgress(raw: Record<string, unknown>): ReferralProgress {
     campaignId: String(raw.campaign_id ?? REFERRAL_CAMPAIGN_ID),
     badgeId: String(raw.badge_id ?? REFERRAL_FOUNDER_BADGE_ID),
     target: Number(raw.target ?? REFERRAL_QUALIFIED_TARGET),
+    // Accounts that applied the code. Link opens are not included.
+    invitedCount: Number(raw.signed_up_count ?? raw.invited_count ?? 0),
+    signedUpCount: Number(raw.signed_up_count ?? raw.attributed_count ?? 0),
+    onboardedCount: Number(raw.onboarded_count ?? 0),
     attributedCount: Number(raw.attributed_count ?? 0),
     qualifiedCount: Number(raw.qualified_count ?? 0),
     rewardUnlocked: raw.reward_unlocked === true,
@@ -117,7 +129,31 @@ export async function applyReferralCode(
     status: String(row.status ?? 'attributed'),
     attributedAt: (row.attributed_at as string | null) ?? null,
     referrerId: String(row.referrer_id ?? ''),
+    inviteCapturedAt: (row.invite_captured_at as string | null) ?? null,
+    accountCreatedAt: (row.account_created_at as string | null) ?? null,
+    onboardingCompletedAt: (row.onboarding_completed_at as string | null) ?? null,
+    qualifiedAt: (row.qualified_at as string | null) ?? null,
+    idempotent: row.idempotent === true,
   };
+}
+
+export async function recordReferralInviteOpen(rawCode: string): Promise<void> {
+  const code = normalizeReferralCode(rawCode);
+  if (!code || code.length < 4) {
+    throw new Error('REFERRAL_CODE_INVALID');
+  }
+  const {data, error} = await supabase.rpc('record_referral_invite_open', {
+    p_code: code,
+  });
+  if (error) {
+    throw error;
+  }
+  const row = asRecord(data);
+  if (row?.ok === false) {
+    throw new Error(
+      row.status === 'invalid' ? 'REFERRAL_CODE_INVALID' : 'REFERRAL_CODE_NOT_FOUND',
+    );
+  }
 }
 
 export async function getMyReferralProgress(): Promise<ReferralProgress> {
@@ -180,7 +216,7 @@ export function scheduleReferralQualifyAfterActivity(
 ): void {
   // Launch surface: skip client qualify fallback while Invite 5 Friends is hidden.
   // Server check-in trigger may still run independently; UI remains gated.
-  if (!INVITE_5_FRIENDS_ENABLED) {
+  if (!isInviteFiveFriendsSurfaceEnabled()) {
     return;
   }
   void tryQualifyMyReferral(userId, source);

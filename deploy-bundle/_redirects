@@ -13,5 +13,9 @@
 /reset-password    /reset-password/index.html 200!
 /reset-password/   /reset-password/index.html 200!
 
+/invite            /invite/index.html 200!
+/invite/           /invite/index.html 200!
+/invite/*          /invite/index.html 200!
+
 # SPA fallback (sidste linje). Udkommentér hvis du allerede har /* i netlify.toml.
 # /*                /index.html               200

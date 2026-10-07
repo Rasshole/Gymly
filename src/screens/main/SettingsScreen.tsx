@@ -25,7 +25,8 @@ import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows, layout, iconSize} from '@/theme/designTokens';
-import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
+import {CreatorTierQaCard} from '@/components/creator/CreatorTierQaCard';
+import {isInviteFiveFriendsSurfaceEnabled} from '@/services/referral/inviteSurface';
 import {useTranslation} from '@/i18n';
 
 const SettingsScreen = () => {
@@ -274,7 +275,7 @@ const SettingsScreen = () => {
             subtitle={t('settings.editProfileSub')}
             onPress={() => navigation.navigate('EditProfile')}
           />
-          {INVITE_5_FRIENDS_ENABLED ? (
+          {isInviteFiveFriendsSurfaceEnabled() ? (
             <SettingRow
               icon="gift-outline"
               title={t('inviteFive.settingsEntry')}
@@ -299,6 +300,8 @@ const SettingsScreen = () => {
             onPress={handleExportData}
           />
         </Section>
+
+        <CreatorTierQaCard onOpen={() => navigation.navigate('CreatorWorkspace')} />
 
         {/* Privatliv */}
         <Section title={t('settings.privacy')}>

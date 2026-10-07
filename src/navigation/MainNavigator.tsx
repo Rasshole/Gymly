@@ -79,6 +79,7 @@ import AddGoalScreen from '@/screens/main/AddGoalScreen';
 import AddPRScreen from '@/screens/main/AddPRScreen';
 import AddRepScreen from '@/screens/main/AddRepScreen';
 import GroupDetailScreen from '@/screens/main/GroupDetailScreen';
+import CreatorWorkspaceScreen from '@/screens/main/CreatorWorkspaceScreen';
 import EditGroupScreen from '@/screens/main/EditGroupScreen';
 import CreateGroupScreen from '@/screens/main/CreateGroupScreen';
 import PlannedWorkoutsScreen from '@/screens/main/PlannedWorkoutsScreen';
@@ -520,6 +521,14 @@ const MainNavigator = () => {
         component={SettingsScreen}
         options={{
           title: t('settings.title'),
+          headerBackTitle: t('common.back'),
+        }}
+      />
+      <Stack.Screen
+        name="CreatorWorkspace"
+        component={CreatorWorkspaceScreen}
+        options={{
+          title: 'Coach / gym',
           headerBackTitle: t('common.back'),
         }}
       />

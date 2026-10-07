@@ -26,7 +26,9 @@ import {useNotificationStore} from '@/store/notificationStore';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
-import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
+import ManualInviteCodeCard from '@/components/referral/ManualInviteCodeCard';
+import {startContactInvite} from '@/services/referral/startContactInvite';
+import {isInviteFiveFriendsSurfaceEnabled} from '@/services/referral/inviteSurface';
 import {
   listFriendsWithProfiles,
   upsertMyProfile,
@@ -37,6 +39,11 @@ import {
   getOutgoingPendingToMany,
   type PublicProfile,
 } from '@/services/supabase/friendService';
+import {
+  followProfile,
+  listMyFollowedIds,
+  unfollowProfile,
+} from '@/services/supabase/profileFollowService';
 import {isFriendActionUnavailableError} from '@/services/supabase/userBlockService';
 import {
   bumpSearchGeneration,
@@ -66,6 +73,7 @@ import {
 } from '@/services/supabase/primaryGymSuggestionsService';
 import {
   gymSuggestPhase,
+  mergeGymSuggestionRows,
   shouldCommitGymSuggestions,
 } from '@/utils/primaryGymSuggestions';
 import {isDemoContentMode} from '@/demo/demoContentGate';
@@ -73,6 +81,16 @@ import {buildDemoFriendsScreenList} from '@/demo/demoFriendsList';
 import {useTranslation} from '@/i18n';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
+
+function isDuplicatePendingRequest(error: unknown): boolean {
+  if (error && typeof error === 'object' && 'code' in error) {
+    if ((error as {code?: string}).code === '23505') {
+      return true;
+    }
+  }
+  const message = error instanceof Error ? error.message : '';
+  return message.includes('allerede en afventende anmodning');
+}
 
 function friendActionErrorText(error: unknown, fallback: string): string {
   if (isFriendActionUnavailableError(error)) {
@@ -173,7 +191,7 @@ const FriendsScreen = ({
   focusSearchToken,
 }: FriendsScreenProps) => {
   const navigation = useNavigation<any>();
-  const {t, language} = useTranslation();
+  const {t, tp, language} = useTranslation();
   const user = useAppStore(s => s.user);
   useDmInboxUnreadSync();
   const loadFriendStore = useFriendStore(s => s.load);
@@ -191,6 +209,9 @@ const FriendsScreen = ({
   >(() => new Map());
   const [actionBusyId, setActionBusyId] = useState<string | null>(null);
   const actionLocksRef = useRef<Set<string>>(new Set());
+  const [followedIds, setFollowedIds] = useState<Set<string>>(new Set());
+  const [followBusyId, setFollowBusyId] = useState<string | null>(null);
+  const followLocksRef = useRef<Set<string>>(new Set());
   const searchInputRef = useRef<TextInput>(null);
   const [suggestions, setSuggestions] = useState<PeopleRow[]>([]);
   const [suggestLoading, setSuggestLoading] = useState(false);
@@ -199,6 +220,7 @@ const FriendsScreen = ({
   const [primaryCenterId, setPrimaryCenterId] = useState<string | null>(null);
   const [homeGymIds, setHomeGymIds] = useState<string[]>([]);
   const [discoverableAtGym, setDiscoverableAtGym] = useState(false);
+  const [discoverableKnown, setDiscoverableKnown] = useState(false);
   const [centersSheetOpen, setCentersSheetOpen] = useState(false);
   const [optInBusy, setOptInBusy] = useState(false);
   const suggestGenRef = useRef(0);
@@ -233,11 +255,22 @@ const FriendsScreen = ({
   );
 
   const openInviteFiveFriends = useCallback(() => {
-    if (!INVITE_5_FRIENDS_ENABLED) {
+    if (!isInviteFiveFriendsSurfaceEnabled()) {
       return;
     }
     stackNavigate('InviteFiveFriends');
   }, [stackNavigate]);
+
+  const contactInviteBusy = useRef(false);
+  const openContactInvite = useCallback(() => {
+    if (!isInviteFiveFriendsSurfaceEnabled() || contactInviteBusy.current) {
+      return;
+    }
+    contactInviteBusy.current = true;
+    void startContactInvite(t).finally(() => {
+      contactInviteBusy.current = false;
+    });
+  }, [t]);
 
   const openPersonProfile = useCallback(
     (item: {id: string; name: string; avatar?: string; gymName?: string}) => {
@@ -281,6 +314,7 @@ const FriendsScreen = ({
         return;
       }
       setDiscoverableAtGym(visible);
+      setDiscoverableKnown(true);
       if (!centerId) {
         setSuggestions([]);
         return;
@@ -310,7 +344,23 @@ const FriendsScreen = ({
       ) {
         return;
       }
-      const incoming = incomingByFromIdRef.current;
+      let incoming = incomingByFromIdRef.current;
+      try {
+        const incomingRows = await listPendingIncomingRequests(userId);
+        if (
+          !shouldCommitGymSuggestions(
+            gen,
+            centerId,
+            suggestGenRef.current,
+            primaryCenterRef.current,
+          )
+        ) {
+          return;
+        }
+        incoming = new Map(incomingRows.map(req => [req.fromUserId, req.id]));
+      } catch {
+        incoming = incomingByFromIdRef.current;
+      }
       const blocked = useBlockStore.getState().blockedIds;
       const friendsNow = friendIdSetRef.current;
       const rows: PeopleRow[] = [];
@@ -503,6 +553,7 @@ const FriendsScreen = ({
     setSearchLoading(false);
     setSearchResults(prev => excludeBlockedIds(prev, blockedIds));
     setFriends(prev => excludeBlockedIds(prev, blockedIds));
+    setSuggestions(prev => excludeBlockedIds(prev, blockedIds));
     setIncomingByFromId(prev => {
       if (blockedIds.size === 0) {
         return prev;
@@ -534,6 +585,14 @@ const FriendsScreen = ({
   alphabeticalFriendsRef.current = alphabeticalFriends;
   friendIdSetRef.current = friendIdSet;
   incomingByFromIdRef.current = incomingByFromId;
+
+  useEffect(() => {
+    const hidden = new Set<string>(blockedIds);
+    for (const id of friendIdSet) {
+      hidden.add(id);
+    }
+    setSuggestions(prev => mergeGymSuggestionRows(prev, incomingByFromId, hidden));
+  }, [incomingByFromId, blockedIds, friendIdSet]);
 
   const isSearching = searchQuery.trim().length >= MIN_SEARCH_CHARS;
 
@@ -739,6 +798,39 @@ const FriendsScreen = ({
     return () => clearTimeout(timer);
   }, [focusSearchToken, isActive]);
 
+  const visiblePersonIds = useMemo(() => {
+    const ids = new Set<string>();
+    for (const row of searchResults) {
+      ids.add(row.id);
+    }
+    for (const row of suggestions) {
+      ids.add(row.id);
+    }
+    for (const row of friends) {
+      ids.add(row.id);
+    }
+    return [...ids];
+  }, [searchResults, suggestions, friends]);
+
+  useEffect(() => {
+    if (!userId || visiblePersonIds.length === 0) {
+      return;
+    }
+    let cancelled = false;
+    void listMyFollowedIds(userId, visiblePersonIds)
+      .then(ids => {
+        if (!cancelled) {
+          setFollowedIds(ids);
+        }
+      })
+      .catch(() => {
+        /* keep the last known follow state */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [userId, visiblePersonIds]);
+
   const releaseActionLock = useCallback((personId: string) => {
     actionLocksRef.current.delete(personId);
     setActionBusyId(prev => (prev === personId ? null : prev));
@@ -749,18 +841,23 @@ const FriendsScreen = ({
       if (!userId || person.id === userId) {
         return;
       }
-      if (actionLocksRef.current.has(person.id)) {
+      if (person.status === 'pending_sent' || actionLocksRef.current.has(person.id)) {
         return;
       }
       actionLocksRef.current.add(person.id);
       setActionBusyId(person.id);
+      const markSent = (row: PeopleRow) =>
+        row.id === person.id ? {...row, status: 'pending_sent' as const} : row;
       try {
         await sendFriendRequest(userId, person.id);
-        const markSent = (row: PeopleRow) =>
-          row.id === person.id ? {...row, status: 'pending_sent' as const} : row;
         setSearchResults(prev => prev.map(markSent));
         setSuggestions(prev => prev.map(markSent));
       } catch (e) {
+        if (isDuplicatePendingRequest(e)) {
+          setSearchResults(prev => prev.map(markSent));
+          setSuggestions(prev => prev.map(markSent));
+          return;
+        }
         const msg = friendActionErrorText(e, t('friendsScreen.actionFailed'));
         Alert.alert(t('addFriend.couldNotSend'), msg, [
           {text: t('common.cancel'), style: 'cancel'},
@@ -875,6 +972,85 @@ const FriendsScreen = ({
     return null;
   };
 
+  const handleToggleFollow = useCallback(
+    async (person: PeopleRow) => {
+      if (!userId || person.id === userId || followLocksRef.current.has(person.id)) {
+        return;
+      }
+      if (useBlockStore.getState().blockedIds.has(person.id)) {
+        return;
+      }
+      const wasFollowing = followedIds.has(person.id);
+      followLocksRef.current.add(person.id);
+      setFollowBusyId(person.id);
+      setFollowedIds(prev => {
+        const next = new Set(prev);
+        if (wasFollowing) {
+          next.delete(person.id);
+        } else {
+          next.add(person.id);
+        }
+        return next;
+      });
+      try {
+        if (wasFollowing) {
+          await unfollowProfile(person.id);
+        } else {
+          await followProfile(person.id);
+        }
+      } catch (e) {
+        setFollowedIds(prev => {
+          const next = new Set(prev);
+          if (wasFollowing) {
+            next.add(person.id);
+          } else {
+            next.delete(person.id);
+          }
+          return next;
+        });
+        const msg = isFriendActionUnavailableError(e)
+          ? t('friendsScreen.followFailed')
+          : friendActionErrorText(e, t('friendsScreen.followFailed'));
+        Alert.alert(t('friendsScreen.followFailed'), msg);
+      } finally {
+        followLocksRef.current.delete(person.id);
+        setFollowBusyId(prev => (prev === person.id ? null : prev));
+      }
+    },
+    [userId, followedIds, t],
+  );
+
+  const renderFollow = (item: PeopleRow) => {
+    if (item.id === userId) {
+      return null;
+    }
+    const following = followedIds.has(item.id);
+    const busy = followBusyId === item.id;
+    return (
+      <Pressable
+        testID={`person-follow-${item.username ?? item.id}`}
+        style={({pressed}) => [
+          following ? styles.followingBtn : styles.followBtn,
+          (pressed || busy) && styles.actionPressed,
+        ]}
+        onPress={() => void handleToggleFollow(item)}
+        disabled={busy}
+        hitSlop={8}
+        accessibilityRole="button"
+        accessibilityLabel={t(following ? 'friendsScreen.followingA11y' : 'friendsScreen.followA11y', {
+          name: item.name,
+        })}>
+        {busy ? (
+          <ActivityIndicator size="small" color={following ? colors.primary : colors.white} />
+        ) : (
+          <Text style={following ? styles.followingBtnText : styles.followBtnText}>
+            {t(following ? 'friendsScreen.following' : 'friendsScreen.follow')}
+          </Text>
+        )}
+      </Pressable>
+    );
+  };
+
   const renderAction = (item: PeopleRow) => {
     if (item.id === userId) {
       return null;
@@ -985,7 +1161,10 @@ const FriendsScreen = ({
             ) : null}
           </View>
         </Pressable>
-        <View style={styles.rowAction}>{renderAction(item)}</View>
+        <View style={styles.rowAction}>
+          {renderFollow(item)}
+          {renderAction(item)}
+        </View>
       </View>
     );
   };
@@ -1039,7 +1218,23 @@ const FriendsScreen = ({
           ) : null}
         </View>
       ) : null}
-      {primaryCenterId && !discoverableAtGym && suggestPhase !== 'loading' && suggestPhase !== 'error' ? (
+      {primaryCenterId && discoverableKnown ? (
+        <Text
+          style={styles.gymVisibilityStatus}
+          testID="gym-visibility-status"
+          accessibilityLabel={t('friendsScreen.gymMatesStatusLabel', {
+            status: discoverableAtGym
+              ? t('friendsScreen.gymMatesStatusOn')
+              : t('friendsScreen.gymMatesStatusOff'),
+          })}>
+          {t('friendsScreen.gymMatesStatusLabel', {
+            status: discoverableAtGym
+              ? t('friendsScreen.gymMatesStatusOn')
+              : t('friendsScreen.gymMatesStatusOff'),
+          })}
+        </Text>
+      ) : null}
+      {primaryCenterId && discoverableKnown && !discoverableAtGym && suggestPhase !== 'loading' && suggestPhase !== 'error' ? (
         <Pressable
           style={styles.gymOptIn}
           onPress={() => void enableGymDiscoverable()}
@@ -1060,23 +1255,14 @@ const FriendsScreen = ({
           style={styles.requestsRow}
           onPress={openFriendRequestsSheet}
           accessibilityRole="button"
-          accessibilityLabel={t('friendsScreen.friendRequestsCount', {
-            count: pendingFriendRequests,
-          })}>
+          accessibilityLabel={tp('friendsScreen.friendRequestsCount', pendingFriendRequests)}
+          testID="friend-requests-count">
           <Icon name="mail-unread-outline" size={18} color={colors.primary} />
           <Text style={styles.requestsRowText}>
-            {t('friendsScreen.friendRequestsCount', {
-              count: pendingFriendRequests,
-            })}
+            {tp('friendsScreen.friendRequestsCount', pendingFriendRequests)}
           </Text>
           <Icon name="chevron-forward" size={16} color={colors.textMuted} />
         </Pressable>
-      ) : null}
-
-      {!isSearching && alphabeticalFriends.length > 0 ? (
-        <Text style={styles.sectionLabel}>
-          {t('friendsScreen.yourFriends', {count: alphabeticalFriends.length})}
-        </Text>
       ) : null}
 
       {isSearching && searchError ? (
@@ -1093,15 +1279,38 @@ const FriendsScreen = ({
         </Pressable>
       ) : null}
 
-      {INVITE_5_FRIENDS_ENABLED && !isSearching ? (
-        <Pressable
-          onPress={openInviteFiveFriends}
-          hitSlop={8}
-          style={styles.inviteLink}>
-          <Text style={styles.inviteLinkText}>
-            {t('inviteFive.friendsEntry')}
-          </Text>
-        </Pressable>
+      {isInviteFiveFriendsSurfaceEnabled() && !isSearching ? (
+        <>
+          <Pressable
+            onPress={openInviteFiveFriends}
+            hitSlop={8}
+            style={styles.inviteLink}
+            testID="invite-friends-entry">
+            <Text style={styles.inviteLinkText}>
+              {t('inviteFive.friendsEntry')}
+            </Text>
+          </Pressable>
+          <Pressable
+            onPress={openContactInvite}
+            hitSlop={8}
+            style={styles.inviteLink}
+            testID="invite-from-contacts"
+            accessibilityRole="button"
+            accessibilityLabel={t('friendsScreen.inviteFromContacts')}>
+            <Text style={styles.inviteLinkText}>
+              {t('friendsScreen.inviteFromContacts')}
+            </Text>
+          </Pressable>
+        </>
+      ) : null}
+      {isInviteFiveFriendsSurfaceEnabled() && !isSearching ? (
+        <ManualInviteCodeCard />
+      ) : null}
+
+      {!isSearching && alphabeticalFriends.length > 0 ? (
+        <Text style={styles.sectionLabel}>
+          {t('friendsScreen.yourFriends', {count: alphabeticalFriends.length})}
+        </Text>
       ) : null}
     </View>
   );
@@ -1245,6 +1454,13 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.xs,
   },
+  gymVisibilityStatus: {
+    ...typography.small,
+    color: colors.text,
+    fontWeight: '700',
+    paddingHorizontal: spacing.xs,
+    marginTop: spacing.xs,
+  },
   gymOptInTitle: {
     ...typography.small,
     color: colors.primary,
@@ -1356,7 +1572,32 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     alignItems: 'flex-end',
     justifyContent: 'center',
+    gap: 6,
     minWidth: 72,
+  },
+  followBtn: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 4,
+    borderRadius: radius.full,
+    backgroundColor: colors.primary,
+  },
+  followBtnText: {
+    ...typography.caption,
+    color: colors.white,
+    fontWeight: '700',
+  },
+  followingBtn: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 4,
+    borderRadius: radius.full,
+    borderWidth: 1,
+    borderColor: colors.primaryLight,
+    backgroundColor: '#F5F3FF',
+  },
+  followingBtnText: {
+    ...typography.caption,
+    color: colors.primaryDark,
+    fontWeight: '700',
   },
   statusPill: {
     flexDirection: 'row',

@@ -89,6 +89,7 @@ Gymly/
    ```bash
    npm install
    ```
+   Kommandoen skal virke uden `--legacy-peer-deps`. Sikker lagring sker via `react-native-keychain`. `expo-secure-store` er ikke en dependency, fordi dens påkrævede peer `expo` får npm til at hente Expo, som kræver React 19.
 
 2. **iOS setup:**
    ```bash

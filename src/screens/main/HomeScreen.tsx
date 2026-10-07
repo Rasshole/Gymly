@@ -74,6 +74,7 @@ import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {useWeeklySummary} from '@/hooks/useWeeklySummary';
 import WeeklySummarySection from '@/components/home/WeeklySummarySection';
 import HomeYourGroupsSection from '@/components/home/HomeYourGroupsSection';
+import SmartCheckInHomeCard from '@/components/home/SmartCheckInHomeCard';
 import {useBadgeStore} from '@/store/badgeStore';
 import * as streak from '@/utils/streakUtils';
 import {isFocusRefreshStale, markFocusRefreshed} from '@/utils/focusRefreshThrottle';
@@ -1591,6 +1592,8 @@ const HomeScreen = () => {
             </Card>
           </View>
         ) : null}
+
+        <SmartCheckInHomeCard />
 
         {/* 2. Quick Stats Cards */}
         <View style={[styles.dashboardSection, {paddingHorizontal: HOME_H_PADDING}]}>

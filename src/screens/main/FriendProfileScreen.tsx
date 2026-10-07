@@ -21,6 +21,8 @@ import {useNavigation, useRoute, useFocusEffect} from '@react-navigation/native'
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {useBlockStore} from '@/store/blockStore';
+import {isFriendActionUnavailableError} from '@/utils/userBlockErrors';
 import {useChatStore} from '@/store/chatStore';
 import {useFeedStore} from '@/store/feedStore';
 import {useGoalStore} from '@/store/goalStore';
@@ -38,6 +40,11 @@ import {
   declineFriendRequest,
   type PendingBetween,
 } from '@/services/supabase/friendService';
+import {
+  followProfile,
+  listMyFollowedIds,
+  unfollowProfile,
+} from '@/services/supabase/profileFollowService';
 import {
   getSupabaseRpcErrorMessage,
   isFriendRequestStaleError,
@@ -199,6 +206,7 @@ const FriendProfileScreen = () => {
   const params = (route.params as FriendProfileRouteParams) || {};
   const friendId = params.friendId ?? params.userId ?? '';
   const {user: currentUser} = useAppStore();
+  const blockedIds = useBlockStore(s => s.blockedIds);
   const {getChatByParticipants, upsertChat} = useChatStore();
   const feedItems = useFeedStore(s => s.feedItems);
   const goals = useGoalStore(s => s.goals);
@@ -228,6 +236,8 @@ const FriendProfileScreen = () => {
     null,
   );
   const [requestActionLoading, setRequestActionLoading] = useState(false);
+  const [following, setFollowing] = useState(false);
+  const [followBusy, setFollowBusy] = useState(false);
   const [completedSessions, setCompletedSessions] = useState<
     ProfileCompletedSession[]
   >([]);
@@ -586,8 +596,62 @@ const FriendProfileScreen = () => {
     );
   }, [currentUser?.id, friendUser, navigation, refreshMyProfileStats, removeFriendFromStore, t]);
 
+  useEffect(() => {
+    if (!currentUser?.id || !friendUser?.id || currentUser.id === friendUser.id) {
+      setFollowing(false);
+      return;
+    }
+    let cancelled = false;
+    void listMyFollowedIds(currentUser.id, [friendUser.id])
+      .then(ids => {
+        if (!cancelled) {
+          setFollowing(ids.has(friendUser.id));
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setFollowing(false);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [currentUser?.id, friendUser?.id]);
+
+  const handleToggleFollow = useCallback(async () => {
+    if (!currentUser?.id || !friendUser || currentUser.id === friendUser.id || followBusy) {
+      return;
+    }
+    if (useBlockStore.getState().blockedIds.has(friendUser.id)) {
+      return;
+    }
+    const wasFollowing = following;
+    setFollowBusy(true);
+    setFollowing(!wasFollowing);
+    try {
+      if (wasFollowing) {
+        await unfollowProfile(friendUser.id);
+      } else {
+        await followProfile(friendUser.id);
+      }
+    } catch (e) {
+      setFollowing(wasFollowing);
+      Alert.alert(
+        t('friendsScreen.followFailed'),
+        isFriendActionUnavailableError(e)
+          ? t('friendsScreen.followFailed')
+          : (e as Error).message || t('friendsScreen.followFailed'),
+      );
+    } finally {
+      setFollowBusy(false);
+    }
+  }, [currentUser?.id, friendUser, followBusy, following, t]);
+
   const handleAddFriend = useCallback(async () => {
     if (!currentUser?.id || !friendUser) {
+      return;
+    }
+    if (useBlockStore.getState().blockedIds.has(friendUser.id)) {
       return;
     }
     setRequestActionLoading(true);
@@ -599,7 +663,10 @@ const FriendProfileScreen = () => {
       );
       setPendingBetween(pend);
     } catch (e) {
-      Alert.alert(t('friendProfile.couldNotSend'), (e as Error).message || t('common.retry'));
+      const fallback = isFriendActionUnavailableError(e)
+        ? t('friendsScreen.actionFailed')
+        : (e as Error).message || t('common.retry');
+      Alert.alert(t('friendProfile.couldNotSend'), fallback);
     } finally {
       setRequestActionLoading(false);
     }
@@ -1196,6 +1263,26 @@ const FriendProfileScreen = () => {
 
         {!isCurrentUser && !friendStatusLoading && (
           <View style={styles.friendRequestSection}>
+            {friendUser && !blockedIds.has(friendUser.id) ? (
+              <TouchableOpacity
+                testID="profile-follow"
+                style={following ? styles.followingBtn : styles.followBtn}
+                onPress={() => void handleToggleFollow()}
+                disabled={followBusy}
+                accessibilityRole="button"
+                accessibilityLabel={t(
+                  following ? 'friendsScreen.followingA11y' : 'friendsScreen.followA11y',
+                  {name: dName},
+                )}>
+                {followBusy ? (
+                  <ActivityIndicator color={following ? colors.primary : colors.white} />
+                ) : (
+                  <Text style={following ? styles.followingBtnText : styles.followBtnText}>
+                    {t(following ? 'friendsScreen.following' : 'friendsScreen.follow')}
+                  </Text>
+                )}
+              </TouchableOpacity>
+            ) : null}
             {pendingBetween?.incoming && !isFriend ? (
               <View style={styles.incomingRequestRow}>
                 <TouchableOpacity
@@ -1244,7 +1331,8 @@ const FriendProfileScreen = () => {
             ) : null}
             {!isFriend &&
             !pendingBetween?.incoming &&
-            !pendingBetween?.outgoing ? (
+            !pendingBetween?.outgoing &&
+            !(friendUser && blockedIds.has(friendUser.id)) ? (
               <View style={styles.socialRow}>
                 <TouchableOpacity
                   style={[styles.addFriendRow, styles.socialRowBtn]}
@@ -1893,6 +1981,32 @@ const styles = StyleSheet.create({
   incomingRequestRow: {
     flexDirection: 'row',
     gap: spacing.sm,
+  },
+  followBtn: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary,
+    paddingVertical: 14,
+    borderRadius: 12,
+  },
+  followBtnText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  followingBtn: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#F5F3FF',
+    borderWidth: 1,
+    borderColor: colors.primaryLight,
+    paddingVertical: 14,
+    borderRadius: 12,
+  },
+  followingBtnText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.primaryDark,
   },
   addFriendRow: {
     flexDirection: 'row',

@@ -36,6 +36,34 @@ if (keystorePropertiesFile.exists()) {
     keystorePropertiesFile.withInputStream { keystoreProperties.load(it) }
 }
 
+// Release must use the real upload keystore. Never fall back to the debug key.
+if (_isAndroidRelease) {
+    def releaseSigningProblems = []
+    if (!keystorePropertiesFile.exists()) {
+        releaseSigningProblems << "android/keystore.properties is missing (copy android/keystore.properties.example and fill in the real values)"
+    } else {
+        ["storeFile", "storePassword", "keyAlias", "keyPassword"].each { key ->
+            def value = keystoreProperties.getProperty(key)
+            if (value == null || value.trim().isEmpty() || value.trim() == "REPLACE") {
+                releaseSigningProblems << "keystore.properties ${key} is missing"
+            }
+        }
+        def storePath = keystoreProperties.getProperty("storeFile")
+        if (storePath != null && !storePath.trim().isEmpty() && storePath.trim() != "REPLACE") {
+            def store = file(storePath.trim())
+            if (!store.isFile()) {
+                releaseSigningProblems << "release keystore file was not found at ${storePath.trim()}"
+            }
+        }
+    }
+    if (!releaseSigningProblems.isEmpty()) {
+        throw new GradleException(
+            "Android Release refused: release signing is not configured. A release build must not be signed with the debug key. " +
+            releaseSigningProblems.join("; ")
+        )
+    }
+}
+
 def googleMapsApiKey = localProperties.getProperty("GOOGLE_MAPS_API_KEY", "")
 
 react {
@@ -91,11 +119,7 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            if (keystorePropertiesFile.exists()) {
-                signingConfig signingConfigs.release
-            } else {
-                signingConfig signingConfigs.debug
-            }
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

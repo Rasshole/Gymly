@@ -156,7 +156,8 @@ Gymly/
 Hvis du støder på problemer:
 1. Check at alle dependencies er installeret korrekt
 2. Prøv at rydde cache: `npm start -- --reset-cache`
-3. Geninstaller dependencies: `rm -rf node_modules && npm install`
+3. Geninstaller dependencies: `rm -rf node_modules && npm install`  
+   Uden `--legacy-peer-deps`. Sikker lagring er `react-native-keychain`. Tilføj ikke `expo-secure-store`: dens peer `expo` trækker React 19 ind og får `npm install` til at stoppe.
 4. For iOS: `cd ios && pod install && cd ..`
 
 ---

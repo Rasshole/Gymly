@@ -72,6 +72,7 @@
 		<string>https</string>
 		<string>instagram</string>
 		<string>instagram-stories</string>
+		<string>sms</string>
 		<string>googlechrome</string>
 		<string>googlechromes</string>
 		<string>google-chrome-http</string>
@@ -90,6 +91,8 @@
 	<string>Gymly needs access to your camera to take photos and videos of your workouts and personal records.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Gymly uses your location during an active workout to check you out automatically when you leave the gym once the app is open or becomes active again.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Gymly uses the local network during development to reach the local QA server on this Mac.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Gymly uses your location to verify you are at the selected gym when you check in (within about 200 meters), to show nearby gyms, and for automatic check-out when the app is active during a workout.</string>
 	<key>NSMicrophoneUsageDescription</key>

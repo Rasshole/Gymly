@@ -17,6 +17,9 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {useFriendStore} from '@/store/friendStore';
+import {useBlockStore} from '@/store/blockStore';
+import {excludeBlockedIds} from '@/utils/userBlockFilter';
+import {isFriendActionUnavailableError} from '@/utils/userBlockErrors';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import ScreenHeader from '@/components/ui/ScreenHeader';
@@ -39,7 +42,10 @@ const AddFriendScreen = () => {
   const {t} = useTranslation();
   const {user} = useAppStore();
   const loadFriendStore = useFriendStore(s => s.load);
+  const blockedIds = useBlockStore(s => s.blockedIds);
+  const loadBlocks = useBlockStore(s => s.load);
   const [query, setQuery] = useState('');
+  const [sendingId, setSendingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<PublicProfile[]>([]);
   const [friendIds, setFriendIds] = useState<Set<string>>(new Set());
@@ -73,8 +79,11 @@ const AddFriendScreen = () => {
           /* tabel findes måske ikke endnu */
         }
         await refreshRelations();
+        if (user.id) {
+          void loadBlocks(user.id);
+        }
       })();
-    }, [user, refreshRelations]),
+    }, [user, refreshRelations, loadBlocks]),
   );
 
   const runSearch = async (q: string) => {
@@ -85,7 +94,10 @@ const AddFriendScreen = () => {
     }
     setLoading(true);
     try {
-      const list = await searchProfiles(currentUserId, q);
+      const list = excludeBlockedIds(
+        await searchProfiles(currentUserId, q),
+        useBlockStore.getState().blockedIds,
+      );
       setResults(list);
       const pending = new Set<string>();
       for (const p of list) {
@@ -125,9 +137,14 @@ const AddFriendScreen = () => {
   };
 
   const handleAdd = async (profile: PublicProfile) => {
-    if (!currentUserId) {
+    if (!currentUserId || sendingId || pendingTo.has(profile.id) || friendIds.has(profile.id)) {
       return;
     }
+    if (useBlockStore.getState().blockedIds.has(profile.id)) {
+      setResults(prev => prev.filter(row => row.id !== profile.id));
+      return;
+    }
+    setSendingId(profile.id);
     try {
       await sendFriendRequest(currentUserId, profile.id);
       setPendingTo(prev => new Set(prev).add(profile.id));
@@ -136,8 +153,21 @@ const AddFriendScreen = () => {
         t('home.videoSent'),
         t('addFriend.requestSentBody', {name: profile.displayName}),
       );
-    } catch (e: any) {
-      Alert.alert(t('addFriend.couldNotSend'), e?.message ?? t('common.retry'));
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : '';
+      if (
+        isFriendActionUnavailableError(e) ||
+        message.includes('allerede en afventende anmodning')
+      ) {
+        setPendingTo(prev => new Set(prev).add(profile.id));
+        if (isFriendActionUnavailableError(e)) {
+          setResults(prev => prev.filter(row => row.id !== profile.id));
+        }
+        return;
+      }
+      Alert.alert(t('addFriend.couldNotSend'), message || t('common.retry'));
+    } finally {
+      setSendingId(null);
     }
   };
 
@@ -192,6 +222,7 @@ const AddFriendScreen = () => {
           <TouchableOpacity
             style={styles.addBtn}
             onPress={() => handleAdd(item)}
+            disabled={sendingId === item.id}
             activeOpacity={0.85}
             hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}>
             <Icon name="person-add-outline" size={18} color={colors.white} style={styles.addBtnIcon} />
@@ -232,7 +263,7 @@ const AddFriendScreen = () => {
         opdatering). Brug det brugernavn I valgte ved tilmelding.
       </Text>
       <FlatList
-        data={results}
+        data={excludeBlockedIds(results, blockedIds)}
         keyExtractor={item => item.id}
         renderItem={renderRow}
         keyboardShouldPersistTaps="handled"

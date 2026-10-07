@@ -7,8 +7,11 @@ alter table public.profiles
 comment on column public.profiles.discoverable_at_primary_gym is
   'When true, other members with the same saved primary gym may see this profile in gym suggestions. Does not reveal training times.';
 
--- Saved primary center: user_centers (primary, else first) then profiles.favorite_gym_ids[1].
--- Not granted to clients; suggestion RPCs call it.
+-- Saved primary center from user_centers only (primary row, else lowest sort_order).
+-- Hosted profiles.favorite_gym_ids is integer[] (legacy OSM ids). user_centers.center_id
+-- is text. There is no hosted map from one identifier to the other, so this function
+-- does not read or cast favorite_gym_ids. No row means null, and the suggestion RPC
+-- then returns nothing. Not granted to client roles; suggestion RPCs call it.
 create or replace function public.primary_center_id(p_user uuid)
 returns text
 language sql
@@ -16,24 +19,15 @@ stable
 security definer
 set search_path = public
 as $$
-  select coalesce(
-    (
-      select uc.center_id
-      from public.user_centers uc
-      where uc.user_id = p_user
-      order by uc.is_primary desc, uc.sort_order asc
-      limit 1
-    ),
-    (
-      select p.favorite_gym_ids[1]
-      from public.profiles p
-      where p.id = p_user
-        and cardinality(p.favorite_gym_ids) > 0
-    )
-  );
+  select uc.center_id
+  from public.user_centers uc
+  where uc.user_id = p_user
+  order by uc.is_primary desc, uc.sort_order asc, uc.center_id asc
+  limit 1;
 $$;
 
-revoke all on function public.primary_center_id(uuid) from public;
+revoke all on function public.primary_center_id(uuid) from public, anon, authenticated, service_role;
+grant execute on function public.primary_center_id(uuid) to postgres;
 
 create or replace function public.list_primary_gym_suggestions(p_center_id text)
 returns table (
@@ -79,8 +73,8 @@ begin
 end;
 $$;
 
-revoke all on function public.list_primary_gym_suggestions(text) from public;
-grant execute on function public.list_primary_gym_suggestions(text) to authenticated;
+revoke all on function public.list_primary_gym_suggestions(text) from public, anon, authenticated, service_role;
+grant execute on function public.list_primary_gym_suggestions(text) to postgres, authenticated, service_role;
 
 -- Owner-only. The argument is the new value; the row is always auth.uid().
 create or replace function public.set_primary_gym_discoverable(p_visible boolean)
@@ -105,8 +99,8 @@ begin
 end;
 $$;
 
-revoke all on function public.set_primary_gym_discoverable(boolean) from public;
-grant execute on function public.set_primary_gym_discoverable(boolean) to authenticated;
+revoke all on function public.set_primary_gym_discoverable(boolean) from public, anon, authenticated, service_role;
+grant execute on function public.set_primary_gym_discoverable(boolean) to postgres, authenticated, service_role;
 
 create or replace function public.my_primary_gym_discoverable()
 returns boolean
@@ -125,5 +119,5 @@ as $$
   );
 $$;
 
-revoke all on function public.my_primary_gym_discoverable() from public;
-grant execute on function public.my_primary_gym_discoverable() to authenticated;
+revoke all on function public.my_primary_gym_discoverable() from public, anon, authenticated, service_role;
+grant execute on function public.my_primary_gym_discoverable() to postgres, authenticated, service_role;

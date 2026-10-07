@@ -362,3 +362,35 @@ drop trigger if exists check_ins_clear_live_workout_on_end on public.check_ins;
 create trigger check_ins_clear_live_workout_on_end
   before update on public.check_ins
   for each row execute function public.trg_check_ins_clear_live_workout_on_end();
+
+-- personal_record_events is created earlier, before these tables exist.
+do $$
+begin
+  if to_regclass('public.personal_record_events') is null then
+    return;
+  end if;
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'personal_record_events_workout_exercise_id_fkey'
+  ) then
+    alter table public.personal_record_events
+      add constraint personal_record_events_workout_exercise_id_fkey
+      foreign key (workout_exercise_id) references public.workout_exercises (id) on delete set null;
+  end if;
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'personal_record_events_set_id_fkey'
+  ) then
+    alter table public.personal_record_events
+      add constraint personal_record_events_set_id_fkey
+      foreign key (set_id) references public.workout_sets (id) on delete set null;
+  end if;
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'personal_record_events_exercise_id_fkey'
+  ) then
+    alter table public.personal_record_events
+      add constraint personal_record_events_exercise_id_fkey
+      foreign key (exercise_id) references public.exercise_library (id) on delete set null;
+  end if;
+end $$;

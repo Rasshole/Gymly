@@ -66,9 +66,9 @@ describe('Invite 5 Friends — temporarily disabled for release', () => {
     const register = read('src/screens/auth/RegisterScreen.tsx');
     const badges = read('src/screens/main/BadgesScreen.tsx');
 
-    expect(friends).toMatch(/INVITE_5_FRIENDS_ENABLED \? \(/);
+    expect(friends).toMatch(/isInviteFiveFriendsSurfaceEnabled\(\) && !isSearching/);
     expect(friends).toMatch(/inviteFive\.friendsEntry/);
-    expect(settings).toMatch(/INVITE_5_FRIENDS_ENABLED \? \(/);
+    expect(settings).toMatch(/isInviteFiveFriendsSurfaceEnabled\(\) \? \(/);
     expect(settings).toMatch(/inviteFive\.settingsEntry/);
     // Onboarding V2 no longer collects invite codes during signup; hub/Settings stay gated.
     expect(register).not.toMatch(/inviteCodeLabel/);
@@ -82,15 +82,17 @@ describe('Invite 5 Friends — temporarily disabled for release', () => {
     const hub = read('src/screens/main/InviteFiveFriendsScreen.tsx');
     const router = read('src/services/referral/appDeepLinkRouter.ts');
 
-    expect(qualify).toMatch(/if \(!INVITE_5_FRIENDS_ENABLED\)/);
+    expect(qualify).toMatch(/if \(!isInviteFiveFriendsSurfaceEnabled\(\)\)/);
     expect(qualify).toMatch(/scheduleReferralQualifyAfterActivity/);
     expect(celebration).toMatch(/!INVITE_5_FRIENDS_ENABLED/);
     expect(celebration).toMatch(/REFERRAL_FOUNDER_BADGE_ID/);
-    expect(hub).toMatch(/if \(!INVITE_5_FRIENDS_ENABLED\)/);
+    expect(hub).toMatch(/if \(!isInviteFiveFriendsSurfaceEnabled\(\)\)/);
     expect(hub).toMatch(/navigation\.goBack\(\)/);
     expect(hub).toMatch(/navigate\('Friends'\)/);
     expect(hub).toMatch(/return null;/);
-    expect(router).toMatch(/INVITE_5_FRIENDS_ENABLED \? 'invite' : 'ignored'/);
+    expect(router).toMatch(
+      /isInviteFiveFriendsSurfaceEnabled\(\) \? 'invite' : 'ignored'/,
+    );
   });
 
   it('disabled invite deep links do not persist pending codes', async () => {
@@ -115,8 +117,8 @@ describe('Invite 5 Friends — temporarily disabled for release', () => {
   it('normal friend functionality remains wired', () => {
     const friends = read('src/screens/main/FriendsScreen.tsx');
     const mainNav = read('src/navigation/MainNavigator.tsx');
-    expect(friends).toMatch(/friendsScreen\.addFriend/);
-    expect(friends).toMatch(/stackNavigate\('AddFriend'\)/);
+    expect(friends).toMatch(/sendFriendRequest/);
+    expect(friends).toMatch(/friendsScreen\.requested/);
     expect(mainNav).toMatch(/name="AddFriend"/);
     expect(mainNav).toMatch(/name="InviteFiveFriends"/); // preserved, gated
   });

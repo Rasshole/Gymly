@@ -25,6 +25,7 @@ import {
 import {isPasswordRecoveryActive} from '@/services/auth/authDeepLink';
 import {getOnboardingStateFromMetadata} from '@/services/onboarding/onboardingState';
 import {safeDisplayName} from '@/utils/displayName';
+import {recordMyAccountJourney} from '@/services/productJourney/productJourneyService';
 
 function syncPublicProfileToSupabase(user: User) {
   upsertMyProfile(user).catch(err => {
@@ -195,6 +196,7 @@ export const useAppStore = create<AppState>((set, get) => ({
           .then(() => useTrainingStatsStore.getState().load(mergedUser.id))
           .catch(() => {});
         syncPublicProfileToSupabase(mergedUser);
+        recordMyAccountJourney(false);
         return;
       }
 
@@ -265,6 +267,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       .then(() => useTrainingStatsStore.getState().load(user.id))
       .catch(() => {});
     syncPublicProfileToSupabase(user);
+    recordMyAccountJourney(false);
     void get().refreshOnboardingState();
   },
 

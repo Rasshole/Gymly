@@ -50,7 +50,6 @@ target 'GymlyFresh' do
     shim_script = File.join(__dir__, 'scripts', 'generate-react-header-shim.sh')
     system('bash', shim_script) || raise('generate-react-header-shim.sh failed')
 
-    shim_path = File.join(__dir__, '.react-header-shim')
     installer.aggregate_targets.each do |aggregate_target|
       aggregate_target.user_project.native_targets.each do |target|
         next unless target.name == 'GymlyFresh'
@@ -58,8 +57,10 @@ target 'GymlyFresh' do
         target.build_configurations.each do |cfg|
           paths = cfg.build_settings['HEADER_SEARCH_PATHS'] || '$(inherited)'
           paths = [paths] if paths.is_a?(String)
+          # Drop checkout-specific absolute shim paths. SRCROOT is ios/.
+          paths = paths.reject { |p| p.to_s.include?('.react-header-shim') && p.to_s.include?('/Users/') }
           extra = [
-            "\"#{shim_path}\"",
+            '$(SRCROOT)/.react-header-shim',
             "\"#{File.join(config[:reactNativePath], 'React', 'Base')}\"",
             "\"#{File.join(config[:reactNativePath], 'React', 'DevSupport')}\"",
             "\"#{File.join(config[:reactNativePath], 'Libraries', 'AppDelegate')}\"",

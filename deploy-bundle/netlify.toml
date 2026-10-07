@@ -52,3 +52,21 @@
   to = "/reset-password/index.html"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/invite"
+  to = "/invite/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/invite/"
+  to = "/invite/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/invite/*"
+  to = "/invite/index.html"
+  status = 200
+  force = true

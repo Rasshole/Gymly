@@ -508,7 +508,7 @@ export const BADGE_DEFINITIONS: BadgeDefinition[] = [
     id: 'referral_founder_5',
     name: 'Founding Crew',
     emoji: '🏅',
-    description: 'Invited 5 friends who completed their first Gymly activity',
+    description: '5 friends used the code and completed their first qualifying activity',
     category: 'referral',
     requirement_type: 'manual_server',
     requirement_value: 5,

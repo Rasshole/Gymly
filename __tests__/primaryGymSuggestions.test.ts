@@ -1,5 +1,6 @@
 import {
   gymSuggestPhase,
+  mergeGymSuggestionRows,
   shouldCommitGymSuggestions,
 } from '@/utils/primaryGymSuggestions';
 import fs from 'fs';
@@ -11,6 +12,52 @@ describe('gym suggestion commit', () => {
     expect(shouldCommitGymSuggestions(1, 'gym-a', 2, 'gym-b')).toBe(false);
     expect(shouldCommitGymSuggestions(2, 'gym-a', 2, 'gym-b')).toBe(false);
     expect(shouldCommitGymSuggestions(1, 'gym-a', 2, 'gym-a')).toBe(false);
+  });
+});
+
+describe('mergeGymSuggestionRows', () => {
+  const row = (
+    id: string,
+    status: string,
+    incomingRequestId?: string,
+  ) => ({id, status, incomingRequestId});
+
+  it('hides friends and blocks and keeps an outgoing request', () => {
+    const rows = [
+      row('friend', 'none'),
+      row('blocked', 'none'),
+      row('sent', 'pending_sent'),
+      row('open', 'none'),
+    ];
+    const merged = mergeGymSuggestionRows(
+      rows,
+      new Map([['sent', 'req-in']]),
+      new Set(['friend', 'blocked']),
+    );
+    expect(merged.map(item => item.id)).toEqual(['sent', 'open']);
+    expect(merged[0].status).toBe('pending_sent');
+  });
+
+  it('attaches an incoming request without clearing one already on the row', () => {
+    const rows = [
+      row('incoming', 'none'),
+      row('known', 'pending_received', 'req-1'),
+    ];
+    const merged = mergeGymSuggestionRows(
+      rows,
+      new Map([['incoming', 'req-2']]),
+      new Set(),
+    );
+    expect(merged[0]).toMatchObject({
+      status: 'pending_received',
+      incomingRequestId: 'req-2',
+    });
+    expect(merged[1]).toBe(rows[1]);
+  });
+
+  it('returns the same list when nothing changes', () => {
+    const rows = [row('open', 'none')];
+    expect(mergeGymSuggestionRows(rows, new Map(), new Set())).toBe(rows);
   });
 });
 
@@ -97,6 +144,15 @@ describe('primary gym suggestion migration', () => {
     expect(sql).toMatch(/users_are_blocked\(me, p\.id\)/);
     expect(sql).toMatch(/friendships/);
     expect(sql).toMatch(/limit 10/);
+    const centerFn = sql.slice(
+      sql.indexOf('function public.primary_center_id'),
+      sql.indexOf('revoke all on function public.primary_center_id'),
+    );
+    expect(centerFn).not.toMatch(/favorite_gym_ids/);
+    expect(centerFn).toMatch(/from public\.user_centers uc/);
+    expect(sql).toMatch(
+      /revoke all on function public\.primary_center_id\(uuid\) from public, anon, authenticated, service_role/,
+    );
     expect(sql).toMatch(/order by lower\(coalesce\(p\.display_name, ''\)\)/);
     expect(sql).not.toMatch(/check_ins/);
   });

@@ -30,6 +30,7 @@ import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
 import {fetchUserHomeGymIds} from '@/services/supabase/homeGymsService';
 import {persistUserHomeGyms} from '@/services/supabase/userCentersService';
 import {displayNameFromAuthMetadata, firstUsableDisplayName} from '@/utils/displayName';
+import {recordMyAccountJourney} from '@/services/productJourney/productJourneyService';
 
 class AuthService {
   private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
@@ -450,6 +451,7 @@ class AuthService {
       }
       await SecureStorage.saveTokens(tokens);
       await SecureStorage.saveUserData(user);
+      recordMyAccountJourney(false);
 
       return {
         user,
@@ -949,6 +951,7 @@ class AuthService {
       user = {...user, favoriteGyms: [], updatedAt: new Date()};
     }
     await SecureStorage.saveUserData(user);
+    recordMyAccountJourney(true);
     return user;
   }
 

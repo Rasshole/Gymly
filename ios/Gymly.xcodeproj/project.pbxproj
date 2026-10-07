@@ -24,6 +24,8 @@
 		B7C1A0612A68108700A75B9A /* GymlyLiveActivityWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B7C1A0312A68108700A75B9A /* GymlyLiveActivityWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C7D1A0912A68108700A75B9A /* GymlyAppBadgeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1A0932A68108700A75B9A /* GymlyAppBadgeModule.swift */; };
 		C7D1A0922A68108700A75B9A /* GymlyAppBadgeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D1A0942A68108700A75B9A /* GymlyAppBadgeModule.m */; };
+		D8E2B0A12A68108700A75B9B /* GymlyContactPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2B0A32A68108700A75B9B /* GymlyContactPicker.swift */; };
+		D8E2B0A22A68108700A75B9B /* GymlyContactPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E2B0A42A68108700A75B9B /* GymlyContactPicker.m */; };
 		EA728D3C88368E38B8F3404E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		B7C1A0A12A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7D1A0932A68108700A75B9A /* GymlyAppBadgeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymlyFresh/AppBadge/GymlyAppBadgeModule.swift; sourceTree = "<group>"; };
 		C7D1A0942A68108700A75B9A /* GymlyAppBadgeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GymlyFresh/AppBadge/GymlyAppBadgeModule.m; sourceTree = "<group>"; };
+		D8E2B0A32A68108700A75B9B /* GymlyContactPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymlyFresh/Contacts/GymlyContactPicker.swift; sourceTree = "<group>"; };
+		D8E2B0A42A68108700A75B9B /* GymlyContactPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GymlyFresh/Contacts/GymlyContactPicker.m; sourceTree = "<group>"; };
 		D5338F27D99A473A8C6D8C11 /* gymly-logo.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "gymly-logo.png"; path = "../src/assets/images/gymly-logo.png"; sourceTree = "<group>"; };
 		E1A2B3C4D5E6F78901234567 /* GymlyFresh.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GymlyFresh.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -141,6 +145,8 @@
 				B7C1A0032A68108700A75B9A /* GymlyLiveActivityModule.m */,
 				C7D1A0932A68108700A75B9A /* GymlyAppBadgeModule.swift */,
 				C7D1A0942A68108700A75B9A /* GymlyAppBadgeModule.m */,
+				D8E2B0A32A68108700A75B9B /* GymlyContactPicker.swift */,
+				D8E2B0A42A68108700A75B9B /* GymlyContactPicker.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -494,6 +500,8 @@
 				B7C1A0132A68108700A75B9A /* GymlyLiveActivityModule.m in Sources */,
 				C7D1A0912A68108700A75B9A /* GymlyAppBadgeModule.swift in Sources */,
 				C7D1A0922A68108700A75B9A /* GymlyAppBadgeModule.m in Sources */,
+				D8E2B0A12A68108700A75B9B /* GymlyContactPicker.swift in Sources */,
+				D8E2B0A22A68108700A75B9B /* GymlyContactPicker.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -596,11 +604,9 @@
 					"$(SRCROOT)/../node_modules/react-native/React/Base",
 					"$(SRCROOT)/../node_modules/react-native/React/DevSupport",
 					"$(SRCROOT)/../node_modules/react-native/Libraries/AppDelegate",
-					"\"/Users/patrickgarcia/Desktop/Gymly/Gymly-1/ios/.react-header-shim\"",
 					"\"../node_modules/react-native/React/Base\"",
 					"\"../node_modules/react-native/React/DevSupport\"",
 					"\"../node_modules/react-native/Libraries/AppDelegate\"",
-					"\"/Users/patrickgarcia/Developer/Gymly-1/ios/.react-header-shim\"",
 				);
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -639,11 +645,9 @@
 					"$(SRCROOT)/../node_modules/react-native/React/Base",
 					"$(SRCROOT)/../node_modules/react-native/React/DevSupport",
 					"$(SRCROOT)/../node_modules/react-native/Libraries/AppDelegate",
-					"\"/Users/patrickgarcia/Desktop/Gymly/Gymly-1/ios/.react-header-shim\"",
 					"\"../node_modules/react-native/React/Base\"",
 					"\"../node_modules/react-native/React/DevSupport\"",
 					"\"../node_modules/react-native/Libraries/AppDelegate\"",
-					"\"/Users/patrickgarcia/Developer/Gymly-1/ios/.react-header-shim\"",
 				);
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;

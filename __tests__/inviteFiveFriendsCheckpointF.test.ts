@@ -80,6 +80,7 @@ import {
 } from '@/services/referral/pendingInviteCode';
 
 const root = path.join(__dirname, '..');
+// Unverified until this value is read from Play Console → App signing.
 const PLAY_APP_SIGNING_SHA256 =
   '52:5B:1C:D0:D6:3C:0D:F4:FB:2C:15:7E:D2:11:FD:C4:23:8C:48:E3:3B:5D:69:B6:87:11:D4:8C:3F:59:A3:30';
 const UPLOAD_SHA256 =
@@ -222,16 +223,19 @@ describe('Checkpoint F — AASA / assetlinks / landing / store', () => {
     expect(webAuth.exclude).toBe(true);
   });
 
-  it('assetlinks package is com.gymly with Play App Signing + upload (+ optional debug)', () => {
+  it('assetlinks names the Play-distributed app and keeps the unverified Play signing fingerprint only', () => {
     const gradle = fs.readFileSync(
       path.join(root, 'android/app/build.gradle'),
       'utf8',
     );
     expect(gradle).toMatch(/applicationId\s+"com\.gymly"/);
+    expect(gradle).toContain('must not be signed with the debug key');
+    expect(gradle.match(/signingConfig signingConfigs\.debug/g)).toHaveLength(1);
 
     for (const rel of [
       'website/.well-known/assetlinks.json',
       'web/.well-known/assetlinks.json',
+      'deploy-bundle/.well-known/assetlinks.json',
     ]) {
       const json = JSON.parse(
         fs.readFileSync(path.join(root, rel), 'utf8'),
@@ -239,15 +243,14 @@ describe('Checkpoint F — AASA / assetlinks / landing / store', () => {
         target: {package_name: string; sha256_cert_fingerprints: string[]};
       }>;
       expect(json[0].target.package_name).toBe('com.gymly');
-      expect(json[0].target.sha256_cert_fingerprints).toEqual(
-        expect.arrayContaining([
-          PLAY_APP_SIGNING_SHA256,
-          UPLOAD_SHA256,
-          DEBUG_SHA256,
-        ]),
-      );
-      expect(json[0].target.sha256_cert_fingerprints[0]).toBe(
+      expect(json[0].target.sha256_cert_fingerprints).toEqual([
         PLAY_APP_SIGNING_SHA256,
+      ]);
+      expect(json[0].target.sha256_cert_fingerprints).not.toContain(
+        UPLOAD_SHA256,
+      );
+      expect(json[0].target.sha256_cert_fingerprints).not.toContain(
+        DEBUG_SHA256,
       );
     }
   });
@@ -268,6 +271,11 @@ describe('Checkpoint F — AASA / assetlinks / landing / store', () => {
       /location\.(replace|href)\s*=\s*['"]https:\/\/gymlyapp\.com\/invite/i,
     );
     expect(html).toContain("gymly://invite/'");
+    expect(html).toContain('type this code yourself under Find friends');
+    expect(html).toContain('type the code shown above');
+    expect(fs.existsSync(path.join(root, 'website/assets/logo.png'))).toBe(
+      true,
+    );
 
     const redirects = fs.readFileSync(
       path.join(root, 'website/_redirects'),

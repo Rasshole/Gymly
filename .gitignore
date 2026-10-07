@@ -61,6 +61,8 @@ ios/fastlane/test_output
 .env.development
 .env.production
 .env.*.local
+src/config/supabaseLocalQa.local.ts
+.qa-local-users
 
 
 # Logs

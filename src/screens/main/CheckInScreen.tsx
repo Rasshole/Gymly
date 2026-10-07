@@ -296,12 +296,15 @@ const CheckInScreen = () => {
   );
 
   const onStatsCheckIn = useDashboardStatsStore(s => s.onCheckIn);
-  const dashboardStreak = useDashboardStatsStore(s => s.streak);
   const activeSession = useSessionStore(s => s.activeSession);
   const startSession = useSessionStore(s => s.startSession);
   const endSession = useSessionStore(s => s.endSession);
   const getElapsedSeconds = useSessionStore(s => s.getElapsedSeconds);
-  const {refresh: refreshTrainingStats, recentSessions} = useUserTrainingStats(user?.id);
+  const {
+    refresh: refreshTrainingStats,
+    recentSessions,
+    currentStreakDays,
+  } = useUserTrainingStats(user?.id);
   const addWorkout = useWorkoutStore(s => s.addWorkout);
   const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
   const [userLocation, setUserLocation] = useState<{
@@ -1319,14 +1322,14 @@ const CheckInScreen = () => {
   ]);
 
   const streakBanner = useMemo(() => {
-    const label = streakLabel(dashboardStreak);
+    const label = streakLabel(currentStreakDays);
     const statusLine = getStreakStatusMessage({
-      currentStreak: dashboardStreak,
+      currentStreak: currentStreakDays,
       weekCheckIns: countWeeklyCheckIns(recentSessions),
       t,
     });
     return {streakLabel: label, statusLine};
-  }, [dashboardStreak, recentSessions, streakLabel, t]);
+  }, [currentStreakDays, recentSessions, streakLabel, t]);
 
   // Active session – live workout view
   if (activeSession) {
@@ -1597,9 +1600,9 @@ const CheckInScreen = () => {
                     <Text
                       style={[
                         styles.streakBannerTitle,
-                        streak.getStreakEmphasisLevel(dashboardStreak) === 1 &&
+                        streak.getStreakEmphasisLevel(currentStreakDays) === 1 &&
                           styles.streakBannerTitleEmphasis,
-                        streak.getStreakEmphasisLevel(dashboardStreak) === 2 &&
+                        streak.getStreakEmphasisLevel(currentStreakDays) === 2 &&
                           styles.streakBannerTitleStrong,
                       ]}
                       numberOfLines={1}>

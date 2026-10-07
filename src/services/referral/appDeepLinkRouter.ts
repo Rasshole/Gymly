@@ -4,12 +4,15 @@
  * (auth matcher treats query `code=` as auth).
  */
 
-import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
 import {isAuthDeepLinkUrl} from '@/services/auth/authDeepLink';
 import {
   handleInviteDeepLink,
   isInviteDeepLinkUrl,
 } from '@/services/referral/inviteDeepLink';
+import {
+  isInviteFiveFriendsSurfaceEnabled,
+  referralJourneyMayUseBackend,
+} from '@/services/referral/inviteSurface';
 
 export type AppDeepLinkKind = 'invite' | 'auth' | 'ignored';
 
@@ -21,7 +24,7 @@ export function classifyAppDeepLinkUrl(
   }
   if (isInviteDeepLinkUrl(url)) {
     // Feature off: treat as ignored so App.tsx continues normal startup (no pending code).
-    return INVITE_5_FRIENDS_ENABLED ? 'invite' : 'ignored';
+    return isInviteFiveFriendsSurfaceEnabled() ? 'invite' : 'ignored';
   }
   if (isAuthDeepLinkUrl(url)) {
     return 'auth';
@@ -38,12 +41,19 @@ export function classifyAppDeepLinkUrl(
 export async function handleIncomingInviteIfPresent(
   url: string | null | undefined,
 ): Promise<{handled: boolean; code: string | null}> {
-  if (!INVITE_5_FRIENDS_ENABLED) {
+  if (!isInviteFiveFriendsSurfaceEnabled()) {
     return {handled: false, code: null};
   }
   if (classifyAppDeepLinkUrl(url) !== 'invite') {
     return {handled: false, code: null};
   }
   const code = await handleInviteDeepLink(url);
+  if (code && referralJourneyMayUseBackend()) {
+    // Count the open once. Apply immediately when this account already exists;
+    // otherwise the saved code is applied after signup or resumed onboarding.
+    const pending = await import('@/services/referral/applyPendingInvite');
+    await pending.noteReferralInviteOpened(code).catch(() => {});
+    await pending.applyPendingInviteCode().catch(() => {});
+  }
   return {handled: true, code};
 }

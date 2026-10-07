@@ -16,6 +16,7 @@ import LazyAuthNavigator from './LazyAuthNavigator';
 import LazyOnboardingNavigator from './LazyOnboardingNavigator';
 import LazyMainNavigator from './LazyMainNavigator';
 import LoadingScreen from '@/screens/LoadingScreen';
+import ReferralInviteRuntime from '@/components/referral/ReferralInviteRuntime';
 
 export type RootStackParamList = {
   Auth: undefined;
@@ -52,6 +53,8 @@ const RootNavigator = () => {
   }
 
   return (
+    <>
+    <ReferralInviteRuntime />
     <Stack.Navigator
       key={
         showMain
@@ -80,6 +83,7 @@ const RootNavigator = () => {
         </>
       )}
     </Stack.Navigator>
+    </>
   );
 };
 

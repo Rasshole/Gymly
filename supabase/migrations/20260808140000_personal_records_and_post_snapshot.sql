@@ -5,9 +5,11 @@ create table if not exists public.personal_record_events (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users (id) on delete cascade,
   workout_session_id uuid not null references public.check_ins (id) on delete cascade,
-  workout_exercise_id uuid references public.workout_exercises (id) on delete set null,
-  set_id uuid references public.workout_sets (id) on delete set null,
-  exercise_id uuid references public.exercise_library (id) on delete set null,
+  -- FKs to workout_exercises / workout_sets / exercise_library are added in
+  -- 20260901120000, which creates those tables.
+  workout_exercise_id uuid,
+  set_id uuid,
+  exercise_id uuid,
   exercise_name text not null,
   record_type text not null
     check (record_type in ('weight_pr', 'rep_pr')),

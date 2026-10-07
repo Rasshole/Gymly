@@ -38,8 +38,13 @@ Auth include/exclude differences between `website/` and `web/` AASA are preserve
 | App Store | Verified: `https://apps.apple.com/dk/app/gymly-staerkere-sammen/id6757790972` (bundle `com.test1.Gymly`, id `6757790972`) |
 | Google Play | **Unverified** — `id=com.gymly` returns 404; landing omits Play URL (`GYMLY_PLAY_STORE_URL = null`) |
 
-## Manual production steps still required
+## Release plan
 
-1. Deploy website (including `.well-known` overlay from `web/`) so live `assetlinks.json` / AASA include `/invite` + Play App Signing fingerprint.
-2. Verify Android App Links: `adb shell pm get-app-links com.gymly` after install from Play.
-3. Supply public Play Store URL when the listing is live; set `GYMLY_PLAY_STORE_URL` + landing link.
+`INVITE_5_FRIENDS_ENABLED` stays `false` in the public App Store and Play version until the internal tests below pass. Do not deploy the website, push database migrations, or upload store builds as part of preparing this plan.
+
+1. **Migration clarification.** Requires Supabase CLI login. Read `schema_migrations` for `20260716120000`, including `name` and `statements`, and compare that SQL with `20260716120000_disable_stale_checkin_cleanup.sql` and `20260716120100_user_centers.sql`. Also check whether `public.user_centers` exists and whether `referrals` has `invite_captured_at`, `account_created_at`, and `onboarding_completed_at`. The version list alone does not show which SQL ran under the shared version.
+2. **Database changes.** Requires approval after step 1. Only then consider applying `20260716120100`, `20261005193000`, and `20261005213000` to the hosted project.
+3. **Public invite page and verification files.** Requires approval. Confirm the Play App Signing fingerprint `52:5B:1C:D0:…:A3:30` in Play Console first; it is unverified. Then publish the invite page, AASA, and `assetlinks.json`.
+4. **Android release signing.** When Java and `android/keystore.properties` plus the real keystore are available, run `./gradlew :app:assembleRelease` and confirm the artifact is signed with that release key. Without Java or without the keystore configuration, the release build must fail and must not be signed with the debug key. On 2026-10-05 this Mac had no Java runtime and no `keystore.properties`; `./gradlew :app:assembleRelease` exited 1 with “Unable to locate a Java Runtime”, so the signed build was not run and the keystore check inside Gradle was not reached.
+5. **Internal invite test.** After steps 1–3 are approved and applied, distribute internal iOS and Android builds with the invite surface on for those builds only. Test an invite link while the app is already installed, and test typing the code manually after a fresh install. Do not ship those binaries as the public version.
+6. **Public flag.** Requires a separate decision after step 5 passes. Set `INVITE_5_FRIENDS_ENABLED` to `true` only in the public release that follows those tests.

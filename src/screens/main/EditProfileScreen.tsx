@@ -779,12 +779,28 @@ const EditProfileScreen = () => {
 
           <View style={styles.visibilitySection}>
             <View style={styles.gymDiscoverRow}>
-              <Text style={styles.settingLabel}>{t('friendsScreen.gymMatesOptIn')}</Text>
+              <View style={styles.gymDiscoverCopy}>
+                <Text style={styles.settingLabel}>{t('friendsScreen.gymMatesOptIn')}</Text>
+                <Text
+                  style={styles.gymDiscoverStatus}
+                  testID="edit-gym-visibility-status">
+                  {t('friendsScreen.gymMatesStatusLabel', {
+                    status: gymDiscoverable
+                      ? t('friendsScreen.gymMatesStatusOn')
+                      : t('friendsScreen.gymMatesStatusOff'),
+                  })}
+                </Text>
+              </View>
               <Switch
                 value={gymDiscoverable}
                 onValueChange={value => void toggleGymDiscoverable(value)}
                 disabled={gymDiscoverableBusy}
                 trackColor={{false: colors.border, true: colors.primary}}
+                accessibilityLabel={t('friendsScreen.gymMatesStatusLabel', {
+                  status: gymDiscoverable
+                    ? t('friendsScreen.gymMatesStatusOn')
+                    : t('friendsScreen.gymMatesStatusOff'),
+                })}
               />
             </View>
             <Text style={styles.gymDiscoverHint}>{t('friendsScreen.gymMatesOptInHint')}</Text>
@@ -1026,6 +1042,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 12,
+  },
+  gymDiscoverCopy: {
+    flex: 1,
+  },
+  gymDiscoverStatus: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#000',
+    marginTop: -8,
+    marginBottom: 8,
   },
   gymDiscoverHint: {
     fontSize: 13,

@@ -168,7 +168,9 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
   const currentUserName =
     firstUsableDisplayName(user?.displayName, user?.username) ?? t('common.you');
   const rawType = activeSession?.workoutType || '';
-  const workoutLabel = formatWorkoutTypeDisplay(rawType, getRuntimeLanguage());
+  const workoutLabel = rawType.trim()
+    ? formatWorkoutTypeDisplay(rawType, getRuntimeLanguage())
+    : '';
 
   const activeUsersRaw: ActiveUser[] =
     gymPresence?.userList?.length && gymPresence.userList.length > 0
@@ -242,9 +244,11 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           <Text style={styles.heroCenter} numberOfLines={1}>
             {centerNameShort}
           </Text>
-          <Text style={styles.heroWorkout} numberOfLines={1}>
-            {workoutLabel}
-          </Text>
+          {workoutLabel ? (
+            <Text style={styles.heroWorkout} numberOfLines={1}>
+              {workoutLabel}
+            </Text>
+          ) : null}
         </View>
 
         <Animated.View style={[styles.timerHeroCard, {transform: [{scale: timerPulse}]}]}>

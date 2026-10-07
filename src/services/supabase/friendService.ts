@@ -1,5 +1,6 @@
 import {supabase} from '@/services/supabase/supabaseClient';
 import {checkAndUnlockBadges} from '@/store/badgeStore';
+import {FriendActionUnavailableError} from '@/utils/userBlockErrors';
 import type {User} from '@/types/user.types';
 import {withAvatarCacheBust} from '../../utils/avatar';
 import {
@@ -424,6 +425,13 @@ export async function sendFriendRequest(
 ): Promise<void> {
   if (fromUserId === toUserId) {
     throw new Error('Du kan ikke tilføje dig selv.');
+  }
+  const {data: blockedPair, error: blockError} = await supabase.rpc(
+    'users_are_blocked',
+    {a: fromUserId, b: toUserId},
+  );
+  if (!blockError && blockedPair === true) {
+    throw new FriendActionUnavailableError();
   }
   const friends = await getMyFriendIds(fromUserId);
   if (friends.has(toUserId)) {

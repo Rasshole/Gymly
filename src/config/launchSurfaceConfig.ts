@@ -68,8 +68,9 @@ export const SURFACE_SHOP_IN_TABS = true;
  * Invite 5 Friends / Founding Crew campaign (hub, Friends/Settings CTAs, register
  * invite field, invite deep links, client qualify fallback, Founding Crew modal).
  *
- * Implementation stays in-repo — flip to `true` after QA. While `false`, CTAs are
- * hidden, invite deep links are ignored (no pending code), and the hub screen
- * exits safely if opened via a stale route.
+ * Implementation stays in-repo. Keep this `false` in the public App Store and
+ * Play builds until invite has passed on internally distributed iOS and Android
+ * builds: an installed-app link, and manual code entry after a fresh install.
+ * Debug builds on the local QA backend can still open the hub.
  */
 export const INVITE_5_FRIENDS_ENABLED = false;

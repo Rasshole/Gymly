@@ -15,6 +15,7 @@ import {startOrJoinGymlyGroupSession} from '@/services/supabase/gymlyGroupSessio
 import {enqueueGroupParticipantCompletes} from '@/services/supabase/pendingGroupParticipantComplete';
 import {perfPhase} from '@/utils/perfMark';
 import {scheduleReferralQualifyAfterActivity} from '@/services/supabase/referralService';
+import {recordMyCompletedCheckIn} from '@/services/productJourney/productJourneyService';
 import type {
   CheckInEndReason,
   CheckoutReason,
@@ -167,6 +168,7 @@ export async function completeActiveTrainingSession(
         .eq('id', checkInId)
         .eq('user_id', userId);
     }
+    recordMyCompletedCheckIn(String(existingCheckIn.id));
     return completedTrainingFromCheckInRow({
       id: String(existingCheckIn.id),
       gym_id: existingCheckIn.gym_id as string | undefined,
@@ -353,6 +355,7 @@ export async function completeActiveTrainingSession(
   void checkAndUnlockBadges(userId);
   // Server trigger is authoritative; client fallback must never affect checkout.
   scheduleReferralQualifyAfterActivity(userId, 'check_in');
+  recordMyCompletedCheckIn(String(endedRow.id ?? checkInId));
 
   return completed;
 }

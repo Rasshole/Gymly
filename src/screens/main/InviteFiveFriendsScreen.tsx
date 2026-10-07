@@ -40,7 +40,8 @@ import {enqueueFoundingCrewUnlockOnce} from '@/services/referral/serverBadgeUnlo
 import {openShopCheckoutBrowser} from '@/shop/destination/openShopCheckoutBrowser';
 import {useBadgeStore} from '@/store/badgeStore';
 import {useAppStore} from '@/store/appStore';
-import {INVITE_5_FRIENDS_ENABLED} from '@/config/launchSurfaceConfig';
+import InviteQrCode from '@/components/referral/InviteQrCode';
+import {isInviteFiveFriendsSurfaceEnabled} from '@/services/referral/inviteSurface';
 import {copyToClipboard} from '@/utils/clipboard';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
@@ -54,7 +55,7 @@ export default function InviteFiveFriendsScreen() {
 
   // Stale route / deep navigation: exit safely while campaign is launch-gated.
   useEffect(() => {
-    if (!INVITE_5_FRIENDS_ENABLED) {
+    if (!isInviteFiveFriendsSurfaceEnabled()) {
       if (navigation.canGoBack()) {
         navigation.goBack();
       } else {
@@ -91,7 +92,7 @@ export default function InviteFiveFriendsScreen() {
   );
 
   const load = useCallback(async () => {
-    if (!INVITE_5_FRIENDS_ENABLED) {
+    if (!isInviteFiveFriendsSurfaceEnabled()) {
       setLoading(false);
       return;
     }
@@ -113,7 +114,7 @@ export default function InviteFiveFriendsScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      if (!INVITE_5_FRIENDS_ENABLED) {
+      if (!isInviteFiveFriendsSurfaceEnabled()) {
         return;
       }
       void load();
@@ -121,7 +122,7 @@ export default function InviteFiveFriendsScreen() {
   );
 
   useEffect(() => {
-    if (!INVITE_5_FRIENDS_ENABLED) {
+    if (!isInviteFiveFriendsSurfaceEnabled()) {
       return;
     }
     const onChange = (state: AppStateStatus) => {
@@ -134,7 +135,7 @@ export default function InviteFiveFriendsScreen() {
   }, [load]);
 
   useEffect(() => {
-    if (!INVITE_5_FRIENDS_ENABLED || !founderUnlocked) {
+    if (!isInviteFiveFriendsSurfaceEnabled() || !founderUnlocked) {
       return;
     }
     void enqueueFoundingCrewUnlockOnce();
@@ -199,7 +200,7 @@ export default function InviteFiveFriendsScreen() {
     }
   };
 
-  if (!INVITE_5_FRIENDS_ENABLED) {
+  if (!isInviteFiveFriendsSurfaceEnabled()) {
     return null;
   }
 
@@ -256,6 +257,19 @@ export default function InviteFiveFriendsScreen() {
               })}
             </View>
             <Text style={styles.explain}>{t('inviteFive.qualifyExplain')}</Text>
+            <View style={styles.funnel} testID="invite-funnel">
+              <Text style={styles.metaLabel}>{t('inviteFive.funnelTitle')}</Text>
+              <Text style={styles.funnelLine}>
+                {t('inviteFive.funnelAccountsUsed')}: {progress?.signedUpCount ?? 0}
+              </Text>
+              <Text style={styles.funnelLine}>
+                {t('inviteFive.funnelOnboarded')}: {progress?.onboardedCount ?? 0}
+              </Text>
+              <Text style={styles.funnelLine}>
+                {t('inviteFive.funnelActive')}: {progress?.qualifiedCount ?? 0}
+              </Text>
+              <Text style={styles.funnelNote}>{t('inviteFive.funnelRules')}</Text>
+            </View>
           </View>
 
           <View style={[styles.card, shadows.sm]}>
@@ -264,15 +278,22 @@ export default function InviteFiveFriendsScreen() {
             <Text
               style={styles.codeValue}
               selectable
+              testID="invite-code-value"
               accessibilityLabel={t('inviteFive.codeA11y', {
                 code: progress?.code ?? '',
               })}>
               {progress?.code ?? '—'}
             </Text>
             <Text style={styles.metaLabel}>{t('inviteFive.linkLabel')}</Text>
-            <Text style={styles.linkValue} numberOfLines={2} selectable>
+            <Text style={styles.linkValue} numberOfLines={2} selectable testID="invite-link-value">
               {progress?.url ?? '—'}
             </Text>
+            {progress?.url ? (
+              <View style={styles.qrWrap}>
+                <Text style={styles.metaLabel}>{t('inviteFive.qrLabel')}</Text>
+                <InviteQrCode value={progress.url} />
+              </View>
+            ) : null}
 
             <GymlyPressable
               onPress={() => void onShare()}
@@ -294,6 +315,7 @@ export default function InviteFiveFriendsScreen() {
                 )}
               </View>
             </GymlyPressable>
+            <Text style={styles.shareSheetNote}>{t('inviteFive.shareSheetNote')}</Text>
 
             <View style={styles.secondaryRow}>
               <GymlyPressable
@@ -491,6 +513,13 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     lineHeight: 18,
   },
+  funnelNote: {
+    ...typography.caption,
+    color: colors.textMuted,
+    lineHeight: 18,
+    marginTop: 2,
+    marginBottom: spacing.xs,
+  },
   metaLabel: {
     ...typography.caption,
     color: colors.textMuted,
@@ -522,6 +551,11 @@ const styles = StyleSheet.create({
     ...typography.bodyBold,
     color: colors.white,
   },
+  shareSheetNote: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: spacing.sm,
+  },
   secondaryRow: {
     flexDirection: 'row',
     gap: spacing.sm,
@@ -546,6 +580,19 @@ const styles = StyleSheet.create({
     ...typography.caption,
     color: colors.primaryDark,
     fontWeight: '600',
+  },
+  qrWrap: {
+    alignItems: 'flex-start',
+    gap: spacing.xs,
+    marginTop: spacing.sm,
+  },
+  funnel: {
+    marginTop: spacing.md,
+    gap: spacing.xs,
+  },
+  funnelLine: {
+    ...typography.body,
+    color: colors.text,
   },
   copiedHint: {
     ...typography.caption,
